@@ -11,18 +11,18 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 4173a2ef539859031674fb613b25031e3b343c67
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys webserverimplementierung in ASP.NET Core
 
 Durch [Tom Dykstra](http://github.com/tdykstra) und [Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
-> Dieses Thema gilt nur für ASP.NET Core 2.0 und höher. In früheren Versionen von ASP.NET Core HTTP.sys heißt [WebListener](WebListener.md).
+> Dieses Thema gilt nur für ASP.NET Core 2.0 und höher. In früheren Versionen von ASP.NET Core HTTP.sys heißt [WebListener](xref:fundamentals/servers/weblistener).
 
 HTTP.sys ist eine [Webserver für ASP.NET Core](index.md) , die nur unter Windows ausgeführt wird. Es basiert auf der [Http.Sys-Kernelmodustreiber](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys ist eine Alternative zum [Kestrel](kestrel.md) , einige Funktionen, die nicht von Kestel bietet. **HTTP.sys kann nicht mit IIS oder IIS Express verwendet werden, als nicht kompatibel mit ist der [ASP.NET Core-Modul](aspnet-core-module.md).**
 
@@ -80,7 +80,7 @@ Es gibt auch [Http.Sys-registrierungseinstellungen](https://support.microsoft.co
 
 * Rufen Sie die `UseHttpSys` Erweiterungsmethode auf `WebHostBuilder` in Ihrer `Main` Methode, dabei werden alle [HTTP.sys Optionen](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs) , die Sie benötigen, wie im folgenden Beispiel gezeigt:
 
-  [!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
+  [!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
 
 ### <a name="configure-httpsys-options"></a>HTTP.sys-Optionen konfigurieren
 
@@ -90,7 +90,7 @@ Hier sind einige der HTTP.sys-Einstellungen und Grenzwerte, die Sie konfiguriere
 
 Die maximale Anzahl von gleichzeitig geöffneten TCP-Verbindungen kann festgelegt werden, für die gesamte Anwendung mithilfe des folgenden Codes in *"Program.cs"*:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=5)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=5)]
 
 Die maximale Anzahl von Verbindungen ist standardmäßig unbegrenzt (Null).
 
@@ -107,7 +107,7 @@ public IActionResult MyActionMethod()
 
 Hier ist ein Beispiel, das veranschaulicht, wie die Einschränkung für die gesamte Anwendung, jede Anforderung zu konfigurieren:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=6)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=6)]
 
 Sie können die Einstellung für eine bestimmte Anforderung in überschreiben *Startup.cs*:
 
@@ -121,7 +121,7 @@ Informationen zu den anderen HTTP.sys-Optionen finden Sie unter [HttpSysOptions]
 
 Standardmäßig ASP.NET Core bindet an `http://localhost:5000`. Um URL-Präfixe und Ports konfigurieren, können Sie die `UseUrls` Erweiterungsmethode, die `urls` Befehlszeilenargument, das die Umgebungsvariable ASPNETCORE_URLS oder die `UrlPrefixes` Eigenschaft [HttpSysOptions](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs). Im folgenden Codebeispiel wird mit `UrlPrefixes`.
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=17)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=17)]
 
 Ein Vorteil der `UrlPrefixes` ist, dass Sie eine Fehlermeldung sofort abrufen, wenn Sie versuchen, ein Präfix hinzuzufügen, die falsch formatiert ist. Ein Vorteil der `UseUrls` (mit freigegebenen `urls` und ASPNETCORE_URLS) ist, dass Sie leichter zwischen Kestrel und HTTP.sys wechseln können.
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e5c97ce868e281310aa75c16e73298e2aaa0d9d
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 30e00e2a442225bbe04be0d343f7048efe484477
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in ASP.NET Core anmelden
 
@@ -283,7 +283,7 @@ Die Projektvorlagen erstellen Code, der Aufrufe `CreateDefaultBuilder` zum Einri
 
 Die Konfigurationsdaten gibt die minimale Protokollebenen, Anbieter und die Kategorie, wie im folgenden Beispiel an:
 
-[!code-json[](logging/sample2/AppSettings.json)]
+[!code-json[](logging/sample2/appsettings.json)]
 
 Diese JSON erstellt sechs Filterregeln für den Debug-Anbieter, vier für den Anbieter für die Konsole, und eine, die für alle Anbieter gilt. Sehen Sie, wie später nur eine dieser Regeln für jeden Anbieter ausgewählt wird bei einer `ILogger` Objekt erstellt wird.
 
