@@ -1,0 +1,147 @@
+---
+title: "Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core"
+author: rick-anderson
+description: "Zeigt, wie sichere Speichern von geheimen Schlüsseln während der Entwicklung"
+keywords: ASP.NET Core
+ms.author: riande
+manager: wpickett
+ms.date: 7/14/2017
+ms.topic: article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: security/app-secrets
+ms.openlocfilehash: 99a1129549d6b9802315c7e5accfa22907994a41
+ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/11/2017
+---
+# <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
+
+<a name=security-app-secrets></a>
+
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), und [Scott Addie](https://scottaddie.com) 
+
+Dieses Dokument wird erläutert, wie das Schlüssel-Manager-Tool in der Entwicklung können aus dem Code geheime Schlüssel beibehalten. Der wichtigste Punkt ist, sollten Sie niemals Kennwörter oder andere vertraulichen Daten im Quellcode speichern und Produktion geheime Schlüssel verwenden, im Modus für Entwicklung und Tests keine. Stattdessen können Sie die [Konfiguration](../fundamentals/configuration.md) System lesen Sie diese Werte von Umgebungsvariablen oder tool aus Werten, die mit dem geheimen Schlüssel-Manager gespeichert. Das Schlüssel-Manager-Tool verhindert, dass sensible Daten in die quellcodeverwaltung überprüft wird. Die [Konfiguration](../fundamentals/configuration.md) System kann mit dem geheimen Schlüssel-Manager-Tool, das in diesem Artikel beschriebenen gespeicherten geheimen Schlüssel gelesen.
+
+Der geheime Schlüssel-Manager-Tool wird nur in der Entwicklung verwendet. Sie können Azure geheime Schlüssel Test- und produktionsumgebungen mit Schützen der [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) Konfigurationsanbieter. Finden Sie unter [Azure Key Vault-Konfigurationsanbieter](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration) für Weitere Informationen.
+
+## <a name="environment-variables"></a>Umgebungsvariablen
+
+Um zu vermeiden, geheime app-Schlüssel im Code oder in lokalen Konfigurationsdateien gespeichert, geheime Schlüssel in Umgebungsvariablen gespeichert. Sie können das setup die [Konfiguration](../fundamentals/configuration.md) Framework Lesen von Werten durch Aufrufen von Umgebungsvariablen `AddEnvironmentVariables`. Umgebungsvariablen können dann die Konfigurationswerte für alle zuvor angegebenen Konfigurationsquellen außer Kraft setzen.
+
+Z. B. Wenn Sie eine neue ASP.NET Core-Web-app mit einzelner Benutzerkonten erstellen, dabei werden hinzugefügt. eine Standard-Verbindungszeichenfolge für die *appsettings.json* Datei im Projekt mit dem Schlüssel `DefaultConnection`. Die Standardverbindungszeichenfolge bezieht Setup LocalDB, verwendet wird, die im Benutzermodus ausgeführt wird und ein Kennwort erfordert. Wenn Sie Ihre Anwendung auf einem Test- oder Produktionscomputer Server bereitstellen, können Sie Sie überschreiben die `DefaultConnection` -Schlüsselwert mit einer Einstellung der Umgebungsvariablen, die die Verbindungszeichenfolge (u. u. mit sensible Anmeldeinformationen) für eine Test- oder Produktionscomputer Datenbank enthält Server.
+
+>[!WARNING]
+> Umgebungsvariablen werden im Allgemeinen in Klartext gespeichert und werden nicht verschlüsselt. Wenn der Computer oder einen Prozess beschädigt ist, können von nicht vertrauenswürdigen Parteien Umgebungsvariablen zugegriffen werden. Zusätzliche Maßnahmen, um die Offenlegung von vertrauliche Benutzerdaten zu verhindern, dass möglicherweise weiterhin erforderlich.
+
+## <a name="secret-manager"></a>Geheime Schlüssel-Manager
+
+Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklungen außerhalb der Projektstruktur. Das Schlüssel-Manager-Tool ist ein Verwaltungstool, das verwendet werden kann, Speichern von geheimen Schlüsseln für eine [.NET Core](https://microsoft.com/net/core) Projekt während der Entwicklung. Mit dem geheimen Schlüssel-Manager-Tool können Sie ein bestimmtes Projekt geheime app-Schlüssel zuordnen und diese projektübergreifend freigeben.
+
+>[!WARNING]
+> Der geheime Schlüssel-Manager-Tool die gespeicherten geheimen Schlüssel nicht verschlüsselt und nicht als vertrauenswürdigen Speicher behandelt werden soll. Es ist nur für Entwicklungszwecke. Die Schlüssel und Werte werden in einer JSON-Konfigurationsdatei im Verzeichnis Benutzers-Profil gespeichert.
+
+### <a name="visual-studio-2017-installing-the-secret-manager-tool"></a>Visual Studio-2017: Installieren des Schlüssel-Manager-Tools
+
+Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **bearbeiten \<Project_name\>csproj** aus dem Kontextmenü. Fügen Sie die hervorgehobene Zeile auf die *csproj* Datei, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
+
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+
+Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `UserSecretsId` Knoten innerhalb einer `PropertyGroup` von der *csproj* Datei. Öffnen Sie es auch eine `secrets.json` -Datei im Text-Editor.
+
+Fügen Sie `secrets.json` Folgendes hinzu:
+
+```json
+{
+    "MySecret": "ValueOfMySecret"
+}
+```
+
+### <a name="visual-studio-2015-installing-the-secret-manager-tool"></a>Visual Studio 2015: Installieren des Schlüssel-Manager-Tools
+
+Öffnen Sie das Projekt `project.json` Datei. Hinzufügen eines Verweises auf `Microsoft.Extensions.SecretManager.Tools` innerhalb der `tools` -Eigenschaft, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
+
+```json
+"tools": {
+    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final",
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
+},
+```
+
+Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `userSecretsId` Eigenschaft `project.json`. Öffnen Sie es auch eine `secrets.json` -Datei im Text-Editor.
+
+Fügen Sie `secrets.json` Folgendes hinzu:
+
+```json
+{
+    "MySecret": "ValueOfMySecret"
+}
+```
+
+### <a name="visual-studio-code-or-command-line-installing-the-secret-manager-tool"></a>Visual Studio-Code oder über die Befehlszeile: Installieren den geheimen Schlüssel-Manager
+
+Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie `dotnet restore`.
+
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+
+Testen Sie das Schlüssel-Manager-Tool, indem Sie den folgenden Befehl ausführen:
+
+```console
+dotnet user-secrets -h
+```
+
+Das Schlüssel-Manager-Tool werden Verwendung, Optionen und Befehl Hilfe angezeigt.
+
+> [!NOTE]
+> Müssen Sie sich im selben Verzeichnis wie die *csproj* Datei im definierten Tools ausführen, die *csproj* Datei `DotNetCliToolReference` Knoten.
+
+Das Schlüssel-Manager-Tool verarbeitet projektspezifische Konfigurationseinstellungen, die in Ihrem Profil gespeichert sind. Um Benutzer geheime Schlüssel zu verwenden, das Projekt angegeben, muss ein `UserSecretsId` Wert in seine *csproj* Datei. Der Wert des `UserSecretsId` ist willkürlich, jedoch ist für das Projekt in der Regel eindeutig. Entwickler in der Regel generiert eine GUID für die `UserSecretsId`.
+
+Hinzufügen einer `UserSecretsId` für das Projekt in der *csproj* Datei:
+
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?range=7-9&highlight=2)]
+
+Verwenden Sie den geheimen Schlüssel-Manager, um einen geheimen Schlüssel festzulegen. Geben Sie in einem Befehlsfenster aus dem Projektverzeichnis beispielsweise Folgendes ein:
+
+```console
+dotnet user-secrets set MySecret ValueOfMySecret
+```
+
+Sie können das Schlüssel-Manager-Tool ausführen, aus anderen Verzeichnissen, aber Sie müssen die `--project` Option aus, um den Pfad zum Übergeben der *csproj* Datei:
+ 
+```console
+dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
+```
+
+Sie können auch das Tool Secret-Manager angezeigt wird, entfernen und app-Kennwörter zu löschen.
+
+## <a name="accessing-user-secrets-via-configuration"></a>Zugreifen auf vertrauliche Benutzerdaten über die Konfiguration
+
+Sie können die geheimen Schlüssel-Manager über das Konfigurationssystem zugreifen. Hinzufügen der `Microsoft.Extensions.Configuration.UserSecrets` Verpacken und ausführen `dotnet restore`.
+
+Hinzufügen der Benutzer geheime Schlüssel Konfigurationsquelle angibt, die `Startup` Methode:
+
+[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+
+Sie können Benutzer geheime Schlüssel über den Konfigurations-API zugreifen:
+
+[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+
+## <a name="how-the-secret-manager-tool-works"></a>Wie funktioniert das Schlüssel-Manager-tool
+
+Das Schlüssel-Manager-Tool abstrahiert die Implementierungsdetails, z. B., wo und wie die Werte gespeichert werden. Sie können das Tool verwenden, ohne diese Implementierungsdetails. In der aktuellen Version werden die Werte gespeichert, einem [JSON](http://json.org/) Konfigurationsdatei im Verzeichnis Benutzers-Profil:
+
+* Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+
+* Linux:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+
+* Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+
+Der Wert der `userSecretsId` stammt aus dem Wert im angegebenen *csproj* Datei.
+
+Sie sollten nicht Code schreiben, der auf dem Speicherort oder das Format der Daten gespeichert werden, mit dem geheimen Schlüssel-Manager-Tool abhängig ist, da diese Implementierungsdetails ändern können. Beispielsweise sind die Werte für den geheimen derzeit *nicht* heute verschlüsselt, aber irgendwann werden konnte.
+
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+* [Konfiguration](../fundamentals/configuration.md)

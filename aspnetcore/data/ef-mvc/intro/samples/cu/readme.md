@@ -1,0 +1,1 @@
+Dieses Projekt wird verwendet, für das Bereitstellen von Ausschnitten zu [die Reihe von Lernprogrammen EF MVC Core](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro). Das Beispielprojekt, das erstellt wird, indem Sie die folgenden Lernprogramme ist am https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final.
