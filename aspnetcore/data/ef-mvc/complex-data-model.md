@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ad34a86c90c06dcddeeba7a0deba95f8057b4513
-ms.sourcegitcommit: def90564eff4adfeed0a8e511e4c201b040e9a5e
+ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Erstellen ein Modell mit komplexen Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (5 10)
 
@@ -55,7 +55,7 @@ Die `ApplyFormatInEditMode` Einstellung gibt an, dass die Formatierung auch ange
 
 Können Sie die `DisplayFormat` Attribut von selbst, aber es ist im Allgemeinen empfiehlt sich, verwenden Sie die `DataType` auch Attribut. Die `DataType` Attribut übermittelt, die die Semantik der Daten im Gegensatz zu wie auf dem Bildschirm gerendert werden soll, und bietet die folgenden Vorteile, die Sie nicht mit erhalten `DisplayFormat`:
 
-* Der Browser HTML5-Funktionen aktivieren kann (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail einige clientseitige Eingabe Validierung usw.).
+* Der Browser HTML5-Funktionen aktivieren kann (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail einige clientseitige Eingabe Validierung usw..).
 
 * Standardmäßig wird der Browser mit dem richtigen Format basierend auf dem Gebietsschema entsprechende Daten gerendert.
 
@@ -73,7 +73,7 @@ Angenommen, Sie möchten sicherstellen, dass Benutzer nicht mehr als 50 Zeichen 
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Die `StringLength` Attribut wird nicht verhindern, dass einen Benutzer Leerzeichen für einen Namen eingeben. Sie können die `RegularExpression` Attribut Einschränkungen auf die Eingabe anwenden. Der folgende Code ist z. B. erforderlich, das erste Zeichen Großbuchstaben bestehen muss und die übrigen Zeichen ein Buchstabe sein:
+Die `StringLength` Attribut wird nicht verhindern, dass einen Benutzer Leerzeichen für einen Namen eingeben. Sie können die `RegularExpression` Attribut Einschränkungen auf die Eingabe anwenden. Beispielsweise erfordert, dass der folgende Code das erste Zeichen Großbuchstaben bestehen muss und die übrigen Zeichen ein Buchstabe sein:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
@@ -142,7 +142,7 @@ In *Models/Student.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgend
 
 ### <a name="the-required-attribute"></a>Das erforderliche Attribut
 
-Die `Required` Attribut macht die erforderlichen Felder des Name-Eigenschaften. Die `Required` Attribut ist nicht erforderlich, für NULL-Typen wie Werttypen ("DateTime", "Int", double, float usw.). Typen, die nicht null sein können, werden automatisch als Pflichtfelder behandelt.
+Die `Required` Attribut macht die erforderlichen Felder des Name-Eigenschaften. Die `Required` Attribut ist nicht erforderlich, für NULL-Typen wie Werttypen ("DateTime", "Int", double, float usw..). Typen, die nicht null sein können, werden automatisch als Pflichtfelder behandelt.
 
 Könnten Sie entfernen die `Required` Attribut, und Ersetzen Sie ihn durch einen Parameter Mindestlänge für die `StringLength` Attribut:
 
@@ -245,7 +245,7 @@ Die `DatabaseGenerated` -Attribut mit dem `None` Parameter auf die `CourseID` Ei
 public int CourseID { get; set; }
 ```
 
-Standardmäßig nimmt das Entity Framework die Primärschlüsselwerte von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Allerdings für die Kurs-Entitäten, Sie verwenden eine benutzerdefinierte Kurs Zahl wie z. B. eine Reihe von 1000 für eine Abteilung, eine Reihe 2000 für eine andere Abteilung und usw.
+Entity Framework geht standardmäßig davon aus, dass Primärschlüssel von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Allerdings für die Kurs-Entitäten, Sie verwenden eine benutzerdefinierte Kurs Zahl wie z. B. eine Reihe von 1000 für eine Abteilung, eine Reihe 2000 für eine andere Abteilung und usw..
 
 Die `DatabaseGenerated` Attribut kann auch verwendet werden, um Default-Werte zu generieren, wie im Fall von Datenbankspalten verwendet, um das Datum aufzuzeichnen eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Eigenschaften generiert](https://docs.microsoft.com/ef/core/modeling/generated-properties).
 
@@ -397,7 +397,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-In diesem Lernprogramm verwenden Sie die fluent-API nur für datenbankzuordnung, die Sie mit Attributen nicht möglich. Allerdings auch können die fluent-API Sie die meisten Formatierung, Überprüfung und Zuordnungsregeln an, denen Sie durchführen können, mithilfe von Attributen angeben. Einige Attribute wie z. B. `MinimumLength` kann nicht mit der fluent-API angewendet werden. Wie bereits erwähnt, `MinimumLength` ändert nicht das Schema gilt nur für eine Validierungsregel Client und Server-Seite.
+In diesem Lernprogramm verwenden Sie die fluent-API nur für datenbankzuordnung, die Sie mit Attributen können nicht. Allerdings auch können die fluent-API Sie die meisten Formatierung, Überprüfung und Zuordnungsregeln an, denen Sie durchführen können, mithilfe von Attributen angeben. Einige Attribute wie z. B. `MinimumLength` kann nicht mit der fluent-API angewendet werden. Wie bereits erwähnt, `MinimumLength` ändert nicht das Schema gilt nur für eine Validierungsregel Client und Server-Seite.
 
 Einige Entwickler bevorzugen die fluent-API ausschließlich, damit sie ihre Entitätsklassen "bereinigen" bleibt Sie können Attribute und fluent-API kombinieren, wenn werden sollen, und es gibt einige Anpassungen, die nur mithilfe der fluent-API ausgeführt werden können, aber im Allgemeinen wird empfohlen, wählen eine dieser beiden Ansätze und konsistent, so weit wie möglich verwenden. Wenn Sie beides verwenden, beachten Sie, dass immer ein Konflikt vorliegt, Fluent-API für Attribute überschreibt.
 

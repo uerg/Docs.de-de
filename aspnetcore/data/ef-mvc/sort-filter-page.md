@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1140f4916ca39cb454eaa41fdf6adfe7ad26cc31
-ms.sourcegitcommit: dfd6af48cf66813eaf04b011cb9341339a751254
+ms.openlocfilehash: bc2896d0eeda7e84cef06ee3f235e637bfe04318
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortieren, filtern, paging und Gruppierung - EF-Core mit ASP.NET Core MVC-Lernprogramm (3 von 10)
 
@@ -213,7 +213,7 @@ Für der Contoso-University Website **zu** Seite müssen Sie anzeigen, wie viele
 
 Erstellen einer *SchoolViewModels* Ordner in der *Modelle* Ordner.
 
-Klicken Sie in den neuen Ordner fügen Sie eine Klassendatei EnrollmentDateGroup.cs, und Ersetzen Sie den Vorlagencode durch den folgenden Code:
+Fügen Sie eine Klassendatei in den neuen Ordner *EnrollmentDateGroup.cs* , und Ersetzen Sie den Code durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 

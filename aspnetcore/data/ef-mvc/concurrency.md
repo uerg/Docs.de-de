@@ -11,8 +11,8 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 4c402aee195d6614733be71c9c422e33553ad646
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/05/2017
@@ -176,8 +176,6 @@ Die `ModelState.Remove` Anweisung ist erforderlich, da `ModelState` hat die alte
 
 In *Views/Departments/Edit.cshtml*, nehmen Sie die folgenden Änderungen:
 
-* Entfernen Sie die `<div>` Element, das für migrationsgerüst wurde die `RowVersion` Feld.
-
 * Fügen Sie ein ausgeblendetes Feld zum Speichern der `RowVersion` Eigenschaftswert, der unmittelbar hinter das ausgeblendete Feld für die `DepartmentID` Eigenschaft.
 
 * Fügen Sie eine Option "Administrator aktivieren" auf die Dropdown-Liste hinzu.
@@ -251,7 +249,7 @@ Dadurch werden die folgenden Änderungen:
 
 * Fügt eine Fehlermeldung zwischen den `h2` und `h3` Überschriften.
 
-* Ersetzt LastName mit FullName in den **Administrator** Feld.
+* Ersetzt FirstMidName mit FullName in den **Administrator** Feld.
 
 * Entfernt das RowVersion-Feld.
 

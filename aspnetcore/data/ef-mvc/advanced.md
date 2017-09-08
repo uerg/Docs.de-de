@@ -11,8 +11,8 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: fa5e0a66f22cc14f34d05481ce2e4381085d122d
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: d1c6ece833672af3ef2003510ef96c4ff0d63fbf
+ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/05/2017
@@ -179,7 +179,7 @@ Obwohl der Quellcode geöffnet ist, wird die Entity Framework Core als ein Produ
 
 Verwenden Sie zum zurückentwickeln, ein Datenmodell, einschließlich der Entitätsklassen aus einer vorhandenen Datenbank, die [Gerüst Dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) Befehl. Finden Sie unter der [erste-Schritte-Lernprogramm](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db).
 
-<a id="dynamic-linq">
+<a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Verwenden Sie dynamische LINQ zum Sortieren Auswahl Code vereinfachen
 
 Die [dritte Lernprogramm dieser Reihe](sort-filter-page.md) wird gezeigt, wie LINQ Code schreiben, durch eine feste Programmierung von Spaltennamen in einer `switch` Anweisung. Mit zwei Spalten zur Auswahl ist hervorragend, aber wenn Sie viele Spalten aufweisen konnte der Code ausführliche erhalten. Um dieses Problem zu beheben, können Sie die `EF.Property` Methode, um den Namen der Eigenschaft als Zeichenfolge anzugeben. Um diesen Ansatz auszuprobieren, ersetzen die `Index` Methode in der `StudentsController` durch den folgenden Code.

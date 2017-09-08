@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: b99a58d77d4f1751753ae576ade4bd6dd981fbbf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit ASP.NET Core MVC-Lernprogramm (2 von 10)
 
@@ -96,7 +96,7 @@ Weitere Informationen zu den Tag-Hilfsprogrammen, finden Sie unter [Tag Hilfspro
 
 ### <a name="add-enrollments-to-the-details-view"></a>Die Detailansicht Registrierung hinzugefügt
 
-Open *Views/Students/Details.cshtml*. Jedes Feld wird angezeigt, mit `DisplayNameFor` und `DisplayFor` Helper, wie im folgenden Beispiel gezeigt:
+Open *Views/Students/Details.cshtml*. Jedes Feld wird angezeigt, mit `DisplayNameFor` und `DisplayFor` -Hilfen, wie im folgenden Beispiel gezeigt:
 
 [!code-html[](intro/samples/cu/Views/Students/Details.cshtml?range=13-18&highlight=2,5)]
 
@@ -274,7 +274,7 @@ Klicken Sie auf **löschen**. Die Indexseite wird ohne die gelöschten Studenten
 
 Um die Ressourcen freizugeben, die eine Verbindung mit Datenbank enthält, muss die Kontextinstanz so bald wie möglich freigegeben werden, wenn Sie damit fertig sind. Die integrierte ASP.NET Core [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md) übernimmt diese Aufgabe für Sie.
 
-In *Startup.cs* rufen Sie die [AddDbContext Erweiterungsmethode](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) für die Bereitstellung der `DbContext` -Klasse in ASP.NET DI-Container. Methode der Lebensdauer von Diensten fest, um `Scoped` standardmäßig. `Scoped`bedeutet, dass die Lebensdauer eines Objekts Kontext mit der Lebensdauer der Web-Anforderung Zeitangabe und die `Dispose` Methode wird automatisch am Ende der webanforderung aufgerufen werden.
+In *Startup.cs*, rufen Sie die [AddDbContext Erweiterungsmethode](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) für die Bereitstellung der `DbContext` -Klasse in ASP.NET DI-Container. Methode der Lebensdauer von Diensten fest, um `Scoped` standardmäßig. `Scoped`bedeutet, dass die Lebensdauer eines Objekts Kontext mit der Lebensdauer der Web-Anforderung Zeitangabe und die `Dispose` Methode wird automatisch am Ende der webanforderung aufgerufen werden.
 
 ## <a name="handling-transactions"></a>Behandeln von Transaktionen
 
