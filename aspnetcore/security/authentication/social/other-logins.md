@@ -1,0 +1,49 @@
+---
+title: "Kurze Übersicht der anderen Authentifizierungsanbieter an."
+author: rick-anderson
+ms.author: riande
+manager: wpickett
+ms.date: 11/3/2016
+ms.topic: article
+ms.assetid: BC36CA84-3DE8-496E-9AA2-2F1B74AE8309
+ms.prod: asp.net-core
+uid: security/authentication/otherlogins
+ms.openlocfilehash: 421db8c89e01cebba0c1f98cc9286288a75777f2
+ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/11/2017
+---
+# <a name="short-survey-of-other-authentication-providers"></a><span data-ttu-id="8afc2-102">Kurze Übersicht der anderen Authentifizierungsanbieter</span><span class="sxs-lookup"><span data-stu-id="8afc2-102">Short survey of other authentication providers</span></span>
+
+<a name=security-authentication-other-logins></a>
+
+<span data-ttu-id="8afc2-103">Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), und [Valeriy Novytskyy](https://github.com/01binary)</span><span class="sxs-lookup"><span data-stu-id="8afc2-103">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), and [Valeriy Novytskyy](https://github.com/01binary)</span></span>
+
+<span data-ttu-id="8afc2-104">Hier werden Anweisungen für einige andere allgemeine OAuth-Anbieter einrichten.</span><span class="sxs-lookup"><span data-stu-id="8afc2-104">Here are set up instructions for some other common OAuth providers.</span></span> <span data-ttu-id="8afc2-105">Drittanbieter-NuGet-Pakete, z. B. diejenigen, die von verwalteten [Aspnet-für die Altersvorsorge](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) Authentifizierungsanbieter, die vom Team ASP.NET Core implementiert als Ergänzung zu verwendet werden können.</span><span class="sxs-lookup"><span data-stu-id="8afc2-105">Third-party NuGet packages such as the ones maintained by [aspnet-contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) can be used to complement authentication providers implemented by the ASP.NET Core team.</span></span>
+
+* <span data-ttu-id="8afc2-106">Richten Sie **LinkedIn** anmelden: [https://developer.linkedin.com/my-apps](https://developer.linkedin.com/my-apps).</span><span class="sxs-lookup"><span data-stu-id="8afc2-106">Set up **LinkedIn** sign in: [https://developer.linkedin.com/my-apps](https://developer.linkedin.com/my-apps).</span></span> <span data-ttu-id="8afc2-107">Finden Sie unter [offizielle Schritte](https://developer.linkedin.com/docs/oauth2).</span><span class="sxs-lookup"><span data-stu-id="8afc2-107">See [official steps](https://developer.linkedin.com/docs/oauth2).</span></span>
+
+* <span data-ttu-id="8afc2-108">Richten Sie **Instagram** anmelden: [https://www.instagram.com/developer/clients/manage](https://www.instagram.com/developer/clients/manage).</span><span class="sxs-lookup"><span data-stu-id="8afc2-108">Set up **Instagram** sign in: [https://www.instagram.com/developer/clients/manage](https://www.instagram.com/developer/clients/manage).</span></span> <span data-ttu-id="8afc2-109">Finden Sie unter [offizielle Schritte](https://www.instagram.com/developer/authentication/).</span><span class="sxs-lookup"><span data-stu-id="8afc2-109">See [official steps](https://www.instagram.com/developer/authentication/).</span></span>
+
+* <span data-ttu-id="8afc2-110">Richten Sie **Reddit** anmelden: [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps).</span><span class="sxs-lookup"><span data-stu-id="8afc2-110">Set up **Reddit** sign in: [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps).</span></span> <span data-ttu-id="8afc2-111">Finden Sie unter [offizielle Schritte](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).</span><span class="sxs-lookup"><span data-stu-id="8afc2-111">See [official steps](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).</span></span>
+
+* <span data-ttu-id="8afc2-112">Richten Sie **Github** anmelden: [https://github.com/settings/applications/new](https://github.com/settings/applications/new).</span><span class="sxs-lookup"><span data-stu-id="8afc2-112">Set up **Github** sign in: [https://github.com/settings/applications/new](https://github.com/settings/applications/new).</span></span> <span data-ttu-id="8afc2-113">Finden Sie unter [offizielle Schritte](https://developer.github.com/v3/oauth/).</span><span class="sxs-lookup"><span data-stu-id="8afc2-113">See [official steps](https://developer.github.com/v3/oauth/).</span></span>
+
+* <span data-ttu-id="8afc2-114">Richten Sie **Yahoo** anmelden: [https://developer.yahoo.com/apps/create/](https://developer.yahoo.com/apps/create/).</span><span class="sxs-lookup"><span data-stu-id="8afc2-114">Set up **Yahoo** sign in: [https://developer.yahoo.com/apps/create/](https://developer.yahoo.com/apps/create/).</span></span> <span data-ttu-id="8afc2-115">Finden Sie unter [offizielle Schritte](https://developer.yahoo.com/bbauth/user.html).</span><span class="sxs-lookup"><span data-stu-id="8afc2-115">See [official steps](https://developer.yahoo.com/bbauth/user.html).</span></span>
+
+* <span data-ttu-id="8afc2-116">Richten Sie **Tumblr** anmelden: [https://www.tumblr.com/oauth/apps](https://www.tumblr.com/oauth/apps).</span><span class="sxs-lookup"><span data-stu-id="8afc2-116">Set up **Tumblr** sign in: [https://www.tumblr.com/oauth/apps](https://www.tumblr.com/oauth/apps).</span></span> <span data-ttu-id="8afc2-117">Finden Sie unter [offizielle Schritte](https://www.tumblr.com/docs/en/api/v2#auth).</span><span class="sxs-lookup"><span data-stu-id="8afc2-117">See [official steps](https://www.tumblr.com/docs/en/api/v2#auth).</span></span>
+
+* <span data-ttu-id="8afc2-118">Richten Sie **Pinterest** anmelden: [https://developers.pinterest.com/apps](https://developers.pinterest.com/apps).</span><span class="sxs-lookup"><span data-stu-id="8afc2-118">Set up **Pinterest** sign in: [https://developers.pinterest.com/apps](https://developers.pinterest.com/apps).</span></span> <span data-ttu-id="8afc2-119">Finden Sie unter [offizielle Schritte](https://developers.pinterest.com/docs/api/overview/?).</span><span class="sxs-lookup"><span data-stu-id="8afc2-119">See [official steps](https://developers.pinterest.com/docs/api/overview/?).</span></span>
+
+* <span data-ttu-id="8afc2-120">Richten Sie **Pocket** anmelden: [http://getpocket.com/developer/apps/new](http://getpocket.com/developer/apps/new).</span><span class="sxs-lookup"><span data-stu-id="8afc2-120">Set up **Pocket** sign in: [http://getpocket.com/developer/apps/new](http://getpocket.com/developer/apps/new).</span></span> <span data-ttu-id="8afc2-121">Finden Sie unter [offizielle Schritte](https://getpocket.com/developer/docs/authentication).</span><span class="sxs-lookup"><span data-stu-id="8afc2-121">See [official steps](https://getpocket.com/developer/docs/authentication).</span></span>
+
+* <span data-ttu-id="8afc2-122">Richten Sie **Flickr** anmelden: [https://www.flickr.com/services/apps/create](https://www.flickr.com/services/apps/create).</span><span class="sxs-lookup"><span data-stu-id="8afc2-122">Set up **Flickr** sign in: [https://www.flickr.com/services/apps/create](https://www.flickr.com/services/apps/create).</span></span> <span data-ttu-id="8afc2-123">Finden Sie unter [offizielle Schritte](https://www.flickr.com/services/api/auth.oauth.html).</span><span class="sxs-lookup"><span data-stu-id="8afc2-123">See [official steps](https://www.flickr.com/services/api/auth.oauth.html).</span></span>
+
+* <span data-ttu-id="8afc2-124">Richten Sie **Dribble** anmelden: [https://dribbble.com/signup](https://dribbble.com/signup).</span><span class="sxs-lookup"><span data-stu-id="8afc2-124">Set up **Dribble** sign in: [https://dribbble.com/signup](https://dribbble.com/signup).</span></span> <span data-ttu-id="8afc2-125">Finden Sie unter [offizielle Schritte](http://developer.dribbble.com/v1/oauth/).</span><span class="sxs-lookup"><span data-stu-id="8afc2-125">See [official steps](http://developer.dribbble.com/v1/oauth/).</span></span>
+
+* <span data-ttu-id="8afc2-126">Richten Sie **Vimeo** anmelden: [https://developer.vimeo.com/apps](https://developer.vimeo.com/apps).</span><span class="sxs-lookup"><span data-stu-id="8afc2-126">Set up **Vimeo** sign in: [https://developer.vimeo.com/apps](https://developer.vimeo.com/apps).</span></span> <span data-ttu-id="8afc2-127">Finden Sie unter [offizielle Schritte](https://developer.vimeo.com/api/authentication).</span><span class="sxs-lookup"><span data-stu-id="8afc2-127">See [official steps](https://developer.vimeo.com/api/authentication).</span></span>
+
+* <span data-ttu-id="8afc2-128">Richten Sie **SoundCloud** anmelden: [http://soundcloud.com/you/apps/new](http://soundcloud.com/you/apps/new).</span><span class="sxs-lookup"><span data-stu-id="8afc2-128">Set up **SoundCloud** sign in: [http://soundcloud.com/you/apps/new](http://soundcloud.com/you/apps/new).</span></span> <span data-ttu-id="8afc2-129">Finden Sie unter [offizielle Schritte](https://developers.soundcloud.com/blog/we-love-oauth-2).</span><span class="sxs-lookup"><span data-stu-id="8afc2-129">See [official steps](https://developers.soundcloud.com/blog/we-love-oauth-2).</span></span>
+
+* <span data-ttu-id="8afc2-130">Richten Sie **VK** anmelden: [https://vk.com/apps?act=manage](https://vk.com/apps?act=manage).</span><span class="sxs-lookup"><span data-stu-id="8afc2-130">Set up **VK** sign in: [https://vk.com/apps?act=manage](https://vk.com/apps?act=manage).</span></span> <span data-ttu-id="8afc2-131">Finden Sie unter [offizielle Schritte](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).</span><span class="sxs-lookup"><span data-stu-id="8afc2-131">See [official steps](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).</span></span>
