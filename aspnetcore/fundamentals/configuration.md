@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: dae7ac6e377d2c17bc8f86e5b6da98107366cc73
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 ---
 <a name=fundamentals-configuration></a>
 
@@ -41,11 +41,11 @@ Jede Konfigurationswert ordnet einen Zeichenfolgenschlüssel. Integrierte Bindun
 
 Die folgenden Konsolen-app verwendet die JSON-Konfigurationsanbieter:
 
-[!code-csharp[Main](configuration/sample/src/ConfigJson/Program.cs)]
+[!code-csharp[Main](configuration/sample/ConfigJson/Program.cs)]
 
 Die Anwendung liest und zeigt die folgenden Konfigurationseinstellungen vornehmen:
 
-[!code-json[Main](configuration/sample/src/ConfigJson/appsettings.json)]
+[!code-json[Main](configuration/sample/ConfigJson/appsettings.json)]
 
 Konfiguration besteht eine hierarchische Liste von Name / Wert-Paaren, die in denen die Knoten durch einen Doppelpunkt getrennt sind. Um einen Wert abzurufen, Zugriff auf die `Configuration` einen Indexer mit dem entsprechenden Schlüssel des Elements:
 
@@ -63,13 +63,11 @@ Name-Wert-Paare, die in der integrierten geschrieben in `Configuration` Anbieter
 
 Das vorhergehende Beispiel verwendet den Indexer für die Konfiguration, um Werte zu lesen. Auf die Konfiguration außerhalb von `Startup`, verwenden Sie die [Optionen Muster](xref:fundamentals/configuration#options-config-objects). Die *Optionen Muster* wird weiter unten in diesem Artikel dargestellt.
 
-Es ist üblich, verschiedene Konfigurationseinstellungen für unterschiedliche Umgebungen, z. B. Entwicklung, Test und Produktion aufweisen. Die folgende hervorgehobene Code werden drei Quellen zwei Konfigurationsanbieter hinzugefügt:
+Es ist üblich, verschiedene Konfigurationseinstellungen für unterschiedliche Umgebungen, z. B. Entwicklungs-, Test- und produktionsumgebung aufweisen. Die `CreateDefaultBuilder` Erweiterungsmethode in einer ASP.NET Core 2.x-app (oder mit `AddJsonFile` und `AddEnvironmentVariables` direkt in einer ASP.NET Core 1.x-app) Konfigurationsanbieter für das Lesen von JSON-Dateien und das System Konfigurationsquellen hinzugefügt:
 
-1. JSON-Anbieter, lesen *appsettings.json*
-2. JSON-Anbieter, lesen *"appSettings".\< EnvironmentName > JSON*
-3. Umgebungsanbieter-Variablen
-
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Startup.cs?name=snippet2&highlight=7-9)]
+* *AppSettings.JSON*
+* * "appSettings". \<EnvironmentName > JSON
+* Umgebungsvariablen
 
 Finden Sie unter [AddJsonFile](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.jsonconfigurationextensions) eine Erläuterung der Parameter. `reloadOnChange`wird nur in ASP.NET Core 1.1 und höher unterstützt. 
 
@@ -96,21 +94,21 @@ Das Muster Optionen verwendet benutzerdefinierte Optionsklassen, um eine Gruppe 
 
 Die Optionsklasse muss nicht abstrakten mit einem öffentlichen parameterlosen Konstruktor. Zum Beispiel:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Models/MyOptions.cs)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Models/MyOptions.cs)]
 
 <a name=options-example></a>
 
 Im folgenden Code wird die JSON-Konfigurationsanbieter aktiviert. Die `MyOptions` Klasse dem Dienstcontainer hinzugefügt und an Configuration gebunden ist.
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup.cs?name=snippet1&highlight=8,20-22)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup.cs?name=snippet1&highlight=8,20-21)]
 
 Die folgenden [Controller](../mvc/controllers/index.md) verwendet [Konstruktor Abhängigkeitsinjektion](xref:fundamentals/dependency-injection#what-is-dependency-injection) auf [ `IOptions<TOptions>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.ioptions-1) auf Einstellungen zugreifen:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Controllers/HomeController.cs?name=snippet1)]
 
 Mit den folgenden *appsettings.json* Datei:
 
-[!code-json[Main](configuration/sample/src/UsingOptions/appsettings1.json)]
+[!code-json[Main](configuration/sample/UsingOptions/appsettings1.json)]
 
 Die `HomeController.Index` -Methode zurückkehrt `option1 = value1_from_json, option2 = 2`.
 
@@ -118,7 +116,7 @@ Standard-apps wird nicht die gesamte Konfiguration in eine Optionsdatei für die
 
 Im folgenden Code wird eine zweite `IConfigureOptions<TOptions>` Dienst dem Dienstcontainer hinzugefügt wird. Er verwendet ein Delegat zum Konfigurieren der Bindung mit `MyOptions`.
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup2.cs?name=snippet1&highlight=9-13)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup2.cs?name=snippet1&highlight=9-13)]
 
 Sie können mehrere Konfigurationsanbieter hinzufügen. Konfigurationsanbieter stehen im NuGet-Pakete zur Verfügung. Sie werden in Reihenfolge angewendet, die sie registriert sind.
 
@@ -130,23 +128,27 @@ Wenn Sie Optionen zur Konfiguration binden, jede Eigenschaft im Optionstyp Ihres
 
 Im folgenden Code ein drittes `IConfigureOptions<TOptions>` Dienst dem Dienstcontainer hinzugefügt wird. Sie bindet `MySubOptions` Abschnitt `subsection` von der *appsettings.json* Datei:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup3.cs?name=snippet1&highlight=16-17)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup3.cs?name=snippet1&highlight=16-17)]
 
 Hinweis: Diese Erweiterungsmethode erfordert die `Microsoft.Extensions.Options.ConfigurationExtensions` NuGet-Paket.
 
 Mit den folgenden *appsettings.json* Datei:
 
-[!code-json[Main](configuration/sample/src/UsingOptions/appsettings.json)]
+[!code-json[Main](configuration/sample/UsingOptions/appsettings.json)]
 
 Die `MySubOptions` Klasse:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Models/MySubOptions.cs)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Models/MySubOptions.cs?name=snippet1)]
 
 Mit den folgenden `Controller`:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Controllers/HomeController2.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Controllers/HomeController2.cs?name=snippet1)]
 
 `subOption1 = subvalue1_from_json, subOption2 = 200`wird zurückgegeben.
+
+Sie können auch angeben von Optionen in einem Ansichtsmodell oder einfügen `IOptions<TOptions>` direkt in eine Sicht:
+
+[!code-html[Main](configuration/sample/UsingOptions/Views/Home/Index.cshtml?highlight=3-4,16-17,20-21)]
 
 <a name=in-memory-provider></a>
 
@@ -174,27 +176,27 @@ Aktualisieren des Browsers ändert sich der Nachrichtenwert oder angezeigte Uhrz
 
 Das folgende Beispiel zeigt, wie den in-Memory-Anbieter verwenden und auf eine Klasse gebunden:
 
-[!code-csharp[Main](configuration/sample/src/InMemory/Program.cs)]
+[!code-csharp[Main](configuration/sample/InMemory/Program.cs)]
 
 Konfigurationswerte werden als Zeichenfolgen zurückgegeben, aber Binden ermöglicht die Erstellung von Objekten. Bindung ermöglicht es Ihnen POCO-Objekte oder Objektdiagramme ganzer abgerufen. Im folgende Beispiel wird gezeigt, wie zum Binden an `MyWindow` und das Muster Optionen mit einer ASP.NET-MVC-Anwendung Core verwenden:
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/MyWindow.cs)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/MyWindow.cs)]
 
-[!code-json[Main](configuration/sample/src/WebConfigBind/appsettings.json)]
+[!code-json[Main](configuration/sample/WebConfigBind/appsettings.json)]
 
-Binden Sie die benutzerdefinierte Klasse in `ConfigureServices` in die `Startup` Klasse:
+Binden Sie die benutzerdefinierte Klasse in `ConfigureServices` beim Host zu erstellen:
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Startup.cs?name=snippet1&highlight=3,4)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/Program.cs?name=snippet1&highlight=3-4)]
 
 Zeigen Sie die Einstellungen aus der `HomeController`:
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Controllers/HomeController.cs)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/Controllers/HomeController.cs)]
 
 ### <a name="getvalue"></a>GetValue
 
 Das folgende Beispiel zeigt die [GetValue<T> ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_) Erweiterungsmethode:
 
-[!code-csharp[Main](configuration/sample/src/InMemoryGetValue/Program.cs?highlight=27-29)]
+[!code-csharp[Main](configuration/sample/InMemoryGetValue/Program.cs?highlight=27-29)]
 
 Die ConfigurationBinder `GetValue<T>` Methode können Sie einen Standardwert (80 in der Stichprobe) angeben. `GetValue<T>`ist für einfache Szenarien, und Bindung erfolgt nicht auf die gesamte Abschnitte. `GetValue<T>`Ruft die Skalarwerte aus `GetSection(key).Value` für einen bestimmten Typ konvertiert.
 
@@ -202,11 +204,11 @@ Die ConfigurationBinder `GetValue<T>` Methode können Sie einen Standardwert (80
 
 Sie können rekursiv Bindung auf jedes Objekt in einer Klasse. Beachten Sie Folgendes `AppOptions` Klasse:
 
-[!code-csharp[Main](configuration/sample/src/ObjectGraph/AppOptions.cs)]
+[!code-csharp[Main](configuration/sample/ObjectGraph/AppOptions.cs)]
 
 Im folgende Beispiel bindet an die `AppOptions` Klasse:
 
-[!code-csharp[Main](configuration/sample/src/ObjectGraph/Program.cs?highlight=15-16)]
+[!code-csharp[Main](configuration/sample/ObjectGraph/Program.cs?highlight=15-16)]
 
 **ASP.NET Core 1.1** und höher können `Get<T>`, die gesamte Abschnitte funktioniert. `Get<T>`kann weitere Convienent als die Verwendung von `Bind`. Der folgende Code zeigt, wie Sie `Get<T>` mit dem obigen Beispiel:
 
@@ -216,7 +218,7 @@ var appConfig = config.GetSection("App").Get<AppOptions>();
 
 Mit den folgenden *appsettings.json* Datei:
 
-[!code-json[Main](configuration/sample/src/ObjectGraph/appsettings.json)]
+[!code-json[Main](configuration/sample/ObjectGraph/appsettings.json)]
 
 Das Programm zeigt `Height 11`.
 
@@ -255,35 +257,35 @@ In diesem Abschnitt wird ein grundlegende Konfigurationsanbieter, das Name-Wert-
 
 Definieren einer `ConfigurationValue` Entität für die Konfigurationswerte in der Datenbank gespeichert:
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/ConfigurationValue.cs)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/ConfigurationValue.cs)]
 
 Hinzufügen einer `ConfigurationContext` zum Speichern und Zugreifen auf die konfigurierten Werte:
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
 Erstellen Sie eine Klasse, die implementiert [IConfigurationSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.iconfigurationsource):
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
 Erstellen Sie den standardkonfigurationsanbieter durch Vererben von [ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider).  Der Konfigurationsanbieter initialisiert die Datenbank aus, wenn sie leer ist:
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
 Die hervorgehobenen Werte aus der Datenbank ("value_from_ef_1" und "value_from_ef_2") werden angezeigt, wenn das Beispiel ausgeführt wird.
 
 Sie können Hinzufügen einer `EFConfigSource` Erweiterungsmethode für die Konfigurationsquelle hinzufügen:
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
 Der folgende Code zeigt, wie Sie die Verwendung der benutzerdefinierten `EFConfigProvider`:
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/Program.cs?highlight=20-25)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/Program.cs?highlight=21-26)]
 
 Beachten Sie das Beispiel fügt die benutzerdefinierte `EFConfigProvider` nach der JSON-Anbieter, also alle Einstellungen aus der Datenbank überschrieben aus der *appsettings.json* Datei.
 
 Mit den folgenden *appsettings.json* Datei:
 
-[!code-json[Main](configuration/sample/src/CustomConfigurationProvider/appsettings.json)]
+[!code-json[Main](configuration/sample/CustomConfigurationProvider/appsettings.json)]
 
 Im folgenden wird angezeigt:
 
@@ -297,7 +299,7 @@ key3=value_from_json_3
 
 Im folgende Beispiel ermöglicht den Konfigurationsanbieter CommandLine letzten:
 
-[!code-csharp[Main](configuration/sample/src/CommandLine/Program.cs)]
+[!code-csharp[Main](configuration/sample/CommandLine/Program.cs)]
 
 Verwenden Sie die folgenden Konfigurationseinstellungen übergeben:
 
