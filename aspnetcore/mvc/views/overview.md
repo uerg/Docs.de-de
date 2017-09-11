@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: a93ee8165be52e33c2e7da4d3fee2c8225864db9
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Rendern von HTML mit ASP.NET Core MVC-Ansichten
 
@@ -39,7 +39,7 @@ Bieten die Ansichten [Trennung von Anliegen](http://deviq.com/separation-of-conc
 
 ## <a name="creating-a-view"></a>Erstellen einer Ansicht
 
-Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der */Ansichten/freigegeben* Ordner. Benennen Sie die Ansichtsdatei identisch mit der Aktion zugeordneten Controller und Hinzufügen der *cshtml* Dateierweiterung. Z. B. zum Erstellen einer Ansicht für die *zu* Aktion auf die *Home* Controller, erstellen Sie die *About.cshtml* in der Datei die   */Ansichten/Start*Ordner.
+Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der */Ansichten/freigegeben* Ordner. Benennen Sie die Ansichtsdatei identisch mit der Aktion zugeordneten Controller und Hinzufügen der *cshtml* Dateierweiterung. Z. B. zum Erstellen einer Ansicht für die *zu* Aktion auf die *Home* Controller, erstellen Sie die *About.cshtml* in der Datei die  * /Ansichten/Start*Ordner.
 
 Eine Beispieldatei für die Sicht (*About.cshtml*):
 
@@ -69,14 +69,14 @@ Ein Prozess wird aufgerufen, wenn eine Aktion eine Sicht zurückgegeben wird, *A
 
 Wenn eine Aktion gibt die `View` -Methode, wie folgt `return View();`, der Aktionsname wird verwendet, wie der Ansichtsname. Angenommen, wenn dies von einer Aktionsmethode namens "Index" aufgerufen wurden, wäre entspricht dem Übergeben einer Ansichtsname "Index" es. Ein Sichtname explizit an die Methode übergeben werden kann (`return View("SomeView");`). Zeigen Sie in beiden Fällen Ermittlung sucht eine übereinstimmende-Datei in ein:
 
-   1. Ansichten /<ControllerName>/<ViewName>cshtml
+   1. Ansichten /\<ControllerName > /\<ViewName > cshtml
 
-   2. Ansichten/freigegeben/<ViewName>cshtml
+   2. Ansichten/freigegeben/\<ViewName > cshtml
 
 >[!TIP]
 > Es wird empfohlen, gemäß der Konvention von zurückzugeben `View()` aus Aktionen, wenn möglich, da dabei mehr Flexibilität bietet, einfacher Umgestalten von Code.
 
-Anstatt ein Ansichtsname kann ein Dateipfad für die Sicht angegeben werden. In diesem Fall die *cshtml* Erweiterung muss als Teil der Dateipfad angegeben werden. Der Pfad muss relativ zum Stammverzeichnis Anwendung (und kann optional beginnen mit "/" oder "~ /"). Beispiel: `return View("Views/Home/About.cshtml");`
+Anstatt ein Ansichtsname kann ein Dateipfad für die Sicht angegeben werden. Wenn einen absoluten Pfad des Anwendungsstamms ab (optional beginnend mit "/" oder "~ /"), wird die *cshtml* Erweiterung muss als Teil der Dateipfad angegeben werden. Beispiel: `return View("Views/Home/About.cshtml");`. Alternativ können Sie einen relativen Pfad aus dem Verzeichnis Controller-spezifische innerhalb der *Ansichten* Directory Ansichten in verschiedenen Verzeichnissen an. Zum Beispiel: `return View("../Manage/Index");` innerhalb der *Home* Controller. Auf ähnliche Weise können Sie das aktuelle Controller-spezifische Verzeichnis durchlaufen: `return View("./About");`. Beachten Sie, dass relative Pfade verwenden, nicht die *cshtml* Erweiterung. Wie bereits erwähnt wurde führen Sie die bewährte Methode zum Organisieren von der Dateistruktur für Ansichten, die Beziehungen zwischen Domänencontrollern, Aktionen und Ansichten für die Verwaltbarkeit und Klarheit entsprechend aus.
 
 > [!NOTE]
 > [Teilansichten](partial.md) und [anzeigen Komponenten](view-components.md) ähnliche (aber nicht identisch) Ermittlungsmechanismus verwenden.

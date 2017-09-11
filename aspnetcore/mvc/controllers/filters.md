@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: bf90698bbac850b1917cd93dbf0a5fc5b6792aa0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="filters"></a>Filter
 
@@ -117,7 +117,7 @@ Filter kann hinzugefügt werden, an die Pipeline an einem von drei *Bereiche*. S
 
 Wenn mehrere Filter für eine bestimmte Phase der Pipeline sind, bestimmt der Bereich die Standardreihenfolge der filterausführung.  Globale Filter umschließen Klasse Filter, mit die-Methode filtert wiederum zu umschließen. Dies wird manchmal als bezeichnet "Russisch Puppe" Verschachteln, wie jede Erweiterung des Bereichs z. B. den vorherigen Bereich umbrochen wird eine [schachteln Puppe](https://en.wikipedia.org/wiki/Matryoshka_doll). Sie erhalten im Allgemeinen das gewünschte Verhalten für die überschreibende ohne explizit Reihenfolge zu bestimmen.
 
-Asa Ergebnis dieser Schachtelung der *nach* Code Filter wird in umgekehrter Reihenfolge ausgeführt der *vor* Code. Die Abfolge sieht wie folgt:
+Als Ergebnis dieser Schachtelung der *nach* Code Filter wird in umgekehrter Reihenfolge ausgeführt der *vor* Code. Die Abfolge sieht wie folgt:
 
 * Die *vor* Code Global angewendeten Filter
   * Die *vor* Code auf Domänencontrollern angewendeten Filter
