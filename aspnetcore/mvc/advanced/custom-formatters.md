@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: af3b2174c73583832868d2062e6c7ab4689a1229
-ms.sourcegitcommit: 9d3f27a1ee5b7014fb40e4f2ec9b2a9cd744751c
+ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Benutzerdefinierten Formatierer in ASP.NET Core MVC-Web-APIs
 
@@ -23,7 +23,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core MVC verfügt über integrierte Unterstützung für den Datenaustausch im Web-APIs mit JSON, XML oder nur-Text-Formate. In diesem Artikel wird die Unterstützung für zusätzliche Formate hinzufügen, durch das Erstellen von benutzerdefinierten Formatierer veranschaulicht.
 
-[Anzeigen oder Herunterladen des Beispiels aus GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample).
+[Anzeigen oder Herunterladen des Beispiels aus GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
 
 ## <a name="when-to-use-custom-formatters"></a>Verwenden von benutzerdefinierten Formatierer
 
@@ -100,7 +100,7 @@ Formatierungsprogramme werden ausgewertet, in der Reihenfolge an, dass Sie sie e
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Finden Sie unter der [beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample), implementiert einfache vCard Eingabe und Ausgabe-Formatierer.  Die Anwendung liest und schreibt vCards, die wie im folgenden Beispiel aussehen:
+Finden Sie unter der [beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), implementiert einfache vCard Eingabe und Ausgabe-Formatierer.  Die Anwendung liest und schreibt vCards, die wie im folgenden Beispiel aussehen:
 
 ```
 BEGIN:VCARD

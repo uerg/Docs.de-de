@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: 7abfa7ef855eb95e1a27ba6a699dd923c9e4d7c0
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Rendern von HTML mit ASP.NET Core MVC-Ansichten
 
@@ -76,7 +76,7 @@ Wenn eine Aktion gibt die `View` -Methode, wie folgt `return View();`, der Aktio
 >[!TIP]
 > Es wird empfohlen, gemäß der Konvention von zurückzugeben `View()` aus Aktionen, wenn möglich, da dabei mehr Flexibilität bietet, einfacher Umgestalten von Code.
 
-Anstatt ein Ansichtsname kann ein Dateipfad für die Sicht angegeben werden. Wenn einen absoluten Pfad des Anwendungsstamms ab (optional beginnend mit "/" oder "~ /"), wird die *cshtml* Erweiterung muss als Teil der Dateipfad angegeben werden. Beispiel: `return View("Views/Home/About.cshtml");`. Alternativ können Sie einen relativen Pfad aus dem Verzeichnis Controller-spezifische innerhalb der *Ansichten* Directory Ansichten in verschiedenen Verzeichnissen an. Zum Beispiel: `return View("../Manage/Index");` innerhalb der *Home* Controller. Auf ähnliche Weise können Sie das aktuelle Controller-spezifische Verzeichnis durchlaufen: `return View("./About");`. Beachten Sie, dass relative Pfade verwenden, nicht die *cshtml* Erweiterung. Wie bereits erwähnt wurde führen Sie die bewährte Methode zum Organisieren von der Dateistruktur für Ansichten, die Beziehungen zwischen Domänencontrollern, Aktionen und Ansichten für die Verwaltbarkeit und Klarheit entsprechend aus.
+Anstatt ein Ansichtsname kann ein Dateipfad für die Sicht angegeben werden. Wenn einen absoluten Pfad des Anwendungsstamms ab (optional beginnend mit "/" oder "~ /"), wird die *cshtml* Erweiterung muss angegeben werden, im Rahmen des Dateipfads (z. B. `return View("Views/Home/About.cshtml");`). Alternativ können Sie einen relativen Pfad aus dem Verzeichnis Controller-spezifische innerhalb der *Ansichten* Directory Ansichten in verschiedenen Verzeichnissen angeben (z. B. `return View("../Manage/Index");` innerhalb der `HomeController`). Auf ähnliche Weise können Sie das aktuelle Controller-spezifische Verzeichnis durchlaufen (z. B. `return View("./About");`). Beachten Sie, dass relative Pfade verwenden, nicht die *cshtml* Erweiterung. Wie bereits erwähnt wurde führen Sie die bewährte Methode zum Organisieren von der Dateistruktur für Ansichten, die Beziehungen zwischen Domänencontrollern, Aktionen und Ansichten für die Verwaltbarkeit und Klarheit entsprechend aus.
 
 > [!NOTE]
 > [Teilansichten](partial.md) und [anzeigen Komponenten](view-components.md) ähnliche (aber nicht identisch) Ermittlungsmechanismus verwenden.
