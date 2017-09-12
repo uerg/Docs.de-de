@@ -11,11 +11,11 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc2d119ae2f7cf06ed0ea4b8a91fd8fa15804468
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 70cbeea15199498c592307dccc125e60206dadbf
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Konfigurieren von Microsoft-Account-Authentifizierung
 
@@ -31,7 +31,7 @@ Dieses Lernprogramm veranschaulicht das Aktivieren von Benutzern die Anmeldung m
 
 ![Melden Sie sich im Dialogfeld "](index/_static/MicrosoftDevLogin.png)
 
-Wenn Sie ein Microsoft-Konto noch nicht haben, tippen Sie auf  **[erstellen!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Nach der Anmeldung werden Sie umgeleitet **Meine Anwendungen** Seite:
+Wenn Sie ein Microsoft-Konto noch nicht haben, tippen Sie auf ** [erstellen!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Nach der Anmeldung werden Sie umgeleitet **Meine Anwendungen** Seite:
 
 ![Microsoft Developer Portal in Microsoft Edge öffnen](index/_static/MicrosoftDev.png)
 
@@ -41,7 +41,7 @@ Wenn Sie ein Microsoft-Konto noch nicht haben, tippen Sie auf  **[erstellen!](ht
 
 * Deaktivieren Sie für die Zwecke dieses Lernprogramms können die **geführtes Setup** Kontrollkästchen.
 
-* Tippen Sie auf **erstellen** zur Weiterleitung an die **Registrierung** Seite:
+* Tippen Sie auf **erstellen** zur Weiterleitung an die **Registrierung** Seite. Geben Sie eine **Name** und notieren Sie den Wert der der **Anwendungs-Id**, die Verwendung als `ClientId` später im Lernprogramm:
 
 ![Seite "Registrierung"](index/_static/MicrosoftDevAppReg.png)
 
