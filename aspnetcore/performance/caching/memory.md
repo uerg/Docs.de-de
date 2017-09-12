@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f872cd0c355f7961ae8628c28c62d3b51c8db2c5
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), und [Steve Smith](http://ardalis.com)
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), und [Steve Smith](https://ardalis.com/)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)
 
@@ -28,7 +28,7 @@ Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://githu
 
 Caching kann deutlich die Leistung und Skalierbarkeit einer App verbessert werden, verringern den Arbeitsaufwand beim Generieren der Inhalte. Zwischenspeichern funktioniert am besten mit Daten, die sich selten ändern. Caching stellt eine Kopie der Daten, die viel zurückgegeben werden, können aus der Originalquelle schneller. Schreiben und Testen Sie Ihre app niemals hängen mit zwischengespeicherten Daten.
 
-ASP.NET Core unterstützt mehrere unterschiedliche Caches gelten. Die einfachste Cache basiert auf der [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), der einen Cache im Arbeitsspeicher des Webservers gespeichert darstellt. Apps, die auf eine Serverfarm mit mehreren Servern ausgeführt werden sollten sicherstellen, dass Sitzungen Kurznotiz bei Verwendung von in-Memory-Caches. Persistente Sitzungen stellen Sie sicher, dass nachfolgende Anforderungen von einem Client, die alle auf denselben Server wechseln. Z. B. Azure-Web-apps verwenden [Application Request Routing](http://www.iis.net/learn/extensions/planning-for-arr) (ARR) auf alle nachfolgenden Anforderungen mit dem gleichen Server weiterzuleiten.
+ASP.NET Core unterstützt mehrere unterschiedliche Caches gelten. Die einfachste Cache basiert auf der [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), der einen Cache im Arbeitsspeicher des Webservers gespeichert darstellt. Apps, die auf eine Serverfarm mit mehreren Servern ausgeführt werden sollten sicherstellen, dass Sitzungen Kurznotiz bei Verwendung von in-Memory-Caches. Persistente Sitzungen stellen Sie sicher, dass nachfolgende Anforderungen von einem Client, die alle auf denselben Server wechseln. Z. B. Azure-Web-apps verwenden [Application Request Routing](https://www.iis.net/learn/extensions/planning-for-arr) (ARR) auf alle nachfolgenden Anforderungen mit dem gleichen Server weiterzuleiten.
 
 Nicht persistente Sitzungen in einer Webfarm erfordert eine [verteilte Caches](distributed.md) Cache Konsistenzprobleme zu vermeiden. Bei einigen apps kann ein verteilter Cache höher Dezentrales Skalieren als ein in-Memory-Cache unterstützen. Mit einem verteilten Cache entlastet den Cachespeicher zu einem externen Prozess. 
 

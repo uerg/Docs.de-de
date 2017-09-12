@@ -11,15 +11,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b1de37d93f5dca2d6b6be24c429b5971692e17e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Einführung in die Tag-Hilfsprogramme in ASP.NET Core 
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Was sind Hilfen Tag?
 
@@ -151,7 +151,7 @@ Als ein Tag Helper-Attribut eingegeben wird, ändern die Tag- und Schriftarten. 
 
 ![Bild](intro/_static/labelaspfor2.png)
 
-Können Sie die Visual Studio eingeben *CompleteWord* Verknüpfung (STRG + LEERTASTE ist die [Standard](https://msdn.microsoft.com/library/da5kh0wa.aspx)) innerhalb der doppelten Anführungszeichen (""), und Sie sind jetzt in C# geschrieben, wie Sie eine C#-Klasse wären. IntelliSense zeigt alle Methoden und Eigenschaften auf der Seite "-Modell an. Die Methoden und Eigenschaften sind verfügbar, weil der Eigenschaftstyp `ModelExpression`. In der folgenden Abbildung bin ich Bearbeiten der `Register` anzeigen, sodass der `RegisterViewModel` verfügbar ist.
+Können Sie die Visual Studio eingeben *CompleteWord* Verknüpfung (STRG + LEERTASTE ist die [Standard](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) in doppelten Anführungszeichen (""), und Sie sind jetzt in C# geschrieben, wie Sie eine C#-Klasse wären. IntelliSense zeigt alle Methoden und Eigenschaften auf der Seite "-Modell an. Die Methoden und Eigenschaften sind verfügbar, weil der Eigenschaftstyp `ModelExpression`. In der folgenden Abbildung bin ich Bearbeiten der `Register` anzeigen, sodass der `RegisterViewModel` verfügbar ist.
 
 ![Bild](intro/_static/intellemail.png)
 
@@ -169,7 +169,7 @@ Tag-Hilfsprogrammen fügen Sie HTML-Elementen in Razor-Ansichten, während [HTML
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-Die am (`@`) Symbol weist Razor Beginn des Codes sieht. Die nächsten zwei Parameter ("FirstName" und "First Name:") sind Zeichenfolgen, sodass [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx) dabei nicht helfen kann. Das letzte Argument:
+Die am (`@`) Symbol weist Razor Beginn des Codes sieht. Die nächsten zwei Parameter ("FirstName" und "First Name:") sind Zeichenfolgen, sodass [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) dabei nicht helfen kann. Das letzte Argument:
 
 ```html
 new {@class="caption"}
@@ -245,7 +245,7 @@ Der Visual Studio-Editor unterstützt Sie beim Schreiben **alle** von Markup im 
 
 * Webserversteuerelemente verwenden den Einsatz von Typkonvertern, um Zeichenfolgen in Objekte konvertieren. Tag-Hilfen arbeiten Sie systemintern in c#, Sie müssen also keine Konvertierung eingeben.
 
-* Webserver-Steuerelemente verwenden [System.ComponentModel](https://msdn.microsoft.com/library/system.componentmodel%28v=vs.110%29.aspx) , das zur Laufzeit und Entwurfszeit Entwurfszeitverhalten von Komponenten und Steuerelementen implementieren. `System.ComponentModel`enthält die Basis-Klassen und Schnittstellen zum Implementieren von Attributen und den Einsatz von Typkonvertern, binden an Datenquellen und Lizenzieren von Komponenten. Im Gegensatz zum Tag-Hilfen, mit denen in der Regel abgeleitet `TagHelper`, und die `TagHelper` Basisklasse macht nur zwei Methoden `Process` und `ProcessAsync`.
+* Webserver-Steuerelemente verwenden [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) , das zur Laufzeit und Entwurfszeit Entwurfszeitverhalten von Komponenten und Steuerelementen implementieren. `System.ComponentModel`enthält die Basis-Klassen und Schnittstellen zum Implementieren von Attributen und den Einsatz von Typkonvertern, binden an Datenquellen und Lizenzieren von Komponenten. Im Gegensatz zum Tag-Hilfen, mit denen in der Regel abgeleitet `TagHelper`, und die `TagHelper` Basisklasse macht nur zwei Methoden `Process` und `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Anpassen der Schriftart-Element-Tag-Hilfsprogramm
 
@@ -255,7 +255,7 @@ Sie können anpassen, die Schriftart und die farbliche Kennzeichnung von **Tools
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Erstellen von Tag-Hilfsprogramme](authoring.md)
+* [Erstellen von Taghilfsprogrammen](authoring.md)
 * [Arbeiten mit Formularen](../working-with-forms.md)
 * [TagHelperSamples auf GitHub](https://github.com/dpaquette/TagHelperSamples) enthält Tag Helper-Beispiele für die Arbeit mit [Bootstrap](http://getbootstrap.com/).
 

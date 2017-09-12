@@ -11,17 +11,17 @@ ms.assetid: 0db145cb-41a5-448a-b889-72e2d789ad7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/identity
-ms.openlocfilehash: c86e9b98bcb43b383ac1077fe2749d0dfcd7392a
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: b5a9bab4399714c481d4f38eeeaeba19d8bdd5b2
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-authentication-and-identity"></a>Migrieren von Authentifizierung und Identität
 
 <a name=migration-identity></a>
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 In der vorherigen Artikel wir [Konfiguration eines ASP.NET MVC-Projekts zu ASP.NET Core MVC migriert](configuration.md). In diesem Artikel wird die Registrierung, Anmeldung und Benutzer Verwaltungsfunktionen migriert werden.
 

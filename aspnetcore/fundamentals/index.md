@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99fbe0e02be27a0fbbb7ff65bc15713aab58c003
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5d8ca35b0e2e4b6e9b1ec745a3a7cf7c3983c461
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-fundamentals-overview"></a>Übersicht über Grundlagen von ASP.NET Core
 
@@ -101,7 +101,7 @@ Weitere Informationen finden Sie unter [Middleware](xref:fundamentals/middleware
 
 ## <a name="servers"></a>Server
 
-Das ASP.NET Core-Hostmodell lauscht nicht direkt auf Anforderungen. Vielmehr verwendet es eine HTTP-Serverimplementierung, mit der die Anforderung an die Anwendung weitergeleitet wird. Die weitergeleitete Anforderung wird von Funktionsobjekten umschlossen, auf die Sie über Schnittstellen zugreifen können. Die Anwendung kombiniert diese Objekte zu einem `HttpContext`. ASP.NET Core enthält den verwalteten, plattformübergreifenden Webserver [Kestrel](xref:fundamentals/servers/kestrel). Kestrel wird in der Regel hinter einem Produktionswebserver wie [IIS](https://iis.net) oder [nginx](http://nginx.org) ausgeführt.
+Das ASP.NET Core-Hostmodell lauscht nicht direkt auf Anforderungen. Vielmehr verwendet es eine HTTP-Serverimplementierung, mit der die Anforderung an die Anwendung weitergeleitet wird. Die weitergeleitete Anforderung wird von Funktionsobjekten umschlossen, auf die Sie über Schnittstellen zugreifen können. Die Anwendung kombiniert diese Objekte zu einem `HttpContext`. ASP.NET Core enthält den verwalteten, plattformübergreifenden Webserver [Kestrel](xref:fundamentals/servers/kestrel). Kestrel wird in der Regel hinter einem Produktionswebserver wie [IIS](https://www.iis.net/) oder [nginx](http://nginx.org) ausgeführt.
 
 Weitere Informationen finden Sie unter [Server](xref:fundamentals/servers/index) und [Hosting](xref:fundamentals/hosting).
 

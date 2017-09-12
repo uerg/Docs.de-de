@@ -11,17 +11,17 @@ ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 4282e992ea80420181f9d7a2e3d6a55d6614c4de
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 128612eb2f7c6c8fdd0cc01f10b8e522df46dcf6
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Einführung in Styling Anwendungen mit einem niedrigeren Sass und Schriftart Awesome in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
-Benutzer des Webanwendungen haben zunehmend hohe Anforderungen an, wenn es darum geht, formatieren und allgemeine Erfahrung. Innovative Webanwendungen nutzen häufig umfangreiche Tools und Frameworks zum Definieren und verwalten ihre Aussehen und Verhalten konsistent. Frameworks wie [Bootstrap](http://getbootstrap.com/) verlaufen eine lange gegen einen gemeinsamen Satz von Formatvorlagen und Layoutoptionen für Websites zu definieren. Die meisten nicht-trivialen Standorte jedoch profitieren auch von wird effektiv definieren und Verwalten von Formaten und cascading Stylesheet (CSS)-Dateien können als auch einfachen Zugriff auf nicht-Image-Symbole, mit denen der Standort-Schnittstelle eine intuitivere verfügen. Sind Sprachen und Tools, die Unterstützung von [weniger](http://lesscss.org/) und [Sass](http://sass-lang.com/), und Bibliotheken wie [Schriftart Awesome](http://fortawesome.github.io/Font-Awesome/), sind in verschiedenen Größen.
+Benutzer des Webanwendungen haben zunehmend hohe Anforderungen an, wenn es darum geht, formatieren und allgemeine Erfahrung. Innovative Webanwendungen nutzen häufig umfangreiche Tools und Frameworks zum Definieren und verwalten ihre Aussehen und Verhalten konsistent. Frameworks wie [Bootstrap](http://getbootstrap.com/) verlaufen eine lange gegen einen gemeinsamen Satz von Formatvorlagen und Layoutoptionen für Websites zu definieren. Die meisten nicht-trivialen Standorte jedoch profitieren auch von wird effektiv definieren und Verwalten von Formaten und cascading Stylesheet (CSS)-Dateien können als auch einfachen Zugriff auf nicht-Image-Symbole, mit denen der Standort-Schnittstelle eine intuitivere verfügen. Sind Sprachen und Tools, die Unterstützung von [weniger](http://lesscss.org/) und [Sass](http://sass-lang.com/), und Bibliotheken wie [Schriftart Awesome](http://fontawesome.io/), sind in verschiedenen Größen.
 
 ## <a name="css-preprocessor-languages"></a>CSS-Präprozessor Sprachen
 

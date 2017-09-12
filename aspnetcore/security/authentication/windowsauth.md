@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 008a647295334e957c33c6db7f80687645b3b928
-ms.sourcegitcommit: 69b3255f8b6f5db9e7d21f391420602d7ba9f4db
+ms.openlocfilehash: aa401f956d74680efd3964203af3e8866b129887
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurieren der Windowsauthentifizierung in ASP.NET Core
 
@@ -27,7 +27,7 @@ Windows-Authentifizierung kann für ASP.NET Core-apps, die mit IIS oder WebListe
 
 Windows-Authentifizierung basiert auf dem Betriebssystem zur Authentifizierung von Benutzern von ASP.NET Core-apps. Sie können Windows-Authentifizierung verwenden, wenn Ihre Server in einem Unternehmensnetzwerk mithilfe von Active Directory-Domäne-Identitäten oder andere Windows-Konten zur Identifizierung von Benutzern ausgeführt wird. Windows-Authentifizierung ist eine sichere Form der Authentifizierung, die beste für Intranetumgebungen, in dem Benutzer, Clientanwendungen und Webservern auf derselben Windows-Domäne gehören, geeignet sind.
 
-[Weitere Informationen zu Windows-Authentifizierung und die Installation für IIS](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication).
+[Weitere Informationen zu Windows-Authentifizierung und die Installation für IIS](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
 
 ## <a name="enabling-windows-authentication-in-an-aspnet-core-application"></a>Aktivieren der Windows-Authentifizierung in einer ASP.NET Core-Anwendung
 
@@ -91,7 +91,7 @@ Mithilfe von Visual Studio oder die .NET Core-CLI *veröffentlichen* Ihrer app i
 
 ![Visual Studio, Dialogfeld "Veröffentlichen"](windowsauth/_static/vs-publish-app.png)
 
-Erfahren Sie mehr über [in IIS veröffentlichen](https://docs.microsoft.com/aspnet/core/publishing/iis).
+Erfahren Sie mehr über [in IIS veröffentlichen](xref:publishing/iis).
 
 Starten Sie die app aus, um sicherzustellen, dass die Windows-Authentifizierung funktionsfähig ist.
 

@@ -11,17 +11,17 @@ ms.assetid: 6c4e6591-45d2-4d25-855e-062ad352d648
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 44f21f380b994f46a8bb7368bca0cfc6e438ec4d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5d176515792045545add66ba5aedb0358d8bdc70
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Aufheben des Schutzes Nutzlasten, deren Schlüssel gesperrt wurden.
 
 <a name=data-protection-consumer-apis-dangerous-unprotect></a>
 
-Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Persistenz des vertraulichen Nutzlasten gedacht. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://technet.microsoft.com/library/jj585024.aspx) eignen sich besser auf das Szenario der unbegrenzten Speicher und Verwaltungsfunktionen für entsprechend starken haben. Dies bedeutet, dass keine verbietet einen Entwickler mithilfe der ASP.NET Core Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten. Schlüssel werden nie aus dem Ring Schlüssel entfernt, damit IDataProtector.Unprotect immer vorhandene Nutzlasten wiederherstellen können, solange die Schlüssel verfügbar und gültig sind.
+Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Persistenz des vertraulichen Nutzlasten gedacht. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://docs.microsoft.com/rights-management/) eignen sich besser auf das Szenario der unbegrenzten Speicher und Verwaltungsfunktionen für entsprechend starken haben. Dies bedeutet, dass keine verbietet einen Entwickler mithilfe der ASP.NET Core Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten. Schlüssel werden nie aus dem Ring Schlüssel entfernt, damit IDataProtector.Unprotect immer vorhandene Nutzlasten wiederherstellen können, solange die Schlüssel verfügbar und gültig sind.
 
 Allerdings tritt ein Problem auf, wenn der Entwickler beim Aufheben des Schutzes Daten, die mit einem gesperrten Schlüssel geschützt wurden, wie IDataProtector.Unprotect in diesem Fall eine Ausnahme auslöst, versucht. Dies kann gut für kurzlebige oder vorübergehender Nutzlasten (z. B.-Authentifizierungstoken) sein, wie diese Arten von Nutzlasten einfach vom System erstellt werden können, und im schlimmsten Fall der Besucher der Website möglicherweise erforderlich, um sich erneut anmelden. Aber für persistente Nutzlasten Unprotect lösen müssen kann zu Datenverlust nicht akzeptabel.
 

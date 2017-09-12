@@ -11,17 +11,17 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 <a name=fundamentals-configuration></a>
 
   # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [Markierung Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](http://ardalis.com), und [Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT), [Markierung Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), und [Daniel Roth](https://github.com/danroth27)
 
 Der Konfigurations-API bietet eine Möglichkeit zum Konfigurieren von einer app basierend auf eine Liste von Name / Wert-Paaren. Konfiguration wird zur Laufzeit aus mehreren Quellen gelesen werden. Die Name-Wert-Paare können in einer Hierarchie mit mehreren Ebenen gruppiert werden. Es gibt Konfigurationsanbieter für ein:
 
@@ -33,7 +33,7 @@ Der Konfigurations-API bietet eine Möglichkeit zum Konfigurieren von einer app 
 * [Azure Key Vault.](xref:security/key-vault-configuration)
 * Benutzerdefinierte Anbieter, die Sie installieren, oder erstellen
 
-Jede Konfigurationswert ordnet einen Zeichenfolgenschlüssel. Integrierte Bindung unterstützt beim Deserialisieren von Einstellungen in einer benutzerdefinierten [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) Objekt (eine einfache .NET Klasse mit Eigenschaften).
+Jede Konfigurationswert ordnet einen Zeichenfolgenschlüssel. Integrierte Bindung unterstützt beim Deserialisieren von Einstellungen in einer benutzerdefinierten [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) Objekt (eine einfache .NET Klasse mit Eigenschaften).
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
 
@@ -65,7 +65,7 @@ Das vorhergehende Beispiel verwendet den Indexer für die Konfiguration, um Wert
 
 Es ist üblich, verschiedene Konfigurationseinstellungen für unterschiedliche Umgebungen, z. B. Entwicklungs-, Test- und produktionsumgebung aufweisen. Die `CreateDefaultBuilder` Erweiterungsmethode in einer ASP.NET Core 2.x-app (oder mit `AddJsonFile` und `AddEnvironmentVariables` direkt in einer ASP.NET Core 1.x-app) Konfigurationsanbieter für das Lesen von JSON-Dateien und das System Konfigurationsquellen hinzugefügt:
 
-* *AppSettings.JSON*
+* *appsettings.json*
 * * "appSettings". \<EnvironmentName > JSON
 * Umgebungsvariablen
 
@@ -356,6 +356,6 @@ Ein *"Web.config"* Datei ist erforderlich, wenn Sie die app in IIS oder IIS Expr
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Arbeiten mit mehreren Umgebungen](environments.md)
-* [Sichere Speicherung von app-Kennwörter während der Entwicklung](../security/app-secrets.md)
+* [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](../security/app-secrets.md)
 * [Abhängigkeitsinjektion](dependency-injection.md)
 * [Azure Key Vault-Konfigurationsanbieter](xref:security/key-vault-configuration)

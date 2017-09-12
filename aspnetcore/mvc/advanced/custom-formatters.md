@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 792e007232c751d3db9dc5e50adbedfb2bb1a7ae
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Benutzerdefinierten Formatierer in ASP.NET Core MVC-Web-APIs
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC verfügt über integrierte Unterstützung für den Datenaustaus
 
 Verwenden Sie ein benutzerdefiniertes Formatierungsprogramm aus, wenn Sie möchten die [content-Aushandlung](xref:mvc/models/formatting) Prozess, um einen Inhaltstyp zu unterstützen, die von den integrierten Formatierungsprogrammen (JSON, XML und nur-Text) nicht unterstützt.
 
-Wenn einige Clients für Ihre Web-API verarbeiten kann z. B. die [Protobuf](https://github.com/google/protobuf) Format, sollten Sie die Protobuf mit diesen Clients zu verwenden, da sie effizienter ist.  Vielleicht möchten Sie Ihre Web-API zum Senden von Kontaktnamen und Adressen in [vCard](https://en.wikipedia.org/wiki/VCard) Format, eine häufig verwendete Format zum Austauschen von Daten. Die Beispiel-app, die mit diesem Artikel bereitgestellte implementiert einen einfachen vCard-Formatierer.
+Wenn einige Clients für Ihre Web-API verarbeiten kann z. B. die [Protobuf](https://github.com/google/protobuf) Format, sollten Sie die Protobuf mit diesen Clients zu verwenden, da sie effizienter ist.  Vielleicht möchten Sie Ihre Web-API zum Senden von Kontaktnamen und Adressen in [vCard](https://wikipedia.org/wiki/VCard) Format, eine häufig verwendete Format zum Austauschen von Daten. Die Beispiel-app, die mit diesem Artikel bereitgestellte implementiert einen einfachen vCard-Formatierer.
 
 ## <a name="overview-of-how-to-use-a-custom-formatter"></a>Übersicht darüber, wie ein benutzerdefiniertes Formatierungsprogramm verwenden
 

@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 4d9d3d863e62373716ecd81b9e1880145a127e9b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Verwenden IIS-Module mit ASP.NET Core
 
@@ -36,12 +36,12 @@ Modul | .NET Core aktiv | ASP.NET Core-Option
 **Standarddokument**<br>`DefaultDocumentModule` | Nein | [Standardmäßig Dateien Middleware](xref:fundamentals/static-files#serving-a-default-document)
 **Die Digest-Authentifizierung**<br>`DigestAuthenticationModule` | Ja | 
 **Verzeichnissuche**<br>`DirectoryListingModule` | Nein | [Verzeichnis durchsuchen Middleware](xref:fundamentals/static-files#enabling-directory-browsing)
-**Die dynamische Komprimierung**<br>`DynamicCompressionModule` | Ja | [Antwort Komprimierung Middleware](xref:performance/response-compression)
+**Die dynamische Komprimierung**<br>`DynamicCompressionModule` | Ja | [Antworten komprimierende Middleware](xref:performance/response-compression)
 **Ereignisablaufverfolgung**<br>`FailedRequestsTracingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging#the-tracesource-provider)
-**Zwischenspeicherung von Dateien**<br>`FileCacheModule` | Nein | [Antwort zwischenspeichern Middleware](xref:performance/caching/middleware)
-**HTTP-Caching**<br>`HttpCacheModule` | Nein | [Antwort zwischenspeichern Middleware](xref:performance/caching/middleware)
-**HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-framework-logging)
-**HTTP-Umleitung**<br>`HttpRedirectionModule` | Ja | [URL umschreiben Middleware](xref:fundamentals/url-rewriting)
+**Zwischenspeicherung von Dateien**<br>`FileCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+**HTTP-Caching**<br>`HttpCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+**HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+**HTTP-Umleitung**<br>`HttpRedirectionModule` | Ja | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting)
 **IIS-Clientzertifikatzuordnung-Authentifizierung**<br>`IISCertificateMappingAuthenticationModule` | Ja | 
 **IP- und Domäneneinschränkungen**<br>`IpRestrictionModule` | Ja | 
 **ISAPI-Filter**<br>`IsapiFilterModule` | Ja | [Middleware](xref:fundamentals/middleware)
@@ -49,9 +49,9 @@ Modul | .NET Core aktiv | ASP.NET Core-Option
 **Protokollunterstützung**<br>`ProtocolSupportModule` | Ja | 
 **Anforderungsfilterung**<br>`RequestFilteringModule` | Ja | [URL umschreiben Middleware`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **Anforderungsüberwachung**<br>`RequestMonitorModule` | Ja | 
-**URLs**<br>`RewriteModule` | Yes† | [URL umschreiben Middleware](xref:fundamentals/url-rewriting)
+**URLs**<br>`RewriteModule` | Yes† | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting)
 **Serverseitige Include-Dateien**<br>`ServerSideIncludeModule` | Nein | 
-**Komprimierung statischer**<br>`StaticCompressionModule` | Nein | [Antwort Komprimierung Middleware](xref:performance/response-compression)
+**Komprimierung statischer**<br>`StaticCompressionModule` | Nein | [Antworten komprimierende Middleware](xref:performance/response-compression)
 **Statischer Inhalt**<br>`StaticFileModule` | Nein | [Middleware für statische Dateien](xref:fundamentals/static-files)
 **Das Zwischenspeichern von Token**<br>`TokenCacheModule` | Ja | 
 **URI-Cache**<br>`UriCacheModule` | Ja | 
@@ -67,13 +67,13 @@ AnonymousIdentification | Nein |
 DefaultAuthentication | Nein | 
 FileAuthorization | Nein | 
 FormsAuthentication | Nein | [Cookie-authentifizierungsmiddleware beziehen.](xref:security/authentication/cookie)
-OutputCache | Nein | [Antwort zwischenspeichern Middleware](xref:performance/caching/middleware)
+OutputCache | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
 Profile | Nein | 
 RoleManager | Nein | 
 ScriptModule 4.0 | Nein | 
 Sitzung | Nein | [Sitzung Middleware](xref:fundamentals/app-state)
 Dateiautorisierung | Nein | 
-UrlMappingsModule | Nein | [URL umschreiben Middleware](xref:fundamentals/url-rewriting)
+UrlMappingsModule | Nein | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting)
 4.0-UrlRoutingModule fest | Nein | [ASP.NET Core Identität](xref:security/authentication/identity)
 WindowsAuthentication | Nein | 
 
@@ -84,7 +84,7 @@ Wenn Sie IIS-Manager verwenden, um Einstellungen zu konfigurieren, ändern Sie d
 Ein IIS-Modul, das auf Serverebene, die Sie, deaktivieren Sie für eine Anwendung möchten konfiguriert haben, können Sie dies tun, mit der eine Ergänzung der *"Web.config"* Datei. Belassen Sie das Modul vorhanden und deaktivieren Sie es über eine Konfigurationseinstellung (falls verfügbar) oder entfernen Sie das Modul aus der app.
 
 ### <a name="module-deactivation"></a>Deaktivierung des Moduls
-Viele Module bieten eine Konfigurationseinstellung, die sie deaktivieren, ohne sie aus der Anwendung entfernt werden kann. Dies ist die einfachste und schnellste Möglichkeit, ein Modul zu deaktivieren. Angenommen, Sie verwenden möchten, deaktivieren das IIS URL Rewrite-Modul, verwenden die `<httpRedirect>` -Element wie unten dargestellt. Weitere Informationen zu Modulen mit Konfigurationseinstellungen zu deaktivieren, führen Sie die Links in der *Unterelemente* Abschnitt [IIS `<system.webServer>` ](https://www.iis.net/configreference/system.webserver).
+Viele Module bieten eine Konfigurationseinstellung, die sie deaktivieren, ohne sie aus der Anwendung entfernt werden kann. Dies ist die einfachste und schnellste Möglichkeit, ein Modul zu deaktivieren. Angenommen, Sie verwenden möchten, deaktivieren das IIS URL Rewrite-Modul, verwenden die `<httpRedirect>` -Element wie unten dargestellt. Weitere Informationen zu Modulen mit Konfigurationseinstellungen zu deaktivieren, führen Sie die Links in der *Unterelemente* Abschnitt [IIS `<system.webServer>` ](https://docs.microsoft.com/iis/configuration/system.webServer/).
 
 ```xml
 <configuration>
@@ -150,6 +150,6 @@ Nur Module zum Ausführen einer Anwendung ASP.NET Core erforderlich sind anonyme
 
 ## <a name="resources"></a>Ressourcen
 * [Veröffentlichen in IIS](xref:publishing/iis)
-* [Übersicht über die IIS-Module](https://www.iis.net/learn/get-started/introduction-to-iis/iis-modules-overview)
+* [Übersicht über die IIS-Module](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Anpassen von IIS 7.0-Rollen und Module](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS`<system.webServer>`](https://www.iis.net/configreference/system.webserver)
+* [IIS`<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)

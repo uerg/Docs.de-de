@@ -11,15 +11,15 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: d5b2bd0200082000aeaf8015cfff9c8c1ec1bdd9
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 Controller in ASP.NET MVC-apps sollte klein und konzentriert sich auf die Benutzeroberfläche Bedenken. Große Controller, die mit nicht-UI-Aspekte sind schwieriger zu testen und zu verwalten.
 
@@ -47,7 +47,7 @@ Typische Controller Verantwortungsbereiche:
 Wenn Sie benutzerdefinierte Filter, Routen usw. schreiben, sollten Sie den Komponententest werden, jedoch nicht als Teil Ihrer Tests auf einer bestimmten Controlleraktion. Sie sollten in Isolation getestet werden.
 
 > [!TIP]
-> [Erstellen und Ausführen von Komponententests mit Visual Studio](https://www.visualstudio.com/get-started/code/create-and-run-unit-tests-vs).
+> [Erstellen und Ausführen von Komponententests mit Visual Studio](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs).
 
 Um Komponententests zu demonstrieren, überprüfen Sie die folgenden Controller aus. Es zeigt eine Liste von Sitzungen brainstorming an und ermöglicht neue brainstorming Sitzungen, die mit einer POST-Anforderung erstellt werden:
 

@@ -11,18 +11,18 @@ ms.assetid: 94f2f1a4-7d46-45e2-a085-a57916e41724
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/https
-ms.openlocfilehash: e06f4194d496b5b11aa867e66563bec317e735ff
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7c366ffbac71152c2f29901ff12bac2962e83e3e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="setting-up-https-for-development-in-aspnet-core"></a>Einrichten der HTTPS-Entwicklung in ASP.NET Core
 
 > [!NOTE] 
 > Dieses Thema gilt für ASP.NET Core 2.0 Preview 1
 
-Sie können Ihre Anwendung zum Verwenden von HTTPS zu HTTPS in Ihrer produktionsumgebung simulieren während der Entwicklung konfigurieren. Aktivieren von HTTPS möglicherweise zum Aktivieren der Integration verschiedener Identitätsanbieter erforderlich (z. B. [Azure AD](https://azure.microsoft.com/services/active-directory) und [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c)).
+Sie können Ihre Anwendung zum Verwenden von HTTPS zu HTTPS in Ihrer produktionsumgebung simulieren während der Entwicklung konfigurieren. Aktivieren von HTTPS möglicherweise zum Aktivieren der Integration verschiedener Identitätsanbieter erforderlich (z. B. [Azure AD](https://azure.microsoft.com/services/active-directory) und [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)).
 
 <a name="iisxpress"></a>
 

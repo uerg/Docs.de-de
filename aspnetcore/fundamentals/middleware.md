@@ -11,17 +11,17 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 84c357ebbf28dffc4382f6c648921210e72ac854
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 80e27c94b3c60a181c45f8e006126a7e7dd3d425
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
 <a name=fundamentals-middleware></a>
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](http://ardalis.com)
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](https://ardalis.com/)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
 
@@ -173,7 +173,7 @@ ASP.NET Core umfasst die folgenden Middleware-Komponenten:
 | [Routing](xref:fundamentals/routing) | Definiert, und schränkt die Routen der Anforderung. |
 | [Sitzung](xref:fundamentals/app-state) | Bietet Unterstützung für die Verwaltung von benutzersitzungen. |
 | [Statische Dateien](xref:fundamentals/static-files) | Bietet Unterstützung für statische Dateien und die Verzeichnissuche bedient. |
-| [URL umschreiben Middleware](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. |
+| [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. |
 
 <a name=middleware-writing-middleware></a>
 
@@ -228,6 +228,6 @@ public class MyMiddleware
 ## <a name="resources"></a>Ressourcen
 
 * [Beispielcode, der in diesem Dokument verwendet wird.](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
-* [Migrieren von HTTP-Module auf authentifizierungsmiddleware beziehen.](../migration/http-modules.md)
+* [Migrating HTTP Modules to Middleware (Migration von HTTP-Modulen zu Middleware)](../migration/http-modules.md)
 * [Application Startup (Starten von Anwendungen)](startup.md)
-* [Anfordern von Funktionen](request-features.md)
+* [Erforderliche Funktionen](request-features.md)

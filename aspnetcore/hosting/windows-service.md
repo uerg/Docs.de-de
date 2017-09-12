@@ -11,17 +11,17 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 1b3cdc18ded89ebdf7b7afa9f43af9669748eff4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 33a4eca48a04f9b29c60a446f4191d39d21e7e7d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hosten Sie eine ASP.NET Core-app in einem Windowsdienst
 
 Durch [Tom Dykstra](https://github.com/tdykstra)
 
-Die empfohlene Methode zum Hosten einer ASP.NET Core-app unter Windows bei Verwendung von IIS nicht ist, führen Sie es in einem [Windowsdienst](https://msdn.microsoft.com/library/d56de412). Auf diese Weise können sie automatisch nach Neustarts und Abstürzen, starten, ohne sich im Wartezustand.
+Die empfohlene Methode zum Hosten einer ASP.NET Core-app unter Windows bei Verwendung von IIS nicht ist, führen Sie es in einem [Windowsdienst](https://docs.microsoft.com/dotnet/framework/windows-services/introduction-to-windows-service-applications). Auf diese Weise können sie automatisch nach Neustarts und Abstürzen, starten, ohne sich im Wartezustand.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample) finden Sie unter der [Arbeitsschritte](#next-steps) Abschnitt Anleitungen für die Ausführung.
 
@@ -33,7 +33,7 @@ Die empfohlene Methode zum Hosten einer ASP.NET Core-app unter Windows bei Verwe
 
   Verwenden Sie beim Erstellen eines Projekts in Visual Studio die **Core ASP.NET-Anwendung ((.NET Framework)** Vorlage.
 
-* Wenn die app aus dem Internet (nicht nur über ein internes Netzwerk) die Anforderungen erhalten werden, verwenden sie die [WebListener](xref:fundamentals/servers/weblistener) Webserver statt [Kestrel](xref:fundamentals/servers/kestrel).  Kestrel muss mit IIS für Edge-Bereitstellungen verwendet werden.  Weitere Informationen finden Sie unter [Kestrel mit Reverseproxy verwenden](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+* Wenn die app aus dem Internet (nicht nur über ein internes Netzwerk) die Anforderungen erhalten werden, verwenden sie die [WebListener](xref:fundamentals/servers/weblistener) Webserver statt [Kestrel](xref:fundamentals/servers/kestrel).  Kestrel muss mit IIS für Edge-Bereitstellungen verwendet werden.  Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 ## <a name="getting-started"></a>Erste Schritte
 
@@ -121,5 +121,5 @@ Wenn die app nicht wie erwartet, bei der Ausführung in einem Dienst gestartet, 
 
 In diesem Artikel wurde mit Hilfe von Quellen geschrieben, die bereits veröffentlicht wurden. Das früheste und besonders hilfreich, diese wurden diese:
 
-* [Hosten von ASP.NET Core als Windows-Dienst](http://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074#37464074)
-* [Wie Ihre ASP.NET Core in einem Windows-Dienst gehostet wird.](http://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+* [Hosten von ASP.NET Core als Windows-Dienst](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
+* [Wie Ihre ASP.NET Core in einem Windows-Dienst gehostet wird.](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)

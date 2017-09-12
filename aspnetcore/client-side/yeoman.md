@@ -11,11 +11,11 @@ ms.assetid: fda0c2a8-1743-4505-be1a-7f8ceeef8647
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/yeoman
-ms.openlocfilehash: 3a7cd83becc570d2f73014b356977fedb16f29bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 61561b55774faf375090c92b574a64f1a12f9647
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-building-projects-with-yeoman-in-aspnet-core"></a>Einführung in das Erstellen von Projekten mit Yeoman in ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
-Node.js und Npm sind für Yeoman erforderlich. Herunterladen von [Node.js](https://nodejs.org/en/). Der Installer umfasst [Node.js](https://nodejs.org/en/) und [Npm](https://www.npmjs.com/). Bower ist auch für die Installation von Benutzeroberflächen-Frameworks wie Bootstrap erforderlich.
+Node.js und Npm sind für Yeoman erforderlich. Herunterladen von [Node.js](https://nodejs.org/). Der Installer umfasst [Node.js](https://nodejs.org/) und [Npm](https://www.npmjs.com/). Bower ist auch für die Installation von Benutzeroberflächen-Frameworks wie Bootstrap erforderlich.
 
 Führen Sie zum Installieren von Yeoman oder Bower den folgenden Befehl ein:
 
@@ -135,7 +135,7 @@ Die plattformübergreifenden [Kestrel](xref:fundamentals/servers/kestrel) Webser
 
 ## <a name="adding-to-your-project-with-sub-generators"></a>Hinzufügen zu Ihrem Projekt mit Sub-Generatoren
 
-Mit Yeoman [sub-Generatoren](https://www.github.com/omnisharp/generator-aspnet#sub-generators), können Sie entweder Hinzufügen einer `nuget.config` oder ein `web.config` nachdem das Projekt erstellt wird. Führen Sie beispielsweise den folgenden Befehl aus dem Verzeichnis, in dem die Datei erstellt werden soll:
+Mit Yeoman [sub-Generatoren](https://github.com/omnisharp/generator-aspnet), können Sie entweder Hinzufügen einer `nuget.config` oder ein `web.config` nachdem das Projekt erstellt wird. Führen Sie beispielsweise den folgenden Befehl aus dem Verzeichnis, in dem die Datei erstellt werden soll:
 
 ```console
 yo aspnet:nugetconfig

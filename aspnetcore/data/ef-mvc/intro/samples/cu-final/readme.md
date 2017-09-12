@@ -4,7 +4,7 @@ Contoso University veranschaulicht, wie Entity Framework Core in einer ASP.NET C
 
 ## <a name="build-it-from-scratch"></a>Erstellen Sie sie von Grund auf neu
 
-Sie können die Anwendung erstellen, indem Sie die Schritte in [eine Reihe von Lernprogrammen](https://docs.asp.net/en/latest/data/ef-mvc/intro.html).
+Sie können die Anwendung erstellen, indem Sie die Schritte in [eine Reihe von Lernprogrammen](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro).
 
 ## <a name="download-it"></a>Hier herunterladen:
 

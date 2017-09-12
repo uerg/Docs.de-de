@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 810d89798330aeb1c387ec85eb05b1f4efde167a
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>Bundling und Minimierung in ASP.NET Core
 
@@ -91,8 +91,8 @@ Bundle-Optionen:
 * verkleinernde - Minimierung von Optionen für die Ausgabe zu geben. **optionale**, *Standard:`minify: { enabled: true }`*
   * Konfigurationsoptionen sind pro Datei Ausgabetyp verfügbar.
     * [CSS-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/jsminifier)
-    * [HTML-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/htmlminifier)
+    * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
 * IncludeInProject - generierte Dateien zur Projektdatei hinzufügen. **optionale**, *Standard - "false"*
 * SourceMaps - Quelle Zuordnungen für die gebündelte Datei zu generieren. **optionale**, *Standard - "false"*
 
@@ -106,7 +106,7 @@ Wählen Sie die Ansicht Erweiterungen, und Installieren der **Bundle & Minifier*
 
 ![Vorschlag BuildBundlerMinifier-Erweiterung](../client-side/bundling-and-minification/_static/view-extension.png)
 
-Wenn der Neustart abgeschlossen ist, müssen Sie den Build zum Ausführen der Prozesse weboptimierungsframework und bündeln die clientseitigen Objekte zu konfigurieren. Mit der rechten Maustaste die `bundleconfig.json` Datei, und wählen Sie *Enable-Paket beim Erstellen...* .
+Wenn der Neustart abgeschlossen ist, müssen Sie den Build zum Ausführen der Prozesse weboptimierungsframework und bündeln die clientseitigen Objekte zu konfigurieren. Mit der rechten Maustaste die `bundleconfig.json` Datei, und wählen Sie *Enable-Paket beim Erstellen... *.
 
 Erstellen Sie das Projekt, und die `bundleconfig.json` in den Buildprozess erzeugen die Ausgabedateien auf Basis der Konfiguration enthalten ist.
 
@@ -202,7 +202,7 @@ Wenn Ihre app Bündelung und Minimierung Workflow zusätzliche Prozesse wie das 
 > [!NOTE]
 > Konvertierungsoption ist nur in Visual Studio 2015 und 2017 verfügbar.
 
-Mit der rechten Maustaste die `bundleconfig.json` , und wählen Sie **in Gulp konvertieren...** . Dadurch wird die `gulpfile.js` und Installieren der erforderlichen Npm-Pakete.
+Mit der rechten Maustaste die `bundleconfig.json` , und wählen Sie **in Gulp konvertieren... **. Dadurch wird die `gulpfile.js` und Installieren der erforderlichen Npm-Pakete.
 
 ![Konvertieren in Gulp](../client-side/bundling-and-minification/_static/convert-togulp.png)
 
@@ -231,4 +231,4 @@ Fügen Sie Folgendes, um Gulp zu aktivieren, wenn das Projekt in Visual Studio 2
 * [Verwenden von Gulp](using-gulp.md)
 * [Verwenden von Grunt](using-grunt.md)
 * [Arbeiten mit mehreren Umgebungen](../fundamentals/environments.md)
-* [Tag-Hilfsprogramme](../mvc/views/tag-helpers/index.md)
+* [Tag Helpers (Taghilfsprogramme)](../mvc/views/tag-helpers/index.md)

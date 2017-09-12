@@ -11,15 +11,15 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 98756e2c5b336aabcf5155d929160b616baaf2ee
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
-Durch [Ryan Nowak](https://github.com/rynowak), [Steve Smith](http://ardalis.com), und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Durch [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Routingfunktion ist verantwortlich für die Zuordnung einer eingehenden Anforderungs an eine Routenhandler. Routen werden in der ASP.NET app definiert und konfiguriert, wenn die app wird gestartet. Eine Route kann optional Extrahieren von Werten aus der URL, die in der Anforderung enthalten sind, und diese Werte können dann für die anforderungsverarbeitung verwendet werden. Mit Routeninformationen zur aus der ASP.NET app ist die Routingfunktion auch zum Generieren von URLs, die Routenhandler zuordnen können. Aus diesem Grund kann routing eine Routenhandler basierend auf einer URL oder einen bestimmten Routenhandler basierend auf Routeninformationen-Handler entsprechende URL gefunden werden.
 
@@ -325,9 +325,9 @@ Die folgende Tabelle enthält einige routeneinschränkungen und des erwarteten V
 
 ## <a name="regular-expressions"></a>Reguläre Ausdrücke 
 
-Fügt das Framework ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` an den Konstruktor für reguläre Ausdrücke. Finden Sie unter [RegexOptions-Enumeration](https://msdn.microsoft.com/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx) eine Beschreibung dieser Member.
+Fügt das Framework ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` an den Konstruktor für reguläre Ausdrücke. Finden Sie unter [RegexOptions-Enumeration](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) eine Beschreibung dieser Member.
 
-Verwendung von regulären Ausdrücken, Trennzeichen und Token von Routing und die Programmiersprache c# ähnelt. Reguläre Ausdrücke Token müssen mit Escapezeichen versehen werden. Beispielsweise, um den regulären Ausdruck verwenden `^\d{3}-\d{2}-\d{4}$` im Routing, es erfordert das `\` Zeichen eingegeben als `\\` in der C#-Quelldatei als Escapesequenz für die `\` string Escape-Zeichen (außer bei [wörtliche Zeichenfolgenliterale](https://msdn.microsoft.com/library/aa691090(v=vs.71).aspx)). Die `{` , `}` , ' [' und ']' Zeichen mit Escapezeichen versehen werden, indem verdoppelt, um die Begrenzungszeichen der Routing-Parameter mit Escapezeichen versehen werden müssen.  Die folgende Tabelle zeigt einen regulären Ausdruck und die mit Escapezeichen versehene Version.
+Verwendung von regulären Ausdrücken, Trennzeichen und Token von Routing und die Programmiersprache c# ähnelt. Reguläre Ausdrücke Token müssen mit Escapezeichen versehen werden. Beispielsweise, um den regulären Ausdruck verwenden `^\d{3}-\d{2}-\d{4}$` im Routing, es erfordert das `\` Zeichen eingegeben als `\\` in der C#-Quelldatei als Escapesequenz für die `\` string Escape-Zeichen (außer bei [wörtliche Zeichenfolgenliterale](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Die `{` , `}` , ' [' und ']' Zeichen mit Escapezeichen versehen werden, indem verdoppelt, um die Begrenzungszeichen der Routing-Parameter mit Escapezeichen versehen werden müssen.  Die folgende Tabelle zeigt einen regulären Ausdruck und die mit Escapezeichen versehene Version.
 
 | Ausdruck               | Hinweis |
 | ----------------- | ------------ | 
@@ -347,7 +347,7 @@ Reguläre Ausdrücke, die beim routing verwendet häufig beginnt mit der `^` Zei
 | `^[a-z]{2}$` |  hello | Nein | finden Sie unter `^` und `$` oben |
 | `^[a-z]{2}$` |  123abc456 | Nein | finden Sie unter `^` und `$` oben |
 
-Verweisen auf [reguläre Ausdrücke von .NET Framework](https://msdn.microsoft.com/library/hs600312(v=vs.110).aspx) für Weitere Informationen zu Syntax regulärer Ausdrücke.
+Verweisen auf [reguläre Ausdrücke von .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) für Weitere Informationen zu Syntax regulärer Ausdrücke.
 
 Verwenden Sie einen regulären Ausdruck, um einen Parameter mit einem bekannten Satz möglicher Werte zu beschränken. Z. B. `{action:regex(^(list|get|create)$)}` nur entspricht der `action` weiterleiten Wert `list`, `get`, oder `create`. Wenn übergebene Einschränkungen Wörterbuch vorhanden ist, die Zeichenfolge "^ (Liste | Get | erstellen) $" entspräche. Einschränkungen, die im Wörterbuch Einschränkungen (nicht Inline in einer Vorlage) übergeben werden, die eine der bekannten Einschränkungen nicht übereinstimmen, werden ebenfalls als reguläre Ausdrücke behandelt.
 

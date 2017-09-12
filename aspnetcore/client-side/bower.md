@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 409f7afba8dd7d03b7b9aa27d93ec9167252b965
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: f5d208072f55d78de6ec8c238ebbe723cc0ec598
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel Reis](http://blog.falafel.com/author/noel-rice/), und [Scott Addie](https://scottaddie.com) 
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel Reis](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), und [Scott Addie](https://scottaddie.com) 
 
-[Bower](https://bower.io/) ruft sich selbst "Eine Paketmanager für das Web." Innerhalb der Umgebung .NET füllt die "void", um NuGet Funktion zum Übermitteln von Dateien mit statischer Inhalt nach links. Für ASP.NET Core, sind dies statischen Dateien clientseitige Bibliotheken wie inhärenten [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/). Für die .NET-Bibliotheken, verwenden Sie immer noch [NuGet](https://nuget.org/) Paket-Manager.
+[Bower](https://bower.io/) ruft sich selbst "Eine Paketmanager für das Web." Innerhalb der Umgebung .NET füllt die "void", um NuGet Funktion zum Übermitteln von Dateien mit statischer Inhalt nach links. Für ASP.NET Core, sind dies statischen Dateien clientseitige Bibliotheken wie inhärenten [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/). Für die .NET-Bibliotheken, verwenden Sie immer noch [NuGet](https://www.nuget.org/) Paket-Manager.
 
 Prozess zur Erstellung neuer Projekte, die mit den richten Sie die clientseitige ASP.NET Core-Projektvorlagen erstellt. [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/) installiert sind, und Bower wird unterstützt.
 
@@ -36,7 +36,7 @@ In diesem Lernprogramm fügen wir Unterstützung für [Schriftart Awesome](http:
 
 * Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **Bower-Pakete verwalten** (Alternativ im Hauptmenü **Projekt** > **Bower-Pakete verwalten**).
 
-* In der **Bower: \<Projektname\>**  , klicken Sie auf der Registerkarte "Durchsuchen", und klicken Sie dann die Pakete durch Eingabe Filterliste `font-awesome` in das Suchfeld:
+* In der **Bower: \<Projektname\> ** , klicken Sie auf der Registerkarte "Durchsuchen", und klicken Sie dann die Pakete durch Eingabe Filterliste `font-awesome` in das Suchfeld:
 
  ![Bower-Pakete verwalten](bower/_static/manage-bower-packages.png)
 

@@ -11,15 +11,15 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 5e41920c9745f903d33fa25922727e920c1efc26
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>Arbeiten mit mehreren Umgebungen
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core bietet Unterstützung für das Steuern des Verhaltens der app über mehrere Umgebungen, wie z. B. Entwicklungs-, Staging- und produktionsumgebungen. Umgebungsvariablen werden verwendet, um anzugeben, die Common Language Runtime-Umgebung ermöglicht es der app für die Umgebung konfiguriert werden.
 
@@ -27,7 +27,7 @@ ASP.NET Core bietet Unterstützung für das Steuern des Verhaltens der app über
 
 ## <a name="development-staging-production"></a>Entwicklung, Bereitstellung, Produktion
 
-ASP.NET Core verweist auf ein bestimmtes [Umgebungsvariable](https://github.com/aspnet/Home/wiki/Environment-Variables), `ASPNETCORE_ENVIRONMENT` die Umgebung beschreiben Sie die Anwendung im derzeit ausgeführt wird. Diese Variable kann festgelegt werden, auf einen beliebigen Wert gewünscht jedoch drei Werte werden gemäß der Konvention verwendet: `Development`, `Staging`, und `Production`. Finden Sie diese in den Beispielen verwendeten Werte und die Vorlagen mit ASP.NET Core bereitgestellt.
+ASP.NET Core verweist auf ein bestimmtes [Umgebungsvariable](https://github.com/aspnet/Home/wiki), `ASPNETCORE_ENVIRONMENT` die Umgebung beschreiben Sie die Anwendung im derzeit ausgeführt wird. Diese Variable kann festgelegt werden, auf einen beliebigen Wert gewünscht jedoch drei Werte werden gemäß der Konvention verwendet: `Development`, `Staging`, und `Production`. Finden Sie diese in den Beispielen verwendeten Werte und die Vorlagen mit ASP.NET Core bereitgestellt.
 
 Die aktuelle umgebungseinstellung kann programmgesteuert aus innerhalb der Anwendung erkannt werden. Darüber hinaus können Sie die Umgebung [tag Helper](../mvc/views/tag-helpers/index.md) auf bestimmte Abschnitte enthalten die [Ansicht](../mvc/views/index.md) basierend auf der aktuellen Umgebung der Anwendung.
 

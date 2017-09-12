@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: a676b695160b7219bd13f3915e291b722eef47c8
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 44fc8bd647ad869dd029d8ca4ced782962d71020
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -98,7 +98,7 @@ Während der *app_offline.htm* Datei vorhanden ist, das ASP.NET Core-Modul wird 
 
 ## <a name="start-up-error-page"></a>Start-Fehler (Seite)
 
-Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess oder dem Back-End-Prozess gestartet wird, aber ein Fehler auftritt, am konfigurierten Port lauschen, sehen Sie eine 502.5 http-Status-Codepage. Verwenden Sie zum Unterdrücken der auf dieser Seite, und stellen Sie die Standardcodepage für IIS 502 Status wieder her, die `disableStartUpErrorPage` Attribut. Weitere Informationen zum Konfigurieren von benutzerdefinierten Fehlermeldungen finden Sie unter [HTTP-Fehler `<httpErrors>` ](https://www.iis.net/configreference/system.webserver/httperrors).
+Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess oder dem Back-End-Prozess gestartet wird, aber ein Fehler auftritt, am konfigurierten Port lauschen, sehen Sie eine 502.5 http-Status-Codepage. Verwenden Sie zum Unterdrücken der auf dieser Seite, und stellen Sie die Standardcodepage für IIS 502 Status wieder her, die `disableStartUpErrorPage` Attribut. Weitere Informationen zum Konfigurieren von benutzerdefinierten Fehlermeldungen finden Sie unter [HTTP-Fehler `<httpErrors>` ](https://docs.microsoft.com/iis/configuration/system.webServer/httpErrors/).
 
 ![502-Statusseite](aspnet-core-module/_static/ANCM-502_5.png)
 
@@ -106,7 +106,7 @@ Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess od
 
 ASP.NET Core-Modul leitet `stdout` und `stderr` Protokolle auf den Datenträger, wenn Sie festlegen, die `stdoutLogEnabled` und `stdoutLogFile` Attribute der `aspNetCore` Element. Alle Ordner in der `stdoutLogFile` Pfad muss vorhanden sein, in der Reihenfolge für das Modul zum Erstellen der Protokolldatei. Eine Timestamp-Werte und Datei-Erweiterung wird automatisch hinzugefügt werden, wenn die Protokolldatei erstellt wird. Protokolle werden nicht gedreht, es sei denn, der Prozess wiederverwendet/Neustart stattfindet. Es ist die Zuständigkeit für den Hoster den Speicherplatz zu begrenzen, die, den die Protokolle zu nutzen. Mithilfe der `stdout` Protokoll wird nur empfohlen, für die Fehlerbehebung bei Startproblemen Anwendung und nicht für allgemeine Anwendung Protokollieren von Zwecken.
 
-Name der Protokolldatei besteht durch die Prozess-ID (PID), Zeitstempel anfügen (*YyyyMdhms*), und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout"* ) getrennt durch Unterstriche enthalten. Z. B. wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokolls für eine Anwendung mit einem PID des 10652 am 8/10/2017 um 12:05:02 erstellt wurde, wurde der Dateiname *stdout_10652_20178101252.log*.
+Name der Protokolldatei besteht durch die Prozess-ID (PID), Zeitstempel anfügen (*YyyyMdhms*), und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout" *) getrennt durch Unterstriche enthalten. Z. B. wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokolls für eine Anwendung mit einem PID des 10652 am 8/10/2017 um 12:05:02 erstellt wurde, wurde der Dateiname *stdout_10652_20178101252.log*.
 
 Hier ist ein Beispiel für `aspNetCore` Element, konfiguriert `stdout` Protokollierung. Die `stdoutLogFile` Pfad angezeigt, die im Beispiel eignet sich für die Azure App Service. Ein lokaler Pfad oder Netzwerkfreigabepfad ist akzeptabel, für die lokale Anmeldung. Vergewissern Sie sich, dass die Identität des AppPool-Benutzers über die Berechtigung zum Schreiben in den angegebenen Pfad verfügt.
 
@@ -120,7 +120,7 @@ Hier ist ein Beispiel für `aspNetCore` Element, konfiguriert `stdout` Protokoll
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET Core-Modul mit einer IIS freigegebene Konfiguration
 
-Das Installationsprogramm von ASP.NET Core ausgeführt wird, mit den Berechtigungen des der **SYSTEM** Konto. Da das lokale Systemkonto haben ändert nicht die Berechtigung für den Pfad der Bibliotheksfreigabe der von der IIS-Freigabekonfiguration verwendet wird, wird das Installationsprogramm "Zugriff verweigert" Fehler beim Konfigurieren der moduleinstellungen in erreicht  *Datei "applicationHost.config"* auf die Freigabe.
+Das Installationsprogramm von ASP.NET Core ausgeführt wird, mit den Berechtigungen des der **SYSTEM** Konto. Da das lokale Systemkonto haben ändert nicht die Berechtigung für den Pfad der Bibliotheksfreigabe der von der IIS-Freigabekonfiguration verwendet wird, wird das Installationsprogramm "Zugriff verweigert" Fehler beim Konfigurieren der moduleinstellungen in erreicht * Datei "applicationHost.config"* auf die Freigabe.
 
 Nicht unterstützte behelfslösung ist das IIS-Freigabekonfiguration deaktivieren, führen Sie das Installationsprogramm, exportieren Sie die aktualisierte *"applicationHost.config"* auf die Freigabe der Datei und die IIS-Freigabekonfiguration erneut zu aktivieren.
 

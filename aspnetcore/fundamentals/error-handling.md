@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5898892c63e978adfabf9939394fef4ea1848d49
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 96a4fed19887a7a9eba08ec70296147f22e41569
+ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Einführung in die Error Handling in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com) und [Tom Dykstra](https://github.com/tdykstra/)
+Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
 
 Dieser Artikel behandelt allgemeine Appoaches zum Behandeln von Fehlern in ASP.NET Core-apps.
 
@@ -111,13 +111,13 @@ Bedenken Sie außerdem, nachdem die Header für eine Antwort gesendet wurden, St
 
 ## <a name="server-exception-handling"></a>Server-Ausnahmebehandlung
 
-Zusätzlich zu der Logik in Ihrer app für die Ausnahmebehandlung der [Server](servers/index.md) hosten Ihre app führt einige Ausnahmebehandlung. Wenn der Server eine Ausnahme abgefangen wird, vor dem Senden der Header wird eine 500 Internal Server Error Antwort ohne Text gesendet. Wenn sie eine Ausnahme abfängt, nachdem die Header gesendet wurden, wird die Verbindung geschlossen. Anforderungen, die von Ihrer Anwendung nicht verarbeitet werden vom Server verarbeitet werden, und jede Ausnahme, die auftritt, wird verarbeitet werden, durch den Server-Ausnahme behandeln. Eine beliebige benutzerdefinierte Fehlerseiten oder Ausnahmebehandlung Middleware oder Filter, die Sie für Ihre app konfiguriert haben, wirkt sich nicht auf dieses Verhalten aus.
+Zusätzlich zu der Logik in Ihrer app für die Ausnahmebehandlung der [Server](servers/index.md) hosten Ihre app führt einige Ausnahmebehandlung. Wenn der Server eine Ausnahme abfängt, bevor die Header gesendet werden, sendet der Server eine 500 Internal Server Error Antwort ohne Text an. Wenn der Server eine Ausnahme abfängt, nachdem die Header gesendet wurden, schließt der Server die Verbindung an. Vom Server werden Anforderungen, die von Ihrer Anwendung behandelt werden nicht behandelt. Jede Ausnahme, die auftritt, erfolgt durch den Server-Ausnahme behandeln. Eine benutzerdefinierte Fehlerseiten konfiguriert oder Ausnahmebehandlung Middleware oder Filter wirken sich nicht auf dieses Verhalten.
 
 ## <a name="startup-exception-handling"></a>Start-Ausnahmebehandlung
 
-Nur der Hostebene kann Ausnahmen behandeln, die während des Starts der app erfolgen. Ausnahmen, die während des Starts der Anwendung auftreten können Serververhalten auswirken. Wenn eine Ausnahme tritt auf, bevor Sie aufrufen, z. B. `KestrelServerOptions.UseHttps`, die Hostebene fängt die Ausnahme ab, wird der Server gestartet und zeigt eine Fehlerseite für den nicht-SSL-Port. Wenn eine Ausnahme tritt auf, nachdem diese Zeile ausgeführt wird, wird die Fehlerseite über HTTPS bereitgestellt.
+Nur der Hostebene kann Ausnahmen behandeln, die während des Starts der app erfolgen. Sie können [konfigurieren, wie der Host als Antwort auf Fehler während des Starts verhält](hosting.md#detailed-errors) mit `captureStartupErrors` und die `detailedErrors` Schlüssel.
 
-Sie können [konfigurieren, wie der Host als Antwort auf Fehler während des Starts verhält,](hosting.md#configuring-a-host) mit `CaptureStartupErrors` und `detailedErrors` Schlüssel.
+Hosting kann nur anzeigen eine Fehlerseite für den erfassten beim Start ein Fehler tritt der Fehler auf, nachdem der Host-Adresse/Port Bindung. Wenn eine Bindung aus irgendeinem Grund fehlschlägt, die Hostebene meldet eine kritische Ausnahme, die Dotnet Prozessabstürzen, und keine Fehler angezeigt wird.
 
 ## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC-Fehlerbehandlung
 

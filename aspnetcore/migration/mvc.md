@@ -11,15 +11,15 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: ccdceed927d90a1f3201be9d9f92ebb4f2f66e66
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](http://ardalis.com), und [Scott Addie](https://scottaddie.com)
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), und [Scott Addie](https://scottaddie.com)
 
 In diesem Artikel wird gezeigt, wie für den Einstieg in die Migration von einer ASP.NET MVC-Projekts zu [Core ASP.NET-MVC](../mvc/overview.md). In der Prozess wird hervorgehoben viele der Aufgaben, die von ASP.NET MVC geändert haben. Migrieren von ASP.NET MVC umfasst mehrere Schritte, und dieser Artikel behandelt die Anfangssetup, grundlegende Controller und Ansichten, statische Inhalte und Client-Side-Abhängigkeiten. Zusätzliche Artikel behandelt Migrieren der Konfiguration und ID-Code in ASP.NET MVC-Projekte, die viele gefunden.
 
@@ -138,9 +138,9 @@ In früheren Versionen von ASP.NET MVC statischen Inhalte wurde aus dem Stammver
 
 Die alte ASP.NET MVC-Projekt verwendet [Bootstrap](http://getbootstrap.com/) für seine Erstellen von Formaten und speichert die Bootstrap-in Dateien den *Content* und *Skripts* Ordner. Die Vorlage, die mit das alte ASP.NET MVC-Projekt generiert wird, verweist auf Bootstrap in der Layoutdatei (*Views/Shared/_Layout.cshtml*). Sie kopieren konnte die *bootstrap.js* und *bootstrap.css* Dateien von ASP.NET MVC-Projekt auf die *"Wwwroot"* Ordner in das neue Projekt, aber dieser Ansatz nicht verwenden die Verbesserte Mechanismus zum Verwalten von Client-Side-Abhängigkeiten in ASP.NET Core.
 
-In das neue Projekt, fügen wir Unterstützung für Bootstrap (und andere clientseitige Bibliotheken) mit [Bower](http://bower.io/):
+In das neue Projekt, fügen wir Unterstützung für Bootstrap (und andere clientseitige Bibliotheken) mit [Bower](https://bower.io/):
 
-* Hinzufügen einer [Bower](http://bower.io/) Konfigurationsdatei mit dem Namen *"bower.JSON"* in das Projektstammverzeichnis (mit der rechten Maustaste auf das Projekt, und klicken Sie dann **hinzufügen > Neues Element > Bower Konfigurationsdatei**). Hinzufügen [Bootstrap](http://getbootstrap.com/) und [jQuery](https://jquery.com/) in der Datei (siehe die folgenden hervorgehobenen Zeilen).
+* Hinzufügen einer [Bower](https://bower.io/) Konfigurationsdatei mit dem Namen *"bower.JSON"* in das Projektstammverzeichnis (mit der rechten Maustaste auf das Projekt, und klicken Sie dann **hinzufügen > Neues Element > Bower Konfigurationsdatei**). Hinzufügen [Bootstrap](http://getbootstrap.com/) und [jQuery](https://jquery.com/) in der Datei (siehe die folgenden hervorgehobenen Zeilen).
 
   [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
 
@@ -226,6 +226,6 @@ Finden Sie unter **Developer Ausnahme auf der Dienstkontoseite** in [Fehlerbehan
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Die clientseitige Entwicklung](../client-side/index.md)
+* [Clientbasierte Entwicklung](../client-side/index.md)
 
-* [Tag-Hilfsprogramme](../mvc/views/tag-helpers/index.md)
+* [Tag Helpers (Taghilfsprogramme)](../mvc/views/tag-helpers/index.md)

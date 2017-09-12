@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4124f71f30b758d82a6bf641328a8d5abf779f2
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 50c3085c28be4e6ddc4a732aba489ce871ab9ab1
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Einführung in ASP.NET Core-Modul
 
-Durch [Tom Dykstra](http://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), und [Chris Ross](https://github.com/Tratcher) 
+Durch [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), und [Chris Ross](https://github.com/Tratcher) 
 
 ASP.NET Core Modul (ANCM) können Sie ASP.NET Core Anwendungen hinter IIS ausführen mit IIS für was gut (Sicherheit, Verwaltbarkeit und viele weitere) ist und mit [Kestrel](kestrel.md) für was gut (schnellen), sondern ist und das Abrufen der Vorteile von beide Technologien gleichzeitig. **ANCM funktioniert nur mit Kestrel; Es ist nicht kompatibel mit WebListener (in ASP.NET Core 1.x) oder HTTP.sys (in 2.x).** 
 
@@ -118,5 +118,5 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 
 * [Beispiel-app für diesen Artikel](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [ASP.NET Core-Modul-Quellcode](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET Core Modulverweis-Konfiguration](../../hosting/aspnet-core-module.md)
+* [ASP.NET Core-Modulkonfigurationsverweis](../../hosting/aspnet-core-module.md)
 * [Veröffentlichen in IIS](../../publishing/iis.md)

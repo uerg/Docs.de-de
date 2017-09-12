@@ -11,17 +11,17 @@ ms.assetid: 5e014da1-8bc0-409b-951a-88b92c661fdf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/roles
-ms.openlocfilehash: d8dfcbb16ee7977d197b019c4e5e1b30fff17755
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1dc76f316b70d486febe386cc47cd1f843d8d8e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="role-based-authorization"></a>Rollenbasierte Autorisierung
 
 <a name=security-authorization-role-based></a>
 
-Wenn eine Identität erstellt wird es möglicherweise eine oder mehrere Rollen angehören, z. B. Tracy möglicherweise gehören die Administrator- und Rollen Masse Scott nur der Benutzerrolle angehören. Wie diese Rollen erstellt und verwaltet werden, hängt von dem Sicherungsspeicher des Autorisierungsprozesses ab. Rollen werden verfügbar gemacht, für den Entwickler über die [IsInRole](https://msdn.microsoft.com/library/system.security.claims.claimsprincipal.isinrole(v=vs.110).aspx) Eigenschaft auf die [ClaimsPrincipal](https://msdn.microsoft.com/library/system.security.claims.claimsprincipal(v=vs.110).aspx) Klasse.
+Wenn eine Identität erstellt wird es möglicherweise eine oder mehrere Rollen angehören, z. B. Tracy möglicherweise gehören die Administrator- und Rollen Masse Scott nur der Benutzerrolle angehören. Wie diese Rollen erstellt und verwaltet werden, hängt von dem Sicherungsspeicher des Autorisierungsprozesses ab. Rollen werden verfügbar gemacht, für den Entwickler über die [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) Eigenschaft auf die [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) Klasse.
 
 ## <a name="adding-role-checks"></a>Hinzufügen von rollenüberprüfungen
 

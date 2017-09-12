@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 7ce59816d106cce9fabd8393ee764454bd0f7f27
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: db05ffb585022c3d9512d32da28c54788f97129c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 
@@ -103,7 +103,7 @@ dotnet ef database update
 
 ### <a name="require-ssl-and-authenticated-users"></a>Erfordern von SSL und authentifizierte Benutzer
 
-In der `ConfigureServices` Methode der *Startup.cs* hinzufügen. die [RequireHttpsAttribute](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/RequireHttpsAttribute/index.html.md#Microsoft.AspNetCore.Mvc.RequireHttpsAttribute.md) Autorisierungsfilter:
+In der `ConfigureServices` Methode der *Startup.cs* hinzufügen. die [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api) Autorisierungsfilter:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
@@ -161,7 +161,7 @@ Erstellen einer `ContactAdministratorsAuthorizationHandler` -Klasse in der *Auto
 
 ## <a name="register-the-authorization-handlers"></a>Registrieren Sie die Authorization-Handler
 
-Verwendung von Entity Framework Core Services müssen registriert werden, für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) mit [AddScoped](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/Extensions/DependencyInjection/ServiceCollectionServiceExtensions/index.html.md#Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped.md). Die `ContactIsOwnerAuthorizationHandler` verwendet ASP.NET Core [Identität](xref:security/authentication/identity), die basiert auf Entity Framework Core. Registrieren Sie die Handler mit die Auflistung, damit sie verfügbar sind, werden die `ContactsController` über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Fügen Sie den folgenden Code am Ende der `ConfigureServices`:
+Verwendung von Entity Framework Core Services müssen registriert werden, für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) mit [AddScoped](https://docs.microsoft.com/aspnet/core/api). Die `ContactIsOwnerAuthorizationHandler` verwendet ASP.NET Core [Identität](xref:security/authentication/identity), die basiert auf Entity Framework Core. Registrieren Sie die Handler mit die Auflistung, damit sie verfügbar sind, werden die `ContactsController` über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Fügen Sie den folgenden Code am Ende der `ConfigureServices`:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
@@ -264,7 +264,7 @@ Erstellen Sie einen Kontakt im Browser Administratoren. Kopieren Sie die URL zum
 
 Befolgen Sie diese Anweisungen zum Erstellen der Starter-app aus.
 
-* Erstellen einer **ASP.NET-Webanwendung für Core** mit [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) mit dem Namen "ContactManager"
+* Erstellen einer **ASP.NET-Webanwendung für Core** mit [Visual Studio 2017](https://www.visualstudio.com/) mit dem Namen "ContactManager"
 
   * Erstellen Sie die app mit **einzelne Benutzerkonten**.
   * Nennen Sie sie "ContactManager", damit Ihr Namespace den Namespace verwenden, in dem Beispiel entspricht.
@@ -321,4 +321,4 @@ Testen Sie, ob die Anwendung die Datenbank mit Anfangsdaten gefüllt. Die Seed-M
 
 * [ASP.NET Core Autorisierung Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Diese Übung wird ausführlicher auf den Sicherheitsfeatures, die in diesem Lernprogramm eingeführt.
 * [Autorisierung in ASP.NET Core: einfach, anspruchsbasierte und benutzerdefinierten Rolle](index.md)
-* [Benutzerdefinierte Richtlinie basierende Autorisierung](policies.md)
+* [Benutzerdefinierte, richtlinienbasierende Autorisierung](policies.md)

@@ -11,15 +11,15 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 68efa1f313c73e2aee3e0e3c2fcb9eba0e12a62f
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 07a2aca731b8017450a1b0da00ddef25306c122e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="view-components"></a>Anzeigen von Komponenten
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)
 
@@ -103,7 +103,7 @@ Für ASP.NET Core 1.1 und höher können Sie eine Ansichtskomponente als Aufrufe
 
 [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-In Pascal-Schreibweise angegeben Klassen- und Parameter für den Tag-Hilfsprogrammen übersetzt ihre [senken Kebab Groß-/Kleinschreibung](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101). Der Tag-Hilfskomponente aufzurufenden eine Ansichtskomponente auf die `<vc></vc>` Element. Die Ansichtskomponente wird wie folgt angegeben:
+In Pascal-Schreibweise angegeben Klassen- und Parameter für den Tag-Hilfsprogrammen übersetzt ihre [senken Kebab Groß-/Kleinschreibung](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Der Tag-Hilfskomponente aufzurufenden eine Ansichtskomponente auf die `<vc></vc>` Element. Die Ansichtskomponente wird wie folgt angegeben:
 
 ```html
 <vc:[view-component-name]
@@ -250,4 +250,4 @@ Hinzufügen einer `using` Anweisung, um Ihre Razor zeigen Sie an, und verwenden 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Abhängigkeitsinjektion in Sichten](dependency-injection.md)
+* [Abhängigkeitsinjektion in Ansichten](dependency-injection.md)

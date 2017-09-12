@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f16af1184a29b891a9aab0b38ab833836c326c44
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Erstellen von Tag-Hilfsprogramme in ASP.NET Core, eine exemplarische Vorgehensweise mit Beispielen
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)
 
@@ -98,7 +98,7 @@ Update der `EmailTagHelper` Klasse durch Folgendes:
 
 **Hinweise:**
 
-* In Pascal-Schreibweise angegeben Klassen- und Eigenschaftennamen für Tag Hilfsprogramme übersetzt ihre [senken Kebab Groß-/Kleinschreibung](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101). Aus diesem Grund verwendet der `MailTo` -Attribut, verwenden Sie `<email mail-to="value"/>` entspricht.
+* In Pascal-Schreibweise angegeben Klassen- und Eigenschaftennamen für Tag Hilfsprogramme übersetzt ihre [senken Kebab Groß-/Kleinschreibung](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Aus diesem Grund verwendet der `MailTo` -Attribut, verwenden Sie `<email mail-to="value"/>` entspricht.
 
 * Die letzte Zeile legt die abgeschlossenen für unsere minimal funktionale Tag-Hilfsprogramm.
 
@@ -193,7 +193,7 @@ Sie können auch die `[HtmlTargetElement]` so ändern Sie den Namen des entsprec
     
     **Hinweise:**
     
-    * Wie bereits erwähnt, Tag Hilfsprogramme übersetzt Pascal-Schreibweise verwendet C#-Klassennamen und Eigenschaften für den Tag-Hilfsprogramme in [senken Kebab Groß-/Kleinschreibung](http://c2.com/cgi/wiki?KebabCase). Aus diesem Grund verwendet der `WebsiteInformationTagHelper` in Razor, die Sie schreiben `<website-information />`.
+    * Wie bereits erwähnt, Tag Hilfsprogramme übersetzt Pascal-Schreibweise verwendet C#-Klassennamen und Eigenschaften für den Tag-Hilfsprogramme in [senken Kebab Groß-/Kleinschreibung](http://wiki.c2.com/?KebabCase). Aus diesem Grund verwendet der `WebsiteInformationTagHelper` in Razor, die Sie schreiben `<website-information />`.
     
     * Das Zielelement mit explizit nicht identifiziert werden die `[HtmlTargetElement]` Attribut, sodass die Standardeinstellung von `website-information` ist für die. Wenn Sie das folgende Attribut (wobei es handelt es sich nicht um Kebab Groß-/Kleinschreibung jedoch stimmt mit dem Klassennamen) angewendet haben:
     
@@ -209,7 +209,7 @@ Sie können auch die `[HtmlTargetElement]` so ändern Sie den Namen des entsprec
     
     * Elemente, die selbstschließende sind haben keinen Inhalt. In diesem Beispiel wird das Markup Razor ein selbstschließendes Tags verwenden, aber das Tag-Hilfsobjekt erstellen eine [Abschnitt](http://www.w3.org/TR/html5/sections.html#the-section-element) Element (nicht selbstschließende ist und Sie werden das Schreiben von Inhalt in die `section` Element). Aus diesem Grund müssen Sie festlegen `TagMode` auf `StartTagAndEndTag` Ausgabe zu schreiben. Sie können alternativ die Einstellung für die Zeile auskommentieren `TagMode` und Schreiben von Markup mit dem ein Endtag. (Beispielmarkup wird weiter unten in diesem Lernprogramm bereitgestellt.)
     
-    * Die `$` (Dollarzeichen) in der folgenden Zeile verwendet ein [interpoliert Zeichenfolge](https://msdn.microsoft.com/library/Dn961160.aspx):
+    * Die `$` (Dollarzeichen) in der folgenden Zeile verwendet ein [interpoliert Zeichenfolge](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
@@ -272,11 +272,11 @@ Die Bedingung Tag Hilfsprogramm rendert die Ausgabe, wenn der Wert "true" überg
 4.  Führen Sie die app, und navigieren Sie zur Startseite. Das Markup in der bedingte `div` nicht gerendert werden. Fügen Sie die Abfragezeichenfolge `?approved=true` an die URL (z. B. `http://localhost:1235/Home/Index?approved=true`). `approved`ist auf True festgelegt und die bedingte Markup wird angezeigt.
 
 >[!NOTE]
->Verwenden der [Nameof](https://msdn.microsoft.com/library/dn986596.aspx) Operator, um das Ziel, statt eine Zeichenfolge angeben, wie Sie mit den fett formatierten Tag-Hilfsprogramm-Attribut angeben:
+>Verwenden der [Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) Operator, um das Ziel, statt eine Zeichenfolge angeben, wie Sie mit den fett formatierten Tag-Hilfsprogramm-Attribut angeben:
 >
 >[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->Die [Nameof](https://msdn.microsoft.com/library/dn986596.aspx) Operator schützt den Code sollte es jemals umgestaltet werden (es sollten so ändern Sie den Namen in `RedCondition`).
+>Die [Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) Operator schützt den Code sollte es jemals umgestaltet werden (es sollten so ändern Sie den Namen in `RedCondition`).
 
 ### <a name="avoiding-tag-helper-conflicts"></a>Vermeiden von Konflikten Tag-Hilfsprogramm
 
@@ -289,7 +289,7 @@ Da diese zwei Hilfsmethoden sind eng miteinander verknüpft, und Sie sie in der 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >Die `AutoLinkerHttpTagHelper` -Klasse Ziele `p` Elemente und verwendet [Regex](https://msdn.microsoft.com/library/system.text.regularexpressions.regex.aspx) Anker zu erstellen.
+    >Die `AutoLinkerHttpTagHelper` -Klasse Ziele `p` Elemente und verwendet [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) Anker zu erstellen.
 
 2.  Fügen Sie das folgende Markup bis zum Ende der *Views/Home/Contact.cshtml* Datei:
 

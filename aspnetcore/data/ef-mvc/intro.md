@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: b8ef101458e0a6e6284624693689181646ced051
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
@@ -31,7 +31,7 @@ EF Core 2.0 ist die neueste Version von EF aber noch keinen alle Funktionen von 
 
 > [!NOTE]
 > * Die Version 1.1 von ASP.NET Core dieses Lernprogramms finden Sie unter der [VS 2017 Update 2 Version dieses Lernprogramms im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf).
-> * Die Visual Studio 2015-Version dieses Lernprogramms finden Sie unter der [VS 2015-Version der Dokumentation zu ASP.NET Core im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
+> * Die Version dieses Tutorials für Visual Studio 2015 finden Sie unter [Visual Studio 2015-Version der ASP.NET Core-Dokumentation im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -39,7 +39,7 @@ EF Core 2.0 ist die neueste Version von EF aber noch keinen alle Funktionen von 
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Wenn Sie ein Problem Sie können nicht aufgelöst werden auftreten, im Allgemeinen finden Sie die Projektmappe durch Vergleichen des Codes: auf die [abgeschlossenes Projekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Eine Übersicht über häufige Fehler und deren Lösung finden Sie unter [im Abschnitt Problembehandlung der im letzten Lernprogramm in der Reihe](advanced.md#common-errors). Wenn Sie nicht finden, was Sie es benötigen, können Sie selbst eine Frage veröffentlichen, um StackOverflow.com für [ASP.NET Core](http://stackoverflow.com/questions/tagged/asp.net-core) oder [EF Core](http://stackoverflow.com/questions/tagged/entity-framework-core).
+Wenn Sie ein Problem Sie können nicht aufgelöst werden auftreten, im Allgemeinen finden Sie die Projektmappe durch Vergleichen des Codes: auf die [abgeschlossenes Projekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Eine Übersicht über häufige Fehler und deren Lösung finden Sie unter [im Abschnitt Problembehandlung der im letzten Lernprogramm in der Reihe](advanced.md#common-errors). Wenn Sie nicht finden, was Sie es benötigen, können Sie selbst eine Frage veröffentlichen, um StackOverflow.com für [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) oder [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
 > Dies ist eine Reihe von 10 Lernprogramme, von denen jede baut auf was in früheren Lernprogramme erfolgt.  Denken Sie speichern eine Kopie des Projekts nach jeder erfolgreichen Abschluss des Lernprogramms.  Klicken Sie dann, wenn Probleme auftreten, können Sie über aus dem vorherigen Lernprogramm nicht zurück auf den Anfang die gesamte Reihe starten.
@@ -168,7 +168,7 @@ Z. B. Weitere Informationen zu den `DatabaseGenerated` Attribut in einer [späte
 
 ## <a name="create-the-database-context"></a>Erstellen Sie den Datenbankkontext
 
-Die Hauptklasse, die Entity Framework-Funktionen für ein Datenmodell für die angegebenen Koordinaten wird der Datenbank-Context-Klasse. Erstellen Sie diese Klasse durch Ableiten von der `Microsoft.EntityFrameworkCore.DbContext` Klasse. Im Code Geben Sie an, welche Entitäten im Datenmodell enthalten sind. Sie können auch bestimmte Entity Framework-Verhalten anpassen. In diesem Projekt die Klasse heißt `SchoolContext`.
+Die Hauptklasse, die Entity Framework-Funktionen für ein Datenmodell für die angegebenen Koordinaten wird der Datenbank-Context-Klasse. Sie können diese Klasse durch Ableiten von der `Microsoft.EntityFrameworkCore.DbContext`-Klasse erstellen. Im Code Geben Sie an, welche Entitäten im Datenmodell enthalten sind. Sie können auch bestimmte Entity Framework-Verhalten anpassen. In diesem Projekt die Klasse heißt `SchoolContext`.
 
 Im Projektordner, erstellen Sie einen Ordner namens *Daten*.
 
@@ -176,7 +176,7 @@ In der *Daten* Ordner erstellen Sie eine neue Klassendatei mit dem Namen *School
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
-Dieser Code erstellt eine `DbSet` -Eigenschaft für jede Entitätenmenge. In der Terminologie von Entity Framework in der Regel eine Entitätenmenge entspricht in einer Datenbanktabelle und eine Entität auf eine Zeile in der Tabelle entspricht.
+Dieser Code erstellt eine `DbSet` -Eigenschaft für jede Entitätenmenge. In der Terminologie von Entity Framework entspricht eine Entitätenmenge in der Regel einer Datenbanktabelle, und eine Entität entspricht einer Zeile in einer Tabelle.
 
 Haben Sie ausgelassen der `DbSet<Enrollment>` und `DbSet<Course>` -Anweisungen, und es würde funktionieren identisch. Das Entity Framework zählen sie implizit da die `Student` Entitätsverweise der `Enrollment` Entität und die `Enrollment` Entitätsverweise der `Course` Entität.
 
@@ -330,7 +330,7 @@ Die Menge an Code, die in Reihenfolge für das Entity Framework zum Erstellen ei
 
 * Eigenschaften der Entität, die ID oder ClassnameID benannt sind, werden als Eigenschaften des Primärschlüssels erkannt.
 
-* Eine Eigenschaft wird als eine Fremdschlüsseleigenschaft interpretiert, wenn es heißt  *<navigation property name> <primary key property name>*  (z. B. `StudentID` für die `Student` Navigationseigenschaft seit der `Student` primären Schlüssel der Entität ist `ID`). Fremdschlüsseleigenschaften können auch einfach namens  *<primary key property name>*  (z. B. `EnrollmentID` seit der `Enrollment` primären Schlüssel der Entität ist `EnrollmentID`).
+* Eine Eigenschaft wird als eine Fremdschlüsseleigenschaft interpretiert, wenn es heißt * <navigation property name> <primary key property name> * (z. B. `StudentID` für die `Student` Navigationseigenschaft seit der `Student` primären Schlüssel der Entität ist `ID`). Fremdschlüsseleigenschaften können auch einfach namens * <primary key property name> * (z. B. `EnrollmentID` seit der `Enrollment` primären Schlüssel der Entität ist `EnrollmentID`).
 
 Üblichem Verhalten kann überschrieben werden. Beispielsweise können Sie Tabellennamen, Spaltennamen, explizit angeben, wie Sie weiter oben in diesem Lernprogramm gesehen haben. Und Sie können die Spaltennamen und eine Eigenschaft als primary key- oder foreign Key festlegen, wie Sie sehen werden eine [späteren Lernprogramm](complex-data-model.md) in dieser Serie.
 

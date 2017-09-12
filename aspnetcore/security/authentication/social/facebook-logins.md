@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 9554d66712f93df6d2c50503b60162757986e707
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Konfigurieren von Facebook-Authentifizierung
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 08/25/2017
 
 Durch [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem Facebook-Kontos mit einem Beispiel ASP.NET Core 2.0-Projekt erstellt haben, auf die [vorherige Seite](index.md). Erstellen eine Facebook-App-ID gemäß wir zunächst die [offizielle Schritte](https://developers.facebook.com/docs/apps/register).
+Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem Facebook-Kontos mit einem Beispiel ASP.NET Core 2.0-Projekt erstellt haben, auf die [vorherige Seite](index.md). Erstellen eine Facebook-App-ID gemäß wir zunächst die [offizielle Schritte](https://www.facebook.com/unsupportedbrowser).
 
 ## <a name="create-the-app-in-facebook"></a>Erstellen Sie die app in Facebook
 
-*  Navigieren Sie zu der [Facebook für Entwickler](https://developers.facebook.com/apps) Seite, und melden Sie sich. Wenn Sie eine Facebook-Konto noch nicht haben, verwenden Sie die **registrieren Sie sich für Facebook** Link auf der Anmeldeseite um eines zu erstellen.
+*  Navigieren Sie zu der [Facebook für Entwickler](https://www.facebook.com/unsupportedbrowser) Seite, und melden Sie sich. Wenn Sie eine Facebook-Konto noch nicht haben, verwenden Sie die **registrieren Sie sich für Facebook** Link auf der Anmeldeseite um eines zu erstellen.
 
 * Tippen Sie auf die **erstellen App** Schaltfläche in der oberen rechten Ecke zum Erstellen einer neuen App-ID
 

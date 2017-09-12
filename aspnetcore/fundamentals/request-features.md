@@ -11,15 +11,15 @@ ms.assetid: d1fbd23c-2ff9-4216-b908-0201ff3afb7c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: e8d04ef7df34fe1421b2c52f137511fc6baae674
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a10aefe3819fb03019575c36274dd164faf7086c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>Anfordern von Funktionen in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 Details zur Implementierung von Web-Server im Zusammenhang mit der HTTP-Anforderungen und Antworten in Schnittstellen definiert sind. Diese Schnittstellen werden von serverimplementierungen und Middleware verwendet, hosting-Pipeline der Anwendung zu erstellen.
 
@@ -78,4 +78,4 @@ Feature-Schnittstellen definieren bestimmte HTTP-Features, die eine bestimmte An
 
 * [Middleware](middleware.md)
 
-* [Offene Webschnittstelle für .NET (OWIN)](owin.md)
+* [Open Web Interface for .NET (OWIN)](owin.md)

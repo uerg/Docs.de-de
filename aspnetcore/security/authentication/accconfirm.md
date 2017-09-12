@@ -10,15 +10,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: aaed75c78a99e59954add959a76a2fd68ea5f3fc
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer ASP.NET Core-Apps mit e-Mail-Bestätigung und das Kennwort zurücksetzen.
 
@@ -62,7 +62,7 @@ dotnet new mvc --auth Individual
 
 ## <a name="test-new-user-registration"></a>Testen Sie die Registrierung neuer Benutzer
 
-Die app auszuführen, wählen Sie die **registrieren** verknüpfen, und registrieren Sie einen Benutzer. Befolgen Sie die Anweisungen zum Ausführen von Entity Framework Core-Migrationen aus. An diesem Punkt wird die ausschließliche Überprüfung auf die e-Mail-Adresse mit der [[EmailAddress]](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) Attribut. Nachdem Sie die Registrierung senden, werden Sie in der app angemeldet. Später in diesem Lernprogramm werden wir dies ändern, damit neue Benutzer anmelden können, bis ihre e-Mails überprüft wurde.
+Die app auszuführen, wählen Sie die **registrieren** verknüpfen, und registrieren Sie einen Benutzer. Befolgen Sie die Anweisungen zum Ausführen von Entity Framework Core-Migrationen aus. An diesem Punkt wird die ausschließliche Überprüfung auf die e-Mail-Adresse mit der [[EmailAddress]](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) Attribut. Nachdem Sie die Registrierung senden, werden Sie in der app angemeldet. Später in diesem Lernprogramm werden wir dies ändern, damit neue Benutzer anmelden können, bis ihre e-Mails überprüft wurde.
 
 ## <a name="view-the-identity-database"></a>Anzeigen der Identity-Datenbank
 

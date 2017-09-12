@@ -11,11 +11,11 @@ ms.assetid: f0930c68-4d17-4748-adbf-801e17601eb6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/index
-ms.openlocfilehash: d030b4f16727080488056c9cde48c31a14a166bf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: df3c1f0c2768b89c3ea5dc901782170c530a542e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="hosting-and-deployment-overview-for-aspnet-core-apps"></a>Übersicht über Hosting und Bereitstellung für ASP.NET Core-Apps
 
@@ -57,7 +57,7 @@ Wenn Ihre App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwend
 
 Die Bereitstellung erfordert neben dem Kopieren der Ausgabe von `dotnet publish` auf einen Server oft zusätzliche Aufgaben. Beispielsweise sollten Sie zusätzliche Dateien in den Ordner *publish* kopieren oder Dateien daraus ausschließen. Visual Studio verwendet MSBuild für die Webbereitstellung, und Sie können MSBuild anpassen, um viele weitere Aufgaben während der Bereitstellung durchzuführen. Weitere Informationen finden Sie unter [Publish profiles in Visual Studio (Veröffentlichen von Profilen in Visual Studio)](xref:publishing/web-publishing-vs) und im Buch [Using MSBuild and Team Foundation Build (Verwenden von MSBuild und Team Foundation Build)](http://msbuildbook.com/).
 
-Sie können direkte Bereitstellungen von Visual Studio in Azure App Service vornehmen, indem Sie [das Webfeature „Veröffentlichen“](xref:tutorials/publish-to-azure-webapp-using-vs) oder die [integrierte Git-Unterstützung](xref:publishing/azure-continuous-deployment) verwenden. Visual Studio Team Services unterstützt die [continuous deployment to Azure App Service (fortlaufende Bereitstellung in Azure App Service)](https://www.visualstudio.com/en-us/docs/build/aspnet/core/quick-to-azure).
+Sie können direkte Bereitstellungen von Visual Studio in Azure App Service vornehmen, indem Sie [das Webfeature „Veröffentlichen“](xref:tutorials/publish-to-azure-webapp-using-vs) oder die [integrierte Git-Unterstützung](xref:publishing/azure-continuous-deployment) verwenden. Visual Studio Team Services unterstützt die [continuous deployment to Azure App Service (fortlaufende Bereitstellung in Azure App Service)](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

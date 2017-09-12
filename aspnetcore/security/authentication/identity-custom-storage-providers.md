@@ -11,15 +11,15 @@ ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 33d02f595ff34a297d3046894edc8a6f5bd42275
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a8d1d65be07b5a8e8dc3f4526a81ece524b2f7ed
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core Identität ist ein erweiterbares System können Sie zum Erstellen eines benutzerdefinierten Speicheranbieters und verbinden Sie ihn mit Ihrer app. Dieses Thema beschreibt das Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Core Identität. Wichtige Konzepte zum Erstellen eigener Speicheranbieter, aber eine schrittweise exemplarische Vorgehensweise ist.
 
@@ -68,7 +68,7 @@ Registrierte Benutzer Ihrer Website. Die [IdentityUser](https://docs.microsoft.c
 
 ### <a name="user-claims"></a>Benutzeransprüche
 
-Eine Reihe von Anweisungen (oder [Ansprüche](https://msdn.microsoft.com/library/system.security.claims.claim(v=vs.110).aspx)) über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann.
+Eine Reihe von Anweisungen (oder [Ansprüche](https://docs.microsoft.com//dotnet/api/system.security.claims.claim) über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann.
 
 ### <a name="user-logins"></a>Benutzernamen
 
@@ -143,7 +143,7 @@ Erstellen Sie eine `UserStore` -Klasse, die die Methoden für alle Vorgänge fü
 - IUserTwoFactorStore
 - IUserLockoutStore
 
-Die optionale Schnittstellen erben von `IUserStore`. Sehen Sie eine teilweise implementierte beispielbenutzers speichern [hier](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
+Die optionale Schnittstellen erben von `IUserStore`. Sehen Sie eine teilweise implementierte beispielbenutzers speichern [hier](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
 
 Innerhalb der `UserStore` -Klasse, verwenden Sie die Access-Datenklassen, die Sie erstellt haben, um Vorgänge auszuführen. Diese werden mithilfe der Abhängigkeitsinjektion übergeben. Beispielsweise ist in SQL Server mit Dapper Implementierung der `UserStore` -Klasse verfügt über die `CreateAsync` Methode, die eine Instanz der verwendet `DapperUsersTable` , einen neuen Datensatz einzufügen:
 
@@ -152,27 +152,27 @@ Innerhalb der `UserStore` -Klasse, verwenden Sie die Access-Datenklassen, die Si
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen implementiert werden, wenn Benutzerspeicher anpassen
 
 - **IUserStore**  
- Die [IUserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) -Schnittstelle ist die einzige müssen Sie in den Speicher des Benutzers implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
+ Die [IUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserstore-1) -Schnittstelle ist die einzige müssen Sie in den Speicher des Benutzers implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
 - **IUserClaimStore**  
- Die [IUserClaimStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie zum Aktivieren von benutzeransprüchen implementieren. Enthält Methoden zum Hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
+ Die [IUserClaimStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1) Schnittstelle definiert die Methoden, die Sie zum Aktivieren von benutzeransprüchen implementieren. Enthält Methoden zum Hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
 - **IUserLoginStore**  
- Die [IUserLoginStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiert die Methoden, die Sie implementieren, um externe Authentifizierungsanbieter zu aktivieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
+ Die [IUserLoginStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserloginstore-1) definiert die Methoden, die Sie implementieren, um externe Authentifizierungsanbieter zu aktivieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
 - **IUserRoleStore**  
- Die [IUserRoleStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um die Zuordnung von Benutzern zu einer Rolle. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
+ Die [IUserRoleStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Zuordnung von Benutzern zu einer Rolle. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
 - **IUserPasswordStore**  
- Die [IUserPasswordStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um verschlüsselte Kennwörter beibehalten werden. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
+ Die [IUserPasswordStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um verschlüsselte Kennwörter beibehalten werden. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
 - **IUserSecurityStampStore**  
- Die [IUserSecurityStampStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um Sie verwenden einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat. Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
+ Die [IUserSecurityStampStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Sie verwenden einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat. Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
 - **IUserTwoFactorStore**  
- Die [IUserTwoFactorStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um die zweistufige Authentifizierung unterstützen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
+ Die [IUserTwoFactorStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die zweistufige Authentifizierung unterstützen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
 - **IUserPhoneNumberStore**  
- Die [IUserPhoneNumberStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um Telefonnummern des Benutzers gespeichert. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
+ Die [IUserPhoneNumberStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Telefonnummern des Benutzers gespeichert. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
 - **IUserEmailStore**  
- Die [IUserEmailStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
+ Die [IUserEmailStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuseremailstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
 - **IUserLockoutStore**  
- Die [IUserLockoutStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren eines Kontos zu speichern. Enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und sperren.
+ Die [IUserLockoutStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren eines Kontos zu speichern. Enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und sperren.
 - **IQueryableUserStore**  
- Die [IQueryableUserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) Schnittstelle definiert den Member implementieren, um einen abfragbaren benutzerpeicher bereitzustellen.
+ Die [IQueryableUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) Schnittstelle definiert den Member implementieren, um einen abfragbaren benutzerpeicher bereitzustellen.
 
 Implementieren Sie nur die Schnittstellen, die erforderlich sind, in Ihrer app. Zum Beispiel:
 
@@ -190,7 +190,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin und IdentityUserRole
 
-Die ``Microsoft.AspNet.Identity.EntityFramework`` Namespace enthält die Implementierung der [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), und [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre app. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Z. B. die ``UserStore.GetClaimsAsync`` -Methodenaufruf können die ``userClaimTable.FindByUserId(user.Id)`` Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
+Die ``Microsoft.AspNet.Identity.EntityFramework`` Namespace enthält die Implementierung der [IdentityUserClaim](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), und [IdentityUserRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre app. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Z. B. die ``UserStore.GetClaimsAsync`` -Methodenaufruf können die ``userClaimTable.FindByUserId(user.Id)`` Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
 
 ## <a name="customize-the-role-class"></a>Anpassen der Rolle ""-Klasse
 
@@ -205,7 +205,7 @@ Im folgenden finden eine Beispiel-rollenklasse:
 Sie erstellen eine ``RoleStore`` -Klasse, die die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse entspricht dem [RoleStore<TRole> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) Klasse. In der `RoleStore` -Klasse, die Sie implementieren die ``IRoleStore<TRole>`` und optional die ``IQueryableRoleStore<TRole>`` Schnittstelle.
 
 - **IRoleStore&lt;TRole&gt;**  
- Die [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) Schnittstelle definiert die Methoden, die in der Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
+ Die [IRoleStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.irolestore-1) Schnittstelle definiert die Methoden, die in der Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
 - **RoleStore&lt;TRole&gt;**  
  Anpassen `RoleStore`, erstellen Sie eine Klasse, die implementiert die `IRoleStore` Schnittstelle. 
 

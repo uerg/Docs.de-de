@@ -11,15 +11,15 @@ ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: b7d6341c0312b3f5f122acfb2ee01210151b33bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
 
-Durch [Steve Smith](http://ardalis.com) und [Scott Addie](https://github.com/scottaddie)
+Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
 
 Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegender Bestandteil der Entwickler apps mithilfe von ASP.NET Core MVC Aufbau auf.
 
@@ -38,7 +38,7 @@ Ein Controller ist eine instanziierbare Klasse, die in der mindestens eine der f
 
 Eine Controllerklasse dürfen keine zugeordnete `[NonController]` Attribut.
 
-Domänencontroller sollten folgen der [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle). Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen desselben Diensts benötigen, erwägen Sie [Konstruktoreinfügung](xref:mvc/controllers/dependency-injection#constructor-injection) solcher Abhängigkeiten anfordern. Wenn der Dienst nur einer einzigen Aktion-Methode erforderlich ist, erwägen Sie [Aktion Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) zum Anfordern der Abhängigkeitsverhältnis.
+Domänencontroller sollten folgen der [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/). Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen desselben Diensts benötigen, erwägen Sie [Konstruktoreinfügung](xref:mvc/controllers/dependency-injection#constructor-injection) solcher Abhängigkeiten anfordern. Wenn der Dienst nur einer einzigen Aktion-Methode erforderlich ist, erwägen Sie [Aktion Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) zum Anfordern der Abhängigkeitsverhältnis.
 
 Innerhalb der **M**Odel -**V**vorhandenes -**C**Ontroller-Muster, ein Controller ist verantwortlich für die ersten Verarbeitung der Anforderung und Instanziierung des Modells. Im Allgemeinen sollte die geschäftlichen Entscheidungen innerhalb des Modells ausgeführt werden.
 

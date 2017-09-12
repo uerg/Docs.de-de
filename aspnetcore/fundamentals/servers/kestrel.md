@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451a548403c8fa0ed2befeb6969a3ee28fe34790
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Einführung in die Kestrel webserverimplementierung in ASP.NET Core
 
-Durch [Tom Dykstra](http://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), und [Stephen Halter](https://twitter.com/halter73)
+Durch [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), und [Stephen Halter](https://twitter.com/halter73)
 
 Kestrel ist eine plattformübergreifende [Webserver für ASP.NET Core](index.md) basierend auf [Libuv](https://github.com/libuv/libuv), eine plattformübergreifende asynchrone e/a-Bibliothek. Kestrel ist der Webserver, der standardmäßig in ASP.NET Core-Projektvorlagen enthalten ist. 
 
@@ -46,25 +46,25 @@ Kestrel wird unterstützt, auf allen Plattformen und Versionen, die .NET Core un
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Kestrel können allein oder mit einem *Reverseproxyserver*, z. B. IIS, Nginx oder Apache. Ein reverse-Proxy-Server empfängt HTTP-Anforderungen aus dem Internet und an Kestrel weiterleitet, nachdem einige vorläufige Behandlung.
+Sie können Kestrel als eigenständigen Webserver oder mit einem *Reverseproxyserver* wie IIS, Nginx oder Apache verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter.
 
-![Kestrel kommuniziert direkt mit dem Internet ohne einen reverse-Proxy-server](kestrel/_static/kestrel-to-internet2.png)
+![Kestrel kommuniziert direkt und ohne Reverseproxyserver mit dem Internet](kestrel/_static/kestrel-to-internet2.png)
 
-![Kestrel kommuniziert indirekt mit dem Internet über einen reverse-Proxy-Server, z. B. IIS, Nginx oder Apache.](kestrel/_static/kestrel-to-internet.png)
+![Kestrel kommuniziert indirekt mit dem Internet über einen Reverseproxyserver wie IIS, Nginx oder Apache](kestrel/_static/kestrel-to-internet.png)
 
-Konfiguration &mdash; mit oder ohne einen reverse-Proxy-Server &mdash; kann auch verwendet werden, wenn Kestrel nur mit einem internen Netzwerk bereitgestellt wird.
+Jede der beiden Konfigurationen &mdash;, egal ob mit oder ohne Reverseproxyserver &mdash;, kann auch dann verwendet werden, wenn Kestrel nur in einem internen Netzwerk verfügbar gemacht wird.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wenn Ihre Anwendung nur Anforderungen von einem internen Netzwerk akzeptiert, können Sie Kestrel allein verwenden.
+Wenn Ihre Anwendung nur Anforderungen aus einem internen Netzwerk akzeptiert, können Sie Kestrel als eigenständigen Webserver verwenden.
 
 ![Kestrel kommuniziert direkt mit Ihrem internen Netzwerk](kestrel/_static/kestrel-to-internal.png)
 
-Wenn Sie Ihre Anwendung mit dem Internet verfügbar machen, müssen Sie IIS, Nginx oder Apache als verwenden eine *Reverseproxyserver*. Ein reverse-Proxy-Server empfängt HTTP-Anforderungen aus dem Internet und an Kestrel weiterleitet, nachdem einige vorläufige Behandlung.
+Wenn Sie Ihre Anwendung im Internet verfügbar machen, müssen Sie IIS, Nginx oder Apache als *Reverseproxyserver* verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter.
 
-![Kestrel kommuniziert indirekt mit dem Internet über einen reverse-Proxy-Server, z. B. IIS, Nginx oder Apache.](kestrel/_static/kestrel-to-internet.png)
+![Kestrel kommuniziert indirekt mit dem Internet über einen Reverseproxyserver wie IIS, Nginx oder Apache](kestrel/_static/kestrel-to-internet.png)
 
-Reverse-Proxy ist für Edge-Bereitstellungen (für den Datenverkehr aus dem Internet ausgesetzt) aus Sicherheitsgründen erforderlich. Die Versionen 1.x Kestrel besitzen keine vollständige Ergänzung der entsprechende Schutzmaßnahmen gegen Angriffe. Dies schließt jedoch nicht auf die entsprechenden Timeouts, Grenzwerte für sammlungsgröße und Limits für gleichzeitige Verbindungen beschränkt.
+Reverse-Proxy ist für Edge-Bereitstellungen (für den Datenverkehr aus dem Internet ausgesetzt) aus Sicherheitsgründen erforderlich. Die Kestrel-Versionen 1.x besitzen keine umfassenden Schutzmaßnahmen gegenüber Angriffen. Dies schließt jedoch nicht auf die entsprechenden Timeouts, Grenzwerte für sammlungsgröße und Limits für gleichzeitige Verbindungen beschränkt.
 
 ---
 
@@ -107,9 +107,9 @@ Rufen Sie die [UseKestrel](https://docs.microsoft.com/aspnet/core/api/microsoft.
 
 Der Webserver Kestrel hat Einschränkung Konfigurationsoptionen, die vor allem hilfreich bei Bereitstellungen mit Internetzugriff sind. Hier sind einige der Grenzen, die Sie festlegen können:
 
-- Maximaler Client-Verbindungen
-- Maximale Anforderungsgröße-Text
-- Minimale Text Data-Anforderungsrate
+- Maximale Anzahl der Clientverbindungen
+- Maximale Größe des Anforderungstexts
+- Minimale Datenrate des Anforderungstexts
 
 Sie legen diese Einschränkungen und andere in der `Limits` Eigenschaft von der [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs) Klasse. Die `Limits` Eigenschaft enthält eine Instanz der dem [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs) Klasse. 
 

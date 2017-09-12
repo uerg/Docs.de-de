@@ -11,15 +11,15 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: d30af6edc31fbce2ebb77c57be3fd78231c54b50
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrationstests zu legen, die in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 Integrationstests wird sichergestellt, dass eine Anwendung Komponenten ordnungsgemäß funktionieren, wenn es sich bei zusammen assembliert. ASP.NET Core unterstützt Integrationstests zu legen, mit der Komponententest-Frameworks und einem integrierten Test Webhost, der verwendet werden kann, um Mehraufwand von Netzwerk-Anforderungen zu verarbeiten.
 
@@ -130,10 +130,10 @@ Mit diesem Middleware eingesetzt sind und einige nützliche Erweiterungsmethoden
 Folgende dieses refactoring sind Sie sicher, dass die Webanwendung weiterhin wie zuvor funktioniert, da die Integrationstests erfolgreich alle übergeben werden.
 
 > [!NOTE]
-> Es ist eine gute Idee, übertragen Sie die Änderungen zur quellcodeverwaltung, nachdem Sie eine Umgestaltung abschließen und die Tests bestanden. Wenn Sie die testgesteuerte Entwicklung, üben sind [erwägen der Commit für die Red-Green-Refactor Zyklus](http://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
+> Es ist eine gute Idee, übertragen Sie die Änderungen zur quellcodeverwaltung, nachdem Sie eine Umgestaltung abschließen und die Tests bestanden. Wenn Sie die testgesteuerte Entwicklung, üben sind [erwägen der Commit für die Red-Green-Refactor Zyklus](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
 
 ## <a name="resources"></a>Ressourcen
 
-* [Komponententests](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Unittests](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Middleware](xref:fundamentals/middleware)
-* [Testen von Domänencontrollern](xref:mvc/controllers/testing)
+* [Testen von Controllern](xref:mvc/controllers/testing)

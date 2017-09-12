@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in ASP.NET Core anmelden
 
-Durch [Steve Smith](http://ardalis.com) und [Tom Dykstra](https://github.com/tdykstra)
+Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core unterstützt eine Protokollierung-API, die mit einer Vielzahl von Protokollanbieter funktioniert. Integrierte Anbieter können Sie die Protokolle auf einem oder mehreren Zielen senden, und Sie eine Drittanbieter-protokollierungsframework einbinden können. In diesem Artikel zeigt, wie die integrierte Protokollierung-API und Anbieter in Ihrem Code verwenden.
 
@@ -244,7 +244,7 @@ Die resultierende protokollmeldung würde wie folgt aussehen:
 Parameter values: parm1, parm2
 ```
 
-Das protokollierungsframework message Formatierung auf diese Weise an, für die Protokollierung Anbieter implementieren können [semantische Protokollierung, auch bekannt als strukturierte Protokollierung](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Da die Argumente an das ereignisprotokollierungssystem, nicht nur die Zeichenfolge formatierte Nachricht übergeben werden können Protokollanbieter Parameterwerte als Felder zusätzlich zu der die Meldungszeichenfolge speichern. Wenn Sie gerichtet sind die Protokollausgabe, um Azure Table Storage ein, und der Methodenaufruf Protokollierung sieht wie folgt aus:
+Das protokollierungsframework message Formatierung auf diese Weise an, für die Protokollierung Anbieter implementieren können [semantische Protokollierung, auch bekannt als strukturierte Protokollierung](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Da die Argumente an das ereignisprotokollierungssystem, nicht nur die Zeichenfolge formatierte Nachricht übergeben werden können Protokollanbieter Parameterwerte als Felder zusätzlich zu der die Meldungszeichenfolge speichern. Wenn Sie gerichtet sind die Protokollausgabe, um Azure Table Storage ein, und der Methodenaufruf Protokollierung sieht wie folgt aus:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
@@ -448,7 +448,7 @@ Dieser Code bezieht sich auf die `Logging` Teil der *appSettings.json* Datei:
 
 [!code-json[](logging/sample//appsettings.json)]
 
-Die Einstellungen, die Grenzwert Framework Protokolle, um Warnungen beim ermöglicht es der app angezeigt, die auf Debugebene zu melden, wie in beschrieben die [Protokoll filtern](#log-filtering) Abschnitt. Weitere Informationen finden Sie unter [Konfiguration](configuration.md).
+Die Einstellungen, die Grenzwert Framework Protokolle, um Warnungen beim ermöglicht es der app angezeigt, die auf Debugebene zu melden, wie in beschrieben die [Protokoll filtern](#log-filtering) Abschnitt. Weitere Informationen finden Sie unter [Configuration (Konfiguration)](configuration.md).
 
 ---
 
@@ -514,7 +514,7 @@ Erfassen von Ereignissen unter Nano Server sind einige zusätzliche Konfiguratio
   New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
   ```
 
-* Hinzufügen von ETW-Anbietern für [CLR](https://msdn.microsoft.com/library/ff357718), ASP.NET Core und andere je nach Bedarf. Der ASP.NET Core-Anbieter-GUID ist `3ac73b97-af73-50e9-0822-5da4367920d0`. 
+* Hinzufügen von ETW-Anbietern für [CLR](https://docs.microsoft.com/dotnet/framework/performance/clr-etw-providers), ASP.NET Core und andere je nach Bedarf. Der ASP.NET Core-Anbieter-GUID ist `3ac73b97-af73-50e9-0822-5da4367920d0`. 
 
   ```powershell
   Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
@@ -555,7 +555,7 @@ loggerFactory.AddEventLog()
 <a id="tracesource"></a>
 ### <a name="the-tracesource-provider"></a>TraceSource-Anbieter
 
-Die [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) anbieterpakets verwendet die [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) Bibliotheken und Anbietern.
+Die [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) anbieterpakets verwendet die [System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource) Bibliotheken und Anbietern.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -573,7 +573,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [AddTraceSource Überladungen](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.tracesourcefactoryextensions) können Sie ein Quellschalter und einen Ablaufverfolgungslistener übergeben.
 
-Zur Verwendung dieses Anbieters muss eine Anwendung für die .NET Framework (anstelle von .NET Core) ausgeführt. Mit dem Anbieter können Weiterleiten von Nachrichten mit einer Vielzahl von [Listener](https://msdn.microsoft.com/library/4y5y10s7), wie z. B. die [TextWriterTraceListener](https://msdn.microsoft.com/library/system.diagnostics.textwritertracelistener) in der beispielanwendung verwendet.
+Zur Verwendung dieses Anbieters muss eine Anwendung für die .NET Framework (anstelle von .NET Core) ausgeführt. Mit dem Anbieter können Weiterleiten von Nachrichten mit einer Vielzahl von [Listener](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/trace-listeners), wie z. B. die [TextWriterTraceListener](https://docs.microsoft.com/dotnet/api/system.diagnostics.textwritertracelistenerr) in der beispielanwendung verwendet.
 
 Das folgende Beispiel konfiguriert eine `TraceSource` Anbieter, der protokolliert `Warning` und höher Nachrichten an das Konsolenfenster.
 
@@ -621,9 +621,9 @@ Hier sind einige Drittanbieter-Protokollierungsframeworks, die mit ASP.NET Core 
 
 * [NLog](https://github.com/NLog/NLog.Extensions.Logging) -Anbieter für die NLog-Bibliothek
 
-* [Serilog](https://github.com/serilog/serilog-framework-logging) -Anbieter für die Serilog-Bibliothek
+* [Serilog](https://github.com/serilog/serilog-extensions-logging) -Anbieter für die Serilog-Bibliothek
 
-Einige Drittanbieter-Frameworks möglich [semantische Protokollierung, auch bekannt als strukturierte Protokollierung](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Einige Drittanbieter-Frameworks möglich [semantische Protokollierung, auch bekannt als strukturierte Protokollierung](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 Verwenden ein Drittanbieter-Framework ähnelt der mit einem der integrierten Anbieter: das Projekt ein NuGet-Paket hinzu, und rufen Sie eine Erweiterungsmethode für `ILoggerFactory`. Weitere Informationen finden Sie unter jeder Framework-Dokumentation.
 

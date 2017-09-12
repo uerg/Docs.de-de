@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 466453bff68f3e0da8b90924edb13095c7548db5
-ms.sourcegitcommit: 4f075f2c22c5a4b5345ffa759be4365824110788
+ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Verhindern von Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Core
 
-[Steve Smith](http://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), und [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>Welche Angriff verhindert das fälschungssicherheitssystem auf einen?
 
@@ -354,7 +354,7 @@ Wenn ein Benutzer mit einem System angemeldet ist, wird eine Sitzung des Benutze
 
 ### <a name="user-tokens"></a>Benutzertoken
 
-Token-basierte Authentifizierung speichern keine Sitzung auf dem Server. Wenn ein Benutzer, in angemeldet ist werden sie stattdessen ein Token (nicht antiforgery Token) ausgegeben. Dieses Token enthält alle Daten, die erforderlich ist, um das Token zu überprüfen. Es enthält auch Benutzerinformationen in Form von [Ansprüche](https://msdn.microsoft.com/library/ff359101.aspx). Wenn ein Benutzer möchte den Zugriff auf eine Serverressource, die eine Authentifizierung erforderlich ist, wird das Token mit einer zusätzlichen Authorization-Header in Form von Träger {Token} an den Server gesendet. Dadurch wird die Anwendung zustandslose, da das Token in jede nachfolgende Anforderung für die serverseitige Validierung in der Anforderung übergeben wird. Dieses Token ist nicht *verschlüsselte*; es *codiert*. Auf der Serverseite kann das Token für den Zugriff auf die unformatierten Informationen innerhalb der Token decodiert werden. Um das Token in nachfolgenden Anforderungen zu senden, können Sie entweder es im lokalen Speicher des Browsers oder in einem Cookie speichern. Sie müssen nicht kümmern XSRF Sicherheitsrisiko, wenn das Token im lokalen Speicher gespeichert ist, aber es ist ein Problem auf, wenn das Token in einem Cookie gespeichert ist.
+Token-basierte Authentifizierung speichern keine Sitzung auf dem Server. Wenn ein Benutzer, in angemeldet ist werden sie stattdessen ein Token (nicht antiforgery Token) ausgegeben. Dieses Token enthält alle Daten, die erforderlich ist, um das Token zu überprüfen. Es enthält auch Benutzerinformationen in Form von [Ansprüche](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Wenn ein Benutzer möchte den Zugriff auf eine Serverressource, die eine Authentifizierung erforderlich ist, wird das Token mit einer zusätzlichen Authorization-Header in Form von Träger {Token} an den Server gesendet. Dadurch wird die Anwendung zustandslose, da das Token in jede nachfolgende Anforderung für die serverseitige Validierung in der Anforderung übergeben wird. Dieses Token ist nicht *verschlüsselte*; es *codiert*. Auf der Serverseite kann das Token für den Zugriff auf die unformatierten Informationen innerhalb der Token decodiert werden. Um das Token in nachfolgenden Anforderungen zu senden, können Sie entweder es im lokalen Speicher des Browsers oder in einem Cookie speichern. Sie müssen nicht kümmern XSRF Sicherheitsrisiko, wenn das Token im lokalen Speicher gespeichert ist, aber es ist ein Problem auf, wenn das Token in einem Cookie gespeichert ist.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Mehrere Anwendungen werden in einer Domäne gehostet werden.
 

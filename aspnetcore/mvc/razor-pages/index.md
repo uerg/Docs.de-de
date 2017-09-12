@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 9301b99aed8fcb3bef91abf0fb269c4052cdb7e2
-ms.sourcegitcommit: 87900dffec8ad84a0f74357b23343e215f354dcb
+ms.openlocfilehash: 543399d99af127f943f7e9119fb5d84c8c5bc499
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor-Seiten in ASP.NET Core
 
@@ -28,7 +28,7 @@ Weitere Informationen zu einem Tutorial, in dem der Model-View-Controller-Ansatz
 
 ## <a name="aspnet-core-20-prerequisites"></a>Anforderungen von ASP.NET Core 2.0
 
-Installieren Sie [.NET Core](https://dot.net/core) 2.0.0 oder höher.
+Installieren Sie [.NET Core](https://www.microsoft.com/net/core) 2.0.0 oder höher.
 
 Wenn Sie Visual Studio verwenden, installieren Sie [Visual Studio](https://www.visualstudio.com/vs/) 15.3 oder höher mit folgenden Workloads:
 
@@ -222,7 +222,7 @@ Fügen Sie eine Datei *Pages/_ViewImports.cshtml* hinzu:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml)]
 
-`@namespace` wird weiter unten im Tutorial erläutert. Die `@addTagHelper`-Anweisung bringt die [integrierten Taghilfsprogramme](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/) zu allen Seiten in der Ordner *Pages*.
+`@namespace` wird weiter unten im Tutorial erläutert. Die `@addTagHelper`-Anweisung bringt die [integrierten Taghilfsprogramme](xref:mvc/views/tag-helpers/builtin-th/Index) zu allen Seiten in der Ordner *Pages*.
 
 <a name="namespace"></a>
 

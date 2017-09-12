@@ -11,17 +11,17 @@ ms.assetid: 5ac13589-3837-4b4d-8abe-81f843942120
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: b7f260bd5d548588a51095537c9c1b1802553c54
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 29229b9507ece6aff8278b0ad66169c9e4e7498b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="replacing-machinekey-in-aspnet"></a>Ersetzen von `<machineKey>` in ASP.NET
 
 <a name=compatibility-replacing-machinekey></a>
 
-Die Implementierung der `<machineKey>` Element in ASP.NET [ist ersetzbare](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx). Dadurch werden die meisten Aufrufe von ASP.NET kryptografischen Routinen über eine Ersetzung Daten Schutzmechanismus einschließlich der neuen Datenschutzsystem geleitet werden.
+Die Implementierung der `<machineKey>` Element in ASP.NET [ist ersetzbare](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Dadurch werden die meisten Aufrufe von ASP.NET kryptografischen Routinen über eine Ersetzung Daten Schutzmechanismus einschließlich der neuen Datenschutzsystem geleitet werden.
 
 ## <a name="package-installation"></a>Paketinstallation
 
@@ -30,7 +30,7 @@ Die Implementierung der `<machineKey>` Element in ASP.NET [ist ersetzbare](http:
 
 Um die neue Datenschutzsystem in einem vorhandenen 4.5.1+ ASP.NET-Projekt zu installieren, installieren Sie das Paket Microsoft.AspNetCore.DataProtection.SystemWeb. Dies wird instanziiert, die Schutz System mithilfe der [Standardkonfiguration](../configuration/default-settings.md#data-protection-default-settings) Einstellungen.
 
-Wenn Sie das Paket installieren, fügt eine Zeile in *"Web.config"* , informiert, dass ASP.NET für die Verwendung [am Kryptografievorgänge](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx), einschließlich Formularauthentifizierung, Ansichtszustand und Aufrufe an MachineKey.Protect. Die Zeile, die eingefügt wird, lautet wie folgt.
+Wenn Sie das Paket installieren, fügt eine Zeile in *"Web.config"* , informiert, dass ASP.NET für die Verwendung [am Kryptografievorgänge](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), einschließlich Formularauthentifizierung, Ansichtszustand und Aufrufe an MachineKey.Protect. Die Zeile, die eingefügt wird, lautet wie folgt.
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />

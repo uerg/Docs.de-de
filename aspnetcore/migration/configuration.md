@@ -11,15 +11,15 @@ ms.assetid: 8468d859-ff32-4a92-9e62-08c4a9e36594
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: f19a8389bd8c4035292306216522994b1dbdc506
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 62660f7e58467a69f540966df188747b6fde57fe
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-configuration"></a>Migrieren der Konfiguration
 
-Durch [Steve Smith](http://ardalis.com) und [Scott Addie](https://scottaddie.com)
+Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.com)
 
 In der vorherigen Artikel wir begann [Migrieren eines ASP.NET MVC-Projekts zu ASP.NET Core MVC](mvc.md). In diesem Artikel wir die Konfiguration migrieren.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 99a1129549d6b9802315c7e5accfa22907994a41
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
 
@@ -37,7 +37,7 @@ Z. B. Wenn Sie eine neue ASP.NET Core-Web-app mit einzelner Benutzerkonten erste
 
 ## <a name="secret-manager"></a>Geheime Schlüssel-Manager
 
-Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklungen außerhalb der Projektstruktur. Das Schlüssel-Manager-Tool ist ein Verwaltungstool, das verwendet werden kann, Speichern von geheimen Schlüsseln für eine [.NET Core](https://microsoft.com/net/core) Projekt während der Entwicklung. Mit dem geheimen Schlüssel-Manager-Tool können Sie ein bestimmtes Projekt geheime app-Schlüssel zuordnen und diese projektübergreifend freigeben.
+Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklungen außerhalb der Projektstruktur. Das Schlüssel-Manager-Tool ist ein Verwaltungstool, das verwendet werden kann, Speichern von geheimen Schlüsseln für eine [.NET Core](https://www.microsoft.com/net/core) Projekt während der Entwicklung. Mit dem geheimen Schlüssel-Manager-Tool können Sie ein bestimmtes Projekt geheime app-Schlüssel zuordnen und diese projektübergreifend freigeben.
 
 >[!WARNING]
 > Der geheime Schlüssel-Manager-Tool die gespeicherten geheimen Schlüssel nicht verschlüsselt und nicht als vertrauenswürdigen Speicher behandelt werden soll. Es ist nur für Entwicklungszwecke. Die Schlüssel und Werte werden in einer JSON-Konfigurationsdatei im Verzeichnis Benutzers-Profil gespeichert.

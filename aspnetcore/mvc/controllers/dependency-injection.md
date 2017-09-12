@@ -11,17 +11,17 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 371fb0f721797e4d8f7a26858ae0a709cb5cd39e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Abhängigkeitsinjektion in Controllern
 
 <a name=dependency-injection-controllers></a>
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC-Controller, sollte ihre Abhängigkeiten explizit über ihre Konstruktoren anfordern. In einigen Fällen einzelne Controlleraktionen erfordern möglicherweise einen Dienst und es möglicherweise nicht sinnvoll, um auf Controllerebene anzufordern. In diesem Fall können Sie auch auswählen, einen Dienst als Parameter auf die Aktionsmethode einzufügen.
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC-Controller, sollte ihre Abhängigkeiten explizit über ihre Kon
 
 ## <a name="dependency-injection"></a>Abhängigkeitsinjektion
 
-Abhängigkeitsinjektion ist eine Technik, die folgt die [Abhängigkeit Umkehrung Prinzip](http://deviq.com/dependency-inversion-principle), sodass bei Anwendungen, die von lose verbundenen Modulen gebildet werden. ASP.NET Core verfügt über integrierte Unterstützung für [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md), wodurch Anwendungen einfacher zu testen und zu verwalten.
+Abhängigkeitsinjektion ist eine Technik, die folgt die [Abhängigkeit Umkehrung Prinzip](http://deviq.com/dependency-inversion-principle/), sodass bei Anwendungen, die von lose verbundenen Modulen gebildet werden. ASP.NET Core verfügt über integrierte Unterstützung für [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md), wodurch Anwendungen einfacher zu testen und zu verwalten.
 
 ## <a name="constructor-injection"></a>Konstruktoreinfügung
 
@@ -70,7 +70,7 @@ Sobald der Dienst konfiguriert wurde, sollte Ausführen der Anwendung, und navig
 ![Grußformel bei der Server](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Finden Sie unter [Controllerlogik testen](testing.md) zu erfahren, wie Sie Abhängigkeiten explizit anfordern [http://deviq.com/explicit-dependencies-principle](http://deviq.com/explicit-dependencies-principle) im Controller wird der Code einfacher zu testen.
+> Finden Sie unter [Controllerlogik testen](testing.md) zu erfahren, wie Sie Abhängigkeiten explizit anfordern [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) im Controller wird der Code einfacher zu testen.
 
 ASP.NET Core des integrierten Abhängigkeitsinjektion unterstützt das Vorhandensein nur eines einzelnen Konstruktors für Klassen, die Dienste anfordern. Wenn Sie mehr als einen Konstruktor verfügen, erhalten Sie möglicherweise eine Ausnahme, die besagt:
 

@@ -11,17 +11,17 @@ ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: ff734c884a60d51a1703f6444cf6d2d49e9bffb0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fc00bcce24d586865bf6a1d3f2f7e782a2f1c703
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap
 
 <a name=bootstrap-index></a>
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 Bootstrap ist derzeit die am häufigsten verwendeten Webframework zum Entwickeln von Webanwendungen reaktionsfähig. Er bietet eine Reihe von Features und Vorteile, die Ihre Benutzer Kenntnisse in Bezug auf Ihre Website verbessern können, ob als am Front-End-Entwurf und Entwicklung oder Experte Anfänger. Bootstrap wird als eine Reihe von CSS und JavaScript-Dateien bereitgestellt und dient zur Skalierung Ihrer Website oder Anwendung effizient Telefone, Tablets auf Desktops schützen.
 

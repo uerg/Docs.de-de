@@ -11,11 +11,11 @@ ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: cef7644d29168e9560d1175885ea85a525fec435
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 16a9385630d88c4c9f33954f83fce2bbce5be719
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="key-encryption-at-rest"></a>Verschlüsselung ruhender
 
@@ -74,7 +74,7 @@ Ab Windows 8 unterstützt das Betriebssystem DPAPI-NG (so genannte CNG DPAPI). M
 
    Cloud computing, erfordert jedoch häufig, dass dieser Inhalt verschlüsselte auf einem Computer auf einem anderen entschlüsselt werden. Aus diesem Grund erweitert Microsoft beginnen mit dem Windows 8, des Konzepts der eine relativ einfache API Cloud-Szenarien umfassen. Diese neue API, DPAPI-NG namens können Sie sicher freigeben geheimen Schlüssel (Schlüssel, Kennwörter, Schlüssel) und Nachrichten von Schutz auf einen Satz von Prinzipalen, die sie nach dem richtigen Authentifizierung und Autorisierung auf verschiedenen Computern den Schutz verwendet werden kann.
 
-   Von [https://msdn.microsoft.com/library/windows/desktop/hh706794 (v=vs.85).aspx](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)
+   Von [über DPAPI CNG](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)
 
 Der Prinzipal wird als ein Deskriptor Schutzregel codiert. Betrachten Sie das folgende Beispiel, das Schlüsselmaterial verschlüsselt, so, dass nur der Domäne-Benutzer mit der angegebenen SID das Schlüsselmaterial entschlüsseln kann.
 
@@ -97,7 +97,7 @@ In diesem Szenario wird die AD-Domänencontroller für die Verteilung der Versch
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Zertifikatbasierte Verschlüsselung mit Windows DPAPI-NG
 
-Wenn Sie auf Windows 8.1 ausführen / Windows Server 2012 R2 oder höher, können Sie verwenden Windows DPAPI-NG zertifikatbasierte Verschlüsselung ausführen, auch wenn die Anwendung ausgeführt wird, auf [.NET Core](https://microsoft.com/net/core). Um diesen Vorteil zu erstellen, verwenden Sie die Regel sicherheitsbeschreibungs-Zeichenfolge "Zertifikat HashId:thumbprint =", wobei Fingerabdruck den Hexadezimal codierten SHA1-Fingerabdruck des Zertifikats zu verwenden ist. Ein Beispiel finden Sie weiter unten.
+Wenn Sie auf Windows 8.1 ausführen / Windows Server 2012 R2 oder höher, können Sie verwenden Windows DPAPI-NG zertifikatbasierte Verschlüsselung ausführen, auch wenn die Anwendung ausgeführt wird, auf [.NET Core](https://www.microsoft.com/net/core). Um diesen Vorteil zu erstellen, verwenden Sie die Regel sicherheitsbeschreibungs-Zeichenfolge "Zertifikat HashId:thumbprint =", wobei Fingerabdruck den Hexadezimal codierten SHA1-Fingerabdruck des Zertifikats zu verwenden ist. Ein Beispiel finden Sie weiter unten.
 
 ```csharp
 sc.AddDataProtection()

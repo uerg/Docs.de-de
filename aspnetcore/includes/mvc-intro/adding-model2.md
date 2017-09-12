@@ -10,7 +10,7 @@
   dotnet ef database update
   ```
   
-  [.NET Core](http://go.microsoft.com/fwlink/?LinkID=517853) ist eine plattformübergreifende Implementierung von .NET. Hier ist diesen Befehlen:
+  [.NET Core](https://docs.microsoft.com/dotnet/core/tools/index) ist eine plattformübergreifende Implementierung von .NET. Hier ist diesen Befehlen:
 
   * `dotnet restore`: Lädt die NuGet-Pakete, die im angegebenen der *csproj* Datei.
   * `dotnet ef migrations add Initial`Führt das Entity Framework .NET Core CLI Migrationen--Befehl aus, und die anfängliche Migration erstellt. Der Parameter nach "hinzufügen" ist ein Name, der Sie die Migration zuweisen. Hier sind Sie die Migration "Initial" benannt, da es sich um die ursprüngliche Datenbankmigration ist. Dieser Vorgang erstellt die *Datenmigration / /\<Datum / Uhrzeit > _Initial.cs* Datei mit der Migration-Befehlen zum Hinzufügen der *Film* Tabelle in der Datenbank.

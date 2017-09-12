@@ -11,11 +11,11 @@ ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: bcf1ce5a272a374c9605e50dee5c5fb27305527d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b7391fffd5d512c01af5d709755a925f739b59ba
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-data-protection"></a>Einführung in Data Protection
 
@@ -49,7 +49,7 @@ Wir Erkennen von Problemen mit dem vorhandenen Stapel gestartet. Sobald wir hatt
 
 Diese Grundsätze Bedenken wir eine einfache entwickelt [einfach zu verwendende](using-data-protection.md) Data Protection Stapel.
 
-Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Persistenz des vertraulichen Nutzlasten gedacht. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://technet.microsoft.com/library/jj585024.aspx) eignen sich besser auf das Szenario der unbegrenzten Speicher und Verwaltungsfunktionen für entsprechend starken haben. Dies bedeutet, dass keine verbietet einen Entwickler mithilfe der ASP.NET Core Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten.
+Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Persistenz des vertraulichen Nutzlasten gedacht. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://docs.microsoft.com/rights-management/) eignen sich besser auf das Szenario der unbegrenzten Speicher und Verwaltungsfunktionen für entsprechend starken haben. Dies bedeutet, dass keine verbietet einen Entwickler mithilfe der ASP.NET Core Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten.
 
 ## <a name="audience"></a>Zielgruppe
 

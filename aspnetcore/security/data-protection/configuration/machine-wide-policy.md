@@ -11,11 +11,11 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 513726e209401d158ac98d5874942765751ac07d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="machine-wide-policy"></a>Wide Computerrichtlinie
 
@@ -77,4 +77,4 @@ Wenn EncryptionType "verwaltet", wird das System konfiguriert werden, um eine ve
 Wenn EncryptionType beliebiger anderer Wert (außer Null / leer) verfügt, löst das Data Protection-System eine Ausnahme beim Start.
 
 >[!WARNING]
-> Wenn eine Standardeinstellung für die Richtlinie konfigurieren, die Typnamen (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) umfasst, müssen die Typen für die Anwendung verfügbar sein. In der Praxis bedeutet dies, dass für Anwendungen, die in Desktop-CLR ausgeführt werden, die Assemblys, die diese Typen enthalten GACed werden soll. ASP.NET Core Anwendungen auf [.NET Core](https://microsoft.com/net/core), die Pakete, mit denen diese Typen enthalten, die installiert werden soll.
+> Wenn eine Standardeinstellung für die Richtlinie konfigurieren, die Typnamen (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) umfasst, müssen die Typen für die Anwendung verfügbar sein. In der Praxis bedeutet dies, dass für Anwendungen, die in Desktop-CLR ausgeführt werden, die Assemblys, die diese Typen enthalten GACed werden soll. ASP.NET Core Anwendungen auf [.NET Core](https://www.microsoft.com/net/core), die Pakete, mit denen diese Typen enthalten, die installiert werden soll.

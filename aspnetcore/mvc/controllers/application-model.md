@@ -11,15 +11,15 @@ ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 18046389becd17135ff831e71e700244d48552d3
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1a5d461809afeef0f485fd3a665250631d855b36
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-the-application-model"></a>Arbeiten mit dem Anwendungsmodell
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 Core ASP.NET-MVC definiert ein *Anwendungsmodell* , die die Bestandteile einer MVC-app darstellt. Sie können lesen und Bearbeiten dieses Modell, um das Verhalten des MVC-Elemente zu ändern. MVC befolgt standardmäßig bestimmte Konventionen, um zu bestimmen, welche Klassen als Controller werden, welche Methoden für diese Klassen Aktionen ausgeführt werden und wie Parameter und routing Verhalten. Sie können dieses Verhalten, um die Bedürfnisse Ihrer app von Ihren eigenen Konventionen erstellen und sie global oder als Attribute angewendet anpassen.
 
@@ -70,13 +70,13 @@ Die `DefaultApplicationModelProvider` viele das Standardverhalten von Core ASP.N
 
 Einige integrierte Verhaltensweisen, die von implementiert die `DefaultApplicationModelProvider`. Dieser Anbieter ist verantwortlich für die Erstellung der [ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), das wiederum auf verweist [ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), und [ `ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) Instanzen. Die `DefaultApplicationModelProvider` Klasse wird vom internen Framework Implementierungsdetail beibehalten, die und wird in der Zukunft ändern können. 
 
-Die `AuthorizationApplicationModelProvider` ist verantwortlich für das Verhalten beim Anwenden der `AuthorizeFilter` und `AllowAnonymousFilter` Attribute. [Erfahren Sie mehr über diese Attribute](https://docs.microsoft.com/aspnet/core/security/authorization/simple).
+Die `AuthorizationApplicationModelProvider` ist verantwortlich für das Verhalten beim Anwenden der `AuthorizeFilter` und `AllowAnonymousFilter` Attribute. [Erfahren Sie mehr über diese Attribute](xref:security/authorization/simple).
 
-Die `CorsApplicationModelProvider` zugeordnete Verhalten implementiert die `IEnableCorsAttribute` und `IDisableCorsAttribute`, und die `DisableCorsAuthorizationFilter`. [Weitere Informationen zu CORS](https://docs.microsoft.com/aspnet/core/security/cors).
+Die `CorsApplicationModelProvider` zugeordnete Verhalten implementiert die `IEnableCorsAttribute` und `IDisableCorsAttribute`, und die `DisableCorsAuthorizationFilter`. [Weitere Informationen zu CORS](xref:security/cors).
 
 ## <a name="conventions"></a>Konventionen
 
-Das Anwendungsmodell definiert Konvention Abstraktionen, die eine einfachere Möglichkeit zum Anpassen des Verhaltens der Modelle als überschreiben das gesamte Modell oder Anbieter bereitstellen. Diese Abstraktionen sind die empfohlene Methode, um das Verhalten Ihrer app zu ändern. Konventionen bieten eine Möglichkeit, Code zu schreiben, die dynamisch Anpassungen angewendet wird. Während [Filter](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) bieten eine Möglichkeit zum Ändern der Framework-Verhalten, Anpassungen können Sie steuern, wie die gesamte app miteinander verkabelt ist.
+Das Anwendungsmodell definiert Konvention Abstraktionen, die eine einfachere Möglichkeit zum Anpassen des Verhaltens der Modelle als überschreiben das gesamte Modell oder Anbieter bereitstellen. Diese Abstraktionen sind die empfohlene Methode, um das Verhalten Ihrer app zu ändern. Konventionen bieten eine Möglichkeit, Code zu schreiben, die dynamisch Anpassungen angewendet wird. Während [Filter](xref:mvc/controllers/filters) bieten eine Möglichkeit zum Ändern der Framework-Verhalten, Anpassungen können Sie steuern, wie die gesamte app miteinander verkabelt ist.
 
 Die folgenden Konventionen sind verfügbar:
 
@@ -85,7 +85,7 @@ Die folgenden Konventionen sind verfügbar:
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-Konventionen werden angewendet, indem sie "Optionen" MVC hinzugefügt werden oder durch Implementierung `Attribute`s und Anwendung auf Domänencontrollern, Aktionen oder Aktionsparameter (ähnlich wie [ `Filters` ](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)). Im Unterschied zu Filtern werden die Konventionen nur ausgeführt, wenn die app, nicht als Teil jeder Anforderung gestartet wird.
+Konventionen werden angewendet, indem sie "Optionen" MVC hinzugefügt werden oder durch Implementierung `Attribute`s und Anwendung auf Domänencontrollern, Aktionen oder Aktionsparameter (ähnlich wie [ `Filters` ](xref:mvc/controllers/filters)). Im Unterschied zu Filtern werden die Konventionen nur ausgeführt, wenn die app, nicht als Teil jeder Anforderung gestartet wird.
 
 ### <a name="sample-modifying-the-applicationmodel"></a>Beispiel: Ändern der ApplicationModel
 
@@ -159,7 +159,7 @@ Die Konvention wird als Option in den Starttasks hinzugefügt.
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Sie können die Konventionen zum Hinzufügen Ihrer [Middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware) durch den Zugriff auf `MvcOptions` verwenden`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Sie können die Konventionen zum Hinzufügen Ihrer [Middleware](xref:fundamentals/middleware) durch den Zugriff auf `MvcOptions` verwenden`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 In diesem Beispiel gilt diese Konvention für Routen, die nicht routing-Attribut verwenden, auf dem der Controller "Namespace" im Namen aufweist. Die folgenden Controller veranschaulicht diese Konvention:
 
@@ -170,7 +170,7 @@ In diesem Beispiel gilt diese Konvention für Routen, die nicht routing-Attribut
 ASP.NET Core MVC verwendet einen anderen Satz von Konventionen von ASP.NET Web API 2 an. Mithilfe von benutzerdefinierten Konventionen, können Sie eine ASP.NET Core MVC-app-Verhalten konsistent mit der eine Web-API-app ändern. Microsoft umfasst die [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) speziell für diesen Zweck.
 
 > [!NOTE]
-> Erfahren Sie mehr über [Migrieren von ASP.NET Web API](https://docs.microsoft.com/aspnet/core/migration/webapi)).
+> Erfahren Sie mehr über [Migrieren von ASP.NET Web API](xref:migration/webapi).
 
 Um der Web-API-Kompatibilität Shim verwenden zu können, müssen Sie das Projekt das Paket hinzu, und fügen Sie dann die Konventionen für MVC durch Aufrufen `AddWebApiConventions` in `Startup`:
 
@@ -199,7 +199,7 @@ Die `UseWebApiParameterConventionsAttribute` dient zum Anwenden der `WebApiParam
 
 ### <a name="routes"></a>Routen
 
-Die `UseWebApiRoutesAttribute` steuert, ob die `WebApiApplicationModelConvention` Controller Konvention wird angewendet. Wenn aktiviert, wird dieser Konvention verwendet, zum Hinzufügen der Unterstützung für [Bereiche](https://docs.microsoft.com/aspnet/core/mvc/controllers/areas) der Route.
+Die `UseWebApiRoutesAttribute` steuert, ob die `WebApiApplicationModelConvention` Controller Konvention wird angewendet. Wenn aktiviert, wird dieser Konvention verwendet, zum Hinzufügen der Unterstützung für [Bereiche](xref:mvc/controllers/areas) der Route.
 
 Zusätzlich zu einem Satz von Konventionen, die Kompatibilität-Paket enthält eine `System.Web.Http.ApiController` Basisklasse, die dem Bedingungsoperator für die Web-API ersetzt. Dadurch können Ihre Controller für Web-API und erben geschrieben aus seiner `ApiController` , wie sie beim Ausführen von auf ASP.NET Core MVC entwickelt wurden, funktionieren. Diese Klasse Basiscontroller ebenfalls mit allen ergänzt wird die `UseWebApi*` oben aufgeführten Attribute. Die `ApiController` verfügbar macht, Eigenschaften, Methoden und Typen, die mit denen im Web-API kompatibel sind.
 

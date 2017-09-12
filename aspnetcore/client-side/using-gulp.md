@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05ea4d5f0a0be08cbbdd114320d3544aae054dd2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: bd617a99ad348c545cbf50f6aa461ca8f456d3a8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Einführung in das Verwenden von Gulp in ASP.NET Core 
 
@@ -29,7 +29,7 @@ In einer typischen modernen Webanwendung kann während des Erstellungsprozesses:
 * Kompilieren Sie weniger oder SASS Dateien CSS.
 * Kompilieren Sie CoffeeScript oder TypeScript-Dateien für JavaScript.
 
-Ein *Task Runner* ist ein Tool, das diese Routine Entwicklungsaufgaben und vieles mehr automatisiert. Visual Studio bietet integrierte Unterstützung für zwei gängige JavaScript-basierten Task Runner: [Gulp](http://gulpjs.com) und [Grunt](using-grunt.md).
+Ein *Task Runner* ist ein Tool, das diese Routine Entwicklungsaufgaben und vieles mehr automatisiert. Visual Studio bietet integrierte Unterstützung für zwei gängige JavaScript-basierten Task Runner: [Gulp](https://gulpjs.com/) und [Grunt](using-grunt.md).
 
 ## <a name="gulp"></a>Gulp
 
@@ -266,7 +266,7 @@ IntelliSense bietet codevervollständigung, parameterbeschreibungen und andere F
 
 ![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Weitere Informationen zu IntelliSense finden Sie unter [JavaScript IntelliSense](https://msdn.microsoft.com/library/bb385682).
+Weitere Informationen zu IntelliSense finden Sie unter [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Entwicklungs-, Staging-und produktionsumgebungen
 

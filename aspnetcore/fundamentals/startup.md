@@ -10,15 +10,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 16969386c55ae2fd2ab574c1799a765e74f59278
-ms.sourcegitcommit: 4147d2d29ea50e7e9b87879c572ac2a9fb51798c
+ms.openlocfilehash: 69af91de6d2c48af58bc10a32d8857af18a41b6a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Start der Anwendung in ASP.NET Core
 
-Durch [Steve Smith](http://ardalis.com) und [Tom Dykstra](https://github.com/tdykstra/)
+Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
 
 Die `Startup` Klasse konfiguriert werden, Dienste und die Anwendung Anforderungspipeline. 
 
@@ -26,7 +26,7 @@ Die `Startup` Klasse konfiguriert werden, Dienste und die Anwendung Anforderungs
 
 ASP.NET Core apps erfordern eine `Startup` Klasse. Gemäß der Konvention werden die `Startup` Klasse heißt "Start". Geben Sie den Namen des Start-Klasse in der `Main` des Programms [WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) Methode. Finden Sie unter [Hosting](xref:fundamentals/hosting) erfahren Sie mehr über `WebHostBuilder`, dem ausgeführt wird, bevor Sie `Startup`.
 
-Sie können separate definieren `Startup` Klassen für unterschiedliche Umgebungen und den entsprechenden eine zur Laufzeit ausgewählt werden. Bei Angabe von `startupAssembly` in der [WebHost Konfiguration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) oder hosting-Optionen, Startassembly geladen werden, und suchen Sie nach einer `Startup` oder `Startup[Environment]` Typ. Die Klasse, deren Name Suffix übereinstimmt, die aktuelle Umgebung priorisiert werden wird, wenn also die Anwendung, in ausgeführt wird der *Entwicklung* Umgebung, und enthält sowohl eine `Startup` und ein `StartupDevelopment` -Klasse, die `StartupDevelopment` Klasse verwendet. Finden Sie unter [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) in `StartupLoader` und [arbeiten mit mehreren Umgebungen](environments.md#startup-conventions).
+Sie können separate definieren `Startup` Klassen für unterschiedliche Umgebungen und den entsprechenden eine zur Laufzeit ausgewählt werden. Bei Angabe von `startupAssembly` in der [WebHost Konfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) oder hosting-Optionen, Startassembly geladen werden, und suchen Sie nach einer `Startup` oder `Startup[Environment]` Typ. Die Klasse, deren Name Suffix übereinstimmt, die aktuelle Umgebung priorisiert werden wird, wenn also die Anwendung, in ausgeführt wird der *Entwicklung* Umgebung, und enthält sowohl eine `Startup` und ein `StartupDevelopment` -Klasse, die `StartupDevelopment` Klasse verwendet. Finden Sie unter [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) in `StartupLoader` und [arbeiten mit mehreren Umgebungen](environments.md#startup-conventions).
 
 Alternativ können Sie eine feste definieren `Startup` Klasse, die unabhängig von der Umgebung durch den Aufruf verwendet werden, `UseStartup<TStartup>`. Dies ist die empfohlene Vorgehensweise.
 
@@ -38,9 +38,9 @@ Erfahren Sie mehr über [Behandeln von Ausnahmen während des Anwendungsstarts](
 
 ## <a name="the-configureservices-method"></a>Die ConfigureServices-Methode
 
-Die [ConfigureServices](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode ist optional, aber wenn verwendet, wird er aufgerufen, bevor die `Configure` Methode durch den Webhost. Die Webhost möglicherweise einige Dienste vor dem Konfigurieren ``Startup`` Methoden aufgerufen werden (finden Sie unter [hosting](xref:fundamentals/hosting)). Gemäß der Konvention [Konfigurationsoptionen](xref:fundamentals/configuration) werden in dieser Methode festgelegt.
+Die [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode ist optional, aber wenn verwendet, wird er aufgerufen, bevor die `Configure` Methode durch den Webhost. Die Webhost möglicherweise einige Dienste vor dem Konfigurieren ``Startup`` Methoden aufgerufen werden (finden Sie unter [hosting](xref:fundamentals/hosting)). Gemäß der Konvention [Konfigurationsoptionen](xref:fundamentals/configuration) werden in dieser Methode festgelegt.
 
-Für Features, die erfordern beträchtliche Setup stehen `Add[Service]` Erweiterungsmethoden in [IServiceCollection](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Dieses Beispiels über die Standardvorlage für die Website konfiguriert die app, um Dienste für Entity Framework, Identitäts- und MVC verwenden:
+Für Features, die erfordern beträchtliche Setup stehen `Add[Service]` Erweiterungsmethoden in [IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Dieses Beispiels über die Standardvorlage für die Website konfiguriert die app, um Dienste für Entity Framework, Identitäts- und MVC verwenden:
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
@@ -76,5 +76,5 @@ Zusätzliche Dienste wie `IHostingEnvironment` und `ILoggerFactory` kann auch in
 
 * [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
 * [Middleware](xref:fundamentals/middleware)
-* [Protokollierung](xref:fundamentals/logging)
+* [Logging (Protokollierung)](xref:fundamentals/logging)
 * [Konfiguration](xref:fundamentals/configuration)

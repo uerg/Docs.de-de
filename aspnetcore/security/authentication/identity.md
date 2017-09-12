@@ -11,15 +11,15 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 72802830660ddcf479e540de7cfc33a07c49dc23
-ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
+ms.openlocfilehash: 5a76cac1d64718b9dece3a3201db06c8192fb6f3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität auf ASP.NET Core
 
-Durch [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), Jon Galloway, [Erik Reitan](https://github.com/Erikre), und [Steve Smith](http://ardalis.com)
+Durch [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), Jon Galloway, [Erik Reitan](https://github.com/Erikre), und [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core Identität ist eine Mitgliedschaftssystem Anmeldefunktionalität für Ihre Anwendung hinzufügen können. Benutzer können ein Konto und die Anmeldung mit einem Benutzernamen erstellen und Kennwort, oder sie können einen externen Anmeldeanbieter wie Facebook, Google, Microsoft Account, Twitter oder anderen verwenden.
 
@@ -41,7 +41,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
     Wenn Sie die .NET Core-Befehlszeilenschnittstelle verwenden zu können, erstellen Sie das neue Projekt mit ``dotnet new mvc --auth Individual``. Dadurch wird ein neues Projekt mit der gleichen Identität Vorlagencode erstellt, die Visual Studio erstellt.
  
-    Das Projekt enthält die `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Paket, d. h. die Identitätsdaten und das Schema zur Verwendung von SQL Server beibehalten wird [Entity Framework Core](https://docs.efproject.net).
+    Das Projekt enthält die `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Paket, d. h. die Identitätsdaten und das Schema zur Verwendung von SQL Server beibehalten wird [Entity Framework Core](https://docs.microsoft.com/ef/).
     
     ---
  

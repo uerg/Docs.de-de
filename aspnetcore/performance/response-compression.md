@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: b79d86358a8f1552118fac508c4cc02cf674f169
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5705e9f879af4be3fe338716a4310bf9f0530039
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Antwort Komprimierung Middleware für ASP.NET Core
 
@@ -169,7 +169,7 @@ Verwenden die Beispiel-app, sendet der Client eine Anforderung mit der `Accept-E
 ![Fiddler-Fenster, Ergebnis der Anforderung mit den Accept-Encoding-Header und Wert Mycustomcompression anzeigt. Die Vary und Content-Encoding-Header werden in der Antwort hinzugefügt.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>Komprimierung mit sicheres Protokoll
-Komprimierte Antworten über sichere Verbindungen können gesteuert werden, mit der `EnableForHttps` Option ist standardmäßig deaktiviert. Dynamisch generierte Seiten mit Komprimierung Sicherheitsprobleme führen kann, wie z. B. die [CRIME](https://en.wikipedia.org/wiki/CRIME_(security_exploit)) und [Verletzung](https://en.wikipedia.org/wiki/BREACH_(security_exploit)) Angriffe.
+Komprimierte Antworten über sichere Verbindungen können gesteuert werden, mit der `EnableForHttps` Option ist standardmäßig deaktiviert. Dynamisch generierte Seiten mit Komprimierung Sicherheitsprobleme führen kann, wie z. B. die [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) und [Verletzung](https://wikipedia.org/wiki/BREACH_(security_exploit)) Angriffe.
 
 ## <a name="adding-the-vary-header"></a>Den Vary-Header hinzufügen
 Bei der Komprimierung von Antworten auf Grundlage der `Accept-Encoding` -Header, es gibt potenziell mehrere komprimierte Versionen der Antwort und eine nicht komprimierte Version. Um den Client und Proxy-Caches anweisen, die mehrere Versionen vorhanden sind und gespeichert werden sollen, die `Vary` Kopfzeile wird hinzugefügt, und ein `Accept-Encoding` Wert. In ASP.NET Core 1.x, Hinzufügen der `Vary` Header in die Antwort erfolgt manuell. In ASP.NET Core 2.x, die Middleware fügt die `Vary` Header automatisch, wenn die Antwort komprimiert wird.
