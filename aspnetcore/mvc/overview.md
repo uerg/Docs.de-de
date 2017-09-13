@@ -11,15 +11,15 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 3e95ccd8aeda54a050cd656ea0c831fd928f53a2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
-Durch [Steve Smith](http://ardalis.com)
+Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC ist ein funktionsreiches Framework zum Erstellen von Web-apps und APIs mit Model-View-Controller entwerfen Muster.
 
@@ -77,7 +77,7 @@ ASP.NET Core MVC umfasst Folgendes:
 * [Prüfbarkeit](#testability)
 * [Razor-Ansichtsmodul](#razor-view-engine)
 * [Stark typisierte Ansichten](#strongly-typed-views)
-* [Tag-Hilfsprogramme](#tag-helpers)
+* [Tag Helpers (Taghilfsprogramme)](#tag-helpers)
 * [Anzeigen von Komponenten](#view-components)
 
 ### <a name="routing"></a>Routing
@@ -153,7 +153,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 }
 ```
 
-Das Framework verarbeitet Anforderungsdaten sowohl auf dem Client als auch auf dem Server zu überprüfen. Validierungslogik auf Modelltypen angegeben wird, die den gerenderten Ansichten als unaufdringlichen Anmerkungen hinzugefügt und wird im Browser mit erzwungen [jQuery-Validierung](http://jqueryvalidation.org/).
+Das Framework verarbeitet Anforderungsdaten sowohl auf dem Client als auch auf dem Server zu überprüfen. Validierungslogik auf Modelltypen angegeben wird, die den gerenderten Ansichten als unaufdringlichen Anmerkungen hinzugefügt und wird im Browser mit erzwungen [jQuery-Validierung](https://jqueryvalidation.org/).
 
 ### <a name="dependency-injection"></a>Abhängigkeitsinjektion
 

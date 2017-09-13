@@ -11,15 +11,15 @@ ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: df20c3a31fce81ab039ef2f63bf38ed9943c7c6c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core 
 
-Durch [Noel Reis](http://blog.falafel.com/author/noel-rice/)
+Durch [Noel Reis](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt ist ein JavaScript-Task Runner, die automatisiert Skript Minimierung, TypeScript-Kompilierung, Code "fusselfreien" Qualitätstools, CSS-Pre-Prozessoren und nahezu jeder sich wiederholende mühsam, die auf diese Weise zur Unterstützung von Cliententwicklung benötigt. Grunt ist vollständig in Visual Studio unterstützt, obwohl die Projektvorlagen für ASP.NET Gulp standardmäßig verwenden (finden Sie unter [Verwenden von Gulp](using-gulp.md)).
 
@@ -211,7 +211,7 @@ Grunt konfiguriert ist, über ein Manifest mit dem Namen *Gruntfile.js* , die de
 
 10.  Hinzufügen der `uglify` Aufgabe mit den folgenden Code.
 
-    Der Task verkleinert die *combined.js* -Datei im temporären Verzeichnis gefunden und erstellt die Ergebnisdatei in die standardmäßige Benennungskonvention befolgen "Wwwroot" / Lib  *\<Dateiname\>. min.js*.
+    Der Task verkleinert die *combined.js* -Datei im temporären Verzeichnis gefunden und erstellt die Ergebnisdatei in die standardmäßige Benennungskonvention befolgen "Wwwroot" / Lib * \<Dateiname\>. min.js*.
     
     ```javascript
     uglify: {
@@ -280,7 +280,7 @@ Mit der rechten Maustaste der Aufgabe überwachen Taskausführungs-Explorer, und
 
 ## <a name="binding-to-visual-studio-events"></a>Binden an Visual Studio-Ereignisse
 
-Es sei denn, Sie möchten Ihre Aufgaben manuell zu starten, jedes Mal, wenn Sie in Visual Studio arbeiten, können Sie Aufgaben zum Binden **vor dem Build**, **nach dem Erstellen**, **Bereinigen**, und  **Projekt öffnen** Ereignisse.
+Es sei denn, Sie möchten Ihre Aufgaben manuell zu starten, jedes Mal, wenn Sie in Visual Studio arbeiten, können Sie Aufgaben zum Binden **vor dem Build**, **nach dem Erstellen**, **Bereinigen**, und ** Projekt öffnen** Ereignisse.
 
 Binden wir `watch` , damit es ausgeführt wird, jedes Mal, wenn Visual Studio wird geöffnet. Im Task Runner-Explorer mit der rechten Maustaste in der Aufgabe überwachen, und wählen **Bindungen > Projekt öffnen** aus dem Kontextmenü.
 
