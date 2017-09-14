@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 7790f38dda61eabd3cbbc6088ad455c07289b739
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 4013619f738b3b8b58e45d9dfd205e7b75e056b4
+ms.sourcegitcommit: 029dd7fbc0793e84b9ed91f2b45624bbc187fb32
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -125,7 +125,7 @@ Beim Testen und Problembehandlung für das Verhalten beim Zwischenspeichern, mö
 * Die `Set-Cookie` Header darf nicht vorhanden sein.
 * `Vary`Headerparameter müssen gültig und nicht gleich sein `*`.
 * Die `Content-Length` Headerwert (falls festgelegt) müssen die Größe des Antworttexts übereinstimmen.
-* Die `HttpSendFileFeature` wird nicht verwendet.
+* Die [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) wird nicht verwendet.
 * Die Antwort muss entsprechend den Angaben von veralteten der `Expires` Header und die `max-age` und `s-maxage` cache-Anweisungen.
 * Antwortpufferung ist erfolgreich, und die Größe der Antwort ist kleiner als die konfigurierte oder default `SizeLimit`.
 * Muss die Antwort zwischengespeichert werden gemäß der [RFC 7234](https://tools.ietf.org/html/rfc7234) Spezifikationen. Z. B. die `no-store` Richtlinie darf nicht in der Anforderung oder Antwort Headerfelder vorhanden sein. Finden Sie unter *Abschnitt 3: Speichern von Antworten in Caches* von [RFC 7234](https://tools.ietf.org/html/rfc7234) Details.
