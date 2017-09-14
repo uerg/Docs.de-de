@@ -11,11 +11,11 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 2f799588ba4aca4664e1679e4c34657e7ca121fb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
+ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="resource-based-authorization"></a>Resource Based Autorisierung
 
@@ -52,7 +52,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name=security-authorization-resource-based-imperative></a>
 
-Die Auslastung der Ressource in Ihre Aktion aufrufen, rufen Sie anschließend die `AuthorizeAsync` Überladung, die Sie benötigen. Beispiel:
+Um den Dienst aufzurufen, laden Sie die Ressource in Ihre Aktion rufen Sie anschließend die `AuthorizeAsync` Überladung, die Sie benötigen. Zum Beispiel:
 
 ```csharp
 public async Task<IActionResult> Edit(Guid documentId)
@@ -77,12 +77,12 @@ public async Task<IActionResult> Edit(Guid documentId)
 
 ## <a name="writing-a-resource-based-handler"></a>Schreiben Sie einen Handler ressourcenbasierter
 
-Schreiben einen Handler für die Autorisierung ressourcenbasierter unterscheidet sich nicht, die viel zu [schreiben einen Handler für einfache Anforderungen](policies.md#security-authorization-policies-based-authorization-handler). Sie eine Anforderung erstellen und implementieren Sie anschließend einen Handler für die Anforderung vor Anforderung sowie der Ressourcentyp angeben. Beispielsweise würde ein Ereignishandler, der eine dokumentressource akzeptiert, die möglicherweise wie folgt aussehen;
+Schreiben einen Handler für die Autorisierung ressourcenbasierter unterscheidet sich nicht, die viel zu [schreiben einen Handler für einfache Anforderungen](policies.md#security-authorization-policies-based-authorization-handler). Sie eine Anforderung erstellen und implementieren Sie anschließend einen Handler für die Anforderung vor Anforderung sowie der Ressourcentyp angeben. Beispielsweise würde ein Ereignishandler, der eine dokumentressource akzeptiert, die möglicherweise wie folgt aussehen:
 
 ```csharp
 public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
 {
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
                                                 MyRequirement requirement,
                                                 Document resource)
     {
@@ -93,7 +93,7 @@ public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, 
 }
 ```
 
-Vergessen Sie nicht, müssen Sie auch registrieren Sie den Handler in der `ConfigureServices` -Methode.
+Vergessen Sie nicht, müssen Sie auch registrieren Sie den Handler in der `ConfigureServices` Methode:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
@@ -101,7 +101,7 @@ services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
 
 ### <a name="operational-requirements"></a>Prozessanforderungen
 
-Wenn Sie Ihre Entscheidungen basierend auf Vorgänge wie z. B. Lese-, Schreib-, Update und Delete ausführen möchten, können Sie die `OperationAuthorizationRequirement` -Klasse in der `Microsoft.AspNetCore.Authorization.Infrastructure` Namespace. Diese Klasse vorgefertigten Anforderung können Sie einen einzigen Handler besitzt eine parametrisierte Vorgangsnamen schreiben, anstatt einzelne Klassen für jeden Vorgang zu erstellen. Geben zum verwenden einige Vorgangsnamen:
+Wenn Sie Ihre Entscheidungen basierend auf Vorgänge wie z. B. Lese-, Schreib-, Update und Delete ausführen möchten, können Sie die `OperationAuthorizationRequirement` -Klasse in der `Microsoft.AspNetCore.Authorization.Infrastructure` Namespace. Diese Klasse vorgefertigten Anforderung können Sie einen einzigen Handler besitzt eine parametrisierte Vorgangsnamen schreiben, anstatt einzelne Klassen für jeden Vorgang zu erstellen. Geben Sie einige Vorgangsnamen, um es verwenden zu um können:
 
 ```csharp
 public static class Operations
@@ -117,7 +117,7 @@ public static class Operations
 }
 ```
 
-Der Handler dann implementiert werden kann wie folgt mithilfe ein hypothetischen `Document` Klasse wie die Ressource;
+Der Handler dann implementiert werden kann wie folgt mithilfe ein hypothetischen `Document` Klasse wie die Ressource:
 
 ```csharp
 public class DocumentAuthorizationHandler :
@@ -137,7 +137,7 @@ public class DocumentAuthorizationHandler :
 
 Sehen Sie die Handler funktioniert auf `OperationAuthorizationRequirement`. Der Code innerhalb der Handler muss die Name-Eigenschaft der angegebenen Anforderung berücksichtigt dauern, beim Bereitstellen der Bewertungen.
 
-Einen Handler operational Ressource aufrufen, Sie den Vorgang angeben, beim Aufrufen von müssen `AuthorizeAsync` in Ihre Aktion. Beispiel:
+Einen Handler operational Ressource aufrufen, Sie den Vorgang angeben, beim Aufrufen von müssen `AuthorizeAsync` in Ihre Aktion. Zum Beispiel:
 
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))

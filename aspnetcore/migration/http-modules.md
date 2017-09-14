@@ -11,17 +11,17 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f99c2751138ac789e7105ff256ce7254e280463e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen. 
 
 Durch [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-In diesem Artikel wird gezeigt, wie zum Migrieren von vorhandenen ASP.NET [HTTP-Module und Handler](https://msdn.microsoft.com/library/bb398986.aspx) zu ASP.NET Core [Middleware](../fundamentals/middleware.md).
+In diesem Artikel wird gezeigt, wie zum Migrieren von vorhandenen ASP.NET [HTTP-Module und Ereignishandler in "System.Webserver"](https://docs.microsoft.com/iis/configuration/system.webserver/) zu ASP.NET Core [Middleware](../fundamentals/middleware.md).
 
 ## <a name="modules-and-handlers-revisited"></a>Module und Handler revisited
 
@@ -31,15 +31,15 @@ Pausieren zu ASP.NET Core Middleware wir zunächst kurz zusammengefasst, wie HTT
 
 **Ereignishandler sind:**
 
-   * Klassen, in denen [IHttpHandler](https://msdn.microsoft.com/library/system.web.ihttphandler.aspx)
+   * Klassen, in denen [IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
 
    * Verwendet die Verarbeitung von Anforderungen mit einem angegebenen Dateinamen oder eine Erweiterung, z. B. *.report*
 
-   * [Konfiguriert](https://msdn.microsoft.com/library/46c5ddfy.aspx) in *"Web.config"*
+   * [Konfiguriert](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/) in *"Web.config"*
 
 **Module sind:**
 
-   * Klassen, in denen [IHttpModule](https://msdn.microsoft.com/library/system.web.ihttpmodule.aspx)
+   * Klassen, in denen [IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
 
    * Für jede Anforderung aufgerufen
 
@@ -47,11 +47,11 @@ Pausieren zu ASP.NET Core Middleware wir zunächst kurz zusammengefasst, wie HTT
 
    * Die HTTP-Antwort hinzuzufügen, oder erstellen Sie ihre eigenen Lage
 
-   * [Konfiguriert](https://msdn.microsoft.com/library/ms227673.aspx) in *"Web.config"*
+   * [Konfiguriert](https://docs.microsoft.com//iis/configuration/system.webserver/modules/) in *"Web.config"*
 
 **Die Reihenfolge, in der Module eingehende Anforderungen verarbeitet werden, wird durch bestimmt:**
 
-   1. Die [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx), also eine Reihe-Ereignisse, die von ASP.NET ausgelöst: [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)usw.. Jedes Modul kann einen Handler für ein oder mehrere Ereignisse erstellt werden.
+   1. Die [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx), also eine Reihe-Ereignisse, die von ASP.NET ausgelöst: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)usw.. Jedes Modul kann einen Handler für ein oder mehrere Ereignisse erstellt werden.
 
    2. Nach demselben Ereignis, die Reihenfolge, in der sie in konfiguriert sind *"Web.config"*.
 
@@ -245,7 +245,7 @@ Sie haben bereits gesehen, die die `Invoke` Methode in Ihrer Middleware nimmt ei
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext`in ASP.NET Core wurde erheblich geändert werden. In diesem Abschnitt wird gezeigt, wie die am häufigsten verwendeten Eigenschaften der Verschiebung [System.Web.HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) mit dem neuen `Microsoft.AspNetCore.Http.HttpContext`.
+`HttpContext`in ASP.NET Core wurde erheblich geändert werden. In diesem Abschnitt wird gezeigt, wie die am häufigsten verwendeten Eigenschaften der Verschiebung [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext) mit dem neuen `Microsoft.AspNetCore.Http.HttpContext`.
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -382,7 +382,7 @@ Die `SetCookies` Rückrufmethode würde wie folgt aussehen:
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [HTTP-Handler und HTTP-Module (Übersicht)](https://msdn.microsoft.com/library/bb398986.aspx)
+* [HTTP-Handler und HTTP-Module (Übersicht)](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
 * [Konfiguration](../fundamentals/configuration.md)
 
