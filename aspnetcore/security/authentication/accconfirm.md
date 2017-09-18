@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8fe21b1a1ccb93c124dbd12a540b195400d45ef6
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
@@ -117,7 +117,7 @@ Die vorangehende Zeile wird verhindert, dass registrierte Benutzern zur Verfügu
 
 In diesem Lernprogramm wird SendGrid zum Senden von e-Mails. Sie benötigen ein SendGrid-Konto und ein Schlüssel zum Senden von e-Mail. Sie können andere e-Mail-Anbieter verwenden. ASP.NET Core 2.x enthält `System.Net.Mail`, womit Sie das Senden von e-Mails aus Ihrer app. Es wird empfohlen, dass Sie SendGrid oder eine andere e-Mail-Dienst verwenden, um e-Mail zu senden.
 
-Die [Optionen Muster](xref:fundamentals/configuration#options-config-objects) wird verwendet, um die Benutzer Konto- und Schlüsselauthentifizierung Einstellungen zugreifen. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration#fundamentals-configuration).
+Die [Optionen Muster](xref:fundamentals/configuration#options-config-objects) wird verwendet, um die Benutzer Konto- und Schlüsselauthentifizierung Einstellungen zugreifen. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration).
 
 Erstellen Sie eine Klasse, um den e-Mail-Schlüssel abzurufen. Für dieses Beispiel die `AuthMessageSenderOptions` Klasse wird erstellt, der *Services/AuthMessageSenderOptions.cs* Datei.
 

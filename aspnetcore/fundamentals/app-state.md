@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b451bde1e3180d12781d55113638cc1a99182c8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 409444e99cfa49f30812c6130120391a8f477839
+ms.sourcegitcommit: 50608ec8ae49897d8bf11d5f6dc511da30862bfa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Einführung in die Sitzung und Anwendungsstatus in ASP.NET Core
 
@@ -96,7 +96,15 @@ Die `Microsoft.AspNetCore.Session` Paket stellt Middleware für die Verwaltung d
 
 Der folgende Code zeigt, wie der Sitzungsanbieter in-Memory-eingerichtet wird.
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+
+---
 
 Sie können die Sitzung von verweisen `HttpContext` nach installiert und konfiguriert ist.
 
@@ -116,7 +124,15 @@ Sitzung wird ein Cookie verwendet, verfolgen und Anforderungen von einer einzeln
 
 Um Sitzung Standardwerte zu überschreiben, verwenden `SessionOptions`:
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 [!code-csharp[Main](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+---
 
 Der Server verwendet die `IdleTimeout` -Eigenschaft können Sie bestimmen, wie lange eine Sitzung im Leerlauf befinden kann, bevor Sie seinen Inhalt abgebrochen werden. Diese Eigenschaft ist unabhängig von den Ablauf der Cookies. Jede Anforderung, die die Sitzung Middleware (aus gelesen oder geschrieben) durchlaufen setzt das Timeout an.
 
@@ -230,4 +246,5 @@ public class MyController : Controller
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 
-* [In diesem Dokument verwendeten Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 1.x: Beispielcode in diesem Dokument verwendeten](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 2.x: Beispielcode in diesem Dokument verwendeten](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

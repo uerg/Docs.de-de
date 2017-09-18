@@ -2,19 +2,19 @@
 title: "Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core"
 author: rick-anderson
 description: "Zeigt, wie sichere Speichern von geheimen Schlüsseln während der Entwicklung"
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 7/14/2017
+ms.date: 09/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e112cc5ef9cba5aff6470ce4b9b1091a3c2b2600
+ms.sourcegitcommit: f1271b218d7dfdc806ec8f411c81f3750130463d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
 
@@ -42,36 +42,19 @@ Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklung
 >[!WARNING]
 > Der geheime Schlüssel-Manager-Tool die gespeicherten geheimen Schlüssel nicht verschlüsselt und nicht als vertrauenswürdigen Speicher behandelt werden soll. Es ist nur für Entwicklungszwecke. Die Schlüssel und Werte werden in einer JSON-Konfigurationsdatei im Verzeichnis Benutzers-Profil gespeichert.
 
-### <a name="visual-studio-2017-installing-the-secret-manager-tool"></a>Visual Studio-2017: Installieren des Schlüssel-Manager-Tools
+## <a name="installing-the-secret-manager-tool"></a>Installieren den geheimen Schlüssel-Manager
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **bearbeiten \<Project_name\>csproj** aus dem Kontextmenü. Fügen Sie die hervorgehobene Zeile auf die *csproj* Datei, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
-Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `UserSecretsId` Knoten innerhalb einer `PropertyGroup` von der *csproj* Datei. Öffnen Sie es auch eine `secrets.json` -Datei im Text-Editor.
+Mit der rechten Maustaste erneut auf des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `UserSecretsId` Knoten innerhalb einer `PropertyGroup` von der *csproj* Datei, wie im folgenden Beispiel verdeutlicht:
 
-Fügen Sie `secrets.json` Folgendes hinzu:
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
-
-### <a name="visual-studio-2015-installing-the-secret-manager-tool"></a>Visual Studio 2015: Installieren des Schlüssel-Manager-Tools
-
-Öffnen Sie das Projekt `project.json` Datei. Hinzufügen eines Verweises auf `Microsoft.Extensions.SecretManager.Tools` innerhalb der `tools` -Eigenschaft, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
-
-```json
-"tools": {
-    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final",
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
-},
-```
-
-Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `userSecretsId` Eigenschaft `project.json`. Öffnen Sie es auch eine `secrets.json` -Datei im Text-Editor.
-
-Fügen Sie `secrets.json` Folgendes hinzu:
+Speichern der geänderten *csproj* Datei auch öffnet eine `secrets.json` Datei im Text-Editor. Ersetzen Sie den Inhalt von der `secrets.json` Datei durch den folgenden Code:
 
 ```json
 {
@@ -79,11 +62,11 @@ Fügen Sie `secrets.json` Folgendes hinzu:
 }
 ```
 
-### <a name="visual-studio-code-or-command-line-installing-the-secret-manager-tool"></a>Visual Studio-Code oder über die Befehlszeile: Installieren den geheimen Schlüssel-Manager
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie `dotnet restore`.
+Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie `dotnet restore`. Die gleichen Schritte können Sie um das für die Befehlszeile mit Schlüssel-Manager-Tool zu installieren.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Testen Sie das Schlüssel-Manager-Tool, indem Sie den folgenden Befehl ausführen:
 
@@ -100,7 +83,7 @@ Das Schlüssel-Manager-Tool verarbeitet projektspezifische Konfigurationseinstel
 
 Hinzufügen einer `UserSecretsId` für das Projekt in der *csproj* Datei:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?range=7-9&highlight=2)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Verwenden Sie den geheimen Schlüssel-Manager, um einen geheimen Schlüssel festzulegen. Geben Sie in einem Befehlsfenster aus dem Projektverzeichnis beispielsweise Folgendes ein:
 
@@ -115,6 +98,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 ```
 
 Sie können auch das Tool Secret-Manager angezeigt wird, entfernen und app-Kennwörter zu löschen.
+
+-----
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Zugreifen auf vertrauliche Benutzerdaten über die Konfiguration
 

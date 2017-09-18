@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
@@ -30,7 +30,7 @@ Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. E
 EF Core 2.0 ist die neueste Version von EF aber noch keinen alle Funktionen von EF 6.x. Informationen zur Wahl zwischen EF 6.x und EF-Kern, finden Sie unter [EF Core Vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Bei Auswahl von EF 6.x ausführen, finden Sie unter [die vorherige Version dieser Reihe von Lernprogrammen](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
-> * Die Version 1.1 von ASP.NET Core dieses Lernprogramms finden Sie unter der [VS 2017 Update 2 Version dieses Lernprogramms im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf).
+> * Die Version 1.1 von ASP.NET Core dieses Lernprogramms finden Sie unter der [VS 2017 Update 2 Version dieses Lernprogramms im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
 > * Die Version dieses Tutorials für Visual Studio 2015 finden Sie unter [Visual Studio 2015-Version der ASP.NET Core-Dokumentation im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
@@ -80,7 +80,7 @@ Den Stil der Benutzeroberfläche von diesem Standort wurde in der Nähe was von 
 
 * Klicken Sie auf **OK**
 
-  ![Dialogfeld "neues ASP.NET-Projekt"](intro/_static/new-aspnet.png)
+  ![Dialogfeld „Neues ASP.NET-Projekt“](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Richten Sie den Website-Stil
 
@@ -204,7 +204,7 @@ Hinzufügen `using` -Anweisungen für `ContosoUniversity.Data` und `Microsoft.En
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Die Verbindungszeichenfolge gibt eine SQL Server LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Anwendungsentwicklung, nicht für Produktionszwecke vorgesehen. LocalDB bedarfsgesteuert gestartet und im Benutzermodus ausgeführt wird, d. h., es ist keine komplexe Konfiguration. Erstellt standardmäßig LocalDB *mdf* -Datenbankdateien, die in der `C:/Users/<user>` Verzeichnis.
+Die Verbindungszeichenfolge gibt eine SQL Server LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Anwendungsentwicklung, nicht für Produktionszwecke vorgesehen. LocalDB wird bedarfsgesteuert gestartet und im Benutzermodus ausgeführt, sodass keine komplexe Konfiguration anfällt. Erstellt standardmäßig LocalDB *mdf* -Datenbankdateien, die in der `C:/Users/<user>` Verzeichnis.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Fügen Sie Code zum Initialisieren der Datenbank mit Testdaten
 
@@ -242,7 +242,7 @@ Die automatische Erstellung von CRUD-Aktionsmethoden und Ansichten wird als Ger�
 
 * Mit der rechten Maustaste die **Controller** Ordner **Projektmappen-Explorer** , und wählen Sie **hinzufügen > Neues Gerüstelement**.
 
-* In der **MVC-Abhängigkeiten hinzufügen** wählen Sie im Dialogfeld **minimale Abhängigkeiten**, und wählen Sie **hinzufügen**.
+* Wählen Sie im Dialogfeld **MVC-Abhängigkeiten hinzufügen** die Option **Mindestens erforderliche Abhängigkeiten** und dann **Hinzufügen** aus.
 
   ![Hinzufügen von Abhängigkeiten](intro/_static/add-depend.png)
 

@@ -5,22 +5,22 @@ description: 'ASP.NET Core: Integrierte Taghilfsprogramme'
 keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
-ms.date: 7/11/2017
+ms.date: 09/13/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 3f47cc571eff0c522aaf6543de58f158835384d4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 
 Von [Peter Kellner](http://peterkellner.net) 
 
-Das ASP.NET Core-Framework umfasst viele Taghilfsprogramme, die Ihnen beim Schreiben von stabilem Code helfen können. Dieser Abschnitt bietet eine Übersicht über die integrierten Taghilfsprogramme.
+ASP.NET Core enthält viele integrierte Taghilfsprogramme, die Ihnen dabei helfen, Ihre Produktivität zu steigern. Dieser Abschnitt bietet eine Übersicht über die integrierten Taghilfsprogramme.
 
 > [!NOTE]
 > Es handelt sich um integrierte Taghilfsprogramme, die nicht erläutert werden, da sie vom [Razor](xref:mvc/views/razor)-Ansichtsmodul intern verwendet werden. Dies schließt ein Taghilfsprogramm für das Zeichen „~“ (Tilde) ein, das in den Stammpfad der Website erweitert wird.
@@ -37,13 +37,13 @@ Das ASP.NET Core-Framework umfasst viele Taghilfsprogramme, die Ihnen beim Schre
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
 
-[comment]: **[FormTagTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormTagHelper)**
+**[Hilfsprogramm für Formulartags](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[Image-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
 
-[comment]: **[InputTagHelper](xref:mvc/views/tag-helpers/builtin-th/InputTagHelper)**
+**[Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-[comment]: **[LabelTagHelper](xref:mvc/views/tag-helpers/builtin-th/LabelTagHelper)**
+**[Hilfsprogramm für Bezeichnungstags](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
 
@@ -51,21 +51,15 @@ Das ASP.NET Core-Framework umfasst viele Taghilfsprogramme, die Ihnen beim Schre
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
 
-[comment]: **[SelectTagHelper](xref:mvc/views/tag-helpers/builtin-th/SelectTagTagHelper)**
+**[Hilfsprogramm für Auswahltags](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-[comment]: **[TextAreaTagHelper](xref:mvc/views/tag-helpers/builtin-th/TextAreaTagHelper)**
+**[Hilfsprogramm für Textbereichtags](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-[comment]: **[ValidationMessageTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationMessageTagHelper)**
+**[Hilfsprogramm für Überprüfungsmeldungstags](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-[comment]: **[ValidationSummaryTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationSummaryTagHelper)**  
-  
-  
-<!--
+**[Hilfsprogramm für Überprüfungszusammenfassungstags](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
-## Additional Resources
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-REQUIRED These must be xref links, not relative, that is ../../
-* [Client-Side Development](../../../client-side/index.md)
-
-* [Tag Helpers](xref:mvc/views/tag-helpers/intro)
--->
+* [Clientbasierte Entwicklung](xref:client-side/index)
+* [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)

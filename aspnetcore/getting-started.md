@@ -5,17 +5,17 @@ description: "Kurztutorial, in dem eine einfache Hello World-App mit ASP.NET Cor
 keywords: ASP.NET Core, Tutorial, erste Schritte
 ms.author: riande
 manager: wpickett
-ms.date: 08/07/2017
+ms.date: 08/30/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: 3399df3958093da9117b013736b1cb370fd6beb2
-ms.sourcegitcommit: 297ee5d2f3b3b24eb8a2c4a25195c9e2973cb91b
+ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>Erste Schritte mit ASP.NET Core
 
@@ -28,21 +28,26 @@ ms.lasthandoff: 08/14/2017
 
    Öffnen Sie unter macOS und Linux ein Terminalfenster. Öffnen Sie unter Windows eine Eingabeaufforderung.
 
-   ```terminal
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   dotnet new web
-   ```
+    ```terminal
+    dotnet new razor -o aspnetcoreapp
+    ```
     
 4. Führen Sie die App aus.
 
-   Mit dem Befehl `dotnet run` wird die App bei Bedarf zunächst erstellt.
+    Verwenden Sie die folgenden Befehle, um die App auszuführen:
 
-   ```terminal
-   dotnet run
-   ```
+    ```terminal
+    cd aspnetcoreapp
+    dotnet run
+    ```
 
-5. Wechseln Sie zu `http://localhost:5000`.
+5. Wechseln Sie dann zu [http://localhost:5000](http://localhost:5000).
+
+6. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server ist @DateTime.Now":
+
+    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+
+7. Navigieren Sie zu [http://localhost:5000/About](http://localhost:5000/About), und überprüfen Sie die Änderungen.
 
 ### <a name="next-steps"></a>Nächste Schritte
 
