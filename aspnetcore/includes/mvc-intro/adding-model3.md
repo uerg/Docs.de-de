@@ -6,7 +6,7 @@
 
   ![Erstellen Sie die Ansicht mit den Feldern für ein Genre, den Preis, das Veröffentlichungsdatum und den Titel.](../../tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* Sie können unter Umständen in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](http://jqueryvalidation.org/) in nicht englischen Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate, müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter https://github.com/aspnet/Docs/issues/4076 und [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
+* Sie können unter Umständen in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) in nicht englischen Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate, müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter https://github.com/aspnet/Docs/issues/4076 und [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
 
 <a name="displayformatdatelocal"></a>
 

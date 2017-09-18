@@ -11,11 +11,11 @@ ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 82ce5bbc695b190759ac2c05cdceebb5f7854eb7
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: cfce91271ca21dd800fb68a14389606ce6d835f5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Erste Schritte mit ASP.NET Core MVC unter Mac, Linux oder Windows
 
@@ -31,11 +31,11 @@ Es gibt drei Versionen dieses Tutorials:
 
 ## <a name="install-vs-code-and-net-core"></a>Installieren von VS-Code und .NET Core
 
-Dieses Tutorial erfordert das [.NET Core 2.0.0 SDK](https://dot.net/core) oder höher. In [dieser PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) finden Sie die Version ASP.NET Core 1.1.
+Dieses Tutorial erfordert das [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher. In [dieser PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) finden Sie die Version ASP.NET Core 1.1.
 
 Installieren Sie Folgendes:
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) oder höher
+* mindestens [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core)
 * [Visual Studio Code](https://code.visualstudio.com)
 * [C#-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) für VS Code 
 
@@ -75,9 +75,9 @@ Im nächsten Teil dieses Tutorials erfahren Sie mehr über MVC und beginnen mit 
 - [Integriertes Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Tastenkombinationen](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Linux-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Windows-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Mac-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Linux-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 >[!div class="step-by-step"]
 [Nächstes Tutorial: Hinzufügen eines Controllers](adding-controller.md)

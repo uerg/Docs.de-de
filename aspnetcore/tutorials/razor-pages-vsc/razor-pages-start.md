@@ -10,25 +10,25 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: aa39de71addb2499af6d322db6da0ec635c54970
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 096a60dae171ac5dbfa935be4c16e0903d8f5bb3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Erste Schritte mit Razor-Seiten in ASP.NET Core mit Visual Studio Code
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In diesem Tutorial lernen Sie Grundlegendes zur Erstellung einer ASP.NET Core-Webapp mit Razor-Seiten. Wir empfehlen Ihnen, zuerst das Tutorial [Introduction to Razor Pages (Einführung in Razor-Seiten)](xref:mvc/razor-pages/index) durchzuarbeiten, bevor Sie mit diesem Tutorial beginnen. Razor-Seiten stellen die empfohlene Methode für die Erstellung der Benutzeroberfläche für Webanwendungen in ASP.NET Core dar.
+In diesem Tutorial lernen Sie Grundlegendes zur Erstellung einer ASP.NET Core-Webapp mit Razor-Seiten. Wir empfehlen Ihnen, zuerst das Tutorial [Introduction to Razor Pages (Einführung in Razor-Seiten)](xref:mvc/razor-pages/index) durchzuarbeiten, bevor Sie mit diesem Tutorial beginnen. Razor-Seiten sind der empfohlene Weg für die Erstellung von Benutzeroberflächen für Webanwendungen in ASP.NET Core.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) oder höher
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher
 * [Visual Studio Code](https://code.visualstudio.com)
-* Visual Studio Code [C#-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+* [C#-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) für VS Code 
 
 ## <a name="create-a-razor-web-app"></a>Erstellen einer Razor-Web-App
 
@@ -62,4 +62,4 @@ Drücken Sie STRG+F5, um die App ohne Debugging zu starten. Alternativ können S
 Im nächsten Tutorial fügen wir dem Projekt ein Modell hinzu. 
 
 >[!div class="step-by-step"]
-[Nächstes Tutorial: Adding a model to a Razor Pages app in ASP.NET Core with Visual Studio for Mac (Hinzufügen eines Modells zu einer App mit Razor-Seiten in ASP.NET Core mit Visual Studio für Mac)](xref:tutorials/razor-pages-vsc/model)  
+[Weiter: Hinzufügen eines Modells](xref:tutorials/razor-pages-vsc/model)  

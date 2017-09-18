@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-eeee-4666-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 054ef316461447ab651cca8c4f324e7b4e98f856
-ms.sourcegitcommit: d9e2c99c837078fcac0e315025f8fbfbd45ea6e8
+ms.openlocfilehash: c68466a645687b6fe0193e9deec2f32632e6f0e7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
@@ -47,7 +47,7 @@ Erstellen Sie die App, um sicherzustellen, dass keine Fehler auftreten und Sie e
 
    [!code-csharp[Main](start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
 
-  Dadurch weiß das Entity Framework, welche Modellklassen im Datenmodell enthalten sind. Sie definieren eine *Entitätenmenge* von Film-Objekten, die in der Datenbank als Tabelle namens „Film“ dargestellt wird.
+  Dadurch weiß das Entity Framework, welche Modellklassen im Datenmodell enthalten sind. Sie definieren eine *Entitätenmenge* von Filmobjekten, die in der Datenbank als Tabelle namens „Film“ dargestellt wird.
 
 - Erstellen Sie das Projekt, um sicherzustellen, dass keine Fehler vorliegen.
 
@@ -68,7 +68,7 @@ Das Gerüstbau-Modul erstellt folgende Dinge:
 * Einen Filmcontroller (*Controllers/MoviesController.cs*)
 * Razor-Ansichtsdateien für Seiten der Typen „Erstellen“, „Löschen“, „Details“ und „Index“ (*Views/Movies/\*.cshtml*)
 
-Die automatische Erstellung von [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-Aktionsmethoden und Ansichten (create, read update and delete – erstellen, lesen, aktualisieren und löschen) wird als *Gerüstbau* bezeichnet. Bald haben Sie eine voll funktionsfähige Webanwendung, mit der Sie eine Filmdatenbank verwalten können.
+Die automatische Erstellung von [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Aktionsmethoden und Ansichten (create, read update and delete – Erstellen, Lesen, Aktualisieren und Löschen) wird als *Gerüstbau* bezeichnet. Bald haben Sie eine voll funktionsfähige Webanwendung, mit der Sie eine Filmdatenbank verwalten können.
 
 [!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
@@ -78,7 +78,7 @@ Sie verfügen jetzt über eine Datenbank und Seiten zum Anzeigen, Bearbeiten, Ak
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Tag Helpers (Taghilfsprogramme)](xref:mvc/views/tag-helpers/intro)
+* [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)
 * [Globalization and localization (Globalisierung und Lokalisierung)](xref:fundamentals/localization)
 
 >[!div class="step-by-step"]

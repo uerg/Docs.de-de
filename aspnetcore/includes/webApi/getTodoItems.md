@@ -3,7 +3,7 @@
 Der vorangehende Code:
 
 * Definiert eine leere Controller-Klasse. In den nächsten Abschnitten fügen wir Methoden zum Implementieren der API hinzu.
-* Der Konstruktor verwendet die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`TodoContext `) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet.
+* Der Konstruktor verwendet die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`TodoContext `) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet.
 * Der Konstruktor fügt ein Element der In-Memory Database hinzu, falls es nicht vorhanden ist.
 
 ## <a name="getting-to-do-items"></a>Abrufen von „To-do“-Elementen

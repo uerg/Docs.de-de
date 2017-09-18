@@ -11,11 +11,11 @@ ms.assetid: ff8fd9b8-7c98-424d-8641-7524e23bf541
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: dd8b8603d8444c95f086fd593aabe86d60f93ad4
-ms.sourcegitcommit: eb025f2166023e1c394a0213c7ed8a9ca7190da5
+ms.openlocfilehash: d06a957f41d4d8928f825c7a795b3d1518ab4421
+ms.sourcegitcommit: c496ec8d5483e7de79b20d06127da7a6cbdac108
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="working-with-sql-server-localdb"></a>Arbeiten mit SQL Server LocalDB
 
@@ -75,7 +75,7 @@ if (context.Movie.Any())
 
 Fügen Sie den Initialisierer des Seedings in der Datei *Program.cs* zur `Main`-Methode hinzu:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -90,9 +90,9 @@ Testen der App
 * Löschen Sie alle Datensätze in der Datenbank. Dies ist über die Links „Löschen“ im Browser oder SSOX möglich.
 * Zwingen Sie die App zur Initialisierung (rufen Sie die Methoden in der `Startup`-Klasse auf), damit die Seed-Methode ausgeführt wird. Um die Initialisierung zu erzwingen, muss IIS Express beendet und neu gestartet werden. Hierzu können Sie einen der folgenden Ansätze verwenden:
 
-  * Klicken Sie auf der Taskleiste im Infobereich mit der mit der rechten Maustaste auf das Symbol von IIS Express, und wählen Sie **Beenden** oder **Website beenden** aus.
+  * Klicken Sie auf der Taskleiste im Infobereich mit der rechten Maustaste auf das Symbol von IIS Express, und wählen Sie **Beenden** oder **Website beenden** aus.
 
-    ![IIS Express-Symbol in der Taskleiste](working-with-sql/_static/iisExIcon.png)
+    ![IIS Express-Symbol auf der Taskleiste](working-with-sql/_static/iisExIcon.png)
 
     ![Kontextmenü](working-with-sql/_static/stopIIS.png)
 

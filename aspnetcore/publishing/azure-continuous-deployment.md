@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: b576ef6bce3b211afe7465f33dfe62c25dac1f62
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Continuous Deployment in Azure für ASP.NET Core mit Visual Studio und Git
 
@@ -26,17 +26,17 @@ Dieses Tutorial zeigt, wie Sie mit Visual Studio eine ASP.NET Core-Web-App erste
 Siehe auch den Artikel [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic), in dem gezeigt wird, wie Sie einen Continuous Delivery-Workflow für [Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/) mithilfe von Visual Studio Team Services konfigurieren. Azure Continuous Delivery in Team Services vereinfacht das Einrichten einer zuverlässigen Bereitstellungspipeline zum Veröffentlichen von Updates für Ihre App in Azure App Service. Die Pipeline kann im Azure-Portal für die folgenden Aufgaben konfiguriert werden: Erstellen von Builds, Ausführen von Tests, Bereitstellen in einem Stagingslot und anschließendes Bereitstellen in der Produktion.
 
 > [!NOTE]
-> Für dieses Tutorial benötigen Sie ein Microsoft Azure-Konto. Wenn Sie kein Konto haben, können Sie [Ihre Leistungen für MSDN-Abonnenten aktivieren](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oder [sich für eine kostenlose Testversion registrieren](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Für dieses Tutorial benötigen Sie ein Microsoft Azure-Konto. Wenn Sie kein Konto haben, können Sie [Ihre Leistungen für MSDN-Abonnenten aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oder [sich für eine kostenlose Testversion registrieren](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 In diesem Tutorial wird davon ausgegangen, dass Sie Folgendes bereits installiert haben:
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](http://go.microsoft.com/fwlink/?LinkId=627627) (Laufzeit und Tools)
+* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (Laufzeit und Tools)
 
-* [Git](http://git-scm.com/downloads) für Windows
+* [Git](https://git-scm.com/downloads) für Windows
 
 ## <a name="create-an-aspnet-core-web-app"></a>Erstellen einer ASP.NET Core-Web-App
 
@@ -46,7 +46,7 @@ In diesem Tutorial wird davon ausgegangen, dass Sie Folgendes bereits installier
 
 3. Wählen Sie die Projektvorlage **ASP.NET-Webanwendung** aus. Sie wird unter **Installierte** > **Vorlagen** > **Visual C#** > **Web** angezeigt. Benennen Sie das Projekt mit `SampleWebAppDemo`. Wählen Sie **Neues Git-Repository** aus, und klicken Sie auf **OK**.
 
-   ![Dialogfeld „Neues Projekt“](azure-continuous-deployment/_static/01-new-project.png)
+   ![Dialogfeld "Neues Projekt"](azure-continuous-deployment/_static/01-new-project.png)
 
 4. Wählen Sie im Dialogfeld **Neues ASP.NET-Projekt** die ASP.NET Core-Vorlage **Leer** aus, und klicken Sie dann auf **OK**.
 
@@ -160,7 +160,7 @@ In diesem Abschnitt erstellen Sie ein lokales Git-Repository mit Visual Studio u
     ![Team Explorer-Registerkarte „Verbinden“](azure-continuous-deployment/_static/12-initial-commit.png)
 
     >[!NOTE]
-    >Als Alternative können Sie für Ihre Änderungen im **Befehlsfenster** einen Commit ausführen, indem Sie das **Befehlsfenster** öffnen, zu Ihrem Projektverzeichnis wechseln und die Git-Befehle eingeben. Beispiel:
+    >Als Alternative können Sie für Ihre Änderungen im **Befehlsfenster** einen Commit ausführen, indem Sie das **Befehlsfenster** öffnen, zu Ihrem Projektverzeichnis wechseln und die Git-Befehle eingeben. Zum Beispiel:
     >
     >`git add .`
     >
@@ -206,7 +206,7 @@ Dazu gibt es zwei Möglichkeiten:
 
 * Wechseln Sie im Azure-Portal zum Blatt „Web-App“ Ihrer Web-App, und klicken Sie auf **Durchsuchen**, um Ihre App in Ihrem Standardbrowser anzuzeigen.
 
-* Öffnen Sie einen Browser, und geben Sie die URL Ihrer Web-App ein. Beispiel:
+* Öffnen Sie einen Browser, und geben Sie die URL Ihrer Web-App ein. Zum Beispiel:
 
   `http://SampleWebAppDemo.azurewebsites.net`
 
@@ -236,13 +236,13 @@ Nachdem Sie Änderungen am lokalen Code vorgenommen haben, können Sie sie erneu
 7.  Klicken Sie auf **Start** > **Synchronisieren** > **Aktionen** > **Push**.
 
 >[!NOTE]
->Als Alternative können Sie Ihre Änderungen im **Befehlsfenster** mithilfe von Push übertragen, indem Sie das **Befehlsfenster** öffnen, zu Ihrem Projektverzeichnis wechseln und einen Git-Befehl eingeben. Beispiel:
+>Als Alternative können Sie Ihre Änderungen im **Befehlsfenster** mithilfe von Push übertragen, indem Sie das **Befehlsfenster** öffnen, zu Ihrem Projektverzeichnis wechseln und einen Git-Befehl eingeben. Zum Beispiel:
 >
 >`git push -u Azure-SampleApp master`
 
 ## <a name="view-the-updated-web-app-in-azure"></a>Anzeigen der aktualisierten Web-App in Azure
 
-Zeigen Sie Ihre aktualisierte Web-App an, indem Sie im Azure-Portal auf dem Blatt „Web-App“ **Durchsuchen** auswählen oder einen Browser öffnen und die URL der Web-App eingeben. Beispiel:
+Zeigen Sie Ihre aktualisierte Web-App an, indem Sie im Azure-Portal auf dem Blatt „Web-App“ **Durchsuchen** auswählen oder einen Browser öffnen und die URL der Web-App eingeben. Zum Beispiel:
 
    `http://SampleWebAppDemo.azurewebsites.net`
 

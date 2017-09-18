@@ -11,19 +11,19 @@ ms.assetid: fa9b0cb7-afb3-4361-9e7e-33afffeaca0c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/apache-proxy
-ms.openlocfilehash: 831e2fa148e52f6447e9065f5949785627d5e248
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 9dc22ea20a6ae2e2477f9e6db95ddabecc038dcb
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-apache-and-deploy-to-it"></a>Einrichten einer Hostumgebung für ASP.NET Core unter Linux mit Apache und anschließende Bereitstellung
 
-Von [Shayne Boyer](https://www.github.com/spboyer)
+Von [Shayne Boyer](https://github.com/spboyer)
 
 Apache ist ein sehr beliebter HTTP-Server, der als Proxy konfiguriert werden kann, um HTTP-Datenverkehr vergleichbar mit nginx umzuleiten. In dieser Anleitung erfahren Sie, wie Sie Apache unter CentOS 7 einrichten und als Reverseproxy nutzen, um eingehende Verbindungen anzunehmen und sie an die unter Kestrel ausgeführte ASP.NET Core-Anwendung umzuleiten. Zu diesem Zweck verwenden wir die Erweiterung *mod_proxy* und andere zugehörige Apache-Module.
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. Zugriff auf einen Server, auf dem CentOS 7 ausgeführt wird, mit einem Standardbenutzerkonto mit sudo-Berechtigung
 2. Eine bestehende ASP.NET Core-Anwendung 
@@ -134,7 +134,8 @@ Eine Beispieldienstdatei für die Anwendung.
     WorkingDirectory=/var/aspnetcore/hellomvc
     ExecStart=/usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
     Restart=always
-    RestartSec=10                                          # Restart service after 10 seconds if dotnet service crashes
+    # Restart service after 10 seconds if dotnet service crashes
+    RestartSec=10
     SyslogIdentifier=dotnet-example
     User=apache
     Environment=ASPNETCORE_ENVIRONMENT=Production 

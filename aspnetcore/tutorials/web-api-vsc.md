@@ -11,11 +11,11 @@ ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: abe088f2c9df94135209ce71540e6b345186ee70
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 17687e38aae066bdab4663268a2af54f20a6ad75
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio Code unter macOS Linux und Windows
 
@@ -36,11 +36,11 @@ Es gibt drei Versionen dieses Tutorials:
 ## <a name="set-up-your-development-environment"></a>Einrichten der Entwicklungsumgebung
 
 Sie müssen Folgendes herunterladen und installieren:
-- [.NET Core](https://microsoft.com/net/core)
+- [.NET Core](https://www.microsoft.com/net/core)
 - [Visual Studio Code](https://code.visualstudio.com)
 - Visual Studio Code [C#-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
-## <a name="create-the-project"></a>Erstellen des Projekts
+## <a name="create-the-project"></a>Erstellen eines Projekts
 
 Führen Sie in einer Konsole die folgenden Befehle aus:
 
@@ -114,9 +114,9 @@ Drücken Sie in Visual Studio Code F5, um die App zu starten. Navigieren Sie zu 
 - [Integriertes Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Tastenkombinationen](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Linux-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Windows-Tastenkombinationen](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Mac-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Linux-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows-Tastenkombinationen](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 [!INCLUDE[next steps](../includes/webApi/next.md)]
 

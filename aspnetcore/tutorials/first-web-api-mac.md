@@ -1,21 +1,21 @@
 ---
 title: "Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Mac"
-author: rick-anderson
 description: "Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Mac"
-keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, macOS, HTTP, Service, HTTP-Dienst
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/15/2017
 ms.topic: get-started-article
-ms.assetid: 830b4af5-ed14-1638-7734-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 08619d3b4ab2d6fdb04794dcbafac0b696dd8504
-ms.sourcegitcommit: 3273675dad5ac3e1dc1c589938b73db3f7d6660a
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+ms.technology: aspnet
+keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, macOS, HTTP, Service, HTTP-Dienst
+manager: wpickett
+ms.openlocfilehash: 992059f7abd7650f82c1307acf3ba3219a6fcbb5
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Mac
 
@@ -127,15 +127,15 @@ Navigieren Sie zum `Todo`-Controller auf `http://localhost:port/api/todo`:
 
 ## <a name="implement-the-other-crud-operations"></a>Implementieren der anderen CRUD-Vorgänge
 
-Fügen Sie `Create`-, `Update`- und `Delete`-Methoden zum Controller hinzu. Dabei handelt sich um Variationen eines Designs, darum wird der Code mit den hervorgehobenen Hauptunterschieden dargestellt. Erstellen Sie das Projekt, nachdem Sie Code hinzugefügt oder geändert haben.
+Fügen Sie Methoden `Create`, `Update` und `Delete` zum Controller hinzu. Dabei handelt sich um Variationen eines Designs, darum wird der Code mit den hervorgehobenen Hauptunterschieden dargestellt. Erstellen Sie das Projekt, nachdem Sie Code hinzugefügt oder geändert haben.
 
 ### <a name="create"></a>Erstellen
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Dies ist eine HTTP-POST-Methode, angegeben durch das [`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html)-Attribut. Das [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html)-Attribut weist MVC an, den Wert des To-Do-Elements aus dem Text der HTTP-Anforderung abzurufen.
+Dies ist eine HTTP-POST-Methode, die vom [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api)-Attribut angegeben wird. Das [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api)-Attribut weist MVC an, den Wert des To-Do-Elements aus dem Text der HTTP-Anforderung abzurufen.
 
-Die `CreatedAtRoute`-Methode gibt die Antwort „201“ zurück, bei der es sich um die Standardantwort für eine HTTP-POST-Methode handelt, die eine neue Ressource auf dem Server erstellt. `CreatedAtRoute` fügt der Antwort außerdem einen Adressheader hinzu. Der Adressheader gibt die URI des neu erstellten To-Do-Elements zurück. Siehe [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Die `CreatedAtRoute`-Methode gibt die Antwort „201“ zurück, bei der es sich um die Standardantwort für eine HTTP-POST-Methode handelt, die eine neue Ressource auf dem Server erstellt. `CreatedAtRoute` fügt der Antwort außerdem einen Adressheader hinzu. Der Adressheader gibt den URI des neu erstellten To-Do-Elements zurück. Siehe [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 ### <a name="use-postman-to-send-a-create-request"></a>Verwenden von Postman zum Senden einer Erstellungsanforderung
 
@@ -145,9 +145,9 @@ Die `CreatedAtRoute`-Methode gibt die Antwort „201“ zurück, bei der es sich
 ![Postman-Konsole](first-web-api/_static/pmc.png)
 
 * Legen Sie die HTTP-Methode auf `POST` fest.
-* Wählen Sie das Optionsfeld **Text** aus.
-* Wählen Sie das Optionsfeld **Raw** aus.
-* Legen Sie den Typ auf JSON fest.
+* Wählen Sie das Optionsfeld **Body** aus.
+* Wählen Sie das Optionsfeld **raw** aus.
+* Legen Sie den Typ auf „JSON“ fest.
 * Geben Sie im Schlüsselwert-Editor zum Beispiel folgendes To-Do-Element ein
 
 ```json
@@ -157,13 +157,13 @@ Die `CreatedAtRoute`-Methode gibt die Antwort „201“ zurück, bei der es sich
 }
 ```
 
-* Klicken Sie auf **Senden**.
+* Klicken Sie auf **Send**.
 
-* Klicken Sie auf die Registerkarte „Header“ im unteren Bereich, und kopieren Sie den **Adressheader**:
+* Klicken Sie auf die Registerkarte „Header“ im unteren Bereich, und kopieren Sie den Header **Location**:
 
 ![Registerkarte „Header“ in der Postman-Konsole](first-web-api/_static/pmget.png)
 
-Sie können die Adressheader-URI verwenden, um auf die Ressource zuzugreifen, die Sie gerade erstellt haben. Denken Sie daran, dass die `GetById`-Methode die benannte Route `"GetTodo"` erstellt hat:
+Sie können den Adressheader-URI verwenden, um auf die Ressource zuzugreifen, die Sie gerade erstellt haben. Denken Sie daran, dass die `GetById`-Methode die benannte Route `"GetTodo"` erstellt hat:
 
 ```csharp
 [HttpGet("{id}", Name = "GetTodo")]
@@ -184,7 +184,7 @@ public IActionResult GetById(string id)
 }
 ```
 
-![Postman-Konsole, die die Antwort „204 (Kein Inhalt)“ anzeigt.](first-web-api/_static/pmcput.png)
+![Postman-Konsole mit der Antwort „204 (Kein Inhalt)“](first-web-api/_static/pmcput.png)
 
 ### <a name="delete"></a>Löschen
 
@@ -192,7 +192,7 @@ public IActionResult GetById(string id)
 
 Die Antwort ist [204 (Kein Inhalt)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
-![Postman-Konsole, die die Antwort „204 (Kein Inhalt)“ anzeigt.](first-web-api/_static/pmd.png)
+![Postman-Konsole mit der Antwort „204 (Kein Inhalt)“](first-web-api/_static/pmd.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -200,4 +200,4 @@ Die Antwort ist [204 (Kein Inhalt)](http://www.w3.org/Protocols/rfc2616/rfc2616-
 * Weitere Informationen zum Bereitstellen Ihrer API finden Sie unter [Publishing and Deployment (Veröffentlichung und Bereitstellung)](../publishing/index.md).
 * [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
 * [Postman](https://www.getpostman.com/)
-* [Fiddler](http://www.fiddler2.com/fiddler2/)
+* [Fiddler](https://www.telerik.com/download/fiddler)

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 283a3869300b83235197951cbbee92a82532c6e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio
 
@@ -40,7 +40,7 @@ Die Version dieses Tutorials für Visual Studio 2015 finden Sie unter [Visual St
 
 Installieren Sie Visual Studio Community 2017. Wählen Sie den Download „Community“ aus. Überspringen Sie diesen Schritt, wenn Sie Visual Studio 2017 bereits installiert haben.
 
-* [Visual Studio 2017-Installationsprogramm auf der Homepage](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Visual Studio 2017-Installationsprogramm auf der Homepage](https://www.visualstudio.com/)
 
 Führen Sie das Installationsprogramm aus, und wählen Sie die folgenden Workloads aus:
 
@@ -98,7 +98,7 @@ Tippen Sie auf **F5**, um die App im Debugmodus auszuführen oder **STRG+F5**, u
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![Ausgeführte App](start-mvc/_static/1.png)
 
-* Visual Studio startet [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) und führt Ihre App aus. Beachten Sie, dass die Adressleiste `localhost:port#` und nicht etwas wie `example.com` anzeigt. Das liegt daran, dass es sich bei `localhost` um den Standard-Hostnamen für Ihren lokalen Computer handelt. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der obigen Abbildung ist die Portnummer 5000. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
+* Visual Studio startet [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) und führt Ihre App aus. Beachten Sie, dass die Adressleiste `localhost:port#` und nicht etwas wie `example.com` anzeigt. Das liegt daran, dass es sich bei `localhost` um den Standard-Hostnamen für Ihren lokalen Computer handelt. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der obigen Abbildung ist die Portnummer 5000. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
 * Das Starten der App mit **STRG+F5** (Nicht-Debugmodus) ermöglicht die Änderung des Codes, das Speichern der Datei, das Aktualisieren des Browsers und das Anzeigen von Codeänderungen. Viele Entwickler bevorzugen den Nicht-Debugmodus, um die App schnell zu starten und Änderungen anzuzeigen.
 * Sie können die App über das Menüelement **Debuggen** im Debugmodus oder Nicht-Debugmodus starten:
 

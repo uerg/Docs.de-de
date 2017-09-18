@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 8b2018bbf83cbb4b5c9139605fbb97d1c5be959f
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 39b65f8af8304fabc6cf8d9a27992043f1e381a0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="updating-the-generated-pages"></a>Aktualisieren der generierten Seiten
 
@@ -35,13 +35,13 @@ Klicken Sie mit der rechten Maustaste auf eine rote Wellenlinie > **Schnellaktio
   ![Kontextmenü mit **> Schnellaktionen und Refactorings**.](da1/qa.png)
 
 
-Wählen Sie `using System.ComponentModel.DataAnnotations;`
+Wählen Sie `using System.ComponentModel.DataAnnotations;` aus.
 
   ![„using System.ComponentModel.DataAnnotations“ oben in der Liste](da1/da.png)
 
   Visual Studio fügt `using System.ComponentModel.DataAnnotations;` hinzu.
 
-Wir behandeln [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) im nächsten Tutorial. Das [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx)-Attribut gibt an, was für den Namen eines Felds angezeigt werden soll (in diesem Fall „Release Date“ anstatt „ReleaseDate“). Das [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)-Attribut gibt den Typ der Daten (Date) an, damit die im Feld gespeicherten Uhrzeitinformationen nicht angezeigt werden.
+Wir behandeln [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) im nächsten Tutorial. Das [Display](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata)-Attribut gibt an, was für den Namen eines Felds angezeigt werden soll (in diesem Fall „Release Date“ anstatt „ReleaseDate“). Das [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter)-Attribut gibt den Typ der Daten (Date) an, damit die im Feld gespeicherten Uhrzeitinformationen nicht angezeigt werden.
 
 Navigieren Sie zu „Pages/Movies“, und bewegen Sie den Mauszeiger über dem Link **Bearbeiten**, um die Ziel-URL anzuzeigen.
 
@@ -92,7 +92,7 @@ Der vorherige Code erkennt nur Ausnahmen bei vollständiger Parallelität, wenn 
 
 So testen Sie den Block `catch`
 
-* Legen Sie einen Haltepunkt bei `catch (DbUpdateConcurrencyException)` fest.
+* Legen Sie einen Haltepunkt auf `catch (DbUpdateConcurrencyException)` fest.
 * Bearbeiten Sie einen Film.
 * Klicken Sie in einem anderen Browserfenster auf den Link **Delete** für denselben Film, und löschen Sie dann den Film.
 * Übermitteln Sie im vorherigen Browserfenster Änderungen am Film.
