@@ -5,17 +5,17 @@ description: "Informationen Sie zum Verwenden von Anwendungsparts, die Abstratio
 keywords: ASP.NET Core, Anwendungsteil, die Teil der app
 ms.author: riande
 manager: wpickett
-ms.date: 1/4/2017
+ms.date: 01/04/2017
 ms.topic: article
 ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a5205ebab6c827b4e6af63287e56fe2b8f72c933
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 77d3a58d58493bf1b0b760ab9037d2778ba23441
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>Teile der Anwendung in ASP.NET Core
 
@@ -66,9 +66,9 @@ Zusätzlich zu der Assembly des Projekts und dessen abhängige Assemblys die `Ap
 
 Anwendung Anwendungsparts untersuchen und bieten Funktionen für die Teile. Es sind Anbieter für die integrierte Funktion für die MVC-Funktionen:
 
-* [Domänencontroller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
+* [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
 * [Metadatenverweis](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [Tag-Hilfsprogramme](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [Taghilfsprogramme](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
 * [Anzeigen von Komponenten](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Funktionsanbieter Vererben `IApplicationFeatureProvider<T>`, wobei `T` ist der Typ der Funktion. Sie können eine eigene Funktion implementieren-Anbieter für keines MVCs-Funktionstypen oben aufgelistet. Die Reihenfolge der Featureanbieter in der `ApplicationPartManager.FeatureProviders` Auflistung wichtig sein, da Aktionen, die von vorherigen Anbieter höher Anbieter reagieren können.

@@ -2,7 +2,7 @@
 title: Kontext-Header
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="context-headers"></a>Kontext-Header
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="background-and-theory"></a>Hintergrund und die Theorie
 
-In das Data Protection System bedeutet eine "Key" an, dass ein Objekt, das bereitstellen kann Verschlüsselungsdienste authentifiziert. Jeder Schlüssel wird durch eine eindeutige Id (eine GUID) identifiziert, und mit ihm enthält algorithmische Informationen und entropic Materialien. Es richtet sich an, dass jeder Schlüssel enthalten eindeutige Entropie jedoch das System kann nicht zu erzwingen, und wir auch erforderlich, dass Entwickler, die den Schlüssel Ring manuell durch Ändern der algorithmischen Informationen eines vorhandenen Schlüssels im Schlüssel Ring ändern kann. Unsere sicherheitsanforderungen erhält diesen Fällen erzielen die Datenschutzsystem ein initialisierungskonzept hat [kryptografische Flexibilität](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045), womit sicher über einen Einzelwert entropic über mehrere kryptografischen Algorithmen.
+In das Data Protection System bedeutet eine "Key" an, dass ein Objekt, das bereitstellen kann Verschlüsselungsdienste authentifiziert. Jeder Schlüssel wird durch eine eindeutige Id (eine GUID) identifiziert, und mit ihm enthält algorithmische Informationen und entropic Materialien. Es richtet sich an, dass jeder Schlüssel enthalten eindeutige Entropie jedoch das System kann nicht zu erzwingen, und wir auch erforderlich, dass Entwickler, die den Schlüssel Ring manuell durch Ändern der algorithmischen Informationen eines vorhandenen Schlüssels im Schlüssel Ring ändern kann. Unsere sicherheitsanforderungen erhält diesen Fällen erzielen die Datenschutzsystem ein initialisierungskonzept hat [kryptografische Flexibilität](https://www.microsoft.com/en-us/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/), womit sicher über einen Einzelwert entropic über mehrere kryptografischen Algorithmen.
 
 Die meisten Systeme die kryptografische Flexibilität unterstützen dazu einige identifizierende Informationen zum Algorithmus in die Nutzlast einschließlich. Der Algorithmus die OID ist im Allgemeinen eignet sich für die dies. Ist jedoch ein Problem, das wir wurde, es mehrere Möglichkeiten gibt, die denselben Algorithmusnamen angeben: "AES" (CNG) und den verwalteten Aes, AesManaged AesCryptoServiceProvider, AesCng und RijndaelManaged (bestimmte bestimmte Parameter) Klassen sind alle tatsächlich identisch Bedeutung, und es müsste eine Zuordnung aller dieser an die richtige OID verwalten. Wenn ein Entwickler ein benutzerdefinierter Algorithmus (oder sogar eine andere Implementierung der AES!) sind möchte, müssten sie uns informieren, dass die OID. Diese zusätzlichen Registrierungsschritt macht Systemkonfiguration besonders qualvoll.
 

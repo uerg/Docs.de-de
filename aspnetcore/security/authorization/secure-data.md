@@ -10,15 +10,15 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: db05ffb585022c3d9512d32da28c54788f97129c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 889fe24b21f2d5cb6439b16e8f0c5c6adc9485f8
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Joe Audette](https://twitter.com/joeaudette)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Joe Audette](https://twitter.com/joeaudette)
 
 In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer WebApp mit Benutzerdaten durch Autorisierung geschützt wird. Es zeigt eine Liste von Kontakten, die authentifizierte Benutzer (registrierten) erstellt haben. Es gibt drei Sicherheitsgruppen:
 
@@ -103,7 +103,7 @@ dotnet ef database update
 
 ### <a name="require-ssl-and-authenticated-users"></a>Erfordern von SSL und authentifizierte Benutzer
 
-In der `ConfigureServices` Methode der *Startup.cs* hinzufügen. die [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api) Autorisierungsfilter:
+In der `ConfigureServices` Methode der *Startup.cs* hinzufügen. die [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) Autorisierungsfilter:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
@@ -161,7 +161,7 @@ Erstellen einer `ContactAdministratorsAuthorizationHandler` -Klasse in der *Auto
 
 ## <a name="register-the-authorization-handlers"></a>Registrieren Sie die Authorization-Handler
 
-Verwendung von Entity Framework Core Services müssen registriert werden, für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) mit [AddScoped](https://docs.microsoft.com/aspnet/core/api). Die `ContactIsOwnerAuthorizationHandler` verwendet ASP.NET Core [Identität](xref:security/authentication/identity), die basiert auf Entity Framework Core. Registrieren Sie die Handler mit die Auflistung, damit sie verfügbar sind, werden die `ContactsController` über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Fügen Sie den folgenden Code am Ende der `ConfigureServices`:
+Verwendung von Entity Framework Core Services müssen registriert werden, für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) mit [AddScoped](/aspnet/core/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). Die `ContactIsOwnerAuthorizationHandler` verwendet ASP.NET Core [Identität](xref:security/authentication/identity), die basiert auf Entity Framework Core. Registrieren Sie die Handler mit die Auflistung, damit sie verfügbar sind, werden die `ContactsController` über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Fügen Sie den folgenden Code am Ende der `ConfigureServices`:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
@@ -296,7 +296,7 @@ Der aktualisierte Markupcode aus:
 
 * Testen der app durch erstellen, bearbeiten und Löschen eines Kontakts
 
-### <a name="seed-the-database"></a>Ausgangswert für die Datenbank
+### <a name="seed-the-database"></a>Ausführen eines Seedings für die Datenbank
 
 Hinzufügen der `SeedData` Klasse, um die *Daten* Ordner. Wenn Sie das Beispiel heruntergeladen haben, können Sie kopieren die *SeedData.cs* Datei wird in der *Daten* Ordner des Startprojekts.
 

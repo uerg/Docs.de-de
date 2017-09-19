@@ -2,26 +2,26 @@
 title: Facebook externe Anmeldung Setup in ASP.NET Core
 author: rick-anderson
 description: Facebook externe Anmeldung Setup in ASP.NET Core
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 8/1/2017
+ms.date: 08/01/2017
 ms.topic: article
 ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 840513fc0b00c4aa478726faa6db8bdbffd561b1
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Konfigurieren von Facebook-Authentifizierung
 
 <a name=security-authentication-facebook-logins></a>
 
-Durch [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem Facebook-Kontos mit einem Beispiel ASP.NET Core 2.0-Projekt erstellt haben, auf die [vorherige Seite](index.md). Erstellen eine Facebook-App-ID gemäß wir zunächst die [offizielle Schritte](https://www.facebook.com/unsupportedbrowser).
 

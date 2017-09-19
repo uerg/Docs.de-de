@@ -5,18 +5,18 @@ description: "Erfahren Sie mehr über das Tag-Hilfsprogramme in ASP.NET Core ers
 keywords: ASP.NET Core, Tag-Hilfsprogramme
 ms.author: riande
 manager: wpickett
-ms.date: 6/14/2017
+ms.date: 06/14/2017
 ms.topic: article
 ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 1a5222da1380c2fe768b287bfa1a49b300c02f2b
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Erstellen von Tag-Hilfsprogramme in ASP.NET Core, eine exemplarische Vorgehensweise mit Beispielen
 
@@ -72,7 +72,7 @@ D. h., dass dadurch ein Ankertag, die einen e-Mail-Link. Möglicherweise möchte
     public class Email : TagHelper
     ```
 
-2.  Vornehmen der `EmailTagHelper` Klasse für alle Razor-Ansichten verfügbar, fügen Sie der `addTagHelper` -Direktive die *Views/_ViewImports.cshtml* Datei: [!code-html [Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2.  Vornehmen der `EmailTagHelper` Klasse für alle Razor-Ansichten verfügbar, fügen Sie der `addTagHelper` -Direktive die *Views/_ViewImports.cshtml* Datei:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
     Der obige Code verwendet die Platzhaltersyntax, um anzugeben, dass die Tag-Hilfsprogramme in unsere Assembly zur Verfügung stehen. Die erste Zeichenfolge nach `@addTagHelper` gibt die Tag-Hilfsmethode zum Laden (Verwendung "*" für alle Tags Hilfsprogramme), und die zweite Zeichenfolge "AuthoringTagHelpers" gibt die Assembly, die das Tag-Hilfsprogramm im ist. Beachten Sie, dass die zweite Zeile in die Core ASP.NET-MVC Tag-Hilfsprogramme, die mit der Platzhaltersyntax Schaltet (diese Hilfsprogramme werden im erläutert [Einführung in die Tag-Hilfsprogrammen](intro.md).) Es ist die `@addTagHelper` -Direktive, die die Tag-Hilfsprogramm an der Razor-Ansicht zur Verfügung stellt. Alternativ können Sie den voll gekennzeichneten Namen (FQN) der wie folgt ein Tag-Hilfsprogramm bereitstellen:
     
@@ -108,7 +108,7 @@ Update der `EmailTagHelper` Klasse durch Folgendes:
 
 Dieser Ansatz funktioniert für das Attribut "Href" so lange nicht derzeit in der attributauflistung vorhanden. Sie können auch die `output.Attributes.Add` Methode, um eine taghilfsattribut bis zum Ende der Auflistung von Tagattribute hinzuzufügen.
 
-1.  Aktualisieren Sie das Markup in der *Views/Home/Contact.cshtml* Datei mit diesen Änderungen: [!code-html [Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1.  Aktualisieren Sie das Markup in der *Views/Home/Contact.cshtml* Datei mit diesen Änderungen:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 2.  Führen Sie die app, und stellen Sie sicher, dass sie die richtige Links generiert.
     
@@ -155,7 +155,7 @@ In diesem Abschnitt schreiben wir eine asynchrone-e-Mail-Hilfe.
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
-3.  Führen Sie die app an. Sie können Ihrem bevorzugten Browser verwenden, überprüfen die Quelle, und überprüfen das Markup.
+3.  Führen Sie die App aus. Sie können Ihrem bevorzugten Browser verwenden, überprüfen die Quelle, und überprüfen das Markup.
 
     Die `[HtmlTargetElement]` Attribut abzielt nur HTML-Markup, das einen Attributnamen an, der "Fett" bereitstellt. Die `<bold>` Element durch das Hilfsprogramm Tag nicht geändert wurde.
 
@@ -183,7 +183,7 @@ Sie können auch die `[HtmlTargetElement]` so ändern Sie den Namen des entsprec
 
 1.  Hinzufügen einer *Modelle* Ordner.
 
-2.  Fügen Sie die folgenden `WebsiteContext` Klasse, um die *Modelle* Ordner:
+2.  Fügen Sie dem Ordner *Models* die folgende `WebsiteContext`-Klasse hinzu:
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
@@ -301,7 +301,7 @@ Da diese zwei Hilfsmethoden sind eng miteinander verknüpft, und Sie sie in der 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Führen Sie die app an. Beachten Sie, dass der Www-Text wird als Link gerendert der HTTP-Text ist jedoch nicht. Wenn Sie einen Haltepunkt in beiden Klassen einfügen, sehen Sie sich, dass die HTTP-Tag-Hilfsklasse zuerst ausgeführt wird. Das Problem ist, dass die Tag-Helper-Ausgabe zwischengespeichert wird, und wenn der WWW-Tag-Hilfsprogramm ausgeführt wird, werden im Cache gespeicherte Ausgabe aus dem HTTP-Tag-Hilfsprogramm überschrieben. Später in diesem Lernprogramm sehen wir, wie Sie die Reihenfolge steuern, die Tag-Hilfsprogramme in ausgeführt. Wir beheben den Code durch Folgendes:
+5.  Führen Sie die App aus. Beachten Sie, dass der Www-Text wird als Link gerendert der HTTP-Text ist jedoch nicht. Wenn Sie einen Haltepunkt in beiden Klassen einfügen, sehen Sie sich, dass die HTTP-Tag-Hilfsklasse zuerst ausgeführt wird. Das Problem ist, dass die Tag-Helper-Ausgabe zwischengespeichert wird, und wenn der WWW-Tag-Hilfsprogramm ausgeführt wird, werden im Cache gespeicherte Ausgabe aus dem HTTP-Tag-Hilfsprogramm überschrieben. Später in diesem Lernprogramm sehen wir, wie Sie die Reihenfolge steuern, die Tag-Hilfsprogramme in ausgeführt. Wir beheben den Code durch Folgendes:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 

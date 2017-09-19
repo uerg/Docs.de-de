@@ -2,31 +2,31 @@
 title: Google externe Anmeldung Setup in ASP.NET Core
 author: rick-anderson
 description: Google externe Anmeldung Setup in ASP.NET Core
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 8/2/2017
+ms.date: 08/02/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: c0bf20437dcdffc447dde3e6405cd6bf55bc8cfd
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 7e37a8af4ae5a957483fa5f4a89ea4e8999a3d1d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>Konfigurieren von Google-Authentifizierung in ASP.NET Core
 
 <a name=security-authentication-google-logins></a>
 
-Durch [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem Google +-Kontos mit einem Beispiel ASP.NET Core 2.0-Projekt erstellt haben, auf die [vorherige Seite](index.md). Wir beginnen, indem Sie die folgenden der [offizielle Schritte](https://developers.google.com/identity/sign-in/web/devconsole-project) zum Erstellen einer neuen app im Google-API-Konsole.
 
 ## <a name="create-the-app-in-google-api-console"></a>Erstellen der app im Google-API-Konsole
 
-* Navigieren Sie zu [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) und melden Sie sich. Wenn Sie eine Google-Konto noch nicht haben, verwenden **Weitere Optionen** > **[Konto erstellen](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  Link, um eines zu erstellen:
+* Navigieren Sie zu [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) und melden Sie sich. Wenn Sie eine Google-Konto noch nicht haben, verwenden **Weitere Optionen** > **[Konto erstellen](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api) ** Link, um eines zu erstellen:
 
 ![Google-API-Konsole](index/_static/GoogleConsoleLogin.png)
 

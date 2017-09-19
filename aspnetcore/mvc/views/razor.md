@@ -5,16 +5,16 @@ description: Details-Razor-syntax
 keywords: ASP.NET Core Razor
 ms.author: riande
 manager: wpickett
-ms.date: 07/4/2017
+ms.date: 07/04/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 7648bc2ac7b9efd1653725cda749d6cd271bae77
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fff2f98592473a9baf6a2d4e360fec3026b7210d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Razor-Syntax für ASP.NET Core
 
@@ -36,7 +36,7 @@ Wird unverändert gerendert `<p>Hello World</p>` vom Server.
 
 ## <a name="razor-syntax"></a>Razor-syntax
 
-Razor unterstützt C#- und verwendet die `@` Symbol für den Übergang von HTML in c#. Razor C#-Ausdrücke ausgewertet und rendert sie in der HTML-Ausgabe. Razor kann aus HTML-Code in c# oder einer Razor-spezifischer Markups übergehen. Wenn ein `@` Symbol wird gefolgt von einer [Razor reserviertes Schlüsselwort](#razor-reserved-keywords) in Razor-spezifischer Markups geht, andernfalls geht in einfachen C#.
+Razor unterstützt C#- und verwendet die `@` Symbol für den Übergang von HTML in c#. Razor C#-Ausdrücke ausgewertet und rendert sie in der HTML-Ausgabe. Razor kann aus HTML in C# oder Razor-spezifisches Markup übergehen. Wenn ein `@` Symbol wird gefolgt von einer [Razor reserviertes Schlüsselwort](#razor-reserved-keywords) in Razor-spezifischer Markups geht, andernfalls geht in einfachen C#.
 
 <a name=escape-at-label></a>
 
@@ -494,7 +494,7 @@ Wird diese HTML-Markup generiert:
 
 Beim übergeben "[Rick@contoso.com](mailto:Rick@contoso.com)" im Modell:
 
-   Finden Sie unter [Layout](layout.md) für Weitere Informationen.
+   Weitere Informationen finden Sie unter [Layout](layout.md).
 
 ### `@inject`
 

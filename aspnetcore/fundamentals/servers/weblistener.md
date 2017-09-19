@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 93e8b99e7fbac88aabd347c077d923214ba7aebe
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6d9f5d2a488935f9512a12c7ce6d2400f109abdb
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener webserverimplementierung in ASP.NET Core
 
@@ -80,7 +80,7 @@ Es gibt auch [Http.Sys-registrierungseinstellungen](https://support.microsoft.co
 
 * Installieren Sie das NuGet-Paket [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Dies installiert außerdem [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) als Abhängigkeit.
 
-* Rufen Sie die [ `UseWebListener` ](https://docs.microsoft.com/aspnet/core/api) Erweiterungsmethode auf [WebHostBuilder](https://docs.microsoft.com/aspnet/core/api) in Ihrer `Main` Methode, dabei werden alle WebListener [Optionen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) und [ Einstellungen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) , die Sie benötigen, wie im folgenden Beispiel gezeigt:
+* Rufen Sie die `UseWebListener` Erweiterungsmethode auf [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) in Ihrer `Main` Methode, dabei werden alle WebListener [Optionen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) und [Einstellungen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) , die Sie benötigen , wie im folgenden Beispiel gezeigt:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
