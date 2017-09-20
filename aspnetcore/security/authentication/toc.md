@@ -14,5 +14,4 @@
 # [Aktivieren der QR-Code-Generierung in ASP.NET Identity](identity-enable-qrcodes.md)
 # [Zweistufige Authentifizierung mit SMS](2fa.md)
 # [Verwenden der Cookieauthentifizierung ohne ASP.NET Core Identity](cookie.md)
-# [Azure Active Directory](azure-active-directory/toc.md)
 # [Sichern von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io)
