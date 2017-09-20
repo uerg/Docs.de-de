@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 351f3519643bc88fc3dd1c4fbac1c144c6837523
-ms.sourcegitcommit: 0a70706a3814d2684f3ff96095d1e8291d559cc7
+ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
+ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>Einrichten einer Hostumgebung für ASP.NET Core unter Windows mit IIS und Durchführen von Bereitstellungen in dieser Umgebung
 
@@ -66,22 +66,38 @@ Fahren Sie mit dem Schritt **Bestätigung** fort, um die Webserverrolle und die 
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Installieren von Web Deploy beim Veröffentlichen mit Visual Studio
 
-Wenn Sie Ihre Anwendungen mit Web Deploy in Visual Studio bereitstellen möchten, installieren Sie die neueste Version von Web Deploy auf dem Hostsystem. Um Web Deploy zu installieren, können Sie den [Webplattform-Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) verwenden oder ein Installationsprogramm direkt aus dem [Microsoft Download Center](https://www.microsoft.com/search/result.aspx?q=webdeploy&form=dlc) abrufen. Die bevorzugte Methode ist die Verwendung von WebPI. WebPI bietet ein eigenständiges Setup und eine Konfiguration für Hostinganbieter.
+Wenn Sie Ihre Anwendungen mit Web Deploy in Visual Studio bereitstellen möchten, installieren Sie die neueste Version von Web Deploy auf dem Hostsystem. Um Web Deploy zu installieren, können Sie den [Webplattform-Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) verwenden oder ein Installationsprogramm direkt aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=43717) abrufen. Die bevorzugte Methode ist die Verwendung von WebPI. WebPI bietet ein eigenständiges Setup und eine Konfiguration für Hostinganbieter.
 
 ## <a name="application-configuration"></a>Anwendungskonfiguration
 
 ### <a name="enabling-the-iisintegration-components"></a>Aktivieren der IISIntegration-Komponenten
 
-Nehmen Sie eine Abhängigkeit vom Paket *Microsoft.AspNetCore.Server.IISIntegration* in die Anwendungsabhängigkeiten auf. Binden Sie Middleware für die Integration von IIS in die Anwendung ein, indem Sie die Erweiterungsmethode *.UseIISIntegration()* zu *WebHostBuilder()* hinzufügen. Beachten Sie, dass der Codeaufruf von *.UseIISIntegration()* keinen Einfluss auf die Codeportabilität hat.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+Eine typische *Program.cs*-Datei ruft [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) auf, um die Einrichtung eines Hosts zu starten. `CreateDefaultBuilder` konfiguriert [Kestrel](xref:fundamentals/servers/kestrel) als Webserver und aktiviert die IIS-Integration durch Konfigurierung des Basispfads und Ports für das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module):
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Nehmen Sie eine Abhängigkeit vom Paket [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) in die Anwendungsabhängigkeiten auf. Binden Sie Middleware für die Integration von IIS in die Anwendung ein, indem Sie die Erweiterungsmethode *.UseIISIntegration* zu *WebHostBuilder* hinzufügen:
 
 ```csharp
 var host = new WebHostBuilder()
     .UseKestrel()
-    .UseContentRoot(Directory.GetCurrentDirectory())
     .UseIISIntegration()
-    .UseStartup<Startup>()
-    .Build();
+    ...
 ```
+
+Es sind jeweils `UseKestrel` und `UseIISIntegration` erforderlich. Ein Code, der *.UseIISIntegration* aufruft, hat keinen Einfluss auf die Codeportabilität. Wenn Die App nicht hinter IIS ausgeführt wird (die App wird z.B. direkt auf Kestrel ausgeführt), hat `UseIISIntegration` keine Funktion.
+
+---
+
+Weitere Informationen zum Hosten finden Sie unter [Hosting in ASP.NET Core (Hosten in ASP.NET Core)](xref:fundamentals/hosting).
 
 ### <a name="setting-iisoptions-for-the-iisintegration-service"></a>Festlegen von IISOptions für den IISIntegration-Dienst
 
@@ -154,7 +170,7 @@ Informationen zum Erstellen eines Veröffentlichungsprofils zur Verwendung mit W
 ![Dialogfeld „Veröffentlichen“](iis/_static/pub-dialog.png)
 
 ### <a name="web-deploy-outside-of-visual-studio"></a>Web Deploy außerhalb von Visual Studio
-Sie können Web Deploy über die Befehlszeile auch außerhalb von Visual Studio verwenden. Weitere Informationen finden Sie unter [Web Deployment Tool](https://technet.microsoft.com/library/dd568996(WS.10).aspx) (Webbereitstellungstool).
+Sie können Web Deploy über die Befehlszeile auch außerhalb von Visual Studio verwenden. Weitere Informationen finden Sie unter [Web Deployment Tool](https://docs.microsoft.com/iis/publish/using-web-deploy/use-the-web-deployment-tool) (Webbereitstellungstool).
 
 ### <a name="alternatives-to-web-deploy"></a>Alternativen zu Web Deploy
 Wenn Sie Web Deploy nicht verwenden möchten oder Visual Studio nicht nutzen, stehen Ihnen verschiedene Methoden zur Verfügung, um die Anwendung in das Hostsystem zu verschieben, z.B. Xcopy, Robocopy oder PowerShell. Visual Studio-Benutzer können die [Veröffentlichungsbeispiele](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md) verwenden.
@@ -185,12 +201,12 @@ Zum Konfigurieren des Schutzes von Daten unter IIS müssen Sie einen der folgend
 
 * Führen Sie ein [PowerShell-Skript](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) aus, um geeignete Registrierungseinträge zu erstellen (z.B. `.\Provision-AutoGenKeys.ps1 DefaultAppPool`). Dadurch werden Schlüssel in der Registrierung gespeichert und mit DPAPI mit einem für den gesamten Computer geltenden Schlüssel geschützt.
 * Konfigurieren Sie den IIS-Anwendungspool zum Laden des Benutzerprofils. Diese Einstellung befindet sich im Abschnitt **Prozessmodell** unter **Erweiterte Einstellungen** für den Anwendungspool. Legen Sie **Benutzerprofil laden** auf `True` fest. Dadurch werden Schlüssel im Benutzerprofilverzeichnis gespeichert und mit DPAPI mit einem Schlüssel geschützt, der nur für das Benutzerkonto gilt, das für den Anwendungspool verwendet wird.
-* Passen Sie den Anwendungscode so an, dass er [das Dateisystem als Schlüsselringspeicher verwendet](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview). Verwenden Sie ein X509-Zertifikat, um den Schlüsselring zu schützen, und stellen Sie sicher, dass es sich um ein vertrauenswürdiges Zertifikat handelt. Ein selbst signiertes Zertifikat müssen Sie z.B. im vertrauenswürdigen Stammspeicher platzieren.
+* Passen Sie den Anwendungscode so an, dass er [das Dateisystem als Schlüsselringspeicher verwendet](xref:security/data-protection/configuration/overview). Verwenden Sie ein X509-Zertifikat, um den Schlüsselring zu schützen, und stellen Sie sicher, dass es sich um ein vertrauenswürdiges Zertifikat handelt. Ein selbst signiertes Zertifikat müssen Sie z.B. im vertrauenswürdigen Stammspeicher platzieren.
 
 Wenn IIS in einer Webfarm verwendet wird:
 
 * Verwenden Sie eine Dateifreigabe, auf die alle Computer zugreifen können.
-* Stellen Sie ein X509-Zertifikat auf jedem Computer bereit.  Konfigurieren Sie den [Schutz von Daten im Code](https://docs.asp.net/en/latest/security/data-protection/configuration/overview.html).
+* Stellen Sie ein X509-Zertifikat auf jedem Computer bereit.  Konfigurieren Sie den [Schutz von Daten im Code](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview).
 
 ### <a name="1-create-a-data-protection-registry-hive"></a>1. Erstellen einer Registrierungsstruktur für den Schutz von Daten
 
@@ -244,7 +260,7 @@ Weitere Informationen zum Konfigurieren des ASP.NET Core-Moduls mit der Datei *w
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguration von IIS mit der Datei „web.config“
 
-Die IIS-Konfiguration wird weiterhin im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt `<system.webServer>` der Datei *web.config* beeinflusst. Sie könnten z.B. IIS auf Systemebene so konfiguriert haben, dass die dynamische Komprimierung verwendet wird. Sie könnten diese Einstellung jedoch für eine App mit dem Element `<urlCompression>` in der Datei *web.config* der App deaktivieren. Weitere Informationen finden Sie in der [Konfigurationsreferenz für `<system.webServer>` ](https://www.iis.net/configreference/system.webserver), in der [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:hosting/aspnet-core-module) und unter [Verwenden von IIS-Modulen mit ASP.NET Core](xref:hosting/iis-modules). Wenn Sie Umgebungsvariablen für einzelne Apps festlegen müssen, die in isolierten Anwendungspools ausgeführt werden (unterstützt für IIS 10.0 und höher), finden Sie weitere Informationen im Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \< EnvironmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
+Die IIS-Konfiguration wird weiterhin im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt `<system.webServer>` der Datei *web.config* beeinflusst. Sie könnten z.B. IIS auf Systemebene so konfiguriert haben, dass die dynamische Komprimierung verwendet wird. Sie könnten diese Einstellung jedoch für eine App mit dem Element `<urlCompression>` in der Datei *web.config* der App deaktivieren. Weitere Informationen finden Sie in der [Konfigurationsreferenz für `<system.webServer>` ](https://docs.microsoft.com/iis/configuration/system.webServer/), in der [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:hosting/aspnet-core-module) und unter [Verwenden von IIS-Modulen mit ASP.NET Core](xref:hosting/iis-modules). Wenn Sie Umgebungsvariablen für einzelne Apps festlegen müssen, die in isolierten Anwendungspools ausgeführt werden (unterstützt für IIS 10.0 und höher), finden Sie weitere Informationen im Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \< EnvironmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
 
 ## <a name="configuration-sections-of-webconfig"></a>Konfigurationsabschnitte von „web.config“
 
@@ -341,7 +357,7 @@ Problembehandlung:
 
 * Vergewissern Sie sich, dass die Anwendung lokal auf Kestrel ausgeführt wird. Ein Prozessfehler könnte die Folge eines Problems in der Anwendung sein. Weitere Informationen finden Sie unter [Tipps zur Problembehandlung](#troubleshooting-tips).
 
-* Vergewissern Sie sich, dass Sie kein `<PlatformTarget>` in Ihrer *CSPROJ* festgelegt haben, das im Konflikt mit der RID steht. Geben Sie z.B. als `<PlatformTarget>` nicht `x86` an, und führen Sie die Veröffentlichung nicht mit der RID `win10-x64` durch, entweder mit *dotnet publish -c Release -r win10-x64* oder durch Festlegen von `<RuntimeIdentifiers>` in Ihrer *CSPROJ*  auf `win10-x64`. Das Projekt wird ohne Warnung oder Fehler veröffentlicht, schlägt jedoch mit den oben genannten protokollierten Ausnahmen im System fehl.
+* Vergewissern Sie sich, dass Sie kein `<PlatformTarget>` in Ihrer *CSPROJ* festgelegt haben, das im Konflikt mit der RID steht. Geben Sie z.B. als `<PlatformTarget>` nicht `x86` an, und führen Sie die Veröffentlichung nicht mit der RID `win10-x64` durch, entweder mit *dotnet publish -c Release -r win10-x64* oder durch Festlegen von `<RuntimeIdentifiers>` in Ihrer *CSPROJ * auf `win10-x64`. Das Projekt wird ohne Warnung oder Fehler veröffentlicht, schlägt jedoch mit den oben genannten protokollierten Ausnahmen im System fehl.
 
 * Wenn diese Ausnahme für eine Azure-App-Bereitstellung beim Aktualisieren einer Anwendung und beim Bereitstellen neuerer Assemblys auftritt, löschen Sie alle Dateien aus der vorherigen Bereitstellung manuell. Veraltete inkompatible Assemblys können zu einer `System.BadImageFormatException`-Ausnahme führen, wenn Sie eine aktualisierte App bereitstellen.
 
@@ -369,7 +385,7 @@ Problembehandlung:
 
 ### <a name="incorrect-website-physical-path-or-application-missing"></a>Falscher physischer Pfad der Website oder Anwendung fehlt
 
-* **Browser:** 403 Verboten: Zugriff wird verweigert  **– oder –**  403.14 Verboten: Der Webserver ist so konfiguriert, dass der Inhalt dieses Verzeichnisses nicht aufgelistet wird.
+* **Browser:** 403 Verboten: Zugriff wird verweigert ** – oder – ** 403.14 Verboten: Der Webserver ist so konfiguriert, dass der Inhalt dieses Verzeichnisses nicht aufgelistet wird.
 
 * **Anwendungsprotokoll:** Kein Eintrag
 
@@ -509,6 +525,6 @@ Problembehandlung
 
 * [Einführung in ASP.NET Core](../index.md)
 
-* [Die offizielle Microsoft IIS-Website](http://www.iis.net/)
+* [Die offizielle Microsoft IIS-Website](https://www.iis.net/)
 
-* [Microsoft TechNet-Bibliothek: Windows Server](https://technet.microsoft.com/library/bb625087.aspx)
+* [Microsoft TechNet-Bibliothek: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
