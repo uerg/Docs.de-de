@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3393bb90d170cfc572d2307ec18f1a8e25bdce59
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit ASP.NET Core MVC-Lernprogramm (2 von 10)
 
@@ -108,7 +108,7 @@ Wenn Code Einzug falsch ist, nachdem Sie den Code einfügen, drücken Sie STRG +
 
 Dieser Code durchläuft die Entitäten in der `Enrollments` Navigationseigenschaft. Für jede Anmeldung zeigt es den Kurstitel und die Dienstqualität dargestellt. Der Titel des Kurses wird abgerufen, aus der Kurs-Entität, die in gespeichert ist die `Course` Navigationseigenschaft der Registrierung Entität.
 
-Die Anwendung auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf die **Details** Link, um ein Student. Sie können die Liste der Kurse und den Qualitäten für den ausgewählten Schüler anzuzeigen:
+Die app auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf die **Details** Link, um ein Student. Sie können die Liste der Kurse und den Qualitäten für den ausgewählten Schüler anzuzeigen:
 
 ![Seite "Details" Student](crud/_static/student-details.png)
 
@@ -156,7 +156,7 @@ Eine alternative Möglichkeit, Overposting zu vermeiden, die von vielen Entwickl
 
 Der Code in *Views/Students/Create.cshtml* verwendet `label`, `input`, und `span` (für validierungsmeldungen) Hilfen für jedes Feld zu kennzeichnen.
 
-Führen Sie die Seite durch Auswahl der **Studenten** Registerkarte und dann auf **neu erstellen**.
+Die app auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf **neu erstellen**.
 
 Geben Sie Namen und ein Datum. Versuchen Sie, ein ungültiges Datum eingeben, wenn Sie Ihren Browser, die Optionen bereit. (Von einigen Browsern erzwingen eine Datumsauswahl verwenden.) Klicken Sie dann auf **erstellen** um die Fehlermeldung anzuzeigen.
 
@@ -222,7 +222,7 @@ Wenn Sie die Read-First-Ansatz vermeiden möchten, aber außerdem SQL UPDATE-Anw
 
 ### <a name="test-the-edit-page"></a>Testen Sie die Seite "Bearbeiten"
 
-Führen Sie die Anwendung, und wählen Sie die **Studenten** tab, dann klicken Sie auf eine **bearbeiten** Link.
+Die app auszuführen, wählen Sie die **Studenten** tab, dann klicken Sie auf eine **bearbeiten** Link.
 
 ![Studenten bearbeiten (Seite)](crud/_static/student-edit.png)
 
@@ -264,7 +264,7 @@ In *Views/Student/Delete.cshtml*, eine Fehlermeldung zwischen h2 Überschrift un
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-Führen Sie die Seite durch Auswahl der **Studenten** Registerkarte und dann auf eine **löschen** Link:
+Die app auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf eine **löschen** Link:
 
 ![Seite "Bestätigung" löschen](crud/_static/student-delete.png)
 

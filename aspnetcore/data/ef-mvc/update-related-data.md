@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 655fefc0f9d884300bea670795c39a7a9aa10bb8
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 981a099630008eaf11599b17c4d4d5d6e86b8b90
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualisieren von verknüpften Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (7 von 10)
 
@@ -71,7 +71,7 @@ Zum Optimieren der Leistung der Kursdetails und Delete-Seiten hinzufügen `AsNoT
 
 ### <a name="modify-the-course-views"></a>Ändern Sie die Kurs-Ansichten
 
-In *Views/Courses/Create.cshtml*, fügen Sie eine Option "Select-Abteilung", um die **Abteilung** Dropdown-Liste, ändern Sie die Beschriftung von **"DepartmentID"** auf  **Abteilung**, und fügen Sie eine validierungsmeldung angezeigt.
+In *Views/Courses/Create.cshtml*, fügen Sie eine Option "Select-Abteilung", um die **Abteilung** Dropdown-Liste, ändern Sie die Beschriftung von **"DepartmentID"** auf ** Abteilung**, und fügen Sie eine validierungsmeldung angezeigt.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
@@ -91,13 +91,13 @@ In *Views/Courses/Details.cshtml*, stellen Sie die gleiche Änderung, die Sie so
 
 ### <a name="test-the-course-pages"></a>Testen Sie die Kurs-Seiten
 
-Führen Sie die **erstellen** Seite (die Kurs Indexseite angezeigt, und klicken Sie auf **neu erstellen**), und geben Sie Daten für einen neuen Kurs:
+Die app auszuführen, wählen Sie die **Kurse** auf **neu erstellen**, und geben Sie Daten für einen neuen Kurs:
 
 ![Seite "Kurs erstellen"](update-related-data/_static/course-create.png)
 
-Klicken Sie auf **erstellen**. Die Kurse Indexseite wird mit den neuen Kurs zur Liste hinzugefügt angezeigt. Der Abteilungsname in der Liste der Index-Seite stammt die Navigationseigenschaft, die anzeigt, dass die Beziehung ordnungsgemäß eingerichtet wurde.
+Klicken Sie auf **Erstellen**. Die Kurse Indexseite wird mit den neuen Kurs zur Liste hinzugefügt angezeigt. Der Abteilungsname in der Liste der Index-Seite stammt die Navigationseigenschaft, die anzeigt, dass die Beziehung ordnungsgemäß eingerichtet wurde.
 
-Führen Sie die **bearbeiten** Seite (klicken Sie auf **bearbeiten** für eine Vorgehensweise in der Kurs Indexseite).
+Klicken Sie auf **bearbeiten** für eine Vorgehensweise in der Courses-Indexseite.
 
 ![Kurs bearbeiten (Seite)](update-related-data/_static/course-edit.png)
 
@@ -159,7 +159,7 @@ In *Views/Instructors/Edit.cshtml*, Hinzufügen eines neuen Felds für die Bearb
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
-Führen Sie die Seite (Wählen Sie die **Lehrkräfte** Registerkarte, und klicken Sie dann auf **bearbeiten** auf einen Kursleiter). Ändern der **Filiale** , und klicken Sie auf **speichern**.
+Die app auszuführen, wählen Sie die **Lehrkräfte** Registerkarte, und klicken Sie dann auf **bearbeiten** auf einen Kursleiter. Ändern der **Filiale** , und klicken Sie auf **speichern**.
 
 ![Instructor bearbeiten (Seite)](update-related-data/_static/instructor-edit-office.png)
 
@@ -215,7 +215,7 @@ Wenn das Kontrollkästchen für einen Kurs wurde nicht aktiviert, aber die Vorge
 
 ### <a name="update-the-instructor-views"></a>Aktualisieren Sie die Instructor-Ansichten
 
-In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem Array von Kontrollkästchen durch das Hinzufügen der folgenden code unmittelbar nach der `div` Elemente für die **Office**  Feld und vor der `div` -Element für die **speichern** Schaltfläche.
+In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem Array von Kontrollkästchen durch das Hinzufügen der folgenden code unmittelbar nach der `div` Elemente für die **Office ** Feld und vor der `div` -Element für die **speichern** Schaltfläche.
 
 <a id="notepad"></a>
 > [!NOTE] 
@@ -227,7 +227,7 @@ Dieser Code erstellt eine HTML-Tabelle, die drei Spalten aufweist. In jeder Spal
 
 Die Kontrollkästchen gerendert werden, können solche, die für Kurse zu den Dozenten zugewiesen werden Attribute, die ausgewählt werden (angezeigt werden, wenn sie aktiviert), überprüft.
 
-Führen Sie die Seite Instructor-Index, und klicken Sie auf **bearbeiten** auf einen Kursleiter finden Sie unter der **bearbeiten** Seite.
+Die app auszuführen, wählen Sie die **Lehrkräfte** Registerkarte, und klicken Sie auf **bearbeiten** auf einen Kursleiter finden Sie unter der **bearbeiten** Seite.
 
 ![Instructor-Bearbeitungsseite mit Kurse](update-related-data/_static/instructor-edit-courses.png)
 
@@ -287,7 +287,7 @@ In *Views/Instructor/Create.cshtml*, fügen Sie ein Office-Speicherort-Textfeld 
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Test durch Ausführen der **erstellen** Seite und einen Kursleiter hinzufügen. 
+Durch Ausführen der app, und erstellen einen Kursleiter testen. 
 
 ## <a name="handling-transactions"></a>Behandeln von Transaktionen
 

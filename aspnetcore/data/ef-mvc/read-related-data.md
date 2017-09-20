@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e818411f2cc568afdfd0612a6367dc3e257d0dd7
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lesen-bezogene Daten – EF-Core mit ASP.NET Core MVC-Lernprogramm (6 von 10)
 
@@ -85,7 +85,7 @@ Sie haben die folgenden Änderungen an der scaffolded Code vorgenommen:
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Führen Sie die Seite (Wählen Sie die Registerkarte "Kurse" auf der Startseite des Contoso-University), um eine Liste mit den Abteilungsnamen anzuzeigen.
+Führen Sie die app, und wählen Sie die **Kurse** Registerkarte ", um die Liste mit den Abteilungsnamen anzuzeigen.
 
 ![Kurse Indexseite](read-related-data/_static/courses-index.png)
 
@@ -203,7 +203,7 @@ Sie haben die folgenden Änderungen an den vorhandenen Code vorgenommen:
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Führen Sie die Anwendung, und wählen Sie die Registerkarte "Lehrkräfte". Die Seite zeigt die Location-Eigenschaft der verknüpften OfficeAssignment Entitäten und eine leere Zelle, wenn keine verknüpften OfficeAssignment Entität vorhanden ist.
+Führen Sie die app, und wählen Sie die **Lehrkräfte** Registerkarte. Die Seite zeigt die Location-Eigenschaft der verknüpften OfficeAssignment Entitäten und eine leere Zelle, wenn keine verknüpften OfficeAssignment Entität vorhanden ist.
 
 ![Lehrkräfte Indexseite, der keine Auswahl](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -213,7 +213,7 @@ In der *Views/Instructors/Index.cshtml* Datei, nach die schließenden Tabelle El
 
 Dieser Code liest die `Courses` Eigenschaft des Modells anzeigen, das eine Liste der Kurse anzeigen. Sie bietet außerdem eine **wählen** Link, der die ID der ausgewählten Kurs, sendet der `Index` Aktionsmethode.
 
-Führen Sie die Seite, und wählen Sie einen Kursleiter. Jetzt sehen Sie ein Raster mit den für den ausgewählten Kursleiter zugewiesene Kurse zeigt an, und jeder Kurs Sie finden Sie unter den Namen der zugewiesenen Abteilung.
+Aktualisieren Sie die Seite, und wählen Sie einen Kursleiter. Jetzt sehen Sie ein Raster mit den für den ausgewählten Kursleiter zugewiesene Kurse zeigt an, und jeder Kurs Sie finden Sie unter den Namen der zugewiesenen Abteilung.
 
 ![Lehrkräfte Index Seite Dozenten ausgewählt](read-related-data/_static/instructors-index-instructor-selected.png)
 
@@ -223,7 +223,7 @@ Fügen Sie nachdem der Codeblock, den Sie gerade hinzugefügt haben den folgende
 
 Dieser Code liest die Registrierung-Eigenschaft des Modells anzeigen, um eine Liste der Schüler in diesem Kurs registriert anzuzeigen.
 
-Führen Sie die Seite, und wählen Sie einen Kursleiter. Wählen Sie dann einen Kurs, finden in der Liste der registrierten Studenten und deren Qualitäten.
+Aktualisieren Sie die Seite erneut, und wählen Sie einen Kursleiter. Wählen Sie dann einen Kurs, finden in der Liste der registrierten Studenten und deren Qualitäten.
 
 ![Lehrkräfte Index Seite Kursleiter und Kurs ausgewählt](read-related-data/_static/instructors-index.png)
 
@@ -237,7 +237,7 @@ Angenommen Sie, Sie erwartet, dass Benutzer nur selten Bereitstellungen in einem
 
 Der neue Code löscht die *ThenInclude* Methodenaufrufe für Enrollment Daten aus dem Code, die Instructor-Entitäten abruft. Wenn eine Lehrkraft- und Kurs ausgewählt sind, ruft der hervorgehobene Code Registrierung Entitäten für den ausgewählten Kurs und Student-Entitäten für jede Anmeldung ab.
 
-Die Instructor-Indexseite jetzt ausführen und keinen Unterschied in der Anzeige auf der Seite wird angezeigt, obwohl Sie geändert haben, wie die Daten abgerufen werden.
+Ausführen die app, wechseln Sie zu den Dozenten Indexseite jetzt und Sie keinen Unterschied in der Anzeige auf der Seite angezeigt werden, obwohl Sie geändert haben, wie die Daten abgerufen werden.
 
 ## <a name="summary"></a>Zusammenfassung
 

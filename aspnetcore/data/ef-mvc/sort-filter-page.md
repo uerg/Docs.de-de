@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 149af0ce88d55527a42ba3b88d40047a61d510c9
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortieren, filtern, paging und Gruppierung - EF-Core mit ASP.NET Core MVC-Lernprogramm (3 von 10)
 
@@ -67,7 +67,7 @@ Ersetzen Sie den Code in *Views/Students/Index.cshtml*, durch den folgenden Code
 
 Dieser Code verwendet die Informationen in `ViewData` Eigenschaften zum Einrichten von Hyperlinks mit der entsprechenden Abfrage Zeichenfolgenwerte.
 
-Führen Sie die Seite, und klicken Sie auf die **Nachname** und **Registrierungsdatum** funktioniert Spaltenüberschriften, um diese Sortierung zu überprüfen.
+Die app auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf die **Nachname** und **Registrierungsdatum** funktioniert Spaltenüberschriften, um diese Sortierung zu überprüfen.
 
 ![Studenten Indexseite im Namensreihenfolge](sort-filter-page/_static/name-order.png)
 
@@ -94,9 +94,9 @@ In *Views/Student/Index.cshtml*, fügen Sie der hervorgehobene Code hinzu, unmit
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Dieser Code verwendet die `<form>` [tag Helper](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro) Suchtextfeld und Schaltfläche hinzufügen. Wird standardmäßig der `<form>` Tag Hilfsprogramm sendet Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Das W3C Richtlinien wird empfohlen, das zu verwendende erhalten, wenn die Aktion nicht in einem Update führt.
+Dieser Code verwendet die `<form>` [tag Helper](xref:mvc/views/tag-helpers/intro) Suchtextfeld und Schaltfläche hinzufügen. Wird standardmäßig der `<form>` Tag Hilfsprogramm sendet Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Das W3C Richtlinien wird empfohlen, das zu verwendende erhalten, wenn die Aktion nicht in einem Update führt.
 
-Führen Sie die Seite, geben Sie eine Suchzeichenfolge ein, und klicken Sie auf Suchen, um sicherzustellen, dass die Filterung arbeitet.
+Die app auszuführen, wählen Sie die **Studenten** Registerkarte, geben Sie eine Suchzeichenfolge ein, und klicken Sie auf Suchen, um sicherzustellen, dass die Filterung arbeitet.
 
 ![Studenten Indexseite mit Filtern](sort-filter-page/_static/filtering.png)
 
@@ -193,7 +193,7 @@ Tag-Hilfsprogramme sind die Auslagerung Schaltflächen angezeigt:
 </a>
 ```
 
-Führen Sie die Seite.
+Führen Sie die app, und wechseln Sie zu der Seite "Students".
 
 ![Studenten Indexseite mit Paginierungslinks](sort-filter-page/_static/paging.png)
 
@@ -241,7 +241,7 @@ Ersetzen Sie den Code in der *Views/Home/About.cshtml* Datei durch den folgenden
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Die app auszuführen, und klicken Sie auf die **zu** Link. Die Anzahl der Schüler für jedes Registrierungsdatum wird in einer Tabelle angezeigt.
+Führen Sie die app, und wechseln Sie zu der Seite "Info". Die Anzahl der Schüler für jedes Registrierungsdatum wird in einer Tabelle angezeigt.
 
 ![Zu den Seiten](sort-filter-page/_static/about.png)
 

@@ -2,7 +2,7 @@
 title: Verteilte Cache Tag Helper | Microsoft Docs
 author: pkellner
 description: Zeigt die zum Arbeiten mit Cache-Tag-Hilfsprogramm
-keywords: ASP.NET Core, Tag-Hilfsprogramm
+keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
 ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>Verteilter Cache-Tag-Hilfsprogramm
 
-Durch [Peter Kellner](http://peterkellner.net) 
+Von [Peter Kellner](http://peterkellner.net) 
 
 
 Das verteilte Cache-Tag-Hilfsprogramm bietet die Möglichkeit, die Leistung Ihrer App ASP.NET Core erheblich zu verbessern, indem Sie dessen Inhalt an eine Quelle verteilter Cache caching.

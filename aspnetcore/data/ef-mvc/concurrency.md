@@ -11,11 +11,11 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: fc6b218034183a9153c1ef22c99d920a942d2d09
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Parallelitätskonflikte - EF-Core mit ASP.NET Core MVC-Lernprogramm (8 10)
 
@@ -184,9 +184,7 @@ In *Views/Departments/Edit.cshtml*, nehmen Sie die folgenden Änderungen:
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Testen von Parallelitätskonflikten in bearbeiten (Seite)
 
-Führen Sie den Standort aus, und klicken Sie auf Abteilungen, um die Abteilungen Indexseite aufzurufen.
-
-Mit der rechten Maustaste die **bearbeiten** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie dann auf die **bearbeiten** Link für die englischen Abteilung. Die zwei browserregisterkarten wird jetzt die gleiche Informationen angezeigt.
+Führen Sie die app, und navigieren Sie auf der Abteilungen Index. Mit der rechten Maustaste die **bearbeiten** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie dann auf die **bearbeiten** Link für die englischen Abteilung. Die zwei browserregisterkarten wird jetzt die gleiche Informationen angezeigt.
 
 Ändern eines Felds in der ersten Registerkarte ' Browser ', und klicken Sie auf **speichern**.
 
@@ -198,7 +196,7 @@ Der Browser zeigt die Indexseite mit den geänderten Wert an.
 
 ![Abteilung bearbeiten Seite 2 nach der Änderung](concurrency/_static/edit-after-change-2.png)
 
-Klicken Sie auf **speichern**. Sie sehen eine Fehlermeldung angezeigt:
+Klicken Sie auf **Speichern**. Sie sehen eine Fehlermeldung angezeigt:
 
 ![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/edit-error.png)
 
@@ -255,7 +253,7 @@ Dadurch werden die folgenden Änderungen:
 
 * Fügt ein ausgeblendetes Feld für die `RowVersion` Eigenschaft.
 
-Führen Sie die Indexseite Abteilungen. Klicken Sie mit der rechten Maustaste auf die **löschen** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie in der ersten Registerkarte der **bearbeiten** Link für die englischen Abteilung.
+Führen Sie die app, und navigieren Sie auf der Abteilungen Index. Mit der rechten Maustaste die **löschen** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie in der ersten Registerkarte der **bearbeiten** Link für die englischen Abteilung.
 
 Im ersten Fenster ändern Sie einen der Werte, und klicken Sie auf **speichern**:
 

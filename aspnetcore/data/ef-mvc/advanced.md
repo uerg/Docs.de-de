@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70434d1c814af2a96493027c6a2ad87845cd5cae
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -61,7 +61,7 @@ Fügen Sie eine using Anweisung:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-Führen Sie die Seite "Info". Es zeigt die gleichen Daten wie zuvor.
+Führen Sie die app, und wechseln Sie zu der Seite "Info". Es zeigt die gleichen Daten wie zuvor.
 
 ![Zu den Seiten](advanced/_static/about.png)
 
@@ -109,7 +109,7 @@ Manchmal ist es hilfreich, in der Lage, um den tatsächlichen SQL-Abfragen anzuz
 
 Open *StudentsController.cs* und klicken Sie in der `Details` Methode legen Sie einen Haltepunkt auf der `if (student == null)` Anweisung.
 
-Führen Sie die Anwendung im Debugmodus befindet, und wechseln Sie zur Seite "Details" für ein Student.
+Führen Sie die app im Debugmodus befindet, und wechseln Sie zur Seite "Details" für ein Student.
 
 Wechseln Sie zu der **Ausgabe** Fenster mit der Debug-Ausgabe, und sehen Sie die Abfrage:
 
@@ -200,7 +200,7 @@ Weitere Informationen zu anderen Themen im Zusammenhang mit ASP.NET Core MVC, wi
 
 Tom Dykstra und Rick Anderson (twitter @RickAndMSFT) wurde in diesem Lernprogramm geschrieben. Rowan Miller Diego Vega und anderen Mitgliedern der Entity Framework-Team telefonischen mit codereviews und-Abgleich dabei behilflich waren, Debuggen von Problemen, die aufgetreten ist, während wir für die Lernprogramme Code geschrieben wurden.
 
-## <a name="common-errors"></a>Allgemeine Fehler  
+## <a name="common-errors"></a>Häufige Fehler  
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll, die von einem anderen Prozess verwendet
 
