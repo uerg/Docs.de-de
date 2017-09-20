@@ -2,7 +2,7 @@
 title: Verteilte Cache Tag Helper | Microsoft Docs
 author: pkellner
 description: Zeigt die zum Arbeiten mit Cache-Tag-Hilfsprogramm
-keywords: ASP.NET Core, Tag-Hilfsprogramm
+keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,42 +12,42 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
 ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
-# <a name="distributed-cache-tag-helper"></a><span data-ttu-id="3c1cd-104">Verteilter Cache-Tag-Hilfsprogramm</span><span class="sxs-lookup"><span data-stu-id="3c1cd-104">Distributed Cache Tag Helper</span></span>
+# <a name="distributed-cache-tag-helper"></a><span data-ttu-id="df09f-104">Verteilter Cache-Tag-Hilfsprogramm</span><span class="sxs-lookup"><span data-stu-id="df09f-104">Distributed Cache Tag Helper</span></span>
 
-<span data-ttu-id="3c1cd-105">Durch [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="3c1cd-105">By [Peter Kellner](http://peterkellner.net)</span></span> 
-
-
-<span data-ttu-id="3c1cd-106">Das verteilte Cache-Tag-Hilfsprogramm bietet die Möglichkeit, die Leistung Ihrer App ASP.NET Core erheblich zu verbessern, indem Sie dessen Inhalt an eine Quelle verteilter Cache caching.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-106">The Distributed Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to a distributed cache source.</span></span>
-
-<span data-ttu-id="3c1cd-107">Das verteilte Cache-Tag-Hilfsobjekt erbt von der gleichen Basisklasse als die Cache-Tag-Hilfsprogramm.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-107">The Distributed Cache Tag Helper inherits from the same base class as the Cache Tag Helper.</span></span>  <span data-ttu-id="3c1cd-108">Alle Attribute, die dem Cache Tag Hilfsprogramm zugeordnete funktioniert auch auf das Tag-Hilfsobjekt verteilt.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-108">All attributes associated with the Cache Tag Helper will also work on the Distributed Tag Helper.</span></span>
+<span data-ttu-id="df09f-105">Von [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="df09f-105">By [Peter Kellner](http://peterkellner.net)</span></span> 
 
 
-<span data-ttu-id="3c1cd-109">Das verteilte Cache-Tag-Hilfsobjekt folgt die **expliziten Abhängigkeiten Prinzip** genannt **Konstruktoreinfügung**.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-109">The Distributed Cache Tag Helper follows the **Explicit Dependencies Principle** known as **Constructor Injection**.</span></span>  <span data-ttu-id="3c1cd-110">Insbesondere die `IDistributedCache` Schnittstelle Container an den verteilten Cache Tag Helfer-Konstruktor übergeben wird.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-110">Specifically, the `IDistributedCache` interface container is passed into the Distributed Cache Tag Helper's constructor.</span></span>  <span data-ttu-id="3c1cd-111">Wenn keine bestimmte konkrete Implementierung der `IDistributedCache` erstellt wurde, `ConfigureServices`, in der Regel in startup.cs gefunden und dann das verteilte Cache-Tag-Hilfsobjekt wird die gleiche in-Memory-Anbieter zum Speichern von zwischengespeicherten Daten als die grundlegende Cache-Tag-Hilfsprogramm verwenden.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-111">If no specific concrete implementation of `IDistributedCache` has been created in `ConfigureServices`, usually found in startup.cs, then the Distributed Cache Tag Helper will use the same in-memory provider for storing cached data as the basic Cache Tag Helper.</span></span>
+<span data-ttu-id="df09f-106">Das verteilte Cache-Tag-Hilfsprogramm bietet die Möglichkeit, die Leistung Ihrer App ASP.NET Core erheblich zu verbessern, indem Sie dessen Inhalt an eine Quelle verteilter Cache caching.</span><span class="sxs-lookup"><span data-stu-id="df09f-106">The Distributed Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to a distributed cache source.</span></span>
 
-## <a name="distributed-cache-tag-helper-attributes"></a><span data-ttu-id="3c1cd-112">Verteilte Cache Tagattribute-Hilfsprogramm</span><span class="sxs-lookup"><span data-stu-id="3c1cd-112">Distributed Cache Tag Helper Attributes</span></span>
+<span data-ttu-id="df09f-107">Das verteilte Cache-Tag-Hilfsobjekt erbt von der gleichen Basisklasse als die Cache-Tag-Hilfsprogramm.</span><span class="sxs-lookup"><span data-stu-id="df09f-107">The Distributed Cache Tag Helper inherits from the same base class as the Cache Tag Helper.</span></span>  <span data-ttu-id="df09f-108">Alle Attribute, die dem Cache Tag Hilfsprogramm zugeordnete funktioniert auch auf das Tag-Hilfsobjekt verteilt.</span><span class="sxs-lookup"><span data-stu-id="df09f-108">All attributes associated with the Cache Tag Helper will also work on the Distributed Tag Helper.</span></span>
 
-- - -
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a><span data-ttu-id="3c1cd-113">läuft ab am läuft ab nach Ablauf-gleitende aktiviert variieren-by-Header durch eine Abfrage variieren variieren von Route variieren von Cookie variieren von Benutzer variieren-nach Priorität</span><span class="sxs-lookup"><span data-stu-id="3c1cd-113">enabled expires-on expires-after expires-sliding vary-by-header vary-by-query vary-by-route vary-by-cookie vary-by-user vary-by priority</span></span>
+<span data-ttu-id="df09f-109">Das verteilte Cache-Tag-Hilfsobjekt folgt die **expliziten Abhängigkeiten Prinzip** genannt **Konstruktoreinfügung**.</span><span class="sxs-lookup"><span data-stu-id="df09f-109">The Distributed Cache Tag Helper follows the **Explicit Dependencies Principle** known as **Constructor Injection**.</span></span>  <span data-ttu-id="df09f-110">Insbesondere die `IDistributedCache` Schnittstelle Container an den verteilten Cache Tag Helfer-Konstruktor übergeben wird.</span><span class="sxs-lookup"><span data-stu-id="df09f-110">Specifically, the `IDistributedCache` interface container is passed into the Distributed Cache Tag Helper's constructor.</span></span>  <span data-ttu-id="df09f-111">Wenn keine bestimmte konkrete Implementierung der `IDistributedCache` erstellt wurde, `ConfigureServices`, in der Regel in startup.cs gefunden und dann das verteilte Cache-Tag-Hilfsobjekt wird die gleiche in-Memory-Anbieter zum Speichern von zwischengespeicherten Daten als die grundlegende Cache-Tag-Hilfsprogramm verwenden.</span><span class="sxs-lookup"><span data-stu-id="df09f-111">If no specific concrete implementation of `IDistributedCache` has been created in `ConfigureServices`, usually found in startup.cs, then the Distributed Cache Tag Helper will use the same in-memory provider for storing cached data as the basic Cache Tag Helper.</span></span>
 
-<span data-ttu-id="3c1cd-114">Definitionen finden Sie in der Cache-Tag-Hilfsprogramm.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-114">See Cache Tag Helper for definitions.</span></span> <span data-ttu-id="3c1cd-115">Verteilte Cache Tag Helper erbt von derselben Klasse wie Cache-Tag-Hilfsprogramm, damit alle diese Attribute aus dem Cache Tag Helper gemeinsam verwendet werden.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-115">Distributed Cache Tag Helper inherits from the same class as Cache Tag Helper so all these attributes are common from Cache Tag Helper.</span></span>
+## <a name="distributed-cache-tag-helper-attributes"></a><span data-ttu-id="df09f-112">Verteilte Cache Tagattribute-Hilfsprogramm</span><span class="sxs-lookup"><span data-stu-id="df09f-112">Distributed Cache Tag Helper Attributes</span></span>
 
 - - -
 
-### <a name="name-required"></a><span data-ttu-id="3c1cd-116">Name (erforderlich)</span><span class="sxs-lookup"><span data-stu-id="3c1cd-116">name (required)</span></span>
+### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a><span data-ttu-id="df09f-113">läuft ab am läuft ab nach Ablauf-gleitende aktiviert variieren-by-Header durch eine Abfrage variieren variieren von Route variieren von Cookie variieren von Benutzer variieren-nach Priorität</span><span class="sxs-lookup"><span data-stu-id="df09f-113">enabled expires-on expires-after expires-sliding vary-by-header vary-by-query vary-by-route vary-by-cookie vary-by-user vary-by priority</span></span>
 
-| <span data-ttu-id="3c1cd-117">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="3c1cd-117">Attribute Type</span></span>    | <span data-ttu-id="3c1cd-118">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="3c1cd-118">Example Value</span></span>     |
+<span data-ttu-id="df09f-114">Definitionen finden Sie in der Cache-Tag-Hilfsprogramm.</span><span class="sxs-lookup"><span data-stu-id="df09f-114">See Cache Tag Helper for definitions.</span></span> <span data-ttu-id="df09f-115">Verteilte Cache Tag Helper erbt von derselben Klasse wie Cache-Tag-Hilfsprogramm, damit alle diese Attribute aus dem Cache Tag Helper gemeinsam verwendet werden.</span><span class="sxs-lookup"><span data-stu-id="df09f-115">Distributed Cache Tag Helper inherits from the same class as Cache Tag Helper so all these attributes are common from Cache Tag Helper.</span></span>
+
+- - -
+
+### <a name="name-required"></a><span data-ttu-id="df09f-116">Name (erforderlich)</span><span class="sxs-lookup"><span data-stu-id="df09f-116">name (required)</span></span>
+
+| <span data-ttu-id="df09f-117">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="df09f-117">Attribute Type</span></span>    | <span data-ttu-id="df09f-118">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="df09f-118">Example Value</span></span>     |
 |----------------   |----------------   |
-| <span data-ttu-id="3c1cd-119">string</span><span class="sxs-lookup"><span data-stu-id="3c1cd-119">string</span></span>    | <span data-ttu-id="3c1cd-120">"my-distributed-cache-unique-key-101"</span><span class="sxs-lookup"><span data-stu-id="3c1cd-120">"my-distributed-cache-unique-key-101"</span></span>     |
+| <span data-ttu-id="df09f-119">string</span><span class="sxs-lookup"><span data-stu-id="df09f-119">string</span></span>    | <span data-ttu-id="df09f-120">"my-distributed-cache-unique-key-101"</span><span class="sxs-lookup"><span data-stu-id="df09f-120">"my-distributed-cache-unique-key-101"</span></span>     |
 
-<span data-ttu-id="3c1cd-121">Die erforderliche `name` Attribut als Schlüssel für diesen Cache gespeichert, die für jede Instanz eines verteilten Cache-Tag-Hilfsprogramms verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-121">The required `name` attribute is used as a key to that cache stored for each instance of a Distributed Cache Tag Helper.</span></span>  <span data-ttu-id="3c1cd-122">Im Gegensatz zu den grundlegenden Cache Tag-Hilfsprogramm, das einen Schlüssel jeder Cache Tag-Hilfsinstanz basierend auf den Namen der Razor-Seite und den Speicherort der Hilfsprogramm-Tag in der Seite "Razor" zuweist, beruht die verteilten Cache Tag Helper nur sie dessen Schlüssel für das Attribut`name`</span><span class="sxs-lookup"><span data-stu-id="3c1cd-122">Unlike the basic Cache Tag Helper that assigns a key to each Cache Tag Helper instance based on the Razor page name and location of the tag helper in the razor page, the Distributed Cache Tag Helper only bases it's key on the attribute `name`</span></span>
+<span data-ttu-id="df09f-121">Die erforderliche `name` Attribut als Schlüssel für diesen Cache gespeichert, die für jede Instanz eines verteilten Cache-Tag-Hilfsprogramms verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="df09f-121">The required `name` attribute is used as a key to that cache stored for each instance of a Distributed Cache Tag Helper.</span></span>  <span data-ttu-id="df09f-122">Im Gegensatz zu den grundlegenden Cache Tag-Hilfsprogramm, das einen Schlüssel jeder Cache Tag-Hilfsinstanz basierend auf den Namen der Razor-Seite und den Speicherort der Hilfsprogramm-Tag in der Seite "Razor" zuweist, beruht die verteilten Cache Tag Helper nur sie dessen Schlüssel für das Attribut`name`</span><span class="sxs-lookup"><span data-stu-id="df09f-122">Unlike the basic Cache Tag Helper that assigns a key to each Cache Tag Helper instance based on the Razor page name and location of the tag helper in the razor page, the Distributed Cache Tag Helper only bases it's key on the attribute `name`</span></span>
 
-<span data-ttu-id="3c1cd-123">Verwendungsbeispiel:</span><span class="sxs-lookup"><span data-stu-id="3c1cd-123">Usage Example:</span></span>
+<span data-ttu-id="df09f-123">Verwendungsbeispiel:</span><span class="sxs-lookup"><span data-stu-id="df09f-123">Usage Example:</span></span>
 
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
@@ -55,11 +55,11 @@ ms.lasthandoff: 09/13/2017
 </distributed-cache>
 ```
 
-## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a><span data-ttu-id="3c1cd-124">Verteilte Cache Tag Helper IDistributedCache Implementierungen</span><span class="sxs-lookup"><span data-stu-id="3c1cd-124">Distributed Cache Tag Helper IDistributedCache Implementations</span></span>
+## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a><span data-ttu-id="df09f-124">Verteilte Cache Tag Helper IDistributedCache Implementierungen</span><span class="sxs-lookup"><span data-stu-id="df09f-124">Distributed Cache Tag Helper IDistributedCache Implementations</span></span>
 
-<span data-ttu-id="3c1cd-125">Es gibt zwei Implementierungen von `IDistributedCache` in ASP.NET Core integriert.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-125">There are two implementations of `IDistributedCache` built in to ASP.NET Core.</span></span>  <span data-ttu-id="3c1cd-126">Eine basiert auf **Sql Server** und die andere basiert auf **Redis**.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-126">One is based on **Sql Server** and the other is based on **Redis**.</span></span> <span data-ttu-id="3c1cd-127">Details zu dieser Implementierung finden Sie unter der Ressource, die nachstehenden benannte "Arbeiten mit einem verteilten Cache".</span><span class="sxs-lookup"><span data-stu-id="3c1cd-127">Details of these implementations can be found at the resource referenced below named "Working with a distributed cache".</span></span> <span data-ttu-id="3c1cd-128">Beide Implementierungen umfassen Festlegen einer Instanz des `IDistributedCache` in ASP.NET Core des **startup.cs**.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-128">Both implementations involve setting an instance of `IDistributedCache` in ASP.NET Core's **startup.cs**.</span></span>
+<span data-ttu-id="df09f-125">Es gibt zwei Implementierungen von `IDistributedCache` in ASP.NET Core integriert.</span><span class="sxs-lookup"><span data-stu-id="df09f-125">There are two implementations of `IDistributedCache` built in to ASP.NET Core.</span></span>  <span data-ttu-id="df09f-126">Eine basiert auf **Sql Server** und die andere basiert auf **Redis**.</span><span class="sxs-lookup"><span data-stu-id="df09f-126">One is based on **Sql Server** and the other is based on **Redis**.</span></span> <span data-ttu-id="df09f-127">Details zu dieser Implementierung finden Sie unter der Ressource, die nachstehenden benannte "Arbeiten mit einem verteilten Cache".</span><span class="sxs-lookup"><span data-stu-id="df09f-127">Details of these implementations can be found at the resource referenced below named "Working with a distributed cache".</span></span> <span data-ttu-id="df09f-128">Beide Implementierungen umfassen Festlegen einer Instanz des `IDistributedCache` in ASP.NET Core des **startup.cs**.</span><span class="sxs-lookup"><span data-stu-id="df09f-128">Both implementations involve setting an instance of `IDistributedCache` in ASP.NET Core's **startup.cs**.</span></span>
 
-<span data-ttu-id="3c1cd-129">Stehen keine Tagattribute explizit verknüpft sind mit einer bestimmten Implementierung des `IDistributedCache`.</span><span class="sxs-lookup"><span data-stu-id="3c1cd-129">There are no tag attributes specifically associated with using any specific implementation of `IDistributedCache`.</span></span>
+<span data-ttu-id="df09f-129">Stehen keine Tagattribute explizit verknüpft sind mit einer bestimmten Implementierung des `IDistributedCache`.</span><span class="sxs-lookup"><span data-stu-id="df09f-129">There are no tag attributes specifically associated with using any specific implementation of `IDistributedCache`.</span></span>
 
 
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/13/2017
 
 
 
-## <a name="additional-resources"></a><span data-ttu-id="3c1cd-130">Zusätzliche Ressourcen</span><span class="sxs-lookup"><span data-stu-id="3c1cd-130">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="df09f-130">Zusätzliche Ressourcen</span><span class="sxs-lookup"><span data-stu-id="df09f-130">Additional resources</span></span>
 
 * <xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper>
 * <xref:fundamentals/dependency-injection#service-lifetimes-and-registration-options>
