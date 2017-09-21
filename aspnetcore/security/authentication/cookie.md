@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 60ac318cb47b5a5b4c651c88e60d43772ce59958
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: b728c3d62b59f28f1d020b6f3732918a1fcdf4eb
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Mithilfe der Cookieauthentifizierung ohne ASP.NET Core Identität
 
@@ -242,7 +242,7 @@ ASP.NET Core 2.x vereinigt die APIs, die zum Konfigurieren von Cookies verwendet
 
 * `ClaimsIssuer`ist der Aussteller zu verwendende für die [Aussteller](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) Eigenschaft für Ansprüche, die von der Cookieauthentifizierung erstellt.
 
-* `CookieBuilder.Domain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw.
+* `CookieBuilder.Domain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw..
 
 * `CookieBuilder.HttpOnly`ein Flag, der angibt, wenn das Cookie nur an Server zugegriffen werden soll. Der Standardwert lautet `true`. Durch Ändern dieses Werts möglicherweise anwendungskennworts Cookie Diebstahl öffnen Sie Ihre Anwendung einen Fehler siteübergreifende verfügen sollen.
 
@@ -275,7 +275,7 @@ services.AddAuthentication()
 
 * `ClaimsIssuer`ist der Aussteller zu verwendende für die [Aussteller](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) Eigenschaft für Ansprüche, die von der Middleware erstellt.
 
-* `CookieDomain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw.
+* `CookieDomain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw..
 
 * `CookieHttpOnly`ein Flag, der angibt, wenn das Cookie nur an Server zugegriffen werden soll. Der Standardwert lautet `true`. Durch Ändern dieses Werts möglicherweise anwendungskennworts Cookie Diebstahl öffnen Sie Ihre Anwendung einen Fehler siteübergreifende verfügen sollen.
 
