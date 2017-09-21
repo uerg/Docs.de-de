@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
-ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
+ms.openlocfilehash: 8ffadc1dede4053faa129a3b224aace901e70e14
+ms.sourcegitcommit: ad01283f299d346cf757c4f4744c48634dc27e73
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>Einrichten einer Hostumgebung für ASP.NET Core unter Windows mit IIS und Durchführen von Bereitstellungen in dieser Umgebung
 
@@ -99,21 +99,22 @@ Es sind jeweils `UseKestrel` und `UseIISIntegration` erforderlich. Ein Code, der
 
 Weitere Informationen zum Hosten finden Sie unter [Hosting in ASP.NET Core (Hosten in ASP.NET Core)](xref:fundamentals/hosting).
 
-### <a name="setting-iisoptions-for-the-iisintegration-service"></a>Festlegen von IISOptions für den IISIntegration-Dienst
+### <a name="iis-options"></a>IIS-Optionen
 
-Um *IISIntegration*-Dienstoptionen zu konfigurieren, nehmen Sie eine Dienstkonfiguration für *IISOptions* in *ConfigureServices* auf.
+Um *IISIntegration*-Dienstoptionen zu konfigurieren, beziehen Sie eine Dienstkonfiguration für *IISOptions* in *ConfigureServices* mit ein:
 
 ```csharp
-services.Configure<IISOptions>(options => {
-  ...
+services.Configure<IISOptions>(options => 
+{
+    ...
 });
 ```
 
-| Option | Einstellung|
-| --- | --- | 
-| AutomaticAuthentication | Bei „true“ ändert die Authentifizierungsmiddleware den eingehenden anfordernden Benutzer und die Antwort in generische Aufforderungen. Bei „false“ stellt die Authentifizierungsmiddleware nur die Identität und die Antwort für Aufforderungen bereit, wenn dies von „AuthenticationScheme“ explizit angegeben ist. |
-| ForwardClientCertificate | Bei „true“ und einem vorhandenen `MS-ASPNETCORE-CLIENTCERT`-Anforderungsheader wird `ITLSConnectionFeature` aufgefüllt. |
-| ForwardWindowsAuthentication | Bei „true“ versucht die Authentifizierungsmiddleware, die Authentifizierung mit der Windows-Authentifizierung des Plattformhandlers durchzuführen. Bei „false“ wird keine Authentifizierungsmiddleware hinzugefügt. |
+| Option                         | Standard | Einstellung |
+| ------------------------------ | ------- | ------- |
+| `AutomaticAuthentication`      | `true`  | Wenn `true`, dann legt die Authentifizierungsmiddleware `HttpContext.User` fest und reagiert auf generische Herausforderungen. Wenn `false`, dann stellt die Authentifizierungsmiddleware nur eine Identität bereit (`HttpContext.User`) und reagiert nur dann auf Herausforderungen, wenn sie dazu explizit von `AuthenticationScheme` angewiesen wird. Die Windows-Authentifizierung muss in IIS aktiviert sein, damit `AutomaticAuthentication` funktioniert. |
+| `AuthenticationDisplayName`    | `null`  | Legt den Anzeigename fest, der Benutzern auf Anmeldungsseiten angezeigt wird |
+| `ForwardClientCertificate`     | `true`  | Wenn diese Option `true` ist und der Anforderungsheader `MS-ASPNETCORE-CLIENTCERT` vorhanden ist, wird das `HttpContext.Connection.ClientCertificate` aufgefüllt. |
 
 ### <a name="webconfig"></a>web.config
 
