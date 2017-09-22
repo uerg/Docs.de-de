@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 7a845cec23f662dd6fe48044b819099f2c20ecb3
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 541774d46bbf570ee860c72fdff5cece364935df
+ms.sourcegitcommit: 55759ae80e7039036a7c6da8e3806f7c88ade325
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrieren von ASP.NET Core 1.x zu ASP.NET Core 2.0
 
@@ -152,7 +152,7 @@ Bei in Visual Studio 2017 erstellten ASP.NET Core 1.1-Projekten wurde Applicatio
 
 3. Entfernen Sie aus *_Layout.cshtml* den clientseitigen API-Aufruf von Application Insights. Dieser umfasst die beiden folgenden Codezeilen:
 
-    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19)]
+    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
 Sie können das Application Insights SDK weiterhin direkt verwenden. [metapackage](xref:fundamentals/metapackage) der Version 2.0 enthält die neueste Version von Application Insights, weshalb ein Fehler zum Downgrade eines Pakets angezeigt wird, wenn Sie auf eine ältere Version verweisen.
 

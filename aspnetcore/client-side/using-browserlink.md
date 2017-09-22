@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2ff38288cee3e9ca42a07c219521bb79a00a359
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 211dd5d03e6b8414e0b2ed3234d8970c92f72452
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-browser-link-in-aspnet-core"></a>Einführung in ASP.NET Core Browserlink 
 
@@ -61,7 +61,7 @@ Dieser Code in der Regel befindet sich innerhalb einer `if` blockieren, die nur 
 
 [!code-csharp[Main](./using-browserlink/sample/BrowserLinkSample/src/BrowserLinkSample/Startup.cs?highlight=1,4&range=40-44)]
 
-Weitere Informationen finden Sie unter [arbeiten mit mehreren Umgebungen](../fundamentals/environments.md).
+Weitere Informationen finden Sie unter [Working with Multiple Environments (Verwenden von mehreren Umgebungen)](../fundamentals/environments.md).
 
 ## <a name="how-to-use-browser-link"></a>Gewusst wie: Verwenden von Browserlink
 
@@ -85,7 +85,7 @@ Verwenden Sie zum Auswählen eines einzelnen Web-Browsers zum Starten, wenn das 
 
 ![F5-Dropdownmenü](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-Zum Öffnen von mehreren Browsern gleichzeitig wählen **durchsuchen mit...**  aus der gleichen Dropdownliste aus.  Halten Sie die STRG-Taste auf die Browsern auswählen, werden soll, und klicken Sie dann auf **Durchsuchen**:
+Zum Öffnen von mehreren Browsern gleichzeitig wählen **durchsuchen mit... ** aus der gleichen Dropdownliste aus.  Halten Sie die STRG-Taste auf die Browsern auswählen, werden soll, und klicken Sie dann auf **Durchsuchen**:
 
 ![Viele Browsern gleichzeitig öffnen](using-browserlink/_static/open-many-browsers-at-once.png)
 

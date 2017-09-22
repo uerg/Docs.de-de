@@ -2,7 +2,7 @@
 title: ASP.NET Core MVC mit EF-Kern - Migrationen - 4 von 10
 author: tdykstra
 description: "In diesem Lernprogramm beginnen Sie mit der EF-Core-Migrationen-Funktion für die Verwaltung von datenmodelländerungen in einer ASP.NET-MVC-Anwendung Core."
-keywords: ASP.NET Core, Entity Framework Core-Migrationen
+keywords: ASP.NET Core, Entity Framework Core, Migrationen
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4d81099d1ab97a8a49d96657153a54aa96dd6bf8
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migrationen - EF-Core mit ASP.NET Core MVC-Lernprogramm (4 von 10)
 
@@ -31,11 +31,11 @@ Wenn Sie eine neue Anwendung entwickeln, Ihr Datenmodell ändert sich häufig, u
 
 Synchronisieren der Datenbank mit dem Datenmodell diese Methode funktioniert gut, bis Sie die Anwendung bis hin zur Produktion bereitstellen. Wenn die Anwendung in der produktionsumgebung ausgeführt wird, es in der Regel, die Daten, die Sie beibehalten möchten gespeichert sind, und Sie nicht alles, was bei jedem verlieren möchten, nehmen Sie eine Änderung wie z. B. das Hinzufügen einer neuen Spalte. Das Feature EF Core Migrationen löst dieses Problem durch Aktivieren von EF zum Aktualisieren des Datenbankschemas statt eine neue Datenbank erstellen.
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>Entity Framework Core NuGet-Pakete für Migrationen
+## <a name="entity-framework-core-nuget-packages-for-migrations"></a>NuGet-Pakete für Migrationen in Entity Framework Core
 
 Um mit Migrationen arbeiten, können Sie die **Package Manager Console** (PMC) oder die Befehlszeilenschnittstelle (CLI).  Diese Lernprogramme veranschaulichen, wie CLI-Befehlen. Informationen zu der Systemmonitor ist am [Ende dieses Lernprogramms](#pmc).
 
-Der EF-Tools für die Befehlszeilenschnittstelle (CLI) finden Sie unter [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Um dieses Paket zu installieren, fügen sie der `DotNetCliToolReference` Sammlung in der *csproj* Datei wie gezeigt. **Hinweis:** müssen Sie installieren dieses Pakets durch Bearbeiten der *csproj* Datei; können keine der `install-package` Befehl oder die Paket-Manager GUI. Können Sie bearbeiten die *csproj* Datei mit der rechten Maustaste auf den Projektnamen im **Projektmappen-Explorer** auswählen und **ContosoUniversity.csproj bearbeiten**.
+Die EF-Tools für die Befehlszeilenschnittstelle (CLI) werden unter [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) bereitgestellt. Um dieses Paket zu installieren, fügen sie der `DotNetCliToolReference` Sammlung in der *csproj* Datei wie gezeigt. **Hinweis:** Sie müssen dieses Paket installieren, indem Sie die *CSPROJ*-Datei bearbeiten. Sie können den `install-package`-Befehl oder die Paket-Manager-GUI nicht verwenden. Können Sie bearbeiten die *csproj* Datei mit der rechten Maustaste auf den Projektnamen im **Projektmappen-Explorer** auswählen und **ContosoUniversity.csproj bearbeiten**.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
@@ -68,7 +68,7 @@ Speichern Sie die Änderungen zu, und erstellen Sie das Projekt. Klicken Sie dan
 
   ![Befehlsfenster öffnen](migrations/_static/open-command-window.png)
 
-Geben Sie im Befehlsfenster den folgenden Befehl ein:
+Geben Sie im Befehlsfenster folgenden Befehl ein:
 
 ```console
 dotnet ef migrations add InitialCreate
@@ -87,11 +87,11 @@ Done. To undo this action, use 'ef migrations remove'
 > [!NOTE]
 > Wenn Sie eine Fehlermeldung *keine ausführbare Datei gefunden übereinstimmenden Befehl "Dotnet-Ef"*, finden Sie unter [diesem Blogbeitrag](http://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) für Hilfe zur Problembehandlung.
 
-Wenn Sie eine Fehlermeldung angezeigt "*... die Datei kann nicht zugegriffen werden. ContosoUniversity.dll, da sie von einem anderen Prozess verwendet wird.* ", suchen Sie das Symbol" IIS Express "in der Windows-Taskleiste der rechten Maustaste darauf klicken, und klicken Sie auf **ContosoUniversity > Stop Standort**.
+Wenn Sie eine Fehlermeldung angezeigt "*... die Datei kann nicht zugegriffen werden. ContosoUniversity.dll, da sie von einem anderen Prozess verwendet wird. *", suchen Sie das Symbol" IIS Express "in der Windows-Taskleiste der rechten Maustaste darauf klicken, und klicken Sie auf **ContosoUniversity > Stop Standort**.
 
 ## <a name="examine-the-up-and-down-methods"></a>Überprüfen Sie die nach-oben und nach-unten Sie-Methoden
 
-Wenn Sie die Ausführung der `migrations add` Befehl EF generiert den Code, der die Datenbank von Grund auf neu erstellt wird. Dieser Code befindet sich in der *Migrationen* Ordner, in der Datei mit dem Namen  *\<Zeitstempel > _InitialCreate.cs*. Die `Up` Methode der `InitialCreate` Klasse erstellt, die Datenbanktabellen, die die Daten Modell Entitätenmengen, entsprechen und die `Down` Methode löscht, wie im folgenden Beispiel gezeigt.
+Wenn Sie die Ausführung der `migrations add` Befehl EF generiert den Code, der die Datenbank von Grund auf neu erstellt wird. Dieser Code befindet sich in der *Migrationen* Ordner, in der Datei mit dem Namen * \<Zeitstempel > _InitialCreate.cs*. Die `Up` Methode der `InitialCreate` Klasse erstellt, die Datenbanktabellen, die die Daten Modell Entitätenmengen, entsprechen und die `Down` Methode löscht, wie im folgenden Beispiel gezeigt.
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
@@ -109,7 +109,7 @@ Migrationen erstellt außerdem eine *Momentaufnahme* des aktuellen Datenbanksche
 
 Da das Schema der aktuellen Datenbank im Code dargestellt wird, verwendet nicht EF Kern, für die Interaktion mit der Datenbank, um Migrationen zu erstellen. Wenn Sie eine Migration hinzufügen, bestimmt EF an, was durch Vergleichen Datenmodell der Datenbankmomentaufnahme-Datei geändert. EF interagiert mit der Datenbank nur, wenn sie zum Aktualisieren der Datenbank hat. 
 
-Die Datenbankmomentaufnahme-Datei muss mit der Migrationen synchron gehalten werden, die sie erstellt haben, damit Sie eine Migration nicht entfernen können, indem Sie einfach das Löschen der Datei mit dem Namen  *\<Zeitstempel > _\<Migrationname > .cs*. Wenn Sie diese Datei löschen, werden die übrigen Migrationen werden nicht mit der Datenbankmomentaufnahme-Datei synchron. Um der letzten Migration löschen, die Sie hinzugefügt haben, verwenden die [Dotnet Ef Migrationen entfernen](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) Befehl.
+Die Datenbankmomentaufnahme-Datei muss mit der Migrationen synchron gehalten werden, die sie erstellt haben, damit Sie eine Migration nicht entfernen können, indem Sie einfach das Löschen der Datei mit dem Namen * \<Zeitstempel > _\<Migrationname > .cs*. Wenn Sie diese Datei löschen, werden die übrigen Migrationen werden nicht mit der Datenbankmomentaufnahme-Datei synchron. Um der letzten Migration löschen, die Sie hinzugefügt haben, verwenden die [Dotnet Ef Migrationen entfernen](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) Befehl.
 
 ## <a name="apply-the-migration-to-the-database"></a>Die Migration auf die Datenbank anwenden.
 

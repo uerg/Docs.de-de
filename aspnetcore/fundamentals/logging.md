@@ -2,7 +2,7 @@
 title: Protokollierung in ASP.NET Core
 author: ardalis
 description: "Wird das protokollierungsframework in ASP.NET Core eingeführt. Enthält einen Abschnitt für jede integrierte Protokollierungsanbieter und Links zu einigen beliebten Drittanbieter."
-keywords: ASP.NET Core, Protokollierung, Protokollanbieter, Microsoft.Extensions.Logging ILogger iloggerfactory-Standardobjekt zur LogLevel WithFilter TraceSource EventLog, EventSource, Bereiche
+keywords: ASP.NET Core, Protokollierung, Protokollierung providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in ASP.NET Core anmelden
 
@@ -448,7 +448,7 @@ Dieser Code bezieht sich auf die `Logging` Teil der *appSettings.json* Datei:
 
 [!code-json[](logging/sample//appsettings.json)]
 
-Die Einstellungen, die Grenzwert Framework Protokolle, um Warnungen beim ermöglicht es der app angezeigt, die auf Debugebene zu melden, wie in beschrieben die [Protokoll filtern](#log-filtering) Abschnitt. Weitere Informationen finden Sie unter [Configuration (Konfiguration)](configuration.md).
+Die Einstellungen, die Grenzwert Framework Protokolle, um Warnungen beim ermöglicht es der app angezeigt, die auf Debugebene zu melden, wie in beschrieben die [Protokoll filtern](#log-filtering) Abschnitt. Weitere Informationen finden Sie unter [Konfiguration](configuration.md).
 
 ---
 

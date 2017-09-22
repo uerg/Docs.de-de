@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b5dca6a81a66ce2a8771f1a16e63834d6504d8b6
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core
 
@@ -101,4 +101,4 @@ Mit einem `CancellationTokenSource` ermöglicht mehrere Cacheeinträge als Grupp
 ### <a name="other-resources"></a>Weitere Ressourcen
 
 * [Arbeiten mit einem verteilten Cache](distributed.md)
-* [Antwort zwischenspeichern middleware](middleware.md)
+* [Antworten zwischenspeichernde Middleware](middleware.md)

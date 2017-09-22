@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 72b6098b2a71957da338ef36beff4808201773f4
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2c94daafec8d3b4051bd3091478521ab12a434bd
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
 
@@ -52,7 +52,7 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
 | `ClientId`     | Azure Active Directory-App-Id  | 627e911e-43CC-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Azure Active Directory-Anwendungsschlüssel | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
 
-[!code-csharp[Programm](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Schlüsseltresor geheime Schlüssel erstellen und das Laden von Konfigurationswerten (Basic-Beispiel)
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
@@ -83,7 +83,7 @@ Beim Ausführen der app zeigt eine Webseite für den geheimen geladenen Werte:
 
 Verwenden das zweite Beispiel-app, einen geheimen Schlüssel im schlüsseltresor für erstellen `5000-AppSecret` (Punkte sind nicht zulässig, in der für den geheimen schlüsseltresornamen), ein app-Geheimnis für app-Version 5.0.0.0 darstellt. Für eine andere Version, 5.1.0.0, erstellen Sie einen geheimen Schlüssel für `5100-AppSecret`. Jede Version der app lädt einen eigenen geheimen Wert in seine Konfiguration als `AppSecret`, Ausblasegerät die Version, die den geheimen Schlüssel geladen. Das Beispiel für die Implementierung wird unten gezeigt:
 
-[!code-csharp[Konfiguration-Generator](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 
