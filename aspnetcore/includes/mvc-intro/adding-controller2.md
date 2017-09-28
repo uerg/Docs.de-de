@@ -6,7 +6,7 @@ Jede `public`-Methode in einem Controller kann als HTTP-Endpunkt aufgerufen werd
 
 Ein HTTP-Endpunkt ist eine Ziel-URL in der Webanwendung, wie z.B. `http://localhost:1234/HelloWorld`, und kombiniert das verwendete Protokoll `HTTP`, die Netzwerkadresse des Webservers (einschließlich TCP-Port) `localhost:1234` und den Ziel-URI `HelloWorld`.
 
-Der erste Kommentar besagt, dass dies eine [HTTP GET](http://www.w3schools.com/tags/ref_httpmethods.asp)-Methode ist, die durch Anfügen von „/HelloWorld/“ an die Basis-URL aufgerufen wird. Der zweite Kommentar gibt eine [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)-Methode an, die durch Anfügen von „/HelloWorld/Welcome/“ an die URL aufgerufen wird. Im weiteren Verlauf des Tutorials nutzen Sie das Gerüstbaumodul zum Generieren von `HTTP POST`-Methoden.
+Der erste Kommentar besagt, dass dies eine [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp)-Methode ist, die durch Anfügen von „/HelloWorld/“ an die Basis-URL aufgerufen wird. Der zweite Kommentar gibt eine [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)-Methode an, die durch Anfügen von „/HelloWorld/Welcome/“ an die URL aufgerufen wird. Im weiteren Verlauf des Tutorials nutzen Sie das Gerüstbaumodul zum Generieren von `HTTP POST`-Methoden.
 
 Führen Sie die App im Nicht-Debugmodus aus, und fügen Sie „HelloWorld“ an den Pfad in der Adressleiste an. Die `Index`-Methode gibt eine Zeichenfolge zurück.
 
@@ -46,7 +46,7 @@ Führen Sie die App aus, und navigieren Sie zu:
 
 ![Browserfenster mit der Anwendungsantwort „Hello Rick, NumTimes is: 4“](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-In der obigen Abbildung wird das URL-Segment (`Parameters`) nicht verwendet, und die Parameter `name` und `numTimes` werden als [Abfragezeichenfolgen](http://en.wikipedia.org/wiki/Query_string) übergeben. Das Fragezeichen (`?`) in der obigen URL ist ein Trennzeichen, auf das die Abfragezeichenfolgen folgen. Das Zeichen `&` trennt Abfragezeichenfolgen.
+In der obigen Abbildung wird das URL-Segment (`Parameters`) nicht verwendet, und die Parameter `name` und `numTimes` werden als [Abfragezeichenfolgen](https://wikipedia.org/wiki/Query_string) übergeben. Das Fragezeichen (`?`) in der obigen URL ist ein Trennzeichen, auf das die Abfragezeichenfolgen folgen. Das Zeichen `&` trennt Abfragezeichenfolgen.
 
 Ersetzen Sie die `Welcome`-Methode durch folgenden Code:
 

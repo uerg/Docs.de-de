@@ -5,16 +5,16 @@ description: "Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Cor
 keywords: ASP.NET Core, Razor-Seiten, Razor, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: b234eb93fbca1f4c83712990712b86e9941968fd
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: d000da06face3080cf81de4dc15a2596f2bfa7ea
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Core mit Visual Studio für Mac
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/29/2017
 
 * Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt**RazorPagesMovie**, und klicken Sie dann auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
 * Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*, und klicken Sie auf **Hinzufügen** > **Neue Datei**.
-* Im Dialogfeld **Neue Datei**:
+* Führen Sie im Dialogfeld **Neue Datei** folgende Aktionen aus:
 
   * Klicken Sie im linken Bereich auf **Allgemein**.
   * Klicken Sie im mittleren Bereich auf **Leere Klasse**.
@@ -73,5 +73,5 @@ Der folgende Code zeigt die aktualisierte *CSPROJ*-Datei.
 Im nächsten Tutorial finden Sie Erläuterungen zu den Dateien, die durch den Gerüstbau erstellt wurden.
 
 >[!div class="step-by-step"]
-[Zurück: Erste Schritte](xref:tutorials/razor-pages-mac/razor-pages-start)
-[Weiter: Gerüstbau mit Razor-Seiten](xref:tutorials/razor-pages/page)
+[Vorheriges Tutorial: Getting Started (Erste Schritte)](xref:tutorials/razor-pages-mac/razor-pages-start)
+[Nächstes Tutorial: Scaffolded Razor Pages (Razor-Seiten mit erfolgtem Gerüstbau)](xref:tutorials/razor-pages/page)

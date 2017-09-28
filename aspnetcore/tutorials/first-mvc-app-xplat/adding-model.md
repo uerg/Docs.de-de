@@ -1,25 +1,25 @@
 ---
-title: "Hinzufügen eines Modells"
+title: "Hinzufügen eines Modells zu einer ASP.NET Core MVC-App."
 author: rick-anderson
-description: "Hinzufügen eines Modells zu einer einfachen ASP.NET Core-App"
-keywords: ASP.NET Core
+description: "Fügen Sie ein Modell zu einer einfachen ASP.NET Core-App hinzu."
 ms.author: riande
-manager: wpickett
-ms.date: 03/30/2017
+ms.date: 09/18/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-eeee-4666-b903-b593059e9f39
 ms.technology: aspnet
+keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, Linux, HTTP, Service, HTTP-Dienst, VS Code
 ms.prod: asp.net-core
+manager: wpickett
+ms.assetid: 8dc28498-eeee-4666-b903-b593059e9f39
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: c68466a645687b6fe0193e9deec2f32632e6f0e7
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70aa344ca4ceafacf53907c925fd595e47104d7e
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 [!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
-* Fügen Sie eine Klasse zum Ordner *Modelle* mit dem Namen *Movie.cs* hinzu.
+* Fügen Sie zum Ordner *Modelle* eine Klasse mit dem Namen *Movie.cs* hinzu.
 * Fügen Sie der Datei *Models/Movie.cs* den folgenden Code hinzu:
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]

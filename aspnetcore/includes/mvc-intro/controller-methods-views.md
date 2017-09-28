@@ -1,5 +1,5 @@
 
-Wir behandeln [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) im nächsten Tutorial. Das [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx)-Attribut gibt an, was für den Namen eines Felds angezeigt werden soll (in diesem Fall „Release Date“ anstatt „ReleaseDate“). Das [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)-Attribut gibt den Typ der Daten (Date) an, damit die im Feld gespeicherten Uhrzeitinformationen nicht angezeigt werden.
+Wir behandeln [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) im nächsten Tutorial. Das [Display](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata)-Attribut gibt an, was für den Namen eines Felds angezeigt werden soll (in diesem Fall „Release Date“ anstatt „ReleaseDate“). Das [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter)-Attribut gibt den Typ der Daten (Date) an, damit die im Feld gespeicherten Uhrzeitinformationen nicht angezeigt werden.
 
 Navigieren Sie zum `Movies`-Controller, und halten Sie den Mauszeiger über einen **Bearbeiten**-Link, um die Ziel-URL zu sehen.
 
@@ -9,7 +9,7 @@ Die Links **Bearbeiten**, **Details** und **Löschen** werden mithilfe des MVC C
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
-Durch [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) kann auch serverseitiger Code HTML-Elemente in Razor-Dateien erstellen und rendern. Im obigen Code generiert `AnchorTagHelper` dynamisch den HTML-`href`-Attributwert aus der Controlleraktionsmethode und der Routen-ID. Verwenden Sie in Ihrem bevorzugten Browser **Quelltext anzeigen** oder die Entwicklertools, um das generierte Markup zu untersuchen. Ein Teil des generierten HTML-Codes wird unten gezeigt:
+[Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) ermöglichen serverseitigem Code das Mitwirken am Erstellen und Rendern von HTML-Elementen in Razor-Dateien. Im obigen Code generiert `AnchorTagHelper` dynamisch den HTML-`href`-Attributwert aus der Controlleraktionsmethode und der Routen-ID. Verwenden Sie in Ihrem bevorzugten Browser **Quelltext anzeigen** oder die Entwicklertools, um das generierte Markup zu untersuchen. Ein Teil des generierten HTML-Codes wird unten gezeigt:
 
 ```html
  <td>
@@ -35,7 +35,7 @@ Der folgende Code zeigt die `HTTP POST Edit`-Methode, die die bereitgestellten F
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-Das `[Bind]`-Attribut ist eine Möglichkeit zum Schutz vor [zu vielen Angaben](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Sie sollten nur Eigenschaften in das `[Bind]`-Attribut aufnehmen, die Sie ändern möchten. Weitere Informationen finden Sie unter [Protect your controller from over-posting](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) (Schützen Ihres Controllers vor zu vielen Angaben). [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) bietet eine alternative Methode, um zu viele Angaben zu verhindern.
+Das `[Bind]`-Attribut ist eine Möglichkeit zum Schutz vor [zu vielen Angaben](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Sie sollten nur Eigenschaften in das `[Bind]`-Attribut aufnehmen, die Sie ändern möchten. Weitere Informationen finden Sie unter [Protect your controller from over-posting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) (Schützen Ihres Controllers vor zu vielen Angaben). [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) bietet eine alternative Methode, um zu viele Angaben zu verhindern.
 
 Beachten Sie, dass der zweiten `Edit`-Aktionsmethode das `[HttpPost]`-Attribut vorangestellt ist.
 
@@ -89,7 +89,7 @@ Alle `HttpGet`-Methoden im Movie-Controller folgen einem ähnlichen Muster. Sie 
 * [Einführung in Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)
 * [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring)
 * [Antianforderungsfälschung](xref:security/anti-request-forgery)
-* Schützen Sie Ihre Domänencontroller vor [zu vielen Angaben](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)
+* Schützen Sie Ihre Domänencontroller vor [zu vielen Angaben](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Hilfsprogramm für Formulartags](xref:mvc/views/working-with-forms)
 * [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms)

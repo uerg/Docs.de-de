@@ -5,16 +5,16 @@ description: "Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Cor
 keywords: ASP.NET Core, Razor-Seiten, Razor, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 39b069f8c81ca9460abc33b32b0bcc27118939cb
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 445c13542bd4a7561eb6aa509b1aabe47cb45468
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Core mit Visual Studio für Mac
 
@@ -42,7 +42,8 @@ Bearbeiten Sie die Datei *RazorPagesMovie.csproj*:
 * Klicken Sie auf **Datei > Datei öffnen**, und wählen Sie dann die Datei *RazorPagesMovie.csproj* aus.
 * Fügen Sie `<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />` wie im folgenden Code hervorgehoben hinzu:
 
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)] [!INCLUDE[model 3](../../includes/RP/model3.md)]
+[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)]
+[!INCLUDE[model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
 ### <a name="scaffold-the-movie-model"></a>Aufbauen des Filmmodells

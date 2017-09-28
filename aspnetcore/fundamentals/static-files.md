@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea6c180332dd5ab3a7238dcd73a4a1c8534c6243
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>Einführung in das Arbeiten mit statischen Dateien in ASP.NET Core
 
 <a name=fundamentals-static-files></a>
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Statische Dateien, z. B. HTML, CSS, Bild und JavaScript, sind Ressourcen, die eine ASP.NET Core app direkt an Clients fungieren kann.
 
@@ -52,7 +52,7 @@ Sie müssen das NuGet-Paket "Microsoft.AspNetCore.StaticFiles" einschließen.
 
 Angenommen, Sie eine Projekthierarchie haben, in dem Sie dienen möchten auf statischen Dateien sich außerhalb befinden, der `web root`. Zum Beispiel:
 
-* "Wwwroot"
+* wwwroot
   * CSS
   * Bilder
   * ...
@@ -139,7 +139,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 
 Finden Sie unter [Überlegungen](#considerations) auf die Sicherheitsrisiken beim Durchsuchen aktivieren. Wie bei `UseStaticFiles`, `UseDefaultFiles`, und `UseDirectoryBrowser`, wenn Sie möchten, dass Sie Dateien dienen, die außerhalb der `web root`, instanziieren und konfigurieren eine `FileServerOptions` -Objekt, das Sie als Parameter an übergeben `UseFileServer`. Betrachten Sie z. B. die folgenden Verzeichnishierarchie in der Web-app:
 
-* "Wwwroot"
+* wwwroot
 
   * CSS
 
@@ -199,7 +199,7 @@ Mit dem Code wird eine Anforderung für eine Datei mit einem unbekannten Inhalts
 ### <a name="considerations"></a>Weitere Überlegungen
 
 >[!WARNING]
-> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten  *\<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw..
+> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten * \<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw..
 
 * Die URLs für Inhalte, die verfügbar gemacht, mit `UseDirectoryBrowser` und `UseStaticFiles` unterliegen die Groß-/Kleinschreibung und zeichenbeschränkungen von ihren zugrunde liegenden Dateisystem. Z. B. Windows wird Groß-/Kleinschreibung nicht beachtet, aber Mac und Linux befinden sich nicht.
 

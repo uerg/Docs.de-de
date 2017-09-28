@@ -6,7 +6,7 @@ In diesem Abschnitt fügen Sie Validierungslogik zum `Movie`-Modell hinzu und st
 
 ## <a name="keeping-things-dry"></a>Einhalten des DRY-Prinzips
 
-Einer der Entwurfsgrundsätze von MVC ist [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself, keine Wiederholungen). In ASP.NET MVC werden Sie aufgefordert, Funktionalität und Verhalten nur einmal anzugeben und dann auf die gesamte App zu übertragen. Dadurch reduziert sich der Umfang an Code, den Sie schreiben müssen. Und der Code, den Sie schreiben, ist weniger fehleranfällig, leichter zu testen und einfacher zu verwalten.
+Einer der Entwurfsgrundsätze von MVC ist [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself, keine Wiederholungen). In ASP.NET MVC werden Sie aufgefordert, Funktionalität und Verhalten nur einmal anzugeben und dann auf die gesamte App zu übertragen. Dadurch reduziert sich der Umfang an Code, den Sie schreiben müssen. Und der Code, den Sie schreiben, ist weniger fehleranfällig, leichter zu testen und einfacher zu verwalten.
 
 Die von MVC und Entity Framework Core Code First angebotene Unterstützung der Validierung ist ein gutes Beispiel für den Einsatz des DRY-Prinzips. Sie können deklarativ Validierungsregeln an zentraler Stelle (in der Modellklasse) angegeben, und die Regeln werden überall in der App erzwungen.
 
@@ -31,13 +31,13 @@ Tippen Sie auf den Link **Neu erstellen**, um einen neuen Film hinzuzufügen. F�
 ![Ansichtsformular „Movie“ mit mehreren clientseitigen jQuery-Validierungsfehlern](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> Sie können unter Umständen in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](http://jqueryvalidation.org/) für nicht englische Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
+> Sie können unter Umständen in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) für nicht englische Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
 
 Wie Sie sehen, hat das Formular automatisch für alle Felder mit einem ungültigen Wert eine entsprechende Validierungsfehlermeldung angezeigt. Die Fehlermeldungen werden sowohl auf Clientseite (mithilfe von JavaScript und jQuery) als auch auf Serverseite erzwungen (wenn ein Benutzer JavaScript deaktiviert hat).
 
 Ein entscheidender Vorteil ist, dass Sie nicht eine Codezeile in der Klasse `MoviesController` oder in der Ansicht *Create.cshtml* ändern müssen, um diese Benutzeroberfläche für die Validierung zu aktivieren. Die Controller und Ansichten, die Sie zuvor in diesem Tutorial erstellt haben, haben die angegebenen Validierungsregeln automatisch übernommen (mithilfe der Validierungsattribute für die Eigenschaften der Modellklasse `Movie`). Testen Sie die Validierung mithilfe der Aktionsmethode `Edit`, und es folgt die gleiche Validierung.
 
-Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine Validierungsfehler mehr auftreten. Sie können dies überprüfen, indem Sie einen Haltepunkt in die Methode `HTTP Post` einfügen. Verwenden Sie dazu das [Fiddler-Tool](http://www.telerik.com/fiddler) oder die [F12-Entwicklertools](https://dev.windows.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine Validierungsfehler mehr auftreten. Sie können dies überprüfen, indem Sie einen Haltepunkt in die Methode `HTTP Post` einfügen. Verwenden Sie dazu das [Fiddler-Tool](http://www.telerik.com/fiddler) oder die [F12-Entwicklertools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
 
 ## <a name="how-validation-works"></a>Funktionsweise der Validierung
 
@@ -65,7 +65,7 @@ Im Folgenden ist ein Teil der Ansichtsvorlage *Create.cshtml* dargestellt, deren
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) verwendet die Attribute von [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) und generiert HTML-Attribute, die auf der Clientseite für die jQuery-Validierung erforderlich sind. Das [Hilfsprogramm für Validierungstags](xref:mvc/views/working-with-forms#the-validation-tag-helpers) zeigt Validierungsfehler. Weitere Informationen finden Sie unter [Validierung](xref:mvc/models/validation).
+Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) verwendet die Attribute von [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) und generiert HTML-Attribute, die auf der Clientseite für die jQuery-Validierung erforderlich sind. Das [Hilfsprogramm für Validierungstags](xref:mvc/views/working-with-forms#the-validation-tag-helpers) zeigt Validierungsfehler. Weitere Informationen finden Sie unter [Validierung](xref:mvc/models/validation).
 
 Wirklich nützlich an diesem Ansatz ist, dass weder der Controller noch die Ansichtsvorlage `Create` an den eigentlichen Validierungsregeln, die erzwungen werden, oder den spezifischen Fehlermeldungen, die angezeigt werden, beteiligt sind. Die Validierungsregeln und Fehlerzeichenfolgen werden nur in der `Movie`-Klasse angegeben. Diese gleichen Validierungsregeln werden automatisch auf die Ansicht `Edit` und alle anderen Ansichtsvorlagen angewendet, die Sie erstellen und die das Modell bearbeiten.
 
