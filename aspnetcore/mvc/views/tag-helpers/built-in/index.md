@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: dd732822a715df19c0ee4b6accad3455ad6537da
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 
@@ -27,29 +27,29 @@ ASP.NET Core enthält viele integrierte Taghilfsprogramme, die Ihnen dabei helfe
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 
-**[Anchor-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**
+**[Anchor-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**
+**[Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**
+**[Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
-**[Environment-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**
+**[Environment-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
-[comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
+[comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
 **[Hilfsprogramm für Formulartags](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
-**[Image-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
+**[Image-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 
 **[Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
 **[Hilfsprogramm für Bezeichnungstags](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
-[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
+[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
-[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/OptionTagHelper)**
+[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
 
-[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
+[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
 **[Hilfsprogramm für Auswahltags](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 

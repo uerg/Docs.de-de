@@ -11,11 +11,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: aa22d072a6ef0ff105d67c2bfc5c335511d6c0cd
-ms.sourcegitcommit: aa6951e0c2e62209bf7c25e3b3138f04eb92898d
+ms.openlocfilehash: f173d03f55a1ce52222a75c023f9e8a20d5c60dc
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="security"></a>Sicherheit
 
@@ -27,10 +27,10 @@ ms.lasthandoff: 08/18/2017
     *   [Zweistufige Authentifizierung mit SMS](authentication/2fa.md) 
     *   [Verwenden der Cookieauthentifizierung ohne ASP.NET Core Identity](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
-        *   [Integrieren von Azure AD in eine ASP.NET Core-Web-App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
-        *   [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-Anwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore)
+        *   [Integrieren von Azure AD in eine ASP.NET Core-Web-App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-Anwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
         *   [Aufrufen einer Web-API in einer ASP.NET Core-Webanwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-        *   [Eine ASP.NET Core-Web-App in Azure AD B2C](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c/)
+        *   [Eine ASP.NET Core-Web-App in Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [Sichern von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io)
 *   [Autorisierung](authorization/index.md)
     *   [Introduction (Einführung)](authorization/introduction.md)
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/18/2017
     *   [Benutzerdefinierte, richtlinienbasierende Autorisierung](authorization/policies.md)
     *   [Abhängigkeitsinjektion in Anforderungshandlern](authorization/dependencyinjection.md)
     *   [Ressourcenbasierte Autorisierung](authorization/resourcebased.md)
-    *   [Ansichtsbasierte Autorisierung](authorization/views.md)
+    *   [Ansehen der rollenbasierten Autorisierung](authorization/views.md)
     *   [Einschränken der Identität nach Schema](authorization/limitingidentitybyscheme.md)
 *   [Schutz von Daten](data-protection/index.md)
     *   [Einführung in den Schutz von Daten](data-protection/introduction.md)
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/18/2017
         *   [Zweckhierarchie und Mehrinstanzenfähigkeit](data-protection/consumer-apis/purpose-strings-multitenancy.md)
         *   [Kennwort-Hashing](data-protection/consumer-apis/password-hashing.md)
         *   [Beschränken der Lebensdauer von geschützten Nutzlasten](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Aufheben des Schutzes von Nutzlasten, deren Schlüssel widerrufen wurden](data-protection/consumer-apis/dangerous-unprotect.md)
+        *   [Aufheben des Schutzes von Nutzlasten, deren Schlüssel gesperrt wurden](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Konfiguration](data-protection/configuration/index.md)
         *   [Konfigurieren des Schutzes von Daten](data-protection/configuration/overview.md)
         *   [Standardeinstellungen](data-protection/configuration/default-settings.md)
@@ -79,7 +79,6 @@ ms.lasthandoff: 08/18/2017
 *   [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](app-secrets.md)
 *   [Azure Key Vault-Konfigurationsanbieter](key-vault-configuration.md)
 *   [Erzwingen von SSL](enforcing-ssl.md)
-*   [Einrichten von HTTPS für die Entwicklung](https.md)
 *   [Antianforderungsfälschung](anti-request-forgery.md)
 *   [Verhindern von offenen Weiterleitungsangriffen](preventing-open-redirects.md)
 *   [Verhindern von siteübergreifendem Skripting](cross-site-scripting.md)
