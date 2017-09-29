@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: cb39d74b9293b3ab341beba08d2f0af90261ca5f
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
@@ -44,7 +44,7 @@ Die Anforderungspipeline ASP.NET Core besteht aus einer Sequenz von Anforderung-
 
 ![Anforderung verarbeiten des Musters mit der eine Anforderung, die empfangen, die Verarbeitung durch drei Middlewares und die Antwort, die die Anwendung. Jede Middleware seiner Logik ausgeführt und die Anforderung an die nächste Middleware bei der Anweisung::Next() übergibt. Nachdem die dritte Middleware die Anforderung verarbeitet ist Linkshändiger durch die vorherigen beiden Middlewares für die zusätzliche Verarbeitung, nachdem die::Next() Anweisungen jedes wiederum vor dem Verlassen der Anwendung als Antwort an den Client zurück.](middleware/_static/request-delegate-pipeline.png)
 
-Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat können auch eine Anforderung nicht an dem nächsten Delegaten übergeben Sie die verkürzte der Anforderungspipeline aufgerufen wird. Verkürzte ist häufig wünschenswert, da dadurch unnötige Arbeit vermieden werden. Die Middleware für statische Dateien kann z. B. eine Anforderung für eine statische Datei zurückgeben und Kurzschluss den Rest der Pipeline. Behandlung von Ausnahmen Delegaten müssen zu einem frühen Zeitpunkt in der Pipeline aufgerufen werden, sodass sie Ausnahmen abfangen können, die in späteren Phasen der Pipeline auftreten.
+Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat können auch eine Anforderung nicht an dem nächsten Delegaten übergeben Sie die verkürzte der Anforderungspipeline aufgerufen wird. Verkürzte ist häufig wünschenswert, da unnötige Arbeit vermieden werden. Die Middleware für statische Dateien kann z. B. eine Anforderung für eine statische Datei zurückgeben und Kurzschluss den Rest der Pipeline. Behandlung von Ausnahmen Delegaten müssen zu einem frühen Zeitpunkt in der Pipeline aufgerufen werden, sodass sie Ausnahmen abfangen können, die in späteren Phasen der Pipeline auftreten.
 
 Die einfachste mögliche ASP.NET Core app richtet ein Anfrage-Delegat, der alle Anforderungen verarbeitet. Eine tatsächliche Anforderungspipeline ist in diesem Fall enthalten. Stattdessen wird eine anonyme Funktion als Antwort auf jede HTTP-Anforderung aufgerufen.
 

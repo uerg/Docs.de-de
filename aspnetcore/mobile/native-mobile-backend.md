@@ -2,7 +2,7 @@
 title: "Erstellen von Back-End-Diensten für systemeigene Mobile Anwendungen"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 3b6a32f2-5af9-4ede-9b7f-17ab300526d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 7b2b35b1519badbc8b8fbddab97a0c6336926185
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: be1cd9f4fe41f1a79669975cb6a89439cdd9e5c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>Erstellen von Back-End-Diensten für systemeigene Mobile Anwendungen
 
@@ -46,8 +46,6 @@ Tippen Sie auf ein Element auf dem Bildschirm Hauptliste öffnet ein Dialogfeld 
 ![Element-Dialogfeld "Bearbeiten"](native-mobile-backend/_static/todo-android-edit-item.png)
 
 In diesem Beispiel wird standardmäßig am developer.xamarin.com, gehostete Back-End-Dienste verwendet wird, die nur-Lese Vorgänge können konfiguriert. Um es für die ASP.NET Core-app, die im nächsten Abschnitt auf Ihrem Computer erstellt, selbst zu testen, müssen Sie der app aktualisieren `RestUrl` konstant. Navigieren Sie zu der `ToDoREST` Projekt, und öffnen Sie die *Constants.cs* Datei. Ersetzen Sie die `RestUrl` mit einer URL, die dem Computer-IP-Adresse (nicht "localhost" oder 127.0.0.1, da diese Adresse aus dem Geräteemulator, nicht von Ihrem Computer verwendet wird). Schließen Sie die Port-Nummer (5000). Um zu testen, dass Ihre Dienste mit einem Gerät arbeiten, müssen sicherstellen Sie, dass Sie nicht über eine aktive Firewall blockiert den Zugriff auf diesen Port verfügen.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)

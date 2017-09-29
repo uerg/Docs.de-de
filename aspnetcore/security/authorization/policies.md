@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Richtlinie basierende Autorisierung
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: dd7187f67887bb39a5ff425dcbae0927c7565cb8
-ms.sourcegitcommit: 41e3e007512c175a42910bc69678f3f0403cab04
+ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Benutzerdefinierte Richtlinie basierende Autorisierung
 
@@ -24,8 +24,6 @@ ms.lasthandoff: 09/01/2017
 Im Hintergrund der [Rolle Autorisierung](roles.md#security-authorization-role-based) und [Ansprüche Autorisierung](claims.md#security-authorization-claims-based) Verwenden einer Anforderung verwendet wird, einen Handler für die Anforderung und eine vorkonfigurierte Richtlinie. Diese Bausteine ermöglichen es Ihnen, Autorisierung auswertungen in Code, sodass eine umfangreichere, wiederverwendet werden kann, und einer leicht testfähig Autorisierung Struktur auszudrücken.
 
 Eine Autorisierungsrichtlinie setzt sich aus einer oder mehreren Anforderungen und als Teil der Dienstkonfiguration Autorisierung in beim Start der Anwendung registriert ist `ConfigureServices` in der *Startup.cs* Datei.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -44,8 +42,6 @@ Hier sehen Sie sich, dass eine Richtlinie "Over21" mit einer einzelnen Anforderu
 
 Richtlinien werden angewendet, mit der `Authorize` Attribut, indem Sie den Richtliniennamen, z. B. angeben
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Authorize(Policy="Over21")]
 public class AlcoholPurchaseRequirementsController : Controller
@@ -63,8 +59,6 @@ public class AlcoholPurchaseRequirementsController : Controller
 ## <a name="requirements"></a>Anforderungen
 
 Eine autorisierungsanforderung ist eine Auflistung von Datenparametern, die eine Richtlinie zum Auswerten des aktuellen Benutzerprinzipals verwenden können. In unserer Mindestalter-Richtlinie ist die Anforderung haben wir einen einzelnen Parameter das Mindestalter. Implementieren einer Anforderung muss `IAuthorizationRequirement`. Dies ist eine leere, Markierungsschnittstelle. Eine parametrisierte Mindestalter-Anforderung kann wie folgt implementiert werden.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -89,8 +83,6 @@ Ein Authorization-Handler ist für die Auswertung von Eigenschaften einer Anford
 <a name=security-authorization-handler-example></a>
 
 Der Handler Mindestalter kann wie folgt aussehen:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
@@ -128,8 +120,6 @@ Im Code über untersuchen wir zuerst um festzustellen, ob der aktuelle Benutzer 
 
 Handler werden z. B. in der Auflistung der Dienste während der Konfiguration erfasst.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 
 public void ConfigureServices(IServiceCollection services)
@@ -165,8 +155,6 @@ Unabhängig davon, was Sie innerhalb der Handler aufgerufen werden alle Handler 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Warum würde ich mehrere Handler für eine Anforderung?
 
 In Fällen soll Auswertung auf eine **oder** Grundlage Sie mehrere Handler für eine einzelne Anforderung implementieren. Microsoft hat es sich beispielsweise um Türen, die nur mit Schlüssel Karten zu öffnen. Wenn Sie Ihre Schlüsselkarte zu Hause lassen, die Apparate druckt einen temporären Aufkleber und öffnet die Tür für Sie. In diesem Fall müssten Sie eine einzelne Anforderung *EnterBuilding*, aber mehrere Handler, die jeweils eine einzelne Anforderung überprüfen.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class EnterBuildingRequirement : IAuthorizationRequirement
@@ -209,8 +197,6 @@ Es kann durchaus vorkommen, in denen Erfüllung einer Richtlinie einfach zu expr
 
 Z. B. den vorherigen `BadgeEntryHandler` neu geschrieben werden, wie folgt;
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 services.AddAuthorization(options =>
     {
@@ -232,8 +218,6 @@ Die `Handle` Methode müssen Sie in einem Ereignishandler für die Autorisierung
 Z. B. MVC übergibt eine Instanz des `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` in die Ressourceneigenschaft "dient zum Zugriff HttpContext", "RouteData" und "Alles" else MVC bereitstellt.
 
 Die Verwendung der `Resource` Eigenschaft ist für bestimmte Framework. Mithilfe der Informationen in der `Resource` Eigenschaft schränkt die Autorisierungsrichtlinien auf bestimmten Frameworks. Sollten Sie eine Umwandlung der `Resource` Eigenschaft mit der `as` -Schlüsselwort, und überprüfen Sie die Umwandlung wurde erfolgreich ausgeführt werden, um sicherzustellen, dass Ihr Code keine stürzt ab mit `InvalidCastExceptions` bei Ausführung auf anderen Frameworks;
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 if (context.Resource is Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext mvcContext)

@@ -11,11 +11,11 @@ ms.assetid: E5931607-31C0-4B20-B416-85E3550F5EA8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 401836c3782e5d9d31b13d7c94eb2f955045fa0c
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 87be0bdd4637cff609a4908b303a13272656e2a4
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-twitter-authentication"></a>Konfigurieren von Twitter-Authentifizierung
 
@@ -27,7 +27,7 @@ Diesem Lernprogramm erfahren Sie, wie Sie Ihren Benutzern ermöglichen [melden S
 
 ## <a name="create-the-app-in-twitter"></a>Erstellen Sie die app in Twitter
 
-* Navigieren Sie zu [https://apps.twitter.com/](https://apps.twitter.com/) und melden Sie sich. Wenn Sie einen Twitter-Konto noch nicht haben, verwenden die ** [jetzt registrieren](https://twitter.com/signup) ** Link, um eines zu erstellen. Nach der Anmeldung, die **Anwendungsverwaltung** Seite wird angezeigt:
+* Navigieren Sie zu [https://apps.twitter.com/](https://apps.twitter.com/) und melden Sie sich. Wenn Sie einen Twitter-Konto noch nicht haben, verwenden die  **[jetzt registrieren](https://twitter.com/signup)**  Link, um eines zu erstellen. Nach der Anmeldung, die **Anwendungsverwaltung** Seite wird angezeigt:
 
 ![Twitter Application Management in Microsoft Edge öffnen](index/_static/TwitterAppManage.png)
 
@@ -65,6 +65,10 @@ Die Projektvorlage verwendet, die in diesem Lernprogramm wird sichergestellt, da
 Hinzufügen den Twitter-Dienst in der `ConfigureServices` Methode im *Startup.cs* Datei:
 
 ```csharp
+services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
 services.AddAuthentication().AddTwitter(twitterOptions =>
 {
     twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
@@ -72,7 +76,7 @@ services.AddAuthentication().AddTwitter(twitterOptions =>
 });
 ```
 
-Die `AddAuthentication` Methode sollte nur einmal beim Hinzufügen mehrerer Authentifizierungsanbieter aufgerufen werden. Nachfolgende Aufrufe haben das volle Potenzial von überschreiben alle zuvor konfigurierten [authenticationoptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) Eigenschaften.
+[!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

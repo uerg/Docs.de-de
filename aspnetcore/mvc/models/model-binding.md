@@ -2,7 +2,7 @@
 title: Wurden die Modellbindung
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="model-binding"></a>Wurden die Modellbindung
 
@@ -32,8 +32,6 @@ Wenn MVC eine HTTP-Anforderung empfängt, leitet sie es an eine bestimmte Aktion
 `http://contoso.com/movies/edit/2`
 
 Da die routenvorlage, aussieht `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` leitet an die `Movies` Controller, und die zugehörige `Edit` Aktionsmethode. Außerdem akzeptiert einen optionalen Parameter namens `id`. Der Code für die Aktionsmethode sollte etwa wie folgt aussehen:
-
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public IActionResult Edit(int? id)
@@ -71,7 +69,7 @@ Darüber hinaus sind einige spezielle Datentypen, die beim Ausführen der modell
 
 * `IFormFile`, `IEnumerable<IFormFile>`: Eine oder mehrere hochgeladene Dateien, die Teil der HTTP-Anforderung sind.
 
-* `CancelationToken`: Wird verwendet, um die Aktivität in asynchrone Controller "Abbrechen".
+* `CancellationToken`: Wird verwendet, um die Aktivität in asynchrone Controller "Abbrechen".
 
 Diese Typen können Action-Parameter oder Eigenschaften eines Klassentyps gebunden werden.
 
@@ -107,15 +105,13 @@ Anforderungsdaten können in einer Vielzahl von Formaten, einschließlich JSON, 
 
 ASP.NET wählt Eingabe Formatierungsprogramme basierend auf der [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) Header und den Typ des Parameters, es sei denn, es ein Attribut angewendet wird ist, andernfalls angibt. Wenn Sie XML-Code verwenden möchten, oder ein anderes Format Sie sie in konfigurieren müssen der *Startup.cs* -Datei, aber Sie ggf. zuerst müssen Sie einen Verweis auf erhalten `Microsoft.AspNetCore.Mvc.Formatters.Xml` mithilfe von NuGet. Der Startcode sollte etwa wie folgt aussehen:
 
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
-   {
-       services.AddMvc()
-          .AddXmlSerializerFormatters();
+{
+    services.AddMvc()
+        .AddXmlSerializerFormatters();
    }
-   ```
+```
 
 Im Code der *Startup.cs* -Datei enthält eine `ConfigureServices` Methode mit einer `services` Argument Sie Dienste für Ihre ASP.NET-Anwendung zu erstellen können. In diesem Beispiel werden wir eine XML-Formatierer als Dienst hinzugefügt, die für diese app MVC bereitstellt. Die `options` übergebenen Argument den `AddMvc` Methode ermöglicht das Hinzufügen und Verwalten von Filtern, Formatierungsprogramme und andere von Systemoptionen von MVC beim Start der app. Wenden Sie dann die `Consumes` -Attribut auf Controllerklassen oder Aktionsmethoden, die mit dem Format verwendet werden sollen.
 

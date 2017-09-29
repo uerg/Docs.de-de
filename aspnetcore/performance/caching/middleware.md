@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 07626ae7f40dc6f704d69d71cb7f95d318e6f503
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -105,6 +105,17 @@ Antwort von der Middleware Zwischenspeichern wird über HTTP-Header konfiguriert
 | Datum | Wenn aus dem Cache bedient die `Date` Header von der Middleware festgelegt ist, wenn diese Option wurde nicht in der ursprünglichen Antwort angegeben. |
 | Content-Length | Wenn aus dem Cache bedient die `Content-Length` Header von der Middleware festgelegt ist, wenn diese Option wurde nicht in der ursprünglichen Antwort angegeben. |
 | ALTER | Die `Age` Header in der ursprünglichen Antwort gesendet wird ignoriert. Die Middleware berechnet einen neuen Wert an, wenn eine zwischengespeicherte Antwort bedient. |
+
+## <a name="caching-respects-request-cache-control-directives"></a>Zwischenspeichern respektiert Anforderung Cache-Control-Direktiven
+
+Die Middleware respektiert die Regeln für die [Zwischenspeichern von HTTP 1.1-Spezifikation](https://tools.ietf.org/html/rfc7234#section-5.2). Die Regeln erfordern einen Cache für eine gültige berücksichtigt `Cache-Control` vom Client gesendeten Header. Unter der Spezifikation stellen ein Client kann Anforderungen mit einem `no-cache` Headerwert "und" Force einen Server aus, um eine neue Antwort für jede Anforderung zu generieren. Aktuell besteht keine entwicklersteuerung dieses Verhalten beim Zwischenspeichern, wenn die Middleware zu verwenden, da die Middleware die offizielle caching-Spezifikation entspricht.
+
+[Zukünftiger Verbesserungen der Middleware](https://github.com/aspnet/ResponseCaching/issues/96) gestattet, konfigurieren die Middleware zum Zwischenspeichern von Szenarios, in dem die Anforderung `Cache-Control` Header ignoriert werden sollen, wenn Sie entscheiden, zu eine zwischengespeicherte Antwort dienen. Wenn Sie mehr Kontrolle über das Verhalten beim Zwischenspeichern seek, untersuchen Sie andere caching-Funktionen von ASP.NET Core. Informationen hierzu finden Sie in den folgenden Themen:
+
+* [Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core](xref:performance/caching/memory)
+* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
+* [Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Problembehandlung
 Das Verhalten beim Zwischenspeichern ist nicht wie erwartet, stellen Sie sicher, dass Antworten zwischengespeichert werden und kann durch Prüfen der eingehenden Anforderungsheader und ausgehenden Header der Antwort aus dem Cache bedient werden. Aktivieren der [Protokollierung](xref:fundamentals/logging) hilft beim Debuggen. Die Middleware-Protokolle, die caching-Verhalten und wenn eine Antwort aus dem Cache abgerufen wird.

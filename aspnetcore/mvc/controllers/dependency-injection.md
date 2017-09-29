@@ -2,7 +2,7 @@
 title: "Abhängigkeitsinjektion in Controllern"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f6b454da838308adddaaddb84073722f647af379
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Abhängigkeitsinjektion in Controllern
 
@@ -49,8 +49,6 @@ Mit diesem erfüllt können wir den Dienst in unser Controller verwenden. In die
 
 Wenn wir die Anwendung jetzt ausführen, wird es sehr wahrscheinlich einen Fehler auftreten:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 An unhandled exception occurred while processing the request.
 
@@ -73,8 +71,6 @@ Sobald der Dienst konfiguriert wurde, sollte Ausführen der Anwendung, und navig
 > Finden Sie unter [Controllerlogik testen](testing.md) zu erfahren, wie Sie Abhängigkeiten explizit anfordern [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) im Controller wird der Code einfacher zu testen.
 
 ASP.NET Core des integrierten Abhängigkeitsinjektion unterstützt das Vorhandensein nur eines einzelnen Konstruktors für Klassen, die Dienste anfordern. Wenn Sie mehr als einen Konstruktor verfügen, erhalten Sie möglicherweise eine Ausnahme, die besagt:
-
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
 ```
 An unhandled exception occurred while processing the request.

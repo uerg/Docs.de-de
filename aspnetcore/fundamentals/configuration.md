@@ -11,15 +11,15 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 7d591259587766a932a14bb030c76274101d16ac
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 379030df4ca91a38fce251aeaab9c5dfaf11e915
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [Markierung Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), und [Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT), [Markierung Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27), und [Luke Latham](https://github.com/guardrex)
 
 Der Konfigurations-API bietet eine Möglichkeit zum Konfigurieren von einer app basierend auf eine Liste von Name / Wert-Paaren. Konfiguration wird zur Laufzeit aus mehreren Quellen gelesen werden. Die Name-Wert-Paare können in einer Hierarchie mit mehreren Ebenen gruppiert werden. Es gibt Konfigurationsanbieter für ein:
 
@@ -295,55 +295,187 @@ key3=value_from_json_3
 
 ## <a name="commandline-configuration-provider"></a>CommandLine Konfigurationsanbieter
 
-Im folgende Beispiel ermöglicht den Konfigurationsanbieter CommandLine letzten:
+Die [CommandLine Konfigurationsanbieter](/aspnet/core/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) Befehlszeilenargument Schlüssel-Wert-Paare für die Konfiguration zur Laufzeit erhält.
 
-[!code-csharp[Main](configuration/sample/CommandLine/Program.cs)]
+[Zeigen Sie an oder Herunterladen Sie der CommandLine Konfigurationsbeispiel](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample/CommandLine)
+
+### <a name="setting-up-the-provider"></a>Der Anbieter einrichten
+
+# <a name="basic-configurationtabbasicconfiguration"></a>[Basiskonfiguration](#tab/basicconfiguration)
+
+Um Befehlszeilenkonfiguration zu aktivieren, rufen Sie die `AddCommandLine` Erweiterungsmethode in einer Instanz von [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder):
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program.cs?highlight=18,21)]
+
+Der Code ausführen, wird die folgende Ausgabe angezeigt:
+
+```console
+MachineName: MairaPC
+Left: 1980
+```
+
+Argumentübergabe Schlüssel-Wert-Paare in der Befehlszeile ändert die Werte der `Profile:MachineName` und `App:MainWindow:Left`:
+
+```console
+dotnet run Profile:MachineName=BartPC App:MainWindow:Left=1979
+```
+
+Das Konsolenfenster zeigt:
+
+```console
+MachineName: BartPC
+Left: 1979
+```
+
+Zum Lieferumfang von anderen Anbietern Konfiguration Befehlszeilenkonfiguration außer Kraft setzen, rufen `AddCommandLine` auf letzte `ConfigurationBuilder`:
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?range=11-16&highlight=1,5)]
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+Typische ASP.NET Core 2.x-apps verwenden die statische Hilfsmethode `CreateDefaultBuilder` auf den Host zu erstellen:
+
+[!code-csharp[Main](configuration/sample_snapshot/Program.cs?highlight=12)]
+
+`CreateDefaultBuilder`optionale Konfiguration von lädt *appsettings.json*, *"appSettings". {} Umgebung} JSON*, [vertrauliche Benutzerdaten](xref:security/app-secrets) (in der `Development` Umgebung), Umgebungsvariablen und Befehlszeilenargumente. Der Konfigurationsanbieter CommandLine zuletzt aufgerufen. Den Anbieter zuletzt aufrufen kann die Befehlszeilenargumente übergeben, die zur Laufzeit Konfigurationssatz durch die anderen Konfigurationsanbieter überschreiben zuvor aufgerufen.
+
+Beachten Sie, dass für *"appSettings"* -Dateien mit `reloadOnChange` aktiviert ist. Befehlszeilenargumente werden überschrieben, wenn ein übereinstimmendes Konfigurationswert in ein *"appSettings"* Datei geändert wird, nachdem die app gestartet wird.
+
+> [!NOTE]
+> Als Alternative zur Verwendung der `CreateDefaultBuilder` -Methode, erstellen einen Host mit [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) und erstellen manuell mit der [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) wird in ASP.NET Core unterstützt 2.x. Finden Sie unter der Registerkarte "1.x ASP.NET Core" für Weitere Informationen.
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Erstellen einer [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) , und rufen Sie die `AddCommandLine` Methode, um den Konfigurationsanbieter CommandLine verwenden. Den Anbieter zuletzt aufrufen kann die Befehlszeilenargumente übergeben, die zur Laufzeit Konfigurationssatz durch die anderen Konfigurationsanbieter überschreiben zuvor aufgerufen. Wendet die Konfiguration auf [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) mit der `UseConfiguration` Methode:
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?highlight=11,15,19)]
+
+---
+
+### <a name="arguments"></a>Argumente
+
+In der Befehlszeile übergebenen Argumente müssen in einem der zwei Formate, die in der folgenden Tabelle aufgeführten entsprechen.
+
+| Arguments-format                                                     | Beispiel        |
+| ------------------------------------------------------------------- | :------------: |
+| Einzelne Argument: ein Schlüssel-Wert-Paar, das durch ein Gleichheitszeichen getrennt (`=`) | `key1=value`   |
+| Sequenz der zwei Argumente: ein Schlüssel-Wert-Paar, getrennt durch ein Leerzeichen    | `/key1 value1` |
+
+**Einzelnes argument**
+
+Der Wert muss ein Gleichheitszeichen folgen (`=`). Der Wert kann null sein (z. B. `mykey=`).
+
+Der Schlüssel möglicherweise ein Präfix aufweisen.
+
+| Präfix               | Beispiel         |
+| ------------------------ | :-------------: |
+| Kein Präfix                | `key1=value1`   |
+| Einzelne Dash (`-`) &#8224; | `-key2=value2`  |
+| Zwei Bindestriche (`--`)        | `--key3=value3` |
+| Schrägstrich (`/`)      | `/key4=value4`  |
+
+&#8224; Ein Schlüssel mit einem Bindestrich-Präfix (`-`) muss angegeben werden, [wechseln Zuordnungen](#switch-mappings), unten beschrieben.
+
+Beispielbefehl:
+
+```console
+dotnet run key1=value1 -key2=value2 --key3=value3 /key4=value4
+```
+
+Hinweis: Wenn `-key1` ist nicht vorhanden, in der [wechseln Zuordnungen](#switch-mappings) übergeben, um den Konfigurationsanbieter eine `FormatException` ausgelöst wird.
+
+**Sequenz aus zwei Argumenten**
+
+Der Wert muss darf nicht null sein und den Schlüssel durch ein Leerzeichen getrennt.
+
+Der Schlüssel muss ein Präfix aufweisen.
+
+| Präfix               | Beispiel         |
+| ------------------------ | :-------------: |
+| Einzelne Dash (`-`) &#8224; | `-key1 value1`  |
+| Zwei Bindestriche (`--`)        | `--key2 value2` |
+| Schrägstrich (`/`)      | `/key3 value3`  |
+
+&#8224; Ein Schlüssel mit einem Bindestrich-Präfix (`-`) muss angegeben werden, [wechseln Zuordnungen](#switch-mappings), unten beschrieben.
+
+Beispielbefehl:
+
+```console
+dotnet run -key1 value1 --key2 value2 /key3 value3
+```
+
+Hinweis: Wenn `-key1` ist nicht vorhanden, in der [wechseln Zuordnungen](#switch-mappings) übergeben, um den Konfigurationsanbieter eine `FormatException` ausgelöst wird.
+
+### <a name="duplicate-keys"></a>Doppelte Schlüssel
+
+Wenn doppelte Schlüssel bereitgestellt werden, wird das letzte Schlüssel-Wert-Paar verwendet.
+
+### <a name="switch-mappings"></a>Switch-Zuordnungen
+
+Wenn mit der manuellen Erstellung `ConfigurationBuilder`, Sie können optional einen Switch Zuordnungen Wörterbuch, das Bereitstellen der `AddCommandLine` Methode. Switch-Zuordnungen können Sie Logik für den Austausch Schlüsselnamen zu übermitteln.
+
+Wenn das Wörterbuch der Switch-Zuordnungen verwendet wird, wird das Wörterbuch für einen Schlüssel überprüft, die den vom ein Befehlszeilenargument angegebenen Schlüssel entspricht. Wenn das Befehlszeile-Schlüssel im Wörterbuch gefunden wird, wird der Wörterbuchwert (schlüsselersetzung) zurück, um die Konfiguration übergeben. Eine Switch-Zuordnung für eine beliebige Taste Befehlszeilen, die einen einzelnen Bindestrich vorangestellt erforderlich ist (`-`).
+
+Wechseln Sie wichtige Wörterbuchregeln Zuordnungen:
+
+* Switches müssen mit einem Bindestrich beginnen (`-`) oder Double-Dash (`--`).
+* Das Wörterbuch der Switch-Zuordnungen dürfen keine doppelte Schlüssel enthalten.
+
+Im folgenden Beispiel die `GetSwitchMappings` Methode ermöglicht die Befehlszeilenargumente, die einen Bindestrich verwenden (`-`) Schlüssel Präfix, und vermeiden Sie führende Unterschlüsseln Präfixe.
+
+[!code-csharp[Main](configuration/sample/CommandLine/Program.cs?highlight=10-19,32)]
+
+Ohne Befehlszeilenargumente Wörterbuch bereitgestellt, um `AddInMemoryCollection` legt die Konfigurationswerte. Führen Sie die app mit dem folgenden Befehl ein:
+
+```console
+dotnet run
+```
+
+Das Konsolenfenster zeigt:
+
+```console
+MachineName: RickPC
+Left: 1980
+```
 
 Verwenden Sie die folgenden Konfigurationseinstellungen übergeben:
 
 ```console
-dotnet run /Profile:MachineName=Bob /App:MainWindow:Left=1234
+dotnet run /Profile:MachineName=DahliaPC /App:MainWindow:Left=1984
 ```
 
-Das wird angezeigt:
+Das Konsolenfenster zeigt:
 
 ```console
-Hello Bob
-Left 1234
+MachineName: DahliaPC
+Left: 1984
 ```
 
-Die `GetSwitchMappings` Methode können Sie mit `-` statt `/` und entfernt die führenden Unterschlüsseln Präfixe. Zum Beispiel:
+Nachdem das Wörterbuch der Switch-Zuordnungen erstellt wurde, enthält es die Daten, die in der folgenden Tabelle gezeigt.
+
+| Key            | Wert                 |
+| -------------- | --------------------- |
+| `-MachineName` | `Profile:MachineName` |
+| `-Left`        | `App:MainWindow:Left` |
+
+Führen Sie zur Veranschaulichung Key wechseln, Wörterbuch mit den folgenden Befehl ein:
 
 ```console
-dotnet run -MachineName=Bob -Left=7734
+dotnet run -MachineName=ChadPC -Left=1988
 ```
 
-Zeigt die:
+Die Befehlszeile Schlüssel vertauscht werden. Das Konsolenfenster zeigt die Konfigurationswerte für `Profile:MachineName` und `App:MainWindow:Left`:
 
 ```console
-Hello Bob
-Left 7734
+MachineName: ChadPC
+Left: 1988
 ```
-
-Befehlszeilenargumente müssen einen Wert enthalten (es kann null sein). Zum Beispiel:
-
-```console
-dotnet run /Profile:MachineName=
-```
-
-Ist in Ordnung, aber
-
-```console
-dotnet run /Profile:MachineName
-```
-
-/ / ergibt eine Ausnahme. Wenn Sie ein Präfix Befehlszeilenoption von - oder--für das es keine entsprechende Switch Zuordnung angeben, wird eine Ausnahme ausgelöst werden.
 
 ## <a name="the-webconfig-file"></a>Die Datei "Web.config"
 
 Ein *"Web.config"* Datei ist erforderlich, wenn Sie die app in IIS oder IIS Express hosten. *"Web.config"* Schaltet die AspNetCoreModule in IIS, um Ihre app zu starten. Einstellungen im *"Web.config"* die AspNetCoreModule in IIS für Ihre app starten und konfigurieren, Module und andere IIS-Einstellungen zu aktivieren. Wenn Sie Visual Studio verwenden, und löschen *"Web.config"*, Visual Studio erstellt ein neues Konto.
 
-### <a name="additional-notes"></a>Zusätzliche Hinweise
+## <a name="additional-notes"></a>Zusätzliche Hinweise
 
 * (Dependency Injection, DI) wird nicht bis zum nach gesetzt `ConfigureServices` aufgerufen wird.
 * Das Konfigurationssystem ist nicht DI beachten.
@@ -351,9 +483,10 @@ Ein *"Web.config"* Datei ist erforderlich, wenn Sie die app in IIS oder IIS Expr
   * `IConfigurationRoot`Für den Stammknoten verwendet. Können erneut auslösen.
   * `IConfigurationSection`Stellt einen Abschnitt der Konfigurationswerte. Die `GetSection` und `GetChildren` -Methoden zurückgeben einer `IConfigurationSection`.
 
-### <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Arbeiten mit mehreren Umgebungen](environments.md)
 * [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](../security/app-secrets.md)
+* [Hosten in ASP.NET Core](xref:fundamentals/hosting)
 * [Abhängigkeitsinjektion](dependency-injection.md)
 * [Azure Key Vault-Konfigurationsanbieter](xref:security/key-vault-configuration)

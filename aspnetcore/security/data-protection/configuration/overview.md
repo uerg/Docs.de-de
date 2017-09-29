@@ -2,7 +2,7 @@
 title: Konfigurieren des Datenschutzes
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 39fab796c24456d61a6a103c4a3f7a8722b4718c
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-data-protection"></a>Konfigurieren des Datenschutzes
 
@@ -66,8 +66,6 @@ public void ConfigureServices(IServiceCollection services)
 Standardmäßig isoliert die Datenschutzsystem Anwendungen von einem anderen, auch wenn sie die gleiche physischen Schlüssel Repository gemeinsam nutzen. Dies verhindert, dass die Anwendungen aus der jeweils anderen geschützten Nutzlasten zu verstehen. Freigeben von geschützten Nutzlasten zwischen zwei verschiedenen konfigurieren Sie das System, übergeben in der gleichen Anwendungsname für beide Anwendungen wie in der folgenden Beispiel:
 
 <a name=data-protection-code-sample-application-name></a>
-
-<!-- literal_block {"ids": ["data-protection-code-sample-application-name"], "linenos": false, "names": ["data-protection-code-sample-application-name"], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -291,5 +289,5 @@ Obwohl nicht als eine erstklassige-API verfügbar gemacht, ist die Datenschutzsy
 
 ### <a name="see-also"></a>Siehe auch
 
-* [Beachten Sie nicht DI-Szenarien](non-di-scenarios.md)
-* [Wide Computerrichtlinie](machine-wide-policy.md)
+* [Szenarios, die die Abhängigkeitsinjektion nicht beachten](non-di-scenarios.md)
+* [Computerübergreifende Richtlinie](machine-wide-policy.md)

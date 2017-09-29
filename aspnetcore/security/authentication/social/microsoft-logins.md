@@ -2,7 +2,7 @@
 title: "Setup für Microsoft-Account-externe Anmeldung"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
@@ -11,17 +11,17 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 1602a7fa801f77c259e3e3a37d60e02606cf5bac
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: cb4ea63664f29e39c2dd26cbf814a484a295ec6c
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Konfigurieren von Microsoft-Account-Authentifizierung
 
 <a name=security-authentication-microsoft-logins></a>
 
-Durch [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Dieses Lernprogramm veranschaulicht das Aktivieren von Benutzern die Anmeldung mit seinem Microsoft-Konto mit einem Beispiel ASP.NET Core 2.0-Projekt erstellt haben, auf die [vorherige Seite](index.md).
 
@@ -31,7 +31,7 @@ Dieses Lernprogramm veranschaulicht das Aktivieren von Benutzern die Anmeldung m
 
 ![Melden Sie sich im Dialogfeld "](index/_static/MicrosoftDevLogin.png)
 
-Wenn Sie ein Microsoft-Konto noch nicht haben, tippen Sie auf ** [erstellen!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Nach der Anmeldung werden Sie umgeleitet **Meine Anwendungen** Seite:
+Wenn Sie ein Microsoft-Konto noch nicht haben, tippen Sie auf  **[erstellen!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Nach der Anmeldung werden Sie umgeleitet **Meine Anwendungen** Seite:
 
 ![Microsoft Developer Portal in Microsoft Edge öffnen](index/_static/MicrosoftDev.png)
 
@@ -83,6 +83,10 @@ Die Projektvorlage verwendet, die in diesem Lernprogramm wird sichergestellt, da
 Fügen Sie den Microsoft-Account-Dienst in der `ConfigureServices` Methode im *Startup.cs* Datei:
 
 ```csharp
+services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
 services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 {
     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
@@ -90,7 +94,7 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 });
 ```
 
-Die `AddAuthentication` Methode sollte nur einmal beim Hinzufügen mehrerer Authentifizierungsanbieter aufgerufen werden. Nachfolgende Aufrufe haben das volle Potenzial von überschreiben alle zuvor konfigurierten [authenticationoptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) Eigenschaften.
+[!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

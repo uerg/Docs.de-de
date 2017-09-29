@@ -1,8 +1,8 @@
 ---
 title: "Übersicht über ASP.NET Core MVC"
 author: ardalis
-description: 
-keywords: ASP.NET Core
+description: Erfahren Sie, wie ASP.NET Core MVC ist ein funktionsreiches Framework zum Erstellen von Web-apps und APIs mit Model-View-Controller entwerfen Muster.
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -77,7 +77,7 @@ ASP.NET Core MVC umfasst Folgendes:
 * [Prüfbarkeit](#testability)
 * [Razor-Ansichtsmodul](#razor-view-engine)
 * [Stark typisierte Ansichten](#strongly-typed-views)
-* [Tag Helpers (Taghilfsprogramme)](#tag-helpers)
+* [Taghilfsprogramme](#tag-helpers)
 * [Anzeigen von Komponenten](#view-components)
 
 ### <a name="routing"></a>Routing
@@ -91,8 +91,6 @@ routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id
 ```
 
 *-Attribut routing* ermöglicht es Ihnen, die Routinginformationen angeben, durch das ergänzen der Controller und Aktionen mit Attributen, die Routen für die Anwendung zu definieren. Dies bedeutet, dass die Routendefinitionen, neben dem Controller und Aktion platziert werden, mit denen sie verknüpft sind.
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [1, 4]}} -->
 
 ```csharp
 [Route("api/[controller]")]
@@ -118,8 +116,6 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ASP.NET Core MVC unterstützt [Überprüfung](models/validation.md) durch das ergänzen der Model-Objekts mit Daten Anmerkung Validierungsattribute. Die überprüfungsattribute werden auf dem Client überprüft, bevor Werte an den Server zurückgesendet werden, als auch auf dem Server vor der Controlleraktion aufgerufen wird.
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 8, 9]}} -->
-
 ```csharp
 using System.ComponentModel.DataAnnotations;
 public class LoginViewModel
@@ -138,8 +134,6 @@ public class LoginViewModel
 ```
 
 Eine Controlleraktion:
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [3]}} -->
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -161,17 +155,15 @@ ASP.NET Core verfügt über integrierte Unterstützung für [abhängigkeiteneins
 
 Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/dependency-injection.md)unter Verwendung der `@inject` Richtlinie:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1]}} -->
-
-```html
+```cshtml
 @inject SomeService ServiceName
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>@ServiceName.GetTitle</title>
+    <title>@ServiceName.GetTitle</title>
 </head>
 <body>
-  <h1>@ServiceName.GetTitle</h1>
+    <h1>@ServiceName.GetTitle</h1>
 </body>
 </html>
 ```
@@ -185,7 +177,6 @@ Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/
 [Authorize]
    public class AccountController : Controller
    {
-
 ```
 
 ### <a name="areas"></a>Bereiche
@@ -224,7 +215,7 @@ In MVC Razor-Ansichten können stark basierend auf Ihrem Modell eingegeben werde
 
 Die folgende Sicht definiert z. B. ein Modell vom Typ `IEnumerable<Product>`:
 
-```html
+```cshtml
 @model IEnumerable<Product>
 <ul>
     @foreach (Product p in Model)
@@ -240,9 +231,7 @@ Die folgende Sicht definiert z. B. ein Modell vom Typ `IEnumerable<Product>`:
 
 Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erstellen von Formularen, Links, Laden von Ressourcen und weitere- und sogar noch stärker verfügbar in öffentlichen GitHub-Repositorys und als NuGet-Pakete. Tag-Hilfsprogramme in c# erstellt wurden, und sie Zielen auf HTML-Elemente, die basierend auf Elementnamen, Attributnamen oder übergeordneten Tags. Z. B. die integrierten LinkTagHelper kann verwendet werden, um einen Link zum Erstellen der `Login` Aktion von der `AccountsController`:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [3]}} -->
-
-```html
+```cshtml
 <p>
     Thank you for confirming your email.
     Please <a asp-controller="Account" asp-action="Login">Click here to Log in</a>.
@@ -251,9 +240,7 @@ Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erst
 
 Die `EnvironmentTagHelper` können verwendet werden, um Ihre Ansichten (z. B. unformatierte oder verkleinerte) basierend auf der Common Language Runtime-Umgebung, z. B. Entwicklungs-, Staging- oder Produktionsumgebung anderen Skripts einschließt:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1, 3, 4, 9]}} -->
-
-```html
+```cshtml
 <environment names="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>
 </environment>

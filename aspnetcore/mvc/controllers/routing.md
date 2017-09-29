@@ -2,7 +2,7 @@
 title: Routing zum Controlleraktionen
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 03/14/2017
@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: da67124ffc874c4f83fff077c6429e9f3e571587
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>Routing zum Controlleraktionen
 
@@ -103,8 +103,6 @@ app.UseMvc(routes =>
 
 `UseMvc`und `UseMvcWithDefaultRoute` fügen eine Instanz des `RouterMiddleware` die Middleware-Pipeline. MVC interagiert nicht direkt mit Middleware und routing verwendet, um Anforderungen zu verarbeiten. MVC verbunden ist, auf die Routen über eine Instanz des `MvcRouteHandler`. Der Code innerhalb eines `UseMvc` ähnelt der folgenden:
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 var routes = new RouteBuilder(app);
 
@@ -125,8 +123,6 @@ app.UseRouter(routes.Build());
 ## <a name="conventional-routing"></a>Herkömmliche routing
 
 Die `default` Route:
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
@@ -152,15 +148,13 @@ Mit diesem `default` Route, die URL-Pfad `/Products/List` ordnet die `ProductsCo
 
 Sie können mehrere Routen innerhalb von hinzufügen `UseMvc` durch Hinzufügen von mehr Aufrufe zu `MapRoute`. Auf diese Weise können Sie mehrere Konventionen definieren, oder konventionellen Routen hinzu, die einer bestimmten Aktion zugeordnet sind, z. B.:
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
    routes.MapRoute("blog", "blog/{*article}",
             defaults: new { controller = "Blog", action = "Article" });
    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-}
+});
 ```
 
 Die `blog` Route hier ist ein *dedizierten konventionellen Route*, was bedeutet, dass das herkömmliche Routingsystem verwendet, aber für eine bestimmte Aktion dediziert ist. Da `controller` und `action` nicht als Parameter in der routenvorlage angezeigt, können nur die Standardwerte aufweisen und diese Route wird daher immer zugeordnet, auf die Aktion `BlogController.Article`.
@@ -177,8 +171,6 @@ Im Rahmen der anforderungsverarbeitung MVC überprüft, ob die Routenwerte verwe
 ### <a name="disambiguating-actions"></a>Aktionen eindeutig gemacht
 
 Wenn die beiden Aktionen werden über Weiterleitung durch übereinstimmen, muss MVC eindeutig machen, um wählen "beste" geeignet, da sonst eine Ausnahme auslösen. Zum Beispiel:
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 public class ProductsController : Controller
@@ -284,8 +276,6 @@ public class MyDemoController : Controller
 
 Routing-Attribut kann auch vornehmen, verwenden die `Http[Verb]` Attribute wie `HttpPostAttribute`. Alle diese Attribute können keine routenvorlage akzeptieren. Dieses Beispiel zeigt zwei Aktionen, die die gleichen routenvorlage entsprechen:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [HttpGet("/products")]
 public IActionResult ListProducts()
@@ -339,8 +329,6 @@ Routennamen können verwendet werden, um eine URL basierend auf einer bestimmten
 ### <a name="combining-routes"></a>Kombinieren von Routen
 
 Um machen routing-Attribut weniger wiederkehrende werden routenattributen auf dem Controller mit routenattribute in die einzelnen Aktionen kombiniert. Routenvorlagen auf dem Controller definiert sind routenvorlagen zu den Aktionen vorangestellt. Platzierung von Route-Attribut auf dem Controller macht **alle** Aktionen im Controller verwenden routing-Attribut.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("products")]
@@ -432,8 +420,6 @@ Das literal tokenersetzung Trennzeichen entsprechend `[` oder `]`, es durch die 
 
 Routing unterstützt mehrere Routen, die die gleiche Aktion erreichen definieren des Attributs. Die häufigste Verwendung dieses imitieren, die das Verhalten entspricht der *konventionellen Standardroute* wie im folgenden Beispiel gezeigt:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Route("[controller]")]
 public class ProductsController : Controller
@@ -445,8 +431,6 @@ public class ProductsController : Controller
 ```
 
 Einfügen von mehreren routenattributen auf dem Controller, bedeutet, dass es sich bei jeweils mit jedem der routenattribute in den Aktionsmethoden kombiniert werden.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("Store")]
@@ -460,8 +444,6 @@ public class ProductsController : Controller
 ```
 
 Bei mehreren routenattributen (implementiert, `IActionConstraint`) werden auf eine Aktion platziert, und klicken Sie dann jede Aktion-Einschränkung mit der routenvorlage aus dem Attribut kombiniert, die es definiert.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("api/[controller]")]
@@ -630,8 +612,6 @@ Die Aktion Ergebnisse Factorymethoden folgen einem ähnlichen Muster auf die Met
 
 Herkömmliche routing können Sie eine spezielle Art von Route-Definition bezeichnet eine *dedizierten konventionellen Route*. Im folgenden Beispiel wird die Route mit dem Namen `blog` ist eine dedizierte konventionelle Route.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -687,8 +667,6 @@ Die ersten beiden Controller sind Elemente der Bereiche, und nur überein, wenn 
 Bei der Ausführung einer Aktion innerhalb eines Bereichs-Wert die Route für `area` als verfügbar ein *ambient Wert* für das routing für die Verwendung für URL-Generierung. Dies bedeutet, dass standardmäßig Bereiche agieren *persistente* für URL-Generierung, wie im folgenden Beispiel gezeigt.
 
 [!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/mvc/controllers/routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs"} -->
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 

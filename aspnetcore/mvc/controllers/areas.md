@@ -11,11 +11,11 @@ ms.assetid: 5e16d5e8-5696-4cb2-8ec7-d36be305c922
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 0f388ba090ada11a0ac7937606cbcd5a89d6263e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 3096d6404ff9c7e34eefcfb1990e7bf1ccab27ba
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="areas"></a>Bereiche
 
@@ -105,8 +105,6 @@ Beachten Sie, die die Struktur wird der *Ansichten* Ordner ist die einzige hier 
 
 Nachdem Sie die Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, dass jedem Controller einen Bereich zugeordnet ist. Nachholen werden, indem den Namen des Controllers, mit der `[Area]` Attribut.
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4]}} -->
-
 ```csharp
 ...
    namespace MyStore.Areas.Products.Controllers
@@ -130,8 +128,6 @@ Nachdem Sie die Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, das
    ```
 
 Richten Sie eine Routendefinition, die mit der neu erstellten Bereiche arbeitet. Die [Routing an Controlleraktionen](routing.md) Artikel ins Detail, über das Erstellen von Route-Definitionen, einschließlich der Verwendung von herkömmlicher Routen im Vergleich zu attributenrouten wechselt. In diesem Beispiel verwenden wir eine herkömmliche Route. Öffnen Sie hierzu die *Startup.cs* Datei, und ändern Sie ihn durch Hinzufügen der `areaRoute` mit dem Namen Route-Definition, die unten.
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 6]}} -->
 
 ```csharp
 ...

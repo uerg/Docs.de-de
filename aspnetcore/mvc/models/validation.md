@@ -1,7 +1,7 @@
 ---
 title: Modellvalidierung in ASP.NET Core MVC
-author: rick-anderson
-description: "Führt ein modellvalidierung in ASP.NET Core MVC."
+author: rachelappel
+description: Informationen Sie zur modellvalidierung in ASP.NET Core MVC.
 keywords: ASP.NET Core, MVC-Validierung
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0874d3b677cee2859da9eb85b0573811abbed12a
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: efbc68e898cadd06d61fa69914fe08f3a12ba802
+ms.sourcegitcommit: 8b5733f1cd5d2c2b6d432bf82fcd4be2d2d6b2a3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Einführung in die modellvalidierung in ASP.NET Core MVC
 
@@ -36,7 +36,7 @@ Validierungsattribute sind eine Möglichkeit, modellvalidierung zu konfigurieren
 
 Im folgenden finden Sie eine mit Anmerkungen `Movie` -Modell aus einer app, die Informationen zu Videos und TV-Serien speichert. Die meisten Eigenschaften erforderlich sind, und mehrere Zeichenfolgeneigenschaften Länge gelten. Darüber hinaus steht eine Einschränkung numerischen Bereich vorhanden, für die `Price` Eigenschaft von 0 bis $999,99, zusammen mit einem benutzerdefinierten Validierungsattribut.
 
-[!code-csharp[Main](validation/sample/Movie.cs?range=6-31)]
+[!code-csharp[Main](validation/sample/Movie.cs?range=6-29)]
 
 Durch das Modell einfach lesen wird die Regeln zu Daten für diese app, erleichtert es, den Code beizubehalten. Im folgenden sind einige gängige integrierte Validierungsattribute:
 
@@ -61,6 +61,18 @@ Durch das Modell einfach lesen wird die Regeln zu Daten für diese app, erleicht
 MVC unterstützt jedes Attribut, das von abgeleitet ist `ValidationAttribute` zu Validierungszwecken. Viele nützliche Validierungsattribute finden Sie in der [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) Namespace.
 
 Es kann sein, dass Instanzen, in denen Sie mehr Funktionen als integrierte Attribute bieten erforderlich, ist. Für diese Zeiten können Sie eigene benutzerdefinierte Validierungsattribute erstellen, durch Ableiten von `ValidationAttribute` oder ändern Ihr Modell implementiert `IValidatableObject`.
+
+## <a name="notes-on-the-use-of-the-required-attribute"></a>Hinweise zur Verwendung des erforderlichen Attributs
+
+Keine NULL-Werte zulässt [Werttypen](/dotnet/csharp/language-reference/keywords/value-types) (z. B. `decimal`, `int`, `float`, und `DateTime`) sind grundsätzlich erforderlich und müssen nicht die `Required` Attribut. Die app keine serverseitige validierungsüberprüfungen durchführt, für NULL-Typen, die markiert sind `Required`.
+
+MVC-modellbindung, die mit der Überprüfung und Validierungsattribute betroffenen befindet sich nicht, wird abgelehnt, eine Formularübergabe-Feld mit einem fehlenden Wert oder ein Leerzeichen für einen NULL-Werte zulässt. In Ermangelung einer `BindRequired` Attribut auf die Zieleigenschaft ignoriert wurden die modellbindung fehlende Daten für nicht auf NULL festlegbare Typen, in denen das Formularfeld nicht vorhanden ist aus der eingehenden Formulardaten.
+
+Die [BindRequired Attribut](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Siehe auch [Modell Bindungsverhalten mit Attributen anpassen](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) ist nützlich, um sicherzustellen, dass Formulardaten ist abgeschlossen. Bei Anwendung auf eine Eigenschaft muss das Bindungssystem Modell ein Wert für diese Eigenschaft an. Wenn auf einen Typ angewendet wird, erfordert das Bindungssystem Modell Werte für alle Eigenschaften des betreffenden Typs an.
+
+Bei Verwendung von einer [Nullable\<T > Typ](/dotnet/csharp/programming-guide/nullable-types/) (z. B. `decimal?` oder `System.Nullable<decimal>`) und kennzeichnen Sie es `Required`, serverseitige Validierung wird ausgeführt, als wäre die Eigenschaft eines Standardtyps NULL-Werte zulässt (für Beispiel einer `string`).
+
+Die clientseitige Validierung erfordert einen Wert für ein Formularfeld, die eine Modelleigenschaft entspricht, die Sie markiert haben `Required` und für eine NULL-Type-Eigenschaft, die Sie noch nicht markiert `Required`. `Required`kann verwendet werden, um die clientseitige Validierungsfehlermeldung zu steuern.
 
 ## <a name="model-state"></a>Modellstatus
 
@@ -104,15 +116,15 @@ Clientseitige Validierung ist eine hervorragende Erleichterung für Benutzer. Es
 
 Sie benötigen eine Sicht mit der richtigen JavaScript-Skriptverweise im Aufbewahrungsort für die clientseitige Validierung so funktionieren wie hier gezeigt.
 
-[!code-html[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-html[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 MVC verwendet Validierungsattribute zusätzlich zu den Metadaten des Typs von Modelleigenschaften zum Überprüfen von Daten und Anzeigen von Fehlermeldungen, die mit JavaScript. Bei Verwendung von MVC zum Rendern des Form-Elemente aus einem Modell mit [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro) oder [HTML-Hilfsmethoden](xref:mvc/views/overview) fügen sie HTML 5 [Datenattribute](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) in der Form-Elemente, für die Validierung, als erforderlich wie unten gezeigt. MVC generiert die `data-` Attribute für integrierte und benutzerdefinierte Attribute. Sie können Validierungsfehler angezeigt, auf dem Client verwenden die relevanten Tags-Hilfsprogrammen, wie hier gezeigt:
 
-[!code-html[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-Die Tag-Hilfsprogramme, die oben genannten Rendern den HTML-Code unten. Beachten Sie, dass die `data-` Attributen im HTML-Ausgabe entsprechen die Validierungsattribute für den `ReleaseDate` Eigenschaft. Die `data-val-required` Attribut unten enthält eine Fehlermeldung angezeigt, wenn der Benutzer nicht in der Version Datumsfeld ausfüllen, und diese Nachricht zeigt an, in dem zugehörigen `<span>` Element.
+Die Tag-Hilfsprogramme, die oben genannten Rendern den HTML-Code unten. Beachten Sie, dass die `data-` Attributen im HTML-Ausgabe entsprechen die Validierungsattribute für den `ReleaseDate` Eigenschaft. Die `data-val-required` Attribut unten enthält eine Fehlermeldung angezeigt, wenn der Benutzer nicht in der Version Datumsfeld ausfüllen, und diese Nachricht zeigt an, in dem zugehörigen  **\<span >** Element.
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -147,11 +159,11 @@ Attribute, die diese Schnittstelle implementieren, können HTML-Attribute generi
 
 ```html
 <input class="form-control" type="datetime"
-data-val="true"
-data-val-classicmovie="Classic movies must have a release year earlier than 1960."
-data-val-classicmovie-year="1960"
-data-val-required="The ReleaseDate field is required."
-id="ReleaseDate" name="ReleaseDate" value="" />
+    data-val="true"
+    data-val-classicmovie="Classic movies must have a release year earlier than 1960."
+    data-val-classicmovie-year="1960"
+    data-val-required="The ReleaseDate field is required."
+    id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
 Unaufdringlichen Überprüfung verwendet die Daten in die `data-` Attribute Fehlermeldungen angezeigt. Allerdings jQuery zu Regeln weiß nicht, oder Nachrichten, bis Sie diese des jQuery hinzufügen `validator` Objekt. Dies wird im folgenden Beispiel, das eine Methode namens addiert gezeigt `classicmovie` , enthält die benutzerdefinierte Überprüfung Clientcode auf die jQuery `validator` Objekt.

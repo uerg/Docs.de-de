@@ -2,7 +2,7 @@
 title: "Migrieren von Authentifizierung und Identität"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0db145cb-41a5-448a-b889-72e2d789ad7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/identity
-ms.openlocfilehash: b5a9bab4399714c481d4f38eeeaeba19d8bdd5b2
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ed96266f06eb473fa3c3e1cc81b2b58fcd89f29e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="migrating-authentication-and-identity"></a>Migrieren von Authentifizierung und Identität
 
@@ -52,8 +52,6 @@ public void ConfigureServices(IServiceCollection services)
 Zu diesem Zeitpunkt stehen zwei Typen, die im obigen Code, die noch nicht wir noch aus dem ASP.NET MVC-Projekt migriert verwiesen: `ApplicationDbContext` und `ApplicationUser`. Erstellen Sie ein neues *Modelle* Ordner, in dem ASP.NET Core Projekt, und fügen Sie zwei Klassen hinzu, die diese Typen entspricht. Die Versionen dieser Klassen in ASP.NET MVC finden `/Models/IdentityModels.cs`, aber es wird eine Datei pro Klasse im migrierten Projekt verwenden, da es sich bei, die mehr klar ist.
 
 ApplicationUser.cs:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -93,8 +91,6 @@ Das ASP.NET Core MVC Starter-Webprojekt ist nicht viel Anpassung der Benutzer od
 
 Mit diesen Dateien vorhanden, kann die Startup.cs-Datei zu kompilieren, indem Sie aktualisieren, die mithilfe vorgenommen werden Anweisungen:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.AspNetCore.Hosting;
@@ -110,9 +106,7 @@ Identitätsdienste konfiguriert für die Anwendung und den Datenzugriff mithilfe
 
 Aktualisieren Sie _Layout.cshtml; Heben Sie die auskommentierung der @Html.Partial Zeile:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "none"} -->
-
-```none
+```cshtml
       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
     </ul>
     @*@Html.Partial("_LoginPartial")*@
@@ -124,9 +118,7 @@ Fügen Sie nun eine neue MVC-Ansichtsseite _LoginPartial aufgerufen, um die Ansi
 
 Aktualisieren von _LoginPartial.cshtml durch den folgenden Code (ersetzen Sie seinen gesamten Inhalt):
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
-```csharp
+```cshtml
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 

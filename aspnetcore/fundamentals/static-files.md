@@ -1,7 +1,7 @@
 ---
 title: Arbeiten mit statischen Dateien in ASP.NET Core
 author: rick-anderson
-description: Arbeiten mit statischen Dateien
+description: Arbeiten mit statischen Dateien auf ASP.NET Core
 keywords: ASP.NET Core, statische Dateien, statische Assets, HTML, CSS und JavaScript
 ms.author: riande
 manager: wpickett
@@ -12,13 +12,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>Einführung in das Arbeiten mit statischen Dateien in ASP.NET Core
+# <a name="working-with-static-files-in-aspnet-core"></a>Arbeiten mit statischen Dateien in ASP.NET Core
 
 <a name=fundamentals-static-files></a>
 
@@ -199,7 +199,7 @@ Mit dem Code wird eine Anforderung für eine Datei mit einem unbekannten Inhalts
 ### <a name="considerations"></a>Weitere Überlegungen
 
 >[!WARNING]
-> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten * \<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw..
+> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten  *\<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw..
 
 * Die URLs für Inhalte, die verfügbar gemacht, mit `UseDirectoryBrowser` und `UseStaticFiles` unterliegen die Groß-/Kleinschreibung und zeichenbeschränkungen von ihren zugrunde liegenden Dateisystem. Z. B. Windows wird Groß-/Kleinschreibung nicht beachtet, aber Mac und Linux befinden sich nicht.
 
