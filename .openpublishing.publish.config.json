@@ -9,7 +9,7 @@
       "build_source_folder": "aspnet",
       "build_output_subfolder": "aspnet",
       "locale": "de-de",
-      "open_to_public_contributors": true,
+      "open_to_public_contributors": false,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -24,7 +24,7 @@
       "build_source_folder": "aspnetcore",
       "build_output_subfolder": "aspnet/core",
       "locale": "de-de",
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": True,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
