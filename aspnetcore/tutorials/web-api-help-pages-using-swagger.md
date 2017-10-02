@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 647ab48fb83c5e2c79b5de371173bc644c65d831
-ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
+ms.openlocfilehash: 7eeb8f0517b8806cabdd59e7d81f8c2272238615
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-web-api-help-pages-using-swagger"></a>ASP.NET-Web-API-Hilfeseiten mit Swagger
 
@@ -343,7 +343,9 @@ Aktivieren Sie die Middleware für statische Dateien:
 
 [!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_Configure&highlight=3)]
 
-Rufen Sie die Inhalte des Ordners *dist* aus dem [GitHub-Repository für die Swagger-Benutzeroberfläche](https://github.com/swagger-api/swagger-ui/tree/2.x/dist) ab. Dieser Ordner enthält die erforderlichen Ressourcen für die Seite der Swagger-Benutzeroberfläche. Kopieren Sie die Inhalte dieses Ordners in den Ordner *wwwroot/swagger/ui*.
+Rufen Sie die Inhalte des Ordners *dist* aus dem [GitHub-Repository für die Swagger-Benutzeroberfläche](https://github.com/swagger-api/swagger-ui/tree/2.x/dist) ab. Dieser Ordner enthält die erforderlichen Ressourcen für die Seite der Swagger-Benutzeroberfläche.
+
+Erstellen Sie einen *wwwroot/swagger/ui*-Ordner, und kopieren Sie die Inhalte des Ordners *dist* in ihn.
 
 Erstellen Sie die Datei *wwwroot/swagger/ui/css/custom.css* mit dem folgenden CSS, um den Seitenheader anzupassen:
 

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f8d86b48363675adaf27e2bed39f835f117e624a
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite
 
@@ -128,8 +128,6 @@ Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-Vielen Dank für Ihr Interesse an dieser Einführung in Razor-Seiten. Wir freuen uns über Kommentare, die Sie hinterlassen. [Erste Schritte mit MVC und EF Core](xref:data/ef-mvc/intro) ist ein ausgezeichneter Anschlussartikel an dieses Tutorial.
-
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Arbeiten mit Formularen](xref:mvc/views/working-with-forms)
@@ -138,4 +136,5 @@ Vielen Dank für Ihr Interesse an dieser Einführung in Razor-Seiten. Wir freuen
 * [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring)
 
 >[!div class="step-by-step"]
-[Zurück: Hinzufügen eines neuen Felds](xref:tutorials/razor-pages/new-field)
+[Zurück: Hinzufügen eines neuen Feldes](xref:tutorials/razor-pages/new-field)
+[Weiter: Hochladen von Dateien](xref:tutorials/razor-pages/uploading-files)

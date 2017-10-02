@@ -5,23 +5,23 @@ description: "Erläutert das Webpublishing in Visual Studio."
 keywords: "ASP.NET Core, Webpublishing, Veröffentlichung, MSBuild, Webbereitstellung, dotnet publish, Visual Studio 2017"
 ms.author: riande
 manager: wpickett
-ms.date: 03/14/2017
+ms.date: 09/26/2017
 ms.topic: article
 ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 665c98b5ac16bb9739af4ac204fca59a55dbb812
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 8a2584363cbf418281cc0e2d796debe57fab846f
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>Erstellen von Veröffentlichungsprofilen für Visual Studio und MSBuild zum Bereitstellen von ASP.NET Core-Apps
 
 Von [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Dieser Artikel konzertiert sich auf die Verwendung von Visual Studio 2017 zum Erstellen von Veröffentlichungsprofilen. Die Veröffentlichungsprofile, die mit Visual Studio erstellt werden, können von MSBuild und Visual Studio 2017 ausgeführt werden.
+Dieser Artikel konzertiert sich auf die Verwendung von Visual Studio 2017 zum Erstellen von Veröffentlichungsprofilen. Die Veröffentlichungsprofile, die mit Visual Studio erstellt werden, können von MSBuild und Visual Studio 2017 ausgeführt werden. Dieser Artikel enthält Informationen zum Veröffentlichungsprozess. Anweisungen zum Veröffentlichen in Azure finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
 Die folgende *CSPROJ*-Datei wurde mit dem Befehl `dotnet new mvc` erstellt:
 
@@ -96,7 +96,7 @@ Wenn in MSBuild oder Visual Studio ein Projekt geladen wird, werden die folgende
 
 Wenn das Projekt geladen ist, werden die Projektelemente (Dateien) berechnet. Die `item type`-Attribut bestimmt, wie die Datei verarbeitet wird. Standardmäßig sind *CS*-Dateien in der `Compile`-Elementliste enthalten. Dateien in der `Compile`-Elementliste werden kompiliert.
 
-Die `Content`-Elementliste enthält Dateien, die zusätzlich zu den Buildausgaben veröffentlicht werden. Standardmäßig sind Dateien, die mit dem Muster „wwwroot/**“ übereinstimmen, im `Content`-Element enthalten. [wwwroot/** ist ein Globmuster](https://gruntjs.com/configuring-tasks#globbing-patterns), das alle Dateien im *wwwroot*-Ordner **und** in Unterordnern angibt. Wenn Sie eine Datei explizit der Veröffentlichungsliste hinzufügen müssen, können Sie die Datei wie in [Einfügen von Dateien](#including-files) gezeigt direkt der *CSPROJ*-Datei hinzufügen.
+Die `Content`-Elementliste enthält Dateien, die zusätzlich zu den Buildausgaben veröffentlicht werden. Standardmäßig sind Dateien, die mit dem Muster „wwwroot/**“ übereinstimmen, im `Content`-Element enthalten. [wwwroot/** ist ein Globmuster](https://gruntjs.com/configuring-tasks#globbing-patterns), das alle Dateien im *wwwroot*-Ordner **und** in Unterordnern angibt. Um eine Datei explizit der Veröffentlichungsliste hinzuzufügen, fügen Sie die Datei wie in [Einfügen von Dateien](#including-files) gezeigt direkt der *CSPROJ*-Datei hinzu.
 
 Wenn Sie auf die Schaltfläche **Veröffentlichen** in Visual Studio klicken oder aus der Befehlszeile veröffentlichen:
 
@@ -106,7 +106,7 @@ Wenn Sie auf die Schaltfläche **Veröffentlichen** in Visual Studio klicken ode
 - Die zu veröffentlichenden Elemente werden berechnet (die Dateien, die für die Veröffentlichung benötigt werden).
 - Das Projekt wird veröffentlicht. (Die berechneten Dateien werden in das Veröffentlichungsziel kopiert.)
 
-## <a name="simple-command-line-publishing"></a>Einfaches Veröffentlichen über die Befehlszeile
+## <a name="basic-command-line-publishing"></a>Grundlegendes zur Veröffentlichung über die Befehlszeile
 
 Dieser Abschnitt funktioniert auf allen von .NET Core unterstützten Plattformen und erfordert nicht Visual Studio. In den untenstehenden Beispielen wird der Befehl `dotnet publish` aus dem Projektverzeichnis (das die *CSPROJ*-Datei enthält) ausgeführt. Wenn Sie nicht im Projektordner sind, können Sie explizit den Projektdateipfad übergeben. Zum Beispiel:
 
@@ -116,23 +116,35 @@ dotnet publish  c:/webs/web1
 
 Führen Sie die folgenden Befehle zum Erstellen und Veröffentlichen eine Web-App aus:
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```console
+dotnet new mvc
+dotnet publish
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```console
 dotnet new mvc
 dotnet restore
 dotnet publish
 ```
 
+--------------
+
 Durch `dotnet publish` wird eine Ausgabe erzeugt, die Folgender ähnelt:
 
 ```console
 C:\Webs\Web1>dotnet publish
-Microsoft (R) Build Engine version 15.1.548.43366
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp1.1\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
 ```
 
-Der Standardveröffentlichungsordner ist `bin\$(Configuration)\netcoreapp<version>\publish`. Der Standardwert für `$(Configuration)` ist „Debuggen“. Im obigen Beispiel ist `<TargetFramework>` `netcoreapp1.1`. Der tatsächliche Pfad im obigen Beispiel ist *bin\Debug\netcoreapp1.1\publish*.
+Der Standardveröffentlichungsordner ist `bin\$(Configuration)\netcoreapp<version>\publish`. Der Standardwert für `$(Configuration)` ist „Debuggen“. Im obigen Beispiel ist `<TargetFramework>` `netcoreapp2.0`.
 
 `dotnet publish -h` zeigt Hilfeinformationen zum Veröffentlichen an.
 

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: b45642e39eb46631bb8034f4747222fb1bc0a83b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: cab986d0a7b7ac68cdda36a558e9b05c429108d0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Hinzufügen eines neuen Felds zu einer Razor-Seite
 
@@ -50,7 +50,9 @@ Fügen Sie das Feld `Rating` der Bearbeitungsseite hinzu.
 
 Die App funktioniert erst, nachdem die Datenbank mit dem neuen Feld aktualisiert wurde. Wenn sie jetzt ausgeführt wird, löst die App eine `SqlException` aus:
 
-`SqlException: Invalid column name 'Rating'.`
+```
+SqlException: Invalid column name 'Rating'.
+```
 
 Dieser Fehler wird dadurch verursacht, dass sich die aktualisierte Modellklasse „Movie“ vom Schema der Tabelle „Movie“ der Datenbank unterscheidet. (Die Datenbanktabelle enthält nicht die Spalte `Rating`.)
 
@@ -72,9 +74,7 @@ Sehen Sie sich die [fertige SeedData.cs-Datei an](https://github.com/aspnet/Docs
 
 Erstellen Sie die Projektmappe.
 
-<a name="pmc"></a>
-
-Öffnen Sie das Menü **Extras**. Wählen Sie dort **NuGet-Paket-Manager > Paket-Manager-Konsole** aus.
+<a name="pmc"></a> Wählen Sie im Menü **Tools** **NuGet-Paket-Manager > Paket-Manager-Konsole** aus.
 Geben Sie in der PMC die folgenden Befehle ein:
 
 ```PMC
@@ -93,13 +93,13 @@ Der Name „Rating“ ist beliebig und wird verwendet, um die Migrationsdatei zu
 
 * Wählen Sie die Datenbank in SSOX aus.
 * Klicken Sie mit der rechten Maustaste auf die Datenbank, und wählen Sie *Löschen* aus.
-* Aktivieren Sie **Vorhandene Verbindungen schließen*.
-* Wählen Sie **OK** aus.
-* Aktualisieren Sie die Datenbank in [PMC](xref:tutorials/razor-pages/new-field#pmc). 
+* Aktivieren Sie **Vorhandene Verbindungen schließen**.
+* Klicken Sie auf **OK**.
+* Aktualisieren Sie die Datenbank in [PMC](xref:tutorials/razor-pages/new-field#pmc):
 
-    ```PMC
-    Update-Database
-    ```
+  ```PMC
+  Update-Database
+  ```
 
 Führen Sie die App aus, und überprüfen Sie, ob Sie Filme mit dem Feld `Rating` erstellen/bearbeiten/anzeigen können. Wenn für die Datenbank kein Seeding ausgeführt wird, beenden Sie IIS Express, und führen Sie dann die App aus.
 

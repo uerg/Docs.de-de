@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 42fa98886f3e87e79ea1ea4a2223a79319676006
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Arbeiten mit SQL Server LocalDB und ASP.NET Core
 
@@ -26,7 +26,7 @@ Das `MovieContext`-Objekt übernimmt die Aufgabe der Herstellung der Verbindung 
 
 Das ASP.NET Core-[Konfigurationssystem](xref:fundamentals/configuration) liest die `ConnectionString`. Für die lokale Entwicklung wird die Verbindungszeichenfolge aus der Datei *appsettings.json* abgerufen:
 
-[!code-javascript[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 Wenn Sie die App auf einem Test- oder Produktionsserver bereitstellen, können Sie eine Umgebungsvariable oder eine andere Vorgehensweise zum Festlegen der Verbindungszeichenfolge für einen tatsächlichen SQL Server-Computer verwenden. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration).
 
@@ -39,15 +39,15 @@ LocalDB ist eine Basisversion des SQL Server Express-Datenbankmoduls, die für d
 
   ![Menü Ansicht](sql/_static/ssox.png)
 
-* Klicken Sie mit der rechten Maustaste auf die Tabelle `Movie` **> Ansicht-Designer**.
+* Klicken Sie mit der rechten Maustaste auf die Tabelle `Movie`, und wählen Sie **Designer anzeigen** aus:
 
   ![Für die Tabelle „Movie“ geöffnetes Kontextmenü](sql/_static/design.png)
 
   ![Im Designer geöffnete Tabelle „Movie“](sql/_static/dv.png)
 
-Beachten Sie das Schlüsselsymbol neben `ID`. EF macht die Eigenschaft `ID` standardmäßig zum Primärschlüssel.
+Beachten Sie das Schlüsselsymbol neben `ID`. EF erstellt standardmäßig eine Eigenschaft namens `ID` für den Primärschlüssel.
 
-* Klicken Sie mit der rechten Maustaste auf die Tabelle `Movie` **> Daten anzeigen**.
+* Klicken Sie mit der rechten Maustaste auf die Tabelle `Movie`, und wählen Sie **Daten anzeigen** aus:
 
   ![Geöffnete Tabelle „Movie“ mit Tabellendaten](sql/_static/vd22.png)
 
@@ -60,7 +60,7 @@ Erstellen Sie im Ordner *Models* die neue Klasse `SeedData`. Ersetzen Sie den ge
 Wenn in der Datenbank Filme vorhanden sind, wird der Initialisierer des Seedings zurückgegeben, und es werden keine Filme hinzugefügt.
 
 ```csharp
-if (context.Movie.Any())
+if (context.Movies.Any())
 {
     return;   // DB has been seeded.
 }
@@ -77,7 +77,7 @@ Testen der App
 * Löschen Sie alle Datensätze in der Datenbank. Dies ist über die Links „Löschen“ im Browser oder [SSOX](xref:tutorials/razor-pages/new-field#ssox) möglich.
 * Zwingen Sie die App zur Initialisierung (rufen Sie die Methoden in der `Startup`-Klasse auf), damit die Seedmethode ausgeführt wird. Um die Initialisierung zu erzwingen, muss IIS Express beendet und neu gestartet werden. Hierzu können Sie einen der folgenden Ansätze verwenden:
 
-  * Klicken Sie auf der Taskleiste im Infobereich mit der rechten Maustaste auf das Symbol von IIS Express, und wählen Sie **Beenden** oder **Website beenden** aus.
+  * Klicken Sie auf der Taskleiste im Infobereich mit der rechten Maustaste auf das Symbol von IIS Express, und wählen Sie **Beenden** oder **Website beenden** aus:
 
     ![IIS Express-Symbol auf der Taskleiste](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
 
@@ -86,12 +86,12 @@ Testen der App
    * Wenn Sie Visual Studio im Nicht-Debugmodus ausgeführt haben, drücken Sie F5, um den Debugmodus auszuführen.
    * Wenn Sie Visual Studio im Debugmodus ausgeführt haben, beenden Sie den Debugger, und drücken Sie F5.
    
-Die App zeigt die per Seeding hinzugefügten Daten.
+Die App zeigt die per Seeding hinzugefügten Daten:
 
 ![In Chrome geöffnete Movie-Anwendung mit Filmdaten](sql/_static/m55.png)
 
 Im nächsten Tutorial wird die Präsentation der Daten bereinigt.
 
 >[!div class="step-by-step"]
-[Zurück: Gerüstbau mit Razor-Seiten](xref:tutorials/razor-pages/page)   
+[Zurück: Gerüstbau mit Razor-Seiten](xref:tutorials/razor-pages/page)
 [Weiter: Aktualisieren der Seiten](xref:tutorials/razor-pages/da1)
