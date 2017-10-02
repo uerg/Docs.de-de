@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
+ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/02/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -46,17 +46,17 @@ Routing verbunden ist, um die [Middleware](middleware.md) pipeline nach dem `Rou
 
 Der Prozess, durch welche routing sendet eine eingehende Anforderung zum, Abgleich von URL ist eine *Handler*. Dieser Prozess wird im Allgemeinen basierend auf Daten in der URL-Pfad, aber erweitert werden kann, so, dass alle Daten in der Anforderung. Die Fähigkeit, dispatch-Anforderungen an die Handler zu trennen ist entscheidend skalieren die Größe und Komplexität einer Anwendung.
 
-Eingehende Anforderungen Geben Sie die `RouterMiddleware`, welche Aufrufe die `RouteAsync` -Methode für jede Route in der Sequenz. Die `IRouter` Instanz auswählt, ob *behandeln* der Anforderung durch Festlegen der `RouteContext` `Handler` zu einer nicht-Null `RequestDelegate`. Wenn eine Route einen Handler für die Anforderung festlegt, wird Route, die Verarbeitung beendet und den Ereignishandler zur Verarbeitung der Anforderung aufgerufen. Wenn alle Routen versucht werden soll, und kein Handler, für die Anforderung gefunden wird, die Middleware ruft *Weiter* und die nächste Middleware in der Anforderungspipeline aufgerufen wird.
+Eingehende Anforderungen Geben Sie die `RouterMiddleware`, welche Aufrufe die `RouteAsync` -Methode für jede Route in der Sequenz. Die `IRouter` Instanz auswählt, ob *behandeln* der Anforderung durch Festlegen der `RouteContext.Handler` zu einer nicht-Null `RequestDelegate`. Wenn eine Route einen Handler für die Anforderung festlegt, wird Route, die Verarbeitung beendet und den Ereignishandler zur Verarbeitung der Anforderung aufgerufen. Wenn alle Routen versucht werden soll, und kein Handler, für die Anforderung gefunden wird, die Middleware ruft *Weiter* und die nächste Middleware in der Anforderungspipeline aufgerufen wird.
 
-Die primäre Eingabe `RouteAsync` ist die `RouteContext` `HttpContext` mit der aktuellen Anforderung verknüpft sind. Die `RouteContext.Handler` und `RouteContext` `RouteData` sind Ausgaben, die nach einer Route entspricht festgelegt werden.
+Die primäre Eingabe `RouteAsync` ist die `RouteContext.HttpContext` mit der aktuellen Anforderung verknüpft sind. Die `RouteContext.Handler` und `RouteContext.RouteData` sind Ausgaben, die nach einer Route entspricht festgelegt werden.
 
 Eine Übereinstimmung bei `RouteAsync` wird außerdem die Eigenschaften der Festlegen der `RouteContext.RouteData` auf die entsprechenden Werte basierend auf der Verarbeitung der Anforderung bisher. Wenn eine Route einer Anforderung entspricht dem `RouteContext.RouteData` enthält wichtige Informationen zu den *Ergebnis*.
 
-`RouteData``Values` ist ein Wörterbuch von *Routenwerte* nutzen, die aus der Route. Diese Werte werden in der Regel durch versehen die URL bestimmt und können verwendet werden, um Benutzereingaben akzeptieren oder für weiter verteilen Entscheidungen in der Anwendung.
+`RouteData.Values`ist ein Wörterbuch von *Routenwerte* nutzen, die aus der Route. Diese Werte werden in der Regel durch versehen die URL bestimmt und können verwendet werden, um Benutzereingaben akzeptieren oder für weiter verteilen Entscheidungen in der Anwendung.
 
-`RouteData``DataTokens` wird ein Eigenschaftenbehälter, der zusätzliche Daten, die im Zusammenhang mit der übereinstimmenden Route. `DataTokens`Dient zur Zuordnung von Status zu unterstützen, die Daten mit jede Route, damit die Anwendung später basierend Entscheidungen kann auf der route verglichen. Diese Werte sind Entwickler definiert, und führen Sie **nicht** beeinflussen das Verhalten des Routings in keiner Weise. Darüber hinaus können in Datentoken Boyer Werte eines beliebigen Typs, im Gegensatz zu Routenwerte, sein, die problemlos konvertiert in und aus Zeichenfolgen.
+`RouteData.DataTokens`wird ein Eigenschaftenbehälter, der zusätzliche Daten, die im Zusammenhang mit der übereinstimmenden Route an. `DataTokens`Dient zur Zuordnung von Status zu unterstützen, die Daten mit jede Route, damit die Anwendung später basierend Entscheidungen kann auf der route verglichen. Diese Werte sind Entwickler definiert, und führen Sie **nicht** beeinflussen das Verhalten des Routings in keiner Weise. Darüber hinaus können in Datentoken Boyer Werte eines beliebigen Typs, im Gegensatz zu Routenwerte, sein, die problemlos konvertiert in und aus Zeichenfolgen.
 
-`RouteData``Routers` ist eine Liste der Routen, die in den Abgleich erfolgreich der Anforderungs Layoutdurchlauf. Routen können in einer anderen geschachtelt sein und die `Routers` -Eigenschaft entspricht den Pfad in der logischen Struktur des Routen, die in einer Übereinstimmung geführt haben. Im Allgemeinen das erste Element im `Routers` wird die Auflistung von Routen sowie für URL-Generierung verwendet werden soll. Das letzte Element im `Routers` der Routenhandler, die abgeglichen wird.
+`RouteData.Routers`ist eine Liste der Routen, die in den Abgleich erfolgreich der Anforderungs Layoutdurchlauf. Routen können in einer anderen geschachtelt sein und die `Routers` -Eigenschaft entspricht den Pfad in der logischen Struktur des Routen, die in einer Übereinstimmung geführt haben. Im Allgemeinen das erste Element im `Routers` wird die Auflistung von Routen sowie für URL-Generierung verwendet werden soll. Das letzte Element im `Routers` der Routenhandler, die abgeglichen wird.
 
 ### <a name="url-generation"></a>URL-Generierung
 
@@ -66,11 +66,11 @@ URL-Generierung folgt einen ähnlichen iterativen Prozess, startet aber durch Be
 
 Die primäre Eingaben `GetVirtualPath` sind:
 
-* `VirtualPathContext` `HttpContext`
+* `VirtualPathContext.HttpContext`
 
-* `VirtualPathContext` `Values`
+* `VirtualPathContext.Values`
 
-* `VirtualPathContext` `AmbientValues`
+* `VirtualPathContext.AmbientValues`
 
 Routen werden in erster Linie die Routenwerte gebotenen verwenden die `Values` und `AmbientValues` entscheiden, wo es möglich, eine URL zu generieren ist und welche Werte enthalten. Die `AmbientValues` sind der Satz von Routenwerte, die von einem Abgleich die aktuelle Anforderung mit dem routing System erzeugt wurden. Im Gegensatz dazu `Values` die Routenwerte, die angeben, wie die gewünschte URL für den aktuellen Vorgang generiert werden. Die `HttpContext` wird bereitgestellt, für den Fall, dass eine Route, Dienste oder zusätzliche Daten, die mit dem aktuellen Kontext verknüpft sind abrufen muss.
 
@@ -78,11 +78,11 @@ Tipp: Stellen Sie sich `Values` als eine Reihe von Außerkraftsetzungen für die
 
 Die Ausgabe des `GetVirtualPath` ist eine `VirtualPathData`. `VirtualPathData`ist eine parallele Ausführung von `RouteData`; er enthält die `VirtualPath` für die Ausgabe-URL als auch die einige zusätzlichen Eigenschaften, die von der Route festgelegt werden soll.
 
-Die `VirtualPathData` `VirtualPath` Eigenschaft enthält die *virtuellen Pfad* erzeugt, die von der Route. Je nach Ihren Anforderungen müssen Sie möglicherweise den Pfad weiter zu verarbeiten. Wenn die generierte URL in HTML gerendert werden sollen müssen Sie z. B. den Basispfad der Anwendung voranstellen.
+Die `VirtualPathData.VirtualPath` Eigenschaft enthält die *virtuellen Pfad* erzeugt, die von der Route. Je nach Ihren Anforderungen müssen Sie möglicherweise den Pfad weiter zu verarbeiten. Wenn die generierte URL in HTML gerendert werden sollen müssen Sie z. B. den Basispfad der Anwendung voranstellen.
 
-Die `VirtualPathData` `Router` ist ein Verweis auf die Route, die die URL wurde erfolgreich generiert.
+Die `VirtualPathData.Router` ist ein Verweis auf die Route, die die URL wurde erfolgreich generiert.
 
-Die `VirtualPathData` `DataTokens` Eigenschaften ist ein Wörterbuch von zusätzlichen Daten, die im Zusammenhang mit der Route, die die URL generiert. Dies ist die parallele Ausführung von `RouteData.DataTokens`.
+Die `VirtualPathData.DataTokens` Eigenschaften ist ein Wörterbuch von zusätzlichen Daten, die im Zusammenhang mit der Route, die die URL generiert. Dies ist die parallele Ausführung von `RouteData.DataTokens`.
 
 ### <a name="creating-routes"></a>Erstellen von Routen
 
