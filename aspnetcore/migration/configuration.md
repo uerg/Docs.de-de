@@ -2,7 +2,7 @@
 title: Migrieren der Konfiguration
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 8468d859-ff32-4a92-9e62-08c4a9e36594
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: 62660f7e58467a69f540966df188747b6fde57fe
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 4cf2227db22fbfd7f0c6239dad0d0a470c35d28c
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="migrating-configuration"></a>Migrieren der Konfiguration
 
@@ -23,7 +23,7 @@ Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.c
 
 In der vorherigen Artikel wir begann [Migrieren eines ASP.NET MVC-Projekts zu ASP.NET Core MVC](mvc.md). In diesem Artikel wir die Konfiguration migrieren.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="setup-configuration"></a>Setup-Konfiguration
 

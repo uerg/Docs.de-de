@@ -11,17 +11,17 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: ab004c038b82888aa57d5e25fcb69a06deec8411
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Antwort Komprimierung Middleware für ASP.NET Core
 
 Durch [Luke Latham](https://github.com/guardrex)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 Die Netzwerkbandbreite ist eine eingeschränkte Ressource. Verringern die Größe der Antwort in der Regel wird die Reaktionsfähigkeit einer App häufig erheblich erhöht. Eine Möglichkeit, verringern Sie die Größe der Nutzlast ist zum Komprimieren von Antworten für eine app.
 

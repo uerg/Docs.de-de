@@ -2,7 +2,7 @@
 title: "Abhängigkeitsinjektion in Sichten"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 80fb9e43-e4db-4af2-b2a8-e1364a712f69
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: ff3ded36a04fdbba0628dc5f223bfd865d58612a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 4586f50bc663b7269914dfff28b61342e3991a48
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="dependency-injection-into-views"></a>Abhängigkeitsinjektion in Sichten
 
@@ -23,7 +23,7 @@ Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core unterstützt [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) in Sichten. Dies kann hilfreich für Ansicht-spezifische Dienste, z. B. Lokalisierung oder Daten, die nur für das Auffüllen der Ansichtselemente erforderlich sein. Sollten Sie versuchen, verwalten [Trennung von Anliegen](http://deviq.com/separation-of-concerns/) zwischen dem Controller und Ansichten. Die meisten Daten, die Ihre Ansichten anzeigen sollte auf dem Controller übergeben werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="a-simple-example"></a>Ein einfaches Beispiel
 

@@ -1,7 +1,7 @@
 ---
-title: Arbeiten mit mehreren Umgebungen
+title: Arbeiten mit mehreren Umgebungen in ASP.NET Core
 author: ardalis
-description: 
+description: "Erfahren Sie, wie ASP.NET Core Unterstützung für das Steuern des Verhaltens der app über mehrere Umgebungen bereitstellt."
 keywords: ASP.NET Core, umgebungseinstellungen, ASPNETCORE_ENVIRONMENT
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-multiple-environments"></a>Arbeiten mit mehreren Umgebungen
 
@@ -23,7 +23,7 @@ Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core bietet Unterstützung für das Steuern des Verhaltens der app über mehrere Umgebungen, wie z. B. Entwicklungs-, Staging- und produktionsumgebungen. Umgebungsvariablen werden verwendet, um anzugeben, die Common Language Runtime-Umgebung ermöglicht es der app für die Umgebung konfiguriert werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>Entwicklung, Bereitstellung, Produktion
 

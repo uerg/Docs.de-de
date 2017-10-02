@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core Middleware
 author: rick-anderson
-description: "Erläutert Middleware und der Anforderungspipeline."
+description: Informationen Sie zu ASP.NET Core Middleware und der Anforderungspipeline.
 keywords: ASP.NET Core, Middleware-Pipeline, Delegaten
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/28/2017
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](https://ardalis.com/)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-middleware"></a>Was ist die Middleware
 

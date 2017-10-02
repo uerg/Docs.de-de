@@ -10,17 +10,17 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
 Durch [Luke Latham](https://github.com/guardrex) und [John Luo](https://github.com/JunTaoLuo)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 Dieses Dokument enthält ausführliche Informationen zum Konfigurieren der Antwort zwischenspeichern Middleware in ASP.NET Core-apps. Die Middleware wird bestimmt, wenn Antworten zwischengespeichert sind, speichert Antworten und fungiert Antworten aus dem Cache. Eine Einführung in die HTTP-caching und die `ResponseCache` -Attribut angegeben wird, finden Sie unter [Zwischenspeichern von Antworten](response.md).
 

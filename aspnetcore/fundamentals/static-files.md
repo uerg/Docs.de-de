@@ -1,7 +1,7 @@
 ---
 title: Arbeiten mit statischen Dateien in ASP.NET Core
 author: rick-anderson
-description: Arbeiten mit statischen Dateien auf ASP.NET Core
+description: Informationen Sie zum Arbeiten mit statischen Dateien in ASP.NET Core.
 keywords: ASP.NET Core, statische Dateien, statische Assets, HTML, CSS und JavaScript
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e099c4767958f153134e0fb6b3de8132ab1ead82
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-static-files-in-aspnet-core"></a>Arbeiten mit statischen Dateien in ASP.NET Core
 
@@ -26,7 +26,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Statische Dateien, z. B. HTML, CSS, Bild und JavaScript, sind Ressourcen, die eine ASP.NET Core app direkt an Clients fungieren kann.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="serving-static-files"></a>Bereitstellen statischer Dateien
 
@@ -199,7 +199,7 @@ Mit dem Code wird eine Anforderung für eine Datei mit einem unbekannten Inhalts
 ### <a name="considerations"></a>Weitere Überlegungen
 
 >[!WARNING]
-> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten  *\<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw..
+> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Es wird empfohlen, die Sie **nicht** Enable Verzeichnissuche in der Produktion. Achten Sie darauf über die Verzeichnisse mit aktivieren `UseStaticFiles` oder `UseDirectoryBrowser` wie das gesamte Verzeichnis und alle Unterverzeichnisse zugegriffen werden können. Es wird empfohlen, öffentliche Inhalte wie z. B. im Verzeichnis eigenen beibehalten  *\<Inhalts-Stamm > / "Wwwroot"*, Weg von Sichten, Konfigurationsdateien usw.
 
 * Die URLs für Inhalte, die verfügbar gemacht, mit `UseDirectoryBrowser` und `UseStaticFiles` unterliegen die Groß-/Kleinschreibung und zeichenbeschränkungen von ihren zugrunde liegenden Dateisystem. Z. B. Windows wird Groß-/Kleinschreibung nicht beachtet, aber Mac und Linux befinden sich nicht.
 

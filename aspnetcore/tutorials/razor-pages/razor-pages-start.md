@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 8c6e281e761e69908fc742d1f19c14a00de4bd46
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 1d8d7805aafbf28fef044d09369a1dc76108b141
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core"></a>Erste Schritte mit Razor-Seiten mit ASP.NET Core
 
@@ -28,11 +28,11 @@ In diesem Tutorial lernen Sie Grundlegendes zur Erstellung einer ASP.NET Core-We
 
 ## <a name="create-a-razor-web-app"></a>Erstellen einer Razor-Web-App
 
-* Klicken Sie in Visual Studio im Menü **Datei** auf **Neu > Projekt**.
+* Klicken Sie in Visual Studio im Menü **Datei** auf **Neu** > **Projekt**.
 * Erstellen Sie eine neue ASP.NET Core-Webanwendung. Nennen Sie das Projekt **RazorPagesMovie**. Es ist wichtig, den Namen *RazorPagesMovie* zu verwenden, damit die Namespaces übereinstimmen, wenn Sie Code kopieren/einfügen.
- ![neue ASP.NET Core-Webanwendung](../../mvc/razor-pages/index/_static/np.png)
+  ![neue ASP.NET Core-Webanwendung](../../mvc/razor-pages/index/_static/np.png)
 * Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**.
- ![Webanwendung (Razor-Seiten)](../../mvc/razor-pages/index/_static/np2.png)
+  ![Webanwendung (Razor-Seiten)](../../mvc/razor-pages/index/_static/np2.png)
 
 Die Visual Studio-Vorlage erstellt ein Startprojekt:
 
@@ -48,4 +48,4 @@ Drücken Sie **F5**, um die App im Debugmodus auszuführen, oder **STRG+F5** zur
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
 
 >[!div class="step-by-step"]
-[Nächstes Tutorial: Adding a model to a Razor Pages app in ASP.NET Core with Visual Studio for Mac (Hinzufügen eines Modells zu einer App mit Razor-Seiten in ASP.NET Core mit Visual Studio für Mac)](xref:tutorials/razor-pages/modelz)  
+[Nächstes Tutorial: Adding a model to a Razor Pages app in ASP.NET Core with Visual Studio for Mac (Hinzufügen eines Modells zu einer App mit Razor-Seiten in ASP.NET Core mit Visual Studio für Mac)](xref:tutorials/razor-pages/modelz)

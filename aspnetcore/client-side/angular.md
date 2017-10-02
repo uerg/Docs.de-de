@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/angular
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d271560476ee4efdffbd457e37eb769a7ae6ca25
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 4aecf9e9bd11cc7e2b36b40955178d9e9368c185
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="using-angularjs-for-single-page-applications-spas-with-aspnet-core"></a>Mithilfe von AngularJS für einseitige Anwendungen (SPAs) mit ASP.NET Core
 
@@ -25,7 +25,7 @@ Durch [Venkata Koppaka](https://blog.falafel.com/falafel-software-recognized-sit
 
 In diesem Artikel erfahren Sie, wie eine SPA-Stil ASP.NET-Anwendung mithilfe von AngularJS erstellt werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-angularjs"></a>Was ist AngularJS?
 
@@ -63,7 +63,7 @@ Nachdem Sie einen Verweis auf haben die *angular.js* Skriptdatei, jetzt können 
 
 ## <a name="key-components"></a>Wichtige Komponenten
 
-AngularJS umfasst eine Reihe von wesentlichen Komponenten, wie z. B. *Direktiven*, *Vorlagen*, *Repeater*, *Module*, * Controller*, *Komponenten*, *Komponente Router* und vieles mehr. Betrachten wir nun, wie diese Komponenten zusammenarbeiten, um Webseiten Verhalten hinzuzufügen.
+AngularJS umfasst eine Reihe von wesentlichen Komponenten, wie z. B. *Direktiven*, *Vorlagen*, *Repeater*, *Module*,  *Controller*, *Komponenten*, *Komponente Router* und vieles mehr. Betrachten wir nun, wie diese Komponenten zusammenarbeiten, um Webseiten Verhalten hinzuzufügen.
 
 ### <a name="directives"></a>Anweisungen
 

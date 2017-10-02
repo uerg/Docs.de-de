@@ -1,7 +1,7 @@
 ---
 title: Routing in ASP.NET Core
 author: ardalis
-description: 
+description: "Ermitteln Sie, wie ASP.NET Core Routingfunktion für eine eingehende Anforderung an eine Routenhandler Zuordnung zuständig ist."
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 469c30cf66d28e82519d5eff7f2fc82d490827b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -26,7 +26,7 @@ Routingfunktion ist verantwortlich für die Zuordnung einer eingehenden Anforder
 >[!IMPORTANT]
 > Dieses Dokument behandelt die low-Level ASP.NET Core routing. ASP.NET Core MVC-routing, finden Sie unter [Routing an Controlleraktionen](../mvc/controllers/routing.md)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Routing-Grundlagen
 

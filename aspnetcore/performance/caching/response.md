@@ -10,17 +10,17 @@ ms.topic: article
 ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 957bdf5fe24216fa3459ac7ecee0464a45226828
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 79d9246632aae0fe9c3629fd7202842836828151
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
 Durch [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), und [Luke Latham](https://github.com/guardrex)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 Zwischenspeichern von Antworten verringert die Anzahl der Anforderungen, die ein Client oder Proxy auf einem Webserver vornimmt. Zwischenspeichern von Antworten auch reduziert die Menge der Arbeit der Webserver durchführt, um eine Antwort zu generieren. Zwischenspeichern von Antworten wird durch Header gesteuert, die angeben, wie der Client und Proxy-Middleware zum Zwischenspeichern von Antworten soll.
 
@@ -141,7 +141,7 @@ Pragma: no-cache
 So aktivieren Sie das Zwischenspeichern, `Duration` muss auf einen positiven Wert festgelegt werden und `Location` muss entweder `Any` (Standard) oder `Client`. In diesem Fall die `Cache-Control` Header festgelegt ist, auf den Speicherortwert, gefolgt von den `max-age` der Antwort.
 
 > [!NOTE]
-> `Location`die Optionen der `Any` und `Client` übersetzen in `Cache-Control` Headerwerte `public` und `private`bzw.. Wie bereits erwähnt, festlegen `Location` auf `None` legt `Cache-Control` und `Pragma` Header `no-cache`.
+> `Location`die Optionen der `Any` und `Client` übersetzen in `Cache-Control` Headerwerte `public` und `private`bzw. Wie bereits erwähnt, festlegen `Location` auf `None` legt `Cache-Control` und `Pragma` Header `no-cache`.
 
 Im folgenden ein Beispiel für die Header erstellt wird, durch Festlegen von `Duration` und lassen die Standardeinstellung `Location` Wert:
 

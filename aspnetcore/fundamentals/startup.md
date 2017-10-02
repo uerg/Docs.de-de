@@ -1,7 +1,7 @@
 ---
 title: Start der Anwendung in ASP.NET Core
 author: ardalis
-description: "Erläutert die Startklasse in ASP.NET Core."
+description: Ermitteln Sie, wie die Startklasse in ASP.NET Core Services und die Anwendung Anforderungspipeline konfiguriert.
 keywords: ASP.NET Core, Start konfigurieren-Methode, ConfigureServices-Methode
 ms.author: tdykstra
 manager: wpickett
@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Start der Anwendung in ASP.NET Core
 
 Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
 
-Die `Startup` Klasse konfiguriert werden, Dienste und die Anwendung Anforderungspipeline. 
+Die `Startup` Klasse konfiguriert werden, Dienste und die Anwendung Anforderungspipeline.
 
 ## <a name="the-startup-class"></a>Die Startklasse.
 

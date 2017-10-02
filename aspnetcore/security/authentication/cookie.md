@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: af3ffe418521d5d97f5d14ca9c904c21b4d4ff89
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e5c53a7044edb56e065b2dc1536343fdaf9fb007
+ms.sourcegitcommit: 7d8f4e3443a2989a64343f8fec83e6a4c4ed2f97
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Mithilfe der Cookieauthentifizierung ohne ASP.NET Core Identität
 
@@ -242,7 +242,7 @@ ASP.NET Core 2.x vereinigt die APIs, die zum Konfigurieren von Cookies verwendet
 
 * `ClaimsIssuer`ist der Aussteller zu verwendende für die [Aussteller](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) Eigenschaft für Ansprüche, die von der Cookieauthentifizierung erstellt.
 
-* `CookieBuilder.Domain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw..
+* `CookieBuilder.Domain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw.
 
 * `CookieBuilder.HttpOnly`ein Flag, der angibt, wenn das Cookie nur an Server zugegriffen werden soll. Der Standardwert lautet `true`. Durch Ändern dieses Werts möglicherweise anwendungskennworts Cookie Diebstahl öffnen Sie Ihre Anwendung einen Fehler siteübergreifende verfügen sollen.
 
@@ -259,8 +259,8 @@ ASP.NET Core 2.x vereinigt die APIs, die zum Konfigurieren von Cookies verwendet
 Ein Beispiel der Verwendung von `CookieAuthenticationOptions` in der `ConfigureServices` Methode *Startup.cs* folgt:
 
 ```csharp
-services.AddAuthentication()
-        .AddCookie(options =>
+services.AddAuthentication("MyCookieAuthenticationScheme")
+        .AddCookie("MyCookieAuthenticationScheme", options =>
         {
             options.Cookie.Name = "AuthCookie";
             options.Cookie.Domain = "contoso.com";
@@ -275,7 +275,7 @@ services.AddAuthentication()
 
 * `ClaimsIssuer`ist der Aussteller zu verwendende für die [Aussteller](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) Eigenschaft für Ansprüche, die von der Middleware erstellt.
 
-* `CookieDomain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw..
+* `CookieDomain`ist der Domänenname, der das Cookie bedient wird. Standardmäßig ist dies der Hostname, der die Anforderung gesendet wurde. Der Browser dient nur das Cookie auf einen übereinstimmenden Hostnamen. Sie möchten möglicherweise passen Sie diese Option, um Cookies zu einem Host in Ihrer Domäne verfügen. Z. B. Festlegen der Domäne des Cookies auf `.contoso.com` zur Verfügung `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`usw.
 
 * `CookieHttpOnly`ein Flag, der angibt, wenn das Cookie nur an Server zugegriffen werden soll. Der Standardwert lautet `true`. Durch Ändern dieses Werts möglicherweise anwendungskennworts Cookie Diebstahl öffnen Sie Ihre Anwendung einen Fehler siteübergreifende verfügen sollen.
 
