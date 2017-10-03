@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: f40feb0466854080cc749a83c546ce857d850902
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: d3fbdecaed87b3432f0532748a0833c833c65129
+ms.sourcegitcommit: a60a99104fe7a29e271667cead6a06b6d8258d03
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten im Kern der ASP.NET MVC
 
@@ -40,13 +40,13 @@ Verwendung [Layouts](xref:mvc/views/layout) konsistent Webseite Abschnitte und c
 Ansichten zur Verfügung, zum Herstellen einer [ **S**Eparation **o**f **C**Oncerns (SoC) Entwurf](http://deviq.com/separation-of-concerns/) innerhalb einer MVC-app durch die Trennung von Benutzer-Schnittstelle Markup aus andere Teile der app. SoC Entwurf nach macht Ihre app modular aufgebaut, die bietet mehrere Vorteile:
 
 * Die app ist einfacher zu verwalten, da es besser organisiert ist. Ansichten werden im Allgemeinen von app-Funktion gruppiert. Dies erleichtert die zugehörige Sichten zu suchen, bei der Arbeit auf eine Funktion.
-* Die Teile der app werden nicht eng verbunden. Erstellen und aktualisieren die app-Ansichten getrennt von der Logik und die Daten Zugriff Geschäftskomponenten. Sie können die Ansichten der app ändern, ohne unbedingt andere Teile der app zu aktualisieren.
+* Die Teile der app sind lose verbunden. Erstellen und aktualisieren die app-Ansichten getrennt von der Logik und die Daten Zugriff Geschäftskomponenten. Sie können die Ansichten der app ändern, ohne unbedingt andere Teile der app zu aktualisieren.
 * Es ist einfacher, das Benutzeroberflächenkomponenten der app zu testen, da die Ansichten separaten Einheiten sind.
 * Aufgrund der besseren Organisation ist es weniger wahrscheinlich, dass Sie versehentlich wiederholen Abschnitte der Benutzeroberfläche werden.
 
 ## <a name="creating-a-view"></a>Erstellen einer Ansicht
 
-Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der *Ansichten/freigegeben* Ordner. Um eine Ansicht zu erstellen, fügen Sie eine neue Datei hinzu, und geben Sie ihm den gleichen Namen wie der Aktion zugeordneten Controller mit dem *cshtml* Dateierweiterung. Zum Erstellen einer Ansicht für die *zu* Aktion in der *Home* Controller, erstellen eine *About.cshtml* in der Datei die *Ansichten/Start* Ordner:
+Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der *Ansichten/freigegeben* Ordner. Um eine Ansicht zu erstellen, fügen Sie eine neue Datei hinzu, und geben Sie ihm den gleichen Namen wie der Aktion zugeordneten Controller mit dem *cshtml* Dateierweiterung. Eine Sicht erstellt, der mit übereinstimmt der *zu* Aktion in der *Home* Controller, erstellen eine *About.cshtml* in der Datei die *Ansichten/Start*Ordner:
 
 [!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -88,7 +88,7 @@ Die `View` -Hilfsmethode verfügt über mehrere Überladungen. Optional können 
 
 Ein Prozess wird aufgerufen, wenn eine Aktion eine Sicht zurückgegeben wird, *Ansicht Ermittlung* erfolgt. Dieser Prozess wird bestimmt, welche Datei verwendet wird anhand des Ansichtsnamens. 
 
-Wenn eine Aktion gibt die `View` Methode (`return View();`) und eine Sicht ist nicht angegeben ist, der Aktionsnamen wie der Ansichtsname verwendet. Z. B. die *zu* `ActionResult` Methodennamen des Controllers wird zur Suche nach einer Datei anzeigen, die mit dem Namen *About.cshtml*. Die Common Language Runtime sucht zuerst die *Ansichten / [ControllerName]* Ordner für die Ansicht. Wenn es keine entsprechende Ansicht gefunden werden, sucht der *Shared* Ordner für die Ansicht.
+Das Standardverhalten der `View` Methode (`return View();`) ist eine Sicht mit dem gleichen Namen wie die Aktionsmethode zurückgeben, von dem sie aufgerufen wird. Z. B. die *zu* `ActionResult` Methodennamen des Controllers wird zur Suche nach einer Datei anzeigen, die mit dem Namen *About.cshtml*. Die Common Language Runtime sucht zuerst die *Ansichten / [ControllerName]* Ordner für die Ansicht. Wenn es keine entsprechende Ansicht gefunden werden, sucht der *Shared* Ordner für die Ansicht.
 
 Es spielt keine Rolle, wenn Sie, implizit zurückkehren die `ViewResult` mit `return View();` oder übergeben Sie den Namen der Ansicht, um explizit die `View` Methode mit `return View("<ViewName>");`. Zeigen Sie in beiden Fällen Ermittlung sucht nach einer übereinstimmenden Ansichtsdatei, in der angegebenen Reihenfolge aus:
 
@@ -127,7 +127,7 @@ Sie können Daten mit Ansichten mithilfe von mehreren Ansätzen übergeben. Die 
 
 Ein Viewmodel Daten an eine Ansicht zu übergeben, können die Ansicht zu nutzen *starken* Überprüfung des Typs. *Starke Typisierung* (oder *stark typisierte*) bedeutet, dass jede Variable und jede Konstante einen explizit definierten Typ aufweist (z. B. `string`, `int`, oder `DateTime`). Die Gültigkeit der Typen, die in einer Ansicht verwendet, die zum Zeitpunkt der Kompilierung aktiviert ist.
 
-Tools, z. B. [Visual Studio](https://www.visualstudio.com/vs/) oder [Visual Studio Code](https://code.visualstudio.com/), Member (Eigenschaften eines Modells) können auch auflisten, während Sie sie zu einer Sicht hinzufügen, was hilft, Code schneller mit weniger Fehlern zu schreiben. Diese Funktion wird aufgerufen, [IntelliSense](/visualstudio/ide/using-intellisense) in Microsoft-Tools.
+[Visual Studio](https://www.visualstudio.com/vs/) und [Visual Studio Code](https://code.visualstudio.com/) Liste stark typisierte Klasse, Elemente mit einem Feature [IntelliSense](/visualstudio/ide/using-intellisense). Wenn Sie die Eigenschaften von einem Viewmodel anzeigen möchten, geben Sie den Variablennamen ein für das Viewmodel, gefolgt von einem Punkt (`.`). Dadurch können Sie Code schneller mit weniger Fehlern zu schreiben.
 
 Geben Sie ein Modell mithilfe der `@model` Richtlinie. Verwenden Sie das Modell mit `@Model`:
 
@@ -316,7 +316,7 @@ Mit beiden `ViewData` und `ViewBag` auf die gleiche Uhrzeit funktioniert wie mis
 
 **Wann ViewData oder ViewBag verwenden**
 
-Beide `ViewData` und `ViewBag` sind gleichermaßen gültig Ansätze für kleine Mengen von Daten zwischen Controllern und Ansichten übergeben. Die Auswahl der, die eine zu verwenden (oder beides) nach unten zu überlassen oder die Einstellung Ihrer Organisation stammen. Im Allgemeinen sind die Entwickler in die Verwendung eines dieser Zuordnungsverfahren konsistent. Verwenden sie entweder `ViewData` everywhere, oder verwenden Sie `ViewBag` everywhere, aber du Willkommen beim Mischen und diesen genügen. Da beide dynamisch zur Laufzeit aufgelöst und anfällig für Laufzeitfehler verursacht werden, verwenden Sie sie sorgfältig. Einige Entwickler vermeiden komplett.
+Beide `ViewData` und `ViewBag` sind gleichermaßen gültig Ansätze für kleine Mengen von Daten zwischen Controllern und Ansichten übergeben. Die Auswahl der, die eine zu verwenden (oder beides) nach unten zu überlassen oder die Einstellung Ihrer Organisation stammen. Obwohl Sie mischen und zuordnen können `ViewData` und `ViewBag` -Objekte ist der Code einfacher zu lesen und zu verwalten, wenn Sie wählen Sie nur einen und verwenden Sie diese durchgängig. Da beide dynamisch zur Laufzeit aufgelöst und anfällig für Laufzeitfehler verursacht werden, verwenden Sie sie sorgfältig. Einige Entwickler vermeiden komplett.
 
 ### <a name="dynamic-views"></a>Dynamische Ansichten
 
