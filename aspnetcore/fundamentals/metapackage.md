@@ -10,21 +10,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/metapackage
-ms.openlocfilehash: 23a07867874eb534c75c4e7b3be00c4a376f8a8b
-ms.sourcegitcommit: 4e45fd4e3f1374cd51cc931cee93c9d72631d9fc
+ms.openlocfilehash: ff25d80be907994f7ac3d64a8ffa39ae53278ba6
+ms.sourcegitcommit: 73bf6b222474d9f1f6aba3feaca4e191069d2121
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 10/03/2017
 ---
 #<a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>Microsoft.AspNetCore.All Metapackage für ASP.NET Core 2.x
 
-Diese Funktion erfordert ASP.NET Core 2.x.
+Diese Funktion erfordert, dass ASP.NET Core 2.x Zielgruppenadressierung für .NET Core 2.x.
 
-Die [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) Metapackage für ASP.NET Core enthält:
+Das Metapaket [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) für ASP.NET Core enthält:
 
-* Alle unterstützten Pakete vom Team ASP.NET Core.
-* Alle unterstützten Pakete durch das Entity Framework Core. 
-* Interne und 3rd Party Abhängigkeiten von ASP.NET Core und Entity Framework Core verwendet wird. 
+* alle unterstützten Pakete des ASP.NET Core-Teams
+* alle unterstützten Pakete von Entity Framework Core 
+* interne und Drittanbieterabhängigkeiten, die von ASP.NET Core und Entity Framework Core verwendet werden 
 
 Alle Funktionen von ASP.NET Core 2.x und Entity Framework Core 2.x befinden sich die `Microsoft.AspNetCore.All` Paket. Die Standard-Projektvorlagen verwenden dieses Paket an.
 
