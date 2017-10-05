@@ -5,16 +5,16 @@ description: "In diesem Artikel werden die Voraussetzungen und üblichen Schritt
 keywords: ASP.NET Core, migrieren
 ms.author: scaddie
 manager: wpickett
-ms.date: 08/01/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 541774d46bbf570ee860c72fdff5cece364935df
-ms.sourcegitcommit: 55759ae80e7039036a7c6da8e3806f7c88ade325
+ms.openlocfilehash: ea8ccbaf9ddc0d7ee18bb58dbc30d3b803143e81
+ms.sourcegitcommit: 25b43461de1f3a5df11c1e0118f911bf5ff220fa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrieren von ASP.NET Core 1.x zu ASP.NET Core 2.0
 
@@ -103,6 +103,27 @@ Das Übernehmen dieses neuen 2.0-Musters wird dringend empfohlen und ist für Pr
 ```
 Unable to create an object of type '<Context>'. Add an implementation of 'IDesignTimeDbContextFactory<Context>' to the project, or see https://go.microsoft.com/fwlink/?linkid=851728 for additional patterns supported at design time.
 ```
+
+<a name="add-modify-configuration"></a>
+
+## <a name="add-configuration-providers"></a>Hinzufügen von Konfigurationsanbietern
+In 1.x-Projekten konnten Sie Konfigurationsanbieter einer App mit dem `Startup`-Konstruktor hinzufügen. Dazu mussten Sie eine Instanz von `ConfigurationBuilder` erstellen, die betreffenden Anbieter laden (Umgebungsvariablen, App-Einstellungen usw.) und einen Member von `IConfigurationRoot` initialisieren.
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
+
+Im vorherigen Beispiel wurde der `Configuration`-Member mit Konfigurationseinstellen aus *appsettings.json* geladen sowie aus jeder anderen *appsettings.\<Umgebungsname\>.json*-Datei, die mit der `IHostingEnvironment.EnvironmentName`-Eigenschaft übereinstimmt. Diese Dateien befinden sich am gleichen Speicherort wie *startup.cs*.
+
+In 2.0-Projekten wird der Bausteinkonfigurationsknoten, der 1.x-Projekten eigen ist, im Hintergrund ausgeführt. Umgebungsvariablen und App-Einstellungen werden beispielsweise beim Start geladen. Der entsprechende Code *startup.cs* wird zur `IConfiguration`-Initialisierung mit der eingefügten Instanz reduziert:
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
+
+Um die von `WebHostBuilder.CreateDefaultBuilder` hinzugefügten Standardanbieter zu entfernen, rufen Sie die `Clear`-Methode in der `IConfigurationBuilder.Sources`-Eigenschaft in `ConfigureAppConfiguration` auf. Um Anbieter wieder hinzuzufügen, verwenden Sie die `ConfigureAppConfiguration`-Methode in *program.cs*:
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
+
+Die von der `CreateDefaultBuilder`-Methode verwendete Konfiguration im vorherigen Codeausschnitt können Sie sich [hier](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152) ansehen.
+
+Weitere Informationen finden Sie unter [Konfiguration in ASP.NET Core](xref:fundamentals/configuration).
 
 <a name="db-init-code"></a>
 
