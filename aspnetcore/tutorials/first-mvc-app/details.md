@@ -11,11 +11,11 @@ ms.assetid: 870192b4-8d4f-45c7-8c14-83d02bc0ad79
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: bab93a2faa122d9d6d2e71367519baa09bd76bd1
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 28ed7a7a56415d7eb675c06353fb9a8f65fb571f
+ms.sourcegitcommit: c9658c0db446f7cb2e443f62b00cf773bed545fa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/30/2017
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Untersuchen der Methoden „Details“ und „Delete“
 
@@ -55,6 +55,10 @@ Eine weitere gängige Behelfslösung für Methoden mit identischen Namen und Sig
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
+
+### <a name="publish-to-azure"></a>Veröffentlichen in Azure
+
+Anweisungen zum Veröffentlichen dieser App in Azure finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
 Vielen Dank für Ihr Interesse an dieser Einführung in ASP.NET Core MVC. Wir freuen uns über Kommentare, die Sie hinterlassen. [Erste Schritte mit MVC und EF Core](xref:data/ef-mvc/intro) ist ein ausgezeichneter Anschlussartikel an dieses Tutorial.
 

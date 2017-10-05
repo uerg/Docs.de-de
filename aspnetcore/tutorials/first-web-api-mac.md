@@ -11,11 +11,11 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, macOS, HTTP, Service, HTTP-Dienst
 manager: wpickett
-ms.openlocfilehash: 6835cdefcc001452a3ffc8f4fd6a2f55f7274692
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Mac
 
@@ -39,7 +39,7 @@ Es gibt drei Versionen von diesem Tutorial:
 
 Installieren Sie Folgendes:
 
-- [.NET Core SDK](https://www.microsoft.com/net/core#macos)  
+- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher
 - [Visual Studio für Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-the-project"></a>Erstellen eines Projekts
@@ -198,6 +198,6 @@ Die Antwort ist [204 (Kein Inhalt)](http://www.w3.org/Protocols/rfc2616/rfc2616-
 
 * [Routing to Controller Actions (Routing zu Controlleraktionen)](xref:mvc/controllers/routing)
 * Weitere Informationen zum Bereitstellen Ihrer API finden Sie unter [Publishing and Deployment (Veröffentlichung und Bereitstellung)](../publishing/index.md).
-* [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
+* [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)
