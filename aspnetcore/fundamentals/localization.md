@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
+ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Michael Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), und [Hisham "bin" Ateya](https://twitter.com/hishambinateya)
 
-Erstellen einer mehrsprachigen Websites mit ASP.NET Core können Ihre Website in einem breiteren Publikum zukommen lassen zu erreichen. ASP.NET Core bietet Dienste und Middleware für die in verschiedenen Sprachen und Kulturen lokalisieren.
+Erstellen einer mehrsprachigen Websites mit ASP.NET Core können Ihre Website in einem breiteren Publikum zukommen lassen zu erreichen. ASP.NET Core bietet Dienste und Middleware zur Lokalisierung in verschiedene Sprachen und Kulturen.
 
 Internationalisierung umfasst [Globalisierung](https://docs.microsoft.com/dotnet/api/system.globalization) und [Lokalisierung](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Globalisierung versteht man das Entwerfen von apps, die verschiedene Kulturen unterstützen. Globalisierung fügt Unterstützung für die Eingabe, die Anzeige und die Ausgabe des einen definierten Satz von Sprachskripts, die sich auf bestimmte geografische Bereiche beziehen.
 
@@ -43,7 +43,7 @@ Eingeführt in ASP.NET Core, `IStringLocalizer` und `IStringLocalizer<T>` wurden
 
 Im obigen Code die `IStringLocalizer<T>` Implementierung ergibt sich aus der [Abhängigkeitsinjektion](dependency-injection.md). Wenn Sie der lokalisierte Wert von "Zu Title" wurde nicht gefunden, und klicken Sie dann der Indexerschlüssel zurückgegeben wird, d. h. die Zeichenfolge "Zu Title". Sie können die Standardeinstellung Sprache Literalzeichenfolgen in der app und umschließen sie den Lokalisierungsexperten, damit Sie sich bei der Entwicklung der app konzentrieren können. Sie entwickeln von Apps mit der Standardsprache und Schritt der Lokalisierung vorbereiten, ohne zunächst eine Standarddatei für die Ressource erstellt. Alternativ können Sie den herkömmlichen Ansatz verwenden, und geben Sie einen Schlüssel zum Abrufen der Zeichenfolge der Standardsprache. Für viele Entwickler den neuen Workflow, der ohne einer Standardsprache *resx* Datei sowie das Umbrechen von einfach die Zeichenfolgenliterale können die gering Lokalisierungsprozess einer app. Andere Entwickler bevorzugt den herkömmlichen Ablauf wie vereinfachen können zum Arbeiten mit länger Zeichenfolgenliterale und erleichtern die lokalisierte Zeichenfolgen zu aktualisieren.
 
-Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML codiert Argumente, die in der Ressourcenzeichenfolge, jedoch nicht die Ressourcenzeichenfolge formatiert werden. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
+Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML-codiert Argumente, die in der Ressourcenzeichenfolge formatiert werden, jedoch wird keine HTML-codiert die Ressourcenzeichenfolge selbst darstellt. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -317,6 +317,7 @@ Begriffe:
 * Kultur: Es ist eine Sprache und optional eine Region.
 * Neutrale Kultur: eine Kultur, die einer bestimmten Sprache, aber nicht in einer Region aufweist. (z. B. "En", ""es endenden")
 * Bestimmte Kultur: eine Kultur, die der angegebenen Sprache und Region verfügt. (z. B. "En-US" "En-GB", "es-CL")
+* Übergeordnete Kultur: die neutrale Kultur, die eine bestimmte Kultur enthält. (z. B. "En" für die übergeordnete Kultur "En-US" und "En-GB" ist)
 * Gebietsschema: Ein Gebietsschema ist identisch mit einer Kultur.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
