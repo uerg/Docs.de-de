@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 2a92c50085e70b4a505913c86348ba5fe54f6d13
+ms.sourcegitcommit: 67811da1278c75cb10994602c13bd5adec3f0907
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="working-with-multiple-environments"></a>Arbeiten mit mehreren Umgebungen
 
@@ -23,11 +23,11 @@ Durch [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core bietet Unterstützung für das Steuern des Verhaltens der app über mehrere Umgebungen, wie z. B. Entwicklungs-, Staging- und produktionsumgebungen. Umgebungsvariablen werden verwendet, um anzugeben, die Common Language Runtime-Umgebung ermöglicht es der app für die Umgebung konfiguriert werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>Entwicklung, Bereitstellung, Produktion
 
-ASP.NET Core verweist auf ein bestimmtes [Umgebungsvariable](https://github.com/aspnet/Home/wiki), `ASPNETCORE_ENVIRONMENT` die Umgebung beschreiben Sie die Anwendung im derzeit ausgeführt wird. Diese Variable kann festgelegt werden, auf einen beliebigen Wert gewünscht jedoch drei Werte werden gemäß der Konvention verwendet: `Development`, `Staging`, und `Production`. Finden Sie diese in den Beispielen verwendeten Werte und die Vorlagen mit ASP.NET Core bereitgestellt.
+ASP.NET Core verweist auf eine bestimmte Umgebungsvariable `ASPNETCORE_ENVIRONMENT` die Umgebung beschreiben Sie die Anwendung im derzeit ausgeführt wird. Diese Variable kann festgelegt werden, auf einen beliebigen Wert gewünscht jedoch drei Werte werden gemäß der Konvention verwendet: `Development`, `Staging`, und `Production`. Finden Sie diese in den Beispielen verwendeten Werte und die Vorlagen mit ASP.NET Core bereitgestellt.
 
 Die aktuelle umgebungseinstellung kann programmgesteuert aus innerhalb der Anwendung erkannt werden. Darüber hinaus können Sie die Umgebung [tag Helper](../mvc/views/tag-helpers/index.md) auf bestimmte Abschnitte enthalten die [Ansicht](../mvc/views/index.md) basierend auf der aktuellen Umgebung der Anwendung.
 
