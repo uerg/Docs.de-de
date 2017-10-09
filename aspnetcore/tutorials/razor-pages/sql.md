@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 42fa98886f3e87e79ea1ea4a2223a79319676006
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 374111dfcf92132bbcf956eafb98a75f833ce2bb
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Arbeiten mit SQL Server LocalDB und ASP.NET Core
 
@@ -60,7 +60,7 @@ Erstellen Sie im Ordner *Models* die neue Klasse `SeedData`. Ersetzen Sie den ge
 Wenn in der Datenbank Filme vorhanden sind, wird der Initialisierer des Seedings zurückgegeben, und es werden keine Filme hinzugefügt.
 
 ```csharp
-if (context.Movies.Any())
+if (context.Movie.Any())
 {
     return;   // DB has been seeded.
 }
