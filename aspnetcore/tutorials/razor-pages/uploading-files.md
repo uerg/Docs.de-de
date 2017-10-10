@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3c5841f8c623f09530b60cc9997281dcb8e3c4f6
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Hochladen von Dateien auf eine Razor-Seite in ASP.NET Core
 
@@ -42,11 +42,9 @@ Die Klasse verwendet `Display`- und `DisplayFormat`-Attribute, die benutzerfreun
 
 ## <a name="update-the-moviecontext"></a>Aktualisieren von MovieContext
 
-Geben Sie `DbSet` in `MovieContext` (*Models/MovieContext.cs*) für die Zeitpläne an, und fügen Sie der `OnModelCreating`-Methode eine Zeile hinzu, die einen Datenbanktabellennamen im Singular (`Schedule`) für die `DbSet`-Eigenschaft festlegt:
+Geben Sie eine `DbSet`-Klasse in der `MovieContext` (*Models/MovieContext.cs*) für die Zeitpläne ein:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-Hinweis: Wenn Sie `OnModelCreating` nicht überschreiben, um Tabellennamen im Singular zu verwenden, geht Entity Framework davon aus, dass Sie Datenbanknamen im Plural verwenden (z.B. `Movies` und `Schedules`). Entwickler sind sich uneinig darüber, ob Tabellennamen im Plural stehen sollten oder nicht. Konfigurieren Sie `MovieContext` und die Datenbank auf die gleiche Weise. Verwenden Sie in beiden Fällen Datenbanknamen im Singular oder im Plural.
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Hinzufügen der Zeitplantabelle zur Datenbank
 
@@ -97,7 +95,7 @@ Wenn die Seite mit `OnGetAsync` geladen wird, wird `Schedules` aus der Datenbank
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-Wenn das Formular auf dem Server bereitgestellt wird, wird `ModelState` überprüft. Falls ungültig, wird `Schedules` erneut erstellt, und die Seite rendert mit mindestens einer Validierungsmeldung, die angibt, warum die Validierung der Seite fehlgeschlagen ist. Falls gültig, werden die `FileUpload`-Eigenschaften in *OnPostAsync* verwendet, um den Dateiupload für die beiden Versionen des Zeitplans abzuschließen und um ein neues `Schedule`-Objekt zu erstellen, um die Daten zu speichern. Der Zeitplan wird dann in der Datenbank gespeichert:
+Wenn das Formular auf dem Server bereitgestellt wird, wird `ModelState` überprüft. Falls ungültig, wird `Schedule` erneut erstellt, und die Seite rendert mit mindestens einer Validierungsmeldung, die angibt, warum die Validierung der Seite fehlgeschlagen ist. Falls gültig, werden die `FileUpload`-Eigenschaften in *OnPostAsync* verwendet, um den Dateiupload für die beiden Versionen des Zeitplans abzuschließen und um ein neues `Schedule`-Objekt zu erstellen, um die Daten zu speichern. Der Zeitplan wird dann in der Datenbank gespeichert:
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
