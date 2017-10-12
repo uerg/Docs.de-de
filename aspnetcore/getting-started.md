@@ -43,7 +43,7 @@ ms.lasthandoff: 09/12/2017
 
 5. Wechseln Sie dann zu [http://localhost:5000](http://localhost:5000).
 
-6. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server ist @DateTime.Now":
+6. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server ist @DateTime.Now" :
 
     [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 

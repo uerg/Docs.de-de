@@ -174,7 +174,7 @@ Die datenanmerkungen angewendet, um die `Email` und `Password` Eigenschaften Met
 
 ### <a name="expression-names"></a>Ausdrucksnamen
 
-Die `asp-for` Attributwert ist eine `ModelExpression` und der rechten Seite eines Lambda-Ausdrucks. Aus diesem Grund `asp-for="Property1"` wird `m => m.Property1` im generierten Code, daher wird, Sie müssen nicht mit dem Präfix `Model`. Können Sie das "@" Zeichen zu starten, einen Inlineausdruck vor dem Verschieben der `m.`:
+Die `asp-for` Attributwert ist eine `ModelExpression` und der rechten Seite eines Lambda-Ausdrucks. Aus diesem Grund `asp-for="Property1"` wird `m => m.Property1` im generierten Code, daher wird, Sie müssen nicht mit dem Präfix `Model`. Können Sie das « @ » Zeichen zu starten, einen Inlineausdruck vor dem Verschieben der `m.`:
 
 ```HTML
 @{
