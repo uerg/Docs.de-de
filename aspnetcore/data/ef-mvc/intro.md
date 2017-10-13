@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
@@ -94,11 +94,11 @@ Open *Views/Shared/_Layout.cshtml* und die folgenden Änderungen vornehmen:
 
 Die Änderungen werden hervorgehoben.
 
-[!code-html[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
 
 In *Views/Home/Index.cshtml*, ersetzen Sie den Inhalt der Datei mit den folgenden Code hinzu, ersetzt wechseln den Text zu ASP.NET und MVC mit Text zu dieser Anwendung:
 
-[!code-html[](intro/samples/cu/Views/Home/Index.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Home/Index.cshtml)]
 
 Drücken Sie STRG + F5, um das Projekt auszuführen, oder wählen **Debuggen > Starten ohne Debugging** aus dem Menü. Sie finden Sie auf der Startseite mit Registerkarten für die Seiten, die Sie in diesen Lernprogrammen erstellen müssen.
 
@@ -288,7 +288,7 @@ Sie erfahren über die asynchrone Programmierung Elemente in diesem Code später
 
 Die *Views/Students/Index.cshtml* zeigt diese Liste in einer Tabelle:
 
-[!code-html[](intro/samples/cu/Views/Students/Index1.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Students/Index1.cshtml)]
 
 Drücken Sie STRG + F5, um das Projekt auszuführen, oder wählen **Debuggen > Starten ohne Debugging** aus dem Menü.
 
@@ -330,7 +330,7 @@ Die Menge an Code, die in Reihenfolge für das Entity Framework zum Erstellen ei
 
 * Eigenschaften der Entität, die ID oder ClassnameID benannt sind, werden als Eigenschaften des Primärschlüssels erkannt.
 
-* Eine Eigenschaft wird als eine Fremdschlüsseleigenschaft interpretiert, wenn es heißt * <navigation property name> <primary key property name> * (z. B. `StudentID` für die `Student` Navigationseigenschaft seit der `Student` primären Schlüssel der Entität ist `ID`). Fremdschlüsseleigenschaften können auch einfach namens * <primary key property name> * (z. B. `EnrollmentID` seit der `Enrollment` primären Schlüssel der Entität ist `EnrollmentID`).
+* Eine Eigenschaft wird als eine Fremdschlüsseleigenschaft interpretiert, wenn es heißt  *<navigation property name> <primary key property name>*  (z. B. `StudentID` für die `Student` Navigationseigenschaft seit der `Student` primären Schlüssel der Entität ist `ID`). Fremdschlüsseleigenschaften können auch einfach namens  *<primary key property name>*  (z. B. `EnrollmentID` seit der `Enrollment` primären Schlüssel der Entität ist `EnrollmentID`).
 
 Üblichem Verhalten kann überschrieben werden. Beispielsweise können Sie Tabellennamen, Spaltennamen, explizit angeben, wie Sie weiter oben in diesem Lernprogramm gesehen haben. Und Sie können die Spaltennamen und eine Eigenschaft als primary key- oder foreign Key festlegen, wie Sie sehen werden eine [späteren Lernprogramm](complex-data-model.md) in dieser Serie.
 

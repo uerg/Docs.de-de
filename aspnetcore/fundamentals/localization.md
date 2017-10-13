@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
-ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
+ms.openlocfilehash: b64af625dd280b40e3c743af9415e3a67155fe6e
+ms.sourcegitcommit: e9bd53f53c0ba148343cd2057c714a7c72ee81e9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -47,7 +47,7 @@ Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enth
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-Hinweis: Im Allgemeinen nur Text und nicht HTML lokalisieren möchten.
+**Hinweis:** im Allgemeinen nur Text und nicht HTML lokalisiert werden soll.
 
 Sie können auf der untersten Ebene abrufen `IStringLocalizerFactory` von [Abhängigkeitsinjektion](dependency-injection.md):
 
@@ -59,7 +59,7 @@ Sie können partitionieren Ihrer lokalisierten Zeichenfolgen vom Netzwerkcontrol
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebene Zeichenfolgen enthalten.  Im folgenden Beispiel wird die `InfoController` und `SharedResource` Lokalisierungsexperten verwendet werden:
+Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebene Zeichenfolgen enthalten. Im folgenden Beispiel wird die `InfoController` und `SharedResource` Lokalisierungsexperten verwendet werden:
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
@@ -67,7 +67,7 @@ Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebe
 
 Die `IViewLocalizer` Service bietet lokalisierte Zeichenfolgen für eine [Ansicht](https://docs.microsoft.com/aspnet/core). Die `ViewLocalizer` -Klasse implementiert diese Schnittstelle und den Speicherort der Ressource an, aus dem Dateipfad Sicht sucht. Der folgende Code zeigt, wie Sie die standardmäßige Implementierung des `IViewLocalizer`:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 Die standardmäßige Implementierung des `IViewLocalizer` die Ressourcendatei, die basierend auf den Dateinamen für die Sicht sucht. Es gibt keine Option, um eine global freigegebener Ressourcendatei verwendet. `ViewLocalizer`implementiert den Lokalisierungsexperten verwenden `IHtmlLocalizer`, sodass Razor HTML nicht die lokalisierte Zeichenfolge zu codieren. Sie können Ressourcenzeichenfolgen parametrisieren und `IViewLocalizer` wird HTML-Codierung, die Parameter, aber nicht die Ressourcenzeichenfolge. Betrachten Sie das folgende Markup für den Razor aus:
 
@@ -83,13 +83,11 @@ Eine französische Ressourcendatei kann Folgendes enthalten:
 
 Der gerenderte Ansicht würde das HTML-Markup aus der Ressourcendatei enthalten.
 
-Notizen:
-- Ansicht Lokalisierung erfordert das "Localization.AspNetCore.TagHelpers" NuGet-Paket.
-- Im Allgemeinen nur Text und nicht HTML lokalisieren möchten.
+**Hinweis:** im Allgemeinen nur Text und nicht HTML lokalisiert werden soll.
 
 Für die Verwendung eine freigegebenen Ressource-Datei in einer Sicht einfügen `IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations-Lokalisierung
 
@@ -287,11 +285,11 @@ Verwendung `RequestLocalizationOptions` hinzufügen oder Entfernen von Anbietern
 
 In diesem Beispiel **Localization.StarterWeb** Projekt auf [GitHub](https://github.com/aspnet/entropy) Versionen haben Benutzeroberflächenelemente zum Festlegen der `Culture`. Die *Views/Shared/_SelectLanguagePartial.cshtml* Datei können Sie die Kultur aus der Liste der unterstützten Kulturen auswählen:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 Die *Views/Shared/_SelectLanguagePartial.cshtml* Datei hinzugefügt wird, die `footer` Abschnitt der Layoutdatei, sodass er auf alle Sichten verfügbar sind:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 Die `SetLanguage` -Methode legt das Cookie Kultur.
 
