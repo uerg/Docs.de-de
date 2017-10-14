@@ -2,7 +2,7 @@
 title: Zweck Zeichenfolgen
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: c96ed361-c382-4980-8933-800e740cfc38
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: cc33bcfab4945e6d6f9ca7e61edeff4d1837661a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 799c3dc2768e264307783efafee626a346a9362c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="purpose-strings"></a>Zweck Zeichenfolgen
 
-<a name=data-protection-consumer-apis-purposes></a>
+<a name="data-protection-consumer-apis-purposes"></a>
 
 Komponenten, die über IDataProtectionProvider nutzen müssen eine eindeutige übergeben *Zwecke* Parameter an die CreateProtector-Methode. Im Sinne *Parameter* ist für die Sicherheit der Datenschutzsystem integriert, da hiermit Isolation zwischen kryptografischen Consumern, selbst wenn der Stamm-Kryptografieschlüssel identisch sind.
 
@@ -38,7 +38,7 @@ Die Zweck Zeichenfolge keine geheim sein. Dies sollte einfach insofern eindeutig
 
 Da der Parameter Zwecke CreateProtector ein Array von Zeichenfolgen ist, konnte die oben genannten stattdessen als ["Contoso.Security.BearerToken", "v1"] wurde angegeben. Dies ermöglicht das Erstellen einer Hierarchie von Zwecken und mehrinstanzenfähigkeit Szenarios mit dem Data Protection System öffnet.
 
-<a name=data-protection-contoso-purpose></a>
+<a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
 > Nicht vertrauenswürdige Benutzereingaben als alleinige Quelle der Eingabe für die Zwecke Kette möglich Komponenten nicht.

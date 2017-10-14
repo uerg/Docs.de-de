@@ -2,7 +2,7 @@
 title: "Schutz für kurzlebige Datenanbieter"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: af6ea1d0-0d9d-41df-a870-5dda24978e2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-ephemeral
-ms.openlocfilehash: 6b564f082eefad993ac938407e0f3b657d83fb52
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: ee8dccac3ba990b110758042192779426b01fc53
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="ephemeral-data-protection-providers"></a>Schutz für kurzlebige Datenanbieter
 
-<a name=data-protection-implementation-key-storage-ephemeral></a>
+<a name="data-protection-implementation-key-storage-ephemeral"></a>
 
 Es gibt Szenarien, in denen eine Anwendung einen Weg werfen IDataProtectionProvider benötigt. Z. B. der Entwickler möglicherweise nur in einer einmaligen Konsolenanwendung experimentieren werden oder die Anwendung selbst ist vorübergehend (es wird ein Skript erstellt oder ein Komponententestprojekt). Zur Unterstützung dieser Szenarios umfasst das Paket Microsoft.AspNetCore.DataProtection ein EphemeralDataProtectionProvider. Dieser Typ stellt eine grundlegende Implementierung der IDataProtectionProvider, dessen Schlüssel Repository ausschließlich im Arbeitsspeicher gehalten wird, und ist nicht in einen Sicherungsspeicher geschrieben.
 

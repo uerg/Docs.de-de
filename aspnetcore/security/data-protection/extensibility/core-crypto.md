@@ -10,20 +10,20 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 8ee4e380b154db7f1736edc793b56258655ddd52
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 738bf6841b5364f89fa1bcdd11fc71d9be83c23b
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="core-cryptography-extensibility"></a>Core-kryptografieerweiterbarkeit
 
-<a name=data-protection-extensibility-core-crypto></a>
+<a name="data-protection-extensibility-core-crypto"></a>
 
 >[!WARNING]
 > Typen, die jede der folgenden Schnittstellen implementieren, sollten threadsichere werden für mehrere Aufrufer.
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptor"></a>
 
 ## <a name="iauthenticatedencryptor"></a>IAuthenticatedEncryptor
 
@@ -40,8 +40,8 @@ Die Encrypt-Methode gibt ein Blob, das die enciphered nur-Text und ein authentif
 > [!NOTE]
 > Die IAuthenticatedEncryptor-Instanz selbst muss nicht tatsächlich das Schlüsselmaterial enthalten. Beispielsweise könnte die Implementierung in ein HSM für alle Vorgänge delegieren.
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory></a>
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory"></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
 ## <a name="how-to-create-an-iauthenticatedencryptor"></a>Vorgehensweise: Erstellen einer IAuthenticatedEncryptor
 
@@ -102,7 +102,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 ---
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
 ## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET Core 2.x nur)
 
@@ -120,7 +120,7 @@ Die **IAuthenticatedEncryptorDescriptor** Schnittstelle darstellt, einen Typ, de
 
 Der Hauptunterschied zwischen IAuthenticatedEncryptor und IAuthenticatedEncryptorDescriptor ist, dass der Deskriptor weiß, wie die Verschlüsselung zu erstellen und versorgt sie mit gültigen Argumente. Erwägen Sie eine IAuthenticatedEncryptor, deren Implementierung SymmetricAlgorithm und KeyedHashAlgorithm abhängt. Die Verschlüsselung der Auftrag ist, um diese Typen zu nutzen, aber es unbedingt weiß nicht, in denen diese Typen stammen, damit sie wirklich nicht ordnungsgemäße beschrieben, wie sich selbst neu erstellen schreiben kann, wenn die Anwendung neu gestartet wird. Der Deskriptor fungiert als eine höhere zusätzlich. Da der Deskriptor weiß, wie die Verschlüsselung-Instanz zu erstellen (z. B. er kennt die Algorithmen zu erstellen), damit die Verschlüsselung-Instanz neu erstellt werden kann, nach dem Zurücksetzen auf einer Anwendung kann dieses Wissen im XML-Format serialisieren.
 
-<a name=data-protection-extensibility-core-crypto-exporttoxml></a>
+<a name="data-protection-extensibility-core-crypto-exporttoxml"></a>
 
 Der Deskriptor kann über seine ExportToXml Routine serialisiert werden. Diese Routine gibt eine XmlSerializedDescriptorInfo enthält zwei Eigenschaften: die "XElement"-Darstellung des Deskriptors und den Typ der darstellt ein [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) erfolgen kann zum Aufrufen dieses Deskriptors erhält die entsprechenden "XElement" verwendet.
 
@@ -131,7 +131,7 @@ Der serialisierte Deskriptor enthalten möglicherweise vertrauliche Informatione
 
 Es kann auch Fälle, in denen der serialisierte Deskriptor vertrauliche Informationen enthalten, nicht, vorhanden sein. Schauen wir uns erneut die Groß-/Kleinschreibung ein kryptografischer Schlüssel in einem HSM gespeichert. Der Deskriptor kann nicht das Schlüsselmaterial schreiben beim selbst zu serialisieren, da das HSM nicht das Material in Klartext verfügbar macht. Stattdessen kann der Deskriptor schreiben, die Schlüssel eingebunden Version des Schlüssels (falls das HSM Export auf diese Weise kann) oder den HSMs-Bezeichner für den Schlüssel.
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
 ## <a name="iauthenticatedencryptordescriptordeserializer"></a>IAuthenticatedEncryptorDescriptorDeserializer
 

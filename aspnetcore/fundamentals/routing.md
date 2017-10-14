@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
-ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
+ms.openlocfilehash: 5dd8bee7228587d7e13f128bc8f16102fb70a412
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -26,7 +26,7 @@ Routingfunktion ist verantwortlich für die Zuordnung einer eingehenden Anforder
 >[!IMPORTANT]
 > Dieses Dokument behandelt die low-Level ASP.NET Core routing. ASP.NET Core MVC-routing, finden Sie unter [Routing an Controlleraktionen](../mvc/controllers/routing.md)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Routing-Grundlagen
 
@@ -40,7 +40,7 @@ Im Allgemeinen gibt es eine app eine einzelne Auflistung von Routen. Wenn eine A
 
 Routing verbunden ist, um die [Middleware](middleware.md) pipeline nach dem `RouterMiddleware` Klasse. [ASP.NET MVC](../mvc/overview.md) routing für die middlewarepipeline als Teil der Konfiguration hinzugefügt. Zur Verwendung als eigenständige Komponente routing finden Sie unter [mithilfe-routing-Middleware](#using-routing-middleware).
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>URL-Abgleich
 
@@ -159,7 +159,7 @@ Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/5` und extrahier
 
 ![Windows-Token "lokal"](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>URL-Generierung
 

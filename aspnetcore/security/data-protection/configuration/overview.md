@@ -11,19 +11,19 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: d35e0e806999ffd2e0f8f82e0adfc940ea2b503d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuring-data-protection"></a>Konfigurieren des Datenschutzes
 
-<a name=data-protection-configuring></a>
+<a name="data-protection-configuring"></a>
 
 Bei der Initialisierung der Datenschutzsystem gilt es einige [Standardeinstellungen](default-settings.md#data-protection-default-settings) basierend auf der betriebsumgebung. Diese Einstellungen sind im Allgemeinen gut für Anwendungen, die auf einem einzelnen Computer ausgeführt. Es gibt einige Fälle, in denen ein Entwickler möchte diese ändern (z. B. da ihre Anwendung auf mehrere Computer oder aus Compliance-Gründen verteilt wird), und für diese Szenarien die Datenschutzsystem bietet eine umfangreiche API-Konfiguration.
 
-<a name=data-protection-configuration-callback></a>
+<a name="data-protection-configuration-callback"></a>
 
 Es ist eine Erweiterungsmethode AddDataProtection ein IDataProtectionBuilder zurück die selbst macht Erweiterungsmethoden, dass Sie miteinander Optionen verketten können so konfigurieren Sie verschiedene Datenschutz. Z. B. zum Speichern von Schlüsseln auf einer UNC-Freigabe statt %LocalAppData% (Standard), konfigurieren Sie das System wie folgt:
 
@@ -38,7 +38,7 @@ public void ConfigureServices(IServiceCollection services)
 >[!WARNING]
 > Wenn Sie den Speicherort der schlüsselpersistenz ändern, wird das System nicht mehr automatisch verschlüsseln Schlüssel im Ruhezustand, da er nicht weiß, ob es sich bei DPAPI handelt es sich eine entsprechende Verschlüsselungsmechanismus.
 
-<a name=configuring-x509-certificate></a>
+<a name="configuring-x509-certificate"></a>
 
 Sie können konfigurieren, dass das System, um Schlüssel im Ruhezustand zu schützen, durch das Aufrufen einer der ProtectKeysWith\* Konfigurations-APIs. Betrachten Sie das folgenden Beispiel wird die Tasten auf einer UNC-Freigabe gespeichert, und diese Schlüssel im Ruhezustand mit einem bestimmten x. 509-Zertifikat verschlüsselt.
 
@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Standardmäßig isoliert die Datenschutzsystem Anwendungen von einem anderen, auch wenn sie die gleiche physischen Schlüssel Repository gemeinsam nutzen. Dies verhindert, dass die Anwendungen aus der jeweils anderen geschützten Nutzlasten zu verstehen. Freigeben von geschützten Nutzlasten zwischen zwei verschiedenen konfigurieren Sie das System, übergeben in der gleichen Anwendungsname für beide Anwendungen wie in der folgenden Beispiel:
 
-<a name=data-protection-code-sample-application-name></a>
+<a name="data-protection-code-sample-application-name"></a>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuring-disable-automatic-key-generation></a>
+<a name="data-protection-configuring-disable-automatic-key-generation"></a>
 
 Schließlich können Sie ein Szenario haben, in dem Sie nicht möchten eine Anwendung die Schlüssel automatisch zurückzusetzen, wie sie Ablaufdatum nähern. Ein Beispiel hierfür ist möglicherweise Anwendungen richten Sie in eine primäre / sekundäre Beziehung, wobei nur die primäre Anwendung verantwortlich für die schlüsselverwaltung Bedenken und alle sekundären Anwendungen einfach eine schreibgeschützte Ansicht des Rings Schlüssel verfügen. Die sekundären Anwendungen können so konfiguriert werden, um den Schlüssel Ring als schreibgeschützt zu behandeln, indem Sie das System wie folgt konfigurieren:
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuration-per-app-isolation></a>
+<a name="data-protection-configuration-per-app-isolation"></a>
 
 ## <a name="per-application-isolation"></a>Pro Anwendungsisolation
 
@@ -105,7 +105,7 @@ Dieser Mechanismus für die Sicherheitsisolation wird davon ausgegangen, dass di
 
 Wenn die Datenschutzsystem nicht von einem ASP.NET Core-Host bereitgestellt wird, (z. B. wenn der Entwickler selbst über die DataProtectionProvider konkreten Typ instanziiert), das Isolieren von Webanwendungen standardmäßig deaktiviert ist, und alle Anwendungen, die durch die gleiche Erfassung gesichert Material kann Nutzlasten freigeben, solange sie die entsprechenden Zwecke bereitstellen. Um das Isolieren von Webanwendungen in dieser Umgebung bereitstellen möchten, rufen Sie die SetApplicationName-Methode auf das Konfigurationsobjekt, finden Sie unter der [Codebeispiel](#data-protection-code-sample-application-name) oben.
 
-<a name=data-protection-changing-algorithms></a>
+<a name="data-protection-changing-algorithms"></a>
 
 ## <a name="changing-algorithms"></a>Ändern von Algorithmen
 
@@ -144,7 +144,7 @@ Der Entwickler kann eine Implementierung manuell festlegen, bei Bedarf über ein
 >[!TIP]
 > Ändern die Algorithmen wirkt sich nicht auf den vorhandenen Schlüssel im Schlüssel Ring aus. Er wirkt sich nur auf neu generierten Schlüssel.
 
-<a name=data-protection-changing-algorithms-custom-managed></a>
+<a name="data-protection-changing-algorithms-custom-managed"></a>
 
 ### <a name="specifying-custom-managed-algorithms"></a>Angeben von benutzerdefinierten verwalteten Algorithmen
 
@@ -193,7 +193,7 @@ Im Allgemeinen die \*Typeigenschaften müssen auf konkrete, zeigen instanziierba
 > [!NOTE]
 > Die SymmetricAlgorithm muss eine Schlüssellänge von ≥ 128 Bits und eine Blockgröße von ≥ 64 Bits haben, und es muss CBC-Modus-Verschlüsselung mit PKCS #7-Auffüllung unterstützen. Der KeyedHashAlgorithm benötigen Nachrichtenhash Größe > = 128 Bits und müssen Schlüssel, der den Hashalgorithmus Digestlänge gleich Länge unterstützt. Die KeyedHashAlgorithm ist nicht zwingend erforderlich, HMAC sein.
 
-<a name=data-protection-changing-algorithms-cng></a>
+<a name="data-protection-changing-algorithms-cng"></a>
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>Angeben von benutzerdefinierten Windows CNG-Algorithmen
 

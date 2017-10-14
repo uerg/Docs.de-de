@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: ca6b62dd4699536b24c3422a2a51fc3fe1744f0a
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: d626768fe1a485705e104a5c758cbdb0b46685a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -33,7 +33,7 @@ Der Konfigurations-API bietet eine Möglichkeit zum Konfigurieren von einer app 
 
 Jede Konfigurationswert ordnet einen Zeichenfolgenschlüssel. Integrierte Bindung unterstützt beim Deserialisieren von Einstellungen in einer benutzerdefinierten [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) Objekt (eine einfache .NET Klasse mit Eigenschaften).
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="simple-configuration"></a>Einfache Konfiguration
 
@@ -81,7 +81,7 @@ Die Umgebung wird auf einen der in der Regel festgelegt `Development`, `Staging`
 * **Nie** Kennwörter oder andere vertraulichen Daten im Anbietercode Konfiguration oder in Konfigurationsdateien als nur-Text gespeichert. Keine Produktion geheime Schlüssel in der Entwicklung verwenden, oder Umgebungen zu testen. Geben Sie stattdessen geheime Schlüssel außerhalb der Projektstruktur auf, damit sie in das Repository nicht versehentlich eingetragen werden können. Erfahren Sie mehr über [arbeiten mit mehreren Umgebungen](environments.md) und Verwalten von [sichere Speicherung von app-Kennwörter während der Entwicklung](../security/app-secrets.md).
 * Wenn `:` nicht ersetzen in Umgebungsvariablen verwendet, in Ihrem System, `:` mit `__` (doppelter Unterstrich).
 
-<a name=options-config-objects></a>
+<a name="options-config-objects"></a>
 
 ## <a name="using-options-and-configuration-objects"></a>Mithilfe der Optionen und Konfigurationsobjekten
 
@@ -94,7 +94,7 @@ Die Optionsklasse muss nicht abstrakten mit einem öffentlichen parameterlosen K
 
 [!code-csharp[Main](configuration/sample/UsingOptions/Models/MyOptions.cs)]
 
-<a name=options-example></a>
+<a name="options-example"></a>
 
 Im folgenden Code wird die JSON-Konfigurationsanbieter aktiviert. Die `MyOptions` Klasse dem Dienstcontainer hinzugefügt und an Configuration gebunden ist.
 
@@ -148,7 +148,7 @@ Sie können auch angeben von Optionen in einem Ansichtsmodell oder einfügen `IO
 
 [!code-html[Main](configuration/sample/UsingOptions/Views/Home/Index.cshtml?highlight=3-4,16-17,20-21)]
 
-<a name=in-memory-provider></a>
+<a name="in-memory-provider"></a>
 
 ## <a name="ioptionssnapshot"></a>IOptionsSnapshot
 
@@ -247,7 +247,7 @@ public void CanBindObjectTree()
 }
 ```
 
-<a name=custom-config-providers></a>
+<a name="custom-config-providers"></a>
 
 ## <a name="basic-sample-of-entity-framework-custom-provider"></a>Basic-Beispiel des benutzerdefinierten Anbieter für Entity Framework
 

@@ -2,7 +2,7 @@
 title: Resource Based Autorisierung
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: d3575619c53e77dadc293ea2bb7dc72501a8a1e3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="resource-based-authorization"></a>Resource Based Autorisierung
 
-<a name=security-authorization-resource-based></a>
+<a name="security-authorization-resource-based"></a>
 
 Häufig Autorisierung richtet sich nach der Ressource, auf die zugegriffen wird. Beispielsweise kann ein Dokument Author-Eigenschaft aufweisen. Nur der Autor des Dokuments würden dürfen, zu aktualisieren, damit die Ressource aus dem Dokumentrepository geladen werden muss, bevor eine Autorisierung Auswertung vorgenommen werden kann. Dies kann mit einem Attribut autorisieren ausgeführt werden, als Attribut Auswertung vor dem Datenbindung und erfolgt bevor Sie Ihren eigenen Code zum Laden einer Ressource in eine Aktion ausgeführt wird. Anstelle von deklarativer Autorisierung, die Attribut-Methode, müssen wir imperative Autorisierung verwenden, wenn ein Entwickler eine Authorize-Funktion in ihrem eigenen Code aufruft.
 
@@ -50,7 +50,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+<a name="security-authorization-resource-based-imperative"></a>
 
 Um den Dienst aufzurufen, laden Sie die Ressource in Ihre Aktion rufen Sie anschließend die `AuthorizeAsync` Überladung, die Sie benötigen. Zum Beispiel:
 

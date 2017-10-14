@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
-ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
+ms.openlocfilehash: d4d10ef45d562f34c3f8b5ce025abaf763c862d3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Einführung in die Sitzung und Anwendungsstatus in ASP.NET Core
 
@@ -43,6 +43,7 @@ Die in-Memory-sitzungsanbieters speichert Sitzungsdaten auf dem lokalen Server. 
 
 ASP.NET Core MVC macht die [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) Eigenschaft auf einen [Controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Diese Eigenschaft speichert Daten, bis sie gelesen wurden. Die Methoden `Keep` und `Peek` können verwendet werden, um die Daten zu überprüfen, ohne sie zu löschen. `TempData`ist besonders nützlich für die Umleitung, wenn Daten für mehr als eine einzelne Anforderung benötigt werden. `TempData`wird von TempData-Anbieter, z. B. implementiert mithilfe von Cookies oder Sitzungsstatus.
 
+<a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData-Anbieter
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
@@ -106,7 +107,7 @@ Die `Items` Auflistung ist ein guter Speicherort zum Speichern von Daten, die er
 
 Caching ist eine effiziente Möglichkeit zum Speichern und Abrufen von Daten. Sie können die Lebensdauer für zwischengespeicherte Elemente basierend auf Uhrzeit und andere Faktoren steuern. Erfahren Sie mehr über [Caching](../performance/caching/index.md).
 
-<a name=session></a>
+<a name="session"></a>
 ## <a name="working-with-session-state"></a>Arbeiten mit Sitzungsstatus
 
 ### <a name="configuring-session"></a>Konfigurieren der Sitzung
@@ -167,7 +168,7 @@ Sitzung erfolgt über die `Session` Eigenschaft `HttpContext`. Diese Eigenschaft
 
 Im folgende Beispiel wird gezeigt, einstellungs- und ein "Int" und eine Zeichenfolge:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 Wenn Sie die folgenden Erweiterungsmethoden hinzufügen, können Sie festlegen und Abrufen von serialisierbare Objekte Sitzung:
 
@@ -232,7 +233,7 @@ public class HomeController : Controller
 
 Dieser Ansatz hat außerdem den Vorteil des Entfernens der Wiederholung von "Magic-Zeichenfolgen" an mehreren Stellen im Code.
 
-<a name=appstate-errors></a>
+<a name="appstate-errors"></a>
 
 ## <a name="application-state-data"></a>Anwendungszustandsdaten
 

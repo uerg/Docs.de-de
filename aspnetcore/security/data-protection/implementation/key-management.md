@@ -2,7 +2,7 @@
 title: "Schlüsselverwaltung"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 687207cb6a1cea89166fd2b6172cdc0a013de4b3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management"></a>Schlüsselverwaltung
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
 Die Datenschutzsystem verwaltet automatisch die Lebensdauer der Master-Schlüssel zum Schützen und Aufheben des Schutzes von Nutzlasten. Jeder Schlüssel kann in einer der vier Phasen vorhanden sein.
 
@@ -46,7 +46,7 @@ Der Grund der Datenschutzsystem generiert einen neuen Schlüssel sofort anstatt 
 
 Eine Ausnahme ist aufgetreten. Verfügt der Anwendungsentwickler [deaktiviert die automatische Generierung](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation), und klicken Sie dann die Datenschutzsystem etwas als den standardmäßigen Schlüssel auswählen muss. In diesem Szenario fallback werden das System, wählen Sie den Schlüssel nicht widerrufen, mit dem letzten Aktivierungsdatum eingeräumt an Schlüsseln, die Zeit an andere Computer im Cluster weitergegeben wurden. Die Fallbacksystem annehmen kann eine abgelaufene Standardschlüssel daher auswählen. Die Fallbacksystem wird nie einen gesperrten Schlüssel als den standardmäßigen Schlüssel auswählen und wenn der Schlüssel Ring leer ist oder jeden Schlüssel wurde gesperrt klicken Sie dann das System erzeugt einen Fehler bei der Initialisierung.
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>Schlüsselablauf und Rollen
 

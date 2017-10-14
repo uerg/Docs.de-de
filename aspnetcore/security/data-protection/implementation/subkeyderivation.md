@@ -2,7 +2,7 @@
 title: "Unterschlüssel Ableitung und authentifizierten Verschlüsselung"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e070742b5d9966c4772fd2f0a6d637d98a46137c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Unterschlüssel Ableitung und authentifizierten Verschlüsselung
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 Die meisten Schlüssel im Schlüssel Ring enthält eine Form der Entropie und algorithmische Informationen, die darauf hinweist, "Verschlüsselung im CBC-Modus + HMAC-Überprüfung" oder "GCM-Verschlüsselung + Überprüfung". In diesen Fällen wir verweisen auf die eingebettete Entropie, als das Schlüsselmaterial (oder KM) für diesen Schlüssel, und wir führen Sie eine schlüsselableitung-Funktion, um die Schlüssel abgeleitet werden, die für die tatsächlichen kryptografischen Vorgänge verwendet werden.
 
 > [!NOTE]
 > Schlüssel sind abstrakt, und eine benutzerdefinierte Implementierung Verhalten sich möglicherweise nicht wie unten beschrieben. Wenn der Schlüssel stellt eine eigene Implementierung der IAuthenticatedEncryptor, anstatt Sie mithilfe einer der integrierten Factorys, der in diesem Abschnitt beschriebenen Mechanismus gilt.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Zusätzliche authentifizierte Daten und Unterschlüsseln Ableitung
 
@@ -42,7 +42,7 @@ Da das AAD für das Tupel aller drei Komponenten eindeutig ist, können wir neue
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (K_M AAD, ContextHeader || KeyModifier)
 
-Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unter [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sek.. 5.1) mit den folgenden Parametern:
+Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unter [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sek. 5.1) mit den folgenden Parametern:
 
 * Schlüsselableitungsfunktion Schlüssel (KDK) = K_M
 

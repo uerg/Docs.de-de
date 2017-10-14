@@ -11,15 +11,15 @@ ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 82c0c7282de34e496f529d964f99121ae2805c5a
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 58cafcfdc7946e82d1e0ea5de95e0e497b1b6bcf
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="view-based-authorization"></a>View-basierte Autorisierung
 
-<a name=security-authorization-views></a>
+<a name="security-authorization-views"></a>
 
 Häufig wird ein Entwickler möchte einblenden, ausblenden oder ändern Sie andernfalls eine Benutzeroberfläche, die basierend auf der Identität des aktuellen Benutzers. Sie können dem Prüfdienst in MVC-Ansichten über zugreifen [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection). Dem Prüfdienst in einer Razor-Verwendung anzeigen Einfügen der `@inject` , z. B. die Richtlinie `@inject IAuthorizationService AuthorizationService` (erfordert `@using Microsoft.AspNetCore.Authorization`). Legen Sie ggf. dem Prüfdienst in jeder Ansicht der `@inject` -Direktive in der `_ViewImports.cshtml` in der Datei die `Views` Verzeichnis. Weitere Informationen zu Abhängigkeitsinjektion in Sichten finden Sie unter [Abhängigkeitsinjektion in Sichten](../../mvc/views/dependency-injection.md).
 

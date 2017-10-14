@@ -11,15 +11,15 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
-ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
+ms.openlocfilehash: 24585ed5b4c21a357fc0eed4de6ccedf9fa50d3e
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Benutzerdefinierte Richtlinie basierende Autorisierung
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
 Im Hintergrund der [Rolle Autorisierung](roles.md) und [Ansprüche Autorisierung](claims.md) Verwenden einer Anforderung verwendet wird, einen Handler für die Anforderung und eine vorkonfigurierte Richtlinie. Diese Bausteine ermöglichen es Ihnen, Autorisierung auswertungen in Code, sodass eine umfangreichere, wiederverwendet werden kann, und einer leicht testfähig Autorisierung Struktur auszudrücken.
 
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 Eine Anforderung benötigen nicht Daten oder Eigenschaften.
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>Autorisierung Handler
 
 Ein Authorization-Handler ist für die Auswertung von Eigenschaften einer Anforderung verantwortlich. Der Handler für die Autorisierung muss anhand einer bereitgestellten bewerten `AuthorizationHandlerContext` entscheiden, ob Autorisierung zugelassen wird. Kann die Anforderung besteht [mehrere Handler](policies.md#security-authorization-policies-based-multiple-handlers). Handler erben müssen `AuthorizationHandler<T>` , wobei T die Anforderung wird verarbeitet.
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 Der Handler Mindestalter kann wie folgt aussehen:
 
@@ -116,7 +116,7 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 
 Im Code über untersuchen wir zuerst um festzustellen, ob der aktuelle Benutzer principal hat ein Geburtsdatum Anspruch, der durch einen Aussteller ist bekannt und Vertrauensstellung ausgegeben wurde. Wenn der Anspruch nicht vorhanden ist kann nicht wir autorisiert, sodass wir zurückgegeben werden. Wenn wir einen Anspruch haben, wir herausfinden, wie ALT der Benutzer ist und, wenn sie das Mindestalter übergebener die Anforderung erfüllen dann Autorisierung wurde erfolgreich ausgeführt. Nach dem Autorisierung erfolgreich ist, die wir rufen `context.Succeed()` in der Anforderung, die wurde erfolgreich als Parameter übergeben.
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
 Handler werden z. B. in der Auflistung der Dienste während der Konfiguration erfasst.
 
@@ -150,7 +150,7 @@ Sehen Sie unserer [Handler Beispiel](policies.md#security-authorization-handler-
 
 Unabhängig davon, was Sie innerhalb der Handler aufgerufen werden alle Handler für eine Anforderung aufgerufen werden, wenn eine Richtlinie der Anforderung erforderlich ist. Anforderungen an, wie z. B. Protokollierung, haben Nebeneffekte, die immer stattfinden wird dadurch auch wenn `context.Fail()` in einen anderen Handler aufgerufen wurde.
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Warum würde ich mehrere Handler für eine Anforderung?
 

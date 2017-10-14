@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78004aa370cac8b297fd7ede534260c83965ae79
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Einführung in die Tag-Hilfsprogramme in ASP.NET Core 
 
@@ -51,7 +51,7 @@ Die `asp-for` Attribut von zur Verfügung gestellt wird die `For` Eigenschaft in
 
 Tag-Hilfsprogrammen Bereich wird gesteuert, indem eine Kombination von `@addTagHelper`, `@removeTagHelper`, und die "!" opt-Out-Zeichen.
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`Stellt die Tag-Hilfsprogrammen zur Verfügung
 
@@ -82,7 +82,7 @@ Zum Hinzufügen eines Tag-Hilfsprogramms zu einer Ansicht mithilfe einer FQN Sie
 
 Wie bereits erwähnt, Hinzufügen der `@addTagHelper` -Direktive der *Views/_ViewImports.cshtml* Datei stellt das Tag-Hilfsobjekt, der zur Verfügung, alle Dateien in der *Ansichten* Verzeichnis und die Unterverzeichnisse. Sie können die `@addTagHelper` -Direktive in Dateien bestimmte anzeigen, wenn Sie verfügbar zu machen das Tag-Hilfsobjekt, um nur diese Sichten teilnehmen möchten.
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Entfernt die Tag-Hilfsprogramme
 
@@ -104,7 +104,7 @@ Sie können ein Tag Hilfsprogramm auf datenelementebene mit dem Tag Helper Aussc
 
 Sie müssen das Tag Helper Ausschlussverfahren Zeichen auf dem Start- und Endtag anwenden. (Visual Studio-Editor fügt automatisch die Opt-Out Zeichen an das Endtag, wenn Sie eine des öffnenden Tags hinzufügen). Nachdem Sie das Opt-Out Zeichen hinzugefügt haben, werden des Elements und die Attribute Tag Helper in eine besondere Schriftart nicht mehr angezeigt.
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Mithilfe von `@tagHelperPrefix` zum Hilfsprogramm-Tag-Verwendung als explizite Anforderung festgelegt
 
@@ -127,7 +127,7 @@ Berücksichtigen Sie beim Schreiben einer HTML `<label>` Element. Sobald Sie ein
 
 ![Bild](intro/_static/label.png)
 
-Nicht nur erhalten Sie HTML-Hilfe, aber das Symbol "(dem" @"Symbolbreite"<>"darunter).
+Nicht nur erhalten Sie HTML-Hilfe, aber das Symbol "(der"@" symbol with "<> "darunter).
 
 ![Bild](intro/_static/tagSym.png)
 

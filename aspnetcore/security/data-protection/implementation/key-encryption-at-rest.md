@@ -2,7 +2,7 @@
 title: "Verschlüsselung ruhender"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: 16a9385630d88c4c9f33954f83fce2bbce5be719
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5d0eb4036a3d491336cbe9357779c150b5cbb236
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-encryption-at-rest"></a>Verschlüsselung ruhender
 
-<a name=data-protection-implementation-key-encryption-at-rest></a>
+<a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 Standardmäßig die Datenschutzsystem [verwendet eine Heuristik](../configuration/default-settings.md#data-protection-default-settings) um zu bestimmen, wie kryptografischen schlüsselmaterialien ruhende verschlüsselt werden soll. Der Entwickler kann außer Kraft setzen die Heuristik und manuell angeben, wie die Schlüssel im Ruhezustand verschlüsselt werden soll.
 
 > [!NOTE]
 > Bei Angabe ein expliziter Schlüsselverschlüsselung zur Rest-Mechanismus wird die Datenschutzsystem den Standardmechanismus für die Speicherung Registrierung aufzuheben, den von die Heuristik zur Verfügung gestellt. Sie müssen [Geben Sie eine explizite schlüsselspeichermechanismus](key-storage-providers.md#data-protection-implementation-key-storage-providers), andernfalls das Data Protection-System nicht gestartet.
 
-<a name=data-protection-implementation-key-encryption-at-rest-providers></a>
+<a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
 Die Datenschutzsystem wird mit drei wichtige Verschlüsselungsmechanismen mitgelieferten geliefert.
 
@@ -64,7 +64,7 @@ sc.AddDataProtection()
 
 Aufgrund der .NET Framework-Einschränkungen werden nur Zertifikate mit privaten Schlüsseln CAPI unterstützt. Finden Sie unter [zertifikatbasierte Verschlüsselung mit Windows DPAPI-NG](#data-protection-implementation-key-encryption-at-rest-dpapi-ng) unten mögliche problemumgehungen für diese Einschränkungen.
 
-<a name=data-protection-implementation-key-encryption-at-rest-dpapi-ng></a>
+<a name="data-protection-implementation-key-encryption-at-rest-dpapi-ng"></a>
 
 ## <a name="windows-dpapi-ng"></a>Windows DPAPI-NG
 

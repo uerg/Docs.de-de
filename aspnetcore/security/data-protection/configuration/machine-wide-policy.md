@@ -2,7 +2,7 @@
 title: Wide Computerrichtlinie
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: fde8f75422c9dd84311a65b21e1e38b47fbe0306
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="machine-wide-policy"></a>Wide Computerrichtlinie
 
-<a name=data-protection-configuration-machinewidepolicy></a>
+<a name="data-protection-configuration-machinewidepolicy"></a>
 
 Bei Ausführung auf Windows verfügt über die Datenschutzsystem eingeschränkte Unterstützung für das Festlegen von computerweiten Standardrichtlinie für alle Anwendungen, die Datenschutz nutzen. Die Idee ist, dass ein Administrator einige Standardeinstellung (z. B. Lebensdauer von Algorithmen verwendet, oder Schlüssel) zu ändern, ohne jede Anwendung auf dem Computer manuell aktualisieren möchten.
 
@@ -42,7 +42,7 @@ Die unterstützten Werte sind:
 
 * KeyEscrowSinks [Zeichenfolge] – Gibt die Typen, die zur schlüsselhinterlegung verwendet werden soll. Dieser Wert ist eine durch Semikolons getrennte Liste von schlüsselhinterlegung senken, in dem jedes Element in der Liste der Assembly qualifizierte Name eines Typs ist das IKeyEscrowSink implementiert.
 
-<a name=data-protection-encryption-types></a>
+<a name="data-protection-encryption-types"></a>
 
 ### <a name="encryption-types"></a>Verschlüsselungstypen
 

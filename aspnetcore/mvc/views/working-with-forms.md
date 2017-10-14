@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Einführung in die Verwendung von Tag-Hilfsprogramme in Formularen in ASP.NET Core
 
@@ -26,7 +26,7 @@ Dieses Dokument veranschaulicht, arbeiten mit Formularen und die HTML-Elemente, 
 
 In vielen Fällen HTML-Hilfsmethoden bieten eine alternative Methode in einer bestimmten Tag-Hilfsprogramm, aber es ist wichtig zu wissen, dass die Tag-Hilfsprogrammen HTML-Hilfsmethoden nicht ersetzen, und es ist keines Tag-Hilfsprogramms für jedes HTML-Hilfsobjekt. Wenn eine HTML-Hilfsobjekt Alternative vorhanden ist, wird er erwähnt.
 
-<a name=my-asp-route-param-ref-label></a>
+<a name="my-asp-route-param-ref-label"></a>
 
 ## <a name="the-form-tag-helper"></a>Das Form-Tag-Hilfsprogramm
 
@@ -174,7 +174,7 @@ Die datenanmerkungen angewendet, um die `Email` und `Password` Eigenschaften Met
 
 ### <a name="expression-names"></a>Ausdrucksnamen
 
-Die `asp-for` Attributwert ist eine `ModelExpression` und der rechten Seite eines Lambda-Ausdrucks. Aus diesem Grund `asp-for="Property1"` wird `m => m.Property1` im generierten Code, daher wird, Sie müssen nicht mit dem Präfix `Model`. Können Sie das « @ » Zeichen zu starten, einen Inlineausdruck vor dem Verschieben der `m.`:
+Die `asp-for` Attributwert ist eine `ModelExpression` und der rechten Seite eines Lambda-Ausdrucks. Aus diesem Grund `asp-for="Property1"` wird `m => m.Property1` im generierten Code, daher wird, Sie müssen nicht mit dem Präfix `Model`. Können Sie das "@" Zeichen zu starten, einen Inlineausdruck vor dem Verschieben der `m.`:
 
 ```HTML
 @{
