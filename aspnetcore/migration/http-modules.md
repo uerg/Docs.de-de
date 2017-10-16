@@ -2,7 +2,7 @@
 title: Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen.
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen. 
 
@@ -51,7 +51,7 @@ Pausieren zu ASP.NET Core Middleware wir zunächst kurz zusammengefasst, wie HTT
 
 **Die Reihenfolge, in der Module eingehende Anforderungen verarbeitet werden, wird durch bestimmt:**
 
-   1. Die [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx), also eine Reihe-Ereignisse, die von ASP.NET ausgelöst: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)usw.. Jedes Modul kann einen Handler für ein oder mehrere Ereignisse erstellt werden.
+   1. Die [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx), also eine Reihe-Ereignisse, die von ASP.NET ausgelöst: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)usw. Jedes Modul kann einen Handler für ein oder mehrere Ereignisse erstellt werden.
 
    2. Nach demselben Ereignis, die Reihenfolge, in der sie in konfiguriert sind *"Web.config"*.
 
@@ -97,7 +97,7 @@ Ein vorhandenes HTTP-Modul sieht in etwa wie folgt:
 
 Entsprechend der [Middleware](../fundamentals/middleware.md) Seite eine Middleware ASP.NET Core ist eine Klasse, die verfügbar macht eine `Invoke` Methode erstellen eine `HttpContext` und Zurückgeben einer `Task`. Ihre neue Middleware wird wie folgt aussehen:
 
-<a name=http-modules-usemiddleware></a>
+<a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
@@ -105,7 +105,7 @@ Die oben genannten Middleware Vorlage stammt aus dem Abschnitt auf [schreiben Mi
 
 Die *MyMiddlewareExtensions* Hilfsklasse erleichtert das Konfigurieren Ihrer Middleware in Ihre `Startup` Klasse. Die `UseMyMiddleware` Methode der Anforderungspipeline die Middleware-Klasse hinzugefügt. Von der Middleware erforderliche Dienste abrufen in der Middleware-Konstruktor eingefügt.
 
-<a name=http-modules-shortcircuiting-middleware></a>
+<a name="http-modules-shortcircuiting-middleware"></a>
 
 Das Modul wird eine Anforderung, z. B. wenn der Benutzer nicht autorisiert ist möglicherweise beendet:
 
