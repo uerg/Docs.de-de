@@ -1,30 +1,30 @@
 ---
 title: "Razor-syntaxverweis für ASP.NET Core"
-author: guardrex
+author: rick-anderson
 description: "Erfahren Sie Markup Razor-Syntax für das Einbetten von serverbasiertem Code in Webseiten aus."
 keywords: ASP.NET Core, Razor, Razor-Direktiven
 ms.author: riande
 manager: wpickett
-ms.date: 09/29/2017
+ms.date: 10/18/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 532e278597a0029b5bae93068af5b7b147c35688
-ms.sourcegitcommit: e45f8912ce32b4071bf7e83b8f8315cd8bba3520
+ms.openlocfilehash: 743c42b26c62d0e24b5d5b487b3154bc249fcff4
+ms.sourcegitcommit: a873f862c8e68b2cf2998aaed3dddd93eeba9e0f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Razor-Syntax für ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), und [Taylor Mullen](https://twitter.com/ntaylormullen)
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen), und [Dan Vicarel](https://github.com/Rabadash8820)
 
 Razor ist eine Markupsyntax für das Einbetten von serverbasiertem Code in Webseiten. Die Razor-Syntax besteht aus Razor-Markup, C#- und HTML. Dateien, die in der Regel enthält Razor haben eine *cshtml* Dateierweiterung.
 
 ## <a name="rendering-html"></a>Rendern von HTML
 
-Die Standardsprache für den Razor ist HTML. Rendern von HTML in Razor-Markuperweiterung unterscheidet sich nicht als HTML-Datei aus einer HTML-Datei gerendert. Setzen Sie die HTML-Markup in einem *cshtml* Razor-Datei, die er vom Server unverändert gerendert wird.
+Die Standardsprache für den Razor ist HTML. Rendern von HTML in Razor-Markuperweiterung unterscheidet sich nicht als HTML-Datei aus einer HTML-Datei gerendert.  HTML-Markup *cshtml* Razor-Dateien vom Server unverändert gerendert wird.
 
 ## <a name="razor-syntax"></a>Razor-syntax
 
@@ -59,11 +59,24 @@ Implizite Razor-Ausdrücke beginnen mit `@` gefolgt von C#-Code:
 <p>@DateTime.IsLeapYear(2016)</p>
 ```
 
-Mit Ausnahme von C#- `await` Schlüsselwort implicit-Ausdrücken keine Leerzeichen enthalten. Sie können Leerzeichen intermingle, wenn die C#-Anweisung eine klare beendet wurde:
+Mit Ausnahme von C#- `await` Schlüsselwort implicit-Ausdrücken keine Leerzeichen enthalten. Wenn die C#-Anweisung eine klare beendet wurde, können Leerzeichen vermischt werden:
 
 ```cshtml
 <p>@await DoSomething("hello", "world")</p>
 ```
+
+Implicit-Ausdrücken **kann nicht** C#-Generika, als eines der Zeichen innerhalb der Klammern enthalten (`<>`) als HTML-Tags interpretiert werden. Der folgende Code ist **nicht** gültig:
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
+
+ * Das Element "Int" wurde nicht geschlossen.  Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
+ *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ 
+Generische Methodenaufrufen, müssen umschlossen werden ein [expliziter Razor-Ausdruck](#explicit-razor-expressions) oder ein [Razor-Codeblock](#razor-code-blocks). Diese Einschränkung gilt nicht für *vbhtml* Razor-Dateien, da Visual Basic-Syntax Klammern um generische Typparameter anstelle von Klammern platziert.
 
 ## <a name="explicit-razor-expressions"></a>Explizite Razor-Ausdrücke
 
@@ -85,7 +98,7 @@ Der Code wird der folgenden HTML-Code gerendert:
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
 ```
 
-Sie können einen expliziten Ausdruck zum Verketten von Text mit einem Ergebnis des Ausdrucks verwenden:
+EXPLICIT-Ausdrücken können zum Verketten von Text mit einem Ergebnis des Ausdrucks verwendet werden:
 
 ```cshtml
 @{
@@ -96,6 +109,26 @@ Sie können einen expliziten Ausdruck zum Verketten von Text mit einem Ergebnis 
 ```
 
 Ohne die explizite Ausdruck `<p>Age@joe.Age</p>` so behandelt, als eine e-Mail-Adresse und `<p>Age@joe.Age</p>` gerendert wird. Wenn ein expliziter Ausdruck geschrieben `<p>Age33</p>` gerendert wird.
+
+
+EXPLICIT-Ausdrücken dienen zum Rendern der Ausgabe von generischen Methoden in *cshtml* Dateien. In einem impliziten Ausdruck, der Zeichen innerhalb der Klammern (`<>`) als HTML-Tags interpretiert werden. Das folgende Markup wird **nicht** Razor gültig:
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
+
+ * Das Element "Int" wurde nicht geschlossen.  Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
+ *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ 
+ Das folgende Markup zeigt die richtige Methode schreiben, diesen Code.  Der Code wird als ein expliziter Ausdruck geschrieben:
+
+```cshtml
+<p>@(GenericMethod<int>())</p>
+```
+
+Hinweis: Diese Einschränkung gilt nicht für *vbhtml* Razor-Dateien.  Mit *vbhtml* Razor-Dateien, Visual Basic-Syntax platziert Klammern um generische Typparameter anstelle von eckigen Klammern.
 
 ## <a name="expression-encoding"></a>Expression-Codierung
 
@@ -159,7 +192,7 @@ Der Code wird der folgenden HTML-Code gerendert:
 
 ### <a name="implicit-transitions"></a>Implizite Übergänge
 
-In einem Codeblock die Standardsprache ist c#, aber Sie können den Übergang zurück zum HTML:
+In einem Codeblock die Standardsprache ist c#, aber die Razor-Seite können Übergang zurück zum HTML:
 
 ```cshtml
 @{
@@ -180,9 +213,12 @@ Um einen Unterabschnitt eines Codeblocks definieren, die HTML gerendert werden s
 }
 ```
 
-Verwenden Sie diesen Ansatz, wenn HTML zu rendern, die von einem HTML-Tags eingeschlossen wird nicht verwendet werden sollen. Ohne ein HTML- oder Razor-Tag erhalten Sie einen Razor-Laufzeitfehler.
+Verwenden Sie diesen Ansatz zum Rendern von HTML, die von einem HTML-Tags eingeschlossen ist nicht an. Tritt auf, ein Razor-Laufzeitfehler, ohne ein HTML- oder Razor-Tag.
 
-Die  **\<Text >** Tag eignet sich ebenfalls um Leerzeichen beim Rendern von Inhalt zu steuern. Nur der Inhalt zwischen die  **\<Text >** -Tags wird gerendert, und keine Leerzeichen vor oder nach der  **\<Text >** Tags im HTML-Ausgabe angezeigt.
+Die  **\<Text >** Tag ist nützlich, um die Leerzeichen beim Rendern von Inhalt zu steuern:
+
+* Nur der Inhalt zwischen die  **\<Text >** -Tags wird gerendert. 
+* Keine Leerzeichen vor oder nach der  **\<Text >** Tags in der HTML-Ausgabe angezeigt.
 
 ### <a name="explicit-line-transition-with-"></a>Explizite Zeile Übergang mit @:
 
@@ -196,11 +232,13 @@ Um den Rest der eine ganze Zeile in einem Codeblock als HTML zu rendern, verwend
 }
 ```
 
-Ohne die `@:` im Code erhalten Sie einen Razor-Runtime-Fehler.
+Ohne die `@:` im Code wird ein Razor-Laufzeitfehler generiert.
+
+Warnung: Zusätzliche `@` Zeichen in einer Razor-Datei können dazu führen, dass Ursache Compiler-Fehler bei den Anweisungen weiter unten in den Block. Dieser Compilerfehler können schwierig sein, zu verstehen, da der tatsächliche Fehler vor den gemeldeten Fehler auftritt.  Dieser Fehler tritt häufig nach mehrere implizite/explizite Ausdrücke in einen einzelnen Codeblock zu kombinieren.
 
 ## <a name="control-structures"></a>Steuerungsstrukturen
 
-Steuerungsstrukturen sind eine Erweiterung von Codeblöcken. Alle Aspekte von Codeblöcken (Übergang zu Markup Inline-c#) auch gelten für die folgenden Strukturen.
+Steuerungsstrukturen sind eine Erweiterung von Codeblöcken. Alle Aspekte von Codeblöcken (Übergang zu Markup Inline-c#) auch gelten die folgenden Strukturen:
 
 ### <a name="conditionals-if-else-if-else-and-switch"></a>Konditionelle Abschnitte @if, ElseIf, #else- und@switch
 
@@ -230,7 +268,7 @@ else
 }
 ```
 
-Sie können eine Switch-Anweisung wie folgt verwenden:
+Das folgende Markup zeigt, wie eine Switch-Anweisung:
 
 ```cshtml
 @switch (value)
@@ -249,7 +287,7 @@ Sie können eine Switch-Anweisung wie folgt verwenden:
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>Schleifen @for, @foreach, @while, und @do während
 
-Sie können aus einer Vorlage gebildete HTML mit Schleifen Steueranweisungen rendern. Um eine Liste der Personen zu rendern:
+Auf Vorlagen basierende HTML kann mit Schleifen Steueranweisungen gerendert werden.  Um eine Liste der Personen zu rendern:
 
 ```cshtml
 @{
@@ -262,7 +300,7 @@ Sie können aus einer Vorlage gebildete HTML mit Schleifen Steueranweisungen ren
 }
 ```
 
-Sie können eine der folgenden Schleifen Anweisungen verwenden:
+Die folgenden Schleifen Anweisungen werden unterstützt:
 
 `@for`
 
@@ -315,7 +353,8 @@ Sie können eine der folgenden Schleifen Anweisungen verwenden:
 
 ### <a name="compound-using"></a>Zusammengesetzte@using
 
-In c# ist ein `using` Anweisung wird verwendet, um sicherzustellen, dass ein Objekt wurde verworfen. In Razor wird derselbe Mechanismus verwendet, um HTML-Hilfsmethoden zu erstellen, zusätzliche Inhalte enthalten. Sie können z. B. HTML-Hilfsmethoden zum Rendern ein Formulartag mit nutzen die `@using` Anweisung:
+In c# ist ein `using` Anweisung wird verwendet, um sicherzustellen, dass ein Objekt wurde verworfen. In Razor wird derselbe Mechanismus verwendet, um HTML-Hilfsmethoden zu erstellen, zusätzliche Inhalte enthalten. Im folgenden Code Rendern HTML-Hilfsmethoden ein Formulartag mit der `@using` Anweisung:
+
 
 ```cshtml
 @using (Html.BeginForm())
@@ -328,7 +367,7 @@ In c# ist ein `using` Anweisung wird verwendet, um sicherzustellen, dass ein Obj
 }
 ```
 
-Sie können auch Aktionen auf Bereichsebene mit [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro).
+Bereichsebene Aktionen können ausgeführt werden, mit [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro).
 
 ### <a name="try-catch-finally"></a>@try, catch, finally
 
@@ -417,7 +456,7 @@ Die `@model` Richtlinie gibt den Typ des Modells an eine Ansicht übergeben:
 @model TypeNameOfModel
 ```
 
-Wenn Sie eine ASP.NET-MVC-Anwendung Core einzelne Benutzerkonten erstellen die *Views/Account/Login.cshtml* -Ansicht enthält die folgende Deklaration einer Modell:
+In einer ASP.NET Core MVC-app mit einzelne Benutzerkonten erstellt die *Views/Account/Login.cshtml* -Ansicht enthält die folgende Deklaration einer Modell:
 
 ```cshtml
 @model LoginViewModel
@@ -435,17 +474,17 @@ Razor macht eine `Model` Eigenschaft für den Zugriff auf das Modell an die Ansi
 <div>The Login Email: @Model.Email</div>
 ```
 
-Die `@model` Richtlinie gibt den Typ dieser Eigenschaft. Die Richtlinie gibt an, die `T` in `RazorPage<T>` , dass die generierte, die Klasse die Sicht abgeleitet ist. Wenn Sie nicht angeben, die `@model` Richtlinie, die `Model` -Eigenschaft ist vom Typ `dynamic`. Der Wert des Modells wird auf dem Controller an die Ansicht übergeben. Finden Sie unter [stark typisierte Modelle und die @model Schlüsselwort](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-keyword-label) für Weitere Informationen.
+Die `@model` Richtlinie gibt den Typ dieser Eigenschaft. Die Richtlinie gibt an, die `T` in `RazorPage<T>` , dass die generierte, die Klasse die Sicht abgeleitet ist. Wenn die `@model` Richtlinie iisn't angegeben, die `Model` -Eigenschaft ist vom Typ `dynamic`. Der Wert des Modells wird auf dem Controller an die Ansicht übergeben. Weitere Informationen finden Sie unter [stark typisierte Modelle und die @model Schlüsselwort.
 
 ### <a name="inherits"></a>@inherits
 
-Die `@inherits` Richtlinie erhalten Sie Vollzugriff auf die Klasse erbt von die Ansicht:
+Die `@inherits` Richtlinie bietet vollen Zugriff auf die Klasse erbt von die Sicht:
 
 ```cshtml
 @inherits TypeNameOfClassToInheritFrom
 ```
 
-Im folgenden finden einen benutzerdefinierten Typ des Razor-Seite:
+Der folgende Code ist ein benutzerdefinierter Typ des Razor-Seite:
 
 [!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
 
@@ -459,11 +498,11 @@ Der Code wird der folgenden HTML-Code gerendert:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
-Sie können keine `@model` und `@inherits` in derselben Ansicht. Sie können `@inherits` in eine *_ViewImports.cshtml* -Datei, die die Sicht importiert:
+ `@model`und `@inherits` in derselben Ansicht verwendet werden kann.  `@inherits`kann einem *_ViewImports.cshtml* -Datei, die die Sicht importiert:
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 
-Im folgenden finden ein Beispiel für eine stark typisierte Ansicht:
+Der folgende Code ist ein Beispiel für eine stark typisierte Ansicht:
 
 [!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
 
@@ -476,11 +515,12 @@ Wenn "rick@contoso.com" übergeben wird im Modell, Ansicht die folgenden HTML-Ma
 
 ### <a name="inject"></a>@inject
 
-Die `@inject` Richtlinie ermöglicht das Einfügen eines Diensts aus Ihrer [Dienstcontainer](xref:fundamentals/dependency-injection) in der Ansicht. Finden Sie unter [Abhängigkeitsinjektion in Sichten](xref:mvc/views/dependency-injection) für Weitere Informationen.
+
+Die `@inject` Richtlinie ermöglicht die Razor-Seite zum Einfügen von eines Diensts von der [Dienstcontainer](xref:fundamentals/dependency-injection) in eine Sicht. Weitere Informationen finden Sie unter [Abhängigkeitsinjektion in Sichten](xref:mvc/views/dependency-injection).
 
 ### <a name="functions"></a>@functions
 
-Die `@functions` Richtlinie können Sie funktionsebenendetails auf Inhalte zu einer Sicht hinzufügen:
+Die `@functions` Richtlinie ermöglicht eine Razor-Seite, um eine Sicht Funktionsebene Inhalt hinzuzufügen:
 
 ```cshtml
 @functions { // C# Code }
@@ -502,7 +542,7 @@ Der folgende Code ist die generierte Razor C#-Klasse:
 
 ### <a name="section"></a>@section
 
-Die `@section` Richtlinie dient in Verbindung mit der [Layout](xref:mvc/views/layout) Ansichten zum Rendern von Inhalt in verschiedenen Teilen der HTML-Seite zu aktivieren. Finden Sie unter [Abschnitte](xref:mvc/views/layout#layout-sections-label) für Weitere Informationen.
+Die `@section` Richtlinie dient in Verbindung mit der [Layout](xref:mvc/views/layout) Ansichten zum Rendern von Inhalt in verschiedenen Teilen der HTML-Seite zu aktivieren. Weitere Informationen finden Sie unter [Abschnitte](xref:mvc/views/layout#layout-sections-label).
 
 ## <a name="tag-helpers"></a>Tag-Hilfsprogramme
 
@@ -571,7 +611,12 @@ Das Razor-Ansichtsmodul führt die Groß-/Kleinschreibung Suchvorgänge für Ans
 
 * Basis-Dateiquelle: 
   * Unter Betriebssystemen mit Groß-/Kleinschreibung beachten Dateisystemen (z. B. Windows) sind die physische Datei Anbieter Suchvorgänge Groß-/Kleinschreibung beachtet. Beispielsweise `return View("Test")` ergibt Übereinstimmungen für */Views/Home/Test.cshtml*, */Views/home/test.cshtml*, und eine andere Variante der Schreibweise.
-  * Auf Dateisystemen, Groß-/Kleinschreibung unterschieden (z. B. Linux, OS x, und mit `EmbeddedFileProvider`), Suchvorgänge Groß-/Kleinschreibung beachtet. Beispielsweise `return View("Test")` speziell Übereinstimmungen */Views/Home/Test.cshtml*.
+  * Auf Dateisystemen, Groß-/Kleinschreibung (z. B. Linux, OS x, und mit `EmbeddedFileProvider`), Suchvorgänge Groß-/Kleinschreibung beachtet. Beispielsweise `return View("Test")` speziell Übereinstimmungen */Views/Home/Test.cshtml*.
 * Vorkompilierte Sichten: Nachschlagen vorkompilierte Sichten mit ASP.Net Core 2.0 und höher, Groß-/Kleinschreibung beachtet, unter allen Betriebssystemen ist. Das Verhalten ist identisch mit dem Verhalten der physischen Datei des Anbieters unter Windows. Wenn zwei vorkompilierte Sichten nur im Fall unterschiedlich sind, ist das Ergebnis der Suche nicht deterministisch.
 
-Entwicklern wird empfohlen, die Groß-/Kleinschreibung von Datei- und Verzeichnisnamen, die Groß-/Kleinschreibung der Bereich, Controller-und Aktionsnamen übereinstimmen. Dadurch wird sichergestellt, dass Ihre Bereitstellungen ihre Ansichten unabhängig von der zugrunde liegenden Dateisystem gefunden werden.
+Entwicklern wird empfohlen, die Groß-/Kleinschreibung von Datei- und Verzeichnisnamen, die Groß-/Kleinschreibung der entsprechen:
+
+    * Namen von Bereich, Controller und Aktion. 
+    * Razor-Seiten.
+    
+Groß-wird sichergestellt, dass die Bereitstellungen ihrer Ansichten unabhängig von der zugrunde liegenden Dateisystem suchen.
