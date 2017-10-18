@@ -12,25 +12,25 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: b2e991ea37b1b726e472d78d839143546ebd559f
+ms.sourcegitcommit: 29da58de11e20c9c60448e36e7075c6b13622624
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in ASP.NET Core anmelden
 
 Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core unterstützt eine Protokollierung-API, die mit einer Vielzahl von Protokollanbieter funktioniert. Integrierte Anbieter können Sie die Protokolle auf einem oder mehreren Zielen senden, und Sie eine Drittanbieter-protokollierungsframework einbinden können. In diesem Artikel zeigt, wie die integrierte Protokollierung-API und Anbieter in Ihrem Code verwenden.
+ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiedenen Protokollanbietern funktioniert. Integrierte Anbieter können Sie die Protokolle auf einem oder mehreren Zielen senden, und Sie eine Drittanbieter-protokollierungsframework einbinden können. In diesem Artikel zeigt, wie die integrierte Protokollierung-API und Anbieter in Ihrem Code verwenden.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ---
 
@@ -585,9 +585,6 @@ Das folgende Beispiel konfiguriert eine `TraceSource` Anbieter, der protokollier
 Die [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) anbieterpakets schreibt Protokolle in Textdateien in eine Azure App Service-app-Dateisystem und [blob-Speicher](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in einem Azure-Speicherkonto. Der Anbieter ist nur für apps, die ASP.NET Core 1.1.0 ausgerichtet verfügbar oder höher. 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-> [!NOTE]
-> ASP.NET Core 2.0 ist in der Vorschau.  Apps, mit der neuesten Preview-Version erstellt wurden möglicherweise nicht ausgeführt werden, wenn in Azure App Service bereitgestellt. Wenn ASP.NET Core 2.0 veröffentlicht wird, führt Azure App Service 2.0-apps und das Azure App Service-Anbieter funktioniert als hier angegeben.
 
 Sie müssen die Anbieter-Paket oder den Aufruf installieren die `AddAzureWebAppDiagnostics` Erweiterungsmethode.  Der Anbieter ist automatisch für Ihre app verfügbar, wenn Sie die app in Azure App Service bereitstellen.
 
