@@ -71,7 +71,7 @@ Zum Optimieren der Leistung der Kursdetails und Delete-Seiten hinzufügen `AsNoT
 
 ### <a name="modify-the-course-views"></a>Ändern Sie die Kurs-Ansichten
 
-In *Views/Courses/Create.cshtml*, fügen Sie eine Option "Select-Abteilung", um die **Abteilung** Dropdown-Liste, ändern Sie die Beschriftung von **"DepartmentID"** auf ** Abteilung**, und fügen Sie eine validierungsmeldung angezeigt.
+In *Views/Courses/Create.cshtml*, fügen Sie eine Option "Select-Abteilung", um die **Abteilung** Dropdown-Liste, ändern Sie die Beschriftung von **"DepartmentID"** auf  **Abteilung**, und fügen Sie eine validierungsmeldung angezeigt.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
@@ -129,7 +129,7 @@ Der Code führt Folgendes aus:
 
 -  Ruft die aktuelle Instructor-Entität aus der Datenbank-eager loading für die `OfficeAssignment` Navigationseigenschaft. Dies ist identisch mit was Sie in der HttpGet haben `Edit` Methode.
 
--  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die weiße Liste die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
+-  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die Whitelist die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
 
     <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -215,7 +215,7 @@ Wenn das Kontrollkästchen für einen Kurs wurde nicht aktiviert, aber die Vorge
 
 ### <a name="update-the-instructor-views"></a>Aktualisieren Sie die Instructor-Ansichten
 
-In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem Array von Kontrollkästchen durch das Hinzufügen der folgenden code unmittelbar nach der `div` Elemente für die **Office ** Feld und vor der `div` -Element für die **speichern** Schaltfläche.
+In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem Array von Kontrollkästchen durch das Hinzufügen der folgenden code unmittelbar nach der `div` Elemente für die **Office**  Feld und vor der `div` -Element für die **speichern** Schaltfläche.
 
 <a id="notepad"></a>
 > [!NOTE] 
