@@ -17,30 +17,30 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/12/2017
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
+# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controllern in ASP.NET Core MVC
 
 Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
 
-Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegender Bestandteil der Entwickler apps mithilfe von ASP.NET Core MVC Aufbau auf.
+Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegender Bestandteil der Entwicklung von Apps mithilfe von ASP.NET Core MVC.
 
 ## <a name="what-is-a-controller"></a>Was ist ein Domänencontroller?
 
-Ein Controller wird verwendet, um zu definieren und eine Reihe von Aktionen zu gruppieren. Eine Aktion (oder *Aktionsmethode*) ist eine Methode auf einem Domänencontroller der Anforderungen verarbeitet. Logische Gruppierung Controller ähnliche Aktionen zusammen. Diese Aggregation von Aktionen kann allgemeine Sätze von Regeln, z. B. routing, Zwischenspeichern und Autorisierung, zusammen angewendet werden. Anforderungen werden über Aktionen zugeordnet [routing](xref:mvc/controllers/routing).
+Ein Controller wird verwendet, um eine Reihe von Aktionen zu definieren und zu gruppieren. Eine Aktion (oder *Aktionsmethode*) ist eine Methode auf einem Domänencontroller der Anforderungen verarbeitet. Controller nehmen eine logische Gruppierung von ähnlichen Aktionen vor. Diese Aggregation von Aktionen kann ein allgemeines Regelwerk für, z. B. Routing, Zwischenspeichern und Autorisierung, global ermöglichen. Anforderungen werden mittels Routing Aktionen zugeordnet [routing](xref:mvc/controllers/routing).
 
-Gemäß der Konvention Controllerklassen:
-* Befinden sich in der Stammebene des Projekts *Controller* Ordner
-* Erben von`Microsoft.AspNetCore.Mvc.Controller`
+Gemäß Konvention:
+* Befinden sich Controllerklassen auf root-Ebene des Projekts im *Controller*-Ordner
+* Erben Controllerklassen von`Microsoft.AspNetCore.Mvc.Controller`
 
-Ein Controller ist eine instanziierbare Klasse, die in der mindestens eine der folgenden Bedingungen "true" ist:
-* Der Name der Klasse wird mit "Controller" Formatangabe.
-* Die Klasse erbt von einer Klasse, deren Name mit "Controller" Formatangabe ist
-* Die Klasse wird mit ergänzt die `[Controller]` Attribut
+Ein Controller ist eine instanziierbare Klasse, für die mindestens eine der folgenden Bedingungen "true" ist:
+* Der Name der Klasse enthält das Suffix "Controller" 
+* Die Klasse erbt von einer Klasse, die das Suffix "Controller" hat
+* Die Klasse wird mit dem `[Controller]`-Attribut definiert
 
-Eine Controllerklasse dürfen keine zugeordnete `[NonController]` Attribut.
+Einer Controllerklasse darf kein `[NonController]` Attribut zugeordnet werden.
 
-Domänencontroller sollten folgen der [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/). Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen desselben Diensts benötigen, erwägen Sie [Konstruktoreinfügung](xref:mvc/controllers/dependency-injection#constructor-injection) solcher Abhängigkeiten anfordern. Wenn der Dienst nur einer einzigen Aktion-Methode erforderlich ist, erwägen Sie [Aktion Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) zum Anfordern der Abhängigkeitsverhältnis.
+Domänencontroller sollten dem [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/) folgen. Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen denselben Dienst benötigen, sollten Sie [Konstruktor-Injection](xref:mvc/controllers/dependency-injection#constructor-injection) in Erwägung ziehen, um den Dienst anzufordern. Wenn ein Dienst nur für eine Aktions-Methode erforderlich ist, wäre [Aktion-Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) das Mittel der Wahl, zur Anforderung des Dienstes.
 
-Innerhalb der **M**Odel -**V**vorhandenes -**C**Ontroller-Muster, ein Controller ist verantwortlich für die ersten Verarbeitung der Anforderung und Instanziierung des Modells. Im Allgemeinen sollte die geschäftlichen Entscheidungen innerhalb des Modells ausgeführt werden.
+Innerhalb des **M**odel -**V**iew -**C**ontroller-Patterns, ist ein Controller verantwortlich für die initiale Verarbeitung der Anforderung und die Instanziierung des Modells. Im Allgemeinen sollten inhaltliche Entscheidungen innerhalb des Modells vorgenommen werden.
 
 Der Controller nutzt das Ergebnis der Verarbeitung des Modells, (sofern vorhanden) und gibt die richtige Ansicht und deren zugeordneten Daten oder das Ergebnis des API-Aufrufs. Weitere Informationen zu [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
