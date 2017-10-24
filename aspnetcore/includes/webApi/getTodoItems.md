@@ -8,7 +8,7 @@ Der vorangehende Code:
 
 ## <a name="getting-to-do-items"></a>Abrufen von „To-do“-Elementen
 
-Fügen Sie der `TodoController`-Klasse die folgenden Methoden hinzu, „To-do“-Elemente abzurufen:
+Fügen Sie der `TodoController`-Klasse die folgenden Methoden hinzu, um „To-do“-Elemente abzurufen:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
 
