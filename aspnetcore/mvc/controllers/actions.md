@@ -21,22 +21,22 @@ ms.lasthandoff: 09/12/2017
 
 Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
 
-Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegender Bestandteil der Entwicklung von Apps mithilfe von ASP.NET Core MVC.
+Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegende Bestandteile der Entwicklung von Apps mithilfe von ASP.NET Core MVC.
 
 ## <a name="what-is-a-controller"></a>Was ist ein Domänencontroller?
 
 Ein Controller wird verwendet, um eine Reihe von Aktionen zu definieren und zu gruppieren. Eine Aktion (oder *Aktionsmethode*) ist eine Methode auf einem Domänencontroller der Anforderungen verarbeitet. Controller nehmen eine logische Gruppierung von ähnlichen Aktionen vor. Diese Aggregation von Aktionen kann ein allgemeines Regelwerk für, z. B. Routing, Zwischenspeichern und Autorisierung, global ermöglichen. Anforderungen werden mittels Routing Aktionen zugeordnet [routing](xref:mvc/controllers/routing).
 
-Gemäß Konvention:
-* Befinden sich Controllerklassen auf root-Ebene des Projekts im *Controller*-Ordner
-* Erben Controllerklassen von`Microsoft.AspNetCore.Mvc.Controller`
+Gemäß Konvention gilt für Controllerklassen Folgendes:
+* Controllerklassen befinden sich im Ordner *Controllers* auf der Stammebene des Projekts.
+*Controllerklassen erben von `Microsoft.AspNetCore.Mvc.Controller`.
 
 Ein Controller ist eine instanziierbare Klasse, für die mindestens eine der folgenden Bedingungen "true" ist:
 * Der Name der Klasse enthält das Suffix "Controller" 
 * Die Klasse erbt von einer Klasse, die das Suffix "Controller" hat
-* Die Klasse wird mit dem `[Controller]`-Attribut definiert
+* Die Klasse wurde mit dem `[Controller]`-Attribut definiert.
 
-Einer Controllerklasse darf kein `[NonController]` Attribut zugeordnet werden.
+Einer Controllerklasse darf kein `[NonController]`-Attribut zugeordnet sein.
 
 Domänencontroller sollten dem [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/) folgen. Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen denselben Dienst benötigen, sollten Sie [Konstruktor-Injection](xref:mvc/controllers/dependency-injection#constructor-injection) in Erwägung ziehen, um den Dienst anzufordern. Wenn ein Dienst nur für eine Aktions-Methode erforderlich ist, wäre [Aktion-Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) das Mittel der Wahl, zur Anforderung des Dienstes.
 
