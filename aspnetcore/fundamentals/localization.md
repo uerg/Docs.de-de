@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Michael Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), und [Hisham "bin" Ateya](https://twitter.com/hishambinateya)
 
-Erstellen einer mehrsprachigen Websites mit ASP.NET Core können Ihre Website in einem breiteren Publikum zukommen lassen zu erreichen. ASP.NET Core bietet Dienste und Middleware für die in verschiedenen Sprachen und Kulturen lokalisieren.
+Erstellen einer mehrsprachigen Websites mit ASP.NET Core können Ihre Website in einem breiteren Publikum zukommen lassen zu erreichen. ASP.NET Core bietet Dienste und Middleware zur Lokalisierung in verschiedene Sprachen und Kulturen.
 
 Internationalisierung umfasst [Globalisierung](https://docs.microsoft.com/dotnet/api/system.globalization) und [Lokalisierung](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Globalisierung versteht man das Entwerfen von apps, die verschiedene Kulturen unterstützen. Globalisierung fügt Unterstützung für die Eingabe, die Anzeige und die Ausgabe des einen definierten Satz von Sprachskripts, die sich auf bestimmte geografische Bereiche beziehen.
 
@@ -43,11 +43,11 @@ Eingeführt in ASP.NET Core, `IStringLocalizer` und `IStringLocalizer<T>` wurden
 
 Im obigen Code die `IStringLocalizer<T>` Implementierung ergibt sich aus der [Abhängigkeitsinjektion](dependency-injection.md). Wenn Sie der lokalisierte Wert von "Zu Title" wurde nicht gefunden, und klicken Sie dann der Indexerschlüssel zurückgegeben wird, d. h. die Zeichenfolge "Zu Title". Sie können die Standardeinstellung Sprache Literalzeichenfolgen in der app und umschließen sie den Lokalisierungsexperten, damit Sie sich bei der Entwicklung der app konzentrieren können. Sie entwickeln von Apps mit der Standardsprache und Schritt der Lokalisierung vorbereiten, ohne zunächst eine Standarddatei für die Ressource erstellt. Alternativ können Sie den herkömmlichen Ansatz verwenden, und geben Sie einen Schlüssel zum Abrufen der Zeichenfolge der Standardsprache. Für viele Entwickler den neuen Workflow, der ohne einer Standardsprache *resx* Datei sowie das Umbrechen von einfach die Zeichenfolgenliterale können die gering Lokalisierungsprozess einer app. Andere Entwickler bevorzugt den herkömmlichen Ablauf wie vereinfachen können zum Arbeiten mit länger Zeichenfolgenliterale und erleichtern die lokalisierte Zeichenfolgen zu aktualisieren.
 
-Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML codiert Argumente, die in der Ressourcenzeichenfolge, jedoch nicht die Ressourcenzeichenfolge formatiert werden. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
+Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML-codiert Argumente, die in der Ressourcenzeichenfolge formatiert werden, jedoch wird keine HTML-codiert die Ressourcenzeichenfolge selbst darstellt. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-Hinweis: Im Allgemeinen nur Text und nicht HTML lokalisieren möchten.
+**Hinweis:** im Allgemeinen nur Text und nicht HTML lokalisiert werden soll.
 
 Sie können auf der untersten Ebene abrufen `IStringLocalizerFactory` von [Abhängigkeitsinjektion](dependency-injection.md):
 
@@ -59,7 +59,7 @@ Sie können partitionieren Ihrer lokalisierten Zeichenfolgen vom Netzwerkcontrol
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebene Zeichenfolgen enthalten.  Im folgenden Beispiel wird die `InfoController` und `SharedResource` Lokalisierungsexperten verwendet werden:
+Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebene Zeichenfolgen enthalten. Im folgenden Beispiel wird die `InfoController` und `SharedResource` Lokalisierungsexperten verwendet werden:
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
@@ -67,7 +67,7 @@ Einige Entwickler verwenden die `Startup` Klasse, um die globale oder freigegebe
 
 Die `IViewLocalizer` Service bietet lokalisierte Zeichenfolgen für eine [Ansicht](https://docs.microsoft.com/aspnet/core). Die `ViewLocalizer` -Klasse implementiert diese Schnittstelle und den Speicherort der Ressource an, aus dem Dateipfad Sicht sucht. Der folgende Code zeigt, wie Sie die standardmäßige Implementierung des `IViewLocalizer`:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 Die standardmäßige Implementierung des `IViewLocalizer` die Ressourcendatei, die basierend auf den Dateinamen für die Sicht sucht. Es gibt keine Option, um eine global freigegebener Ressourcendatei verwendet. `ViewLocalizer`implementiert den Lokalisierungsexperten verwenden `IHtmlLocalizer`, sodass Razor HTML nicht die lokalisierte Zeichenfolge zu codieren. Sie können Ressourcenzeichenfolgen parametrisieren und `IViewLocalizer` wird HTML-Codierung, die Parameter, aber nicht die Ressourcenzeichenfolge. Betrachten Sie das folgende Markup für den Razor aus:
 
@@ -83,13 +83,11 @@ Eine französische Ressourcendatei kann Folgendes enthalten:
 
 Der gerenderte Ansicht würde das HTML-Markup aus der Ressourcendatei enthalten.
 
-Notizen:
-- Ansicht Lokalisierung erfordert das "Localization.AspNetCore.TagHelpers" NuGet-Paket.
-- Im Allgemeinen nur Text und nicht HTML lokalisieren möchten.
+**Hinweis:** im Allgemeinen nur Text und nicht HTML lokalisiert werden soll.
 
 Für die Verwendung eine freigegebenen Ressource-Datei in einer Sicht einfügen `IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations-Lokalisierung
 
@@ -102,7 +100,7 @@ DataAnnotations-Fehlermeldungen mit lokalisiert werden `IStringLocalizer<T>`. Mi
 
 In ASP.NET-MVC 1.1.0 Core und höher, nicht-Validation-Attribute sind lokalisiert. Wird von ASP.NET Core MVC 1,0 **nicht** suchen Sie die lokalisierten Zeichenfolgen für nicht-Validierungsattribute.
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Verwenden eine Ressourcenzeichenfolge für mehrere Klassen
 
 Der folgende Code zeigt, wie eine Ressourcenzeichenfolge für Validierungsattribute mit mehreren Klassen verwendet:
@@ -287,11 +285,11 @@ Verwendung `RequestLocalizationOptions` hinzufügen oder Entfernen von Anbietern
 
 In diesem Beispiel **Localization.StarterWeb** Projekt auf [GitHub](https://github.com/aspnet/entropy) Versionen haben Benutzeroberflächenelemente zum Festlegen der `Culture`. Die *Views/Shared/_SelectLanguagePartial.cshtml* Datei können Sie die Kultur aus der Liste der unterstützten Kulturen auswählen:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 Die *Views/Shared/_SelectLanguagePartial.cshtml* Datei hinzugefügt wird, die `footer` Abschnitt der Layoutdatei, sodass er auf alle Sichten verfügbar sind:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 Die `SetLanguage` -Methode legt das Cookie Kultur.
 
@@ -317,6 +315,7 @@ Begriffe:
 * Kultur: Es ist eine Sprache und optional eine Region.
 * Neutrale Kultur: eine Kultur, die einer bestimmten Sprache, aber nicht in einer Region aufweist. (z. B. "En", ""es endenden")
 * Bestimmte Kultur: eine Kultur, die der angegebenen Sprache und Region verfügt. (z. B. "En-US" "En-GB", "es-CL")
+* Übergeordnete Kultur: die neutrale Kultur, die eine bestimmte Kultur enthält. (z. B. "En" für die übergeordnete Kultur "En-US" und "En-GB" ist)
 * Gebietsschema: Ein Gebietsschema ist identisch mit einer Kultur.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen

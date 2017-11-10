@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: cab986d0a7b7ac68cdda36a558e9b05c429108d0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 128b69513976a56104524bb803f2b8cb1daf1967
+ms.sourcegitcommit: 79bbe7481c3d1297a0db8e41dd2b635b0f778264
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Hinzufügen eines neuen Felds zu einer Razor-Seite
 
@@ -77,7 +77,7 @@ Erstellen Sie die Projektmappe.
 <a name="pmc"></a> Wählen Sie im Menü **Tools** **NuGet-Paket-Manager > Paket-Manager-Konsole** aus.
 Geben Sie in der PMC die folgenden Befehle ein:
 
-```PMC
+```powershell
 Add-Migration Rating
 Update-Database
 ```
@@ -97,7 +97,7 @@ Der Name „Rating“ ist beliebig und wird verwendet, um die Migrationsdatei zu
 * Klicken Sie auf **OK**.
 * Aktualisieren Sie die Datenbank in [PMC](xref:tutorials/razor-pages/new-field#pmc):
 
-  ```PMC
+  ```powershell
   Update-Database
   ```
 

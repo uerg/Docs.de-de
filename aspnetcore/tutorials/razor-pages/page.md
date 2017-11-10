@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Gerüstbau mit Razor-Seiten in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In diesem Tutorial werden die Razor-Seiten näher untersucht, die durch Gerüstbau im [vorherigen Tutorial](xref:tutorials/razor-pages/page) erstellt wurden. 
+In diesem Tutorial werden die Razor-Seiten näher untersucht, die im vorherigen Tutorial [Hinzufügen eines Modells](xref:tutorials/razor-pages/model#scaffold-the-movie-model) durch Gerüstbau erstellt wurden. 
 
 Beispiel [Anzeigen oder Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie).
 
@@ -43,13 +43,13 @@ Die Razor-Anweisung `@page` ändert die Datei in eine &mdash;-MVC-Aktion. Das be
 Überprüfen Sie den Lambdaausdruck, der in der folgenden HTML-Hilfsfunktion verwendet wird:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movies[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-Das HTML-Hilfsprogramm `DisplayNameFor` überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen. Der Lambdaausdruck wird überprüft und nicht ausgewertet. Das bedeutet, dass keine Zugriffsverletzung auftritt, wenn `model`, `model.Movies` oder `model.Movies[0]` `null` oder leer sind. Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.
+Das HTML-Hilfsprogramm `DisplayNameFor` überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen. Der Lambdaausdruck wird überprüft und nicht ausgewertet. Das bedeutet, dass keine Zugriffsverletzung auftritt, wenn `model`, `model.Movie` oder `model.Movie[0]` `null` oder leer sind. Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.
 
 <a name="md"></a>
-### <a name="the-model-directive"></a>Die @model-Direktive
+### <a name="the-model-directive"></a>Die @model -Direktive
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
@@ -144,5 +144,5 @@ Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) (`<input
 Im nächsten Tutorial werden SQL Server LocalDB und das Seeding der Datenbank erläutert.
 
 >[!div class="step-by-step"]
-[Vorheriges Thema: Adding a model (Hinzufügen eines Modells)](xref:tutorials/razor-pages/modelz)
+[Vorheriges Thema: Adding a model (Hinzufügen eines Modells)](xref:tutorials/razor-pages/model)
 [Nächstes Thema: SQL Server LocalDB](xref:tutorials/razor-pages/sql)

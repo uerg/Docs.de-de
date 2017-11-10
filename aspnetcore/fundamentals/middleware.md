@@ -5,25 +5,25 @@ description: Informationen Sie zu ASP.NET Core Middleware und der Anforderungspi
 keywords: ASP.NET Core, Middleware-Pipeline, Delegaten
 ms.author: riande
 manager: wpickett
-ms.date: 08/14/2017
+ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
-<a name=fundamentals-middleware></a>
+<a name="fundamentals-middleware"></a>
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](https://ardalis.com/)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-middleware"></a>Was ist die Middleware
 
@@ -74,6 +74,26 @@ Die Configure-Methode (siehe unten) Fügt die folgenden Middleware-Komponenten:
 3. Authentifizierung
 4. MVC
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
+                                            // thrown in the following middleware.
+
+    app.UseStaticFiles();                   // Return static files and end pipeline.
+
+    app.UseAuthentication();               // Authenticate before you access
+                                           // secure resources.
+
+    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+}
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
@@ -89,11 +109,22 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+-----------
+
 Im obigen Code `UseExceptionHandler` ist die erste middlewarekomponente, die der Pipeline hinzugefügt – aus diesem Grund, fängt Sie alle Ausnahmen, die in späteren Aufrufen auftreten.
 
 Die Middleware für statische Dateien wird einem frühen Zeitpunkt in der Pipeline aufgerufen, damit Anforderungen verarbeitet und Kurzschluss, ohne die verbleibenden Komponenten durchlaufen werden kann. Stellt die Middleware für statische Dateien **keine** autorisierungsüberprüfungen vorgenommen. Alle Dateien von bedient, u. a. die *"Wwwroot"*, sind öffentlich verfügbar. Finden Sie unter [arbeiten mit statischen Dateien](xref:fundamentals/static-files) eine Methode, um statische Dateien zu sichern.
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseAuthentication`), die die Authentifizierung durchführt. Identität nicht authentifizierte Anforderungen keinen Kurzschluss ausführt. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einem bestimmten Razor-Seite oder Controller und Aktion auswählt.
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseIdentity`), die die Authentifizierung durchführt. Identität nicht authentifizierte Anforderungen keinen Kurzschluss ausführt. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einen bestimmten Controller und Aktion auswählt.
+
+-----------
 
 Das folgende Beispiel zeigt eine Middleware, die Reihenfolge, in dem Anforderungen für statische Dateien vom die Middleware für statische Dateien vor der Komprimierung-Middleware Antwort behandelt werden. Statische Dateien werden nicht komprimiert, mit der diese Reihenfolge der Middleware. Das MVC-Antworten von [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) können komprimiert werden.
 
@@ -107,7 +138,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<a name=middleware-run-map-use></a>
+<a name="middleware-run-map-use"></a>
 
 ### <a name="use-run-and-map"></a>Verwenden Sie, führen Sie aus und zuordnen
 
@@ -175,7 +206,7 @@ ASP.NET Core umfasst die folgenden Middleware-Komponenten:
 | [Statische Dateien](xref:fundamentals/static-files) | Bietet Unterstützung für statische Dateien und die Verzeichnissuche bedient. |
 | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. |
 
-<a name=middleware-writing-middleware></a>
+<a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>Schreiben von middleware
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a93dae3edec73f1b5254aa60662834ca83de62fd
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
+ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/10/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Verwenden JavaScriptServices für einseitige Anwendungen mit ASP.NET Core erstellen
 
@@ -24,7 +24,7 @@ Durch [Scott Addie](https://github.com/scottaddie) und [Fiyaz Hasan](http://fiya
 
 Eine einzelne Seite Anwendung (SPA) ist eine beliebte Web Anwendungstyp aufgrund der inhärenten leistungsstarke, optimierte Benutzeroberfläche. Integrieren von clientseitigen SPA-Frameworks oder-Bibliotheken, z. B. [Angular](https://angular.io/) oder [reagieren](https://facebook.github.io/react/), mit serverseitigen Frameworks wie ASP.NET Core schwierig sein kann. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um die Unstimmigkeiten in den Integrationsprozess zu reduzieren. Dadurch werden nahtlos zwischen den Client- und Server-Technologie Stapel.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 <a name="what-is-js-services"></a>
 
@@ -167,7 +167,7 @@ Die *webpack.config.js* Datei `output.publicPath` -Eigenschaft teilt die Middlew
 
 ## <a name="hot-module-replacement"></a>Ersetzen eines Moduls im laufenden Systembetrieb
 
-Denken Sie an der Webpaketdatei [Hot Austausch eines Controllermoduls](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) (HMR)-Funktion als Weiterentwicklung der [Webpaketdatei Dev Middleware](#webpack-dev-middleware). HMR führt dieselben Vorteile, aber es weiter optimiert des entwicklungsworkflows durch automatisches Aktualisieren der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies mit einer Aktualisierung des Browsers, die mit dem aktuellen im Speicher enthaltenen Status und die Debugsitzung von der SPA beeinträchtigen würde. Ist es einem Livelink zwischen der Webpaketdatei Dev Middleware-Dienst und den Browser, d. h. geändert werden ~ einfach ein anderes gesperrten Wort ~ Push an den Browser.
+Denken Sie an der Webpaketdatei [Hot Austausch eines Controllermoduls](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) (HMR)-Funktion als Weiterentwicklung der [Webpaketdatei Dev Middleware](#webpack-dev-middleware). HMR führt dieselben Vorteile, aber es weiter optimiert des entwicklungsworkflows durch automatisches Aktualisieren der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies mit einer Aktualisierung des Browsers, die mit dem aktuellen im Speicher enthaltenen Status und die Debugsitzung von der SPA beeinträchtigen würde. Es ist ein Livelink zwischen der Webpaketdatei Dev Middleware-Dienst und den Browser, was bedeutet, dass Änderungen an den Browser per Push übertragen werden.
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 

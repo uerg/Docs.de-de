@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/angular
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4aecf9e9bd11cc7e2b36b40955178d9e9368c185
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: ccdf1625cdaf2400780500ac5ab86f41537964a9
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-angularjs-for-single-page-applications-spas-with-aspnet-core"></a>Mithilfe von AngularJS für einseitige Anwendungen (SPAs) mit ASP.NET Core
 
@@ -25,7 +25,7 @@ Durch [Venkata Koppaka](https://blog.falafel.com/falafel-software-recognized-sit
 
 In diesem Artikel erfahren Sie, wie eine SPA-Stil ASP.NET-Anwendung mithilfe von AngularJS erstellt werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-angularjs"></a>Was ist AngularJS?
 
@@ -43,7 +43,7 @@ Um mithilfe von AngularJS in Ihrer ASP.NET-Anwendung zu starten, müssen Sie die
 
 Es gibt verschiedene Möglichkeiten zum Hinzufügen von AngularJS an Ihre Anwendung ein. Wenn Sie eine neue ASP.NET Core-Webanwendung in Visual Studio starten, können Sie unter Verwendung der integrierten AngularJS hinzufügen [Bower](bower.md) unterstützen. Open *"bower.JSON"*, und fügen Sie einen Eintrag, um die `dependencies` Eigenschaft:
 
-<a name=angular-bower-json></a>
+<a name="angular-bower-json"></a>
 
 [!code-json[Main](../client-side/angular/sample/AngularJSSample/src/AngularJSSample/bower.json?highlight=9)]
 
