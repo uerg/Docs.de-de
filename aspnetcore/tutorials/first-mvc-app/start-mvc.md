@@ -5,30 +5,28 @@ description: Erste Schritte mit ASP.NET Core MVC und Visual Studio
 keywords: ASP.NET Core, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 08/07/2017
+ms.date: 10/07/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 6e233a0114967405a67b05365e0125620441efb4
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 4b86eb22e367d2305b7995421aec6f37008c5637
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Dieses Tutorial vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Core MVC-Web-App mithilfe von [Visual Studio 2017](https://www.visualstudio.com/). [!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE[consider RP](../../includes/razor.md)]
 
-Es gibt drei Versionen von diesem Tutorial:
+Es gibt drei Versionen dieses Tutorials:
 
 * macOS: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux und Windows: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
-
-Die Version dieses Tutorials für Visual Studio 2015 finden Sie unter [Visual Studio 2015-Version der ASP.NET Core-Dokumentation im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
 
 ## <a name="install-visual-studio-and-net-core"></a>Installieren von Visual Studio und .NET Core
 

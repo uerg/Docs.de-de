@@ -11,11 +11,11 @@ ms.assetid: 062f8353-d1bc-4e99-a821-c1d1bb162c47
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-1.1
-ms.openlocfilehash: 28a99d3040df9611995fc8aed4bb8751aa9845f8
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f014bdb41447f0354938c719ab37104b2d4b08e5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Neuerungen in ASP.NET Core 1.1
 
@@ -25,8 +25,8 @@ Die folgenden Funktionen sind in ASP.NET Core 1.1 neu:
 - [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
 - [Anzeigen von Komponenten als Taghilfsprogramme](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
 - [Middleware als MVC-Filter](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
-- [Cookie-basierter TempData-Anbieter](xref:fundamentals/app-state#cookie-based-tempdata-provider )
-- [Azure App Service-Protokollierungsanbieter](xref:fundamentals/logging#appservice)
+- [Cookie-basierter TempData-Anbieter](xref:fundamentals/app-state#tempdata)
+- [Azure App Service-Protokollierungsanbieter](xref:fundamentals/logging/index#appservice)
 - [Azure Key Vault-Konfigurationsanbieter](xref:security/key-vault-configuration)
 - [Schlüsselrepositorys zum Schutz von Azure und Redis-Speicher](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
 - [WebListener-Server für Windows](xref:fundamentals/servers/weblistener)

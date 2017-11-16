@@ -8,5 +8,4 @@ Das Architekturmodell Model-View-Controller (MVC) trennt eine App in drei Hauptk
 
 Das MVC-Muster hilft Ihnen beim Erstellen von Apps, die deren verschiedenen Aspekte (Eingabelogik, Geschäftslogik und Benutzeroberflächenlogik) trennt und zugleich eine lose Kopplung zwischen diesen Elementen bietet. Das Muster gibt an, wo sich jede Art von Logik in der App befinden soll. Die Benutzeroberflächenlogik ist Teil der Ansicht (view). Die Eingabelogik gehört zum Controller. Die Geschäftslogik gehört zum Modell. Diese Trennung ermöglicht Ihnen das Bewältigen von Komplexität beim Erstellen einer App, da Sie zu einem Zeitpunkt an einem Aspekt der Implementierung arbeiten können, ohne den Code eines anderen zu beeinträchtigen. Sie können beispielsweise am Code der Ansicht unabhängig vom Code für die Geschäftslogik arbeiten.
 
-Wir behandeln diese Konzepte in dieser Tutorialreihe und zeigen Ihnen, wie Sie sie zum Erstellen einer Film-App nutzen. Das MVC-Projekt enthält Ordner für die *Controller* und *Views* (Ansichten). Der Ordner *Models* wird in einem späteren Schritt hinzugefügt.
-
+Wir behandeln diese Konzepte in dieser Tutorialreihe und zeigen Ihnen, wie Sie sie zum Erstellen einer Film-App nutzen. Das MVC-Projekt enthält Ordner für die *Controller* und *Views* (Ansichten).

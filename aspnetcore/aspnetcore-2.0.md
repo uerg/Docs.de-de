@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: c572315d7a801b9b87d5f4cd14b82c5ed27e7a85
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Neuigkeiten in ASP.NET Core 2.0
 
@@ -58,7 +58,7 @@ Weitere Informationen zum Status der geplanten Dokumentation finden Sie unter [G
 
 In ASP.NET Core 2.0 wird die Protokollierung standardmäßig in das System der Abhängigkeitsinjektion (dependency injection, DI) integriert. Sie können Anbieter hinzufügen und Filter in der Datei *Program.cs* statt in der Datei *Startup.cs* konfigurieren. Die standardmäßige `ILoggerFactory` unterstützt die Filterung so, dass Sie einen flexiblen Ansatz für die anbieterübergreifende Filterung und die Filterung nach bestimmten Anbietern verwenden können.
 
-Weitere Informationen finden Sie unter [Introduction to Logging (Einführung in die Protokollierung)](xref:fundamentals/logging).
+Weitere Informationen finden Sie unter [Introduction to Logging (Einführung in die Protokollierung)](xref:fundamentals/logging/index).
 
 ## <a name="authentication-update"></a>Aktualisierung der Authentifizierung
 

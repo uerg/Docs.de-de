@@ -11,7 +11,7 @@ Aktualisieren Sie die `Index`-Methode mit folgendem Code:
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
-Die erste Zeile der Aktionsmethode `Index` erstellt eine [LINQ](http://msdn.microsoft.com/library/bb397926.aspx)-Abfrage zum Auswählen der Filme:
+Die erste Zeile der Aktionsmethode `Index` erstellt eine [LINQ](https://docs.microsoft.com/dotnet/standard/using-linq)-Abfrage zum Auswählen der Filme:
 
 ```csharp
 var movies = from m in _context.Movie
@@ -24,9 +24,9 @@ Wenn der `searchString`-Parameter eine Zeichenfolge enthält, wird die Filmabfra
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
-Der Code `s => s.Title.Contains()` oben ist ein [Lambdaausdruck](http://msdn.microsoft.com/library/bb397687.aspx). Lambdas werden in methodenbasierten [LINQ](http://msdn.microsoft.com/library/bb397926.aspx)-Abfragen als Argumente für standardmäßige Abfrageoperatormethoden wie die [Where](http://msdn.microsoft.com/library/system.linq.enumerable.where.aspx)-Methode oder `Contains` verwendet (siehe den vorangehenden Code). LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert oder durch Aufrufen einer Methode geändert werden (z.B. `Where`, `Contains` oder `OrderBy`). Stattdessen wird die Ausführung der Abfrage verzögert.  Dies bedeutet, dass die Auswertung eines Ausdrucks so lange hinausgezögert wird, bis dessen realisierter Wert tatsächlich durchlaufen oder die `ToListAsync`-Methode aufgerufen wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](http://msdn.microsoft.com/library/bb738633.aspx).
+Der Code `s => s.Title.Contains()` oben ist ein [Lambdaausdruck](https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambdas werden in methodenbasierten [LINQ](https://docs.microsoft.com/dotnet/standard/using-linq)-Abfragen als Argumente für standardmäßige Abfrageoperatormethoden wie die [Where](https://docs.microsoft.com//dotnet/api/system.linq.enumerable.where)-Methode oder `Contains` verwendet (siehe den vorangehenden Code). LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert oder durch Aufrufen einer Methode geändert werden (z.B. `Where`, `Contains` oder `OrderBy`). Stattdessen wird die Ausführung der Abfrage verzögert.  Dies bedeutet, dass die Auswertung eines Ausdrucks so lange hinausgezögert wird, bis dessen realisierter Wert tatsächlich durchlaufen oder die `ToListAsync`-Methode aufgerufen wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
-Hinweis: Die [Contains](http://msdn.microsoft.com/library/bb155125.aspx)-Methode wird in der Datenbank und nicht im oben gezeigten C#-Code ausgeführt. Die Groß-/Kleinschreibung in der Abfrage hängt von der Datenbank und Sortierung ab. In SQL Server wird [Contains](http://msdn.microsoft.com/library/bb155125.aspx) zu [SQL LIKE](http://msdn.microsoft.com/library/ms179859.aspx) zugeordnet, das Groß-/Kleinschreibung nicht beachtet. In SQLite wird bei der Standardsortierung Groß-/Kleinschreibung beachtet.
+Hinweis: Die [Contains](https://docs.microsoft.com//dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains)-Methode wird in der Datenbank und nicht im oben gezeigten C#-Code ausgeführt. Die Groß-/Kleinschreibung in der Abfrage hängt von der Datenbank und Sortierung ab. In SQL Server wird [Contains](https://docs.microsoft.com//dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) zu [SQL LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql) zugeordnet, das Groß-/Kleinschreibung nicht beachtet. In SQLite wird bei der Standardsortierung Groß-/Kleinschreibung beachtet.
 
 Navigieren Sie zu `/Movies/Index`. Fügen Sie eine Abfragezeichenfolge wie `?searchString=Ghost` an die URL an. Die gefilterten Filme werden angezeigt.
 
