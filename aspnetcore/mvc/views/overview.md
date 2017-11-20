@@ -64,7 +64,7 @@ ms.lasthandoff: 10/03/2017
 
 <span data-ttu-id="5c61d-156">Wenn diese Aktion zurückgegeben wird, die *About.cshtml* anzeigen, die im vorherigen Abschnitt gezeigt als der folgenden Webseite gerendert wird:</span><span class="sxs-lookup"><span data-stu-id="5c61d-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![Zu den Seiten im Edge-Browser gerendert](overview/_static/about-page.png)
+![Zu den Seiten im Microsoft Edge-Browser gerendert](overview/_static/about-page.png)
 
 <span data-ttu-id="5c61d-158">Die `View` -Hilfsmethode verfügt über mehrere Überladungen.</span><span class="sxs-lookup"><span data-stu-id="5c61d-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="5c61d-159">Optional können Sie Folgendes angeben:</span><span class="sxs-lookup"><span data-stu-id="5c61d-159">You can optionally specify:</span></span>
 
