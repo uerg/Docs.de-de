@@ -1,7 +1,7 @@
 ---
 title: "Hinzufügen der Validierung"
 author: rick-anderson
-description: "Gewusst wie: Hinzufügen der Validierung zu einer Razor-Seite"
+description: "Erläutert, wie einer Razor-Seite Validierung hinzugefügt wird."
 keywords: ASP.NET Core, Validierung, DataAnnotations, Razor, Razor-Seiten
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite
 
@@ -36,7 +36,12 @@ Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-Validierungsattribute geben Verhalten an, das für Modelleigenschaften erzwungen wird. Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft einen Wert haben muss. Doch nichts hindert einen Benutzer am Eingeben eines Leerzeichens, um die Validierungseinschränkung zu erfüllen. Das Attribut `RegularExpression` wird verwendet, um einzuschränken, welche Zeichen eingegeben werden dürfen. Im vorangehenden Code sind für `Genre` und `Rating` nur Buchstaben (keine Leerzeichen, Zahlen und Sonderzeichen) erlaubt. Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein. Das Attribut `StringLength` legt die Höchstlänge einer Zeichenfolge und optional die Mindestlänge fest. [Werttypen](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (wie `decimal`, `int`, `float`, `DateTime`) sind grundsätzlich erforderlich und benötigen nicht das Attribut `[Required]`.
+Validierungsattribute geben das Verhalten an, das für Modelleigenschaften erzwungen wird:
+
+* Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft über einen Wert verfügen muss. Nichts hindert Benutzer allerdings daran, Leerzeichen einzugeben, um die Validierungseinschränkung für einen Nullable-Typ zu umgehen. [Werttypen](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types), bei denen es sich nicht um Nullable-Typen handelt (wie z.B. `decimal`, `int`, `float` und `DateTime`), sind grundsätzlich erforderlich und benötigen das Attribut `Required` nicht.
+* Das Attribut `RegularExpression` schränkt die Zeichen ein, die ein Benutzer eingeben kann. Im oben stehenden Code sind für `Genre` und `Rating` nur Buchstaben erlaubt (Leerzeichen, Ziffern und Sonderzeichen sind nicht zulässig).
+* Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein.
+* Das Attribut `StringLength` legt die Höchstlänge einer Zeichenfolge und optional die Mindestlänge fest. 
 
 Dadurch, dass Validierungsregeln von ASP.NET Core automatisch erzwungen werden, wird eine App stabiler. Die automatische Validierung für Modelle hilft beim Schutz der App, da Sie nicht daran denken müssen, diesen anzuwenden, sobald neuer Code hinzugefügt wird.
 
@@ -127,6 +132,10 @@ Es wird allgemein nicht empfohlen, feste Datumsangaben in Ihren Modellen zu komp
 Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+### <a name="publish-to-azure"></a>Veröffentlichen in Azure
+
+Anweisungen zum Veröffentlichen dieser App in Azure finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

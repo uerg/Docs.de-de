@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 75fc1edec9050a4690a39d37307f2f95f5d534a5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e9e9019d5b879498e8800bb579c177dd3ad64061
+ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -56,7 +56,7 @@ Fahren Sie mit dem Schritt **Bestätigung** fort, um die Webserverrolle und die 
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installieren des Pakets „.NET Core Windows Server Hosting“
 
-1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://aka.ms/dotnetcore.2.0.0-windowshosting) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
+1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://download.microsoft.com/download/5/C/1/5C190037-632B-443D-842D-39085F02E1E8/DotNetCore.2.0.3-WindowsHosting.exe) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
 
 2. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus, um eine Änderung am Systempfad zu übernehmen.
 
@@ -117,7 +117,7 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig"></a>web.config
 
-Die Datei *web.config* konfiguriert das ASP.NET Core-Modul und bietet andere IIS-Konfigurationen. Das Erstellen, Transformieren und Veröffentlichen von *web.config* erfolgt durch `Microsoft.NET.Sdk.Web`. Dies wird eingebunden, wenn Sie das SDK Ihres Projekts am Anfang Ihrer Projektdatei (*.csproj*) festlegen: `<Project Sdk="Microsoft.NET.Sdk.Web">`. Um zu verhindern, dass das MSBuild-Ziel Ihre Datei *web.config* transformiert, fügen Sie der Projektdatei die Eigenschaft **\<IsTransformWebConfigDisabled >** mit der Einstellung `true` hinzu:
+Die Datei *web.config* konfiguriert in erster Linie das ASP.NET Core-Modul. Sie kann optional zusätzliche IIS-Konfigurationseinstellungen bereitstellen. Das Erstellen, das Transformieren und die Veröffentlichung von *web.config* erfolgt durch das .NET Core Web SDK (`Microsoft.NET.Sdk.Web`). Das SDK wird am Anfang der Projektdatei (*CSPROJ-Datei*) festgelegt: `<Project Sdk="Microsoft.NET.Sdk.Web">`. Um zu verhindern, dass das SDK die Datei *web.config* transformiert, fügen Sie der Projektdatei die Eigenschaft **\<IsTransformWebConfigDisabled** mit der Einstellung `true` hinzu:
 
 ```xml
 <PropertyGroup>
@@ -221,7 +221,7 @@ Schlüssel für den Schutz von Daten, die von ASP.NET-Anwendungen verwendet werd
 
 Bei eigenständigen IIS-Installationen können Sie das [PowerShell-Skript „Provision-AutoGenKeys.ps1“ für den Schutz von Daten](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) für jeden App-Pool nutzen, der mit einer ASP.NET Core-App verwendet wird. Dieses Skript erstellt einen besonderen Registrierungsschlüssel in der HKLM-Registrierung, der nur in der ACL des Workerprozesskontos bereitgestellt wird. Schlüssel werden im Ruhezustand mit DPAPI verschlüsselt.
 
-In Webfarmszenarios kann eine App so konfiguriert werden, dass sie einen UNC-Pfad verwendet, um den Schlüsselbund für den Schutz von Daten zu speichern. Standardmäßig werden die Schlüssel für den Schutz von Daten nicht verschlüsselt. Sie sollten sicherstellen, dass die Dateiberechtigungen für eine solche Freigabe auf das Windows-Konto beschränkt sind, mit dem die App ausgeführt wird. Darüber hinaus können Sie Schlüssel im Ruhezustand mit einem X509-Zertifikat schützen. Sie sollten sich einen Mechanismus überlegen, um es Benutzern zu ermöglichen, Zertifikate hochzuladen: Platzieren Sie Zertifikate im Speicher für vertrauenswürdige Zertifikate des Benutzers, und stellen Sie sicher, dass sie auf allen Computern verfügbar sind, auf denen die App des Benutzers ausgeführt wird. Details finden Sie unter [Konfigurieren des Schutzes von Daten](xref:security/data-protection/configuration/overview#data-protection-configuring).
+In Webfarmszenarios kann eine App so konfiguriert werden, dass sie einen UNC-Pfad verwendet, um den Schlüsselbund für den Schutz von Daten zu speichern. Standardmäßig werden die Schlüssel für den Schutz von Daten nicht verschlüsselt. Sie sollten sicherstellen, dass die Dateiberechtigungen für eine solche Freigabe auf das Windows-Konto beschränkt sind, mit dem die App ausgeführt wird. Darüber hinaus können Sie Schlüssel im Ruhezustand mit einem X509-Zertifikat schützen. Sie sollten sich einen Mechanismus überlegen, um es Benutzern zu ermöglichen, Zertifikate hochzuladen: Platzieren Sie Zertifikate im Speicher für vertrauenswürdige Zertifikate des Benutzers, und stellen Sie sicher, dass sie auf allen Computern verfügbar sind, auf denen die App des Benutzers ausgeführt wird. Details finden Sie unter [Konfigurieren des Schutzes von Daten](xref:security/data-protection/configuration/overview).
 
 ### <a name="2-configure-the-iis-application-pool-to-load-the-user-profile"></a>2. Konfigurieren des IIS-Anwendungspools zum Laden des Benutzerprofils
 
@@ -229,7 +229,7 @@ Diese Einstellung befindet sich im Abschnitt **Prozessmodell** unter **Erweitert
 
 ### <a name="3-machine-wide-policy-for-data-protection"></a>3. Computerweite Richtlinie für den Schutz von Daten
 
-Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy) für alle Apps, die die Datenschutz-APIs nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
+Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy) für alle Apps, die die Datenschutz-APIs nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
 
 ## <a name="configuration-of-sub-applications"></a>Konfiguration von untergeordneten Anwendungen
 
@@ -326,7 +326,7 @@ Eine Möglichkeit zu bestimmen, ob der IIS-Reverseproxy zum Kestrel-Server ordnu
 
 Wenn Kestrel normalerweise hinter IIS gestartet wird, aber die App nicht im System ausgeführt wird, nachdem sie erfolgreich lokal ausgeführt wurde, können Sie vorübergehend eine Umgebungsvariable zu *web.config* hinzufügen und `ASPNETCORE_ENVIRONMENT` auf `Development` festlegen. Solange Sie die Umgebung beim App-Start nicht außer Kraft setzen, kann dadurch die [Ausnahmeseite für Entwickler](xref:fundamentals/error-handling) angezeigt werden, wenn die App im System ausgeführt wird. Das Festlegen der Umgebungsvariablen für `ASPNETCORE_ENVIRONMENT` auf diese Weise wird nur für Staging-/Testsysteme empfohlen, die nicht für das Internet verfügbar gemacht werden. Wenn Sie fertig sind, müssen Sie die Umgebungsvariable aus *web.config* entfernen. Informationen zum Festlegen von Umgebungsvariablen über *web.config* für den Reverseproxy finden Sie unter [Untergeordnetes environmentVariables-Element von aspNetCore](xref:hosting/aspnet-core-module#setting-environment-variables).
 
-In den meisten Fällen hilft das Aktivieren der Anwendungsprotokollierung bei der Behandlung von Problemen mit der App oder dem Reverseproxy. Weitere Informationen finden Sie unter [Protokollierung](xref:fundamentals/logging).
+In den meisten Fällen hilft das Aktivieren der Anwendungsprotokollierung bei der Behandlung von Problemen mit der App oder dem Reverseproxy. Weitere Informationen finden Sie unter [Protokollierung](xref:fundamentals/logging/index).
 
 Unsere letzter Tipp zur Problembehandlung bezieht sich auf Apps, die nach einem Upgrade des .NET Core SDK auf dem Entwicklungsomputer oder einer Paketversion innerhalb der App nicht ausgeführt werden. In einigen Fällen können inkohärente Pakete eine App beschädigen, wenn größere Upgrades durchgeführt werden. Sie können die meisten dieser Probleme beheben, indem Sie die Ordner `bin` und `obj` im Projekt löschen, die Paketcaches unter `%UserProfile%\.nuget\packages\` und `%LocalAppData%\Nuget\v3-cache` löschen, das Projekt wiederherstellen und überprüfen, ob die vorherige Bereitstellung im System vollständig gelöscht wurde, bevor Sie die App erneut bereitstellen.
 

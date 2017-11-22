@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 617b11cd7652e393c06446c62138802e4a4e90df
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 3ef6fb26eab123c9f6f8275ee1d979b090db0413
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Windows
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Mike Wasson](https://github.com/mikewasson)
 
-In diesem Tutorial erstellen Sie eine Web-API zum Verwalten einer Liste von „To-Do“-Elementen. Sie werden keine Benutzeroberfläche erstellen.
+In diesem Tutorial wird eine Web-API zum Verwalten einer Liste von Aufgabenelementen erstellt. Eine Benutzeroberfläche (UI) wird nicht erstellt.
 
 Es gibt drei Versionen dieses Tutorials:
 
@@ -52,23 +52,23 @@ Wählen Sie im Dialogfeld **ASP.NET Core-Webanwendung – TodoAPI** die Vorlage 
 
 ### <a name="launch-the-app"></a>Starten der App
 
-Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei es sich bei *port* um eine zufällig ausgewählte Portnummer handelt. Chrome, Edge und Firefox zeigen Folgendes an:
+Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei *port* eine zufällig ausgewählte Portnummer ist. Chrome, Edge und Firefox zeigen die folgende Ausgabe an:
 
 ```
 ["value1","value2"]
-``` 
+```
 
 ### <a name="add-a-model-class"></a>Hinzufügen einer Modellklasse
 
-Ein Modell ist ein Objekt, das die Daten in Ihrer Anwendung darstellt. In diesem Fall ist das einzige Modell ein To-Do-Element.
+Ein Modell ist ein Objekt, das die Daten in der App darstellt. In diesem Fall ist das einzige Modell ein To-do-Element.
 
 Fügen Sie einen Ordner namens „Modelle“ hinzu. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Projektnamen. Klicken Sie auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
 
-Hinweis: Die Modellklassen können überall in Ihrem Projekt platziert werden, aber der Ordner *Modelle* wird gemäß der Konvention verwendet.
+Hinweis: Die Modellklassen können überall im Projekt gespeichert werden. Der Ordner *Modelle* wird gemäß Konvention für Modellklassen verwendet.
 
 Fügen Sie eine `TodoItem`-Klasse hinzu. Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*, und wählen Sie **Hinzufügen** > **Klasse** aus. Benennen Sie die Klasse `TodoItem`, und klicken Sie auf **Hinzufügen**.
 
-Ersetzen Sie den generierten Code durch den folgenden:
+Aktualisieren Sie die `TodoItem`-Klasse mit dem folgenden Code:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
@@ -80,7 +80,7 @@ Der *Datenbankkontext* ist die Hauptklasse, die die Entity Framework-Funktionen 
 
 Fügen Sie eine `TodoContext`-Klasse hinzu. Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*, und wählen Sie **Hinzufügen** > **Klasse** aus. Benennen Sie die Klasse `TodoContext`, und klicken Sie auf **Hinzufügen**.
 
-Ersetzen Sie den generierten Code durch den folgenden:
+Ersetzen Sie die Klasse durch den folgenden Code:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
@@ -88,17 +88,17 @@ Ersetzen Sie den generierten Code durch den folgenden:
 
 ### <a name="add-a-controller"></a>Hinzufügen eines Controllers
 
-Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Ordner *Controller*. Klicken Sie auf **Hinzufügen** > **Neues Element**. Wählen Sie im Dialogfeld **Neues Element hinzufügen** die Vorlage **Web API Controller Class** aus. Nennen Sie die Klasse `TodoController`.
+Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Ordner *Controller*. Klicken Sie auf **Hinzufügen** > **Neues Element**. Wählen Sie im Dialogfeld **Neues Element hinzufügen** die Vorlage **Web-API-Controllerklasse** aus. Nennen Sie die Klasse `TodoController`.
 
 ![Dialogfeld „Neues Element“ mit Controller im Suchfeld und ausgewähltem Web-API-Controller](first-web-api/_static/new_controller.png)
 
-Ersetzen Sie den generierten Code durch den folgenden:
+Ersetzen Sie die Klasse durch den folgenden Code:
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
-  
+
 ### <a name="launch-the-app"></a>Starten der App
 
-Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei *port* eine zufällig ausgewählte Portnummer ist. Wenn Sie Chrome, Edge oder Firefox verwenden, werden die Daten angezeigt. Wenn Sie Internet Explorer verwenden, werden Sie aufgefordert, die Datei *values.json* zu öffnen oder zu speichern. Navigieren Sie zum `Todo`-Controller, den wir eben erstellt haben `http://localhost:port/api/todo`.
+Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei *port* eine zufällig ausgewählte Portnummer ist. Navigieren Sie zum `Todo`-Controller auf `http://localhost:port/api/todo`.
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 

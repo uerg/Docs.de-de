@@ -1,4 +1,4 @@
-Der oben hervorgehobene Code zeigt den dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) hinzugefügten Filmdatenbankkontext. Die Zeile nach `services.AddDbContext<MvcMovieContext>(options =>` wird nicht gezeigt (siehe Ihren Code). Sie gibt die zu verwendende Datenbank und die Verbindungszeichenfolge an. `=>` ist ein [Lambdaoperator](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Der oben hervorgehobene Code zeigt den dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) (in der Datei *Startup.cs*) hinzugefügten Filmdatenbankkontext. `services.AddDbContext<MvcMovieContext>(options =>` gibt die zu verwendende Datenbank und die Verbindungszeichenfolge an. `=>` ist ein [Lambdaoperator](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Öffnen Sie die Datei *Controllers/MoviesController.cs*, und überprüfen Sie den Konstruktor:
 
@@ -8,7 +8,7 @@ Der oben hervorgehobene Code zeigt den dem Container [Abhängigkeitsinjektion](x
 
 Der Konstruktor verwendet die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`MvcMovieContext `) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet.
 
-<a name=strongly-typed-models-keyword-label></a>
+<a name="strongly-typed-models-keyword-label"></a>
 
 ## <a name="strongly-typed-models-and-the-model-keyword"></a>Stark typisierte Modelle und das Schlüsselwort @model
 

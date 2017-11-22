@@ -31,7 +31,7 @@ Tippen Sie auf den Link **Neu erstellen**, um einen neuen Film hinzuzufügen. F�
 ![Ansichtsformular „Movie“ mit mehreren clientseitigen jQuery-Validierungsfehlern](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> Sie können unter Umständen in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) für nicht englische Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
+> Sie können unter Umständen in das Feld `Price` keine Kommas als Dezimaltrennzeichen eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) für nicht englische Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate müssen Sie Schritte zur Globalisierung Ihrer App ausführen. In diesem [GitHub-Problem 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) finden Sie Anweisungen zum Hinzufügen von Kommas als Dezimaltrennzeichen. 
 
 Wie Sie sehen, hat das Formular automatisch für alle Felder mit einem ungültigen Wert eine entsprechende Validierungsfehlermeldung angezeigt. Die Fehlermeldungen werden sowohl auf Clientseite (mithilfe von JavaScript und jQuery) als auch auf Serverseite erzwungen (wenn ein Benutzer JavaScript deaktiviert hat).
 

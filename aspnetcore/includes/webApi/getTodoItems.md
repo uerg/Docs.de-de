@@ -2,13 +2,13 @@
 
 Der vorangehende Code:
 
-* Definiert eine leere Controller-Klasse. In den nächsten Abschnitten fügen wir Methoden zum Implementieren der API hinzu.
+* Definiert eine leere Controller-Klasse. In den nächsten Abschnitten werden Methoden zum Implementieren der API hinzugefügt.
 * Der Konstruktor verwendet die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`TodoContext `) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet.
 * Der Konstruktor fügt ein Element der In-Memory Database hinzu, falls es nicht vorhanden ist.
 
 ## <a name="getting-to-do-items"></a>Abrufen von „To-do“-Elementen
 
-Fügen Sie der `TodoController`-Klasse die folgenden Methoden hinzu, um „To-do“-Elemente abzurufen:
+Fügen Sie der `TodoController`-Klasse die folgenden Methoden hinzu, „To-do“-Elemente abzurufen:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
 
@@ -20,22 +20,22 @@ Diese Methoden implementieren die beiden GET-Methoden:
 Hier ist eine HTTP-Beispielantwort für die `GetAll`-Methode:
 
 ```
-HTTP/1.1 200 OK
-   Content-Type: application/json; charset=utf-8
-   Server: Microsoft-IIS/10.0
-   Date: Thu, 18 Jun 2015 20:51:10 GMT
-   Content-Length: 82
-
-   [{"Key":"1", "Name":"Item1","IsComplete":false}]
+[
+  {
+    "id": 1,
+    "name": "Item1",
+    "isComplete": false
+  }
+]
    ```
 
-Später in diesem Tutorial zeige ich Ihnen, wie Sie die HTTP-Antwort mit [Postman](https://www.getpostman.com/) oder [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) anzeigen können.
+Später in diesem Tutorial zeige ich Ihnen, wie die HTTP-Antwort mit [Postman](https://www.getpostman.com/) oder [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) angezeigt werden kann.
 
 ### <a name="routing-and-url-paths"></a>Routing und URL-Pfade
 
 Das `[HttpGet]`-Attribut gibt eine HTTP GET-Methode an. Der URL-Pfad für jede Methode wird wie folgt erstellt:
 
-* Verwenden Sie die Vorlagenzeichenfolge im „route“-Attribut des Controllers:
+* Verwenden Sie die Vorlagenzeichenfolge im `Route`-Attribut des Controllers:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
@@ -44,14 +44,14 @@ Das `[HttpGet]`-Attribut gibt eine HTTP GET-Methode an. Der URL-Pfad für jede M
 
 Für die `GetById`-Methode gilt Folgendes:
 
-```csharp
-[HttpGet("{id}", Name = "GetTodo")]
-public IActionResult GetById(long id)
-```
+[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 `"{id}"` ist eine Platzhaltervariable für die ID des `todo`-Elements. Wenn `GetById` aufgerufen wird, wird der Wert von „{id}“ in der URL dem Parameter `id` der Methode zugewiesen.
 
-`Name = "GetTodo"` erstellt eine benannte Route und erlaubt Ihnen das Herstellen einer Verknüpfung mit dieser Route in einer HTTP-Antwort. Dies erläutere ich in einem Beispiel weiter unten. Ausführliche Informationen finden Sie unter [Routing zu Controlleraktionen](xref:mvc/controllers/routing).
+`Name = "GetTodo"` erstellt eine benannte Route. Benannte Routen:
+
+* Ermöglichen der App, einen HTTP-Link mit dem Routennamen zu erstellen.
+* Werden später in diesem Tutorial erläutert.
 
 ### <a name="return-values"></a>Rückgabewert
 
@@ -59,6 +59,6 @@ Die `GetAll`-Methode gibt `IEnumerable` zurück. MVC serialisiert automatisch da
 
 Im Gegensatz dazu gibt die `GetById`-Methode den allgemeineren Typ `IActionResult` zurück, der eine Vielzahl von Rückgabetypen darstellt. `GetById` hat zwei unterschiedliche Rückgabetypen:
 
-* Wenn kein Element mit der angeforderten ID übereinstimmt, gibt die Methode einen 404-Fehler zurück.  Hierzu wird `NotFound` zurückgegeben.
+* Wenn kein Element mit der angeforderten ID übereinstimmt, gibt die Methode einen 404-Fehler zurück. Die Rückgabe von `NotFound` gibt eine HTTP 404-Antwort zurück.
 
-* Andernfalls gibt die Methode 200 mit einem JSON-Antworttext zurück. Hierzu wird `ObjectResult` zurückgegeben.
+* Andernfalls gibt die Methode 200 mit einem JSON-Antworttext zurück. Die Rückgabe von `ObjectResult` gibt eine HTTP 200-Antwort zurück.
