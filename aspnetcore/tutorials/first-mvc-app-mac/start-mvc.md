@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 387d7a91ae7d58cbc293c04039017df1dd208c82
-ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
+ms.openlocfilehash: 21f115eec924d5e4b21ad78398c8cbd99e02a0a8
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac
 
@@ -32,7 +32,7 @@ Es gibt drei Versionen dieses Tutorials:
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Dieses Tutorial erfordert das [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher. In [dieser PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) finden Sie die Version ASP.NET Core 1.1.
+Dieses Tutorial erfordert das [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher.
 
 Installieren Sie Folgendes:
 
@@ -55,7 +55,7 @@ Nennen Sie das Projekt **MvcMovie**, und wählen Sie dann **Erstellen** aus.
 
 ### <a name="launch-the-app"></a>Starten der App
 
-Klicken Sie in Visual Studio auf **Ausführen > Ohne Debugging starten**, um die App zu starten. Visual Studio startet [Kestrel](xref:fundamentals/servers/index#Kestrel) und einen Browser und navigiert zu `http://localhost:port`, wobei es sich bei *port* um eine zufällig ausgewählte Portnummer handelt.
+Klicken Sie in Visual Studio auf **Ausführen > Ohne Debugging starten**, um die App zu starten. Visual Studio startet [Kestrel](xref:fundamentals/servers/index#kestrel) und einen Browser und navigiert zu `http://localhost:port`, wobei es sich bei *port* um eine zufällig ausgewählte Portnummer handelt.
 
 ![Browser mit einem neuen Projekt](start-mvc/b1.png)
 

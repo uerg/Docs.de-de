@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: e9e9019d5b879498e8800bb579c177dd3ad64061
-ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
+ms.openlocfilehash: 7eb1537df47fcf0b24db2a7d843b655a6f6f8f21
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -56,7 +56,7 @@ Fahren Sie mit dem Schritt **Bestätigung** fort, um die Webserverrolle und die 
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installieren des Pakets „.NET Core Windows Server Hosting“
 
-1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://download.microsoft.com/download/5/C/1/5C190037-632B-443D-842D-39085F02E1E8/DotNetCore.2.0.3-WindowsHosting.exe) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
+1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://aka.ms/dotnetcore-2-windowshosting) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
 
 2. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus, um eine Änderung am Systempfad zu übernehmen.
 
@@ -272,7 +272,7 @@ Die IIS-Konfiguration wird weiterhin im Hinblick auf IIS-Features, die für eine
 
 ## <a name="configuration-sections-of-webconfig"></a>Konfigurationsabschnitte von „web.config“
 
-Im Gegensatz zu .NET Framework-Anwendungen, die mit den Elementen `<system.web>`, `<appSettings>`, `<connectionStrings>` und `<location>` in *web.config* konfiguriert werden, werden ASP.NET Core-Apps über andere Konfigurationsanbieter konfiguriert. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration).
+Im Gegensatz zu .NET Framework-Anwendungen, die mit den Elementen `<system.web>`, `<appSettings>`, `<connectionStrings>` und `<location>` in *web.config* konfiguriert werden, werden ASP.NET Core-Apps über andere Konfigurationsanbieter konfiguriert. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration/index).
 
 ## <a name="application-pools"></a>Anwendungspools
 
