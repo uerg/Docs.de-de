@@ -12,24 +12,24 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/index
 ms.openlocfilehash: 8a6fa695a1b1ad660f7f5b1aeb520d5372a273a8
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a>Erstellen einer ASP.NET Core MVC-App mit Visual Studio Code
+# <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a><span data-ttu-id="6bd74-104">Erstellen einer ASP.NET Core MVC-App mit Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6bd74-104">Create an ASP.NET Core MVC app with Visual Studio Code</span></span>
 
-Diese Tutorialreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Core MVC-Web-App mithilfe von Visual Studio. 
+<span data-ttu-id="6bd74-105">Diese Tutorialreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Core MVC-Web-App mithilfe von Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="6bd74-105">This series of tutorials teaches you the basics of building an ASP.NET Core MVC web app using Visual Studio.</span></span> 
 
 [!INCLUDE[consider RP](../../includes/razor.md)]
 
-1. [Erste Schritte](start-mvc.md)
-2. [Hinzufügen eines Controllers](adding-controller.md)
-3. [Hinzufügen einer Ansicht](adding-view.md)
-4. [Hinzufügen eines Modells](adding-model.md)
-5. [Arbeiten mit SQLite](working-with-sql.md)
-6. [Controllermethoden und -ansichten](controller-methods-views.md)
-7. [Hinzufügen der Suche](search.md)
-8. [Hinzufügen eines neuen Felds](new-field.md)
-9. [Hinzufügen der Validierung](validation.md)
-10. [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
+1. [<span data-ttu-id="6bd74-106">Erste Schritte</span><span class="sxs-lookup"><span data-stu-id="6bd74-106">Getting started</span></span>](start-mvc.md)
+2. [<span data-ttu-id="6bd74-107">Hinzufügen eines Controllers</span><span class="sxs-lookup"><span data-stu-id="6bd74-107">Adding a controller</span></span>](adding-controller.md)
+3. [<span data-ttu-id="6bd74-108">Hinzufügen einer Ansicht</span><span class="sxs-lookup"><span data-stu-id="6bd74-108">Adding a view</span></span>](adding-view.md)
+4. [<span data-ttu-id="6bd74-109">Hinzufügen eines Modells</span><span class="sxs-lookup"><span data-stu-id="6bd74-109">Adding a model</span></span>](adding-model.md)
+5. [<span data-ttu-id="6bd74-110">Arbeiten mit SQLite</span><span class="sxs-lookup"><span data-stu-id="6bd74-110">Working with SQLite</span></span>](working-with-sql.md)
+6. [<span data-ttu-id="6bd74-111">Controllermethoden und -ansichten</span><span class="sxs-lookup"><span data-stu-id="6bd74-111">Controller methods and views</span></span>](controller-methods-views.md)
+7. [<span data-ttu-id="6bd74-112">Hinzufügen der Suche</span><span class="sxs-lookup"><span data-stu-id="6bd74-112">Adding Search</span></span>](search.md)
+8. [<span data-ttu-id="6bd74-113">Hinzufügen eines neuen Felds</span><span class="sxs-lookup"><span data-stu-id="6bd74-113">Adding a New Field</span></span>](new-field.md)
+9. [<span data-ttu-id="6bd74-114">Hinzufügen der Validierung</span><span class="sxs-lookup"><span data-stu-id="6bd74-114">Adding Validation</span></span>](validation.md)
+10. [<span data-ttu-id="6bd74-115">Untersuchen der Methoden „Details“ und „Delete“</span><span class="sxs-lookup"><span data-stu-id="6bd74-115">Examining the Details and Delete methods</span></span>](xref:tutorials/first-mvc-app/details)
