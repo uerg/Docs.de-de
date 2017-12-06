@@ -1,23 +1,47 @@
 ---
-title: Sicherheit
-author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+title: "Übersicht über die ASP.NET Core-Sicherheit | Microsoft Docs"
+author: rachelappel
+description: "Erfahren Sie mehr über die Grundlagen der Authentifizierung, Autorisierung und Sicherheit in ASP.NET Core"
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 11/01/2017
 ms.topic: article
 ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: f173d03f55a1ce52222a75c023f9e8a20d5c60dc
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 4f3a74d67ce3453499ea9785cc80bee183dc1aff
+ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="security"></a>Sicherheit
+# <a name="aspnet-core-security-overview"></a>ASP.NET Core-Sicherheit (Übersicht)
+
+ASP.NET Core ermöglicht es Entwicklern, die Sicherheit ihrer Apps einfach zu konfigurieren und zu verwalten. ASP.NET Core enthält Features für die Verwaltung von Authentifizierung, Autorisierung, Datenschutz, SSL-Erzwingung, App-Geheimnissen, Schutz vor Anti Request Forgery und CORS-Verwaltung. Diese Sicherheitsfunktionen ermöglichen es Ihnen, robuste und dennoch sichere ASP.NET Core-Apps zu erstellen. 
+
+## <a name="aspnet-core-security-features"></a>ASP.NET Core-Sicherheitsfeatures
+
+ASP.NET Core stellt zahlreiche Tools und Bibliotheken zur Verfügung, um Ihre Apps zu sichern (einschließlich integrierter Identitätsanbieter). Sie können jedoch auch Identitätsdienste von Drittanbietern wie Facebook, Twitter oder LinkedIn nutzen. Mit ASP.NET Core können Sie ganz einfach App-Geheimnisse verwalten, die eine Möglichkeit darstellen, vertrauliche Informationen zu speichern und zu verwenden, ohne sie im Code offenlegen zu müssen. 
+
+## <a name="authentication-vs-authorization"></a>Authentifizierung im Vergleich zu Autorisierung
+
+Authentifizierung ist ein Vorgang, bei dem ein Benutzer Anmeldeinformationen bereitstellt, die dann mit den Angaben verglichen werden, die in einem Betriebssystem, einer Datenbank, einer App oder einer Ressource gespeichert sind. Wenn diese übereinstimmen, authentifizieren sich die Benutzer erfolgreich und können dann während eines Autorisierungsprozesses Aktionen ausführen, für die sie berechtigt sind. Die Autorisierung bezieht sich auf den Prozess, der festlegt, welche Aktionen ein Benutzer ausführen darf. 
+
+Eine weitere Möglichkeit, Authentifizierung zu definieren, besteht darin, sie als eine Möglichkeit zu betrachten, einen „Raum“ (z.B. einen Server, eine Datenbank, eine App oder eine Ressource) zu betreten, während die Autorisierung darin besteht, welche Aktionen der Benutzer mit welchen Objekten innerhalb dieses „Raums“ (Server, Datenbank oder App) ausführen kann.
+
+## <a name="common-vulnerabilities-in-software"></a>Häufige Sicherheitsrisiken in Software
+
+ASP.NET Core und EF enthalten Features, die Ihnen helfen, Ihre Anwendungen zu schützen und Sicherheitsverletzungen zu verhindern. Die folgende Liste von Links verweist auf die Dokumentation, die Techniken zur Vermeidung der häufigsten Sicherheitsrisiken in Web-Apps beschreibt:
+
+* [XSS-Angriffe (Cross-Site Scripting)](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
+* [Angriffe durch Einschleusen von SQL](https://docs.microsoft.com/ef/core/querying/raw-sql)
+* [Websiteübergreifende Anforderungsfälschung (CSRF)](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
+* [Offene Weiterleitungsangriffe](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
+
+Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informationen finden Sie im Abschnitt *ASP.NET Sicherheitsdokumentation* dieses Dokuments. 
+
+## <a name="aspnet-security-documentation"></a>ASP.NET-Sicherheitsdokumentation
 
 *   [Authentifizierung](authentication/index.md)
     *   [Einführung in Identity](authentication/identity.md)
@@ -41,7 +65,7 @@ ms.lasthandoff: 09/28/2017
     *   [Benutzerdefinierte, richtlinienbasierende Autorisierung](authorization/policies.md)
     *   [Abhängigkeitsinjektion in Anforderungshandlern](authorization/dependencyinjection.md)
     *   [Ressourcenbasierte Autorisierung](authorization/resourcebased.md)
-    *   [Ansehen der rollenbasierten Autorisierung](authorization/views.md)
+    *   [Ansichtsbasierte Autorisierung](authorization/views.md)
     *   [Einschränken der Identität nach Schema](authorization/limitingidentitybyscheme.md)
 *   [Schutz von Daten](data-protection/index.md)
     *   [Einführung in den Schutz von Daten](data-protection/introduction.md)
