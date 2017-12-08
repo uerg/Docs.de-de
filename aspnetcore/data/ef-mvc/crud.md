@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
 ms.openlocfilehash: 9fc2b4c126c4d109deb2125f0db70a355c04eb15
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit ASP.NET Core MVC-Lernprogramm (2 von 10)
 

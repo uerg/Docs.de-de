@@ -5,16 +5,16 @@ description: "In diesem Artikel werden die am häufigsten verwendeten Schritte z
 keywords: "ASP.NET Core, Identität und Authentifizierung"
 ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
+ms.date: 10/26/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: b4e67e7cfea3c01e3ca8c0d5df2a04e789749932
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 1d8c75a21cd7110b3e414f0c600e9f05cbaeff45
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>Migrieren von Authentifizierung und Identität zu ASP.NET Core 2.0
 
@@ -59,7 +59,8 @@ public void ConfigureServices(IServiceCollection services)
     // If you want to tweak Identity cookies, they're no longer part of IdentityOptions.
     services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -108,7 +109,8 @@ Wählen Sie eine der folgenden beiden Optionen aus, und stellen Sie die erforder
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User, 
         // remove the CookieAuthenticationDefaults.AuthenticationScheme parameter passed to AddAuthentication.
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => {
+                .AddCookie(options => 
+                {
                     options.LoginPath = "/Account/LogIn";
                     options.LogoutPath = "/Account/LogOff";
                 });
@@ -126,7 +128,8 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options => {
+            .AddJwtBearer(options => 
+            {
                 options.Audience = "http://localhost:5001/";
                 options.Authority = "http://localhost:5000/";
             });
@@ -146,12 +149,14 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
 - Aufrufen der `AddOpenIdConnect` Methode in der `ConfigureServices` Methode:
 
     ```csharp
-    services.AddAuthentication(options => {
+    services.AddAuthentication(options => 
+    {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
     })
     .AddCookie()
-    .AddOpenIdConnect(options => {
+    .AddOpenIdConnect(options => 
+    {
         options.Authority = Configuration["auth:oidc:authority"];
         options.ClientId = Configuration["auth:oidc:clientid"];
     });
@@ -169,7 +174,8 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
     
     ```csharp
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -187,7 +193,8 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddGoogle(options => {
+            .AddGoogle(options => 
+            {
                 options.ClientId = Configuration["auth:google:clientid"];
                 options.ClientSecret = Configuration["auth:google:clientsecret"];
             });    
@@ -205,7 +212,8 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddMicrosoftAccount(options => {
+            .AddMicrosoftAccount(options => 
+            {
                 options.ClientId = Configuration["auth:microsoft:clientid"];
                 options.ClientSecret = Configuration["auth:microsoft:clientsecret"];
             });
@@ -223,25 +231,29 @@ Nehmen Sie die folgenden Änderungen in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddTwitter(options => {
+            .AddTwitter(options => 
+            {
                 options.ConsumerKey = Configuration["auth:twitter:consumerkey"];
                 options.ConsumerSecret = Configuration["auth:twitter:consumersecret"];
             });
     ```
 
 ### <a name="setting-default-authentication-schemes"></a>Standard-Authentifizierungsschemas festlegen
-In 1.x die `AutomaticAuthenticate` und `AutomaticChallenge` Eigenschaften wurden auf einem einzelnen Authentifizierungsschema festgelegt werden soll. Es wurde keine gute Möglichkeit, dies zu erzwingen.
+In 1.x die `AutomaticAuthenticate` und `AutomaticChallenge` Eigenschaften der [authenticationoptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) Basisklasse wurden auf einem einzelnen Authentifizierungsschema festgelegt werden soll. Es wurde keine gute Möglichkeit, dies zu erzwingen.
 
-In 2.0 wurden diese beiden Eigenschaften als Flags in den einzelnen entfernt `AuthenticationOptions` -Instanz und verschoben haben, in die Basis [authenticationoptions](/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) Klasse. Die Eigenschaften können konfiguriert werden, der `AddAuthentication` Methodenaufruf innerhalb der `ConfigureServices` Methode *Startup.cs*:
+In 2.0 wurden diese beiden Eigenschaften als Eigenschaften in den einzelnen entfernt `AuthenticationOptions` Instanz. Sie können konfiguriert werden, der `AddAuthentication` Methodenaufruf innerhalb der `ConfigureServices` Methode *Startup.cs*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
+Im vorherigen Codeausschnitt wird das Standardschema zum festgelegt `CookieAuthenticationDefaults.AuthenticationScheme` ("Cookies").
+
 Alternativ können Sie eine überladene Version der verwenden die `AddAuthentication` Methode, um mehr als eine Eigenschaft festgelegt. Im folgenden Beispiel für die überladene Methode wird das Standardschema so eingerichtet `CookieAuthenticationDefaults.AuthenticationScheme`. Das Authentifizierungsschema kann auch angegeben werden, innerhalb der einzelnen `[Authorize]` Attribute oder Autorisierungsrichtlinien.
 
 ```csharp
-services.AddAuthentication(options => {
+services.AddAuthentication(options => 
+{
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 });
