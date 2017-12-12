@@ -11,27 +11,32 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
+ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Antwort Komprimierung Middleware für ASP.NET Core
 
-Durch [Luke Latham](https://github.com/guardrex)
+Von [Luke Latham](https://github.com/guardrex)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Die Netzwerkbandbreite ist eine eingeschränkte Ressource. Verringern die Größe der Antwort in der Regel wird die Reaktionsfähigkeit einer App häufig erheblich erhöht. Eine Möglichkeit, verringern Sie die Größe der Nutzlast ist zum Komprimieren von Antworten für eine app.
 
 ## <a name="when-to-use-response-compression-middleware"></a>Antwort Komprimierung Middleware verwenden
-Serverbasierte Antwort komprimierungstechnologien in IIS, Apache oder Nginx, in denen die Leistung der Middleware, die von der Servermodulen stimmt wird nicht, verwendet werden. Verwenden Sie die Komprimierung Middleware Antwort beim nicht verwenden:
-* [Modul für die dynamische Komprimierung von IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-* [Apache Mod_deflate-Modul](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-* [NGINX-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
-* [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener))
-* [Kestrel](xref:fundamentals/servers/kestrel)
+Serverbasierte Antwort komprimierungstechnologien in IIS, Apache oder Nginx verwendet werden. Die Leistung der Middleware überein nicht, die von der Servermodulen wahrscheinlich. [HTTP.sys-Server](xref:fundamentals/servers/httpsys) und [Kestrel](xref:fundamentals/servers/kestrel) derzeit bieten Unterstützung für die integrierte Komprimierung nicht.
+
+Verwenden Sie die Komprimierung Middleware Antwort beim:
+
+* Kann nicht die folgenden Server-basierten komprimierungstechnologien verwendet:
+  * [Modul für die dynamische Komprimierung von IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Apache Mod_deflate-Modul](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+* Hosten direkt auf:
+  * [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Antwort-Komprimierung
 In der Regel kann alle Antworten, die nicht komprimiert Antwort Komprimierung profitieren. In der Regel nicht systemintern komprimierte Antworten enthalten: CSS, JavaScript, HTML, XML und JSON. Sie sollten nicht systemintern komprimierte Ressourcen, wie z. B. PNG-Dateien komprimieren. Wenn Sie versuchen, eine systemintern komprimierte Antwort weiter zu komprimieren, wird jeder kleinen zusätzlichen Reduzierung der Größe und die Übertragung zeitlich wahrscheinlich nach der Zeit benötigt wurde, um die Komprimierung zu verarbeiten verdeckt. Komprimieren Sie Dateien, die weniger als etwa 150 1000 Bytes (je nach Inhalt der Datei und die Effizienz der Komprimierung) nicht. Der Aufwand für kleine Dateien komprimieren kann es sich um eine komprimierte Datei, die größer als die nicht komprimierte Datei führen.

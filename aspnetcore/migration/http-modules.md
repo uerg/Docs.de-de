@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen. 
 
@@ -169,11 +169,11 @@ Die Middleware für die Pipeline hinzugefügt werden, bevor die Verzweigung für
 
 Einige Module und Handler haben verschiedenen Konfigurationsoptionen, die im rowsetcache *"Web.config"*. In ASP.NET Core wird ein neues Konfigurationsmodell jedoch anstelle von verwendet *"Web.config"*.
 
-Die neue [Konfigurationssystem](../fundamentals/configuration.md) bietet Ihnen diese Optionen, um dieses Problem zu beheben:
+Die neue [Konfigurationssystem](xref:fundamentals/configuration/index) bietet Ihnen diese Optionen, um dieses Problem zu beheben:
 
 * Die Optionen in der Middleware direkt einfügen, entsprechend der [nächsten Abschnitt](#loading-middleware-options-through-direct-injection).
 
-* Verwenden der [Optionen Muster](../fundamentals/configuration.md#options-config-objects):
+* Verwenden der [Optionen Muster](xref:fundamentals/configuration/options):
 
 1.  Erstellen Sie eine Klasse, um die middlewareoptionen, z. B. halten:
 
@@ -384,7 +384,7 @@ Die `SetCookies` Rückrufmethode würde wie folgt aussehen:
 
 * [HTTP-Handler und HTTP-Module (Übersicht)](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
-* [Konfiguration](../fundamentals/configuration.md)
+* [Konfiguration](xref:fundamentals/configuration/index)
 
 * [Application Startup (Starten von Anwendungen)](../fundamentals/startup.md)
 

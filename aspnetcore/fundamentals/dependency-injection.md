@@ -12,21 +12,21 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 8d12960708f9d9bf2bc7c5997f82096d93087d13
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Einführung in die Abhängigkeitsinjektion in ASP.NET Core
 
-<a name=fundamentals-dependency-injection></a>
+<a name="fundamentals-dependency-injection"></a>
 
 Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core dient zur Unterstützung und Abhängigkeitsinjektion Nutzen von Grund auf neu einrichten. ASP.NET Core-Anwendungen können integriertes Framework Services, wenn diese in Methoden, die in die Startklasse eingeschleust nutzen und Anwendungsdienste für Injection ebenfalls konfiguriert werden können. Der von ASP.NET Core bereitgestellten Dienste Standardcontainer bietet eine minimale Funktion festgelegt und sollte nicht auf andere Container zu ersetzen.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-dependency-injection"></a>Was ist die Abhängigkeitsinjektion?
 
@@ -143,7 +143,7 @@ Entity Framework Kontexten hinzugefügt werden sollen, die Dienste Container üb
 >[!WARNING]
 > Die wichtigsten Gefahr vorsichtig sein behebt ein `Scoped` -Dienst von einem Singleton. Es ist wahrscheinlich in einem solchen Fall, dass der Dienst bei der Verarbeitung der nachfolgender Anforderungen falschen Status aufweist.
 
-Dienste mit Abhängigkeiten, sollten sie im Container registrieren. Wenn ein Dienst-Konstruktor wie z. B. ein primitiver erfordert eine `string`, dadurch kann eingegeben werden, mithilfe der [Optionen Muster und Konfiguration](configuration.md).
+Dienste mit Abhängigkeiten, sollten sie im Container registrieren. Wenn ein Dienst-Konstruktor wie z. B. ein primitiver erfordert eine `string`, dies kann eingegeben werden, mithilfe von [Konfiguration](xref:fundamentals/configuration/index) und [Optionen Muster](xref:fundamentals/configuration/options).
 
 ## <a name="service-lifetimes-and-registration-options"></a>Dienst-Lebensdauer und Registrierungsoptionen
 
@@ -228,11 +228,16 @@ public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
 
+public interface ISomeService {}
+public class SomeServiceImplementation : ISomeService, IDisposable {}
+
+
 public void ConfigureServices(IServiceCollection services)
 {
     // container will create the instance(s) of these types and will dispose them
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
+    services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
     // container did not create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
@@ -296,7 +301,7 @@ Bei der Arbeit mit Abhängigkeitsinjektion Bedenken Sie die folgenden Empfehlung
 
 * DI wird für Objekte, die komplexe Abhängigkeiten aufweisen. Domänencontroller, Dienste, Adapter und Repositorys sind Beispiele für Objekte, die zum DI hinzugefügt werden.
 
-* Vermeiden Sie das Speichern von Daten und Konfigurationsinformationen direkt in DI. Beispielsweise darf keine Einkaufswagen eines Benutzers in der Regel auf den Container hinzugefügt werden. Konfiguration verwenden, sollten die [Optionen Modell](configuration.md#options-config-objects). Auf ähnliche Weise vermeiden Sie "Daten Inhaber"-Objekte, die nur für den Zugriff auf ein anderes Objekt vorhanden. Es ist besser, Anfordern von dem tatsächlichen Element nach Möglichkeit über DI, erforderlich.
+* Vermeiden Sie das Speichern von Daten und Konfigurationsinformationen direkt in DI. Beispielsweise darf keine Einkaufswagen eines Benutzers in der Regel auf den Container hinzugefügt werden. Konfiguration verwenden, sollten die [Optionen Muster](xref:fundamentals/configuration/options). Auf ähnliche Weise vermeiden Sie "Daten Inhaber"-Objekte, die nur für den Zugriff auf ein anderes Objekt vorhanden. Es ist besser, Anfordern von dem tatsächlichen Element nach Möglichkeit über DI, erforderlich.
 
 * Vermeiden Sie statische Zugriff auf Dienste.
 

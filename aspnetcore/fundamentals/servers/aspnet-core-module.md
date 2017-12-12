@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ced1e667acb7d11954aea27de7701db89091fd9
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Einführung in ASP.NET Core-Modul
 
@@ -28,7 +28,7 @@ Unterstützte Windows-Versionen:
 
 * Windows 7 und Windows Server 2008 R2 und höher
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-aspnet-core-module-does"></a>Was bewirkt, dass ASP.NET Core-Modul
 
@@ -58,7 +58,8 @@ Dieser Abschnitt enthält eine Übersicht über den Prozess zum Einrichten einer
 
 ### <a name="install-ancm"></a>Installieren von ANCM
 
-ASP.NET Core-Modul muss in IIS auf Ihren Servern und in IIS Express auf Ihrem Entwicklungscomputer installiert werden. Bei Servern, ANCM enthalten ist, der [.NET Core Windows Server-Hosting-Bundle](https://aka.ms/dotnetcore.2.0.0-windowshosting). Für Entwicklungscomputern installiert Visual Studio automatisch ANCM in IIS Express und IIS, wenn sie bereits auf dem Computer installiert ist.
+
+ASP.NET Core-Modul muss in IIS auf Ihren Servern und in IIS Express auf Ihrem Entwicklungscomputer installiert werden. Bei Servern, ANCM enthalten ist, der [.NET Core Windows Server-Hosting-Bundle](https://aka.ms/dotnetcore-2-windowshosting). Für Entwicklungscomputern installiert Visual Studio automatisch ANCM in IIS Express und IIS, wenn sie bereits auf dem Computer installiert ist.
 
 ### <a name="install-the-iisintegration-nuget-package"></a>Installieren Sie das IISIntegration NuGet-Paket
 
@@ -111,6 +112,12 @@ Konfiguration für ASP.NET Core-Modul befindet sich in der *"Web.config"* -Datei
 ### <a name="run-with-iis-express-in-development"></a>Führen Sie in der Entwicklung mit IIS Express
 
 IIS Express kann von Visual Studio unter Verwendung der durch die ASP.NET Core definierten Standardprofil gestartet werden.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>Proxykonfiguration verwendet HTTP-Protokoll und ein ereignispaarbildung token
+
+Der Proxy zwischen dem ANCM und Kestrel erstellten verwendet das HTTP-Protokoll. Mithilfe von HTTP ist zur Optimierung der Leistung, abgewickelt der Datenverkehr zwischen dem ANCM und Kestrel für einen Loopback-Adresse aus der Netzwerkschnittstelle. Es ist kein Risiko, dass Lauschangriffe den Datenverkehr zwischen dem ANCM und Kestrel von einem anderen Speicherort aus dem Server.
+
+Ein ereignispaarbildung Token wird verwendet, um sicherzustellen, dass die Anfragen von Kestrel empfangen Proxyanforderungen von IIS wurden und nicht von einer anderen Quelle stammen. Ereignispaarbildung Token erstellt und in einer Umgebungsvariablen festgelegt (`ASPNETCORE_TOKEN`) durch die ANCM. Ereignispaarbildung Token ist auch in einem Header festlegen (`MSAspNetCoreToken`) bei jeder Anforderung über einen Proxy. IIS-Middleware überprüft anfordern, dass er empfängt, um sicherzustellen, dass der ereignispaarbildung token Headerwert den umgebungsvariablenwert entspricht. Wenn die Tokenwerte nicht übereinstimmt, wird die Anforderung protokolliert und abgelehnt. Die ereignispaarbildung-token-Umgebungsvariable und den Datenverkehr zwischen dem ANCM und Kestrel sind nicht von einem anderen Speicherort aus dem Server zugegriffen werden kann. Ohne den ereignispaarbildung Tokenwert nicht Angreifer Anforderungen gesendet, die in der IIS-Middleware-Prüfung umgehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,26 +1,24 @@
 ---
 title: Zwischenspeichern von Antworten in ASP.NET Core
 author: rick-anderson
-description: Informationen Sie zum Verwenden der Antwort zwischenspeichern konfigurieren, um Bandbreite zu senken und die Leistung verbessern.
-keywords: ASP.NET Core, Antwort zwischenspeichern, HTTP-Header
+description: "Informationen Sie zum Verwenden von caching zu niedrigeren bandbreitenanforderungen Antwort und erhöhen Sie der Leistung von ASP.NET Core-apps."
 ms.author: riande
 manager: wpickett
 ms.date: 09/20/2017
 ms.topic: article
-ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 79d9246632aae0fe9c3629fd7202842836828151
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
 Durch [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), und [Luke Latham](https://github.com/guardrex)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Zwischenspeichern von Antworten verringert die Anzahl der Anforderungen, die ein Client oder Proxy auf einem Webserver vornimmt. Zwischenspeichern von Antworten auch reduziert die Menge der Arbeit der Webserver durchführt, um eine Antwort zu generieren. Zwischenspeichern von Antworten wird durch Header gesteuert, die angeben, wie der Client und Proxy-Middleware zum Zwischenspeichern von Antworten soll.
 
@@ -179,4 +177,9 @@ Cache-Control: public,max-age=60
 
 * [Caching in HTTP aus der Spezifikation](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
+* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

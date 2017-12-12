@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: c5d8506c1bc8e6364d01596a0c82e1da41eea4ca
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
 
@@ -58,7 +58,7 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
   * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* geheime Schlüssel sind die Zertifikate für die Verwendung durch apps und Dienste, aber werden nicht unterstützt, indem Sie den Konfigurationsanbieter. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
     * Einfache Kennwörter werden als Name / Wert-Paare erstellt. Azure Key Vault geheime Namen sind nur alphanumerische Zeichen und Bindestriche enthalten.
-    * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen in der Stichprobe. Doppelpunkte, die normalerweise, zur Begrenzung von eines Abschnitts über einen Unterschlüssel in verwendet werden [ASP.NET kernkonfiguration](xref:fundamentals/configuration), für den geheimen Namen sind nicht zulässig. Aus diesem Grund sind zwei Bindestriche verwendet und für einen Doppelpunkt ausgetauscht werden, wenn der geheime Schlüssel in der app-Konfiguration geladen werden.
+    * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen in der Stichprobe. Doppelpunkte, die normalerweise, zur Begrenzung von eines Abschnitts über einen Unterschlüssel in verwendet werden [ASP.NET kernkonfiguration](xref:fundamentals/configuration/index), für den geheimen Namen sind nicht zulässig. Aus diesem Grund sind zwei Bindestriche verwendet und für einen Doppelpunkt ausgetauscht werden, wenn der geheime Schlüssel in der app-Konfiguration geladen werden.
     * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren. Der erste geheime Schlüssel ist ein einfacher Name und Wert und der zweiten geheimen Schlüssel erstellt einen geheimen Wert mit einem Abschnitt und der Unterschlüssel im Namen geheimen Schlüssels:
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
@@ -146,7 +146,7 @@ Configuration.Reload();
 Deaktiviert und abgelaufene Kennwörter Auslösen einer `KeyVaultClientException`. Um zu verhindern, dass Ihre app auslösen, ersetzen Sie Ihre app oder aktualisieren Sie den geheimen deaktiviert/Ablauffrist.
 
 ## <a name="troubleshooting"></a>Problembehandlung
-Wenn die Anwendung ein Fehler beim Laden der Konfiguration mithilfe des Anbieters auftritt, wird eine Fehlermeldung geschrieben, auf die [ASP.NET Protokollierung Infrastruktur](xref:fundamentals/logging). Die folgenden Bedingungen verhindert die Konfiguration geladen:
+Wenn die Anwendung ein Fehler beim Laden der Konfiguration mithilfe des Anbieters auftritt, wird eine Fehlermeldung geschrieben, auf die [ASP.NET Protokollierung Infrastruktur](xref:fundamentals/logging/index). Die folgenden Bedingungen verhindert die Konfiguration geladen:
 * Die app nicht korrekt in Azure Active Directory konfiguriert.
 * Der schlüsseltresor existiert nicht in Azure Key Vault.
 * Die app ist nicht autorisiert, auf den schlüsseltresor zugreifen.
@@ -157,7 +157,7 @@ Wenn die Anwendung ein Fehler beim Laden der Konfiguration mithilfe des Anbieter
 * Der Konfigurationsschlüssel (Name) ist falsch, in der app für den Wert, den Sie laden möchten.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-* <xref:fundamentals/configuration>
+* [Konfiguration](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Key Vault-Dokumentation](https://docs.microsoft.com/azure/key-vault/)
 * [Zum Generieren und Übertragen von HSM-geschützten Schlüsseln für Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)

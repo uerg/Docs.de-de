@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: ff0a1a34ee6b025be6312a81f1a0bcdd07026adb
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 46b92a1cab6fb2cd06eff44feb6a55788fca5c2a
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Abhängigkeitsinjektion in Controllern
 
@@ -89,7 +89,7 @@ In einigen Fällen benötigen Sie keinen Dienst für mehr als eine Aktion innerh
 
 ## <a name="accessing-settings-from-a-controller"></a>Zugreifen auf Einstellungen von einem Controller
 
-Zugriff auf Anwendungs- oder Einstellungen innerhalb eines Controllers ist ein allgemeines Muster. Dieser Zugriff sollte die in beschriebenen Optionen-Muster verwenden [Konfiguration](../../fundamentals/configuration.md). Sie sollten im Allgemeinen Einstellungen nicht direkt aus Ihrem Controller mithilfe der Abhängigkeitsinjektion anfordern. Ein besserer Ansatz besteht darin Anforderung eine `IOptions<T>` Instanz, in denen `T` ist die Konfigurationsklasse, die Sie benötigen.
+Zugriff auf Anwendungs- oder Einstellungen innerhalb eines Controllers ist ein allgemeines Muster. Dieser Zugriff sollte die in beschriebenen Optionen-Muster verwenden [Konfiguration](xref:fundamentals/configuration/index). Sie sollten im Allgemeinen Einstellungen nicht direkt aus Ihrem Controller mithilfe der Abhängigkeitsinjektion anfordern. Ein besserer Ansatz besteht darin Anforderung eine `IOptions<T>` Instanz, in denen `T` ist die Konfigurationsklasse, die Sie benötigen.
 
 Um mit dem Muster Optionen zu arbeiten, müssen Sie eine Klasse erstellen, die Optionen, wie diese darstellt:
 
@@ -100,7 +100,7 @@ Dann müssen Sie so konfigurieren Sie die Anwendung verwenden Sie das Modell fü
 [!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
-> In der obigen Liste konfigurieren wir die Anwendung, die Einstellungen aus einer JSON-formatierten Datei zu lesen. Sie können auch die Einstellungen vollständig im Code konfigurieren, wie im obigen kommentierten Code gezeigt wird. Finden Sie unter [Konfiguration](../../fundamentals/configuration.md) für weitere Konfigurationsoptionen.
+> In der obigen Liste konfigurieren wir die Anwendung, die Einstellungen aus einer JSON-formatierten Datei zu lesen. Sie können auch die Einstellungen vollständig im Code konfigurieren, wie im obigen kommentierten Code gezeigt wird. Finden Sie unter [Konfiguration](xref:fundamentals/configuration/index) für weitere Konfigurationsoptionen.
 
 Nachdem Sie eine stark typisierte Konfigurationsobjekt angegeben haben (in diesem Fall `SampleWebSettings`) und wurde jedoch hinzugefügt, auf die Auflistung Dienste können fordern sie eine beliebige andere Methode Controller bzw. die Aktionsmethode Anfordern einer Instanz von `IOptions<T>` (in diesem Fall `IOptions<SampleWebSettings>`) . Der folgende Code zeigt, wie eine die Einstellungen von einem Controller anfordern möchten:
 

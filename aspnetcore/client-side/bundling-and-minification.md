@@ -1,234 +1,314 @@
 ---
 title: Bundling und Minimierung in ASP.NET Core
-author: spboyer
-description: 
-keywords: "ASP.NET Core Bündelung und Minimierung, CSS, JavaScript, verkleinernde BuildBundlerMinifier"
-ms.author: riande
+author: scottaddie
+description: "Erfahren Sie, wie statische Ressourcen in einer ASP.NET Core-Web-Anwendung zu optimieren, indem Sie Bündelung und Minimierung Techniken anwenden."
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
-ms.technology: aspnet
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 12/01/2017
+ms.devlang: csharp
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 11528cb2067ced79a09845f9ff78d897da033438
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
+ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="bundling-and-minification-in-aspnet-core"></a>Bundling und Minimierung in ASP.NET Core
+# <a name="bundling-and-minification"></a>Bundling und Minimierung
 
-Bundling und Minimierung sind zwei Techniken können Sie in ASP.NET zur Verbesserung der Leistung beim Laden von Seite für Ihre Webanwendung. Bundling kombiniert mehrere Dateien in einer einzelnen Datei. Minimierung führt eine Vielzahl von anderen Code, der Optimierungen mit Skripts und CSS, was in kleinere Nutzlasten führt. Zusammen verwendet werden, verbessert Bündelung und Minimierung die Leistung der Load-Zeit durch die Anzahl der Anforderungen an den Server zu verringern und Verringern der Größe der angeforderten Objekte (z. B. CSS- und JavaScript-Dateien).
+Von [Scott Addie](https://twitter.com/Scott_Addie)
 
-Dieser Artikel beschreibt die Vorteile der Verwendung von Bündelung und Minimierung, z. B., wie diese Funktionen mit ASP.NET Core-Anwendungen verwendet werden können.
+Dieser Artikel beschreibt die Vorteile der Anwendung Bündelung und Minimierung, z. B., wie diese Funktionen mit ASP.NET Core webapps verwendet werden können.
 
-## <a name="overview"></a>Übersicht
+## <a name="what-is-bundling-and-minification"></a>Was ist Bündelung und Minimierung?
 
-In ASP.NET Core-apps stehen Ihnen mehrere Optionen zum bundling und Minimierung mit clientseitigen Ressourcen. Die Standardvorlagen für MVC bieten eine Out-of-Box-Lösung, die mit einer Konfigurationsdatei und BuildBundlerMinifier NuGet-Paket. Drittanbieter-tools, z. B. [Gulp](using-gulp.md) und [Grunt](using-grunt.md) sind ebenfalls verfügbar zur Ausführen derselben Aufgaben sollten den Prozessen benötigt werden, zusätzliche Workflow oder Komplexität. Verwenden Sie zur Entwurfszeit Bündelung und Minimierung, werden die verkleinerte Dateien vor der Bereitstellung der Anwendung erstellt. Bundling und Minimierung mit vor der Bereitstellung bietet den Vorteil des reduzierten Serverlast. Allerdings es ist wichtig zu wissen, während der Entwurfszeit Bündelung und Minimierung Build Komplexität erhöht und kann nur für statische Dateien.
+Bundling und Minimierung sind zwei unterschiedliche leistungsoptimierungen, die Sie in einer Web-app anwenden können. Zusammen verwendet werden, zur Leistungssteigerung Bündelung und Minimierung durch Reduzierung der Anzahl von serveranforderungen und Verringern der Größe der angeforderten statischen Objekte.
 
-Bundling und Minimierung wird in erster Linie die erste Anforderung Seitenladezeit verbessern. Sobald eine Webseite angefordert wurde, speichert der Browser Objekte (JavaScript, CSS und Bilder), um Bündelung und Minimierung wird kein Leistungssteigerung beim Anfordern von derselben Seite bieten oder Seiten auf dem gleichen Standort die gleichen Ressourcen anfordern. Wenn Sie nicht Festlegen der Header ordnungsgemäß auf Ihre Medienobjekte abläuft und Bündelung und Minimierung verwenden Sie nicht, Heuristik beim Ermitteln des Browsers der Aktualität kennzeichnet die Medienobjekte veraltete nach ein paar Tagen und der Browser wird für jedes Medienobjekt eine validierungsanforderung erfordern. In diesem Fall geben Bündelung und Minimierung eine Leistungssteigerung auch nach der ersten Seitenanforderung.
+Bundling und Minimierung wird in erster Linie die erste Anforderung Seitenladezeit verbessern. Sobald eine Webseite angefordert wurde, speichert der Browser statische Objekte (JavaScript, CSS und Bilder). Folglich leistungsverbesserung nicht Bündelung und Minimierung beim Anfordern von der gleichen Seite oder Seiten am selben Standort die gleichen Ressourcen anfordern. Wenn Sie nicht Festlegen der Header ordnungsgemäß auf Ihre Medienobjekte abläuft, und Sie Bündelung und Minimierung nicht verwenden, der Browser Aktualität Heuristik zu kennzeichnen, die Anlagen veraltete nach ein paar Tagen. Darüber hinaus muss der Browser eine validierungsanforderung für jedes Medienobjekt. In diesem Fall geben Bündelung und Minimierung verbessert die Leistung auch nach der ersten Seitenanforderung.
 
 ### <a name="bundling"></a>Bundling
 
-Bundling ist ein Feature, das ganz einfach kombinieren oder mehrere Dateien in einer einzelnen Datei bündeln. Darin, dass mehrere Dateien in einer einzelnen Datei bundling kombiniert werden, wird die Anzahl der Anforderungen an den Server, die erforderlich sind, abgerufen und eine Web-Ressource, z. B. eine Webseite angezeigt. Sie können CSS, JavaScript und andere Pakete erstellen. Weniger Dateien bedeutet weniger HTTP-Anforderungen in Ihrem Browser auf dem Server oder aus dem Dienst, der die Anwendung bereitstellen. Ergibt sich aus diesem verbessert die Leistung beim ersten Seite.
+Bundling kombiniert mehrere Dateien in einer einzelnen Datei. Bundling reduziert die Anzahl der serveranforderungen, die erforderlich sind, um eine Web-Ressource, z. B. eine Webseite rendern. Sie können eine beliebige Anzahl von einzelnen Pakete speziell für CSS, JavaScript usw. erstellen. Weniger Dateien bedeutet weniger HTTP-Anforderungen über den Browser an den Server oder aus dem Dienst, der die Anwendung bereitstellen. Ergibt sich aus diesem verbessert die Leistung beim ersten Seite.
 
 ### <a name="minification"></a>Minimierung
 
-Minimierung führt eine Vielzahl von verschiedenen codeoptimierungen, die zum Verringern der Größe der angeforderten Objekte (z. B. CSS, Bilder, JavaScript-Dateien). Allgemeine Ergebnisse von Minimierung gehören unnötige Leerzeichen und Kommentare entfernen und Verkürzung Variablennamen in einem Zeichen.
+Minimierung entfernt überflüssige Zeichen aus Code ohne Funktionen zu ändern. Das Ergebnis ist eine wesentliche Verringerung angeforderten Objekte (z. B. CSS, Bilder und JavaScript-Dateien). Allgemeine Nebeneffekte der Minimierung gehören Verkürzung Variablennamen an, um ein Zeichen und Kommentare und unnötige Leerzeichen entfernt.
 
 Betrachten Sie die folgenden JavaScript-Funktion:
 
-```javascript
-AddAltToImg = function (imageTagAndImageID, imageContext) {
-  ///<signature>
-  ///<summary> Adds an alt tab to the image
-  // </summary>
-  //<param name="imgElement" type="String">The image selector.</param>
-  //<param name="ContextForImage" type="String">The image context.</param>
-  ///</signature>
-  var imageElement = $(imageTagAndImageID, imageContext);
-  imageElement.attr('alt', imageElement.attr('id').replace(/ID/, ''));
-}
-```
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.js)]
 
-Nach der Minimierung wird die Funktion auf die folgenden reduziert:
+Minimierung reduziert die Funktion wie folgt:
 
-```javascript
-AddAltToImg=function(t,a){var r=$(t,a);r.attr("alt",r.attr("id").replace(/ID/,""))};
-```
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.min.js)]
 
-Zusätzlich zu entfernen, Kommentare und Leerzeichen nicht erforderlich, wurden die folgenden Parameter und Variablen umbenannt (gekürzt) wie folgt:
+Zusätzlich zu entfernen, Kommentare und Leerzeichen nicht erforderlich, wurden die folgenden Namen für Parameter und Variablen wie folgt umbenannt:
 
 Ursprünglich | Umbenannt
 --- | :---:
-imageTagAndImageID | t
-imageContext | eine
-imageElement | b
+`imageTagAndImageID` | `t`
+`imageContext` | `a`
+`imageElement` | `r`
 
 ## <a name="impact-of-bundling-and-minification"></a>Auswirkungen der Bündelung und Minimierung
 
-Die folgende Tabelle zeigt einige wichtige Unterschiede zwischen alle Objekte einzeln auflisten und Verwenden von Bündelung und Minimierung auf eine einfache Webseite:
+In der folgenden Tabelle sind die Unterschiede zwischen einzeln Bestand laden und Verwenden von Bündelung und Minimierung aufgeführt:
 
 Aktion | Mit B/M | Ohne B/M | Änderung
 --- | :---: | :---: | :---:
-Dateianforderungen |7 | 18 | 157%
+Dateianforderungen  | 7   | 18     | 157%
 KB übertragen | 156 | 264.68 | 70%
-Laden Sie die Zeit (MS) | 885 | 2360 | 167%
+Laden Sie die Zeit (ms) | 885 | 2360   | 167%
 
-Der gesendeten Bytes hat zu eine erhebliche Reduzierung mit das Bündelung ebenso wie Browsern Recht ausführlich mit den HTTP-Headern, die sie für Anforderungen gelten. Die Ladezeit zeigt eine große Verbesserung, jedoch in diesem Beispiel wird lokal ausgeführt wurde. Wenn Bündelung und Minimierung mit Ressourcen verwenden, die über ein Netzwerk übertragen, erhalten eine größere erzielen bei der Leistung.
+Browser sind ziemlich aufwändig im Hinblick auf HTTP-Anforderungsheader. Die Gesamtanzahl der Bytes zu eine erhebliche Reduzierung von Metrik gesehen haben, wenn Bündelung gesendet. Die Ladezeit zeigt eine erhebliche Verbesserung, jedoch in diesem Beispiel wird lokal ausgeführt wurde. Deutlichere leistungsverbesserungen werden genutzt, wenn Bündelung und Minimierung mit Ressourcen verwenden, die über ein Netzwerk übertragen.
 
-## <a name="using-bundling-and-minification-in-a-project"></a>Verwenden in einem Projekt Bündelung und Minimierung
+## <a name="choose-a-bundling-and-minification-strategy"></a>Wählen Sie eine Strategie Bündelung und Minimierung
 
-Das MVC-Projektvorlage enthält eine `bundleconfig.json` Konfigurationsdatei an, die die Optionen für jedes Paket definiert. Standardmäßig wird eine Paket-Konfiguration für die benutzerdefinierte JavaScript definiert (`wwwroot/js/site.js`) und Stylesheet (`wwwroot/css/site.css`) Dateien.
+Die Razor-Seiten und MVC-Projektvorlagen bieten eine Out-of-Box-Lösung für Bündelung und Minimierung bestehend aus einer JSON-Konfigurationsdatei an. Drittanbieter-tools, z. B. die [Gulp](xref:client-side/using-gulp) und [Grunt](xref:client-side/using-grunt) task Runner, Aufgaben mit etwas mehr Komplexität. Ein Tool eines Drittanbieters ist ideal, wenn der Entwicklungsworkflow Verarbeitung hinter Bündelung und Minimierung erfordert&mdash;z. B. Linting und Image-Optimierung. Verwenden Sie zur Entwurfszeit Bündelung und Minimierung, werden die verkleinerte Dateien vor der Bereitstellung der app erstellt. Bundling und Minimierung mit vor der Bereitstellung bietet den Vorteil des reduzierten Serverlast. Allerdings es ist wichtig zu wissen, während der Entwurfszeit Bündelung und Minimierung Build Komplexität erhöht und kann nur für statische Dateien.
 
-[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig.json)]
+## <a name="configure-bundling-and-minification"></a>Konfigurieren von Bündelung und Minimierung
+
+Geben Sie die Razor-Seiten und MVC-Projektvorlagen einen *bundleconfig.json* Konfigurationsdatei an, die die Optionen für jedes Paket definiert. Standardmäßig wird eine Paket-Konfiguration für die benutzerdefinierte JavaScript definiert (*wwwroot/js/site.js*) und Stylesheet (*wwwroot/css/site.css*) Dateien:
+
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
 Bundle-Optionen:
 
-* OutputFileName - Namen der Paketdatei ausgegeben. Einen relativen Pfad darf das `bundleconfig.json` Datei. **Erforderlich**
-* InputFiles - Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
-* verkleinernde - Minimierung von Optionen für die Ausgabe zu geben. **optionale**, *Standard:`minify: { enabled: true }`*
+* `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **Erforderlich**
+* `inputFiles`: Ein Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
+* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optionale**, *Standard:`minify: { enabled: true }`*
   * Konfigurationsoptionen sind pro Datei Ausgabetyp verfügbar.
     * [CSS-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [HTML-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
-* IncludeInProject - generierte Dateien zur Projektdatei hinzufügen. **optionale**, *Standard - "false"*
-* SourceMaps - Quelle Zuordnungen für die gebündelte Datei zu generieren. **optionale**, *Standard - "false"*
+* `includeInProject`: Flag gibt an, ob die generierte Dateien zur Projektdatei hinzufügen. **optionale**, *Standard - "false"*
+* `sourceMap`: Flag gibt an, ob eine quellzuordnung für die gebündelte Datei zu generieren. **optionale**, *Standard - "false"*
+* `sourceMapRootPath`: Der Pfad des Anwendungsstamms für das Speichern der generierten Quelldatei für die Zuordnung.
 
-### <a name="visual-studio-2015--2017"></a>Visual Studio 2015 / 2017
+## <a name="build-time-execution-of-bundling-and-minification"></a>Zur Buildzeit Ausführung Bündelung und Minimierung
 
-Open `bundleconfig.json` in Visual Studio, wenn Ihre Umgebung keine Erweiterung installiert; eine Aufforderung erhält angewiesen, den vorhanden ist, die mit diesem Dateityp unterstützen kann.
+Die [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet-Paket ermöglicht die Ausführung von Bündelung und Minimierung zur Buildzeit. Das Paket fügt [MSBuild-Ziele](/visualstudio/msbuild/msbuild-targets) dem zu erstellen und bereinigen Uhrzeit ausgeführt. Die *bundleconfig.json* Datei durch den Buildprozess die Ausgabedateien auf Basis der Konfiguration definierten erzeugen analysiert.
 
-![Vorschlag BuildBundlerMinifier-Erweiterung](../client-side/bundling-and-minification/_static/bundler-extension-suggestion.png)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Wählen Sie die Ansicht Erweiterungen, und Installieren der **Bundle & Minifier** Erweiterung (Visual Studio erfordert Neustart).
+Hinzufügen der *BuildBundlerMinifier* Paket Ihrem Projekt.
 
-![Vorschlag BuildBundlerMinifier-Erweiterung](../client-side/bundling-and-minification/_static/view-extension.png)
-
-Wenn der Neustart abgeschlossen ist, müssen Sie den Build zum Ausführen der Prozesse weboptimierungsframework und bündeln die clientseitigen Objekte zu konfigurieren. Mit der rechten Maustaste die `bundleconfig.json` Datei, und wählen Sie *Enable-Paket beim Erstellen... *.
-
-Erstellen Sie das Projekt, und die `bundleconfig.json` in den Buildprozess erzeugen die Ausgabedateien auf Basis der Konfiguration enthalten ist.
+Erstellen Sie das Projekt. Im folgenden wird im Ausgabefenster angezeigt:
 
 ```console
-1>------ Build started: Project: BuildBundlerMinifierExample, Configuration: Debug Any CPU ------
+1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
 1>
 1>Bundler: Begin processing bundleconfig.json
+1>  Minified wwwroot/css/site.min.css
+1>  Minified wwwroot/js/site.min.js
 1>Bundler: Done processing bundleconfig.json
-1>BuildBundlerMinifierExample -> C:\BuildBundlerMinifierExample\bin\Debug\netcoreapp1.1\BuildBundlerMinifierExample.dll
-========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========
+1>BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-### <a name="visual-studio-code-or-command-line"></a>Visual Studio-Code oder über die Befehlszeile
+Bereinigen Sie das Projekt. Im folgenden wird im Ausgabefenster angezeigt:
 
-Visual Studio und die Erweiterung Laufwerk den Bündelung und Minimierung-Prozess, die mit der GUI-Gesten; Allerdings stehen die gleichen Funktionen zur Verfügung, mit der `dotnet` CLI und BuildBundlerMinifier NuGet-Paket.
+```console
+1>------ Clean started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
+1>
+1>Bundler: Cleaning output from bundleconfig.json
+1>Bundler: Done cleaning output file from bundleconfig.json
+========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
+```
 
-Fügen Sie dem Projekt das NuGet-Paket hinzu:
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli) 
+
+Hinzufügen der *BuildBundlerMinifier* Paket Ihrem Projekt:
 
 ```console
 dotnet add package BuildBundlerMinifier
 ```
 
-Stellen Sie die Abhängigkeiten wieder her:
+Bei Verwendung von ASP.NET Core 1.x, stellen Sie das Paket neu hinzugefügte wieder her:
 
 ```console
 dotnet restore
 ```
 
-Erstellen Sie die app ein:
+Erstellen Sie das Projekt:
 
 ```console
 dotnet build
 ```
 
-Die Ausgabe aus dem Buildbefehl zeigt die Ergebnisse der Minimierung und/oder bundling entsprechend was konfiguriert ist.
+Im folgenden wird angezeigt:
 
 ```console
-Microsoft (R) Build Engine version 15.1.545.13942
+Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 
-  Bundler: Begin processing bundleconfig.json
-     Minified wwwroot/css/site.min.css
-  Bundler: Done processing bundleconfig.json
-  BuildBundlerMinifierExample -> /BuildBundlerMinifierExample/bin/Debug/netcoreapp1.0/BuildBundlerMinifierExample.dll
+    Bundler: Begin processing bundleconfig.json
+    Bundler: Done processing bundleconfig.json
+    BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
 ```
 
-## <a name="adding-files"></a>Hinzufügen von Dateien
+Bereinigen Sie das Projekt:
 
-In diesem Beispiel wird eine zusätzliche CSS-Datei namens hinzugefügt `custom.css` und konfiguriert Sie für Bündelung und Minimierung mit `site.css`, wodurch ein einzelnes `site.min.css`.
-
-Custom.CSS
-
-```css
-.about, [role=main], [role=complementary]
-{
-    margin-top: 60px;
-}
-
-footer
-{
-    margin-top: 10px;
-}
+```console
+dotnet clean
 ```
 
-Fügen Sie den relativen Pfad zum `bundleconfig.json`.
+Die folgende Ausgabe wird angezeigt:
 
-[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig2.json)]
+```console
+Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+  Bundler: Cleaning output from bundleconfig.json
+  Bundler: Done cleaning output file from bundleconfig.json
+```
+
+---
+
+## <a name="ad-hoc-execution-of-bundling-and-minification"></a>Ad-hoc-Ausführung von Bündelung und Minimierung
+
+Es ist möglich, die auf einer ad-hoc-Basis der Bündelung und Minimierung Aufgaben ausgeführt werden, ohne Erstellen des Projekts. Hinzufügen der [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) NuGet-Paket Ihrem Projekt:
+
+[!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
+
+Dieses Paket erweitert, die .NET Core CLI enthalten die *Dotnet-Bundle* Tool. Der folgende Befehl kann im Paket-Manager-Konsole (PMC)-Fenster oder in eine Befehlsshell ausgeführt werden:
+
+```console
+dotnet bundle
+```
+
+> [!IMPORTANT]
+> NuGet-Paket-Manager die Datei *.csproj als Abhängigkeiten hinzugefügt `<PackageReference />` Knoten. Die `dotnet bundle` Befehl wird mit der .NET Core-CLI registriert nur, wenn ein `<DotNetCliToolReference />` Knoten verwendet wird. Ändern Sie die Datei *.csproj entsprechend an.
+
+## <a name="add-files-to-workflow"></a>Hinzufügen von Dateien an den workflow
+
+Betrachten Sie ein Beispiel, in dem ein zusätzlicher *custom.css* Datei hinzugefügt wird, wie die folgenden:
+
+[!code-css[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/css/custom.css)]
+
+Zu verkleinernde *custom.css* und bündeln mit *"Site.CSS" ändern* in einem *site.min.css* Datei, fügen Sie den relativen Pfad zum *bundleconfig.json*:
+
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig2.json?highlight=6)]
 
 > [!NOTE]
-> Alternativ können Sie das Muster Globmodus missbraucht werden - `"inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]` Dateien und schließt die verkleinerte Dateimuster alle CSS abgerufen.
+> Alternativ könnte die folgenden Globmodus-Muster verwendet werden:
+>
+> ```json
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> ```
+>
+> Dieses Muster Globmodus entspricht allen CSS-Dateien und schließt die verkleinerte Dateimuster.
 
-Erstellen Sie die Anwendung, und öffnen Sie `site.min.css`, jetzt Beachten Sie, dass Inhalt von `custom.css` wurde an das Ende der Datei angefügt.
+Erstellen Sie die Anwendung. Open *site.min.css* , und beachten Sie den Inhalt des *custom.css* am Ende der Datei angefügt wird.
 
-## <a name="controlling-bundling-and-minification"></a>Steuern der Bündelung und Minimierung
+## <a name="environment-based-bundling-and-minification"></a>Umgebung basierende Bündelung und Minimierung
 
-Im Allgemeinen möchten Sie die gebündelten und verkleinerte Dateien der app nur in einer produktionsumgebung verwenden. Während der Entwicklung sollen Sie die ursprünglichen Dateien verwenden, damit Ihre app einfacher zu Debuggen ist.
+Als bewährte Methode sollte die gebündelten und verkleinerte Dateien Ihrer App in einer produktiven Umgebung verwendet werden. Stellen die ursprünglichen Dateien zum einfacheren Debuggen der app, während der Entwicklung.
 
-Sie können angeben, welche Skripts und CSS-Dateien in Ihren Seiten verwenden die Umgebung Tag-Hilfsmethode in Ihrer Layoutseiten eingeschlossen werden sollen (finden Sie unter [Tag Hilfsprogramme](../mvc/views/tag-helpers/index.md)). Die Umgebung Tags-Hilfsprogramm wird nur seinen Inhalt gerendert, wenn in bestimmten Umgebungen ausgeführt. Finden Sie unter [arbeiten mit mehreren Umgebungen](../fundamentals/environments.md) ausführliche Informationen zum Angeben der aktuellen Umgebung.
+Geben Sie die einzuschließenden Dateien aus, auf den Seiten mit den [Umgebung Tag Helper](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) in Ihren Ansichten. Die Umgebung Tags Hilfsprogramm seinen Inhalt nur gerendert wird, bei der Ausführung in bestimmten [Umgebungen](xref:fundamentals/environments).
 
-Die folgenden umgebungstag Rendern unverarbeiteten CSS-Dateien aus, bei der Ausführung im die `Development` Umgebung:
+Die folgenden `environment` Tag rendert die unverarbeiteten CSS-Dateien, bei der Ausführung im die `Development` Umgebung:
 
-[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=3&range=9-12)]
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Diese umgebungs-Tag Rendern die gebündelten und verkleinerte CSS-Dateien aus, bei der Ausführung im `Production` oder `Staging`:
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=5&range=13-18)]
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-## <a name="consuming-bundleconfigjson-from-gulp"></a>Verwenden von Gulp bundleconfig.json
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
-Wenn Ihre app Bündelung und Minimierung Workflow zusätzliche Prozesse wie das eine bildverarbeitung Cache Abwehrprogramm, CDN Assest Verarbeitung, usw. erforderlich sind, können Sie das Paket und Minify Prozess in Gulp konvertieren.
+---
 
-> [!NOTE]
-> Konvertierungsoption ist nur in Visual Studio 2015 und 2017 verfügbar.
+Die folgenden `environment` Tag rendert die gebündelten und verkleinerte CSS-Dateien aus, wenn in einer Umgebung ausgeführt, außer `Development`. Z. B. Ausführung `Production` oder `Staging` löst diese Stylesheets gerendert:
 
-Mit der rechten Maustaste die `bundleconfig.json` , und wählen Sie **in Gulp konvertieren... **. Dadurch wird die `gulpfile.js` und Installieren der erforderlichen Npm-Pakete.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-![Konvertieren in Gulp](../client-side/bundling-and-minification/_static/convert-togulp.png)
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-Die `gulpfile.js` Lesevorgänge erzeugt der `bundleconfig.json` Datei für die Konfiguration, sie können daher weiterhin für die Eingaben/Ausgaben und Einstellungen verwendet werden.
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-javascript[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/gulpfile.js)]
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
-Fügen Sie Folgendes in die Datei *.csproj, um Gulp zu aktivieren, wenn das Projekt in Visual Studio 2017 erstellt:
+---
 
-```xml
-<Target Name="MyPreCompileTarget" BeforeTargets="Build">
-    <Exec Command="gulp min" />
-</Target>
+## <a name="consume-bundleconfigjson-from-gulp"></a>Verwenden von Gulp bundleconfig.json
+
+Es gibt Fälle, in denen eine app Bündelung und Minimierung Workflow zusätzliche Verarbeitung erforderlich ist. Beispiele sind Image Optimierung, Cache Abwehrprogramm und CDN Asset-Verarbeitung. Um diese Anforderungen zu erfüllen, können Sie den Workflow Bündelung und Minimierung zum Verwenden von Gulp konvertieren.
+
+### <a name="use-the-bundler--minifier-extension"></a>Verwenden Sie die Erweiterung Bundle & Minifier
+
+Visual Studio [Bundle & Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) Erweiterung übernimmt die Konvertierung in Gulp.
+
+Mit der rechten Maustaste die *bundleconfig.json* im Projektmappen-Explorer die Datei, und wählen Sie **Bundle & Minifier** > **konvertieren, Gulp...** :
+
+![Konvertieren zu Gulp Kontextmenüelement](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
+
+Die *gulpfile.js* und *"Package.JSON"* Dateien werden dem Projekt hinzugefügt. Die zur Unterstützung [Npm](https://www.npmjs.com/) Pakete aufgelistet, die der *"Package.JSON"* Datei `devDependencies` Abschnitt installiert sind.
+
+Führen Sie den folgenden Befehl in einem PMC-Fenster auf die CLI Gulp als globale Abhängigkeit installieren:
+
+```console
+npm i -g gulp-cli
 ```
 
-Fügen Sie Folgendes, um Gulp zu aktivieren, wenn das Projekt in Visual Studio 2015 erstellt die `project.json` Datei:
+Die *gulpfile.js* Datei liest die *bundleconfig.json* -Datei für die Eingaben, Ausgaben und Einstellungen.
 
-```json
-"scripts": {
-    "precompile": "gulp min"
-}
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-12&highlight=10)]
+
+### <a name="convert-manually"></a>Konvertieren Sie manuell
+
+Wenn Visual Studio und/oder die Bundle & Minifier-Erweiterung nicht verfügbar sind, konvertieren Sie manuell ein.
+
+Hinzufügen einer *"Package.JSON"* -Datei mit den folgenden `devDependencies`, in das Projektstammverzeichnis:
+
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
+
+Installieren von Abhängigkeiten von den folgenden Befehl ausführen, auf der gleichen Ebene wie *"Package.JSON"*:
+
+```console
+npm i
 ```
+
+Installieren Sie die CLI Gulp als globale Abhängigkeit:
+
+```console
+npm i -g gulp-cli
+```
+
+Kopieren der *gulpfile.js* Datei unter dem Projektstamm:
+
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-11,14-)]
+
+### <a name="run-gulp-tasks"></a>Gulp Tasks ausführen
+
+Fügen Sie zum Auslösen der Gulp Minimierung-Aufgabe bevor Sie das Projekt in Visual Studio erstellt die folgenden [MSBuild-Ziel](/visualstudio/msbuild/msbuild-targets) in die Datei *.csproj:
+
+[!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=14-16)]
+
+In diesem Beispiel alle Aufgaben definiert, in der `MyPreCompileTarget` Ziel ausführen, bevor die vordefinierten `Build` Ziel. Ähnlich der folgenden Ausgabe wird in Visual Studio-Fenster "Ausgabe" angezeigt:
+
+```console
+1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
+1>BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
+1>[14:17:49] Using gulpfile C:\BuildBundlerMinifierApp\gulpfile.js
+1>[14:17:49] Starting 'min:js'...
+1>[14:17:49] Starting 'min:css'...
+1>[14:17:49] Starting 'min:html'...
+1>[14:17:49] Finished 'min:js' after 83 ms
+1>[14:17:49] Finished 'min:css' after 88 ms
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+```
+
+Alternativ kann der Task Runner-Explorer von Visual Studio verwendet werden, Gulp Aufgaben an bestimmten Visual Studio-Ereignisse binden. Finden Sie unter [Ausführen von Standardaufgaben](xref:client-side/using-gulp#running-default-tasks) Anweisungen auf diese Weise.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Verwenden von Gulp](using-gulp.md)
-* [Verwenden von Grunt](using-grunt.md)
-* [Arbeiten mit mehreren Umgebungen](../fundamentals/environments.md)
-* [Taghilfsprogramme](../mvc/views/tag-helpers/index.md)
+* [Verwenden von Gulp](xref:client-side/using-gulp)
+* [Verwenden von Grunt](xref:client-side/using-grunt)
+* [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
+* [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)

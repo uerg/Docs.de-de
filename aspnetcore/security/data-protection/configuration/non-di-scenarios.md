@@ -1,8 +1,8 @@
 ---
-title: Beachten Sie nicht DI-Szenarien
+title: "Beachten Sie nicht-DI-Szenarien für den Datenschutz in ASP.NET Core"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Erfahren Sie, wie Sie Data Protection Szenarien zu unterstützen, bzw. können keinen von Abhängigkeitsinjektion bereitgestellten Dienst verwenden möchten."
+keywords: "ASP.NET Core, Datenschutz, Abhängigkeitsinjektion, DataProtectionProvider"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,30 +11,29 @@ ms.assetid: a7d8a962-80ff-48e3-96f6-8472b7ba2df9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/non-di-scenarios
-ms.openlocfilehash: 54a930c26f9f48ea0e6f7865e2927bcde0f4d6c0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 375eecf649819dce8f1c2ba30e1cb6451d1c1253
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="non-di-aware-scenarios"></a>Beachten Sie nicht DI-Szenarien
+# <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>Beachten Sie nicht-DI-Szenarien für den Datenschutz in ASP.NET Core
 
-Die Datenschutzsystem dient normalerweise [einen Dienstcontainer hinzuzufügende](../consumer-apis/overview.md) und abhängige Komponenten über eine DI-Mechanismus zur Verfügung gestellt wird. Möglicherweise gibt es jedoch einige Fälle, in denen dies nicht möglich, ist insbesondere dann, wenn das System in eine vorhandene Anwendung importieren.
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Zur Unterstützung dieser Szenarien enthält das Paket Microsoft.AspNetCore.DataProtection.Extensions einen konkreten Typ DataProtectionProvider die bietet eine einfache Möglichkeit, das Data Protection-System zu verwenden, ohne DI-spezifische Codepfade durchlaufen. Der Typ selbst implementiert IDataProtectionProvider und erstellen es ist so einfach wie das Bereitstellen einer DirectoryInfo, in denen dieser Anbieter kryptografischen Schlüssel gespeichert werden sollen.
+Das ASP.NET Core-Datenschutz-System ist normalerweise [hinzugefügt, um einen Dienstcontainer](xref:security/data-protection/consumer-apis/overview) und abhängige Komponenten über abhängigkeiteneinschleusung (DI) genutzt. Es gibt jedoch Fälle, in denen dies ist nicht möglich oder gewünscht ist, insbesondere, wenn das System in einer vorhandenen app zu importieren.
 
-Zum Beispiel:
+Um diese Szenarien zu unterstützen die [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) Paket bietet einen konkreten Typ [DataProtectionProvider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider), welcher bietet eine einfache Möglichkeit zum Schutz von Daten verwenden ohne Rückgriff auf DI. Die `DataProtectionProvider` Typ implementiert [IDataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionprovider). Erstellen von `DataProtectionProvider` erfordert nur die Bereitstellung einer [DirectoryInfo](/dotnet/api/system.io.directoryinfo) Instanz, um anzugeben, wo die Anbieter-Kryptografieschlüssel gespeichert werden sollen, wie im folgenden Codebeispiel dargestellt:
 
 [!code-none[Main](non-di-scenarios/_static/nodisample1.cs)]
 
->[!WARNING]
-> Standardmäßig die DataProtectionProvider konkreter Typ nicht verschlüsselt unformatierten Schlüsselmaterial vor dem Speichern im Dateisystem. Dies ist zur Unterstützung von Szenarien, in denen die Developer-verweist auf ein Netzwerk freigeben, in diesem Fall nicht der Datenschutzsystem automatisch einen entsprechenden-ruhender Verschlüsselungsmechanismus ableiten.
->
->Darüber hinaus den konkrete Typ DataProtectionProvider nicht [Anwendungen isolieren](overview.md#data-protection-configuration-per-app-isolation) standardmäßig können alle Anwendungen, auf dem gleichen Schlüssel Verzeichnis verwiesen wird Nutzlasten freigeben, solange ihre Zweck-Parameter übereinstimmen.
+Wird standardmäßig die `DataProtectionProvider` konkreter Typ nicht unformatierten Schlüsselmaterial verschlüsseln sie zuvor im Dateisystem beibehalten. Dies ist zur Unterstützung von Szenarien, in denen die Entwickler Punkte mit einem freigegebenen Netzwerkordner und die Datenschutz-System automatisch einen entsprechenden-ruhender Verschlüsselungsmechanismus hergeleitet werden können.
 
-Der Anwendungsentwickler kann beide adressieren, falls gewünscht. Der DataProtectionProvider-Konstruktor akzeptiert ein [optionale Konfiguration Rückruf](overview.md#data-protection-configuration-callback) die verwendet werden können, um das Verhalten des Systems zu optimieren. Im folgenden Beispiel wird veranschaulicht, Wiederherstellen von Isolierung über ein expliziter Aufruf von SetApplicationName, und es veranschaulicht auch die Konfiguration des Systems, um persistente Schlüssel mithilfe von Windows DPAPI automatisch zu verschlüsseln. Wenn das Verzeichnis auf einer UNC-Freigabe verweist, Sie möchten möglicherweise eine freigegebene Zertifikat für alle relevanten Computer zu verteilen und zum Konfigurieren des Systems zum Verwenden der zertifikatbasierten Verschlüsselung stattdessen über einen Aufruf an [ProtectKeysWithCertificate](overview.md#configuring-x509-certificate).
+Darüber hinaus die `DataProtectionProvider` konkreter Typ nicht [Isolieren von apps](xref:security/data-protection/configuration/overview#per-application-isolation) standardmäßig. Alle apps, die mit dem gleichen Schlüssel Verzeichnis können genauso lang wie die Nutzlasten Freigeben ihrer [Zweck Parameter](xref:security/data-protection/consumer-apis/purpose-strings) übereinstimmen.
+
+Die [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) Konstruktor akzeptiert einen optionale Konfiguration-Rückruf, der verwendet werden kann, um das Verhalten des Systems anzupassen. Im Beispiel unten zeigt wiederherstellen Isolation ein expliziter Aufruf von [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname). Das Beispiel zeigt auch das Konfigurieren des Systems automatisch permanente Schlüsseln mithilfe von Windows DPAPI verschlüsselt. Wenn das Verzeichnis auf einer UNC-Freigabe verweist, werden Sie ggf. zur Verteilung von einem freigegebenen Zertifikat für alle relevanten Computer sowie zum Konfigurieren des Systems zum Verwenden der zertifikatbasierten Verschlüsselung mit einem Aufruf von [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate).
 
 [!code-none[Main](non-di-scenarios/_static/nodisample2.cs)]
 
->[!TIP]
-> Instanzen von den konkreten Typ DataProtectionProvider sind aufwendig zu erstellen. Wenn eine Anwendung mehrere Instanzen dieses Typs verwaltet und sie alle auf den gleichen Schlüssel Speicherverzeichnis zeigt sind, kann die Anwendungsleistung beeinträchtigt. Die beabsichtigte Verwendung ist, dass Entwickler der Anwendung dieses Typs einmal instanziiert und Wiederverwenden von dieser einzelnen Verweis so weit wie möglich beibehalten. Der DataProtectionProvider-Typ und alle IDataProtector-Instanzen, die erstellt wurden, sind threadsicher für mehrere Aufrufer.
+> [!TIP]
+> Instanzen der `DataProtectionProvider` konkreter Typ sind aufwendig zu erstellen. Wenn eine Anwendung mehrere Instanzen dieses Typs verwaltet und sie alle den gleichen Schlüssel Speicherverzeichnis verwenden, beeinträchtigt möglicherweise die Leistung der app. Bei Verwendung der `DataProtectionProvider` Typ, es wird empfohlen, dass Sie dieses Typs einmal erstellen und verwenden Sie ihn so weit wie möglich wieder. Die `DataProtectionProvider` Typ und alle [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) Instanzen erstellt wurden, sind threadsicher für mehrere Aufrufer.

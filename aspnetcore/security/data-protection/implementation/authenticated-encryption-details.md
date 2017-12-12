@@ -1,8 +1,8 @@
 ---
-title: "Verschlüsselungsdetails des authentifizierten."
+title: "Authentifizierte Verschlüsselungsdetails"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "Dieses Dokument beschreibt die Implementierungsdetails des Datenschutzes ASP.NET Core authentifiziert Verschlüsselung."
+keywords: "ASP.NET Core, Datenschutz, Authentifizierung, Verschlüsselung"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 826e6d5d-9620-44e6-ad93-3b1d9969b70b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: 4d0e63d7722071ab8806a217e96ee7ad7bf10286
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: dc96412f6578e612a39e86ce00e1dc5a20cf84e9
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="authenticated-encryption-details"></a>Verschlüsselungsdetails des authentifizierten.
+# <a name="authenticated-encryption-details"></a>Authentifizierte Verschlüsselungsdetails
 
-<a name=data-protection-implementation-authenticated-encryption-details></a>
+<a name="data-protection-implementation-authenticated-encryption-details"></a>
 
 Aufrufe von IDataProtector.Protect sind authentifizierte Verschlüsselungsvorgänge. Die Protect-Methode bietet, Vertraulichkeit und Authentizität und es auf die Zweck-Kette, die verwendet wurde, dessen Stamm IDataProtectionProvider dieser bestimmten IDataProtector Instanz Ableitung gebunden ist.
 

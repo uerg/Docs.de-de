@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: cc3277400aee956f47c53e5a4f3d4e84d3a3d1a3
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: d6e230351eb2f4c8549b54d75fd8e345718e6109
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>Routing zum Controlleraktionen
 
@@ -206,7 +206,7 @@ app.UseMvc(routes =>
 });
 ```
 
-Die Routennamen benennen Sie der Route logische, damit für URL-Generierung die benannte Route verwendet werden kann. Dadurch wird URL-Erstellung erheblich vereinfacht, um die Reihenfolge der Routen URL-Generierung kompliziert vornehmen kann. Routen-Namen müssen eindeutig eine anwendungsweite sein.
+Die Routennamen benennen Sie der Route logische, damit für URL-Generierung die benannte Route verwendet werden kann. Dadurch wird URL-Erstellung erheblich vereinfacht, um die Reihenfolge der Routen URL-Generierung kompliziert vornehmen kann. Routennamen müssen anwendungsweite eindeutig sein.
 
 Routennamen haben keine Auswirkung auf die URL entsprechen oder die Verarbeitung von Anforderungen; Sie werden nur für die Erzeugung der URL verwendet. [Routing](xref:fundamentals/routing) enthält weitere ausführliche Informationen zum URL-Generierung, einschließlich der URL-Generierung in MVC-spezifische Hilfsprogramme.
 

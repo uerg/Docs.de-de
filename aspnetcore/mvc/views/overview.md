@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: f40feb0466854080cc749a83c546ce857d850902
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
+ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten im Kern der ASP.NET MVC
 
@@ -23,7 +23,7 @@ Durch [Steve Smith](https://ardalis.com/) und [Luke Latham](https://github.com/g
 
 In der **M**Odel -**V**vorhandenes -**C**Ontroller (MVC)-Muster, die *Ansicht* verarbeitet die app Daten Präsentation und Benutzerinteraktion. Eine Sicht ist eine HTML-Vorlage mit eingebetteten [Razor Markup](xref:mvc/views/razor). Razor-Markup ist Code, der Interaktion mit HTML-Markup, um eine Webseite zu erzeugen, die an den Client gesendet wird.
 
-In ASP.NET-MVC Core Ansichten sind *cshtml* Dateien, die [C#-Programmiersprache](/dotnet/csharp/) in Razor-Markup. In der Regel anzeigen von Dateien in Ordnern für jede von der app gruppiert [Controller](xref:mvc/controllers/actions). Die Ordner befinden sich einer in eine *Ansichten* Ordner im Stammverzeichnis der app:
+In ASP.NET-MVC Core Ansichten sind *cshtml* Dateien, die [C#-Programmiersprache](/dotnet/csharp/) in Razor-Markup. In der Regel anzeigen von Dateien in Ordnern für jede von der app gruppiert [Controller](xref:mvc/controllers/actions). Die Ordner befinden sich einem *Ansichten* Ordner im Stammverzeichnis der app:
 
 ![Ordner Views in Projektmappen-Explorer von Visual Studio ist mit dem Basisordner anzuzeigende About.cshtml Contact.cshtml und Index.cshtml Dateien öffnen öffnen](overview/_static/views_solution_explorer.png)
 
@@ -40,13 +40,13 @@ Verwendung [Layouts](xref:mvc/views/layout) konsistent Webseite Abschnitte und c
 Ansichten zur Verfügung, zum Herstellen einer [ **S**Eparation **o**f **C**Oncerns (SoC) Entwurf](http://deviq.com/separation-of-concerns/) innerhalb einer MVC-app durch die Trennung von Benutzer-Schnittstelle Markup aus andere Teile der app. SoC Entwurf nach macht Ihre app modular aufgebaut, die bietet mehrere Vorteile:
 
 * Die app ist einfacher zu verwalten, da es besser organisiert ist. Ansichten werden im Allgemeinen von app-Funktion gruppiert. Dies erleichtert die zugehörige Sichten zu suchen, bei der Arbeit auf eine Funktion.
-* Die Teile der app werden nicht eng verbunden. Erstellen und aktualisieren die app-Ansichten getrennt von der Logik und die Daten Zugriff Geschäftskomponenten. Sie können die Ansichten der app ändern, ohne unbedingt andere Teile der app zu aktualisieren.
+* Die Teile der app sind lose verbunden. Erstellen und aktualisieren die app-Ansichten getrennt von der Logik und die Daten Zugriff Geschäftskomponenten. Sie können die Ansichten der app ändern, ohne unbedingt andere Teile der app zu aktualisieren.
 * Es ist einfacher, das Benutzeroberflächenkomponenten der app zu testen, da die Ansichten separaten Einheiten sind.
 * Aufgrund der besseren Organisation ist es weniger wahrscheinlich, dass Sie versehentlich wiederholen Abschnitte der Benutzeroberfläche werden.
 
 ## <a name="creating-a-view"></a>Erstellen einer Ansicht
 
-Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der *Ansichten/freigegeben* Ordner. Um eine Ansicht zu erstellen, fügen Sie eine neue Datei hinzu, und geben Sie ihm den gleichen Namen wie der Aktion zugeordneten Controller mit dem *cshtml* Dateierweiterung. Zum Erstellen einer Ansicht für die *zu* Aktion in der *Home* Controller, erstellen eine *About.cshtml* in der Datei die *Ansichten/Start* Ordner:
+Sichten, die für einen Controller spezifisch sind werden erstellt, der *Ansichten / [ControllerName]* Ordner. Sichten, die für Domänencontroller, freigegeben werden befinden sich der *Ansichten/freigegeben* Ordner. Um eine Ansicht zu erstellen, fügen Sie eine neue Datei hinzu, und geben Sie ihm den gleichen Namen wie der Aktion zugeordneten Controller mit dem *cshtml* Dateierweiterung. Eine Sicht erstellt, der mit übereinstimmt der *zu* Aktion in der *Home* Controller, erstellen eine *About.cshtml* in der Datei die *Ansichten/Start*Ordner:
 
 [!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -88,7 +88,7 @@ Die `View` -Hilfsmethode verfügt über mehrere Überladungen. Optional können 
 
 Ein Prozess wird aufgerufen, wenn eine Aktion eine Sicht zurückgegeben wird, *Ansicht Ermittlung* erfolgt. Dieser Prozess wird bestimmt, welche Datei verwendet wird anhand des Ansichtsnamens. 
 
-Wenn eine Aktion gibt die `View` Methode (`return View();`) und eine Sicht ist nicht angegeben ist, der Aktionsnamen wie der Ansichtsname verwendet. Z. B. die *zu* `ActionResult` Methodennamen des Controllers wird zur Suche nach einer Datei anzeigen, die mit dem Namen *About.cshtml*. Die Common Language Runtime sucht zuerst die *Ansichten / [ControllerName]* Ordner für die Ansicht. Wenn es keine entsprechende Ansicht gefunden werden, sucht der *Shared* Ordner für die Ansicht.
+Das Standardverhalten der `View` Methode (`return View();`) ist eine Sicht mit dem gleichen Namen wie die Aktionsmethode zurückgeben, von dem sie aufgerufen wird. Z. B. die *zu* `ActionResult` Methodennamen des Controllers wird zur Suche nach einer Datei anzeigen, die mit dem Namen *About.cshtml*. Die Common Language Runtime sucht zuerst die *Ansichten / [ControllerName]* Ordner für die Ansicht. Wenn es keine entsprechende Ansicht gefunden werden, sucht der *Shared* Ordner für die Ansicht.
 
 Es spielt keine Rolle, wenn Sie, implizit zurückkehren die `ViewResult` mit `return View();` oder übergeben Sie den Namen der Ansicht, um explizit die `View` Methode mit `return View("<ViewName>");`. Zeigen Sie in beiden Fällen Ermittlung sucht nach einer übereinstimmenden Ansichtsdatei, in der angegebenen Reihenfolge aus:
 
@@ -127,7 +127,7 @@ Sie können Daten mit Ansichten mithilfe von mehreren Ansätzen übergeben. Die 
 
 Ein Viewmodel Daten an eine Ansicht zu übergeben, können die Ansicht zu nutzen *starken* Überprüfung des Typs. *Starke Typisierung* (oder *stark typisierte*) bedeutet, dass jede Variable und jede Konstante einen explizit definierten Typ aufweist (z. B. `string`, `int`, oder `DateTime`). Die Gültigkeit der Typen, die in einer Ansicht verwendet, die zum Zeitpunkt der Kompilierung aktiviert ist.
 
-Tools, z. B. [Visual Studio](https://www.visualstudio.com/vs/) oder [Visual Studio Code](https://code.visualstudio.com/), Member (Eigenschaften eines Modells) können auch auflisten, während Sie sie zu einer Sicht hinzufügen, was hilft, Code schneller mit weniger Fehlern zu schreiben. Diese Funktion wird aufgerufen, [IntelliSense](/visualstudio/ide/using-intellisense) in Microsoft-Tools.
+[Visual Studio](https://www.visualstudio.com/vs/) und [Visual Studio Code](https://code.visualstudio.com/) Liste stark typisierte Klasse, Elemente mit einem Feature [IntelliSense](/visualstudio/ide/using-intellisense). Wenn Sie die Eigenschaften von einem Viewmodel anzeigen möchten, geben Sie den Variablennamen ein für das Viewmodel, gefolgt von einem Punkt (`.`). Dadurch können Sie Code schneller mit weniger Fehlern zu schreiben.
 
 Geben Sie ein Modell mithilfe der `@model` Richtlinie. Verwenden Sie das Modell mit `@Model`:
 
@@ -181,7 +181,12 @@ namespace WebApplication1.ViewModels
 > [!NOTE]
 > Nichts daran hindert Sie die gleichen Klassen für die Viewmodel-Typen und Ihre Business-Modelltypen verwenden. Verwenden von separaten Modellen kann jedoch Ihre Ansichten unabhängig von der Geschäftslogik und die Daten Zugriff Teile Ihrer app variieren. Trennung von Modellen und Viewmodels bietet zudem Sicherheitsvorteile, wenn Modelle verwenden [modellbindung](xref:mvc/models/model-binding) und [Überprüfung](xref:mvc/models/validation) für Daten, die an die app vom Benutzer gesendet.
 
+
+<a name="VD_VB"></a>
+
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Schwach typisierte Daten (ViewData und ViewBag)
+
+Hinweis: `ViewBag` ist in der Razor-Seiten nicht verfügbar.
 
 Zusätzlich zu den stark typisierten Ansichten Ansichten haben Zugriff auf eine *schwach typisierte* (so genannte *lose typisierten*) Sammeln von Daten. Im Gegensatz zu starke Typen *unsichere Typen* (oder *lose Typen*) bedeutet, dass Sie explizit den Typ der Daten deklarieren nicht, Sie verwenden. Die Auflistung der schwach typisierten Daten können für kleine Mengen von Daten aus dem Controller und Ansichten übergeben.
 
@@ -194,6 +199,9 @@ Zusätzlich zu den stark typisierten Ansichten Ansichten haben Zugriff auf eine 
 Diese Auflistung kann verwiesen werden, entweder über die `ViewData` oder `ViewBag` Eigenschaften für Controller und Ansichten. Die `ViewData` Eigenschaft ist ein Wörterbuch von schwach typisierte Objekte. Die `ViewBag` Eigenschaft ist ein Wrapper um `ViewData` , dynamische Eigenschaften bereitstellt, für das zugrunde liegende `ViewData` Auflistung.
 
 `ViewData`und `ViewBag` dynamisch zur Laufzeit aufgelöst werden. Seit der Kompilierung typüberprüfung bieten nicht, sind beide im Allgemeinen mehr als fehleranfällig als die Verwendung einer Viewmodel. Aus diesem Grund einige Entwickler bevorzugen Minimal oder nie `ViewData` und `ViewBag`.
+
+
+<a name="VD"></a>
 
 **ViewData**
 
@@ -237,6 +245,8 @@ Arbeiten Sie mit den Daten in einer Ansicht:
 
 **ViewBag**
 
+Hinweis: `ViewBag` ist in der Razor-Seiten nicht verfügbar.
+
 `ViewBag`ist eine [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) -Objekt, das dynamischen Zugriff auf die Objekte, die in gespeicherten `ViewData`. `ViewBag`ist besonders angenehm beim besser zu handhaben, da es keine Typumwandlung erforderlich. Das folgende Beispiel zeigt, wie Sie `ViewBag` dasselbe Ergebnis erzielt als mit `ViewData` oben:
 
 ```csharp
@@ -267,6 +277,8 @@ public IActionResult SomeAction()
 ```
 
 **ViewData und ViewBag gleichzeitig zu verwenden**
+
+Hinweis: `ViewBag` ist in der Razor-Seiten nicht verfügbar.
 
 Da `ViewData` und `ViewBag` finden Sie in den gleichen zugrunde liegende `ViewData` -Auflistung, können Sie beide `ViewData` und `ViewBag` mischen und zwischen ihnen beim Lesen und Schreiben von Werten entsprechen.
 
@@ -306,6 +318,8 @@ Mit beiden `ViewData` und `ViewBag` auf die gleiche Uhrzeit funktioniert wie mis
 
 **Zusammenfassung der Unterschiede zwischen ViewData und ViewBag**
 
+ `ViewBag`ist nicht verfügbar in der Razor-Seiten.
+
 * `ViewData`
   * Leitet sich von [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), sodass er Wörterbucheigenschaften verfügt, die hilfreich sein, z. B. `ContainsKey`, `Add`, `Remove`, und `Clear`.
   * Schlüssel im Wörterbuch sind Zeichenfolgen, daher Leerzeichen zulässig ist. Ein Beispiel: `ViewData["Some Key With Whitespace"]`
@@ -316,7 +330,7 @@ Mit beiden `ViewData` und `ViewBag` auf die gleiche Uhrzeit funktioniert wie mis
 
 **Wann ViewData oder ViewBag verwenden**
 
-Beide `ViewData` und `ViewBag` sind gleichermaßen gültig Ansätze für kleine Mengen von Daten zwischen Controllern und Ansichten übergeben. Die Auswahl der, die eine zu verwenden (oder beides) nach unten zu überlassen oder die Einstellung Ihrer Organisation stammen. Im Allgemeinen sind die Entwickler in die Verwendung eines dieser Zuordnungsverfahren konsistent. Verwenden sie entweder `ViewData` everywhere, oder verwenden Sie `ViewBag` everywhere, aber du Willkommen beim Mischen und diesen genügen. Da beide dynamisch zur Laufzeit aufgelöst und anfällig für Laufzeitfehler verursacht werden, verwenden Sie sie sorgfältig. Einige Entwickler vermeiden komplett.
+Beide `ViewData` und `ViewBag` sind gleichermaßen gültig Ansätze für kleine Mengen von Daten zwischen Controllern und Ansichten übergeben. Die Wahl des welcher Typ verwendet basiert auf bevorzugt. Mischen und zuordnen `ViewData` und `ViewBag` Objekte, die Code ist jedoch einfacher zu lesen und zu verwalten, mit der ein Ansatz besteht darin, die konsistent verwendet. Beide Vorgehensweisen sind dynamisch zur Laufzeit aufgelöst und anfällig für Laufzeitfehler verursachen. Einige Entwicklungsteams vermeiden.
 
 ### <a name="dynamic-views"></a>Dynamische Ansichten
 

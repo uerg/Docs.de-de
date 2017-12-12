@@ -1,28 +1,26 @@
 ---
 title: In-Memory-caching in ASP.NET Core
 author: rick-anderson
-description: Zeigt, wie Daten im Arbeitsspeicher in ASP.NET Core zwischenzuspeichern.
-keywords: ASP.NET Core, Cache, in-Memory-Leistung
+description: Informationen Sie zum Zwischenspeichern von Daten im Arbeitsspeicher in ASP.NET Core.
 ms.author: riande
 manager: wpickett
 ms.date: 12/14/2016
 ms.topic: article
-ms.assetid: 819511cf-d33e-410a-b5a9-bef7fa64d2f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce865427b6ca44c76888908fdeea9cd45c881c4
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core
+# <a name="in-memory-caching-in-aspnet-core"></a>In-Memory-caching in ASP.NET Core
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), und [Steve Smith](https://ardalis.com/)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Caching-Grundlagen
 
@@ -89,7 +87,7 @@ Das folgende Beispiel zeigt, wie Sie einen Eintrag im Cache ablaufen, wenn ein a
 
 Mit einem `CancellationTokenSource` ermöglicht mehrere Cacheeinträge als Gruppe entfernt werden. Mit der `using` Muster im obigen Code, der Einträge im Cache erstellt innerhalb der `using` Block Trigger und ablaufeinstellungen erben.
 
-### <a name="additional-notes"></a>Zusätzliche Hinweise
+## <a name="additional-notes"></a>Zusätzliche Hinweise
 
 - Wenn einen Rückruf verwenden Sie ein Cacheelement neu auffüllen:
 
@@ -98,7 +96,11 @@ Mit einem `CancellationTokenSource` ermöglicht mehrere Cacheeinträge als Grupp
 
 - Wenn ein Cacheeintrag verwendet wird, um eine andere zu erstellen, kopiert das untergeordnete Element, des übergeordnete Eintrags Ablauf-Token und zeitbasierte ablaufeinstellungen. Das untergeordnete Element ist nicht abgelaufen durch manuelles Entfernen oder aktualisieren, der des übergeordnete Eintrags.
 
-### <a name="other-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Arbeiten mit einem verteilten Cache](distributed.md)
-* [Antworten zwischenspeichernde Middleware](middleware.md)
+* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeichern von Antworten](xref:performance/caching/response)
+* [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -1,8 +1,8 @@
 ---
 title: "Unterschlüssel Ableitung und authentifizierten Verschlüsselung"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Dieses Dokument erläutert die Implementierungsdetails des Datenschutzes ASP.NET Core Ableitung Unterschlüssel und Verschlüsselung authentifiziert."
+keywords: "ASP.NET Core, Datenschutz, Unterschlüsseln Ableitung authentifiziert, Verschlüsselung"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,38 +11,38 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Unterschlüssel Ableitung und authentifizierten Verschlüsselung
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 Die meisten Schlüssel im Schlüssel Ring enthält eine Form der Entropie und algorithmische Informationen, die darauf hinweist, "Verschlüsselung im CBC-Modus + HMAC-Überprüfung" oder "GCM-Verschlüsselung + Überprüfung". In diesen Fällen wir verweisen auf die eingebettete Entropie, als das Schlüsselmaterial (oder KM) für diesen Schlüssel, und wir führen Sie eine schlüsselableitung-Funktion, um die Schlüssel abgeleitet werden, die für die tatsächlichen kryptografischen Vorgänge verwendet werden.
 
 > [!NOTE]
-> Schlüssel sind abstrakt, und eine benutzerdefinierte Implementierung Verhalten sich möglicherweise nicht wie unten beschrieben. Wenn der Schlüssel stellt eine eigene Implementierung der IAuthenticatedEncryptor, anstatt Sie mithilfe einer der integrierten Factorys, der in diesem Abschnitt beschriebenen Mechanismus gilt.
+> Schlüssel sind abstrakt, und eine benutzerdefinierte Implementierung Verhalten sich möglicherweise nicht wie unten beschrieben. Wenn der Schlüssel eine eigene Implementierung der bietet `IAuthenticatedEncryptor` statt eines integrierten Factorys, die in diesem Abschnitt beschriebenen Verfahren nicht mehr gilt.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Zusätzliche authentifizierte Daten und Unterschlüsseln Ableitung
 
-Die Schnittstelle IAuthenticatedEncryptor dient als die Kernschnittstelle für alle authentifizierten Verschlüsselungsvorgänge. Die Encrypt-Methode verwendet zwei Puffer: nur-Text und AdditionalAuthenticatedData (AAD). Nur-Text-Inhalt-Fluss unverändert des Aufrufs von IDataProtector.Protect, aber der AAD wird vom System generiert und besteht aus drei Komponenten:
+Die `IAuthenticatedEncryptor` Schnittstelle als die Kernschnittstelle für alle authentifizierten Verschlüsselungsvorgänge dient. Die `Encrypt` -Methode übernimmt zwei Puffer: nur-Text und AdditionalAuthenticatedData (AAD). Der Ablauf der nur-Text-Inhalt unverändert den Aufruf von `IDataProtector.Protect`, aber das AAD wird vom System generiert und besteht aus drei Komponenten:
 
 1. Der 32-Bit-Header Magic 09 d0 C9 d0, die diese Version des Data Protection Systems angibt.
 
 2. Die 128-Bit-Schlüssel-ID.
 
-3. Eine Zeichenfolge variabler Länge, die aus der Zweck-Kette, die die IDataProtector erstellt, die diesen Vorgang gebildet werden.
+3. Eine Zeichenfolge variabler Länge aus der Zweck-Kette, die erstellt formatiert die `IDataProtector` ist, die diesen Vorgang ausführen.
 
-Da das AAD für das Tupel aller drei Komponenten eindeutig ist, können wir neue Schlüssel von KM abgeleitet werden, anstatt KM selbst in allen unseren kryptografischen Vorgänge. Für jeden Aufruf IAuthenticatedEncryptor.Encrypt findet der folgenden Schlüsselableitungsfunktion-Prozess statt:
+Da das AAD für das Tupel aller drei Komponenten eindeutig ist, können wir neue Schlüssel von KM abgeleitet werden, anstatt KM selbst in allen unseren kryptografischen Vorgänge. Für jeden Aufruf von `IAuthenticatedEncryptor.Encrypt`, die folgenden Schlüsselableitungsfunktion Prozess findet:
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (K_M AAD, ContextHeader || KeyModifier)
 
-Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unter [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sek.. 5.1) mit den folgenden Parametern:
+Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unter [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sek. 5.1) mit den folgenden Parametern:
 
 * Schlüsselableitungsfunktion Schlüssel (KDK) = K_M
 
@@ -52,7 +52,7 @@ Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unt
 
 * Kontext = ContextHeader || keyModifier
 
-Der Kontextheader mit variabler Länge ist und dient im Wesentlichen als einen Fingerabdruck-Algorithmen für die wir K_E und K_H abgeleitet sind. Der Modifizierertaste ist eine 128-Bit-Zeichenfolge, die nach dem Zufallsprinzip generiert für jeden Aufruf von verschlüsseln und um sicherzustellen, dass mit der Wahrscheinlichkeit, dass "KE" und KH für diesen bestimmten Authentifizierung Verschlüsselungsvorgang eindeutig sind, auch wenn alle anderen Eingaben für die KDF konstant ist überwältigend dient.
+Der Kontextheader mit variabler Länge ist und dient im Wesentlichen als einen Fingerabdruck-Algorithmen für die wir K_E und K_H abgeleitet sind. Der Key-Modifizierer ist eine 128-Bit-Zeichenfolge, die nach dem Zufallsprinzip generiert für jeden Aufruf von `Encrypt` und dient, um sicherzustellen, dass mit einer Überlastung der Wahrscheinlichkeit, dass "KE" und KH für diesen bestimmten Authentifizierung Verschlüsselungsvorgang eindeutig sind, auch wenn alle anderen Eingabe für die KDF konstant ist.
 
 Für die Verschlüsselung im CBC-Modus + Validierungsvorgänge HMAC | K_E | die Länge des Schlüssels Cipher Block symmetrische und | K_H | ist die Digest-Größe der HMAC-Routine. Für die Verschlüsselung von GCM + Validierungsvorgänge, | K_H | = 0.
 
@@ -65,7 +65,7 @@ Nachdem K_E über die oben genannten Mechanismus generiert wird, werden wir eine
 *Ausgabe: = KeyModifier || IV || E_cbc (Data K_E, iv) || HMAC (K_H, iv || E_cbc (K_E, iv Data))*
 
 > [!NOTE]
-> Wird die Implementierung IDataProtector.Protect [das Magic-Header und Schlüssel-Id vorangestellt](authenticated-encryption-details.md#data-protection-implementation-authenticated-encryption-details) Ausgabe vor der Rückgabe an den Aufrufer. Da das Magic-Header und die Schlüssel-Id implizit sind Teil des [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), und da der Modifizierertaste als Eingabe für die KDF eingezogen wird, dies bedeutet, dass jedes einzelnes Byte der letzte zurückgegebene Nutzlast, von dem Mac authentifiziert
+> Die `IDataProtector.Protect` Implementierung wird [das Magic-Header und Schlüssel-Id vorangestellt](authenticated-encryption-details.md) Ausgabe vor der Rückgabe an den Aufrufer. Da das Magic-Header und die Schlüssel-Id implizit sind Teil des [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), und da der Modifizierertaste als Eingabe für die KDF eingezogen wird, dies bedeutet, dass jedes einzelnes Byte der letzte zurückgegebene Nutzlast, von dem Mac authentifiziert
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>Galois/Leistungsindikator Modus Verschlüsselung + Überprüfung
 

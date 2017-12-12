@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: daf6dd8024863e02e40ad002a0a7da388f5a2ec7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: b59782bccce00f3940da4ec8bcff768aff8fa4ef
+ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualisieren von verknüpften Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (7 von 10)
 
@@ -129,7 +129,7 @@ Der Code führt Folgendes aus:
 
 -  Ruft die aktuelle Instructor-Entität aus der Datenbank-eager loading für die `OfficeAssignment` Navigationseigenschaft. Dies ist identisch mit was Sie in der HttpGet haben `Edit` Methode.
 
--  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die Whitelist die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
+-  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die weiße Liste die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
 
     <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -219,7 +219,7 @@ In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem A
 
 <a id="notepad"></a>
 > [!NOTE] 
-> Wenn Sie den Code in Visual Studio einfügen, werden Zeilenumbrüche auf eine Weise geändert werden, die der Code unterbrochen wird.  Drücken Sie einmal STRG + Z, um die automatische Formatierung rückgängig zu machen.  Die Zeilenumbrüche wird korrigiert werden, damit sie sehen, wie Sie hier sehen. Der Einzug keinen perfekt, aber die `@</tr><tr>`, `@:<td>`, `@:</td>`, und `@:</tr>` Zeilen müssen jeweils in einer einzelnen Zeile dargestellten oder erhalten Sie einen Laufzeitfehler. Drücken Sie mit dem Block von neuem Code ausgewählt ist Tab dreimal an den neuen Code mit dem vorhandenen Code.
+> Wenn Sie den Code in Visual Studio einfügen, werden Zeilenumbrüche auf eine Weise geändert werden, die der Code unterbrochen wird.  Drücken Sie einmal STRG + Z, um die automatische Formatierung rückgängig zu machen.  Die Zeilenumbrüche wird korrigiert werden, damit sie sehen, wie Sie hier sehen. Der Einzug keinen perfekt, aber die `@</tr><tr>`, `@:<td>`, `@:</td>`, und `@:</tr>` Zeilen müssen jeweils in einer einzelnen Zeile dargestellten oder erhalten Sie einen Laufzeitfehler. Drücken Sie mit dem Block von neuem Code ausgewählt ist Tab dreimal an den neuen Code mit dem vorhandenen Code. Sie können den Status des Problems überprüfen [hier](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 

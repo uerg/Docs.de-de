@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="model-binding"></a>Wurden die Modellbindung
 
@@ -61,9 +61,19 @@ Bisher wird die einfache Typen verwendet. Simple-Typen sind in MVC eine beliebig
 
 Damit Bindung aufweisen muss die Klasse einen öffentlichen Standardkonstruktor verfügen und Member zu bindenden muss auf öffentlichen beschreibbare Eigenschaften. Wenn die modellbindung erfolgt, dass die Klasse mit dem öffentlichen Standardkonstruktor nur instanziiert werden, können die Eigenschaften festgelegt werden.
 
-Wenn ein Parameter gebunden ist, wurden die modellbindung beendet die Suche nach Werten, die mit diesem Namen verschoben und auf den nächsten Parameter binden. Wenn die Bindung ein Fehler auftritt, löst MVC keine Fehler. Sie können für modellzustandsfehler Abfragen, indem Sie überprüfen die `ModelState.IsValid` Eigenschaft.
+Wenn ein Parameter gebunden ist, wurden die modellbindung beendet die Suche nach Werten, die mit diesem Namen verschoben und auf den nächsten Parameter binden. Andernfalls wird das Standardverhalten für Modell Bindung Parameter mit ihren Standardwerten je nach ihrem Typ:
 
-Hinweis: Jeder Eintrag in des Controllers `ModelState` Eigenschaft ist ein `ModelStateEntry` , enthält eine `Errors property`. Es ist nur selten notwendig, diese Sammlung selbst abzufragen. Verwenden Sie stattdessen `ModelState.IsValid` .
+* `T[]`: Mit Ausnahme des Arrays des Typs `byte[]`, Bindung legt Parameter des Typs `T[]` auf `Array.Empty<T>()`. Arrays des Typs `byte[]` festgelegt `null`.
+
+* Verweistypen: Bindung erstellt eine Instanz einer Klasse mit dem Standardkonstruktor ohne Festlegen von Eigenschaften. Allerdings Modell Bindung legt `string` Parameter `null`.
+
+* Auf NULL festlegbare Typen: Typen mit Nullwert festgelegt `null`. Im obigen Beispiel Modell Bindung legt `id` auf `null` , da er vom Typ ist `int?`.
+
+* Werttypen: NULL-Wert-Typen des Typs `T` festgelegt `default(T)`. Beispielsweise wurden die modellbindung Festlegen eines Parameters wird `int id` auf 0. Können Sie modellvalidierung oder auf NULL festlegbare Typen verwenden, statt der vertrauenden Seite auf die Standardwerte.
+
+Wenn die Bindung ein Fehler auftritt, löst MVC keine Fehler. Jede Aktion, die eine Benutzereingabe akzeptiert Prüfen der `ModelState.IsValid` Eigenschaft.
+
+Hinweis: Jeder Eintrag in des Controllers `ModelState` Eigenschaft ist ein `ModelStateEntry` , enthält eine `Errors` Eigenschaft. Es ist nur selten notwendig, diese Sammlung selbst abzufragen. Verwenden Sie stattdessen `ModelState.IsValid` .
 
 Darüber hinaus sind einige spezielle Datentypen, die beim Ausführen der modellbindung MVC berücksichtigen:
 

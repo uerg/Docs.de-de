@@ -1,29 +1,27 @@
 ---
-title: Arbeiten mit einem verteilten Cache
+title: Arbeiten mit einem verteilten Cache in ASP.NET Core
 author: ardalis
-description: 
-keywords: ASP.NET Core
+description: Erfahren Sie, wie verteilte Zwischenspeicherung verwenden, um die Leistung und Skalierbarkeit von ASP.NET Core-apps zu verbessern, besonders bei der in eine Cloud oder Server-Umgebung gehostet.
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 870f082d-6d43-453d-b311-45f3aeb4d2c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: abf680fef9de175082c1e4f4cebc2b9648f18a28
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="working-with-a-distributed-cache"></a>Arbeiten mit einem verteilten cache
+# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Arbeiten mit einem verteilten Cache in ASP.NET Core
 
 Durch [Steve Smith](https://ardalis.com/)
 
 Verteilte Caches können die Leistung und Skalierbarkeit von ASP.NET Core-apps verbessern, besonders bei der in eine Cloud oder Server-Umgebung gehostet. Dieser Artikel beschreibt das Arbeiten mit ASP.NET Core des integrierten verteilter Cache Speicherabstraktionen und die Implementierungen.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-a-distributed-cache"></a>Was ist ein verteilter Cache
 
@@ -68,7 +66,7 @@ Verwenden der `IDistributedCache` Schnittstelle:
 
    2. Konfigurieren Sie die spezielle Implementierung der `IDistributedCache` in Ihrer `Startup` Klasse `ConfigureServices` -Methode, und fügen sie es den Container hinzu.
 
-   3. Aus der app [`Middleware](../../fundamentals/middleware.md) or MVC controller classes, request an instance of `IDistributedCache "aus dem Konstruktor. Die Instanz gebotenen [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md) (DI).
+   3. Aus der app [Middleware](../../fundamentals/middleware.md) oder MVC-Controller-Klassen, bitten Sie eine Instanz von `IDistributedCache` aus dem Konstruktor. Die Instanz gebotenen [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md) (DI).
 
 > [!NOTE]
 > Besteht keine Notwendigkeit für eine Singleton oder ausgelegte Lebensdauer verwendet `IDistributedCache` Instanzen (mindestens für die integrierte Implementierungen). Sie können auch eine Instanz erstellen, wo Sie benötigen ein möglicherweise (anstatt [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md)), Dadurch könnte jedoch Code schwieriger zu testen, und gegen die [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/).
@@ -86,7 +84,7 @@ Der folgende code in *Startup.cs* zeigt den Wert festgelegt wird:
 > [!NOTE]
 > Seit `IDistributedCache` konfiguriert ist, der `ConfigureServices` Methode, es ist verfügbar, die `Configure` Methode als Parameter. Als Parameter hinzufügen, können die konfigurierte Instanz DI bereitgestellt werden.
 
-## <a name="using-a-redis-distributed-cache"></a>Verwenden einen Redis Cache verteilten
+## <a name="using-a-redis-distributed-cache"></a>Verwenden einen verteilte Redis-cache
 
 [Redis](https://redis.io/) ist ein open Source-Daten im Arbeitsspeicher speichert, das häufig als verteilte Cache verwendet wird. Lokal verwenden, und Sie können konfigurieren, ein [Azure Redis Cache](https://azure.microsoft.com/services/cache/) für Ihre Azure gehosteten ASP.NET Core-apps. Ihre app ASP.NET Core konfiguriert die Cache-Implementierung mit einem `RedisDistributedCache` Instanz.
 
@@ -99,13 +97,13 @@ Im Beispielcode wird ein `RedisCache` Implementierung wird verwendet, wenn die S
 > [!NOTE]
 > Um Redis auf dem lokalen Computer zu installieren, installieren Sie das Paket chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) und führen Sie `redis-server` über eine Eingabeaufforderung.
 
-## <a name="using-a-sql-server-distributed-cache"></a>Mithilfe eines SQLServer verteilte Caches
+## <a name="using-a-sql-server-distributed-cache"></a>Mithilfe eines SQL Server verteilte Caches
 
 Die Implementierung SqlServerCache ermöglicht verteilten Cache eine SQL Server-Datenbank als Sicherungsspeicher verwendet. Zum Erstellen von SQL Server erstellt die Tabelle, die Sie Sql-Cache-Tool, das Tool verwenden, können eine Tabelle mit dem Namen und das Schema, die Sie angeben.
 
 Um die Sql-Cache-Tool verwenden zu können, fügen `SqlConfig.Tools` auf die `<ItemGroup>` Element von der *csproj* Datei und ein Dotnet-Wiederherstellung ausführen.
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 Testen Sie SqlConfig.Tools, indem Sie den folgenden Befehl ausführen
 
@@ -136,8 +134,13 @@ Wie alle Cache Implementierungen Ihrer app abrufen und Festlegen von cachewerte,
 
 Wenn Sie entscheiden, welche Implementierung der `IDistributedCache` Recht für der app, und wählen Sie zwischen Redis und SQL Server auf Grundlage der vorhandenen Infrastruktur und Umgebung, Ihren leistungsanforderungen und Erfahrung Ihres Teams ist. Wenn Ihr Team nachrichtenorientierten arbeiten mit Redis ist, ist es eine hervorragende Wahl. Wenn vom Team auf SQL Server, können Sie sich, dass diese Implementierung als auch sicher sein. Beachten Sie, dass eine herkömmliche Cachinglösung Daten im Arbeitsspeicher speichert ermöglicht eine schnelle Abrufen von Daten. Häufig verwendete Daten in einem Cache gespeichert, und speichern Sie die gesamten Daten in einem permanenten Back-End-Speicher, z. B. SQL Server oder Azure-Speicher. Redis-Cache ist eine Cachinglösung, die einen hohen Durchsatz und niedriger Latenz im Vergleich zu SQL-Cache enthält.
 
-Zusätzliche Ressourcen:
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Im Arbeitsspeicher Zwischenspeichern](memory.md)
 * [Redis-Cache für Azure](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [SQL­Datenbank in Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
+* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeichern von Antworten](xref:performance/caching/response)
+* [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

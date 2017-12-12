@@ -1,26 +1,24 @@
 ---
 title: Antwort zwischenspeichern Middleware in ASP.NET Core
 author: guardrex
-description: Konfiguration und Verwendung der Antwort zwischenspeichern Middleware in ASP.NET Core-Anwendungen.
-keywords: ASP.NET Core, Zwischenspeichern von Antworten, caching, ResponseCache, ResponseCaching, Cache-Control, VaryByQueryKeys, Middleware
+description: Informationen Sie zum Konfigurieren und Verwenden von Antwort zwischenspeichern Middleware in ASP.NET Core-apps.
 ms.author: riande
 manager: wpickett
 ms.date: 08/22/2017
 ms.topic: article
-ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3312d0c333b47169c71891eea79f03be0abcfa3
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
 Durch [Luke Latham](https://github.com/guardrex) und [John Luo](https://github.com/JunTaoLuo)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Dieses Dokument enthält ausführliche Informationen zum Konfigurieren der Antwort zwischenspeichern Middleware in ASP.NET Core-apps. Die Middleware wird bestimmt, wenn Antworten zwischengespeichert sind, speichert Antworten und fungiert Antworten aus dem Cache. Eine Einführung in die HTTP-caching und die `ResponseCache` -Attribut angegeben wird, finden Sie unter [Zwischenspeichern von Antworten](response.md).
 
@@ -112,13 +110,13 @@ Die Middleware respektiert die Regeln für die [Zwischenspeichern von HTTP 1.1-S
 
 [Zukünftiger Verbesserungen der Middleware](https://github.com/aspnet/ResponseCaching/issues/96) gestattet, konfigurieren die Middleware zum Zwischenspeichern von Szenarios, in dem die Anforderung `Cache-Control` Header ignoriert werden sollen, wenn Sie entscheiden, zu eine zwischengespeicherte Antwort dienen. Wenn Sie mehr Kontrolle über das Verhalten beim Zwischenspeichern seek, untersuchen Sie andere caching-Funktionen von ASP.NET Core. Informationen hierzu finden Sie in den folgenden Themen:
 
-* [Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core](xref:performance/caching/memory)
+* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
 * [Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Problembehandlung
-Das Verhalten beim Zwischenspeichern ist nicht wie erwartet, stellen Sie sicher, dass Antworten zwischengespeichert werden und kann durch Prüfen der eingehenden Anforderungsheader und ausgehenden Header der Antwort aus dem Cache bedient werden. Aktivieren der [Protokollierung](xref:fundamentals/logging) hilft beim Debuggen. Die Middleware-Protokolle, die caching-Verhalten und wenn eine Antwort aus dem Cache abgerufen wird.
+Das Verhalten beim Zwischenspeichern ist nicht wie erwartet, stellen Sie sicher, dass Antworten zwischengespeichert werden und kann durch Prüfen der eingehenden Anforderungsheader und ausgehenden Header der Antwort aus dem Cache bedient werden. Aktivieren der [Protokollierung](xref:fundamentals/logging/index) hilft beim Debuggen. Die Middleware-Protokolle, die caching-Verhalten und wenn eine Antwort aus dem Cache abgerufen wird.
 
 Beim Testen und Problembehandlung für das Verhalten beim Zwischenspeichern, möglicherweise einen Browser Anforderungsheader festzulegen, die caching auf unerwünschten Weise beeinflussen. Beispielsweise kann ein Browser festgelegt die `Cache-Control` Header `no-cache` Wenn Sie die Seite aktualisieren. Die folgenden Tools können explizit Anforderungsheader festlegen und Testen des Zwischenspeicherns, als bevorzugt eingestuft werden:
 
@@ -148,3 +146,9 @@ Beim Testen und Problembehandlung für das Verhalten beim Zwischenspeichern, mö
 
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware)
+* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
+* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeichern von Antworten](xref:performance/caching/response)
+* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

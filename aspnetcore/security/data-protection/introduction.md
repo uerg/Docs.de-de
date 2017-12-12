@@ -1,8 +1,8 @@
 ---
 title: "Einführung in Data Protection"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Dieses Dokument führt das Konzept des Datenschutzes und der Entwurfsprinzipien der zugeordneten ASP.NET Core APIs erläutert."
+keywords: ASP.NET Core, Datenschutz
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b7391fffd5d512c01af5d709755a925f739b59ba
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-data-protection"></a>Einführung in Data Protection
 

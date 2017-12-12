@@ -2,7 +2,7 @@
 title: Mithilfe von Bower in ASP.NET Core
 author: rick-anderson
 description: Verwalten von Client-Side-Paketen mit Bower.
-keywords: ASP.NET Core, bower
+keywords: ASP.NET Core,bower
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9acc59b6f40dc8a336f59925d639fff007c4e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 183e748cbf87b1973941eacb3fb1008f4041bb2a
+ms.sourcegitcommit: 532a323f99a37c4d7894c95cee3f7a04b594dcec
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
 
@@ -36,7 +36,7 @@ In diesem Lernprogramm fügen wir Unterstützung für [Schriftart Awesome](http:
 
 * Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **Bower-Pakete verwalten** (Alternativ im Hauptmenü **Projekt** > **Bower-Pakete verwalten**).
 
-* In der **Bower: \<Projektname\> ** , klicken Sie auf der Registerkarte "Durchsuchen", und klicken Sie dann die Pakete durch Eingabe Filterliste `font-awesome` in das Suchfeld:
+* In der **Bower: \<Projektname\>**  , klicken Sie auf der Registerkarte "Durchsuchen", und klicken Sie dann die Pakete durch Eingabe Filterliste `font-awesome` in das Suchfeld:
 
  ![Bower-Pakete verwalten](bower/_static/manage-bower-packages.png)
 
@@ -78,7 +78,7 @@ Führen Sie die app, und navigieren Sie zu der Info-Ansicht, um zu überprüfen,
 
 ## <a name="exploring-the-client-side-build-process"></a>Untersuchen des clientseitigen Build-Prozesses
 
-Die meisten ASP.NET Core-Projektvorlagen sind bereits mithilfe von Bower konfiguriert. Diese weiter Exemplarische Vorgehensweise beginnt mit einem leeren ASP.NET Core-Projekt und Transformationsprozesses manuell hinzugefügt, sodass Sie einen Eindruck darüber abrufen können, wie Bower in einem Projekt verwendet wird. Sie sehen können, was geschieht, um die Projektstruktur und erfolgt die Ausgabe als jeder konfigurationsänderung Common Language Runtime.
+Die meisten ASP.NET Core-Projektvorlagen sind bereits mithilfe von Bower konfiguriert. Diese weiter Exemplarische Vorgehensweise beginnt mit einem leeren ASP.NET Core-Projekt und Transformationsprozesses manuell hinzugefügt, sodass Sie einen Eindruck darüber abrufen können, wie Bower in einem Projekt verwendet wird. Sie können sehen, was geschieht mit der Projektstruktur und die Common Language Runtime, die Ausgabe wie für jede konfigurationsänderung vorgenommen wird.
 
 Die allgemeinen Schritte des Buildprozesses für die clientseitige mit Bower verwendet werden:
 

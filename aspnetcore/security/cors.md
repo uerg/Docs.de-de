@@ -1,8 +1,8 @@
 ---
 title: Aktivieren von Cross-Origin-Anforderungen (CORS)
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Dieses Dokument wird als Standard für das zulassen oder ablehnen von Cross-Origin-Anforderungen in einer ASP.NET Core app CORS eingeführt."
+keywords: ASP.NET Core, CORS Cross-origin
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Aktivieren von Cross-Origin-Anforderungen (CORS)
 
@@ -219,7 +219,7 @@ Der Access-Control-Max-Age-Header gibt an, wie lange die Antwort auf die preflig
 
 [!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
-<a name=cors-how-cors-works></a>
+<a name="cors-how-cors-works"></a>
 
 ## <a name="how-cors-works"></a>Funktionsweise von CORS
 
@@ -240,7 +240,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-Wenn der Server die Anforderung zulässt, wird die Access-Control-Allow-Origin-Header festgelegt. Der Wert dieses Headers entspricht den Origin-Header oder Wert für die Platzhalterzeichen "*", Bedeutung, die einen beliebigen Ursprung zulässig ist.:
+Wenn der Server die Anforderung zulässt, wird die Access-Control-Allow-Origin-Header in der Antwort festgelegt. Der Wert dieses Headers entspricht den Origin-Header in der Anforderung oder Wert für die Platzhalterzeichen "*", Bedeutung, die einen beliebigen Ursprung zulässig ist:
 
 ```
 HTTP/1.1 200 OK

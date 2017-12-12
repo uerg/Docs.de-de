@@ -11,15 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
+ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
 Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+Eine Razor-Seiten Version dieses Lernprogramms steht [hier](xref:data/ef-rp/intro). Die Razor-Seiten-Version ist einfacher, führen und umfasst weitere EF-Funktionen. Es wird empfohlen, Sie führen Sie die [Razor-Seiten Version dieses Lernprogramms](xref:data/ef-rp/intro).
 
 Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core 2.0 MVC-Webanwendungen, die mit Entity Framework (EF) Core 2.0 und Visual Studio 2017.
 
@@ -64,7 +66,7 @@ Den Stil der Benutzeroberfläche von diesem Standort wurde in der Nähe was von 
 
 * Wählen Sie im linken Bereich **installiert > Visual c# > Web**.
 
-* Wählen Sie die **ASP.NET-Webanwendung für Core** -Projektvorlage.
+* Wählen Sie die Projektvorlage **ASP.NET Core-Webanwendung** aus.
 
 * Geben Sie **ContosoUniversity** als ein, und klicken Sie auf **OK**.
 
@@ -192,7 +194,7 @@ Zum Registrieren `SchoolContext` als Dienst öffnen *Startup.cs*, und fügen Sie
 
 [!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
-Der Name der Verbindungszeichenfolge übergeben an den Kontext durch Aufrufen einer Methode für eine `DbContextOptionsBuilder` Objekt. Für die lokale Entwicklung der [ASP.NET Core Konfigurationssystem](../../fundamentals/configuration.md) liest die Verbindungszeichenfolge aus der *appsettings.json* Datei.
+Der Name der Verbindungszeichenfolge übergeben an den Kontext durch Aufrufen einer Methode für eine `DbContextOptionsBuilder` Objekt. Für die lokale Entwicklung der [ASP.NET Core Konfigurationssystem](xref:fundamentals/configuration/index) liest die Verbindungszeichenfolge aus der *appsettings.json* Datei.
 
 Hinzufügen `using` -Anweisungen für `ContosoUniversity.Data` und `Microsoft.EntityFrameworkCore` Namespaces, und erstellen Sie das Projekt.
 

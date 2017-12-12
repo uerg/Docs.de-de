@@ -1,8 +1,8 @@
 ---
-title: "Verwalten von Schlüsseln und Lebensdauer"
+title: "Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core"
 author: rick-anderson
-description: "Beschreibt schlüsselverwaltung sowie seine Lebensdauer."
-keywords: "ASP.NET Core, schlüsselverwaltung, DPAPI, DataProtection"
+description: "Informationen Sie zu Data Protection schlüsselverwaltung und Lebensdauer in ASP.NET Core."
+keywords: ASP.NET Core, key Management, DPAPI, Datenschutz und wichtige Lebensdauer
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,37 +11,46 @@ ms.assetid: ef7dad2a-7029-4ae5-8f06-1fbebedccaa4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: c361af7d336fc0f7651e5d2f28d71515e2949c65
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 4f5409acf4d934ced828153ccfd945834d0f1718
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="key-management-and-lifetime"></a>Verwalten von Schlüsseln und Lebensdauer
+# <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core
 
-<a name=data-protection-default-settings></a>
+Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="key-management"></a>Schlüsselverwaltung
 
-Das System versucht, erkennen die betriebsumgebung, und geben Sie gute Konfigurationsfreie verhaltensbasierten Standardwerte. Die verwendete Heuristik lautet wie folgt.
+Die app versucht, seine betriebsumgebung erkennen und Behandeln von Schlüsselkonfiguration selbst.
 
-1. Wenn das System in Azure-Websites gehostet wird, werden die Schlüssel in den Ordner "% HOME%\ASP.NET\DataProtection-Keys" beibehalten. Dieser Ordner wird vom Netzwerkspeicher gesichert und wird für alle Computer, der die Anwendung hostet synchronisiert. Schlüssel werden nicht im Ruhezustand geschützt. Dieser Ordner stellt den Schlüssel Ring für alle Instanzen einer Anwendung in einen einzelnen bereitstellungsslot bereit. Separate bereitstellungsslots, z. B. Staging und Produktion verwendet einen Schlüssel Ring nicht gemeinsam. Wenn Sie zwischen bereitstellungsslots, z. B. Staging bis zur Produktion ausgetauscht oder mithilfe von austauschen / B-Tests, werden jedem System mithilfe von Datenschutz nicht gespeicherte Daten mithilfe der Schlüssel Ring innerhalb des vorherigen Slots zu entschlüsseln. Dies wird für Benutzer, die aus einer ASP.NET-Anwendung, die die standard-ASP.NET-Cookie-Middleware verwendet protokolliert werden, da er Schutz von Daten verwendet, um die Cookies zu schützen. Wenn Slot unabhängig Schlüssel Ringe gewünscht Verwenden eines externen Schlüsselbund-Anbieters, z. B. Azure Blob-Speicher, Azure Key Vault, eine SQL-Speicher oder Redis-Cache.
+1. Wenn die app, in gehostet wird [Azure Apps](https://azure.microsoft.com/services/app-service/), Schlüssel werden beibehalten, um die *%HOME%\ASP.NET\DataProtection-Keys* Ordner. Dieser Ordner wird vom Netzwerkspeicher gesichert und auf allen Computern, die die app hosten synchronisiert ist.
+   * Schlüssel nicht im Ruhezustand geschützt.
+   * Die *DataProtection Schlüssel* Ordner stellt den Schlüssel Ring für alle Instanzen einer App in einem einzelnen bereitstellungsslot bereit.
+   * Separate bereitstellungsslots, z. B. Staging und Produktion freigeben keinen Schlüssel Ring. Wenn Sie zwischen bereitstellungsslots, z. B. Staging bis zur Produktion ausgetauscht oder mithilfe von austauschen / B-Tests, werden jede app mithilfe von Datenschutz kann nicht zum Entschlüsseln von gespeicherten Daten, die mit dem Schlüssel Ring innerhalb des vorherigen Slots. Dies führt zu Benutzern, die Abmeldung von einer app, die der standardmäßigen ASP.NET Core Cookieauthentifizierung verwendet protokolliert werden, da er Schutz von Daten verwendet, um die Cookies zu schützen. Wenn Slot unabhängig Schlüssel Ringe gewünscht Verwenden eines externen Schlüsselbund-Anbieters, z. B. Azure Blob-Speicher, Azure Key Vault, eine SQL-Speicher oder Redis-Cache.
 
-2. Wenn das Benutzerprofil verfügbar ist, werden die Schlüssel in den Ordner "% LOCALAPPDATA%\ASP.NET\DataProtection-Keys" beibehalten. Darüber hinaus, wenn das Betriebssystem Windows ist, müssen sie im Ruhezustand mit DPAPI verschlüsselt werden.
+1. Wenn das Benutzerprofil verfügbar ist, werden Schlüssel beibehalten, um die *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* Ordner. Wenn das Betriebssystem Windows ist, werden die Schlüssel im Ruhezustand mit DPAPI verschlüsselt.
 
-3. Wenn die Anwendung in IIS gehostet wird, werden die Schlüssel in einen speziellen Registrierungsschlüssel der HKLM-Registrierung beibehalten, die nur für das Arbeitsprozesskonto ACLed ist. Schlüssel werden im Ruhezustand mit DPAPI verschlüsselt.
+1. Wenn die app in IIS gehostet wird, werden die Schlüssel in einen speziellen Registrierungsschlüssel der HKLM-Registrierung beibehalten, die nur für das Arbeitsprozesskonto ACLed ist. Schlüssel werden im Ruhezustand mit DPAPI verschlüsselt.
 
-4. Wenn keine dieser Bedingungen übereinstimmt, werden die Schlüssel nicht außerhalb des aktuellen Prozesses beibehalten. Wenn der Prozess, alle generierten heruntergefahren verloren Schlüssel.
+1. Wenn keine dieser Bedingungen übereinstimmen, werden nicht außerhalb des aktuellen Prozesses Schlüssel beibehalten. Wenn der Prozess alle generierten heruntergefahren wird, sind der Schlüssel verloren.
 
-Der Entwickler ist immer vollständige Kontrolle und überschreiben kann, wie, und wo Schlüssel gespeichert werden. Die ersten drei oben aufgeführten Optionen sollten gute Standardwerte für die meisten Anwendungen, die ähnlich wie beim ASP.NET <machineKey> automatische Generierung Routinen in der Vergangenheit funktioniert hat. Der endgültige fallen-zurück-Option ist das einzige Szenario, die den Entwickler angeben tatsächlich erforderlich sind [Konfiguration](overview.md) vorgelagerten, wenn sie schlüsselpersistenz, aber diese fallen-zurück es nur in seltenen Fällen kommt.
+Der Entwickler ist immer vollständige Kontrolle und überschreiben kann, wie, und wo Schlüssel gespeichert werden. Die ersten drei oben aufgeführten Optionen sollten gute Standardwerte für die meisten apps, die ähnlich wie beim Bereitstellen der ASP.NET  **\<MachineKey >** automatische Generierung Routinen in der Vergangenheit funktioniert hat. Die endgültige, fallback-Option ist das einzige Szenario, die den Entwickler angeben erfordert [Konfiguration](xref:security/data-protection/configuration/overview) vorgelagerten, wenn sie schlüsselpersistenz, aber diese Vorgehensweise ist nur in seltenen Fällen Anwendung auftritt.
 
->[!WARNING]
-> Wenn der Entwickler dieser heuristische Wert überschreibt und die Datenschutzsystem an einem bestimmten Schlüssel Repository verweist, werden automatische Verschlüsselung der Schlüssel im Ruhezustand deaktiviert. Ruhende Schutz wieder aktiviert werden kann [Konfiguration](overview.md).
+Wenn Sie in einem Docker-Container zu hosten, Schlüssel beibehalten werden soll in einen Ordner, ein Docker-Volume (ein freigegebenes Volume oder eines Host bereitgestellten Volumes, die nach Ablauf des Containers Lebensdauer beibehält) ist, oder in einem externen Anbieter, wie z. B. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) oder [Redis](https://redis.io/). Ein externer Anbieter ist auch in der Webfarm-Szenarien nützlich, wenn apps ein freigegebener Datenträger zugreifen können (siehe [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) für Weitere Informationen).
+
+> [!WARNING]
+> Wenn der Entwickler die überschreibt oben beschriebenen Regeln und der Datenschutz-System an einem bestimmten Schlüssel Repository verweist, ist automatische Verschlüsselung der Schlüssel im Ruhezustand deaktiviert. Ruhender Schutz wieder aktiviert werden kann [Konfiguration](xref:security/data-protection/configuration/overview).
 
 ## <a name="key-lifetime"></a>Gültigkeitsdauer
 
-Schlüssel in der Standardeinstellung haben eine 90-Tage-Lebensdauer. Wenn ein Schlüssel läuft ab, das System automatisch einen neuen Schlüssel generieren und den neuen Schlüssel als aktiver Schlüssel festgelegt. Als veraltet Schlüssel auf dem System bleiben sein Sie immer noch Entschlüsseln von Daten mit diesen geschützt. Finden Sie unter [schlüsselverwaltung](../implementation/key-management.md#data-protection-implementation-key-management-expiration) für Weitere Informationen.
+Standardmäßig sind Schlüssel für eine 90-Tage-Lebensdauer. Wenn ein Schlüssel abläuft, wird die app automatisch generiert einen neuen Schlüssel, und legt den neuen Schlüssel als aktiver Schlüssel fest. Als veraltet Schlüssel auf dem System bleiben, kann Ihre app mit diesen geschützten Daten entschlüsseln. Finden Sie unter [schlüsselverwaltung](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling) für Weitere Informationen.
 
 ## <a name="default-algorithms"></a>Standardalgorithmen
 
-Die Nutzlast Schutz verwendete Standardalgorithmus ist AES-256-CBC für Vertraulichkeit und HMACSHA256 für erstellen. 512-Bit-Hauptschlüssel, jeweils nach 90 Tagen zurückgesetzt wird verwendet, die zwei untergeordneten Schlüssel für diese Algorithmen auf der Basis eines je Nutzlast verwendet abgeleitet werden. Finden Sie unter [Unterschlüssel Ableitung](../implementation/subkeyderivation.md#data-protection-implementation-subkey-derivation-aad) für Weitere Informationen.
+Die Nutzlast Schutz verwendete Standardalgorithmus ist AES-256-CBC für Vertraulichkeit und HMACSHA256 für erstellen. 512-Bit-Hauptschlüssel, alle 90 Tage geändert wird verwendet, die zwei untergeordneten Schlüssel für diese Algorithmen auf der Basis eines je Nutzlast verwendet abgeleitet werden. Finden Sie unter [Unterschlüssel Ableitung](xref:security/data-protection/implementation/subkeyderivation#additional-authenticated-data-and-subkey-derivation) für Weitere Informationen.
+
+## <a name="see-also"></a>Siehe auch
+
+* [Schlüsselverwaltungserweiterbarkeit](xref:security/data-protection/extensibility/key-management)

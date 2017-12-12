@@ -5,20 +5,20 @@ description: "Veranschaulicht das Erstellen einer ASP.NET Core-Apps mit der e-Ma
 keywords: "ASP.NET Core, das Kennwort zurückzusetzen, e-Mail-Bestätigung, Sicherheit"
 ms.author: riande
 manager: wpickett
-ms.date: 07/19/2017
+ms.date: 12/1/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b05dd2fee50f6cc96058971daa42b069dbb6d21d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
-Von [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Joe Audette](https://twitter.com/joeaudette) 
 
 In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer ASP.NET Core-Apps mit e-Mail-Bestätigung und das Kennwort zurücksetzen.
 
@@ -117,7 +117,7 @@ Die vorangehende Zeile wird verhindert, dass registrierte Benutzern zur Verfügu
 
 In diesem Lernprogramm wird SendGrid zum Senden von e-Mails. Sie benötigen ein SendGrid-Konto und ein Schlüssel zum Senden von e-Mail. Sie können andere e-Mail-Anbieter verwenden. ASP.NET Core 2.x enthält `System.Net.Mail`, womit Sie das Senden von e-Mails aus Ihrer app. Es wird empfohlen, dass Sie SendGrid oder eine andere e-Mail-Dienst verwenden, um e-Mail zu senden.
 
-Die [Optionen Muster](xref:fundamentals/configuration#options-config-objects) wird verwendet, um die Benutzer Konto- und Schlüsselauthentifizierung Einstellungen zugreifen. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration).
+Die [Optionen Muster](xref:fundamentals/configuration/options) wird verwendet, um die Benutzer Konto- und Schlüsselauthentifizierung Einstellungen zugreifen. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration/index).
 
 Erstellen Sie eine Klasse, um den e-Mail-Schlüssel abzurufen. Für dieses Beispiel die `AuthMessageSenderOptions` Klasse wird erstellt, der *Services/AuthMessageSenderOptions.cs* Datei.
 
@@ -195,6 +195,8 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 Die vollständige Methode ist mit der geänderten Zeile hervorgehoben dargestellt:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
+
+Hinweis: Der vorherige Code schlägt fehl, wenn Sie implementieren `IEmailSender` und eine nur-Text-e-Mail zu senden. Finden Sie unter [dieses Problem](https://github.com/aspnet/Home/issues/2152) für Weitere Informationen und eine problemumgehung.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

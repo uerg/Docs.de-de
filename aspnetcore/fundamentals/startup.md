@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 83b2647df8beec1feae33400224dacf9823be9b4
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Start der Anwendung in ASP.NET Core
 
@@ -30,7 +30,7 @@ Sie können separate definieren `Startup` Klassen für unterschiedliche Umgebung
 
 Alternativ können Sie eine feste definieren `Startup` Klasse, die unabhängig von der Umgebung durch den Aufruf verwendet werden, `UseStartup<TStartup>`. Dies ist die empfohlene Vorgehensweise.
 
-Die `Startup` Klassenkonstruktor kann Abhängigkeiten, die bereitgestellt sind akzeptieren [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Eine gängige Methode ist die Verwendung `IHostingEnvironment` einrichten [Konfiguration](xref:fundamentals/configuration) Quellen.
+Die `Startup` Klassenkonstruktor kann Abhängigkeiten, die bereitgestellt sind akzeptieren [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Eine gängige Methode ist die Verwendung `IHostingEnvironment` einrichten [Konfiguration](xref:fundamentals/configuration/index) Quellen.
 
 Die `Startup` Klasse umfasst einen `Configure` Methode und Sie können optional eine `ConfigureServices` Methode, die beide aufgerufen werden, wenn die Anwendung gestartet wird. Die Klasse zählen auch [umgebungsspezifische Versionen dieser Methoden](xref:fundamentals/environments#startup-conventions). `ConfigureServices`, falls vorhanden, wird aufgerufen, bevor `Configure`.
 
@@ -38,7 +38,7 @@ Erfahren Sie mehr über [Behandeln von Ausnahmen während des Anwendungsstarts](
 
 ## <a name="the-configureservices-method"></a>Die ConfigureServices-Methode
 
-Die [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode ist optional, aber wenn verwendet, wird er aufgerufen, bevor die `Configure` Methode durch den Webhost. Die Webhost möglicherweise einige Dienste vor dem Konfigurieren ``Startup`` Methoden aufgerufen werden (finden Sie unter [hosting](xref:fundamentals/hosting)). Gemäß der Konvention [Konfigurationsoptionen](xref:fundamentals/configuration) werden in dieser Methode festgelegt.
+Die [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode ist optional, aber wenn verwendet, wird er aufgerufen, bevor die `Configure` Methode durch den Webhost. Die Webhost möglicherweise einige Dienste vor dem Konfigurieren ``Startup`` Methoden aufgerufen werden (finden Sie unter [hosting](xref:fundamentals/hosting)). Gemäß der Konvention [Konfigurationsoptionen](xref:fundamentals/configuration/index) werden in dieser Methode festgelegt.
 
 Für Features, die erfordern beträchtliche Setup stehen `Add[Service]` Erweiterungsmethoden in [IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Dieses Beispiels über die Standardvorlage für die Website konfiguriert die app, um Dienste für Entity Framework, Identitäts- und MVC verwenden:
 
@@ -76,5 +76,5 @@ Zusätzliche Dienste wie `IHostingEnvironment` und `ILoggerFactory` kann auch in
 
 * [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
 * [Middleware](xref:fundamentals/middleware)
-* [Logging (Protokollierung)](xref:fundamentals/logging)
-* [Konfiguration](xref:fundamentals/configuration)
+* [Logging (Protokollierung)](xref:fundamentals/logging/index)
+* [Konfiguration](xref:fundamentals/configuration/index)

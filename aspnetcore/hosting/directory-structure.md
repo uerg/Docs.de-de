@@ -11,15 +11,15 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 60797bff85a44dd10caad4aabc109ee12dedfe61
+ms.sourcegitcommit: 7efdc4b6025ad70c15c26bf7451c3c0411123794
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Verzeichnisstruktur der veröffentlichten ASP.NET Core-apps
 
-Durch [Luke Latham](https://github.com/guardrex)
+Von [Luke Latham](https://github.com/guardrex)
 
 In ASP.NET Core, das Anwendungsverzeichnis *veröffentlichen*, Anwendungsdateien, Konfigurationsdateien, statische Bestand, Pakete und die Common Language Runtime (für eigenständige apps) besteht. Dies ist die gleiche Verzeichnisstruktur wie in früheren Versionen von ASP.NET verwenden, in dem die gesamte Anwendung in das Stammverzeichnis der Webserver aktiv ist.
 
@@ -32,12 +32,16 @@ In ASP.NET Core, das Anwendungsverzeichnis *veröffentlichen*, Anwendungsdateien
 Den Inhalt der *veröffentlichen* Verzeichnis darstellt der *Content Stammpfad*auch Namens der *Anwendungsbasispfads*, der Bereitstellung. Auf einen beliebigen Namen gewährt wird die *veröffentlichen* Verzeichnis in der Bereitstellung am Speicherort mit dem physischen Pfad des Servers für die gehostete Anwendung dient. Die *"Wwwroot"* Verzeichnis, falls vorhanden, enthält nur statische Objekte. Die *Protokolle* Verzeichnis in der Bereitstellung enthalten sein kann, indem es in das Projekt erstellen und Hinzufügen der `<Target>` folgenden Element Ihre *csproj* Datei oder beim Erstellen des Verzeichnisses physisch auf den Server.
 
 ```xml
-<Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
-  <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
-  <MakeDir Directories="$(PublishUrl)Logs" Condition="!Exists('$(PublishUrl)Logs')" />
+<Target Name="CreateLogsFolder" AfterTargets="Publish">
+  <MakeDir Directories="$(PublishDir)Logs" 
+           Condition="!Exists('$(PublishDir)Logs')" />
+  <WriteLinesToFile File="$(PublishDir)Logs\.log" 
+                    Lines="Generated file" 
+                    Overwrite="True" 
+                    Condition="!Exists('$(PublishDir)Logs\.log')" />
 </Target>
 ```
 
-Die erste `<MakeDir>` -Element, das verwendet die `PublishDir` -Eigenschaft wird von der .NET Core-CLI verwendet, um zu bestimmen, das der Zielort für den Veröffentlichungsvorgang. Die zweite `<MakeDir>` -Element, das verwendet die `PublishUrl` -Eigenschaft wird von Visual Studio verwendet, um den Zielspeicherort zu bestimmen. Visual Studio verwendet die `PublishUrl` Eigenschaft für die Kompatibilität mit nicht - .NET Core-Projekte.
+Die `<MakeDir>` Element erstellt ein leeres *Protokolle* Ordner in der veröffentlichten Ausgabe. Das Element verwendet die `PublishDir` -Eigenschaft können Sie den Zielspeicherort für die Ordner erstellen, zu bestimmen. Mehrere Bereitstellungsmethoden zur Verfügung, z. B. Webbereitstellung, überspringen Sie leere Ordner während der Bereitstellung. Die `<WriteLinesToFile>` Element erzeugt eine Datei in die *Protokolle* Ordner, in dem Bereitstellung des Ordners mit dem Server gewährleistet. Beachten Sie, dass Ordner erstellen noch fehlschlagen, wenn der Arbeitsprozess Schreibzugriff in den Zielordner keine.
 
 Das Bereitstellungsverzeichnis erfordert Lese-/Execute-Berechtigungen, während die *Protokolle* Directory erfordert Lese-/Schreibberechtigungen. Weitere Verzeichnisse, in denen Objekte geschrieben wird, erfordert Lese-/Schreibberechtigungen.

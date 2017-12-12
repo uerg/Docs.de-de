@@ -1,7 +1,7 @@
 ---
 title: Freigeben von Cookies zwischen Anwendungen
 author: rick-anderson
-description: 
+description: "Dieses Dokument wird erläutert, wie der Data Protection Stapel unterstützt die Freigabe von Authentifizierungscookies zwischen ASP.NET 4.x und ASP.NET Core-apps."
 keywords: ASP.NET Core,ASP.NET,cookies,Interop,cookie freigeben
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: 9a7aae45-8e21-4c54-950c-3c29df6c1082
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/cookie-sharing
-ms.openlocfilehash: dbf52b0a990a3627b8eded22db033c45d51ba6ad
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: e92cc81f9362787b7b4bfb44ba26b82182826a59
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sharing-cookies-between-applications"></a>Freigeben von Cookies zwischen Anwendungen
 
@@ -27,28 +27,28 @@ Zur Unterstützung dieses Szenarios kann Data Protection Stapel Katana-Cookieaut
 
 Authentifizierungscookies zwischen zwei verschiedenen ASP.NET Core nutzen zu können, konfigurieren Sie jede Anwendung, die Cookies wie folgt verwendet werden soll.
 
-In Ihrer Methode konfigurieren, die CookieAuthenticationOptions datenschutzdiensts für Cookies einrichten und die AuthenticationScheme entsprechend der ASP.NET 4.X.
+In Ihrer Methode konfigurieren, verwenden Sie die CookieAuthenticationOptions datenschutzdiensts für Cookies und die AuthenticationScheme einrichten, entsprechend der ASP.NET 4.x.
 
 Wenn Sie mit der Identität verwenden:
 
 ```csharp
 app.AddIdentity<ApplicationUser, IdentityRole>(options =>
-   {
-       options.Cookies.ApplicationCookie.AuthenticationScheme = "ApplicationCookie";
-       var protectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"));
-       options.Cookies.ApplicationCookie.DataProtectionProvider = protectionProvider;
-       options.Cookies.ApplicationCookie.TicketDataFormat = new TicketDataFormat(protectionProvider.CreateProtector("Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware", "Cookies", "v2"));
-   });
-   ```
+{
+    options.Cookies.ApplicationCookie.AuthenticationScheme = "ApplicationCookie";
+    var protectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"));
+    options.Cookies.ApplicationCookie.DataProtectionProvider = protectionProvider;
+    options.Cookies.ApplicationCookie.TicketDataFormat = new TicketDataFormat(protectionProvider.CreateProtector("Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware", "Cookies", "v2"));
+});
+```
 
 Wenn Sie Cookies direkt verwenden:
 
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
-   {
-       DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"))
-   });
-   ```
+{
+    DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"))
+});
+```
    
 Die `DataProtectionProvider` erfordert die `Microsoft.AspNetCore.DataProtection.Extensions` NuGet-Paket.
 
@@ -97,20 +97,20 @@ Um Authentifizierungscookies zwischen 4.x ASP.NET-Anwendungen und ASP.NET Core-A
 
     ```csharp
     app.UseCookieAuthentication(new CookieAuthenticationOptions
-       {
-           AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-           CookieName = ".AspNetCore.Cookies",
-           // CookieName = ".AspNetCore.ApplicationCookie", (if you're using identity)
-           // CookiePath = "...", (if necessary)
-           // ...
-           TicketDataFormat = new AspNetTicketDataFormat(
-               new DataProtectorShim(
-                   DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"))
-                   .CreateProtector("Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware",
-                   "Cookies", "v2"))),
-           CookieManager = new ChunkingCookieManager()
-       });
-       ```
+    {
+        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+        CookieName = ".AspNetCore.Cookies",
+        // CookieName = ".AspNetCore.ApplicationCookie", (if you're using identity)
+        // CookiePath = "...", (if necessary)
+        // ...
+        TicketDataFormat = new AspNetTicketDataFormat(
+            new DataProtectorShim(
+                DataProtectionProvider.Create(new DirectoryInfo(@"c:\shared-auth-ticket-keys\"))
+                .CreateProtector("Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware",
+                "Cookies", "v2"))),
+        CookieManager = new ChunkingCookieManager()
+    });
+    ```
     DirectoryInfo muss auf am gleichen Speicherort zu verweisen, die Sie die ASP.NET Core Anwendung verweist und sollte mit den gleichen Einstellungen konfiguriert werden.
 
 Der ASP.NET 4.x und ASP.NET Core-Anwendungen sind nun konfiguriert, um Authentifizierungscookies freizugeben.

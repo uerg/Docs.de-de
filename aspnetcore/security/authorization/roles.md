@@ -1,8 +1,8 @@
 ---
 title: Rollenbasierte Autorisierung
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Dieses Dokument veranschaulicht, wie ASP.NET Core Controller- und den Zugriff einschränken, indem Sie die Rollen zum Autorisieren Attribut übergeben."
+keywords: ASP.NET Core, Autorisierung, Rollen
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,21 +11,21 @@ ms.assetid: 5e014da1-8bc0-409b-951a-88b92c661fdf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/roles
-ms.openlocfilehash: 1dc76f316b70d486febe386cc47cd1f843d8d8e3
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 649b21d99c742843534748b0ba9d7b7b22483a62
+ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="role-based-authorization"></a>Rollenbasierte Autorisierung
 
-<a name=security-authorization-role-based></a>
+<a name="security-authorization-role-based"></a>
 
-Wenn eine Identität erstellt wird es möglicherweise eine oder mehrere Rollen angehören, z. B. Tracy möglicherweise gehören die Administrator- und Rollen Masse Scott nur der Benutzerrolle angehören. Wie diese Rollen erstellt und verwaltet werden, hängt von dem Sicherungsspeicher des Autorisierungsprozesses ab. Rollen werden verfügbar gemacht, für den Entwickler über die [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) Eigenschaft auf die [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) Klasse.
+Beim Erstellen eine Identität kann es auf eine oder mehrere Rollen gehören. Beispielsweise kann der Tracy Administrator- und Rollen gehören, Masse Scott nur der Benutzerrolle angehören. Wie diese Rollen erstellt und verwaltet werden, hängt von dem Sicherungsspeicher des Autorisierungsprozesses ab. Rollen werden verfügbar gemacht, für den Entwickler über die [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) Methode für die [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) Klasse.
 
 ## <a name="adding-role-checks"></a>Hinzufügen von rollenüberprüfungen
 
-Rollenbasierte autorisierungsüberprüfungen sind deklarative – der Entwickler bettet sie innerhalb ihres Codes für einen Controller oder einer Aktion innerhalb eines Controllers angeben von Rollen, die der aktuelle Benutzer ein Mitglied sein muss, auf die angeforderte Ressource zuzugreifen.
+Rollenbasierte autorisierungsüberprüfungen sind deklarative&mdash;Entwickler bettet sie innerhalb ihres Codes für einen Controller oder einer Aktion innerhalb eines Controllers angeben von Rollen, die der aktuelle Benutzer ein Mitglied sein muss, auf die angeforderte Ressource zuzugreifen.
 
 Beispielsweise würde der folgende Code Zugriff auf alle Aktionen beschränkt, auf die `AdministrationController` sind für Benutzer ein Mitglied der `Administrator` Gruppe.
 
@@ -36,7 +36,7 @@ public class AdministrationController : Controller
 }
 ```
 
-Sie können mehrere Rollen als durch Trennzeichen getrennte Liste angeben.
+Sie können mehrere Rollen als durch Trennzeichen getrennte Liste angeben:
 
 ```csharp
 [Authorize(Roles = "HRManager,Finance")]
@@ -57,7 +57,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-Sie können den Zugriff weiter einschränken, durch Anwenden von Attributen von Rolle "zusätzliche" Autorisierung auf der Aktionsebene;
+Sie können weiter Zugriff einschränken, indem Sie zusätzliche Autorisierung benutzerrollenattribute Ebene der Aktion anwenden:
 
 ```csharp
 [Authorize(Roles = "Administrator, PowerUser")]
@@ -93,7 +93,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-<a name=security-authorization-role-policy></a>
+<a name="security-authorization-role-policy"></a>
 
 ## <a name="policy-based-role-checks"></a>Richtlinienbasierte rollenüberprüfungen
 
@@ -111,7 +111,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Richtlinien werden angewendet, mit der `Policy` Eigenschaft auf die `AuthorizeAttribute` -Attribut;
+Richtlinien werden angewendet, mit der `Policy` Eigenschaft auf die `AuthorizeAttribute` Attribut:
 
 ```csharp
 [Authorize(Policy = "RequireAdministratorRole")]
@@ -121,7 +121,7 @@ public IActionResult Shutdown()
 }
 ```
 
-Wenn Sie mehrere zulässige Rollen in einer Anforderung angeben möchten, und klicken Sie dann als Parameter zum Angeben der `RequireRole` -Methode.
+Wenn Sie mehrere zulässige Rollen in einer Anforderung angeben möchten, und klicken Sie dann als Parameter zum Angeben der `RequireRole` Methode:
 
 ```csharp
 options.AddPolicy("ElevatedRights", policy =>

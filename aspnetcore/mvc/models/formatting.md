@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/formatting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ba2456178fe806b90f27bbd2940773da950423
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: abc125a093ff2cd5a38a537ecdfc795ff03e23f7
+ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/19/2017
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Einführung in die Antwort Formatierungsdaten in ASP.NET-MVC für Core
 
@@ -84,7 +84,7 @@ In diesem Beispiel erhält eine Anforderung für eine gültige Autor-Alias eine 
 
 ### <a name="content-negotiation-process"></a>Inhaltsaushandlung-Prozess
 
-Inhalt *Aushandlung* nur erfolgt, wenn ein `Accept` Header angezeigt wird, in der Anforderung. Wenn eine Anforderung einen Accept-Header enthält, wird das Framework Listet die Medientypen im Accept-Header in der Rangfolge und versucht, einen Formatierer finden, der eine Antwort in einem der Formate, die durch den Accept-Header angegebenen erstellen kann. Für den Fall, dass kein Formatierer gefunden wird, kann die Anforderung des Clients erfüllen, wird das Framework versucht, den ersten Formatierer gefunden, die eine Antwort erstellen kann (es sei denn, der Entwickler die Option für konfiguriert hat `MvcOptions` zurückzugebenden 406 nicht akzeptabel stattdessen). Wenn die Anforderung XML-Datei gibt, aber der XML-Formatierer nicht konfiguriert wurde, wird der JSON-Formatierer verwendet werden. Üblicher, wenn kein Formatierer konfiguriert ist, der das angeforderte Format bereitstellen kann, und verwendet der erste Formatierer als das Objekt nicht formatieren können. Keine Header angegeben ist, wird der erste Formatierer, der das Objekt, das zurückgegeben werden bewältigen können zum Serialisieren der Antwort verwendet werden. In diesem Fall gibt es keine stattgefunden hat Aushandlung - Server ist die Festlegung, in welchem Format verwendet werden.
+Inhalt *Aushandlung* nur erfolgt, wenn ein `Accept` Header angezeigt wird, in der Anforderung. Wenn eine Anforderung einen Accept-Header enthält, wird das Framework Listet die Medientypen im Accept-Header in der Rangfolge und versucht, einen Formatierer finden, der eine Antwort in einem der Formate, die durch den Accept-Header angegebenen erstellen kann. Für den Fall, dass kein Formatierer gefunden wird, kann die Anforderung des Clients erfüllen, wird das Framework versucht, den ersten Formatierer gefunden, die eine Antwort erstellen kann (es sei denn, der Entwickler die Option für konfiguriert hat `MvcOptions` zurückzugebenden 406 nicht akzeptabel stattdessen). Wenn die Anforderung XML-Datei gibt, aber der XML-Formatierer nicht konfiguriert wurde, wird der JSON-Formatierer verwendet werden. Üblicher, wenn kein Formatierer konfiguriert ist, der das angeforderte Format bereitstellen kann, wird der erste Formatierer, der das Objekt nicht formatieren kann verwendet. Keine Header angegeben ist, wird der erste Formatierer, der das Objekt, das zurückgegeben werden bewältigen können zum Serialisieren der Antwort verwendet werden. In diesem Fall gibt es keine stattgefunden hat Aushandlung - Server ist die Festlegung, in welchem Format verwendet werden.
 
 > [!NOTE]
 > Wenn die Accept-Header enthält `*/*`, der Header wird ignoriert, es sei denn, `RespectBrowserAcceptHeader` auf festgelegt ist auf "true" `MvcOptions`.
@@ -99,7 +99,7 @@ Wenn Sie Ihre Anwendung akzeptieren Browser accept-Header möchten, können Sie 
 services.AddMvc(options =>
 {
     options.RespectBrowserAcceptHeader = true; // false by default
-}
+});
 ```
 
 ## <a name="configuring-formatters"></a>Konfigurieren der Formatierer
@@ -167,7 +167,7 @@ services.AddMvc(options =>
 });
 ```
 
-Ohne die `TextOutputFormatter`, `string` Typen zurückgeben 406 nicht akzeptabel ist, z. B.. Beachten Sie, dass wenn ein XML-Formatierer vorhanden ist, wird es formatieren `string` Typen zurückgeben, wenn die `TextOutputFormatter` wird entfernt.
+Ohne die `TextOutputFormatter`, `string` Typen zurückgeben 406 nicht akzeptabel ist, z. B. Beachten Sie, dass wenn ein XML-Formatierer vorhanden ist, wird es formatieren `string` Typen zurückgeben, wenn die `TextOutputFormatter` wird entfernt.
 
 Ohne die `HttpNoContentOutputFormatter`, null-Objekte mithilfe des konfigurierten Formatierers formatiert sind. Beispielsweise wird das JSON-Formatierungsprogramm einfach eine Antwort mit einem Text des zurückgeben `null`, während der XML-Formatierer ein leeres XML-Element mit dem Attribut zurückliefert `xsi:nil="true"` festgelegt.
 
