@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
 ms.openlocfilehash: cacb23441e5f5ab06c6be27f3068276f21ff4ed9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Erstellen ein Modell mit komplexen Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (5 10)
 
@@ -55,7 +55,7 @@ Die Einstellung `ApplyFormatInEditMode` gibt an, dass die Formatierung auch ange
 
 Können Sie die `DisplayFormat` Attribut von selbst, aber es ist im Allgemeinen empfiehlt sich, verwenden Sie die `DataType` auch Attribut. Die `DataType` Attribut übermittelt, die die Semantik der Daten im Gegensatz zu wie auf dem Bildschirm gerendert werden soll, und bietet die folgenden Vorteile, die Sie nicht mit erhalten `DisplayFormat`:
 
-* Der Browser HTML5-Funktionen aktivieren kann (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail einige clientseitige Eingabe Validierung usw..).
+* Der Browser HTML5-Funktionen aktivieren kann (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail einige clientseitige Eingabe Validierung usw.).
 
 * Standardmäßig rendert der Browser Daten mit dem ordnungsgemäßen auf Ihrem Gebietsschema basierenden Format.
 
@@ -93,7 +93,7 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-Die `migrations add` Befehl gibt eine Warnung aus, dass Daten verloren gehen können, da die Änderung die maximale Länge für zwei Spalten kürzer ist.  Migrationen erstellt eine Datei namens * \<Zeitstempel > _MaxLengthOnNames.cs*. Diese Datei enthält Code, in der `Up` -Methode, die die Datenbank entsprechend der aktuellen Datenmodell aktualisiert wird. Die `database update` -Befehl ausgeführt haben, diesen Code.
+Die `migrations add` Befehl gibt eine Warnung aus, dass Daten verloren gehen können, da die Änderung die maximale Länge für zwei Spalten kürzer ist.  Migrationen erstellt eine Datei namens  *\<Zeitstempel > _MaxLengthOnNames.cs*. Diese Datei enthält Code, in der `Up` -Methode, die die Datenbank entsprechend der aktuellen Datenmodell aktualisiert wird. Die `database update` -Befehl ausgeführt haben, diesen Code.
 
 Der Zeitstempel, der den Dateinamen Migrationen vorangestellt wird vom Entity Framework verwendet, um die Migrationen zu bestellen. Sie können mehrere livemigrationen erstellen, vor dem Ausführen des Update-Database-Befehls, und klicken Sie dann alle die Migrationen in der Reihenfolge, in der sie erstellt wurden, angewendet werden.
 
@@ -142,7 +142,7 @@ In *Models/Student.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgend
 
 ### <a name="the-required-attribute"></a>Das erforderliche Attribut
 
-Die `Required` Attribut macht die erforderlichen Felder des Name-Eigenschaften. Die `Required` Attribut ist nicht erforderlich, für NULL-Typen wie Werttypen ("DateTime", "Int", double, float usw..). Typen, die nicht null sein können, werden automatisch als Pflichtfelder behandelt.
+Die `Required` Attribut macht die erforderlichen Felder des Name-Eigenschaften. Die `Required` Attribut ist nicht erforderlich, für NULL-Typen wie Werttypen ("DateTime", "Int", double, float usw.). Typen, die nicht null sein können, werden automatisch als Pflichtfelder behandelt.
 
 Könnten Sie entfernen die `Required` Attribut, und Ersetzen Sie ihn durch einen Parameter Mindestlänge für die `StringLength` Attribut:
 
@@ -245,7 +245,7 @@ Die `DatabaseGenerated` -Attribut mit dem `None` Parameter auf die `CourseID` Ei
 public int CourseID { get; set; }
 ```
 
-Entity Framework geht standardmäßig davon aus, dass Primärschlüssel von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Allerdings für die Kurs-Entitäten, Sie verwenden eine benutzerdefinierte Kurs Zahl wie z. B. eine Reihe von 1000 für eine Abteilung, eine Reihe 2000 für eine andere Abteilung und usw..
+Entity Framework geht standardmäßig davon aus, dass Primärschlüssel von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Allerdings für die Kurs-Entitäten, Sie verwenden eine benutzerdefinierte Kurs Zahl wie z. B. eine Reihe von 1000 für eine Abteilung, eine Reihe 2000 für eine andere Abteilung und usw.
 
 Die `DatabaseGenerated` Attribut kann auch verwendet werden, um Default-Werte zu generieren, wie im Fall von Datenbankspalten verwendet, um das Datum aufzuzeichnen eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Eigenschaften generiert](https://docs.microsoft.com/ef/core/modeling/generated-properties).
 
@@ -409,7 +409,7 @@ Die folgende Abbildung zeigt das Diagramm, das den Entity Framework-Power-Tools 
 
 ![Entitätsdiagramm](complex-data-model/_static/diagram.png)
 
-Neben den Zeilen 1: n-Beziehung (1 bis \*), sehen Sie hier zu 0 (null) oder eins eine Beziehungslinie (1 zu 0.. 1) zwischen den Entitäten Dozenten und OfficeAssignment und 0 (null)-oder-1-n-Beziehung (0.. 1 auf *) zwischen den Instructor "und" Department-Entitäten.
+Neben den Zeilen 1: n-Beziehung (1 bis \*), sehen Sie hier zu 0 (null) oder eins eine Beziehungslinie (1 zu 0. 1) zwischen den Entitäten Dozenten und OfficeAssignment und 0 (null)-oder-1-n-Beziehung (0. 1 auf *) zwischen den Instructor "und" Department-Entitäten.
 
 ## <a name="seed-the-database-with-test-data"></a>Ausgangswert für die Datenbank mit Testdaten
 

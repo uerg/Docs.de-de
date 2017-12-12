@@ -1,0 +1,1 @@
+Dieser Ordner für SignalR-Inhalt. Löschen Sie diese Datei, wenn die erste Datei in dieses Verzeichnis hinzugefügt wird.

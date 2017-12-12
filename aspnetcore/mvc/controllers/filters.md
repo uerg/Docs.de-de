@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0a2a374ac77b9fd7c626aa6749cffbd3fb0f08d5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="filters"></a>Filter
 
@@ -82,7 +82,7 @@ Sie können implementieren `IFilterFactory` auf Ihren eigenen Implementierungen 
 
 Das Framework beinhaltet integrierte attributbasierte Filter, können Sie die Unterklasse und anpassen. Die folgenden Ergebnisfilter fügt z. B. einen Header in die Antwort an.
 
-<a name=add-header-attribute></a>
+<a name="add-header-attribute"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
@@ -167,7 +167,7 @@ Die `Order` Eigenschaft sticht Bereich aus, wenn die Reihenfolge bestimmt, in de
 
 Sie können die Filterpipeline zu einem beliebigen Zeitpunkt Kurzschluss, durch Festlegen der `Result` Eigenschaft auf die `context` Parameter bereitgestellt, um die Filtermethode. Beispielsweise verhindert, dass die folgende Filter für die Ressource den Rest der Pipeline ausführen.
 
-<a name=short-circuiting-resource-filter></a>
+<a name="short-circuiting-resource-filter"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
@@ -188,7 +188,7 @@ Wenn die Filter Abhängigkeiten, die Sie von DI zugreifen müssen haben, sind me
 * `IFilterFactory`auf Ihrem Attribut implementiert
 
 > [!NOTE]
-> Eine Abhängigkeit, die Sie möglicherweise aus DI abrufen möchten, ist eine Protokollierung. Allerdings zu vermeiden, erstellen und verwenden Filter ausschließlich für die Protokollierung, da der [integriertes Framework Protokollierungsfunktionen](../../fundamentals/logging.md) müssen Sie möglicherweise bereits bereitstellen. Wenn Sie Protokollierung Ihre Filter hinzufügen möchten, sollten diese auf Geschäftsprobleme Domäne oder Verhalten, die spezifisch für Ihren Filter statt MVC-Aktionen oder andere Framework-Ereignisse konzentrieren.
+> Eine Abhängigkeit, die Sie möglicherweise aus DI abrufen möchten, ist eine Protokollierung. Allerdings zu vermeiden, erstellen und verwenden Filter ausschließlich für die Protokollierung, da der [integriertes Framework Protokollierungsfunktionen](xref:fundamentals/logging/index) müssen Sie möglicherweise bereits bereitstellen. Wenn Sie Protokollierung Ihre Filter hinzufügen möchten, sollten diese auf Geschäftsprobleme Domäne oder Verhalten, die spezifisch für Ihren Filter statt MVC-Aktionen oder andere Framework-Ereignisse konzentrieren.
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 

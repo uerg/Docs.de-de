@@ -1,75 +1,64 @@
 ---
-title: Konfigurieren der Windowsauthentifizierung in ASP.NET Core
+title: Konfigurieren der Windows-Authentifizierung in ASP.NET Core
 author: ardalis
-description: 'Gewusst wie: Konfigurieren von Windows-Authentifizierung in ASP.NET Core'
-keywords: ASP.NET Core,
+description: Dieser Artikel beschreibt, wie die Windows-Authentifizierung in ASP.NET Core mit IIS Express, IIS, HTTP.sys und WebListener konfiguriert.
+keywords: ASP.NET Core, Windows-Authentifizierung, Authorize-Attribut, AllowAnonymous-Attribut
 ms.author: riande
 manager: wpickett
-ms.date: 07/05/2017
+ms.date: 10/24/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: f724584b43eb2be105cc8a207d5c7b6fec558881
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 703f924d049a267cb8bee22e63e6669b13099c53
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurieren der Windowsauthentifizierung in ASP.NET Core
+# <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Konfigurieren der Windows-Authentifizierung in einer ASP.NET Core-app
 
-Durch [Steve Smith](https://ardalis.com)
+Durch [Steve Smith](https://ardalis.com) und [Scott Addie](https://twitter.com/Scott_Addie)
 
-Windows-Authentifizierung kann für ASP.NET Core-apps, die mit IIS oder WebListener gehostet konfiguriert werden.
+Windows-Authentifizierung konfiguriert werden kann, für ASP.NET Core-apps, die mit IIS gehostet [HTTP.sys](xref:fundamentals/servers/httpsys), oder [WebListener](xref:fundamentals/servers/weblistener).
 
-## <a name="what-is-windows-authentication"></a>Was ist Windows-Authentifizierung
+## <a name="what-is-windows-authentication"></a>Was ist Windows-Authentifizierung?
 
-Windows-Authentifizierung basiert auf dem Betriebssystem zur Authentifizierung von Benutzern von ASP.NET Core-apps. Sie können Windows-Authentifizierung verwenden, wenn Ihre Server in einem Unternehmensnetzwerk mithilfe von Active Directory-Domäne-Identitäten oder andere Windows-Konten zur Identifizierung von Benutzern ausgeführt wird. Windows-Authentifizierung ist eine sichere Form der Authentifizierung, die beste für Intranetumgebungen, in dem Benutzer, Clientanwendungen und Webservern auf derselben Windows-Domäne gehören, geeignet sind.
+Windows-Authentifizierung basiert auf dem Betriebssystem zur Authentifizierung von Benutzern von ASP.NET Core-apps. Sie können Windows-Authentifizierung verwenden, wenn Ihre Server in einem Unternehmensnetzwerk mithilfe von Active Directory-Domäne-Identitäten oder andere Windows-Konten zur Identifizierung von Benutzern ausgeführt wird. Windows-Authentifizierung ist für Intranetumgebungen, in denen Benutzer, Clientanwendungen und Webservern zu derselben Windows-Domäne gehören, geeignet.
 
-[Weitere Informationen zu Windows-Authentifizierung und die Installation für IIS](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
+[Erfahren Sie mehr über Windows-Authentifizierung und die Installation für IIS](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
 
-## <a name="enabling-windows-authentication-in-an-aspnet-core-application"></a>Aktivieren der Windows-Authentifizierung in einer ASP.NET Core-Anwendung
+## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>Windows-Authentifizierung in einer ASP.NET Core app aktivieren
 
 Der Visual Studio Web Application-Vorlage kann für die Unterstützung der Windows-Authentifizierung konfiguriert werden.
 
-### <a name="using-the-windows-authentication-app-template"></a>Mithilfe der Windows-Authentifizierung-app-Vorlage
+### <a name="use-the-windows-authentication-app-template"></a>Verwenden Sie die Windows-Authentifizierung app-Vorlage
 
 In Visual Studio:
-* Erstellen Sie eine neue ASP.NET Core-Webanwendung. 
-* Wählen Sie aus der Liste der Vorlagen-Webanwendung.
-* Wählen Sie die Schaltfläche "Authentifizierung ändern" und **Windows-Authentifizierung**. 
+1. Erstellen Sie eine neue ASP.NET Core-Webanwendung. 
+1. Wählen Sie aus der Liste der Vorlagen-Webanwendung.
+1. Wählen Sie die **Authentifizierung ändern** Schaltfläche und wählen Sie **Windows-Authentifizierung**. 
 
 Führen Sie die App aus. Der Benutzername wird angezeigt, in der oberen rechten der app.
 
 ![Windows-Authentifizierung-Browser-Screenshot](windowsauth/_static/browser-screenshot.png)
 
-Die Vorlage bereitstellt für Entwicklungen mit IIS Express die zur Verwendung der Windows-Authentifizierung erforderlich Konfiguration. Im nächste Abschnitt zeigt, wie eine ASP.NET Core-app für Windows-Authentifizierung manuell konfigurieren.
+Die Vorlage bereitstellt für Entwicklungen mit IIS Express die zur Verwendung der Windows-Authentifizierung erforderlich Konfiguration. Der folgende Abschnitt zeigt, wie eine ASP.NET Core-app für Windows-Authentifizierung manuell konfiguriert wird.
 
 ### <a name="visual-studio-settings-for-windows-and-anonymous-authentication"></a>Visual Studio-Einstellungen für Windows und anonyme Authentifizierung
 
-Der Visual Studio-Eigenschaftenseite, Registerkarte "Debuggen" bietet das Kontrollkästchen für Windows-Authentifizierung und die anonyme Authentifizierung.
+Visual Studio-Projekt **Eigenschaften** Seite **Debuggen** Registerkarte enthält die Kontrollkästchen für die Windows-Authentifizierung und die anonyme Authentifizierung.
 
 ![Windows-Authentifizierung-Browser-Screenshot](windowsauth/_static/vs-auth-property-menu.png)
 
-Sie können auch konfigurieren, diese Eigenschaften in der `launchSettings.json` Datei:
+Alternativ können diese beiden Eigenschaften konfiguriert werden, der *launchSettings.json* Datei:
 
-```json
-{
-  "iisSettings": {
-    "windowsAuthentication": true,
-    "anonymousAuthentication": false,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:52171/",
-      "sslPort": 0
-    }
-  } // additional options trimmed
-}
-```
+[!code-json[](windowsauth/sample/launchSettings.json?highlight=3-4)]
 
-## <a name="enabling-windows-authentication-with-iis"></a>Aktivieren der Windows-Authentifizierung mit IIS
+## <a name="enable-windows-authentication-with-iis"></a>Windows-Authentifizierung in IIS aktivieren
 
-IIS verwendet den [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) (ANCM) zum Hosten von ASP.NET Core-apps. Die ANCM Flüsse Windows-Authentifizierung in IIS standardmäßig. Konfiguration der Windows-Authentifizierung erfolgt innerhalb von IIS nicht auf das Anwendungsprojekt. Die folgenden Abschnitte zeigen, wie IIS-Manager verwenden, um eine ASP.NET Core-Anwendung, um die Windows-Authentifizierung zu konfigurieren:
+IIS verwendet den [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) (ANCM) zum Hosten von ASP.NET Core-apps. Die ANCM Flüsse Windows-Authentifizierung in IIS standardmäßig. Konfiguration der Windows-Authentifizierung erfolgt innerhalb von IIS nicht auf das Anwendungsprojekt. Die folgenden Abschnitte zeigen, wie IIS-Manager verwenden, um eine ASP.NET Core-Anwendung, um die Windows-Authentifizierung zu konfigurieren.
 
 ### <a name="create-a-new-iis-site"></a>Erstellen einer neuen IIS-Website
 
@@ -87,7 +76,7 @@ Deaktivieren Sie anonyme Authentifizierung und aktivieren Sie die Windows-Authen
 
 ### <a name="publish-your-project-to-the-iis-site-folder"></a>Veröffentlichen Sie Ihr Projekt in den IIS-Website-Ordner
 
-Mithilfe von Visual Studio oder die .NET Core-CLI *veröffentlichen* Ihrer app in den Zielordner.
+Veröffentlichen Sie die app mithilfe von Visual Studio oder die .NET Core-CLI, in den Zielordner an.
 
 ![Visual Studio, Dialogfeld "Veröffentlichen"](windowsauth/_static/vs-publish-app.png)
 
@@ -95,35 +84,62 @@ Erfahren Sie mehr über [in IIS veröffentlichen](xref:publishing/iis).
 
 Starten Sie die app aus, um sicherzustellen, dass die Windows-Authentifizierung funktionsfähig ist.
 
-## <a name="enabling-windows-authentication-with-weblistener"></a>Aktivieren der Windows-Authentifizierung mit WebListener
+## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>Windows-Authentifizierung mit HTTP.sys oder WebListener aktivieren
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+Obwohl Kestrel Windows-Authentifizierung nicht unterstützt, können Sie [HTTP.sys](xref:fundamentals/servers/httpsys) selbst gehostete Szenarien unter Windows unterstützt. Das folgende Beispiel konfiguriert die app Webhost um HTTP.sys mit Windows-Authentifizierung zu verwenden:
+
+[!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Obwohl Kestrel Windows-Authentifizierung nicht unterstützt, können Sie [WebListener](xref:fundamentals/servers/weblistener) selbst gehostete Szenarien unter Windows unterstützt. Das folgende Beispiel konfiguriert die app Webhost um WebListener mit Windows-Authentifizierung zu verwenden:
 
-```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var host = new WebHostBuilder()
-            .UseWebListener(options =>
-            {
-                options.ListenerSettings.Authentication.Schemes = 
-                    AuthenticationSchemes.Negotiate | AuthenticationSchemes.NTLM;
-                options.ListenerSettings.Authentication.AllowAnonymous = false;
-            })
-            .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseStartup<Startup>()
-            .Build();
+[!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
-        host.Run();
-    }
-}
+---
+
+## <a name="work-with-windows-authentication"></a>Arbeiten mit Windows-Authentifizierung
+
+Der Konfigurationsstatus des anonymen Zugriffs bestimmt die Art, wie die `[Authorize]` und `[AllowAnonymous]` Attribute werden in der app verwendet. Die folgenden beiden Abschnitten wird erläutert, wie die Zustände, zulässige und unzulässige Konfiguration des anonymen Zugriffs zu behandeln.
+
+### <a name="disallow-anonymous-access"></a>Anonyme Zugriffe nicht zulassen
+
+Wenn Windows-Authentifizierung aktiviert ist und der anonyme Zugriff deaktiviert ist, die `[Authorize]` und `[AllowAnonymous]` Attribute haben keine Auswirkungen. Wenn die IIS-Website (oder HTTP.sys oder WebListener Server) konfiguriert ist, um den anonymen Zugriff zu unterbinden, erreicht die Anforderung nie Ihrer app. Aus diesem Grund die `[AllowAnonymous]` Attribut nicht zutreffend ist.
+
+### <a name="allow-anonymous-access"></a>Anonymen Zugriff zulassen
+
+Wenn Windows-Authentifizierung und anonymem Zugriff aktiviert sind, verwenden die `[Authorize]` und `[AllowAnonymous]` Attribute. Die `[Authorize]` Attribut können Sie Teile der app zu sichern die Windows-Authentifizierung tatsächlich benötigen. Die `[AllowAnonymous]` -Attribut überschreibt `[Authorize]` -Attribut Auslastung in apps, die anonymen Zugriff zu ermöglichen. Finden Sie unter [einfache Autorisierung](xref:security/authorization/simple) für Nutzungsdetails Attribut.
+
+In ASP.NET Core 2.x, die `[Authorize]` Attribut erfordert zusätzliche Konfigurationsschritte in *Startup.cs* , fordern Sie anonyme Anforderungen für die Windows-Authentifizierung. Die empfohlene Konfiguration variiert leicht basierend auf dem Webserver verwendet wird.
+
+#### <a name="iis"></a>IIS
+
+Wenn Sie IIS verwenden, fügen Sie Folgendes verwenden, um die `ConfigureServices` Methode: 
+
+```csharp
+// IISDefaults requires the following import:
+// using Microsoft.AspNetCore.Server.IISIntegration;
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
 ```
 
-## <a name="working-with-windows-authentication"></a>Arbeiten mit Windows-Authentifizierung
+#### <a name="httpsys"></a>HTTP.sys
 
-Wenn Ihre app auf Windows-Authentifizierung und anonymem Zugriff verwendet, können Sie die ``[Authorize]`` und ``[AllowAnonymous]`` Attribute. Apps, die keinen anonymen aktiviert stimmen nicht erfordern ``[Authorize]``; die app so behandelt, als eine Authentifizierung erforderlich ist, werden die anonyme Anforderungen abgelehnt. Beachten Sie, wenn die IIS-Site konfiguriert ist **nicht** anonymen Zugriff erlaubt die ``[AllowAnonymous]`` Attribut führt **nicht** anonyme Anforderungen zulassen. Die ``[AllowAnonymous]`` -Attribut überschreibt ``[Authorize]`` -Attribut Auslastung in apps, die den anonymen Zugriff zulassen.
+Wenn HTTP.sys verwenden zu können, fügen Sie Folgendes verwenden, um die `ConfigureServices` Methode:
+
+```csharp
+// HttpSysDefaults requires the following import:
+// using Microsoft.AspNetCore.Server.HttpSys;
+services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+```
 
 ### <a name="impersonation"></a>Identitätswechsel
 
-ASP.NET Core implementiert Identitätswechsel nicht. Apps, die mit der Anwendungsidentität für alle Anforderungen, die mit app-Pool oder Prozess Identität ausgeführt werden. Wenn Sie explizit eine Aktion im Auftrag eines Benutzers ausführen müssen, verwenden Sie ``WindowsIdentity.RunImpersonated``. Eine einzelne Aktion in diesem Kontext ausgeführt, und schließen Sie dann den Kontext. Beachten Sie, dass ``RunImpersonated`` Async nicht unterstützt und sollte nicht für komplexe Szenarios verwendet werden. Z. B. wird wrapping gesamten Anfragen oder Middleware Ketten nicht unterstützt oder empfohlen.
+ASP.NET Core implementiert keine Identitätswechsel. Apps, die mit der Anwendungsidentität für alle Anforderungen, die mit app-Pool oder Prozess Identität ausgeführt werden. Wenn Sie explizit eine Aktion im Auftrag eines Benutzers ausführen müssen, verwenden Sie `WindowsIdentity.RunImpersonated`. Eine einzelne Aktion in diesem Kontext ausgeführt, und schließen Sie dann den Kontext.
+
+[!code-csharp[](windowsauth/sample/Startup.cs?name=snippet_Impersonate&highlight=10-18)]
+
+Beachten Sie, dass `RunImpersonated` keine asynchrone Vorgänge unterstützt und sollte nicht für komplexe Szenarios verwendet werden. Z. B. wird nicht wrapping gesamten Anfragen oder Middleware Ketten unterstützt oder empfohlen.
+
+---

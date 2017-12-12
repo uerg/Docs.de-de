@@ -1,0 +1,1 @@
+Die Contoso-University Web-app veranschaulicht, wie Razor-Seiten-Web-apps mithilfe von EF-Kern- und Visual Studio zu erstellen. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm](xref:data/ef-rp/intro).

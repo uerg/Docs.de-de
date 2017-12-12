@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -83,7 +83,7 @@ Wenn die **Update** geklickt wird, die HttpPost-Methode aufgerufen wird und Mult
 
 In **Projektmappen-Explorer**, mit der rechten Maustaste die *Ansichten/Kurse* Ordner, und klicken Sie dann auf **hinzufügen > Neues Element**.
 
-In der **neues Element hinzufügen** Dialogfeld klicken Sie auf **ASP.NET** unter **installiert** klicken Sie im linken Bereich auf **MVC View Page**, und nennen Sie die neue Ansicht * UpdateCourseCredits.cshtml*.
+In der **neues Element hinzufügen** Dialogfeld klicken Sie auf **ASP.NET** unter **installiert** klicken Sie im linken Bereich auf **MVC View Page**, und nennen Sie die neue Ansicht  *UpdateCourseCredits.cshtml*.
 
 In *Views/Courses/UpdateCourseCredits.cshtml*, den Code durch den folgenden Code ersetzen:
 
@@ -228,7 +228,7 @@ Es ist möglich, andere Fehler auftreten, wenn schemaänderungen in einer Datenb
 
 Der einfachste Ansatz besteht darin, benennen Sie die Datenbank in *appsettings.json*. Das nächste Mal ausführen `database update`, eine neue Datenbank erstellt werden.
 
-Zum Löschen einer Datenbank in SSOX mit der rechten Maustaste in der Datenbank aus, klicken Sie auf **löschen**, und klicken Sie dann in der **Datenbank löschen** aktivieren Sie im Dialogfeld **bestehende Verbindungen schließen** , und klicken Sie auf ** OK**.
+Zum Löschen einer Datenbank in SSOX mit der rechten Maustaste in der Datenbank aus, klicken Sie auf **löschen**, und klicken Sie dann in der **Datenbank löschen** aktivieren Sie im Dialogfeld **bestehende Verbindungen schließen** , und klicken Sie auf  **OK**.
 
 Führen Sie zum Löschen einer Datenbank mithilfe der CLI die `database drop` CLI-Befehl:
 

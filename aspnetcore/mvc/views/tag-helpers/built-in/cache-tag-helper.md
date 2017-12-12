@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
 ms.openlocfilehash: da5b7b3bf1aa01ee22edf9bd003d8f79a00a5d0b
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC
 
@@ -84,7 +84,7 @@ Beispiel:
 
 | Attributtyp    | Beispielwert     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (120)"    |
+| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
 
 
 Legt die Zeitspanne seit der ersten Anforderung, zum Zwischenspeichern des Inhalts. 
@@ -103,7 +103,7 @@ Beispiel:
 
 | Attributtyp    | Beispielwert     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (60)"     |
+| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
 
 
 Legt die Zeit, die ein Eintrag im Cache entfernt werden soll, wenn er nicht zugegriffen wurde.
@@ -229,7 +229,7 @@ Mit diesem Attribut behält den Inhalt im Cache für eine Anmeldung und Abmeldun
 
 | Attributtyp    | Beispielwerte                |
 |----------------   |----------------               |
-| Zeichenfolge             | " @Model "                 |
+| Zeichenfolge             | "@Model"                 |
 
 
 Ermöglicht die Anpassung der Daten zwischengespeichert, ruft. Wenn das Objekt verweist auf das Attribut Zeichenfolge geändert wird, den Inhalt des Hilfsprogramms Tag Cache aktualisiert wurde. Eine zeichenfolgenverkettung aus Modellwerte werden häufig mit diesem Attribut zugewiesen.  Praktisch bedeutet dies, dass ein Update für die verketteten Werte des Caches erklärt wird.

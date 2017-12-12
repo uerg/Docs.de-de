@@ -1,8 +1,8 @@
 ---
 title: Externe Anmeldung Setup Twitter
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Dieses Lernprogramm veranschaulicht die Integration von Twitter-Konto-Benutzerauthentifizierung in eine vorhandene ASP.NET Core-app.
+keywords: ASP.NET Core, Twitter, Anmeldung, Authentifizierung
 ms.author: riande
 manager: wpickett
 ms.date: 11/01/2016
@@ -11,15 +11,13 @@ ms.assetid: E5931607-31C0-4B20-B416-85E3550F5EA8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 87be0bdd4637cff609a4908b303a13272656e2a4
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 6751b34b42007cffa9ee92ee49170564b8eac997
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-twitter-authentication"></a>Konfigurieren von Twitter-Authentifizierung
-
-<a name=security-authentication-twitter-logins></a>
 
 Von [Valeriy Novytskyy](https://github.com/01binary) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 

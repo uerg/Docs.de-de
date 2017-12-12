@@ -1,8 +1,8 @@
 ---
 title: Anspruchsbasierte Autorisierung
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Dieses Dokument erläutert, wie Ansprüche Überprüfungen für die Autorisierung in einer ASP.NET Core-app hinzugefügt."
+keywords: "ASP.NET Core, Autorisierung, Ansprüche"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="claims-based-authorization"></a>Anspruchsbasierte Autorisierung
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
-Wenn eine Identität erstellt wird möglicherweise eine oder mehrere Ansprüche, die von einer vertrauenswürdigen Partei ausgestellt zugewiesen werden. Ein Anspruch ist der Name-Wert-Paar, das stellt, welche den Betreff dar ist, nicht welche das Subjekt möglich. Sie möglicherweise z. B. ein Treiber-Lizenz, die von einer lokalen treibenden Lizenz Zertifizierungsstelle ausgestellt. Der Führerschein weist Ihr Geburtsdatum auf. In diesem Fall wäre die anspruchsnamen `DateOfBirth`, der Wert des Anspruchs wäre Ihr Geburtsdatum, z. B. `8th June 1970` und der Aussteller wäre die Autorität für die steuernde Lizenz. Anspruchsbasierte Autorisierung in seiner einfachsten Form überprüft den Wert des Anspruchs und ermöglicht den Zugriff auf eine Ressource auf Grundlage dieses Werts. Für das Beispiel, wenn Sie möchten den Autorisierungsprozess Zugriff auf eine Nacht Club sein könnten:
+Wenn eine Identität erstellt wird möglicherweise eine oder mehrere Ansprüche, die von einer vertrauenswürdigen Partei ausgestellt zugewiesen werden. Ein Anspruch ist der Name-Wert-Paar, das stellt, welche den Betreff dar ist, nicht welche das Subjekt möglich. Sie möglicherweise z. B. ein Führerschein, von einer lokalen treibenden Lizenz Zertifizierungsstelle ausgestellt. Der Führerschein weist Ihr Geburtsdatum auf. In diesem Fall wäre die anspruchsnamen `DateOfBirth`, der Wert des Anspruchs wäre Ihr Geburtsdatum, z. B. `8th June 1970` und der Aussteller wäre die Autorität für die steuernde Lizenz. Anspruchsbasierte Autorisierung in seiner einfachsten Form überprüft den Wert des Anspruchs und ermöglicht den Zugriff auf eine Ressource auf Grundlage dieses Werts. Für das Beispiel, wenn Sie möchten den Autorisierungsprozess Zugriff auf eine Nacht Club sein könnten:
 
 Die Tür Sicherheitsbeauftragten ausgewertet den Wert der das Datum des Anspruchs Geburtsdatum und gibt an, ob sie den Aussteller (die steuernde Lizenz Authority) vertrauen, bevor Sie Ihnen den Zugriff gewähren.
 
@@ -105,7 +105,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="multiple-policy-evaluation"></a>Mehrfache Richtlinienauswertung
 
-Wenn Sie mehrere Richtlinien auf einen Controller oder eine Aktion anwenden müssen alle Richtlinien übergeben, bevor der Zugriff gewährt wird. Zum Beispiel:
+Wenn Sie mehrere Richtlinien auf einen Controller oder eine Aktion anwenden, müssen alle Richtlinien übergeben, bevor der Zugriff gewährt wird. Zum Beispiel:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -124,4 +124,4 @@ public class SalaryController : Controller
 
 Im obigen Beispiel Identität, die erfüllt die `EmployeeOnly` Richtlinie erreichen der `Payslip` erreichen Sie, wenn diese Richtlinie wird erzwungen, auf dem Controller. Jedoch für den Aufruf der `UpdateSalary` Aktion, die die Identität muss erfüllen *beide* der `EmployeeOnly` Richtlinie und die `HumanResources` Richtlinie.
 
-Wenn etwas kompliziertere Richtlinien werden sollen, z. B. ein Datum Geburtsdatum Anspruchs geschaltet wurde, ein Alter daraus berechnen, und klicken Sie dann überprüfen die ALTER 21 oder ältere stellen Sie Sie schreiben müssen [benutzerdefinierte Richtlinie Handler](policies.md#security-authorization-policies-based).
+Wenn etwas kompliziertere Richtlinien werden sollen, z. B. ein Datum Geburtsdatum Anspruchs geschaltet wurde, ein Alter daraus berechnen, und klicken Sie dann überprüfen die ALTER 21 oder ältere stellen Sie Sie schreiben müssen [benutzerdefinierte Richtlinie Handler](policies.md).

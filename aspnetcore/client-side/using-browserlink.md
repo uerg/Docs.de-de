@@ -1,7 +1,7 @@
 ---
 title: Browserlink in ASP.NET Core
 author: ncarandini
-description: "Erfahren Sie, wie Browserlink eine Visual Studio-Funktion ist, die die Entwicklungsumgebung mit mindestens einem Webbrowser verknüpft."
+description: "Erklärt, wie Browserlink eine Visual Studio-Funktion, die die Entwicklungsumgebung mit mindestens einem Webbrowser verknüpft."
 keywords: ASP.NET Core, browserlink, CSS-Synchronisierung
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>Browserlink in ASP.NET Core 
 
@@ -81,7 +81,7 @@ Aus dem Browserlink-Toolbar-Steuerelement können Sie folgende Aktionen ausführ
 * Die Webanwendung in verschiedenen Browsern gleichzeitig zu aktualisieren.
 * Öffnen der **Browserlink-Dashboard**.
 * Aktivieren oder deaktivieren Sie **Browserlink**. Hinweis: Browserlink ist in Visual Studio 2017 (15.3) standardmäßig deaktiviert.
-* Aktivieren Sie oder deaktivieren Sie die automatische CSS-Synchronisierung.
+* Aktivieren oder deaktivieren Sie [automatische CSS-Synchronisierung](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
 > Einige Visual Studio-Plug-ins, vor allem Kontrollvorgänge *Web Erweiterung Pack 2015* und *Web Erweiterung Pack 2017*, bieten erweiterte Funktionalität für Browserlink, aber einige zusätzlichen Funktionen, die mit ASP funktionieren nicht. NET Core-Projekte.

@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 20b05801ac666feef29fd05dd3e4738b1bd50b86
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migrationen - EF-Core mit ASP.NET Core MVC-Lernprogramm (4 von 10)
 
@@ -87,11 +87,11 @@ Done. To undo this action, use 'ef migrations remove'
 > [!NOTE]
 > Wenn Sie eine Fehlermeldung *keine ausführbare Datei gefunden übereinstimmenden Befehl "Dotnet-Ef"*, finden Sie unter [diesem Blogbeitrag](http://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) für Hilfe zur Problembehandlung.
 
-Wenn Sie eine Fehlermeldung angezeigt "*... die Datei kann nicht zugegriffen werden. ContosoUniversity.dll, da sie von einem anderen Prozess verwendet wird. *", suchen Sie das Symbol" IIS Express "in der Windows-Taskleiste der rechten Maustaste darauf klicken, und klicken Sie auf **ContosoUniversity > Stop Standort**.
+Wenn Sie eine Fehlermeldung angezeigt "*... die Datei kann nicht zugegriffen werden. ContosoUniversity.dll, da sie von einem anderen Prozess verwendet wird.* ", suchen Sie das Symbol" IIS Express "in der Windows-Taskleiste der rechten Maustaste darauf klicken, und klicken Sie auf **ContosoUniversity > Stop Standort**.
 
 ## <a name="examine-the-up-and-down-methods"></a>Überprüfen Sie die nach-oben und nach-unten Sie-Methoden
 
-Wenn Sie die Ausführung der `migrations add` Befehl EF generiert den Code, der die Datenbank von Grund auf neu erstellt wird. Dieser Code befindet sich in der *Migrationen* Ordner, in der Datei mit dem Namen * \<Zeitstempel > _InitialCreate.cs*. Die `Up` Methode der `InitialCreate` Klasse erstellt, die Datenbanktabellen, die die Daten Modell Entitätenmengen, entsprechen und die `Down` Methode löscht, wie im folgenden Beispiel gezeigt.
+Wenn Sie die Ausführung der `migrations add` Befehl EF generiert den Code, der die Datenbank von Grund auf neu erstellt wird. Dieser Code befindet sich in der *Migrationen* Ordner, in der Datei mit dem Namen  *\<Zeitstempel > _InitialCreate.cs*. Die `Up` Methode der `InitialCreate` Klasse erstellt, die Datenbanktabellen, die die Daten Modell Entitätenmengen, entsprechen und die `Down` Methode löscht, wie im folgenden Beispiel gezeigt.
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
@@ -109,7 +109,7 @@ Migrationen erstellt außerdem eine *Momentaufnahme* des aktuellen Datenbanksche
 
 Da das Schema der aktuellen Datenbank im Code dargestellt wird, verwendet nicht EF Kern, für die Interaktion mit der Datenbank, um Migrationen zu erstellen. Wenn Sie eine Migration hinzufügen, bestimmt EF an, was durch Vergleichen Datenmodell der Datenbankmomentaufnahme-Datei geändert. EF interagiert mit der Datenbank nur, wenn sie zum Aktualisieren der Datenbank hat. 
 
-Die Datenbankmomentaufnahme-Datei muss mit der Migrationen synchron gehalten werden, die sie erstellt haben, damit Sie eine Migration nicht entfernen können, indem Sie einfach das Löschen der Datei mit dem Namen * \<Zeitstempel > _\<Migrationname > .cs*. Wenn Sie diese Datei löschen, werden die übrigen Migrationen werden nicht mit der Datenbankmomentaufnahme-Datei synchron. Um der letzten Migration löschen, die Sie hinzugefügt haben, verwenden die [Dotnet Ef Migrationen entfernen](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) Befehl.
+Die Datenbankmomentaufnahme-Datei muss mit der Migrationen synchron gehalten werden, die sie erstellt haben, damit Sie eine Migration nicht entfernen können, indem Sie einfach das Löschen der Datei mit dem Namen  *\<Zeitstempel > _\<Migrationname > .cs*. Wenn Sie diese Datei löschen, werden die übrigen Migrationen werden nicht mit der Datenbankmomentaufnahme-Datei synchron. Um der letzten Migration löschen, die Sie hinzugefügt haben, verwenden die [Dotnet Ef Migrationen entfernen](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) Befehl.
 
 ## <a name="apply-the-migration-to-the-database"></a>Die Migration auf die Datenbank anwenden.
 
@@ -119,7 +119,7 @@ Geben Sie in das Befehlsfenster den folgenden Befehl an der Datenbank und die Ta
 dotnet ef database update
 ```
 
-Die Ausgabe des Befehls ähnelt der `migrations add` Befehl, mit dem Unterschied, dass Protokolle anzuzeigen, für die SQL-, die die Datenbank eingerichtet Befehle. Die meisten Protokolle werden in der folgenden Beispielausgabe weggelassen. Wenn Sie nicht diese Detailebene in Protokollnachrichten anzeigen möchten, können, ändern Sie die Protokollebenen in der *"appSettings". Development.JSON* Datei. Weitere Informationen finden Sie unter [Einführung in die Protokollierung](xref:fundamentals/logging).
+Die Ausgabe des Befehls ähnelt der `migrations add` Befehl, mit dem Unterschied, dass Protokolle anzuzeigen, für die SQL-, die die Datenbank eingerichtet Befehle. Die meisten Protokolle werden in der folgenden Beispielausgabe weggelassen. Wenn Sie nicht diese Detailebene in Protokollnachrichten anzeigen möchten, können, ändern Sie die Protokollebene in den *"appSettings". Development.JSON* Datei. Weitere Informationen finden Sie unter [Einführung in die Protokollierung](xref:fundamentals/logging/index).
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]

@@ -11,11 +11,11 @@ ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: c1d974e72eab388ba7b196c4b48f21a06b59dc20
-ms.sourcegitcommit: f5cf472d49c2475e4d57654efd5fc0a4ccecba4c
+ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
@@ -68,7 +68,7 @@ Registrierte Benutzer Ihrer Website. Die [IdentityUser](https://docs.microsoft.c
 
 ### <a name="user-claims"></a>Benutzeransprüche
 
-Eine Reihe von Anweisungen (oder [Ansprüche](https://docs.microsoft.com//dotnet/api/system.security.claims.claim) über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann.
+Eine Reihe von Anweisungen (oder [Ansprüche](https://docs.microsoft.com//dotnet/api/system.security.claims.claim)) über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann.
 
 ### <a name="user-logins"></a>Benutzernamen
 
