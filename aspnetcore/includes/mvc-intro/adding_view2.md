@@ -27,7 +27,11 @@ Hinweis: Die Version 2.0 von ASP.NET Core ist etwas anders. Es enthält weder `@
 >[!WARNING]
 > Wir haben den Controller `Movies` noch nicht implementiert, sodass beim Klicken auf diesen Link der Fehler 404 (Nicht gefunden) zurückgegeben wird.
 
-Speichern Sie Ihre Änderungen, und tippen Sie auf den Link **About**. Wie Sie sehen, wird der Titel der Browserregisterkarte nun als **About - Movie App** anstatt als **About - Mvc Movie** angezeigt. Tippen Sie auf den Link **Contact**. Auch hier wird **Movie App** angezeigt. Wir haben also eine Änderung des Texts und Titels in der Layoutvorlage einmalig vorgenommen, die von der gesamten Website übernommen wird.
+Speichern Sie Ihre Änderungen, und tippen Sie auf den Link **About**. Wie Sie sehen, wird der Titel der Browserregisterkarte nun als **About - Movie App** anstatt als **About - Mvc Movie** angezeigt: 
+
+![Über die Registerkarte](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+
+Tippen Sie auf den Link **Contact**. Auch hier wird **Movie App** angezeigt. Wir haben also eine Änderung des Texts und Titels in der Layoutvorlage einmalig vorgenommen, die von der gesamten Website übernommen wird.
 
 Untersuchen Sie die Datei *Views/_ViewStart.cshtml*:
 
