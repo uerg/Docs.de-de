@@ -22,7 +22,7 @@ ms.lasthandoff: 10/01/2017
 
 Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
 
-Dieser Artikel behandelt allgemeine Vorgehensweisen zur Behandlung von Fehlern in ASP.NET Core-Anwendungen.
+Dieser Artikel beschreibt grundsätzliche Vorgehensweisen zur Behandlung von Fehlern in ASP.NET Core-Anwendungen.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
