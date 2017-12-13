@@ -1,0 +1,3 @@
+<span data-ttu-id="213ff-101">Kopieren Sie "Wwwroot" aus... /CU/ oder an einem neuen Razor-Seiten-Projekt.</span><span class="sxs-lookup"><span data-stu-id="213ff-101">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
+
+<span data-ttu-id="213ff-102">Ausführen von `dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="213ff-102">Run `dotnet ef database update`</span></span>
