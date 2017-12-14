@@ -1,8 +1,8 @@
 ---
 title: Erweiterbarkeits-APIs
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zur Erweiterbarkeit des Schutzes von Daten in ASP.NET Core."
+keywords: ASP.NET Core,Erweiterbarkeit des Schutzes von Daten
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,16 +11,16 @@ ms.assetid: 7b7d8a84-f126-4ea9-9921-ee8adc5a87b2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/index
-ms.openlocfilehash: 3a43b398fc4e87901d13089f41b88b9e5da26a48
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 845ae8ae6ffc00baac973aefa409edfb8558dc58
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="extensibility-apis"></a><span data-ttu-id="2c568-103">Erweiterbarkeits-APIs</span><span class="sxs-lookup"><span data-stu-id="2c568-103">Extensibility APIs</span></span>
+# <a name="extensibility-apis"></a><span data-ttu-id="5b506-104">Erweiterbarkeits-APIs</span><span class="sxs-lookup"><span data-stu-id="5b506-104">Extensibility APIs</span></span>
 
-* [<span data-ttu-id="2c568-104">Kryptografieerweiterbarkeit in Core</span><span class="sxs-lookup"><span data-stu-id="2c568-104">Core cryptography extensibility</span></span>](core-crypto.md)
+* [<span data-ttu-id="5b506-105">Kryptografieerweiterbarkeit in Core</span><span class="sxs-lookup"><span data-stu-id="5b506-105">Core cryptography extensibility</span></span>](core-crypto.md)
 
-* [<span data-ttu-id="2c568-105">Schlüsselverwaltungserweiterbarkeit</span><span class="sxs-lookup"><span data-stu-id="2c568-105">Key management extensibility</span></span>](key-management.md)
+* [<span data-ttu-id="5b506-106">Schlüsselverwaltungserweiterbarkeit</span><span class="sxs-lookup"><span data-stu-id="5b506-106">Key management extensibility</span></span>](key-management.md)
 
-* [<span data-ttu-id="2c568-106">Verschiedene APIs</span><span class="sxs-lookup"><span data-stu-id="2c568-106">Miscellaneous APIs</span></span>](misc-apis.md)
+* [<span data-ttu-id="5b506-107">Verschiedene APIs</span><span class="sxs-lookup"><span data-stu-id="5b506-107">Miscellaneous APIs</span></span>](misc-apis.md)
