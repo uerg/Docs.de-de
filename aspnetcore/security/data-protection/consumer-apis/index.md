@@ -1,8 +1,8 @@
 ---
 title: Consumer-APIs
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zu ASP.NET Core-Consumer-APIs für den Schutz von Daten."
+keywords: ASP.NET Core,Consumer-API,Schutz von Daten
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: dff0cde2-6612-4b32-bafc-c00bf6d370f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: f689acf9af51276631749ac2a5ca2ec21f1cfcb5
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 15e4dabb4cc6b6381e4951628f1d3d6aa56a581c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="consumer-apis"></a>Consumer-APIs
 

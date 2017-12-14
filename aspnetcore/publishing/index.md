@@ -11,11 +11,11 @@ ms.assetid: f0930c68-4d17-4748-adbf-801e17601eb6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/index
-ms.openlocfilehash: df3c1f0c2768b89c3ea5dc901782170c530a542e
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 0de459128426c4d027606951592b1fe3fdd24fd9
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="hosting-and-deployment-overview-for-aspnet-core-apps"></a>Übersicht über Hosting und Bereitstellung für ASP.NET Core-Apps
 
@@ -58,6 +58,10 @@ Wenn Ihre App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwend
 Die Bereitstellung erfordert neben dem Kopieren der Ausgabe von `dotnet publish` auf einen Server oft zusätzliche Aufgaben. Beispielsweise sollten Sie zusätzliche Dateien in den Ordner *publish* kopieren oder Dateien daraus ausschließen. Visual Studio verwendet MSBuild für die Webbereitstellung, und Sie können MSBuild anpassen, um viele weitere Aufgaben während der Bereitstellung durchzuführen. Weitere Informationen finden Sie unter [Publish profiles in Visual Studio (Veröffentlichen von Profilen in Visual Studio)](xref:publishing/web-publishing-vs) und im Buch [Using MSBuild and Team Foundation Build (Verwenden von MSBuild und Team Foundation Build)](http://msbuildbook.com/).
 
 Sie können direkte Bereitstellungen von Visual Studio in Azure App Service vornehmen, indem Sie [das Webfeature „Veröffentlichen“](xref:tutorials/publish-to-azure-webapp-using-vs) oder die [integrierte Git-Unterstützung](xref:publishing/azure-continuous-deployment) verwenden. Visual Studio Team Services unterstützt die [continuous deployment to Azure App Service (fortlaufende Bereitstellung in Azure App Service)](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure).
+
+## <a name="publishing-to-azure"></a>Veröffentlichen in Azure
+
+Anweisungen zum Veröffentlichen dieser App in Azure mit Visual Studio finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).  Die App kann auch über die [Befehlszeile](xref:tutorials/publish-to-azure-webapp-using-cli) in Azure veröffentlicht werden.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

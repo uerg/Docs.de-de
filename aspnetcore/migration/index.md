@@ -1,33 +1,33 @@
 ---
 title: Migration zu ASP.NET Core
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Beschreibt die Migration von ASP.NET zu ASP.NET Core, einschließlich ASP.NET 4.x und ASP.NET Core 2."
+keywords: ASP.NET Core, migrieren, Migration, ASP.NET 4.6, ASP.NET 4.7, ASP.NET 4.x
 ms.author: riande
 manager: wpickett
 ms.date: 07/27/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0a2c3e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/index
-ms.openlocfilehash: 687d35e63a4cab24406a56eb4b3c48b0272c337d
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 4c653d83569bcd218710ad276e154c6b8f89963c
+ms.sourcegitcommit: 747a7fddf7a4c7ef5f3e2a0912c411ee647ee203
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="migration"></a>Migration
+# <a name="migration-to-aspnet-core-including-aspnet-4x-aspnet-core-2"></a>Migration zu ASP.NET Core, einschließlich ASP.NET 4.x, ASP.NET Core 2
 
-## <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET zu ASP.NET Core 1.x
-*   [Migrating from ASP.NET MVC to ASP.NET Core MVC (Migration von ASP.NET MVC zu ASP.NET Core MVC)](xref:migration/mvc)
-*   [Migrating Configuration (Migration der Konfigurationseinstellungen)](xref:migration/configuration)
-*   [Migrating Authentication and Identity (Migration von Authentifizierungs- und Identitätseinstellungen)](xref:migration/identity)
-*   [Migrating from ASP.NET Web API (Migration von ASP.NET-Web API)](xref:migration/webapi)
-*   [Migrating HTTP Modules to Middleware (Migration von HTTP-Modulen zu Middleware)](xref:migration/http-modules)
+### <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET zu ASP.NET Core 1.x
+*   [Migration von ASP.NET MVC zu ASP.NET Core MVC](xref:migration/mvc)
+*   [Migration der Konfigurationseinstellungen](xref:migration/configuration)
+*   [Migration von Authentifizierungs- und Identitätseinstellungen](xref:migration/identity)
+*   [Migration von ASP.NET-Web API](xref:migration/webapi)
+*   [Migration von HTTP-Modulen zu Middleware](xref:migration/http-modules)
 
-## <a name="aspnet-to-aspnet-core-20xrefmigrationproper-to-2xindex"></a>[ASP.NET to ASP.NET Core 2.0 (ASP.NET zu ASP.NET Core 2.0)](xref:migration/proper-to-2x/index)
+### <a name="aspnet-to-aspnet-core-20"></a>ASP.NET zu ASP.NET Core 2.0
+* [ASP.NET zu ASP.NET Core 2.0](xref:migration/proper-to-2x/index)
 
-## <a name="aspnet-core-1x-to-20"></a>ASP.NET Core 1.x zu 2.0
-*   [Migrating from ASP.NET Core 1.x to 2.0 (Migration von ASP.NET Core 1.x zu 2.0)](xref:migration/1x-to-2x/index)
-*   [Migrating Authentication and Identity (Migration von Authentifizierungs- und Identitätseinstellungen)](xref:migration/1x-to-2x/identity-2x)
+### <a name="aspnet-core-1x-to-20"></a>ASP.NET Core 1.x zu 2.0
+*   [Migration von ASP.NET Core 1.x zu 2.0](xref:migration/1x-to-2x/index)
+*   [Migration von Authentifizierungs- und Identitätseinstellungen](xref:migration/1x-to-2x/identity-2x)
