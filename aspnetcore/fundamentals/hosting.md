@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosten in ASP.NET Core
 
@@ -48,7 +48,7 @@ Die *Content Stamm* bestimmt, an denen der Host für Inhaltsdateien, z. B. MVC-A
 Finden Sie unter [Konfiguration in ASP.NET Core](xref:fundamentals/configuration/index) für Weitere Informationen zu app-Konfiguration.
 
 > [!NOTE]
-> Als Alternative zur Verwendung der statischen `CreateDefaultBuilder` -Methode, erstellen einen Host aus [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ist ein unterstützten Ansatz mit ASP.NET Core 2.x. Finden Sie unter der Registerkarte "1.x ASP.NET Core" für Weitere Informationen.
+> Als Alternative zur Verwendung der statischen `CreateDefaultBuilder` -Methode, erstellen einen Host aus [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ist ein unterstützten Ansatz mit ASP.NET Core 2.x. Weitere Informationen finden Sie auf der Registerkarte zu ASP.NET Core 1.x.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -254,7 +254,7 @@ Diese Funktion steht in ASP.NET Core 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Zu verhindern, dass Hosting starten
 
-Verhindert, dass das automatische Laden von hosting Startassemblys, einschließlich der app-Assembly.
+Verhindert, dass das automatische Laden von hosting Startassemblys, einschließlich hosting Autostart-Assemblys, die von der app-Assembly konfiguriert. Finden Sie unter [Hinzufügen von app-Funktionen aus einer externen Assembly IHostingStartup](xref:hosting/ihostingstartup) für Weitere Informationen.
 
 **Schlüssel**: PreventHostingStartup  
 **Typ**: *Bool* (`true` oder `1`)  

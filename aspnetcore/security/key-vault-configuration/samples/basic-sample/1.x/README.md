@@ -16,7 +16,7 @@ Weitere Informationen zur Funktionsweise des Beispiels finden Sie unter der [Azu
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Registrieren der Beispiel-app bei Azure Active Directory.
-  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToKeys list,get`.
+  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
 2. Aktualisieren Sie der app *appsettings.json* Datei mit den Werten der `Vault`, `ClientId`, und `ClientSecret`.
 3. Führen Sie die Beispielapp, das erhält seine Konfigurationswerte aus `IConfigurationRoot` mit dem gleichen Namen wie den Namen des geheimen Schlüssels.
   * Nicht-hierarchischen Werten: der Wert für `SecretName` abgerufen wird, mit `config["SecretName"]`.

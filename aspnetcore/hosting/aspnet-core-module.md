@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -66,7 +66,7 @@ Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereits
 | startupTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul für die ausführbare Datei Starten eines Prozesses, der Port überwacht gewartet wird. Wenn dieses Zeitlimit überschritten wird, wird das Modul den Prozess zu beenden. Das Modul versucht, den Prozess erneut zu starten, wenn er eine neue Anforderung empfangen und versucht weiterhin wird, den Prozess auf nachfolgende eingehende Anforderungen neu zu starten, wenn die Anwendung kann nicht gestartet **RapidFailsPerMinute** Anzahl innerhalb der letzten parallelen Minute wiederholt.</p><p>Der Standardwert ist 120.</p> |
 | shutdownTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Die Dauer in Sekunden, die auf die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet bei der *app_offline.htm* Datei erkannt wird.</p><p>Der Standardwert ist 10.</p> |
 | rapidFailsPerMinute | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, hält das Modul die Starten des Prozesses für den Rest der Minute an.</p><p>Der Standardwert ist 10.</p> |
-| requestTimeout | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul für eine Antwort des Prozesses "% ASPNETCORE_PORT" lauscht gewartet wird.</p><p>Der Standardwert ist "00:02:00".</p> |
+| requestTimeout | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul für eine Antwort des Prozesses "% ASPNETCORE_PORT" lauscht gewartet wird.</p><p>Der Standardwert ist "00:02:00".</p><p>Die `requestTimeout` muss angegeben werden in ganzen Minuten nur, andernfalls wird standardmäßig auf 2 Minuten.</p> |
 | stdoutLogEnabled | <p>Optionales boolesches Attribut.</p><p>Bei "true", **"stdout"** und **"stderr"** für den Prozess, der im angegebenen **ProcessPath** werden an die angegebene Datei umgeleitet **"stdoutlogfile"**.</p><p>Der Standardwert ist false.</p> |
 | "stdoutlogfile" | <p>Optionales Zeichenfolgeattribut.</p><p>Gibt an, der relative oder absolute Pfad für die **"stdout"** und **"stderr"** aus dem Prozess, der im angegebenen **ProcessPath** protokolliert werden. Relative Pfade sind relativ zum Stamm des Standorts. Jeder Pfad beginnend mit '.' relativ zum Stammverzeichnis Website, und alle anderen Pfade als absolute Pfade behandelt werden. Alle Ordner im Pfad angegeben, müssen in der Reihenfolge für das Modul zum Erstellen der Protokolldatei vorhanden sein. Die Prozess-ID, Zeitstempel (*YyyyMdhms*), und die Dateierweiterung (*.log*) mit einem Unterstrich Trennzeichen werden hinzugefügt, bis zum letzten Segment der **"stdoutlogfile"** bereitgestellt.</p><p>Der Standardwert ist `aspnetcore-stdout`.</p> |
 | forwardWindowsAuthToken | True oder False.</p><p>Bei "true", wird das Token an den untergeordneten Prozess gelauscht. "% ASPNETCORE_PORT" als Header "MS-ASPNETCORE-WINAUTHTOKEN" pro Anforderung weitergeleitet werden. Es liegt die Verantwortung des entsprechenden Prozesses CloseHandle dieses Token pro Anforderung aufgerufen werden.</p><p>Der Standardwert ist true.</p> |

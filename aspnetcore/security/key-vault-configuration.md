@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
 
@@ -63,7 +63,7 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Registrieren der Beispiel-app bei Azure Active Directory.
-  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToKeys list,get`.
+  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
 2. Aktualisieren Sie der app *appsettings.json* Datei mit den Werten der `Vault`, `ClientId`, und `ClientSecret`.
 3. Führen Sie die Beispielapp, das erhält seine Konfigurationswerte aus `IConfigurationRoot` mit dem gleichen Namen wie den Namen des geheimen Schlüssels.
   * Nicht-hierarchischen Werten: der Wert für `SecretName` abgerufen wird, mit `config["SecretName"]`.
@@ -105,7 +105,7 @@ Wenn Sie diesen Ansatz zu implementieren:
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Registrieren der Beispiel-app bei Azure Active Directory.
-  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToKeys list,get`.
+  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
 2. Aktualisieren Sie der app *appsettings.json* Datei mit den Werten der `Vault`, `ClientId`, und `ClientSecret`.
 3. Führen Sie die Beispielapp, das erhält seine Konfigurationswerte aus `IConfigurationRoot` mit dem gleichen Namen wie den Namen des mit Präfix geheimen Schlüssels. In diesem Beispiel wird das Präfix der app-Version, die Sie zur Verfügung gestellt wird die `PrefixKeyVaultSecretManager` beim Hinzufügen von Azure Key Vault-Konfigurationsanbieter. Der Wert für `AppSecret` abgerufen wird, mit `config["AppSecret"]`. Die Webseite, die von der app generiert wurde, zeigt den geladenen Wert:
 

@@ -11,17 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
 Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Eine Razor-Seiten Version dieses Lernprogramms steht [hier](xref:data/ef-rp/intro). Die Razor-Seiten-Version ist einfacher, führen und umfasst weitere EF-Funktionen. Es wird empfohlen, Sie führen Sie die [Razor-Seiten Version dieses Lernprogramms](xref:data/ef-rp/intro).
+Eine Razor-Seiten Version dieses Lernprogramms steht [hier](xref:data/ef-rp/intro). Die Version für Razor-Seiten ist leichter zu verstehen und deckt mehr EF-Features ab. Es wird empfohlen, Sie führen Sie die [Razor-Seiten Version dieses Lernprogramms](xref:data/ef-rp/intro).
 
 Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core 2.0 MVC-Webanwendungen, die mit Entity Framework (EF) Core 2.0 und Visual Studio 2017.
 
@@ -244,15 +244,10 @@ Die automatische Erstellung von CRUD-Aktionsmethoden und Ansichten wird als Ger�
 
 * Mit der rechten Maustaste die **Controller** Ordner **Projektmappen-Explorer** , und wählen Sie **hinzufügen > Neues Gerüstelement**.
 
-* Wählen Sie im Dialogfeld **MVC-Abhängigkeiten hinzufügen** die Option **Mindestens erforderliche Abhängigkeiten** und dann **Hinzufügen** aus.
+Wenn die **MVC-Abhängigkeiten hinzufügen** Dialogfeld wird angezeigt:
 
-  ![Hinzufügen von Abhängigkeiten](intro/_static/add-depend.png)
-
-  Visual Studio fügt die Abhängigkeiten erforderlich, um einen Domänencontroller zu erstellen. Die einzige Änderung in der Projektdatei ist das Hinzufügen der `Microsoft.VisualStudio.Web.CodeGeneration.Design` Paket.
-
-  Ein *ScaffoldingReadMe.txt* Datei wird erstellt, den Sie löschen können.
-
-* Noch einmal: mit der rechten Maustaste die **Controller** Ordner **Projektmappen-Explorer** , und wählen Sie **hinzufügen > Neues Gerüstelement**.
+* [Aktualisieren von Visual Studio auf die neueste Version](https://www.visualstudio.com/downloads/). Visual Studio-Versionen vor 15.5 Anzeigen dieses Dialogfeld.
+* Wenn Sie nicht aktualisieren können, wählen Sie **hinzufügen**, und befolgen Sie dann die Schritte zum Hinzufügen von Domänencontrollern.
 
 * In der **Gerüst hinzufügen** (Dialogfeld):
 

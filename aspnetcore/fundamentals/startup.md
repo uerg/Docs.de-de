@@ -1,80 +1,124 @@
 ---
 title: Start der Anwendung in ASP.NET Core
 author: ardalis
-description: Ermitteln Sie, wie die Startklasse in ASP.NET Core Services und die Anwendung Anforderungspipeline konfiguriert.
-keywords: ASP.NET Core, Start konfigurieren-Methode, ConfigureServices-Methode
+description: Ermitteln Sie, wie die Startklasse in ASP.NET Core Services und die app-Anforderungspipeline konfiguriert.
 ms.author: tdykstra
 manager: wpickett
-ms.date: 02/29/2017
+ms.custom: mvc
+ms.date: 12/08/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 83b2647df8beec1feae33400224dacf9823be9b4
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 8adb96c7261a2e7b1556f0daddcf6f135862b53a
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Start der Anwendung in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
+Durch [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra), und [Luke Latham](https://github.com/guardrex)
 
-Die `Startup` Klasse konfiguriert werden, Dienste und die Anwendung Anforderungspipeline.
+Die `Startup` Klasse konfiguriert werden, Dienste und die app-Anforderungspipeline.
 
 ## <a name="the-startup-class"></a>Die Startklasse.
 
-ASP.NET Core apps erfordern eine `Startup` -Klasse, mit dem Namen `Startup` gemäß der Konvention. Geben Sie den Namen des Start-Klasse in der `Main` des Programms [WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) Methode. Finden Sie unter [Hosting](xref:fundamentals/hosting) erfahren Sie mehr über `WebHostBuilder`, dem ausgeführt wird, bevor Sie `Startup`.
+ASP.NET Core-apps verwenden ein `Startup` -Klasse, mit dem Namen `Startup` gemäß der Konvention. Die `Startup` Klasse:
 
-Sie können separate definieren `Startup` Klassen für unterschiedliche Umgebungen und den entsprechenden eine zur Laufzeit ausgewählt werden. Bei Angabe von `startupAssembly` in der [WebHost Konfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) oder hosting-Optionen, Startassembly geladen werden, und suchen Sie nach einer `Startup` oder `Startup[Environment]` Typ. Die Klasse, deren Name Suffix übereinstimmt, die aktuelle Umgebung priorisiert werden wird, wenn also die Anwendung, in ausgeführt wird der *Entwicklung* Umgebung, und enthält sowohl eine `Startup` und ein `StartupDevelopment` -Klasse, die `StartupDevelopment` Klasse verwendet. Finden Sie unter [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) in `StartupLoader` und [arbeiten mit mehreren Umgebungen](environments.md#startup-conventions).
+* Kann optional enthalten eine [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) Methode, um die app-Dienste konfigurieren.
+* Umfasst eine [konfigurieren](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) Methode, um die app-Anforderungsverarbeitungspipeline zu erstellen.
 
-Alternativ können Sie eine feste definieren `Startup` Klasse, die unabhängig von der Umgebung durch den Aufruf verwendet werden, `UseStartup<TStartup>`. Dies ist die empfohlene Vorgehensweise.
+`ConfigureServices`und `Configure` werden von der Laufzeit aufgerufen, wenn die app gestartet wird:
 
-Die `Startup` Klassenkonstruktor kann Abhängigkeiten, die bereitgestellt sind akzeptieren [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection). Eine gängige Methode ist die Verwendung `IHostingEnvironment` einrichten [Konfiguration](xref:fundamentals/configuration/index) Quellen.
+[!code-csharp[Main](startup/snapshot_sample/Startup1.cs)]
 
-Die `Startup` Klasse umfasst einen `Configure` Methode und Sie können optional eine `ConfigureServices` Methode, die beide aufgerufen werden, wenn die Anwendung gestartet wird. Die Klasse zählen auch [umgebungsspezifische Versionen dieser Methoden](xref:fundamentals/environments#startup-conventions). `ConfigureServices`, falls vorhanden, wird aufgerufen, bevor `Configure`.
+Geben Sie die `Startup` -Klasse mit der [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions) [UseStartup&lt;TStartup&gt; ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) Methode:
 
-Erfahren Sie mehr über [Behandeln von Ausnahmen während des Anwendungsstarts](xref:fundamentals/error-handling#startup-exception-handling).
+[!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
+
+Die `Startup` Klassenkonstruktor akzeptiert Abhängigkeiten, die vom Host definiert. Eine übliche Verwendung dieser [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) in der `Startup` Klasse wird zum Einfügen von [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) Services-Umgebung zu konfigurieren:
+
+[!code-csharp[Main](startup/snapshot_sample/Startup2.cs)]
+
+Eine Alternative zum Räumen `IHostingStartup` ist die Verwendung einen Konventionen basierenden Ansatz. Die app kann separate definieren `Startup` Klassen für unterschiedliche Umgebungen (z. B. `StartupDevelopment`), und die entsprechenden Startklasse zur Laufzeit aktiviert ist. Die Klasse, deren Namensuffix die aktuelle Umgebung entspricht, wird als Priorität angesehen. Wenn die app, die in der Entwicklungsumgebung ausgeführt wird, und sowohl enthält eine `Startup` Klasse und ein `StartupDevelopment` -Klasse, die `StartupDevelopment` Klasse dient. Weitere Informationen finden Sie unter [arbeiten mit mehreren Umgebungen](xref:fundamentals/environments#startup-conventions).
+
+Weitere Informationen zu `WebHostBuilder`, finden Sie unter der [Hosting](xref:fundamentals/hosting) Thema. Informationen zum Behandeln von Fehlern während des Starts finden Sie unter [Start Ausnahmebehandlung](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Die ConfigureServices-Methode
 
-Die [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode ist optional, aber wenn verwendet, wird er aufgerufen, bevor die `Configure` Methode durch den Webhost. Die Webhost möglicherweise einige Dienste vor dem Konfigurieren ``Startup`` Methoden aufgerufen werden (finden Sie unter [hosting](xref:fundamentals/hosting)). Gemäß der Konvention [Konfigurationsoptionen](xref:fundamentals/configuration/index) werden in dieser Methode festgelegt.
+Die [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) Methode ist:
 
-Für Features, die erfordern beträchtliche Setup stehen `Add[Service]` Erweiterungsmethoden in [IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Dieses Beispiels über die Standardvorlage für die Website konfiguriert die app, um Dienste für Entity Framework, Identitäts- und MVC verwenden:
+* Dies ist optional.
+* Wird vom Webhost vor der `Configure` Methode, um die app-Dienste konfigurieren.
+* Wobei [Konfigurationsoptionen](xref:fundamentals/configuration/index) werden gemäß der Konvention festgelegt.
+
+Hinzufügen von Diensten auf dem Dienstcontainer Benutzerprozessen sowohl innerhalb der app als auch in der `Configure` Methode. Die Dienste sind durch aufgelöst [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) oder [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
+
+Die Webhost möglicherweise einige Dienste vor dem Konfigurieren `Startup` Methoden aufgerufen werden. Details finden Sie in der [Hosting](xref:fundamentals/hosting) Thema. 
+
+Für Features, erhebliche Setup erforderlich sind, stehen `Add[Service]` Erweiterungsmethoden in [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Eine typische Web-app registriert Dienste für Entity Framework, Identitäts- und MVC:
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-Hinzufügen von Diensten auf den Container, werden sie in Ihrer Anwendung über verfügbar gemacht [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection).
-
 ## <a name="services-available-in-startup"></a>In den Starttasks verfügbaren Dienste
 
-ASP.NET Core Abhängigkeitsinjektion stellt Dienste bereit, während des Starts der Anwendung. Sie können diese Dienste anfordern, indem Sie z. B. die entsprechende Schnittstelle als Parameter auf Ihre `Startup` Klassenkonstruktor oder den zugehörigen `Configure` Methode. Die `ConfigureServices` nur Methode nimmt ein `IServiceCollection` Parameter (aber registrierten Dienst kann aus der Auflistung abgerufen werden, sodass zusätzliche Parameter nicht erforderlich sind).
-
-Im folgenden sind einige der in der Regel vom angeforderten Dienste `Startup` Methoden:
-
-* Im Konstruktor: `IHostingEnvironment`,`ILogger<Startup>`
-* In `ConfigureServices`:`IServiceCollection`
-* In `Configure`: `IApplicationBuilder`, `IHostingEnvironment`,`ILoggerFactory`
-
-Keine Dienste hinzugefügt, indem die ``WebHostBuilder`` ``ConfigureServices`` Methode angefordert werden kann, indem Sie die ``Startup`` -Klassenkonstruktor oder den zugehörigen ``Configure`` Methode. Verwendung `WebHostBuilder` alle Dienste Sie bereitstellen müssen, während der `Startup` Methoden.
+Die Webhost bietet einige Dienste, die zur Verfügung stehen die `Startup` Klassenkonstruktor. Die app fügt zusätzliche Dienste über `ConfigureServices`. Der Host und die app-Dienste stehen dann im `Configure` und in der gesamten Anwendung.
 
 ## <a name="the-configure-method"></a>Die Configure-Methode
 
-Die `Configure` Methode wird verwendet, um anzugeben, wie die ASP.NET-Anwendung auf HTTP-Anforderungen reagiert. Durch Hinzufügen die Anforderungspipeline konfiguriert ist [Middleware](middleware.md) Komponenten einer `IApplicationBuilder` -Instanz, die vom Abhängigkeitsinjektion bereitgestellt wird.
+Die [konfigurieren](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) Methode wird verwendet, um anzugeben, wie die app auf HTTP-Anforderungen antwortet. Durch Hinzufügen die Anforderungspipeline konfiguriert ist [Middleware](xref:fundamentals/middleware) Komponenten einer [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) Instanz. `IApplicationBuilder`steht für die `Configure` -Methode, aber es ist nicht im Dienstcontainer registriert. Hosting erstellt ein `IApplicationBuilder` und übergibt sie direkt zu `Configure` ([Verweisquelle](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
 
-Im folgenden Beispiel aus der Website-Standardvorlage dienen zum Konfigurieren der Pipeline mit Unterstützung für mehrere Erweiterungsmethoden [c#] [BrowserLink](http://vswebessentials.com/features/browserlink), Fehlerseiten, statische Dateien, ASP.NET MVC und Identität.
+Die [ASP.NET Core Vorlagen](/dotnet/core/tools/dotnet-new) konfigurieren Sie die Pipeline mit Unterstützung für eine Developer-Ausnahme-Seite [BrowserLink](http://vswebessentials.com/features/browserlink), Fehlerseiten, statische Dateien und ASP.NET MVC:
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
-Jede `Use` Erweiterungsmethode Fügt eine [Middleware](xref:fundamentals/middleware) -Komponente in der Anforderungspipeline. Für die Instanz, die `UseMvc` Erweiterungsmethode fügt die [routing](routing.md) Middleware auf der Anforderungspipeline und konfiguriert [MVC](xref:mvc/overview) als Standardhandler.
+Jede `Use` Erweiterungsmethode die Pipeline eine middlewarekomponente hinzugefügt. Für die Instanz, die `UseMvc` Erweiterungsmethode fügt die [routing Middleware](xref:fundamentals/routing) auf der Anforderungspipeline und konfiguriert [MVC](xref:mvc/overview) als Standardhandler.
+
+Zusätzliche Dienste, z. B. `IHostingEnvironment` und `ILoggerFactory`, kann auch in der Methodensignatur angegeben werden. Wenn angegeben, werden zusätzliche Dienste eingefügt, wenn sie verfügbar sind.
 
 Weitere Informationen zur Verwendung von `IApplicationBuilder`, finden Sie unter [Middleware](xref:fundamentals/middleware).
 
-Zusätzliche Dienste wie `IHostingEnvironment` und `ILoggerFactory` kann auch in der Methodensignatur angegeben werden in diesem Fall werden diese Dienste [eingefügten](dependency-injection.md) sofern diese verfügbar sind. 
+## <a name="convenience-methods"></a>Hilfsmethoden
+
+[ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder.configureservices) und [konfigurieren](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) Hilfsmethoden können verwendet werden, angeben, statt eine `Startup` Klasse. Mehrere Aufrufe `ConfigureServices` untereinander anfügen. Mehrere Aufrufe `Configure` den letzten Methodenaufruf verwenden.
+
+[!code-csharp[Main](startup/snapshot_sample/Program.cs?highlight=16,20)]
+
+## <a name="startup-filters"></a>Startfilter
+
+Verwendung [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) zum Konfigurieren von Middleware am Anfang oder Ende einer app [konfigurieren](#the-configure-method) Middleware-Pipeline. `IStartupFilter`ist nützlich, um sicherzustellen, dass eine Middleware vor oder nach der Middleware hinzugefügt, indem Bibliotheken am Anfang oder Ende der app-Anforderungsverarbeitungspipeline ausgeführt wird.
+
+`IStartupFilter`implementiert eine einzelne Methode [konfigurieren](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), dem empfängt und gibt ein `Action<IApplicationBuilder>`. Ein [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiert eine Klasse, um eine app-Anforderungspipeline konfigurieren. Weitere Informationen finden Sie unter [erstellen eine middlewarepipeline mit IApplicationBuilder](xref:fundamentals/middleware#creating-a-middleware-pipeline-with-iapplicationbuilder).
+
+Jede `IStartupFilter` eine oder mehrere Middlewares in der Anforderungspipeline implementiert. Die Filter werden in der Reihenfolge aufgerufen, wenn, die Sie dem Dienstcontainer hinzugefügt wurden. Filter können Middleware vor dem Hinzufügen oder nach der Steuerung an den nächsten Filter übergeben wird, daher sie anfügen an den Anfang oder Ende der app-Pipeline.
+
+Die [Beispielapp](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample)) wird veranschaulicht, wie eine Middleware mit registrieren `IStartupFilter`. Die Beispiel-app enthält eine Middleware, die einen Wert für die Optionen über einen Abfragezeichenfolgenparameter festlegt:
+
+[!code-csharp[Main](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
+
+Die `RequestSetOptionsMiddleware` konfiguriert ist, der `RequestSetOptionsStartupFilter` Klasse:
+
+[!code-csharp[Main](startup/sample/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
+
+Die `IStartupFilter` ist im Dienstcontainer in registriert `ConfigureServices`:
+
+[!code-csharp[Main](startup/sample/Startup.cs?name=snippet1&highlight=3)]
+
+Wenn ein Abfragezeichenfolgen-Parameter für `option` angegeben wird, die Middleware die Wert-Zuordnung verarbeitet, bevor die MVC-Middleware die Antwort gerendert wird:
+
+![Anzeigen der gerenderten Indexseite Browserfenster. Als "Von Middleware" basierend auf die Seite mit dem Abfragezeichenfolgen-Parameter und den Wert der Option auf "Von Middleware" anfordert, wird der Wert der Option gerendert.](startup/_static/index.png)
+
+Ausführungsreihenfolge Middleware festgelegt ist, von der Reihenfolge der `IStartupFilter` Registrierungen:
+
+* Mehrere `IStartupFilter` Implementierungen möglicherweise die gleichen Objekte interagieren. Wenn Sortierung wichtig ist, Sortieren ihre `IStartupFilter` service Registrierungen, die mit der Reihenfolge überein, die ihre Middlewares ausgeführt werden soll.
+* Bibliotheken können Middleware mit einem oder mehreren hinzufügen `IStartupFilter` Implementierungen, die vor oder nach anderer Middleware app registriert `IStartupFilter`. Zum Aufrufen einer `IStartupFilter` Middleware vor eine Middleware hinzugefügt, indem einer Bibliothek `IStartupFilter`, positionieren Sie die Service-Registrierung vor dem Dienstcontainer die Bibliothek hinzugefügt wird. Rufen Sie sie anschließend, positionieren die Service-Registrierung nach der Bibliothek hinzugefügt.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* [Hosting](xref:fundamentals/hosting)
 * [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
 * [Middleware](xref:fundamentals/middleware)
 * [Logging (Protokollierung)](xref:fundamentals/logging/index)
 * [Konfiguration](xref:fundamentals/configuration/index)
+* [StartupLoader-Klasse: FindStartupType-Methode (Referenz-Quelle)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116))
