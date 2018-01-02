@@ -5,16 +5,16 @@ description: "Erfahren Sie mehr über das Protokollierungsframework in ASP.NET C
 keywords: ASP.NET Core,Protokollierung,Protokollierungsanbieter,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,Bereiche
 ms.author: tdykstra
 manager: wpickett
-ms.date: 11/15/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7f5f08799513aa07223995410f2125407c58c94
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in die Protokollierung in ASP.NET Core
 
@@ -297,16 +297,16 @@ Das zweite `AddFilter` gibt den Debuganbieter durch Verwendung des zugehörigen 
 
 Die Konfigurationsdaten und der in den vorangegangenen Beispielen gezeigte `AddFilter`-Code erzeugen die in der folgenden Tabelle gezeigten Regeln. Die ersten sechs Regeln stammen aus dem Konfigurationsbeispiel, die letzten zwei Filter stammen aus dem Codebeispiel.
 
-| Zahl | Anbieter      | Kategorien beginnend mit...          | Mindestprotokolliergrad |
+| Anzahl | Anbieter      | Kategorien beginnend mit...          | Mindestprotokolliergrad |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debug         | Alle Kategorien                          | Information       |
-| 2      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Internal | Warning           |
-| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Konsole       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
+| 1      | Debuggen         | Alle Kategorien                          | Information       |
+| 2      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Internal | Warnung           |
+| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debuggen             |
+| 4      | Konsole       | Microsoft.AspNetCore.Mvc.Razor          | Fehler             |
 | 5      | Konsole       | Alle Kategorien                          | Information       |
-| 6      | Alle Anbieter | Alle Kategorien                          | Debug             |
-| 7      | Alle Anbieter | System                                  | Debug             |
-| 8      | Debug         | Microsoft                               | Trace             |
+| 6      | Alle Anbieter | Alle Kategorien                          | Debuggen             |
+| 7      | Alle Anbieter | System                                  | Debuggen             |
+| 8      | Debuggen         | Microsoft                               | Ablaufverfolgung             |
 
 Wenn Sie ein `ILogger`-Objekt zum Schreiben von Protokollen erstellen, wählt das `ILoggerFactory`-Objekt eine einzige Regel pro Anbieter aus, die auf diese Protokollierung angewendet wird. Alle über dieses `ILogger`-Objekt geschriebenen Meldungen werden auf Grundlage der ausgewählten Regeln gefiltert. Aus den verfügbaren Regeln wird die für jeden Anbieter und jedes Kategoriepaar spezifischste Regel ausgewählt.
 
@@ -345,7 +345,7 @@ Wenn Sie den Mindestprotokolliergrad nicht explizit festlegen, lautet der Standa
 
 **Filterfunktionen**
 
-Sie können Code in einer Filterfunktion schreiben, um Filterregeln anzuwenden. Eine Filterfunktion wird für alle Anbieter und Kategorien aufgerufen, denen keine Regeln durch Konfiguration oder Code zugewiesen sind. Über den Code in der Funktion kann auf Anbietertyp, Kategorie und Protokollebene zugegriffen werden. So kann entschieden werden, ob eine Meldung protokolliert werden soll oder nicht. Beispiel:
+Sie können Code in einer Filterfunktion schreiben, um Filterregeln anzuwenden. Eine Filterfunktion wird für alle Anbieter und Kategorien aufgerufen, denen keine Regeln durch Konfiguration oder Code zugewiesen sind. Über den Code in der Funktion kann auf Anbietertyp, Kategorie und Protokollebene zugegriffen werden. So kann entschieden werden, ob eine Meldung protokolliert werden soll oder nicht. Zum Beispiel:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -587,7 +587,13 @@ Das Anbieterpaket [Microsoft.Extensions.Logging.AzureAppServices](https://www.nu
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Es ist nicht erforderlich, das Anbieterpaket zu installieren oder die Erweiterungsmethode `AddAzureWebAppDiagnostics` aufzurufen. Der Anbieter steht automatisch für Ihre App zur Verfügung, wenn sie die App in Azure App Service bereitstellen.
+Wenn Sie Anwendungen für .NET Core entwickeln, müssen Sie weder das Anbieterpaket installieren noch `AddAzureWebAppDiagnostics` explizit aufrufen. Der Anbieter steht automatisch für Ihre App zur Verfügung, wenn sie die App in Azure App Service bereitstellen.
+
+Wenn Sie Anwendungen für .NET Framework entwickeln, fügen Sie das Anbieterpaket Ihrem Projekt hinzu, und rufen Sie `AddAzureWebAppDiagnostics` auf:
+
+```csharp
+logging.AddAzureWebAppDiagnostics();
+```
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
