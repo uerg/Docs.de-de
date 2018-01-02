@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/index
-ms.openlocfilehash: b3bcd15a078ed2125d14c3e94311e385a1db9683
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: bc19cbf0093e8a7f26af82d19f597cc805e04309
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-data-in-aspnet-core"></a>Arbeiten mit Daten in ASP.NET Core 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/02/2017
    * [Aktualisieren dazugehöriger Daten](xref:data/ef-rp/update-related-data)
    * [Behandeln von Parallelitätskonflikten](xref:data/ef-rp/concurrency)
 
-*   [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](ef-mvc/index.md)
+*   [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](ef-mvc/index.md)
     *   [Erste Schritte](ef-mvc/intro.md)
     *   [Create-, Read-, Update- und Delete-Vorgänge (CRUD)](xref:data/ef-mvc/crud)
     *   [Sortieren, Filtern, Paginieren und Gruppieren](xref:data/ef-mvc/sort-filter-page)

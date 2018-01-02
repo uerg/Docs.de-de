@@ -11,15 +11,15 @@ ms.assetid: 1abd456b-2199-4ba3-9698-3241e0bd4afc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/index
-ms.openlocfilehash: 2bd9a41acedcd87afc57490f0e89e917f7bc31f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d74254c8f2cc3ee55f6842f9f952d7ab93fe7a03
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>Autorisierung in ASP.NET Core: einfach, rollen-, anspruchsbasiert und benutzerdefiniert
 
-* [Einführung](introduction.md)
+* [Introduction (Einführung)](introduction.md)
 
 * [Einfache Autorisierung](simple.md)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 * [Anspruchsbasierte Autorisierung](claims.md)
 
-* [Benutzerdefinierte, richtlinienbasierende Autorisierung](policies.md)
+* [Benutzerdefinierte, richtlinienbasierte Autorisierung](policies.md)
 
 * [Abhängigkeitsinjektion in Anforderungshandlern](dependencyinjection.md)
 

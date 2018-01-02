@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9fc0d6c3e9691f8c3fa0d769ac53c3337d822fc5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern
 
@@ -46,6 +46,13 @@ Hinweis: Hier vorgestellte Pakete abstrahieren einen Großteil der Komplexität 
 ![Dialogfeld „Neue Webanwendung“](index/_static/select-project.png)
 
 Hinweis: Dieses Tutorial bezieht sich auf die ASP.NET Core 2.0 SDK-Version, die oben im Assistenten ausgewählt werden kann.
+
+## <a name="apply-migrations"></a>Anwenden von Migrationen
+
+* Führen Sie die App aus, und klicken Sie auf den Link **Anmelden**.
+* Klicken Sie auf den Link **Als neuer Benutzer registrieren**.
+* Geben Sie die E-Mail-Adresse und das Kennwort für das neue Konto ein, und wählen Sie dann **Registrieren** aus.
+* Befolgen Sie die Anweisungen zum Anwenden von Migrationen.
 
 ## <a name="require-ssl"></a>Anfordern von SSL
 
