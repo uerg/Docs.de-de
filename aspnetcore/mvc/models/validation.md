@@ -5,18 +5,17 @@ description: Informationen Sie zur modellvalidierung in ASP.NET Core MVC.
 keywords: ASP.NET Core, MVC-Validierung
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/18/2016
 ms.topic: article
 ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Einführung in die modellvalidierung in ASP.NET Core MVC
 
@@ -84,7 +83,7 @@ MVC weiterhin Überprüfen von Feldern bis erreicht die maximale Anzahl von Fehl
 
 ## <a name="handling-model-state-errors"></a>Modellstatus Behandeln von Fehlern
 
-Modellvalidierung vor jeder Controlleraktion aufgerufen wurde, und es wird die Aktionsmethode dafür verantwortlich, um zu überprüfen `ModelState.IsValid` und entsprechend reagieren. In vielen Fällen wird die entsprechende Reaktion irgendeine Fehlerantwort, idealerweise mit Details zu den Grund, warum modellvalidierung Fehler, zurückgegeben.
+Modellvalidierung vor jeder Controlleraktion aufgerufen wurde, und es wird die Aktionsmethode dafür verantwortlich, um zu überprüfen `ModelState.IsValid` und entsprechend reagieren. In vielen Fällen wird die entsprechende Reaktion eine Fehlerantwort idealerweise mit Details zu den Grund, warum modellvalidierung Fehler, zurückgegeben.
 
 Einige apps wählen Sie eine Standardkonvention für den Umgang mit modellvalidierungsfehler, führen in diesem Fall einen Filter auf einer geeigneten Stelle, um eine solche Richtlinie zu implementieren sein kann. Sie sollten das Verhalten Ihrer Aktionen mit gültigen und ungültigen modellzustände testen.
 
@@ -98,7 +97,7 @@ Sie müssen möglicherweise Überprüfung manuell ausführen. Rufen Sie hierzu d
 
 ## <a name="custom-validation"></a>Benutzerdefinierte Validierung)
 
-Validierungsattribute arbeiten für die häufigsten Überprüfung Anforderungen. Einige Validierungsregeln sind jedoch spezifisch für Ihr Unternehmen, da sie nicht nur sind allgemeine Daten-Überprüfungen, z. B. ein Feld sicherstellen erforderlich ist, oder, dass es sich um einen Bereich von Werten entspricht. Für diese Szenarien sind benutzerdefinierte Validierungsattribute eine großartige Lösung. Erstellen eine eigene benutzerdefinierte Validierungsattribute in MVC ist einfach. Nur Vererben der `ValidationAttribute`, und überschreiben die `IsValid` Methode. Die `IsValid` Methode akzeptiert zwei Parameter, der erste ist ein Objekt mit dem Namen *Wert* und die zweite ein `ValidationContext` Objekt mit dem Namen *ValidationContext*. *Wert* bezieht sich auf den tatsächlichen Wert aus dem Feld, das das benutzerdefinierte Validierungssteuerelement überprüft wird.
+Validierungsattribute arbeiten für die häufigsten Überprüfung Anforderungen. Es gibt jedoch einige Überprüfungsregeln für Ihr Geschäft spezifisch. Die Regeln möglicherweise nicht allgemeine Data Validation-Techniken, z. B. ein Feld sichergestellt erforderlich ist, oder, die es einen Bereich von Werten entspricht. Für diese Szenarien sind benutzerdefinierte Validierungsattribute eine großartige Lösung. Erstellen eine eigene benutzerdefinierte Validierungsattribute in MVC ist einfach. Nur Vererben der `ValidationAttribute`, und überschreiben die `IsValid` Methode. Die `IsValid` Methode akzeptiert zwei Parameter, der erste ist ein Objekt mit dem Namen *Wert* und die zweite ein `ValidationContext` Objekt mit dem Namen *ValidationContext*. *Wert* bezieht sich auf den tatsächlichen Wert aus dem Feld, das das benutzerdefinierte Validierungssteuerelement überprüft wird.
 
 Im folgenden Beispiel wird eine Geschäftsregel gibt an, dass Benutzer auf die "Genre" nicht festlegen können *klassischen* für einen Film, nach dem 1960 veröffentlicht wird. Die `[ClassicMovie]` Attribut überprüft zuerst, die "Genre", und wenn es sich um einen klassischen handelt, dann überprüft das Veröffentlichungsdatum angezeigt, dass er nach 1960 liegt. Wenn sie nach dem 1960 freigegeben wird, schlägt die Validierung fehl. Das Attribut akzeptiert einen ganzzahligen Parameter, die für das Jahr, das Sie verwenden können, um Daten zu überprüfen. Sie können den Wert des Parameters in der Attributkonstruktor erfassen, wie hier gezeigt:
 
@@ -145,11 +144,11 @@ Die Tag-Hilfsprogramme, die oben genannten Rendern den HTML-Code unten. Beachten
 </form>
 ```
 
-Die clientseitige Validierung verhindert so, dass übermitteln, bis das Format ungültig ist. Die Schaltfläche "Absenden" wird ausgeführt, JavaScript, die das Formular übermittelt oder zeigt Fehlermeldungen an.
+Die clientseitige Validierung verhindert Übermittlung an, bis das Format ungültig ist. Die Schaltfläche "Absenden" wird ausgeführt, JavaScript, die das Formular übermittelt oder zeigt Fehlermeldungen an.
 
 MVC bestimmt die Typ-Attributwerte, die basierend auf dem .NET Data-Typ einer Eigenschaft, die möglicherweise mit überschrieben `[DataType]` Attribute. Die Basis `[DataType]` Attribut führt keine echte serverseitige Validierung. Browser wählen Sie ihre eigenen Fehlermeldungen und diese Fehler anzeigen, jedoch werden soll, jedoch die Überprüfung unaufdringliche jQuery-Paket überschreiben, die Nachrichten und konsistent mit anderen anzeigen kann. In diesem Fall die meisten offensichtlich, wenn Benutzer anwenden `[DataType]` Unterklassen wie z. B. `[EmailAddress]`.
 
-### <a name="adding-validation-to-dynamic-forms"></a>Hinzufügen von Validierungen zu dynamische Formulare aus:
+### <a name="add-validation-to-dynamic-forms"></a>Hinzufügen einer Validierung zum dynamischen Formularen
 
 Da jQuery unaufdringlichen Überprüfung übergibt die Validierungslogik und Parameter an jQuery überprüfen, beim ersten die Seite laden werden, werden dynamisch generierten Forms nicht automatisch Überprüfung verwendet werden. Stattdessen müssen Sie jQuery unaufdringlichen Validierung, dynamische Form zu analysieren, sofort nach ihrer Erstellung mitteilen. Der folgende Code zeigt z. B. wie Sie clientseitige Validierung in einem Formular hinzugefügt, die über AJAX eingerichtet werden können.
 
@@ -172,7 +171,7 @@ $.get({
 
 Die `$.validator.unobtrusive.parse()` Methode akzeptiert einen jQuery-Selektor für ein Argument. Diese Methode teilt jQuery unaufdringlichen Validierung beim Analysieren der `data-` Attribute von Formen in dieser Auswahl. Die Werte dieser Attribute werden dann die jQuery Validate-Plug-in übergeben, damit das Formular auf die gewünschte Seite Clientvalidierungsregeln weist.
 
-### <a name="adding-validation-to-dynamic-controls"></a>Hinzufügen einer Validierung zu dynamischen Steuerelementen:
+### <a name="add-validation-to-dynamic-controls"></a>Hinzufügen von Validierungen zu dynamischen Steuerelementen
 
 Sie können auch die Validierungsregeln auf ein Formular aktualisieren, wenn einzelne wie z. B. Steuerelemente `<input/>`s und `<select/>`s, werden dynamisch generiert. Sie können keine Selektoren für diese Elemente zum Übergeben der `parse()` -Methode direkt da umgebende Formular bereits verarbeitet wurde wurde, und werden nicht aktualisiert.  Stattdessen Sie zuerst die vorhandenen Überprüfungsdaten zu entfernen und dann Analysepunkt das gesamte Formular aus, wie unten dargestellt:
 

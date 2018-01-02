@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 277e63a5663aca622e8252d6c6be1671e57cbf68
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -62,7 +62,7 @@ Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereits
 | Attribut | Beschreibung |
 | --- | --- |
 | processPath | <p>Erforderliches Zeichenfolgenattribut.</p><p>Pfad zur ausführbaren Datei, die einen HTTP-Anforderungen Lauschen Prozess gestartet wird. Relative Pfade werden unterstützt. Wenn der Pfad mit beginnt '.', gilt der Pfad relativ zum Stammverzeichnis Website sein.</p><p>Es ist kein Standardwert vorhanden.</p> |
-| arguments | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p><p>Der Standardwert ist eine leere Zeichenfolge.</p> |
+| Argumente | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p><p>Der Standardwert ist eine leere Zeichenfolge.</p> |
 | startupTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul für die ausführbare Datei Starten eines Prozesses, der Port überwacht gewartet wird. Wenn dieses Zeitlimit überschritten wird, wird das Modul den Prozess zu beenden. Das Modul versucht, den Prozess erneut zu starten, wenn er eine neue Anforderung empfangen und versucht weiterhin wird, den Prozess auf nachfolgende eingehende Anforderungen neu zu starten, wenn die Anwendung kann nicht gestartet **RapidFailsPerMinute** Anzahl innerhalb der letzten parallelen Minute wiederholt.</p><p>Der Standardwert ist 120.</p> |
 | shutdownTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Die Dauer in Sekunden, die auf die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet bei der *app_offline.htm* Datei erkannt wird.</p><p>Der Standardwert ist 10.</p> |
 | rapidFailsPerMinute | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, hält das Modul die Starten des Prozesses für den Rest der Minute an.</p><p>Der Standardwert ist 10.</p> |
@@ -117,6 +117,7 @@ Hier ist ein Beispiel für `aspNetCore` Element, konfiguriert `stdout` Protokoll
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
+Finden Sie unter [Konfiguration haben Sie über die Datei "Web.config"](#configuration-via-webconfig) ein Beispiel für die `aspNetCore` Element in der *"Web.config"* Datei.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET Core-Modul mit einer IIS freigegebene Konfiguration
 

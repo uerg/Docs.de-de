@@ -5,17 +5,17 @@ description: Zeigt, wie mit Anker Tag Hilfsprogramm arbeiten
 keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 12/20/2017
 ms.topic: article
 ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: e3754c4313f01bc746ccb8efe11611ae213e3955
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 503ad7c4ce8c4f08b2a06dbe9f985566f54d3ca2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="anchor-tag-helper"></a>Anchor-Tag-Hilfsprogramm
 
@@ -25,15 +25,12 @@ Anchor-Tag-Hilfsprogramm verbessert das HTML-Anchortag (`<a ... ></a>`) Tag, ind
 
 Unten Lautsprecher Controller wird in Beispielen in diesem Dokument verwendet.
 
-<br/>
 **SpeakerController.cs** 
 
 [!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
 
 
 ## <a name="anchor-tag-helper-attributes"></a>Anker Tagattribute-Hilfsprogramm
-
-- - -
 
 ### <a name="asp-controller"></a>ASP-controller
 
@@ -51,13 +48,10 @@ Das generierte Markup werden verwendet:
 
 Wenn die `asp-controller` angegeben ist und `asp-action` ist nicht der Standardeinstellung `asp-action` wird die Standardmethode für die Controller der aktuell ausgeführten angezeigt werden. Ist im obigen Beispiel, wenn `asp-action` wird ausgelassen, und dieses Anchor-Tag-Hilfsprogramm wird generiert *HomeController*des `Index` Ansicht (**/Home**), werden die generierten Markup:
 
-
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-- - -
-  
 ### <a name="asp-action"></a>ASP-Aktion
 
 `asp-action`Der Name der Aktionsmethode im Controller, die eingeschlossen werden in der generierten `href`. Z. B. der folgende Code generierten festlegen `href` um zur Detailseite sprechender Benutzer verweisen:
@@ -76,9 +70,33 @@ Wenn kein `asp-controller` -Attribut angegeben ist, wird der Standard-Controller
  
 Wenn das Attribut `asp-action` ist `Index`, wird keine Aktion an die URL, auf den Standardwert führende angefügt ist `Index` aufgerufenen Methode. Die Aktion angegebenen (oder standardmäßig), muss vorhanden sein, im Controller in referenziert `asp-controller`.
 
-- - -
-  
-<a name="route"></a>
+### <a name="asp-page"></a>ASP-Seite
+
+Verwenden der `asp-page` -Attribut in ein Ankertag, legen Sie die URL zu einer bestimmten Seite verweisen. Der Name der Seite mit einem Schrägstrich voranstellen "/" erstellt die URL. Die URL im folgenden Beispiel verweist auf die Seite "Lautsprecher" im aktuellen Verzeichnis.
+
+```cshtml
+<a asp-page="/Speakers">All Speakers</a>
+```
+
+Die `asp-page` Attribut im vorherigen Codebeispiel rendert die HTML-Ausgabe in der Sicht, ähnlich wie der folgende Codeausschnitt ist:
+
+```html
+<a href="/items?page=%2FSpeakers">Speakers</a>
+``
+
+The `asp-page` attribute is mutually exclusive with the `asp-route`, `asp-controller`, and `asp-action` attributes. However, `asp-page` can be used with `asp-route-id` to control routing, as the following code sample demonstrates:
+
+```
+Cshtml<a asp-page="/Speaker" asp-route-id="@speaker.Id">Ansicht sprechender Benutzer</a>
+```
+
+The `asp-route-id` produces the following output:
+
+```html
+https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
+```
+
+
 ### <a name="asp-route-value"></a>ASP - Route-{Value}
 
 `asp-route-`ist ein Platzhalter-Routenpräfix. Alle Werte, die Sie einfügen, nachdem nachfolgende Bindestrich als einen potenziellen Routenparameter interpretiert wird. Wenn eine Standardroute nicht gefunden wird, wird diese Routenpräfix zu der generierten Href als Anforderungsparameter und Wert angefügt. Andernfalls wird es in der routenvorlage ersetzt.
@@ -91,7 +109,7 @@ public IActionResult AnchorTagHelper(string id)
     var speaker = new SpeakerData()
     {
         SpeakerId = 12
-    };      
+    };
     return View(viewName, speaker);
 }
 ```
@@ -136,22 +154,17 @@ Wenn das Routenpräfix nicht Teil der routing-Vorlage gefunden wird, wird dies i
 
 Die generierte HTML-Code kann dann wie folgt werden, da **Speakerid** wurde nicht gefunden, in der Route verglichen:
 
-
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
 ```
 
 Wenn entweder `asp-controller` oder `asp-action` nicht angegeben werden, und klicken Sie dann die gleichen standardverarbeitung eingehalten wird, wie in der `asp-route` Attribut.
 
-- - -
-
 ### <a name="asp-route"></a>ASP-route
 
 `asp-route`bietet eine Möglichkeit, eine URL direkt für eine benannte Route erstellen. Verwenden von routing Attributen, eine Route kann benannt werden entsprechend der `SpeakerController` und verwendet die `Evaluations` Methode.
 
 `Name = "speakerevals"`teilt dem Anker Tag-Hilfsprogramm zum Generieren einer Route direkt auf diesem Controllermethode, die mit der URL `/Speaker/Evaluations`. Wenn `asp-controller` oder `asp-action` angegeben ist, zusätzlich zu `asp-route`, die Route generiert möglicherweise nicht Ihren Erwartungen. `asp-route`sollte nicht verwendet werden, mithilfe eines der Attribute `asp-controller` oder `asp-action` zur Vermeidung eines Konflikts Route.
-
-- - -
 
 ### <a name="asp-all-route-data"></a>ASP-All-Route-Daten
 
@@ -168,8 +181,8 @@ Wie im Beispiel unten zeigt wird ein Inline-Wörterbuch erstellt, und die Daten 
             {"currentYear", "true"}
         };
 }
-<a asp-route="speakerevalscurrent" 
-   asp-all-route-data="dict">SpeakerEvals</a>
+<a asp-route="speakerevalscurrent"
+asp-all-route-data="dict">SpeakerEvals</a>
 ```
 
 Der obige Code generiert die folgende URL: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
@@ -177,8 +190,6 @@ Der obige Code generiert die folgende URL: http://localhost/Speaker/EvaluationsC
 Wenn der Link geklickt wird, wird die Controllermethode `EvaluationsCurrent` aufgerufen wird. Wird aufgerufen, da dieser Controller zwei Zeichenfolgenparameter verfügt, die mit übereinstimmen, was erstellt wurde die `asp-all-route-data` Wörterbuch.
 
 Wenn sämtliche Schlüssel im Wörterbuch übereinstimmen Parameter weiterleiten, diese Werte in der Route nach Bedarf ersetzt, und die andere nicht übereinstimmende Werte als Anforderungsparameter generiert werden.
-
-- - -
 
 ### <a name="asp-fragment"></a>ASP-fragment
 
@@ -193,36 +204,22 @@ Die generierte URL: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
 Hash-Tags sind nützlich, wenn die clientseitige Anwendungen zu erstellen. Sie können zum einfach markieren und suchen beispielsweise in JavaScript verwendet werden.
 
-- - -
-
 ### <a name="asp-area"></a>ASP-Bereich
 
 `asp-area`Legt den Bereichsnamen, den ASP.NET Core verwendet wird, um die entsprechenden Route festzulegen. Im folgenden sind Beispiele für wie das Area-Attribut bewirkt, dass eine neuzuordnung von Routen. Festlegen von `asp-area` Blogs Präfixe das Verzeichnis `Areas/Blogs` auf die Routen den zugeordneten Controller und Ansichten für diese Anchortag.
 
 * Projektname
+  * wwwroot
+  * Bereiche
+    * Blogs
+      * Domänencontroller
+        * HomeController.cs
+      * Ansichten
+        * Startseite
+          * Index.cshtml
+          * AboutBlog.cshtml
+  * Domänencontroller
 
-  * *"Wwwroot"*
-
-  * *Bereiche*
-
-    * *Blogs*
-
-      * *Controller*
-
-        * *HomeController.cs*
-
-      * *Ansichten*
-
-        * *Startseite*
-
-          * *Index.cshtml*
-          
-          * *AboutBlog.cshtml*
-          
-  * *Controller*
-  
-
-        
 Angeben einer Bereich Tag gültig ist, z. B. ```area="Blogs"``` beim Verweisen auf die ```AboutBlog.cshtml``` Datei sieht wie folgt unter Verwendung des Premium-Tag-Hilfsprogramms.
 
 ```cshtml
@@ -238,8 +235,6 @@ Die generierte HTML-Code wird das Segment Bereiche enthalten und werden wie folg
 > [!TIP]
 > Für MVC-Bereiche in einer Webanwendung arbeiten muss die routenvorlage einen Verweis auf den Bereich enthalten, falls vorhanden. Diese Vorlage, die der zweite Parameter ist von der `routes.MapRoute` -Methodenaufruf, als angezeigt:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-- - -
-
 ### <a name="asp-protocol"></a>ASP-Protokoll
 
 Die `asp-protocol` wird ein Protokoll angegeben (z. B. `https`) in der URL. Ein Beispiel für Anchor-Tag-Hilfsprogramm, das das Protokoll enthält wird wie folgt aussehen:
@@ -251,8 +246,6 @@ und generieren HTML wie folgt:
 ```<a href="https://localhost/Home/About">About</a>```
 
 Die Domäne im Beispiel ist "localhost", aber die Anker-Tag-Hilfsprogramm verwendet die Website für die öffentliche Domäne beim Generieren der URL.
-
-- - -
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
