@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core
 
@@ -57,7 +57,7 @@ Die Nachrichten-app ist ein einfaches Razor-Seiten Nachrichtensystem, das mit de
 * Eine Nachricht wird beschrieben, durch die `Message` Klasse (*Data/Message.cs*) mit zwei Eigenschaften: `Id` (Schlüssel) und `Text` (Nachricht). Die `Text` Eigenschaft ist erforderlich, und auf 200 Zeichen beschränkt.
 * Nachrichten werden gespeichert mit [Entity Framework des speicherinternen Datenbank](/ef/core/providers/in-memory/)&#8224;.
 * Die app enthält einen Datenzugriffsebene (DAL) in seiner Datenbank Context-Klasse `AppDbContext` (*Data/AppDbContext.cs*). Die DAL-Methoden werden markiert `virtual`, dadurch wird die Methoden für die Verwendung in den Tests imitieren.
-* In der Entwicklungsumgebung wird der Nachrichtenspeicher mit drei Nachrichten initialisiert. Diese *Seeding Nachrichten* werden auch in Tests verwendet.
+* Wenn die Datenbank auf app-Starts leer ist, wird der Nachrichtenspeicher mit drei Nachrichten initialisiert. Diese *Seeding Nachrichten* werden auch in Tests verwendet.
 
 &#8224; Das Thema EF [Testen mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank, die für Tests mit MSTest verwendet. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Testen Konzepte und Test-Implementierungen in anderen Testframeworks sind ähnlich, aber nicht identisch.
 

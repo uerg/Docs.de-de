@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 52f15784f16d355791360021f045cf4f3c467897
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -109,7 +109,7 @@ Beachten Sie außerdem wie der Inhalt in die *Index.cshtml* Vorlage anzeigen mit
 
 ![](adding-a-view/_static/image9.png)
 
-Unsere wenig &quot;Daten&quot; (in diesem Fall die &quot;Hello aus unserem Vorlage anzeigen!&quot; Nachricht) ist hartcodiert, obwohl. Die MVC-Anwendung verfügt über eine &quot;V&quot; (Ansicht), haben Sie eine &quot;C&quot; (Domänencontroller), aber kein &quot;M&quot; (Modell) noch. In Kürze, wir wird exemplarisch erklärt, wie eine Datenbank erstellen und das Modelldaten daraus abrufen.
+Unsere wenig &quot;Daten&quot; (in diesem Fall die &quot;Hello aus unserem Vorlage anzeigen!&quot; Nachricht) ist hartcodiert, obwohl. Die MVC-Anwendung verfügt über eine &quot;V&quot; (Ansicht), haben Sie eine &quot;C&quot; (Domänencontroller), aber kein &quot;M&quot; (Modell) noch. In Kürze, müssen wir Exemplarische Vorgehensweise zum Erstellen einer Datenbank und das Modelldaten daraus abrufen.
 
 ## <a name="passing-data-from-the-controller-to-the-view"></a>Übergeben von Daten vom Controller an die Ansicht
 

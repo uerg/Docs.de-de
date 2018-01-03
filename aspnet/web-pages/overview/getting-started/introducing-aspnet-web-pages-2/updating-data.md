@@ -5,24 +5,24 @@ author: tfitzmac
 description: "In diesem Lernprogramm wird gezeigt, wie (ändern) einer vorhandenen Datenbank-Eintrag zu aktualisieren, wenn Sie ASP.NET Web Pages (Razor) verwenden. Es wird vorausgesetzt, Sie haben die Reihe abgeschlossen th..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Einführung in ASP.NET Web Pages - Aktualisieren von Datenbankdaten
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In diesem Lernprogramm wird gezeigt, wie (ändern) einer vorhandenen Datenbank-Eintrag zu aktualisieren, wenn Sie ASP.NET Web Pages (Razor) verwenden. Es wird vorausgesetzt, Sie haben die Reihe über abgeschlossen [eingeben von Daten von mithilfe von Formularen mithilfe von ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582).
+> In diesem Lernprogramm wird gezeigt, wie (ändern) einer vorhandenen Datenbank-Eintrag zu aktualisieren, wenn Sie ASP.NET Web Pages (Razor) verwenden. Es wird vorausgesetzt, Sie haben die Reihe über abgeschlossen [eingeben von Daten von mithilfe von Formularen mithilfe von ASP.NET Web Pages](entering-data.md).
 > 
 > Lernen Sie:
 > 
@@ -143,7 +143,7 @@ Erstellen Sie eine Seite mit dem Namen *EditMovie.cshtml* , und Ersetzen Sie die
 
 Dieses Markup und Code ist ähnlich, dass in der *AddMovie* Seite. Es gibt ein kleiner Unterschied in den Text für die Schaltfläche "Absenden". Wie bei der *AddMovie* Seite, gibt es eine `Html.ValidationSummary` aufrufen, die Validierungsfehler angezeigt werden, sofern vorhanden. Dieses Mal werden wir die Aufrufe eingepasst `Validation.Message`, da der Fehler in der validierungszusammenfassung angezeigt werden. Wie im vorherigen Lernprogramm erwähnt, können Sie die Zusammenfassung der Validierung und die einzelne Fehlermeldungen in verschiedenen Kombinationen verwenden.
 
-Beachten Sie erneut, die die `method` Attribut von der `<form>` -Elementgruppe ist `post`. Wie bei der *AddMovie.cshtml* Seite dieser Seite werden Änderungen an der Datenbank. Daher sollten diese Form Ausführen einer `POST` Vorgang. (Weitere Informationen zu den Unterschieden zwischen `GET` und `POST` Vorgänge, finden Sie unter der [GET, POST und HTTP-Verb für Sicherheit](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) Randleiste in das Lernprogramm für HTML-Formularen.)
+Beachten Sie erneut, die die `method` Attribut von der `<form>` -Elementgruppe ist `post`. Wie bei der *AddMovie.cshtml* Seite dieser Seite werden Änderungen an der Datenbank. Daher sollten diese Form Ausführen einer `POST` Vorgang. (Weitere Informationen zu den Unterschieden zwischen `GET` und `POST` Vorgänge, finden Sie unter der [GET, POST und HTTP-Verb für Sicherheit](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) Randleiste in das Lernprogramm für HTML-Formularen.)
 
 In einer früheren Lernprogramm haben Sie gesehen der `value` Attribute der Textfelder werden mit Razor-Code festgelegt wird, um sie vorab zu laden. Dieses Mal jedoch verwendeten Variablen wie `title` und `genre` für diese Aufgabe anstelle von `Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ Nachdem der Code verwendet `db.Execute` zum Ausführen der `Update` Anweisung le
 > 
 > Natürlich die `Query` Methode kann nur eine Datenbankzeile zurück. ASP.NET behandelt jedoch immer die Ergebnisse der `Query` Methode als eine Auflistung. Auch wenn die Methode nur eine Zeile zurückgibt, müssen Sie in dieser Zeile aus der Auflistung zu extrahieren. Aus diesem Grund in Situationen, in denen Sie *wissen* erhalten Sie wieder nur eine Zeile, es ist ein bequemer verwenden Bit `QuerySingle`.
 > 
-> Es gibt mehrere Methoden, die bestimmte Arten von Datenbankvorgängen durchgeführt. Sie finden eine Liste der datenbankmethoden in der [ASP.NET Web Pages-API-Kurzübersicht](https://go.microsoft.com/fwlink/?LinkID=202907#Data).
+> Es gibt mehrere Methoden, die bestimmte Arten von Datenbankvorgängen durchgeführt. Sie finden eine Liste der datenbankmethoden in der [ASP.NET Web Pages-API-Kurzübersicht](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Überprüfung für die ID mehr machen robuster
@@ -308,7 +308,7 @@ In den nächsten Lernprogrammen sehen Sie, wie einen Movie-Datensatz gelöscht.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](introducing-razor-syntax-c.md)
 - [SQL-UPDATE-Anweisung](http://www.w3schools.com/sql/sql_update.asp) auf der Website W3Schools
 
 >[!div class="step-by-step"]

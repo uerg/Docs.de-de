@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 0c49376fd1b602fe03ef2a152d19b58513ae2710
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 En-us /
 
@@ -38,7 +38,7 @@ Wenn die Erkennung der Parallelität nicht aktiviert ist, beim Auftreten von gle
 * Das letzte Update gewinnt. D. h. werden die letzten Aktualisieren von Werten mit der Datenbank gespeichert.
 * Die erste von der aktuellen Updates verloren.
 
-### <a name="optimistic-concurrency"></a>Vollständige Parallelität
+### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
 Vollständige Parallelität ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann reagiert entsprechend Wenn sie verwenden. Z. B. Andrea besucht die Abteilung bearbeiten (Seite) und ändert sich das Budget für die englischen Abteilung von $350,000.00 in 0,00.
 
@@ -194,7 +194,7 @@ Update *pages\departments\edit.cshtml.cs* durch den folgenden Code:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Um ein Problem Parallelität erkennen die [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) wird aktualisiert und enthält die `rowVersion` Wert aus der Entität war es abgerufen wurde. EF Core generiert einen SQL-Befehl UPDATE mit einer WHERE-Klausel mit der ursprünglichen `RowVersion` Wert. Wenn keine Zeilen, durch den Befehl UPDATE betroffen sind (keine Zeilen vorhanden sind, die ursprüngliche `RowVersion` Wert), wird eine `DbUpdateConcurrencyException` Ausnahme wird ausgelöst.
+Um ein Problem Parallelität erkennen die [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) wird aktualisiert und enthält die `rowVersion` Wert aus der Entität, die es abgerufen wurde. EF Core generiert einen SQL-Befehl UPDATE mit einer WHERE-Klausel mit der ursprünglichen `RowVersion` Wert. Wenn keine Zeilen, durch den Befehl UPDATE betroffen sind (keine Zeilen vorhanden sind, die ursprüngliche `RowVersion` Wert), wird eine `DbUpdateConcurrencyException` Ausnahme wird ausgelöst.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
 
@@ -310,4 +310,4 @@ Finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance) Anweisungen zur Verer
 * [Behandeln von Parallelität in EF Core](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
-[Zurück](xref:data/ef-rp/update-related-data)
+[Vorherige](xref:data/ef-rp/update-related-data)
