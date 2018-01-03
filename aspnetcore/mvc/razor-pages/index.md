@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
-ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
+ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor-Seiten in ASP.NET Core
 
@@ -165,7 +165,7 @@ Die Datei *Index.cshtml* enthält das folgende Markup, um einen Bearbeitungslink
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-Das [Anchor-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) verwendet das Attribut [asp-route-{Wert}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route), um einen Link zur Bearbeitungsseite zu generieren. Der Link enthält die Routendaten mit der Kontakt-ID. Beispielsweise `http://localhost:5000/Edit/1`.
+Das [Anchor-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) verwendet das Attribut `asp-route-{value}`, um einen Link zur Bearbeitungsseite zu generieren. Der Link enthält die Routendaten mit der Kontakt-ID. Beispielsweise `http://localhost:5000/Edit/1`.
 
 Die Datei *Pages/Edit.cshtml*:
 
