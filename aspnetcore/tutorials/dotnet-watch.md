@@ -11,11 +11,11 @@ ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 9baf2ce2a1270a728616a8a2ab45deca9a9cde6f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Entwickeln von ASP.NET Core-Apps mit dotnet watch
 
@@ -97,8 +97,8 @@ Vergewissern Sie sich, dass `http://localhost:<port number>/api/math/product?a=4
 
 1. Ändern Sie `Product`-Methode von *MathController.cs* so, dass wieder die Summe zurückgegeben wird, und speichern Sie die Datei.
 1. Navigieren Sie in einer Befehlsshell zum Ordner *WebAppTests*.
-1. Führen Sie `dotnet restore` aus.
-1. Führen Sie `dotnet watch test` aus. In der Ausgabe wird angezeigt, dass ein Test fehlgeschlagen ist und Watcher auf Dateiänderungen wartet:
+1. Führen Sie aus `dotnet restore`.
+1. Führen Sie aus `dotnet watch test`. In der Ausgabe wird angezeigt, dass ein Test fehlgeschlagen ist und Watcher auf Dateiänderungen wartet:
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
@@ -111,6 +111,6 @@ Vergewissern Sie sich, dass `http://localhost:<port number>/api/math/product?a=4
 
 ## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 
-dotnet-watch ist Teil des GitHub-Repositorys [DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/Microsoft.DotNet.Watcher.Tools).
+dotnet-watch ist Teil des GitHub-Repositorys [DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).
 
-Der Abschnitt [MSBuild](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md#msbuild) in der [Infodatei zu dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md) erläutert, wie dotnet-watch in der überwachten MSBuild-Projektdatei konfiguriert werden kann. Die [Infodatei zu dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md) enthält Informationen zu dotnet-watch, die in diesem Tutorial nicht behandelt werden.
+Der Abschnitt [MSBuild](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild) in der [Infodatei zu dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) erläutert, wie dotnet-watch in der überwachten MSBuild-Projektdatei konfiguriert werden kann. Die [Infodatei zu dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) enthält Informationen zu dotnet-watch, die in diesem Tutorial nicht behandelt werden.
