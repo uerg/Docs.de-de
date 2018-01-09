@@ -153,7 +153,7 @@
 ## [Bündelung und Minimierung](xref:client-side/bundling-and-minification)
 ## [Verwenden einer Browserverknüpfung](xref:client-side/using-browserlink)
 ## [Verwenden von JavaScriptServices für SPAs](xref:client-side/spa-services)
-## [Verwendung von SPA-Projektvorlagen (Vorschau)](xref:spa/index)
+## [Verwenden von SPA-Projektvorlagen (RC)](xref:spa/index)
 ### [Angular-Projektvorlage](xref:spa/angular)
 ### [React-Projektvorlage](xref:spa/react)
 ### [React-Redux-Projektvorlage](xref:spa/react-with-redux)
