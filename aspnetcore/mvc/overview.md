@@ -5,17 +5,17 @@ description: Erfahren Sie, wie ASP.NET Core MVC ist ein funktionsreiches Framewo
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -38,7 +38,7 @@ Diese Abgrenzung Aufgaben können Sie die Anwendung im Hinblick auf Komplexität
 
 ### <a name="model-responsibilities"></a>Model Verantwortlichkeiten
 
-Das Modell in einer MVC-Anwendung stellt den Zustand der Anwendung und alle Geschäftslogiken oder Vorgänge, die von ihm ausgeführt werden soll. Im Modell zusammen mit jeder Implementierungslogik für das Beibehalten des Zustands der Anwendung sollte Geschäftslogik gekapselt werden. Stark typisierte Ansichten mithilfe für diese Sicht zeigt in der Regel von ViewModel-Typen, die speziell für die Daten enthalten; der Controller wird erstellen und füllen diese ViewModel-Instanzen aus dem Modell.
+Das Modell in einer MVC-Anwendung stellt den Zustand der Anwendung und alle Geschäftslogiken oder Vorgänge, die von ihm ausgeführt werden soll. Im Modell zusammen mit jeder Implementierungslogik für das Beibehalten des Zustands der Anwendung sollte Geschäftslogik gekapselt werden. Stark typisierte Ansichten verwenden in der Regel ViewModel-Typen entwickelt, um die Daten enthalten, die auf diese Sicht angezeigt. Der Controller erstellt und füllt diese ViewModel-Instanzen aus dem Modell.
 
 > [!NOTE]
 > Es gibt viele Möglichkeiten, das Modell in einer app zu organisieren, die das MVC-Architekturschema verwendet. Erfahren Sie mehr über einige [verschiedene Arten von Modelltypen](http://deviq.com/kinds-of-models/).
@@ -112,7 +112,7 @@ ASP.NET Core MVC [modellbindung](models/model-binding.md) konvertiert Client-Anf
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
    ```
 
-### <a name="model-validation"></a>modellvalidierung
+### <a name="model-validation"></a>Modellvalidierung
 
 ASP.NET Core MVC unterstützt [Überprüfung](models/validation.md) durch das ergänzen der Model-Objekts mit Daten Anmerkung Validierungsattribute. Die überprüfungsattribute werden auf dem Client überprüft, bevor Werte an den Server zurückgesendet werden, als auch auf dem Server vor der Controlleraktion aufgerufen wird.
 
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-Das Framework verarbeitet Anforderungsdaten sowohl auf dem Client als auch auf dem Server zu überprüfen. Validierungslogik auf Modelltypen angegeben wird, die den gerenderten Ansichten als unaufdringlichen Anmerkungen hinzugefügt und wird im Browser mit erzwungen [jQuery-Validierung](https://jqueryvalidation.org/).
+Das Framework verarbeitet Überprüfen von Anforderungsdaten sowohl auf dem Client als auch auf dem Server. Validierungslogik auf Modelltypen angegeben wird, die den gerenderten Ansichten als unaufdringlichen Anmerkungen hinzugefügt und wird im Browser mit erzwungen [jQuery-Validierung](https://jqueryvalidation.org/).
 
 ### <a name="dependency-injection"></a>Abhängigkeitsinjektion
 
@@ -181,7 +181,7 @@ Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/
 
 ### <a name="areas"></a>Bereiche
 
-[Bereiche](controllers/areas.md) bieten eine Möglichkeit, eine große ASP.NET Core MVC-Web-app in kleinere funktionale Einheiten zu partitionieren. Ein Bereich ist letztendlich eine MVC-Struktur in einer Anwendung. Klicken Sie in einer MVC-Projekt logische Komponenten wie das Modell, Controller und Ansicht in unterschiedlichen Ordnern beibehalten werden, und MVC verwendet Konventionen zur Namensgebung, um die Beziehung zwischen diesen Komponenten zu erstellen. Für eine große app kann es vorteilhaft sein, die app in separate hohe Ebene Bereiche der Funktionalität partitioniert sein. Z. B. eine e-Commerce-app mit mehreren Geschäftsbereichen, z. B. Auschecken, Abrechnung und Suche usw. Jede dieser Einheiten haben ihre eigenen logischen Komponentenansichten, Controller und Modelle.
+[Bereiche](controllers/areas.md) bieten eine Möglichkeit, eine große ASP.NET Core MVC-Web-app in kleinere funktionale Einheiten zu partitionieren. Ein Bereich ist eine MVC-Struktur in einer Anwendung. Klicken Sie in einer MVC-Projekt logische Komponenten wie das Modell, Controller und Ansicht in unterschiedlichen Ordnern beibehalten werden, und MVC verwendet Konventionen zur Namensgebung, um die Beziehung zwischen diesen Komponenten zu erstellen. Für eine große app kann es vorteilhaft sein, die app in separate hohe Ebene Bereiche der Funktionalität partitioniert sein. Z. B. eine e-Commerce-app mit mehreren Geschäftsbereichen, z. B. Auschecken, Abrechnung und Suche usw. Jede dieser Einheiten haben ihre eigenen logischen Komponentenansichten, Controller und Modelle.
 
 ### <a name="web-apis"></a>Web-APIs
 
@@ -213,7 +213,7 @@ Mithilfe der Razor-Ansichtsmodul können [Layouts](views/layout.md), [Teilansich
 
 In MVC Razor-Ansichten können stark basierend auf Ihrem Modell eingegeben werden. Domänencontroller können mit Ansichten, die Ihre Ansichten, typüberprüfung und IntelliSense-Unterstützung aktivieren ein stark typisiertes Modell übergeben.
 
-Die folgende Sicht definiert z. B. ein Modell vom Typ `IEnumerable<Product>`:
+Die folgende Ansicht rendert z. B. ein Modell vom Typ `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>

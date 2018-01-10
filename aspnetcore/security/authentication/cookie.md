@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee660667251ec4a64f2b3e83f39214e9defcea03
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Mithilfe der Cookieauthentifizierung ohne ASP.NET Core Identität
 
@@ -39,7 +39,7 @@ In der `ConfigureServices` -Methode den Authentifizierung-Middleware-Dienst mit 
 
 `AuthenticationScheme`übergeben zum `AddAuthentication` legt das Standard-Authentifizierungsschema für die app. `AuthenticationScheme`ist nützlich, wenn mehrere Instanzen der Cookieauthentifizierung vorhanden sind und Sie möchten [mit einem bestimmten Schema autorisieren](xref:security/authorization/limitingidentitybyscheme). Festlegen der `AuthenticationScheme` zu `CookieAuthenticationDefaults.AuthenticationScheme` "Cookies" der Wert für das Schema enthält. Sie können einen beliebigen Zeichenfolgenwert angeben, der das Schema unterscheidet.
 
-In der `Configure` -Methode, mit der `UseAuthentication` Authentifizierung-Middleware aufgerufen werden soll, der festlegt der `HttpContext.User` Eigenschaft. Rufen Sie die `UseAuthentication` Methode vor dem Aufruf `AddMvcWithDefaultRoute` in einer MVC-app oder `AddMvc` in einer Razor-Seiten-app:
+In der `Configure` -Methode, mit der `UseAuthentication` Authentifizierung-Middleware aufgerufen werden soll, der festlegt der `HttpContext.User` Eigenschaft. Rufen Sie die `UseAuthentication` Methode vor dem Aufruf `UseMvcWithDefaultRoute` oder `UseMvc`:
 
 [!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 

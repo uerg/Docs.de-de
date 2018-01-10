@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -31,7 +31,7 @@ Derzeit gibt die `Index`-Methode eine Zeichenfolge mit der Meldung zurück, die 
 
 Die `Index` oben genannten Methode verwendet eine Vorlage für die Sicht zum Generieren einer HTML-Antwortinhalts an den Browser. Controllermethoden (auch bekannt als [Aktionsmethoden](http://rachelappel.com/asp.net-mvc-actionresults-explained)), wie z. B. die `Index` oben in der Regel Methodenrückgabewert ein [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (oder eine abgeleitete Klasse [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), nicht primitive Typen wie Zeichenfolge.
 
-Klicken Sie mit der rechten Maustaste auf die *Views\HelloWorld* Ordner, und klicken Sie auf **hinzufügen**, klicken Sie dann auf **MVC 5-Ansichtsseite mit (Razor Layout)**.
+Klicken Sie mit der rechten Maustaste auf die *Views\HelloWorld* Ordner, und klicken Sie auf **hinzufügen**, klicken Sie dann auf **MVC 5-Ansichtsseite mit Layout (Razor)**.
   
 ![](adding-a-view/_static/image1.png)   
   

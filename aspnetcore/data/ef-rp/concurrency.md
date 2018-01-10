@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 En-us /
 
@@ -302,7 +302,7 @@ Der Browser zeigt die Indexseite mit den geänderten Wert und die aktualisierte 
 
 Löschen Sie die Test-Abteilung, auf der zweiten Registerkarte. Ein Parallelitätsfehler ist, werden mit den aktuellen Werten aus der Datenbank angezeigt. Auf **löschen** wird die Entität gelöscht, es sei denn, `RowVersion` updated.department wurde gelöscht wurde.
 
-Finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance) Anweisungen zur Vererbung im Datenmodell.
+Finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance) zum erben von einem Datenmodell.
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 

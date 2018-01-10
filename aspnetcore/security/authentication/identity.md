@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität auf ASP.NET Core
 
@@ -25,6 +25,8 @@ ASP.NET Core Identität ist eine Mitgliedschaftssystem Anmeldefunktionalität f�
 
 Sie können ASP.NET Core Identity Verwendung eine SQL Server-Datenbank zum Speichern von Benutzernamen, Kennwörtern und Profildaten konfigurieren. Alternativ können Sie eigene permanenten Speicher zu, z. B. Azure-Tabellenspeicher verwenden. Dieses Dokument enthält Anleitungen für Visual Studio und mithilfe der CLI.
 
+[Anzeigen oder den Beispielcode herunter.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Gewusst wie: herunterladen)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+
 ## <a name="overview-of-identity"></a>Übersicht über die Identität
 
 In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um Funktionen zu registrieren, melden Sie sich hinzufügen und Abmelden eines Benutzers. Ausführlichere Anweisungen zum Erstellen von apps mithilfe von ASP.NET Core Identity finden Sie unter dem Abschnitt "Nächste Schritte" am Ende dieses Artikels.
@@ -33,7 +35,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    Wählen Sie in Visual Studio **Datei** -> **neu** -> **Projekt**. Wählen Sie **ASP.NET-Webanwendung für Core** , und klicken Sie auf **OK**.
+    Wählen Sie in Visual Studio **Datei** > **neu** > **Projekt**. Wählen Sie **ASP.NET-Webanwendung für Core** , und klicken Sie auf **OK**.
 
     ![Dialogfeld "Neues Projekt"](identity/_static/01-new-project.png)
 
@@ -144,7 +146,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
  
 7.  Zeigen Sie die Datenbank an.
 
-    Wenn Ihre app auf eine SQL Server-Datenbank (Standard unter Windows und Visual Studio-Benutzer) verwendet wird, können Sie die Datenbank der app erstellt anzeigen. Sie können **SQL Server Management Studio**. Wählen Sie alternativ in Visual Studio **Ansicht** -> **Objekt-Explorer von SQL Server**. Herstellen einer Verbindung mit **(Localdb) \MSSQLLocalDB**. Die Datenbank mit dem Namen  **Aspnet - <*Name Ihres Projekts*>-<*Datumszeichenfolge*> ** wird angezeigt.
+    Wenn Ihre app auf eine SQL Server-Datenbank (Standard unter Windows und Visual Studio-Benutzer) verwendet wird, können Sie die Datenbank der app erstellt anzeigen. Sie können **SQL Server Management Studio**. Wählen Sie alternativ in Visual Studio **Ansicht** > **Objekt-Explorer von SQL Server**. Herstellen einer Verbindung mit **(Localdb) \MSSQLLocalDB**. Die Datenbank mit dem Namen  **Aspnet - <*Name Ihres Projekts*>-<*Datumszeichenfolge*> ** wird angezeigt.
 
     ![Kontextmenü für AspNetUsers-Datenbanktabelle](identity/_static/04-db.png)
     

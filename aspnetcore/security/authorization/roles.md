@@ -11,11 +11,11 @@ ms.assetid: 5e014da1-8bc0-409b-951a-88b92c661fdf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/roles
-ms.openlocfilehash: 649b21d99c742843534748b0ba9d7b7b22483a62
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 26babef1a296aaa1fa11f36d30c4d911d73808ce
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="role-based-authorization"></a>Rollenbasierte Autorisierung
 
@@ -27,7 +27,7 @@ Beim Erstellen eine Identität kann es auf eine oder mehrere Rollen gehören. Be
 
 Rollenbasierte autorisierungsüberprüfungen sind deklarative&mdash;Entwickler bettet sie innerhalb ihres Codes für einen Controller oder einer Aktion innerhalb eines Controllers angeben von Rollen, die der aktuelle Benutzer ein Mitglied sein muss, auf die angeforderte Ressource zuzugreifen.
 
-Beispielsweise würde der folgende Code Zugriff auf alle Aktionen beschränkt, auf die `AdministrationController` sind für Benutzer ein Mitglied der `Administrator` Gruppe.
+Z. B. der folgende Code, schränkt den Zugriff auf alle Aktionen auf der `AdministrationController` sind für Benutzer ein Mitglied der `Administrator` Rolle:
 
 ```csharp
 [Authorize(Roles = "Administrator")]

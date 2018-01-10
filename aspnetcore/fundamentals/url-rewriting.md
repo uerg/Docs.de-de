@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Überschreiben von URLs in ASP.NET Core Middleware
 
@@ -120,7 +120,7 @@ Ursprüngliche Anforderung mit `AddRedirectToHttpsPermanent`:`/secure`
 ![Browser-Fenster mit den Entwicklertools Nachverfolgen von Anforderungen und Antworten](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
 ### <a name="url-rewrite"></a>URL rewrite
-Verwendung `AddRewrite` ein Regeln zum Umschreiben von URLs zu erstellen. Der erste Parameter enthält die Regex für den Abgleich für die eingehende URL-Pfad. Der zweite Parameter ist die Ersatzzeichenfolge. Der dritte Parameter `skipRemainingRules: {true|false}`, gibt an, um die Middleware ob zusätzliche neuschreibungsregeln überspringen, wenn die aktuelle Regel angewendet wird.
+Verwendung `AddRewrite` zum Erstellen einer Regel zum Umschreiben von URLs. Der erste Parameter enthält die Regex für den Abgleich für die eingehende URL-Pfad. Der zweite Parameter ist die Ersatzzeichenfolge. Der dritte Parameter `skipRemainingRules: {true|false}`, gibt an, um die Middleware ob zusätzliche neuschreibungsregeln überspringen, wenn die aktuelle Regel angewendet wird.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
