@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10eb343259b58052fd1f2411dbdc2196eafc858
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-a-new-field"></a>Hinzufügen eines neuen Felds
 ====================
@@ -161,7 +161,7 @@ Erstellen Sie die Projektmappe, und öffnen Sie die **Package Manager Console** 
 
 Die `add-migration` Befehl weist das Framework Migration, überprüfen das aktuelle Film-Modell mit dem aktuellen Film DB Schema und den erforderlichen Code zum Migrieren der Datenbank in das neue Modell zu erstellen. Der Name *Bewertung* ist willkürlich und wird verwendet, um die Migrationsdatei angegeben werden. Es ist hilfreich, einen aussagekräftigen Namen für den Schritt der Migration zu verwenden.
 
-Wenn dieser Befehl abgeschlossen ist, handelt es sich bei Visual Studio öffnet die Klassendatei, die die neue definiert `DbMIgration` abgeleitete Klasse, und klicken Sie in der `Up` Methode sehen Sie den Code, der die neue Spalte erstellt.
+Wenn dieser Befehl abgeschlossen ist, handelt es sich bei Visual Studio öffnet die Klassendatei, die die neue definiert `DbMigration` abgeleitete Klasse, und klicken Sie in der `Up` Methode sehen Sie den Code, der die neue Spalte erstellt.
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 

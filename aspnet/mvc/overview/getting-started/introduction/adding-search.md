@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: a7664d16a056424ee51db2208152cb5d35d8e5d9
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="search"></a>Suchen
 ====================
@@ -123,7 +123,7 @@ Der folgende Code ist eine LINQ-Abfrage, die alle Genres aus der Datenbank abruf
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Der Code verwendet die `AddRange` der generischen Methode `List` Auflistung, die unterschiedliche Genres zur Liste hinzugefügt werden. (Ohne die `Distinct` Modifizierer, doppelte Genres würde hinzugefügt – zweimal in unserem Beispiel würde z. B. Comedy hinzugefügt werden). Der Code speichert dann die Liste von Genres in die `ViewBag.movieGenre` Objekt. Speichern von Daten (solche einen Film "Genre" des) als Kategorie ein [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) -Objekt in ein `ViewBag`, und klicken Sie dann den Zugriff auf die Daten der Kategorie in einem Dropdown-Listenfeld ein typischer Ansatz für MVC-Anwendungen ist.
+Der Code verwendet die `AddRange` der generischen Methode `List` Auflistung, die unterschiedliche Genres zur Liste hinzugefügt werden. (Ohne die `Distinct` Modifizierer, doppelte Genres würde hinzugefügt – zweimal in unserem Beispiel würde z. B. Comedy hinzugefügt werden). Der Code speichert dann die Liste von Genres in die `ViewBag.MovieGenre` Objekt. Speichern von Daten (solche einen Film "Genre" des) als Kategorie ein [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) -Objekt in ein `ViewBag`, und klicken Sie dann den Zugriff auf die Daten der Kategorie in einem Dropdown-Listenfeld ein typischer Ansatz für MVC-Anwendungen ist.
 
 Der folgende Code zeigt die Vorgehensweise beim Überprüfen der `movieGenre` Parameter. Wenn er nicht leer ist, schränkt der Code weiter Filme Abfrage ausgewählten Filme an der angegebenen "Genre" beschränken.
 
