@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosten in ASP.NET Core
 
@@ -41,7 +41,7 @@ Erstellen Sie einen Host mit einer Instanz von [WebHostBuilder](/dotnet/api/micr
   * Umgebungsvariablen.
   * Befehlszeilenargumente.
 * Konfiguriert die [Protokollierung](xref:fundamentals/logging/index) für Konsole und Debug-Ausgabe. Protokollierung umfasst [Protokoll filtern](xref:fundamentals/logging/index#log-filtering) Regeln in einem Konfigurationsabschnitt Protokollierung ein *appsettings.json* oder *"appSettings". {} Umgebung} JSON* Datei.
-* Wenn hinter dem IIS ausgeführt wird, ermöglicht [IIS Integration](xref:publishing/iis). Konfiguriert den Basispfad und der Port, auf der Server überwacht werden soll bei Verwendung der [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt einen Reverse-Proxy zwischen IIS und Kestrel. Außerdem konfiguriert die app, [Erfassen von Startfehlern](#capture-startup-errors). Die Standardoptionen von IIS finden Sie unter [der IIS-Optionen im Abschnitt Host ASP.NET Core unter Windows mit IIS](xref:publishing/iis#iis-options).
+* Wenn hinter dem IIS ausgeführt wird, ermöglicht [IIS Integration](xref:host-and-deploy/iis/index). Konfiguriert den Basispfad und Port der Server lauscht bei Verwendung der [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt einen Reverseproxy zwischen IIS und Kestrel. Außerdem konfiguriert die app, [Erfassen von Startfehlern](#capture-startup-errors). Die Standardoptionen von IIS finden Sie unter [der IIS-Optionen im Abschnitt Host ASP.NET Core unter Windows mit IIS](xref:host-and-deploy/iis/index#iis-options).
 
 Die *Content Stamm* bestimmt, an denen der Host für Inhaltsdateien, z. B. MVC-Ansicht-Dateien sucht. Wenn die app aus dem Stammordner des Projekts gestartet wird, wird als Inhalt Stamm Stammordner des Projekts verwendet. Dies ist die Standardeinstellung verwendet [Visual Studio](https://www.visualstudio.com/) und [Dotnet neue Vorlagen](/dotnet/core/tools/dotnet-new).
 
@@ -60,7 +60,7 @@ Erstellen Sie einen Host mit einer Instanz von [WebHostBuilder](/dotnet/api/micr
 
 Die *Content Stamm* bestimmt, an denen der Host für Inhaltsdateien, z. B. MVC-Ansicht-Dateien sucht. Der standardmäßige Content Stamm für abgerufen wird `UseContentRoot` von [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1). Wenn die app aus dem Stammordner des Projekts gestartet wird, wird als Inhalt Stamm Stammordner des Projekts verwendet. Dies ist die Standardeinstellung verwendet [Visual Studio](https://www.visualstudio.com/) und [Dotnet neue Vorlagen](/dotnet/core/tools/dotnet-new).
 
-Rufen Sie zum Verwenden von IIS als Reverseproxy [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) im Rahmen der Erstellung des Hosts. `UseIISIntegration`Konfigurieren Sie keine *Server*, z. B. [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) verfügt. `UseIISIntegration`konfiguriert den Basispfad und der Port, auf der Server überwacht werden soll bei Verwendung der [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) einen Reverse-Proxy zwischen Kestrel und IIS zu erstellen. Für die Verwendung von IIS mit ASP.NET Core, `UseKestrel` und `UseIISIntegration` muss angegeben werden. `UseIISIntegration`nur aktiviert, wenn hinter der IIS- oder IIS Express ausführen. Weitere Informationen finden Sie unter [Einführung in ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) und [ASP.NET Core-Modul Konfigurationsverweis](xref:hosting/aspnet-core-module).
+Rufen Sie zum Verwenden von IIS als Reverseproxy [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) im Rahmen der Erstellung des Hosts. `UseIISIntegration`Konfigurieren Sie keine *Server*, z. B. [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) verfügt. `UseIISIntegration`konfiguriert den Basispfad und Port der Server lauscht bei Verwendung der [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) Reverseproxy zwischen Kestrel und IIS zu erstellen. Für die Verwendung von IIS mit ASP.NET Core, `UseKestrel` und `UseIISIntegration` muss angegeben werden. `UseIISIntegration`nur aktiviert, wenn hinter der IIS- oder IIS Express ausführen. Weitere Informationen finden Sie unter [Einführung in ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) und [ASP.NET Core-Modul Konfigurationsverweis](xref:host-and-deploy/aspnet-core-module).
 
 Eine minimale Implementierung, die einen Host (und ASP.NET Core-app) konfiguriert, enthält einen Server und die Konfiguration der Anforderungspipeline die app angeben:
 
@@ -266,7 +266,7 @@ Diese Funktion steht in ASP.NET Core 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Zu verhindern, dass Hosting starten
 
-Verhindert, dass das automatische Laden von hosting Startassemblys, einschließlich hosting Autostart-Assemblys, die von der app-Assembly konfiguriert. Finden Sie unter [Hinzufügen von app-Funktionen aus einer externen Assembly IHostingStartup](xref:hosting/ihostingstartup) für Weitere Informationen.
+Verhindert, dass das automatische Laden von hosting Startassemblys, einschließlich hosting Autostart-Assemblys, die von der app-Assembly konfiguriert. Finden Sie unter [Hinzufügen von app-Funktionen aus einer externen Assembly IHostingStartup](xref:host-and-deploy/ihostingstartup) für Weitere Informationen.
 
 **Schlüssel**: PreventHostingStartup  
 **Typ**: *Bool* (`true` oder `1`)  
@@ -908,7 +908,7 @@ Weitere Informationen finden Sie unter [Ankündigungen: Microsoft.Extensions.Pla
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Veröffentlichen Sie in Windows unter Verwendung von IIS](../publishing/iis.md)
-* [Veröffentlichen Sie in Linux mit Nginx](../publishing/linuxproduction.md)
-* [Veröffentlichen Sie in Linux mit Apache](../publishing/apache-proxy.md)
-* [Host in einem Windowsdienst](xref:hosting/windows-service)
+* [Hosten unter Windows mit IIS](xref:host-and-deploy/iis/index)
+* [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
+* [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
+* [Host in einem Windowsdienst](xref:host-and-deploy/windows-service)

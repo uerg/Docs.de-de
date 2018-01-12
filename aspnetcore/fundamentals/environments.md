@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 3eb19aa090d0a979ceaf4edc56752472ba47ae84
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 9127c3d7180422c0e3dbd813340dd485bf360c81
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-multiple-environments"></a>Arbeiten mit mehreren Umgebungen
 
@@ -96,13 +96,13 @@ Diese Befehle wirksam, nur für das aktuelle Fenster. Wenn das Fenster geschloss
 
 **"Web.config"**
 
-Finden Sie unter der *Einstellungsumgebungsvariablen* Teil der [Konfigurationsverweis ASP.NET Core-Modul](xref:hosting/aspnet-core-module#setting-environment-variables) Thema.
+Finden Sie unter der *Einstellungsumgebungsvariablen* Teil der [Konfigurationsverweis ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) Thema.
 
 **Pro IIS-Anwendungspool**
 
 Wenn Sie Umgebungsvariablen für einzelne Apps festlegen müssen, die in isolierten Anwendungspools ausgeführt werden (unterstützt für IIS 10.0 und höher), finden Sie weitere Informationen im Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \< EnvironmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 Festlegen der aktuellen Umgebung für MacOS kann Inline erfolgen, wenn die Anwendung ausgeführt;
 
 ```bash

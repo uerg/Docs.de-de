@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Überschreiben von URLs in ASP.NET Core Middleware
 
@@ -245,7 +245,7 @@ Ursprüngliche Anforderung:`/iis-rules-rewrite/1234`
 
 ![Browser-Fenster mit den Entwicklertools nachverfolgen, die Anforderung und Antwort](url-rewriting/_static/add_iis_url_rewrite.png)
 
-Wenn Sie eine aktive IIS Rewrite-Modul auf Serverebene Regeln konfiguriert, die Ihre app auf unerwünschten Weise beeinträchtigen würde haben, können Sie das IIS Rewrite-Modul für eine app deaktivieren. Weitere Informationen finden Sie unter [Deaktivieren von IIS-Module](xref:hosting/iis-modules#disabling-iis-modules).
+Wenn Sie eine aktive IIS Rewrite-Modul auf Serverebene Regeln konfiguriert, die Ihre app auf unerwünschten Weise beeinträchtigen würde haben, können Sie das IIS Rewrite-Modul für eine app deaktivieren. Weitere Informationen finden Sie unter [Deaktivieren von IIS-Module](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 #### <a name="unsupported-features"></a>Nicht unterstützte Funktionen
 

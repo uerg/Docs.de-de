@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellung bis hin zur Produktion
 ====================
@@ -42,7 +42,7 @@ Wenn Sie ein Azure-Konto noch nicht haben, können Sie in wenigen Minuten ein ko
 ## <a name="create-a-staging-environment"></a>Erstellen einer Stagingumgebung
 
 > [!NOTE]
-> Da dieses Lernprogramm geschrieben wurde, hinzugefügt Azure App Service ein neues Feature, um viele der Prozesse, um mit der Staging-und produktionsumgebungen zu automatisieren. Finden Sie unter [Einrichten von Stagingumgebungen für webapps in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+> Da dieses Lernprogramm geschrieben wurde, hinzugefügt Azure App Service ein neues Feature, um viele der Prozesse zum Erstellen von Staging-und produktionsumgebungen zu automatisieren. Finden Sie unter [Einrichten von Stagingumgebungen für webapps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
 
 Wie in beschrieben die [bereitstellen, um das Lernprogramm Umgebung testen](deploying-to-iis.md), wird der zuverlässige testumgebung ist eine Website auf dem Hostinganbieter, die wie bei der Website für die Produktion hat. Viele Hostinganbietern, müssten Sie die Vorteile dieser gegen erhebliche zusätzliche Kosten abwägen, aber in Azure erstellen Sie eine zusätzliche kostenloses Web-app als der staging-app. Sie benötigen auch eine Datenbank und die zusätzliche Kosten für, die über die Ausgaben für die Produktionsdatenbank wird entweder "keiner" sein oder minimalen. In Azure bezahlen Sie für die Menge an Datenbankspeicher, die Sie verwenden, anstatt für jede Datenbank, und die Menge an zusätzlichem Speicher, die Teil einer Stagingumgebung verwendet werden, werden minimal sein.

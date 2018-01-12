@@ -5,17 +5,17 @@ description: "Erfahren Sie, wie statische Ressourcen in einer ASP.NET Core-Web-A
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>Bundling und Minimierung
 
@@ -75,7 +75,7 @@ Geben Sie die Razor-Seiten und MVC-Projektvorlagen einen *bundleconfig.json* Kon
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-Bundle-Optionen:
+Konfigurationsoptionen sind verfügbar:
 
 * `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **Erforderlich**
 * `inputFiles`: Ein Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
@@ -91,6 +91,9 @@ Bundle-Optionen:
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Zur Buildzeit Ausführung Bündelung und Minimierung
 
 Die [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet-Paket ermöglicht die Ausführung von Bündelung und Minimierung zur Buildzeit. Das Paket fügt [MSBuild-Ziele](/visualstudio/msbuild/msbuild-targets) dem zu erstellen und bereinigen Uhrzeit ausgeführt. Die *bundleconfig.json* Datei durch den Buildprozess die Ausgabedateien auf Basis der Konfiguration definierten erzeugen analysiert.
+
+> [!NOTE]
+> BuildBundlerMinifier gehört zu einem Projekt Community gesteuerte auf GitHub für die keine Unterstützung von Microsoft bereitgestellt. Sollten Probleme gemeldet werden [hier](https://github.com/madskristensen/BundlerMinifier/issues).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -176,6 +179,9 @@ Es ist möglich, die auf einer ad-hoc-Basis der Bündelung und Minimierung Aufga
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
+> [!NOTE]
+> BundlerMinifier.Core gehört zu einem Projekt Community gesteuerte auf GitHub für die keine Unterstützung von Microsoft bereitgestellt. Sollten Probleme gemeldet werden [hier](https://github.com/madskristensen/BundlerMinifier/issues).
+
 Dieses Paket erweitert, die .NET Core CLI enthalten die *Dotnet-Bundle* Tool. Der folgende Befehl kann im Paket-Manager-Konsole (PMC)-Fenster oder in eine Befehlsshell ausgeführt werden:
 
 ```console
@@ -243,6 +249,9 @@ Es gibt Fälle, in denen eine app Bündelung und Minimierung Workflow zusätzlic
 ### <a name="use-the-bundler--minifier-extension"></a>Verwenden Sie die Erweiterung Bundle & Minifier
 
 Visual Studio [Bundle & Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) Erweiterung übernimmt die Konvertierung in Gulp.
+
+> [!NOTE]
+> Die Erweiterung Bundle & Minifier gehört zu einem Projekt Community gesteuerte auf GitHub für die keine Unterstützung von Microsoft bereitgestellt. Sollten Probleme gemeldet werden [hier](https://github.com/madskristensen/BundlerMinifier/issues).
 
 Mit der rechten Maustaste die *bundleconfig.json* im Projektmappen-Explorer die Datei, und wählen Sie **Bundle & Minifier** > **konvertieren, Gulp...** :
 

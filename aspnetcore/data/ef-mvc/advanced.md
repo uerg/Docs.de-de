@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -192,7 +192,7 @@ Dies schließt diese Reihe von Lernprogramme zum Verwenden der Entity Framework 
 
 Weitere Informationen zu EF Core finden Sie unter der [Dokumentation zu Entity Framework Core](https://docs.microsoft.com/ef/core). Ein Buch ist ebenfalls verfügbar: [Entity Framework Core in Aktion](https://www.manning.com/books/entity-framework-core-in-action).
 
-Informationen dazu, wie Sie Ihre Webanwendung bereitstellen, nachdem Sie es erstellt haben, finden Sie unter [Veröffentlichung und Bereitstellung](../../publishing/index.md).
+Informationen zum Bereitstellen einer Web-app finden Sie unter [Host und Bereitstellen von](xref:host-and-deploy/index).
 
 Weitere Informationen zu anderen Themen im Zusammenhang mit ASP.NET Core MVC, wie beispielsweise Authentifizierung und Autorisierung, finden Sie unter der [Dokumentation zu ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
@@ -247,4 +247,4 @@ Projektmappe:
 Überprüfen Sie die Verbindungszeichenfolge an. Wenn Sie manuell die Datenbankdatei gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge mit einer neuen Datenbank zu beginnen.
 
 >[!div class="step-by-step"]
-[Zurück](inheritance.md)
+[Vorherige](inheritance.md)

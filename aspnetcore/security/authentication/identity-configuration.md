@@ -5,24 +5,24 @@ description: "Verstehen Sie die ASP.NET Core Identity Standardwerte, und konfigu
 keywords: "ASP.NET Core, Identität und Authentifizierung, Sicherheit"
 ms.author: scaddie
 manager: wpickett
-ms.date: 09/18/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 2861ca474e7e82da81943966394a92040ce96ab8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-identity"></a>Konfigurieren von Identität
 
-ASP.NET Core Identität hat einige Standardverhaltensweisen, die Sie in der Anwendungsverzeichnis leicht überschreiben können `Startup` Klasse.
+ASP.NET Core Identität hat allgemeine Verhalten in Clientanwendungen wie z. B. Kennwortrichtlinie, die Dauer der Sperrung und cookieeinstellungen, die Sie in der Anwendungsverzeichnis leicht überschreiben können `Startup` Klasse.
 
 ## <a name="passwords-policy"></a>Kennwörter-Richtlinie
 
-Standardmäßig erfordert Identität an, dass Kennwörter ein Großbuchstabe, Kleinbuchstabe, eine Ziffer und ein nicht alphanumerisches Zeichen enthalten. Es gibt auch einige andere Einschränkungen. Wenn Sie kennworteinschränkungen vereinfachen möchten, Sie können dies tun, der `Startup` Ihrer Anwendungsklasse.
+Standardmäßig erfordert Identität an, dass Kennwörter ein Großbuchstabe, Kleinbuchstabe, eine Ziffer und ein nicht alphanumerisches Zeichen enthalten. Es gibt auch einige andere Einschränkungen. Zur Vereinfachung der kennworteinschränkungen Ändern der `ConfigureServices` Methode von der `Startup` Ihrer Anwendungsklasse.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -37,12 +37,15 @@ ASP.NET Core 2.0 hinzugefügt der `RequiredUniqueChars` Eigenschaft. Andernfalls
 ---
 
 `IdentityOptions.Password`hat die folgenden Eigenschaften:
-* `RequireDigit`: Eine Zahl zwischen 0-9, das Kennwort erfordert. Der Standardwert ist "true".
-* `RequiredLength`: Die Mindestlänge des Kennworts. Der Standardwert ist 6.
-* `RequireNonAlphanumeric`: Ein nicht alphanumerisches Zeichen im Kennwort erfordert. Der Standardwert ist "true".
-* `RequireUppercase`: Ein Großbuchstaben Zeichen im Kennwort erfordert. Der Standardwert ist "true".
-* `RequireLowercase`: Das Kennwort ein Kleinbuchstabe erforderlich. Der Standardwert ist "true".
-* `RequiredUniqueChars`: Die Anzahl der unterschiedlichen Zeichen im Kennwort erfordert. Der Standardwert ist 1.
+
+| Eigenschaft                | Beschreibung                       | Standard |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireDigit`          | Erfordert eine Zahl zwischen 0-9, das Kennwort an. | true |
+| `RequiredLength`        | Die Mindestlänge des Kennworts. | 6 |
+| `RequireNonAlphanumeric`| Ist ein nicht alphanumerisches Zeichen im Kennwort erforderlich. | true |
+| `RequireUppercase`      | Erfordert ein Großbuchstaben Zeichen im Kennwort. | true |
+| `RequireLowercase`      | Ist das Kennwort ein Kleinbuchstabe erforderlich. | true |
+| `RequiredUniqueChars`   | Ist die Anzahl der unterschiedlichen Zeichen im Kennwort erforderlich. | 1 |
 
 
 ## <a name="users-lockout"></a>Benutzersperre
@@ -50,27 +53,35 @@ ASP.NET Core 2.0 hinzugefügt der `RequiredUniqueChars` Eigenschaft. Andernfalls
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
 
 `IdentityOptions.Lockout`hat die folgenden Eigenschaften:
-* `DefaultLockoutTimeSpan`: Die Zeitspanne ist ein Benutzer gesperrt, wenn eine Sperre auftritt. Der Standardwert ist 5 Minuten.
-* `MaxFailedAccessAttempts`: Die Anzahl fehlerhafter Zugriffsversuche, bis ein Benutzer gesperrt ist, wenn die Sperre aktiviert ist. Der Standardwert ist 5.
-* `AllowedForNewUsers`: Wird bestimmt, ob ein neuer Benutzer gesperrt werden kann. Der Standardwert ist "true".
 
+| Eigenschaft                | Beschreibung                       | Standard |
+| ----------------------- | --------------------------------- | ------- |
+| `DefaultLockoutTimeSpan` | Die Zeitdauer ist ein Benutzer gesperrt, wenn eine Sperre auftritt.  | 5 Minuten  |
+| `MaxFailedAccessAttempts` | Die Anzahl fehlerhafter Zugriffsversuche, bis ein Benutzer gesperrt ist, wenn die Sperre aktiviert ist.  | 5 |
+| `AllowedForNewUsers` | Bestimmt, ob ein neuer Benutzer gesperrt werden kann.  | true |
 
 ## <a name="sign-in-settings"></a>Anmeldeeinstellungen
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
 `IdentityOptions.SignIn`hat die folgenden Eigenschaften:
-* `RequireConfirmedEmail`: Erfordert eine bestätigte e-Mail, sich anzumelden. Der Standardwert ist "false".
-* `RequireConfirmedPhoneNumber`: Erfordert eine bestätigte Telefonnummer, sich anzumelden. Der Standardwert ist "false".
 
+| Eigenschaft                | Beschreibung                       | Standard |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireConfirmedEmail` | Erfordert eine bestätigte e-Mail, sich anzumelden. | False  |
+| `RequireConfirmedPhoneNumber` |  Erfordert eine bestätigte Telefonnummer, sich anzumelden. | False  |
 
 ## <a name="user-validation-settings"></a>Überprüfung von benutzereinstellungen
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
 `IdentityOptions.User`hat die folgenden Eigenschaften:
-* `RequireUniqueEmail`: Muss jeder Benutzer eine eindeutige e-Mail-Adresse haben. Der Standardwert ist "false".
-* `AllowedUserNameCharacters`: Zulässigen Zeichen des Benutzernamens. Der Standardwert ist abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+.
+
+| Eigenschaft                | Beschreibung                       | Standard |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireUniqueEmail`  | Erfordert eine eindeutige e-Mail-Adresse für jeden Benutzer. | False  |
+| `AllowedUserNameCharacters`  | Zulässige Zeichen des Benutzernamens. | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ |
+
 
 ## <a name="applications-cookie-settings"></a>Cookie-Einstellungen der Anwendung
 
@@ -86,17 +97,19 @@ Unter `ConfigureServices` in der `Startup` -Klasse, Sie können die Anwendung Co
 
 [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
---- 
+---
 
 `CookieAuthenticationOptions`hat die folgenden Eigenschaften:
-* `Cookie.Name`: Der Name des Cookies. Der Standardwert ist. AspNetCore.Cookies.
-* `Cookie.HttpOnly`: Bei "true", ist das Cookie nicht aus einer clientseitigen Skripts zugegriffen werden kann. Der Standardwert ist "true".
-* `ExpireTimeSpan`: Steuert, wie viel Zeit das Authentifizierungsticket im Cookie gespeichert ab dem Punkt gültig bleibt, die er erstellt wird. Der Standardwert ist 14 Tage.
-* `LoginPath`: Wenn ein Benutzer nicht autorisiert ist, werden er auf diesen Pfad für die Anmeldung umgeleitet. Der Standardwert ist/Account/Anmeldung.
-* `LogoutPath`: Wenn ein Benutzer abgemeldet ist, werden er auf diesen Pfad umgeleitet. Der Standardwert ist/Account/Abmeldung.
-* `AccessDeniedPath`: Wenn ein Benutzer mit einer autorisierungsprüfung fehlschlägt, werden er auf diesen Pfad umgeleitet. Der Standardwert ist/Account/AccessDenied.
-* `SlidingExpiration`: Bei "true", wird ein neues Cookie mit einer neuen Ablaufzeit ausgegeben werden, wenn das aktuelle Cookie mehr als genau, über das Fenster "Ablaufdatum" liegt. Der Standardwert ist "true".
-* `ReturnUrlParameter`: Die ReturnUrlParameter bestimmt den Namen des Abfragezeichenfolgen-Parameters das von der Middleware angefügt wird, wenn ein Statuscode "401 nicht autorisiert" in eine 302-Umleitung Anmeldepfad geändert wird.
-* `AuthenticationScheme`: Dies ist nur für ASP.NET Core 1.x. Der logische Name für ein bestimmtes Authentifizierungsschema.
-* `AutomaticAuthenticate`: Dieses Flag ist nur relevant für ASP.NET Core 1.x. Bei "true", sollte Cookieauthentifizierung für jede Anforderung ausgeführt und versuchen, zu überprüfen und rekonstruieren serialisierten Prinzipal, der Sie erstellt.
 
+| Eigenschaft                | Beschreibung                       | Standard |
+| ----------------------- | --------------------------------- | ------- |
+| `Cookie.Name`  | Der Name des Cookies.  | . AspNetCore.Cookies.  |
+| `Cookie.HttpOnly`  | Bei "true", ist das Cookie nicht aus einer clientseitigen Skripts zugegriffen werden kann.  |  true |
+| `ExpireTimeSpan`  | Steuert, wie viel Zeit das Authentifizierungsticket im Cookie gespeichert ab dem Punkt gültig bleibt, die er erstellt wird.  | 14 Tage  |
+| `LoginPath`  | Wenn ein Benutzer nicht autorisiert ist, werden er auf diesen Pfad für die Anmeldung umgeleitet. | / /-Kontoanmeldung  |
+| `LogoutPath`  | Wenn ein Benutzer abgemeldet ist, werden er auf diesen Pfad umgeleitet.  | / Account/Abmeldung  |
+| `AccessDeniedPath`  | Wenn ein Benutzer mit einer autorisierungsprüfung fehlschlägt, werden er auf diesen Pfad umgeleitet.  |   |
+| `SlidingExpiration`  | Bei "true", wird ein neues Cookie mit einer neuen Ablaufzeit ausgegeben werden, wenn das aktuelle Cookie mehr als genau, über das Fenster "Ablaufdatum" liegt.  | / Account/AccessDenied |
+| `ReturnUrlParameter`  | Legt den Namen des Abfragezeichenfolgen-Parameters das von der Middleware angefügt wird, wenn ein Statuscode "401 nicht autorisiert" in eine 302-Umleitung Anmeldepfad geändert wird.  |  true |
+| `AuthenticationScheme`  | Dies ist nur für ASP.NET Core 1.x. Der logische Name für ein bestimmtes Authentifizierungsschema. |  |
+| `AutomaticAuthenticate`  | Dieses Flag ist nur relevant für ASP.NET Core 1.x. Bei "true", sollte Cookieauthentifizierung für jede Anforderung ausgeführt und versuchen, zu überprüfen und rekonstruieren serialisierten Prinzipal, der Sie erstellt.  |  |
