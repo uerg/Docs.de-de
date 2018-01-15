@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: 337cc69ef522452c17cdd6ea4a5e71cd122035dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30e911703d5c36d076872f91d4b2fafeefb91f5
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>ASP.NET Core mit IIS auf Nano Server
 
@@ -37,7 +37,7 @@ Sie verfügen über drei einfache Möglichkeiten, Nano Server zu testen. Wenn Si
 
 In diesem Tutorial verwenden wir die zweite Option, die vorgefertigte Nano Server-VHD von Windows Server 2016.
 
-Um mit diesem Tutorial fortfahren zu können, benötigen Sie die [veröffentlichte Ausgabe](xref:hosting/directory-structure) einer vorhandenen ASP.NET Core-Anwendung. Vergewissern Sie sich, dass ihre Anwendung so erstellt wurde, dass sie in einem **64-Bit**-Prozess ausgeführt werden kann.
+Um mit diesem Tutorial fortfahren zu können, benötigen Sie die [veröffentlichte Ausgabe](xref:host-and-deploy/directory-structure) einer vorhandenen ASP.NET Core-Anwendung. Vergewissern Sie sich, dass ihre Anwendung so erstellt wurde, dass sie in einem **64-Bit**-Prozess ausgeführt werden kann.
 
 ## <a name="setting-up-the-nano-server-instance"></a>Einrichten der Nano Server-Instanz
 
@@ -191,7 +191,7 @@ Beispiel dafür, wie *web.config* aussehen kann, wenn *dotnet.exe* **nicht** zum
 </configuration>
 ```
 
-Führen Sie die folgenden Befehle in der Remotesitzung aus, um in IIS auf einem anderen Port als dem, der für die Standardwebsite vorgesehen ist, einen neuen Standort zu erstellen. Außerdem müssen Sie diesen Port öffnen, um Zugriff auf das Internet zu erhalten. Dieses Skript verwendet den `DefaultAppPool` aus Gründen der Einfachheit. Weitere Überlegungen zur Ausführung unter einem Anwendungspool finden Sie unter [Application Pools (Anwendungspools)](xref:publishing/iis#application-pools).
+Führen Sie die folgenden Befehle in der Remotesitzung aus, um in IIS auf einem anderen Port als dem, der für die Standardwebsite vorgesehen ist, einen neuen Standort zu erstellen. Außerdem müssen Sie diesen Port öffnen, um Zugriff auf das Internet zu erhalten. Dieses Skript verwendet den `DefaultAppPool` aus Gründen der Einfachheit. Weitere Überlegungen zur Ausführung unter einem Anwendungspool finden Sie unter [Application Pools (Anwendungspools)](xref:host-and-deploy/iis/index#application-pools).
 
 ```PowerShell
 Import-module IISAdministration
@@ -205,4 +205,4 @@ New-NetFirewallRule -Name "AspNetCore Port 81 IIS" -DisplayName "Allow HTTP on T
 
 ## <a name="running-the-application"></a>Ausführen der Anwendung
 
-Auf die veröffentlichte Web-App können Sie in einem Browser über `http://192.168.1.10:8000` zugreifen. Wenn Sie die Protokollierung wie unter [Log creation and redirection (Erstellen und Umleiten von Protokollen)](xref:hosting/aspnet-core-module#log-creation-and-redirection) beschrieben eingerichtet haben, können Sie sich die Protokolle unter *C:\PublishedApps\AspNetCoreSampleForNano\logs* ansehen.
+Auf die veröffentlichte Web-App können Sie in einem Browser über `http://192.168.1.10:8000` zugreifen. Wenn Sie die Protokollierung wie unter [Log creation and redirection (Erstellen und Umleiten von Protokollen)](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) beschrieben eingerichtet haben, können Sie sich die Protokolle unter *C:\PublishedApps\AspNetCoreSampleForNano\logs* ansehen.
