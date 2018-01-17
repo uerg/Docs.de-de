@@ -1,0 +1,4 @@
+  > [!NOTE]
+  > <span data-ttu-id="0cea2-101">Damit Sie ASP.NET Core in .NET Framework verwenden können, müssen Sie zunächst **.NET Framework** aus der Dropdownliste im Dialogfeld im linken Bereich auswählen. Anschließend können Sie die gewünschte ASP.NET Core-Version auswählen.</span><span class="sxs-lookup"><span data-stu-id="0cea2-101">To use ASP.NET Core with .NET Framework, you must first select **.NET Framework** from the leftmost drop-down in the dialog, then you can select the desired ASP.NET Core version.</span></span>
+
+  ![Webanwendung (Razor-Seiten)](../tutorials/razor-pages/razor-pages-start/_static/np2.png)
