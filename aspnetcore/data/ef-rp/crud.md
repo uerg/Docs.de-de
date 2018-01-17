@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit Razor-Seiten (2 von 8)
 
@@ -202,7 +202,7 @@ In einer Web-app die `DbContext` , liest eine Entität und zeigt die Daten freig
 
 ## <a name="update-the-delete-page"></a>Aktualisieren Sie die Seite "löschen"
 
-In diesem Abschnitt wird Code hinzugefügt, um einen benutzerdefinierten Fehler implementieren Meldung an, wenn der Aufruf von `SaveChanges` ein Fehler auftritt. Fügen Sie eine Zeichenfolge, um Fehlermeldungen Possile enthalten:
+In diesem Abschnitt wird Code hinzugefügt, um einen benutzerdefinierten Fehler implementieren Meldung an, wenn der Aufruf von `SaveChanges` ein Fehler auftritt. Fügen Sie eine Zeichenfolge, um mögliche Fehlermeldungen enthalten:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 

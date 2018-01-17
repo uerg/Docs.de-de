@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -130,12 +130,12 @@ Alle Domänencontroller-Methoden, die nicht über eine Route-Attribut verfügen 
 
 Web-API wählt auch Aktionen, die auf der Grundlage der HTTP-Methode der Anforderung (GET, POST usw.). Standardmäßig sucht Web-API für die Groß-/Kleinschreibung Übereinstimmung mit dem Start des Methodennamens Controller. Z. B. einen Controllermethode, die mit dem Namen `PutCustomers` eine HTTP PUT-Anforderung übereinstimmt.
 
-Sie können diese Konvention überschreiben werden, indem die Mathod mit die folgenden Attribute:
+Sie können diese Konvention überschreiben werden, indem die Methode mit die folgenden Attributen:
 
 - **[HttpDelete]**
 - **[HttpGet]**
 - **[HttpHead]**
-- **["HttpOptions"]**
+- **[HttpOptions]**
 - **[HttpPatch]**
 - **[HttpPost]**
 - **[HttpPut]**
@@ -180,22 +180,22 @@ Die folgende Tabelle enthält die Einschränkungen, die unterstützt werden.
 
 | Constraint | Beschreibung | Beispiel |
 | --- | --- | --- |
-| Alpha | Übereinstimmungen Groß- oder Kleinbuchstaben Zeichen des lateinischen Alphabets (a-Z, A-Z) | {X: Alpha} |
-| bool | Entspricht einem booleschen Wert. | {X: Bool} |
-| datetime | Entspricht einem **"DateTime"** Wert. | {X: "DateTime"} |
-| decimal | Entspricht einen decimal-Wert. | {X: Decimal} |
-| double | Entspricht einer 64-Bit-Gleitkommawert. | {X: Double} |
-| frei verschieben | Entspricht einem 32-Bit-Gleitkommawert. | {X: "float"} |
-| guid | Entspricht einen GUID-Wert. | {X: Guid} |
-| int | Entspricht einem 32-Bit-Ganzzahl-Wert. | {X: Int} |
-| Länge | Entspricht einer Zeichenfolge mit der angegebenen Länge oder innerhalb eines bestimmten Bereichs Länge. | {X: length(6)} {X: length(1,20)} |
-| long | Entspricht einem 64-Bit-Ganzzahl-Wert. | {X: Long} |
-| max | Entspricht einer ganzen Zahl mit einem Maximalwert. | {X: max(10)} |
+| Alpha | Übereinstimmungen Groß- oder Kleinbuchstaben Zeichen des lateinischen Alphabets (a-Z, A-Z) | {x:alpha} |
+| bool | Entspricht einem booleschen Wert. | {x:bool} |
+| datetime | Entspricht einem **"DateTime"** Wert. | {x:datetime} |
+| decimal | Entspricht einen decimal-Wert. | {x:decimal} |
+| double | Entspricht einer 64-Bit-Gleitkommawert. | {x:double} |
+| float | Entspricht einem 32-Bit-Gleitkommawert. | {x:float} |
+| guid | Entspricht einen GUID-Wert. | {x:guid} |
+| int | Entspricht einem 32-Bit-Ganzzahl-Wert. | {x:int} |
+| Länge | Entspricht einer Zeichenfolge mit der angegebenen Länge oder innerhalb eines bestimmten Bereichs Länge. | {x:length(6)} {x:length(1,20)} |
+| long | Entspricht einem 64-Bit-Ganzzahl-Wert. | {x:long} |
+| max | Entspricht einer ganzen Zahl mit einem Maximalwert. | {x:max(10)} |
 | MaxLength | Entspricht einer Zeichenfolge mit einer maximalen Länge. | {X: maxlength(10)} |
-| Min. | Entspricht einer ganzen Zahl mit einem Mindestwert. | {X: min(10)} |
+| Min. | Entspricht einer ganzen Zahl mit einem Mindestwert. | {x:min(10)} |
 | "minLength" | Mit einer Zeichenfolge mit einer minimalen Länge überein. | {X: minlength(10)} |
-| range | Entspricht einer ganzen Zahl innerhalb eines Bereichs von Werten. | {X: range(10,50)} |
-| regex | Mit einem regulären Ausdruck übereinstimmt. | {X: regex(^\d{3}-\d{3}-\d{4}$)} |
+| range | Entspricht einer ganzen Zahl innerhalb eines Bereichs von Werten. | {x:range(10,50)} |
+| regex | Mit einem regulären Ausdruck übereinstimmt. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Beachten Sie, dass einige Einschränkungen, wie z. B. &quot;min&quot;, Argumente in Klammern. Sie können mehrere Einschränkungen auf einen Parameter, die durch einen Doppelpunkt getrennt anwenden.
 
@@ -271,7 +271,7 @@ Mit diesen Routen werden folgendermaßen sortiert.
 
 1. Aufträge/details
 2. Aufträge / {Id}
-3. Aufträge / {Kundenname}
+3. orders/{customerName}
 4. Aufträge / {\*Date}
 5. Aufträge / ausstehend
 
