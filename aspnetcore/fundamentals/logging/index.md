@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 3eb167c961b8d089d508ef5622db6ae1cdd99088
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in die Protokollierung in ASP.NET Core
 
@@ -56,7 +56,7 @@ Um einen Anbieter zu verwenden, rufen Sie die `Add<ProviderName>`-Erweiterungsme
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-Die Standardprojektvorlage richtet die Protokollierung so wie im vorherigen Codeausschnitt ein, aber der Aufruf von `ConfigureLogging` erfolgt mit der Methode `CreateDefaultBuilder`. Hier der Code in *Program.cs*, der über die Projektvorlagen erstellt wird:
+Die Standardprojektvorlage ermöglicht die Protokollierung mit der Methode [CreateDefaultBuilder](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___):
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -299,14 +299,14 @@ Die Konfigurationsdaten und der in den vorangegangenen Beispielen gezeigte `AddF
 
 | Anzahl | Anbieter      | Kategorien beginnend mit...          | Mindestprotokolliergrad |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debuggen         | Alle Kategorien                          | Information       |
+| 1      | Debug         | Alle Kategorien                          | Information       |
 | 2      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Internal | Warnung           |
-| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debuggen             |
+| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
 | 4      | Konsole       | Microsoft.AspNetCore.Mvc.Razor          | Fehler             |
 | 5      | Konsole       | Alle Kategorien                          | Information       |
-| 6      | Alle Anbieter | Alle Kategorien                          | Debuggen             |
-| 7      | Alle Anbieter | System                                  | Debuggen             |
-| 8      | Debuggen         | Microsoft                               | Ablaufverfolgung             |
+| 6      | Alle Anbieter | Alle Kategorien                          | Debug             |
+| 7      | Alle Anbieter | System                                  | Debug             |
+| 8      | Debug         | Microsoft                               | Ablaufverfolgung             |
 
 Wenn Sie ein `ILogger`-Objekt zum Schreiben von Protokollen erstellen, wählt das `ILoggerFactory`-Objekt eine einzige Regel pro Anbieter aus, die auf diese Protokollierung angewendet wird. Alle über dieses `ILogger`-Objekt geschriebenen Meldungen werden auf Grundlage der ausgewählten Regeln gefiltert. Aus den verfügbaren Regeln wird die für jeden Anbieter und jedes Kategoriepaar spezifischste Regel ausgewählt.
 
@@ -329,7 +329,7 @@ Wenn Sie mit `ILogger` Protokolle für die Kategorie „Microsoft.AspNetCore.Mvc
 Sie können den Typnamen verwenden, um einen Anbieter in der Konfiguration anzugeben, aber jeder Anbieter definiert einen kürzeren *Alias*, der einfacher zu verwenden ist. Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
 
 - Konsole
-- Debuggen
+- Debug
 - EventLog
 - AzureAppServices
 - TraceSource

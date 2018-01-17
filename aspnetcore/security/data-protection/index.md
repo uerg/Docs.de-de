@@ -11,11 +11,11 @@ ms.assetid: 1f402da8-1052-4970-9835-9f9f16a02dbc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: 8b42e65bb6121355120a6f4fbe8cd4d1fea153de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbf18c6ec867fefec22980f3e3493562594ef72d
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>Schutz von Daten in ASP.NET Core: Consumer-APIs, Konfiguration, Erweiterbarkeits-APIs und Implementierung
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/10/2017
 
   * [Übersicht über Consumer-APIs](consumer-apis/overview.md)
 
-  * [Zweckzeichenfolgen](consumer-apis/purpose-strings.md)
+  * [purpose-Zeichenfolgen](consumer-apis/purpose-strings.md)
 
   * [Zweckhierarchie und Mehrinstanzenfähigkeit](consumer-apis/purpose-strings-multitenancy.md)
 
-  * [Kennwort-Hashing](consumer-apis/password-hashing.md)
+  * [Kennworthashing](consumer-apis/password-hashing.md)
 
   * [Beschränken der Lebensdauer von geschützten Nutzlasten](consumer-apis/limited-lifetime-payloads.md)
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 11/10/2017
 
   * [Standardeinstellungen](configuration/default-settings.md)
 
-  * [Computerübergreifende Richtlinie](configuration/machine-wide-policy.md)
+  * [Computerweite Richtlinie](configuration/machine-wide-policy.md)
 
-  * [Szenarios, die die Abhängigkeitsinjektion nicht beachten](configuration/non-di-scenarios.md)
+  * [Szenarios ohne Möglichkeiten zur Abhängigkeitsinjektion](configuration/non-di-scenarios.md)
 
 * [Erweiterbarkeits-APIs](extensibility/index.md)
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/10/2017
 
   * [Schlüsselspeicheranbieter](implementation/key-storage-providers.md)
 
-  * [Ruhende Verschlüsselung von Schlüsseln](implementation/key-encryption-at-rest.md)
+  * [Verschlüsselung ruhender Daten mit Schlüsseln](implementation/key-encryption-at-rest.md)
 
   * [Unveränderlichkeit von Schlüsseln und Ändern von Einstellungen](implementation/key-immutability.md)
 
@@ -77,6 +77,6 @@ ms.lasthandoff: 11/10/2017
 
 * [Kompatibilität](compatibility/index.md)
 
-  * [Freigeben von Cookies zwischen Anwendungen](compatibility/cookie-sharing.md)
+  * [Freigeben von Cookies zwischen Apps](compatibility/cookie-sharing.md)
 
   * [Ersetzen von <machineKey> in ASP.NET](compatibility/replacing-machinekey.md)

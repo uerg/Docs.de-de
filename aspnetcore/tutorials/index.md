@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 66f6e4542dd208a986b256acd4bd1d0381aa46c6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: acedebaa9b89a0e00602b497d11d5612fce99a5f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core-Tutorials
 
 Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-Anwendungen sind verfügbar:
 
-## <a name="building-web-applications"></a>Erstellen von Webanwendungen
+## <a name="build-web-apps"></a>Erstellen von Web-Apps
 
 [Razor-Seiten](xref:mvc/razor-pages/index) sind der empfohlene Ansatz für das Erstellen einer neuen Web-UI-App mit ASP.NET Core 2.0.
 
@@ -40,9 +40,9 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
 * [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
 * [Erstellen von Taghilfsprogrammen](../mvc/views/tag-helpers/authoring.md)
 * [Erstellen einer einfachen Ansichtskomponente](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [Entwickeln von ASP.NET Core-Anwendungen mit dotnet watch](dotnet-watch.md)
+* [Entwickeln von ASP.NET Core-Apps mit dotnet watch](dotnet-watch.md)
 
-## <a name="building-web-apis"></a>Erstellen von Web-APIs
+## <a name="build-web-apis"></a>Erstellen von Web-APIs
 * Erstellen einer Web-API mit ASP.NET Core
 
   * [Web-API mit Visual Studio für Windows](first-web-api.md)
@@ -50,9 +50,9 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
   * [Web-API mit Visual Studio Code](web-api-vsc.md)
   
 * [ASP.NET Core-Web-API-Hilfeseiten mit Swagger](web-api-help-pages-using-swagger.md)
-* [Erstellen von Back-End-Webdiensten für native mobile Anwendungen](../mobile/native-mobile-backend.md)
+* [Erstellen von Back-End-Webdiensten für native mobile Apps](../mobile/native-mobile-backend.md)
 
-## <a name="working-with-data"></a>Arbeiten mit Daten
+## <a name="data-access-and-storage"></a>Datenzugriff und -speicherung
 * [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
 * [ASP.NET Core mit EF Core – neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core mit EF Core – bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
@@ -62,19 +62,19 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
 * [Kontobestätigung und Kennwortwiederherstellung](../security/authentication/accconfirm.md)
 * [Zweistufige Authentifizierung mit SMS](../security/authentication/2fa.md)
 
-## <a name="client-side-development"></a>Clientbasierte Entwicklung
+## <a name="client-side-development"></a>Clientseitige Entwicklung
 * [Verwenden von Gulp](../client-side/using-gulp.md)
 * [Verwenden von Grunt](../client-side/using-grunt.md)
 * [Verwalten von clientseitigen Paketen mit Bower](../client-side/bower.md)
-* [Erstellen von ansprechenden, antwortenden Websites mit Bootstrap](../client-side/bootstrap.md)
+* [Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap](../client-side/bootstrap.md)
 
-## <a name="testing"></a>Test
-* [Unittests in .NET Core mit dotnet-test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+## <a name="test"></a>Test
+* [Komponententests in .NET Core mit dotnet-test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publishing-and-deployment"></a>Paketerstellung und Bereitstellung
+## <a name="publish-and-deploy"></a>Veröffentlichen und Bereitstellen
 * [Bereitstellen einer ASP.NET Core-Web-App in Azure mit Visual Studio](publish-to-azure-webapp-using-vs.md)
 * [Bereitstellen einer ASP.NET Core-Web-App in Azure über die Befehlszeile](publish-to-azure-webapp-using-cli.md)
-* [Veröffentlichen in einer Azure-Web-App mit Continuous Deployment](../publishing/azure-continuous-deployment.md)
+* [Veröffentlichen in einer Azure-Web-App mit Continuous Deployment](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [Bereitstellen eines ASP.NET-Containers mit einem Docker-Remotehost](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [ASP.NET Core auf Nano Server](nano-server.md)
 * [ASP.NET Core und Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)

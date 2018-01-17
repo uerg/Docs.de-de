@@ -11,11 +11,11 @@ keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, Linux, HTTP, Service, HTTP-D
 manager: wpickett
 ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: caf40ee1c2d45d2fbf33b07d707fa4f1be98d31c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40f9259101e5d006378562a27e97948641e29450
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio Code unter macOS Linux und Windows
 
@@ -57,7 +57,7 @@ dotnet new webapi
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
-![VS Code mit der Warnung „Required assets to build and debug are missing from „MvcMovie“. Add them?“ („Die erforderlichen Objekte für die Erstellung und das Debugging sind in 'TodoApi' nicht vorhanden. Sollen Sie hinzugefügt werden?“) angezeigt wird. „Nicht mehr fragen“, „Nicht jetzt“, „Ja“ und auch die Information über nicht aufgelöste Abhängigkeiten – Wiederherstellen – Schließen](web-api-vsc/_static/vsc_restore.png)
+![VS Code mit der Warnung „Required assets to build and debug are missing from „MvcMovie“. Add them?“ („Die erforderlichen Objekte für die Erstellung und das Debugging sind in 'TodoApi' nicht vorhanden. Sollen Sie hinzugefügt werden?“) angezeigt wird. Nicht erneut nachfragen, Nicht jetzt, Ja](web-api-vsc/_static/vsc_restore.png)
 
 Drücken Sie **Debuggen** (F5), um das Programm zu erstellen und auszuführen. Navigieren Sie in einem Browser zu „http://localhost:5000/api/values“. Folgendes wird angezeigt:
 
@@ -67,15 +67,13 @@ In der [Visual Studio Code-Hilfe](#visual-studio-code-help) finden Sie Tipps zum
 
 ## <a name="add-support-for-entity-framework-core"></a>Hinzufügen der Unterstützung für Entity Framework Core
 
-Bearbeiten Sie die Datei *TodoApi.csproj* so, dass der Datenbankanbieter [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) installiert wird. Dieser Datenbankanbieter ermöglicht, dass Entity Framework Core mit einer In-Memory Database verwendet wird.
+Durch das Erstellen eines neuen Projekts in .NET Core 2.0 wird der Anbieter „Microsoft.AspNetCore.All“ zur Datei *TodoApi.csproj* hinzugefügt. Der Datenbankanbieter [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) muss nicht separat installiert werden. Dieser Datenbankanbieter ermöglicht, dass Entity Framework Core mit einer In-Memory Database verwendet wird.
 
 [!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
 
-Führen Sie `dotnet restore` zum Herunterladen und Installieren des Datenbankanbieters „EF Core InMemory“ aus. Sie können `dotnet restore` im Terminal ausführen oder `⌘⇧P` (macOS) oder `Ctrl+Shift+P` (Linux) in VS Code und dann **.NET** eingeben. Wählen Sie **.NET: Pakete wiederherstellen** aus.
-
 ## <a name="add-a-model-class"></a>Hinzufügen einer Modellklasse
 
-Ein Modell ist ein Objekt, das die Daten in Ihrer Anwendung darstellt. In diesem Fall ist das einzige Modell ein To-Do-Element.
+Ein Modell ist ein Objekt, das die Daten in Ihrer Anwendung darstellt. In diesem Fall ist das einzige Modell ein To-do-Element.
 
 Fügen Sie einen Ordner namens *Models* hinzu. Hinweis: Sie können Modellklassen überall in Ihrem Projekt unterbringen, aber gemäß Konvention wird der Ordner *Models* verwendet.
 

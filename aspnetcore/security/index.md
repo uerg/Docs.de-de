@@ -10,11 +10,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 3f4df08d6cf5d183735ae4b4ec4f07ed60a9623a
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: f6a1f32c1edd098b0782fd066d8e32f09952a9b7
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core-Sicherheit (Übersicht)
 
@@ -35,7 +35,7 @@ Eine weitere Möglichkeit, Authentifizierung zu definieren, besteht darin, sie a
 ASP.NET Core und EF enthalten Features, die Ihnen helfen, Ihre Anwendungen zu schützen und Sicherheitsverletzungen zu verhindern. Die folgende Liste von Links verweist auf die Dokumentation, die Techniken zur Vermeidung der häufigsten Sicherheitsrisiken in Web-Apps beschreibt:
 
 * [XSS-Angriffe (Cross-Site Scripting)](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
-* [Angriffe durch Einschleusen von SQL](https://docs.microsoft.com/ef/core/querying/raw-sql)
+* [Angriffe durch Einschleusung von SQL-Befehlen](https://docs.microsoft.com/ef/core/querying/raw-sql)
 * [Websiteübergreifende Anforderungsfälschung (CSRF)](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
 * [Offene Weiterleitungsangriffe](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
 
@@ -49,20 +49,20 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
     * [Konfigurieren der Windows-Authentifizierung](authentication/windowsauth.md)
     *   [Kontobestätigung und Kennwortwiederherstellung](authentication/accconfirm.md)
     *   [Zweistufige Authentifizierung mit SMS](authentication/2fa.md) 
-    *   [Verwenden der Cookieauthentifizierung ohne ASP.NET Core Identity](authentication/cookie.md)
+    *   [Verwenden der Cookieauthentifizierung ohne Identity](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [Integrieren von Azure AD in eine ASP.NET Core-Web-App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-        *   [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-Anwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Aufrufen einer Web-API in einer ASP.NET Core-Webanwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-App mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+        *   [Aufrufen einer Web-API in einer ASP.NET Core-Web-App mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [Eine ASP.NET Core-Web-App in Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-    *   [Sichern von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io)
+    *   [Schützen von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io)
 *   [Autorisierung](authorization/index.md)
     *   [Introduction (Einführung)](authorization/introduction.md)
     *   [Erstellen einer App mit Benutzerdaten, die durch Autorisierung geschützt sind](xref:security/authorization/secure-data)
     *   [Einfache Autorisierung](authorization/simple.md)
     *   [Rollenbasierte Autorisierung](authorization/roles.md)
     *   [Anspruchsbasierte Autorisierung](authorization/claims.md)
-    *   [Benutzerdefinierte, richtlinienbasierte Autorisierung](authorization/policies.md)
+    *   [Richtlinienbasierte Autorisierung](authorization/policies.md)
     *   [Abhängigkeitsinjektion in Anforderungshandlern](authorization/dependencyinjection.md)
     *   [Ressourcenbasierte Autorisierung](authorization/resourcebased.md)
     *   [Ansichtsbasierte Autorisierung](authorization/views.md)
@@ -72,16 +72,16 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
     *   [Erste Schritte mit Datenschutz-APIs](data-protection/using-data-protection.md)
     *   [Consumer-APIs](data-protection/consumer-apis/index.md)
         *   [Übersicht über Consumer-APIs](data-protection/consumer-apis/overview.md)
-        *   [Zweckzeichenfolgen](data-protection/consumer-apis/purpose-strings.md)
+        *   [purpose-Zeichenfolgen](data-protection/consumer-apis/purpose-strings.md)
         *   [Zweckhierarchie und Mehrinstanzenfähigkeit](data-protection/consumer-apis/purpose-strings-multitenancy.md)
-        *   [Kennwort-Hashing](data-protection/consumer-apis/password-hashing.md)
-        *   [Beschränken der Lebensdauer von geschützten Nutzlasten](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Aufheben des Schutzes von Nutzlasten, deren Schlüssel gesperrt wurden](data-protection/consumer-apis/dangerous-unprotect.md)
+        *   [Kennworthashing](data-protection/consumer-apis/password-hashing.md)
+        *   [Beschränken der Lebensdauer von geschützten Payloads](data-protection/consumer-apis/limited-lifetime-payloads.md)
+        *   [Aufheben des Schutzes von Payloads, deren Schlüssel gesperrt wurden](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Konfiguration](data-protection/configuration/index.md)
         *   [Konfigurieren des Schutzes von Daten](data-protection/configuration/overview.md)
         *   [Standardeinstellungen](data-protection/configuration/default-settings.md)
-        *   [Computerübergreifende Richtlinie](data-protection/configuration/machine-wide-policy.md)
-        *   [Szenarios, die die Abhängigkeitsinjektion nicht beachten](data-protection/configuration/non-di-scenarios.md)
+        *   [Computerweite Richtlinie](data-protection/configuration/machine-wide-policy.md)
+        *   [Szenarios ohne Möglichkeiten zur Abhängigkeitsinjektion](data-protection/configuration/non-di-scenarios.md)
     *   [Erweiterbarkeits-APIs](data-protection/extensibility/index.md)
         *   [Kryptografieerweiterbarkeit in Core](data-protection/extensibility/core-crypto.md)
         *   [Schlüsselverwaltungserweiterbarkeit](data-protection/extensibility/key-management.md)
@@ -92,18 +92,18 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
         *   [Kontextheader](data-protection/implementation/context-headers.md)
         *   [Schlüsselverwaltung](data-protection/implementation/key-management.md)
         *   [Schlüsselspeicheranbieter](data-protection/implementation/key-storage-providers.md)
-        *   [Ruhende Verschlüsselung von Schlüsseln](data-protection/implementation/key-encryption-at-rest.md)
+        *   [Verschlüsselung ruhender Daten mit Schlüsseln](data-protection/implementation/key-encryption-at-rest.md)
         *   [Unveränderlichkeit von Schlüsseln und Ändern von Einstellungen](data-protection/implementation/key-immutability.md)
         *   [Schlüsselspeicherformat](data-protection/implementation/key-storage-format.md)
         *   [Kurzlebige Datenschutzanbieter](data-protection/implementation/key-storage-ephemeral.md)
     *   [Kompatibilität](data-protection/compatibility/index.md)
-        *   [Freigeben von Cookies zwischen Anwendungen](data-protection/compatibility/cookie-sharing.md)
+        *   [Freigeben von Cookies zwischen Apps](data-protection/compatibility/cookie-sharing.md)
         *   [Ersetzen von <machineKey> in ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Erstellen einer App mit Benutzerdaten, die durch Autorisierung geschützt sind](xref:security/authorization/secure-data)
 *   [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](app-secrets.md)
 *   [Azure Key Vault-Konfigurationsanbieter](key-vault-configuration.md)
 *   [Erzwingen von SSL](enforcing-ssl.md)
 *   [Antianforderungsfälschung](anti-request-forgery.md)
-*   [Verhindern von offenen Weiterleitungsangriffen](preventing-open-redirects.md)
-*   [Verhindern von siteübergreifendem Skripting](cross-site-scripting.md)
+*   [Verhindern von Angriffen durch offene Umleitungen](preventing-open-redirects.md)
+*   [Verhindern von siteübergreifendem Scripting](cross-site-scripting.md)
 *   [Aktivieren ursprungsübergreifender Anforderungen (CORS)](cors.md)

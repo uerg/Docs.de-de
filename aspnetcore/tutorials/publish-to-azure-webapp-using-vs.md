@@ -1,22 +1,23 @@
 ---
 title: "Veröffentlichen einer ASP.NET Core-App in Azure mit Visual Studio"
 author: rick-anderson
-description: 
+description: "Erfahren Sie, wie eine ASP.NET Core-App in Azure App Service mit Visual Studio veröffentlicht wird."
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 10/05/2017
+ms.date: 12/16/2017
 ms.topic: get-started-article
-ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 6f697ed4d8876a19cd058533e4f6a5d4f7cdc2fb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e8de630c4fa8cff5395f7246b91384d4725e4ca6
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
+/en-us
+
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs) und [Rachel Appel](https://twitter.com/rachelappel)
@@ -36,9 +37,7 @@ Klicken Sie auf der Startseite von Visual Studio auf **Datei > Neu > Projekt...*
 Vervollständigen Sie das Dialogfeld **Neues Projekt**:
 
 * Wählen Sie im linken Bereich **.NET Core** aus.
-
 * Wählen Sie im mittleren Bereich **ASP.NET Core-Webanwendung** aus.
-
 * Klicken Sie auf **OK**.
 
 ![Dialogfeld "Neues Projekt"](publish-to-azure-webapp-using-vs/_static/new_prj.png)
@@ -46,7 +45,6 @@ Vervollständigen Sie das Dialogfeld **Neues Projekt**:
 Gehen Sie im Dialogfeld **ASP.NET Core-Webanwendung** folgendermaßen vor:
 
 * Wählen Sie **Webanwendung** aus.
-
 * Wählen Sie **Authentifizierung ändern** aus.
 
 ![Dialogfeld "Neues Projekt"](publish-to-azure-webapp-using-vs/_static/new_prj_2.png)
@@ -54,25 +52,24 @@ Gehen Sie im Dialogfeld **ASP.NET Core-Webanwendung** folgendermaßen vor:
 Das Dialogfeld **Authentifizierung ändern** wird angezeigt. 
 
 * Wählen Sie **Einzelne Benutzerkonten** aus.
-
 * Klicken Sie auf **OK**, um zur Seite **Neue ASP.NET Core-Webanwendung** zurückzukehren, und klicken Sie anschließend noch einmal auf **OK**.
 
 ![Dialogfeld „New ASP.NET Core Web Authentication“ (Neue ASP.NET Core-Webauthentifizierung)](publish-to-azure-webapp-using-vs/_static/new_prj_auth.png) 
 
 Visual Studio erstellt die Projektmappe.
 
-## <a name="run-the-app-locally"></a>Lokales Ausführen der App
+## <a name="run-the-app"></a>Ausführen der App
 
-* Wählen Sie zum lokalen Ausführen der App **Debuggen** und dann **Starten ohne Debuggen** aus.
-
-* Klicken Sie auf die Links **Info** und **Kontakt**, um zu überprüfen, ob die Webanwendung funktioniert.
+* Drücken Sie STRG+F5, um das Projekt auszuführen.
+* Testen Sie die Links **About** (Info) und **Contact** (Kontakt).
 
 ![Auf „localhost“ in Microsoft Edge geöffnete Webanwendung](publish-to-azure-webapp-using-vs/_static/show.png)
+
+### <a name="register-a-user"></a>Registrieren eines Benutzers
 
 * Wählen Sie **Registrieren**, und registrieren Sie einen neuen Benutzer. Sie können eine fiktive E-Mail-Adresse verwenden. Sobald Sie diese übermitteln, zeigt die Seite die folgende Fehlermeldung an:
 
     *„Interner Serverfehler: Fehler bei einem Datenbankvorgang beim Verarbeiten der Anforderung. SQL-Ausnahme: Die Datenbank kann nicht geöffnet werden. Das Anwenden vorhandener Migrationen für den Datenbankkontext der Anwendung kann dieses Problem beheben.“*
-
 * Wählen Sie **Migrationen anwenden** aus, und aktualisieren Sie die Seite.
 
 ![Interner Serverfehler: Fehler bei einem Datenbankvorgang beim Verarbeiten der Anforderung. SQL-Ausnahme: Die Datenbank kann nicht geöffnet werden. Das Anwenden vorhandener Migrationen für den Datenbankkontext der Anwendung kann dieses Problem beheben.](publish-to-azure-webapp-using-vs/_static/mig.png)
@@ -83,23 +80,24 @@ Die App zeigt die zum Registrieren des neuen Benutzers verwendete E-Mail-Adresse
 
 ## <a name="deploy-the-app-to-azure"></a>Bereitstellen der App in Azure
 
-Schließen Sie die Webseite, kehren Sie zu Visual Studio zurück, und wählen Sie **Debuggen beenden** im Menü **Debuggen** aus.
-
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen...** aus.
 
 ![Geöffnetes Kontextmenü mit hervorgehobenem Link „Veröffentlichen“](publish-to-azure-webapp-using-vs/_static/pub.png)
 
-Wählen Sie im Dialogfeld **Veröffentlichen** **Microsoft Azure App Service** aus, und klicken Sie auf **Veröffentlichen**.
+Führen Sie im Dialogfeld **Veröffentlichen** folgende Schritte aus:
+
+* Wählen Sie **Microsoft Azure App Service** aus.
+* Klicken Sie auf das Zahnradsymbol, und wählen Sie anschließend **Profil erstellen** aus.
+* Klicken Sie auf **Profil erstellen**.
 
 ![Dialogfeld „Veröffentlichen“](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-* Geben Sie der App einen eindeutigen Namen. 
+### <a name="create-azure-resources"></a>Erstellen von Azure-Ressourcen
 
-* Wählen Sie ein Abonnement aus.
+Das Dialogfeld **App Service erstellen** wird angezeigt:
 
-* Wählen Sie für die Ressourcengruppe **Neu...** aus, und geben Sie einen Namen für die neue Ressourcengruppe ein.
-
-* Klicken Sie für den App Service-Plan auf **Neu...**, und wählen Sie einen Standort in Ihrer Nähe aus. Sie können den standardmäßig generierten Namen behalten.
+* Geben Sie Ihr Abonnement ein.
+* Die Eingabefelder **App-Name**, **Ressourcengruppe** und **App Service-Plan** werden aufgefüllt. Sie können diese Namen beibehalten oder ändern.
 
 ![Dialogfeld „App Service“](publish-to-azure-webapp-using-vs/_static/newrg1.png)
 
@@ -115,9 +113,7 @@ Wählen Sie im Dialogfeld **Veröffentlichen** **Microsoft Azure App Service** a
 
 Das Dialogfeld **SQL Server konfigurieren** wird angezeigt.
 
-* Geben Sie einen Administratorbenutzernamen und ein Kennwort ein, und klicken Sie dann auf **OK**. Merken Sie sich den Benutzernamen und das Kennwort, den/das Sie in diesem Schritt erstellen. Sie können den standardmäßigen **Servernamen** beibehalten. 
-
-* Geben Sie für die Datenbank und die Verbindungszeichenfolge Namen ein.
+* Geben Sie einen Administratorbenutzernamen und ein Kennwort ein, und klicken Sie dann auf **OK**. Sie können den standardmäßigen **Servernamen** beibehalten. 
 
 > [!NOTE]
 > „admin“ ist als Benutzername des Administrators nicht zulässig.
@@ -132,21 +128,22 @@ Visual Studio kehrt zum Dialogfeld **App Service erstellen** zurück.
 
 ![Dialogfeld „SQL-Datenbank konfigurieren“](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-* Klicken Sie im Dialogfeld **Veröffentlichen** auf den Link **Einstellungen**.
+Visual Studio erstellt die Web-App und SQL Server in Azure. Dies kann einige Minuten in Anspruch nehmen. Weitere Informationen zu den erstellten Ressourcen finden Sie unter [Zusätzliche Ressourcen](#additonal-resources).
 
-![Dialogfeld „Veröffentlichen“: Bereich „Verbindung“](publish-to-azure-webapp-using-vs/_static/pubc.png)
+Wenn die Bereitstellung abgeschlossen ist, klicken Sie auf **Einstellungen**:
+
+![Dialogfeld „SQL Server konfigurieren“](publish-to-azure-webapp-using-vs/_static/set.png)
 
 Gehen Sie im Bereich **Einstellungen** im Dialogfeld **Veröffentlichen** so vor:
 
   * Erweitern Sie **Datenbanken**, und aktivieren Sie **Diese Verbindungszeichenfolge zur Laufzeit verwenden**.
-
   * Erweitern Sie **Entity Framework-Migrationen**, und aktivieren Sie **Diese Migration auf Veröffentlichung anwenden**.
 
 * Klicken Sie auf **Speichern**. Visual Studio kehrt zum Dialogfeld **Veröffentlichen** zurück. 
 
 ![Dialogfeld „Veröffentlichen“: Bereich „Einstellungen“](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Klicken Sie auf **Veröffentlichen**. Visual Studio veröffentlicht die App in Azure und startet die Cloud-App in Ihrem Browser.
+Klicken Sie auf **Veröffentlichen**. Visual Studio veröffentlicht Ihre App in Azure. Wenn die Bereitstellung abgeschlossen ist, wird die App im Browser geöffnet.
 
 ### <a name="test-your-app-in-azure"></a>Testen der App in Azure
 
@@ -158,9 +155,7 @@ Klicken Sie auf **Veröffentlichen**. Visual Studio veröffentlicht die App in A
 
 ### <a name="update-the-app"></a>Aktualisieren der App
 
-* Bearbeiten Sie die Razor-Seite *Pages/About.cshtml*, und verändern Sie deren Inhalte. Sie können beispielsweise den Absatz so verändern, dass er „Hallo ASP.NET Core!“ anzeigt.
-
-    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Bearbeiten Sie die Razor-Seite *Pages/About.cshtml*, und verändern Sie deren Inhalte. Sie können beispielsweise den Absatz so verändern, dass er „Hallo ASP.NET Core!“ anzeigt: [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie erneut **Veröffentlichen...** aus.
 
@@ -186,4 +181,10 @@ Sobald Sie das Testen der App abgeschlossen haben, wechseln Sie zum [Azure-Porta
 
 ### <a name="next-steps"></a>Nächste Schritte
 
-* [Continuous Deployment in Azure mit Visual Studio und Git](../publishing/azure-continuous-deployment.md)
+* [Continuous Deployment in Azure mit Visual Studio und Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+
+## <a name="additonal-resources"></a>Zusätzliche Ressourcen
+
+* [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview)
+* [Azure-Ressourcengruppen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Azure SQL-Datenbank](https://docs.microsoft.com/en-us/azure/sql-database/)

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/index
-ms.openlocfilehash: bc19cbf0093e8a7f26af82d19f597cc805e04309
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 325f95cf9ecc295f7a1c646e352b9cd496b6268e
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-data-in-aspnet-core"></a>Arbeiten mit Daten in ASP.NET Core 
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 12/14/2017
    * [Sortieren, Filtern, Paginieren und Gruppieren](xref:data/ef-rp/sort-filter-page)
    * [Migrationen](xref:data/ef-rp/migrations)
    * [Erstellen eines komplexen Datenmodells](xref:data/ef-rp/complex-data-model)
-   * [Lesen dazugehöriger Daten](xref:data/ef-rp/read-related-data)
-   * [Aktualisieren dazugehöriger Daten](xref:data/ef-rp/update-related-data)
-   * [Behandeln von Parallelitätskonflikten](xref:data/ef-rp/concurrency)
+   * [Lesen relevanter Daten](xref:data/ef-rp/read-related-data)
+   * [Aktualisieren relevanter Daten](xref:data/ef-rp/update-related-data)
+   * [Verarbeiten von Nebenläufigkeitskonflikten](xref:data/ef-rp/concurrency)
 
 *   [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](ef-mvc/index.md)
     *   [Erste Schritte](ef-mvc/intro.md)
@@ -35,17 +35,17 @@ ms.lasthandoff: 12/14/2017
     *   [Sortieren, Filtern, Paginieren und Gruppieren](xref:data/ef-mvc/sort-filter-page)
     *   [Migrationen](xref:data/ef-mvc/migrations)
     *   [Erstellen eines komplexen Datenmodells](ef-mvc/complex-data-model.md)
-    *   [Lesen dazugehöriger Daten](ef-mvc/read-related-data.md)
-    *   [Aktualisieren dazugehöriger Daten](ef-mvc/update-related-data.md)
-    *   [Behandeln von Parallelitätskonflikten](ef-mvc/concurrency.md)
+    *   [Lesen relevanter Daten](ef-mvc/read-related-data.md)
+    *   [Aktualisieren relevanter Daten](ef-mvc/update-related-data.md)
+    *   [Verarbeiten von Nebenläufigkeitskonflikten](ef-mvc/concurrency.md)
     *   [Vererbung](ef-mvc/inheritance.md)
     *   [Weiterführende Themen](ef-mvc/advanced.md)
 * [ASP.NET Core mit EF Core – neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) (Entity Framework Core-Dokumentationswebsite)
 * [ASP.NET Core mit EF Core – bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db) (Entity Framework Core-Dokumentationswebsite)
-*   [Erste Schritte mit ASP.NET Core und Entity Framework Core 6](entity-framework-6.md)
+*   [Erste Schritte mit ASP.NET Core und Entity Framework 6](entity-framework-6.md)
 *   [Azure Storage](azure-storage/index.md)
-    *   [Hinzufügen von Azure Storage mithilfe von verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-azure-tools-connected-services-storage/)
-    *   [Erste Schritte mit Azure Blob Storage und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-    *   [Erste Schritte mit Queue Storage und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-    *   [Erste Schritte mit Azure Table Storage und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+    *   [Hinzufügen von Azure Storage über die Visual Studio-Option „Verbundene Dienste“](https://azure.microsoft.com/documentation/articles/vs-azure-tools-connected-services-storage/)
+    *   [Erste Schritte mit Azure Blob Storage und der Visual Studio-Option „Verbundene Dienste“](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
+    *   [Erste Schritte mit Queue Storage und der Visual Studio-Option „Verbundene Dienste“](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
+    *   [Erste Schritte mit Azure Table Storage und der Visual Studio-Option „Verbundene Dienste“](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 

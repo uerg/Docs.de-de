@@ -18,7 +18,7 @@ Tippen Sie auf die Menülinks (**MvcMovie**, **Home**, **About**). Auf jeder Sei
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Ändern des Titels und Menülinks in der Layoutdatei
 
-Ändern Sie den Inhalt des Elements „title“. Ändern Sie den Ankertext in der Layoutvorlage in „Movie App“ und den Controller von `Home` in `Movies` (wie nachstehend hervorgehoben):
+Ändern Sie im title-Element `MvcMovie` in `Movie App`. Ändern Sie wie unten hervorgehoben den Ankertext in der Layoutvorlage von `MvcMovie` in `Mvc Movie` und den Controller von `Home` in `Movies`:
 
 Hinweis: Die Version 2.0 von ASP.NET Core ist etwas anders. Es enthält weder `@inject ApplicationInsights` noch `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -29,9 +29,9 @@ Hinweis: Die Version 2.0 von ASP.NET Core ist etwas anders. Es enthält weder `@
 
 Speichern Sie Ihre Änderungen, und tippen Sie auf den Link **About**. Wie Sie sehen, wird der Titel der Browserregisterkarte nun als **About - Movie App** anstatt als **About - Mvc Movie** angezeigt: 
 
-![Über die Registerkarte](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Über die Registerkarte](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Tippen Sie auf den Link **Contact**. Auch hier wird **Movie App** angezeigt. Wir haben also eine Änderung des Texts und Titels in der Layoutvorlage einmalig vorgenommen, die von der gesamten Website übernommen wird.
+Tippen Sie auf den Link **Kontakt**, und beachten Sie, dass der Text für den Titel und den Anker ebenfalls **Movie App** anzeigt. Wir haben also eine Änderung des Texts und Titels in der Layoutvorlage einmalig vorgenommen, die von der gesamten Website übernommen wird.
 
 Untersuchen Sie die Datei *Views/_ViewStart.cshtml*:
 
@@ -105,7 +105,7 @@ Speichern Sie die Änderungen, und navigieren Sie zur folgenden URL:
 
 Daten werden der URL entnommen und mithilfe der [MVC-Modellbindung](xref:mvc/models/model-binding) an den Controller übergeben. Der Controller packt die Daten in einem `ViewData`-Wörterbuch und übergibt das Objekt an die Ansicht. Die Ansicht rendert dann die Daten im HTML-Format im Browser.
 
-![Die Ansicht „About“ mit der Beschriftung „Welcome“ und der viermal gezeigten Wortfolge „Hello Rick“](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![Die Ansicht „About“ mit der Beschriftung „Welcome“ und der viermal gezeigten Wortfolge „Hello Rick“](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 Im obigen Beispiel haben wir das Wörterbuch `ViewData` zum Übergeben von Daten vom Controller an eine Ansicht verwendet. Später in diesem Tutorial verwenden wir eine Ansichtsmodell, um Daten von einem Controller an eine Ansicht zu übergeben. Der Ansatz mit dem Ansichtsmodell für das Übergeben von Daten ist im Allgemeinen dem Ansatz mit dem Wörterbuch `ViewData` vorzuziehen. Weitere Informationen finden Sie unter [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc).
 

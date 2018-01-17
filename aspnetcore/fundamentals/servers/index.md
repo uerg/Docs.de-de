@@ -11,11 +11,11 @@ ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: 04dee100dff91f7868175ff4be01156787e13e81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
@@ -79,11 +79,11 @@ Wenn Sie IIS oder IIS Express als Reverseproxy für ASP.NET Core verwenden, wird
 
 ### <a name="nginx-with-kestrel"></a>Nginx und Kestrel
 
-Informationen zur Verwendung von Nginx unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Publish to a Linux Production Environment (Veröffentlichen in einer Linux-Produktionsumgebung)](../../publishing/linuxproduction.md).
+Informationen zur Verwendung von Nginx unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx).
 
 ### <a name="apache-with-kestrel"></a>Apache und Kestrel
 
-Informationen zur Verwendung von Apache unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Using Apache Web Server as a reverse proxy (Verwenden von Apache-Webserver als Reverseproxy)](../../publishing/apache-proxy.md).
+Informationen zur Verwendung von Apache unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache).
 
 ## <a name="httpsys"></a>HTTP.sys
 
@@ -131,16 +131,16 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 
 - [Kestrel](kestrel.md)
 - [Kestrel with IIS (Kestrel und IIS)](aspnet-core-module.md)
-- [Kestrel with Nginx (Kestrel und Nginx)](../../publishing/linuxproduction.md)
-- [Kestrel with Apache (Kestrel und Apache)](../../publishing/apache-proxy.md)
+- [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
+- [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
 - [HTTP.sys](httpsys.md)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 - [Kestrel](kestrel.md)
 - [Kestrel with IIS (Kestrel und IIS)](aspnet-core-module.md)
-- [Kestrel with Nginx (Kestrel und Nginx)](../../publishing/linuxproduction.md)
-- [Kestrel with Apache (Kestrel und Apache)](../../publishing/apache-proxy.md)
+- [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
+- [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
 - [WebListener](weblistener.md)
 
 ---
