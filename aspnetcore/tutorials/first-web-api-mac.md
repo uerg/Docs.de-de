@@ -11,11 +11,11 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: ASP.NET Core, WebAPI, Web-API, REST, Mac, macOS, HTTP, Service, HTTP-Dienst
 manager: wpickett
-ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f84fa55baf6d808185a28db290d9e6d3c46bdac
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Mac
 
@@ -23,7 +23,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Mike Wasson](https://g
 
 In diesem Tutorial erstellen Sie eine Web-API zum Verwalten einer Liste von „To-Do“-Elementen. Sie werden keine Benutzeroberfläche erstellen.
 
-Es gibt drei Versionen von diesem Tutorial:
+Es gibt drei Versionen dieses Tutorials:
 
 * macOS: Web-API mit Visual Studio für Mac (dieses Tutorial)
 * Windows: [Web-API mit Visual Studio für Windows](xref:tutorials/first-web-api)
@@ -77,9 +77,9 @@ Installieren Sie den Datenbankanbieter [Entity Framework Core InMemory](https://
 
 ### <a name="add-a-model-class"></a>Hinzufügen einer Modellklasse
 
-Ein Modell ist ein Objekt, das die Daten in Ihrer Anwendung darstellt. In diesem Fall ist das einzige Modell ein To-Do-Element.
+Ein Modell ist ein Objekt, das die Daten in Ihrer Anwendung darstellt. In diesem Fall ist das einzige Modell ein To-do-Element.
 
-Fügen Sie einen Ordner namens *Modelle* hinzu. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt. Klicken Sie auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
+Fügen Sie einen Ordner namens *Models* hinzu. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt. Klicken Sie auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
 
 ![Neuer Ordner](first-web-api-mac/_static/folder.png)
 
@@ -170,7 +170,7 @@ Sie können den Adressheader-URI verwenden, um auf die Ressource zuzugreifen, di
 public IActionResult GetById(string id)
 ```
 
-### <a name="update"></a>Aktualisieren
+### <a name="update"></a>Update
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
@@ -197,7 +197,7 @@ Die Antwort ist [204 (Kein Inhalt)](http://www.w3.org/Protocols/rfc2616/rfc2616-
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Routing to Controller Actions (Routing zu Controlleraktionen)](xref:mvc/controllers/routing)
-* Weitere Informationen zum Bereitstellen Ihrer API finden Sie unter [Publishing and Deployment (Veröffentlichung und Bereitstellung)](../publishing/index.md).
+* Weitere Informationen zum Bereitstellen Ihrer API finden Sie unter [Host and deploy (Hosten und Bereitstellen)](xref:host-and-deploy/index).
 * [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)

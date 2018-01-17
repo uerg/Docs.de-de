@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 4b86eb22e367d2305b7995421aec6f37008c5637
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72852678a296107e6a2a146ed2324335a6e870ee
+ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio
 
@@ -96,7 +96,7 @@ Tippen Sie auf **F5**, um die App im Debugmodus auszuführen oder **STRG+F5**, u
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![Ausgeführte App](start-mvc/_static/1.png)
 
-* Visual Studio startet [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) und führt Ihre App aus. Beachten Sie, dass die Adressleiste `localhost:port#` und nicht etwas wie `example.com` anzeigt. Das liegt daran, dass es sich bei `localhost` um den Standard-Hostnamen für Ihren lokalen Computer handelt. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der obigen Abbildung ist die Portnummer 5000. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
+* Visual Studio startet [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) und führt Ihre App aus. Beachten Sie, dass die Adressleiste `localhost:port#` und nicht etwas wie `example.com` anzeigt. Das liegt daran, dass es sich bei `localhost` um den Standard-Hostnamen für Ihren lokalen Computer handelt. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der obigen Abbildung ist die Portnummer 5000. Die URL im Browser zeigt `localhost:5000` an. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
 * Das Starten der App mit **STRG+F5** (Nicht-Debugmodus) ermöglicht die Änderung des Codes, das Speichern der Datei, das Aktualisieren des Browsers und das Anzeigen von Codeänderungen. Viele Entwickler bevorzugen den Nicht-Debugmodus, um die App schnell zu starten und Änderungen anzuzeigen.
 * Sie können die App über das Menüelement **Debuggen** im Debugmodus oder Nicht-Debugmodus starten:
 

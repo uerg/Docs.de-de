@@ -1,6 +1,6 @@
 ---
 title: "Veröffentlichen einer ASP.NET Core-App in Azure mithilfe von Befehlszeilentools | Microsoft Docs"
-description: Erfahren Sie, wie Sie eine Microsoft Azure-App mithilfe von ASP.NET Core und dem Git-Befehlszeilenclient erstellen und bereitstellen.
+description: "Erfahren Sie, wie Sie eine ASP.NET Core-Anwendung in Azure App Service mithilfe des Git-Befehlszeilentools veröffentlichen."
 services: multiple
 keywords: ASP.NET Core, Azure, App Service, Git, Befehlszeile
 author: camsoper
@@ -13,11 +13,11 @@ ms.technology: aspnet
 ms.custom: mvc
 ms.devlang: dotnet
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0bcff4f79356b960f663dcebb1d79a108417dbd2
-ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
+ms.openlocfilehash: 6af5de584cbf8cd59d86a965592b958061014c95
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Bereitstellen einer ASP.NET Core-Anwendung in Azure App Service über die Befehlszeile
 
@@ -31,7 +31,7 @@ In diesem Tutorial lernen Sie, wie die folgenden Aufgaben ausgeführt werden:
 > * Erstellen einer Azure App Service-Website mithilfe der Azure CLI
 > * Bereitstellen einer ASP.NET Core-Anwendung in Azure App Service mit dem Git-Befehlszeilentool
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Um dieses Tutorial abzuschließen, benötigen Sie Folgendes:
 
@@ -165,7 +165,7 @@ az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o 
 
 ![Die in Azure ausgeführte App](publish-to-azure-webapp-using-cli/_static/app_deployed.png)
 
-## <a name="clean-up"></a>Bereinigung
+## <a name="clean-up"></a>Bereinigen
 
 Wenn Sie die App getestet und den Code und die Ressourcen untersucht haben, löschen Sie die Web-App und den Plan, indem Sie die Ressourcengruppe löschen.
 
