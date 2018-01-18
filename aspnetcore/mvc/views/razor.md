@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Razor-Syntax für ASP.NET Core
 
@@ -76,7 +76,7 @@ Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden �
  * Das Element "Int" wurde nicht geschlossen.  Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
  *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
  
-Generische Methodenaufrufen, müssen umschlossen werden ein [expliziter Razor-Ausdruck](#explicit-razor-expressions) oder ein [Razor-Codeblock](#razor-code-blocks). Diese Einschränkung gilt nicht für *vbhtml* Razor-Dateien, da Visual Basic-Syntax Klammern um generische Typparameter anstelle von Klammern platziert.
+Generische Methodenaufrufen, müssen umschlossen werden ein [expliziter Razor-Ausdruck](#explicit-razor-expressions) oder ein [Razor-Codeblock](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Explizite Razor-Ausdrücke
 
@@ -127,8 +127,6 @@ Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden �
 ```cshtml
 <p>@(GenericMethod<int>())</p>
 ```
-
-Hinweis: Diese Einschränkung gilt nicht für *vbhtml* Razor-Dateien.  Mit *vbhtml* Razor-Dateien, Visual Basic-Syntax platziert Klammern um generische Typparameter anstelle von eckigen Klammern.
 
 ## <a name="expression-encoding"></a>Expression-Codierung
 
@@ -569,7 +567,7 @@ Razor-Schlüsselwörter werden mit Escapezeichen versehen `@(Razor Keyword)` (z.
 
 ### <a name="c-razor-keywords"></a>C#-Razor-Schlüsselwörter
 
-* case
+* Groß- und Kleinschreibung
 * do
 * default
 * for
