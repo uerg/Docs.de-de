@@ -2,20 +2,18 @@
 title: Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern
 author: rick-anderson
 description: Dieses Tutorial veranschaulicht, wie Sie eine ASP.NET Core 2.x-App mithilfe von OAuth 2.0 und externen Authentifizierungsanbietern entwickeln.
-keywords: ASP.NET Core, Authentifizierung, soziale Medien, Authentifizierungsanbieter, Google, Facebook, Twitter, Microsoft-Konto
 ms.author: riande
 manager: wpickett
 ms.date: 11/01/2016
 ms.topic: article
-ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7d03998c82bf13976ec6157acb5c56c28e5c0d52
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern
 
