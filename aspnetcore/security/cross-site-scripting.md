@@ -2,20 +2,18 @@
 title: "Verhindern von siteübergreifendem Skripting"
 author: rick-anderson
 description: Dieses Dokument stellt Cross-Site-Skripting (XSS) und Techniken zur Behebung dieses Sicherheitsrisiko in ASP.NET Core-app.
-keywords: ASP.NET Core, XSS, Sicherheitsrisiko
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Verhindern von siteübergreifendem Skripting
 
@@ -171,7 +169,7 @@ public class HomeController : Controller
 
 ## <a name="encoding-url-parameters"></a>Codierung von URL-Parameter
 
-Wenn Sie eine URL-Abfragezeichenfolge mit nicht vertrauenswürdigen Eingabe als Wert Verwendung erstellen möchten die `UrlEncoder` um den Wert zu codieren. Beispiel:
+Wenn Sie eine URL-Abfragezeichenfolge mit nicht vertrauenswürdigen Eingabe als Wert Verwendung erstellen möchten die `UrlEncoder` um den Wert zu codieren. Ein auf ein Objekt angewendeter
 
 ```csharp
 var example = "\"Quoted Value with spaces and &\"";

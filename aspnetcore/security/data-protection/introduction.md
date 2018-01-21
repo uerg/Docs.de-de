@@ -2,20 +2,18 @@
 title: "Einführung in Data Protection"
 author: rick-anderson
 description: "Dieses Dokument führt das Konzept des Datenschutzes und der Entwurfsprinzipien der zugeordneten ASP.NET Core APIs erläutert."
-keywords: ASP.NET Core, Datenschutz
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-data-protection"></a>Einführung in Data Protection
 
@@ -71,12 +69,12 @@ Die Datenschutzsystem ist in fünf main Pakete unterteilt. Verschiedene Aspekte 
 
 Der Data Protection Stapel besteht aus fünf Paketen.
 
-* Microsoft.AspNetCore.DataProtection.Abstractions enthält die grundlegenden IDataProtectionProvider und IDataProtector-Schnittstellen. Es enthält auch nützliche Erweiterungsmethoden, die beim Arbeiten mit diesen Typen (z. B. Überladungen der IDataProtector.Protect) unterstützen. Finden Sie unter der Consumer Schnittstellen-Abschnitt, um weitere Informationen. Wenn eine andere Person verantwortlich ist für die Instanziierung der Datenschutzsystem, und Sie einfach die APIs nutzen, sollten Sie Verweis Microsoft.AspNetCore.DataProtection.Abstractions.
+* Microsoft.AspNetCore.DataProtection.Abstractions contains the basic IDataProtectionProvider and IDataProtector interfaces. Es enthält auch nützliche Erweiterungsmethoden, die beim Arbeiten mit diesen Typen (z. B. Überladungen der IDataProtector.Protect) unterstützen. Finden Sie unter der Consumer Schnittstellen-Abschnitt, um weitere Informationen. Wenn eine andere Person verantwortlich ist für die Instanziierung der Datenschutzsystem, und Sie einfach die APIs nutzen, sollten Sie Verweis Microsoft.AspNetCore.DataProtection.Abstractions.
 
 * Microsoft.AspNetCore.DataProtection enthält die basisimplementierung von Datenschutzsystem, einschließlich der wichtigsten kryptografischen Vorgänge, schlüsselverwaltung, Konfiguration und Erweiterbarkeit. Wenn Sie zum Instanziieren der Datenschutzsystem verantwortlich sind (z. B. hinzufügen, eine IServiceCollection) oder ändern, oder erweitern das Verhalten, müssen Sie Verweis Microsoft.AspNetCore.DataProtection möchten.
 
-* Microsoft.AspNetCore.DataProtection.Extensions enthält zusätzliche APIs, die Entwickler möglicherweise interessant sein, aber die nicht in das Hauptpaket gehören. Dieses Paket enthält z. B. eine einfache "Instanziieren des Systems, zeigen Sie auf einem bestimmten-Speicherverzeichnis keine Dependency Injection-Setup"-API (Weitere Informationen). Es enthält auch die Erweiterungsmethoden für die Lebensdauer des geschützten Nutzlasten (Weitere Informationen) beschränken.
+* Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Dieses Paket enthält z. B. eine einfache "Instanziieren des Systems, zeigen Sie auf einem bestimmten-Speicherverzeichnis keine Dependency Injection-Setup"-API (Weitere Informationen). Es enthält auch die Erweiterungsmethoden für die Lebensdauer des geschützten Nutzlasten (Weitere Informationen) beschränken.
 
 * Microsoft.AspNetCore.DataProtection.SystemWeb installiert werden kann, in eine vorhandene ASP.NET 4.x-Anwendung zum Umleiten der <machineKey> Vorgänge stattdessen die neuen Data Protection Stapel verwenden. Finden Sie unter [Kompatibilität](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) für Weitere Informationen.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation stellt eine Implementierung von der Routine Kennworthashs PBKDF2 und kann von Systemen, bei denen Benutzerkennwörter sicher behandeln müssen verwendet werden. Finden Sie unter [Kennworthashs](consumer-apis/password-hashing.md) für Weitere Informationen.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Finden Sie unter [Kennworthashs](consumer-apis/password-hashing.md) für Weitere Informationen.

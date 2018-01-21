@@ -2,7 +2,6 @@
 title: "Kontobestätigung und Kennwortwiederherstellung in ASP.NET Core"
 author: rick-anderson
 description: "Veranschaulicht das Erstellen einer ASP.NET Core-Apps mit der e-Mail-Bestätigung und das Kennwort zurücksetzen."
-keywords: "ASP.NET Core, das Kennwort zurückzusetzen, e-Mail-Bestätigung, Sicherheit"
 ms.author: riande
 manager: wpickett
 ms.date: 12/1/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
@@ -239,7 +238,7 @@ Wählen Sie Ihren Benutzernamen im Browser: ![Browserfenster mit Benutzernamen](
 
 Möglicherweise müssen Sie die Navigationsleiste, um Benutzername erweitern.
 
-![Navigationsleiste](accconfirm/_static/x.png)
+![navbar](accconfirm/_static/x.png)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

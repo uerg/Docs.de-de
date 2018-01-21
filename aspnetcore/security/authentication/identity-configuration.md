@@ -2,7 +2,6 @@
 title: "Konfigurieren von ASP.NET Core Identität"
 author: AdrienTorris
 description: "Verstehen Sie die ASP.NET Core Identity Standardwerte, und konfigurieren Sie die verschiedenen Identitätseigenschaften, um benutzerdefinierte Werte verwenden."
-keywords: "ASP.NET Core, Identität und Authentifizierung, Sicherheit"
 ms.author: scaddie
 manager: wpickett
 ms.date: 01/11/2018
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: d3a13d1cef3417522460b44c52c1361c3e9d1162
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-identity"></a>Konfigurieren von Identität
 
@@ -103,13 +102,13 @@ Unter `ConfigureServices` in der `Startup` -Klasse, Sie können die Anwendung Co
 
 | Eigenschaft                | Beschreibung                       | Standard |
 | ----------------------- | --------------------------------- | ------- |
-| `Cookie.Name`  | Der Name des Cookies.  | . AspNetCore.Cookies.  |
+| `Cookie.Name`  | Der Name des Cookies.  | .AspNetCore.Cookies.  |
 | `Cookie.HttpOnly`  | Bei "true", ist das Cookie nicht aus einer clientseitigen Skripts zugegriffen werden kann.  |  true |
 | `ExpireTimeSpan`  | Steuert, wie viel Zeit das Authentifizierungsticket im Cookie gespeichert ab dem Punkt gültig bleibt, die er erstellt wird.  | 14 Tage  |
-| `LoginPath`  | Wenn ein Benutzer nicht autorisiert ist, werden er auf diesen Pfad für die Anmeldung umgeleitet. | / /-Kontoanmeldung  |
-| `LogoutPath`  | Wenn ein Benutzer abgemeldet ist, werden er auf diesen Pfad umgeleitet.  | / Account/Abmeldung  |
+| `LoginPath`  | Wenn ein Benutzer nicht autorisiert ist, werden er auf diesen Pfad für die Anmeldung umgeleitet. | /Account/Login  |
+| `LogoutPath`  | Wenn ein Benutzer abgemeldet ist, werden er auf diesen Pfad umgeleitet.  | /Account/Logout  |
 | `AccessDeniedPath`  | Wenn ein Benutzer mit einer autorisierungsprüfung fehlschlägt, werden er auf diesen Pfad umgeleitet.  |   |
-| `SlidingExpiration`  | Bei "true", wird ein neues Cookie mit einer neuen Ablaufzeit ausgegeben werden, wenn das aktuelle Cookie mehr als genau, über das Fenster "Ablaufdatum" liegt.  | / Account/AccessDenied |
+| `SlidingExpiration`  | Bei "true", wird ein neues Cookie mit einer neuen Ablaufzeit ausgegeben werden, wenn das aktuelle Cookie mehr als genau, über das Fenster "Ablaufdatum" liegt.  | /Account/AccessDenied |
 | `ReturnUrlParameter`  | Legt den Namen des Abfragezeichenfolgen-Parameters das von der Middleware angefügt wird, wenn ein Statuscode "401 nicht autorisiert" in eine 302-Umleitung Anmeldepfad geändert wird.  |  true |
 | `AuthenticationScheme`  | Dies ist nur für ASP.NET Core 1.x. Der logische Name für ein bestimmtes Authentifizierungsschema. |  |
 | `AutomaticAuthenticate`  | Dieses Flag ist nur relevant für ASP.NET Core 1.x. Bei "true", sollte Cookieauthentifizierung für jede Anforderung ausgeführt und versuchen, zu überprüfen und rekonstruieren serialisierten Prinzipal, der Sie erstellt.  |  |

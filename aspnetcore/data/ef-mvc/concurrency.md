@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC mit EF-Kern - Parallelität - 8 von 10"
 author: tdykstra
 description: "Dieses Lernprogramm zeigt, wie Konflikte zu behandeln, wenn mehrere Benutzer gleichzeitig derselben Entität aktualisieren."
-keywords: "ASP.NET Core, Entity Framework Core, Parallelität"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: ffe8ef968d7bde9755d5c55389f6f1548f03ffec
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Parallelitätskonflikte - EF-Core mit ASP.NET Core MVC-Lernprogramm (8 10)
 
@@ -41,7 +39,7 @@ Wenn Ihre Anwendung muss in parallelitätsszenarios versehentliche Datenverluste
 
 Verwalten von Sperren hat Nachteile. Es kann zum Programm komplex sein. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht. Aus diesen Gründen unterstützen nicht alle Datenbank-Managementsystemen eingeschränkte Parallelität. Entity Framework Core bietet keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
 
-### <a name="optimistic-concurrency"></a>Vollständige Parallelität
+### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
 Die Alternative für die eingeschränkte Parallelität ist die vollständige Parallelität. Vollständige Parallelität bedeutet ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann entsprechend reagieren, wenn dies der Fall. Z. B. Andrea besucht die Seite Abteilung bearbeiten und dabei ändert sich der Betrag für die englischen Abteilung $350,000.00 auf $0,00.
 

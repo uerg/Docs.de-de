@@ -2,20 +2,18 @@
 title: "Antwort Komprimierung Middleware für ASP.NET Core"
 author: guardrex
 description: Informationen Sie zur Antwort Komprimierung sowie zum Antwort Komprimierung Middleware in ASP.NET Core-apps verwenden.
-keywords: ASP.NET Core, Leistung, Antwort Komprimierung, Gzip, akzeptieren-Codierung, middleware
 ms.author: riande
 manager: wpickett
 ms.date: 08/20/2017
 ms.topic: article
-ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Antwort Komprimierung Middleware für ASP.NET Core
 
@@ -33,7 +31,7 @@ Verwenden Sie die Komprimierung Middleware Antwort beim:
 * Kann nicht die folgenden Server-basierten komprimierungstechnologien verwendet:
   * [Modul für die dynamische Komprimierung von IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
   * [Apache Mod_deflate-Modul](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-  * [NGINX-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+  * [Nginx-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosten direkt auf:
   * [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener))
   * [Kestrel](xref:fundamentals/servers/kestrel)
@@ -46,7 +44,7 @@ Wenn ein Client komprimiertem Inhalt verarbeiten kann, muss der Client durch Sen
 | `Accept-Encoding`Headerwerte | Middleware unterstützt | Beschreibung                                                 |
 | :-----------------------------: | :------------------: | ----------------------------------------------------------- |
 | `br`                            | Nein                   | Komprimierte Brotli-Datenformat                               |
-| `compress`                      | Nein                   | UNIX-Datenformat "komprimieren"                                 |
+| `compress`                      | Nein                   | UNIX "compress" data format                                 |
 | `deflate`                       | Nein                   | Daten in das Datenformat "Zlib" komprimiert "Verkleinern"     |
 | `exi`                           | Nein                   | W3C effiziente XML-Austausch                               |
 | `gzip`                          | Ja (Standard)        | GZIP-Dateiformat                                            |

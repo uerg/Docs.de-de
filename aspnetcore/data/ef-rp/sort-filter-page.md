@@ -2,18 +2,17 @@
 title: Razor-Seiten mit EF-Core - Sortierung, Filter, Paging - 3 von 8
 author: rick-anderson
 description: "In diesem Lernprogramm fügen Sie sortieren, Filtern und paging Funktionen zur Seite mit ASP.NET Core und Entity Framework Core."
-keywords: ASP.NET Core Entity Framework Core "," Sortieren "," Filter "," Paging, gruppieren
 ms.author: riande
 ms.date: 10/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 5e17663b88a622101245228e9372db55e4e874be
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortieren, filtern, paging und Gruppierung - EF-Core mit Razor-Seiten (3 von 8)
 
@@ -142,7 +141,7 @@ In *Views/Student/Index.cshtml*, fügen Sie folgenden hervorgehobenen Code zum E
 
 Der obige Code verwendet die `<form>` [tag Helper](xref:mvc/views/tag-helpers/intro) Suchtextfeld und Schaltfläche hinzufügen. Wird standardmäßig der `<form>` Tag Hilfsprogramm sendet Formulardaten mit einer POST-Anforderung. Mit POST werden die Parameter in der HTTP-Nachrichtentext und nicht in der URL übergeben. Wenn HTTP GET verwendet wird, werden die Formulardaten als Abfragezeichenfolgen in der URL übergeben. Übergeben die Daten mit Abfragezeichenfolgen kann Benutzer die URL von Lesezeichen. Die [W3C Richtlinien](https://www.w3.org/2001/tag/doc/whenToUseGet.html) wird empfohlen, dass GET verwendet werden soll, wenn die Aktion nicht in einem Update führt.
 
-Testen der app an:
+Testen der App:
 
 * Wählen Sie die **Studenten** Registerkarte und geben Sie eine Suchzeichenfolge ein.
 * Wählen Sie **Suche**.
@@ -280,7 +279,7 @@ Wenn Probleme können nicht zu lösen auftreten, laden Sie die [abgeschlossene A
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Debuggen von ASP.NET Core 2.x-Quelle](https://github.com/aspnet/Docs/issues/4155)
+* [Debuggen von ASP.NET Core 2.x-Quellcode](https://github.com/aspnet/Docs/issues/4155)
 
 In den nächsten Lernprogrammen verwendet die app Migrationen, um das Datenmodell zu aktualisieren.
 

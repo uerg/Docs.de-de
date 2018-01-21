@@ -1,28 +1,26 @@
-﻿---
+---
 title: Fehlerbehandlung in ASP.NET Core
 author: ardalis
 description: 'Gewusst wie: Behandeln von Fehlern in ASP.NET Core-Anwendungen zu ermitteln.'
-keywords: ASP.NET Core, Fehlerbehandlung, Behandlung von Ausnahmen
 ms.author: tdykstra
 manager: wpickett
 ms.date: 11/30/2016
 ms.topic: article
-ms.assetid: 4db51023-c8a6-4119-bbbe-3917e272c260
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de2ba0ff9ad17c198c06b510ecfb49f808721bdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 49507e90cd659be5da08df17e175297adad0fea1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Einführung in die Error Handling in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
+Von [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra/)
 
-Dieser Artikel beschreibt grundsätzliche Vorgehensweisen zur Behandlung von Fehlern in ASP.NET Core-Anwendungen.
+Dieser Artikel behandelt allgemeine Appoaches zum Behandeln von Fehlern in ASP.NET Core-apps.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 

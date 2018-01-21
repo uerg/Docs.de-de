@@ -1,20 +1,18 @@
 ---
 title: "Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt"
 author: rick-anderson
-keywords: ASP.NET Core, MVC, Autorisierung, Rollen, Sicherheit, administrator
 ms.author: riande
 manager: wpickett
 ms.date: 05/22/2017
 ms.topic: article
-ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: db95d46dafdd300d4ec13e8cc31a3d995016ab92
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 
@@ -319,6 +317,6 @@ Testen Sie, ob die Anwendung die Datenbank mit Anfangsdaten gefüllt. Die Seed-M
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [ASP.NET Core Autorisierung Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Diese Übung wird ausführlicher auf den Sicherheitsfeatures, die in diesem Lernprogramm eingeführt.
+* [ASP.NET Core Authorization Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Diese Übung wird ausführlicher auf den Sicherheitsfeatures, die in diesem Lernprogramm eingeführt.
 * [Autorisierung in ASP.NET Core: einfach, anspruchsbasierte und benutzerdefinierten Rolle](index.md)
-* [Benutzerdefinierte Richtlinie basierende Autorisierung](policies.md)
+* [Benutzerdefinierte, richtlinienbasierte Autorisierung](policies.md)

@@ -1,22 +1,20 @@
 ---
-title: ASP.NET Core-Modul
+title: ASP.NET Core Module
 author: tdykstra
 description: "Führt ASP.NET Core Modul (ANCM), ein IIS-Modul, in dem die Kestrel Webserver IIS- oder IIS Express als reverse-Proxy-Server verwenden kann."
-keywords: ASP.NET Core, IIS, IIS Express,ASP.NET Core-Modul, UseIISIntegration
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: 4661af33-34c5-4d71-93a0-8c7632f43580
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Einführung in ASP.NET Core-Modul
 
@@ -38,7 +36,7 @@ Da ASP.NET Core-Anwendungen, die in einem Prozess Ausführen von IIS-Arbeitsproz
 
 Hier wird ein Diagramm, das die Beziehung zwischen ANCM, IIS und ASP.NET Core Anwendungen veranschaulicht.
 
-![ASP.NET Core-Modul](aspnet-core-module/_static/ancm.png)
+![ASP.NET Core Module](aspnet-core-module/_static/ancm.png)
 
 Anforderungen aus dem Internet stammen, und drücken Kernelmodustreiber Http.Sys, der Sie in IIS auf dem primären Ports (80) oder SSL-Port (Port 443) weiterleitet. ANCM leitet die Anforderungen an die ASP.NET Core-Anwendung über die HTTP-Port für die Anwendung, die nicht 80/443 port ist konfiguriert.
 

@@ -2,20 +2,18 @@
 title: Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
 author: ardalis
 description: 
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 07/03/2017
 ms.topic: article
-ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
 
@@ -68,7 +66,7 @@ Es gibt zwei Typen in dieser Kategorie: Umleitung und HTTP-Statuscode.
 
     Dieser Typ gibt einen HTTP-Statuscode zurück. Einige Hilfsmethoden dieses Typs sind `BadRequest`, `NotFound`, und `Ok`. Beispielsweise `return BadRequest();` erzeugt einen Statuscode "400" bei der Ausführung. Bei Methoden, z. B. `BadRequest`, `NotFound`, und `Ok` sind überladen sind, sollten sie nicht mehr gelten als Responder Statuscode "HTTP", da inhaltsaushandlung stattfindet.
 
-* **Umleiten**
+* **Redirect**
 
     Dieser Typ gibt eine Umleitung an eine Aktion oder ein Ziel zurück (mit `Redirect`, `LocalRedirect`, `RedirectToAction`, oder `RedirectToRoute`). Beispielsweise `return RedirectToAction("Complete", new {id = 123});` leitet an `Complete`, ein anonymes Objekt übergeben.
 

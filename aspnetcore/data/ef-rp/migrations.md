@@ -2,7 +2,6 @@
 title: Razor-Seiten mit EF-Kern - Migrationen - 4 von 8
 author: rick-anderson
 description: "In diesem Lernprogramm beginnen Sie mit der EF-Core-Migrationen-Funktion für die Verwaltung von datenmodelländerungen in einer ASP.NET-MVC-Anwendung Core."
-keywords: ASP.NET Core, Entity Framework Core, Migrationen
 ms.author: riande
 manager: wpickett
 ms.date: 10/15/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8549fc522bcd05a5755a449cd6d4b655f00d998b
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 26fbda99b0c1dfa2d09cf387e43f3123c58215f8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrationen - EF-Core mit Razor-Seiten Lernprogramm (4 von 8)
 

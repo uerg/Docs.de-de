@@ -2,7 +2,6 @@
 title: "Razor-syntaxverweis für ASP.NET Core"
 author: rick-anderson
 description: "Erfahren Sie Markup Razor-Syntax für das Einbetten von serverbasiertem Code in Webseiten aus."
-keywords: ASP.NET Core, Razor, Razor-Direktiven
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Razor-Syntax für ASP.NET Core
 
@@ -24,7 +23,7 @@ Razor ist eine Markupsyntax für das Einbetten von serverbasiertem Code in Webse
 
 ## <a name="rendering-html"></a>Rendern von HTML
 
-Die Standardsprache für den Razor ist HTML. Rendern von HTML in Razor-Markuperweiterung unterscheidet sich nicht als HTML-Datei aus einer HTML-Datei gerendert.  HTML-Markup *cshtml* Razor-Dateien vom Server unverändert gerendert wird.
+Die Standardsprache für den Razor ist HTML. Rendern von HTML in Razor-Markuperweiterung unterscheidet sich nicht als HTML-Datei aus einer HTML-Datei gerendert. HTML-Markup *cshtml* Razor-Dateien vom Server unverändert gerendert wird.
 
 ## <a name="razor-syntax"></a>Razor-syntax
 
@@ -73,8 +72,8 @@ Implicit-Ausdrücken **kann nicht** C#-Generika, als eines der Zeichen innerhalb
 
 Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
 
- * Das Element "Int" wurde nicht geschlossen.  Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
- *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ * Das Element "Int" wurde nicht geschlossen. Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
+ * Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
  
 Generische Methodenaufrufen, müssen umschlossen werden ein [expliziter Razor-Ausdruck](#explicit-razor-expressions) oder ein [Razor-Codeblock](#razor-code-blocks).
 
@@ -119,10 +118,10 @@ EXPLICIT-Ausdrücken dienen zum Rendern der Ausgabe von generischen Methoden in 
 
 Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
 
- * Das Element "Int" wurde nicht geschlossen.  Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
- *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ * Das Element "Int" wurde nicht geschlossen. Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
+ * Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
  
- Das folgende Markup zeigt die richtige Methode schreiben, diesen Code.  Der Code wird als ein expliziter Ausdruck geschrieben:
+ Das folgende Markup zeigt die richtige Methode schreiben, diesen Code. Der Code wird als ein expliziter Ausdruck geschrieben:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -232,7 +231,7 @@ Um den Rest der eine ganze Zeile in einem Codeblock als HTML zu rendern, verwend
 
 Ohne die `@:` im Code wird ein Razor-Laufzeitfehler generiert.
 
-Warnung: Zusätzliche `@` Zeichen in einer Razor-Datei können dazu führen, dass Ursache Compiler-Fehler bei den Anweisungen weiter unten in den Block. Dieser Compilerfehler können schwierig sein, zu verstehen, da der tatsächliche Fehler vor den gemeldeten Fehler auftritt.  Dieser Fehler tritt häufig nach mehrere implizite/explizite Ausdrücke in einen einzelnen Codeblock zu kombinieren.
+Warnung: Zusätzliche `@` Zeichen in einer Razor-Datei können dazu führen, dass Ursache Compiler-Fehler bei den Anweisungen weiter unten in den Block. Dieser Compilerfehler können schwierig sein, zu verstehen, da der tatsächliche Fehler vor den gemeldeten Fehler auftritt. Dieser Fehler tritt häufig nach mehrere implizite/explizite Ausdrücke in einen einzelnen Codeblock zu kombinieren.
 
 ## <a name="control-structures"></a>Steuerungsstrukturen
 
@@ -285,7 +284,7 @@ Das folgende Markup zeigt, wie eine Switch-Anweisung:
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>Schleifen @for, @foreach, @while, und @do während
 
-Auf Vorlagen basierende HTML kann mit Schleifen Steueranweisungen gerendert werden.  Um eine Liste der Personen zu rendern:
+Auf Vorlagen basierende HTML kann mit Schleifen Steueranweisungen gerendert werden. Um eine Liste der Personen zu rendern:
 
 ```cshtml
 @{
@@ -496,7 +495,7 @@ Der Code wird der folgenden HTML-Code gerendert:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`und `@inherits` in derselben Ansicht verwendet werden kann.  `@inherits`kann einem *_ViewImports.cshtml* -Datei, die die Sicht importiert:
+ `@model`und `@inherits` in derselben Ansicht verwendet werden kann. `@inherits`kann einem *_ViewImports.cshtml* -Datei, die die Sicht importiert:
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 

@@ -2,20 +2,18 @@
 title: ASP.NET Core Middleware
 author: rick-anderson
 description: Informationen Sie zu ASP.NET Core Middleware und der Anforderungspipeline.
-keywords: ASP.NET Core, Middleware-Pipeline, Delegaten
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
@@ -168,7 +166,7 @@ Die folgende Tabelle zeigt die Anforderungen und Antworten von `http://localhost
 | Anforderung | Antwort |
 | --- | --- |
 | localhost:1234 | Hallo von nicht-Map-Delegat.  |
-| Localhost:1234 /? Verzweigung = Master | Verzweigung verwendet = Master|
+| localhost:1234/?branch=master | Verzweigung verwendet = Master|
 
 `Map`unterstützt das schachteln, z. B.:
 

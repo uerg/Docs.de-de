@@ -2,20 +2,18 @@
 title: Verankern Sie die Tag-Hilfsprogramm | Microsoft Docs
 author: pkellner
 description: Zeigt, wie mit Anker Tag Hilfsprogramm arbeiten
-keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>Anchor-Tag-Hilfsprogramm
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > Verwenden der `asp-page` Attribut in Razor-Seiten, die URLs muss ein relativer Pfad sein, z. B. `"./Speaker"`. Relative Pfade in der `asp-page` Attribut sind nicht verfügbar in MVC-Ansichten. Verwenden Sie stattdessen die Syntax "/" für MVC-Ansichten.
 
-### <a name="asp-route-value"></a>ASP - Route-{Value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`ist ein Platzhalter-Routenpräfix. Alle Werte, die Sie einfügen, nachdem nachfolgende Bindestrich als einen potenziellen Routenparameter interpretiert wird. Wenn eine Standardroute nicht gefunden wird, wird diese Routenpräfix zu der generierten Href als Anforderungsparameter und Wert angefügt. Andernfalls wird es in der routenvorlage ersetzt.
 
@@ -168,7 +166,7 @@ Wenn entweder `asp-controller` oder `asp-action` nicht angegeben werden, und kli
 
 `Name = "speakerevals"`teilt dem Anker Tag-Hilfsprogramm zum Generieren einer Route direkt auf diesem Controllermethode, die mit der URL `/Speaker/Evaluations`. Wenn `asp-controller` oder `asp-action` angegeben ist, zusätzlich zu `asp-route`, die Route generiert möglicherweise nicht Ihren Erwartungen. `asp-route`sollte nicht verwendet werden, mithilfe eines der Attribute `asp-controller` oder `asp-action` zur Vermeidung eines Konflikts Route.
 
-### <a name="asp-all-route-data"></a>ASP-All-Route-Daten
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`ermöglicht das Erstellen eines Wörterbuchs von Schlüssel-Wert-Paaren, in dem der Schlüssel ist der Name des Parameters und der Wert ist der Wert mit dem Schlüssel zugeordnet ist.
 
@@ -206,7 +204,7 @@ Die generierte URL: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
 Hash-Tags sind nützlich, wenn die clientseitige Anwendungen zu erstellen. Sie können zum einfach markieren und suchen beispielsweise in JavaScript verwendet werden.
 
-### <a name="asp-area"></a>ASP-Bereich
+### <a name="asp-area"></a>asp-area
 
 `asp-area`Legt den Bereichsnamen, den ASP.NET Core verwendet wird, um die entsprechenden Route festzulegen. Im folgenden sind Beispiele für wie das Area-Attribut bewirkt, dass eine neuzuordnung von Routen. Festlegen von `asp-area` Blogs Präfixe das Verzeichnis `Areas/Blogs` auf die Routen den zugeordneten Controller und Ansichten für diese Anchortag.
 
@@ -237,7 +235,7 @@ Die generierte HTML-Code wird das Segment Bereiche enthalten und werden wie folg
 > [!TIP]
 > Für MVC-Bereiche in einer Webanwendung arbeiten muss die routenvorlage einen Verweis auf den Bereich enthalten, falls vorhanden. Diese Vorlage, die der zweite Parameter ist von der `routes.MapRoute` -Methodenaufruf, als angezeigt:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-### <a name="asp-protocol"></a>ASP-Protokoll
+### <a name="asp-protocol"></a>asp-protocol
 
 Die `asp-protocol` wird ein Protokoll angegeben (z. B. `https`) in der URL. Ein Beispiel für Anchor-Tag-Hilfsprogramm, das das Protokoll enthält wird wie folgt aussehen:
 

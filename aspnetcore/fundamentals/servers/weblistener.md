@@ -2,20 +2,18 @@
 title: WebListener webserverimplementierung in ASP.NET Core
 author: rick-anderson
 description: "Führt ein WebListener, einen Webserver für ASP.NET Core unter Windows. Basiert auf Http.Sys-Kernelmodustreiber und ist WebListener eine Alternative zum Kestrel, die für die direkte Verbindung mit dem Internet ohne IIS verwendet werden kann."
-keywords: "ASP.NET Core, WebListener, HttpListener, Url-Präfixe, SSL"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
 ms.topic: article
-ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: f1abb3558546cd907c78b44d9353d9c9f1f5aff1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1bdbc723e4602c2e53723aff91ec5d254f4bd93
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener webserverimplementierung in ASP.NET Core
 
@@ -153,7 +151,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 So sieht die offizielle Dokumentation:
 
 * [Netsh-Befehle für Hypertext Transfer-Protokoll (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-* [UrlPrefix Zeichenfolgen](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+* [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 Die folgenden Ressourcen bieten detaillierte Anweisungen für verschiedene Szenarien. Artikel, die auf verweisen `HttpListener` gelten gleichermaßen für `WebListener`, wie sowohl auf Http.Sys basieren.
 

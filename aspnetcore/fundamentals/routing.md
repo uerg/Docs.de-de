@@ -2,20 +2,18 @@
 title: Routing in ASP.NET Core
 author: ardalis
 description: "Ermitteln Sie, wie ASP.NET Core Routingfunktion für eine eingehende Anforderung an eine Routenhandler Zuordnung zuständig ist."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -232,10 +230,10 @@ Die folgende Tabelle zeigt die Antworten mit den angegebenen URIs.
 
 | URI | Antwort  |
 | ------- | -------- |
-| /Package/Create/3  | Hallo! Routenwerte: [Vorgang erstellen], [ID: 3] |
-| / / 3 Paket/nachverfolgen  | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3] |
-| / Packen/Überwachen/3 / | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3]  |
-| Normalerweise/nachverfolgen / | \<Über diesen Bericht keine Übereinstimmung fallen > |
+| /package/create/3  | Hallo! Routenwerte: [Vorgang erstellen], [ID: 3] |
+| /package/track/-3  | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3] |
+| /package/track/-3/ | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3]  |
+| /package/track/ | \<Über diesen Bericht keine Übereinstimmung fallen > |
 | /Hello/Joe abrufen | Hallo, Joe! |
 | POST /hello/Joe | \<Fortfahren, nur HTTP GET entspricht > |
 | /Hello/Joe/Smith abrufen | \<Über diesen Bericht keine Übereinstimmung fallen > |
@@ -277,11 +275,11 @@ Die folgende Tabelle enthält einige routenvorlagen und deren Verhalten.
 
 | Routenvorlage | Übereinstimmende Beispiel-URL | Hinweise |
 | -------- | -------- | ------- |
-| hello  | beispielsweise  | Nur entspricht der einzelnen Pfad`/hello` |
+| hello  | /hello  | Nur entspricht der einzelnen Pfad`/hello` |
 | {Seite = Home} | / | Entspricht, und legt `Page` an`Home` |
-| {Seite = Home}  | / Kontakte  | Entspricht, und legt `Page` an`Contact` |
-| {Controller} / {Aktion} / {Id}? | / Produkte/List | Ordnet `Products` Controller und `List` Aktion |
-| {Controller} / {Aktion} / {Id}? | / Produkte/Informationen/123  |  Ordnet `Products` Controller und `Details` Aktion.  `id`Legen Sie auf 123 |
+| {Seite = Home}  | /Contact  | Entspricht, und legt `Page` an`Contact` |
+| {controller}/{action}/{id?} | /Products/List | Ordnet `Products` Controller und `List` Aktion |
+| {controller}/{action}/{id?} | /Products/Details/123  |  Ordnet `Products` Controller und `Details` Aktion.  `id`Legen Sie auf 123 |
 | {Controller = Home} / {Aktion = Index} / {Id}? | /  |  Ordnet `Home` Controller und `Index` -Methode. `id` wird ignoriert. |
 
 Mithilfe einer Vorlage wird im Allgemeinen die einfachste Vorgehensweise zum routing. Einschränkungen und Standardwerte können auch außerhalb der routenvorlage angegeben werden.
@@ -340,7 +338,7 @@ Reguläre Ausdrücke, die beim routing verwendet häufig beginnt mit der `^` Zei
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | hello | ja | Teilzeichenfolge Übereinstimmungen |
 | `[a-z]{2}` | 123abc456 | ja | Teilzeichenfolge Übereinstimmungen |
-| `[a-z]{2}` | MZ | ja | entspricht dem Ausdruck |
+| `[a-z]{2}` | mz | ja | entspricht dem Ausdruck |
 | `[a-z]{2}` | MZ | ja | keine Groß-/Kleinschreibung unterschieden. |
 | `^[a-z]{2}$` |  hello | Nein | finden Sie unter `^` und `$` oben |
 | `^[a-z]{2}$` |  123abc456 | Nein | finden Sie unter `^` und `$` oben |
@@ -365,10 +363,10 @@ Die Abfragezeichenfolge werden Werte, die explizit bereitgestellt werden, aber d
 
 | Ambient-Werte | Explizite Werte | Ergebnis |
 | -------------   | -------------- | ------ |
-| Controller = "Start" | Aktion = "Info" | `/Home/About` |
-| Controller = "Start" | Controller = "Order", Aktion = "Info" | `/Order/About` |
+| controller="Home" | Aktion = "Info" | `/Home/About` |
+| controller="Home" | controller="Order",action="About" | `/Order/About` |
 | Controller = "Home", Color = "Red" | Aktion = "Info" | `/Home/About` |
-| Controller = "Start" | Aktion = "About" color = "Red" | `/Home/About?color=Red`
+| controller="Home" | Aktion = "About" color = "Red" | `/Home/About?color=Red`
 
 Wenn eine Route hat den Standardwert, der einen Parameter entsprechen nicht der Wert explizit angegeben, muss er den Standardwert übereinstimmen. Zum Beispiel:
 

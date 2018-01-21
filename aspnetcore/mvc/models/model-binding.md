@@ -2,20 +2,18 @@
 title: Wurden die Modellbindung
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="model-binding"></a>Wurden die Modellbindung
 
@@ -73,7 +71,7 @@ Wenn ein Parameter gebunden ist, wurden die modellbindung beendet die Suche nach
 
 Wenn die Bindung ein Fehler auftritt, löst MVC keine Fehler. Jede Aktion, die eine Benutzereingabe akzeptiert Prüfen der `ModelState.IsValid` Eigenschaft.
 
-Hinweis: Jeder Eintrag in des Controllers `ModelState` Eigenschaft ist ein `ModelStateEntry` , enthält eine `Errors` Eigenschaft. Es ist nur selten notwendig, diese Sammlung selbst abzufragen. Verwenden Sie stattdessen `ModelState.IsValid` .
+Hinweis: Jeder Eintrag in des Controllers `ModelState` Eigenschaft ist ein `ModelStateEntry` , enthält eine `Errors` Eigenschaft. Es ist nur selten notwendig, diese Sammlung selbst abzufragen. Verwenden Sie stattdessen `ModelState.IsValid`.
 
 Darüber hinaus sind einige spezielle Datentypen, die beim Ausführen der modellbindung MVC berücksichtigen:
 

@@ -2,20 +2,18 @@
 title: ASP.NET Core MVC mit Entity Framework Core - 10-Lernprogramm 1
 author: tdykstra
 description: 
-keywords: ASP.NET Core, Entity Framework Core-Lernprogramm
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
@@ -44,7 +42,7 @@ EF Core 2.0 ist die neueste Version von EF aber noch keinen alle Funktionen von 
 Wenn Sie ein Problem Sie können nicht aufgelöst werden auftreten, im Allgemeinen finden Sie die Projektmappe durch Vergleichen des Codes: auf die [abgeschlossenes Projekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Eine Übersicht über häufige Fehler und deren Lösung finden Sie unter [im Abschnitt Problembehandlung der im letzten Lernprogramm in der Reihe](advanced.md#common-errors). Wenn Sie nicht finden, was Sie es benötigen, können Sie selbst eine Frage veröffentlichen, um StackOverflow.com für [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) oder [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
-> Dies ist eine Reihe von 10 Lernprogramme, von denen jede baut auf was in früheren Lernprogramme erfolgt.  Denken Sie speichern eine Kopie des Projekts nach jeder erfolgreichen Abschluss des Lernprogramms.  Klicken Sie dann, wenn Probleme auftreten, können Sie über aus dem vorherigen Lernprogramm nicht zurück auf den Anfang die gesamte Reihe starten.
+> Dies ist eine Reihe von 10 Lernprogramme, von denen jede baut auf was in früheren Lernprogramme erfolgt. Denken Sie speichern eine Kopie des Projekts nach jeder erfolgreichen Abschluss des Lernprogramms. Klicken Sie dann, wenn Probleme auftreten, können Sie über aus dem vorherigen Lernprogramm nicht zurück auf den Anfang die gesamte Reihe starten.
 
 ## <a name="the-contoso-university-web-application"></a>Die Contoso-University-Webanwendung
 
@@ -136,7 +134,7 @@ Die `ID` Eigenschaft werden die Primärschlüsselspalte der Datenbanktabelle, di
 
 Die `Enrollments` Eigenschaft ist eine Navigationseigenschaft. Navigationseigenschaften halten andere Entitäten, die mit dieser Entität verknüpft sind. In diesem Fall die `Enrollments` Eigenschaft eine `Student entity` enthält alle der `Enrollment` , die verbundenen, Entitäten `Student` Entität. Das heißt, wenn eine bestimmte Student-Zeile in der Datenbank verfügt über zwei verknüpfte Anmeldung Zeilen (Zeilen, die diese Student Primärschlüsselwert in ihre StudentID-Fremdschlüsselspalte enthalten), `Student` Entität `Enrollments` Navigationseigenschaft enthält die zwei `Enrollment` Entitäten.
 
-Wenn eine Navigationseigenschaft über mehrere Entitäten (wie in der m: n- oder 1: n-Beziehungen) enthalten kann, muss dessen Typ eine Liste, in dem Einträge können hinzugefügt, gelöscht, und aktualisiert, z. B. `ICollection<T>`.  Sie können angeben, `ICollection<T>` oder ein Typ sein wie z. B. `List<T>` oder `HashSet<T>`. Bei Angabe von `ICollection<T>`, EF erstellt eine `HashSet<T>` Auflistung standardmäßig.
+Wenn eine Navigationseigenschaft über mehrere Entitäten (wie in der m: n- oder 1: n-Beziehungen) enthalten kann, muss dessen Typ eine Liste, in dem Einträge können hinzugefügt, gelöscht, und aktualisiert, z. B. `ICollection<T>`. Sie können angeben, `ICollection<T>` oder ein Typ sein wie z. B. `List<T>` oder `HashSet<T>`. Bei Angabe von `ICollection<T>`, EF erstellt eine `HashSet<T>` Auflistung standardmäßig.
 
 ### <a name="the-enrollment-entity"></a>Die Registrierung-Entität
 
@@ -210,7 +208,7 @@ Die Verbindungszeichenfolge gibt eine SQL Server LocalDB-Datenbank. LocalDB ist 
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Fügen Sie Code zum Initialisieren der Datenbank mit Testdaten
 
-Das Entity Framework wird eine leere Datenbank erstellt werden.  In diesem Abschnitt schreiben Sie eine Methode, die aufgerufen wird, nachdem die Datenbank erstellt wird, um sie mit Testdaten auszustatten.
+Das Entity Framework wird eine leere Datenbank erstellt werden. In diesem Abschnitt schreiben Sie eine Methode, die aufgerufen wird, nachdem die Datenbank erstellt wird, um sie mit Testdaten auszustatten.
 
 Verwenden Sie hier die `EnsureCreated` Methode, um die Datenbank automatisch zu erstellen. In einem [späteren Lernprogramm](migrations.md) sehen Sie, wie Sie modelländerungen behandeln, indem Sie Code First-Migrationen verwenden, um das Datenbankschema statt löschen und Neuerstellen der Datenbank zu ändern.
 
@@ -218,7 +216,7 @@ In der *Daten* Ordner, erstellen Sie eine neue Klassendatei mit dem Namen *DbIni
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Der Code überprüft, ob alle Studenten in der Datenbank vorhanden sind und falls nicht, es wird vorausgesetzt die Datenbank ist neu und mit Testdaten ausgeführt werden muss.  Es lädt Testdaten in Arrays statt `List<T>` Sammlungen, um die Leistung zu optimieren.
+Der Code überprüft, ob alle Studenten in der Datenbank vorhanden sind und falls nicht, es wird vorausgesetzt die Datenbank ist neu und mit Testdaten ausgeführt werden muss. Es lädt Testdaten in Arrays statt `List<T>` Sammlungen, um die Leistung zu optimieren.
 
 In *"Program.cs"*, ändern Sie die `Main` Methode, um die folgenden beim Start der Anwendung auszuführen:
 
@@ -244,10 +242,10 @@ Die automatische Erstellung von CRUD-Aktionsmethoden und Ansichten wird als Ger�
 
 * Mit der rechten Maustaste die **Controller** Ordner **Projektmappen-Explorer** , und wählen Sie **hinzufügen > Neues Gerüstelement**.
 
-Wenn die **MVC-Abhängigkeiten hinzufügen** Dialogfeld wird angezeigt:
+Wenn das Dialogfeld **MVC-Abhängigkeiten hinzufügen** angezeigt wird, gehen Sie wie folgt vor:
 
-* [Aktualisieren von Visual Studio auf die neueste Version](https://www.visualstudio.com/downloads/). Visual Studio-Versionen vor 15.5 Anzeigen dieses Dialogfeld.
-* Wenn Sie nicht aktualisieren können, wählen Sie **hinzufügen**, und befolgen Sie dann die Schritte zum Hinzufügen von Domänencontrollern.
+* [Aktualisieren Sie Visual Studio auf die neuste Version.](https://www.visualstudio.com/downloads/) Dieses Dialogfeld wird in allen Visual Studio Versionen vor Version 15.5 angezeigt.
+* Wenn Sie kein Update ausführen können, klicken Sie auf **Hinzufügen**, und führen Sie die Schritte zum Hinzufügen eines Controllers erneut aus.
 
 * In der **Gerüst hinzufügen** (Dialogfeld):
 
@@ -353,7 +351,7 @@ Im folgenden Code wird die `async` -Schlüsselwort, `Task<T>` Rückgabewert, `aw
 
 Einige Dinge zu beachten, wenn Sie asynchronen Code schreiben, der das Entity Framework verwendet werden:
 
-* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, z. B. `ToListAsync`, `SingleOrDefaultAsync`, und `SaveChangesAsync`.  Es umfasst nicht, z. B. Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, z. B. `ToListAsync`, `SingleOrDefaultAsync`, und `SaveChangesAsync`. Es umfasst nicht, z. B. Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Ein EF-Kontext ist nicht threadsicher: nicht Versuch, das mehrere Vorgänge parallel auszuführen. Wenn Sie jede asynchrone EF-Methode aufrufen, verwenden Sie immer die `await` Schlüsselwort.
 
@@ -366,4 +364,4 @@ Weitere Informationen zur asynchronen Programmierung in .NET finden Sie unter [�
 Sie haben nun eine einfache Anwendung erstellt, die das Entity Framework Core und SQL Server Express LocalDB zum Speichern und Anzeigen von Daten verwendet. Im folgenden Lernprogramm erfahren Sie zum Ausführen von grundlegenden CRUD (erstellen, lesen, aktualisieren und löschen) Vorgänge.
 
 >[!div class="step-by-step"]
-[Nächste](crud.md)  
+[Nächste](crud.md)

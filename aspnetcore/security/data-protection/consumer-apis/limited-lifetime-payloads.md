@@ -2,20 +2,18 @@
 title: "Beschränken die Lebensdauer des geschützten Nutzlasten"
 author: rick-anderson
 description: "Dieses Dokument wird erläutert, wie die Lebensdauer einer geschützten Nutzlast, die mit der ASP.NET Core-Datenschutz APIs beschränkt."
-keywords: ASP.NET Core, Datenschutz, Nutzlast Lebensdauer
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 000175e2-10fc-43dd-bfc2-51e004b97b44
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 3fe2e97db118a92cf6fa003b9ce8a9dedf253136
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 144097cd1551c1d0aece5df20ce01e14146a41d1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>Beschränken die Lebensdauer des geschützten Nutzlasten
 
@@ -31,11 +29,11 @@ Die `ITimeLimitedDataProtector` Schnittstelle ist die Kernschnittstelle zum Sch�
 
 * CreateProtector (Zeichenfolge Zweck): ITimeLimitedDataProtector - diese API ist ähnlich den vorhandenen `IDataProtectionProvider.CreateProtector` , da er verwendet werden kann, erstellen [Zweck Ketten](purpose-strings.md) über einen Stamm zeitlich begrenzte Schutzvorrichtung.
 
-* Schützen (Byte [] als nur-Text "DateTimeOffset" Ablauf): Byte]
+* Protect(byte[] plaintext, DateTimeOffset expiration) : byte[]
 
-* Schützen (Byte []-nur-Text, TimeSpan-Lebensdauer): Byte]
+* Protect(byte[] plaintext, TimeSpan lifetime) : byte[]
 
-* Schützen (Byte [] Klartext): Byte]
+* Protect(byte[] plaintext) : byte[]
 
 * Schützen (Zeichenfolge als nur-Text "DateTimeOffset" Ablauf): Zeichenfolge
 
@@ -45,9 +43,9 @@ Die `ITimeLimitedDataProtector` Schnittstelle ist die Kernschnittstelle zum Sch�
 
 Zusätzlich zu den Kern `Protect` Methoden, die nur die als nur-Text werden es sind neue Überladungen, die es ermöglichen, die Nutzlast Ablaufdatum angeben. Das Ablaufdatum kann als ein absolutes Datum angegeben werden (über eine `DateTimeOffset`) oder als ein relativer Zeitpunkt (aus dem aktuellen System Zeit, über eine `TimeSpan`). Wenn eine Überladung, die eine Ablaufzeit wird nicht aufgerufen wird, ist die Nutzlast davon ausgegangen, dass nie ablaufen.
 
-* Aufheben des Schutzes (Byte [] ProtectedData, "DateTimeOffset" Ablauf): Byte]
+* Unprotect(byte[] protectedData, out DateTimeOffset expiration) : byte[]
 
-* Aufheben des Schutzes (Byte [] ProtectedData): Byte]
+* Unprotect(byte[] protectedData) : byte[]
 
 * Aufheben des Schutzes (out "DateTimeOffset" Ablaufdatum Zeichenfolge ProtectedData): Zeichenfolge
 

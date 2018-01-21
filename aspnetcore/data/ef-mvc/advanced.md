@@ -2,20 +2,18 @@
 title: ASP.NET Core MVC mit EF-Core - erweitert - 10 von 10
 author: tdykstra
 description: "Dieses Lernprogramm führt verschiedene Themen, die nützlich sein, wenn Sie die Grundlagen des Entwickelns von ASP.NET-Webanwendungen, mit dem Entity Framework Core hinausgehen bewusst sind."
-keywords: "ASP.NET Core, Entity Framework Core unformatierten Sql untersuchen, Sql, Repositorymusters, Einheit Arbeit für ein Muster, automatische änderungserkennung, vorhandene Datenbank"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 

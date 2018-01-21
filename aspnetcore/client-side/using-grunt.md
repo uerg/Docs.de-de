@@ -2,20 +2,18 @@
 title: Verwenden von Grunt in ASP.NET Core
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core 
 
@@ -98,7 +96,7 @@ Als Nächstes konfigurieren Sie NPM, die zum Herunterladen von Grunt und Grunt-A
 
 2. In der *"Package.JSON"* Dateien innerhalb der `devDependencies` Objekt von geschweiften Klammern, geben Sie "grunt". Wählen Sie `grunt` in Intellisense Liste aus, und drücken Sie die EINGABETASTE. Visual Studio den Paketnamen Grunt Angebot, und fügen einen Doppelpunkt. Wählen Sie rechts neben dem Doppelpunkt ausmacht, die neueste stabile Version des Pakets vom oberen Rand der Intellisense-Liste (drücken Sie `Ctrl-Space` Wenn Intellisense nicht angezeigt wird).
 
-    ![Grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
+    ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
     > NPM verwendet [semantischer versionsverwaltung](http://semver.org/) , Abhängigkeiten zu organisieren. Semantische versionsverwaltung, auch bekannt als SemVer, identifiziert die Pakete mit den Nummerierungsschema <major>.<minor>. <patch>. IntelliSense vereinfacht semantischen versionsverwaltung, indem nur einige allgemeine Optionen angezeigt. Das oberste Element in der Intellisense-Liste (0.4.5 im obigen Beispiel) wird die neueste stabile Version des Pakets betrachtet. Das Caretzeichen (^) Symbol entspricht der aktuellsten Hauptversion und die Tilde (~) entspricht der aktuellsten Nebenversion. Finden Sie unter der [NPM Semver Version Parser Verweis](https://www.npmjs.com/package/semver) als Leitfaden für die vollständige expressivität, die SemVer bereitstellt.

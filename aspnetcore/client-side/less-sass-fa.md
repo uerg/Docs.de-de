@@ -2,20 +2,18 @@
 title: Weniger, Schriftart, die in ASP.NET Core Awesome und Sass
 author: ardalis
 description: Erfahren Sie, wie kleiner Sass und Schriftart Awesome in ASP.NET Core-Anwendungen verwenden.
-keywords: "ASP.NET Core, weniger Sass, Schriftart Awesome, Präprozessoren"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 159377300d33e98393fd6705d0fec578f8f6b735
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Einführung in Styling Anwendungen mit einem niedrigeren Sass und Schriftart Awesome in ASP.NET Core
 
@@ -545,7 +543,7 @@ Dies erzeugt die folgenden im Browser – Beachten Sie das Symbol neben jedem El
 
 Sie können eine vollständige Liste der verfügbaren Symbole anzeigen:
 
-http://fontawesome.IO/Icons/
+http://fontawesome.io/icons/
 
 ## <a name="summary"></a>Zusammenfassung
 

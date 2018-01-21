@@ -2,7 +2,6 @@
 title: Verwenden von Gulp in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zum Verwenden von Gulp in ASP.NET Core.
-keywords: ASP.NET Core Gulp
 ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
@@ -11,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f7254a2f3d3d132f2f6af6d5ddab23f896cf63
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Einführung in das Verwenden von Gulp in ASP.NET Core 
 
@@ -30,7 +29,7 @@ In einer typischen moderne Web-app möglicherweise während des Erstellungsproze
 
 Ein *Task Runner* ist ein Tool, das diese Routine Entwicklungsaufgaben und vieles mehr automatisiert. Visual Studio bietet integrierte Unterstützung für zwei gängige JavaScript-basierten Task Runner: [Gulp](https://gulpjs.com/) und [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>gulp
+## <a name="gulp"></a>Gulp
 
 Gulp ist ein JavaScript-basierten streaming Build Toolkit für clientseitigen Code. Er wird häufig verwendet, um die clientseitige Dateien über eine Reihe von Prozessen zu streamen, wenn ein bestimmtes Ereignis in einer Buildumgebung ausgelöst wird. Z. B. Gulp dienen zum Automatisieren [Bündelung und Minimierung](bundling-and-minification.md) oder die Bereinigung einer Entwicklungsumgebung, bevor Sie einen neuen Build.
 
@@ -65,7 +64,7 @@ Der obige Code gibt an, welche Knoten Module erforderlich sind. Die `require` Fu
 |gulp|Gulp streaming Buildsystems. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp).|
 |rimraf|Ein Modul, Knoten löschen. Weitere Informationen finden Sie unter [Rimraf](https://www.npmjs.com/package/rimraf).|
 |Gulp concat|Ein Modul, das verkettet Dateien auf Grundlage des Betriebssystems Zeilenendemarke enthält. Weitere Informationen finden Sie unter [Gulp Concat](https://www.npmjs.com/package/gulp-concat).|
-|Gulp cssmin|Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin).|
+|gulp-cssmin|Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin).|
 |Gulp uglify|Ein Modul, das verkleinert *js* Dateien. Weitere Informationen finden Sie unter [Gulp uglify](https://www.npmjs.com/package/gulp-uglify).|
 
 Nachdem die erforderlichen Module importiert wurden, können die Aufgaben angegeben werden. Hier sind sechs Aufgaben registriert haben, durch den folgenden Code dargestellt:
@@ -102,10 +101,10 @@ Die folgende Tabelle enthält eine Erklärung der Aufgaben, die im obigen Code a
 
 |Aufgabenname|Beschreibung|
 |--- |--- |
-|Bereinigen: Js|Eine Aufgabe, die das Rimraf Knoten löschen-Modul verwendet, um die verkleinerte Version der Datei site.js zu entfernen.|
+|clean:js|Eine Aufgabe, die das Rimraf Knoten löschen-Modul verwendet, um die verkleinerte Version der Datei site.js zu entfernen.|
 |Bereinigen: Css|Eine Aufgabe, die das Rimraf Knoten löschen-Modul verwendet, um die verkleinerte Version der Datei "Site.CSS" ändern zu entfernen.|
 |Bereinigen|Eine Aufgabe, die Aufrufe der `clean:js` Aufgabe, gefolgt von der `clean:css` Aufgabe.|
-|Min:js|Eine Aufgabe, die verkleinert und alle JS-Dateien in den Ordner "Js" verkettet. Die. min.js Dateien ausgeschlossen sind.|
+|min:js|Eine Aufgabe, die verkleinert und alle JS-Dateien in den Ordner "Js" verkettet. Die. min.js Dateien ausgeschlossen sind.|
 |Min:CSS|Eine Aufgabe, die verkleinert und alle CSS-Dateien in der Css-Ordner verkettet. Die. min.css Dateien ausgeschlossen sind.|
 |Min.|Eine Aufgabe, die Aufrufe der `min:js` Aufgabe, gefolgt von der `min:css` Aufgabe.|
 
@@ -249,7 +248,7 @@ Wenn Sie mehrere Aufgaben ausführen, werden die Aufgaben gleichzeitig standardm
     gulp.task("series", ["series:first", "series:second"], function () {});
     ```
  
-    Sie verfügen jetzt über drei Aufgaben: `series:first`, `series:second`, und `series`. Die `series:second` Task "" enthält einen zweiten Parameter ein Array von Aufgaben ausgeführt und abgeschlossen gibt, bevor die `series:second` Task ausgeführt wird.  Nach den Angaben im Code oben, nur die `series:first` Aufgabe muss abgeschlossen sein, bevor die `series:second` Task ausgeführt wird.
+    Sie verfügen jetzt über drei Aufgaben: `series:first`, `series:second`, und `series`. Die `series:second` Task "" enthält einen zweiten Parameter ein Array von Aufgaben ausgeführt und abgeschlossen gibt, bevor die `series:second` Task ausgeführt wird. Nach den Angaben im Code oben, nur die `series:first` Aufgabe muss abgeschlossen sein, bevor die `series:second` Task ausgeführt wird.
 
 2.  Speichern Sie *gulpfile.js*.
 
@@ -328,7 +327,7 @@ Weitere Informationen zu Umgebungen in ASP.NET Core, finden Sie unter [arbeiten 
 
 ## <a name="task-and-module-details"></a>Aufgabe und die Modul-details
 
-Name einer Funktion ist eine Gulp Aufgabe registriert.  Sie können die Abhängigkeiten angeben, wenn andere Aufgaben vor der aktuellen Aufgabe ausgeführt werden müssen. Zusätzliche Funktionen ermöglichen es Ihnen, ausführen und überwachen die Gulp Aufgaben, sowie legen Sie die Quelle (*Src*) und das Ziel (*Dest*) der Dateien, die geändert wird. Im folgenden sind die primären Gulp-API-Funktionen:
+Name einer Funktion ist eine Gulp Aufgabe registriert. Sie können die Abhängigkeiten angeben, wenn andere Aufgaben vor der aktuellen Aufgabe ausgeführt werden müssen. Zusätzliche Funktionen ermöglichen es Ihnen, ausführen und überwachen die Gulp Aufgaben, sowie legen Sie die Quelle (*Src*) und das Ziel (*Dest*) der Dateien, die geändert wird. Im folgenden sind die primären Gulp-API-Funktionen:
 
 |Gulp-Funktion|Syntax|Beschreibung|
 |---   |--- |--- |

@@ -2,20 +2,18 @@
 title: "Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity | Microsoft Docs"
 author: ardalis
 description: "Wie Sie benutzerdefinierte Speicheranbieter für ASP.NET Core Identity zu konfigurieren."
-keywords: "ASP.NET Core, Identität und benutzerdefinierte Speicheranbieter"
 ms.author: riande
 manager: wpickett
 ms.date: 05/24/2017
 ms.topic: article
-ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
@@ -106,7 +104,7 @@ Speichert und Anspruch Benutzerinformationen (z. B. den Anspruchstyp und-Wert) a
 
 Speichert und ruft die Benutzer-Anmeldeinformationen (z. B. eines externen Authentifizierungsanbieters) ab. [Beispiel](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-### <a name="userrole-storage"></a>Speicher der Benutzerrollen
+### <a name="userrole-storage"></a>UserRole Storage
 
 Speichert und abruft, welche Benutzer die Rollen zugewiesen sind. [Beispiel](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 

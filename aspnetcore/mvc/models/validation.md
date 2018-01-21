@@ -2,20 +2,18 @@
 title: Modellvalidierung in ASP.NET Core MVC
 author: rachelappel
 description: Informationen Sie zur modellvalidierung in ASP.NET Core MVC.
-keywords: ASP.NET Core, MVC-Validierung
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Einführung in die modellvalidierung in ASP.NET Core MVC
 
@@ -173,7 +171,7 @@ Die `$.validator.unobtrusive.parse()` Methode akzeptiert einen jQuery-Selektor f
 
 ### <a name="add-validation-to-dynamic-controls"></a>Hinzufügen von Validierungen zu dynamischen Steuerelementen
 
-Sie können auch die Validierungsregeln auf ein Formular aktualisieren, wenn einzelne wie z. B. Steuerelemente `<input/>`s und `<select/>`s, werden dynamisch generiert. Sie können keine Selektoren für diese Elemente zum Übergeben der `parse()` -Methode direkt da umgebende Formular bereits verarbeitet wurde wurde, und werden nicht aktualisiert.  Stattdessen Sie zuerst die vorhandenen Überprüfungsdaten zu entfernen und dann Analysepunkt das gesamte Formular aus, wie unten dargestellt:
+Sie können auch die Validierungsregeln auf ein Formular aktualisieren, wenn einzelne wie z. B. Steuerelemente `<input/>`s und `<select/>`s, werden dynamisch generiert. Sie können keine Selektoren für diese Elemente zum Übergeben der `parse()` -Methode direkt da umgebende Formular bereits verarbeitet wurde wurde, und werden nicht aktualisiert. Stattdessen Sie zuerst die vorhandenen Überprüfungsdaten zu entfernen und dann Analysepunkt das gesamte Formular aus, wie unten dargestellt:
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ Die Definition der `VerifyEmail()` -Methode folgt diese Regeln an, wie unten dar
 
 Wenn Benutzer eine e-Mail-Nachricht eingeben, wird JavaScript in der Ansicht jetzt einen Remoteaufruf, um festzustellen, ob dieser e-Mail vorgenommen wurde, und wenn dies der Fall ist, die Fehlermeldung angezeigt wird. Andernfalls kann der Benutzer wie gewohnt der Übermittlung des Formulars.
 
-Die `AdditionalFields` Eigenschaft von der `[Remote]` Attribut eignet sich zur Validierung von Kombinationen von Feldern für Daten auf dem Server.  Z. B. wenn die `User` Modell oben hatte zwei zusätzliche Eigenschaften `FirstName` und `LastName`, empfiehlt es sich um sicherzustellen, dass keine vorhandenen Benutzer bereits über diese Paar von Namen verfügen.  Definieren Sie die neuen Eigenschaften, wie im folgenden Code gezeigt:
+Die `AdditionalFields` Eigenschaft von der `[Remote]` Attribut eignet sich zur Validierung von Kombinationen von Feldern für Daten auf dem Server. Z. B. wenn die `User` Modell oben hatte zwei zusätzliche Eigenschaften `FirstName` und `LastName`, empfiehlt es sich um sicherzustellen, dass keine vorhandenen Benutzer bereits über diese Paar von Namen verfügen. Definieren Sie die neuen Eigenschaften, wie im folgenden Code gezeigt:
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`kann explizit festgelegt wurde, die Zeichenfolgen `"FirstName"` und `"LastName"`, während mit den [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) Operator wie folgt vereinfacht später Umgestaltung.  Die Aktionsmethode zum Ausführen der Überprüfung muss zwei Argumente, eine für den Wert der akzeptieren `FirstName` und eine für den Wert der `LastName`.
+`AdditionalFields`kann explizit festgelegt wurde, die Zeichenfolgen `"FirstName"` und `"LastName"`, während mit den [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) Operator wie folgt vereinfacht später Umgestaltung. Die Aktionsmethode zum Ausführen der Überprüfung muss zwei Argumente, eine für den Wert der akzeptieren `FirstName` und eine für den Wert der `LastName`.
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ Jetzt beim Benutzer vor- und Nachnamen, JavaScript eingeben:
 * Wenn das Paar geschaltet wurde, wird eine Fehlermeldung angezeigt. 
 * Wenn nicht, kann der Benutzer das Formular senden.
 
-Wenn Sie zwei oder mehr zusätzliche Felder mit überprüfen müssen die `[Remote]` -Attribut, Sie geben sie als eine durch Trennzeichen getrennte Liste.  Beispielsweise, um das Hinzufügen einer `MiddleName` Eigenschaft festzulegen, dass das Modell der `[Remote]` -Attribut wie im folgenden Code gezeigt:
+Wenn Sie zwei oder mehr zusätzliche Felder mit überprüfen müssen die `[Remote]` -Attribut, Sie geben sie als eine durch Trennzeichen getrennte Liste. Beispielsweise, um das Hinzufügen einer `MiddleName` Eigenschaft festzulegen, dass das Modell der `[Remote]` -Attribut wie im folgenden Code gezeigt:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, z. B. alle Attributargumente, muss ein konstanter Ausdruck sein.  Deshalb müssen Sie nicht verwenden ein [interpoliert Zeichenfolge](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) , oder rufen Sie [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) initialisieren `AdditionalFields`. Für jedes weitere Feld, die Sie zum Hinzufügen der `[Remote]` -Attribut, müssen Sie ein weiteres Argument hinzufügen, um die entsprechende Aktionsmethode des Controllers.
+`AdditionalFields`, z. B. alle Attributargumente, muss ein konstanter Ausdruck sein. Deshalb müssen Sie nicht verwenden ein [interpoliert Zeichenfolge](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) , oder rufen Sie [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) initialisieren `AdditionalFields`. Für jedes weitere Feld, die Sie zum Hinzufügen der `[Remote]` -Attribut, müssen Sie ein weiteres Argument hinzufügen, um die entsprechende Aktionsmethode des Controllers.

@@ -2,20 +2,18 @@
 title: Verteilte Cache Tag Helper | Microsoft Docs
 author: pkellner
 description: Zeigt die zum Arbeiten mit Cache-Tag-Hilfsprogramm
-keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a022
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 462c3775677924fc7b9b715cd6de75fe53ada89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5844dade218fdba1169a55fe3ce251a9cc03db2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="distributed-cache-tag-helper"></a>Verteilter Cache-Tag-Hilfsprogramm
 
@@ -43,7 +41,7 @@ Definitionen finden Sie in der Cache-Tag-Hilfsprogramm. Verteilte Cache Tag Help
 
 | Attributtyp    | Beispielwert     |
 |----------------   |----------------   |
-| string    | "my-distributed-cache-unique-key-101"     |
+| Zeichenfolge    | "my-distributed-cache-unique-key-101"     |
 
 Die erforderliche `name` Attribut als Schlüssel für diesen Cache gespeichert, die für jede Instanz eines verteilten Cache-Tag-Hilfsprogramms verwendet wird.  Im Gegensatz zu den grundlegenden Cache Tag-Hilfsprogramm, das einen Schlüssel jeder Cache Tag-Hilfsinstanz basierend auf den Namen der Razor-Seite und den Speicherort der Hilfsprogramm-Tag in der Seite "Razor" zuweist, beruht die verteilten Cache Tag Helper nur sie dessen Schlüssel für das Attribut`name`
 

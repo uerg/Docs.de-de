@@ -2,21 +2,19 @@
 title: Tag-Hilfsprogramme in Formularen in ASP.NET Core
 author: rick-anderson
 description: Beschreibt die integrierte Tag Hilfsprogramme mit Forms verwendet.
-keywords: ASP.NET Core, Tag-Hilfsprogramm taghelpers., HTML-Formular bildet.
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Einführung in die Verwendung von Tag-Hilfsprogramme in Formularen in ASP.NET Core
 
@@ -111,8 +109,8 @@ Die `Input` Tag Helper legt den HTML-Code `type` Attribut basierend auf dem .NET
 
 |.NET-Typ|Eingabetyp|
 |---|---|
-|Bool|Typ = "Checkbox"|
-|Zeichenfolge|Typ = "Text"|
+|Bool|type=”checkbox”|
+|Zeichenfolge|type=”text”|
 |DateTime|Typ "Datetime" =|
 |Byte|Typ = "Number"|
 |Int|Typ = "Number"|
@@ -125,12 +123,12 @@ Die folgende Tabelle zeigt einige häufige [datenanmerkungen](https://docs.micro
 |Attribut|Eingabetyp|
 |---|---|
 |[EmailAddress]|Typ = "Email"|
-|[Url]|Typ = "Url"|
-|[HiddenInput]|Typ = "hidden"|
-|[Phone]|Typ = "Tel."|
-|[DataType(DataType.Password)]| Typ = "Kennwort"|
+|[Url]|type=”url”|
+|[HiddenInput]|type=”hidden”|
+|[Phone]|type=”tel”|
+|[DataType(DataType.Password)]| type=”password”|
 |[DataType(DataType.Date)]| Typ "Date" =|
-|[DataType(DataType.Time)]| Typ "Time" =|
+|[DataType(DataType.Time)]| type=”time”|
 
 
 Beispiel:
@@ -366,7 +364,7 @@ Die `Validation Summary Tag Helper` wird verwendet, um eine Zusammenfassung von 
 |--- |--- |
 |ValidationSummary.All|Eigenschaft "und" Model-Ebene|
 |ValidationSummary.ModelOnly|Modell|
-|ValidationSummary.None|Keine|
+|ValidationSummary.None|Keiner|
 
 ### <a name="sample"></a>Beispiel
 

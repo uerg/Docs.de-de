@@ -2,20 +2,18 @@
 title: ASP.NET Core MVC mit EF-Kern - CRUD - 2-10
 author: tdykstra
 description: 
-keywords: "ASP.NET Core, Entity Framework Core, CRUD, erstellen, lesen, aktualisieren und löschen"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 9fc2b4c126c4d109deb2125f0db70a355c04eb15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit ASP.NET Core MVC-Lernprogramm (2 von 10)
 
@@ -202,15 +200,15 @@ Der Datenbankkontext der nachverfolgt, ob Entitäten im Arbeitsspeicher mit ihre
 
 Eine Entität kann in einem der folgenden Zustände werden:
 
-* `Added`. Die Entität ist noch nicht in der Datenbank vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
+* `Added` Die Entität ist noch nicht in der Datenbank vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
 
-* `Unchanged`. Keine Aktionen erforderlich, mit diese Entität durch erfolgen die `SaveChanges` Methode. Wenn Sie eine Entität aus der Datenbank lesen, beginnt die Entität mit diesem Status.
+* `Unchanged` Keine Aktionen erforderlich, mit diese Entität durch erfolgen die `SaveChanges` Methode. Wenn Sie eine Entität aus der Datenbank lesen, beginnt die Entität mit diesem Status.
 
-* `Modified`. Einige oder alle Eigenschaftswerte für die Entität wurden geändert. Die `SaveChanges` -Methode gibt eine UPDATE-Anweisung.
+* `Modified` Einige oder alle Eigenschaftswerte für die Entität wurden geändert. Die `SaveChanges` -Methode gibt eine UPDATE-Anweisung.
 
-* `Deleted`. Die Entität wurde zum Löschen markiert wurde. Die `SaveChanges` -Methode gibt eine DELETE-Anweisung.
+* `Deleted` Die Entität wurde zum Löschen markiert wurde. Die `SaveChanges` -Methode gibt eine DELETE-Anweisung.
 
-* `Detached`. Die Entität ist nicht vom Kontext Datenbank nachverfolgt.
+* `Detached` Die Entität ist nicht vom Kontext Datenbank nachverfolgt.
 
 Zustandsänderungen werden in einer Desktopanwendung in der Regel automatisch festgelegt. Lesen eine Entität, und nehmen Sie Änderungen an einige Eigenschaftswerte. Dies bewirkt, dass automatisch geändert werden, um zugehörige Entitätsstatus `Modified`. Klicken Sie dann beim Aufrufen `SaveChanges`, Entity Framework generiert eine SQL UPDATE-Anweisung, die nur die tatsächlichen Eigenschaften aktualisiert, die Sie geändert haben.
 
@@ -292,7 +290,7 @@ Sie können die Überwachung von Entitätsobjekten im Arbeitsspeicher deaktivier
 
 * Sie eine Entität anfügen, um es zu aktualisieren möchten, aber zuvor abgerufenen dieselbe Entität für unterschiedliche Zwecke erfüllen. Da die Entität bereits vom Kontext Datenbank nachverfolgt wird, können Sie die Entität nicht anfügen, die Sie ändern möchten. Eine Methode für diese Situation ist das Aufrufen `AsNoTracking` auf der oben dargestellten Abfrage.
 
-Weitere Informationen finden Sie unter [Vs nachverfolgen. Keine Überwachung](https://docs.microsoft.com/ef/core/querying/tracking).
+Weitere Informationen finden Sie unter [Vs nachverfolgen. No-Tracking](https://docs.microsoft.com/ef/core/querying/tracking).
 
 ## <a name="summary"></a>Zusammenfassung
 

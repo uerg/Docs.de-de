@@ -2,7 +2,6 @@
 title: "Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core"
 author: rick-anderson
 description: "Zeigt, wie sichere Speichern von geheimen Schlüsseln während der Entwicklung"
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 09/15/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: e2c11b768098b3d92ef702e0daad746963dc3856
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
 
@@ -115,11 +114,11 @@ Sie können Benutzer geheime Schlüssel über den Konfigurations-API zugreifen:
 
 Das Schlüssel-Manager-Tool abstrahiert die Implementierungsdetails, z. B., wo und wie die Werte gespeichert werden. Sie können das Tool verwenden, ohne diese Implementierungsdetails. In der aktuellen Version werden die Werte gespeichert, einem [JSON](http://json.org/) Konfigurationsdatei im Verzeichnis Benutzers-Profil:
 
-* Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+* Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
 
-* Linux:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 Der Wert der `userSecretsId` stammt aus dem Wert im angegebenen *csproj* Datei.
 

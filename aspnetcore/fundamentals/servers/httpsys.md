@@ -2,20 +2,18 @@
 title: HTTP.sys webserverimplementierung in ASP.NET Core
 author: rick-anderson
 description: "Führt ein HTTP.sys, einen Webserver für ASP.NET Core unter Windows. HTTP.sys ist basiert auf Http.Sys-Kernelmodustreiber und ist eine Alternative zum Kestrel, die für die direkte Verbindung mit dem Internet ohne IIS verwendet werden kann."
-keywords: "ASP.NET Core,HttpSys,HTTP.sys,HttpListener,url Präfixe, SSL"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
 ms.topic: article
-ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 60301e1e3eb96f51e86ef9f8be61f5fd8a4c009c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys webserverimplementierung in ASP.NET Core
 
@@ -162,7 +160,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 Hier ist die Referenzdokumentation für *netsh.exe*:
 
 * [Netsh-Befehle für Hypertext Transfer-Protokoll (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-* [UrlPrefix Zeichenfolgen](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+* [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 Die folgenden Ressourcen bieten detaillierte Anweisungen für verschiedene Szenarien. Artikel, die auf HttpListener verweisen gelten gleichermaßen für HTTP.sys, wie sowohl auf Http.Sys basieren.
 

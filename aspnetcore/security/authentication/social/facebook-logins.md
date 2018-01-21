@@ -2,20 +2,18 @@
 title: Facebook externe Anmeldung Setup in ASP.NET Core
 author: rick-anderson
 description: Dieses Lernprogramm veranschaulicht die Integration von Facebook-Konto-Benutzerauthentifizierung in eine vorhandene ASP.NET Core-app.
-keywords: ASP.NET Core, Facebook, Anmeldung, Authentifizierung
 ms.author: riande
 manager: wpickett
 ms.date: 08/01/2017
 ms.topic: article
-ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 058670b4f699288e1acbe76bae08dcebf69346b8
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 2d36aa78f82b4a52a7c6a152bee2c4ca9923409f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-facebook-authentication"></a>Konfigurieren von Facebook-Authentifizierung
 

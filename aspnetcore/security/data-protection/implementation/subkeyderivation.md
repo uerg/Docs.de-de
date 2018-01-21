@@ -2,20 +2,18 @@
 title: "Unterschlüssel Ableitung und authentifizierten Verschlüsselung"
 author: rick-anderson
 description: "Dieses Dokument erläutert die Implementierungsdetails des Datenschutzes ASP.NET Core Ableitung Unterschlüssel und Verschlüsselung authentifiziert."
-keywords: "ASP.NET Core, Datenschutz, Unterschlüsseln Ableitung authentifiziert, Verschlüsselung"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3927678b7b67b0e521a961e363200bdfe0bdaeb3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Unterschlüssel Ableitung und authentifizierten Verschlüsselung
 
@@ -40,17 +38,17 @@ Die `IAuthenticatedEncryptor` Schnittstelle als die Kernschnittstelle für alle 
 
 Da das AAD für das Tupel aller drei Komponenten eindeutig ist, können wir neue Schlüssel von KM abgeleitet werden, anstatt KM selbst in allen unseren kryptografischen Vorgänge. Für jeden Aufruf von `IAuthenticatedEncryptor.Encrypt`, die folgenden Schlüsselableitungsfunktion Prozess findet:
 
-(K_E, K_H) = SP800_108_CTR_HMACSHA512 (K_M AAD, ContextHeader || KeyModifier)
+( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
 Hier entgegen der NIST SP800 108 KDF im Leistungsindikator-Modus (finden Sie unter [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sek. 5.1) mit den folgenden Parametern:
 
 * Schlüsselableitungsfunktion Schlüssel (KDK) = K_M
 
-* PRF HMACSHA512 =
+* PRF = HMACSHA512
 
-* Label = AdditionalAuthenticatedData
+* label = additionalAuthenticatedData
 
-* Kontext = ContextHeader || keyModifier
+* context = contextHeader || keyModifier
 
 Der Kontextheader mit variabler Länge ist und dient im Wesentlichen als einen Fingerabdruck-Algorithmen für die wir K_E und K_H abgeleitet sind. Der Key-Modifizierer ist eine 128-Bit-Zeichenfolge, die nach dem Zufallsprinzip generiert für jeden Aufruf von `Encrypt` und dient, um sicherzustellen, dass mit einer Überlastung der Wahrscheinlichkeit, dass "KE" und KH für diesen bestimmten Authentifizierung Verschlüsselungsvorgang eindeutig sind, auch wenn alle anderen Eingabe für die KDF konstant ist.
 

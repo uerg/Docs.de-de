@@ -2,20 +2,18 @@
 title: Benutzerdefinierte wurden die Modellbindung
 author: ardalis
 description: Anpassen der modellbindung in ASP.NET Core MVC.
-keywords: ASP.NET Core, wurden die modellbindung, benutzerdefinierten Modellbinder
 ms.author: riande
 manager: wpickett
 ms.date: 04/10/2017
 ms.topic: article
-ms.assetid: ebd98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: f3fc3d624c3b79d49a886dd85ca8b19147631e39
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8b94f53954c5ab63ccf3aab4eb7a7a7dbea487b
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-model-binding"></a>Benutzerdefinierte wurden die Modellbindung
 
@@ -39,7 +37,7 @@ Vor dem Erstellen Ihrer eigenen benutzerdefinierten Modellbinder, ist es, zu üb
 
 Base64-codierte Zeichenfolgen können verwendet werden, um binäre Daten darzustellen. Beispielsweise kann die folgende Abbildung als Zeichenfolge codiert werden.
 
-![Dotnet Bot](custom-model-binding/images/bot.png "Dotnet Bot")
+![dotnet bot](custom-model-binding/images/bot.png "dotnet bot")
 
 Ein kleiner Teil die codierte Zeichenfolge wird in der folgenden Abbildung gezeigt:
 
@@ -74,7 +72,7 @@ Das folgende Beispiel zeigt, wie Sie `ByteArrayModelBinder` konvertieren Sie ein
 
 Können Sie eine base64-codierte Zeichenfolge an diese api-Methode, die mit einem Tool wie POST [Postman](https://www.getpostman.com/):
 
-![Postman](custom-model-binding/images/postman.png "Postman")
+![postman](custom-model-binding/images/postman.png "postman")
 
 Solange der Binder Anforderungsdaten auf entsprechend benannten Eigenschaften oder Argumente gebunden werden kann, erfolgreich wurden die modellbindung. Das folgende Beispiel zeigt, wie Sie `ByteArrayModelBinder` mit einem Ansichtsmodell:
 

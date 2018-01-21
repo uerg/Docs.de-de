@@ -2,19 +2,17 @@
 title: Azure Key Vault-Konfigurationsanbieter
 author: guardrex
 description: Erfahren Sie, wie der Azure Key Vault-Konfigurationsanbieter verwenden Sie zum Konfigurieren einer Anwendung mithilfe von Name / Wert-Paaren, die zur Laufzeit geladen.
-keywords: ASP.NET Core, Azure Key Vault-Konfiguration
 ms.author: riande
 manager: wpickett
 ms.date: 08/09/2017
 ms.topic: article
-ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 25c7d38a27741c9877538673425c5a9dceccac93
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
 
@@ -49,8 +47,8 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
 | App-Einstellung    | Beschreibung                    | Beispiel                                      |
 | -------------- | ------------------------------ | -------------------------------------------- |
 | `Vault`        | Azure Key Vault-name           | contosovault                                 |
-| `ClientId`     | Azure Active Directory-App-Id  | 627e911e-43CC-61d4-992e-12db9c81b413         |
-| `ClientSecret` | Azure Active Directory-Anwendungsschlüssel | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
+| `ClientId`     | Azure Active Directory-App-Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
+| `ClientSecret` | Azure Active Directory-Anwendungsschlüssel | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 

@@ -2,7 +2,6 @@
 title: Core-kryptografieerweiterbarkeit
 author: rick-anderson
 description: "Erläutert das IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer sowie der obersten Ebene Factory."
-keywords: ASP.NET Core, IAuthenticatedEncryptor IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer
 ms.author: riande
 manager: wpickett
 ms.date: 8/11/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 69839562c39ab83531085e20dac1bd56e8d13d3f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Core-kryptografieerweiterbarkeit
 
@@ -78,7 +77,7 @@ Die **IAuthenticatedEncryptorDescriptor** Schnittstelle darstellt, einen Typ, de
 
 * CreateEncryptorInstance(): IAuthenticatedEncryptor
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 Wie IAuthenticatedEncryptor wird eine Instanz von IAuthenticatedEncryptorDescriptor angenommen, um einen bestimmten Schlüssel zu umschließen. Dies bedeutet, dass für eine bestimmte Instanz IAuthenticatedEncryptorDescriptor alle authentifizierten Verschlüsselungsprogramme mit seiner CreateEncryptorInstance-Methode erstellte entspricht, wie in einzustufen ist die im folgenden Codebeispiel.
 
@@ -104,13 +103,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
-## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET Core 2.x nur)
+## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET Core 2.x only)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Die **IAuthenticatedEncryptorDescriptor** Schnittstelle darstellt, einen Typ, der weiß, wie Sie selbst in XML exportieren. Seine API lautet wie folgt.
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

@@ -2,27 +2,25 @@
 title: "Verwenden JavaScriptServices für einseitige Anwendungen erstellen"
 author: scottaddie
 description: Weitere Informationen Sie zu den Vorteilen der Verwendung von JavaScriptServices zum Erstellen von einer einzelnen Seite Anwendung (SPA) durch ASP.NET Core gesichert wird.
-keywords: ASP.NET Core Angular, SPA, JavaScriptServices, SpaServices
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 4b30576b-2718-4c39-9253-a59966747893
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Verwenden JavaScriptServices für einseitige Anwendungen mit ASP.NET Core erstellen
 
 Durch [Scott Addie](https://github.com/scottaddie) und [Fiyaz Hasan](http://fiyazhasan.me/)
 
-Eine Single-Page-Anwendung (SPA) ist ein Webanwendungstyp, der aufgrund seiner hohen Servicequalität und Leistungsstärke sehr beliebt ist. Die Integration clientseitiger SPA-Frameworks oder -Bibliotheken wie [Angular](https://angular.io/) oder [React](https://facebook.github.io/react/) mit serverseitigen Frameworks wie ASP.NET Core schwierig sein kann. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um Inkonsistenzen im Integrationsprozess zu reduzieren. Hierdurch wird ein reibungsloser Betrieb verschiedener Client- und Servertechnologiestapel möglich.
+Eine einzelne Seite Anwendung (SPA) ist eine beliebte Web Anwendungstyp aufgrund der inhärenten leistungsstarke, optimierte Benutzeroberfläche. Integrieren von clientseitigen SPA-Frameworks oder-Bibliotheken, z. B. [Angular](https://angular.io/) oder [reagieren](https://facebook.github.io/react/), mit serverseitigen Frameworks wie ASP.NET Core schwierig sein kann. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um die Unstimmigkeiten in den Integrationsprozess zu reduzieren. Dadurch werden nahtlos zwischen den Client- und Server-Technologie Stapel.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
@@ -145,7 +143,7 @@ Die `postList` Array definiert, die innerhalb der `globals` Objekt wird an des B
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
-* [ASPNET-Webpaketdatei](https://www.npmjs.com/package/aspnet-webpack) Npm-Paket:
+* [aspnet-webpack](https://www.npmjs.com/package/aspnet-webpack) npm package:
 
     ```console
     npm i -D aspnet-webpack
@@ -239,12 +237,12 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 
 | Vorlagen                                 | Kurzname | Sprache | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC ASP.NET Core mit Angular             | angular    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core mit Aurelia             | aurelia    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core mit Knockout.js         | Knockout   | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core mit React.js            | react      | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core mit Vue.js              | VUE        | [C#]     | MVC/Web/SPA | 
+| MVC ASP.NET Core mit Angular             | angular    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core mit Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core mit Knockout.js         | Knockout   | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core mit React.js            | react      | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core mit Vue.js              | VUE        | [C#]     | Web/MVC/SPA | 
 
 Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen enthalten die **Kurzname** der Vorlage in der `dotnet new` Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC für die Serverseite konfiguriert:
 

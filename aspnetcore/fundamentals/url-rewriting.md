@@ -2,20 +2,18 @@
 title: "Überschreiben von URLs in ASP.NET Core Middleware"
 author: guardrex
 description: Informationen Sie zur URL umschreiben und Umleitung mit URL umschreiben Middleware in ASP.NET Core-Anwendungen.
-keywords: ASP.NET Core, umschreiben, URL-Rewrite URL umleiten, URL-Umleitung, Middleware, Apache_mod URL
 ms.author: riande
 manager: wpickett
 ms.date: 08/17/2017
 ms.topic: article
-ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Überschreiben von URLs in ASP.NET Core Middleware
 
@@ -200,7 +198,7 @@ Die Middleware unterstützt die folgenden Apache Mod_rewrite Servervariablen:
 * HTTP_USER_AGENT
 * HTTPS
 * IPV6
-* ABFRAGEZEICHENFOLGE
+* QUERY_STRING
 * REMOTE_ADDR
 * REMOTE_PORT
 * REQUEST_FILENAME
@@ -266,7 +264,7 @@ Die Middleware freigegeben mit ASP.NET Core 1.x unterstützt die folgenden Funkt
 * CustomResponse Aktion
 * Benutzerdefinierte Servervariablen
 * Platzhalter
-* Aktion: CustomResponse
+* Action:CustomResponse
 * LogRewrittenUrl
 
 ---
@@ -274,7 +272,7 @@ Die Middleware freigegeben mit ASP.NET Core 1.x unterstützt die folgenden Funkt
 #### <a name="supported-server-variables"></a>Unterstützte Servervariablen
 Die Middleware unterstützt die folgenden Servervariablen von IIS URL Rewrite-Modul:
 * CONTENT_LENGTH
-* INHALTSTYP
+* CONTENT_TYPE
 * HTTP_ACCEPT
 * HTTP_CONNECTION
 * HTTP_COOKIE
@@ -284,7 +282,7 @@ Die Middleware unterstützt die folgenden Servervariablen von IIS URL Rewrite-Mo
 * HTTP_USER_AGENT
 * HTTPS
 * LOCAL_ADDR
-* ABFRAGEZEICHENFOLGE
+* QUERY_STRING
 * REMOTE_ADDR
 * REMOTE_PORT
 * REQUEST_FILENAME
@@ -299,7 +297,7 @@ Die Middleware unterstützt die folgenden Servervariablen von IIS URL Rewrite-Mo
 ### <a name="method-based-rule"></a>Methodenbasierte Regel
 Verwendung `Add(Action<RewriteContext> applyRule)` Ihre eigene Regellogik in einer Methode zu implementieren. Die `RewriteContext` macht die `HttpContext` für die Verwendung in der Methode. Die `context.Result` bestimmt, wie zusätzliche Pipeline Verarbeitung erfolgt.
 
-| Kontext. Ergebnis                       | Aktion                                                          |
+| context.Result                       | Aktion                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (Standardwert) | Anwenden von Regeln wird fortgesetzt                                         |
 | `RuleResult.EndResponse`             | Beenden Sie die Regeln angewendet werden, und Senden der Antwort                       |

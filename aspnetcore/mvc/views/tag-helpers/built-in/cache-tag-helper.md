@@ -2,20 +2,18 @@
 title: Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC
 author: pkellner
 description: Zeigt die zum Arbeiten mit Cache-Tag-Hilfsprogramm
-keywords: ASP.NET Core, Taghilfsprogramm
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC
 
@@ -60,7 +58,7 @@ Beispiel:
 
 - - -
 
-### <a name="expires-on"></a>läuft ab am 
+### <a name="expires-on"></a>expires-on 
 
 | Attributtyp    | Beispielwert     |
 |----------------   |----------------   |
@@ -186,8 +184,8 @@ routes.MapRoute(
 
 | Attributtyp    | Beispielwerte                |
 |----------------   |----------------               |
-| Zeichenfolge            | ". AspNetCore.Identity.Application"                |
-|                   | ". AspNetCore.Identity.Application,HairColor" |
+| Zeichenfolge            | ".AspNetCore.Identity.Application"                |
+|                   | ".AspNetCore.Identity.Application,HairColor" |
 
 Nimmt einen einzelnen Header-Wert oder eine durch Trennzeichen getrennte Liste von Headerwerten, die eine Aktualisierung des Cache auslösen, wenn die Headerwerte (s) ändern. Im folgende Beispiel prüft die ASP.NET Identity zugeordneten Cookies ab. Wenn ein Benutzer authentifiziert wird der Anforderungscookies festgelegt werden, die eine Aktualisierung des Cache auslöst.
 
@@ -224,7 +222,7 @@ Mit diesem Attribut behält den Inhalt im Cache für eine Anmeldung und Abmeldun
 
 - - -
 
-### <a name="vary-by"></a>Verändern von
+### <a name="vary-by"></a>vary-by
 
 | Attributtyp    | Beispielwerte                |
 |----------------   |----------------               |

@@ -2,7 +2,6 @@
 title: Hosten in ASP.NET Core
 author: guardrex
 description: "Informationen Sie zu den Webhost in ASP.NET Core, die für die app starten und die Verwaltung zuständig ist."
-keywords: ASP.NET Core, web Host IWebHost, WebHostBuilder, IHostingEnvironment, IApplicationLifetime
 ms.author: riande
 manager: wpickett
 ms.date: 09/21/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7f6712073002b73ca4ddd7586718c81e62cacbc2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosten in ASP.NET Core
 
@@ -35,8 +34,8 @@ Erstellen Sie einen Host mit einer Instanz von [WebHostBuilder](/dotnet/api/micr
 * Konfiguriert die [Kestrel](servers/kestrel.md) wie der Webserver. Die Standardoptionen Kestrel finden Sie unter [der Kestrel Optionen im Abschnitt Kestrel webserverimplementierung in ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Legt die Inhalten-Stamm auf den Pfad zurückgegebenes [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Lädt die optionale Konfiguration aus:
-  * *AppSettings.JSON*.
-  * *"appSettings". {Umgebung} JSON*.
+  * *appsettings.json*.
+  * *appsettings.{Environment}.json*.
   * [Vertrauliche Benutzerdaten](xref:security/app-secrets) Wenn die app ausgeführt wird, der `Development` Umgebung.
   * Umgebungsvariablen.
   * Befehlszeilenargumente.
@@ -424,7 +423,7 @@ Verwendung [Konfiguration](xref:fundamentals/configuration/index) auf den Host k
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {
@@ -465,7 +464,7 @@ public class Program
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {
@@ -559,7 +558,7 @@ using (host)
 
 Die app kann initialisieren und starten Sie einen neuen Host mit den Standardwerten vorkonfiguriert, dass `CreateDefaultBuilder` mithilfe einer statischen Hilfsmethode. Diese Methoden starten Sie den Server ohne Konsolenausgabe und [WaitForShutdown](/dotnet/api/microsoft.aspnetcore.hosting.webhostextensions.waitforshutdown) warten Sie, bis eine Unterbrechung (STRG-C/SIGINT oder SIGTERM):
 
-**Start (RequestDelegate app)**
+**Start(RequestDelegate app)**
 
 Beginnen Sie mit einem `RequestDelegate`:
 
@@ -573,7 +572,7 @@ using (var host = WebHost.Start(app => app.Response.WriteAsync("Hello, World!"))
 
 Führen Sie im Browser, um eine Anforderung `http://localhost:5000` zum Empfangen der Antwort "Hello World!" `WaitForShutdown`blockiert, bis eine Unterbrechung (STRG-C/SIGINT oder SIGTERM) ausgegeben wird. Die app zeigt die `Console.WriteLine` Nachricht und wartet, bis eine Keypress zu beenden.
 
-**Start (String Url, RequestDelegate app)**
+**Start(string url, RequestDelegate app)**
 
 Beginnen Sie mit einer URL und `RequestDelegate`:
 
@@ -644,7 +643,7 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 
 Führt zum gleiche Ergebnis wie **starten (Aktion<IRouteBuilder> RouteBuilder)**, außer die Anwendung reagiert auf `http://localhost:8080`.
 
-**StartWith (Aktion<IApplicationBuilder> app)**
+**StartWith(Action<IApplicationBuilder> app)**
 
 Geben Sie ein Delegat zum Konfigurieren einer `IApplicationBuilder`:
 
