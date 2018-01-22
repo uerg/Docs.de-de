@@ -2,7 +2,6 @@
 title: Aktualisieren der generierten Seiten
 author: rick-anderson
 description: Aktualisieren der generierten Seiten mit besserer Anzeige.
-keywords: ASP.NET Core, Razor-Seiten
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: e0b09860e7dc871e0a554ddeac9e8d2c31702fb0
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 201e8d9c77d8e022bc56ffcf46456fada6fcfe25
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="updating-the-generated-pages"></a>Aktualisieren der generierten Seiten
 
@@ -95,7 +94,7 @@ So testen Sie den Block `catch`
 * Klicken Sie in einem anderen Browserfenster auf den Link **Delete** für denselben Film, und löschen Sie dann den Film.
 * Übermitteln Sie im vorherigen Browserfenster Änderungen am Film.
 
-Code in Produktionsumgebungen erkennt normalerweise Parallelitätskonflikte, wenn zwei oder mehrere Clients einen Datensatz gleichzeitig aktualisiert haben. Weitere Informationen finden Sie unter [Behandlung von Parallelitätskonflikten](xref:data/ef-mvc/concurrency).
+Code in Produktionsumgebungen erkennt normalerweise Parallelitätskonflikte, wenn zwei oder mehrere Clients einen Datensatz gleichzeitig aktualisiert haben. Weitere Informationen finden Sie unter [Behandlung von Parallelitätskonflikten](xref:data/ef-rp/concurrency).
 
 ### <a name="posting-and-binding-review"></a>Überprüfen der Bereitstellung und Bindung
 
