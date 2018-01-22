@@ -2,31 +2,29 @@
 title: Consumer-APIs
 author: rick-anderson
 description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zu ASP.NET Core-Consumer-APIs für den Schutz von Daten."
-keywords: ASP.NET Core,Consumer-API,Schutz von Daten
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: dff0cde2-6612-4b32-bafc-c00bf6d370f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: 15e4dabb4cc6b6381e4951628f1d3d6aa56a581c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ffba0079ce0ab4139115d9876e16a174685398d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="consumer-apis"></a><span data-ttu-id="27c78-104">Consumer-APIs</span><span class="sxs-lookup"><span data-stu-id="27c78-104">Consumer APIs</span></span>
+# <a name="consumer-apis"></a><span data-ttu-id="e0b1a-103">Consumer-APIs</span><span class="sxs-lookup"><span data-stu-id="e0b1a-103">Consumer APIs</span></span>
 
-* [<span data-ttu-id="27c78-105">Übersicht über Consumer-APIs</span><span class="sxs-lookup"><span data-stu-id="27c78-105">Consumer APIs Overview</span></span>](overview.md)
+* [<span data-ttu-id="e0b1a-104">Übersicht über Consumer-APIs</span><span class="sxs-lookup"><span data-stu-id="e0b1a-104">Consumer APIs Overview</span></span>](overview.md)
 
-* [<span data-ttu-id="27c78-106">Zweckzeichenfolgen</span><span class="sxs-lookup"><span data-stu-id="27c78-106">Purpose Strings</span></span>](purpose-strings.md)
+* [<span data-ttu-id="e0b1a-105">Zweckzeichenfolgen</span><span class="sxs-lookup"><span data-stu-id="e0b1a-105">Purpose Strings</span></span>](purpose-strings.md)
 
-* [<span data-ttu-id="27c78-107">Zweckhierarchie und Mehrinstanzenfähigkeit</span><span class="sxs-lookup"><span data-stu-id="27c78-107">Purpose hierarchy and multi-tenancy</span></span>](purpose-strings-multitenancy.md)
+* [<span data-ttu-id="e0b1a-106">Zweckhierarchie und Mehrinstanzenfähigkeit</span><span class="sxs-lookup"><span data-stu-id="e0b1a-106">Purpose hierarchy and multi-tenancy</span></span>](purpose-strings-multitenancy.md)
 
-* [<span data-ttu-id="27c78-108">Kennwort-Hashing</span><span class="sxs-lookup"><span data-stu-id="27c78-108">Password Hashing</span></span>](password-hashing.md)
+* [<span data-ttu-id="e0b1a-107">Kennwort-Hashing</span><span class="sxs-lookup"><span data-stu-id="e0b1a-107">Password Hashing</span></span>](password-hashing.md)
 
-* [<span data-ttu-id="27c78-109">Beschränken der Lebensdauer von geschützten Nutzlasten</span><span class="sxs-lookup"><span data-stu-id="27c78-109">Limiting the lifetime of protected payloads</span></span>](limited-lifetime-payloads.md)
+* [<span data-ttu-id="e0b1a-108">Beschränken der Lebensdauer von geschützten Nutzlasten</span><span class="sxs-lookup"><span data-stu-id="e0b1a-108">Limiting the lifetime of protected payloads</span></span>](limited-lifetime-payloads.md)
 
-* [<span data-ttu-id="27c78-110">Aufheben des Schutzes von Nutzlasten, deren Schlüssel gesperrt wurden</span><span class="sxs-lookup"><span data-stu-id="27c78-110">Unprotecting payloads whose keys have been revoked</span></span>](dangerous-unprotect.md)
+* [<span data-ttu-id="e0b1a-109">Aufheben des Schutzes von Nutzlasten, deren Schlüssel gesperrt wurden</span><span class="sxs-lookup"><span data-stu-id="e0b1a-109">Unprotecting payloads whose keys have been revoked</span></span>](dangerous-unprotect.md)
