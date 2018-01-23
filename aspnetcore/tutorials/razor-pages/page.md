@@ -2,7 +2,6 @@
 title: "Gerüstbau mit Razor-Seiten in ASP.NET Core"
 author: rick-anderson
 description: "Gibt nähere Informationen über durch Gerüstbau erstellte Razor-Seiten."
-keywords: ASP.NET Core, Razor-Seiten, Razor, MVC
 ms.author: riande
 manager: wpickett
 ms.date: 09/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: e42e7e469e411d2d4bc1bd1b3a3995a77c355ebd
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: ad2a2b48beb31dddcfd78a8aab79ac58ccda28f3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Gerüstbau mit Razor-Seiten in ASP.NET Core
 
@@ -26,12 +25,32 @@ Beispiel [Anzeigen oder Herunterladen](https://github.com/aspnet/Docs/tree/maste
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Die Seiten „Create“, „Delete“, „Details“ und „Edit“.
 
-Betrachten Sie die *Pages/Movies/Index.cshtml.cs*-CodeBehind-Datei: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+Überprüfen Sie das Seitenmodell *Pages/Movies/Index.cshtml*: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
 Razor-Seiten werden von `PageModel` abgeleitet. Gemäß der Konvention wird die von `PageModel` abgeleitete Klasse `<PageName>Model` genannt. Der Konstruktor verwendet [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection), um `MovieContext` zur Seite hinzuzufügen. Alle per Gerüstbau erstellten Seiten folgen diesem Muster. Weitere Informationen zum asynchronen Programmieren mit Entity Framework finden Sie unter [Asynchroner Code](xref:data/ef-rp/intro#asynchronous-code).
 
-Wenn eine Anforderung an die Seite erfolgt, gibt die Methode `OnGetAsync` eine Filmliste an die Razor-Seite zurück. `OnGetAsync` oder `OnGet` werden für eine Razor-Seite aufgerufen, um den Zustand der Seite zu initialisieren. In diesem Fall ruft `OnGetAsync` eine Liste von Filmen für die Anzeige ab.
+Wenn eine Anforderung an die Seite erfolgt, gibt die Methode `OnGetAsync` eine Filmliste an die Razor-Seite zurück. `OnGetAsync` oder `OnGet` werden für eine Razor-Seite aufgerufen, um den Zustand der Seite zu initialisieren. In diesem Fall ruft `OnGetAsync` eine Liste von Filmen ab und zeigt diese an. 
 
+Wenn `OnGet` `void` und `OnGetAsync` `Task` zurückgibt, wird keine Rückgabemethode verwendet. Wenn der Rückgabetyp `IActionResult` oder `Task<IActionResult>` ist, muss eine Rückgabeanweisung bereitgestellt werden. Die kann z.B. die `OnPostAsync`-Methode *Pages/Movies/Create.cshtml.cs* sein:
+
+<!-- TODO - replace with snippet
+[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+ -->
+
+```csharp
+public async Task<IActionResult> OnPostAsync()
+{
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    _context.Movie.Add(Movie);
+    await _context.SaveChangesAsync();
+
+    return RedirectToPage("./Index");
+}
+```
 Betrachten Sie die *Pages/Movies/Index.cshtml*-Razor-Seite:
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]

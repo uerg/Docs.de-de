@@ -2,21 +2,19 @@
 title: "ASP.NET Core – Grundlagen"
 author: rick-anderson
 description: Lernen Sie die grundlegenden Konzepte zum Erstellen einer ASP.NET Core-Anwendung kennen.
-keywords: "ASP.NET Core, Grundlagen, Übersicht"
 ms.author: riande
 manager: wpickett
 ms.date: 09/30/2017
 ms.topic: get-started-article
-ms.assetid: a19b7836-63e4-44e8-8250-50d426dd1070
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bed4676be3ca752442da3fe560f1f2a4d728a1
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 0d977c13eb5f4cbe8bac261733bdc747e6c19b2a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -163,7 +161,7 @@ Weitere Informationen finden Sie unter [Session and application state (Sitzungs-
 
 ## <a name="servers"></a>Server
 
-Das Hostingmodell von ASP.NET Core lauscht nicht direkt auf Anforderungen. Das Hostingmodell ist darauf angewiesen, dass eine HTTP-Serverimplementierung die Anforderungen an die App weiterleitet. Die weitergeleitete Anforderung wird von Funktionsobjekten umschlossen, auf die Sie über Schnittstellen zugreifen können. ASP.NET Core enthält den verwalteten, plattformübergreifenden Webserver [Kestrel](xref:fundamentals/servers/kestrel). Kestrel wird in der Regel hinter einem Produktionswebserver wie [IIS](https://www.iis.net/) oder [nginx](http://nginx.org) ausgeführt. Kestrel kann als Edgeserver ausgeführt werden.
+Das Hostingmodell von ASP.NET Core lauscht nicht direkt auf Anforderungen. Das Hostingmodell ist darauf angewiesen, dass eine HTTP-Serverimplementierung die Anforderungen an die App weiterleitet. Die weitergeleitete Anforderung wird von Funktionsobjekten umschlossen, auf die Sie über Schnittstellen zugreifen können. ASP.NET Core enthält den verwalteten, plattformübergreifenden Webserver [Kestrel](xref:fundamentals/servers/kestrel). Kestrel wird in der Regel hinter einem Produktionswebserver wie [IIS](https://www.iis.net/) oder [Nginx](http://nginx.org) ausgeführt. Kestrel kann als Edgeserver ausgeführt werden.
 
 Weitere Informationen finden Sie unter [Server](xref:fundamentals/servers/index) und in den folgenden Themen:
 

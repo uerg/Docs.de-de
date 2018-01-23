@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 71bde77e0bc5698b670b560455301cae642165a6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3f0f1c402aeac388c2fcabb509aa8aa3a46e95f5
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core-Sicherheit (Übersicht)
 
@@ -96,7 +96,7 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
         *   [Schlüsselspeicherformat](data-protection/implementation/key-storage-format.md)
         *   [Kurzlebige Datenschutzanbieter](data-protection/implementation/key-storage-ephemeral.md)
     *   [Kompatibilität](data-protection/compatibility/index.md)
-        *   [Freigeben von Cookies zwischen Apps](data-protection/compatibility/cookie-sharing.md)
+        *   [Freigeben von Cookies für mehrere Apps](data-protection/compatibility/cookie-sharing.md)
         *   [Ersetzen von <machineKey> in ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Erstellen einer App mit Benutzerdaten, die durch Autorisierung geschützt sind](xref:security/authorization/secure-data)
 *   [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](app-secrets.md)

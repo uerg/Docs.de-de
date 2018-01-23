@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/index
-ms.openlocfilehash: 20468e15a00e50b3899931d6dcb28757dbe0b6ad
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6ce77922dd8a0fcb81ea6a72f9179c9c81105dda
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosten und Bereitstellen von ASP.NET Core
 
@@ -41,7 +41,7 @@ Zusätzlich zu den *EXE*- und *DLL*-Dateien enthält der Ordner *publish* für e
 Bei einer ASP.NET Core-App handelt es sich um eine Konsolen-App, die gestartet werden muss, wenn ein Server startet und nach Abstürzen neu startet. Sie benötigen einen Prozess-Manager, um die Starts und Neustarts zu automatisieren. Die gängigsten Prozess-Manager für ASP.NET Core sind Folgende:
 
 * Linux
-  * [nginx](xref:host-and-deploy/linux-nginx)
+  * [Nginx](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
   * [IIS](xref:host-and-deploy/iis/index)
@@ -51,11 +51,11 @@ Bei einer ASP.NET Core-App handelt es sich um eine Konsolen-App, die gestartet w
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Wenn die App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwendet, können [nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) oder [IIS](xref:host-and-deploy/iis/index) als Reverseproxy verwendet werden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#when-to-use-kestrel-with-a-reverse-proxy).
+Wenn die App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwendet, können [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) oder [IIS](xref:host-and-deploy/iis/index) als Reverseproxyserver verwendet werden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#when-to-use-kestrel-with-a-reverse-proxy).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wenn die App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwendet und ins Internet gestellt wird, müssen Sie [nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) oder [IIS](xref:host-and-deploy/iis/index) als Reverseproxyserver verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter. Der Hauptgrund für die Verwendung eines Reverseproxys ist Sicherheit. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy).
+Wenn die App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwendet und ins Internet gestellt wird, müssen Sie [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) oder [IIS](xref:host-and-deploy/iis/index) als Reverseproxyserver verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter. Der Hauptgrund für die Verwendung eines Reverseproxys ist Sicherheit. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy).
 
 ---
 

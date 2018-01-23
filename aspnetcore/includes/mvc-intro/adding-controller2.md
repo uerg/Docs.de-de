@@ -16,7 +16,7 @@ MVC ruft Controllerklassen (und darin enthaltene Aktionsmethoden) abhängig von 
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Sie legen das Format für das Routing in der Datei *Startup.cs* fest.
+Sie legen das Format für das Routing in der `Configure`-Methode in der Datei *Startup.cs* fest.
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
