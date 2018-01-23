@@ -4,16 +4,16 @@ author: rick-anderson
 description: Informationen Sie zu ASP.NET Core Middleware und der Anforderungspipeline.
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
@@ -23,7 +23,7 @@ Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](https:/
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-middleware"></a>Was ist die Middleware
+## <a name="what-is-middleware"></a>Was ist die Middleware?
 
 Middleware ist eine Software, die in einer Pipeline der Anwendung zum Verarbeiten von Anforderungen und Antworten eingebaut wird. Jede Komponente:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Integrierte middleware
 
-ASP.NET Core umfasst die folgenden Middleware-Komponenten:
+ASP.NET Core enthält die folgenden Middleware-Komponenten sowie eine Beschreibung der Reihenfolge, in der sie hinzugefügt werden:
 
-| Middleware | Beschreibung |
-| ----- | ------- |
-| [Authentifizierung](xref:security/authentication/identity) | Bietet Unterstützung für die Authentifizierung an. |
-| [CORS](xref:security/cors) | Konfiguriert die Cross-Origin Resource Sharing. |
-| [Zwischenspeichern von Antworten](xref:performance/caching/middleware) | Bietet Unterstützung für das Zwischenspeichern von Antworten. |
-| [Antwort-Komprimierung](xref:performance/response-compression) | Bietet Unterstützung für die Komprimierung von Antworten an. |
-| [Routing](xref:fundamentals/routing) | Definiert, und schränkt die Routen der Anforderung. |
-| [Sitzung](xref:fundamentals/app-state) | Bietet Unterstützung für die Verwaltung von benutzersitzungen. |
-| [Statische Dateien](xref:fundamentals/static-files) | Bietet Unterstützung für statische Dateien und die Verzeichnissuche bedient. |
-| [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. |
+| Middleware | Beschreibung | Reihenfolge |
+| ---------- | ----------- | ----- |
+| [Authentifizierung](xref:security/authentication/identity) | Bietet Unterstützung für die Authentifizierung an. | Vor dem `HttpContext.User` ist erforderlich. Terminaldienste für OAuth-Rückrufen. |
+| [CORS](xref:security/cors) | Konfiguriert die Cross-Origin Resource Sharing. | Bevor Sie Komponenten, die CORS verwenden. |
+| [Diagnose](xref:fundamentals/error-handling) | Konfiguriert die Diagnose. | Bevor Sie Komponenten, die Fehler generieren. |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Leitet Proxyanforderungen Header auf die aktuelle Anforderung. | Vor der Komponenten, die die aktualisierten Felder nutzen (Beispiele: Schema, Host, ClientIP-Methode). |
+| [Zwischenspeichern von Antworten](xref:performance/caching/middleware) | Bietet Unterstützung für das Zwischenspeichern von Antworten. | Bevor Sie Komponenten, die caching erforderlich ist. |
+| [Antwort-Komprimierung](xref:performance/response-compression) | Bietet Unterstützung für die Komprimierung von Antworten an. | Bevor Sie Komponenten, die Komprimierung benötigen. |
+| [RequestLocalization](xref:fundamentals/localization) | Stellt lokalisierungsunterstützung bereit. | Bevor Sie vertrauliche Lokalisierung-Komponenten. |
+| [Routing](xref:fundamentals/routing) | Definiert, und schränkt die Routen der Anforderung. | Terminal übereinstimmender Routen. |
+| [Sitzung](xref:fundamentals/app-state) | Bietet Unterstützung für die Verwaltung von benutzersitzungen. | Bevor Sie die Komponenten, die Sitzung zu erfordern. |
+| [Statische Dateien](xref:fundamentals/static-files) | Bietet Unterstützung für statische Dateien und die Verzeichnissuche bedient. | Terminaldienste, wenn Dateien mit einer Anforderung übereinstimmt. |
+| [URLs](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. | Bevor Sie die Komponenten, die die URL zu verarbeiten. |
+| [WebSockets](xref:fundamentals/websockets) | Ermöglicht das WebSockets-Protokoll. | Bevor Sie Komponenten, die zum Akzeptieren der WebSocket-Anforderungen erforderlich sind. |
 
 <a name="middleware-writing-middleware"></a>
 

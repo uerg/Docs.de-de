@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Überschreiben von URLs in ASP.NET Core Middleware
 
@@ -38,7 +38,9 @@ Sie können Regeln für die Änderung der URL auf verschiedene Arten, einschlie�
 ## <a name="url-redirect-and-url-rewrite"></a>Schreiben Sie die URL-Umleitung "und"-URL
 Der Unterschied in die Formulierung "zwischen" *URL-Umleitung* und *URL Rewrite* mag feine am ersten hat wichtige Auswirkungen auf die Ressourcen für Clients bereitstellt. ASP.NET Core URL umschreiben Middleware ist in der Besprechung müssen für beide.
 
-Ein *URL-Umleitung* ist ein Vorgang die clientseitige, in dem der Client den Zugriff auf eine Ressource an eine andere Adresse angewiesen ist. Dies ist einen Roundtrip zum Server erforderlich, und die umleitungs-URL an den Client zurückgegeben wird in der Adressleiste des Browsers angezeigt, wenn der Client eine neue Anforderung für die Ressource stellt. Wenn `/resource` ist *umgeleitet* auf `/different-resource`, der Clientanforderungen `/resource`, und der Server antwortet, dass der Client die Ressource unter Abrufen sollte `/different-resource` mit einem Status Code gibt an, dass die Umleitung ist temporär oder dauerhaft ausgeführt. Der Client führt eine neue Anforderung für die Ressource an die umleitungs-URL.
+Ein *URL-Umleitung* ist ein Vorgang die clientseitige, in dem der Client den Zugriff auf eine Ressource an eine andere Adresse angewiesen ist. Dies ist einen Roundtrip zum Server erforderlich. Die umleitungs-URL an den Client zurückgegeben wird in der Adressleiste des Browsers angezeigt, wenn der Client eine neue Anforderung für die Ressource sendet. 
+
+Wenn `/resource` ist *umgeleitet* auf `/different-resource`, der Clientanforderungen `/resource`. Der Server antwortet, dass der Client die Ressource unter Abrufen sollte `/different-resource` mit einem Status Code gibt an, dass der Umleitung entweder vorübergehend oder dauerhaft ist. Der Client führt eine neue Anforderung für die Ressource an die umleitungs-URL.
 
 ![Ein Dienstendpunkt WebAPI wurde vorübergehend von Version 1 (v1) auf Version 2 (v2) auf dem Server geändert. Ein Client sendet eine Anforderung an den Dienst an der Version 1 Pfad /v1/api. Der Server sendet eine 302 (gefunden)-Antwort mit der neue, temporäre Pfad für den Dienst wieder auf Version 2 /v2/api. Der Client stellt eine zweite Anforderung an den Dienst an die umleitungs-URL an. Der Server antwortet mit einem Statuscode "200 (OK)".](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ Ursprüngliche Anforderung:`/image.jpg`
 | Schreiben Sie Pfad in der Abfragezeichenfolge | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Bereichsstreifen nachgestellten Schrägstrich | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Erzwingen Sie die nachstehenden Schrägstrich | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Vermeiden Sie umschreiben bestimmte Anforderungen | `(.*[^(\.axd)])$`<br>"Ja":`/resource.htm`<br>Nein:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| Vermeiden Sie umschreiben bestimmte Anforderungen | `^(.*)(?<!\.axd)$` oder `^(?!.*\.axd$)(.*)$`<br>"Ja":`/resource.htm`<br>Nein:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | Neuanordnen von URL-Segmente | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | Ersetzen Sie ein URL-segment | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 

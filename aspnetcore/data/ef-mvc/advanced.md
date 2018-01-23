@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
+ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core Source Code und Pläne
 
-Der Quellcode für Entity Framework Core finden Sie unter [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Neben dem Quellcode, können Sie über Nacht erstellte Builds abrufen, Verfolgung von Problemen, feature Spezifikationen, Entwerfen Sie Besprechungsnotizen, [der Roadmap für künftige Entwicklungen](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap), und vieles mehr. Melden Sie den Fehler, und Sie können auch eigene Erweiterungen auf den Quellcode von EF beitragen.
+Die Entity Framework Core-Quelle ist am [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF-Kern-Repository enthält über Nacht erstellte Builds, Problem nachverfolgen, Feature Spezifikationen, Besprechungsnotizen, Entwurf und die [der Roadmap für künftige Entwicklungen](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Sie können die Datei oder Fehler gefunden und beitragen.
 
 Obwohl der Quellcode geöffnet ist, wird die Entity Framework Core als ein Produkt von Microsoft vollständig unterstützt. Das Microsoft Entity Framework-Team verfolgt die Kontrolle über die Beiträge akzeptiert werden und testet alle Änderungen am Code zum Gewährleisten der Qualität von jeder Version.
 
