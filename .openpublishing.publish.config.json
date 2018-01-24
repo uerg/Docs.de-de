@@ -22,7 +22,7 @@
     {
       "docset_name": "aspnet-core-conceptual",
       "build_source_folder": "aspnetcore",
-      "build_output_subfolder": "aspnet/core",
+      "build_output_subfolder": "aspnetcore",
       "locale": "de-de",
       "open_to_public_contributors": true,
       "type_mapping": {
