@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 5a852ec2301e63bde9a5ce99db80224dad7fb258
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms-
 ====================
@@ -28,7 +28,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Zuerst Datenbank
 > 
-> Es gibt drei Möglichkeiten, die Sie mit Daten im Entity Framework arbeiten können: *Database First*, *Model First*, und *Code First*. Dieses Lernprogramm ist für Database First. Informationen zu den Unterschieden zwischen den Workflows und einer Anleitung zum Auswählen der besten für Ihr Szenario finden Sie unter [Entity Framework-Entwicklungsworkflows](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Es gibt drei Möglichkeiten, die Sie mit Daten im Entity Framework arbeiten können: *Database First*, *Model First*, und *Code First*. Dieses Lernprogramm ist für Database First. Informationen zu den Unterschieden zwischen den Workflows und einer Anleitung zum Auswählen der besten für Ihr Szenario finden Sie unter [Entity Framework-Entwicklungsworkflows](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Forms
 > 
@@ -45,7 +45,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Fragen
 > 
-> Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx), [Entity Framework und LINQ to Entities-Forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), oder [ StackOverflow.com](http://stackoverflow.com/).
+> Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx), [Entity Framework und LINQ to Entities-Forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), oder [ StackOverflow.com](http://stackoverflow.com/).
 
 
 ## <a name="overview"></a>Übersicht
@@ -96,7 +96,7 @@ Für diese Lernprogramme verwenden Sie im Entity Framework Data Model-Designer a
 
 Im nächste Schritt werden für die Database First-Methode, die in diesem Lernprogramm verwendet um der Website eine Datenbank hinzuzufügen. Die einfachste Möglichkeit wird zuerst das Projekt herunterladen, das für dieses Lernprogramm geht. Klicken Sie dann mit der rechten Maustaste die *App\_Daten* Ordner wählen **vorhandenes Element hinzufügen**, und wählen Sie die *School.mdf* Datenbankdatei aus dem heruntergeladenen Projekt.
 
-Eine Alternative besteht darin, folgen die Anweisungen unter [Erstellen der Beispieldatenbank "School"](https://msdn.microsoft.com/en-us/library/bb399731.aspx). Kopieren Sie, ob Sie laden Sie die Datenbank, oder erstellen Sie ihn, den *School.mdf* Datei aus dem folgenden Ordner für Ihre Anwendungsverzeichnis *App\_Daten* Ordner:
+Eine Alternative besteht darin, folgen die Anweisungen unter [Erstellen der Beispieldatenbank "School"](https://msdn.microsoft.com/library/bb399731.aspx). Kopieren Sie, ob Sie laden Sie die Datenbank, oder erstellen Sie ihn, den *School.mdf* Datei aus dem folgenden Ordner für Ihre Anwendungsverzeichnis *App\_Daten* Ordner:
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: dc81961094928025e25cf62ce4d51d12bc67b80c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>Verwenden des HTML5 und jQuery UI Datepicker-Popupkalenders mit ASP.NET MVC – Teil 3
 ====================
@@ -86,14 +86,14 @@ Sie haben gesehen, dass das Format oder die Vorlage für eine Modelleigenschaft 
 - Anwenden der `DisplayFormat` -Attribut auf eine Eigenschaft im Modell. Beispielsweise verursacht der folgende Code das Datum ohne Uhrzeit angezeigt werden:
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- Anwenden einer [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut auf eine Eigenschaft im Modell und die Angabe des Datentyps. Beispielsweise verursacht der folgende Code das Datum ohne Uhrzeit angezeigt werden.
+- Anwenden einer [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut auf eine Eigenschaft im Modell und die Angabe des Datentyps. Beispielsweise verursacht der folgende Code das Datum ohne Uhrzeit angezeigt werden.
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
     Wenn die Anwendung enthält eine *date.cshtml* Vorlage in der *Views\Shared\DisplayTemplates* Ordner oder die *Views\Movies\DisplayTemplates* Ordner, die Vorlage wird verwendet, um das Rendern der `DateTime` Eigenschaft. Andernfalls zeigt die integrierten ASP.NET Datenvorlagen System die Eigenschaft als Datum.
 - Erstellen einer Anzeigevorlage für die in der *Views\Shared\DisplayTemplates* Ordner oder die *Views\Movies\DisplayTemplates* Ordner, deren Namen übereinstimmen, den Datentyp, die Sie formatieren möchten. Beispielsweise haben Sie gesehen, die die *Views\Shared\DisplayTemplates\DateTime.cshtml* wurde zum Rendern verwendet `DateTime` Eigenschaften in einem Modell, ohne das Hinzufügen eines Attributs für das Modell und Ansichten Markup hinzugefügt.
-- Mithilfe der [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) Attribut für das Modell auf die Vorlage zum Anzeigen der Modelleigenschaft angeben.
-- Das explizite Hinzufügen der Anzeigename für die Vorlage, die [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx) in einer Ansicht aufrufen.
+- Mithilfe der [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) Attribut für das Modell auf die Vorlage zum Anzeigen der Modelleigenschaft angeben.
+- Das explizite Hinzufügen der Anzeigename für die Vorlage, die [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) in einer Ansicht aufrufen.
 
 Der Ansatz, den Sie verwenden, hängt davon ab, welche Schritte Sie in der Anwendung ausführen müssen. Es ist nicht ungewöhnlich, dass zum Mischen von dieser Ansätze, um genau die Art der Formatierung zu erhalten, die Sie benötigen.
 

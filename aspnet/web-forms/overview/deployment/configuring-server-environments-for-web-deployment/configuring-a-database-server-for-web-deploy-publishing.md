@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: b225d9911246b3e2be1679b73a9f31d9f8577ba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurieren einen Datenbankserver für Web Deploy-Veröffentlichung
 ====================
@@ -48,7 +48,7 @@ In diesem Thema erfahren Sie, wie Sie jede der folgenden Verfahren ausführen. A
 SQL Server-Instanz muss nur enthalten die **Database Engine Services** Rolle, die automatisch in jeder SQL Server-Installation enthalten ist. Jedoch zur Vereinfachung der Konfiguration und Wartung, empfehlen wir, dass Sie enthalten die **Verwaltungstools – einfach** und **Verwaltungstools – vollständig** Serverrollen.
 
 > [!NOTE]
-> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). Weitere Informationen zum Installieren von SQL Server finden Sie unter [Installieren von SQL Server 2008 R2](https://technet.microsoft.com/en-us/library/bb500395.aspx).
+> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Weitere Informationen zum Installieren von SQL Server finden Sie unter [Installieren von SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>Aktivieren des Remotezugriffs mit SQLServer
@@ -66,7 +66,7 @@ Um SQL Server die Kommunikation über TCP/IP zu aktivieren, verwenden Sie SQL Se
 2. Erweitern Sie im Strukturansichtsbereich, **SQL Server-Netzwerkkonfiguration**, und klicken Sie dann auf **Protokolle für MSSQLSERVER**.
 
     > [!NOTE]
-    > Wenn Sie mehrere Instanzen von SQL Server installiert haben, sehen Sie eine **Protokolle für***[Instanzname]* Element für jede Instanz. Sie müssen zum Konfigurieren von Netzwerkeinstellungen auf eine vollverteilte Instanz nach Instanz.
+    > Wenn Sie mehrere Instanzen von SQL Server installiert haben, sehen Sie ein **Protokolle für *** [Instanzname]* Element für jede Instanz. Sie müssen zum Konfigurieren von Netzwerkeinstellungen auf eine vollverteilte Instanz nach Instanz.
 3. Klicken Sie im Detailbereich mit der Maustaste die **TCP/IP** Zeile, und klicken Sie dann auf **aktivieren**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -102,7 +102,7 @@ Vorausgesetzt, dass Sie eine Standardinstanz von SQL Server verwenden, müssen S
   
 
 > [!NOTE]
-> Technisch gesehen ist ein Clientcomputer verwendet einen zufällig zugewiesenen TCP-Port zwischen 1024 und 5000 für die Kommunikation mit SQL Server, und Sie können einschränken, die Firewall-Regeln entsprechend. Weitere Informationen zu SQL Server-Ports und Firewalls, finden Sie unter [TCP/IP-Portnummern erforderlich, um Sie zu SQL über eine Firewall kommunizieren](https://go.microsoft.com/?linkid=9805125) und [Vorgehensweise: konfigurieren ein Servers zur Überwachung eines bestimmten TCP-Ports (SQL Server-Konfiguration -Manager)](https://msdn.microsoft.com/en-us/library/ms177440.aspx).
+> Technisch gesehen ist ein Clientcomputer verwendet einen zufällig zugewiesenen TCP-Port zwischen 1024 und 5000 für die Kommunikation mit SQL Server, und Sie können einschränken, die Firewall-Regeln entsprechend. Weitere Informationen zu SQL Server-Ports und Firewalls, finden Sie unter [TCP/IP-Portnummern erforderlich, um Sie zu SQL über eine Firewall kommunizieren](https://go.microsoft.com/?linkid=9805125) und [Vorgehensweise: konfigurieren ein Servers zur Überwachung eines bestimmten TCP-Ports (SQL Server-Konfiguration -Manager)](https://msdn.microsoft.com/library/ms177440.aspx).
 
 
 In den meisten Windows Server-Umgebungen müssen Sie wahrscheinlich die Windows-Firewall auf dem Datenbankserver zu konfigurieren. Standardmäßig ermöglicht Windows-Firewall gesamte ausgehende Verkehr, es sei denn, eine Regel ausdrücklich untersagt. Um Ihrem Webserver zum Erreichen Ihrer Datenbank zu aktivieren, müssen Sie eine eingehende Regel zu konfigurieren, die TCP-Datenverkehr über die Portnummer ermöglicht wird, die SQL Server-Instanz verwendet. Wenn Sie eine Standardinstanz von SQL Server verwenden, können Sie dem nächsten Verfahren fort, um diese Regel zu konfigurieren.
@@ -126,11 +126,11 @@ In den meisten Windows Server-Umgebungen müssen Sie wahrscheinlich die Windows-
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. Auf der **Namen** Seite, geben Sie der Regel einen geeigneter aussagekräftigen Namen (z. B. **SQL Server-Standardinstanz – Netzwerkzugriff**), und klicken Sie dann auf **Fertig stellen**.
 
-Weitere Informationen zum Konfigurieren von Windows-Firewall für SQL Server, insbesondere, wenn Sie nicht standardmäßige oder dynamische Ports mit SQL Server zu kommunizieren, finden Sie unter [Vorgehensweise: Konfigurieren einer Windows-Firewall für Datenbankmodulzugriff](https://technet.microsoft.com/en-us/library/ms175043.aspx).
+Weitere Informationen zum Konfigurieren von Windows-Firewall für SQL Server, insbesondere, wenn Sie nicht standardmäßige oder dynamische Ports mit SQL Server zu kommunizieren, finden Sie unter [Vorgehensweise: Konfigurieren einer Windows-Firewall für Datenbankmodulzugriff](https://technet.microsoft.com/library/ms175043.aspx).
 
 ## <a name="configure-logins-and-database-permissions"></a>Konfigurieren von Anmeldungen und Berechtigungen
 
-Wenn Sie eine Webanwendung zu IIS (Internetinformationsdienste) bereitstellen, führt die Anwendung über die Identität des Anwendungspools. Verwenden Sie in einer domänenumgebung Anwendungspoolidentitäten das Computerkonto des Servers, auf denen sie den Zugriff auf Netzwerkressourcen ausgeführt. Computerkonten haben die Form *[Domänenname]***\***[Computername] ***$**& #x 2014, z. B. **FABRIKAM\ TESTWEB1$**. Damit Ihre Webanwendung auf eine Datenbank über das Netzwerk zugreifen können, müssen Sie:
+Wenn Sie eine Webanwendung zu IIS (Internetinformationsdienste) bereitstellen, führt die Anwendung über die Identität des Anwendungspools. Verwenden Sie in einer domänenumgebung Anwendungspoolidentitäten das Computerkonto des Servers, auf denen sie den Zugriff auf Netzwerkressourcen ausgeführt. Computerkonten haben die Form * [Domänenname]***\*** [Computername]***$** & #x 2014; z. B. **FABRIKAM\TESTWEB1$**. Damit Ihre Webanwendung auf eine Datenbank über das Netzwerk zugreifen können, müssen Sie:
 
 - SQL Server-Instanz eine Anmeldung für das Computerkonto des Web-Server hinzugefügt.
 - Alle erforderlichen Datenbankrollen die Anmeldung beim Computer-Konto zuordnen (i. d. r. **Db\_Datareader** und **Db\_Datawriter**).
@@ -183,7 +183,7 @@ Weitere Informationen über das Automatisieren der Erstellung von Anmeldenamen u
 Obwohl manuell zuordnen von Datenbankrollen oft mehr als ausreichend für testumgebungen, ist es weniger wünschenswert für automatisierte oder einmalklick-Bereitstellungen auf Staging-oder produktionsumgebung. Weitere Informationen zum Automatisieren dieser Art der Aufgabe, die mithilfe von Skripts nach der Bereitstellung in finden Sie [Bereitstellen von Datenbank-Rollenmitgliedschaften auf Testumgebungen](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
 
 > [!NOTE]
-> Weitere Informationen zu Server und Datenbankprojekte, finden Sie unter [Visual Studio 2010 SQL Server-Datenbankprojekte](https://msdn.microsoft.com/en-us/library/ff678491.aspx).
+> Weitere Informationen zu Server und Datenbankprojekte, finden Sie unter [Visual Studio 2010 SQL Server-Datenbankprojekte](https://msdn.microsoft.com/library/ff678491.aspx).
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>Konfigurieren von Berechtigungen für das Bereitstellungskonto
@@ -217,7 +217,7 @@ Um spätere Bereitstellungen zu unterstützen, Sie müssen auch das Bereitstelle
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
 6. Klicken Sie auf **OK**.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Ihr Datenbankserver sollte jetzt bereit, um Remotedatenbank Bereitstellungen zu akzeptieren und remote IIS-Webserver für den Datenbankzugriff zu ermöglichen. Bevor Sie versuchen, bereitstellen und Verwenden von Datenbanken, sollten Sie überprüfen Sie die folgenden wichtigen Punkte:
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Teile der Anwendung in ASP.NET Core
 
@@ -40,9 +40,9 @@ services.AddMvc()
 
 Standardmäßig wird MVC die Abhängigkeitsstruktur suchen, und Suchen von Domänencontrollern (auch in anderen Assemblys). Um eine beliebige Assembly (z. B. über ein Plug-in, das zum Zeitpunkt der Kompilierung verwiesen wird, ist nicht) zu laden, können Sie einen Anwendungsteil verwenden.
 
-Können Sie Teile der Anwendung zu *vermeiden* Domänencontroller in einer bestimmten Assembly oder Speicherort gesucht. Sie können steuern, welche Teile (oder Assemblys) für die app verfügbar, durch ändern sind der `ApplicationParts` Auflistung von der `ApplicationPartManager`. Die Reihenfolge der Einträge in der `ApplicationParts` Auflistung ist nicht wichtig. Es ist wichtig, die vollständige Konfiguration der `ApplicationPartManager` vor dem verwenden, um die Dienste im Container zu konfigurieren. Beispielsweise sollten Sie vollständig Konfigurieren der `ApplicationPartManager` vor dem Aufrufen `AddControllersAsServices`. Zu diesem Zweck Fehlschlagen bedeutet, dass der Controller in Teilen der Anwendung nach hinzugefügt, dass der Methodenaufruf wird nicht beeinträchtigt (wird nicht erhalten als Dienste registriert) was falsche Bevavior der Anwendung führen kann.
+Können Sie Teile der Anwendung zu *vermeiden* Domänencontroller in einer bestimmten Assembly oder Speicherort gesucht. Sie können steuern, welche Teile (oder Assemblys) für die app verfügbar, durch ändern sind der `ApplicationParts` Auflistung von der `ApplicationPartManager`. Die Reihenfolge der Einträge in der `ApplicationParts` Auflistung ist nicht wichtig. Es ist wichtig, die vollständige Konfiguration der `ApplicationPartManager` vor dem verwenden, um die Dienste im Container zu konfigurieren. Beispielsweise sollten Sie vollständig Konfigurieren der `ApplicationPartManager` vor dem Aufrufen `AddControllersAsServices`. Zu diesem Zweck Fehlschlagen bedeutet, dass der Controller in Teilen der Anwendung nach hinzugefügt, dass der Methodenaufruf sind nicht betroffen (wird nicht als Dienste registriert abrufen) was falsche Bevavior der Anwendung führen kann.
 
-Wenn Sie eine Assembly, die Domänencontroller enthält verfügen, Sie möchten nicht verwendet werden, entfernen Sie es aus der `ApplicationPartManager`:
+Wenn Sie eine Assembly mit Domänencontroller nicht verwendet werden sollen verfügen, entfernen Sie es aus der `ApplicationPartManager`:
 
 ```csharp
 services.AddMvc()

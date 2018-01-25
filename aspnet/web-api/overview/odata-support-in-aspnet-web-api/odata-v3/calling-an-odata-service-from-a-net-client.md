@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: f6266045ebf55fb7ae691bfb55e9c90cd4edcc96
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>Aufrufen eines OData-Diensts aus einem .NET-Client (c#)
 ====================
@@ -30,8 +30,8 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (funktioniert mit Visual Studio 2012)
-> - [WCF Data Services-Clientbibliothek](https://msdn.microsoft.com/en-us/library/cc668772.aspx)
-> - Web-API 2. (Im Beispiel OData-Dienst wird mithilfe von Web-API 2 erstellt, aber die Clientanwendung hängt nicht von Web-API.)
+> - [WCF Data Services-Clientbibliothek](https://msdn.microsoft.com/library/cc668772.aspx)
+> - Web API 2. (Im Beispiel OData-Dienst wird mithilfe von Web-API 2 erstellt, aber die Clientanwendung hängt nicht von Web-API.)
 
 
 In diesem Lernprogramm durchgehen ich Erstellen einer Clientanwendung, die einen OData-Dienst aufruft. Die OData-Dienst macht die folgenden Elemente:
@@ -46,7 +46,7 @@ In den folgenden Artikeln wird beschrieben, wie die OData-Dienst im Web-API impl
 
 - [Erstellen einen OData-Endpunkt in der Web-API 2](creating-an-odata-endpoint.md)
 - [OData-Entitätsbeziehungen in Web-API 2](working-with-entity-relations.md)
-- [OData-Aktionen in Web-API 2](odata-actions.md)
+- [OData-Aktionen in der Web-API 2](odata-actions.md)
 
 ## <a name="generate-the-service-proxy"></a>Generieren des Webdienstproxys
 
@@ -118,7 +118,7 @@ Für den Rest dieses Themas, ich zeigen nicht an die gesamte `Main` -Funktion, d
 
 OData definiert [Abfrageoptionen](../supporting-odata-query-options.md) , der zum Filtern, sortieren, Seitendaten usw. verwendet werden können. In den Dienstproxy können Sie diese Optionen anwenden, mit verschiedenen LINQ-Ausdrücke.
 
-In diesem Abschnitt zeige ich kurze Beispiele. Weitere Informationen finden Sie im Thema [Überlegungen zu LINQ (WCF Data Services)](https://msdn.microsoft.com/en-us/library/ee622463.aspx) auf MSDN.
+In diesem Abschnitt zeige ich kurze Beispiele. Weitere Informationen finden Sie im Thema [Überlegungen zu LINQ (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) auf MSDN.
 
 ### <a name="filtering-filter"></a>Filtern ($filter)
 
@@ -226,7 +226,7 @@ Z. B. die `RateProduct` Aktion akzeptiert Parameter, die mit dem Namen "Bewertun
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-Weitere Informationen finden Sie unter[Dienstvorgänge aufrufen und Aktionen](https://msdn.microsoft.com/en-us/library/hh230677.aspx).
+Weitere Informationen finden Sie unter[Dienstvorgänge aufrufen und Aktionen](https://msdn.microsoft.com/library/hh230677.aspx).
 
 Eine Möglichkeit besteht darin, Erweitern der **Container** Klasse eine stark typisierte Methode bereitstellen, die die Aktion aufruft:
 

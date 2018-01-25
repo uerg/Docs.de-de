@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Implementieren der Vererbung mit dem Entity Framework 6 in einer ASP.NET MVC 5-Anwendung (11 12)
 ====================
@@ -57,7 +57,7 @@ Ist noch eine weitere Option, um einzelne Tabellen alle nicht abstrakten Typen z
 
 TPC und TPH Muster der methodenvererbung aufgeführt übermittelt werden, im Allgemeinen eine bessere Leistung im Entity Framework als TPT Muster der methodenvererbung aufgeführt, weil TPT Muster komplexe Verknüpfungsabfragen führen können.
 
-Dieses Lernprogramm veranschaulicht die TPH-Vererbung zu implementieren. TPH ist das Standardmuster für die Vererbung in Entity Framework, deshalb müssen Sie lediglich erstellen eine `Person` Klasse, ändern Sie die `Instructor` und `Student` Klassen ableiten `Person`, fügen Sie die neue Klasse, die `DbContext`, und erstellen Sie eine die Migration. (Informationen dazu, wie Sie die anderen Vererbung Muster zu implementieren, finden Sie unter [der Tabelle pro Typ (TPT) Vererbungsmapping](https://msdn.microsoft.com/en-us/data/jj591617#2.5) und [Vererbungsmapping der Tabelle pro konkrete Klasse (TPC)](https://msdn.microsoft.com/en-us/data/jj591617#2.6) in der MSDN-Website Entity Framework-Dokumentation.)
+Dieses Lernprogramm veranschaulicht die TPH-Vererbung zu implementieren. TPH ist das Standardmuster für die Vererbung in Entity Framework, deshalb müssen Sie lediglich erstellen eine `Person` Klasse, ändern Sie die `Instructor` und `Student` Klassen ableiten `Person`, fügen Sie die neue Klasse, die `DbContext`, und erstellen Sie eine die Migration. (Informationen dazu, wie Sie die anderen Vererbung Muster zu implementieren, finden Sie unter [der Tabelle pro Typ (TPT) Vererbungsmapping](https://msdn.microsoft.com/data/jj591617#2.5) und [Vererbungsmapping der Tabelle pro konkrete Klasse (TPC)](https://msdn.microsoft.com/data/jj591617#2.6) in der MSDN-Website Entity Framework-Dokumentation.)
 
 ## <a name="create-the-person-class"></a>Erstellen Sie die Person-Klasse
 
@@ -159,7 +159,7 @@ In diesem Abschnitt müssen Sie das optionale abgeschlossener **Bereitstellen de
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben die Tabelle pro Hierarchie Vererbung für implementiert die `Person`, `Student`, und `Instructor` Klassen. Weitere Informationen zu diesen und anderen Vererbung Strukturen finden Sie unter [TPT Vererbungsmuster](https://msdn.microsoft.com/en-us/data/jj618293) und [TPH Vererbungsmuster](https://msdn.microsoft.com/en-us/data/jj618292) auf MSDN. In den nächsten Lernprogrammen sehen Sie, wie eine Vielzahl von relativ erweiterte Entity Framework-Szenarien behandelt.
+Sie haben die Tabelle pro Hierarchie Vererbung für implementiert die `Person`, `Student`, und `Instructor` Klassen. Weitere Informationen zu diesen und anderen Vererbung Strukturen finden Sie unter [TPT Vererbungsmuster](https://msdn.microsoft.com/data/jj618293) und [TPH Vererbungsmuster](https://msdn.microsoft.com/data/jj618292) auf MSDN. In den nächsten Lernprogrammen sehen Sie, wie eine Vielzahl von relativ erweiterte Entity Framework-Szenarien behandelt.
 
 Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access - Ressourcen empfohlen](../../../../whitepapers/aspnet-data-access-content-map.md).
 

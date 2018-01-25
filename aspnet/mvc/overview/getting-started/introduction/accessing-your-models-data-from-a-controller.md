@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b60913cef4b62745cf167e6074834bf7d0c228d1
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Zugriff auf das Modell Daten aus einem Controller
 ====================
@@ -87,7 +87,7 @@ Eine Anforderung an die `Movies` Controller gibt alle Einträge in der `Movies` 
 
 Weiter oben in diesem Lernprogramm Sie gesehen haben wie ein Controller Daten oder Objekte in eine Ansicht Vorlage übergeben kann die `ViewBag` Objekt. Die `ViewBag` ist ein dynamisches Objekt, das eine spät gebundene auf bequeme Weise Informationen an eine Ansicht übergeben werden.
 
-MVC bietet auch die Möglichkeit, übergeben *stark* typisierte Objekte einer Vorlage anzeigen. Diese stark typisierte Ansatz ermöglicht eine bessere Kompilierung des Codes überprüfen und umfangreichere [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx) in Visual Studio-Editor. Der Gerüstbau in Visual Studio verwendet diesen Ansatz (d. h. übergeben einer *stark* typisierten Modell) mit der `MoviesController` Klasse, und zeigen Vorlagen bei der Erstellung der Methoden und Ansichten.
+MVC bietet auch die Möglichkeit, übergeben *stark* typisierte Objekte einer Vorlage anzeigen. Diese stark typisierte Ansatz ermöglicht eine bessere Kompilierung des Codes überprüfen und umfangreichere [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) in Visual Studio-Editor. Der Gerüstbau in Visual Studio verwendet diesen Ansatz (d. h. übergeben einer *stark* typisierten Modell) mit der `MoviesController` Klasse, und zeigen Vorlagen bei der Erstellung der Methoden und Ansichten.
 
 In der *Controllers\MoviesController.cs* untersuchen Sie die generierte Datei `Details` Methode. Die `Details` Methode wird unten gezeigt.
 
@@ -109,9 +109,9 @@ Durch Einschließen einer `@model` -Anweisung am Anfang der Vorlagendatei anzeig
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-Diese `@model`-Direktive ermöglicht Ihnen den Zugriff auf den Film, den der Controller an die Ansicht übergeben hat, indem ein stark typisiertes `Model`-Objekt verwendet wir. Beispielsweise ist in der *Details.cshtml* Vorlage, die Code übergibt die jeweiligen Film-Feld können Sie die `DisplayNameFor` und [DisplayFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) HTML-Hilfsmethoden mit stark typisierten `Model` Objekt. Die `Create` und `Edit` Methoden und Ansichtsvorlagen auch Film Model-Objekts übergeben.
+Diese `@model`-Direktive ermöglicht Ihnen den Zugriff auf den Film, den der Controller an die Ansicht übergeben hat, indem ein stark typisiertes `Model`-Objekt verwendet wir. Beispielsweise ist in der *Details.cshtml* Vorlage, die Code übergibt die jeweiligen Film-Feld können Sie die `DisplayNameFor` und [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) HTML-Hilfsmethoden mit stark typisierten `Model` Objekt. Die `Create` und `Edit` Methoden und Ansichtsvorlagen auch Film Model-Objekts übergeben.
 
-Überprüfen Sie die *Index.cshtml* Vorlage anzeigen und die `Index` Methode in der *MoviesController.cs* Datei. Beachten Sie, wie der Code erstellt ein [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) Objekt beim Aufrufen der `View` Hilfsmethode in der `Index` Aktionsmethode. Der Code übergibt dann diese `Movies` aus Liste der `Index` Aktionsmethode zur Ansicht:
+Überprüfen Sie die *Index.cshtml* Vorlage anzeigen und die `Index` Methode in der *MoviesController.cs* Datei. Beachten Sie, wie der Code erstellt ein [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) Objekt beim Aufrufen der `View` Hilfsmethode in der `Index` Aktionsmethode. Der Code übergibt dann diese `Movies` aus Liste der `Index` Aktionsmethode zur Ansicht:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 

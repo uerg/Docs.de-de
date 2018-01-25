@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2ac18799d214777d098cc85ec6c85fd09f84a782
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Weitere Muster und Anleitungen (Building Real-World Cloud Apps with Azure)
 ====================
@@ -31,18 +31,18 @@ Sie haben nun gesehen 13 Muster, die Hilfestellung zum erfolgreich in-computing 
 
 - Migrieren von vorhandenen lokalen Anwendungen in die Cloud aus. 
 
-    - [Verschieben von Anwendungen in der Cloud](https://msdn.microsoft.com/en-us/library/ff728592.aspx). E-Book vom Microsoft Patterns and Practices. Auch verfügbar als eine [Festplatte kopieren Taschenbuch](https://www.amazon.com/dp/1621140202).
+    - [Verschieben von Anwendungen in der Cloud](https://msdn.microsoft.com/library/ff728592.aspx). E-Book vom Microsoft Patterns and Practices. Auch verfügbar als eine [Festplatte kopieren Taschenbuch](https://www.amazon.com/dp/1621140202).
     - [Migrieren von Microsoft ASP.NET und IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656). Fallstudie von Robert McMurray.
     - [Verschieben die 4. &amp; Bürgermeister mit Azure-Websites](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/). Blogbeitrag von Jeff Wilcox chronicling seine Erfahrung, verschieben eine Web-app von Amazon Web Services zu Web-Apps in Azure App Service.
-    - [Verschieben von Apps in Azure: welche Änderungen?](https://azure.microsoft.com/en-us/documentation/videos/web-sites-internals-and-the-file-system/) Kurze Video von Stefan Schackow, Dateisystemzugriff in Web-Apps in Azure App Service erläutert.
-    - [Azure Hybridcloud](https://www.amazon.com/dp/B00EOP4UQW). Ausdruck Buch oder e-Book Danny Garber Jamal Malik und Adam Fazio.
+    - [Verschieben von Apps in Azure: welche Änderungen?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Kurze Video von Stefan Schackow, Dateisystemzugriff in Web-Apps in Azure App Service erläutert.
+    - [Azure Hybrid Cloud](https://www.amazon.com/dp/B00EOP4UQW). Ausdruck Buch oder e-Book Danny Garber Jamal Malik und Adam Fazio.
 - Sicherheit, Authentifizierung und Autorisierung Probleme, die eindeutig für Cloudanwendungen
 
     - [Sicherheitshinweise zu Azure](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
-    - [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Siehe Gatekeeper Muster Federated Identity-Muster.
-    - [Sicherheit der Azure-Netzwerk](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). Whitepaper von Ashin Palekar.
+    - [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Siehe Gatekeeper Muster Federated Identity-Muster.
+    - [Azure Network Security](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). Whitepaper von Ashin Palekar.
 
-Siehe auch zusätzliche Cloud computing-Muster und Anleitungen zur [Microsoft Patterns and Practices - Dokumentation zur Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx).
+Siehe auch zusätzliche Cloud computing-Muster und Anleitungen zur [Microsoft Patterns and Practices - Dokumentation zur Azure](https://msdn.microsoft.com/library/dn568099.aspx).
 
 <a id="resources"></a>
 ## <a name="resources"></a>Ressourcen
@@ -51,9 +51,9 @@ Jede der Kapitel in diesem e-Book enthält Links zu Ressourcen für Weitere Info
 
 Dokumentation
 
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy.
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
-- [Azure-Leitfaden](https://azure.microsoft.com/en-us/develop/net/guidance/) -Portalseite nach offizieller Dokumentation im Zusammenhang mit der Entwicklung von Anwendungen für Azure.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
+- [Azure-Leitfaden](https://azure.microsoft.com/develop/net/guidance/) -Portalseite nach offizieller Dokumentation im Zusammenhang mit der Entwicklung von Anwendungen für Azure.
 
 Videos
 
@@ -68,14 +68,14 @@ Codebeispiel
 
 Kopieren der Festplatte Bücher
 
-- [Cloud Computing-Bibel](https://www.amazon.com/dp/0470903562). Durch Barrie Sosinsky.
+- [Cloud Computing-Bibel](https://www.amazon.com/dp/0470903562). By Barrie Sosinsky.
 - [Geben Sie es aus! Entwerfen und Bereitstellen von Software produktionsbereite](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Durch Michael T. Nygard.
 - [Cloud-Architekturmuster: Mit Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do). Von Bill Wilder.
-- [Windows Azure-Plattform](https://www.amazon.com/dp/1430235632). Durch Tejaswi Redkar.
+- [Windows Azure Platform](https://www.amazon.com/dp/1430235632). Durch Tejaswi Redkar.
 - [Windows Azure Programmiermustern für Startups](https://www.amazon.com/dp/1849685606). Durch Riccardo Becker.
 - [Microsoft Windows Azure-Entwicklung Cookbook](https://www.amazon.com/dp/1849682224). Von Neil Mackenzie.
 
-Abschließend, wenn Sie beginnen, Erstellen von realen apps und in Azure ausführen, früher oder später benötigen Sie vielleicht Unterstützung von Experten. Sie können Fragen in der Community-Sites wie [Azure-Foren oder StackOverflow](https://azure.microsoft.com/en-us/support/forums/), oder Sie können Microsoft direkt für Azure-Support kontaktieren. Microsoft bietet auf mehreren Ebenen aus technischen Support Azure: eine Zusammenfassung und einen Vergleich der Optionen, finden Sie unter [Azure unterstützt](https://azure.microsoft.com/en-us/support/plans/).
+Abschließend, wenn Sie beginnen, Erstellen von realen apps und in Azure ausführen, früher oder später benötigen Sie vielleicht Unterstützung von Experten. Sie können Fragen in der Community-Sites wie [Azure-Foren oder StackOverflow](https://azure.microsoft.com/support/forums/), oder Sie können Microsoft direkt für Azure-Support kontaktieren. Microsoft bietet auf mehreren Ebenen aus technischen Support Azure: eine Zusammenfassung und einen Vergleich der Optionen, finden Sie unter [Azure unterstützt](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>Bestätigungen
@@ -109,10 +109,10 @@ Mitglieder der [Microsoft Developer Anleitung Advisory Council](http://aka.ms/DG
 - Jean-Luc Boucho
 - Catalin Gheorghiu
 - Wouter de Kort
-- Carlos Dos Santos
+- Carlos dos Santos
 - Neil Mackenzie
 - Dennis Persson
-- Aus den Sabat
+- Sunil Sabat
 - [Aleksey Sinyagin](http://www.linkedin.com/in/sinyagin)
 - Bill Wagner
 - Michael Holz
@@ -123,7 +123,7 @@ Andere Mitglieder der DGAC überprüft und die vorläufige Gliederung kommentier
 - Edward Bakker
 - Srdjan Bozovic
 - Ming Man ert
-- Die Rosa Gallina Gianni
+- Gianni Rosa Gallina
 - Paulo Morgado
 - Jason Oliveira
 - Alberto Poblacion

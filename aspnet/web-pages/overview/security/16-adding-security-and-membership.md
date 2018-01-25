@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Hinzufügen von Sicherheit und die Mitgliedschaft in einer ASP.NET Web Pages (Razor) Standort
 ====================
@@ -43,7 +43,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
-> - WebMatrix-3
+> - WebMatrix 3
 > - ASP.NET Web Helpers Library
 
 
@@ -212,7 +212,7 @@ Das ASP.NET-Mitgliedschaftssystem wird eingerichtet, um Rollen zu unterstützen.
 
 Die Anmeldeseite wird nicht mehr automatisierte Programme (auch bezeichnet als *web Roboter* oder *Bots*) mit Ihrer Website registriert. Hier wird beschrieben, wie einen ReCaptcha-Test für die Seite "Registrierung" aktiviert.
 
-![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
 1. Registrieren Sie Ihre Website unter ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Wenn Sie die Registrierung abgeschlossen haben, erhalten Sie einen öffentlichen Schlüssel und einem privaten Schlüssel.
 2. Der ASP.NET Web Helpers Library zu Ihrer Website hinzufügen, wie in beschrieben [installieren-Hilfsprogramme in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=252372), sofern Sie noch nicht geschehen.
@@ -254,20 +254,20 @@ Das Verfahren weiter oben in diesem Artikel verwendet wird, zur Verwendung der *
 
 Der grundlegende Prozess wird im Blogbeitrag beschrieben [die grundlegendste Möglichkeit zum Implementieren von ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). Die meiste Arbeit erfolgt mithilfe der folgenden Methoden und Eigenschaften der `WebSecurity` Hilfsprogramm:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Mit diesen Methoden können Sie bestimmen, ob ein Benutzer bereits registriert ist und sie zu registrieren.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Diese Eigenschaft können Sie bestimmen, ob der aktuelle Benutzer angemeldet ist. Dies ist nützlich für Benutzer zu einer Anmeldeseite umzuleiten, wenn sie nicht bereits angemeldet haben.
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Diese Methoden meldet einen Benutzer aus, oder verkleinern.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Diese Eigenschaft ist nützlich für die Anzeige des aktuellen Benutzers angemeldeten Namen (wenn der Benutzer angemeldet ist).
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx). Diese Methode ist nützlich, wenn Sie die e-Mail-Bestätigung für die Registrierung eingerichtet. (Details finden Sie im Blogbeitrag [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Mit diesen Methoden können Sie bestimmen, ob ein Benutzer bereits registriert ist und sie zu registrieren.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Diese Eigenschaft können Sie bestimmen, ob der aktuelle Benutzer angemeldet ist. Dies ist nützlich für Benutzer zu einer Anmeldeseite umzuleiten, wenn sie nicht bereits angemeldet haben.
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Diese Methoden meldet einen Benutzer aus, oder verkleinern.
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Diese Eigenschaft ist nützlich für die Anzeige des aktuellen Benutzers angemeldeten Namen (wenn der Benutzer angemeldet ist).
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Diese Methode ist nützlich, wenn Sie die e-Mail-Bestätigung für die Registrierung eingerichtet. (Details finden Sie im Blogbeitrag [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Um Rollen zu verwalten, können Sie die [Rollen](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx) und [Mitgliedschaft](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx) Klassen, wie in der Blogeintrag beschrieben.
+Um Rollen zu verwalten, können Sie die [Rollen](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) und [Mitgliedschaft](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) Klassen, wie in der Blogeintrag beschrieben.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Anpassen des Verhaltens der standortweiten](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Anpassen des Verhaltens von Websiteseiten](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Sichern von Webkommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [DIE grundlegendste Möglichkeit zum Implementieren von ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) und [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Hierbei handelt es sich um Blogbeiträge, die zum Implementieren von Mitgliedschaft ASP.NET-Funktionen ohne beschreiben die **Starter Site** Vorlage.
-- [Aktivieren der Anmeldung von externen Standorten in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [WebSecurity-Klasse-API-Referenz](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [SimpleRoleProvider Klasse-API-Referenz](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [SimpleMembershipProvider Klasse-API-Referenz](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [Aktivieren der Anmeldung über externe Websites einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [WebSecurity-Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
+- [SimpleRoleProvider Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [SimpleMembershipProvider Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

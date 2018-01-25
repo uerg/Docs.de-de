@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: dd8f42684f9e58b9329602aa9b70d2c0ab950892
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 870bdf79abc2c94745ab5da6997a37ed0e4ea4e2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="claims-based-authorization"></a>Anspruchsbasierte Autorisierung
 
@@ -29,7 +29,7 @@ Eine Identität kann mehrere Ansprüche mit mehreren Werten enthalten und kann m
 
 Anspruch basierend autorisierungsprüfungen sind deklarative – der Entwickler bettet sie innerhalb ihres Codes für einen Controller oder einer Aktion innerhalb eines Controllers angeben Ansprüche die muss der aktuelle Benutzer besitzt und optional des Werts der Anspruch muss für den Zugriff auf die angeforderte Ressource. Ansprüche an, dass Anforderungen richtlinienbasierten sind, muss der Entwickler erstellen und registrieren eine Richtlinie auszudrücken, die Ansprüche-Anforderungen.
 
-Die einfachste Art der Richtlinie sucht das Vorhandensein eines Anspruchs Anspruch und überprüft nicht den Wert.
+Die einfachste Art des Anspruchs Richtlinie sieht das Vorhandensein eines Anspruchs und überprüfen Sie den Wert nicht.
 
 Zuerst müssen Sie zum Erstellen und registrieren die Richtlinie. Dies erfolgt im Rahmen der Dienstkonfiguration Autorisierung nimmt normalerweise Teil in `ConfigureServices()` in Ihrer *Startup.cs* Datei.
 

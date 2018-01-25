@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 09482ef453e9e8efa4a2721b9fe628d2a58dd53c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d66079f784792a2514eefabf57f70826aab5dcf1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Anzeigen von Binärdaten in den Data-Websteuerelementen (c#)
 ====================
@@ -129,7 +129,7 @@ Als Nächstes erstellen Sie eine `protected` in der ASP.NET-Methode-Methode Seit
 
 [!code-csharp[Main](displaying-binary-data-in-the-data-web-controls-cs/samples/sample3.cs)]
 
-Diese Methode bestimmt, ob das übergebene in `object` Wert ist eine Datenbank `NULL` und, wenn dies der Fall ist, gibt eine Meldung gibt an, dass die Kategorie einer Broschüren fehlt. Wenn vorhanden ist, andernfalls ein `BrochurePath` Wert, es s in einem Link angezeigt. Beachten Sie, dass bei der `BrochurePath` liegt sie s übergebenen präsentieren die [ `ResolveUrl(url)` Methode](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveurl.aspx). Diese Methode löst übergebenen *Url*, und ersetzen die `~` Zeichen mit dem entsprechenden virtuellen Pfad. Wenn die Anwendung das Stammverzeichnis ist z. B. `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` zurück `/Tutorial55/Brochures/Meat.pdf`.
+Diese Methode bestimmt, ob das übergebene in `object` Wert ist eine Datenbank `NULL` und, wenn dies der Fall ist, gibt eine Meldung gibt an, dass die Kategorie einer Broschüren fehlt. Wenn vorhanden ist, andernfalls ein `BrochurePath` Wert, es s in einem Link angezeigt. Beachten Sie, dass bei der `BrochurePath` liegt sie s übergebenen präsentieren die [ `ResolveUrl(url)` Methode](https://msdn.microsoft.com/library/system.web.ui.control.resolveurl.aspx). Diese Methode löst übergebenen *Url*, und ersetzen die `~` Zeichen mit dem entsprechenden virtuellen Pfad. Wenn die Anwendung das Stammverzeichnis ist z. B. `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` zurück `/Tutorial55/Brochures/Meat.pdf`.
 
 Abbildung 10 zeigt die Seite, nachdem diese Änderungen angewendet wurden. Beachten Sie, dass die Kategorie "Seafood" s `BrochurePath` Feld zeigt jetzt den Text, der keine Broschüren verfügbar.
 
@@ -164,7 +164,7 @@ Fügen Sie in der Seite "s" Code-Behind-Klasse den folgenden Code zu der `Page_L
 
 [!code-csharp[Main](displaying-binary-data-in-the-data-web-controls-cs/samples/sample6.cs)]
 
-Dieser Code beginnt mit dem Lesen in den `CategoryID` Querystring-Wert in einer Variablen namens `categoryID`. Als Nächstes die Bilddaten abgerufen wird, über einen Aufruf an die `CategoriesBLL` Klasse s `GetCategoryWithBinaryDataByCategoryID(categoryID)` Methode. Diese Daten an den Client zurückgegeben werden, mithilfe der `Response.BinaryWrite(data)` -Methode, aber bevor er aufgerufen wird, die `Picture` Spalte Wert s OLE-Header muss entfernt werden. Wird dies durch Erstellen einer `byte` Array mit dem Namen `strippedImageData` enthält, die genau 78 Zeichen kleiner als die in der `Picture` Spalte. Die [ `Array.Copy` Methode](https://msdn.microsoft.com/en-us/library/z50k9bft.aspx) dient zum Kopieren der Daten aus `category.Picture` ab Position 78 über auf `strippedImageData`.
+Dieser Code beginnt mit dem Lesen in den `CategoryID` Querystring-Wert in einer Variablen namens `categoryID`. Als Nächstes die Bilddaten abgerufen wird, über einen Aufruf an die `CategoriesBLL` Klasse s `GetCategoryWithBinaryDataByCategoryID(categoryID)` Methode. Diese Daten an den Client zurückgegeben werden, mithilfe der `Response.BinaryWrite(data)` -Methode, aber bevor er aufgerufen wird, die `Picture` Spalte Wert s OLE-Header muss entfernt werden. Wird dies durch Erstellen einer `byte` Array mit dem Namen `strippedImageData` enthält, die genau 78 Zeichen kleiner als die in der `Picture` Spalte. Die [ `Array.Copy` Methode](https://msdn.microsoft.com/library/z50k9bft.aspx) dient zum Kopieren der Daten aus `category.Picture` ab Position 78 über auf `strippedImageData`.
 
 Die `Response.ContentType` Eigenschaft gibt an, die [MIME-Typ](http://en.wikipedia.org/wiki/MIME) des Inhalts zurückgegeben wird, damit der Browser weiß, wie es gerendert. Da die `Categories` Tabelle s `Picture` Spalte ist eine Bitmap, die Bitmap MIME-Typ wird verwendet, hier (Image/Bmp). Wenn Sie den MIME-Typ weglassen, werden die meisten Browser noch das Bild ordnungsgemäß angezeigt werden, da sie den Typ, der basierend auf dem Inhalt der Datei s binäre Bilddaten per Rückschluss ableiten können. Allerdings es unerlässlich, gehören die MIME s eingeben, wenn möglich. Finden Sie unter der [Internet Assigned Numbers Authority s Website](http://www.iana.org/) für eine vollständige Liste der [MIME-Medientypen](http://www.iana.org/assignments/media-types/).
 

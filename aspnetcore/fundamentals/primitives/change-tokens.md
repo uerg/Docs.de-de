@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Erkennen von Änderungen mit Change-Token in ASP.NET Core
 
@@ -135,7 +135,7 @@ Eine Schaltfläche aktiviert und deaktiviert die Überwachung:
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Wenn `OnPostStartMonitoring` wird ausgelöst, die Überwachung aktiviert und der aktuelle Status ist deaktiviert. Wenn `OnPostStopMonitoring` wird ausgelöst, die Überwachung ist deaktiviert, und der Zustand ist festgelegt, um widerzuspiegeln, die Überwachung nicht stattfindet.
+Wenn `OnPostStartMonitoring` wird ausgelöst, die Überwachung aktiviert und der aktuelle Status ist deaktiviert. Wenn `OnPostStopMonitoring` wird ausgelöst, die Überwachung ist deaktiviert, und der Zustand ist festgelegt, um widerzuspiegeln, die Überwachung wird nicht ausgeführt.
 
 ## <a name="monitoring-cached-file-changes"></a>Wenn es zwischengespeicherte Dateien überwachen
 
@@ -199,10 +199,10 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Siehe auch
 
-* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
-* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

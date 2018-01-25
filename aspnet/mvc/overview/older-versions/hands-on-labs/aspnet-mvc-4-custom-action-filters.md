@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 6362f0506934ca3b3cc86e1a927af75e7bc4e1d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 benutzerdefinierten Aktionsfiltern
 ====================
@@ -96,7 +96,7 @@ Erweitern Sie der Filter **ActionFilterAttributeClass** und überschreiben **OnA
 > - **Ergebnis** Filter, der Ausführung der ActionResult-Objekt umschließt. Dieser Filter kann zusätzliche Verarbeitung des Ergebnisses, z. B. Ändern der HTTP-Antwort ausführen.
 > - **Ausnahme** Filter, der ausgeführt wird, wenn es eine nicht behandelte Ausnahme, die an einer beliebigen Stelle in der Aktionsmethode, die mit den Autorisierungsfilter beginnt und endet mit der Ausführung des Ergebnisses ausgelöst werden. Ausnahmefilter können für Aufgaben wie die Protokollierung oder Anzeigen einer Fehlerseite verwendet werden.
 > 
-> Weitere Informationen zu Filter-Anbietern finden Sie auf diesen Link MSDN: ([https://msdn.microsoft.com/en-us/library/dd410209.aspx](https://msdn.microsoft.com/en-us/library/dd410209.aspx)).
+> Weitere Informationen zu Filter-Anbietern finden Sie auf diesen Link MSDN: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx)).
 
 
 <a id="AboutLoggingFeature"></a>
@@ -164,7 +164,7 @@ In dieser Aufgabe erstellen Sie eine benutzerdefinierten Filter Attributklasse, 
     > [!NOTE]
     > **OnActionExecuting** Methode ist die Verwendung **Entity Framework** zum Hinzufügen eines neuen ActionLog-Registers. Erstellt und füllt Sie mit die Kontextinformationen über eine neue Entitätsinstanz **FilterContext**.
     > 
-    > Sie können erfahren Sie mehr über **ControllerContext** am-Klasse [Msdn](https://msdn.microsoft.com/en-us/library/system.web.mvc.controllercontext.aspx).
+    > Sie können erfahren Sie mehr über **ControllerContext** am-Klasse [Msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx).
 
 <a id="Ex1Task2"></a>
 
@@ -231,7 +231,7 @@ Sie können definieren, eine **Bereich** für jeden dieser Filter, z. B. Sie kon
 
 Jeder Aktionsfilter verfügt darüber hinaus eine Order-Eigenschaft, die verwendet wird, um zu bestimmen, die Ausführungsreihenfolge im Bereich des Filters.
 
-Weitere Informationen zu Ausführungsreihenfolge benutzerdefinierte Aktionsfilter verwendet werden, finden Sie auf diese MSDN-Artikel: ([https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx)).
+Weitere Informationen zu Ausführungsreihenfolge benutzerdefinierte Aktionsfilter verwendet werden, finden Sie auf diese MSDN-Artikel: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx)).
 
 <a id="Ex2Task1"></a>
 
@@ -457,7 +457,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Windows Azure websites.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](aspnet-mvc-4-custom-action-filters/_static/image23.png "der Website herunterladen eines Veröffentlichungsprofils")
 

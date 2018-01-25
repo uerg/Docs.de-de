@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 68b82661b97434795e1c306b168033dfcde529bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="action-results-in-web-api-2"></a>Aktionsergebnisse in Web-API 2
 ====================
@@ -27,7 +27,7 @@ In diesem Thema wird beschrieben, wie ASP.NET Web-API den Rückgabewert von eine
 Eine Controlleraktion der Web-API kann Folgendes zurückgeben:
 
 1. void
-2. **Httpresponsemessage zurück**
+2. **HttpResponseMessage**
 3. **IHttpActionResult**
 4. Ein anderer Typ
 
@@ -36,7 +36,7 @@ Je nachdem, welche davon wird zurückgegeben, Web-API einen anderen Mechanismus 
 | Rückgabetyp | Wie Web-API die Antwort erstellt |
 | --- | --- |
 | void | Zurückgeben von leeren 204 (kein Inhalt) |
-| **Httpresponsemessage zurück** | Konvertieren Sie direkt in ein HTTP-Antwortnachricht. |
+| **HttpResponseMessage** | Konvertieren Sie direkt in ein HTTP-Antwortnachricht. |
 | **IHttpActionResult** | Rufen Sie **ExecuteAsync** zum Erstellen einer **HttpResponseMessage**, dann die Umstellung auf eine HTTP-Antwortnachricht. |
 | Andere Typ | Schreiben Sie den serialisierten Rückgabewert in den Antworttext. 200 (OK) zurück |
 
@@ -54,9 +54,9 @@ HTTP-Antwort:
 
 [!code-console[Main](action-results/samples/sample2.cmd)]
 
-## <a name="httpresponsemessage"></a>Httpresponsemessage zurück
+## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Wenn die Aktion gibt eine [HttpResponseMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.aspx), Web-API konvertiert den zurückgegeben Wert direkt in einen HTTP-Antwortnachricht mithilfe der Eigenschaften von der **HttpResponseMessage** zu füllende Objekt die Antwort.
+Wenn die Aktion gibt eine [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web-API konvertiert den zurückgegeben Wert direkt in einen HTTP-Antwortnachricht mithilfe der Eigenschaften von der **HttpResponseMessage** zu füllende Objekt die Antwort.
 
 Diese Option bietet Sie ein hohes Maß an Kontrolle über die Antwortnachricht. Beispielsweise legt die folgenden Controlleraktion Cache-Control-Headers.
 
@@ -98,9 +98,9 @@ Antwort:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Je öfter, verwenden Sie die **IHttpActionResult** Implementierungen, die definiert, der  **[System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)**  Namespace. Die **ApiController** Klasse definiert Hilfsmethoden, die diese integrierte Aktionsergebnisse zurückgeben.
+Je öfter, verwenden Sie die **IHttpActionResult** Implementierungen, die definiert, der  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  Namespace. Die **ApiController** Klasse definiert Hilfsmethoden, die diese integrierte Aktionsergebnisse zurückgeben.
 
-Im folgenden Beispiel die Anforderung eine vorhandenes Produkt-ID stimmt nicht überein der Controller aufruft [ApiController.NotFound](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.notfound.aspx) zum Erstellen einer Antwort 404 (Nichtgefunden). Der Controller, andernfalls ruft [ApiController.OK](https://msdn.microsoft.com/en-us/library/dn314591.aspx), die eine Antwort mit 200 (OK), erstellt das Produkt enthält.
+Im folgenden Beispiel die Anforderung eine vorhandenes Produkt-ID stimmt nicht überein der Controller aufruft [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) zum Erstellen einer Antwort 404 (Nichtgefunden). Der Controller, andernfalls ruft [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), die eine Antwort mit 200 (OK), erstellt das Produkt enthält.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 

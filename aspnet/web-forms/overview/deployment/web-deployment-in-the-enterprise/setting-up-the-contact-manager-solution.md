@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 85468949ee61504d6076a191b70a96e8018c67aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>Die Kontakt-Manager-Lösung einrichten
 ====================
@@ -33,7 +33,7 @@ Die Kontakt-Manager-Projektmappe lokal ausführen und die anderen in diesem Lern
 
 - Visual Studio 2010 Service Pack 1, Premium oder Ultimate Edition
 - Internetinformationsdienste (IIS) 7.5 Express
-- SQLServer Express 2008 R2
+- SQL Server Express 2008 R2
 - IIS Webbereitstellungstool (Web Deploy) 2.1 oder höher
 - ASP.NET 4.0
 - ASP.NET MVC 3
@@ -71,7 +71,7 @@ Der übrige Teil dieses Abschnitts enthält weitere Hinweise zum jede dieser Auf
     ![](setting-up-the-contact-manager-solution/_static/image1.png)
 
 > [!NOTE]
-> Weitere Informationen zu den Aspnet\_Regsql-Dienstprogramm finden Sie unter [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
+> Weitere Informationen zu den Aspnet\_Regsql-Dienstprogramm finden Sie unter [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
 
 
 Der nächste Schritt besteht, um sicherzustellen, dass die Verbindungszeichenfolgen in der Contact-Manager-Lösung für Ihre lokale Instanz von SQL Server Express zeigen.
@@ -119,7 +119,7 @@ Sie sollten jetzt bereit, führen Sie die Projektmappe Contact Manager auf dem l
     ![](setting-up-the-contact-manager-solution/_static/image7.png)
 6. Schließen Sie Internet Explorer zum Beenden des Debuggens.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 An diesem Punkt sollte die Projektmappe Contact Manager vollständig konfiguriert werden auf dem lokalen Computer ausgeführt werden. Sie können die Projektmappe als Referenz verwenden, bei der Arbeit durch die anderen Themen in diesem Lernprogramm.
 

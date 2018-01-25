@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc7b90c06b2d99b6c540e9650bb4d8515f5c3702
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-vb"></a>Ausführen von BatchUpdates (VB)
 ====================
@@ -116,7 +116,7 @@ Abbildung 6 zeigt die Seite, nachdem die Aktualisierung alle Schaltflächen hinz
 
 Mit allen DataList s-Elemente, die Bearbeitungsoberfläche anzeigen und durch das Hinzufügen der Schaltflächen Alles aktualisieren, bleibt ist das Schreiben des Codes zum Ausführen der Batch-Updates. Insbesondere müssen so durchlaufen Sie das DataList-s-Elemente, und rufen die `SuppliersBLL` Klasse s `UpdateSupplierAddress` für jeden dieser Methode.
 
-Die Auflistung der `DataListItem` Instanzen dieser Zusammensetzung DataList, die über das DataList s möglich [ `Items` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx). Mit einem Verweis auf eine `DataListItem`, können wir ziehen Sie das entsprechende `SupplierID` aus der `DataKeys` Auflistung und programmgesteuert Verweis der TextBox-innerhalb Websteuerelemente der `ItemTemplate` wie der folgende Code veranschaulicht:
+Die Auflistung der `DataListItem` Instanzen dieser Zusammensetzung DataList, die über das DataList s möglich [ `Items` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Mit einem Verweis auf eine `DataListItem`, können wir ziehen Sie das entsprechende `SupplierID` aus der `DataKeys` Auflistung und programmgesteuert Verweis der TextBox-innerhalb Websteuerelemente der `ItemTemplate` wie der folgende Code veranschaulicht:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample4.vb)]
@@ -131,7 +131,7 @@ Eine der Schaltflächen Alle aktualisieren, klickt der Benutzer die `UpdateAllSu
 
 Der Batch-Update-Algorithmus für dieses Lernprogramm ruft verwendet die `UpdateSupplierAddress` Methode zum *jeder* Lieferanten in DataList, unabhängig davon, ob ihre Adressinformationen geändert wurde. Während solche Blind sind t normalerweise ein Leistungsproblem aktualisiert, können sie zu überflüssig Datensätze führen, wenn Sie die Überwachung der Datenbanktabelle ändert. Angenommen, Sie Trigger verwenden, um alle aufzuzeichnen `UPDATE` s, um die `Suppliers` Tabelle in einer Überwachung, jedes Mal, wenn ein Benutzer die alle Aktualisieren Schaltfläche klickt, ein neuen Überwachungsdatensatz für jeden Lieferanten werden, im System erstellt wird, unabhängig davon, ob der Benutzer eine gemacht, ändert.
 
-Die ADO.NET DataTable und DataAdapter-Klassen dienen zur Unterstützung von BatchUpdates, in denen nur geändert, gelöscht und neue Datensätze führt Kommunikation mit der Datenbank. Jede Zeile in der "DataTable" verfügt über eine [ `RowState` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) , der angibt, ob die Zeile wurde hinzugefügt, zu der "DataTable" aus, geändert, gelöscht oder unverändert bleibt. Bei eine "DataTable" anfänglich aufgefüllt wird, werden alle Zeilen nicht geändert markiert. Ändern des Werts auf die Zeile s-Spalten markiert die Zeile geändert wurde.
+Die ADO.NET DataTable und DataAdapter-Klassen dienen zur Unterstützung von BatchUpdates, in denen nur geändert, gelöscht und neue Datensätze führt Kommunikation mit der Datenbank. Jede Zeile in der "DataTable" verfügt über eine [ `RowState` Eigenschaft](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) , der angibt, ob die Zeile wurde hinzugefügt, zu der "DataTable" aus, geändert, gelöscht oder unverändert bleibt. Bei eine "DataTable" anfänglich aufgefüllt wird, werden alle Zeilen nicht geändert markiert. Ändern des Werts auf die Zeile s-Spalten markiert die Zeile geändert wurde.
 
 In der `SuppliersBLL` Klasse, die wir die Adressinformationen angegebenen Lieferanten s, indem zuerst lesen in den einzelnen Lieferanten-Datensatz in aktualisieren einem `SuppliersDataTable` und legen Sie dann die `Address`, `City`, und `Country` Spaltenwerte, die mit dem folgenden Code:
 

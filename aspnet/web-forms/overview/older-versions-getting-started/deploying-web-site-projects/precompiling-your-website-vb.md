@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9f2e2d71815a2e8f17d3c505b48b69a23bceb1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cc487aa5276c601fed632e82d7b6d32d1b53b58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="precompiling-your-website-vb"></a>Vorkompilieren von Ihrer Website (VB)
 ====================
@@ -66,12 +66,12 @@ Es ist möglich, explizite Kompilierung mit der WSP-Modell zu verwenden. Sie kö
 
 ## <a name="precompilation-options"></a>Vorkompilierungsoptionen
 
-Lieferumfang von .NET Framework ein [ASP.NET Kompilierung-Tool (`aspnet_compiler.exe`)](https://msdn.microsoft.com/en-us/library/ms229863.aspx) mit der Sie zum Kompilieren von Quellcode (und auch den Inhalt) von einer ASP.NET-Anwendung mithilfe der WSP-Modell erstellt. Dieses Tool wurde mit .NET Framework, Version 2.0 veröffentlicht und befindet sich der `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` Ordner können verwendet werden, über die Befehlszeile oder über Option "Website veröffentlichen" im Menü erstellen in Visual Studio gestartet.
+Lieferumfang von .NET Framework ein [ASP.NET Kompilierung-Tool (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) mit der Sie zum Kompilieren von Quellcode (und auch den Inhalt) von einer ASP.NET-Anwendung mithilfe der WSP-Modell erstellt. Dieses Tool wurde mit .NET Framework, Version 2.0 veröffentlicht und befindet sich der `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` Ordner können verwendet werden, über die Befehlszeile oder über Option "Website veröffentlichen" im Menü erstellen in Visual Studio gestartet.
 
 Das Kompilierungstool bietet zwei allgemeine Arten der Kompilierung: direkte Vorkompilierung und Vorkompilierung für die Bereitstellung. Führen Sie für die direkte Vorkompilierung der `aspnet_compiler.exe` -tool über die Befehlszeile aus, und geben Sie den Pfad für das virtuelle Verzeichnis oder physische Pfad einer Website, die sich befindet, auf dem Computer. Kompiliert das Kompilierungstool anschließend jede ASP.NET-Seite in das Projekt, und speichern die kompilierte Version in der `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` Ordner hatte wie wenn Seiten jeweils zum ersten Mal in einem Browser besucht wurde. Direkte Vorkompilierung kann beschleunigen der ersten Anforderung an neu bereitgestellten ASP.NET-Seiten auf Ihrer Website vorgenommen werden, da es die Laufzeit zum Ausführen dieses Schritts nicht verringert. Direkte Vorkompilierung ist jedoch nicht nützlich für die Mehrheit der gehosteten Websites, da sie erfordert, dass Sie Programme aus der Webservers Befehlszeile ausgeführt werden. In der gemeinsam genutzten Hostingumgebungen ist diese Zugriffsebene nicht zulässig.
 
 > [!NOTE]
-> Weitere Informationen über die direkte Vorkompilierung Auschecken [How To: Precompile ASP.NET Web Sites](https://msdn.microsoft.com/en-us/library/ms227972.aspx) und [Vorkompilierung in ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
+> Weitere Informationen über die direkte Vorkompilierung Auschecken [How To: Precompile ASP.NET Web Sites](https://msdn.microsoft.com/library/ms227972.aspx) und [Vorkompilierung in ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
 
 
 Statt die Seiten der Website zum Kompilieren der `Temporary ASP.NET Files` Ordner Vorkompilierung für die Bereitstellung kompiliert die Seiten in einem Verzeichnis Ihrer Wahl in einem Format, das in der produktionsumgebung bereitgestellt werden kann.
@@ -107,10 +107,10 @@ Navigieren Sie nach der Vorkompilierung der Website an zu den Zielspeicherort an
 **Abbildung 3**: der Ziel-Ordner enthält die Dateien für die Bereitstellung  
  ([Klicken Sie hier, um das Bild in voller Größe angezeigt](precompiling-your-website-vb/_static/image9.png))
 
-Im Gegensatz zu explizite Kompilierung in drahtlosen Zugriffspunkten erstellt der Vorkompilierung zur Bereitstellung einer Assembly für den gesamten Standort nicht. Stattdessen batches es zusammen mehrere Seiten in jeder Assembly. Kompiliert auch das `Global.asax` Datei (falls vorhanden) in der eigenen Assembly sowie alle Klassen in der `App_Code` Ordner. Die Dateien mit deklarativem Markup für die ASP.NET web-Seiten und Benutzersteuerelemente Gestaltungsvorlagen (`.aspx`, `.ascx`, und `.master` -Dateien, die jeweils) werden als kopiert-in das Zielverzeichnis der Speicherort ist. Entsprechend der `Web.config` Datei wird direkt über zusammen mit statischen Dateien, z. B. Bilder, CSS-Klassen und PDF-Dateien kopiert. Für eine formale Beschreibung, wie das Kompilierungstool behandelt verschiedene Dateitypen finden Sie [Datei Behandlung während ASP.NET-Vorkompilierung](https://msdn.microsoft.com/en-us/library/e22s60h9.aspx).
+Im Gegensatz zu explizite Kompilierung in drahtlosen Zugriffspunkten erstellt der Vorkompilierung zur Bereitstellung einer Assembly für den gesamten Standort nicht. Stattdessen batches es zusammen mehrere Seiten in jeder Assembly. Kompiliert auch das `Global.asax` Datei (falls vorhanden) in der eigenen Assembly sowie alle Klassen in der `App_Code` Ordner. Die Dateien mit deklarativem Markup für die ASP.NET web-Seiten und Benutzersteuerelemente Gestaltungsvorlagen (`.aspx`, `.ascx`, und `.master` -Dateien, die jeweils) werden als kopiert-in das Zielverzeichnis der Speicherort ist. Entsprechend der `Web.config` Datei wird direkt über zusammen mit statischen Dateien, z. B. Bilder, CSS-Klassen und PDF-Dateien kopiert. Für eine formale Beschreibung, wie das Kompilierungstool behandelt verschiedene Dateitypen finden Sie [Datei Behandlung während ASP.NET-Vorkompilierung](https://msdn.microsoft.com/library/e22s60h9.aspx).
 
 > [!NOTE]
-> Sie können das Kompilierungstool, um eine Assembly pro Seite, Benutzersteuerelement oder Masterseite von ASP.NET zu erstellen, indem Sie das Kontrollkästchen "Verwendet, die feste benennen und einseitige Assemblys" im Dialogfeld "Website veröffentlichen" anweisen. Da jede ASP.NET-Seite in der eigenen Assembly kompiliert werden können für eine präzisere Kontrolle über die Bereitstellung. Z. B. Wenn Sie eine einzelne ASP.NET-Webseite aktualisiert und erforderlich, um die Änderung bereitstellen, Sie müssen nur Bereitstellen dieser Seite `.aspx` Datei und zugehörige Assembly in der produktionsumgebung. Wenden Sie sich an [How To: festen Namen zu generieren, mit dem ASP.NET Kompilierungstool](https://msdn.microsoft.com/en-us/library/ms228040.aspx) für Weitere Informationen.
+> Sie können das Kompilierungstool, um eine Assembly pro Seite, Benutzersteuerelement oder Masterseite von ASP.NET zu erstellen, indem Sie das Kontrollkästchen "Verwendet, die feste benennen und einseitige Assemblys" im Dialogfeld "Website veröffentlichen" anweisen. Da jede ASP.NET-Seite in der eigenen Assembly kompiliert werden können für eine präzisere Kontrolle über die Bereitstellung. Z. B. Wenn Sie eine einzelne ASP.NET-Webseite aktualisiert und erforderlich, um die Änderung bereitstellen, Sie müssen nur Bereitstellen dieser Seite `.aspx` Datei und zugehörige Assembly in der produktionsumgebung. Wenden Sie sich an [How To: festen Namen zu generieren, mit dem ASP.NET Kompilierungstool](https://msdn.microsoft.com/library/ms228040.aspx) für Weitere Informationen.
 
 
 Das Zielverzeichnis für den Speicherort enthält außerdem eine Datei, die nicht Teil des vorkompilierten Webprojekts, nämlich `PrecompiledApp.config`. Diese Datei informiert, dass die Anwendung vorkompiliert wurde die ASP.NET-Laufzeit und gibt an, ob es mit einer Benutzeroberfläche aktualisiert werden, oder Mittag aktualisierbare vorkompiliert wurde.
@@ -185,8 +185,8 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [ASP.NET Web Site Vorkompilierung](https://msdn.microsoft.com/en-us/library/ms228015.aspx)
-- [CodeBehind und Kompilierung in ASP.NET 2.0](https://msdn.microsoft.com/en-us/magazine/cc163675.aspx)
+- [ASP.NET Web Site Vorkompilierung](https://msdn.microsoft.com/library/ms228015.aspx)
+- [CodeBehind und Kompilierung in ASP.NET 2.0](https://msdn.microsoft.com/magazine/cc163675.aspx)
 - [Vorkompilierung in ASP.NET](http://www.odetocode.com/Articles/417.aspx)
 - [Vorkompilierte Website Optionen in ASP.NET](http://www.dotnetperls.com/precompiled)
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ce0bd1d3302ee68c9c65584686172a07143e4a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8cd4fd2afb16772baf45618ccee2c3c3caea5b64
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a>Zwischenspeichern von Daten mit der ObjectDataSource (c#)
 ====================
@@ -44,7 +44,7 @@ Mit Caching kann eine Anwendung s erheblich verbessert Leistung und Skalierbarke
 
 Unabhängig von der angegebenen Entfernung Kriterien, ein Element im Cache möglicherweise *Anwendungscache gelöscht* , bevor die zeitbasierte oder Abhängigkeit basierenden Kriterien erfüllt. Der Cache seine Kapazität erreicht hat, müssen die vorhandene Elemente entfernt werden, bevor neue hinzugefügt werden können. Daher, wenn Sie programmgesteuert mit zwischengespeicherten Daten es wichtiger s arbeiten, dass Sie immer davon ausgehen, dass die zwischengespeicherten Daten möglicherweise nicht vorhanden. Betrachten wir das Muster verwenden, wenn Daten aus dem Cache in unserem nächsten Lernprogramm programmgesteuert zugreifen *Zwischenspeichern von Daten in der Architektur*.
 
-Caching bietet eine kostengünstige Möglichkeit für zusammendrücken höhere Leistung aus einer Anwendung. Als [Steven Smith](http://aspadvice.com/blogs/ssmith/) Hervorhebung in seinem Artikel [ASP.NET-Caching: Techniken und bewährte Verfahren](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+Caching bietet eine kostengünstige Möglichkeit für zusammendrücken höhere Leistung aus einer Anwendung. Als [Steven Smith](http://aspadvice.com/blogs/ssmith/) Hervorhebung in seinem Artikel [ASP.NET-Caching: Techniken und bewährte Verfahren](https://msdn.microsoft.com/library/aa478965.aspx):
 
 Caching kann eine gute Möglichkeit, die gute genügend Leistung zu erzielen, ohne viel Zeit und eine Analyse sein. Speicher ist billig, also wenn Sie die Leistung abrufen können, Sie durch Zwischenspeichern der Ausgabe für 30 Sekunden anstelle von Ausgaben täglich oder wöchentlich Codes oder der Datenbank optimieren möchten müssen, führen Sie die Cache-Lösung (vorausgesetzt, 30 - Sekunde alte Daten ist in Ordnung) und zu verschieben. Schließlich wird schlechter Entwurf wahrscheinlich Ihnen, den aktuellen Stand damit natürlich Sie versuchen sollten, funktionsfähiger Anwendungen. Wenn Sie nur gut genug Performance heute erwerben müssen, Zwischenspeichern kann jedoch sein [Ansatz ausgezeichnet], kaufen Sie viel Zeit Ihre Anwendung zu einem späteren Zeitpunkt umgestaltet werden, wenn Sie über die Zeit dafür verfügen.
 
@@ -175,10 +175,10 @@ Es mag überflüssig, um Daten in der Datenbank jedes Mal abzurufen, die Daten s
 
 Indem Sie einfach einige Eigenschaften festlegen, kann das ObjectDataSource für die automatisch die abgerufenen Daten im Datencache ASP.NET cache konfiguriert werden. Die folgende Liste fasst die Cache-bezogenen Eigenschaften der ObjectDataSource:
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) muss festgelegt werden, um `true` zum Zwischenspeichern zu aktivieren. Die Standardeinstellung ist `false`.
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) die Zeitdauer in Sekunden, die die Daten zwischengespeichert werden. Der Standard ist 0. Das ObjectDataSource werden nur Daten zwischengespeichert, wenn `EnableCaching` ist `true` und `CacheDuration` auf einen Wert größer als 0 (null) festgelegt ist.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) kann festgelegt werden, um `Absolute` oder `Sliding`. Wenn `Absolute`, das ObjectDataSource speichert ihre abgerufenen Daten nach `CacheDuration` Sekunden; Wenn `Sliding`, die Daten ablaufen, nachdem er für nicht zugegriffen wurde `CacheDuration` Sekunden. Die Standardeinstellung ist `Absolute`.
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) verwenden Sie diese Eigenschaft einen vorhandenen Cacheabhängigkeit Cacheeinträge ObjectDataSource s zugeordnet werden soll. Das ObjectDataSource-s-Dateneinträge können vorzeitig aus dem Cache entfernt werden, indem ablaufen lassen die zugehörigen `CacheKeyDependency`. Diese Eigenschaft wird am häufigsten verwendet, um eine SQL-Cacheabhängigkeit ObjectDataSource-s-Cache zuzuordnen, ein Thema wird untersucht, in der Zukunft [mithilfe von SQL-Cache-Abhängigkeiten](using-sql-cache-dependencies-cs.md) Lernprogramm.
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) muss festgelegt werden, um `true` zum Zwischenspeichern zu aktivieren. Die Standardeinstellung ist `false`.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) die Zeitdauer in Sekunden, die die Daten zwischengespeichert werden. Der Standard ist 0. Das ObjectDataSource werden nur Daten zwischengespeichert, wenn `EnableCaching` ist `true` und `CacheDuration` auf einen Wert größer als 0 (null) festgelegt ist.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) kann festgelegt werden, um `Absolute` oder `Sliding`. Wenn `Absolute`, das ObjectDataSource speichert ihre abgerufenen Daten nach `CacheDuration` Sekunden; Wenn `Sliding`, die Daten ablaufen, nachdem er für nicht zugegriffen wurde `CacheDuration` Sekunden. Die Standardeinstellung ist `Absolute`.
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) verwenden Sie diese Eigenschaft einen vorhandenen Cacheabhängigkeit Cacheeinträge ObjectDataSource s zugeordnet werden soll. Das ObjectDataSource-s-Dateneinträge können vorzeitig aus dem Cache entfernt werden, indem ablaufen lassen die zugehörigen `CacheKeyDependency`. Diese Eigenschaft wird am häufigsten verwendet, um eine SQL-Cacheabhängigkeit ObjectDataSource-s-Cache zuzuordnen, ein Thema wird untersucht, in der Zukunft [mithilfe von SQL-Cache-Abhängigkeiten](using-sql-cache-dependencies-cs.md) Lernprogramm.
 
 S konfigurieren lassen die `ProductsDataSource` ObjectDataSource 30 Sekunden lang auf absoluten Skala seine Daten zwischenspeichern. Legen Sie das ObjectDataSource-s `EnableCaching` Eigenschaft `true` und dessen `CacheDuration` Eigenschaft auf 30. Lassen Sie die `CacheExpirationPolicy` -Eigenschaft auf den Standardwert festgelegt `Absolute`.
 
@@ -206,7 +206,7 @@ Abbildung 12 veranschaulicht das ObjectDataSource-s Workflow Zwischenspeichern. 
 
 Jede ASP.NET-Anwendung verfügt über einen eigenen Datencache gemeinsam von allen Seiten und Besucher s-Instanz. Das bedeutet, dass die Daten im Datencache gespeichert wird, von der ObjectDataSource ebenso für alle Benutzer freigegeben ist, besuchen die Seite. Um dies zu überprüfen, öffnen Sie die `ObjectDataSource.aspx` Seite in einem Browser. Bei der ersten Seite besuchen, erscheint das ausgelöste Ereignis Markieren von Text (vorausgesetzt, dass die Daten, die dem Cache hinzugefügt, durch die vorherigen Tests mittlerweile Clusterdefinition entfernt wurde,). Öffnen Sie eine zweite Browserinstanz und kopieren und fügen Sie die URL aus der ersten Browserinstanz auf dem zweiten. In der zweiten Browserinstanz, das ausgelöste Ereignis Markieren von Text nicht angezeigt, da es verwenden, müssen die gleiche zwischengespeicherte Daten wie die erste.
 
-Wenn die abgerufenen Daten in den Cache eingefügt wird, verwendet das ObjectDataSource einen Cache-Schlüssel-Wert, der enthält: die `CacheDuration` und `CacheExpirationPolicy` Eigenschaftswerte; der Typ des zugrunde liegenden Business-Objekts, das verwendet wird, von der ObjectDataSource, der angegeben wird über die [ `TypeName` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, in diesem Beispiel); der Wert des der `SelectMethod` Eigenschaft sowie den Namen und Werte der Parameter in der `SelectParameters` Auflistung enthalten ist und die Werte für die `StartRowIndex`und `MaximumRows` Eigenschaften, die verwendet werden, bei der Implementierung [benutzerdefiniertes Paging.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
+Wenn die abgerufenen Daten in den Cache eingefügt wird, verwendet das ObjectDataSource einen Cache-Schlüssel-Wert, der enthält: die `CacheDuration` und `CacheExpirationPolicy` Eigenschaftswerte; der Typ des zugrunde liegenden Business-Objekts, das verwendet wird, von der ObjectDataSource, der angegeben wird über die [ `TypeName` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, in diesem Beispiel); der Wert des der `SelectMethod` Eigenschaft sowie den Namen und Werte der Parameter in der `SelectParameters` Auflistung enthalten ist und die Werte für die `StartRowIndex`und `MaximumRows` Eigenschaften, die verwendet werden, bei der Implementierung [benutzerdefiniertes Paging.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
 
 Erstellen den Cache-Schlüsselwert als eine Kombination dieser Eigenschaften wird einen eindeutiger Cacheeintragsschlüssel sichergestellt, wie diese Werte ändern. Z. B. in den vergangenen Lernprogramme wir Ve erläutert, mit der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)`, womit alle Produkte für eine angegebene Kategorie. Ein Benutzer auf der Seite und Ansicht Getränke bedeutet ggf. verfügt über eine `CategoryID` 1. Wenn das ObjectDataSource seine Ergebnisse ohne Berücksichtigung zwischengespeichert der `SelectParameters` -Werten, wenn ein anderer Benutzer auf die Seite stammt anzeigen "Gewürze", während die Getränke Produkte wurden im Cache, d erscheint die zwischengespeicherten Getränke Produkte anstelle von "Gewürze". Durch Variierung der Cacheschlüssel durch diese Eigenschaften, die die Werte der enthalten die `SelectParameters`, das ObjectDataSource behält einen separate Cacheeintrag für Getränke und "Gewürze".
 
@@ -230,8 +230,8 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [ASP.NET-Caching: Techniken und bewährte Methoden](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [Zwischenspeichern Handbuch zur Referenzarchitektur für .NET Framework-Anwendungen](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [ASP.NET-Caching: Techniken und bewährte Methoden](https://msdn.microsoft.com/library/aa478965.aspx)
+- [Zwischenspeichern Handbuch zur Referenzarchitektur für .NET Framework-Anwendungen](https://msdn.microsoft.com/library/ee817645.aspx)
 - [Ausgabe-Caching in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Informationen zum Autor

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f455c3656c9120f4d7e6fccdba8f705e0a1c7d35
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Lesen-bezogene Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung (5 10)
 ====================
@@ -68,7 +68,7 @@ Die Kontext Datenbankklasse führt verzögertes Laden standardmäßig. Es gibt z
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Verzögertes Laden kann Code maskieren, die Leistungsprobleme verursacht. Beispielsweise ist die Code, der eager oder expliziten Laden nicht angeben, aber eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration (aufgrund von viele Roundtrips zur Datenbank) möglicherweise sehr ineffizient. Eine Anwendung, die auch in der Entwicklung mit einer lokalen SQL Servers führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und lazy Loading zu Azure SQL-Datenbank verschoben. Profilerstellung für die Datenbankabfragen mit einer realistischen testladevorgang hilft zu bestimmen, ob das verzögertes Laden geeignet ist. Weitere Informationen finden Sie unter [Demystifying Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) und [mit dem Entity Framework zum Verringern der Netzwerklatenz in SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Verzögertes Laden kann Code maskieren, die Leistungsprobleme verursacht. Beispielsweise ist die Code, der eager oder expliziten Laden nicht angeben, aber eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration (aufgrund von viele Roundtrips zur Datenbank) möglicherweise sehr ineffizient. Eine Anwendung, die auch in der Entwicklung mit einer lokalen SQL Servers führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und lazy Loading zu Azure SQL-Datenbank verschoben. Profilerstellung für die Datenbankabfragen mit einer realistischen testladevorgang hilft zu bestimmen, ob das verzögertes Laden geeignet ist. Weitere Informationen finden Sie unter [Demystifying Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/magazine/hh205756.aspx) und [mit dem Entity Framework zum Verringern der Netzwerklatenz in SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ## <a name="create-a-courses-index-page-that-displays-department-name"></a>Erstellen einer Indexseite Kurse, zeigt Abteilungsnamen
 
@@ -155,7 +155,7 @@ Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolg
 > 
 > Routendaten sind Daten, die der Modellbinder in ein URL-Segment angegeben, in der Routingtabelle gefunden. Die Standardroute gibt z. B. `controller`, `action`, und `id` Segmente:
 > 
-> Routen. MapRoute)  
+> routes.MapRoute(  
 >  Name: "Default"  
 >  URL: "{Controller} / {Aktion} / {Id}",  
 >  Standardwerte: new {Controller = "Home", Aktion = "Index", Id = UrlParameter.Optional}  
@@ -194,7 +194,7 @@ Instructor-ID wurde ausgewählt, wird der ausgewählte Kursleiter aus der Liste 
 
 Die `Where` -Methode gibt eine Auflistung, aber in diesem Fall die Kriterien, die nur eine einzelne Methode zu übergeben `Instructor` Entität zurückgegeben wird. Die `Single` -Methode konvertiert die Auflistung in einem einzelnen `Instructor` Entität, die Sie Zugriff auf diese Entität gewährt `Courses` Eigenschaft.
 
-Verwenden Sie die [einzelne](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die `Single` Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), dem einen Standardwert zurückgegeben (`null` in diesem Fall), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einer `Courses` Eigenschaft auf einen `null` Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, können Sie auch übergeben der `Where` Bedingung statt der `Where` Methode getrennt:
+Verwenden Sie die [einzelne](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die `Single` Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), dem einen Standardwert zurückgegeben (`null` in diesem Fall), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einer `Courses` Eigenschaft auf einen `null` Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, können Sie auch übergeben der `Where` Bedingung statt der `Where` Methode getrennt:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 

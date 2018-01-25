@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>Filter
 
@@ -70,7 +70,7 @@ Sie können für mehrere Filter Stufen in einer einzelnen Klasse Schnittstellen 
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` implementiert `IFilter`. Aus diesem Grund eine `IFilterFactory` Instanz kann verwendet werden, als ein `IFilter` Instanz an einer beliebigen Stelle in der Filterpipeline. Wenn das Framework vorbereitet, um den Filter aufzurufen, versucht es,-Typ umzuwandeln ein `IFilterFactory`. Wenn diese Umwandlung erfolgreich ist, die `CreateInstance` Methode wird aufgerufen, um das Erstellen der `IFilter` -Instanz, die aufgerufen wird. Dies bietet ein sehr flexibles Design, da die präzise Filterpipeline nicht beim Starten der Anwendung explizit festgelegt werden muss.
+`IFilterFactory` implementiert `IFilter`. Aus diesem Grund eine `IFilterFactory` Instanz kann verwendet werden, als ein `IFilter` Instanz an einer beliebigen Stelle in der Filterpipeline. Wenn das Framework vorbereitet, um den Filter aufzurufen, versucht es,-Typ umzuwandeln ein `IFilterFactory`. Wenn diese Umwandlung erfolgreich ist, die `CreateInstance` Methode wird aufgerufen, um das Erstellen der `IFilter` -Instanz, die aufgerufen wird. Dies bietet ein sehr flexibles Design, da die präzise Filterpipeline muss nicht explizit festgelegt werden, wenn die Anwendung gestartet wird.
 
 Sie können implementieren `IFilterFactory` auf Ihren eigenen Implementierungen Attribut als ein weiteres Verfahren zum Erstellen von Filtern:
 
@@ -207,9 +207,9 @@ System.InvalidOperationException: No service for type
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`vergleichbar mit `ServiceFilterAttribute` (und implementiert außerdem `IFilterFactory`), aber sein Typ nicht direkt aus dem Container DI aufgelöst wird. Stattdessen den Typ instanziiert, mithilfe von `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
+`TypeFilterAttribute`vergleichbar mit `ServiceFilterAttribute` (und implementiert außerdem `IFilterFactory`), aber sein Typ nicht direkt aus dem Container DI aufgelöst. Stattdessen den Typ instanziiert, mithilfe von `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
 
-Wegen dieses Unterschieds, Typen, auf die verwiesen werden mithilfe der `TypeFilterAttribute` müssen nicht mit dem Container erstmals registriert werden (aber dennoch haben Sie ihre Abhängigkeiten, die vom Container erfüllt). Darüber hinaus `TypeFilterAttribute` Konstruktorargumente für den betreffenden Typ kann optional akzeptieren. Im folgenden Beispiel wird veranschaulicht, wie Argumente übergeben werden, in einen Typ mit `TypeFilterAttribute`:
+Wegen dieses Unterschieds, Typen, auf die verwiesen werden mithilfe der `TypeFilterAttribute` müssen mit dem Container erstmals registriert werden (aber dennoch haben Sie ihre Abhängigkeiten, die vom Container erfüllt). Darüber hinaus `TypeFilterAttribute` Konstruktorargumente für den betreffenden Typ kann optional akzeptieren. Im folgenden Beispiel wird veranschaulicht, wie Argumente übergeben werden, in einen Typ mit `TypeFilterAttribute`:
 
 [!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
 
@@ -223,7 +223,7 @@ Dieser Filter kann auf Klassen oder Methoden angewendet werden die `[SampleActio
 
 *Autorisierungsfilter* steuern den Zugriff auf Aktionsmethoden und sind von den ersten Filter in der Filterpipeline ausgeführt werden. Sie müssen nur eine vor der Methode, im Gegensatz zu den meisten Filter, die vor und nach Methoden unterstützen. Wenn Sie eine eigene Autorisierungsframework schreiben, sollten Sie nur einem benutzerdefinierten Autorisierungs-Filter schreiben. Bevorzugen Sie Ihre Autorisierungsrichtlinien konfigurieren, oder schreiben eine benutzerdefinierte Autorisierungsrichtlinie über das Schreiben eines benutzerdefinierten Filters. Die integrierten filterimplementierung ist nur für das Aufrufen der Autorisierungssystem zuständig.
 
-Beachten Sie, dass Sie nicht Ausnahmen im Autorisierungsfilter, auslösen sollen da nichts wird die Ausnahme zu behandeln (Ausnahmefilter wird nicht behandelt werden). Stattdessen geben Sie eine neue Herausforderung dar oder finden Sie eine andere Möglichkeit.
+Beachten Sie, dass Sie sollten nicht innerhalb Autorisierungsfilter, Ausnahmen da nichts wird die Ausnahme zu behandeln (Ausnahmefilter wird nicht behandelt werden). Stattdessen geben Sie eine neue Herausforderung dar oder finden Sie eine andere Möglichkeit.
 
 Erfahren Sie mehr über [Autorisierung](../../security/authorization/index.md).
 
@@ -277,7 +277,7 @@ Ausnahmefilter nicht behandelte Ausnahmen behandelt, die auftreten, im Controlle
 Um eine Ausnahme zu behandeln, legen Sie die `ExceptionContext.ExceptionHandled` Eigenschaft auf "true" oder eine Antwort zu schreiben. Dadurch wird die Weitergabe der Ausnahme beendet. Beachten Sie, dass ein Ausnahmefilter eine Ausnahme in "Erfolg" nicht aktivieren können. Nur ein Aktionsfilter kann dies tun.
 
 > [!NOTE]
-> In ASP.NET Version 1.1, die Antwort nicht gesendet, wenn Sie festlegen, `ExceptionHandled` auf "true" **und** eine Antwort zu schreiben. In diesem Szenario ASP.NET Core 1.0 sendet die Antwort und ASP.NET Core 1.1.2 1.0 Verhalten zurück. Weitere Informationen finden Sie unter [ausstellen #5594](https://github.com/aspnet/Mvc/issues/5594) im GitHub-Repository. 
+> In ASP.NET 1.1 ist nicht die Antwort gesendet, wenn Sie festlegen, `ExceptionHandled` auf "true" **und** eine Antwort zu schreiben. In diesem Szenario ASP.NET Core 1.0 sendet die Antwort und ASP.NET Core 1.1.2 1.0 Verhalten zurück. Weitere Informationen finden Sie unter [ausstellen #5594](https://github.com/aspnet/Mvc/issues/5594) im GitHub-Repository. 
 
 Ausnahmefilter eignen sich für Auffangen von Ausnahmen, die in MVC Aktionen auftreten, aber sie sind nicht so flexibel wie Middleware für die Fehlerbehandlung. Middleware für die allgemeine Groß-/Kleinschreibung vorziehen, und verwenden Sie Filter, in denen Sie nur müssen Vorgehensweise Fehlerbehandlung *anders* basierend auf die MVC-Aktion ausgewählt wurde. Z. B. möglicherweise die app Aktionsmethoden für beide-API-Endpunkte und Ansichten/HTML. Die API-Endpunkte können Fehlerinformationen als JSON, zurückgeben, während die Ansicht basierende Aktionen als HTML-Fehlerseite zurückgeben können.
 
@@ -307,7 +307,7 @@ Das Framework bietet eine abstrakte `ResultFilterAttribute` , können Sie die Un
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Mithilfe der Middleware in der Filterpipeline
 
-Ressourcenfilter funktionieren wie [Middleware](../../fundamentals/middleware.md) dahingehend, dass sie die Ausführung aller Elemente umschließen, der weiter unten in der Pipeline enthalten ist. Filter weichen jedoch von Middleware Teil MVC, sind dies bedeutet, dass sie Zugriff auf die MVC-Kontext und Konstrukte haben.
+Ressourcenfilter funktionieren wie [Middleware](../../fundamentals/middleware.md) dahingehend, dass sie die Ausführung aller Elemente umschließen, der weiter unten in der Pipeline enthalten ist. Aber Filter unterscheiden sich von der Middleware, da Inhaltspakete Teil von MVC, sind dies bedeutet, dass sie Zugriff auf die MVC-Kontext und Konstrukte haben.
 
 In ASP.NET Core 1.1 können Sie die Middleware in der Filterpipeline verwenden. Sie möchten nicht, wenn Sie eine middlewarekomponente verfügen, die benötigt Zugriff auf die MVC-Routendaten oder eine, die nur für bestimmte Domänencontroller oder Aktionen ausgeführt werden soll.
 

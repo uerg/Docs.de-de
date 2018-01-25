@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>SignalR-Leistung
 ====================
@@ -87,7 +87,7 @@ Da Nachrichten im Nachrichtenbus im Arbeitsspeicher des Servers, reduzieren die 
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Optimieren des SignalR-Servers für die Leistung
 
-Die folgenden Konfigurationseinstellungen können verwendet werden, um den Server für eine bessere Leistung in einer SignalR-Anwendung zu optimieren. Allgemeine Informationen zum Verbessern der Leistung in einer ASP.NET-Anwendung finden Sie unter [verbessern die Leistung von ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Die folgenden Konfigurationseinstellungen können verwendet werden, um den Server für eine bessere Leistung in einer SignalR-Anwendung zu optimieren. Allgemeine Informationen zum Verbessern der Leistung in einer ASP.NET-Anwendung finden Sie unter [verbessern die Leistung von ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **SignalR-Konfigurationseinstellungen**
 
@@ -104,7 +104,7 @@ Die folgenden Konfigurationseinstellungen können verwendet werden, um den Serve
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: Dies ist die maximale Anzahl von Anforderungen, die Warteschlangen von "http.sys" für den Anwendungspool. Wenn die Warteschlange voll ist, erhalten neue Anforderungen Antworten 503 "Dienst nicht verfügbar". Der Standardwert ist 1000.
 
-    Verkürzen Sie die Warteschlangenlänge für den Arbeitsprozess im Anwendungspool Hosten der Anwendung wird die Speicher-Ressourcen freizugeben. Weitere Informationen finden Sie unter [verwalten, Optimierung und Konfigurieren von Anwendungspools](https://technet.microsoft.com/en-us/library/cc745955.aspx).
+    Verkürzen Sie die Warteschlangenlänge für den Arbeitsprozess im Anwendungspool Hosten der Anwendung wird die Speicher-Ressourcen freizugeben. Weitere Informationen finden Sie unter [verwalten, Optimierung und Konfigurieren von Anwendungspools](https://technet.microsoft.com/library/cc745955.aspx).
 
 **Konfiguration der ASP.NET-Einstellungen**
 
@@ -215,7 +215,7 @@ Die folgenden Metriken Messen von SignalR Volumen des Nachrichtenverkehrs generi
 
 Die folgenden Metriken Measuregruppen Datenverkehr und Fehler, die vom Anbieter mit horizontaler Skalierung. Ein **Stream** in diesem Kontext ist eine Skalierungseinheit vom Anbieter mit horizontaler Skalierung verwendet; dies ist eine Tabelle, wenn SQL Server verwendet wird, ein Thema, wenn Service Bus verwendet wird und ein Abonnement, wenn Redis verwendet wird. Jeder Datenstrom wird sichergestellt, dass geordnete Lese- und Schreibvorgänge; ein einzigen Datenstrom ist ein potenzieller Engpass für die Skalierung, damit die Anzahl der Datenströme vergrößert werden kann, um diesen Engpass verringern. Wenn mehrere Datenströme verwendet werden, wird SignalR automatisch (Shard) Nachrichten auf diese Streams auf eine Weise zu verteilen, der sicherstellt, dass von pro Verbindung gesendeten Nachrichten in der Reihenfolge sind.
 
-Die [MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) Einstellung steuert die Länge der Sendewarteschlange mit horizontaler Skalierung von SignalR verwaltet. Festlegen auf einen Wert größer als 0 alle Nachrichten in einer Sendewarteschlange jeweils einzeln an die konfigurierten messagingbackplane gesendet werden abgelegt werden. Wenn die Größe der Warteschlange für die konfigurierte Länge überschreitet, nachfolgende Aufrufe zum Senden von wird sofort mit Fehlschlagen einer [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx) bis die Anzahl der Nachrichten in der Warteschlange kleiner als die Einstellung ist erneut. Message Queueing ist standardmäßig deaktiviert, da der implementierten Backplanes in der Regel eigene queuing oder datenflusssteuerung erfüllt sind. Im Fall von SQL Server schränkt das Verbindungspooling effektiv die Anzahl Sendevorgänge jederzeit erfolgen.
+Die [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) Einstellung steuert die Länge der Sendewarteschlange mit horizontaler Skalierung von SignalR verwaltet. Festlegen auf einen Wert größer als 0 alle Nachrichten in einer Sendewarteschlange jeweils einzeln an die konfigurierten messagingbackplane gesendet werden abgelegt werden. Wenn die Größe der Warteschlange für die konfigurierte Länge überschreitet, nachfolgende Aufrufe zum Senden von wird sofort mit Fehlschlagen einer [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) bis die Anzahl der Nachrichten in der Warteschlange kleiner als die Einstellung ist erneut. Message Queueing ist standardmäßig deaktiviert, da der implementierten Backplanes in der Regel eigene queuing oder datenflusssteuerung erfüllt sind. Im Fall von SQL Server schränkt das Verbindungspooling effektiv die Anzahl Sendevorgänge jederzeit erfolgen.
 
 Standardmäßig nur einen Stream für SQL Server und Redis verwendet wird, werden fünf Streams für Service Bus verwendet und warteschlangenanwendungen ist deaktiviert, aber diese Einstellungen können über die Konfiguration für SQL Server und Service Bus geändert werden:
 
@@ -280,6 +280,6 @@ Die folgenden Leistungsindikatoren möglicherweise auch bei der Überwachung der
 
 Weitere Informationen zu ASP.NET-Leistung überwachen und optimieren finden Sie unter den folgenden Themen:
 
-- [ASP.NET Performance Overview (Die Leistung von ASP.NET im Überblick)](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET Performance Overview (Die Leistung von ASP.NET im Überblick)](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [ASP.NET Thread Usage on IIS 7.5, IIS 7.0 und IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;ApplicationPool&gt; Element (Webeinstellungen)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;ApplicationPool&gt; Element (Webeinstellungen)](https://msdn.microsoft.com/library/dd560842.aspx)

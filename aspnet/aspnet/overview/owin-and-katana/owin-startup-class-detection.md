@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: a6ac34307b7558ad13684448f339ca74ade9e997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-startup-class-detection"></a>Erkennung von owin-Start-Klasse
 ====================
@@ -79,7 +79,7 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- Die `app.Use` Lambda-Ausdruck wird verwendet, um die angegebenen middlewarekomponente, für die OWIN-Pipeline zu registrieren. In diesem Fall werden wir die Protokollierung von eingehenden Anforderungen vor dem Antworten auf die eingehende Anforderung einrichten. Die `next` Parameter wird der Delegat ( [Func](https://msdn.microsoft.com/en-us/library/bb534960(v=vs.100).aspx) &lt; [Aufgabe](https://msdn.microsoft.com/en-us/library/dd321424(v=vs.100).aspx) &gt; ) an die nächste Komponente in der Pipeline. Die `app.Run` Lambda-Ausdruck, der Pipeline auf eingehende Anforderungen verknüpft, und stellt den Mechanismus für die Antwort.
+ Die `app.Use` Lambda-Ausdruck wird verwendet, um die angegebenen middlewarekomponente, für die OWIN-Pipeline zu registrieren. In diesem Fall werden wir die Protokollierung von eingehenden Anforderungen vor dem Antworten auf die eingehende Anforderung einrichten. Die `next` Parameter wird der Delegat ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [Aufgabe](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) an die nächste Komponente in der Pipeline. Die `app.Run` Lambda-Ausdruck, der Pipeline auf eingehende Anforderungen verknüpft, und stellt den Mechanismus für die Antwort.
      > [!NOTE]
      > Im obigen Code haben wir auskommentiert ist die `OwinStartup` -Attribut, und wir sind der Konvention aus der Klasse mit dem Namen der vertrauenden Seite `Startup` .-drücken ***F5*** zum Ausführen der Anwendung. Drücken Sie die aktualisierungstaste mehrmals.  
   

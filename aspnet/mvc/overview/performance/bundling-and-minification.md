@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: e83be2446ef1e3ff1275d06d5b743fb5b9444a6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="bundling-and-minification"></a>Bundling und Minimierung
 ====================
@@ -76,7 +76,7 @@ Der gesendeten Bytes hat zu eine erhebliche Reduzierung mit das Bündelung wie B
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debuggen von JavaScript verkleinert und gebündelt
 
-Ist ganz einfach zum Debuggen des JavaScript in einer Entwicklungsumgebung (, in dem die [Kompilierung Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `debug="true"` ), weil die JavaScript-Dateien nicht zusammengefasst sind oder verkleinert. Sie können auch einen Releasebuild debuggen, in dem die JavaScript-Dateien gebündelt und verkleinert werden. Verwenden den Internet Explorer F12-Entwicklungstools, Debuggen Sie eine JavaScript-Funktion enthalten, die in einem verkleinerte Paket wie folgt vorgehen:
+Ist ganz einfach zum Debuggen des JavaScript in einer Entwicklungsumgebung (, in dem die [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `debug="true"` ), weil die JavaScript-Dateien nicht zusammengefasst sind oder verkleinert. Sie können auch einen Releasebuild debuggen, in dem die JavaScript-Dateien gebündelt und verkleinert werden. Verwenden den Internet Explorer F12-Entwicklungstools, Debuggen Sie eine JavaScript-Funktion enthalten, die in einem verkleinerte Paket wie folgt vorgehen:
 
 1. Wählen Sie die **Skript** Registerkarte, und wählen Sie dann die **Starten des Debuggens** Schaltfläche.
 2. Wählen Sie das Paket mit der JavaScript-Funktion, die Sie mithilfe der Schaltfläche "Bestand" Debuggen möchten.  
@@ -85,11 +85,11 @@ Ist ganz einfach zum Debuggen des JavaScript in einer Entwicklungsumgebung (, in
 4. In der **Suche Skript** t-Eingabefeld, wählen Sie den Namen der Funktion, die Sie debuggen möchten. In der folgenden Abbildung **AddAltToImg** eingegeben wurde die **Suche Skript** t Eingabefeld.  
     ![](bundling-and-minification/_static/image6.png)
 
-Weitere Informationen zum Debuggen mit den F12 Entwicklertools finden Sie im MSDN-Artikel [mit den F12 Entwicklertools zum Debuggen von JavaScript-Fehler](https://msdn.microsoft.com/en-us/library/ie/gg699336(v=vs.85).aspx).
+Weitere Informationen zum Debuggen mit den F12 Entwicklertools finden Sie im MSDN-Artikel [mit den F12 Entwicklertools zum Debuggen von JavaScript-Fehler](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
 
 ## <a name="controlling-bundling-and-minification"></a>Steuern des Bündelung und Minimierung
 
-Bündelung und Minimierung aktiviert oder deaktiviert, indem Sie den Wert des Attributs "Debuggen" in der [Kompilierung Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) in der *"Web.config"* Datei. Im folgenden XML `debug` ist auf diesem "true" festgelegt ist Bündelung und Minimierung deaktiviert ist.
+Bündelung und Minimierung aktiviert oder deaktiviert, indem Sie den Wert des Attributs "Debuggen" in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei. Im folgenden XML `debug` ist auf diesem "true" festgelegt ist Bündelung und Minimierung deaktiviert ist.
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
@@ -98,7 +98,7 @@ Legen Sie zum Aktivieren von Bündelung und Minimierung der `debug` Wert auf "Fa
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> Es sei denn, `EnableOptimizations` ist `true` oder das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `false`, Dateien nicht gebündelt oder verkleinert werden. Darüber hinaus die .min Version der Dateien wird nicht verwendet werden, werden die vollständige Debugversionen ausgewählt werden. `EnableOptimizations`überschreibt das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) in der *"Web.config"* Datei
+> Es sei denn, `EnableOptimizations` ist `true` oder das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `false`, Dateien nicht gebündelt oder verkleinert werden. Darüber hinaus die .min Version der Dateien wird nicht verwendet werden, werden die vollständige Debugversionen ausgewählt werden. `EnableOptimizations`überschreibt das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Mithilfe von Bündelung und Minimierung mit ASP.NET Web Forms und Web Pages
@@ -137,11 +137,11 @@ Im obigen Code wird vom CDN jQuery angefordert werden, während in Version Modus
 
 ## <a name="creating-a-bundle"></a>Erstellen ein Paket
 
-Die [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `Include` Methode nimmt ein Array von Zeichenfolgen, wobei jede Zeichenfolge einen virtuellen Pfad zu der Ressource ist. Der folgende Code aus der RegisterBundles-Methode in der *App\_Start\BundleConfig.cs* Datei zeigt, wie mehrere Dateien auf ein Paket hinzugefügt werden:
+Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `Include` Methode nimmt ein Array von Zeichenfolgen, wobei jede Zeichenfolge einen virtuellen Pfad zu der Ressource ist. Der folgende Code aus der RegisterBundles-Methode in der *App\_Start\BundleConfig.cs* Datei zeigt, wie mehrere Dateien auf ein Paket hinzugefügt werden:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-Die [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `IncludeDirectory` Methode wird bereitgestellt, um alle Dateien in ein Verzeichnis (und optional alle Unterverzeichnisse) hinzufügen, die einem Suchmuster entsprechen. Die [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `IncludeDirectory` API wird unten gezeigt:
+Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `IncludeDirectory` Methode wird bereitgestellt, um alle Dateien in ein Verzeichnis (und optional alle Unterverzeichnisse) hinzufügen, die einem Suchmuster entsprechen. Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `IncludeDirectory` API wird unten gezeigt:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
@@ -170,17 +170,17 @@ Die folgende Tabelle zeigt die Dateien auf ein Paket mithilfe des Platzhalterzei
 
 | **Call** | **Dateien, die hinzugefügt oder eine Ausnahme ausgelöst** |
 | --- | --- |
-| Einschließen ("~/Scripts/Common/\*js") | *AddAltToImg.js ToggleDiv.js, ToggleImg.js* |
-| Einschließen ("~/Scripts/Common/T\*js") | Ausnahme für ungültiges Muster. Das Platzhalterzeichen ist nur für das Präfix oder Suffix zulässig. |
-| Einschließen ("~/Scripts/Common/\*Og.\*") | Ausnahme für ungültiges Muster. Nur ein Platzhalterzeichen ist zulässig. |
-| "Enthalten (" ~/Scripts/Common/T\*") | *ToggleDiv.js ToggleImg.js* |
-| "Enthalten (" ~/Scripts/Common/\*") | Ausnahme für ungültiges Muster. Ein reines Platzhaltersegment ist ungültig. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", "true") | *ToggleDiv.js ToggleImg.js, ToggleLinks.js* |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | Ausnahme für ungültiges Muster. Das Platzhalterzeichen ist nur für das Präfix oder Suffix zulässig. |
+| Include("~/Scripts/Common/\*og.\*") | Ausnahme für ungültiges Muster. Nur ein Platzhalterzeichen ist zulässig. |
+| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
+| "Include("~/Scripts/Common/\*") | Ausnahme für ungültiges Muster. Ein reines Platzhaltersegment ist ungültig. |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
+| IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Jede Datei explizit auf ein Paket hinzugefügt wird im Allgemeinen die bevorzugte über Platzhalter-Laden von Dateien aus den folgenden Gründen:
 
-- Skripts hinzugefügt standardmäßig Platzhalter in alphabetischer Reihenfolge wird in der Regel nicht laden. CSS und JavaScript-Dateien müssen häufig in einer bestimmten Reihenfolge (nicht-alphabetische) hinzugefügt werden. Sie können dieses Risiko verringern, indem das Hinzufügen einer benutzerdefinierten [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) Implementierung, aber das explizite hinzufügen jeder Datei ist weniger fehleranfällig. Beispielsweise möglichweise neue Ressourcen in einen Ordner in der Zukunft die Sie ändern, erfordern möglicherweise Ihre [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) Implementierung.
+- Skripts hinzugefügt standardmäßig Platzhalter in alphabetischer Reihenfolge wird in der Regel nicht laden. CSS und JavaScript-Dateien müssen häufig in einer bestimmten Reihenfolge (nicht-alphabetische) hinzugefügt werden. Sie können dieses Risiko verringern, indem das Hinzufügen einer benutzerdefinierten [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) Implementierung, aber das explizite hinzufügen jeder Datei ist weniger fehleranfällig. Beispielsweise möglichweise neue Ressourcen in einen Ordner in der Zukunft die Sie ändern, erfordern möglicherweise Ihre [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) Implementierung.
 - Ansicht bestimmte Dateien in ein Verzeichnis mit Platzhalter laden hinzugefügt werden, können in allen Ansichten, verweisen auf dieses Paket aufgenommen werden. Wenn die Ansichtsskript auf ein Paket hinzugefügt wird, erhalten Sie möglicherweise einen JavaScript-Fehler auf andere Sichten, die das Paket zu verweisen.
 - CSS-Dateien, die anderen Dateien zu importieren, führen in den importierten Dateien zweimal geladen. Der folgende Code erstellt z. B. ein Paket mit einem Großteil der jQuery UI Design CSS-Dateien, zwei Mal geladen. 
 
@@ -209,10 +209,10 @@ Die Bündelung und Minimierung-Framework bietet einen Mechanismus zum Verarbeite
 1. Erstellen Sie einen Ordner für Ihre weniger Inhalte. Im folgenden Beispiel wird die *Content\MyLess* Ordner.
 2. Hinzufügen der [. less](http://www.dotlesscss.org/) NuGet-Paket **ohne Punkte** zu Ihrem Projekt.  
     ![NuGet-ohne Punkte installieren](bundling-and-minification/_static/image9.png)
-3. Fügen Sie eine Klasse, die implementiert die [IBundleTransform](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundletransform(VS.110).aspx) Schnittstelle. Fügen Sie für die Transformation. less dem Projekt den folgenden Code hinzu.
+3. Fügen Sie eine Klasse, die implementiert die [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) Schnittstelle. Fügen Sie für die Transformation. less dem Projekt den folgenden Code hinzu.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Erstellen Sie eine Zusammenstellung von LESS-Dateien mit der `LessTransform` und [CssMinify](https://msdn.microsoft.com/en-us/library/system.web.optimization.cssminify(VS.110).aspx) transformieren. Fügen Sie folgenden Code, der `RegisterBundles` Methode in der *App\_Start\BundleConfig.cs* Datei.
+4. Erstellen Sie eine Zusammenstellung von LESS-Dateien mit der `LessTransform` und [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformieren. Fügen Sie folgenden Code, der `RegisterBundles` Methode in der *App\_Start\BundleConfig.cs* Datei.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Fügen Sie den folgenden Code an Sichten, die weniger Paket verweist.
@@ -244,7 +244,7 @@ Die `System.Web.Optimization` Namespace in System.Web.Optimization.DLL implement
 - [Verwenden des CDNs und zur Verbesserung der Leistung der Website läuft](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) von Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Minimieren Sie RTT (Roundtripzeit)](https://developers.google.com/speed/docs/best-practices/rtt)
 
-## <a name="contributors"></a>Mitwirkende
+## <a name="contributors"></a>Contributors
 
 - Hao Kung
 - [Howard Dierking](https://twitter.com/#!/howard_dierking)

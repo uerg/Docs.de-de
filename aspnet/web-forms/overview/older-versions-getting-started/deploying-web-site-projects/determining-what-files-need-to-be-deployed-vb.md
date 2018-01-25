@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 44349b09fdc0de8ad6bd241a4c158d6a198e5d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Bestimmen, welche Dateien werden müssen (VB) bereitgestellt
 ====================
@@ -43,7 +43,7 @@ Betrachten Sie eine ASP.NET-Seite mit dem Namen `Clock.aspx` , die ein Label-Ste
 
 In der Reihenfolge für das Datenbankmodul ASP.NET eine Anforderung für diese Seite, die Seite Codeteil (die  *`WebPage`*  `.aspx.vb` Datei) muss zuerst kompiliert werden. Dieser Kompilierung kann explizit oder automatisch durchgeführt werden soll.
 
-Wenn die Kompilierung explizit erfolgt, und klicken Sie dann die gesamte Anwendung Quellcode wird in eine oder mehrere Assemblys kompiliert (`.dll` Dateien) befindet sich in der Anwendungsverzeichnis `Bin` Verzeichnis. In angeordnet, wenn es sich bei die Kompilierung automatisch ablaufenden Schlüsselaustausches eingerichtet und dann das resultierende automatisch generierte Assembly ist, wird standardmäßig die `Temporary ASP.NET Files` Ordner, das auf `%WINDOWS%\Microsoft.NET\Framework\<version>`, obwohl dieser Speicherort unterscheidet sich konfigurierbar über die [ &lt; Kompilierung&gt; Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) in `Web.config`. Mit der expliziten Kompilierung müssen Sie eine bestimmte Aktion, die ASP.NET-Anwendung Code in eine Assembly zu kompilieren, und dieser Schritt wird vor der Bereitstellung. Mit der automatische Kompilierung tritt auf, im Verlauf des Vorgangs auf dem Webserver Wenn zuerst die Ressource zugegriffen wird.
+Wenn die Kompilierung explizit erfolgt, und klicken Sie dann die gesamte Anwendung Quellcode wird in eine oder mehrere Assemblys kompiliert (`.dll` Dateien) befindet sich in der Anwendungsverzeichnis `Bin` Verzeichnis. In angeordnet, wenn es sich bei die Kompilierung automatisch ablaufenden Schlüsselaustausches eingerichtet und dann das resultierende automatisch generierte Assembly ist, wird standardmäßig die `Temporary ASP.NET Files` Ordner, das auf `%WINDOWS%\Microsoft.NET\Framework\<version>`, obwohl dieser Speicherort unterscheidet sich konfigurierbar über die [ &lt; Kompilierung&gt; Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in `Web.config`. Mit der expliziten Kompilierung müssen Sie eine bestimmte Aktion, die ASP.NET-Anwendung Code in eine Assembly zu kompilieren, und dieser Schritt wird vor der Bereitstellung. Mit der automatische Kompilierung tritt auf, im Verlauf des Vorgangs auf dem Webserver Wenn zuerst die Ressource zugegriffen wird.
 
 Unabhängig davon, welche Kompilierungsmodell verwenden, der Teil von Markup für alle ASP.NET-Seiten (die `WebPage.aspx` Dateien) in der produktionsumgebung kopiert werden müssen. Mit der expliziten Kompilierung müssen Sie kopieren Sie die Assemblys in der `Bin` Ordner, aber Sie müssen nicht den ASP.NET-Seiten Codeteile kopieren (die `WebPage.aspx.vb` Dateien). Automatische Kompilierung müssen Sie die Codedateien für den Bereich kopieren, damit der Code vorhanden ist und kann automatisch kompiliert werden, wenn die Seite besucht wird. Der Teil von Markup für jede ASP.NET-Webseite enthält eine `@Page` -Direktive mit Attributen, die angeben, ob die zugeordneten Seitencode bereits explizit kompiliert wurde, oder gibt an, ob es automatisch kompiliert werden muss. Daher die produktionsumgebung funktioniert nahtlos mit entweder Kompilierungsmodell und Sie müssen nicht gelten spezielle Konfiguration-Einstellungen, um anzugeben, dass explizite oder automatische Kompilierung verwendet wird.
 
@@ -69,7 +69,7 @@ Wenn Microsoft Visual Studio 2005 freigegeben, die sie Unterstützung für das M
 - Erstellen eines Projekts in Visual Studio erstellt sich nicht auf eine Assembly in die `Bin` Verzeichnis. Stattdessen meldet die Erstellen eines Projekts für die Website Kompilierungsfehler.
 - Unterstützung für die automatische Kompilierung. Websiteprojekte werden in der Regel durch Kopieren von Markup und Source-Code in der produktionsumgebung bereitgestellt, obwohl der Code vorkompilierte (explizite-Kompilierung) sein kann.
 
-Microsoft fortgesetzt das Webanwendungsprojekt Modell, wenn sie Visual Studio 2005 Service Pack 1 veröffentlicht. Visual Web Developer wurde jedoch nur Unterstützung für das Websiteprojekt-Modell. Die gute Nachricht ist, dass diese Einschränkung mit Visual Web Developer 2008 Service Pack 1 gelöscht wurde. Heute können Sie ASP.NET-Anwendungen in Visual Studio und Visual Web Developer per das Webanwendungsprojekt-Modell oder das Websiteprojekt-Modell erstellen. Beide Modelle verfügen über ihre vor- und Nachteile. Verweisen auf [Einführung in Webanwendungsprojekte: Vergleichen von Websiteprojekte und Webanwendungsprojekte](https://msdn.microsoft.com/en-us/library/aa730880.aspx#wapp_topic5) für einen Vergleich der beiden Modelle, und um zu entscheiden, welche Projektmodell am besten für Ihre Situation geeignet.
+Microsoft fortgesetzt das Webanwendungsprojekt Modell, wenn sie Visual Studio 2005 Service Pack 1 veröffentlicht. Visual Web Developer wurde jedoch nur Unterstützung für das Websiteprojekt-Modell. Die gute Nachricht ist, dass diese Einschränkung mit Visual Web Developer 2008 Service Pack 1 gelöscht wurde. Heute können Sie ASP.NET-Anwendungen in Visual Studio und Visual Web Developer per das Webanwendungsprojekt-Modell oder das Websiteprojekt-Modell erstellen. Beide Modelle verfügen über ihre vor- und Nachteile. Verweisen auf [Einführung in Webanwendungsprojekte: Vergleichen von Websiteprojekte und Webanwendungsprojekte](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) für einen Vergleich der beiden Modelle, und um zu entscheiden, welche Projektmodell am besten für Ihre Situation geeignet.
 
 ## <a name="exploring-the-sample-web-application"></a>Untersuchen die Beispielwebanwendung
 
@@ -179,15 +179,15 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Übersicht über die ASP.NET-Kompilierung](https://msdn.microsoft.com/en-us/library/ms178466.aspx)
-- [ASP.NET-Benutzersteuerelemente](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [Übersicht über die ASP.NET-Kompilierung](https://msdn.microsoft.com/library/ms178466.aspx)
+- [ASP.NET-Benutzersteuerelemente](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 - [ASP wird untersucht. NET Website-Navigation](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Einführung in Webanwendungsprojekte](https://msdn.microsoft.com/en-us/library/aa730880.aspx)
+- [Einführung in Webanwendungsprojekte](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Master-Seite-Lernprogramme](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Freigeben von Code einfach seitenübergreifend](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
 - [Verwendung einer benutzerdefinierten Basisklasse für die ASP.NET-Seiten Code-Behind-Klassen](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [Visual Studio 2005-Website-Projektsystem: Worum handelt es sich, und warum wir Sie tun?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [Exemplarische Vorgehensweise: Konvertieren eines Website-Projekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/en-us/library/aa983476.aspx)
+- [Exemplarische Vorgehensweise: Konvertieren eines Website-Projekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](asp-net-hosting-options-vb.md)

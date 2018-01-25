@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Erstellen einer Builddefinition, unterstützt die Bereitstellung
 ====================
@@ -42,7 +42,7 @@ Eine Builddefinition ist ein Mechanismus, der steuert, wie und wann Builds Teamp
 - Verschiedene andere Parameter des Buildprozesses.
 
 > [!NOTE]
-> Weitere Informationen für alle Builddefinitionen finden Sie unter [Buildprozess definieren](https://msdn.microsoft.com/en-us/library/ms181715.aspx).
+> Weitere Informationen für alle Builddefinitionen finden Sie unter [Buildprozess definieren](https://msdn.microsoft.com/library/ms181715.aspx).
 
 
 In diesem Thema wird gezeigt, wie zum Erstellen einer Builddefinition, die Konfigurationselemente, verwendet, damit ein Build ausgelöst wird, wenn ein Entwickler in neue Inhalte überprüft. Wenn der Buildvorgang erfolgreich war, führt der Builddienst eine benutzerdefinierte Projektdatei, um die Lösung in einer testumgebung bereitzustellen.
@@ -149,9 +149,9 @@ Diese Informationen können Sie die Problembehandlung bei fehlerhaften Builds un
 
 ## <a name="monitor-the-build-process"></a>Überwachen des Buildprozesses
 
-TFS bietet eine Breite Palette von Funktionen, um während des Erstellungsprozesses überwachen. TFS können z. B. per e-Mail oder Warnungen in Ihrer Infobereich der Taskleiste angezeigt wird, wenn ein Build abgeschlossen wurde. Weitere Informationen finden Sie unter [ausführen und Überwachen von Builds](https://msdn.microsoft.com/en-us/library/ms181721.aspx).
+TFS bietet eine Breite Palette von Funktionen, um während des Erstellungsprozesses überwachen. TFS können z. B. per e-Mail oder Warnungen in Ihrer Infobereich der Taskleiste angezeigt wird, wenn ein Build abgeschlossen wurde. Weitere Informationen finden Sie unter [ausführen und Überwachen von Builds](https://msdn.microsoft.com/library/ms181721.aspx).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschriebene Vorgehensweise: erstellen eine Builddefinition in TFS. Die Builddefinition wurde für CI, konfiguriert, damit während des Erstellungsprozesses ausgeführt werden kann, wenn ein Entwickler Inhalt mit dem Teamprojekt eincheckt. Die Builddefinition führt eine benutzerdefinierte MSBuild-Projektdatei, um Web Deploy Packages and Datenbankskripts in einer zielumgebung für den Server bereitstellen.
 
@@ -159,7 +159,7 @@ In der Reihenfolge für eine automatische Bereitstellung im Rahmen des Buildproz
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/en-us/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](configuring-a-tfs-build-server-for-web-deployment.md)

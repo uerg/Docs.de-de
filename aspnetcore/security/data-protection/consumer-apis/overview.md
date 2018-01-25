@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 5ec11dce3ba485a84b6ce5f7ddaf16430162659c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2545226314ebf57d7a0d644d8edfb5354dcc6e5e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="consumer-apis-overview"></a>Übersicht über die Consumer-APIs
 
-Die `IDataProtectionProvider` und `IDataProtector` sind die grundlegenden Schnittstellen, die über die Consumer die Datenschutzsystem verwenden. Befinden sie sich die [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) Paket.
+Die `IDataProtectionProvider` und `IDataProtector` sind die grundlegenden Schnittstellen, die über die Consumer die Datenschutzsystem verwenden. Sie sind im Verzeichnis der [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) Paket.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
@@ -25,13 +25,13 @@ Die Provider-Schnittstelle stellt den Stamm der Datenschutzsystem dar. Er kann n
 
 ## <a name="idataprotector"></a>IDataProtector
 
-Die Schutzvorrichtung-Schnittstelle wird zurückgegeben, durch den Aufruf von `CreateProtector`, und diese Schnittstelle, über die Consumer ausführen können schützen und Aufheben des Schutzes von Vorgängen.
+Die Schutzvorrichtung-Schnittstelle wird zurückgegeben, durch den Aufruf von `CreateProtector`, und den zugehörigen diese Schnittstelle, über die Consumer ausführen können schützen und Aufheben des Schutzes Vorgänge.
 
-Um Daten zu schützen, übergeben Sie die Daten in die `Protect` Methode. Die grundlegende Schnittstelle definiert eine Methode an, welche konvertiert Byte [] -> Byte [], aber es gibt auch eine Überladung (angegeben als Erweiterungsmethode einer) der Zeichenfolge konvertiert -> Zeichenfolge. Die Sicherheit durch die beiden Methoden ist identisch. Entwickler sollten auswählen, unabhängig davon, welche Überladung am einfachsten für ihre Verwendungsfall ist. Unabhängig von der Überladung gewählt, den Rückgabewert von schützen Methode jetzt geschützt ist (enciphered und manipulationssichere geprüft) und die Anwendung auf einem nicht vertrauenswürdigen Client senden.
+Um Daten zu schützen, übergeben Sie die Daten in die `Protect` Methode. Die grundlegende Schnittstelle definiert eine Methode an, welche konvertiert Byte [] -> Byte [], aber es ist auch eine Überladung (angegeben als Erweiterungsmethode einer) der Zeichenfolge konvertiert-Zeichenfolge >. Die Sicherheit durch die beiden Methoden ist identisch. Entwickler sollten auswählen, unabhängig davon, welche Überladung am einfachsten für ihre Verwendungsfall ist. Unabhängig von der Überladung gewählt, den Rückgabewert von schützen Methode jetzt geschützt ist (enciphered und manipulationssichere geprüft) und die Anwendung auf einem nicht vertrauenswürdigen Client senden.
 
 Übergeben Sie zum Aufheben des Schutzes von einer zuvor geschützten Datenmenge, die geschützten Daten auf die `Unprotect` Methode. (Es gibt Byte []-basiert und zeichenfolgenbasierte Überladungen der Einfachheit halber Developer.) Wenn die geschützte Nutzlast durch einen früheren Aufruf generiert wurde `Protect` auf diesem gleichen `IDataProtector`, die `Unprotect` Methode wird die ursprüngliche ungeschützte Nutzlast zurück. Wenn die geschützte Nutzlast manipuliert wurde, oder wurde von einem anderen erzeugt `IDataProtector`die `Unprotect` Methode löst CryptographicException.
 
-Das Konzept der gleiche im Vergleich zu anderen `IDataProtector` Verknüpfungen in Bezug auf das Konzept der Zweck zu sichern. Wenn zwei `IDataProtector` Instanzen aus demselben Stamm generiert wurden `IDataProtectionProvider` jedoch über die unterschiedlichen Zweck Zeichenfolgen im Aufruf von `IDataProtectionProvider.CreateProtector`, dann sie ausmachen [unterschiedliche Schutzvorrichtungen](purpose-strings.md), und eine ist nicht in der Lage, den Schutz aufheben Nutzlasten, die von der anderen generiert werden.
+Das Konzept der gleiche im Vergleich zu anderen `IDataProtector` Verknüpfungen in Bezug auf das Konzept der Zweck zu sichern. Wenn zwei `IDataProtector` Instanzen aus demselben Stamm generiert wurden `IDataProtectionProvider` jedoch über die unterschiedlichen Zweck Zeichenfolgen im Aufruf `IDataProtectionProvider.CreateProtector`, wird sie als betrachtet werden [unterschiedliche Schutzvorrichtungen](purpose-strings.md), einer Lage beim Aufheben des Schutzes Nutzlasten, die von der anderen generiert werden.
 
 ## <a name="consuming-these-interfaces"></a>Nutzen diese Schnittstellen
 

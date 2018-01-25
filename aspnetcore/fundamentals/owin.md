@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Einführung in die Weboberfläche für .NET (OWIN) zu öffnen.
 
@@ -28,7 +28,7 @@ OWIN stellt eine entkoppeln, die zwei Frameworks mit unterschiedlichen Objektmod
 
 Dadurch können ASP.NET Core gehostet werden, zusätzlich zu einem OWIN kompatiblen Server /-Host oder für andere OWIN kompatiblen Komponenten zusätzlich zu ASP.NET Core ausgeführt werden.
 
-Hinweis: Mit diesen Adaptern mit Leistungseinbußen kommt. Anwendungen mit nur ASP.NET Core-Komponenten sollten nicht die Owin-Paket oder ein Adapter verwenden.
+Hinweis: Mit diesen Adaptern mit Leistungseinbußen kommt. Anwendungen, die nur ASP.NET Core-Komponenten verwenden darf nicht das Owin-Paket oder ein Adapter verwenden.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 

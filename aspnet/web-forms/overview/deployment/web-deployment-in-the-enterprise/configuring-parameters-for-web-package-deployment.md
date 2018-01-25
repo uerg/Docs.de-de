@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Konfigurieren von Parametern für die Bereitstellung von Paketen
 ====================
@@ -88,7 +88,7 @@ Zusätzlich zu parametrisieren die Endpunkt-URL in das Bereitstellungspaket, fü
 
 Wenn Sie das Bereitstellungspaket manuell installieren, fordert IIS-Manager Sie zur Adresse Dienstendpunkts zusammen mit den Eigenschaften, die automatisch parametrisiert wurden. Bei der Installation des Bereitstellungspakets durch Ausführen der *. deploy.cmd* -Datei, die Sie bearbeiten die *SetParameters.xml* Datei, geben Sie einen Wert für die Dienst-Endpunktadresse sowie Werte für die Eigenschaften, die automatisch parametrisiert wurden.
 
-Umfassende Informationen zum Erstellen einer *parameters.xml* finden Sie unter [wie: Verwenden von Parametern zum Konfigurieren von Einstellungen beim ein Bereitstellungspaket installiert ist](https://msdn.microsoft.com/en-us/library/ff398068.aspx). Die Prozedur mit dem Namen **Bereitstellungsparameter für Einstellungen in der Datei "Web.config" verwendet** enthält schrittweise Anleitungen.
+Umfassende Informationen zum Erstellen einer *parameters.xml* finden Sie unter [wie: Verwenden von Parametern zum Konfigurieren von Einstellungen beim ein Bereitstellungspaket installiert ist](https://msdn.microsoft.com/library/ff398068.aspx). Die Prozedur mit dem Namen **Bereitstellungsparameter für Einstellungen in der Datei "Web.config" verwendet** enthält schrittweise Anleitungen.
 
 ## <a name="modifying-the-setparametersxml-file"></a>Ändern die Datei SetParameters.Xml
 
@@ -136,7 +136,7 @@ Sie werden bemerken, dass jedes **XmlPoke** Aufgabe werden die vier Werte des At
 - Die **Wert** Attribut ist der neue Wert in der ausgewählten XML-Knoten eingefügt werden soll.
 - Die **Bedingung** Attribut gibt die Kriterien, die auf dem der Task ausgeführt werden sollen oder nicht ausgeführt. In diesen Fällen die Bedingung wird sichergestellt, dass Sie nicht zum Einfügen eines Werts null oder leer sein, in versuchen der *SetParameters.xml* Datei.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben die Rolle der *SetParameters.xml* Datei, und erläutert, wie er generiert wird, wenn Sie ein Webanwendungsprojekt erstellen. Diese erläutert, wie Sie zusätzliche Einstellungen durch Hinzufügen von parametrisieren können eine *parameters.xml* Datei zum Projekt. Es auch beschrieben, wie Sie ändern können die *SetParameters.xml* Datei als Teil einer größeren, automatisierte Buildprozesses mithilfe der **XmlPoke** Aufgabe in den Projektdateien.
 
@@ -144,7 +144,7 @@ Im nächsten Thema [Bereitstellen von Webpaketen](deploying-web-packages.md), be
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Informationen zum Erstellen von Webpaketen finden Sie unter [erstellen und Packen Webanwendungsprojekte](building-and-packaging-web-application-projects.md). Hinweise zum tatsächlich ein Webpaket bereitgestellt werden, finden Sie unter [Bereitstellen von Webpaketen](deploying-web-packages.md). Eine schrittweise Anleitung zum Erstellen einer *parameters.xml* finden Sie unter [wie: Verwenden von Parametern zum Konfigurieren von Einstellungen beim ein Bereitstellungspaket installiert ist](https://msdn.microsoft.com/en-us/library/ff398068.aspx).
+Informationen zum Erstellen von Webpaketen finden Sie unter [erstellen und Packen Webanwendungsprojekte](building-and-packaging-web-application-projects.md). Hinweise zum tatsächlich ein Webpaket bereitgestellt werden, finden Sie unter [Bereitstellen von Webpaketen](deploying-web-packages.md). Eine schrittweise Anleitung zum Erstellen einer *parameters.xml* finden Sie unter [wie: Verwenden von Parametern zum Konfigurieren von Einstellungen beim ein Bereitstellungspaket installiert ist](https://msdn.microsoft.com/library/ff398068.aspx).
 
 Weitere allgemeine Informationen zur Parametrisierung im Web Deploy, finden Sie unter [Web bereitstellen Parametrisierung in Aktion](https://go.microsoft.com/?linkid=9805119) (Blogbeitrag).
 

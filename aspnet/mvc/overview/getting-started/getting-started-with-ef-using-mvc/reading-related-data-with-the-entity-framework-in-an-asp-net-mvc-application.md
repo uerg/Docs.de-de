@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 title: "Lesen von verknüpften Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung | Microsoft Docs"
 author: tdykstra
-description: /AJAX/Tutorials/Using-AJAX-Control-Toolkit-Controls-and-Control-Extenders-VB
+description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lesen-bezogene Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
@@ -45,7 +45,7 @@ Es gibt mehrere Möglichkeiten, das Entity Framework in die Navigationseigenscha
 - *Unverzüglichem Laden*. Wenn die Entität gelesen wird, werden darin verknüpfte Daten abgerufen. Dies führt normalerweise zu einer einzelnen Join-Abfrage, die alle Daten abruft, die erforderlich ist. Geben Sie unverzüglichem Laden mithilfe der `Include` Methode.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Explizites Laden*. Dies gleicht dem verzögerten Laden, mit dem Unterschied, dass Sie explizit die verknüpften Daten im Code abrufen; Es ist nicht automatisch ausgeführt, wenn Sie Zugriff auf eine Navigationseigenschaft. Sie laden verknüpfte Daten manuell, indem beim Abrufen der Objekt-Eintrag für die Status-Manager für eine Entität und der Aufruf der [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx) Methode für Sammlungen oder die [Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx) Methode für die Eigenschaften, enthalten ein einzelne Entität. (Im folgenden Beispiel, mussten Sie zum Laden der Navigationseigenschaft Administrator ersetzen `Collection(x => x.Courses)` mit `Reference(x => x.Administrator)`.) In der Regel verwenden Sie explizite Laden nur, wenn Sie lazy loading-aktiviert haben.
+- *Explizites Laden*. Dies gleicht dem verzögerten Laden, mit dem Unterschied, dass Sie explizit die verknüpften Daten im Code abrufen; Es ist nicht automatisch ausgeführt, wenn Sie Zugriff auf eine Navigationseigenschaft. Sie laden verknüpfte Daten manuell, indem beim Abrufen der Objekt-Eintrag für die Status-Manager für eine Entität und der Aufruf der [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) Methode für Sammlungen oder die [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) Methode für die Eigenschaften, enthalten ein einzelne Entität. (Im folgenden Beispiel, mussten Sie zum Laden der Navigationseigenschaft Administrator ersetzen `Collection(x => x.Courses)` mit `Reference(x => x.Administrator)`.) In der Regel verwenden Sie explizite Laden nur, wenn Sie lazy loading-aktiviert haben.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ Wenn Sie, die Sie für jede Entität abgerufen verknüpfte Daten benötigen wiss
 
 In einigen Szenarien ist das verzögertes Laden andererseits, effizienter. Unverzüglichem Laden kann es sich um eine sehr komplexe Verknüpfung erzeugt werden kann, führen, der SQL Server effizient verarbeiten kann. Oder wenn Sie den Zugriff auf eine Entität Navigationseigenschaften nur für einen Teil einer Reihe von Entitäten müssen Sie verarbeiten möchten, verzögertes Laden möglicherweise eine bessere Leistung, da unverzüglichem Laden mehr Daten als benötigt abrufen würde. Wenn die Leistung kritisch ist, empfiehlt es sich zum Testen von Leistung beides Möglichkeiten, um die beste Wahl vornehmen zu können.
 
-Verzögertes Laden kann Code maskieren, die Leistungsprobleme verursacht. Beispielsweise ist die Code, der eager oder expliziten Laden nicht angeben, aber eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration (aufgrund von viele Roundtrips zur Datenbank) möglicherweise sehr ineffizient. Eine Anwendung, die auch in der Entwicklung mit einer lokalen SQL Servers führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und lazy Loading zu Azure SQL-Datenbank verschoben. Profilerstellung für die Datenbankabfragen mit einer realistischen testladevorgang hilft zu bestimmen, ob das verzögertes Laden geeignet ist. Weitere Informationen finden Sie unter [Demystifying Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) und [mit dem Entity Framework zum Verringern der Netzwerklatenz in SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Verzögertes Laden kann Code maskieren, die Leistungsprobleme verursacht. Beispielsweise ist die Code, der eager oder expliziten Laden nicht angeben, aber eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration (aufgrund von viele Roundtrips zur Datenbank) möglicherweise sehr ineffizient. Eine Anwendung, die auch in der Entwicklung mit einer lokalen SQL Servers führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und lazy Loading zu Azure SQL-Datenbank verschoben. Profilerstellung für die Datenbankabfragen mit einer realistischen testladevorgang hilft zu bestimmen, ob das verzögertes Laden geeignet ist. Weitere Informationen finden Sie unter [Demystifying Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/magazine/hh205756.aspx) und [mit dem Entity Framework zum Verringern der Netzwerklatenz in SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Das verzögertes Laden vor der Serialisierung deaktivieren
 
@@ -67,9 +67,9 @@ Serialisierung kann auch durch die Webdienstproxy-Klassen, die das Entity Framew
 
 Eine Möglichkeit zur Vermeidung von Problemen der Serialisierung wird zum Serialisieren von datenübertragungsobjekte (DTOs) anstelle von Entitätsobjekten, entsprechend der [mithilfe des Web-API mit Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) Lernprogramm.
 
-Wenn Sie DTOs nicht verwenden, können Sie diese deaktivieren verzögerten Laden und vermeiden Probleme mit Proxy von [deaktivieren Proxyerstellung](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
+Wenn Sie DTOs nicht verwenden, können Sie diese deaktivieren verzögerten Laden und vermeiden Probleme mit Proxy von [deaktivieren Proxyerstellung](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Hier sind einige andere [Möglichkeiten, deaktivieren Sie das verzögertes Laden](https://msdn.microsoft.com/en-US/data/jj574232):
+Hier sind einige andere [Möglichkeiten, deaktivieren Sie das verzögertes Laden](https://msdn.microsoft.com/data/jj574232):
 
 - Lassen Sie für bestimmte Navigationseigenschaften, die `virtual` -Schlüsselwort, wenn Sie die Eigenschaft deklarieren.
 - Legen Sie für alle Navigationseigenschaften `LazyLoadingEnabled` zu `false`, platzieren Sie den folgenden Code im Konstruktor der Context-Klasse: 
@@ -164,7 +164,7 @@ Instructor-ID wurde ausgewählt, wird der ausgewählte Kursleiter aus der Liste 
 
 Die `Where` -Methode gibt eine Auflistung, aber in diesem Fall die Kriterien, die nur eine einzelne Methode zu übergeben `Instructor` Entität zurückgegeben wird. Die `Single` -Methode konvertiert die Auflistung in einem einzelnen `Instructor` Entität, die Sie Zugriff auf diese Entität gewährt `Courses` Eigenschaft.
 
-Verwenden Sie die [einzelne](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die `Single` Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), dem einen Standardwert zurückgegeben (`null` in diesem Fall), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einer `Courses` Eigenschaft auf einen `null` Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, können Sie auch übergeben der `Where` Bedingung statt der `Where` Methode getrennt:
+Verwenden Sie die [einzelne](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die `Single` Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), dem einen Standardwert zurückgegeben (`null` in diesem Fall), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einer `Courses` Eigenschaft auf einen `null` Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, können Sie auch übergeben der `Where` Bedingung statt der `Where` Methode getrennt:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 

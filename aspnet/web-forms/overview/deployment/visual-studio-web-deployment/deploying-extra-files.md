@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: a34607b25f6cf502f5fbf2fe51bf1937f470159e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellen von zusätzlichen Dateien
 ====================
@@ -83,13 +83,13 @@ Dies schließt diese Reihe von Lernprogrammen zum Bereitstellen einer ASP.NET-WE
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Wenn Sie zum Arbeiten mit Dateien von MSBuild kennen, können Sie viele andere Bereitstellungsaufgaben durch Schreiben von Code in automatisieren *pubxml* -Dateien (für spezifische Aufgaben) oder das Projekt *. wpp.targets* Datei (für tasks, gelten Sie für alle Profile). Weitere Informationen zu *.pubxml* und *. wpp.targets* finden Sie unter [wie: Bearbeiten von Bereitstellungseinstellungen im Veröffentlichungsprofil (.pubxml)-Dateien und die. wpp.targets Datei in Visual Studio Web Projekte](https://msdn.microsoft.com/en-us/library/ff398069). Eine grundlegende Einführung in MSBuild-Code finden Sie unter **der Aufbau einer Projektdatei** in [Reihe für Enterprise-Bereitstellung: Grundlegendes zur Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Arbeiten mit Dateien von MSBuild zum Ausführen von Aufgaben für Ihre eigenen Szenarien finden Sie unter diesem Buch: [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi und William Bartholomew.
+Wenn Sie zum Arbeiten mit Dateien von MSBuild kennen, können Sie viele andere Bereitstellungsaufgaben durch Schreiben von Code in automatisieren *pubxml* -Dateien (für spezifische Aufgaben) oder das Projekt *. wpp.targets* Datei (für tasks, gelten Sie für alle Profile). Weitere Informationen zu *.pubxml* und *. wpp.targets* finden Sie unter [wie: Bearbeiten von Bereitstellungseinstellungen im Veröffentlichungsprofil (.pubxml)-Dateien und die. wpp.targets Datei in Visual Studio Web Projekte](https://msdn.microsoft.com/library/ff398069). Eine grundlegende Einführung in MSBuild-Code finden Sie unter **der Aufbau einer Projektdatei** in [Reihe für Enterprise-Bereitstellung: Grundlegendes zur Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Arbeiten mit Dateien von MSBuild zum Ausführen von Aufgaben für Ihre eigenen Szenarien finden Sie unter diesem Buch: [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi und William Bartholomew.
 
 ## <a name="acknowledgements"></a>Bestätigungen
 
 Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträge auf den Inhalt dieser Reihe von Lernprogrammen vorgenommen:
 
-- [Alberto Poblacion, MVP &amp; MCT, Spanien](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, Spanien](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - Jarod Ferguson, Plattform die Entwicklung von Data-MVP, USA
 - Harsh Mittal, Microsoft
 - [Jon Galloway](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
@@ -101,7 +101,7 @@ Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträ
 - [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
 - [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
-- [Srđan Božović, Serbien](http://msforge.net/blogs/zmajcek/)
+- [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
 >[!div class="step-by-step"]

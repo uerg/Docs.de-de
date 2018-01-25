@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 98c96749781f577d9544c80f58404353d40848b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="ui-and-navigation"></a>Benutzeroberfläche und Navigation
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -288,8 +288,8 @@ In diesem Lernprogramm der Reihe haben Sie einige einfache Benutzeroberfläche, 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[Einführung in ASP.NET Web Pages-Programmierung](https://msdn.microsoft.com/en-us/library/ms178125.aspx)   
-[ASP.NET Web-Server steuert (Übersicht)](https://msdn.microsoft.com/en-us/library/zsyt68f1.aspx)   
+[Einführung in ASP.NET Web Pages-Programmierung](https://msdn.microsoft.com/library/ms178125.aspx)   
+[ASP.NET Web-Server steuert (Übersicht)](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [CSS-Lernprogramm](http://www.w3schools.com/css/default.asp)
 
 >[!div class="step-by-step"]

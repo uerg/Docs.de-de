@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 57a729501d15ebf9a533716b2a1767766954bb4c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Mithilfe von ASP.NET MVC mit verschiedenen Versionen von IIS (VB)
 ====================
@@ -33,7 +33,7 @@ Hier wird ein Überblick über die verschiedenen Versionen von IIS:
 - IIS 7.0 (klassischen Modus) – müssen Sie besondere Konfiguration Verwendung ASP.NET-Routing ausführen.
 - IIS 6.0 oder niedriger - müssen Sie besondere Konfiguration Verwendung ASP.NET-Routing ausführen.
 
-Die neueste Version von IIS ist Version 7.5 (Win7). IIS 7 von IIS ist in mit Windows Server 2008 und VISTA/SP1 und höher. Sie können auch auf eine beliebige Version des Betriebssystems Vista mit Ausnahme von Home Basic installieren IIS 7.0 (finden Sie unter [https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx)).
+Die neueste Version von IIS ist Version 7.5 (Win7). IIS 7 von IIS ist in mit Windows Server 2008 und VISTA/SP1 und höher. Sie können auch auf eine beliebige Version des Betriebssystems Vista mit Ausnahme von Home Basic installieren IIS 7.0 (finden Sie unter [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 unterstützt zwei Modi für die Verarbeitung von Anforderungen. Sie können die integrierten Modus oder im klassischen Modus verwenden. Sie müssen keine speziellen Konfigurationsschritte ausführen, wenn es sich bei IIS 7.0 im integrierten Modus zu verwenden. Allerdings müssen Sie zusätzliche Konfigurationsschritte vornehmen, wenn IIS 7.0 im klassischen Modus verwendet.
 
@@ -91,9 +91,9 @@ Die einfachste Möglichkeit zum Abrufen von ASP.NET-Routing zum Arbeiten mit äl
 
 Die Standardroute im Codebeispiel 1 konfigurierten ermöglicht Route-URLs, die wie folgt aussehen:
 
-/ Home/Index
+/Home/Index
 
-/ Produkt/Informationen/3
+/Product/Details/3
 
 / Produkt
 
@@ -129,11 +129,11 @@ Es gibt zwei wichtige Änderungen an der Datei "Global.asax" 2 aufgelistet. Es s
 
 Das Hinzufügen der MVC-Erweiterung ändert den Typ der Dateien, die das Modul ASP.NET-Routing abfängt. Durch diese Änderung leitet die ASP.NET MVC-Anwendung jetzt Anforderungen wie folgt:
 
-/Home.Mvc/Index/
+/Home.mvc/Index/
 
-/Product.Mvc/Details/3
+/Product.mvc/Details/3
 
-/Product.Mvc/
+/Product.mvc/
 
 Die zweite Route, die Route Stamm ist neu. Diese URL-Muster für die Route Stamm ist eine leere Zeichenfolge. Diese Route ist notwendig, damit das Stammverzeichnis der Anwendung gerichtete Anforderungen entsprechen. Beispielsweise entspricht die Stamm-Route eine Anforderung, die wie folgt aussieht:
 
@@ -145,7 +145,7 @@ Nachdem Sie diese Änderungen an der Routingtabelle haben, müssen Sie sicherste
 Anstatt das Skript registermvc.wcf zu verwenden, können Sie eine neue Erweiterung zu IIS hinzufügen, die von hand auf dem ASP.NET-Framework zugeordnet ist. Wenn Sie eine neue Erweiterung selbst hinzufügen, stellen Sie sicher, dass das Kontrollkästchen mit der Bezeichnung **Vergewissern Sie sich diese Datei vorhanden ist** nicht aktiviert ist.
 
 
-## <a name="hosted-server"></a>Gehosteten Server
+## <a name="hosted-server"></a>Hosted Server
 
 Sie haben immer keinen Zugriff auf Ihren Webserver. Z. B. Wenn Sie Ihre ASP.NET MVC-Anwendung mit einem Internet-Hostinganbieter hosten, wird nicht dann Sie unbedingt IIS zugreifen können.
 
@@ -214,9 +214,9 @@ Nachdem Sie eine Zuordnung mit Platzhalterzeichen Skript für IIS 7.0 oder IIS 6
 
 /
 
-/ Home/Index
+/Home/Index
 
-/ Produkt/Informationen/3
+/Product/Details/3
 
 / Produkt
 
@@ -229,4 +229,4 @@ Die erste Option erfordert, dass Sie so ändern Sie die URLs in ASP.NET MVC-Anwe
 Die zweite Option besteht darin eine Zuordnung mit Platzhalterzeichen Skript zu erstellen. Der Vorteil, dass diese zweite Möglichkeit ist, dass Sie nicht benötigen, um die URLs zu ändern. Der Nachteil, dass diese zweite Möglichkeit ist, dass es die Leistung Ihrer ASP.NET MVC-Anwendung auswirken kann.
 
 >[!div class="step-by-step"]
-[Zurück](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+[Vorherige](using-asp-net-mvc-with-different-versions-of-iis-cs.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 5054f932d05fb612a6e18a81274719d7e249b77b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Real-World Cloud Apps with Azure erstellen
 ====================
@@ -103,7 +103,7 @@ Diese e-Book erläutert 13 Muster für die Cloudentwicklung empfohlen. "Pattern"
     - Aktivieren Sie hohen Verfügbarkeit und verbessern Sie Skalierbarkeit zu, indem Sie Web- und Workerrollen Ebenen lose Kopplung.
     - Demo: Azure-Speicher-Warteschlangen in der app zu beheben.
 - [Mehrere cloud-app-Muster und Anleitungen](more-patterns-and-guidance.md).
-- [Anhang: Korrigieren sie Beispielanwendung](the-fix-it-sample-application.md)
+- [Anhang: Fix It-Beispielanwendung](the-fix-it-sample-application.md)
 
     - Bekannte Probleme
     - Bewährte Methoden
@@ -155,7 +155,7 @@ Wenn ein Computer ausfällt, Azure automatisch zieht es aus der Rotation genomme
 
 All dies erfolgt automatisch. Alles, was Sie tun müssen ist eine Website erstellen und Bereitstellen Ihrer Anwendung, die mit Windows PowerShell, Visual Studio oder das Azure-Verwaltungsportal.
 
-Eine schnelle und einfache schrittweises Lernprogramm, das zeigt, wie eine Webanwendung in Visual Studio erstellen und es auf einer Azure-Website bereitstellen, finden Sie unter [erste Schritte mit Azure und ASP.NET](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Eine schnelle und einfache schrittweises Lernprogramm, das zeigt, wie eine Webanwendung in Visual Studio erstellen und es auf einer Azure-Website bereitstellen, finden Sie unter [erste Schritte mit Azure und ASP.NET](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Zusammenfassung
@@ -168,13 +168,13 @@ Weitere Informationen zu den Themen in diesem Kapitel behandelt finden Sie unter
 
 Dokumentation:
 
-- [Web-Apps in Azure App Service](https://azure.microsoft.com/en-us/services/app-service/web/). Portalseite zum Azure-Dokumentation zur Web-Apps.
-- [Web-Apps, Cloud-Dienste und virtuelle Computer: wann welche verwenden?](https://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, wie in diesem Kapitel dargestellt ist nur eine von drei Methoden, die Web-apps in Azure ausgeführt werden können. Dieser Artikel erläutert die Unterschiede zwischen den drei Arten und enthält Hilfestellung zum auswählen, welche für Ihr Szenario geeignet ist. Wie andere Websites ist Cloud-Dienste eine PaaS-Funktion von Azure. Virtuelle Computer sind ein IaaS-Funktion. Eine Erläuterung der PaaS und IaaS, finden Sie unter der [Datenoptionen](data-storage-options.md#paasiaas) Kapitel.
+- [Web-Apps in Azure App Service](https://azure.microsoft.com/services/app-service/web/). Portalseite zum Azure-Dokumentation zur Web-Apps.
+- [Web-Apps, Cloud-Dienste und virtuelle Computer: wann welche verwenden?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, wie in diesem Kapitel dargestellt ist nur eine von drei Methoden, die Web-apps in Azure ausgeführt werden können. Dieser Artikel erläutert die Unterschiede zwischen den drei Arten und enthält Hilfestellung zum auswählen, welche für Ihr Szenario geeignet ist. Wie andere Websites ist Cloud-Dienste eine PaaS-Funktion von Azure. Virtuelle Computer sind ein IaaS-Funktion. Eine Erläuterung der PaaS und IaaS, finden Sie unter der [Datenoptionen](data-storage-options.md#paasiaas) Kapitel.
 
 Videos:
 
-- [Scott Guthrie beginnt bei Schritt 0 – was die Azure-Cloud-Betriebssystem ist?](https://azure.microsoft.com/en-us/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Websites-Architektur - mit Stefan Schackow](https://azure.microsoft.com/en-us/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Scott Guthrie beginnt bei Schritt 0 – was die Azure-Cloud-Betriebssystem ist?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Websites-Architektur - mit Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Merkmale der Azure-Websites mit Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 >[!div class="step-by-step"]

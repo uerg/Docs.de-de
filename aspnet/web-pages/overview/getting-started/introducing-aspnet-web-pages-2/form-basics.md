@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 97e4a2a1794dbdccf80f0b44c1246c743fa23019
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen
 ====================
@@ -72,8 +72,8 @@ Die `<form>` Element umschließt HTML-Elementen zur übermittelt werden. (Eine e
 > 
 > HTTP, das Protokoll, Browsern und Servern verwenden, für den Austausch von Informationen, ist erstaunlich einfach in seiner grundlegenden Vorgänge. Browsern werden nur einige Verben verwenden, damit Anforderungen an den Server senden. Beim Schreiben von Code für das Web ist es hilfreich zu verstehen, diese Verben und dem Browser und dem Server wie verwenden. Bei weitem sich dabei um die am häufigsten verwendeten Verben:
 > 
-> - `GET`. Der Browser verwendet das Verb etwas vom Server abgerufen. Z. B. Wenn Sie eine URL in Ihren Browser eingeben, die der Browser führt eine `GET` Vorgang die Seite angefordert werden sollen. Wenn die Seite Grafiken enthält, führt der Browser zusätzliche `GET` Operations um die Images abzurufen. Wenn die `GET` -Vorgang bleibt, Informationen an den Server zu übergeben, die Informationen als Teil der URL in der Abfragezeichenfolge übergeben wird.
-> - `POST`. Der Browser sendet eine `POST` Anforderung an, um das Senden von Daten, die hinzugefügt oder auf dem Server geändert werden. Z. B. die `POST` Verb wird verwendet, um Datensätze in einer Datenbank erstellen oder vorhandene ändern. In den meisten Fällen, wenn Sie ein Formular auszufüllen, und klicken Sie auf die Schaltfläche "Absenden", um der Browser führt eine `POST` Vorgang. In einem `POST` -Operation, die Daten an den Server weitergegeben werden im Text der Seite ist.
+> - `GET` Der Browser verwendet das Verb etwas vom Server abgerufen. Z. B. Wenn Sie eine URL in Ihren Browser eingeben, die der Browser führt eine `GET` Vorgang die Seite angefordert werden sollen. Wenn die Seite Grafiken enthält, führt der Browser zusätzliche `GET` Operations um die Images abzurufen. Wenn die `GET` -Vorgang bleibt, Informationen an den Server zu übergeben, die Informationen als Teil der URL in der Abfragezeichenfolge übergeben wird.
+> - `POST` Der Browser sendet eine `POST` Anforderung an, um das Senden von Daten, die hinzugefügt oder auf dem Server geändert werden. Z. B. die `POST` Verb wird verwendet, um Datensätze in einer Datenbank erstellen oder vorhandene ändern. In den meisten Fällen, wenn Sie ein Formular auszufüllen, und klicken Sie auf die Schaltfläche "Absenden", um der Browser führt eine `POST` Vorgang. In einem `POST` -Operation, die Daten an den Server weitergegeben werden im Text der Seite ist.
 > 
 > Ein wichtiger Unterschied zwischen diesen Verben ist, die eine `GET` Vorgang sollte nicht ändert nichts auf dem Server – oder auf eine etwas geringere abstrakte Weise ausgedrückt ein `GET` Vorgang führt nicht zu einer Änderung auf dem Server. Können Sie Ausführen einer `GET` Vorgang auf die gleichen Ressourcen wie oft und solange Ihnen gefällt, und diese Ressourcen nicht ändern. (Ein `GET` Operation wird häufig als "sicheren" sein, oder um einen technischen Begriff zu verwenden ist *Idempotent*.) Im Gegensatz dazu sind natürlich eine `POST` Anforderung ändert sich etwas auf dem Server jedes Mal, führen Sie den Vorgang.
 > 
@@ -220,7 +220,7 @@ Wenn Sie alle diese Elemente zusammengestellt, erhalten Sie den folgenden Code:
 > 
 > **Wichtig!** Mithilfe von Platzhaltern (z. B. `@0`) werden zum Übergeben von Werten an einen SQL-Befehl *äußerst wichtig* für die Sicherheit. Die hier mit Platzhaltern für Variablendaten, sehen besteht die einzige Möglichkeit, die SQL-Befehlen erstellt werden soll.
 > 
-> Erstellen Sie nie eine SQL-Anweisung, indem zusammenstellen (verketten) Literaltext und Werte, die Sie vom Benutzer erhalten. Verketten von Benutzereingaben in einer SQL-Anweisung Öffnet Ihre Website in einem *SQL-Injection-Angriff* ein böswilliger Benutzer übermittelt, in denen Werte auf die Seite, die Ihre Datenbank hack. (Erfahren Sie mehr im Artikel [SQL Injection](https://msdn.microsoft.com/en-us/library/ms161953.aspx) der MSDN-Website.)
+> Erstellen Sie nie eine SQL-Anweisung, indem zusammenstellen (verketten) Literaltext und Werte, die Sie vom Benutzer erhalten. Verketten von Benutzereingaben in einer SQL-Anweisung Öffnet Ihre Website in einem *SQL-Injection-Angriff* ein böswilliger Benutzer übermittelt, in denen Werte auf die Seite, die Ihre Datenbank hack. (Erfahren Sie mehr im Artikel [SQL Injection](https://msdn.microsoft.com/library/ms161953.aspx) der MSDN-Website.)
 
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Aktualisieren die Seite "Filme" mit Code suchen

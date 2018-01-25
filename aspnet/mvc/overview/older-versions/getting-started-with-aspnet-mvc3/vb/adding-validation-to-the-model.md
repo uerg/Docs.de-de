@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: d36ce4e2735bdc73e8731eae27346edec47998cf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a58b4a4893fca66800c012bebae4a8bbfedf7a6a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>Hinzufügen einer Validierung für das Modell (VB)
 ====================
@@ -47,13 +47,13 @@ Sehen wir uns, wie Sie diese Überprüfung-Unterstützung in der Film-Anwendung 
 
 Sie beginnen, indem Sie die Überprüfung Programmlogik zum Hinzufügen der `Movie` Klasse.
 
-Öffnen der *Movie.vb* Datei. Hinzufügen einer `Imports` -Anweisung am Anfang der Datei, die verweist auf die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) Namespace:
+Öffnen der *Movie.vb* Datei. Hinzufügen einer `Imports` -Anweisung am Anfang der Datei, die verweist auf die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Namespace:
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample1.vb)]
 
 Der Namespace ist Teil von .NET Framework. Er bietet einen integrierten Satz von Validierungsattributen, die deklarativ auf eine beliebige Klasse oder eine Eigenschaft angewendet werden können.
 
-Jetzt aktualisieren der `Movie` Klasse, um die integrierte nutzen [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), und [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) Validierungsattribute . Verwendung des folgenden Codes als Beispiel dafür, wo Sie die Attribute gelten.
+Jetzt aktualisieren der `Movie` Klasse, um die integrierte nutzen [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), und [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Validierungsattribute . Verwendung des folgenden Codes als Beispiel dafür, wo Sie die Attribute gelten.
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample2.vb)]
 
@@ -101,11 +101,11 @@ Wenn Sie die Validierungslogik später ändern möchten, können genau zentral m
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Hinzufügen von Formatierung zur Film-Modell
 
-Öffnen der *Movie.vb* Datei. Die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) -Namespace stellt zusätzlich zu den integrierten Satz von Validierungsattributen Formatierungsattribute bereit. Wenden Sie die [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut und einem [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) Enumerationswert der freigabetermin und den Preis Feldern. Der folgende code zeigt die `ReleaseDate` und `Price` Eigenschaften mit dem entsprechenden [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut.
+Öffnen der *Movie.vb* Datei. Die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) -Namespace stellt zusätzlich zu den integrierten Satz von Validierungsattributen Formatierungsattribute bereit. Wenden Sie die [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut und einem [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Enumerationswert der freigabetermin und den Preis Feldern. Der folgende code zeigt die `ReleaseDate` und `Price` Eigenschaften mit dem entsprechenden [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut.
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample7.vb)]
 
-Alternativ können Sie explizit festlegen einer [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) Wert. Der folgende Code zeigt die Version Date-Eigenschaft mit einer Formatzeichenfolge für Datum (d. h., "d"). Sie würden diese verwenden, um anzugeben, dass Sie auf die Zeit als Teil des Datums für die Veröffentlichung nicht möchten.
+Alternativ können Sie explizit festlegen einer [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) Wert. Der folgende Code zeigt die Version Date-Eigenschaft mit einer Formatzeichenfolge für Datum (d. h., "d"). Sie würden diese verwenden, um anzugeben, dass Sie auf die Zeit als Teil des Datums für die Veröffentlichung nicht möchten.
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample8.vb)]
 

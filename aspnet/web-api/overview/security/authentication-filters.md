@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: eee4e7accd338262698d127ed08d4182608839ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c704cc351876b49ec143a49b25cc0ca83876e06
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Authentifizierungsfilter in der ASP.NET Web API 2
 ====================
@@ -47,7 +47,7 @@ Um den Filter auf alle Web-API-Controller anzuwenden, fügen sie **GlobalConfigu
 
 ## <a name="implementing-a-web-api-authentication-filter"></a>Implementieren eine Web-API-Authentifizierungsfilter
 
-In der Web-API, Authentifizierungsfilter implementieren die [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/en-us/library/system.web.http.filters.iauthenticationfilter.aspx) Schnittstelle. Sie sollten auch erben von **System.Attribute**, um als Attribute angewendet werden.
+In der Web-API, Authentifizierungsfilter implementieren die [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) Schnittstelle. Sie sollten auch erben von **System.Attribute**, um als Attribute angewendet werden.
 
 Die **IAuthenticationFilter** Schnittstelle verfügt über zwei Methoden:
 
@@ -168,4 +168,4 @@ Rufen Sie zum Deaktivieren der Hostebene Authentifizierung innerhalb der Web-API
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[ASP.NET Web API-Sicherheitsfilter](https://msdn.microsoft.com/en-us/magazine/dn781361.aspx) (MSDN Magazine)
+[ASP.NET Web API-Sicherheitsfilter](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN Magazine)

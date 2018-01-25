@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatisieren Sie alles (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -45,7 +45,7 @@ Die Zeitspanne zwischen, wenn Sie eine Idee für eine Funktion haben, und wenn d
 
 In der [Einführung in diese e-Book](introduction.md), haben Sie gesehen der webbasierten Konsole, die Azure-Verwaltungsportal. Das Verwaltungsportal können Sie zum Überwachen und Verwalten aller Ressourcen, die Sie in Azure bereitgestellt haben. Es ist eine einfache Möglichkeit zum Erstellen und Löschen von Diensten, z. B. webapps und virtuellen Computern, konfigurieren Sie diese Dienste, Dienstvorgang überwachen und usw. Es ist ein großartiges Tool verwenden, ist ein manueller Prozess. Wenn Sie nun eine produktionsanwendung beliebiger Größe zu entwickeln, und insbesondere in einer teamumgebung sollten Sie über die Benutzeroberfläche, um zu erfahren und Untersuchen von Azure-Portal wechseln und dann automatisieren die Prozesse, die Sie wiederholt auf diese Weise werden müssen.
 
-Nahezu alles, die Sie manuell im Verwaltungsportal oder in Visual Studio tun kann auch durch Aufrufen der REST-API erfolgen. Sie können mit Skripts schreiben [Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx), oder Sie können z. B. eine open Source-Framework verwenden [Chef](http://www.opscode.com/chef/) oder [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Sie können auch das Befehlszeilentool "Bash" in einer Umgebung Mac- oder Linux. In Azure sind Skripting APIs für diese verschiedenen Umgebungen und auf ihm ein [.NET Verwaltungs-API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) für den Fall, dass Sie Code anstelle von Skript schreiben möchten.
+Nahezu alles, die Sie manuell im Verwaltungsportal oder in Visual Studio tun kann auch durch Aufrufen der REST-API erfolgen. Sie können mit Skripts schreiben [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), oder Sie können z. B. eine open Source-Framework verwenden [Chef](http://www.opscode.com/chef/) oder [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Sie können auch das Befehlszeilentool "Bash" in einer Umgebung Mac- oder Linux. In Azure sind Skripting APIs für diese verschiedenen Umgebungen und auf ihm ein [.NET Verwaltungs-API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) für den Fall, dass Sie Code anstelle von Skript schreiben möchten.
 
 Für die app zu beheben, die wir einige Windows PowerShell-Skripts, die die Prozesse zum Erstellen einer testumgebung und Bereitstellung des Projekts zu dieser Umgebung automatisieren erstellt haben, und wir ein Teil des konfigurationselementinhalts diese Skripts werden.
 
@@ -76,7 +76,7 @@ Die `Name` Parameter gibt den Namen verwendet werden, wenn die Datenbank und Spe
 
 Nach Abschluss des Skripts können Sie im Verwaltungsportal sehen, was erstellt wurde. Finden Sie zwei Datenbanken:
 
-![Datenbanken](automate-everything/_static/image3.png)
+![Databases](automate-everything/_static/image3.png)
 
 Ein Speicherkonto:
 

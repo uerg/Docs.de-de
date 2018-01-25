@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: eee84fe0fbec6ed772342d09931986994903906a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Parallelitätskonflikte - EF-Core mit ASP.NET Core MVC-Lernprogramm (8 10)
 
@@ -59,7 +59,7 @@ Einige der Optionen umfassen Folgendes:
 
 * Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren.
 
-     In diesem Beispielszenario würde keine Daten verloren, weil Sie unterschiedliche Eigenschaften von zwei Benutzer aktualisiert wurden. Das nächste Mal, das eine Person die englische Abteilung durchsucht, werden Janes und Peters Änderungen--von 9/1/2013 ein Startdatum und ein Budget Null Dollar angezeigt. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können, aber es kann nicht Datenverluste vermeiden, wenn die gleiche Eigenschaft einer Entität konkurrierende geändert werden. Ob das Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Update Code implementieren. Es ist häufig nicht praktikabel ist, in einer Web-Anwendung, da erforderlich, große Mengen des Zustands zu verwalten, um nachzuverfolgen, um alle ursprünglichen Eigenschaftswerte für eine Entität sowie die neuen Werte. Verwalten von großen Datenmengen Zustand kann Leistung der Anwendung beeinträchtigen, da es Serverressourcen erfordert oder auf der Webseite selbst (z. B. in ausgeblendeten Feldern) enthalten sein muss oder in einem Cookie.
+     In diesem Beispielszenario würde keine Daten verloren, weil Sie unterschiedliche Eigenschaften von zwei Benutzer aktualisiert wurden. Sie können das nächste Mal, das eine Person die englische Abteilung durchsucht, Janes und Peters Änderungen--von 9/1/2013 ein Startdatum und ein Budget Null Dollar sehen. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können, aber es kann nicht Datenverluste vermeiden, wenn die gleiche Eigenschaft einer Entität konkurrierende geändert werden. Ob das Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Update Code implementieren. Es ist häufig nicht praktikabel ist, in einer Web-Anwendung, da erforderlich, große Mengen des Zustands zu verwalten, um nachzuverfolgen, um alle ursprünglichen Eigenschaftswerte für eine Entität sowie die neuen Werte. Verwalten von großen Datenmengen Zustand kann Leistung der Anwendung beeinträchtigen, da es Serverressourcen erfordert oder auf der Webseite selbst (z. B. in ausgeblendeten Feldern) enthalten sein muss oder in einem Cookie.
 
 * Sie können Peters Änderung Janes Änderung überschreiben lassen.
 

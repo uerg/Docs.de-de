@@ -9,21 +9,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: e57ae429e9af54ade74485361ba591cb75c16752
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6ecf2440ac7073bdad098f6fe48f6c788ba7795a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Verhindern von Angriffen von Open Umleitung in einer ASP.NET Core-app
 
-Eine Web-app, die an eine URL, die über die Anforderung angegeben wird umleitet, wie z. B. die Abfragezeichenfolge oder Formular Daten möglicherweise manipuliert werden können Benutzer an eine externe, böswillige URL umleiten. Diese Manipulation wird einen öffnen-Redirect-Angriff bezeichnet.
+Eine Web-app, die an eine URL umleitet, die über die Anforderung, z. B. die Abfragezeichenfolge oder Formular Daten angegeben wird kann potenziell mit manipuliert werden, um Benutzer an eine externe, böswillige URL weiterzuleiten. Diese Manipulation wird einen öffnen-Redirect-Angriff bezeichnet.
 
 Wenn Sie die Anwendungslogik zu einer angegebenen URL umleitet, müssen Sie sicherstellen, dass die umleitungs-URL nicht manipuliert wurde. ASP.NET Core verfügt über integrierte Funktionalität zu apps öffnen Umleitung (auch bekannt als open-Umleitung) Angriffen zu schützen.
 
 ## <a name="what-is-an-open-redirect-attack"></a>Was ist ein Angriff öffnen Umleitung?
 
-Webanwendungen Umleiten von Benutzern häufig zu einer Anmeldeseite beim Zugriff auf Ressourcen, die eine Authentifizierung erfordern. Die Umleitung Typlically umfasst eine `returnUrl` Querystring-Parameter, damit der Benutzer an die ursprünglich angeforderte URL zurückgegeben werden kann, nachdem sie erfolgreich angemeldet haben. Nachdem der Benutzer authentifiziert hat, wird er an die URL umgeleitet, die sie ursprünglich angefordert hatten.
+Webanwendungen Umleiten von Benutzern häufig zu einer Anmeldeseite beim Zugriff auf Ressourcen, die eine Authentifizierung erfordern. Die Umleitung Typlically umfasst eine `returnUrl` Querystring-Parameter, damit der Benutzer an die ursprünglich angeforderte URL zurückgegeben werden kann, nachdem sie erfolgreich angemeldet haben. Nachdem der Benutzer authentifiziert hat, sind sie mit der URL umgeleitet, die sie ursprünglich angefordert hatten.
 
 Da der Ziel-URL in die Abfragezeichenfolge der Anforderung angegeben ist, kann ein böswilliger Benutzer Querystring manipulieren. Ein manipuliertes Querystring kann die Website zum Umleiten des Benutzers auf eine externe, schädlichen Website ermöglichen. Diese Technik ist einen open Umleitung (oder der Umleitung)-Angriff bezeichnet.
 
@@ -36,7 +36,7 @@ Ein böswilliger Benutzer könnte einen Angriff den böswilliger Benutzerzugriff
 3. Der Benutzer umgeleitet wird (durch den Standort) ``http://nerddiner.com/Account/LogOn`` (bösartige Website, die echte Website aussieht).
 4. Der Benutzer wieder anmeldet (Vergabe böswillige Standort ihrer Anmeldeinformationen) und wieder an die wirkliche Website umgeleitet werden.
 
-Der Benutzer wird wahrscheinlich glauben, dass ihre ersten Versuch, melden Sie sich Fehler, und die zweiten Ausdruck erfolgreich war. Wahrscheinlich müssen Sie unabhängig von deren bleiben ihre Anmeldeinformationen beschädigt wurden.
+Der Benutzer wird wahrscheinlich glauben, dass ihre ersten Versuch, melden Sie sich Fehler, und die zweiten Ausdruck erfolgreich war. Sehr wahrscheinlich werden Sie unabhängig von deren bleiben ihre Anmeldeinformationen beschädigt wurden.
 
 ![Open-Angriff-Weiterleitung](preventing-open-redirects/_static/open-redirection-attack-process.png)
 

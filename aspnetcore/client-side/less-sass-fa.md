@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Einführung in Styling Anwendungen mit einem niedrigeren Sass und Schriftart Awesome in ASP.NET Core
 
@@ -246,7 +246,7 @@ nav {
 }
 ```
 
-Beachten Sie, dass in diesem Fall werden alle untergeordneten Elemente des `nav` in ihrem Gültigkeitsbereich enthalten sind. Es ist nicht mehr jeder Wiederholung der übergeordneten Elemente (`nav`, `li`, `a`), und die Anzahl der Zeilen gesamt wurde (obwohl einige der, ist das Ergebnis verstanden, Werte in der gleichen Zeilen im zweiten Beispiel platzieren) ebenfalls gelöscht. Es kann sehr hilfreich, OUI, um alle Regeln für ein angegebenes Benutzeroberflächenautomatisierungs-Element in einem explizit begrenzten Bereich, in diesem Fall finden Sie unter vom Rest der Datei in geschweiften Klammern festgelegt werden deaktiviert.
+Beachten Sie, dass in diesem Fall werden alle untergeordneten Elemente des `nav` in ihrem Gültigkeitsbereich enthalten sind. Es ist nicht mehr jeder Wiederholung der übergeordneten Elemente (`nav`, `li`, `a`), und die Anzahl der insgesamt Zeilen wurde ebenfalls gelöscht (obwohl einige der der Parameter entspricht ein Ergebnis verstanden, Werte in der gleichen Zeilen im zweiten Beispiel platzieren). Es kann sehr hilfreich, OUI, um alle Regeln für ein angegebenes Benutzeroberflächenautomatisierungs-Element in einem explizit begrenzten Bereich, in diesem Fall finden Sie unter vom Rest der Datei in geschweiften Klammern festgelegt werden deaktiviert.
 
 Die `&` Syntax ist ein kleiner Auswahlzeiger-Feature, mit & des aktuellen Selektor übergeordneten Elements darstellt. Ja, in dem eine {...} Block `&` stellt eine `a` Tag, und somit `&:link` entspricht `a:link`.
 
@@ -321,7 +321,7 @@ Weniger bietet eine Reihe von zusätzlichen Funktionen, aber dies sollten Sie ei
 
 ## <a name="sass"></a>Sass
 
-Sass ähnelt, bietet Unterstützung für viele der gleichen Funktionen, jedoch mit etwas andere Syntax. Er basiert, Ruby, statt JavaScript und besitzt somit unterschiedliche einrichtungsanforderungen auszeichnen. Die Originalsprache Sass wurde nicht in geschweifte oder Semikolons verwendet jedoch stattdessen Bereichen mithilfe von Leerraum und Einzüge definiert. Eine neue Syntax in Version 3 des Sass wurde eingeführt, **SCSS** ("Sassy CSS"). SCSS ähnelt CSS Einzugsebenen und Leerzeichen werden ignoriert, und verwendet stattdessen Semikolons und geschweifte Klammern.
+Sass ähnelt, bietet Unterstützung für viele der gleichen Funktionen, jedoch mit etwas andere Syntax. Er basiert, Ruby, statt JavaScript und besitzt somit unterschiedliche einrichtungsanforderungen auszeichnen. Die Originalsprache Sass geschweiften Klammern oder Semikolons verwendet, aber Bereichen mithilfe von Leerraum und Einzüge und stattdessen definiert wurde. Eine neue Syntax in Version 3 des Sass wurde eingeführt, **SCSS** ("Sassy CSS"). SCSS ähnelt CSS Einzugsebenen und Leerzeichen werden ignoriert, und verwendet stattdessen Semikolons und geschweifte Klammern.
 
 Um Sass zu installieren, in der Regel Sie Erstinstallation Ruby (vorinstalliertem auf Mac), und führen Sie dann:
 

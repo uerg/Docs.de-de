@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Einseitigen-Anwendung: Die KnockoutJS Vorlage
 ====================
@@ -92,7 +92,7 @@ In Visual Studio-Projekt enthält der Ordner Models die Modelle, die auf dem Ser
 
 ![](knockoutjs-template/_static/image9.png)
 
-**TodoItem "Todolist"**
+**TodoItem, TodoList**
 
 Hierbei handelt es sich um die Datenbank formt für Entity Framework Code First. Beachten Sie, dass diese Modelle Eigenschaften aufweisen, die aufeinander zeigen. `ToDoList`enthält eine Auflistung von ToDoItems, und jedes `ToDoItem` verfügt über einen Verweis zurück zum übergeordneten "Todolist". Diese Eigenschaften sind Navigationseigenschaften aufgerufen, und sie eine to-Do-Liste mit den to-do-Elementen, der 1: n-Beziehung darstellen.
 
@@ -100,7 +100,7 @@ Die `ToDoItem` -Klasse auch verwendet die **[ForeignKey]** Attribut angeben, das
 
 [!code-csharp[Main](knockoutjs-template/samples/sample1.cs)]
 
-**TodoItemDto TodoListDto**
+**TodoItemDto, TodoListDto**
 
 Diese Klassen definieren die Daten, die an den Client gesendet werden sollen. "DTO" steht für "Datenübertragungsobjekt." Die DTO definiert, wie die Entitäten in JSON serialisiert werden. Im Allgemeinen stehen verschiedene Gründe für das DTOs verwenden:
 
@@ -117,7 +117,7 @@ Diese Datei enthält Modelle für die websitemitgliedschaft. Die `UserProfile` K
 
 ## <a name="entity-framework"></a>Entity Framework
 
-EF Code First, wird die SPA-Vorlage verwendet. In Code First-Entwicklung Sie definieren die Modelle zuerst im Code und EF verwendet dann das Modell zum Erstellen der Datenbank. Sie können auch EF mit einer vorhandenen Datenbank ([Database First](https://msdn.microsoft.com/en-us/data/jj206878.aspx)).
+EF Code First, wird die SPA-Vorlage verwendet. In Code First-Entwicklung Sie definieren die Modelle zuerst im Code und EF verwendet dann das Modell zum Erstellen der Datenbank. Sie können auch EF mit einer vorhandenen Datenbank ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
 
 Die `TodoItemContext` Klasse im Ordner "Modelle" leitet sich von **DbContext**. Diese Klasse stellt die "Verbindung" zwischen den Modellen und EF bereit. Die `TodoItemContext` enthält eine `ToDoItem` Auflistung und ein `TodoList` Auflistung. Zum Abfragen der Datenbank schreiben Sie einfach eine LINQ-Abfrage für diese Sammlungen. Beispielsweise sieht aus wie alle von der to-do-Listen für Benutzer "Alice" ausgewählt werden können:
 
@@ -145,10 +145,10 @@ Die `TodoItemContext` wird verwendet, um die Kommunikation mit EF, wie zuvor bes
 | HTTP-Anforderung | Controllermethode | Beschreibung |
 | --- | --- | --- |
 | GET /api/todo | `GetTodoLists` | Ruft eine Auflistung von Listen mit Aufgaben ab. |
-| GET/API/Todo/*Id* | `GetTodoList` | Ruft eine to-Do-Liste nach ID ab |
-| PUT/API/Todo/*Id* | `PutTodoList` | Aktualisiert eine to-Do-Liste. |
+| GET /api/todo/*id* | `GetTodoList` | Ruft eine to-Do-Liste nach ID ab |
+| PUT /api/todo/*id* | `PutTodoList` | Aktualisiert eine to-Do-Liste. |
 | POST /api/todo | `PostTodoList` | Erstellt eine neue to-Do-Liste. |
-| DELETE/API/Todo/*Id* | `DeleteTodoList` | Löscht eine TODO-Liste. |
+| DELETE /api/todo/*id* | `DeleteTodoList` | Löscht eine TODO-Liste. |
 
 Beachten Sie, dass die URIs für bestimmte Vorgänge Platzhalter für den ID-Wert enthalten. Um eine-Liste mit der ID 42 zu löschen, z. B. der URI ist `/api/todo/42`.
 
@@ -229,8 +229,8 @@ Cross-Site Request Fälschung Websiteübergreifender ist ein Angriff, in denen e
 
 Fälschungssicherheitstoken verwendet werden, da die böswillige Seite das Benutzertoken aufgrund von Richtlinien für denselben Ursprung nicht lesen kann. (Same-Origin-Richtlinien zu verhindern, dass Dokumente auf zwei verschiedenen Standorten aus den Zugriff auf den Ergebnissen anderer Inhalt hosted.)
 
-ASP.NET MVC bietet integrierte Unterstützung für fälschungssicherheitstoken, über die [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx) Klasse und die [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx) Attribut. Diese Funktion ist derzeit nicht in Web-API erstellt werden. Allerdings enthält die SPA-Vorlage eine benutzerdefinierte Implementierung für die Web-API. Dieser Code wird definiert, der `ValidateHttpAntiForgeryTokenAttribute` -Klasse, die sich im Ordner "Filter" der Projektmappe befindet. Weitere Informationen zu Anti-CSRF in Web-API finden Sie unter [verhindern Cross-Site (Angriffen Request FORGERY)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC bietet integrierte Unterstützung für fälschungssicherheitstoken, über die [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) Klasse und die [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) Attribut. Diese Funktion ist derzeit nicht in Web-API erstellt werden. Allerdings enthält die SPA-Vorlage eine benutzerdefinierte Implementierung für die Web-API. Dieser Code wird definiert, der `ValidateHttpAntiForgeryTokenAttribute` -Klasse, die sich im Ordner "Filter" der Projektmappe befindet. Weitere Informationen zu Anti-CSRF in Web-API finden Sie unter [verhindern Cross-Site (Angriffen Request FORGERY)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Die SPA-Vorlage ist für Ihre ersten Schritte schnell schreiben moderner, interaktive Webanwendungen konzipiert. Die Knockout.js-Bibliothek verwendet, um die Präsentationsinformationen (HTML-Markup) und die Daten und Anwendungslogik zu trennen. Knockout ist jedoch nicht die einzige JavaScript-Bibliothek, die Sie zum Erstellen einer SPA verwenden können. Wenn Sie einige andere Optionen durchsuchen möchten, sehen Sie sich die [SPA-Vorlagen von der Community erstellte](../templates/index.md).

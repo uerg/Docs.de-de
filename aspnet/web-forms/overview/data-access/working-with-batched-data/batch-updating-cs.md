@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 506ecc9fad47cc39a0323e9ed18814c26e28ee47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-c"></a>Batchaktualisierung (c#)
 ====================
@@ -47,7 +47,7 @@ Lassen Sie s beginnen!
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Untersuchen die Schritte für alle Zeilen der GridView bearbeitbar zu machen
 
-Entsprechend der Anleitung unter dem [eine Übersicht der einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) Lernprogramm GridView bietet integrierte Unterstützung für die zugrunde liegenden Daten regelmäßig pro Zeile zu bearbeiten. Intern die GridView fest, welche Zeile über bearbeitbar ist seine [ `EditIndex` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Wie die GridView zu seiner Datenquelle gebunden wird, überprüft er jede Zeile aus, um festzustellen, ob der Index der Zeile der Wert von entspricht `EditIndex`. Wenn dies der Fall ist, Schnittstellen für diese Zeile s werden Felder mit ihren Bearbeiten gerendert. Für BoundFields, bearbeitende diese Schnittstelle ist ein Textfeld, deren `Text` Eigenschaft der Wert des Datenfelds, angegeben durch die BoundField-s. zugewiesen `DataField` Eigenschaft. Für von TemplateFields die `EditItemTemplate` anstelle von dient der `ItemTemplate`.
+Entsprechend der Anleitung unter dem [eine Übersicht der einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) Lernprogramm GridView bietet integrierte Unterstützung für die zugrunde liegenden Daten regelmäßig pro Zeile zu bearbeiten. Intern die GridView fest, welche Zeile über bearbeitbar ist seine [ `EditIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Wie die GridView zu seiner Datenquelle gebunden wird, überprüft er jede Zeile aus, um festzustellen, ob der Index der Zeile der Wert von entspricht `EditIndex`. Wenn dies der Fall ist, Schnittstellen für diese Zeile s werden Felder mit ihren Bearbeiten gerendert. Für BoundFields, bearbeitende diese Schnittstelle ist ein Textfeld, deren `Text` Eigenschaft der Wert des Datenfelds, angegeben durch die BoundField-s. zugewiesen `DataField` Eigenschaft. Für von TemplateFields die `EditItemTemplate` anstelle von dient der `ItemTemplate`.
 
 Beachten Sie, dass die Bearbeitung Workflow startet, klickt ein Benutzer eine Zeile s-Schaltfläche "Bearbeiten". Dies bewirkt, dass einen Postback, setzt die GridView s `EditIndex` -Eigenschaft auf den geklickt wurde Zeilenindex s und bindet die Daten in den Entwurfsbereich. Wenn eine Zeile s-Schaltfläche "Abbrechen" geklickt wird, beim Postback der `EditIndex` festgelegt ist, auf einen Wert von `-1` vor dem erneuten Binden der Daten in den Entwurfsbereich. Seit start des GridView-s-Zeilen Indizierung auf 0 (null) festlegen `EditIndex` auf `-1` wirkt sich die zum Anzeigen von GridView im Nur-Lese-Modus.
 
@@ -240,7 +240,7 @@ Erstellen Sie eine Methode mit dem Namen `BatchUpdate` in `BatchUpdate.aspx.cs` 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Diese Methode startet durch Abrufen aller Produkte zurück in ein `ProductsDataTable` über einen Aufruf an die BLL s `GetProducts` Methode. Er dann listet der `ProductGrid` GridView s [ `Rows` Auflistung](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Die `Rows` Auflistung enthält ein [ `GridViewRow` Instanz](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx) für jede Zeile in der GridView angezeigt. Da wir maximal zehn Zeilen pro Seite die GridView s zeigen `Rows` Auflistung wird nicht mehr als zehn Elemente haben.
+Diese Methode startet durch Abrufen aller Produkte zurück in ein `ProductsDataTable` über einen Aufruf an die BLL s `GetProducts` Methode. Er dann listet der `ProductGrid` GridView s [ `Rows` Auflistung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Die `Rows` Auflistung enthält ein [ `GridViewRow` Instanz](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) für jede Zeile in der GridView angezeigt. Da wir maximal zehn Zeilen pro Seite die GridView s zeigen `Rows` Auflistung wird nicht mehr als zehn Elemente haben.
 
 Für jede Zeile der `ProductID` ist stammt aus der `DataKeys` Auflistung und die entsprechenden `ProductsRow` ausgewählt ist, aus der `ProductsDataTable`. Die vier TemplateField-Eingabesteuerelemente programmgesteuert verwiesen und ihre Werte zugewiesen werden, um die `ProductsRow` s Instanzeigenschaften. Nach jeder GridView Zeilenwerte s verwendet werden, um Aktualisieren der `ProductsDataTable`, es s übergeben, mit dem BLL s `UpdateWithTransaction` Methode, wie wir gesehen, in dem vorherigen Lernprogramm haben einfach in die DAL s unten `UpdateWithTransaction` Methode.
 
@@ -270,7 +270,7 @@ Für derartige Situationen sollten Sie die folgenden `BatchUpdateAlternate` Meth
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`Zunächst erstellen ein neues leeres `ProductsDataTable` mit dem Namen `products`. Es wird dann die GridView s werden die Schritte `Rows` Auflistung und für jede Zeile, die bestimmten Produktinformationen, die mit der BLL s ruft `GetProductByProductID(productID)` Methode. Der abgerufene `ProductsRow` Instanz verfügt über Eigenschaften, die in der gleichen Weise wie aktualisiert `BatchUpdate`, jedoch erst nach dem Aktualisieren der Zeile, die sie in importieren die `products``ProductsDataTable` über die DataTable s [ `ImportRow(DataRow)` Methode](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate`Zunächst erstellen ein neues leeres `ProductsDataTable` mit dem Namen `products`. Es wird dann die GridView s werden die Schritte `Rows` Auflistung und für jede Zeile, die bestimmten Produktinformationen, die mit der BLL s ruft `GetProductByProductID(productID)` Methode. Der abgerufene `ProductsRow` Instanz verfügt über Eigenschaften, die in der gleichen Weise wie aktualisiert `BatchUpdate`, jedoch erst nach dem Aktualisieren der Zeile, die sie in importieren die `products``ProductsDataTable` über die DataTable s [ `ImportRow(DataRow)` Methode](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Nach der `foreach` Schleife abgeschlossen wird, `products` enthält mindestens ein `ProductsRow` Instanz für jede Zeile in der GridView. Da jedes von der `ProductsRow` Instanzen hinzugefügt wurden der `products` (anstelle von aktualisiert), wenn wir es Blind übergeben der `UpdateWithTransaction` Methode der `ProductsTableAdatper` wird versucht, jede der Datensätze in die Datenbank eingefügt. Stattdessen müssen wir angeben, dass jede dieser Zeilen (nicht hinzugefügt) geändert wurde.
 

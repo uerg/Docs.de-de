@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e74d368b1f9eec2177a528a6b09c599d6a307b74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>Debuggen gespeicherter Prozeduren (VB)
 ====================
@@ -39,7 +39,7 @@ In diesem Lernprogramm betrachten wir schrittweise Ausführung von gespeicherten
 
 ## <a name="sql-server-debugging-concepts"></a>Konzepte von SQL Server-Debuggen
 
-Microsoft SQL Server 2005 wurde entworfen, um die Integration mit Bereitstellen der [Common Language Runtime (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), also die Laufzeit verwendet, die von allen .NET Assemblys. Daher unterstützt SQL Server 2005 verwalteten Datenbankobjekte. Sie können also Datenbankobjekte wie gespeicherte Prozeduren und benutzerdefinierte Funktionen (UDFs) als Methoden in einer Visual Basic-Klasse erstellen. Dadurch werden diese gespeicherten Prozeduren und benutzerdefinierten Funktionen aus, die die Funktionalität in .NET Framework und eigene benutzerdefinierte Klassen. Natürlich müssen bietet SQL Server 2005 auch Unterstützung für T-SQL-Datenbankobjekte.
+Microsoft SQL Server 2005 wurde entworfen, um die Integration mit Bereitstellen der [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), also die Laufzeit verwendet, die von allen .NET Assemblys. Daher unterstützt SQL Server 2005 verwalteten Datenbankobjekte. Sie können also Datenbankobjekte wie gespeicherte Prozeduren und benutzerdefinierte Funktionen (UDFs) als Methoden in einer Visual Basic-Klasse erstellen. Dadurch werden diese gespeicherten Prozeduren und benutzerdefinierten Funktionen aus, die die Funktionalität in .NET Framework und eigene benutzerdefinierte Klassen. Natürlich müssen bietet SQL Server 2005 auch Unterstützung für T-SQL-Datenbankobjekte.
 
 SQL Server 2005 bietet Unterstützung für T-SQL und verwalteter Datenbankobjekte debugging. Diese Objekte können jedoch nur über Visual Studio 2005 Professional und Systeme Team Edition gedebuggt werden. In diesem Lernprogramm werden Debuggen T-SQL-Datenbankobjekte untersucht. Prüft, dass das nachfolgende Lernprogramm Debuggen verwalteter Datenbankobjekte.
 
@@ -53,7 +53,7 @@ Visual Studio debuggen kann gespeicherte Prozeduren auf lokalen und remote-SQL S
 
 Wenn Sie eine lokale SQL Server-Instanz verwenden, können Sie mit Schritt 1 beginnen und Durcharbeiten dieses Lernprogramms bis zum Ende. Bei Verwendung eine Remoteinstanz von SQL Server werden jedoch, Sie müssen zunächst, um sicherzustellen, dass während des Debuggens werden protokolliert, auf dem Entwicklungscomputer mit einem Windows-Benutzerkonto, das SQL Server-Anmeldung auf der Remoteinstanz verfügt. Moveover, diese datenbankanmeldung und die Datenbank-Anmeldenamen, die von der ausgeführten ASP.NET-Anwendung eine Verbindung mit der Datenbank verwendet, muss Mitglied der `sysadmin` Rolle. Finden Sie das Debuggen von T-SQL-Datenbankobjekte auf Remoteinstanzen im Abschnitt am Ende dieses Lernprogramms für Weitere Informationen zum Konfigurieren von Visual Studio und SQL Server, um eine Remoteinstanz zu debuggen.
 
-Schließlich verstehen Sie, dass die debugging-Unterstützung für T-SQL-Datenbankobjekte nicht als Funktion als debugging-Unterstützung für .NET-Anwendungen umfangreiche ist. Beispielsweise breakpointbedingungen und Filter werden nicht unterstützt, nur ein Teil der Debugfenster verfügbar sind, können keine bearbeiten und fortfahren, das "Direktfenster" nutzlos usw. gerendert wird. Finden Sie unter [Einschränkungen Debuggerbefehle und den Funktionen](https://msdn.microsoft.com/en-us/library/ms165035(VS.80).aspx) für Weitere Informationen.
+Schließlich verstehen Sie, dass die debugging-Unterstützung für T-SQL-Datenbankobjekte nicht als Funktion als debugging-Unterstützung für .NET-Anwendungen umfangreiche ist. Beispielsweise breakpointbedingungen und Filter werden nicht unterstützt, nur ein Teil der Debugfenster verfügbar sind, können keine bearbeiten und fortfahren, das "Direktfenster" nutzlos usw. gerendert wird. Finden Sie unter [Einschränkungen Debuggerbefehle und den Funktionen](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) für Weitere Informationen.
 
 ## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Schritt 1: Direkt einem Einzelschritt, in einer gespeicherten Prozedur
 
@@ -172,10 +172,10 @@ Ein Beispiel sollte Dinge verdeutlichen. Angenommen, es ein Windows-Konto mit de
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
 
-Eine ausführlichere Erklärung zu diesem Vorgang finden Sie unter [William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Leitfaden zu Visual Studio und SQL Server, siebten Edition* sowie [Vorgehensweise: Festlegen von SQL Server-Berechtigungen für das Debuggen](https://msdn.microsoft.com/en-us/library/w1bhybwz(VS.80).aspx).
+Eine ausführlichere Erklärung zu diesem Vorgang finden Sie unter [William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Leitfaden zu Visual Studio und SQL Server, siebten Edition* sowie [Vorgehensweise: Festlegen von SQL Server-Berechtigungen für das Debuggen](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Wenn der Entwicklungscomputer mit Windows XP Service Pack 2 ausgeführt wird, müssen Sie konfigurieren Sie die Windows-Firewall, um Remotedebugging zu ermöglichen. [Die Art und Weise an: SQL Server 2005-Debuggen aktivieren](https://msdn.microsoft.com/en-us/library/s0fk6z6e(VS.80).aspx) Artikel Hinweise, dass diese beiden Schritte umfasst: (a) auf dem Visual Studio-Hostcomputer müssen hinzufügen `Devenv.exe` zur Liste der Ausnahmen und öffnen Sie die TCP-Anschluss 135; und (b) auf dem Remotecomputer (SQL), müssen Sie öffnen die 135 TCP-port und fügen `sqlservr.exe` der Ausnahmenliste. Wenn die Domänenrichtlinie eine Netzwerkkommunikation über IPSec erfordert, müssen Sie die Ports UDP 4500 und UDP 500 öffnen.
+> Wenn der Entwicklungscomputer mit Windows XP Service Pack 2 ausgeführt wird, müssen Sie konfigurieren Sie die Windows-Firewall, um Remotedebugging zu ermöglichen. [Die Art und Weise an: SQL Server 2005-Debuggen aktivieren](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) Artikel Hinweise, dass diese beiden Schritte umfasst: (a) auf dem Visual Studio-Hostcomputer müssen hinzufügen `Devenv.exe` zur Liste der Ausnahmen und öffnen Sie die TCP-Anschluss 135; und (b) auf dem Remotecomputer (SQL), müssen Sie öffnen die 135 TCP-port und fügen `sqlservr.exe` der Ausnahmenliste. Wenn die Domänenrichtlinie eine Netzwerkkommunikation über IPSec erfordert, müssen Sie die Ports UDP 4500 und UDP 500 öffnen.
 
 
 ## <a name="summary"></a>Zusammenfassung

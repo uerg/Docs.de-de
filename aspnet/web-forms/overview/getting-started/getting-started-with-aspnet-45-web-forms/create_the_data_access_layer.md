@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: ebace10dc8a861ab38bd5c834c2225e3373f13fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-data-access-layer"></a>Die Datenzugriffsebene erstellen
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -43,7 +43,7 @@ In diesem Lernprogramm wird beschrieben, wie erstellen, zugreifen, und überprü
 
 ## <a name="creating-the-data-models"></a>Erstellen von Data-Modellen
 
-[Entity Framework](https://msdn.microsoft.com/en-us/data/aa937723) ist ein ORM (Objektrelationales Mapping)-Framework. Sie können damit die Arbeit mit relationalen Daten als Objekte, entfernen Sie die meisten der Datenzugriffs-Code, den Sie in der Regel schreiben müssen. Verwendung von Entity Framework, können Sie Abfragen mit ausgeben [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx), abrufen und Bearbeiten von Daten als stark typisierte Objekte. LINQ stellt Muster zum Abfragen und Aktualisieren von Daten bereit. Mithilfe von Entity Framework können Sie den Schwerpunkt auf den Rest der Anwendung erstellen, anstatt Schwerpunkt auf die Daten Zugriff Grundlagen. Weiter unten in diesem Lernprogramm Reihe zeigen wir Ihnen wie die Daten, die zum Auffüllen der Navigation und Abfragen verwenden.
+[Entity Framework](https://msdn.microsoft.com/data/aa937723) ist ein ORM (Objektrelationales Mapping)-Framework. Sie können damit die Arbeit mit relationalen Daten als Objekte, entfernen Sie die meisten der Datenzugriffs-Code, den Sie in der Regel schreiben müssen. Verwendung von Entity Framework, können Sie Abfragen mit ausgeben [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), abrufen und Bearbeiten von Daten als stark typisierte Objekte. LINQ stellt Muster zum Abfragen und Aktualisieren von Daten bereit. Mithilfe von Entity Framework können Sie den Schwerpunkt auf den Rest der Anwendung erstellen, anstatt Schwerpunkt auf die Daten Zugriff Grundlagen. Weiter unten in diesem Lernprogramm Reihe zeigen wir Ihnen wie die Daten, die zum Auffüllen der Navigation und Abfragen verwenden.
 
 Entity Framework unterstützt ein Entwicklung Paradigma aufgerufen *Code First*. Code First können Sie Ihre Datenmodelle mithilfe von Klassen zu definieren. Eine Klasse ist ein Konstrukt, das Ihnen ermöglicht, Ihre eigenen benutzerdefinierten Typen zu erstellen, indem Sie Variablen andere Typen, Methoden und Ereignisse zusammengefasst. Sie können Zuordnungsklassen zu einer vorhandenen Datenbank oder verwenden, um eine Datenbank zu generieren. In diesem Lernprogramm erstellen Sie die Datenmodelle von Modellklassen Daten schreiben. Klicken Sie dann, informieren Sie Entity Framework, die die Datenbank im Handumdrehen von dieser neuen Klassen zu erstellen.
 
@@ -181,11 +181,11 @@ In den nächsten Lernprogrammen aktualisiert die Benutzeroberfläche, Navigation
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[Übersicht über Entity Framework](https://msdn.microsoft.com/en-us/library/bb399567.aspx)   
-[Einsteigerhandbuch zu ADO.NET Entity Framework](https://msdn.microsoft.com/en-us/data/ee712907)   
+[Übersicht über Entity Framework](https://msdn.microsoft.com/library/bb399567.aspx)   
+[Einsteigerhandbuch zu ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
 [Code First-Entwicklung mit Entity Framework](http://www.msteched.com/2010/Europe/DEV212) (video)   
-[Code First Beziehungen Fluent-API](https://msdn.microsoft.com/en-us/data/hh134698)   
-[Erste Datenanmerkungen Code](https://msdn.microsoft.com/en-us/data/gg193958)  
+[Code First Beziehungen Fluent-API](https://msdn.microsoft.com/data/hh134698)   
+[Erste Datenanmerkungen Code](https://msdn.microsoft.com/data/gg193958)  
 [Steigerung der Produktivität für das Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 >[!div class="step-by-step"]

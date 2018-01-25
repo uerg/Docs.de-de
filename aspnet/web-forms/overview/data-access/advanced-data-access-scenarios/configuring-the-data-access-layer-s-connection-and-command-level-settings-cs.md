@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5675c1c2a1c8987412ae79707e4c20e29e0e0df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurieren von Einstellungen für die Datenzugriffsebene-Verbindung und Befehlsebene (c#)
 ====================
@@ -37,7 +37,7 @@ In diesem Lernprogramm werden die datenbankeinstellungen für die Verbindung und
 
 ## <a name="working-with-data-using-adonet"></a>Arbeiten mit Daten, die mithilfe von ADO.NET
 
-Microsoft .NET Framework enthält eine Vielzahl von Klassen, die speziell für die Arbeit mit Daten konzipiert. Diese Klassen, die innerhalb der [ `System.Data` Namespace](https://msdn.microsoft.com/en-us/library/system.data.aspx), werden als bezeichnet den *ADO.NET* Klassen. Einige der Klassen des wirkungsfelds ADO.NET gebunden sind, zu einem bestimmten *Datenanbieter*. Sie können einen Datenanbieter als Kommunikationskanal vorstellen, die den Informationsfluss zwischen den ADO.NET-Klassen und dem zugrunde liegenden Datenspeicher ermöglicht. Es sind generalisierte Anbieter, z. B. OLE DB und ODBC sowie Anbieter, die speziell für eine bestimmte Datenbank-Managementsystem ausgelegt sind. Angenommen, während es bei der Herstellung einer Verbindung mit einer Microsoft SQL Server-Datenbank, die mithilfe der OLE DB-Anbieter möglich ist, ist der SqlClient-Anbieter wesentlich effizienter wurde entworfen und optimiert, die speziell für SQL Server.
+Microsoft .NET Framework enthält eine Vielzahl von Klassen, die speziell für die Arbeit mit Daten konzipiert. Diese Klassen, die innerhalb der [ `System.Data` Namespace](https://msdn.microsoft.com/library/system.data.aspx), werden als bezeichnet den *ADO.NET* Klassen. Einige der Klassen des wirkungsfelds ADO.NET gebunden sind, zu einem bestimmten *Datenanbieter*. Sie können einen Datenanbieter als Kommunikationskanal vorstellen, die den Informationsfluss zwischen den ADO.NET-Klassen und dem zugrunde liegenden Datenspeicher ermöglicht. Es sind generalisierte Anbieter, z. B. OLE DB und ODBC sowie Anbieter, die speziell für eine bestimmte Datenbank-Managementsystem ausgelegt sind. Angenommen, während es bei der Herstellung einer Verbindung mit einer Microsoft SQL Server-Datenbank, die mithilfe der OLE DB-Anbieter möglich ist, ist der SqlClient-Anbieter wesentlich effizienter wurde entworfen und optimiert, die speziell für SQL Server.
 
 Beim programmgesteuerten Zugriff auf Daten wird das folgende Muster häufig verwendet:
 
@@ -45,7 +45,7 @@ Beim programmgesteuerten Zugriff auf Daten wird das folgende Muster häufig verw
 - Geben Sie einen Befehl.
 - Für `SELECT` Abfragen, mit der resultierenden Datensätzen arbeiten.
 
-Es gibt separate ADO.NET-Klassen zum Durchführen jeder dieser Schritte. Um eine Verbindung mit einer Datenbank mithilfe des SqlClient-Anbieters herstellen zu können, verwenden Sie z. B. die [ `SqlConnection` Klasse](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Um die Umgehung ein `INSERT`, `UPDATE`, `DELETE`, oder `SELECT` Befehl in der Datenbank verwenden die [ `SqlCommand` Klasse](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx).
+Es gibt separate ADO.NET-Klassen zum Durchführen jeder dieser Schritte. Um eine Verbindung mit einer Datenbank mithilfe des SqlClient-Anbieters herstellen zu können, verwenden Sie z. B. die [ `SqlConnection` Klasse](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Um die Umgehung ein `INSERT`, `UPDATE`, `DELETE`, oder `SELECT` Befehl in der Datenbank verwenden die [ `SqlCommand` Klasse](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx).
 
 Mit Ausnahme der [Umbruch Datenbankänderungen innerhalb einer Transaktion](../working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md) Lernprogramm, wir haben nicht musste ein Schreibvorgang auf niedriger Ebene ADO.NET code uns, da die TableAdapters automatisch generiertem Code erforderlichen Funktionen enthält Herstellen einer Verbindung mit der Datenbank, Befehle, Abrufen von Daten und die Daten in Datentabellen aufzufüllen. Allerdings gibt es möglicherweise vorkommen, dass wir diese Low-Level-Einstellungen anpassen müssen. Über die nächsten Schritte werden wie in ADO.NET-Objekte, die intern verwendet, durch die TableAdapters tippen untersucht.
 
@@ -121,7 +121,7 @@ Speichern Sie das DataSet, und fahren Sie dann mit der `ProductsBLL` Klasse. Bev
 
 ## <a name="step-3-examining-the-command-related-properties"></a>Schritt 3: Untersuchen der Befehle bezogenen Eigenschaften
 
-Ein TableAdapter besteht aus einer hauptspeicherpool für Abfragen, die standardmäßig automatisch generierten hat `INSERT`, `UPDATE`, und `DELETE` Anweisungen. Diese Hauptabfrage s `INSERT`, `UPDATE`, und `DELETE` Anweisungen werden in den TableAdapter-s-Code implementiert, als ADO.NET Data Adapterobjekt über die `Adapter` Eigenschaft. LIKE mit seiner `Connection` -Eigenschaft, die `Adapter` eigenschaftsdatentyp s richtet sich nach den verwendeten Datenanbieter. Da diese Lernprogramme den SqlClient-Anbieter verwenden die `Adapter` -Eigenschaft ist vom Typ [ `SqlDataAdapter` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
+Ein TableAdapter besteht aus einer hauptspeicherpool für Abfragen, die standardmäßig automatisch generierten hat `INSERT`, `UPDATE`, und `DELETE` Anweisungen. Diese Hauptabfrage s `INSERT`, `UPDATE`, und `DELETE` Anweisungen werden in den TableAdapter-s-Code implementiert, als ADO.NET Data Adapterobjekt über die `Adapter` Eigenschaft. LIKE mit seiner `Connection` -Eigenschaft, die `Adapter` eigenschaftsdatentyp s richtet sich nach den verwendeten Datenanbieter. Da diese Lernprogramme den SqlClient-Anbieter verwenden die `Adapter` -Eigenschaft ist vom Typ [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
 
 Die TableAdapter `Adapter` Eigenschaft verfügt über drei Eigenschaften des Typs `SqlCommand` , die verwendet wird, um Problem der `INSERT`, `UPDATE`, und `DELETE` Anweisungen:
 
@@ -129,7 +129,7 @@ Die TableAdapter `Adapter` Eigenschaft verfügt über drei Eigenschaften des Typ
 - `UpdateCommand`
 - `DeleteCommand`
 
-Ein `SqlCommand` -Objekt ist verantwortlich für eine bestimmte Abfrage an die Datenbank gesendet und verfügt über Eigenschaften, z. B.: [ `CommandText` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtext.aspx), enthält die Ad-hoc-SQL-Anweisung oder gespeicherte Prozedur für die Ausführung und [ `Parameters` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.parameters.aspx), dies ist eine Auflistung von `SqlParameter` Objekte. Wie wir gesehen, wieder in haben die [erstellen eine Datenzugriffsschicht](../introduction/creating-a-data-access-layer-cs.md) Lernprogramm diesen Befehl Objekte über das Fenster "Eigenschaften" angepasst werden können.
+Ein `SqlCommand` -Objekt ist verantwortlich für eine bestimmte Abfrage an die Datenbank gesendet und verfügt über Eigenschaften, z. B.: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx), enthält die Ad-hoc-SQL-Anweisung oder gespeicherte Prozedur für die Ausführung und [ `Parameters` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx), dies ist eine Auflistung von `SqlParameter` Objekte. Wie wir gesehen, wieder in haben die [erstellen eine Datenzugriffsschicht](../introduction/creating-a-data-access-layer-cs.md) Lernprogramm diesen Befehl Objekte über das Fenster "Eigenschaften" angepasst werden können.
 
 Neben der Hauptabfrage des TableAdapter eine Variable Anzahl von Methoden enthalten kann, wenn aufgerufen, verteilen Sie einen angegebenen Befehl aus, um die Datenbank. Die Hauptabfrage s Command-Objekt und die Befehlsobjekte für alle zusätzlichen Methoden werden in die TableAdapter gespeichert `CommandCollection` Eigenschaft.
 
@@ -146,7 +146,7 @@ Im Idealfall sollte die Befehlsebene Informationen innerhalb der Datenzugriffseb
 
 Da TableAdapter nur eine einzelne hat `Connection` -Eigenschaft, die der Code für das Verfügbarmachen von Einstellungen auf Verbindungsebene ist recht einfach. Folgende Dinge sind etwas komplizierter, wenn Befehlsebene Einstellungen zu ändern, da die TableAdapter mehrere Befehlsobjekte - verfügen kann ein `InsertCommand`, `UpdateCommand`, und `DeleteCommand`, zusammen mit der eine Variable Anzahl von Befehlsobjekten in der `CommandCollection` Diese Eigenschaft. Beim Befehlsebene Einstellungen zu aktualisieren, müssen diese Einstellungen auf alle Befehlsobjekte weitergegeben werden.
 
-Angenommen Sie, dass bestimmte Abfragen gab es in den TableAdapter, die eine außergewöhnliche viel Zeit zum Ausführen ausgeführt hat. TableAdapter mit einen solcher Abfragen ausführen, sollten wir das Befehlsobjekt s erhöhen [ `CommandTimeout` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Diese Eigenschaft gibt die Anzahl der Sekunden für die Ausführung des Befehls, und wird standardmäßig auf 30.
+Angenommen Sie, dass bestimmte Abfragen gab es in den TableAdapter, die eine außergewöhnliche viel Zeit zum Ausführen ausgeführt hat. TableAdapter mit einen solcher Abfragen ausführen, sollten wir das Befehlsobjekt s erhöhen [ `CommandTimeout` Eigenschaft](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Diese Eigenschaft gibt die Anzahl der Sekunden für die Ausführung des Befehls, und wird standardmäßig auf 30.
 
 Ermöglicht die `CommandTimeout` -Eigenschaft angepasst werden, indem die BLL fügen Sie die folgenden `public` Methode, um die `ProductsDataTable` mithilfe der partiellen Klassendatei in Schritt2 erstellt wurde (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`):
 

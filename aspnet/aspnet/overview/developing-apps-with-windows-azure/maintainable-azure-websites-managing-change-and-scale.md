@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung
 ====================
@@ -251,7 +251,7 @@ In dieser Aufgabe verwenden Sie **Entity Framework Code First-Migrationen** so e
 Sie werden in dieser Übung Bereitstellen der **Meister Quiz** Anwendung in der Stagingumgebung Ihrer Web-App mithilfe der Git-quellcodeverwaltung. Zu diesem Zweck Sie Web-app erstellen und Bereitstellen der erforderlichen Komponenten auf das Verwaltungsportal, konfigurieren Sie eine **Git** Repository und übertragen Sie die Anwendung Quellcode, aus dem lokalen Computer um staging-Slot. Aktualisieren Sie auch die Produktionsdatenbank mit der **Code First-Migrationen** Sie in der vorherigen Übung erstellt haben. Führen Sie dann die Anwendung in dieser testumgebung, um den Vorgang zu überprüfen. Wenn Sie zufrieden sind gemäß Ihren Erwartungen funktioniert, werden Sie die Anwendung bis hin zur Produktion heraufgestuft.
 
 > [!NOTE]
-> Zum Veröffentlichen in einer Stagingumgebung zu aktivieren, muss die Web-app in **Modus "Standard"**. Beachten Sie, dass zusätzliche Kosten anfallen, wenn Sie Ihre Web-app in den Standardmodus ändern. Weitere Informationen zur Preisgestaltung finden Sie unter [App Service-Preisen](https://azure.microsoft.com/en-us/pricing/details/app-service/).
+> Zum Veröffentlichen in einer Stagingumgebung zu aktivieren, muss die Web-app in **Modus "Standard"**. Beachten Sie, dass zusätzliche Kosten anfallen, wenn Sie Ihre Web-app in den Standardmodus ändern. Weitere Informationen zur Preisgestaltung finden Sie unter [App Service-Preisen](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
@@ -288,7 +288,7 @@ In dieser Aufgabe erstellen Sie eine Web-app in **Azure App Service** über das 
     ![Datenbankeinstellungen angeben](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
     *Datenbankeinstellungen angeben*
-6. Klicken Sie auf **Weiter** um den Vorgang fortzusetzen.
+6. Klicken Sie auf **Weiter**, um fortzufahren.
 7. Wählen Sie **lokales Git-Repository** für die quellcodeverwaltung verwenden, und klicken Sie auf **Weiter**.
 
     > [!NOTE]
@@ -552,7 +552,7 @@ Sie werden jetzt die Änderungen mithilfe von Push übertragen, die in der vorhe
     *Protokollierte Fehler*
 8. Suchen Sie nach dem Detailabschnitt des Fehlers. Es ist offensichtlich, wird dieser Fehler durch den Code, der Sie ein Commit in den vorherigen Schritten Umgestaltung verursacht.
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
+    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`
 9. Schließen Sie den Browser nicht.
 10. Wechseln Sie in einer neuen Browserinstanz zu den [Azure-Verwaltungsportal](https://manage.windowsazure.com) und melden Sie sich mit dem Microsoft-Konto, das Ihrem Abonnement zugeordnet.
 11. Wählen Sie **Websites** , und klicken Sie auf die Web-app, die Sie in der Übung 2 erstellt haben.
@@ -680,7 +680,7 @@ In dieser Aufgabe verwenden Sie das Server-Explorer-Fenster in Visual Studio fü
 
     ![Blob-Speicher von Windows-Logo big.png Bereitstellungsabbilds unter](maintainable-azure-websites-managing-change-and-scale/_static/image72.png "Logo big.png Image aus dem Speicher")
 
-    *Logo big.png Image aus dem Azure-Blob-Speicher*
+    *logo-big.png image from Azure Blob Storage*
 
 <a id="Ex4Task3"></a>
 #### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>Aufgabe 3: aktualisieren die Lösung, um statischen Inhalt von Azure Blob-Speicher nutzen.
@@ -695,7 +695,7 @@ In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URLs versteht man eingehende Webanforderungen durch Controlleraktionsmethoden abfangen und die Anforderung zu einer anderen Ressource umleiten. Die Regeln umschreiben URL weist das Umschreiben von Modul, wenn eine Anforderung umgeleitet werden muss, und, in denen sollten umgeleitet werden. Eine Umschreiben von Regel besteht aus zwei Zeichenfolgen: das entsprechende Muster, in der angeforderten URL gesucht (normalerweise mithilfe von regulären Ausdrücken), und Ersetzen Sie das Muster, wenn die Zeichenfolge gefunden. Weitere Informationen finden Sie unter [URLs in ASP.NET](https://msdn.microsoft.com/en-us/library/ms972974.aspx).
+    > URLs versteht man eingehende Webanforderungen durch Controlleraktionsmethoden abfangen und die Anforderung zu einer anderen Ressource umleiten. Die Regeln umschreiben URL weist das Umschreiben von Modul, wenn eine Anforderung umgeleitet werden muss, und, in denen sollten umgeleitet werden. Eine Umschreiben von Regel besteht aus zwei Zeichenfolgen: das entsprechende Muster, in der angeforderten URL gesucht (normalerweise mithilfe von regulären Ausdrücken), und Ersetzen Sie das Muster, wenn die Zeichenfolge gefunden. Weitere Informationen finden Sie unter [URLs in ASP.NET](https://msdn.microsoft.com/library/ms972974.aspx).
 3. Drücken Sie **STRG + S** um die Änderungen zu speichern.
 4. Öffnen Sie ein neues **Git Bash** Konsole, um die aktualisierte Anwendung auf Azure App Service bereitzustellen.
 5. Führen Sie die folgenden Befehle, die Änderungen in Azure zu übertragen. Update der *[YOUR-ANWENDUNGSPFAD]* Platzhalter durch den Pfad zu der **GeekQuiz** Lösung. Sie werden aufgefordert, Ihr Kennwort für die Bereitstellung.
@@ -910,7 +910,7 @@ Sie werden nun führen Sie den Auslastungstest aus, den Sie in der vorherigen Au
     > 
     > - Die Dauer des Auslastungstests erhöhen (z. B. um **10 Minuten**)
     > - Reduzieren Sie die maximalen und minimalen Werte der **Ziel-CPU** Bereich in der Konfiguration zur automatischen Skalierung Ihrer Web-App
-    > - Ausführen des Auslastungstests in der Cloud mit **Visual Studio Online**. Weitere Informationen [hier](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - Ausführen des Auslastungstests in der Cloud mit **Visual Studio Online**. Weitere Informationen [hier](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 

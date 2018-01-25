@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: abdbb8112533d42f81180abad52f5ee86e3b280f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Razor-Syntax für ASP.NET Core
 
@@ -73,7 +73,7 @@ Implicit-Ausdrücken **kann nicht** C#-Generika, als eines der Zeichen innerhalb
 Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
 
  * Das Element "Int" wurde nicht geschlossen. Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
- * Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
  
 Generische Methodenaufrufen, müssen umschlossen werden ein [expliziter Razor-Ausdruck](#explicit-razor-expressions) oder ein [Razor-Codeblock](#razor-code-blocks).
 
@@ -119,7 +119,7 @@ EXPLICIT-Ausdrücken dienen zum Rendern der Ausgabe von generischen Methoden in 
 Der vorhergehende Code generiert einen Compilerfehler, der einen der folgenden ähnelt:
 
  * Das Element "Int" wurde nicht geschlossen. Alle Elemente muss entweder selbst schließen oder ein entsprechendes Endtag vorhanden.
- * Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
+ *  Die Methodengruppe "GenericMethod" nicht mit Typ "Object" Delegaten kann nicht konvertiert werden. Wollten Sie die Methode aufrufen? " 
  
  Das folgende Markup zeigt die richtige Methode schreiben, diesen Code. Der Code wird als ein expliziter Ausdruck geschrieben:
 

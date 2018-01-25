@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core Middleware-Grundlagen
 
@@ -63,7 +63,7 @@ Sie können mehrere Anforderung Delegaten zusammen mit verketten [app. Verwendun
 
 ## <a name="ordering"></a>Sortieren
 
-Die Reihenfolge, die Middleware Komponenten, in hinzugefügt werden der `Configure` Methode definiert, die Reihenfolge, in dem sie aufgerufen werden für Anforderungen, und die umgekehrte Reihenfolge für die Antwort. Diese Reihenfolge ist wichtig für die Sicherheit, Leistung und Funktionalität.
+Die Reihenfolge, die Middleware Komponenten, in hinzugefügt werden der `Configure` Methode definiert, die Reihenfolge, in dem sie für Anforderungen aufgerufen werden, und die umgekehrte Reihenfolge für die Antwort. Diese Reihenfolge ist wichtig für die Sicherheit, Leistung und Funktionalität.
 
 Die Configure-Methode (siehe unten) Fügt die folgenden Middleware-Komponenten:
 
@@ -116,11 +116,11 @@ Die Middleware für statische Dateien wird einem frühen Zeitpunkt in der Pipeli
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseAuthentication`), die die Authentifizierung durchführt. Identität nicht authentifizierte Anforderungen keinen Kurzschluss ausführt. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einem bestimmten Razor-Seite oder Controller und Aktion auswählt.
+Wenn die Anforderung von der Middleware für statische Dateien behandelt befindet sich nicht, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseAuthentication`), die die Authentifizierung durchführt. Identität nicht Kurzschlussoperator nicht authentifizierte Anforderungen zu. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einem bestimmten Razor-Seite oder Controller und Aktion auswählt.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseIdentity`), die die Authentifizierung durchführt. Identität nicht authentifizierte Anforderungen keinen Kurzschluss ausführt. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einen bestimmten Controller und Aktion auswählt.
+Wenn die Anforderung von der Middleware für statische Dateien behandelt befindet sich nicht, erfolgt eine Übergabe auf an die Identity-Middleware (`app.UseIdentity`), die die Authentifizierung durchführt. Identität nicht Kurzschlussoperator nicht authentifizierte Anforderungen zu. Obwohl Identität Anforderungen authentifiziert hat, tritt auf, Autorisierung (und Ablehnung) erst nach MVC einen bestimmten Controller und Aktion auswählt.
 
 -----------
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Verwenden Sie, führen Sie aus und zuordnen
 
-Sie konfigurieren Sie das HTTP-Pipeline mit `Use`, `Run`, und `Map`. Die `Use` Methode kann die Pipeline Kurzschluss (d. h., wenn er nicht aufgerufen wird eine `next` Anforderung Delegaten). `Run`ist eine Konvention, und einige Komponenten Middleware können ausgesetzt `Run[Middleware]` Methoden, die am Ende der Pipeline ausgeführt.
+Sie konfigurieren Sie das HTTP-Pipeline mit `Use`, `Run`, und `Map`. Die `Use` Methode kann die Pipeline Kurzschluss (d. h., wenn er nicht Aufrufen einer `next` Anforderung Delegaten). `Run`ist eine Konvention, und einige Komponenten Middleware können ausgesetzt `Run[Middleware]` Methoden, die am Ende der Pipeline ausgeführt.
 
 `Map*`Erweiterungen werden als eine Konvention verwendet, für die Pipeline zu verzweigen. [Zuordnung](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) Verzweigungen die Anforderungspipeline auf Übereinstimmungen von den angegebenen Anforderungspfad basierend. Wenn der Anforderungspfad mit dem angegebenen Pfad beginnt, wird die Verzweigung ausgeführt.
 

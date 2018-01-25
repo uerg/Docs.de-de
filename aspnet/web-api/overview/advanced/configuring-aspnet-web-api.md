@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1c007c4c327b7cde6ff52c6b0022acdff3c9b137
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>Konfigurieren von ASP.NET Web API 2
 ====================
@@ -33,15 +33,15 @@ Dieses Thema beschreibt, wie ASP.NET Web-API zu konfigurieren.
 <a id="settings"></a>
 ## <a name="configuration-settings"></a>Konfigurationseinstellungen
 
-Einstellungen zum Web-API-Konfiguration Benutzergerät werden definiert, der [HttpConfiguration](https://msdn.microsoft.com/en-us/library/system.web.http.httpconfiguration.aspx) Klasse.
+Einstellungen zum Web-API-Konfiguration Benutzergerät werden definiert, der [HttpConfiguration](https://msdn.microsoft.com/library/system.web.http.httpconfiguration.aspx) Klasse.
 
 | Member | Beschreibung |
 | --- | --- |
 | **DependencyResolver** | Ermöglicht die Abhängigkeitsinjektion für Controller. Finden Sie unter [mithilfe des Web-API-Abhängigkeitskonfliktlösers](dependency-injection.md). |
 | **Filter** | Aktionsfilter verwendet werden. |
-| **Formatierer** | [Medientypformatierer](../formats-and-model-binding/media-formatters.md). |
-| **IncludeErrorDetailPolicy** | Gibt an, ob der Server Fehlerdetails wie ausnahmemeldungen und stapelüberwachungen in HTTP-Antwortnachrichten werden sollen. Finden Sie unter [IncludeErrorDetailPolicy](https://msdn.microsoft.com/en-us/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
-| **Initialisierer** | Eine Funktion, die endgültige Initialisierung führt die **HttpConfiguration**. |
+| **Formatters** | [Medientypformatierer](../formats-and-model-binding/media-formatters.md). |
+| **IncludeErrorDetailPolicy** | Gibt an, ob der Server Fehlerdetails wie ausnahmemeldungen und stapelüberwachungen in HTTP-Antwortnachrichten werden sollen. Finden Sie unter [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
+| **Initializer** | Eine Funktion, die endgültige Initialisierung führt die **HttpConfiguration**. |
 | **MessageHandlers** | [HTTP-Meldungshandler](http-message-handlers.md). |
 | **ParameterBindingRules** | Eine Auflistung von Regeln zum Binden von Parametern für Controlleraktionen. |
 | **Eigenschaften** | Eine generische Eigenschaftensammlung. |
@@ -56,7 +56,7 @@ Einstellungen zum Web-API-Konfiguration Benutzergerät werden definiert, der [Ht
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>Konfigurieren von Web-API mit ASP.NET hostet
 
-Konfigurieren Sie in einer ASP.NET-Anwendung Web-API, durch den Aufruf [GlobalConfiguration.Configure](https://msdn.microsoft.com/en-us/library/system.web.http.globalconfiguration.configure.aspx) in der **Anwendung\_starten** Methode. Die **konfigurieren** Methode nimmt einen Delegaten mit einem einzelnen Parameter vom Typ **HttpConfiguration**. Führen Sie alle Ihre Konfiguration innerhalb des Delegaten.
+Konfigurieren Sie in einer ASP.NET-Anwendung Web-API, durch den Aufruf [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) in der **Anwendung\_starten** Methode. Die **konfigurieren** Methode nimmt einen Delegaten mit einem einzelnen Parameter vom Typ **HttpConfiguration**. Führen Sie alle Ihre Konfiguration innerhalb des Delegaten.
 
 Hier ist ein Beispiel für die Verwendung eines anonymen Delegaten:
 
@@ -126,7 +126,7 @@ Mehrfachinstanz-Dienste
 | **ModelBinderProvider** | Gibt einen Modellbinder für einen angegebenen Typ zurück. |
 | **ModelMetadataProvider** | Stellt Metadaten für ein Modell bereit. |
 | **ModelValidatorProvider** | Stellt ein Validierungssteuerelement für ein Modell bereit. |
-| **ValueProviderFactory** | Erstellt einen Wertanbieter. Weitere Informationen finden Sie unter Mike Stall des Blogbeitrag [erstellen Sie einen benutzerdefinierten Wertanbieter in WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |.
+| **ValueProviderFactory** | Erstellt einen Wertanbieter. Weitere Informationen finden Sie unter Mike Stall des Blogbeitrag [erstellen Sie einen benutzerdefinierten Wertanbieter in WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |sein.
 
 Um eine benutzerdefinierte Implementierung an einen Dienst mit mehreren Instanzen hinzuzufügen, rufen Sie **hinzufügen** oder **einfügen** auf die **Services** Auflistung:
 

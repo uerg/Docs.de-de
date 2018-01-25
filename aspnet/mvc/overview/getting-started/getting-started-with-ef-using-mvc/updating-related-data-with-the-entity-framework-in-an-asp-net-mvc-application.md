@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 348940748e3c33ace03d1b8f41615e9814cf6b40
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 205d5ddcd0c3240c87ec5705a6676215eb67942d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aktualisieren von verknüpften Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
@@ -127,7 +127,7 @@ Der Code führt Folgendes aus:
 
 - Ändert den Namen der Methode, um `EditPost` , da die Signatur jetzt identisch ist die `HttpGet` -Methode (die `ActionName` Attribut gibt an, dass die URL/Edit / weiterhin verwendet wird).
 - Ruft die aktuellen `Instructor` Entität aus der Datenbank mit unverzüglichem Laden für die `OfficeAssignment` Navigationseigenschaft. Dies ist identisch mit was Sie getan, in haben der `HttpGet` `Edit` Methode.
-- Aktualisiert die abgerufenen `Instructor` Entität mit Werten aus den Modellbinder. Die [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.108).aspx) verwendete Überladung ermöglicht es Ihnen, *Positivliste* die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung, wie in beschrieben [das zweite Lernprogramm](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Aktualisiert die abgerufenen `Instructor` Entität mit Werten aus den Modellbinder. Die [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) verwendete Überladung ermöglicht es Ihnen, *Positivliste* die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung, wie in beschrieben [das zweite Lernprogramm](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 - Wenn der Niederlassung leer ist, legt die `Instructor.OfficeAssignment` -Eigenschaft auf null, damit die zugehörige Zeile in der `OfficeAssignment` Tabelle gelöscht werden.
@@ -163,7 +163,7 @@ In *InstructorController.cs*, ersetzen Sie die `HttpGet` `Edit` -Methode durch f
 
 Der Code fügt unverzüglichem Laden für die `Courses` Navigationseigenschaft und ruft die neue `PopulateAssignedCourseData` -Methode zum Bereitstellen von Informationen für das Kontrollkästchen Array mithilfe der `AssignedCourseData` Modellklasse anzeigen.
 
-Der Code in der `PopulateAssignedCourseData` Methode liest, bis alle `Course` Entitäten, um eine Liste der Kurse, die in der Ansicht laden model-Klasse. Für jeden Kurs im Code wird überprüft, ob der Kurs in des Dozenten befindet `Courses` Navigationseigenschaft. Um effiziente Suche nach erstellen, bei der Überprüfung, ob ein Kurs zu den Dozenten zugewiesen wird, den Dozenten zugewiesene Kurse abgelegt sind eine [HashSet](https://msdn.microsoft.com/en-us/library/bb359438.aspx) Auflistung. Die `Assigned` -Eigenschaftensatz auf `true` Kurse Kursleiter zugewiesen ist. Die Ansicht wird diese Eigenschaft verwenden, um zu bestimmen, welche Felder als angezeigt werden, müssen aktiviert. Schließlich wird die Liste übergeben, auf die Ansicht in einem `ViewBag` Eigenschaft.
+Der Code in der `PopulateAssignedCourseData` Methode liest, bis alle `Course` Entitäten, um eine Liste der Kurse, die in der Ansicht laden model-Klasse. Für jeden Kurs im Code wird überprüft, ob der Kurs in des Dozenten befindet `Courses` Navigationseigenschaft. Um effiziente Suche nach erstellen, bei der Überprüfung, ob ein Kurs zu den Dozenten zugewiesen wird, den Dozenten zugewiesene Kurse abgelegt sind eine [HashSet](https://msdn.microsoft.com/library/bb359438.aspx) Auflistung. Die `Assigned` -Eigenschaftensatz auf `true` Kurse Kursleiter zugewiesen ist. Die Ansicht wird diese Eigenschaft verwenden, um zu bestimmen, welche Felder als angezeigt werden, müssen aktiviert. Schließlich wird die Liste übergeben, auf die Ansicht in einem `ViewBag` Eigenschaft.
 
 Als Nächstes fügen Sie den Code, der ausgeführt wird, wenn der Benutzer klickt **speichern**. Ersetzen Sie die `EditPost` Methode durch den folgenden Code, der eine neue Methode aufruft, die aktualisiert die `Courses` Navigationseigenschaft der `Instructor` Entität. Die Änderungen werden hervorgehoben.
 
@@ -171,7 +171,7 @@ Als Nächstes fügen Sie den Code, der ausgeführt wird, wenn der Benutzer klick
 
 Die Methodensignatur unterscheidet sich jetzt von der `HttpGet` `Edit` Methode, sodass der Name der Methode von ändert `EditPost` an `Edit`.
 
-Da die Sicht eine Auflistung von besitzt `Course` Entitäten, die der Modellbinder kann nicht automatisch aktualisiert. die `Courses` Navigationseigenschaft. Verwenden Sie statt des Modellbinders zum Aktualisieren der `Courses` Navigationseigenschaft vornehmen, die in der neuen `UpdateInstructorCourses` Methode. Daher müssen Sie zum Ausschließen der `Courses` Eigenschaft von der modellbindung. Dies erfordert jede Änderung an der aufrufende Code [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.98).aspx) , da Sie verwenden die *Whitelisting* überladen und `Courses` befindet sich nicht in der Include-Liste.
+Da die Sicht eine Auflistung von besitzt `Course` Entitäten, die der Modellbinder kann nicht automatisch aktualisiert. die `Courses` Navigationseigenschaft. Verwenden Sie statt des Modellbinders zum Aktualisieren der `Courses` Navigationseigenschaft vornehmen, die in der neuen `UpdateInstructorCourses` Methode. Daher müssen Sie zum Ausschließen der `Courses` Eigenschaft von der modellbindung. Dies erfordert jede Änderung an der aufrufende Code [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) , da Sie verwenden die *Whitelisting* überladen und `Courses` befindet sich nicht in der Include-Liste.
 
 Wenn keine Überprüfung aktiviert wurden, den Code in `UpdateInstructorCourses` initialisiert die `Courses` Navigationseigenschaft mit einer leeren Auflistung:
 
@@ -266,7 +266,7 @@ Führen Sie die Seite "erstellen" und fügen Sie einen Kursleiter.
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>Behandeln von Transaktionen
 
-Wie in beschrieben die [grundlegende CRUD-Funktionalität Lernprogramm](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), standardmäßig das Entity Framework implizit Transaktionen implementiert. Für Szenarien, in denen mehr, – beispielsweise gesteuert müssen wenn Vorgängen, die außerhalb von Entity Framework in einer Transaktion--enthalten sein sollen, finden Sie unter [arbeiten mit Transaktionen](https://msdn.microsoft.com/en-US/data/dn456843) auf MSDN.
+Wie in beschrieben die [grundlegende CRUD-Funktionalität Lernprogramm](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), standardmäßig das Entity Framework implizit Transaktionen implementiert. Für Szenarien, in denen mehr, – beispielsweise gesteuert müssen wenn Vorgängen, die außerhalb von Entity Framework in einer Transaktion--enthalten sein sollen, finden Sie unter [arbeiten mit Transaktionen](https://msdn.microsoft.com/data/dn456843) auf MSDN.
 
 ## <a name="summary"></a>Zusammenfassung
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
@@ -40,7 +40,7 @@ Typische Controller Verantwortungsbereiche:
 
 ## <a name="unit-testing"></a>Unittest
 
-[UnitTests](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) umfasst eine Bestandteile einer app isoliert von der Infrastruktur und die Abhängigkeiten testen. Wenn Controllerlogik, nur den Inhalt einer einzelnen Aktion für den Komponententests getestet wird, nicht das Verhalten der zugehörigen Abhängigkeiten oder Framework selbst. Testen Sie als Einheit Sie Ihre Controlleraktionen, stellen Sie sicher, dass Sie sich nur auf das Verhalten konzentrieren. Ein Komponententest Controller wird vermieden, z. B. [Filter](filters.md), [routing](../../fundamentals/routing.md), oder [modellbindung](../models/model-binding.md). Komponententests sind in der Regel durch die Fokussierung auf nur einem Schritt testen, einfach zu schreiben und schnell ausgeführt. Ein gut geschriebener Satz von Komponententests kann ohne Mehraufwand häufig ausgeführt werden. Komponententests erkennen jedoch nicht Probleme bei der Interaktion zwischen Komponenten, die der Zweck der ist [Integrationstests](xref:mvc/controllers/testing#integration-testing).
+[UnitTests](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) umfasst eine Bestandteile einer app isoliert von der Infrastruktur und die Abhängigkeiten testen. Wenn Controllerlogik, nur den Inhalt einer einzelnen Aktion für den Komponententests getestet wird, nicht das Verhalten der zugehörigen Abhängigkeiten oder Framework selbst. Testen Sie als Einheit Sie Ihre Controlleraktionen, stellen Sie sicher, dass Sie sich nur auf das Verhalten konzentrieren. Ein Komponententest Controller wird vermieden, z. B. [Filter](filters.md), [routing](../../fundamentals/routing.md), oder [modellbindung](../models/model-binding.md). Komponententests sind in der Regel durch die Fokussierung auf nur einem Schritt testen, einfach zu schreiben und schnell ausgeführt. Ein gut geschriebener Satz von Komponententests kann ohne Mehraufwand häufig ausgeführt werden. Allerdings Komponententests Probleme erkennen nicht bei der Interaktion zwischen Komponenten, die der Zweck der also [Integrationstests](xref:mvc/controllers/testing#integration-testing).
 
 Wenn Sie benutzerdefinierte Filter, Routen usw. schreiben, sollten Sie den Komponententest werden, jedoch nicht als Teil Ihrer Tests auf einer bestimmten Controlleraktion. Sie sollten in Isolation getestet werden.
 
@@ -65,9 +65,9 @@ Ungültige Modellstatus getestet werden kann, durch Hinzufügen von Fehlern mit 
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-Der erste Test bestätigt, wenn `ModelState` ist ungültig, die gleiche `ViewResult` wird zurückgegeben, als für eine `GET` Anforderung. Beachten Sie, dass der Test nicht versucht, ein ungültiges Modell übergeben. Das wäre nicht trotzdem funktioniert, da wurden die modellbindung ausgeführt wird (obwohl eine [Integrationstest](xref:mvc/controllers/testing#integration-testing) Übung wurden die modellbindung verwenden). In diesem Fall wird die modellbindung nicht getestet wird. Diese Komponententests werden nur durch Testen der Code in der Aktionsmethode.
+Der erste Test bestätigt, wenn `ModelState` ist ungültig, die gleiche `ViewResult` wird zurückgegeben, als für eine `GET` Anforderung. Beachten Sie, dass der Test nicht versucht, ein ungültiges Modell übergeben. Das wäre nicht trotzdem funktioniert, da wurden die modellbindung ausgeführt wird (obwohl eine [Integrationstest](xref:mvc/controllers/testing#integration-testing) Übung wurden die modellbindung verwenden). In diesem Fall wird nicht die modellbindung getestet wird. Diese Komponententests werden nur durch Testen der Code in der Aktionsmethode.
 
-Im zweite Test wird überprüft, ob bei `ModelState` gültig ist, ein neues `BrainstormSession` (über das Repository) hinzugefügt wird und die Methode gibt ein `RedirectToActionResult` mit den erwarteten Eigenschaften. Mocks erstellt-Aufrufe, die aufgerufen werden, sind normalerweise ignoriert, aber das aufrufende `Verifiable` Aufruf am Ende des Setups können sie im Test überprüft werden. Dies erfolgt mit dem Aufruf von `mockRepo.Verify`, dem schlägt des Tests auf, wenn die erwartete Methode nicht aufgerufen wurde.
+Im zweite Test wird überprüft, ob bei `ModelState` gültig ist, ein neues `BrainstormSession` (über das Repository) hinzugefügt wird und die Methode gibt ein `RedirectToActionResult` mit den erwarteten Eigenschaften. Mocks erstellt-Aufrufe, die aufgerufen werden, sind normalerweise ignoriert, aber das aufrufende `Verifiable` Aufruf am Ende des Setups können sie im Test überprüft werden. Dies erfolgt mit dem Aufruf von `mockRepo.Verify`, dem schlägt des Tests auf, wenn die erwartete Methode aufgerufen wurde nicht.
 
 > [!NOTE]
 > Die Moq-Bibliothek, die in diesem Beispiel verwendete ganz einfach zum Mischen von überprüfbare oder "strict" Mocks mit nicht überprüfbar Mocks (auch als "locker" Mocks oder Stubs bezeichnet). Erfahren Sie mehr über [Anpassen des Verhaltens von Mock mit Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
@@ -121,7 +121,7 @@ Sehen Sie die `GetTestSession` in der folgenden Integrationstests häufig verwen
 Jeder Testklasse Integration konfiguriert die `TestServer` ASP.NET Core-app ausgeführt wird. Standardmäßig `TestServer` hostet die Web-app in den Ordner, in dem er ausgeführt – in diesem Fall die Test-Projektordner wird. Daher, wenn Sie versuchen, Controlleraktionen zu testen, die zurückgeben `ViewResult`, dieser Fehler vermutlich angezeigt:
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21d63b175eb52838ac9a12e33efc59fded4ed87d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 551a04296ff92e174a14bd9d2636714e823397e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a>Strategien zur Datenbankentwicklung und-Bereitstellung (c#)
 ====================
@@ -79,7 +79,7 @@ Verwalten Ihrer Änderungsprotokoll in Programmierkontext, zugegeben, nicht sehr
 
 Der primäre Nachteil des Verwalten des Änderungsprotokolls in Text ist das Fehlen der Automatisierung. Im Idealfall, implementieren die Änderungen an Datenbanken in der Produktionsdatenbank zum Zeitpunkt der Bereitstellung so einfach wie das Klicken auf eine Schaltfläche zum Ausführen eines Skripts, anstatt manuell eine Liste von Anweisungen ausführen wäre. Solche Automatisierung ist möglich durch Verwalten einer Änderungsprotokoll, die diese SQL-Befehle, die auch verwendet, um das Datenmodell enthält.
 
-Die SQL-Syntax umfasst eine Reihe von Anweisungen zum Erstellen und Ändern von verschiedenen Datenbankobjekten. Z. B. die [ *CREATE TABLE-Anweisung*](https://msdn.microsoft.com/en-us/library/ms174979.aspx), bei der Ausführung erstellt eine neue Tabelle mit den angegebenen Spalten und Einschränkungen. Die [ *ALTER TABLE-Anweisung* ](https://msdn.microsoft.com/en-us/library/ms190273.aspx) ändert eine vorhandene Tabelle hinzufügen, entfernen oder ändern die Spalten bzw. Einschränkungen. Es sind auch Anweisungen zum Erstellen, ändern und Löschen von Indizes, Sichten, benutzerdefinierte Funktionen, gespeicherte Prozeduren, Trigger und andere Datenbankobjekte.
+Die SQL-Syntax umfasst eine Reihe von Anweisungen zum Erstellen und Ändern von verschiedenen Datenbankobjekten. Z. B. die [ *CREATE TABLE-Anweisung*](https://msdn.microsoft.com/library/ms174979.aspx), bei der Ausführung erstellt eine neue Tabelle mit den angegebenen Spalten und Einschränkungen. Die [ *ALTER TABLE-Anweisung* ](https://msdn.microsoft.com/library/ms190273.aspx) ändert eine vorhandene Tabelle hinzufügen, entfernen oder ändern die Spalten bzw. Einschränkungen. Es sind auch Anweisungen zum Erstellen, ändern und Löschen von Indizes, Sichten, benutzerdefinierte Funktionen, gespeicherte Prozeduren, Trigger und andere Datenbankobjekte.
 
 Zur im Beispiel oben zurückkehren, die während der Entwicklung einer bereits bereitgestellte Anwendung, die Sie eine neue Spalte hinzufügen image der `Employees` Tabelle und eine Spalte aus der `Orders` Tabelle, und fügen Sie eine neue Tabelle (`ProductCategories`). Solche Aktionen führt zu einer Änderung Protokolldatei mit den folgenden SQL-Befehlen:
 

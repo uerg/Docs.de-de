@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Fehler (Building Real-World Cloud Apps with Azure) Überleben entwerfen
 ====================
@@ -117,14 +117,14 @@ Weitere Informationen finden Sie weiter unten Kapiteln dieser e-Book "und" den f
 
 Dokumentation:
 
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy.
-- [Azure technische Dokumentation zur Geschäftskontinuität](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx). Whitepaper von Patrick Wickline, und Jason Roth.
-- [Notfallwiederherstellung und hohe Verfügbarkeit für Azure-Anwendungen](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx). Whitepaper von Michael McKeown Hanu Kommalapati und Jason Roth.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Bereitstellungsanleitung finden Sie unter mehreren Data Center, einen Trennschalter.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy.
+- [Azure technische Dokumentation zur Geschäftskontinuität](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Whitepaper von Patrick Wickline, und Jason Roth.
+- [Notfallwiederherstellung und hohe Verfügbarkeit für Azure-Anwendungen](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Whitepaper von Michael McKeown Hanu Kommalapati und Jason Roth.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Bereitstellungsanleitung finden Sie unter mehreren Data Center, einen Trennschalter.
 - [Azure-Support - Vereinbarungen zum Servicelevel](https://azure.microsoft.com/support/legal/sla/).
-- [Geschäftskontinuität in der Azure SQL-Datenbank](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx). Dokumentation zu SQL-Datenbank hohe Verfügbarkeit und notfallwiederherstellung Wiederherstellungsfunktionen.
-- [Hohe Verfügbarkeit und Notfallwiederherstellung für SQLServer auf Azure Virtual Machines](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx).
+- [Geschäftskontinuität in der Azure SQL-Datenbank](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentation zu SQL-Datenbank hohe Verfügbarkeit und notfallwiederherstellung Wiederherstellungsfunktionen.
+- [Hohe Verfügbarkeit und Notfallwiederherstellung für SQLServer auf Azure Virtual Machines](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Videos:
 

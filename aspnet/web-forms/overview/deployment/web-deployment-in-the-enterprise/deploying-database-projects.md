@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: aef8229f2920bd026e3dbf063afb57cffb9b21d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-projects"></a>Bereitstellen von Datenbankprojekten
 ====================
@@ -65,7 +65,7 @@ Es gibt verschiedene unterschiedliche Ansätze zum Bereitstellen von Datenbankpr
 Es gibt drei wichtigsten Ansätze, die Sie verwenden können, um ein Datenbankprojekt bereitstellen:
 
 - Sie können die neue Bereitstellungsfunktion mit dem Datenbank-Projekttyp in Visual Studio 2010 verwenden. Beim Erstellen und einer Datenbankprojekt in Visual Studio 2010 bereitstellen, verwendet der Bereitstellungsprozess das Bereitstellungsmanifest, um eine SQL-basierte Bereitstellung-Datei, die spezifisch für die Buildkonfiguration zu generieren. Dadurch wird die Datenbank erstellt, wenn er nicht bereits vorhanden ist oder alle notwendigen Änderungen an der Datenbank vornehmen, wenn sie bereits vorhanden ist. Verwenden Sie SQLCMD.exe, um diese Datei auf dem Zielserver auszuführen, oder Sie können Visual Studio erstellen und führen Sie die Datei festlegen. Der Nachteil dieses Ansatzes ist, dass Sie nur über eingeschränkte Kontrolle über die bereitstellungseinstellungen haben. Sie müssen möglicherweise häufig auch so ändern Sie die SQL-Bereitstellungsdatei um umgebungsspezifische Werte bereitzustellen. Nur können Sie diesen Ansatz aus einem Computer mit Visual Studio 2010 installiert, und der Entwickler müssten kennen, und geben Sie Verbindungszeichenfolgen und Anmeldeinformationen für alle zielumgebungen.
-- Sie können die Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy) [Bereitstellen einer Datenbank als Teil eines Webanwendungsprojekts](https://msdn.microsoft.com/en-us/library/dd465343.aspx). Dieser Ansatz ist jedoch viel komplexer, wenn Sie ein Datenbankprojekt bereitstellen, anstatt eine vorhandene lokale Datenbank auf einen Zielserver einfach zu replizieren möchten. Sie können Web Deploy zum Ausführen von SQL-Bereitstellungsskript, das das Datenbankprojekt generiert, aber zu diesem Zweck konfigurieren, müssen Sie eine benutzerdefinierte WPP Targets-Datei für das Webanwendungsprojekt zu erstellen. Dadurch wird der Bereitstellungsprozess eine beträchtliche Menge an Komplexität hinzugefügt. Darüber hinaus ist Web Deploy direkt inkrementelle Updates unterstützt nicht zu vorhandenen Datenbanken. Weitere Informationen zu diesen Ansatz, finden Sie unter [die Publishing Web-Pipeline Paket Datenbankprojekt erweitern bereitgestellten SQL-Datei](https://go.microsoft.com/?linkid=9805121).
+- Sie können die Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy) [Bereitstellen einer Datenbank als Teil eines Webanwendungsprojekts](https://msdn.microsoft.com/library/dd465343.aspx). Dieser Ansatz ist jedoch viel komplexer, wenn Sie ein Datenbankprojekt bereitstellen, anstatt eine vorhandene lokale Datenbank auf einen Zielserver einfach zu replizieren möchten. Sie können Web Deploy zum Ausführen von SQL-Bereitstellungsskript, das das Datenbankprojekt generiert, aber zu diesem Zweck konfigurieren, müssen Sie eine benutzerdefinierte WPP Targets-Datei für das Webanwendungsprojekt zu erstellen. Dadurch wird der Bereitstellungsprozess eine beträchtliche Menge an Komplexität hinzugefügt. Darüber hinaus ist Web Deploy direkt inkrementelle Updates unterstützt nicht zu vorhandenen Datenbanken. Weitere Informationen zu diesen Ansatz, finden Sie unter [die Publishing Web-Pipeline Paket Datenbankprojekt erweitern bereitgestellten SQL-Datei](https://go.microsoft.com/?linkid=9805121).
 - Das Hilfsprogramm VSDBCMD können Sie die Datenbank bereitstellen über das Datenbankschema oder das Bereitstellungsmanifest. Sie können VSDBCMD.exe im ein MSBuild-Ziel aufrufen, die Sie Datenbanken als Teil einer größeren, skriptgesteuerten Bereitstellungsprozess veröffentlichen können. Sie können die Variablen in der SQLCMDVARS-Datei und viele andere Eigenschaften der von einem VSDBCMD-Befehl, der Ihnen ermöglicht, Ihre Bereitstellung für unterschiedliche Umgebungen anpassen, ohne mehrere Buildkonfigurationen erstellen, überschreiben. VSDBCMD Differenzierung stellt Funktionen bereit, was bedeutet, dass nur die erforderlichen Änderungen zum Ausrichten einer Zieldatenbank mit Datenbankschema erleichtern. VSDBCMD bietet außerdem eine Vielzahl von Befehlszeilenoptionen, die Sie eine präzisere Kontrolle über den Bereitstellungsprozess erteilen.
 
 In dieser Übersicht sehen Sie sich, dass MSBuild VSDBCMD mit den Ansatz zu einem typischen Unternehmensszenario für die Bereitstellung am besten geeignet ist:
@@ -97,7 +97,7 @@ In diesem Fall gilt Folgendes:
 - Die **/dd+** (oder **/DeployToDatabase+**) gibt an, dass eine Bereitstellung erstellen, und klicken Sie auf die zielumgebung bereitgestellt werden sollen. Bei Angabe von **/dd-**, ohne den Schalter bzw. VSDBCMD ein Bereitstellungsskript generiert, aber nicht in der zielumgebung bereitgestellt. Dieser Schalter ist oft die Quelle der zu Verwirrung und wird ausführlicher im nächsten Abschnitt erläutert.
 - Die **/script** (oder **/DeploymentScriptFile**) Switch gibt an, in dem Sie das Bereitstellungsskript generieren möchten. Dieser Wert wirkt sich nicht auf den Bereitstellungsprozess aus.
 
-Weitere Informationen zu VSDBCMD, finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) und [Vorgehensweise: Vorbereiten einer Datenbank für die Bereitstellung über eine Eingabeaufforderung mit VSDBCMD. EXE-Datei](https://msdn.microsoft.com/en-us/library/dd193258.aspx).
+Weitere Informationen zu VSDBCMD, finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx) und [Vorgehensweise: Vorbereiten einer Datenbank für die Bereitstellung über eine Eingabeaufforderung mit VSDBCMD. EXE-Datei](https://msdn.microsoft.com/library/dd193258.aspx).
 
 Ein Beispiel, wie Sie aus einer MSBuild-Projektdatei VSDBCMD verwenden können, finden Sie unter [Verständnis des Build-Prozesses](understanding-the-build-process.md). Beispiele für Datenbank-bereitstellungseinstellungen für mehrere Umgebungen zu konfigurieren, finden Sie unter [Anpassen von Datenbank-Bereitstellungen für mehrere Umgebungen](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md).
 
@@ -133,7 +133,7 @@ Wenn eine **DeployToDatabase** Eigenschaft wird angegeben, die **/dd** Switch wi
 - Wenn die **DeployToDatabase** Eigenschaft **"true"**, VSDBCMD ignoriert die Schalter und die Datenbank bereitstellen.
 - In jedem Fall, unabhängig davon, ob Sie die Datenbank als auch bereitstellen, wird ein Bereitstellungsskript generiert.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Dieses Thema liefert einen Überblick über die erstellungs-und Bereitstellung für Datenbankprojekte in Visual Studio 2010. Es wird beschrieben, wie Sie VSDBCMD.exe mit MSBuild verwenden können, um die Bereitstellung des Enterprise-Skalierung zu unterstützen.
 
@@ -145,10 +145,10 @@ Informationen zum Datenbank-Bereitstellungen anpassen, indem Sie eine separate B
 
 Die folgenden Themen auf MSDN enthalten umfassenderen Anweisungen und Hintergrundinformationen zu Visual Studio-Datenbankprojekte und den Datenbank-Bereitstellungsprozess:
 
-- [Visual Studio 2010 SQL Server-Datenbankprojekte.](https://msdn.microsoft.com/en-us/library/ff678491.aspx)
-- [Verwalten von Datenbankänderungen](https://msdn.microsoft.com/en-us/library/aa833404.aspx)
-- [Vorgehensweise: Vorbereiten einer Datenbank für die Bereitstellung über eine Eingabeaufforderung mit VSDBCMD. EXE-DATEI](https://msdn.microsoft.com/en-us/library/dd193258.aspx)
-- [Eine Übersicht über Datenbank-Build und Bereitstellung](https://msdn.microsoft.com/en-us/library/aa833165.aspx)
+- [Visual Studio 2010 SQL Server Database Projects](https://msdn.microsoft.com/library/ff678491.aspx)
+- [Verwalten von Datenbankänderungen](https://msdn.microsoft.com/library/aa833404.aspx)
+- [Vorgehensweise: Vorbereiten einer Datenbank für die Bereitstellung über eine Eingabeaufforderung mit VSDBCMD. EXE-DATEI](https://msdn.microsoft.com/library/dd193258.aspx)
+- [Eine Übersicht über Datenbank-Build und Bereitstellung](https://msdn.microsoft.com/library/aa833165.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](deploying-web-packages.md)

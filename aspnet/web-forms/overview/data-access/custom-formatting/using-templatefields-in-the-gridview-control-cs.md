@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4202f25b241a6ca115c1ffc0a80258ee96563f72
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Verwenden von TemplateFields in des GridView-Steuerelements (c#)
 ====================
@@ -158,7 +158,7 @@ Um diesem ersten Schritt abgeschlossen haben, entfernen Sie die `LastName` Bound
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>Schritt 3: Verwenden das Kalendersteuerelement mit Anzeige der`HiredDate`Feld
 
-Anzeigen von ein Datenfeldwert als Text in einem GridView ist so einfach wie mit einem BoundField. Für bestimmte Szenarien ist jedoch die Daten am besten ausgedrückt mit einem bestimmten Websteuerelement anstelle von nur-Text. Diese Anpassung der Anzeige der Daten ist mit von TemplateFields möglich. Z. B. stattdessen als Einstellungsdatum der Mitarbeiter als Text angezeigt werden, wir konnte einen Kalender anzeigen (mit [das Kalendersteuerelement](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) mit Einstellungsdatum hervorgehoben.
+Anzeigen von ein Datenfeldwert als Text in einem GridView ist so einfach wie mit einem BoundField. Für bestimmte Szenarien ist jedoch die Daten am besten ausgedrückt mit einem bestimmten Websteuerelement anstelle von nur-Text. Diese Anpassung der Anzeige der Daten ist mit von TemplateFields möglich. Z. B. stattdessen als Einstellungsdatum der Mitarbeiter als Text angezeigt werden, wir konnte einen Kalender anzeigen (mit [das Kalendersteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) mit Einstellungsdatum hervorgehoben.
 
 Um dies zu erreichen, starten Sie durch Konvertieren der `HiredDate` BoundField in ein TemplateField. Klicken Sie einfach an die GridView Smarttag wechseln Sie, und klicken Sie auf den Link Spalten bearbeiten, wie Sie die Felder (Dialogfeld). Wählen Sie die `HiredDate` BoundField- und klicken Sie auf "Konvertieren dieses Feld in ein TemplateField."
 
@@ -178,7 +178,7 @@ Um den Text durch Calendar-Steuerelement zu ersetzen, müssen bearbeiten Sie die
 **Abbildung 12**: Hinzufügen eines Kalendersteuerelements an die `HireDate` TemplateFields `ItemTemplate` ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-templatefields-in-the-gridview-control-cs/_static/image36.png))
 
 
-Zu diesem Zeitpunkt enthält jede Zeile in der GridView ein Monatskalender-Steuerelement in seiner `HiredDate` TemplateField. Allerdings die Mitarbeiter des tatsächlichen `HiredDate` Wert nicht an einer beliebigen Stelle in der Calendar-Steuerelement, verursacht jeder Monatskalender-Steuerelement an Standardeinstellung besteht im Anzeigen der aktuellen Monat und Tag festgelegt. Zur Behebung des Problems, müssen wir weisen Sie jedes Mitarbeiters `HiredDate` auf des Kalender-Steuerelements ["SelectedDate"](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) und [VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) Eigenschaften.
+Zu diesem Zeitpunkt enthält jede Zeile in der GridView ein Monatskalender-Steuerelement in seiner `HiredDate` TemplateField. Allerdings die Mitarbeiter des tatsächlichen `HiredDate` Wert nicht an einer beliebigen Stelle in der Calendar-Steuerelement, verursacht jeder Monatskalender-Steuerelement an Standardeinstellung besteht im Anzeigen der aktuellen Monat und Tag festgelegt. Zur Behebung des Problems, müssen wir weisen Sie jedes Mitarbeiters `HiredDate` auf des Kalender-Steuerelements ["SelectedDate"](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) und [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) Eigenschaften.
 
 Wählen Sie das Kalendersteuerelement Smarttag-Datenbindungen bearbeiten. Anschließend binden Sie beide `SelectedDate` und `VisibleDate` Eigenschaften der `HiredDate` Feld "Daten".
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 18d04492529e96b6c0e14f1d7a30378b4832f4c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Erstellen von Hilfeseiten für ASP.NET Web-API
 ====================
@@ -76,7 +76,7 @@ Stellen Sie außerdem sicher, dass Bereiche zu registrieren. Fügen Sie in der D
 
 ## <a name="adding-api-documentation"></a>Hinzufügen von API-Dokumentation
 
-Standardmäßig wird die Hilfe über Seiten verfügen Platzhalter-Zeichenfolgen für die Dokumentation. Sie können [XML-Dokumentationskommentare](https://msdn.microsoft.com/en-us/library/b2s063f7.aspx) die Dokumentation zu erstellen. Um dieses Feature zu aktivieren, öffnen Sie die Datei Bereiche/HelpPage/App\_Start/HelpPageConfig.cs und die auskommentierung der folgenden Zeile:
+Standardmäßig wird die Hilfe über Seiten verfügen Platzhalter-Zeichenfolgen für die Dokumentation. Sie können [XML-Dokumentationskommentare](https://msdn.microsoft.com/library/b2s063f7.aspx) die Dokumentation zu erstellen. Um dieses Feature zu aktivieren, öffnen Sie die Datei Bereiche/HelpPage/App\_Start/HelpPageConfig.cs und die auskommentierung der folgenden Zeile:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample3.cs)]
 
@@ -107,7 +107,7 @@ Die Hilfeseite liest die Zeichenfolgen aus der XML-Datei zur Laufzeit. (Wenn Sie
 Die Hilfeseiten basieren auf der Basis von der **ApiExplorer** Klasse, die Teil des Web-API-Framework ist. Die **ApiExplorer** Klasse bietet das Material für eine Hilfeseite erstellen. Für jede API **ApiExplorer** enthält ein **ApiDescription** , beschreibt die API. Zu diesem Zweck wird eine "API" als Kombination aus HTTP-Methode und der relativen URI definiert. Hier sind z. B. einige distinct-APIs:
 
 - /Api/Products abrufen
-- Abrufen Sie/API/Produkte / {Id}
+- GET /api/Products/{id}
 - Bereitstellen Sie/api /-Produkte
 
 Wenn eine Controlleraktion mehrere HTTP-Methoden unterstützt die **ApiExplorer** behandelt jede Methode als eine distinct-API.

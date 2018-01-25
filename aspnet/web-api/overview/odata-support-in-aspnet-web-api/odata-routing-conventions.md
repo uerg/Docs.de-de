@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: cd24a85a05e427f83d28cae876431d04cc295f17
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Routingkonventionen in der ASP.NET Web API 2 Odata
 ====================
@@ -65,9 +65,9 @@ Dieser Pfad übernimmt daher den Hersteller der Product-1.
 
 | Anforderung | Beispiel-URI | Aktionsname | Beispiel-Aktion |
 | --- | --- | --- | --- |
-| /Entityset abrufen | / Products | GetEntitySet oder Get | GetProducts |
-| /Entityset(key) abrufen | /Products(1) | GetEntityType oder Get | GetProduct |
-| Abrufen von /entityset (Schlüssel) / umgewandelt | / /Models.Book Products (1) | GetEntityType oder Get | GetBook |
+| GET /entityset | / Products | GetEntitySet oder Get | GetProducts |
+| GET /entityset(key) | /Products(1) | GetEntityType oder Get | GetProduct |
+| GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType oder Get | GetBook |
 
 Weitere Informationen finden Sie unter [erstellen Sie einen schreibgeschützten OData-Endpunkt](odata-v3/creating-an-odata-endpoint.md).
 
@@ -77,18 +77,18 @@ Weitere Informationen finden Sie unter [erstellen Sie einen schreibgeschützten 
 | --- | --- | --- | --- |
 | POST /entityset | / Products | PostEntityType oder Post | PostProduct |
 | PUT /entityset(key) | /Products(1) | PutEntityType oder PUT-Anforderung | PutProduct |
-| /Entityset (Schlüssel) PUT / umgewandelt | / /Models.Book Products (1) | PutEntityType oder PUT-Anforderung | PutBook |
+| /Entityset (Schlüssel) PUT / umgewandelt | /Products(1)/Models.Book | PutEntityType oder PUT-Anforderung | PutBook |
 | Patch für /entityset(key) | /Products(1) | PatchEntityType oder Patch | PatchProduct |
-| Patch für /entityset (Schlüssel) / umgewandelt | / /Models.Book Products (1) | PatchEntityType oder Patch | PatchBook |
+| Patch für /entityset (Schlüssel) / umgewandelt | /Products(1)/Models.Book | PatchEntityType oder Patch | PatchBook |
 | /Entityset(key) löschen | /Products(1) | DeleteEntityType oder Delete | DeleteProduct |
-| Löschen von /entityset (Schlüssel) / umgewandelt | / /Models.Book Products (1) | DeleteEntityType oder Delete | DeleteBook |
+| Löschen von /entityset (Schlüssel) / umgewandelt | /Products(1)/Models.Book | DeleteEntityType oder Delete | DeleteBook |
 
 **Eine Navigationseigenschaft Abfragen**
 
 | Anforderung | Beispiel-URI | Aktionsname | Beispiel-Aktion |
 | --- | --- | --- | --- |
-| GET-/entityset (Schlüssel) / Navigation | / Products (1) / Lieferanten | GetNavigationFromEntityType oder GetNavigation | GetSupplierFromProduct |
-| Abrufen Sie/Umwandlung und zur Navigation /entityset (Schlüssel) | / /Models.Book/Author Products (1) | GetNavigationFromEntityType oder GetNavigation | GetAuthorFromBook |
+| GET-/entityset (Schlüssel) / Navigation | /Products(1)/Supplier | GetNavigationFromEntityType oder GetNavigation | GetSupplierFromProduct |
+| Abrufen Sie/Umwandlung und zur Navigation /entityset (Schlüssel) | /Products(1)/Models.Book/Author | GetNavigationFromEntityType oder GetNavigation | GetAuthorFromBook |
 
 Weitere Informationen finden Sie unter [arbeiten mit Entitätsbeziehungen](odata-v3/working-with-entity-relations.md).
 
@@ -96,9 +96,9 @@ Weitere Informationen finden Sie unter [arbeiten mit Entitätsbeziehungen](odata
 
 | Anforderung | Beispiel-URI | Aktionsname |
 | --- | --- | --- |
-| POST /entityset (Schlüssel) / $links/Navigation | / Products (1) / $Links/Lieferanten | CreateLink |
-| PUT /entityset (Schlüssel) / $links/Navigation | / Products (1) / $Links/Lieferanten | CreateLink |
-| DELETE /entityset (Schlüssel) / $links/Navigation | / Products (1) / $Links/Lieferanten | DeleteLink |
+| POST /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
+| PUT /entityset (Schlüssel) / $links/Navigation | /Products(1)/$links/Supplier | CreateLink |
+| DELETE /entityset (Schlüssel) / $links/Navigation | /Products(1)/$links/Supplier | DeleteLink |
 | /Entityset(key)/$links/navigation(relatedKey) löschen | /Products/(1)/$links/Suppliers(1) | DeleteLink |
 
 Weitere Informationen finden Sie unter [arbeiten mit Entitätsbeziehungen](odata-v3/working-with-entity-relations.md).
@@ -109,15 +109,15 @@ Weitere Informationen finden Sie unter [arbeiten mit Entitätsbeziehungen](odata
 
 | Anforderung | Beispiel-URI | Aktionsname | Beispiel-Aktion |
 | --- | --- | --- | --- |
-| GET-/entityset (Schlüssel) / Eigenschaft | / Products (1) / Name | GetPropertyFromEntityType oder GetProperty | GetNameFromProduct |
-| /Entityset (Schlüssel) / Cast/Eigenschaft abrufen | / /Models.Book/Author Products (1) | GetPropertyFromEntityType oder GetProperty | GetTitleFromBook |
+| GET /entityset(key)/property | /Products(1)/Name | GetPropertyFromEntityType oder GetProperty | GetNameFromProduct |
+| /Entityset (Schlüssel) / Cast/Eigenschaft abrufen | /Products(1)/Models.Book/Author | GetPropertyFromEntityType oder GetProperty | GetTitleFromBook |
 
 **Aktionen**
 
 | Anforderung | Beispiel-URI | Aktionsname | Beispiel-Aktion |
 | --- | --- | --- | --- |
-| POST /entityset (Schlüssel) / Vorgang | / Products (1) / Rate | ActionNameOnEntityType oder ActionName | RateOnProduct |
-| /Entityset (Schlüssel) / Cast/Aktion nach der | / /Models.Book/CheckOut Products (1) | ActionNameOnEntityType oder ActionName | CheckOutOnBook |
+| POST /entityset (Schlüssel) / Vorgang | /Products(1)/Rate | ActionNameOnEntityType oder ActionName | RateOnProduct |
+| /Entityset (Schlüssel) / Cast/Aktion nach der | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType oder ActionName | CheckOutOnBook |
 
 Weitere Informationen finden Sie unter [OData-Aktionen](odata-v3/odata-actions.md).
 
@@ -147,7 +147,7 @@ Die integrierten Konventionen behandelt derzeit nicht alle möglichen OData-URIs
 
 Für beide Methoden Wenn die Konvention nicht für diese Anforderung gelten sollte die Methode null zurück.
 
-Die **OData-Pfad** Parameter darstellt, die analysierten OData Ressourcenpfad. Er enthält eine Liste von  **[OData-Pfadsegment dar](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatapathsegment.aspx)**  -Instanzen und eine für jedes Segment der Pfad der Ressource. **OData-Pfadsegment dar** ist eine abstrakte Klasse; jedes Segment-Typ wird durch eine Klasse, die abgeleitet dargestellt **OData-Pfadsegment dar**.
+Die **OData-Pfad** Parameter darstellt, die analysierten OData Ressourcenpfad. Er enthält eine Liste von  **[OData-Pfadsegment dar](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  -Instanzen und eine für jedes Segment der Pfad der Ressource. **OData-Pfadsegment dar** ist eine abstrakte Klasse; jedes Segment-Typ wird durch eine Klasse, die abgeleitet dargestellt **OData-Pfadsegment dar**.
 
 Die **ODataPath.TemplatePath** -Eigenschaft ist eine Zeichenfolge, die die Verkettung darstellt aller Pfadsegmente. Wenn der URI ist z. B. `/Products(1)/Supplier`, ist die pfadvorlage &quot;~/entityset/key/navigation&quot;. Beachten Sie, dass die Segmente direkt URI-Segmenten entsprechen nicht. Der Entitätsschlüssel (1) wird beispielsweise dargestellt, als eigene **OData-Pfadsegment dar**.
 
@@ -170,7 +170,7 @@ Notizen:
 1. Ich abgeleitet **EntitySetRoutingConvention**, da die **SelectController** Methode in dieser Klasse eignet sich für dieses neue routing-Konvention. Das bedeutet, dass ich möchte nicht erneut implementieren **SelectController**.
 2. Die Konvention gilt nur für die GET-Anforderungen, und nur, wenn die pfadvorlage ist &quot;~/entityset/key/navigation/key&quot;.
 3. Der Aktionsname ist &quot;abrufen {EntityType}&quot;, wobei *{EntityType}* ist der Typ der Navigation-Auflistung. Beispielsweise &quot;GetSupplier&quot;. Sie können eine Benennungskonvention, die Ihnen gefällt &#8212; Achten Sie einfach Ihre Controlleraktionen übereinstimmen.
-4. Die Aktion akzeptiert zwei Parameter, die mit dem Namen *Schlüssel* und *RelatedKey*. (Eine Liste der einige vordefinierte Parameternamen, finden Sie unter [ODataRouteConstants](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
+4. Die Aktion akzeptiert zwei Parameter, die mit dem Namen *Schlüssel* und *RelatedKey*. (Eine Liste der einige vordefinierte Parameternamen, finden Sie unter [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Der nächste Schritt besteht darin, die Liste der routingkonventionen neue Konvention hinzuzufügen. Dies geschieht bei der Konfiguration, wie im folgenden Code gezeigt:
 

@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb38d66bd0373159e54abf822fba9c5829774ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure-Authentifizierung
 ====================
 Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Tools für Microsoft ASP.NET für Windows Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Windows Azure-Websites](https://www.windowsazure.com/en-us/home/features/web-sites/). Sie können Windows Azure-Authentifizierung verwenden, um Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihre eigene benutzerdefinierte Windows Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
+> Tools für Microsoft ASP.NET für Windows Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Windows Azure-Websites](https://www.windowsazure.com/home/features/web-sites/). Sie können Windows Azure-Authentifizierung verwenden, um Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihre eigene benutzerdefinierte Windows Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
 > 
-> Die ASP.NET-Authentifizierung für Windows Azure-Tool wird nicht für Webrollen in einem Clouddienst unterstützt, aber wir planen die in einer zukünftigen Version dazu. [Windows Identity Foundation](https://msdn.microsoft.com/en-us/library/hh291066(v=VS.110).aspx) (WIF) wird in Windows Azure-Webrollen unterstützt.
+> Die ASP.NET-Authentifizierung für Windows Azure-Tool wird nicht für Webrollen in einem Clouddienst unterstützt, aber wir planen die in einer zukünftigen Version dazu. [Windows Identity Foundation](https://msdn.microsoft.com/library/hh291066(v=VS.110).aspx) (WIF) wird in Windows Azure-Webrollen unterstützt.
 > 
-> Ausführliche Schritte zur Einrichtung der Synchronisierung zwischen Ihrem lokalen Active Directory und Windows Azure Active Directory-Mandanten finden Sie unter [Verwenden von AD FS 2.0 zur Implementierung und Verwaltung des einmaligen Anmeldens](https://technet.microsoft.com/en-us/library/jj205462.aspx).
+> Ausführliche Schritte zur Einrichtung der Synchronisierung zwischen Ihrem lokalen Active Directory und Windows Azure Active Directory-Mandanten finden Sie unter [Verwenden von AD FS 2.0 zur Implementierung und Verwaltung des einmaligen Anmeldens](https://technet.microsoft.com/library/jj205462.aspx).
 > 
 > Windows Azure Active Directory steht derzeit als eine [frei vorschaudienst](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 
 ## <a name="requirements"></a>Anforderungen:
 
-- Visual Studio 2012 oder [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express)
+- Visual Studio 2012 oder [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)
 - [Web-Tools-Erweiterungen für Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282228&amp;clcid=0x409) oder [Web Tools-Erweiterungen für Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkID=282231&amp;clcid=0x409)
 - [Tools für Microsoft ASP.NET für Windows Azure Active Directory – Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282306) oder [Tools für Microsoft ASP.NET für Windows Azure Active Directory – Visual Studio Express 2012 für Web](https://go.microsoft.com/fwlink/?LinkId=282652)
 
@@ -157,15 +157,15 @@ Dieser Fehler kann angezeigt werden, wenn Sie zuvor erfolgreich in die mit einem
 
 ## <a name="acs20012-the-request-is-not-a-valid-ws-federation-protocol-message-opop"></a>ACS20012: Die Anforderung ist keine gültige WS-Verbund-Protokollnachricht < o: p >< / o: p >
 
-Dies kann geschehen, wenn Sie sich mit einigen anderen Microsoft-ID in eines der Azure-Dienste bereits angemeldet sind. Verwenden von benutzerdefinierten Browserfenster wie z. B. in IE InPrivate- oder Inkognito in Chrome oder deaktivieren Sie alle Cookies. < o: p >< / o: p >
+Dies kann geschehen, wenn Sie sich mit einigen anderen Microsoft-ID in eines der Azure-Dienste bereits angemeldet sind. Verwenden von benutzerdefinierten Browserfenster wie z. B. in IE InPrivate- oder Inkognito in Chrome oder deaktivieren Sie alle Cookies. <o:p></o:p>
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Tools für Microsoft ASP.NET für Windows Azure Active Directory – Visual Studio 2012](https://blogs.msdn.com/b/vbertocci/archive/2013/02/18/microsoft-asp-net-tools-for-windows-azure-active-directory-visual-studio-2012.aspx) – Vittorio Bertocci
 - [Windows Azure-Funktionen: Identität](https://docs.microsoft.com/azure/active-directory/)
-- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/en-us/library/hh967619.aspx)
+- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/library/hh967619.aspx)
 - [Windows Azure Active Directory: Entwickeln von Apps für Ihre Organisation](https://activedirectory.windowsazure.com/Develop/Single-Tenant.aspx)
 - [Windows Azure Active Directory: Entwickeln von Apps für mehrere Organisationen bereitgestellt werden](https://activedirectory.windowsazure.com/Develop/Multi-Tenant.aspx)
 - [Gewusst wie: Implementieren Sie einmaliges Anmelden mit Windows Azure Active Directory](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)
 - [Einmaliges Anmelden mit Windows Azure Active Directory: fundierte Einblicke](https://blogs.msdn.com/b/vbertocci/archive/2012/07/05/single-sign-on-with-windows-azure-active-directory-a-deep-dive.aspx) – Vittorio Bertocci
-- [Verwenden von AD FS 2.0 zur Implementierung und Verwaltung des einmaligen Anmeldens](https://technet.microsoft.com/en-us/library/jj205462.aspx)
+- [Verwenden von AD FS 2.0 zur Implementierung und Verwaltung des einmaligen Anmeldens](https://technet.microsoft.com/library/jj205462.aspx)

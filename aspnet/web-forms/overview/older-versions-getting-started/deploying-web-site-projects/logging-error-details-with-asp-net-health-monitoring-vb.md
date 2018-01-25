@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6a1533b80828532b756940d0b08fe4c6dab2d5dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95c0b72e3811dc23f8bdea180be5b20800ab3bd8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET-Systemüberwachung (VB) protokollieren Fehlerdetails
 ====================
@@ -43,13 +43,13 @@ Die Ereignisse, die das Überwachungssystem protokolliert werden, zusammen mit d
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Untersuchen die Konfiguration des Systems für die Systemüberwachung
 
-Das Verhalten des Systems für die Systemüberwachung wird durch seine Konfigurationsinformationen, befindet sich im definiert die [ `<healthMonitoring>` Element](https://msdn.microsoft.com/en-us/library/2fwh2ss9.aspx) in `Web.config`. Dieser Konfigurationsabschnitt definiert, unter anderem die folgenden drei wichtigen Arten von Informationen:
+Das Verhalten des Systems für die Systemüberwachung wird durch seine Konfigurationsinformationen, befindet sich im definiert die [ `<healthMonitoring>` Element](https://msdn.microsoft.com/library/2fwh2ss9.aspx) in `Web.config`. Dieser Konfigurationsabschnitt definiert, unter anderem die folgenden drei wichtigen Arten von Informationen:
 
 1. Die Integrität Überwachen von Ereignissen, die bei der immer dann ausgelöst, die protokolliert werden,
 2. Die Protokollquellen und
 3. Wie jedes Ereignis definiert (1) für die Systemüberwachung der Protokollquellen zugeordnet ist, definiert in (2).
 
-Diese Informationen über drei untergeordnete Konfigurationselemente angegeben wird: [ `<eventMappings>` ](https://msdn.microsoft.com/en-us/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/en-us/library/zaa41kz1.aspx), und [ `<rules>` ](https://msdn.microsoft.com/en-us/library/fe5wyxa0.aspx)zugeordnet.
+Diese Informationen über drei untergeordnete Konfigurationselemente angegeben wird: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), und [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx)zugeordnet.
 
 Die Standardeinstellung für die Integritätsüberwachung Systemkonfigurationsinformationen finden Sie in der `Web.config` Datei `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` Ordner. Diese Standard-Konfigurationsinformationen ist mit Markup entfernt aus Platzgründen wird unten gezeigt:
 
@@ -114,7 +114,7 @@ Wir aktualisieren das Buch Reviews Websitekonfiguration tritt auf, sodass wir ei
 2. Registrieren Sie die e-Mail-Quelle Protokollanbieter in der `<providers>` -Element, und
 3. Fügen Sie einen Eintrag, um die `<rules>` -Element, das Ereignis "Alle Fehler" in der Quelle Protokollanbieter hinzugefügt, die in Schritt (2) zugeordnet.
 
-Das Überwachungssystem umfasst zwei e-Mail-Protokoll-Quelle-Anbieterklassen: `SimpleMailWebEventProvider` und `TemplatedMailWebEventProvider`. Die [ `SimpleMailWebEventProvider` Klasse](https://msdn.microsoft.com/en-us/library/system.web.management.simplemailwebeventprovider.aspx) sendet eine nur-Text-e-Mail-Nachricht, die das Ereignis enthält details und wenig Anpassung von e-Mail-Nachrichtentext enthält. Mit der [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) Angabe eine ASP.NET-Seite, deren gerenderten Markups als Text der e-Mail-Nachricht verwendet wird. Die [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) bietet viel größere Kontrolle über den Inhalt und Format der e-Mail-Nachricht jedoch erfordert mehr Vorarbeiten, da Sie sich auf die ASP.NET-Seite zu erstellen, der Text der e-Mail-Nachricht generiert. Dieses Lernprogramm konzentriert sich auf die Verwendung der `SimpleMailWebEventProvider` Klasse.
+Das Überwachungssystem umfasst zwei e-Mail-Protokoll-Quelle-Anbieterklassen: `SimpleMailWebEventProvider` und `TemplatedMailWebEventProvider`. Die [ `SimpleMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) sendet eine nur-Text-e-Mail-Nachricht, die das Ereignis enthält details und wenig Anpassung von e-Mail-Nachrichtentext enthält. Mit der [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Angabe eine ASP.NET-Seite, deren gerenderten Markups als Text der e-Mail-Nachricht verwendet wird. Die [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) bietet viel größere Kontrolle über den Inhalt und Format der e-Mail-Nachricht jedoch erfordert mehr Vorarbeiten, da Sie sich auf die ASP.NET-Seite zu erstellen, der Text der e-Mail-Nachricht generiert. Dieses Lernprogramm konzentriert sich auf die Verwendung der `SimpleMailWebEventProvider` Klasse.
 
 Aktualisieren des Systems für die Systemüberwachung `<providers>` Element in der `Web.config` Datei einzufügenden eine Protokollquelle für die `SimpleMailWebEventProvider` Klasse:
 
@@ -139,7 +139,7 @@ Die `<rules>` Abschnitt enthält jetzt zwei Regeln. Der ersten Abfrage, die mit 
 
 Die ASP.NET-Systemüberwachung dient ermöglicht Administratoren bei der Überwachung einer Webanwendung bereitgestellt. Integrität Überwachungsereignisse werden ausgelöst, wenn bestimmte Aktionen zu erweitern, z. B. wenn die Anwendung beendet wird, wenn ein Benutzer erfolgreich an die Site anmeldet oder eine nicht behandelte Ausnahme auftritt. Diese Ereignisse können auf eine beliebige Anzahl von Protokollquellen protokolliert werden. Dieses Lernprogramm wurde gezeigt, wie die Details der nicht behandelten Ausnahmen in einer Datenbank und über eine e-Mail-Nachricht protokolliert wird.
 
-In diesem Lernprogramm zur Verwendung für die Integritätsüberwachung zum Melden Sie sich nicht behandelte Ausnahmen, jedoch sollten Sie bedenken, dass die Integritätsüberwachung wurde entwickelt, um die Gesamtintegrität einer bereitgestellten Anwendung für ASP.NET zu messen und enthält eine Vielzahl von Systemüberwachungsereignissen und Quellen nicht mit Fokus Hier untersucht. Was mehr ist, können Sie Ihre eigenen Ereignisse und Protokollquellen, die Integritätsüberwachung erstellen ggf. auftreten. Wenn Sie weitere Informationen zu Systemüberwachung interessiert, ist ein guter erster Schritt, zu lesen, [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)des [– häufig gestellte Fragen für die Integritätsüberwachung](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Danach finden Sie in [How To: Verwendung Systemüberwachung in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998306.aspx).
+In diesem Lernprogramm zur Verwendung für die Integritätsüberwachung zum Melden Sie sich nicht behandelte Ausnahmen, jedoch sollten Sie bedenken, dass die Integritätsüberwachung wurde entwickelt, um die Gesamtintegrität einer bereitgestellten Anwendung für ASP.NET zu messen und enthält eine Vielzahl von Systemüberwachungsereignissen und Quellen nicht mit Fokus Hier untersucht. Was mehr ist, können Sie Ihre eigenen Ereignisse und Protokollquellen, die Integritätsüberwachung erstellen ggf. auftreten. Wenn Sie weitere Informationen zu Systemüberwachung interessiert, ist ein guter erster Schritt, zu lesen, [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)des [– häufig gestellte Fragen für die Integritätsüberwachung](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Danach finden Sie in [How To: Verwendung Systemüberwachung in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx).
 
 Viel Spaß beim Programmieren!
 
@@ -147,11 +147,11 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Übersicht über die ASP.NET-Systemüberwachung](https://msdn.microsoft.com/en-us/library/bb398933.aspx)
+- [Übersicht über die ASP.NET-Systemüberwachung](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Konfigurieren und Anpassen von System von ASP.NET für die Systemüberwachung](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [Häufig gestellte Fragen – Integritätsüberwachung von ASP.NET 2.0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Gewusst wie: Senden von e-Mail-Einstellungen für Benachrichtigungen für die Integritätsüberwachung](https://msdn.microsoft.com/en-us/library/ms227553.aspx)
-- [Gewusst wie: Verwenden Sie Systemüberwachung in ASP.NET](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+- [Gewusst wie: Senden von e-Mail-Einstellungen für Benachrichtigungen für die Integritätsüberwachung](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Gewusst wie: Verwenden Sie Systemüberwachung in ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Integritätsüberwachung von ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 >[!div class="step-by-step"]

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: e5c8aac855a1f4ec4c6f08087dbe77f6820cc506
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5919c273de2a298c3e407f118ac478e6a6031332
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="partial-views"></a>Teilansichten
 
@@ -37,7 +37,7 @@ Tipp: Führen Sie die [Don't wiederholen selbst Prinzip](http://deviq.com/don-t-
 
 ## <a name="declaring-partial-views"></a>Deklarieren von Teilansichten
 
-Teilansichten werden wie jede andere Sicht erstellt: Sie erstellen eine *cshtml* innerhalb der *Ansichten* Ordner. Es gibt keine semantische Unterschied zwischen einer Teilansicht und eine reguläre Ansicht - sie werden lediglich anders gerendert. Sie können eine Sicht, die direkt von eines Controllers zurückgegeben wird `ViewResult`, und die gleiche Sicht kann verwendet werden, wie eine Teilansicht. Der Hauptunterschied zwischen wie eine Sicht und eine partielle Ansicht gerendert werden besteht darin, Teilansichten nicht ausgeführt werden *Ansichten "_viewstart.cshtml"* (während Ansichten erfahren Sie mehr über - *Ansichten "_viewstart.cshtml"* in [Layout ](layout.md)).
+Teilansichten werden wie jede andere Sicht erstellt: Sie erstellen eine *cshtml* innerhalb der *Ansichten* Ordner. Besteht kein semantische Unterschied zwischen einer Teilansicht und einer normalen Ansicht – sie können lediglich anders gerendert. Sie können eine Sicht, die direkt von eines Controllers zurückgegeben wird `ViewResult`, und die gleiche Sicht kann verwendet werden, wie eine Teilansicht. Der Hauptunterschied zwischen wie eine Sicht und eine partielle Ansicht gerendert werden kann also nicht Teilansichten ausführen *Ansichten "_viewstart.cshtml"* (während Ansichten erfahren Sie mehr über - *Ansichten "_viewstart.cshtml"* in [Layout ](layout.md)).
 
 ## <a name="referencing-a-partial-view"></a>Verweisen auf eine Teilansicht
 

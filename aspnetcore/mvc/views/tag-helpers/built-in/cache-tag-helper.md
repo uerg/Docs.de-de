@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 10aa1b493dbd0672cac789f6e48ddf2f14ba35dc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC
 
@@ -277,7 +277,7 @@ Beispiel:
 </cache>
 ```
 
-Die `priority` Attribut garantiert keinen bestimmten Grad Cache Beibehaltungsdauer. `CacheItemPriority`ist nur ein Vorschlag. Wenn dieses Attribut auf `NeverRemove` garantiert nicht, dass der Cache immer beibehalten werden. Finden Sie unter [zusätzliche Ressourcen](#additional-resources) für Weitere Informationen.
+Die `priority` Attribut eine bestimmte Ebene des Cache Aufbewahrung garantiert nicht. `CacheItemPriority`ist nur ein Vorschlag. Wenn dieses Attribut auf `NeverRemove` garantiert nicht, dass der Cache immer beibehalten werden. Finden Sie unter [zusätzliche Ressourcen](#additional-resources) für Weitere Informationen.
 
 Das Cache-Tag-Hilfsprogramm ist abhängig von der [Memory-Cachedienst](xref:performance/caching/memory). Die Cache-Tag-Hilfsprogramm wird der Dienst auf, wenn er nicht hinzugefügt wurde.
 

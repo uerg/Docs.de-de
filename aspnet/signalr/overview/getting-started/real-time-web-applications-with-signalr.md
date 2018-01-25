@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 96d3b8b82f78d8f6da85012aac8a1411cf297e26
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Praktische Übungseinheiten: Echtzeit-Webanwendungen mit SignalR
 ====================
@@ -259,11 +259,11 @@ Sie können diese Probleme beheben, indem Sie mithilfe einer Komponente namens *
 
 Es gibt derzeit drei Typen von Backplanes für SignalR zur Verfügung:
 
-- **Windows Azure-Servicebus**. Service Bus ist eine messaging-Infrastruktur, die Komponenten zum Senden von lose verbundenen Nachrichten ermöglicht.
-- **SQLServer**. Die SQL Server-Rückwandplatine schreibt Nachrichten in SQL-Tabellen. Der Rückwand verwendet Service Broker für effiziente messaging. Sie funktioniert aber auch, wenn Service Broker nicht aktiviert ist.
+- **Windows Azure Service Bus**. Service Bus ist eine messaging-Infrastruktur, die Komponenten zum Senden von lose verbundenen Nachrichten ermöglicht.
+- **SQL Server**. Die SQL Server-Rückwandplatine schreibt Nachrichten in SQL-Tabellen. Der Rückwand verwendet Service Broker für effiziente messaging. Sie funktioniert aber auch, wenn Service Broker nicht aktiviert ist.
 - **Redis**. Redis ist ein in-Memory-Schlüssel / Wert-Speicher. Redis unterstützt ein ("Pub/Sub") veröffentlichen/abonnieren-Muster für das Senden von Nachrichten.
 
-Jede Nachricht wird über einen Nachrichtenbus gesendet. Implementiert ein Nachrichtenbus der [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) -Schnittstelle, die eine Abstraktion zum Veröffentlichen/Abonnieren bereitstellt. Die Backplanes arbeiten möchten, indem Sie durch das Ersetzen der standardmäßigen **IMessageBus** mit einem Bus für diese Rückwandplatine konzipiert.
+Jede Nachricht wird über einen Nachrichtenbus gesendet. Implementiert ein Nachrichtenbus der [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) -Schnittstelle, die eine Abstraktion zum Veröffentlichen/Abonnieren bereitstellt. Die Backplanes arbeiten möchten, indem Sie durch das Ersetzen der standardmäßigen **IMessageBus** mit einem Bus für diese Rückwandplatine konzipiert.
 
 Jede Instanz eines Servers eine Verbindung mit der Rückwand über den Bus. Wenn eine Nachricht gesendet wird, geht Sie an der Rückwand, und der Rückwand sendet sie an jedem Server. Wenn ein Server eine Nachricht von der Backplane empfängt, speichert er die Nachricht im lokalen Cache. Der Server übermittelt dann Nachrichten für Clients aus dem lokalen Cache.
 

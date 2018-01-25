@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 
@@ -53,7 +53,7 @@ Ein `ContactIsOwnerAuthorizationHandler` Autorisierung-Handler wird sichergestel
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Dies ist kein Lernprogramm ab. Sie sollten mit vertraut sein:
+Dies ist ein Lernprogramm Anfang nicht. Sie sollten mit vertraut sein:
 
 * [ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
@@ -221,11 +221,11 @@ Update der *Views/Contacts/Index.cshtml* Razor-Ansicht nur anzeigen, die bearbei
 
 Hinzufügen`@using ContactManager.Authorization;`
 
-Update der `Edit` und `Delete` verknüpft, sodass sie nur für Benutzer mit Berechtigung zum Bearbeiten und löschen den Kontakt gerendert werden.
+Update der `Edit` und `Delete` verknüpft, sodass sie nur für Benutzer mit Berechtigung zum Bearbeiten und löschen den Kontakt gerendert sind.
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-Warnung: Ausblenden von Links von Benutzern, die keine Berechtigung zum Bearbeiten oder löschen Sie Daten jedoch die app nicht gesichert. Durch das Ausblenden Links wird der app mehrere Benutzer angezeigte durch Anzeigen der einzige gültige Links. Benutzer können die generierten URLs zum Aufrufen bearbeiten und Löschen von Operationen mit Daten, die sie besitzen keine hack.  Der Controller muss wiederholt werden, dass die zugriffsüberprüfungen schützen.
+Warnung: Ausblenden von Links von Benutzern, die keine Berechtigung zum Bearbeiten oder Löschen von Daten haben nicht die app sichern. Durch das Ausblenden Links wird der app mehrere Benutzer angezeigte durch Anzeigen der einzige gültige Links. Benutzer können die generierten URLs zum Aufrufen bearbeiten und Löschen von Operationen mit Daten, die sie besitzen keine hack.  Der Controller muss wiederholt werden, dass die zugriffsüberprüfungen schützen.
 
 ### <a name="update-the-details-view"></a>Die Detailansicht aktualisieren
 
@@ -304,7 +304,7 @@ Fügen Sie den hervorgehobenen Code am Ende der `Configure` Methode in der *Star
 
 [!code-csharp[Main](secure-data/samples/starter/Startup.cs?name=Configure&highlight=28-)]
 
-Testen Sie, ob die Anwendung die Datenbank mit Anfangsdaten gefüllt. Die Seed-Methode wird nicht ausgeführt, wenn alle Zeilen in den Kontakt DB vorhanden sind.
+Testen Sie, ob die Anwendung die Datenbank mit Anfangsdaten gefüllt. Die Seed-Methode nicht ausgeführt werden, wenn Zeilen vorhanden, in der Contact-DB sind.
 
 ### <a name="create-a-class-used-in-the-tutorial"></a>Erstellen Sie eine Klasse, die im Lernprogramm verwendet
 

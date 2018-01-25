@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f7ab0df2ebfa24b0928117e683325b158e3aad1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cfd0cdb0afe3bf71686715c0b1891adfbbd5019a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>Sortieren von Daten in einem DataList oder Wiederholungsmodul-Steuerelement (c#)
 ====================
@@ -81,7 +81,7 @@ Abbildung 3 zeigt diese Seite, wenn Sie über einen Browser angezeigt.
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>Schritt 3: Angewiesen wird, das ObjectDataSource beim Sortieren von Daten
 
-Zum Sortieren der Daten im Wiederholungsmodul angezeigt, müssen wir die ObjectDataSource des Sortierausdrucks zu informieren, von dem die Daten sortiert werden sollen. Bevor das ObjectDataSource seine Daten abruft, löst es zuerst die [ `Selecting` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), stellt eine Möglichkeit, einen Sortierausdruck angeben. Die `Selecting` übergebene Ereignishandler wird ein Objekt des Typs [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), die über eine Eigenschaft namens verfügt [ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) vom Typ [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx). Die `DataSourceSelectArguments` Klasse dient zum datenbezogene Anforderungen von einem Consumer der Daten an das Datenquellensteuerelement zu übergeben, und enthält eine [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Zum Sortieren der Daten im Wiederholungsmodul angezeigt, müssen wir die ObjectDataSource des Sortierausdrucks zu informieren, von dem die Daten sortiert werden sollen. Bevor das ObjectDataSource seine Daten abruft, löst es zuerst die [ `Selecting` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), stellt eine Möglichkeit, einen Sortierausdruck angeben. Die `Selecting` übergebene Ereignishandler wird ein Objekt des Typs [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), die über eine Eigenschaft namens verfügt [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) vom Typ [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). Die `DataSourceSelectArguments` Klasse dient zum datenbezogene Anforderungen von einem Consumer der Daten an das Datenquellensteuerelement zu übergeben, und enthält eine [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
 
 Um Sortierinformationen von der ASP.NET-Seite an das ObjectDataSource übergeben möchten, erstellen Sie einen Ereignishandler für das `Selecting` Ereignisses und verwenden Sie den folgenden Code:
 

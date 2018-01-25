@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: 46c1f42b925a43df470d7491a1e259ab51ea5f50
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6f335376c72cd0c68f4667cf0e661a25bf448980
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Einführung in ASP.NET Core WebSockets
 
@@ -26,7 +26,7 @@ In diesem Artikel erläutert, wie zum Einstieg in WebSockets in ASP.NET Core. Be
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-* ASP.NET Core 1.1 (wird nicht auf 1.0 ausgeführt)
+* ASP.NET Core 1.1 (nicht auf 1.0 ausgeführt)
 * Ein Betriebssystem, das auf ASP.NET Core ausgeführt wird:
   
   * Windows 7 / WindowsServer 2008 und höher

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Einführung
 ====================
@@ -53,7 +53,7 @@ Die Lernprogramme ASP.NET-Entwickler, die in Umgebungen arbeiten sollen, in dene
 Bereitstellung von [quellcodeverwaltung](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) mithilfe einer [fortlaufende Übermittlung](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) Prozess fällt nicht in diesen Lernprogrammen außer ein Lernprogramm, das zeigt, wie Sie über die Befehlszeile bereitstellen. Informationen zur kontinuierlichen Bereitstellung finden Sie unter den folgenden Ressourcen:
 
 - [Fortlaufende Integration und kontinuierlichen Bereitstellung (Building Real-World Cloud-Apps mit Windows Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Bereitstellen einer Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Bereitstellen einer Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [Bereitstellen von Webanwendungen in Enterprise-Szenarios](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (einen älteren Satz Lernprogramme, die für Visual Studio 2010, die nützliche Informationen zum Enterprise-Umgebungen wird noch geschrieben.)
 
 ## <a name="using-a-third-party-hosting-provider"></a>Verwenden einen Drittanbieter-hosting-Anbieter
@@ -130,7 +130,7 @@ Wenn Sie Visual Studio 2010 SP1 verwenden, installieren Sie die folgende Softwar
 
 - [Azure SDK für Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Datatools](https://msdn.microsoft.com/en-us/library/hh500335.aspx).
+- [SQL Server Datatools](https://msdn.microsoft.com/library/hh500335.aspx).
 
 Je nach Anzahl der SDK-Abhängigkeiten bereits auf dem Computer konnte das Azure SDK installieren, von einigen Minuten bis zu eine halbe Stunde oder länger dauert. Sie benötigen das Azure SDK, selbst wenn Sie planen, auf Drittanbieter-hosting-Anbieter anstelle von Azure zu veröffentlichen, da das SDK umfasst die neueste Updates für Visual Studio Web veröffentlichen Funktionen.
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1ea779cb10661512690e3fec16ae73be0f40d15a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity
 ====================
@@ -96,7 +96,7 @@ In der Datenzugriffsebene Geben Sie die Logik, um die Daten von ASP.NET Identity
 | Rolle Speicher | Speichert Rolleninformationen und abruft (z. B. die Rolle ""). | [RoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) |
 | Speicherung von userclaims. | Speichert und Anspruch Benutzerinformationen (z. B. den Anspruchstyp und-Wert) abruft. | [UserClaimsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) |
 | Speicherung von userlogins. | Speichert und ruft die Benutzer-Anmeldeinformationen (z. B. eines externen Authentifizierungsanbieters) ab. | [UserLoginsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) |
-| Speicher der Benutzerrollen | Speichert und ruft ab, welche Rollen ein Benutzer zugewiesen ist. | [UserRoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
+| UserRole Storage | Speichert und ruft ab, welche Rollen ein Benutzer zugewiesen ist. | [UserRoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
 
 Erneut verwenden, müssen Sie nur den Klassen implementieren, die Sie in Ihrer Anwendung verwenden möchten.
 
@@ -109,15 +109,15 @@ Nach dem Erstellen der Datenzugriffsklassen, müssen Sie die Store-Klassen erste
 <a id="user"></a>
 ## <a name="customize-the-user-class"></a>Anpassen der User-Klasse
 
-Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine Klasse entspricht der [IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
+Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine Klasse entspricht der [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
 
 Das folgende Diagramm zeigt die IdentityUser-Klasse, die Sie erstellen müssen und die Schnittstelle in dieser Klasse implementiert.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image2.png)
 
-Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die der UserManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und den Benutzernamen an. Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen die Angabe den Typ des Schlüssels für den Benutzer durch die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
+Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die der UserManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und den Benutzernamen an. Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen die Angabe den Typ des Schlüssels für den Benutzer durch die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
 
-Das Identity-Framework bietet außerdem die [IUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
+Das Identity-Framework bietet außerdem die [IUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
 
 Die Klasse IdentityUser IUser implementiert und enthält zusätzliche Eigenschaften oder Konstruktoren für Benutzer auf Ihrer Website. Das folgende Beispiel zeigt eine IdentityUser-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Feld "Id"-Wert von **Int** mit dem Wert des generischen Parameters übereinstimmen. 
 
@@ -128,7 +128,7 @@ Die Klasse IdentityUser IUser implementiert und enthält zusätzliche Eigenschaf
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>Passen Sie den Speicher des Benutzers
 
-Sie erstellen außerdem eine UserStore-Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In der UserStore-Klasse, die Sie implementieren die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx) und jede der optionalen Schnittstellen. Sie wählen die optionale Schnittstellen implementiert auf Grundlage der Funktionalität, die Sie in der Anwendung bereitstellen möchten.
+Sie erstellen außerdem eine UserStore-Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In der UserStore-Klasse, die Sie implementieren die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) und jede der optionalen Schnittstellen. Sie wählen die optionale Schnittstellen implementiert auf Grundlage der Funktionalität, die Sie in der Anwendung bereitstellen möchten.
 
 Die folgende Abbildung zeigt die UserStore-Klasse, die Sie erstellen müssen und die entsprechenden Schnittstellen.
 
@@ -153,27 +153,27 @@ Die nächste Abbildung zeigt ausführliche Informationen zu Funktionen in jede S
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **IUserStore**  
- Die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613278(v=vs.108).aspx) -Schnittstelle ist die einzige müssen Sie in Ihrem Benutzerspeicher implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
+ Die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) -Schnittstelle ist die einzige müssen Sie in Ihrem Benutzerspeicher implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
 - **IUserClaimStore**  
- Die [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613265(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zum Aktivieren von benutzeransprüchen implementieren. Es enthält die Methoden oder hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
+ Die [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zum Aktivieren von benutzeransprüchen implementieren. Es enthält die Methoden oder hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
 - **IUserLoginStore**  
- Die [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613272(v=vs.108).aspx) definiert die Methoden müssen Sie in Ihrem Benutzerspeicher So aktivieren Sie die externe Authentifizierungsanbieter implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
+ Die [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiert die Methoden müssen Sie in Ihrem Benutzerspeicher So aktivieren Sie die externe Authentifizierungsanbieter implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
 - **IUserRoleStore**  
- Die [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zur Zuordnung von Benutzern zu einer Rolle implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
+ Die [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zur Zuordnung von Benutzern zu einer Rolle implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
 - **IUserPasswordStore**  
- Die [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613273(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher persistent implementieren gehasht Kennwörter. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
+ Die [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher persistent implementieren gehasht Kennwörter. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
 - **IUserSecurityStampStore**  
- Die [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613277(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrer Benutzerspeicher einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat implementieren . Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
+ Die [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrer Benutzerspeicher einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat implementieren . Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
 - **IUserTwoFactorStore**  
- Die [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613279(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, implementieren zweistufige Authentifizierung müssen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
+ Die [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, implementieren zweistufige Authentifizierung müssen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
 - **IUserPhoneNumberStore**  
- Die [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613275(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um die Telefonnummern von Benutzern zu speichern. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
+ Die [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um die Telefonnummern von Benutzern zu speichern. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
 - **IUserEmailStore**  
- Die [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613143(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
+ Die [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
 - **IUserLockoutStore**  
- Die [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613271(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um Informationen zum Sperren eines Kontos zu speichern. Es enthält Methoden zum Abrufen der aktuellen Anzahl von zugriffsversuchsfehlern, abrufen und festlegen, ob das Konto gesperrt werden kann, abrufen und Festlegen der Sperre Enddatum, erhöht die Anzahl der fehlerhafte Anmeldeversuche und die Anzahl der gescheiterten Versuche zurückgesetzt.
+ Die [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um Informationen zum Sperren eines Kontos zu speichern. Es enthält Methoden zum Abrufen der aktuellen Anzahl von zugriffsversuchsfehlern, abrufen und festlegen, ob das Konto gesperrt werden kann, abrufen und Festlegen der Sperre Enddatum, erhöht die Anzahl der fehlerhafte Anmeldeversuche und die Anzahl der gescheiterten Versuche zurückgesetzt.
 - **IQueryableUserStore**  
- Die [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613267(v=vs.108).aspx) Schnittstelle definiert die Elemente, die Sie implementieren müssen, um einen abfragbaren benutzerpeicher bereitzustellen. Sie enthält eine Eigenschaft, die abgefragt werden Benutzer enthält.
+ Die [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) Schnittstelle definiert die Elemente, die Sie implementieren müssen, um einen abfragbaren benutzerpeicher bereitzustellen. Sie enthält eine Eigenschaft, die abgefragt werden Benutzer enthält.
 
  Implementieren Sie Schnittstellen, die erforderlich sind, in der Anwendung; z. B. Schnittstellen die IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore und IUserSecurityStampStore wie unten dargestellt. 
 
@@ -183,22 +183,22 @@ Eine vollständige Implementierung (einschließlich aller Schnittstellen), finde
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin und IdentityUserRole
 
-Der Microsoft.AspNet.Identity.EntityFramework-Namespace enthält die Implementierung der [IdentityUserClaim](https://msdn.microsoft.com/en-us/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/en-us/library/dn613251(v=vs.108).aspx), und [IdentityUserRole](https://msdn.microsoft.com/en-us/library/dn613252(v=vs.108).aspx) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre Anwendung. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Die Methode UserStore.GetClaimsAsync() kann zum Beispiel die UserClaimTable.FindByUserId(user. aufrufen. ID) Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
+Der Microsoft.AspNet.Identity.EntityFramework-Namespace enthält die Implementierung der [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), und [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre Anwendung. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Die Methode UserStore.GetClaimsAsync() kann zum Beispiel die UserClaimTable.FindByUserId(user. aufrufen. ID) Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample6.cs)]
 
 <a id="role"></a>
 ## <a name="customize-the-role-class"></a>Anpassen der Rolle ""-Klasse
 
-Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine rollenklasse entspricht der [IdentityRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
+Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine rollenklasse entspricht der [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
 
 Das folgende Diagramm zeigt die IdentityRole-Klasse, die Sie erstellen müssen und die Schnittstelle in dieser Klasse implementiert.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image5.png)
 
-Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die RoleManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und Name. Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen das Festlegen den Typ des Schlüssels für die Rolle über die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
+Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die RoleManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und Name. Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen das Festlegen den Typ des Schlüssels für die Rolle über die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
 
-Das Identity-Framework bietet außerdem die [IRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
+Das Identity-Framework bietet außerdem die [IRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
 
 Das folgende Beispiel zeigt eine IdentityRole-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Feld "Id" wird in ganzzahligen Typ festgelegt, mit dem Wert des generischen Parameters übereinstimmen. 
 
@@ -209,7 +209,7 @@ Das folgende Beispiel zeigt eine IdentityRole-Klasse, die eine ganze Zahl für d
 <a id="rolestore"></a>
 ## <a name="customize-the-role-store"></a>Anpassen der rollenspeicher
 
-Sie erstellen außerdem eine RoleStore-Klasse, die die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse entspricht dem [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/en-us/library/dn468181(v=vs.108).aspx) Klasse im Microsoft.ASP.NET.Identity.EntityFramework-Namespace. In der RoleStore-Klasse, die Sie implementieren die [IRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613266(v=vs.108).aspx) und optional die [IQueryableRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613262(v=vs.108).aspx) -Schnittstelle.
+Sie erstellen außerdem eine RoleStore-Klasse, die die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse entspricht dem [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) Klasse im Microsoft.ASP.NET.Identity.EntityFramework-Namespace. In der RoleStore-Klasse, die Sie implementieren die [IRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) und optional die [IQueryableRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) -Schnittstelle.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image6.png)
 
@@ -218,7 +218,7 @@ Das folgende Beispiel zeigt eine Rolle Store-Klasse. Der generische TRole-Parame
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
- Die [IRoleStore](https://msdn.microsoft.com/en-us/library/dn468195.aspx) Schnittstelle definiert die Methoden, die in Ihrer Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
+ Die [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) Schnittstelle definiert die Methoden, die in Ihrer Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
 - **RoleStore&lt;TRole&gt;**  
  Zum RoleStore anpassen, erstellen Sie eine Klasse, die IRoleStore-Schnittstelle implementiert. Sie müssen nur diese Klasse implementieren, wenn Rollen auf Ihrem System verwendet werden soll. Der Konstruktor, einen Parameter namens akzeptiert *Datenbank* des Typs ExampleDatabase nur eine Abbildung wie in der Data Access-Klasse übergeben wird. So dauert beispielsweise in der MySQL-Implementierung dieser Konstruktor einen Parameter vom Typ MySQLDatabase.  
   

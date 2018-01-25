@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003a22d4b0d9400f3e9effe0892d2d7e03704cde
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Einführung in die Tag-Hilfsprogramme in ASP.NET Core 
 
@@ -22,7 +22,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Was sind Hilfen Tag?
 
-Tag-Hilfsprogrammen aktivieren serverseitiger Code zu erstellen und das rendering von HTML-Elementen in Razor-Dateien teilnehmen. Z. B. die integrierten `ImageTagHelper` eine Versionsnummer an den Namen des Abbilds angefügt werden können. Bei jeder Änderung der Image generiert der Server eine neue eindeutige Version für das Bild aus, damit Clients sichergestellt, dass werden das aktuelle Bild (statt eine veraltete zwischengespeicherte Image). Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erstellen von Formularen, Links, Laden von Ressourcen und weitere- und sogar noch stärker verfügbar in öffentlichen GitHub-Repositorys und als NuGet-Pakete. Tag-Hilfsprogramme in c# erstellt wurden, und sie Zielen auf HTML-Elemente, die basierend auf Elementnamen, Attributnamen oder übergeordneten Tags. Z. B. die integrierten `LabelTagHelper` paketaktualisierungen HTML `<label>` Element bei der `LabelTagHelper` Attribute angewendet werden. Wenn Sie sich mit vertraut [HTML-Hilfsmethoden](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), Tag Hilfen zu reduzieren, die explizite Übergänge zwischen HTML und c# in Razor-Ansichten. In vielen Fällen HTML-Hilfsmethoden bieten eine alternative Methode in einer bestimmten Tag-Hilfsprogramm, aber es ist wichtig zu wissen, dass die Tag-Hilfsprogrammen HTML-Hilfsmethoden nicht ersetzen, und es ist keines Tag-Hilfsprogramms für jedes HTML-Hilfsobjekt. [Tag-Hilfsprogramme, die im Vergleich zu HTML-Hilfsmethoden](#tag-helpers-compared-to-html-helpers) werden die Unterschiede im Detail erläutert.
+Tag-Hilfsprogrammen aktivieren serverseitiger Code zu erstellen und das rendering von HTML-Elementen in Razor-Dateien teilnehmen. Z. B. die integrierten `ImageTagHelper` eine Versionsnummer an den Namen des Abbilds angefügt werden können. Bei jeder Änderung der Image generiert der Server eine neue eindeutige Version für das Bild aus, damit Clients sichergestellt, dass werden das aktuelle Bild (statt eine veraltete zwischengespeicherte Image). Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erstellen von Formularen, Links, Laden von Ressourcen und weitere- und sogar noch stärker verfügbar in öffentlichen GitHub-Repositorys und als NuGet-Pakete. Tag-Hilfsprogramme in c# erstellt wurden, und sie Zielen auf HTML-Elemente, die basierend auf Elementnamen, Attributnamen oder übergeordneten Tags. Z. B. die integrierten `LabelTagHelper` paketaktualisierungen HTML `<label>` Element bei der `LabelTagHelper` Attribute angewendet werden. Wenn Sie sich mit vertraut [HTML-Hilfsmethoden](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), Tag Hilfen zu reduzieren, die explizite Übergänge zwischen HTML und c# in Razor-Ansichten. In vielen Fällen HTML-Hilfsmethoden bieten eine alternative Methode in einer bestimmten Tag-Hilfsprogramm, aber es ist wichtig zu wissen, dass Tag Hilfsprogramme nicht HTML-Hilfsmethoden ersetzen, und es keines Tag-Hilfsprogramms für jedes HTML-Hilfsobjekt ist. [Tag-Hilfsprogramme, die im Vergleich zu HTML-Hilfsmethoden](#tag-helpers-compared-to-html-helpers) werden die Unterschiede im Detail erläutert.
 
 ## <a name="what-tag-helpers-provide"></a>Was Tag Hilfsvorlagen können
 
@@ -192,7 +192,7 @@ generiert:
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-Die in Kamel-Schreibweise Satz Schreibweise Inhalt wird nicht verwendet werden, wenn Sie Inhalt hinzuzufügen der `<label>`. Zum Beispiel:
+Die in Kamel-Schreibweise auf Inhalte Satz-Schreibweise angegeben wird nicht verwendet, wenn Sie Inhalt zum Hinzufügen der `<label>`. Zum Beispiel:
 
 ![Bild](intro/_static/1stName.png)
 
@@ -222,7 +222,7 @@ Betrachten Sie die *E-Mail* Gruppe:
 
 [!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
 
-Jedes Attribut "Asp-" hat einen Wert von "Email", aber "Email" ist keine Zeichenfolge. In diesem Kontext ist "Email" die C#-Modell Expression-Eigenschaft für die `RegisterViewModel`.
+Jedes Attribut "Asp-" hat einen Wert von "Email", "Email" ist eine Zeichenfolge jedoch. In diesem Kontext ist "Email" die C#-Modell Expression-Eigenschaft für die `RegisterViewModel`.
 
 Der Visual Studio-Editor unterstützt Sie beim Schreiben **alle** von Markup im Tag Helper Ansatz des Formulars registrieren, während Visual Studio keine Hilfe für den Großteil des Codes in der HTML-Hilfsmethoden Ansatz bietet. [IntelliSense-Unterstützung für Tag Hilfsprogramme](#intellisense-support-for-tag-helpers) wechselt in Details zum Arbeiten mit Hilfsprogrammen Tag in der Visual Studio-Editor.
 

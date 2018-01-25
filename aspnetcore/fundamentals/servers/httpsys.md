@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 60301e1e3eb96f51e86ef9f8be61f5fd8a4c009c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6fc356d8ecc1b699269286f244000b493e48a2c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys webserverimplementierung in ASP.NET Core
 
@@ -140,7 +140,7 @@ Ist in Visual Studio das Standardprofil für den Start für IIS Express. Um das 
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>Zu URL-Präfixe registrieren und Konfigurieren von SSL
 
-Sowohl IIS als auch HTTP.sys basieren auf den zugrunde liegenden Http.Sys-Kernelmodustreiber zum Abhören von Anforderungen, und der ersten Verarbeitung. In IIS bietet die Verwaltungsbenutzeroberfläche eine relativ einfache Möglichkeit, alles zu konfigurieren. Allerdings müssen Sie Http.Sys selbst konfigurieren. Die integriertes Tool, d. h. dafür *netsh.exe*. 
+Sowohl IIS als auch HTTP.sys basieren auf den zugrunde liegenden Http.Sys-Kernelmodustreiber zum Abhören von Anforderungen, und der ersten Verarbeitung. In IIS bietet die Verwaltungsbenutzeroberfläche eine relativ einfache Möglichkeit, alles zu konfigurieren. Allerdings müssen Sie Http.Sys selbst konfigurieren. Die integrierten Tool für die auf diese Weise die *netsh.exe*. 
 
 Mit *netsh.exe* können Sie reservieren von URL-Präfixe und Zuweisen von SSL-Zertifikate. Die Tools sind Administratorrechte erforderlich.
 

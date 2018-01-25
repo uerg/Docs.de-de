@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 14e245f5fd25079b4ee1dee566ca451f955a8b25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Benutzerdefinierte Schaltflächen im DataList und Repeater (VB)
 ====================
@@ -114,17 +114,17 @@ In diesem Beispiel legen Sie die s LinkButton `CommandName` Eigenschaft ShowProd
 
 Wenn die Schaltfläche klicken, wird ein Postback erfolgt und die s DataList oder Repeater `ItemCommand` Ereignis ausgelöst wird. Der Ereignishandler wird die Schaltfläche "s" übergeben `CommandName` und `CommandArgument` Werte.
 
-Erstellen Sie einen Ereignishandler für die Repeater s `ItemCommand` Ereignis, und beachten Sie den zweiten Parameter an den Ereignishandler übergeben (mit dem Namen `e`). Diese zweite Parameter ist vom Typ [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) und verfügt über die folgenden vier Eigenschaften:
+Erstellen Sie einen Ereignishandler für die Repeater s `ItemCommand` Ereignis, und beachten Sie den zweiten Parameter an den Ereignishandler übergeben (mit dem Namen `e`). Diese zweite Parameter ist vom Typ [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) und verfügt über die folgenden vier Eigenschaften:
 
 - `CommandArgument`der Wert von der Schaltfläche s `CommandArgument` Eigenschaft
 - `CommandName`der Wert der Schaltfläche s `CommandName` Eigenschaft
 - `CommandSource`Ein Verweis auf das Schaltflächen-Steuerelement, auf die geklickt wurde
-- `Item`Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein`RepeaterItem`
+- `Item`Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein`RepeaterItem`
 
 Seit der ausgewählten Kategorie s `CategoryID` über übergeben der `CommandArgument` -Eigenschaft, wir können den Satz von Produkten in der ausgewählten Kategorie zugeordnet der `ItemCommand` -Ereignishandler. Diese Produkte können in einem BulletedList-Steuerelement gebunden werden die `ItemTemplate` (die wir noch hinzuzufügende Ve). Alle, die verbleibt, besteht im Hinzufügen der BulletedList, verweisen sie in der `ItemCommand` -Ereignishandler, und binden, welche Produkte für die ausgewählte Kategorie, die wir in Schritt 4 konfigurieren müssen.
 
 > [!NOTE]
-> DataList-s `ItemCommand` übergebene Ereignishandler wird ein Objekt des Typs [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), welcher bietet die gleichen vier Eigenschaften wie die `RepeaterCommandEventArgs` Klasse.
+> DataList-s `ItemCommand` übergebene Ereignishandler wird ein Objekt des Typs [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), welcher bietet die gleichen vier Eigenschaften wie die `RepeaterCommandEventArgs` Klasse.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Schritt 4: Anzeigen der ausgewählten Kategorieprodukte in einer Liste mit Aufzählungszeichen
@@ -169,4 +169,4 @@ Viel Spaß beim Programmieren!
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Dennis Patterson. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](custom-buttons-in-the-datalist-and-repeater-cs.md)
+[Vorherige](custom-buttons-in-the-datalist-and-repeater-cs.md)

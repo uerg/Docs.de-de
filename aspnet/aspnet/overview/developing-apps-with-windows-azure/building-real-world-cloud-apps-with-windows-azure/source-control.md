@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelements (Building Real-World Cloud Apps with Azure)
 ====================
@@ -137,9 +137,9 @@ Alle quellcodeverwaltungsumgebung können Sie um die Verzweigung DevOps-Struktur
 
 [Git](http://git-scm.com/) ist ein DVCS, das sehr beliebte geworden ist. Wenn Sie Git für die quellcodeverwaltung verwenden, müssen Sie eine vollständige Kopie des Repositorys mit allen dessen Verlauf auf dem lokalen Computer. Viele bevorzugen, weil das einfacher ist weiterarbeiten, wenn Sie nicht mit dem Netzwerk verbunden – können Sie weiterhin führen Sie ein Commit und Rollbacks, erstellen und Verzweigungen wechseln und so weiter. Auch wenn Sie mit dem Netzwerk verbunden sind, ist es einfacher und schneller zum Erstellen von Verzweigungen und Verzweigungen wechseln, wenn alles lokal ist. Sie können auch auf lokalen Commit- oder Rollbackvorgängen vorgehen, ohne Auswirkungen auf andere Entwickler. Und Sie können in Batches Commits vor dem Senden an den Server.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), früher bekannt als Team Foundation-Dienst bietet sowohl Git und [Team Foundation-Versionskontrolle](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx) (TFVC; zentralisierte Steuerung der Quelle). Hier verwenden einige Teams bei Microsoft in der Azure-Gruppe zentrale Datenquellen-Steuerelements, einige verteilt, verwenden und einige eine Mischung aus (bei einigen Projekten zentralisierte und verteilt, die für andere Projekte) verwenden. VSO-Diensts ist für bis zu 5 Benutzer kostenlos. Sie können für eine kostenlose Plan registrieren [hier](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), früher bekannt als Team Foundation-Dienst bietet sowohl Git und [Team Foundation-Versionskontrolle](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; zentralisierte Steuerung der Quelle). Hier verwenden einige Teams bei Microsoft in der Azure-Gruppe zentrale Datenquellen-Steuerelements, einige verteilt, verwenden und einige eine Mischung aus (bei einigen Projekten zentralisierte und verteilt, die für andere Projekte) verwenden. VSO-Diensts ist für bis zu 5 Benutzer kostenlos. Sie können für eine kostenlose Plan registrieren [hier](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 umfasst integrierte erstrangige [Git Unterstützung](https://msdn.microsoft.com/en-us/library/hh850437.aspx); hier ist eine schnelle Demo, die Funktionsweise von.
+Visual Studio 2013 umfasst integrierte erstrangige [Git Unterstützung](https://msdn.microsoft.com/library/hh850437.aspx); hier ist eine schnelle Demo, die Funktionsweise von.
 
 Ein Projekt in Visual Studio 2013 geöffnet, Maustaste die Projektmappe in **Projektmappen-Explorer**, und wählen Sie **Projektmappe zur Quellcodeverwaltung hinzufügen**.
 
@@ -171,11 +171,11 @@ Welche Änderungen können Sie ganz leicht erkennen, nehmen und Sie sie eincheck
 
 Angenommen, müssen Sie eine Verzweigung –, können Sie dies in Visual Studio zu tun. In **Team Explorer**, klicken Sie auf **neue Verzweigung**.
 
-![Team Explorer neue Verzweigung](source-control/_static/image16.png)
+![Team Explorer New Branch](source-control/_static/image16.png)
 
 Geben Sie einen Namen für die Verzweigung, klicken Sie auf **Verzweigung erstellen**, und bei Auswahl **Auschecken Verzweigung**, Visual Studio automatisch auscheckt der neuen Verzweigung.
 
-![Team Explorer neue Verzweigung](source-control/_static/image17.png)
+![Team Explorer New Branch](source-control/_static/image17.png)
 
 Sie können jetzt nehmen Sie Änderungen an Dateien und in diese Verzweigung einchecken. Und Sie können problemlos zwischen Verzweigungen und Visual Studio automatisch synchronisiert, die die Dateien, je nachdem, was Sie zu verzweigen ausgecheckt haben. In diesem Beispiel wird die Webseite im Titel  *\_Layout.cshtml* wurde geändert in "Hotfix 1" in HotFix1 Verzweigung.
 
@@ -187,7 +187,7 @@ Wenn Sie in der Master zurückwechseln verzweigen, den Inhalt der  *\_Layout.csh
 
 Diese ein einfaches Beispiel, wie Sie schnell eine Verzweigung erstellen und zwischen Verzweigungen hin-und spiegeln. Dieses Feature ermöglicht einen hoch agilen Workflow verwenden die Verzweigungsstruktur und Automatisierungsskripts dargestellt wird, der [automatisieren alles](automate-everything.md) Kapitel. Sie können z. B. werden in die Development-Verzweigung arbeiten, Erstellen einer Hotfix-Verzweigung aus Master, wechseln Sie zu der neuen Verzweigung, nehmen Sie die Änderungen vorhanden und commit, und wechseln Sie zurück zur Development-Verzweigung und fortfahren, was Sie tun.
 
-Hier gesehen ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung mithilfe von Push übertragen Sie in der Regel auch ändert sich in einem gemeinsamen Repository. Visual Studio-Tools aktivieren Sie auf einem remote-Git-Repository zu verweisen. Sie können "github.com" zu diesem Zweck verwenden oder können Sie [Git in Visual Studio Online](https://msdn.microsoft.com/en-us/library/hh850437.aspx) mit allen anderen Visual Studio Online Funktionen wie z. B. Arbeitsaufgabe und fehlernachverfolgung integriert.
+Hier gesehen ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung mithilfe von Push übertragen Sie in der Regel auch ändert sich in einem gemeinsamen Repository. Visual Studio-Tools aktivieren Sie auf einem remote-Git-Repository zu verweisen. Sie können "github.com" zu diesem Zweck verwenden oder können Sie [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) mit allen anderen Visual Studio Online Funktionen wie z. B. Arbeitsaufgabe und fehlernachverfolgung integriert.
 
 Dies ist nicht die einzige Möglichkeit, die einem agile Verzweigungsstrategie natürlich implementiert werden können. Sie können die gleichen agilen Workflow über eine zentrale Quellcodeverwaltungs-Repository aktivieren.
 
@@ -202,14 +202,14 @@ Die [Visual Studio Online](https://www.visualstudio.com/) Portal bietet Dokument
 
 Weitere Informationen zu TFVC (zentrale Version Control) und Git (distributed Version Control) finden Sie unter den folgenden Ressourcen:
 
-- [Welche Versionskontrollsystem sollten verwenden: TFVC oder Git?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN-Dokumentation enthält eine Tabelle, die die Unterschiede zwischen TFVC und Git.
+- [Welche Versionskontrollsystem sollten verwenden: TFVC oder Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN-Dokumentation enthält eine Tabelle, die die Unterschiede zwischen TFVC und Git.
 - [Nun, möchte ich, dass Team Foundation Server und möchte ich, Git, aber dies ist eine bessere?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Vergleich von Git- und TFVC.
 
 Weitere Informationen zu verzweigen Strategien finden Sie unter den folgenden Ressourcen:
 
-- [Erstellen einer Releasepipeline mit Team Foundation Server 2012](https://msdn.microsoft.com/en-us/library/dn449957.aspx). Microsoft Patterns and Practices-Dokumentation. Finden Sie in Kapitel 6 Nähere Informationen zur Verzweigung Strategien. Befürworter-Funktion über die Funktion Verzweigungen schaltet und wenn Verzweigungen für Funktionen verwendet werden, Fürsprecher halten sie kurzlebige (Stunden oder Tage höchstens).
+- [Erstellen einer Releasepipeline mit Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns and Practices-Dokumentation. Finden Sie in Kapitel 6 Nähere Informationen zur Verzweigung Strategien. Befürworter-Funktion über die Funktion Verzweigungen schaltet und wenn Verzweigungen für Funktionen verwendet werden, Fürsprecher halten sie kurzlebige (Stunden oder Tage höchstens).
 - [Version-Steuerelement Handbuch](https://aka.ms/vsarsolutions). Führen Sie zu verzweigen Strategien von ALM Rangers. Finden Sie auf der Registerkarte "Downloads" in der Verzweigung Strategies.pdf.
-- [Softwareentwicklung mit dem Feature schaltet](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx). MSDN Magazine-Artikel.
+- [Softwareentwicklung mit dem Feature schaltet](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN Magazine-Artikel.
 - [Funktion zum ein-/ausschalten](http://martinfowler.com/bliki/FeatureToggle.html). Einführung in die Funktion schaltet / Funktion kennzeichnet Fowlers-Blog.
 - [Schaltet Vs Feature Verzweigungen Feature](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Eine andere Blogbeitrag zu Feature-Schaltet von Dylan Smith.
 

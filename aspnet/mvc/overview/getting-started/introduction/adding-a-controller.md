@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 878d957344a08450b82b0249d8ca2a205810da4a
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-controller"></a>Hinzufügen eines Controllers
 ====================
@@ -82,7 +82,7 @@ Nehmen wir das Beispiel etwas so ändern, dass einige Parameterinformationen aus
 [!code-csharp[Main](adding-a-controller/samples/sample3.cs)]
 
 > [!NOTE]
-> Sicherheitshinweis: Der Code oben verwendet [HttpUtility.HtmlEncode durchführen](https://msdn.microsoft.com/en-us/library/ee360286(v=vs.110).aspx) zum Schützen der Anwendung von böswillige Eingaben (d. h. "JavaScript"). Weitere Informationen finden Sie unter [How to: Protect Against Script Exploits in einer Web-Anwendung durch Anwenden von HTML-Codierung in Zeichenfolgen](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=vs.100).aspx).
+> Sicherheitshinweis: Der Code oben verwendet [HttpUtility.HtmlEncode durchführen](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) zum Schützen der Anwendung von böswillige Eingaben (d. h. "JavaScript"). Weitere Informationen finden Sie unter [How to: Protect Against Script Exploits in einer Web-Anwendung durch Anwenden von HTML-Codierung in Zeichenfolgen](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx).
 
 
  Führen Sie die Anwendung, und navigieren Sie zu der Beispiel-URL (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). Sie können versuchen, verschiedene Werte für `name` und `numtimes` in der URL. Die [Bindungssystem für ASP.NET MVC-Modell](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) ordnet automatisch die benannten Parameter aus der Abfragezeichenfolge in der Adressleiste den Parametern der Methode.

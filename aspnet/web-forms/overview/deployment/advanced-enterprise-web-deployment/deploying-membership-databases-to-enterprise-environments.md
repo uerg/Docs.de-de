@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Bereitstellen von Datenbanken Mitgliedschaft in Enterprise-Umgebungen
 ====================
@@ -44,8 +44,8 @@ Leider wurde für ASP.NET Membership Datenbanken bestimmten Herausforderungen, d
 
 Verwenden Sie diese Richtlinien, wenn Sie eine Mitgliedschaftsdatenbank in einer Server-unternehmensumgebung bereitstellen auswählen:
 
-- Nach Möglichkeit sollten Sie die Mitgliedschaft Datenbanken nicht bereitstellen. Erstellen Sie stattdessen die Mitgliedschaftsdatenbank manuell auf dem Zielserver für die Datenbank. Wenn Sie das Datenbankschema Mitgliedschaft angepasst haben, können Sie einfach erstellen ein neues Konto in situ auf dem Ziel mithilfe der [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
-- Keine Option jedoch auf bereitstellen, eine Mitgliedschaftsdatenbank & #x 2014; haben z. B. Wenn Sie das Datenbankschema & #x 2014; eine umfangreiche Änderungen vorgenommen haben Sie sollten eine Schema only Bereitstellung Ausführen der Mitgliedschaftsdatenbank Benutzerkontodaten, ausschließen und Führen Sie ein Skript nach der Bereitstellung, um alle erforderlichen Konfigurationsdaten hinzuzufügen. Umfassende Anleitung finden Sie auf diese Ansätze in [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+- Nach Möglichkeit sollten Sie die Mitgliedschaft Datenbanken nicht bereitstellen. Erstellen Sie stattdessen die Mitgliedschaftsdatenbank manuell auf dem Zielserver für die Datenbank. Wenn Sie das Datenbankschema Mitgliedschaft angepasst haben, können Sie einfach erstellen ein neues Konto in situ auf dem Ziel mithilfe der [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
+- Keine Option jedoch auf bereitstellen, eine Mitgliedschaftsdatenbank & #x 2014; haben z. B. Wenn Sie das Datenbankschema & #x 2014; eine umfangreiche Änderungen vorgenommen haben Sie sollten eine Schema only Bereitstellung Ausführen der Mitgliedschaftsdatenbank Benutzerkontodaten, ausschließen und Führen Sie ein Skript nach der Bereitstellung, um alle erforderlichen Konfigurationsdaten hinzuzufügen. Umfassende Anleitung finden Sie auf diese Ansätze in [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 Es ist wichtig zu beachten, dass *das Schema der Mitgliedschaftsdatenbank ist wahrscheinlich relativ statisch sein*. Auch wenn Sie die Mitgliedschaftsdatenbank angepasst haben, ist es unwahrscheinlich, dass Sie zum Aktualisieren des Schemas auf eine regelmäßige & #x 2014 müssen; es ist nicht mit der gleichen Häufigkeit wie der Code in einer Webanwendung oder ein Datenbankprojekt ändern möchten. Daher müssen Sie darf kein automatisierte oder einstufiger-bereitstellungstechnologien die Mitgliedschaftsdatenbank einschließt.
 
@@ -57,16 +57,16 @@ Die Alternative ist die Verwendung des Hilfsprogramms VSDBCMD um das Schema der 
 
 Sie können diese allgemeinen Schritte aus verwenden, um ein Datenbankschema Mitgliedschaft aktualisieren:
 
-1. Verwenden Sie die VSDBCMD **Import** Aktion aus, um eine DBSCHEMA-Datei für die Quelldatenbank für die Mitgliedschaft zu generieren. Hierin wird beschrieben, [Vorgehensweise: Importieren eines Schemas von einer Eingabeaufforderung](https://msdn.microsoft.com/en-us/library/dd172135.aspx).
-2. Verwenden Sie die VSDBCMD **bereitstellen** Aktion aus, um die DBSCHEMA-Datei für Ihre Mitgliedschaft Zieldatenbank bereitstellen. Hierin wird beschrieben, [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+1. Verwenden Sie die VSDBCMD **Import** Aktion aus, um eine DBSCHEMA-Datei für die Quelldatenbank für die Mitgliedschaft zu generieren. Hierin wird beschrieben, [Vorgehensweise: Importieren eines Schemas von einer Eingabeaufforderung](https://msdn.microsoft.com/library/dd172135.aspx).
+2. Verwenden Sie die VSDBCMD **bereitstellen** Aktion aus, um die DBSCHEMA-Datei für Ihre Mitgliedschaft Zieldatenbank bereitstellen. Hierin wird beschrieben, [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschriebenen einige der Herausforderungen, die Sie möglicherweise stoßen, wenn Sie ASP.NET Membership-Datenbanken in verschiedenen zielumgebungen bereitstellen müssen. Insbesondere erläutert es Warum Schema only-Bereitstellungen die Mitgliedschaftsdatenbank in einen nicht betriebsfähigen Zustand belassen werden, und warum Bereitstellen von Benutzerdaten-Konto nicht unterstützt wird. Das Thema präsentiert auch Anleitungen zum Bereitstellen, bereitstellen und Aktualisieren von Mitgliedschaft Datenbanken in verschiedenen Szenarien.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Hinweise und Beispiele zur Verwendung von VSDBCMD finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) und [Vorgehensweise: Importieren eines Schemas von einer Eingabeaufforderung](https://msdn.microsoft.com/en-us/library/dd172135.aspx). Weitere Informationen zur Verwendung von Aspnet\_regsql.exe zum Erstellen von Datenbanken von Mitgliedschaft, finden Sie unter [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx). Allgemeineren Leitfaden zum Bereitstellen von Mitgliedschaft Datenbanken finden Sie unter [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+Weitere Hinweise und Beispiele zur Verwendung von VSDBCMD finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx) und [Vorgehensweise: Importieren eines Schemas von einer Eingabeaufforderung](https://msdn.microsoft.com/library/dd172135.aspx). Weitere Informationen zur Verwendung von Aspnet\_regsql.exe zum Erstellen von Datenbanken von Mitgliedschaft, finden Sie unter [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Allgemeineren Leitfaden zum Bereitstellen von Mitgliedschaft Datenbanken finden Sie unter [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Zurück](deploying-database-role-memberships-to-test-environments.md)

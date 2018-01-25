@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cd3343f58cbb9bb868d15a91152f07444c2bd68e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurieren eines Webservers für Web Deploy-Veröffentlichung (Offline Bereitstellung)
 ====================
@@ -60,7 +60,7 @@ In diesem Thema erfahren Sie, wie Sie jede der folgenden Verfahren ausführen. A
 - Der Server hat eine statische IP-Adresse.
 
 > [!NOTE]
-> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="install-products-and-components"></a>Produkte und Komponenten installieren
@@ -103,7 +103,7 @@ In diesem Fall müssen Sie Folgendes installieren:
 11. Überprüfen Sie die Lizenzbedingungen, und wenn Sie den Bedingungen zustimmen, klicken Sie auf **ich stimme**.
 12. Wenn die Installation abgeschlossen ist, klicken Sie auf **Fertig stellen**, und schließen Sie dann die **Web Platform Installer 3.0** Fenster.
 
-Wenn Sie .NET Framework 4.0 vor der Installation von IIS installiert haben, müssen Sie zum Ausführen der [ASP.NET IIS-Registrierungstool](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (Aspnet\_regiis.exe) auf die neueste Version von ASP.NET bei IIS registrieren. Wenn Sie nicht dies tun, Sie werden feststellen, dass IIS statischer Inhalte (z. B. HTML-Dateien bereitstellen) ohne Probleme zurückgegeben **HTTP-Fehler 404.0 – Nichtgefunden** beim Versuch, den ASP.NET-Inhalt, durchsuchen. Das nächste Verfahren können Sie sicherstellen, dass ASP.NET 4.0 registriert ist.
+Wenn Sie .NET Framework 4.0 vor der Installation von IIS installiert haben, müssen Sie zum Ausführen der [ASP.NET IIS-Registrierungstool](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (Aspnet\_regiis.exe) auf die neueste Version von ASP.NET bei IIS registrieren. Wenn Sie nicht dies tun, Sie werden feststellen, dass IIS statischer Inhalte (z. B. HTML-Dateien bereitstellen) ohne Probleme zurückgegeben **HTTP-Fehler 404.0 – Nichtgefunden** beim Versuch, den ASP.NET-Inhalt, durchsuchen. Das nächste Verfahren können Sie sicherstellen, dass ASP.NET 4.0 registriert ist.
 
 **Um ASP.NET 4.0 bei IIS registrieren**
 
@@ -149,7 +149,7 @@ Es gibt zwar keine beenden Sie aus der Bereitstellung von Inhalt auf der Standar
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image4.png)
 
     > [!NOTE]
-    > In einer produktionsumgebung möchten Sie wahrscheinlich zum Hosten Ihrer Website an Port 80 und Konfigurieren eines Hostheaders, zusammen mit übereinstimmenden DNS-Datensätzen. Weitere Informationen zum Konfigurieren von Hostheadern in IIS 7 finden Sie unter [Konfigurieren eines Hostheaders für eine Website (IIS 7)](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Weitere Informationen zu den DNS-Serverrolle in Windows Server 2008 R2, finden Sie unter [DNS-Server (Übersicht)](https://technet.microsoft.com/en-gb/library/cc770392.aspx) und [DNS-Server](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > In einer produktionsumgebung möchten Sie wahrscheinlich zum Hosten Ihrer Website an Port 80 und Konfigurieren eines Hostheaders, zusammen mit übereinstimmenden DNS-Datensätzen. Weitere Informationen zum Konfigurieren von Hostheadern in IIS 7 finden Sie unter [Konfigurieren eines Hostheaders für eine Website (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Weitere Informationen zu den DNS-Serverrolle in Windows Server 2008 R2, finden Sie unter [DNS-Server (Übersicht)](https://technet.microsoft.com/en-gb/library/cc770392.aspx) und [DNS-Server](https://technet.microsoft.com/windowsserver/dd448607).
 9. In der **Aktionen** Bereich unter **Site bearbeiten**, klicken Sie auf **Bindungen**.
 10. In der **Sitebindungen** (Dialogfeld), klicken Sie auf **hinzufügen**.
 
@@ -193,8 +193,8 @@ Der am häufigsten verwendete Ansatz ist die Zuweisung von Berechtigungen für d
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. In der **Benutzer oder Gruppen auswählen** Geben Sie im Dialogfeld **IIS\_IUSRS**, klicken Sie auf **Namen überprüfen**, und klicken Sie dann auf **OK**.
-6. In der **Berechtigungen für***[Ordnername]* (Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die **lesen &amp; ausführen**, **Ordner auflisten Inhalt**, und **lesen** Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf **OK**.
-7. Klicken Sie auf **OK** schließen die *[Ordnername]***Eigenschaften** (Dialogfeld).
+6. In der **Berechtigungen für *** [Ordnername]* (Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die **lesen &amp; ausführen**, **Ordnerinhalt auflisten**, und **Lesen** Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf **OK**.
+7. Klicken Sie auf **OK** schließen die *[Ordnername] *** Eigenschaften** (Dialogfeld).
 
 ## <a name="disable-the-remote-agent-service"></a>Deaktivieren Sie den Remote-Agent-Dienst
 
@@ -218,7 +218,7 @@ Sie können beenden und deaktivieren einen Dienst auf verschiedene Weise mit ver
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image10.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 An diesem Punkt ist Ihrem Webserver für offline Bereitstellung von Paketen bereit. Bevor Sie versuchen, Webpaketen in einer IIS-Website importieren, sollten Sie überprüfen Sie die folgenden wichtigen Punkte:
 

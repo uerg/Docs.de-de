@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Einführung in ASP.NET Core-Modul
 
@@ -38,9 +38,9 @@ Hier wird ein Diagramm, das die Beziehung zwischen ANCM, IIS und ASP.NET Core An
 
 ![ASP.NET Core Module](aspnet-core-module/_static/ancm.png)
 
-Anforderungen aus dem Internet stammen, und drücken Kernelmodustreiber Http.Sys, der Sie in IIS auf dem primären Ports (80) oder SSL-Port (Port 443) weiterleitet. ANCM leitet die Anforderungen an die ASP.NET Core-Anwendung über die HTTP-Port für die Anwendung, die nicht 80/443 port ist konfiguriert.
+Anforderungen aus dem Internet stammen, und drücken Kernelmodustreiber Http.Sys, der Sie in IIS auf dem primären Ports (80) oder SSL-Port (Port 443) weiterleitet. ANCM leitet die Anforderungen an die ASP.NET Core-Anwendung über die HTTP-Port für die Anwendung, die Port ist nicht konfiguriert 80/443.
 
-Kestrel überwacht Datenverkehr aus ANCM.  ANCM gibt den Port, über die Umgebungsvariable beim Start und die [UseIISIntegration](#call-useiisintegration) Methode konfiguriert den Server zum Lauschen an `http://localhost:{port}`. Es gibt zusätzliche Überprüfungen, um Anfragen nicht ANCM abgelehnt werden. (ANCM unterstützt keine HTTPS weiterleiten, damit Anforderungen über HTTP weitergeleitet werden, selbst wenn von IIS über HTTPS erhalten hat.)
+Kestrel überwacht Datenverkehr aus ANCM.  ANCM gibt den Port, über die Umgebungsvariable beim Start und die [UseIISIntegration](#call-useiisintegration) Methode konfiguriert den Server zum Lauschen an `http://localhost:{port}`. Es gibt zusätzliche Überprüfungen, um Anfragen nicht ANCM abgelehnt werden. (ANCM keine HTTPS-Weiterleitung nicht unterstützen, damit Anforderungen über HTTP weitergeleitet werden, selbst wenn von IIS über HTTPS erhalten hat.)
 
 Kestrel ANCM ein Anforderungen übernommen und stellt diese in die Middleware-Pipeline von ASP.NET Core, dann verarbeitet sie und übergibt diese als `HttpContext` -Instanzen, die Anwendungslogik. Die Anwendung Antworten werden dann zurück an IIS, welche Push-Vorgänge übergeben, die sie an den HTTP-Client zurück, die die Anforderungen initiiert.
 

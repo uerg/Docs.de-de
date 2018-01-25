@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: ac780c6cd522f9216cafe3b5f23772ef6ebf5d11
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Bereitstellen von Datenbank-Rollenmitgliedschaften für Testumgebungen
 ====================
@@ -87,7 +87,7 @@ Im Idealfall würden Sie alle erforderlichen Transact-SQL-Skripts als Teil eines
 
 
 > [!NOTE]
-> Weitere Informationen zu Befehlszeilenoptionen von "Sqlcmd", finden Sie unter [Hilfsprogramms "Sqlcmd"](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+> Weitere Informationen zu Befehlszeilenoptionen von "Sqlcmd", finden Sie unter [Hilfsprogramms "Sqlcmd"](https://msdn.microsoft.com/library/ms162773.aspx).
 
 
 Bevor Sie diesen Befehl in einer MSBuild-Ziel einbetten, müssen Sie berücksichtigen, unter welchen Bedingungen das Skript ausgeführt werden soll:
@@ -124,13 +124,13 @@ Schließlich, vergessen Sie nicht, die Ziel aufzurufen. In der *Publish.proj* Da
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample5.xml)]
 
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben eine Möglichkeit, in dem Sie hinzufügen können Datenbankbenutzer und Rollenmitgliedschaften als eine Aktion nach der Bereitstellung, wenn Sie ein Datenbankprojekt bereitstellen. Dies ist in der Regel hilfreich, wenn Sie regelmäßig neu, eine Datenbank in einer testumgebung erstellen, aber es in der Regel vermieden werden, sollte Wenn Sie Datenbanken auf Staging-oder produktionsumgebung bereitstellen. Daher sollten Sie sicherstellen, dass Sie die erforderliche bedingte Logik verwenden, sodass Datenbankbenutzer und Rollenmitgliedschaften nur erstellt werden, wenn er dazu geeignet ist.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zur Verwendung von VSDBCMD Datenbankprojekte bereitstellen, finden Sie unter [Datenbankprojekte bereitstellen](../web-deployment-in-the-enterprise/deploying-database-projects.md). Anleitungen zum Anpassen von Datenbank-Bereitstellungen für unterschiedliche zielumgebungen finden Sie unter [Anpassen von Datenbank-Bereitstellungen für mehrere Umgebungen](customizing-database-deployments-for-multiple-environments.md). Weitere Informationen finden Sie unter benutzerdefinierte MSBuild-Projektdateien um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Weitere Informationen zu Befehlszeilenoptionen von "Sqlcmd", finden Sie unter [Hilfsprogramms "Sqlcmd"](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+Weitere Informationen zur Verwendung von VSDBCMD Datenbankprojekte bereitstellen, finden Sie unter [Datenbankprojekte bereitstellen](../web-deployment-in-the-enterprise/deploying-database-projects.md). Anleitungen zum Anpassen von Datenbank-Bereitstellungen für unterschiedliche zielumgebungen finden Sie unter [Anpassen von Datenbank-Bereitstellungen für mehrere Umgebungen](customizing-database-deployments-for-multiple-environments.md). Weitere Informationen finden Sie unter benutzerdefinierte MSBuild-Projektdateien um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Weitere Informationen zu Befehlszeilenoptionen von "Sqlcmd", finden Sie unter [Hilfsprogramms "Sqlcmd"](https://msdn.microsoft.com/library/ms162773.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](customizing-database-deployments-for-multiple-environments.md)

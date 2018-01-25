@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: db29c3382895ef4d7efc3a686fa558189c8788de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4fe77769c27dd46967da2e1d68791d7142021d99
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Verstehen und Behandeln von Lebensdauer Verbindungsereignisse in SignalR 1.x
 ====================
@@ -44,14 +44,14 @@ Dieser Artikel enthält folgende Abschnitte:
 - [Einstellungen für Timeouts und "Keepalive"](#timeoutkeepalive)
 
     - [ConnectionTimeout](#connectiontimeout)
-    - ["Disconnecttimeout"](#disconnecttimeout)
-    - ["Keepalive"](#keepalive)
+    - [DisconnectTimeout](#disconnecttimeout)
+    - [KeepAlive](#keepalive)
     - [So ändern Sie die Einstellungen für Timeouts und "Keepalive"](#changetimeout)
 - [Gewusst wie: Benachrichtigung des Benutzers zu trennen](#notifydisconnect)
 - [Wiederherstellen der Verbindung fortlaufend](#continuousreconnect)
 - [Einen Client im Servercode Trennen der Verbindung](#disconnectclientfromserver)
 
-Links zu API-Referenzthemen sind auf die .NET 4.5-Version der API. Wenn Sie .NET 4 verwenden, finden Sie unter [.NET 4-Version der API-Themen](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+Links zu API-Referenzthemen sind auf die .NET 4.5-Version der API. Wenn Sie .NET 4 verwenden, finden Sie unter [.NET 4-Version der API-Themen](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="terminology"></a>
 
@@ -175,13 +175,13 @@ Diese Einstellung gilt nur beim Keepalive-Funktionalität deaktiviert die bezieh
 
 <a id="disconnecttimeout"></a>
 
-### <a name="disconnecttimeout"></a>"Disconnecttimeout"
+### <a name="disconnecttimeout"></a>DisconnectTimeout
 
 Diese Einstellung steht für die Zeitspanne, die gewartet wird, nachdem eine transportverbindung verloren, vor dem Auslösen gegangen ist der `Disconnected` Ereignis. Der Standardwert ist 30 Sekunden. Bei Festlegung `DisconnectTimeout`, `KeepAlive` automatisch auf 1/3 des festgelegt die `DisconnectTimeout` Wert.
 
 <a id="keepalive"></a>
 
-### <a name="keepalive"></a>"Keepalive"
+### <a name="keepalive"></a>KeepAlive
 
 Diese Einstellung steht für die Zeitdauer vor dem Senden eines Keepalive-Pakets über eine Verbindung im Leerlauf gewartet. Der Standardwert ist 10 Sekunden. Dieser Wert darf nicht mehr als 1/3 des sein der `DisconnectTimeout` Wert.
 

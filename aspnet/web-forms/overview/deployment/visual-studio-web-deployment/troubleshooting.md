@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 2d416432aad9d5654aefd8c63b84b6ae18967515
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Problembehandlung
 ====================
@@ -31,8 +31,8 @@ Diese Seite beschreibt einige allgemeine Probleme, die auftreten können, wenn S
 
 Die Szenarien gezeigt gelten für Azure und Drittanbieter-Hostinganbieter. Weitere Informationen zur Problembehandlung in Azure App Service-Web-apps finden Sie unter den folgenden Ressourcen:
 
-- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
-- [Überwachen von Web-Apps in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor//)
+- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Überwachen von Web-Apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
 - [Die Version von Windows Azure SDK 2.0 für .NET Ankündigung](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgus Blog verwenden, zeigt, wie beim Abrufen der Diagnoseprotokolle in Visual Studio)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Serverfehler in '/' Anwendung - aktuellen Fehlereinstellungen für benutzerdefinierte verhindern, dass die Details des Fehlers Remote angezeigt wird
@@ -180,7 +180,7 @@ System.Data.SqlClient.SqlException: Datenbank "Datenbankname" von der Anmeldung 
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Der Name des der *mdf* Datei kann nicht mit dem Namen einer beliebigen SQL Server Express-Datenbank, die jemals auf Ihrem Computer vorhanden ist übereinstimmen, auch wenn Sie gelöscht der *mdf* Datei bereits vorhandene Datenbank. Ändern Sie den Namen des der *mdf* Datei in einen Namen, die nie als Datenbanknamen und Änderung verwendet wurde die *"Web.config"* zu den neuen Namen zu verwendende Datei an. Als Alternative können Sie [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) gelöscht zuvor vorhandenen SQL Server Express-Datenbanken.
+Der Name des der *mdf* Datei kann nicht mit dem Namen einer beliebigen SQL Server Express-Datenbank, die jemals auf Ihrem Computer vorhanden ist übereinstimmen, auch wenn Sie gelöscht der *mdf* Datei bereits vorhandene Datenbank. Ändern Sie den Namen des der *mdf* Datei in einen Namen, die nie als Datenbanknamen und Änderung verwendet wurde die *"Web.config"* zu den neuen Namen zu verwendende Datei an. Als Alternative können Sie [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) gelöscht zuvor vorhandenen SQL Server Express-Datenbanken.
 
 ## <a name="model-compatibility-cannot-be-checked"></a>Modell Kompatibilität können nicht überprüft werden
 
@@ -192,7 +192,7 @@ Die modellkompatibilität kann nicht überprüft werden, da die Datenbank keine 
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Wenn der Name der Datenbank, die Sie in der Datei "Web.config" gesteckt je verwendet wurde, bevor auf Ihrem Computer eine Datenbank mit einigen Tabellen in der sie möglicherweise schon vorhanden sind. Wählen Sie einen neuen Namen, die auf Ihrem Computer vor und die Änderung nicht verwendet wurde die *"Web.config"* Datei, zeigen Sie auf diesem neuen Datenbanknamen verwenden. Als Alternative können Sie [SQL Server Express-Hilfsprogramm](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990) oder [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) beim Löschen der vorhandenen Datenbank.
+Wenn der Name der Datenbank, die Sie in der Datei "Web.config" gesteckt je verwendet wurde, bevor auf Ihrem Computer eine Datenbank mit einigen Tabellen in der sie möglicherweise schon vorhanden sind. Wählen Sie einen neuen Namen, die auf Ihrem Computer vor und die Änderung nicht verwendet wurde die *"Web.config"* Datei, zeigen Sie auf diesem neuen Datenbanknamen verwenden. Als Alternative können Sie [SQL Server Express-Hilfsprogramm](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) oder [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) beim Löschen der vorhandenen Datenbank.
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>SQL-Fehler, wenn ein Skript versucht, das Erstellen von Benutzern oder Rollen
 
@@ -210,7 +210,7 @@ Berechtigung zum Erstellen von Benutzern bzw. Rollen keine für das Benutzerkont
 
 [!code-console[Main](troubleshooting/samples/sample9.cmd)]
 
-Informationen dazu, wie das PreSource-Element in der Projektdatei bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in der Projektdatei](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx). Wenn die Benutzer oder Rollen in der Entwicklungsdatenbank in der Zieldatenbank werden müssen, wenden Sie sich an Ihrem Hostinganbieter, um Unterstützung zu erhalten.
+Informationen dazu, wie das PreSource-Element in der Projektdatei bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in der Projektdatei](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Wenn die Benutzer oder Rollen in der Entwicklungsdatenbank in der Zieldatenbank werden müssen, wenden Sie sich an Ihrem Hostinganbieter, um Unterstützung zu erhalten.
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>SQL Server-Timeoutfehler beim Ausführen von benutzerdefinierten Skripts während der Bereitstellung
 
@@ -220,7 +220,7 @@ Sie während der Bereitstellung auszuführenden benutzerdefinierten SQL-Skripts 
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Mehrere Skripts mit verschiedenen Transaktionsmodi ausgeführt, kann zu Timeout-Fehlern führen. Standardmäßig automatisch generierten Skripts, die in einer Transaktion ausgeführt, aber benutzerdefinierte Skripts nicht der Fall. Bei Auswahl der **Daten und/oder Schema aus einer vorhandenen Datenbank mithilfe von Pull** option die **SQL packen/veröffentlichen** Registerkarte, wenn Sie ein benutzerdefinierte SQL-Skript hinzufügen, müssen Sie transaktionseinstellungen für einige Skripts ändern, damit Alle Skripts verwenden die gleichen transaktionseinstellungen. Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen einer Datenbank mit einem Webanwendungsprojekt](https://msdn.microsoft.com/en-us/library/dd465343.aspx).
+Mehrere Skripts mit verschiedenen Transaktionsmodi ausgeführt, kann zu Timeout-Fehlern führen. Standardmäßig automatisch generierten Skripts, die in einer Transaktion ausgeführt, aber benutzerdefinierte Skripts nicht der Fall. Bei Auswahl der **Daten und/oder Schema aus einer vorhandenen Datenbank mithilfe von Pull** option die **SQL packen/veröffentlichen** Registerkarte, wenn Sie ein benutzerdefinierte SQL-Skript hinzufügen, müssen Sie transaktionseinstellungen für einige Skripts ändern, damit Alle Skripts verwenden die gleichen transaktionseinstellungen. Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen einer Datenbank mit einem Webanwendungsprojekt](https://msdn.microsoft.com/library/dd465343.aspx).
 
 Wenn Sie transaktionseinstellungen konfiguriert haben, sodass alle identisch sind, aber diese Fehlermeldung weiterhin erhalten, ist eine mögliche problemumgehung die Skripts separat ausführen. In der **Datenbankskripts** Raster in die **packen/veröffentlichen** Registerkarte "SQL", Deaktivieren der **Include** Kontrollkästchen für das Skript, das den Timeoutfehler verursacht hat, dann das Projekt veröffentlichen. Kehren Sie zurück in die **Datenbankskripts** Raster, wählen Sie dieses Skripts **Include** Kontrollkästchen, und Deaktivieren der **Include** Kontrollkästchen für die anderen Skripts. Klicken Sie dann veröffentlichen Sie das Projekt erneut. Dieses Mal beim Veröffentlichen, wird nur die ausgewählten benutzerdefinierten Skripts ausgeführt.
 
@@ -280,7 +280,7 @@ Der bereitgestellte Standort verfügt nicht über *amd64* und *X86* Unterordner 
 
 Bereitstellung einer Anwendung, die Entity Framework Code First-Migrationen und einem DBMS z. B. SQL Server Compact verwendet wird, das die Datenbank in einer Datei in die App speichert\_Datenordner. Sie müssen Code First-Migrationen so konfiguriert, dass um die Datenbank nach der ersten Bereitstellung zu erstellen. Wenn Sie die Anwendung ausführen, erhalten Sie eine Fehlermeldung wie im folgenden Beispiel:
 
-Der Pfad ist ungültig. Überprüfen Sie das Verzeichnis für die Datenbank an. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf]
+Der Pfad ist ungültig. Überprüfen Sie das Verzeichnis für die Datenbank an. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf ]
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
@@ -309,7 +309,7 @@ Publishing schlägt fehl mit Fehler, der angibt berechtigt nicht, Berechtigungen
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für den Standortordner auf Ihre Richtigkeit, und müssen nicht festgelegt werden, deaktivieren Sie dieses Verhalten durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für den Standortordner auf Ihre Richtigkeit, und müssen nicht festgelegt werden, deaktivieren Sie dieses Verhalten durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>"Zugriff verweigert" Fehler, wenn die Anwendung versucht, in einen Anwendungsordner zu schreiben
 
@@ -319,7 +319,7 @@ Ihre Anwendungsfehler beim Erstellen oder Bearbeiten einer Datei in einem Anwend
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung Schreibzugriff auf ein Unterordner benötigt, können Sie Berechtigungen für diesen Ordner als im Ordner und Bereitstellen von der Einstellung für die Produktionsumgebung Lernprogramme in dieser Serie gezeigt festlegen. Wenn Ihre Anwendung Schreibzugriff auf den Stammordner der Website benötigt, müssen Sie verhindern, dass nur-Lese-Zugriff auf den Stammordner festlegen, durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung Schreibzugriff auf ein Unterordner benötigt, können Sie Berechtigungen für diesen Ordner als im Ordner und Bereitstellen von der Einstellung für die Produktionsumgebung Lernprogramme in dieser Serie gezeigt festlegen. Wenn Ihre Anwendung Schreibzugriff auf den Stammordner der Website benötigt, müssen Sie verhindern, dass nur-Lese-Zugriff auf den Stammordner festlegen, durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -333,7 +333,7 @@ Die "TargetFramework"-Attribut in der &lt;Kompilierung&gt; -Element der Datei "W
 
 Das Feld Quellfehler die Fehlerseite nennt die folgende Zeile aus der Datei "Web.config" als die Ursache des Fehlers:
 
-&lt;Kompilierung TargetFramework = "4,5" /&gt;
+&lt;compilation targetFramework="4.5" /&gt;
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
@@ -341,7 +341,7 @@ Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbiete
 
 Wenn Sie eine ASP.NET 4 oder früher Webprojekt mit dem gleichen Ziel bereitstellen, wählen Sie die **entfernen weiterer Dateien am Ziel** Kontrollkästchen auf der **Einstellungen** auf der Registerkarte die **"Web veröffentlichen"**Assistenten. Wenn Sie nicht auswählen **entfernen weiterer Dateien am Ziel**, werden Sie weiterhin erhalten, die Seite "Fehler bei der Konfiguration".
 
-Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für ein Ziel-Framework, aber Sie können nicht das Problem beheben, indem Sie nur ändern, die von **.NET Framework 4.5** auf **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt verfügen weiterhin über Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell die Verweise ändern oder Erstellen eines neuen Projekts, das .NET Framework 4 oder früher ausgerichtet ist. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx).
+Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für ein Ziel-Framework, aber Sie können nicht das Problem beheben, indem Sie nur ändern, die von **.NET Framework 4.5** auf **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt verfügen weiterhin über Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell die Verweise ändern oder Erstellen eines neuen Projekts, das .NET Framework 4 oder früher ausgerichtet ist. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 ## <a name="medium-trust-errors"></a>Mittlere Vertrauensstellungsfehler
 
@@ -378,4 +378,4 @@ Der angeforderte Inhalt Skript und wird nicht vom Handler für statische Dateien
 ASP.NET 4.5 möglicherweise nicht auf Ihrem Computer installiert werden. Sehen Sie die Schritte in der Bereitstellung in IIS als eine Testumgebung Lernprogramm dieser Reihe, die erläutern, wie ASP.NET 4.5 installiert.
 
 >[!div class="step-by-step"]
-[Zurück](deploying-extra-files.md)
+[Vorherige](deploying-extra-files.md)

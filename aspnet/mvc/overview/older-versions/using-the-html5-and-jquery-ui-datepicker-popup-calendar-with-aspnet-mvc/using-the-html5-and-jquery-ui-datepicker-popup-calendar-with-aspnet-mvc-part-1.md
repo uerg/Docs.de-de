@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 9320c8a2aadb3b3c5bd6cd90b59d8a72db384c0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b5507021af47d96c29809c9830d0558f5501f87
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>Verwenden des HTML5 und jQuery UI Datepicker-Popupkalenders mit ASP.NET MVC – Teil 1
 ====================
@@ -51,7 +51,7 @@ Fügen Sie Vorlagen (insbesondere bearbeiten und Anzeigevorlagen) für die einfa
 
 Hier ist Sie lernen:
 
-- Gewusst wie: Verwenden von Attributen aus der [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) Namespace zu steuern das Format der Daten aus, wenn er angezeigt wird und wenn befindet sich im Bearbeitungsmodus befindet.
+- Gewusst wie: Verwenden von Attributen aus der [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Namespace zu steuern das Format der Daten aus, wenn er angezeigt wird und wenn befindet sich im Bearbeitungsmodus befindet.
 - Erstellen von Vorlagen (bearbeiten und Anzeigevorlagen) zum Steuern der Formatierung von Daten.
 - Gewusst wie: Hinzufügen der [jQuery UI Datepicker](http://jqueryui.com/demos/datepicker/) als eine Möglichkeit, Datumsfelder einzugeben.
 
@@ -67,7 +67,7 @@ In **Projektmappen-Explorer**, doppelklicken Sie auf die *Views\Shared\\_Layout.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image3.png)
 
-Die Formatierung für das Datum und der Preis ist das Ergebnis der Verwendung der [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) -Attribut auf Eigenschaften von der `Movie` Klasse.
+Die Formatierung für das Datum und der Preis ist das Ergebnis der Verwendung der [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) -Attribut auf Eigenschaften von der `Movie` Klasse.
 
 Öffnen der *Movie.cs* Datei, und kommentieren Sie dann die `DisplayFormat` -Attribut auf die `ReleaseDate` und `Price` Eigenschaften. Das resultierende `Movie` Klasse sieht wie folgt aus:
 
@@ -79,11 +79,11 @@ Drücken Sie STRG + F5, um die Anwendung auszuführen, und wählen Sie die **Hom
 
 ### <a name="using-the-dataannotations-datatype-attribute-to-specify-the-data-type"></a>Verwenden der DataAnnotations DataType-Attributs, um den Datentyp anzugeben
 
-Ersetzen Sie den auskommentierten `DisplayFormat` -Attribut für die `ReleaseDate` Eigenschaft mit der [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut mit der `Date` Enumeration. Ersetzen der `DisplayFormat` -Attribut für die `Price` Eigenschaft mit der [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut erneut, diese Zeit mit der `Currency` Enumeration. Dies ist der vollständige Code ähnelt:
+Ersetzen Sie den auskommentierten `DisplayFormat` -Attribut für die `ReleaseDate` Eigenschaft mit der [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut mit der `Date` Enumeration. Ersetzen der `DisplayFormat` -Attribut für die `Price` Eigenschaft mit der [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) -Attribut erneut, diese Zeit mit der `Currency` Enumeration. Dies ist der vollständige Code ähnelt:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/samples/sample2.cs)]
 
-Führen Sie die Anwendung aus. Nun werden das Veröffentlichungsdatum und Preis Eigenschaften richtig formatiert (die entsprechenden Formate für Datum und Währung verwendet). Die [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) Attribut Typmetadaten für den integrierten ASP.NET MVC stellt Vorlagen bereit, damit die Felder im richtigen Format rendern. Mithilfe der `DataType` Attribut ist vorzuziehen, mit der `DisplayFormat` -Attribut, das ursprünglich im Code, da wurde die `DataType` Attribut macht das Modell für Zwecke wie Internationalisierung flexibler und übersichtlicher.
+Führen Sie die Anwendung aus. Nun werden das Veröffentlichungsdatum und Preis Eigenschaften richtig formatiert (die entsprechenden Formate für Datum und Währung verwendet). Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Attribut Typmetadaten für den integrierten ASP.NET MVC stellt Vorlagen bereit, damit die Felder im richtigen Format rendern. Mithilfe der `DataType` Attribut ist vorzuziehen, mit der `DisplayFormat` -Attribut, das ursprünglich im Code, da wurde die `DataType` Attribut macht das Modell für Zwecke wie Internationalisierung flexibler und übersichtlicher.
 
 Im nächsten Abschnitt sehen Sie, wie Sie benutzerdefinierte Vorlagen Date-Felder angezeigt werden sollen.
 

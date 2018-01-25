@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d0b76c06495c51df3ed0f61cd318507a05240392
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von SQL Server Compact-Datenbanken – 2 von 12
 ====================
@@ -37,17 +37,17 @@ Für den Datenbankzugriff erfordert die Universität von Contoso-Anwendung die f
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (Datenbankmodul).
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (die ermöglichen des ASP.NET-Mitgliedschaftssystem mit SQL Server Compact)
-- [Entity Framework 5.0](https://msdn.microsoft.com/en-us/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First mit Migrationen).
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First mit Migrationen).
 
 Der Datenbankstruktur und einige (nicht alle) der Daten in der Anwendung zwei Datenbanken müssen ebenfalls bereitgestellt werden. In der Regel, wie Sie eine Anwendung entwickeln, geben Sie Testdaten in eine Datenbank, die Sie nicht auf einem live-Website bereitstellen möchten. Sie können jedoch auch einige Produktionsdaten eingeben, die Sie bereitstellen möchten. In diesem Lernprogramm konfigurieren Sie die University Contoso-Projekt, damit die erforderliche Software und die richtigen Daten enthalten sind, bei der Bereitstellung.
 
 Hinweis: Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, wenn Sie das Lernprogramm absolvieren, müssen Sie überprüfen die [Website](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
-## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Compact im Vergleich zu SQL Server Express
+## <a name="sql-server-compact-versus-sql-server-express"></a>SQL Server Compact versus SQL Server Express
 
 Die beispielanwendung verwendet SQL Server Compact 4.0. Diese Datenbank-Engine ist eine relativ neue Option für Websites. frühere Versionen von SQL Server Compact funktionieren nicht in einer Web-hosting-Umgebung. SQL Server Compact bietet einige Vorteile im Vergleich zu den gängigeren Szenario mit SQL Server Express Entwicklung und Bereitstellung in der Vollversion von SQL Server. Je nach den gewählten Hostinganbieter SQL Server Compact günstiger bereitstellen, möglicherweise einige Anbieter zusätzlicher zur Unterstützung einer vollständigen SQL Server-Datenbank in Rechnung zu stellen. Es gibt keine zusätzlichen Gebühren für SQL Server Compact auf, da das Datenbankmodul selbst als Teil der Webanwendung bereitgestellt werden kann.
 
-Allerdings sollten Sie auch Einschränkungen bewusst sein. SQL Server Compact unterstützt gespeicherte Prozeduren, Trigger, Sichten oder Replikation nicht. (Eine vollständige Liste der SQL Server-Funktionen, die von SQL Server Compact nicht unterstützt werden, finden Sie unter [Unterschiede zwischen SQL Server Compact und SQL Server](https://msdn.microsoft.com/en-us/library/bb896140.aspx).) Darüber hinaus funktionieren einige der Tools, die Sie, zum Bearbeiten von Schemas und Daten in SQL Server Express und SQL Server-Datenbanken verwenden können nicht mit SQL Server Compact. Sie können keine z. B. SQL Server Management Studio oder SQL Server Data Tools in Visual Studio mit SQL Server Compact-Datenbanken verwenden. Sie haben die anderen Optionen für die Arbeit mit SQL Server Compact-Datenbanken:
+Allerdings sollten Sie auch Einschränkungen bewusst sein. SQL Server Compact unterstützt gespeicherte Prozeduren, Trigger, Sichten oder Replikation nicht. (Eine vollständige Liste der SQL Server-Funktionen, die von SQL Server Compact nicht unterstützt werden, finden Sie unter [Unterschiede zwischen SQL Server Compact und SQL Server](https://msdn.microsoft.com/library/bb896140.aspx).) Darüber hinaus funktionieren einige der Tools, die Sie, zum Bearbeiten von Schemas und Daten in SQL Server Express und SQL Server-Datenbanken verwenden können nicht mit SQL Server Compact. Sie können keine z. B. SQL Server Management Studio oder SQL Server Data Tools in Visual Studio mit SQL Server Compact-Datenbanken verwenden. Sie haben die anderen Optionen für die Arbeit mit SQL Server Compact-Datenbanken:
 
 - Sie können Server-Explorer in Visual Studio die begrenzte Bearbeitung-Funktionalität für SQL Server Compact bietet.
 - Können Sie die Manipulation Datenbankfunktion von [WebMatrix](https://www.microsoft.com/web/webmatrix/), die über mehr Funktionen als Server-Explorer verfügt.
@@ -77,11 +77,11 @@ Erstellen Sie das Projekt, und klicken Sie dann im **Projektmappen-Explorer** kl
 
 Erweitern Sie die **"bin"** sehen die **amd64** und **X86** Ordner, und wählen Sie dann die Ordner, mit der rechten Maustaste und wählen Sie **Projekt**.
 
-![amd64_and_x86_in_Solution_Explorer.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
 Die Symbole ändern, um anzuzeigen, dass der Ordner in das Projekt eingeschlossen wurde.
 
-![Solution_Explorer_amd64_included.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Konfigurieren von Code First-Migrationen für die Bereitstellung der Datenbank
 
@@ -159,13 +159,13 @@ Mit der rechten Maustaste die *School.sdf* Datei, und klicken Sie auf **löschen
 
 In der **Package Manager Console** Fenster, geben Sie den Befehl "hinzufügen Migration anfängliche" zum Erstellen der anfänglichen Migrations, und nennen es "Initial".
 
-![Hinzufügen migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
 Code First-Migrationen erstellt einen anderen Klassendatei in der *Migrationen* Ordner, und diese Klasse enthält Code, der das Schema der Datenbank erstellt.
 
 In der **Package Manager Console**, geben Sie den Befehl "Update-Database" zum Erstellen der Datenbank, und führen Sie die **Ausgangswert** Methode.
 
-![Update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
 (Wenn Sie eine Fehlermeldung, der angibt erhalten, eine Tabelle ist bereits vorhanden und kann nicht erstellt werden, es ist wahrscheinlich, da die Anwendung ausgeführt wird, nachdem Sie die Datenbank gelöscht und bevor Sie ausgeführt `update-database`. -Verarbeitung, löschen Sie die *School.sdf* Datei erneut, und wiederholen Sie den `update-database` Befehl.)
 
@@ -190,7 +190,7 @@ Melden Sie sich als "Admin" mit dem Kennwort "Pas$ w0rd" (Beachten Sie die Zahl 
 Wenn Sie einen Standort zum ersten Mal bereitstellen, wird häufig ausschließen, die meisten oder alle Benutzerkonten, die Sie zum Testen erstellen. In diesem Fall stellen Sie ein Administratorkonto und keine Benutzerkonten bereit. Anstelle von Testkonten manuell zu löschen, erstellen Sie eine neue Mitgliedschaftsdatenbank, die das Benutzerkonto ein Administrator hat, das Sie in der Produktion zu müssen.
 
 > [!NOTE]
-> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der  **[MachineKey](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)**  Element in der Datei "Web.config".
+> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der  **[MachineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  Element in der Datei "Web.config".
 
 
 Die Mitgliedschaftsdatenbank wird nicht beibehalten, indem Sie Code First-Migrationen, und es gibt keine automatische Initialisierung, die die Datenbank mit Testkonten Ausgangswerte (wie es für die Datenbank "School"). Um Testdaten verfügbar zu halten müssen Sie daher eine Kopie der Datenbank vornehmen, bevor Sie eine neue Domäne erstellen.
@@ -243,7 +243,7 @@ Das SQL Server Compact-Datenbankmodul und beide Datenbanken können jetzt bereit
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Weitere Informationen zu NuGet, finden Sie unter [verwalten Projektbibliotheken mit NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) und [NuGet-Dokumentation](http://docs.nuget.org/docs/start-here/overview). Wenn Sie NuGet verwenden möchten, müssen Sie Informationen zum Analysieren eines NuGet-Pakets, um zu bestimmen, welche Aktion er ausführt, wenn er installiert ist. (sie können z. B. konfigurieren *"Web.config"* Transformationen, konfigurieren Sie PowerShell-Skripts zur Buildzeit usw. ausführen.) Weitere Informationen zur Funktionsweise von NuGet finden Sie unter besonders [erstellen und veröffentlichen ein Paket](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) und [Konfigurationsdatei und Source Codetransformationen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Weitere Informationen zu NuGet, finden Sie unter [verwalten Projektbibliotheken mit NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) und [NuGet-Dokumentation](http://docs.nuget.org/docs/start-here/overview). Wenn Sie NuGet verwenden möchten, müssen Sie Informationen zum Analysieren eines NuGet-Pakets, um zu bestimmen, welche Aktion er ausführt, wenn er installiert ist. (sie können z. B. konfigurieren *"Web.config"* Transformationen, konfigurieren Sie PowerShell-Skripts zur Buildzeit usw. ausführen.) Weitere Informationen zur Funktionsweise von NuGet finden Sie unter besonders [erstellen und veröffentlichen ein Paket](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) und [Konfigurationsdatei und Source Codetransformationen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Zurück](deployment-to-a-hosting-provider-introduction-1-of-12.md)

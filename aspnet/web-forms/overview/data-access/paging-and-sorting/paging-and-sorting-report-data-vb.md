@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2ef1bb0b68a46535e3320834a0374b9a4f66182c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Paging und Sortieren von Berichtsdaten (VB)
 ====================
@@ -101,7 +101,7 @@ Abbildung 6 zeigt unseren Fortschritt bisher ein, wenn Sie über einen Browser a
 
 ## <a name="step-3-adding-paging-support"></a>Schritt 3: Hinzufügen von Unterstützung der Paginierung
 
-Auflisten von *alle* Produkte auf einem Bildschirm an Informationen Überladung für den Benutzer zum Durchlesen der Daten führen kann. Damit die Ergebnisse besser ist, kann die Daten in kleineren Datenseiten zusammensetzen und ermöglicht dem Benutzer die Daten einer Seite zu einem Zeitpunkt durchlaufen werden. Zum Ausführen dieser einfach das Kontrollkästchen Paging aktivieren aus dem GridView-s-Smarttag (Dies legt die GridView s [ `AllowPaging` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) auf `true`).
+Auflisten von *alle* Produkte auf einem Bildschirm an Informationen Überladung für den Benutzer zum Durchlesen der Daten führen kann. Damit die Ergebnisse besser ist, kann die Daten in kleineren Datenseiten zusammensetzen und ermöglicht dem Benutzer die Daten einer Seite zu einem Zeitpunkt durchlaufen werden. Zum Ausführen dieser einfach das Kontrollkästchen Paging aktivieren aus dem GridView-s-Smarttag (Dies legt die GridView s [ `AllowPaging` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) auf `true`).
 
 
 [![Überprüfen Sie das Paging aktivieren zum Hinzufügen der Unterstützung der Paginierung](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
@@ -111,12 +111,12 @@ Auflisten von *alle* Produkte auf einem Bildschirm an Informationen Überladung 
 
 Aktivieren von Paging begrenzt die Anzahl der Datensätze pro Seite angezeigt, und fügt eine *Paging Schnittstelle* an die GridView. Die Auslagerung Standardschnittstelle, siehe Abbildung 7, ist eine Reihe von Seitenzahlen, sodass der Benutzer schnell von einer Seite der Daten in einen anderen zu navigieren. Diese Schnittstelle Paging aussehen vertraut sind, als es gibt es schon beim Hinzufügen der Unterstützung der Paginierung, DetailsView und FormView-Steuerelemente in den vergangenen Lernprogramme.
 
-Die DetailsView und die FormView-Steuerelemente zeigen nur einen einzelnen Datensatz pro Seite. Die GridView jedoch fragt die [ `PageSize` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx) um zu bestimmen, wie viele Datensätze pro Seite angezeigt (diese Eigenschaft standardmäßig einen Wert von 10).
+Die DetailsView und die FormView-Steuerelemente zeigen nur einen einzelnen Datensatz pro Seite. Die GridView jedoch fragt die [ `PageSize` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) um zu bestimmen, wie viele Datensätze pro Seite angezeigt (diese Eigenschaft standardmäßig einen Wert von 10).
 
 Diese Schnittstelle GridView, DetailsView und FormView s Paging kann mithilfe der folgenden Eigenschaften angepasst werden:
 
 - `PagerStyle`Gibt die Formatinformationen für die Auslagerungsdatei-Schnittstelle an. festlegbaren Einstellungen wie `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`und so weiter.
-- `PagerSettings`enthält eine Bevy von Eigenschaften, die die Funktionalität der Schnittstelle Paging anpassen können. `PageButtonCount` gibt die maximale Anzahl der numerischen Seitenzahlen angezeigt, in der Auslagerungsdatei-Schnittstelle (der Standard ist 10); das [ `Mode` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx) gibt an, wie die Paginierung-Schnittstelle funktioniert und kann so festgelegt werden: 
+- `PagerSettings`enthält eine Bevy von Eigenschaften, die die Funktionalität der Schnittstelle Paging anpassen können. `PageButtonCount` gibt die maximale Anzahl der numerischen Seitenzahlen angezeigt, in der Auslagerungsdatei-Schnittstelle (der Standard ist 10); das [ `Mode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) gibt an, wie die Paginierung-Schnittstelle funktioniert und kann so festgelegt werden: 
 
     - `NextPrevious`Zeigt ein Schaltflächen Weiter und zurück, sodass der Benutzer eine Seite vorwärts oder rückwärts zu einem Zeitpunkt zu Schritt
     - `NextPreviousFirstLast`Zusätzlich zu den Schaltflächen Weiter und zurück sind auch erste und letzte Schaltflächen enthalten, sodass der Benutzer auf der ersten oder letzten Seite der Daten schnell zu verschieben
@@ -216,7 +216,7 @@ Wie in Abbildung 11 gezeigt, ändern Sie lediglich die GridView s `PageIndex` -E
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>Schritt 5: Hinzufügen von bidirektionalen Sortierungsunterstützung
 
-Hinzufügen von bidirektionalen sortierungsunterstützung ist so einfach wie das Hinzufügen der Unterstützung der Paginierung einfach das Kontrollkästchen Sortieren aktivieren aus dem GridView-s-Smarttag (wodurch die GridView s [ `AllowSorting` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) auf `true`). Dies rendert die Header der GridView s Felder als LinkButtons, die beim Klicken auf, dazu führen, dass einen Postback und die Daten nach der Spalte in aufsteigender Reihenfolge sortiert zurück. Die Daten in absteigender Reihenfolge beim erneuten Klicken auf den gleichen Header LinkButton neu sortiert werden.
+Hinzufügen von bidirektionalen sortierungsunterstützung ist so einfach wie das Hinzufügen der Unterstützung der Paginierung einfach das Kontrollkästchen Sortieren aktivieren aus dem GridView-s-Smarttag (wodurch die GridView s [ `AllowSorting` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) auf `true`). Dies rendert die Header der GridView s Felder als LinkButtons, die beim Klicken auf, dazu führen, dass einen Postback und die Daten nach der Spalte in aufsteigender Reihenfolge sortiert zurück. Die Daten in absteigender Reihenfolge beim erneuten Klicken auf den gleichen Header LinkButton neu sortiert werden.
 
 > [!NOTE]
 > Wenn Sie eine benutzerdefinierte Datenzugriffsschicht statt eines typisierten Datasets verwenden, haben Sie keine Möglichkeit Sortieren aktivieren im GridView s Smarttag. Nur GridViews an Datenquellen, die systemeigene Unterstützung für Sortierung gebunden haben, dieses Kontrollkästchen verfügbar. Das typisierte DataSet bietet Out-of-Box-sortierungsunterstützung, da ADO.NET DataTable bietet eine `Sort` Methode, die beim Aufrufen, sortiert die DataTable s DataRows mit den angegebenen Kriterien.
@@ -243,11 +243,11 @@ Nach der CSS-Code Wenn der Zugriff auf die Seite über einen Browser sollte am B
 
 Alle GridView Felder, die BoundField-, CheckBoxField, TemplateField und usw. haben eine `SortExpression` -Eigenschaft, die der Ausdruck gibt an, die verwendet werden soll, um die Daten zu sortieren, wenn s Feld Sortieren Header Link geklickt wird. Die GridView verfügt auch über eine `SortExpression` Eigenschaft. Beim Sortieren Überschrift LinkButton geklickt wird, weist die GridView Feld s `SortExpression` -Wert an die `SortExpression` Eigenschaft. Als Nächstes die Daten aus der ObjectDataSource erneut abgerufen und entsprechend der GridView s sortiert `SortExpression` Eigenschaft. In der folgenden Liste wird erläutert, die Abfolge der Schritte, die herausstellt, wenn ein Endbenutzer die Daten in einem GridView sortiert werden:
 
-1. Die GridView s [Sorting-Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) ausgelöst wird
-2. Die GridView s [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) festgelegt ist, um die `SortExpression` des Felds, deren Sortierung Header LinkButton geklickt wurde
+1. Die GridView s [Sorting-Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) ausgelöst wird
+2. Die GridView s [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) festgelegt ist, um die `SortExpression` des Felds, deren Sortierung Header LinkButton geklickt wurde
 3. Das ObjectDataSource werden alle Daten aus der BLL erneut abgerufen und sortiert dann die Daten mithilfe der GridView-s`SortExpression`
 4. Die GridView s `PageIndex` Eigenschaft auf 0 zurückgesetzt, was bedeutet, dass beim Sortieren des Benutzers wird zurückgegeben, zur ersten Seite der Daten (vorausgesetzt, Unterstützung der Paginierung implementiert wurde)
-5. Die GridView s [ `Sorted` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) ausgelöst wird
+5. Die GridView s [ `Sorted` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) ausgelöst wird
 
 Wie bei der Standardnavigation, sortieren die Option Standard erneut abgerufen *alle* Datensätze aus der BLL. Bei Verwendung von Sortierung ohne Auslagerung oder bei Verwendung der Sortierung mit Standard-Paging, dort s keine Möglichkeit, diese Beeinträchtigung (nicht genügend Zwischenspeichern von Daten in der Datenbank) zu umgehen. Jedoch, wie es in einem späteren Lernprogramm sehen sie s möglich, Daten effizient zu sortieren, wenn benutzerdefiniertes Paging verwendet.
 
@@ -274,7 +274,7 @@ Einmal die `SortExpression` Eigenschaft entfernt wurde, für die `UnitPrice` Bou
 
 ## <a name="programmatically-sorting-the-gridview"></a>Programmgesteuertes Sortieren von GridView
 
-Sie können den Inhalt der GridView auch programmgesteuert sortieren, indem Sie mit der GridView s [ `Sort` Methode](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx). Übergeben Sie einfach die `SortExpression` Wert Sortierungskriterium zusammen mit den [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` oder `Descending`), und die GridView-s-Daten neu sortiert werden.
+Sie können den Inhalt der GridView auch programmgesteuert sortieren, indem Sie mit der GridView s [ `Sort` Methode](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Übergeben Sie einfach die `SortExpression` Wert Sortierungskriterium zusammen mit den [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` oder `Descending`), und die GridView-s-Daten neu sortiert werden.
 
 Stellen Sie sich vor, dass die Ursache, die wir Sortieren nach deaktiviert die `UnitPrice` wurde, weil sich Sorgen, dass unsere Kunden einfach nur die niedrigsten Preis Produkte kaufen würde. Allerdings möchten wir, dass sie die teuersten Produkte zu kaufen, sodass d wir sie in der Lage, die Produkte nach dem Preis, jedoch nur von dem die teuersten Preis den kleinsten sortiert sein wie Ihre.
 

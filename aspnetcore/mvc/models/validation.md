@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 56928c61ae47d313145afadf3e0fa93a078b681b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Einführung in die modellvalidierung in ASP.NET Core MVC
 
@@ -148,14 +148,14 @@ MVC bestimmt die Typ-Attributwerte, die basierend auf dem .NET Data-Typ einer Ei
 
 ### <a name="add-validation-to-dynamic-forms"></a>Hinzufügen einer Validierung zum dynamischen Formularen
 
-Da jQuery unaufdringlichen Überprüfung übergibt die Validierungslogik und Parameter an jQuery überprüfen, beim ersten die Seite laden werden, werden dynamisch generierten Forms nicht automatisch Überprüfung verwendet werden. Stattdessen müssen Sie jQuery unaufdringlichen Validierung, dynamische Form zu analysieren, sofort nach ihrer Erstellung mitteilen. Der folgende Code zeigt z. B. wie Sie clientseitige Validierung in einem Formular hinzugefügt, die über AJAX eingerichtet werden können.
+Da jQuery unaufdringlichen Überprüfung übergibt die Validierungslogik und Parameter an jQuery überprüfen, beim ersten die Seite laden werden, wird nicht automatisch Überprüfung durch dynamisch generierten Forms verwendet werden. Stattdessen müssen Sie jQuery unaufdringlichen Validierung, dynamische Form zu analysieren, sofort nach ihrer Erstellung mitteilen. Der folgende Code zeigt z. B. wie Sie clientseitige Validierung in einem Formular hinzugefügt, die über AJAX eingerichtet werden können.
 
 ```js
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newFormHTML) {
         var container = document.getElementById("form-container");
@@ -171,14 +171,14 @@ Die `$.validator.unobtrusive.parse()` Methode akzeptiert einen jQuery-Selektor f
 
 ### <a name="add-validation-to-dynamic-controls"></a>Hinzufügen von Validierungen zu dynamischen Steuerelementen
 
-Sie können auch die Validierungsregeln auf ein Formular aktualisieren, wenn einzelne wie z. B. Steuerelemente `<input/>`s und `<select/>`s, werden dynamisch generiert. Sie können keine Selektoren für diese Elemente zum Übergeben der `parse()` -Methode direkt da umgebende Formular bereits verarbeitet wurde wurde, und werden nicht aktualisiert. Stattdessen Sie zuerst die vorhandenen Überprüfungsdaten zu entfernen und dann Analysepunkt das gesamte Formular aus, wie unten dargestellt:
+Sie können auch die Validierungsregeln auf ein Formular aktualisieren, wenn einzelne wie z. B. Steuerelemente `<input/>`s und `<select/>`s, werden dynamisch generiert. Sie können keine Selektoren für diese Elemente zum Übergeben der `parse()` -Methode direkt da umgebende Formular bereits analysiert wurde, und werden nicht aktualisiert. Stattdessen Sie zuerst die vorhandenen Überprüfungsdaten zu entfernen und dann Analysepunkt das gesamte Formular aus, wie unten dargestellt:
 
 ```js
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newInputHTML) {
         var form = document.getElementById("my-form");
@@ -235,8 +235,7 @@ Die `AdditionalFields` Eigenschaft von der `[Remote]` Attribut eignet sich zur V
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`kann explizit festgelegt wurde, die Zeichenfolgen `"FirstName"` und `"LastName"`, während mit den [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) Operator wie folgt vereinfacht später Umgestaltung. Die Aktionsmethode zum Ausführen der Überprüfung muss zwei Argumente, eine für den Wert der akzeptieren `FirstName` und eine für den Wert der `LastName`.
-
+`AdditionalFields`konnte haben explizit festgelegt wurde, die Zeichenfolgen `"FirstName"` und `"LastName"`, während mit den [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) Operator wie folgt vereinfacht später Umgestaltung. Die Aktionsmethode zum Ausführen der Überprüfung muss zwei Argumente, eine für den Wert der akzeptieren `FirstName` und eine für den Wert der `LastName`.
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
 
@@ -253,4 +252,4 @@ Wenn Sie zwei oder mehr zusätzliche Felder mit überprüfen müssen die `[Remot
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, z. B. alle Attributargumente, muss ein konstanter Ausdruck sein. Deshalb müssen Sie nicht verwenden ein [interpoliert Zeichenfolge](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) , oder rufen Sie [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) initialisieren `AdditionalFields`. Für jedes weitere Feld, die Sie zum Hinzufügen der `[Remote]` -Attribut, müssen Sie ein weiteres Argument hinzufügen, um die entsprechende Aktionsmethode des Controllers.
+`AdditionalFields`, z. B. alle Attributargumente, muss ein konstanter Ausdruck sein. Deshalb müssen Sie nicht verwenden ein [interpoliert Zeichenfolge](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) , oder rufen Sie [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) initialisieren `AdditionalFields`. Für jedes weitere Feld, die Sie zum Hinzufügen der `[Remote]` -Attribut, müssen Sie ein weiteres Argument hinzufügen, um die entsprechende Aktionsmethode des Controllers.

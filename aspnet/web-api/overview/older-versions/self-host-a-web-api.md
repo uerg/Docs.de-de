@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Selbsthosting ASP.NET Web-API 1 (c#)
 ====================
@@ -43,7 +43,7 @@ In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweite
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>Legen Sie das Zielframework (Visual Studio 2010)
 
-Wenn Sie Visual Studio 2010 verwenden, ändern Sie das Zielframework in .NET Framework 4.0. (Standardmäßig wird die Projektvorlage abzielt die [.Net Framework Client Profile](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+Wenn Sie Visual Studio 2010 verwenden, ändern Sie das Zielframework in .NET Framework 4.0. (Standardmäßig wird die Projektvorlage abzielt die [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projekts, und wählen **Eigenschaften**. In der **Zielframework** Dropdownliste ändern das Zielframework auf .NET Framework 4.0. Wenn Sie dazu aufgefordert werden, um die Änderung zu übernehmen, klicken Sie auf **Ja**.
 
@@ -100,9 +100,9 @@ Weitere Informationen zu den Code in diesem Controller, finden Sie unter der [Ei
 
 | URI | Beschreibung |
 | --- | --- |
-| / api /-Produkte | Ruft eine Liste aller Produkte. |
-| /API/Produkte/*Id* | Abrufen eines Produkts nach ID auf. |
-| / API/Produkte /? Kategorie =*Kategorie* | Abrufen einer Liste der Produkte nach Kategorie. |
+| /api/products | Ruft eine Liste aller Produkte. |
+| /api/products/*id* | Abrufen eines Produkts nach ID auf. |
+| /api/products/?category=*category* | Abrufen einer Liste der Produkte nach Kategorie. |
 
 ## <a name="host-the-web-api"></a>Hosten Sie die Web-API
 

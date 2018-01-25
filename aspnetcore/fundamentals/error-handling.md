@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49507e90cd659be5da08df17e175297adad0fea1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Einführung in die Error Handling in ASP.NET Core
 
@@ -49,7 +49,7 @@ Diese Anforderung keine Cookies haben, aber wenn dem so wäre, würden sie angez
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurieren einen benutzerdefinierte Ausnahmebehandlung-Seite
 
-Es ist eine gute Idee, eine Ausnahme-Handler-Seite verwenden, wenn die app nicht, in ausgeführt wird "konfigurieren" die `Development` Umgebung.
+Es ist eine gute Idee, eine Ausnahme-Handler-Seite verwenden, wenn die app, in ausgeführt wird "konfigurieren" die `Development` Umgebung.
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
@@ -65,7 +65,7 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Konfigurieren von Status-Codepages
 
-Standardmäßig wird Ihre app keine rich-Status-Codepage für HTTP-Statuscodes, wie z. B. 500 (Interner Serverfehler) oder 404 (Nichtgefunden) bereit. Sie können konfigurieren, die `StatusCodePagesMiddleware` durch Hinzufügen einer Zeile auf die `Configure` Methode:
+Standardmäßig wird nicht die app eine reichhaltige Status-Codepage für HTTP-Statuscodes, wie z. B. 500 (Interner Serverfehler) oder 404 (Nichtgefunden) bereitstellen. Sie können konfigurieren, die `StatusCodePagesMiddleware` durch Hinzufügen einer Zeile auf die `Configure` Methode:
 
 ```csharp
 app.UseStatusCodePages();

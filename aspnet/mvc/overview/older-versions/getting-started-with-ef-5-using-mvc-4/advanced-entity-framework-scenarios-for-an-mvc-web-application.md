@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d58a745896b29317c1d1049e3bf1a5ec2e628820
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Erweiterte Entity Framework-Szenarien für ein MVC-Webanwendung (10 von 10)
 ====================
@@ -55,7 +55,7 @@ Der Entity Framework Code First-API enthält Methoden, die Ihnen ermöglichen, d
 
 - Verwenden der `DbSet.SqlQuery` Methode zum Abfragen, die Entitätstypen zurückgeben. Die zurückgegebenen Objekte muss mit der vom erwarteten Typ der `DbSet` -Objekt, und sie werden automatisch nachverfolgt vom Kontext Datenbank, wenn Sie die Überwachung deaktivieren. (Finden Sie im folgenden Abschnitt zu den `AsNoTracking` Methode.)
 - Verwenden der `Database.SqlQuery` Methode für Abfragen, die Typen zurückgeben, die Entitäten nicht. Die zurückgegebenen Daten wird nicht von den Datenbankkontext nachverfolgt, auch wenn Sie diese Methode zum Abrufen von Entitätstypen verwenden.
-- Verwenden der [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456(v=vs.103).aspx) für nichtabfragebefehle.
+- Verwenden der [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) für nichtabfragebefehle.
 
 Einer der Vorteile der Verwendung von Entity Framework ist, dass diese vermieden wird, den Code zu viel Wert auf eine bestimmte Methode zum Speichern von Daten zu binden. Dies geschieht durch Generieren von SQL-Abfragen und Befehle, die auch Sie freigibt, müssen sie selbst schreiben. Aber herausragende Szenarien stehen, wenn müssen Sie bestimmte SQL-Abfragen ausführen, die Sie manuell erstellt haben, und diese Methoden können Sie solche Ausnahmen zu behandeln.
 
@@ -255,17 +255,17 @@ Entity Framework bestimmt wie eine Entität geändert wurde (und daher die Updat
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Wenn Sie eine große Anzahl von Entitäten überwachen und einer dieser Methoden oft in einer Schleife aufrufen, erhalten Sie möglicherweise erhebliche Leistungssteigerungen durch vorübergehendes Deaktivieren der automatischen Änderung zustandserkennung mithilfe der [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) Eigenschaft. Weitere Informationen finden Sie unter [automatisch erkennen von Änderungen](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
+Wenn Sie eine große Anzahl von Entitäten überwachen und einer dieser Methoden oft in einer Schleife aufrufen, erhalten Sie möglicherweise erhebliche Leistungssteigerungen durch vorübergehendes Deaktivieren der automatischen Änderung zustandserkennung mithilfe der [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) Eigenschaft. Weitere Informationen finden Sie unter [automatisch erkennen von Änderungen](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
 
 ## <a name="disabling-validation-when-saving-changes"></a>Deaktivieren der Validierung beim Speichern der Änderungen
 
-Beim Aufrufen der `SaveChanges` -Methode, wird standardmäßig das Entity Framework überprüft die Daten in alle Eigenschaften aller geänderten Entitäten vor dem Aktualisieren der Datenbank. Wenn Sie eine große Anzahl von Entitäten aktualisiert haben und Sie haben bereits überprüft die Daten dieser Aufwand ist nicht erforderlich, und Sie die das Speichern womöglich werden die Änderungen durch Deaktivieren der Validierung vorübergehend weniger Zeit benötigt. Sie erreichen, dass die Verwendung der [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) Eigenschaft. Weitere Informationen finden Sie unter [Überprüfung](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
+Beim Aufrufen der `SaveChanges` -Methode, wird standardmäßig das Entity Framework überprüft die Daten in alle Eigenschaften aller geänderten Entitäten vor dem Aktualisieren der Datenbank. Wenn Sie eine große Anzahl von Entitäten aktualisiert haben und Sie haben bereits überprüft die Daten dieser Aufwand ist nicht erforderlich, und Sie die das Speichern womöglich werden die Änderungen durch Deaktivieren der Validierung vorübergehend weniger Zeit benötigt. Sie erreichen, dass die Verwendung der [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) Eigenschaft. Weitere Informationen finden Sie unter [Überprüfung](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
 
 ## <a name="summary"></a>Zusammenfassung
 
 Dies schließt diese Reihe von Lernprogramme zum Verwenden von Entity Framework in einer ASP.NET MVC-Anwendung. Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Weitere Informationen dazu, wie Sie Ihre Webanwendung bereitstellen, nachdem Sie es erstellt haben, finden Sie unter [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521.aspx) in der MSDN Library.
+Weitere Informationen dazu, wie Sie Ihre Webanwendung bereitstellen, nachdem Sie es erstellt haben, finden Sie unter [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx) in der MSDN Library.
 
 Weitere Informationen zu anderen Themen im Zusammenhang mit MVC, wie beispielsweise Authentifizierung und Autorisierung, finden Sie unter der [MVC empfohlen Ressourcen](../../getting-started/recommended-resources-for-mvc.md).
 

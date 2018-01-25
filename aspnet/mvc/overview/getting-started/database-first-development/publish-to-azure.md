@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: f75b7192b4d97c88fcbcb4ad7fef88c83157c902
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Veröffentlichen Sie MVC Database First-Site in Azure.
 ====================
@@ -31,8 +31,8 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 
 Sie benötigen ein Azure-Konto dieses Lernprogramms:
 
-- Sie können [öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) -erhalten Sie Gutschriften können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
-- Sie können [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
+- Sie können [öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) -erhalten Sie Gutschriften können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
+- Sie können [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
 
 Um Ihre Web-app zu veröffentlichen, mit der rechten Maustaste des Projekts, und wählen Sie **veröffentlichen**.
 
@@ -134,7 +134,7 @@ Geben Sie den Namen des Datenbankservers und die Anmeldeinformationen für die A
 
 Klicken Sie auf OK.
 
-Sie möchten wahrscheinlich dieses Profil zu speichern, damit Sie Updates in der Zukunft veröffentlichen können, ohne alle Verbindungsinformationen erneut eingeben zu müssen. Wählen Sie **Profil erstellen**.
+Sie möchten wahrscheinlich dieses Profil zu speichern, damit Sie Updates in der Zukunft veröffentlichen können, ohne alle Verbindungsinformationen erneut eingeben zu müssen. Klicken Sie auf **Profil erstellen**.
 
 ![Profil speichern](publish-to-azure/_static/image19.png)
 
@@ -158,7 +158,7 @@ Jetzt sind Sie bereit sind, die Web-app testen, die in Azure bereitgestellt wird
 
 Es kann vorkommen, benötigen die Datenbank und die Verbindung eine gewisse Zeit ordnungsgemäß konfiguriert sein. Wenn Sie eine Fehlermeldung erhalten, warten Sie einige Minuten, und wiederholen Sie dann erneut.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Diese Reihe bereitgestellt, ein einfaches Beispiel zum Generieren von Code aus einer vorhandenen Datenbank, die Benutzern das Bearbeiten, aktualisieren, erstellen und Löschen von Daten ermöglicht. Sie verwendet ASP.NET MVC 5, Entity Framework und ASP.NET Gerüstbau, um das Projekt zu erstellen.
 
@@ -167,4 +167,4 @@ Einführende beispielsweise der Code First-Entwicklung finden Sie unter [erste S
 Ein komplexeres Beispiel finden Sie unter [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC 4-App](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Beachten Sie, dass der DbContext-API, mit denen Sie für die Arbeit mit Daten in Database First identisch mit der API Sie zum Arbeiten mit Daten in Code First verwenden. Selbst wenn Sie Database First verwenden möchten, können Sie erfahren, wie komplexere Szenarien, z. B. Lesen und Aktualisieren von verknüpften Daten zu behandeln Parallelitätskonflikte usw. aus einem Code First-Lernprogramm. Der einzige Unterschied besteht in der Datenbank, der Context-Klasse und der Entitätsklassen wie erstellt werden.
 
 >[!div class="step-by-step"]
-[Zurück](enhancing-data-validation.md)
+[Vorherige](enhancing-data-validation.md)

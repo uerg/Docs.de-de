@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 2
 ====================
@@ -35,7 +35,7 @@ Im vorherigen Lernprogramm haben Sie eine Website, eine Datenbank und ein Datenm
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Beachten Sie, dass in dieser Anwendung Sie wird nicht werden hinzufügen Validierung von Benutzereingaben zu Seiten, die die Datenbank zu aktualisieren, und einige der Fehlerbehandlung weniger robust werden als erforderlich ist, in einer produktionsanwendung. Behält das Lernprogramm konzentriert sich auf das Entity Framework und verhindert, dass er zu lang. Weitere Informationen dazu, wie diese Funktionen zu einer Anwendung hinzufügen, finden Sie unter [Validieren von Benutzereingaben in ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/7kh55542.aspx) und [Error Handling in ASP.NET Webseiten und Anwendungen](https://msdn.microsoft.com/en-us/library/w16865z6.aspx).
+Beachten Sie, dass in dieser Anwendung Sie wird nicht werden hinzufügen Validierung von Benutzereingaben zu Seiten, die die Datenbank zu aktualisieren, und einige der Fehlerbehandlung weniger robust werden als erforderlich ist, in einer produktionsanwendung. Behält das Lernprogramm konzentriert sich auf das Entity Framework und verhindert, dass er zu lang. Weitere Informationen dazu, wie diese Funktionen zu einer Anwendung hinzufügen, finden Sie unter [Validieren von Benutzereingaben in ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) und [Error Handling in ASP.NET Webseiten und Anwendungen](https://msdn.microsoft.com/library/w16865z6.aspx).
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>Hinzufügen und Konfigurieren des EntityDataSource-Steuerelements
 
@@ -157,13 +157,13 @@ In das Markup für die `EntityDataSource` steuern, entfernen Sie die `Connection
 
 - Bessere Leistung. Wenn die `EntityDataSource` Steuerelement initialisiert das Modell mithilfe der `ConnectionString` und `DefaultContainerName` Attribute, es werden zusätzliche Aufgaben zum Laden der Metadaten für jede Anforderung ausgeführt. Dies ist nicht erforderlich, wenn Sie angeben, die `ContextTypeName` Attribut.
 - Verzögertes Laden ist standardmäßig aktiviert, in dem generierten Kontext Objektklassen (wie z. B. `SchoolEntities` in diesem Lernprogramm) in Entity Framework 4.0. Dies bedeutet, dass Navigationseigenschaften mit verbundenen Daten automatisch geladen werden rechts bei Bedarf. Verzögertes Laden wird weiter unten in diesem Lernprogramm ausführlicher erläutert.
-- Alle Anpassungen, die auf die Objektkontextklasse angewendet haben (in diesem Fall die `SchoolEntities` Klasse) stehen, Steuerelemente, mit denen die `EntityDataSource` Steuerelement. Anpassen der Context-Klasse des Objekts ist ein-Thema für fortgeschrittene, die in diesem Lernprogramm Reihe nicht behandelt wird. Weitere Informationen finden Sie unter [Erweitern von Entity Framework generierten Typen](https://msdn.microsoft.com/en-us/library/dd456844.aspx).
+- Alle Anpassungen, die auf die Objektkontextklasse angewendet haben (in diesem Fall die `SchoolEntities` Klasse) stehen, Steuerelemente, mit denen die `EntityDataSource` Steuerelement. Anpassen der Context-Klasse des Objekts ist ein-Thema für fortgeschrittene, die in diesem Lernprogramm Reihe nicht behandelt wird. Weitere Informationen finden Sie unter [Erweitern von Entity Framework generierten Typen](https://msdn.microsoft.com/library/dd456844.aspx).
 
 Das Markup wird jetzt dem folgenden Beispiel entsprechen (die Reihenfolge der Eigenschaften möglicherweise unterschiedliche):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-Die `EnableFlattening` Attribut bezieht sich auf eine Funktion, die in früheren Versionen von Entity Framework erforderlich war, da Fremdschlüsselspalten als Eigenschaften der Entität nicht verfügbar gemacht wurden. Die aktuelle Version ermöglicht das verwenden *foreign Key-Zuordnungen*, was bedeutet, dass Fremdschlüsseleigenschaften für alle bis m: n-Zuordnungen verfügbar gemacht werden. Wenn die Entitäten Fremdschlüsseleigenschaften und keine haben [komplexe Typen](https://msdn.microsoft.com/en-us/library/bb738472.aspx), lassen Sie dieses Attribut `False`. Das Attribut nicht von der Markuperweiterung entfernt werden, da der Standardwert ist `True`. Weitere Informationen finden Sie unter [vereinfachen von Objekten (EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx).
+Die `EnableFlattening` Attribut bezieht sich auf eine Funktion, die in früheren Versionen von Entity Framework erforderlich war, da Fremdschlüsselspalten als Eigenschaften der Entität nicht verfügbar gemacht wurden. Die aktuelle Version ermöglicht das verwenden *foreign Key-Zuordnungen*, was bedeutet, dass Fremdschlüsseleigenschaften für alle bis m: n-Zuordnungen verfügbar gemacht werden. Wenn die Entitäten Fremdschlüsseleigenschaften und keine haben [komplexe Typen](https://msdn.microsoft.com/library/bb738472.aspx), lassen Sie dieses Attribut `False`. Das Attribut nicht von der Markuperweiterung entfernt werden, da der Standardwert ist `True`. Weitere Informationen finden Sie unter [vereinfachen von Objekten (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
 Führen Sie die Seite, und Sie sehen eine Liste der Schüler und Mitarbeiter (Sie müssen für Studenten einfach in den nächsten Lernprogrammen ' filter '). Die vor- und Nachname werden zusammen angezeigt.
 

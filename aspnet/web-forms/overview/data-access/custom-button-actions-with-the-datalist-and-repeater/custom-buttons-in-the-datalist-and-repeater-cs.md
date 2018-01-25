@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fa4b3ea69999f0d97d20047663d302277ebdf433
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a072ae18bbb19d086eb825c6e72b68d40b2e429
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Benutzerdefinierte Schaltflächen im DataList und Repeater (c#)
 ====================
@@ -114,17 +114,17 @@ In diesem Beispiel legen Sie die s LinkButton `CommandName` Eigenschaft ShowProd
 
 Wenn die Schaltfläche klicken, wird ein Postback erfolgt und die s DataList oder Repeater `ItemCommand` Ereignis ausgelöst wird. Der Ereignishandler wird die Schaltfläche "s" übergeben `CommandName` und `CommandArgument` Werte.
 
-Erstellen Sie einen Ereignishandler für die Repeater s `ItemCommand` Ereignis, und beachten Sie den zweiten Parameter an den Ereignishandler übergeben (mit dem Namen `e`). Diese zweite Parameter ist vom Typ [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) und verfügt über die folgenden vier Eigenschaften:
+Erstellen Sie einen Ereignishandler für die Repeater s `ItemCommand` Ereignis, und beachten Sie den zweiten Parameter an den Ereignishandler übergeben (mit dem Namen `e`). Diese zweite Parameter ist vom Typ [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) und verfügt über die folgenden vier Eigenschaften:
 
 - `CommandArgument`der Wert von der Schaltfläche s `CommandArgument` Eigenschaft
 - `CommandName`der Wert der Schaltfläche s `CommandName` Eigenschaft
 - `CommandSource`Ein Verweis auf das Schaltflächen-Steuerelement, auf die geklickt wurde
-- `Item`Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein`RepeaterItem`
+- `Item`Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein`RepeaterItem`
 
 Seit der ausgewählten Kategorie s `CategoryID` über übergeben der `CommandArgument` -Eigenschaft, wir können den Satz von Produkten in der ausgewählten Kategorie zugeordnet der `ItemCommand` -Ereignishandler. Diese Produkte können in einem BulletedList-Steuerelement gebunden werden die `ItemTemplate` (die wir noch hinzuzufügende Ve). Alle, die verbleibt, besteht im Hinzufügen der BulletedList, verweisen sie in der `ItemCommand` -Ereignishandler, und binden, welche Produkte für die ausgewählte Kategorie, die wir in Schritt 4 konfigurieren müssen.
 
 > [!NOTE]
-> DataList-s `ItemCommand` übergebene Ereignishandler wird ein Objekt des Typs [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), welcher bietet die gleichen vier Eigenschaften wie die `RepeaterCommandEventArgs` Klasse.
+> DataList-s `ItemCommand` übergebene Ereignishandler wird ein Objekt des Typs [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), welcher bietet die gleichen vier Eigenschaften wie die `RepeaterCommandEventArgs` Klasse.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Schritt 4: Anzeigen der ausgewählten Kategorieprodukte in einer Liste mit Aufzählungszeichen

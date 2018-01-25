@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: d5574ee353ff41205e9029e4aa5d139a5aa0e959
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Szenario: Konfigurieren einer produktiven Umgebung für die Bereitstellung
 ====================
@@ -35,7 +35,7 @@ Die produktionsumgebung ist das endgültige Ziel für eine Webanwendung oder ein
 - Änderungen an Anwendungen sind auf die seltener als Test- oder stagingbereitstellungen bereitgestellt.
 
 > [!NOTE]
-> Dezentrales Skalieren einer datenbankbereitstellung auf mehreren Servern ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Dezentrales Skalieren einer datenbankbereitstellung auf mehreren Servern ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Z. B. in unserer [lernprogrammszenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Build-Server enthält alle Builddefinitionen, mit denen Benutzer die Projektmappe Contact Manager erstellt und in einer Stagingumgebung in einem einzigen Schritt bereitgestellt haben. Sobald die Anwendung bis hin zur Produktion, aufgrund der Einschränkungen von sicherheitsanforderungen und die Netzwerkinfrastruktur bereitgestellt werden kann muss der Administrator der Produktion-Umgebung manuell kopieren Sie das Webpaket auf einem Produktionsserver für Web und importieren es über Internet Information Services (IIS) Manager.

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: c7d893fb9633aaa8628f2f46a8db7f2c09f81830
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Gewusst wie: Hinzufügen mobiler Seiten zu Ihren ASP.NET Web Forms-/ MVC-Anwendung
 ====================
@@ -113,12 +113,12 @@ Es ist besser, stellen Sie Ihre Entscheidungen basierend auf Eigenschaften als M
 ASP.NET Web Forms und MVC-Entwickler können sofort wichtige Merkmale eines Browsers besuchen durch Überprüfen der Eigenschaften eines Ermitteln der *Request.Browser* Objekt. Beispielsweise finden Sie unter
 
 - Request.Browser.IsMobileDevice
-- Request.Browser.MobileDeviceManufacturer Request.Browser.MobileDeviceModel
+- Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
 - ... und viele andere
 
-Im Hintergrund die ASP.NET-Plattform entspricht den eingehenden *Benutzer-Agent-* (UA)-HTTP-Header für reguläre Ausdrücke in einem Satz von Browser-Definitions-XML-Dateien. Standardmäßig die Plattform enthält Definitionen für viele allgemeine mobile Geräte, und Sie können benutzerdefinierte Browser-Definitionsdateien hinzufügen, damit andere Benutzer, die Sie erkennen möchten. Weitere Einzelheiten finden Sie in der MSDN-Seite [ASP.NET Webserver- und Browserfunktionen](https://msdn.microsoft.com/en-us/library/x3k2ssx2.aspx).
+Im Hintergrund die ASP.NET-Plattform entspricht den eingehenden *Benutzer-Agent-* (UA)-HTTP-Header für reguläre Ausdrücke in einem Satz von Browser-Definitions-XML-Dateien. Standardmäßig die Plattform enthält Definitionen für viele allgemeine mobile Geräte, und Sie können benutzerdefinierte Browser-Definitionsdateien hinzufügen, damit andere Benutzer, die Sie erkennen möchten. Weitere Einzelheiten finden Sie in der MSDN-Seite [ASP.NET Webserver- und Browserfunktionen](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
 ### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Mithilfe der Datenbank über 51Degrees.mobi Foundation WURFL-Geräte
 
@@ -213,9 +213,9 @@ Weitere Tipps zum Optimieren der Markup und CSS für mobile Browser finden Sie i
 
 Da das Model View Controller-Muster Anwendungslogik (in Controllern) von Präsentationslogik (in Sichten) entkoppelt, können Sie für die Behandlung der Unterstützung von mobilen Geräten in serverseitigen Code aus einem der folgenden Ansätze:
 
-1. ***Die gleichen Controller und Ansichten für Desktop- und mobile Browser verwenden, allerdings Rendern von Ansichten mit anderen Razor-Layouts, je nach Gerätetyp*.** Diese Option funktioniert am besten, wenn Sie sind identische Daten auf allen Geräten anzeigen, jedoch einfach verschiedene CSS-Stylesheets angeben oder einige Elemente der obersten Ebene HTML-Webseiten ändern möchten.
+1. ***Verwenden der gleichen Controller und Ansichten für Desktop- und mobile Browser Rendern von Ansichten mit anderen Razor-Layouts, je nach Gerät Typ *.** Diese Option funktioniert am besten, wenn Sie sind identische Daten auf allen Geräten anzeigen, jedoch einfach verschiedene CSS-Stylesheets angeben oder einige Elemente der obersten Ebene HTML-Webseiten ändern möchten.
 2. ***Dieselben Controller für Desktop- und mobile Browser verwenden, aber unterschiedliche Sichten je nach Gerätetyp Rendern***. Diese Option funktioniert am besten, wenn Sie etwa die gleichen Daten anzeigen und entspricht den Workflows für Endbenutzer bereitstellen, aber sehr unterschiedliche HTML-Markup des verwendeten Geräts entsprechend rendern möchten.
-3. ***Erstellen Sie separate Bereiche für Desktop- und mobilen Browsern, implementieren unabhängige Controller und Ansichten für jeden*.** Diese Option funktioniert am besten, wenn Sie sehr unterschiedliche Bildschirme anzeigen, enthält verschiedene Informationen und wodurch der Benutzer über unterschiedliche Workflows, die für ihren Gerätetyp optimiert. Einige Wiederholung des Codes kann bedeuten, aber Sie können durch gemeinsame Logik in einer zugrunde liegenden Ebene oder einem Dienst Ausklammern verringern.
+3. ***Erstellen Sie separate Bereiche für Desktop- und mobilen Browsern, implementieren unabhängige Controller und Ansichten für jeden *.** Diese Option funktioniert am besten, wenn Sie sehr unterschiedliche Bildschirme anzeigen, enthält verschiedene Informationen und wodurch der Benutzer über unterschiedliche Workflows, die für ihren Gerätetyp optimiert. Einige Wiederholung des Codes kann bedeuten, aber Sie können durch gemeinsame Logik in einer zugrunde liegenden Ebene oder einem Dienst Ausklammern verringern.
 
 Wenn Sie nutzen möchten die **erste** aus, und nur die Razor-Layout variieren pro Gerätetyp, es ist sehr einfach. Ändern Sie einfach Ihre \_ViewStart.cshtml Datei wie folgt:
 

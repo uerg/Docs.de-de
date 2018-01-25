@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -39,11 +39,11 @@ Statt eine Ausnahme auszulösen, und eine Seite nicht verfügbare oder Fehler an
 
 Es gibt mehrere Möglichkeiten, die Sie intelligente Wiederholungslogik implementieren können.
 
-- Die Microsoft Patterns &amp; Practices-Gruppe verfügt über eine [vorübergehenden Anwendungsblock zur Behandlung](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx) , die erledigt alles für Sie bei Verwendung von ADO.NET für den SQL-Datenbankzugriff (nicht über Entity Framework). Sie legen nur eine Richtlinie für Wiederholungen – wie viele Male auf, um eine Abfrage zu wiederholen oder Befehl und warten Sie, wie lange zwischen versucht – und Wrap Ihrer SQL code in eine *mit* Block.
+- Die Microsoft Patterns &amp; Practices-Gruppe verfügt über eine [vorübergehenden Anwendungsblock zur Behandlung](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) , die erledigt alles für Sie bei Verwendung von ADO.NET für den SQL-Datenbankzugriff (nicht über Entity Framework). Sie legen nur eine Richtlinie für Wiederholungen – wie viele Male auf, um eine Abfrage zu wiederholen oder Befehl und warten Sie, wie lange zwischen versucht – und Wrap Ihrer SQL code in eine *mit* Block.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    TFH unterstützt auch [Azure In-Role Cache](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx) und [Service Bus](https://azure.microsoft.com/services/service-bus/).
+    TFH unterstützt auch [Azure In-Role Cache](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) und [Service Bus](https://azure.microsoft.com/services/service-bus/).
 - Bei Verwendung von Entity Framework werden nicht in der Regel arbeiten Sie direkt mit der SQL-benutzerverbindungen Entity Framework 6 dieser Art von Logik für Wiederholungsversuche direkt in das Framework erstellt, sodass dieses Patterns and Practices-Paket kann nicht verwendet. Auf ähnliche Weise Geben Sie die wiederholungsstrategie und EF verwendet dann diese Strategie, wenn er auf die Datenbank zugreift.
 
     Zum Verwenden dieser Funktion in der app zu beheben, müssen Sie tun, lediglich eine Klasse hinzuzufügen, die abgeleitet *DbConfiguration* und aktivieren Sie die Wiederholungslogik erneut.
@@ -88,11 +88,11 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 
 Dokumentation
 
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen. Finden Sie im Abschnitt Telemetrie und Diagnose.
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Finden Sie unter "Wiederholen" Muster, Scheduler Agent Supervisor-Muster.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen. Finden Sie im Abschnitt Telemetrie und Diagnose.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Finden Sie unter "Wiederholen" Muster, Scheduler Agent Supervisor-Muster.
 - [Fehlertoleranz in Azure SQL-Datenbank](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Der Blogbeitrag von Tony Petrossian.
-- [Entity Framework - Verbindungsstabilität / Wiederholungslogik](https://msdn.microsoft.com/en-us/data/dn456835). Informationen zum verwenden und Anpassen der Funktion von Entity Framework 6 behandeln vorübergehenden Fehlers.
+- [Entity Framework - Verbindungsstabilität / Wiederholungslogik](https://msdn.microsoft.com/data/dn456835). Informationen zum verwenden und Anpassen der Funktion von Entity Framework 6 behandeln vorübergehenden Fehlers.
 - [Verbindungsresilienz und Abfangen der Befehl mit dem Entity Framework in einer ASP.NET MVC-Anwendung](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Vierte veranschaulicht in einer Reihe Tutorial neun-Teil der EF-6 Verbindung ausfallsicherung durch die Funktion für SQL-Datenbank einrichten.
 
 Videos

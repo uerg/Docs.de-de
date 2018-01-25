@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: badf9da0e9a26d185e7532b02f53a8acea60ea91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f0d380ee411116844f42a542c12050513721eb1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Master/Detail-mit auswählbaren Master GridView mit einer Details-DetailView (c#)
 ====================
@@ -39,7 +39,7 @@ In der [vorherigen Lernprogramm](master-detail-filtering-across-two-pages-cs.md)
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>Schritt 1: Erstellen einer auswählbaren GridView
 
-Wie bereits erwähnt, die in der zweiseitige Master-/Detail zu melden, dass jeder master Datensatz einen Link enthalten, die beim Klicken auf den Benutzer gesendet, auf der Seite Details zum Übergeben der geklickt wurde Zeile `SupplierID` Wert in der Abfragezeichenfolge. Jede GridView-Zeile, die mit einem HyperLinkField wurde diese ein Link hinzugefügt. Damit der einseitige Master-/Detail-Bericht, benötigen wir eine Schaltfläche für jede GridView Zeile, die beim Klicken auf zeigt die Details. Des GridView-Steuerelements kann so konfiguriert werden, dass eine Schaltfläche auswählen, für jede Zeile enthalten, die einen Postback verursacht, und kennzeichnet diese Zeile als der GridView [SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
+Wie bereits erwähnt, die in der zweiseitige Master-/Detail zu melden, dass jeder master Datensatz einen Link enthalten, die beim Klicken auf den Benutzer gesendet, auf der Seite Details zum Übergeben der geklickt wurde Zeile `SupplierID` Wert in der Abfragezeichenfolge. Jede GridView-Zeile, die mit einem HyperLinkField wurde diese ein Link hinzugefügt. Damit der einseitige Master-/Detail-Bericht, benötigen wir eine Schaltfläche für jede GridView Zeile, die beim Klicken auf zeigt die Details. Des GridView-Steuerelements kann so konfiguriert werden, dass eine Schaltfläche auswählen, für jede Zeile enthalten, die einen Postback verursacht, und kennzeichnet diese Zeile als der GridView [SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
 
 Durch Hinzufügen eines GridView-Steuerelements zum Starten der `DetailsBySelecting.aspx` auf der Seite der `Filtering` Ordner festlegen seiner `ID` Eigenschaft, um `ProductsGrid`. Als Nächstes fügen Sie eine neue, mit dem Namen ObjectDataSource `AllProductsDataSource` aufruft, die die `ProductsBLL` Klasse `GetProducts()` Methode.
 
@@ -85,7 +85,7 @@ Als Nächstes müssen wir die GridView als auswählbare, kennzeichnen, die jede 
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample2.aspx)]
 
-Wenn eine GridView Zeile auswählen geklickt wird ein Postback erfolgt und der GridView `SelectedRow` Eigenschaft aktualisiert wird. Zusätzlich zu den `SelectedRow` -Eigenschaft, um die GridView bietet die [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), ["SelectedValue"](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), und [SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) Eigenschaften. Die `SelectedIndex` Eigenschaft gibt den Index der ausgewählten Zeile zurück, wohingegen die `SelectedValue` und `SelectedDataKey` Eigenschaften zurückgeben, Werte basierend auf der GridView [DataKeyNames Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
+Wenn eine GridView Zeile auswählen geklickt wird ein Postback erfolgt und der GridView `SelectedRow` Eigenschaft aktualisiert wird. Zusätzlich zu den `SelectedRow` -Eigenschaft, um die GridView bietet die [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), ["SelectedValue"](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), und [SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) Eigenschaften. Die `SelectedIndex` Eigenschaft gibt den Index der ausgewählten Zeile zurück, wohingegen die `SelectedValue` und `SelectedDataKey` Eigenschaften zurückgeben, Werte basierend auf der GridView [DataKeyNames Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
 
 Die `DataKeyNames` Eigenschaft wird verwendet, um eine zuzuordnen oder weitere Feld "Daten"-Werte mit jeder Zeile an und wird häufig in "Attribut" eindeutig identifizierende Informationen aus den zugrunde liegenden Daten mit jeder Zeile GridView verwendet. Die `SelectedValue` Eigenschaft gibt den Wert des ersten `DataKeyNames` Feld "Daten" für die ausgewählte Zeile Where als die `SelectedDataKey` Eigenschaft gibt der ausgewählten Zeile `DataKey` Objekt, das alle Werte für die angegebenen Daten Schlüsselfelder für enthält Diese Zeile.
 

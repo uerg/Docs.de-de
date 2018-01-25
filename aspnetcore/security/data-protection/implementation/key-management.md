@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9c4d293355e26d8bf5ba1360b070a7b9809bfe56
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management"></a>Schlüsselverwaltung
 
@@ -48,9 +48,9 @@ Eine Ausnahme ist aufgetreten. Verfügt der Anwendungsentwickler [deaktiviert di
 
 ## <a name="key-expiration-and-rolling"></a>Schlüsselablauf und Rollen
 
-Wenn ein Schlüssel erstellt wird, erhält er automatisch ein Datum der Aktivierung von {Now + 2 Tage} und {Now + 90 Tage} Ablaufdatum. Die Verzögerung 2 Tagen vor der Aktivierung erhalten die Schlüsselzeit durch das System weitergegeben. Somit ermöglicht es anderen Anwendungen, die auf den in den Sicherungsspeicher beobachten den Schlüssel bei ihrer nächsten Zeitraum für die automatische Aktualisierung daher maximieren die Gefahr, dass bei der Schlüssel ring geworden ist aktiv, die es verteilt wurde für alle Anwendungen, die möglicherweise zum müssen diese verwendet werden.
+Wenn ein Schlüssel erstellt wird, hat es automatisch ein Datum der Aktivierung von {Now + 2 Tage} und {Now + 90 Tage} Ablaufdatum erhalten. Die Verzögerung 2 Tagen vor der Aktivierung erhalten die Schlüsselzeit durch das System weitergegeben. Somit ermöglicht es anderen Anwendungen, die auf den in den Sicherungsspeicher beobachten den Schlüssel bei ihrer nächsten Zeitraum für die automatische Aktualisierung daher maximieren die Gefahr, dass bei der Schlüssel ring geworden ist aktiv, die es verteilt wurde für alle Anwendungen, die möglicherweise zum müssen diese verwendet werden.
 
-Wenn die Standardschlüssel innerhalb von 2 Tagen abläuft und der Schlüssel Ring nicht bereits einen Schlüssel aufweist, der nach Ablauf der Standardschlüssel aktiv sind, bleiben die Datenschutzsystem automatisch einen neuen Schlüssel für den Schlüssel Ring. Dieses neuen Schlüssels verfügt über ein Datum der Aktivierung von {Ablaufdatum des Standardschlüssel} und {Now + 90 Tage} Ablaufdatum. Dadurch wird das System die Schlüssel automatisch in regelmäßigen Abständen ohne Unterbrechung des Diensts zurückzusetzen.
+Wenn die Standardschlüssel innerhalb von 2 Tagen abläuft und der Ring Schlüssel einen Schlüssel noch nicht, der nach Ablauf der Standardschlüssel aktiv sind, bleiben die Datenschutzsystem automatisch einen neuen Schlüssel für den Schlüssel Ring. Dieses neuen Schlüssels verfügt über ein Datum der Aktivierung von {Ablaufdatum des Standardschlüssel} und {Now + 90 Tage} Ablaufdatum. Dadurch wird das System die Schlüssel automatisch in regelmäßigen Abständen ohne Unterbrechung des Diensts zurückzusetzen.
 
 Es gibt möglicherweise Situationen, in denen ein Schlüssel mit sofortige Aktivierung erstellt wird. Ein Beispiel wäre, wenn die Anwendung noch nicht für eine Zeit ausgeführt und sämtliche Schlüssel in den Schlüssel Ring ist abgelaufen. In diesem Fall wird der Schlüssel ein Datum der Aktivierung von {jetzt} ohne die normalen aktivierungsverzögerung von 2 Tagen angegeben.
 

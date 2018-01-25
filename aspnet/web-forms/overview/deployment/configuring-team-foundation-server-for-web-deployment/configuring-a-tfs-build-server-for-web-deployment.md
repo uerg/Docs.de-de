@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Konfigurieren einen TFS-Build-Server für die Bereitstellung
 ====================
@@ -58,13 +58,13 @@ Wenn Sie einen Build-Server konfigurieren, ist die erste Aufgabe zum Installiere
 - Erstellen einer *Buildcontroller* und eine oder mehrere *build-Agents*. Jeder Buildcontroller verwaltet einen Satz von Build-Agents. Wenn Sie einen Build in die Warteschlange, weist der Buildcontroller die Build-Aufgabe an einen verfügbaren Build-Agent an. Jede Teamprojektsammlung in TFS wird eine einzelne Buildcontroller zugeordnet.
 - Konfigurieren Sie einen Ablageordner für die Ausgaben des builddebugvorgangs. Dies ist eine Netzwerkfreigabe. Alle Ausgaben, z. B. Web-Bereitstellungspakete "erstellen", an den Ablageordner gesendet werden.
 
-Die [Verwalten von Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx) Kapitel auf MSDN enthält alle Ressourcen, die Sie benötigen, um diese Aufgaben ausführen:
+Die [Verwalten von Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx) Kapitel auf MSDN enthält alle Ressourcen, die Sie benötigen, um diese Aufgaben ausführen:
 
-- Eine konzeptionelle Übersicht über Team Foundation Build, einschließlich der Builddienst Buildcontroller und Build-Agents finden Sie unter [Grundlegendes zu einem Team Foundation Build-System](https://msdn.microsoft.com/en-us/library/dd793166.aspx).
-- Informationen zum Installieren und Konfigurieren des Builddiensts finden Sie unter [Konfigurieren eines Buildcomputers](https://msdn.microsoft.com/en-us/library/ms181712.aspx).
-- Informationen zum Erstellen von Buildcontroller finden Sie unter [erstellen und Arbeiten mit einem Controller erstellen](https://msdn.microsoft.com/en-us/library/ee330987.aspx).
-- Informationen zum Erstellen von Build-Agents finden Sie unter [erstellen und Verwenden von Build-Agents](https://msdn.microsoft.com/en-us/library/bb399135.aspx).
-- Informationen zum Erstellen und Konfigurieren von Ablageordnern finden Sie unter [Einrichten von Ablageordnern](https://msdn.microsoft.com/en-us/library/bb778394.aspx).
+- Eine konzeptionelle Übersicht über Team Foundation Build, einschließlich der Builddienst Buildcontroller und Build-Agents finden Sie unter [Grundlegendes zu einem Team Foundation Build-System](https://msdn.microsoft.com/library/dd793166.aspx).
+- Informationen zum Installieren und Konfigurieren des Builddiensts finden Sie unter [Konfigurieren eines Buildcomputers](https://msdn.microsoft.com/library/ms181712.aspx).
+- Informationen zum Erstellen von Buildcontroller finden Sie unter [erstellen und Arbeiten mit einem Controller erstellen](https://msdn.microsoft.com/library/ee330987.aspx).
+- Informationen zum Erstellen von Build-Agents finden Sie unter [erstellen und Verwenden von Build-Agents](https://msdn.microsoft.com/library/bb399135.aspx).
+- Informationen zum Erstellen und Konfigurieren von Ablageordnern finden Sie unter [Einrichten von Ablageordnern](https://msdn.microsoft.com/library/bb778394.aspx).
 
 ## <a name="install-required-products-and-components"></a>Installieren der erforderlichen Produkte und Komponenten
 
@@ -108,13 +108,13 @@ Die beste Möglichkeit, allgemeine webplattformkomponenten installieren ist die 
 > Wenn das Verfahren zum Bereitstellen der Verwendung von Tools wie VSDBCMD.exe oder SQLCMD.exe enthält, müssen Sie sicherstellen, dass diese auf dem Buildserver installiert werden. VSDBCMD.exe ist ein Tool für Visual Studio und wird in der Regel mit dem Server hinzugefügt, bei der Installation von Team Foundation Build. SQLCMD.exe handelt es sich um eine SQL Server-Tool. Sie können eine eigenständige Version des von SQLCMD.exe Herunterladen der [Microsoft SQL Server 2008 R2 Feature Pack](https://go.microsoft.com/?linkid=9805134) Seite.
 
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 An diesem Punkt ist Ihrem Build-Server zum Starten der Erstellung und Bereitstellung von Webanwendungsprojekten bereit. Im nächsten Thema [erstellen eine erstellen, unterstützt Definitionsbereitstellung](creating-a-build-definition-that-supports-deployment.md), beschreibt, wie zum Erstellen und konfigurieren eine Builddefinition, um zu steuern, wann und wie Ihre Projekte erstellt und bereitgestellt werden.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere allgemeine Anleitungen zum Arbeiten mit Team Build finden Sie unter [Verwalten von Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx).
+Weitere allgemeine Anleitungen zum Arbeiten mit Team Build finden Sie unter [Verwalten von Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](adding-content-to-source-control.md)

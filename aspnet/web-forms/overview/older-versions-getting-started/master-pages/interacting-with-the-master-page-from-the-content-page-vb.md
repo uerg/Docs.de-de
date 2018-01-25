@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f5cb1712922c355c99bde9f8252dc84f1f590ec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a9020115e6348d30350f8fff493efe88bd0d4c37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Interaktion mit der Masterseite von der Inhaltsseite (VB)
 ====================
@@ -192,9 +192,9 @@ Betrachten wir die beiden Ansätzen.
 
 ### <a name="using-the-loosely-typedpagemasterproperty"></a>Mithilfe der lose typisierten`Page.Master`Eigenschaft
 
-Alle ASP.NET-Webseiten leiten sich aus der `Page` -Klasse, befindet sich im die `System.Web.UI` Namespace. Die `Page` Klasse enthält eine [ `Master` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.page.master.aspx) , die einen Verweis auf die Masterseite zurückgibt. Wenn die Seite keine Masterseite `Master` gibt `Nothing`.
+Alle ASP.NET-Webseiten leiten sich aus der `Page` -Klasse, befindet sich im die `System.Web.UI` Namespace. Die `Page` Klasse enthält eine [ `Master` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx) , die einen Verweis auf die Masterseite zurückgibt. Wenn die Seite keine Masterseite `Master` gibt `Nothing`.
 
-Die `Master` Eigenschaft gibt ein Objekt vom Typ [ `MasterPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.masterpage.aspx) (befindet sich auch der `System.Web.UI` Namespace) ist der Basistyp, von dem alle Masterseiten abgeleitet. Aus diesem Grund auf mit öffentlichen Eigenschaften oder Methoden, die auf unserer Website Masterseite müssen wir umgewandelt definiert die `MasterPage` Objekt, das von der `Master` Eigenschaft in den entsprechenden Typ. Da wir unsere Masterseitendatei mit dem Namen `Site.master`, wurde die Code-Behind-Klasse mit dem Namen `Site`. Im folgenden code aus diesem Grund Umwandlungen der `Page.Master` Eigenschaft zu einer Instanz von der `Site` Klasse.
+Die `Master` Eigenschaft gibt ein Objekt vom Typ [ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (befindet sich auch der `System.Web.UI` Namespace) ist der Basistyp, von dem alle Masterseiten abgeleitet. Aus diesem Grund auf mit öffentlichen Eigenschaften oder Methoden, die auf unserer Website Masterseite müssen wir umgewandelt definiert die `MasterPage` Objekt, das von der `Master` Eigenschaft in den entsprechenden Typ. Da wir unsere Masterseitendatei mit dem Namen `Site.master`, wurde die Code-Behind-Klasse mit dem Namen `Site`. Im folgenden code aus diesem Grund Umwandlungen der `Page.Master` Eigenschaft zu einer Instanz von der `Site` Klasse.
 
 
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample8.vb)]
@@ -217,7 +217,7 @@ Bei näherer Betrachtung können Sie sehen, dass eine ASP.NET-Seite Code-Behind-
 
 Die automatische codegenerierung, die Fehler tritt bei eine ASP.NET-Seite besuchten kontextspezifischen einige vielmehr interessanten und nützliche Möglichkeiten. Im Fall von Masterseiten, wenn wir das Modul für ASP.NET Teilen von unseren Inhaltsseite welche Gestaltungsvorlage verwendet wird generiert er einen stark typisierten `Master` -Eigenschaft für uns.
 
-Verwenden der [ `@MasterType` Richtlinie](https://msdn.microsoft.com/en-us/library/ms228274.aspx) des ASP.NET-Moduls für die master Seitentyp der Seite Inhalt informiert. Die `@MasterType` Richtlinie kann entweder der Typname der Masterseite oder des Dateipfads akzeptieren. Um anzugeben, dass die `AddProduct.aspx` Seite verwendet `Site.master` als Gestaltungsvorlage, fügen Sie die folgende Direktive am Anfang `AddProduct.aspx`:
+Verwenden der [ `@MasterType` Richtlinie](https://msdn.microsoft.com/library/ms228274.aspx) des ASP.NET-Moduls für die master Seitentyp der Seite Inhalt informiert. Die `@MasterType` Richtlinie kann entweder der Typname der Masterseite oder des Dateipfads akzeptieren. Um anzugeben, dass die `AddProduct.aspx` Seite verwendet `Site.master` als Gestaltungsvorlage, fügen Sie die folgende Direktive am Anfang `AddProduct.aspx`:
 
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample9.aspx)]

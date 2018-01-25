@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: e6230d4d65adb8c9a064545ad761898ca53562bf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee3384046bf8a0f363aa6801d7a46f68b2bf125a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Einführung in Warteschlangen für horizontale Skalierung in SignalR 1.x
 ====================
@@ -37,21 +37,21 @@ Eine Lösung besteht darin, Weiterleiten von Nachrichten zwischen Servern mit ei
 
 SignalR stellt derzeit drei Backplanes bereit:
 
-- **Azure Servicebus**. Service Bus ist eine messaging-Infrastruktur, die Komponenten zum Senden von Nachrichten in einer lose gekoppelten Weise zulässt.
+- **Azure Service Bus**. Service Bus ist eine messaging-Infrastruktur, die Komponenten zum Senden von Nachrichten in einer lose gekoppelten Weise zulässt.
 - **Redis**. Redis ist ein in-Memory-Schlüssel / Wert-Speicher. Redis unterstützt ein ("Pub/Sub") veröffentlichen/abonnieren-Muster für das Senden von Nachrichten.
-- **SQLServer**. Die SQL Server-Rückwandplatine schreibt Nachrichten in SQL-Tabellen. Der Rückwand verwendet Service Broker für effiziente messaging. Sie funktioniert aber auch, wenn Service Broker nicht aktiviert ist.
+- **SQL Server**. Die SQL Server-Rückwandplatine schreibt Nachrichten in SQL-Tabellen. Der Rückwand verwendet Service Broker für effiziente messaging. Sie funktioniert aber auch, wenn Service Broker nicht aktiviert ist.
 
 Wenn Sie Ihre Anwendung in Azure bereitstellen, sollten erwägen Sie, die Azure Service Bus-Rückwandplatine zu verwenden. Wenn Sie mit Ihren eigenen Serverfarm bereitstellen, sollten Sie die SQL Server- oder Redis Backplanes.
 
 Die folgenden Themen enthalten schrittweise aufgebaute Lernprogramme für jede Rückwandplatine:
 
-- [SignalR mit horizontaler Skalierung mit Azure Servicebus](scaleout-with-windows-azure-service-bus.md)
-- [SignalR mit horizontaler Skalierung mit Redis](scaleout-with-redis.md)
-- [SignalR mit horizontaler Skalierung mit SQLServer](scaleout-with-sql-server.md)
+- [Horizontale Skalierung in SignalR mit dem Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
+- [Horizontale Skalierung in SignalR mit Redis](scaleout-with-redis.md)
+- [Horizontale Skalierung in SignalR mit SQL Server](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>Implementierung
 
-In SignalR beziehen wird jede Nachricht über einen Nachrichtenbus gesendet. Implementiert ein Nachrichtenbus der [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) -Schnittstelle, die eine Abstraktion zum Veröffentlichen/Abonnieren bereitstellt. Die Backplanes arbeiten möchten, indem Sie durch das Ersetzen der standardmäßigen **IMessageBus** mit einem Bus für diese Rückwandplatine konzipiert. Der Nachrichtenbus für Redis ist z. B. [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), und nutzt die Redis [Pub/Sub-](http://redis.io/topics/pubsub) Mechanismus zum Senden und Empfangen von Nachrichten.
+In SignalR beziehen wird jede Nachricht über einen Nachrichtenbus gesendet. Implementiert ein Nachrichtenbus der [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) -Schnittstelle, die eine Abstraktion zum Veröffentlichen/Abonnieren bereitstellt. Die Backplanes arbeiten möchten, indem Sie durch das Ersetzen der standardmäßigen **IMessageBus** mit einem Bus für diese Rückwandplatine konzipiert. Der Nachrichtenbus für Redis ist z. B. [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), und nutzt die Redis [Pub/Sub-](http://redis.io/topics/pubsub) Mechanismus zum Senden und Empfangen von Nachrichten.
 
 Jede Instanz eines Servers eine Verbindung mit der Rückwand über den Bus. Wenn eine Nachricht gesendet wird, geht Sie an der Rückwand, und der Rückwand sendet sie an jedem Server. Wenn ein Server eine Nachricht aus der Rückwand abruft, legt er die Nachricht im lokalen Cache. Der Server übermittelt dann Nachrichten für Clients aus dem lokalen Cache.
 

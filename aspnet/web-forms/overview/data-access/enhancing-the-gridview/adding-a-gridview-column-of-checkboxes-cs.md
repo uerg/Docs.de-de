@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4796d5d9fcf1f924e9baa9bc56424a9d719425c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f238b8ea8dfbde67dbad7a52d6b4851d67402a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>Hinzufügen einer GridView-Spalte der Kontrollkästchen (c#)
 ====================
@@ -100,7 +100,7 @@ Mit dem TemplateField und Kontrollkästchen Web Steuerelement hinzugefügt wird 
 
 Zu diesem Zeitpunkt haben wir eine Spalte mit Kontrollkästchen jedoch keine Möglichkeit zu bestimmen, welche Kontrollkästchen auf Postback eingecheckt wurden. Wenn die ausgewählten Produkte Löschen geklickt wird, müssen wir jedoch wissen, welche Kontrollkästchen aktiviert wurden, um die Produkte zu löschen.
 
-Die GridView s [ `Rows` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx) ermöglicht den Zugriff auf die Datenzeilen in der GridView. Wir können diese Zeilen durchlaufen programmgesteuerten Zugriff auf das CheckBox-Steuerelement, und klicken Sie dann wenden Sie sich an ihre `Checked` Eigenschaft, um zu bestimmen, ob das Kontrollkästchen ausgewählt wurde.
+Die GridView s [ `Rows` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) ermöglicht den Zugriff auf die Datenzeilen in der GridView. Wir können diese Zeilen durchlaufen programmgesteuerten Zugriff auf das CheckBox-Steuerelement, und klicken Sie dann wenden Sie sich an ihre `Checked` Eigenschaft, um zu bestimmen, ob das Kontrollkästchen ausgewählt wurde.
 
 Erstellen Sie einen Ereignishandler für das `DeleteSelectedProducts` Schaltfläche Websteuerelement s `Click` Ereignis und fügen Sie den folgenden Code hinzu:
 

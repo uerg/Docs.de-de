@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b24297fd6efcb794e7d5a50076ca176689f74845
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9523fe5b241b6ff45927f142eb844a716822336b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>Steuerelement-ID, die Benennung in Inhaltsseiten (VB)
 ====================
@@ -34,7 +34,7 @@ Alle ASP.NET-Serversteuerelemente enthalten eine `ID` -Eigenschaft, die eindeuti
 Um solche Szenarien entworfen werden, können ASP.NET bestimmte Steuerelemente als Benennen von Containern angezeigt werden. Ein Benennungscontainer dient als neue `ID` Namespace. Alle Serversteuerelemente, die innerhalb der Benennungscontainer haben ihre gerenderten `id` Wert mit dem Präfix der `ID` naming Containersteuerelements. Z. B. die `GridView` und `GridViewRow` Klassen sind beide Benennen von Containern. Folglich ein Label-Steuerelement in ein GridView TemplateField mit definierten `ID` `ProductName` erhält einen gerenderten `id` Wert `GridViewID_GridViewRowID_ProductName`. Da *GridViewRowID* ist eindeutig für jede GridView-Zeile, die den resultierenden `id` Werte eindeutig sind.
 
 > [!NOTE]
-> Die [ `INamingContainer` Schnittstelle](https://msdn.microsoft.com/en-us/library/system.web.ui.inamingcontainer.aspx) wird verwendet, um anzugeben, dass eine bestimmte ASP.NET-Serversteuerelement als einem Benennungscontainer fungieren soll. Die `INamingContainer` Schnittstelle ausgeschrieben nicht auf alle Methoden, die das Serversteuerelement implementieren muss, wird stattdessen als Markierung verwendet. Beim Generieren der gerenderten Markups aus, wenn ein Steuerelement diese Schnittstelle implementiert, klicken Sie dann das Modul für ASP.NET automatisch das Präfix der `ID` Wert abhängigen gerendert `id` Werte des Attributs. Dieser Prozess wird in Schritt2 ausführlicher erläutert.
+> Die [ `INamingContainer` Schnittstelle](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) wird verwendet, um anzugeben, dass eine bestimmte ASP.NET-Serversteuerelement als einem Benennungscontainer fungieren soll. Die `INamingContainer` Schnittstelle ausgeschrieben nicht auf alle Methoden, die das Serversteuerelement implementieren muss, wird stattdessen als Markierung verwendet. Beim Generieren der gerenderten Markups aus, wenn ein Steuerelement diese Schnittstelle implementiert, klicken Sie dann das Modul für ASP.NET automatisch das Präfix der `ID` Wert abhängigen gerendert `id` Werte des Attributs. Dieser Prozess wird in Schritt2 ausführlicher erläutert.
 
 
 Benennen von Containern ändern nicht nur die gerenderten `id` -Attributwert, aber auch beeinflussen, wie das Steuerelement programmgesteuert aus der ASP.NET-Seite Code-Behind-Klasse verwiesen werden kann. Die `FindControl("controlID")` Methode wird häufig verwendet, um programmgesteuert ein Websteuerelement verweisen. Allerdings `FindControl` nicht über das Benennen von Containern durchdringen. Sie können nicht direkt verwenden Sie daher die `Page.FindControl` Methode, um Steuerelemente innerhalb einer GridView oder andere Benennungscontainer verweisen.
@@ -121,7 +121,7 @@ Beachten Sie, dass die `id` -Attribut umfasst sowohl die Masterseite `ID` Wert (
 
 Jede ASP.NET-Serversteuerelement umfasst eine `FindControl("controlID")` -Methode, die das Steuerelement Nachfolger für ein Steuerelement mit dem Namen durchsucht *ControlID*. Wenn ein solches Steuerelement gefunden wird, wird diese zurückgegeben; Wenn kein entsprechendes Steuerelement gefunden wird, `FindControl` gibt `Nothing`.
 
-`FindControl`ist nützlich in Szenarien, in denen müssen Sie ein Steuerelement zuzugreifen, aber Sie verfügen nicht über einen direkten Verweis auf sie. Beim Arbeiten mit Daten wie z. B. die GridView Websteuerelemente Steuerelemente innerhalb der GridView-Felder in die deklarative Syntax einmal definiert werden, aber zur Laufzeit eine Instanz des Steuerelements für jede Zeile GridView erstellt wird. Folglich die Steuerelemente zur Laufzeit generierten vorhanden, aber wir haben keinen direkten Verweis aus der CodeBehind-Klasse verfügbar. Daher müssen wir verwenden `FindControl` programmgesteuert mit einem bestimmten Steuerelement innerhalb von Feldern für die GridView zu arbeiten. (Weitere Informationen zur Verwendung von `FindControl` den Zugriff auf die Steuerelemente in ein Data-Websteuerelement-Vorlagen finden Sie unter [benutzerdefinierte Formatierung basierend auf Daten](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Dieses Szenario tritt auf, wenn Websteuerelemente dynamisch ein Webformular hinzufügen, das Thema behandelt [dynamische Daten Eintrag Benutzeroberflächen erstellen](https://msdn.microsoft.com/en-us/library/aa479330.aspx).
+`FindControl`ist nützlich in Szenarien, in denen müssen Sie ein Steuerelement zuzugreifen, aber Sie verfügen nicht über einen direkten Verweis auf sie. Beim Arbeiten mit Daten wie z. B. die GridView Websteuerelemente Steuerelemente innerhalb der GridView-Felder in die deklarative Syntax einmal definiert werden, aber zur Laufzeit eine Instanz des Steuerelements für jede Zeile GridView erstellt wird. Folglich die Steuerelemente zur Laufzeit generierten vorhanden, aber wir haben keinen direkten Verweis aus der CodeBehind-Klasse verfügbar. Daher müssen wir verwenden `FindControl` programmgesteuert mit einem bestimmten Steuerelement innerhalb von Feldern für die GridView zu arbeiten. (Weitere Informationen zur Verwendung von `FindControl` den Zugriff auf die Steuerelemente in ein Data-Websteuerelement-Vorlagen finden Sie unter [benutzerdefinierte Formatierung basierend auf Daten](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Dieses Szenario tritt auf, wenn Websteuerelemente dynamisch ein Webformular hinzufügen, das Thema behandelt [dynamische Daten Eintrag Benutzeroberflächen erstellen](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Um zu veranschaulichen, mit der `FindControl` Methode zum Suchen nach Steuerelementen innerhalb einer Inhaltsseite, erstellen Sie einen Ereignishandler für das `SubmitButton`des `Click` Ereignis. Fügen Sie in der Ereignishandler den folgenden Code, programmgesteuert verweist auf die `Age` Textfeld und `Results` Beschriftung mit der `FindControl` Methode und zeigt dann eine Nachricht in `Results` basierend auf der Eingabe des Benutzers.
 
@@ -228,7 +228,7 @@ Wie bereits erwähnt, die in ASP.NET, die Seiten, enthalten keine Benennungskonv
 
 Das Problem bei diesem Ansatz ist, die bei Verwendung von Masterseiten (oder anderen Benennung Containersteuerelementen), das gerenderte HTML `id` ist nicht gleichbedeutend mit des Websteuerelements `ID` Eigenschaft. Ihre erste Neigung möglicherweise besuchen die Seite über einen Browser, und zeigen Sie die Quelle aus, um zu bestimmen, den tatsächlichen `id` Attribut. Wenn Sie die gerenderte wissen `id` Wert, Sie können fügen Sie ihn in den Aufruf von `getElementById` auf das HTML-Element zuzugreifen, Sie über die clientseitige Skripts zu arbeiten müssen. Dieser Ansatz ist kleiner als ideal, da bestimmte Änderungen an der Seite Hierarchie steuern oder Änderungen an der `ID` Eigenschaften der Steuerelemente Benennungskonvention werden das resultierende alter `id` -Attribut, damit wichtige JavaScript-Code.
 
-Die gute Nachricht ist, die die `id` Attributwert, der gerendert wird, kann zugegriffen werden, im serverseitigen Code über des Websteuerelements [ `ClientID` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.control.clientid.aspx). Sie sollten diese Eigenschaft verwenden, um zu bestimmen, die `id` -Attributwert in clientseitigem Skript verwendet. Beispielsweise, um eine JavaScript-Funktion auf der Seite hinzufügen, wenn aufgerufen wird, zeigt den Wert des der `Age` Textfeld in ein modales Meldungsfeld fügen Sie den folgenden Code hinzu der `Page_Load` Ereignishandler:
+Die gute Nachricht ist, die die `id` Attributwert, der gerendert wird, kann zugegriffen werden, im serverseitigen Code über des Websteuerelements [ `ClientID` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). Sie sollten diese Eigenschaft verwenden, um zu bestimmen, die `id` -Attributwert in clientseitigem Skript verwendet. Beispielsweise, um eine JavaScript-Funktion auf der Seite hinzufügen, wenn aufgerufen wird, zeigt den Wert des der `Age` Textfeld in ein modales Meldungsfeld fügen Sie den folgenden Code hinzu der `Page_Load` Ereignishandler:
 
 
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample15.vb)]
@@ -241,7 +241,7 @@ Der obige Code fügt den Wert der `Age` Textfeldss `ClientID` Eigenschaft in der
 Beachten Sie, dass wie den richtigen `id` -Attributwert `ctl00_MainContent_Age`, wird angezeigt, in dem Aufruf von `getElementById`. Da dieser Wert zur Laufzeit berechnet wird, funktioniert es unabhängig von späteren Änderungen an der Seitenhierarchie für das Steuerelement.
 
 > [!NOTE]
-> Dieses JavaScript-Beispiel zeigt lediglich eine JavaScript-Funktion hinzufügen, die das HTML-Element gerendert, die durch ein Serversteuerelement ordnungsgemäß verweist. Um diese Funktion verwenden, müssten Sie zusätzliche JavaScript, um die Funktion aufzurufen, wenn das Dokument lädt oder einige spezielle Handlung des Benutzers herausstellt erstellen. Weitere Informationen zu diesen und verwandten Themen, lesen Sie [arbeiten mit clientseitigem Skript](https://msdn.microsoft.com/en-us/library/aa479302.aspx).
+> Dieses JavaScript-Beispiel zeigt lediglich eine JavaScript-Funktion hinzufügen, die das HTML-Element gerendert, die durch ein Serversteuerelement ordnungsgemäß verweist. Um diese Funktion verwenden, müssten Sie zusätzliche JavaScript, um die Funktion aufzurufen, wenn das Dokument lädt oder einige spezielle Handlung des Benutzers herausstellt erstellen. Weitere Informationen zu diesen und verwandten Themen, lesen Sie [arbeiten mit clientseitigem Skript](https://msdn.microsoft.com/library/aa479302.aspx).
 
 
 ## <a name="summary"></a>Zusammenfassung
@@ -257,11 +257,11 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Masterseiten ASP.NET und`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Erstellen von Benutzeroberflächen für Dynamic Data-Eintrag](https://msdn.microsoft.com/en-us/library/aa479330.aspx)
+- [Erstellen von Benutzeroberflächen für Dynamic Data-Eintrag](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Erweitern der Funktionalität der Basistyp mit Erweiterungsmethoden [c#]](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Gewusst wie: Verweisen auf ASP.NET Master Seiteninhalt](https://msdn.microsoft.com/en-us/library/xxwa0ff0.aspx)
+- [Gewusst wie: Verweisen auf ASP.NET Master Seiteninhalt](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [Master-Seiten: Tipps, Tricks und Traps](http://www.odetocode.com/articles/450.aspx)
-- [Arbeiten mit clientseitigem Skript](https://msdn.microsoft.com/en-us/library/aa479302.aspx)
+- [Arbeiten mit clientseitigem Skript](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 

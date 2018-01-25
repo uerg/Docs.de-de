@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8025a4d236d126b939b44fac9114ae3d0e98f6ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8bd6534b652735e657aa71cdf07dac48f20a549c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-objectdatasource-c"></a>Anzeigen von Daten mit der ObjectDataSource (c#)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Mit unseren Anwendung Architektur und Website Seitenlayout abgeschlossen können wir untersuchen, wie Sie eine Vielzahl von häufig und reporting-datenbezogene Aufgaben ausführen. In den vorherigen Lernprogrammen haben wir gesehen, wie Sie Daten aus der DAL und BLL mit einem Daten-Websteuerelement auf einer ASP.NET-Seite programmgesteuert zu binden. Diese Syntax, die der Daten Websteuerelement zuweisen `DataSource` Eigenschaft, um die Daten anzeigen und anschließend durch Aufrufen des Steuerelements `DataBind()` Methode das Muster in 1.x ASP.NET-Anwendungen verwendet wurde, und können weiterhin in der 2.0-Anwendungen verwendet werden. ASP.NET 2.0 Datenquellensteuerelemente bieten jedoch eine deklarative Methode zum Arbeiten mit Daten. Erstellt mit diesen Steuerelementen können Sie aus der BLL abgerufene Daten binden, der [vorherigen Lernprogramm](../introduction/creating-a-business-logic-layer-cs.md) ohne eine Codezeile schreiben zu müssen.
 
-ASP.NET 2.0 enthält fünf integrierte Datenquellensteuerelemente [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w(vs.80).aspx), [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a(en-US,VS.80).aspx), und [SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x(en-US,VS.80).aspx) , obwohl Sie eine eigene erstellen können [benutzerdefinierte Datenquellensteuerelementen](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnvs05/html/DataSourceCon1.asp), sofern erforderlich. Da wir eine Architektur für unser Tutorial Anwendung entwickelt haben, müssen die ObjectDataSource für unsere BLL-Klassen verwendet werden.
+ASP.NET 2.0 enthält fünf integrierte Datenquellensteuerelemente [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w(vs.80).aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a(en-US,VS.80).aspx), und [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x(en-US,VS.80).aspx) , obwohl Sie eine eigene erstellen können [benutzerdefinierte Datenquellensteuerelementen](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp), sofern erforderlich. Da wir eine Architektur für unser Tutorial Anwendung entwickelt haben, müssen die ObjectDataSource für unsere BLL-Klassen verwendet werden.
 
 
 ![ASP.NET 2.0 enthält fünf integrierte Datenquellensteuerelemente](displaying-data-with-the-objectdatasource-cs/_static/image1.png)
@@ -90,7 +90,7 @@ Das ObjectDataSource-Konfigurieren von Datenquellen-Assistent bietet eine schnel
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-cs/samples/sample1.aspx)]
 
-Auch wenn der Assistent zum Konfigurieren von Datenquellen, die möglicherweise müssen Sie manchmal manuell konfigurieren, das ObjectDataSource gewünscht wie der Assistent nur Klassen Entwickler erstellt führt. Wenn Sie z. B. das ObjectDataSource auf eine Klasse in .NET Framework binden möchten die [Mitgliedschaftsklasse](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx), um auf Benutzerkontoinformationen zuzugreifen oder die [Directory Klasse](https://msdn.microsoft.com/en-us/library/system.io.directory.aspx) zum Arbeiten mit Dateisysteminformationen Sie müssen das ObjectDataSource-Eigenschaften manuell festlegen.
+Auch wenn der Assistent zum Konfigurieren von Datenquellen, die möglicherweise müssen Sie manchmal manuell konfigurieren, das ObjectDataSource gewünscht wie der Assistent nur Klassen Entwickler erstellt führt. Wenn Sie z. B. das ObjectDataSource auf eine Klasse in .NET Framework binden möchten die [Mitgliedschaftsklasse](https://msdn.microsoft.com/library/system.web.security.membership.aspx), um auf Benutzerkontoinformationen zuzugreifen oder die [Directory Klasse](https://msdn.microsoft.com/library/system.io.directory.aspx) zum Arbeiten mit Dateisysteminformationen Sie müssen das ObjectDataSource-Eigenschaften manuell festlegen.
 
 ## <a name="step-2-adding-a-data-web-control-and-binding-it-to-the-objectdatasource"></a>Schritt 2: Hinzufügen eines Daten-Web-Steuerelements, und binden es an das ObjectDataSource
 
@@ -172,7 +172,7 @@ Im letzte Schritt werden mit unserem definiertes Design das Design für unsere A
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-cs/samples/sample5.xml)]
 
-Das ist alles vorhanden ist! Die `styleSheetTheme` Einstellung gibt an, dass die in das Design angegebenen Eigenschaften sollten *nicht* überschreiben die Eigenschaften auf der Steuerelementebene angegeben. Verwenden, um anzugeben, dass die designeinstellungen steuerelementeinstellungen neu erstellt werden soll, die `theme` -Attribut anstelle von `styleSheetTheme`; leider designeinstellungen angegeben, über die `theme` Attribut werden in der Entwurfsansicht von Visual Studio nicht angezeigt. Finden Sie unter [ASP.NET-Designs und Skins Overview](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx) und [serverseitige Stile mithilfe von Designs](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) Designs und Skins; Weitere Informationen finden Sie unter [How To: Apply ASP.NET Themes](https://msdn.microsoft.com/en-us/library/0yy5hxdk(VS.80).aspx) Weitere Informationen zu Konfigurieren eine Seite, um das Design.
+Das ist alles vorhanden ist! Die `styleSheetTheme` Einstellung gibt an, dass die in das Design angegebenen Eigenschaften sollten *nicht* überschreiben die Eigenschaften auf der Steuerelementebene angegeben. Verwenden, um anzugeben, dass die designeinstellungen steuerelementeinstellungen neu erstellt werden soll, die `theme` -Attribut anstelle von `styleSheetTheme`; leider designeinstellungen angegeben, über die `theme` Attribut werden in der Entwurfsansicht von Visual Studio nicht angezeigt. Finden Sie unter [ASP.NET-Designs und Skins Overview](https://msdn.microsoft.com/library/ykzx33wh.aspx) und [serverseitige Stile mithilfe von Designs](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) Designs und Skins; Weitere Informationen finden Sie unter [How To: Apply ASP.NET Themes](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx) Weitere Informationen zu Konfigurieren eine Seite, um das Design.
 
 
 [![Die GridView zeigt an, des Produkts Name, Kategorie, Lieferanten, Preis und nicht mehr unterstützte Informationen](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)
@@ -182,7 +182,7 @@ Das ist alles vorhanden ist! Die `styleSheetTheme` Einstellung gibt an, dass die
 
 ## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>Anzeigen von einem Datensatz zu einem Zeitpunkt in der DetailsView
 
-Die GridView zeigt eine Zeile für jeden Datensatz zurückgegeben, die für das Datenquellensteuerelement an dem es gebunden ist. Es gibt jedoch Situationen, wenn es möglicherweise als einzige oder nur ein Datensatz zu einem Zeitpunkt anzeigen möchten. Die [DetailsView-Steuerelement](https://msdn.microsoft.com/en-us/library/s3w1w7t4.aspx) bietet diese Funktion, die als HTML zu rendern `<table>` mit zwei Spalten und eine Zeile für jede Spalte oder Eigenschaft, die an das Steuerelement gebunden. Sie können als eine GridView mit einem einzelnen Datensatz um 90 Grad gedreht DetailsView vorstellen.
+Die GridView zeigt eine Zeile für jeden Datensatz zurückgegeben, die für das Datenquellensteuerelement an dem es gebunden ist. Es gibt jedoch Situationen, wenn es möglicherweise als einzige oder nur ein Datensatz zu einem Zeitpunkt anzeigen möchten. Die [DetailsView-Steuerelement](https://msdn.microsoft.com/library/s3w1w7t4.aspx) bietet diese Funktion, die als HTML zu rendern `<table>` mit zwei Spalten und eine Zeile für jede Spalte oder Eigenschaft, die an das Steuerelement gebunden. Sie können als eine GridView mit einem einzelnen Datensatz um 90 Grad gedreht DetailsView vorstellen.
 
 Starten Sie durch Hinzufügen eines Steuerelements DetailsView *oben* GridView in `SimpleDisplay.aspx`. Als Nächstes an der gleichen ObjectDataSource-Steuerelement als GridView binden. Wie mit GridView, DetailsView für jede Eigenschaft im Objekt zurückgegeben, die für das ObjectDataSource ein BoundField hinzugefügt werden `Select` Methode. Der einzige Unterschied ist, dass der DetailsView BoundFields horizontal statt vertikal angeordnet sind.
 
@@ -219,7 +219,7 @@ Weitere Informationen über das paging in zukünftigen Lernprogrammen erfahren.
 
 DetailsView ist in der Anzeige der einzelnen zurückgegebenen Datensatz von der ObjectDataSource ziemlich fest. Sollten wir eine flexiblere Ansicht der Daten ein. Z. B. nicht etwa den Namen des Produkts, Kategorie, Lieferanten, Preis und nicht mehr unterstützte Informationen in einer eigenen Zeile an, wir möglicherweise anzeigen möchten den Produktnamen und Preis eine `<h4>` Überschrift, mit der angezeigten Informationen zur Produktkategorie und Lieferanten unter dem Namen und den Preis in einen kleineren Schriftgrad. Und wir möglicherweise keine Achten Sie darauf, den Eigenschaftennamen (Produkt, Kategorie usw.) neben den Werten anzeigen.
 
-Die [FormView-Steuerelement](https://msdn.microsoft.com/en-US/library/fyf1dk77.aspx) bietet dieses Maß an Anpassung. Statt Felder (z. B. die GridView und DetailsView ausgeführt werden), verwendet die FormView-Vorlagen, die eine Mischung aus Web Controls, statische HTML zu ermöglichen und [Databinding-Syntax](http://www.15seconds.com/issue/040630.htm). Wenn Sie mit der Wiederholungsmodul-Steuerelement von ASP.NET vertraut sind 1.x, können Sie der FormView vorstellen, als die Repeater für mit einem einzelnen Datensatz.
+Die [FormView-Steuerelement](https://msdn.microsoft.com/library/fyf1dk77.aspx) bietet dieses Maß an Anpassung. Statt Felder (z. B. die GridView und DetailsView ausgeführt werden), verwendet die FormView-Vorlagen, die eine Mischung aus Web Controls, statische HTML zu ermöglichen und [Databinding-Syntax](http://www.15seconds.com/issue/040630.htm). Wenn Sie mit der Wiederholungsmodul-Steuerelement von ASP.NET vertraut sind 1.x, können Sie der FormView vorstellen, als die Repeater für mit einem einzelnen Datensatz.
 
 Hinzufügen eines FormView-Steuerelements, um die `SimpleDisplay.aspx` Seite der Entwurfsoberfläche angezeigt. Die FormView zeigt Anfangs als einen grauen Block uns darüber informiert werden, dass mindestens des Steuerelements bereitstellen müssen `ItemTemplate`.
 
@@ -256,12 +256,12 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Erstellen Sie eigene Datenquellen-Steuerelementen](https://msdn.microsoft.com/en-us/library/ms364049.aspx)
-- [GridView-Beispiele für ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/aa479339.aspx)
+- [Erstellen Sie eigene Datenquellen-Steuerelementen](https://msdn.microsoft.com/library/ms364049.aspx)
+- [GridView-Beispiele für ASP.NET 2.0](https://msdn.microsoft.com/library/aa479339.aspx)
 - [Vereinfacht und erweitert die Datenbindung Syntax in ASP.NET 2.0](http://www.15seconds.com/issue/040630.htm)
 - [Designs in ASP.NET 2.0](http://www.odetocode.com/Articles/423.aspx)
 - [Serverseitige-Stilen mithilfe von Designs](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
-- [Gewusst wie: Programmgesteuertes Anwenden von ASP.NET-Designs](https://msdn.microsoft.com/en-us/library/tx35bd89.aspx)
+- [Gewusst wie: Programmgesteuertes Anwenden von ASP.NET-Designs](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 030b0bb218ca05ec270b8fb0a9321e31d9ab5180
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f2b8e395505c1d13b914399b8de2196f0ba230a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurieren einer Website, die Anwendungsdienste (c#)
 ====================
@@ -35,7 +35,7 @@ ASP.NET-Version 2.0 eingeführt, eine Reihe von *Anwendungsdienste*, die Teil vo
 - **Rollen** – eine API zum Kategorisieren von Benutzern in Gruppen.
 - **Profil** – eine API für benutzerdefinierte, benutzerspezifische Sprachen gespeichert.
 - **Siteübersicht** – eine API zum Definieren einer logischen Standort s-Struktur in Form einer Hierarchie, die dann über Steuerelemente zur Seitennavigation, z. B. Menüs und praktische Brotkrümelnavigation angezeigt werden können.
-- **Personalisierung** – eine API für die Aufrechterhaltung der Anpassung Voreinstellungen, die am häufigsten mit [ *WebParts*](https://msdn.microsoft.com/en-us/library/e0s9t4ck.aspx).
+- **Personalisierung** – eine API für die Aufrechterhaltung der Anpassung Voreinstellungen, die am häufigsten mit [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Systemüberwachung** – eine API für die Überwachung der Leistung, Sicherheit, Fehler und andere System integritätsmetriken für eine ausgeführte Webanwendung.
   
 
@@ -71,7 +71,7 @@ Um die Anwendungsdienste mit einer SQL Server-Datenbank verwenden müssen Sie zu
 
 Es ist möglich, und in der Regel optimal, zum Erstellen die Anwendung Dienste Datenbankobjekte in der gleichen Datenbank, in dem die Website s anwendungsspezifische Daten gespeichert ist. .NET Framework ausgeliefert wird, ein Tool, mit dem Namen `aspnet_regsql.exe` installiert, die die Datenbankobjekte in einer angegebenen Datenbank. Ich habe fehlend fort und verwendet dieses Tool diese Objekte zum Hinzufügen der `Reviews.mdf` -Datenbank in die `App_Data` Ordner (der Entwicklungsdatenbank). Wir sehen, wie Sie dieses Tool weiter unten in diesem Lernprogramm verwenden, wenn wir diese Objekte in der Produktionsdatenbank hinzufügen.
 
-Wenn Sie die Anwendung Dienste Datenbankobjekte in einer Datenbank außer hinzufügen `ASPNETDB` müssen Sie zum Anpassen der `SqlMembershipProvider` und `SqlRoleProvider` Anbieter Klassen Konfigurationen aus, sodass sie die entsprechende Datenbank verwenden. Zum Anpassen der Mitgliedschaftsanbieter Hinzufügen einer [  *&lt;Mitgliedschaft&gt; Element* ](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) innerhalb der `<system.web>` im Abschnitt `Web.config`; verwenden Sie die [  *&lt;RoleManager&gt; Element* ](https://msdn.microsoft.com/en-us/library/ms164660.aspx) zum Konfigurieren des Rollen-Anbieters. Der folgende Codeausschnitt stammt aus dem Buch Reviews Anwendung s `Web.config` und zeigt die Einstellungen für die Mitgliedschaft und Rollen-APIs konfigurieren. Beachten Sie, dass beide registrieren Sie einen neuen Anbieter - `ReviewMembership` und `ReviewRole` -, bei denen die `SqlMembershipProvider` und `SqlRoleProvider` Anbieter bzw.
+Wenn Sie die Anwendung Dienste Datenbankobjekte in einer Datenbank außer hinzufügen `ASPNETDB` müssen Sie zum Anpassen der `SqlMembershipProvider` und `SqlRoleProvider` Anbieter Klassen Konfigurationen aus, sodass sie die entsprechende Datenbank verwenden. Zum Anpassen der Mitgliedschaftsanbieter Hinzufügen einer [  *&lt;Mitgliedschaft&gt; Element* ](https://msdn.microsoft.com/library/1b9hw62f.aspx) innerhalb der `<system.web>` im Abschnitt `Web.config`; verwenden Sie die [  *&lt;RoleManager&gt; Element* ](https://msdn.microsoft.com/library/ms164660.aspx) zum Konfigurieren des Rollen-Anbieters. Der folgende Codeausschnitt stammt aus dem Buch Reviews Anwendung s `Web.config` und zeigt die Einstellungen für die Mitgliedschaft und Rollen-APIs konfigurieren. Beachten Sie, dass beide registrieren Sie einen neuen Anbieter - `ReviewMembership` und `ReviewRole` -, bei denen die `SqlMembershipProvider` und `SqlRoleProvider` Anbieter bzw.
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample1.xml)]
 
@@ -94,7 +94,7 @@ Wenn Sie eine Website bereitstellen, die Anwendungsdienste und einen Anbieter, d
 
 Eine weitere Herausforderung kann auftreten, wenn Sie eine Website bereitstellen, die Anwendungsdienste verwendet werden, wenn Sie beabsichtigen, die in der Entwicklungsumgebung in die produktionsumgebung erstellten Benutzerkonten zu replizieren. Abhängig von der Konfiguration Mitgliedschaft und Rollen ist es möglich, dass diese Benutzer auch, wenn Sie die Benutzerkonten, die in der Entwicklungsumgebung in der Produktionsdatenbank erstellt wurden erfolgreich kopieren, in der Webanwendung in Produktion anmelden können. Wir sehen Sie sich die Ursache dieses Problems und erläutert, um es zu vermeiden.
 
-ASP.NET im Lieferumfang eine hübsche [ *Web Site Administration Tool (WSAT)* ](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) , die von Visual Studio gestartet werden kann, und ermöglicht dem Benutzer Konto, Rollen und Autorisierung Regeln, die über eine webbasierte verwaltet werden -Schnittstelle. Leider funktioniert die WSAT nur für lokale Websites, was bedeutet, dass die Remoteverwaltung von Benutzerkonten, Rollen und Autorisierungsregeln für die Webanwendung in der produktionsumgebung verwendet werden kann. Sehen wir uns die verschiedenen Möglichkeiten zum Implementieren von WSAT-ähnliches Verhalten über Ihre Produktionswebsite.
+ASP.NET im Lieferumfang eine hübsche [ *Web Site Administration Tool (WSAT)* ](https://msdn.microsoft.com/library/yy40ytx0.aspx) , die von Visual Studio gestartet werden kann, und ermöglicht dem Benutzer Konto, Rollen und Autorisierung Regeln, die über eine webbasierte verwaltet werden -Schnittstelle. Leider funktioniert die WSAT nur für lokale Websites, was bedeutet, dass die Remoteverwaltung von Benutzerkonten, Rollen und Autorisierungsregeln für die Webanwendung in der produktionsumgebung verwendet werden kann. Sehen wir uns die verschiedenen Möglichkeiten zum Implementieren von WSAT-ähnliches Verhalten über Ihre Produktionswebsite.
 
 ### <a name="adding-the-database-objects-using-aspnetregsqlexe"></a>Hinzufügen der Datenbank Objekte mithilfe von Aspnet\_regsql.exe
 
@@ -192,13 +192,13 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [*Registrierungstool für ASP.NET SQL-Server (aspnet_regsql.exe)*](https://msdn.microsoft.com/en-us/library/ms229862.aspx)
-- [*Erstellen der Datenbank für die Anwendungsdienste für SQLServer*](https://msdn.microsoft.com/en-us/library/x28wfk74.aspx)
+- [*Registrierungstool für ASP.NET SQL-Server (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*Erstellen der Datenbank für die Anwendungsdienste für SQLServer*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*Erstellen das Schema für die Mitgliedschaft in SQLServer*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md)
 - [*Untersuchen von ASP.NET s Mitgliedschaft, Rollen und Profile*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [*Paralleles eigene Websiteverwaltungs-Tool*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [*Lernprogramme für Website-Sicherheit*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Website-Tool (Übersicht)*](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [*Website-Tool (Übersicht)*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](configuring-the-production-web-application-to-use-the-production-database-cs.md)

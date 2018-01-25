@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Mithilfe von Page Inspector für Visual Studio 2012 in ASP.NET Web Forms
 ====================
@@ -51,7 +51,7 @@ von Tim Ammann
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) oder [Visual Studio Express 2012 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) oder [Visual Studio Express 2012 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Verwenden Sie zum Abrufen der neuesten Version des Page Inspector [Webplattform-Installer](https://go.microsoft.com/fwlink/?LinkId=255386) auf das Azure SDK für .NET 2.0 installieren.
@@ -91,7 +91,7 @@ Wenn Sie das Fenster Page Inspector abdocken, können Sie fügen Sie ihn außerh
 
 ![Deaktivieren Sie das unverankerte Tool Windows-Kontrollkästchen ALT + TAB zwischen Visual Studio "und" nicht angedockter Page Inspector "](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Im obere Bereich des Fensters Page Inspector zeigt die aktuelle Seite in einem Browserfenster angezeigt. Unteren Bereich zeigt die Seite im HTML-Markup auf der linken Seite, und überprüfen Sie einige Registerkarten auf der rechten Seite, mit denen Sie verschiedene Aspekte der Seite. Der untere Bereich ist ähnlich wie die [F12 Entwicklertools](https://msdn.microsoft.com/en-us/ie/aa740478) in Internet Explorer. (Allerdings können im Gegensatz zu den Entwicklertools Sie Page Inspector direkt in Visual Studio verwenden.)
+Im obere Bereich des Fensters Page Inspector zeigt die aktuelle Seite in einem Browserfenster angezeigt. Unteren Bereich zeigt die Seite im HTML-Markup auf der linken Seite, und überprüfen Sie einige Registerkarten auf der rechten Seite, mit denen Sie verschiedene Aspekte der Seite. Der untere Bereich ist ähnlich wie die [F12 Entwicklertools](https://msdn.microsoft.com/ie/aa740478) in Internet Explorer. (Allerdings können im Gegensatz zu den Entwicklertools Sie Page Inspector direkt in Visual Studio verwenden.)
 
 ![Seitenprüfung](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
@@ -136,7 +136,7 @@ In der *Site.Master* Seite der entsprechenden Zeile wird hervorgehoben.
 
 Hinzufügen von Text an das Ende der Zeile in der *Site.Master* Datei.
 
-&lt;p&gt;&amp;kopieren. &lt;%: DateTime.Now.Year %&gt; -meine ASP.NET Anwendung Rocks!&lt; / p&gt;
+&lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; - My ASP.NET Application Rocks!&lt;/p&gt;
 
 Jetzt, drücken Sie Strg + Alt + Eingabe, oder klicken Sie auf die Update-Leiste, um die Ergebnisse im Browserfenster Page Inspector anzuzeigen.
 

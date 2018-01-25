@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Erstellen Sie eine REST-API mit Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -26,20 +26,20 @@ Web-API 2 unterstützt einen neuen Typ wird aufgerufen, Routing, *routing-Attrib
 
 | Aktion | Beispiel-URI |
 | --- | --- |
-| Ruft eine Liste aller Bücher. | / api/Bücher |
-| Ein Buch-ID abrufen | /API/Books/1 |
-| Abrufen von Details eines Buchs. | /API/Books/1/Details |
-| Abrufen einer Liste von Büchern von "Genre". | /API/Books/Fantasy |
-| Abrufen einer Liste von Büchern nach Veröffentlichungsdatum. | /API/Books/Date/2013-02-16 /api/books/date/2013/02/16 (alternative Form) |
-| Ruft eine Liste von Büchern von einem bestimmten Autor. | /API/authors/1/Books |
+| Ruft eine Liste aller Bücher. | /api/books |
+| Ein Buch-ID abrufen | /api/books/1 |
+| Abrufen von Details eines Buchs. | /api/books/1/details |
+| Abrufen einer Liste von Büchern von "Genre". | /api/books/fantasy |
+| Abrufen einer Liste von Büchern nach Veröffentlichungsdatum. | /api/books/date/2013-02-16 /api/books/date/2013/02/16 (alternate form) |
+| Ruft eine Liste von Büchern von einem bestimmten Autor. | /api/authors/1/books |
 
 Alle Methoden sind ohne Schreibzugriff (HTTP GET-Anforderungen).
 
 Für die Datenschicht verwenden wir Entity Framework. Datensätze müssen die folgenden Felder:
 
-- ID
+- Id
 - Titel
-- "Genre"
+- Genre
 - Veröffentlichungsdatum
 - Preis
 - Beschreibung
@@ -141,7 +141,7 @@ Fügen Sie eine andere Klasse, die mit dem Namen `BookDetailDto`.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-Aktualisieren Sie als Nächstes die `BooksController` Klasse zurückzugebenden `BookDto` Instanzen. Wir verwenden die [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx) Methode Projekt `Book` -Instanzen `BookDto` Instanzen. Hier ist der aktualisierte Code für die Controllerklasse.
+Aktualisieren Sie als Nächstes die `BooksController` Klasse zurückzugebenden `BookDto` Instanzen. Wir verwenden die [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx) Methode Projekt `Book` -Instanzen `BookDto` Instanzen. Hier ist der aktualisierte Code für die Controllerklasse.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 
@@ -168,7 +168,7 @@ Die routenvorlage für jede Controllermethode ist das Präfix sowie der angegebe
 | Methode | Routenvorlage | Beispiel-URI |
 | --- | --- | --- |
 | `GetBooks` | "-api/Books" | `http://localhost/api/books` |
-| `GetBook` | "-api/Books / {Id: Int}" | `http://localhost/api/books/5` |
+| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Abrufen von Details für das Offlineadressbuch
 

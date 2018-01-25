@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Autor-Tag-Hilfsprogramme in ASP.NET Core, eine exemplarische Vorgehensweise mit Beispielen
 
@@ -164,7 +164,7 @@ In diesem Abschnitt schreiben wir eine asynchrone-e-Mail-Hilfe.
 
 3.  Führen Sie die App aus. Sie können Ihrem bevorzugten Browser verwenden, überprüfen die Quelle, und überprüfen das Markup.
 
-    Die `[HtmlTargetElement]` Attribut abzielt nur HTML-Markup, das einen Attributnamen an, der "Fett" bereitstellt. Die `<bold>` Element durch das Hilfsprogramm Tag nicht geändert wurde.
+    Die `[HtmlTargetElement]` Attribut abzielt nur HTML-Markup, das einen Attributnamen an, der "Fett" bereitstellt. Die `<bold>` Element wurde nicht geändert, durch das Tag-Hilfsobjekt.
 
 4. Kommentieren Sie Sie aus der `[HtmlTargetElement]` Attributzeile auf, und es werden standardmäßig als Ziel `<bold>` Tags, d. h. HTML-Markup des Formulars `<bold>`. Beachten Sie, dass die Dateinamenskonvention entspricht der Name der Klasse **fett**taghelpers um `<bold>` Tags.
 
@@ -208,13 +208,13 @@ Sie können auch die `[HtmlTargetElement]` so ändern Sie den Namen des entsprec
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    Der untere Kebab Kiste `<website-information />` stimmen nicht überein. Wenn Sie möchten die `[HtmlTargetElement]` -Attribut, verwenden Sie Kebab Groß-/Kleinschreibung wie unten dargestellt:
+    Der untere Kebab Kiste `<website-information />` nicht überein. Wenn Sie möchten die `[HtmlTargetElement]` -Attribut, verwenden Sie Kebab Groß-/Kleinschreibung wie unten dargestellt:
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * Elemente, die selbstschließende sind haben keinen Inhalt. In diesem Beispiel wird das Markup Razor ein selbstschließendes Tags verwenden, aber das Tag-Hilfsobjekt erstellen eine [Abschnitt](http://www.w3.org/TR/html5/sections.html#the-section-element) Element (nicht selbstschließende ist und Sie werden das Schreiben von Inhalt in die `section` Element). Aus diesem Grund müssen Sie festlegen `TagMode` auf `StartTagAndEndTag` Ausgabe zu schreiben. Sie können alternativ die Einstellung für die Zeile auskommentieren `TagMode` und Schreiben von Markup mit dem ein Endtag. (Beispielmarkup wird weiter unten in diesem Lernprogramm bereitgestellt.)
+    * Elemente, die selbstschließende sind haben keinen Inhalt. In diesem Beispiel wird das Markup Razor ein selbstschließendes Tags verwenden, aber das Tag-Hilfsobjekt erstellen eine [Abschnitt](http://www.w3.org/TR/html5/sections.html#the-section-element) Element (was selbstschließende nicht, und Sie werden das Schreiben von Inhalt in die `section` Element). Aus diesem Grund müssen Sie festlegen `TagMode` auf `StartTagAndEndTag` Ausgabe zu schreiben. Sie können alternativ die Einstellung für die Zeile auskommentieren `TagMode` und Schreiben von Markup mit dem ein Endtag. (Beispielmarkup wird weiter unten in diesem Lernprogramm bereitgestellt.)
     
     * Die `$` (Dollarzeichen) in der folgenden Zeile verwendet ein [interpoliert Zeichenfolge](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
@@ -274,7 +274,7 @@ Die Bedingung Tag Hilfsprogramm rendert die Ausgabe, wenn der Wert "true" überg
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  Führen Sie die app, und navigieren Sie zur Startseite. Das Markup in der bedingte `div` nicht gerendert werden. Fügen Sie die Abfragezeichenfolge `?approved=true` an die URL (z. B. `http://localhost:1235/Home/Index?approved=true`). `approved`ist auf True festgelegt und die bedingte Markup wird angezeigt.
+4.  Führen Sie die app, und navigieren Sie zur Startseite. Das Markup in der bedingte `div` wird nicht gerendert werden. Fügen Sie die Abfragezeichenfolge `?approved=true` an die URL (z. B. `http://localhost:1235/Home/Index?approved=true`). `approved`ist auf True festgelegt und die bedingte Markup wird angezeigt.
 
 >[!NOTE]
 >Verwenden der [Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) Operator, um das Ziel, statt eine Zeichenfolge angeben, wie Sie mit den fett formatierten Tag-Hilfsprogramm-Attribut angeben:
@@ -306,7 +306,7 @@ Da diese zwei Hilfsmethoden sind eng miteinander verknüpft, und Sie sie in der 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Führen Sie die App aus. Beachten Sie, dass der Www-Text wird als Link gerendert der HTTP-Text ist jedoch nicht. Wenn Sie einen Haltepunkt in beiden Klassen einfügen, sehen Sie sich, dass die HTTP-Tag-Hilfsklasse zuerst ausgeführt wird. Das Problem ist, dass die Tag-Helper-Ausgabe zwischengespeichert wird, und wenn der WWW-Tag-Hilfsprogramm ausgeführt wird, werden im Cache gespeicherte Ausgabe aus dem HTTP-Tag-Hilfsprogramm überschrieben. Später in diesem Lernprogramm sehen wir, wie Sie die Reihenfolge steuern, die Tag-Hilfsprogramme in ausgeführt. Wir beheben den Code durch Folgendes:
+5.  Führen Sie die App aus. Beachten Sie der HTTP-Text ist jedoch der Www-Text als Link gerendert wird. Wenn Sie einen Haltepunkt in beiden Klassen einfügen, sehen Sie sich, dass die HTTP-Tag-Hilfsklasse zuerst ausgeführt wird. Das Problem ist, dass die Tag-Helper-Ausgabe zwischengespeichert wird, und wenn der WWW-Tag-Hilfsprogramm ausgeführt wird, werden im Cache gespeicherte Ausgabe aus dem HTTP-Tag-Hilfsprogramm überschrieben. Später in diesem Lernprogramm sehen wir, wie Sie die Reihenfolge steuern, die Tag-Hilfsprogramme in ausgeführt. Wir beheben den Code durch Folgendes:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -321,7 +321,7 @@ Da diese zwei Hilfsmethoden sind eng miteinander verknüpft, und Sie sie in der 
     >
     >Der obige Code überprüft, um festzustellen, ob der Inhalt geändert wurde und aufweist, ruft den Inhalt aus dem Ausgabepuffer ab.
 
-6.  Führen Sie die app, und stellen Sie sicher, dass die beiden Links funktionieren wie erwartet. Hat sich zwar als es angezeigt werden kann, dass unsere automatisch Linker Tag Helper richtig und vollständig ist, eine geringfügige Problem. Wenn der WWW-Tag-Hilfsmethode zuerst ausgeführt wird, sind der Www-Links nicht richtig. Aktualisieren Sie den Code durch Hinzufügen der `Order` Überladung zur Steuerung der Reihenfolge, die das Tag in ausgeführt wird. Die `Order` Eigenschaft bestimmt die Ausführungsreihenfolge relativ zu anderen Tag-Hilfsprogramme, die für dasselbe Element. Der standardreihenfolgenwert ist 0 (null), und Instanzen mit niedrigeren Werten werden zuerst ausgeführt.
+6.  Führen Sie die app, und stellen Sie sicher, dass die beiden Links funktionieren wie erwartet. Hat sich zwar als es angezeigt werden kann, dass unsere automatisch Linker Tag Helper richtig und vollständig ist, eine geringfügige Problem. Wenn der WWW-Tag-Hilfsmethode zuerst ausgeführt wird, wird nicht die Www-Links richtig sind. Aktualisieren Sie den Code durch Hinzufügen der `Order` Überladung zur Steuerung der Reihenfolge, die das Tag in ausgeführt wird. Die `Order` Eigenschaft bestimmt die Ausführungsreihenfolge relativ zu anderen Tag-Hilfsprogramme, die für dasselbe Element. Der standardreihenfolgenwert ist 0 (null), und Instanzen mit niedrigeren Werten werden zuerst ausgeführt.
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
@@ -337,4 +337,4 @@ Der Tag-Hilfsvorlagen können mehrere Eigenschaften zum Abrufen von Inhalt.
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Mehrere Aufrufe `GetChildContentAsync` wird derselbe Wert zurückgegeben und wird nicht erneut ausgeführt. die `TagHelper` body, wenn Sie in einem "false"-Parameter, der angibt, verwenden Sie nicht das zwischengespeicherte Resultset bewegen.
+-  Mehrere Aufrufe `GetChildContentAsync` derselbe Wert zurückgegeben, und führen nicht erneut aus der `TagHelper` body, es sei denn, Sie in "false", der angibt, nicht zur Verwendung von des zwischengespeicherten Resultset Parameter übergeben.

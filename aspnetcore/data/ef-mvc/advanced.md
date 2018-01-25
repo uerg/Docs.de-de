@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
-ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
+ms.openlocfilehash: 4ee12cae0220825c81bd8b178dea3ac777f97bb6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -139,7 +139,7 @@ Beachten Sie, dass Sie nicht den Debugmodus verwenden und an einem Haltepunkt ab
 
 ## <a name="repository-and-unit-of-work-patterns"></a>Repository und die Einheit der Arbeit-Muster
 
-Viele Entwickler schreiben Code, um das Repository und die Einheit der Arbeit Muster als Wrapper um Code implementieren, die mit dem Entity Framework funktioniert. Diese Muster sollen eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikschicht einer Anwendung zu erstellen. Diese Muster implementieren, um die Anwendung von Änderungen im Datenspeicher zu isolieren und Endprodukts automatisierte Komponententests oder eine testgesteuerte Entwicklung (TDD). Schreiben zusätzlichen Code zum Implementieren dieser Muster ist jedoch nicht immer die beste Wahl für Anwendungen mit EF, verschiedene Ursachen:
+Viele Entwickler schreiben Code, um das Repository und die Einheit der Arbeit Muster als Wrapper um Code implementieren, die mit dem Entity Framework funktioniert. Diese Muster sollen eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikschicht einer Anwendung zu erstellen. Diese Muster implementieren, um die Anwendung von Änderungen im Datenspeicher zu isolieren und Endprodukts automatisierte Komponententests oder eine testgesteuerte Entwicklung (TDD). Ist jedoch nicht das Schreiben von zusätzlichen Code zum Implementieren dieser Muster immer die beste Wahl für Anwendungen mit EF, verschiedene Ursachen:
 
 * Die Klasse der EF-Kontext selbst isoliert Codes von Store-datenspezifische Code.
 

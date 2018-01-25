@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 2678342891a87d591476a07e418c118b2ae94d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-project"></a>Erstellen des Projekts
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -93,12 +93,12 @@ In Visual Studio die **Projektmappen-Explorer** -Fenster können Sie die Dateien
 
 Visual Studio erstellt, einige ursprünglichen Ordner und Dateien für das Projekt. Die erste Dateien, die Sie später in diesem Lernprogramm arbeiten, sind die folgenden:
 
-| **Datei** | **Zweck** |
+| **Datei** | **Purpose** |
 | --- | --- |
-| *"Default.aspx"* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
+| *Default.aspx* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
 | *Site.Master* | Eine Seite, die Ihnen ermöglicht, ein konsistentes Layout und die Verwendung-Standardverhalten für Seiten in Ihrer Anwendung zu erstellen. |
-| *"Global.asax"* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Module enthält. |
-| *"Web.config"* | Die Konfigurationsdaten für eine Anwendung. |
+| *Global.asax* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Module enthält. |
+| *Web.config* | Die Konfigurationsdaten für eine Anwendung. |
 
 ### <a name="running-the-default-web-application"></a>Die Standard-Web-Anwendung ausführen
 
@@ -114,7 +114,7 @@ Es gibt drei wichtigsten Seiten in dieser Standard-Web-Anwendung: *"default.aspx
 
 ## <a name="aspnet-web-forms-background"></a>ASP.NET Web Forms-Hintergrund
 
-ASP.NET Web Forms sind die Seiten, die auf Microsoft ASP.NET Technologie basieren, in denen Code, der auf dem Server ausgeführt dynamisch wird Webseitenausgabe an den Browser oder Client-Gerät generiert. Eine ASP.NET Web Forms-Seite gerendert wird automatisch das korrekte Browser kompatiblen HTML für Funktionen wie Formatvorlagen, Layout und So weiter. WebForms sind kompatibel mit einer beliebigen Sprache, die von der .NET common Language Runtime, wie z. B. Microsoft Visual Basic und Visual c# unterstützt. Web Forms darüber hinaus basieren auf der [Microsoft .NET Framework](https://msdn.microsoft.com/en-US/vstudio/aa496123), bietet Vorteile, z. B. einer verwalteten Umgebung, typsicherheit und Vererbung.
+ASP.NET Web Forms sind die Seiten, die auf Microsoft ASP.NET Technologie basieren, in denen Code, der auf dem Server ausgeführt dynamisch wird Webseitenausgabe an den Browser oder Client-Gerät generiert. Eine ASP.NET Web Forms-Seite gerendert wird automatisch das korrekte Browser kompatiblen HTML für Funktionen wie Formatvorlagen, Layout und So weiter. WebForms sind kompatibel mit einer beliebigen Sprache, die von der .NET common Language Runtime, wie z. B. Microsoft Visual Basic und Visual c# unterstützt. Web Forms darüber hinaus basieren auf der [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), bietet Vorteile, z. B. einer verwalteten Umgebung, typsicherheit und Vererbung.
 
 Wenn eine ASP.NET Web Forms-Seite ausgeführt wird, durchläuft die Seite einen Lebenszyklus, in dem sie eine Reihe von Verarbeitungsschritten ausführt. Diese Schritte umfassen Initialisierung, instanziieren Steuerelemente, wiederherstellen und Zustand beibehalten, das Ausführen von Ereignishandlercode und das Rendern. Wie Sie die Leistungsfähigkeit von ASP.NET Web Forms kennen gelernt, ist für die Ihnen beim Verständnis der [Lebenszyklus von ASP.NET-Seiten](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) , damit Sie Code in der entsprechenden Lebenszyklus Phase für den Effekt schreiben können, Sie möchten.
 
@@ -128,7 +128,7 @@ Bei ein Webserver eine Anforderung für eine Seite empfängt, sie sucht nach der
 > 
 > **Mitgliedschaft**
 > 
-> [ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) Identität speichert Ihrer Benutzer-Anmeldeinformationen in einer Datenbank, die von der Anwendung erstellt. Wenn Ihre Benutzer anmelden, überprüft die Anwendung ihre Anmeldeinformationen durch Lesen der Datenbank. Des Projekts *Konto* Ordner enthält die Dateien, die die verschiedenen Teilen von Mitgliedschaft zu implementieren: registrieren, anmelden, das Ändern des Kennworts und Autorisieren des Zugriffs. Darüber hinaus unterstützt die ASP.NET Web Forms OAuth- und OpenID. Diese Verbesserungen Authentifizierung Benutzern gestatten, in Ihre vorhandenen Anmeldeinformationen, derartige Konten wie Facebook, Twitter, Windows Live und Google-Website anzumelden.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) Identität speichert Ihrer Benutzer-Anmeldeinformationen in einer Datenbank, die von der Anwendung erstellt. Wenn Ihre Benutzer anmelden, überprüft die Anwendung ihre Anmeldeinformationen durch Lesen der Datenbank. Des Projekts *Konto* Ordner enthält die Dateien, die die verschiedenen Teilen von Mitgliedschaft zu implementieren: registrieren, anmelden, das Ändern des Kennworts und Autorisieren des Zugriffs. Darüber hinaus unterstützt die ASP.NET Web Forms OAuth- und OpenID. Diese Verbesserungen Authentifizierung Benutzern gestatten, in Ihre vorhandenen Anmeldeinformationen, derartige Konten wie Facebook, Twitter, Windows Live und Google-Website anzumelden.
 > 
 > ![Erstellen des Projekts - Projektmappen-Explorer (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
@@ -140,7 +140,7 @@ Bei ein Webserver eine Anforderung für eine Seite empfängt, sie sucht nach der
 > 
 > **Masterseiten**
 > 
-> Ein [ASP.NET-Masterseite](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) ein einheitliches Aussehen und Verhalten für alle Seiten in der Anwendung definiert. Mit dem Inhalt einer einzelnen Inhaltsseite auf die letzte Seite zu erzeugen, die dem Benutzer angezeigt wird, werden das Layout der Masterseite zusammengeführt. In der Anwendung des Wingtip Toys, ändern Sie die *Site.master* Masterseite, sodass alle Seiten in der Website des Wingtip Toys dieselbe unterschiedliche Logo und Navigation Leiste freigeben.
+> Ein [ASP.NET-Masterseite](https://msdn.microsoft.com/library/wtxbf3hh.aspx) ein einheitliches Aussehen und Verhalten für alle Seiten in der Anwendung definiert. Mit dem Inhalt einer einzelnen Inhaltsseite auf die letzte Seite zu erzeugen, die dem Benutzer angezeigt wird, werden das Layout der Masterseite zusammengeführt. In der Anwendung des Wingtip Toys, ändern Sie die *Site.master* Masterseite, sodass alle Seiten in der Website des Wingtip Toys dieselbe unterschiedliche Logo und Navigation Leiste freigeben.
 > 
 > **HTML5**
 > 
@@ -192,8 +192,8 @@ In diesem Lernprogramm haben Sie erstellt haben, führen Sie die Standard-Web Fo
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 [Auswahl des richtigen Programmiermodell](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Webanwendungsprojekten Websiteprojekte](https://msdn.microsoft.com/en-us/library/dd547590.aspx)   
-[ASP.NET Web Forms-Seiten (Übersicht)](https://msdn.microsoft.com/en-us/library/428509ah.aspx)
+[Webanwendungsprojekten Websiteprojekte](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET Web Forms-Seiten (Übersicht)](https://msdn.microsoft.com/library/428509ah.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](introduction-and-overview.md)

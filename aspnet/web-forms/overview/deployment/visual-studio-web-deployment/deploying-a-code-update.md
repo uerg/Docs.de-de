@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellen von einem Code-Update
 ====================
@@ -79,7 +79,7 @@ Bereitstellung in der testumgebung ist nun problemlos der Ausführung nur einem 
 
 Sie würden normalerweise Gleiches Regressionstests (d. h. den Rest des Standorts, um sicherzustellen, dass die neue Änderung vorhandene Funktionalität unterbrechen nicht testen). Aber für dieses Lernprogramm überspringen Sie diesen Schritt und fahren Sie mit das Update auf Staging- und produktionsumgebung bereitstellen.
 
-Wenn Sie erneut bereitstellen, Web Deploy automatisch bestimmt, welche Dateien geändert wurden, und nur Kopien Dateien auf dem Server geändert. Standardmäßig verwendet Web Deploy zuletzt geändert von Datumsangaben auf Dateien um zu bestimmen, welche geändert haben. Einige Quellcode-Verwaltungssysteme ändern Datei Datumsangaben auch, wenn Sie den Inhalt der Datei nicht ändern. In diesem Fall empfiehlt es sich so konfigurieren Sie Web Deploy, um die Dateiprüfsummen verwenden, um zu bestimmen, welche Dateien geändert wurden. Weitere Informationen finden Sie unter [Warum alle Dateien abrufen erneut bereitgestellt, obwohl ich sie geändert haben?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) in der ASP.NET Bereitstellung – häufig gestellte Fragen.
+Wenn Sie erneut bereitstellen, Web Deploy automatisch bestimmt, welche Dateien geändert wurden, und nur Kopien Dateien auf dem Server geändert. Standardmäßig verwendet Web Deploy zuletzt geändert von Datumsangaben auf Dateien um zu bestimmen, welche geändert haben. Einige Quellcode-Verwaltungssysteme ändern Datei Datumsangaben auch, wenn Sie den Inhalt der Datei nicht ändern. In diesem Fall empfiehlt es sich so konfigurieren Sie Web Deploy, um die Dateiprüfsummen verwenden, um zu bestimmen, welche Dateien geändert wurden. Weitere Informationen finden Sie unter [Warum alle Dateien abrufen erneut bereitgestellt, obwohl ich sie geändert haben?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) in der ASP.NET Bereitstellung – häufig gestellte Fragen.
 
 ## <a name="take-the-application-offline-during-deployment"></a>Nehmen Sie die Anwendung offline, während der Bereitstellung
 
@@ -188,7 +188,7 @@ Angenommen Sie, Sie nicht wie die blauen Hintergrund und die ursprüngliche Farb
 
     Ein Fenster wird geöffnet, um die Unterschiede zwischen der lokalen Datei und die Version des Zertifikats in der zielumgebung anzeigen.
 
-    ![Diff-Inhalt / "Site.CSS" ändern.](deploying-a-code-update/_static/image13.png)
+    ![Diff-Content/Site.css](deploying-a-code-update/_static/image13.png)
 4. In **Projektmappen-Explorer**, mit der rechten Maustaste **"Site.CSS" ändern** erneut aus, und klicken Sie auf **veröffentlichen "Site.CSS" ändern**.
 
     Die **Webaktivität veröffentlichen** Fenster angezeigt wird, dass die Datei veröffentlicht wurde.

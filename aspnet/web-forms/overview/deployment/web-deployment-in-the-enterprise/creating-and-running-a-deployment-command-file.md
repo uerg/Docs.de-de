@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: 729b4fa4c461eedbd0447371102010451eb51586
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Erstellen und Ausführen einer Befehlsdatei Bereitstellung
 ====================
@@ -98,7 +98,7 @@ Wenn Sie eine Befehlsdatei für Ihre zielumgebung erstellt haben, sollten Sie ei
 
     ![](creating-and-running-a-deployment-command-file/_static/image2.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Erstellen eine Befehlsdatei mit der MSBuild-Anweisungen, bietet Ihnen eine schnelle und einfache Möglichkeit der Erstellung und Bereitstellung einer Lösung mit mehreren Projekten in einer bestimmten zielumgebung. Wenn Sie Ihre Lösung in mehreren zielumgebungen bereitstellen müssen, können Sie mehrere Befehlsdateien erstellen. In jeder Datei die MSBuild-Befehl wird die gleiche universal-Projektdatei erstellt, aber es wird eine andere umgebungsspezifische Projektdatei angeben. Beispielsweise könnte eine Befehlsdatei ein Entwickler veröffentlichen oder testumgebung dieses MSBuild-Befehl enthalten:
 
@@ -116,7 +116,7 @@ Eine Befehlsdatei zum Veröffentlichen in einer Stagingumgebung könnte diese MS
 > Anleitungen zum Anpassen der umgebungsspezifische-Projektdateien für eigene Server-Umgebungen finden Sie unter [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 
-Sie können den Buildprozess für jede Umgebung auch anpassen, indem Überschreiben von Eigenschaften oder das Festlegen von verschiedenen anderen Schaltern in MSBuild-Befehl. Weitere Informationen finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+Sie können den Buildprozess für jede Umgebung auch anpassen, indem Überschreiben von Eigenschaften oder das Festlegen von verschiedenen anderen Schaltern in MSBuild-Befehl. Weitere Informationen finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](deploying-database-projects.md)

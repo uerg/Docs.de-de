@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>In der ASP.NET Web API 2 Tracing
 ====================
@@ -58,7 +58,7 @@ Mit dem erste Befehl wird das aktuellste Web API Tracing-Paket installiert. Auß
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Dieser Code fügt der [systemdiagnosticstracewriter-Objekt](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Klasse für die Web-API-Pipeline. Die **systemdiagnosticstracewriter-Objekt** Klasse schreibt ablaufverfolgungen [System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace).
+Dieser Code fügt der [systemdiagnosticstracewriter-Objekt](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Klasse für die Web-API-Pipeline. Die **systemdiagnosticstracewriter-Objekt** Klasse schreibt ablaufverfolgungen [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
 Um die ablaufverfolgungen anzuzeigen, führen Sie die Anwendung im Debugger. Wechseln Sie in den Browser zu `/api/values`.
 
@@ -68,7 +68,7 @@ Die ablaufverfolgungsanweisungen werden in das Ausgabefenster in Visual Studio g
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Da **systemdiagnosticstracewriter-Objekt** schreibt ablaufverfolgungen **System.Diagnostics.Trace**, können Sie zusätzliche Ablaufverfolgungslistener registrieren; z. B. zum Schreiben von ablaufverfolgungen in einer Protokolldatei. Weitere Informationen zur Ablaufverfolgung Writer finden Sie unter der [Ablaufverfolgungslistener](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) Thema auf MSDN.
+Da **systemdiagnosticstracewriter-Objekt** schreibt ablaufverfolgungen **System.Diagnostics.Trace**, können Sie zusätzliche Ablaufverfolgungslistener registrieren; z. B. zum Schreiben von ablaufverfolgungen in einer Protokolldatei. Weitere Informationen zur Ablaufverfolgung Writer finden Sie unter der [Ablaufverfolgungslistener](https://msdn.microsoft.com/library/4y5y10s7.aspx) Thema auf MSDN.
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>Konfigurieren von systemdiagnosticstracewriter-Objekt
 
@@ -89,7 +89,7 @@ Hinzufügen einer ablaufverfolgungswriter ermöglicht Ihnen unmittelbaren Zugrif
 
 Rufen Sie zum Abrufen des ablaufverfolgungswriter **HttpConfiguration.Services.GetTraceWriter**. Diese Methode ist von einem Controller über die **ApiController.Configuration** Eigenschaft.
 
-Um eine Ablaufverfolgung zu schreiben, rufen Sie die **ITraceWriter.Trace** -Methode direkt, aber die [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx) Klasse definiert einige Erweiterungsmethoden, die benutzerfreundlichere sind. Z. B. die **Info** oben gezeigten Methode erstellt eine Ablaufverfolgung mit Ablaufverfolgungsebene **Info**.
+Um eine Ablaufverfolgung zu schreiben, rufen Sie die **ITraceWriter.Trace** -Methode direkt, aber die [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) Klasse definiert einige Erweiterungsmethoden, die benutzerfreundlichere sind. Z. B. die **Info** oben gezeigten Methode erstellt eine Ablaufverfolgung mit Ablaufverfolgungsebene **Info**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Web-API-Infrastruktur für Ereignisablaufverfolgung
 

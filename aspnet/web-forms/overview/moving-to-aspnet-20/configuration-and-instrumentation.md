@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: f8d378d3332669ae4606dad8ada06de37e7dfd20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuration-and-instrumentation"></a>Konfiguration und -Instrumentation
 ====================
@@ -78,13 +78,13 @@ Viele Configuration-Klassen und Methoden sind einander ähnlich. Die folgende Ta
 
 | **Konfigurationsklasse oder namespace** | **Beschreibung** |
 | --- | --- |
-| ["System.Configuration"](https://msdn.microsoft.com/en-us/library/system.configuration.aspx) Namespace | Enthält die wichtigsten Konfigurationsklassen für alle .NET Framework-Clientanwendungen. Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. Diese zwei Methoden sind nicht statisch. |
+| ["System.Configuration"](https://msdn.microsoft.com/library/system.configuration.aspx) Namespace | Enthält die wichtigsten Konfigurationsklassen für alle .NET Framework-Clientanwendungen. Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. Diese zwei Methoden sind nicht statisch. |
 | "System.Configuration.Configuration"-Klasse | Stellt einen Satz von Konfigurationsdaten für einen Computer, Anwendung, Webverzeichnis oder einer sonstigen Ressource dar. Diese Klasse enthält nützliche Methoden, z. B. GetSection und GetSectionGroup, zum Aktualisieren von Konfigurationseinstellungen und Verweise auf Abschnitte und Abschnittsgruppen abrufen. Diese Klasse wird als Rückgabetyp für Methoden verwendet, die zur Entwurfszeit Konfigurationsdaten, wie die Methoden der Klassen WebConfigurationManager und ConfigurationManager abrufen. |
-| System.Web.Configuration-namespace | Der Abschnitt Handler-Klassen enthält, für die Konfigurationsabschnitte ASP.NET auf definiert [ASP.NET-Konfigurationseinstellungen](https://msdn.microsoft.com/en-us/library/b5ysx397.aspx). Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. |
-| System.Web.Configuration.WebConfigurationManager-Klasse | Stellt nützliche Methoden zum Abrufen von Verweisen auf Konfigurationseinstellungen, die zur Laufzeit und Entwurfszeit bereit. Diese Methoden verwenden die Klasse "System.Configuration.Configuration" als Rückgabetyp an. Sie können die statische GetSection Methode dieser Klasse oder die nicht statische GetSection-Methode der Klasse System.Configuration.ConfigurationManager Synonym verwenden. Für Web-Anwendungskonfigurationen wird die System.Web.Configuration.WebConfigurationManager-Klasse anstelle der Klasse System.Configuration.ConfigurationManager empfohlen. |
-| [System.Configuration.Provider](https://msdn.microsoft.com/en-us/library/system.configuration.provider.aspx) Namespace | Bietet eine Möglichkeit zum Anpassen und erweitern den Konfigurationsanbieter. Dies ist die Basisklasse für alle Anbieterklassen im Konfigurationssystem. |
-| [System.Web.Management](https://msdn.microsoft.com/en-us/library/system.web.management.aspx) Namespace | Enthält Klassen und Schnittstellen für die Verwaltung und Überwachung der Integrität von Webanwendungen. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. Z. B. ist Ablaufverfolgung und Auslösen des Ereignisses durch die Klassen in diesem Namespace erreicht. |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/en-us/library/system.management.instrumentation.aspx) Namespace | Stellt die Klassen, die für die Instrumentierung von Anwendungen, deren Verwaltungsinformationen und-Ereignisse über die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) potenziellen Consumern verfügbar zu machen. ASP.NET-Systemüberwachung verwendet WMI, um Ereignisse zu übermitteln. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. |
+| System.Web.Configuration-namespace | Der Abschnitt Handler-Klassen enthält, für die Konfigurationsabschnitte ASP.NET auf definiert [ASP.NET-Konfigurationseinstellungen](https://msdn.microsoft.com/library/b5ysx397.aspx). Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. |
+| System.Web.Configuration.WebConfigurationManager class | Stellt nützliche Methoden zum Abrufen von Verweisen auf Konfigurationseinstellungen, die zur Laufzeit und Entwurfszeit bereit. Diese Methoden verwenden die Klasse "System.Configuration.Configuration" als Rückgabetyp an. Sie können die statische GetSection Methode dieser Klasse oder die nicht statische GetSection-Methode der Klasse System.Configuration.ConfigurationManager Synonym verwenden. Für Web-Anwendungskonfigurationen wird die System.Web.Configuration.WebConfigurationManager-Klasse anstelle der Klasse System.Configuration.ConfigurationManager empfohlen. |
+| [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) Namespace | Bietet eine Möglichkeit zum Anpassen und erweitern den Konfigurationsanbieter. Dies ist die Basisklasse für alle Anbieterklassen im Konfigurationssystem. |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) Namespace | Enthält Klassen und Schnittstellen für die Verwaltung und Überwachung der Integrität von Webanwendungen. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. Z. B. ist Ablaufverfolgung und Auslösen des Ereignisses durch die Klassen in diesem Namespace erreicht. |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) Namespace | Stellt die Klassen, die für die Instrumentierung von Anwendungen, deren Verwaltungsinformationen und-Ereignisse über die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) potenziellen Consumern verfügbar zu machen. ASP.NET-Systemüberwachung verwendet WMI, um Ereignisse zu übermitteln. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>Das Lesen aus ASP.NET-Konfigurationsdateien
 
@@ -148,11 +148,11 @@ Die &lt;HealthMonitoring&gt; Teil der globalen Datei "Web.config" stellt Konfigu
 
 Die &lt;HealthMonitoring&gt; Teil der globalen Datei "Web.config" enthält die folgenden Elemente:
 
-| **Anbieter** | Enthält die Anbieter für die Ereignisanzeige, WMI und SQL Server eingerichtet. |
+| **providers** | Enthält die Anbieter für die Ereignisanzeige, WMI und SQL Server eingerichtet. |
 | --- | --- |
 | **eventMappings** | Enthält Zuordnungen für die verschiedenen WebBase-Klassen. Sie können diese Liste erweitern, wenn Sie eine eigene Ereignisklasse generieren. Generieren eine eigene Klasse des Ereignisses erhalten Sie eine geringere Granularität auf die Anbieter, die, denen Sie Informationen zu senden. Beispielsweise konnte nicht behandelte Ausnahmen an SQL-Server gesendet werden, während des Sendens von Ihren eigenen benutzerdefinierten Ereignissen, um e-Mail-konfiguriert werden. |
-| **Regeln** | Links EventMappings an den Anbieter. |
-| **Pufferung** | Mit SQL Server und e-Mail-Anbieter verwendet, um zu bestimmen, wie oft die Ereignisse an den Anbieter zu leeren. |
+| **rules** | Links EventMappings an den Anbieter. |
+| **buffering** | Mit SQL Server und e-Mail-Anbieter verwendet, um zu bestimmen, wie oft die Ereignisse an den Anbieter zu leeren. |
 
 Im folgenden finden Sie ein Codebeispiel aus der globalen Datei "Web.config".
 
@@ -246,10 +246,10 @@ Die folgenden Befehlszeilentools sind verfügbar:
 
 | **Tool** | **Verwendung** |
 | --- | --- |
-| **ASPNET\_regiis.exe** | Ermöglicht die Registrierung von ASP.NET in IIS. Es gibt zwei Versionen dieses Tools, die ASP.NET 2.0 im Lieferumfang enthalten, von denen eine 32-Bit-Systeme (im Ordner Framework) und eine für 64-Bit-Systeme (im Ordner Framework64.) Die 64-Bit-Version wird nicht auf einem 32-Bit-Betriebssystem installiert werden. |
-| **ASPNET\_regsql.exe** | Die ASP.NET SQL Server-Registrierungstool dient zum Erstellen einer Microsoft SQL Server-Datenbank für die Verwendung durch SQL Server-Anbieter in ASP.NET oder zum Hinzufügen oder Entfernen von Optionen aus einer vorhandenen Datenbank. Das Aspnet\_regsql.exe-Datei befindet sich im Ordner "[drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber" auf dem Webserver. |
-| **ASPNET\_regbrowsers.exe** | Die ASP.NET Browser Registration-Tool analysiert und alle systemweite Browserdefinitionen in eine Assembly kompiliert und installiert die Assembly im globalen Assemblycache. Das Tool verwendet die Browser-Definitionsdateien (. Browserdateien) aus dem .NET Framework-Browser-Unterverzeichnis. Das Tool kann im Verzeichnis %SystemRoot%\Microsoft.NET\Framework\version\ gefunden werden. |
-| **ASPNET\_compiler.exe** | Die ASP.NET-Kompilierung-Tool können Sie eine ASP.NET-Webanwendung, entweder direkt oder für die Bereitstellung in einem Zielspeicherort wie z. B. einem Produktionsserver zu kompilieren. Direkter Kompilierung unterstützt die Anwendungsleistung, da Endbenutzer eine Verzögerung bei der ersten Anforderung an die Anwendung nicht treffen, während die Anwendung kompiliert wird. |
+| **aspnet\_regiis.exe** | Ermöglicht die Registrierung von ASP.NET in IIS. Es gibt zwei Versionen dieses Tools, die ASP.NET 2.0 im Lieferumfang enthalten, von denen eine 32-Bit-Systeme (im Ordner Framework) und eine für 64-Bit-Systeme (im Ordner Framework64.) Die 64-Bit-Version wird nicht auf einem 32-Bit-Betriebssystem installiert werden. |
+| **aspnet\_regsql.exe** | Die ASP.NET SQL Server-Registrierungstool dient zum Erstellen einer Microsoft SQL Server-Datenbank für die Verwendung durch SQL Server-Anbieter in ASP.NET oder zum Hinzufügen oder Entfernen von Optionen aus einer vorhandenen Datenbank. Das Aspnet\_regsql.exe-Datei befindet sich im Ordner "[drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber" auf dem Webserver. |
+| **aspnet\_regbrowsers.exe** | Die ASP.NET Browser Registration-Tool analysiert und alle systemweite Browserdefinitionen in eine Assembly kompiliert und installiert die Assembly im globalen Assemblycache. Das Tool verwendet die Browser-Definitionsdateien (. Browserdateien) aus dem .NET Framework-Browser-Unterverzeichnis. Das Tool kann im Verzeichnis %SystemRoot%\Microsoft.NET\Framework\version\ gefunden werden. |
+| **aspnet\_compiler.exe** | Die ASP.NET-Kompilierung-Tool können Sie eine ASP.NET-Webanwendung, entweder direkt oder für die Bereitstellung in einem Zielspeicherort wie z. B. einem Produktionsserver zu kompilieren. Direkter Kompilierung unterstützt die Anwendungsleistung, da Endbenutzer eine Verzögerung bei der ersten Anforderung an die Anwendung nicht treffen, während die Anwendung kompiliert wird. |
 
 Da das Aspnet\_regiis.exe Tool ist nicht in ASP.NET 2.0 neu, nicht besprechen wir sie hier.
 
@@ -259,11 +259,11 @@ Sie können mehrere Typen von Optionen, die mit dem Tool für die ASP.NET SQL Se
 
 Mehrere ASP.NET-Anwendungsdiensten basieren auf einem Anbieter zu verwalten, speichern und Abrufen von Daten aus einer Datenquelle. Jeder Anbieter bezieht sich auf die Datenquelle. ASP.NET umfasst einen SQL Server-Anbieter für die folgenden ASP.NET-Funktionen:
 
-- Mitgliedschaft (die [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) Klasse).
-- Rollenverwaltung (die [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) Klasse).
-- Profil (die [SqlProfileProvider](https://msdn.microsoft.com/en-us/library/system.web.profile.sqlprofileprovider.aspx) Klasse).
-- Webparts-Personalisierung (die [SqlPersonalizationProvider](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) Klasse).
-- Web-Ereignisse (die [SqlWebEventProvider](https://msdn.microsoft.com/en-us/library/system.web.management.sqlwebeventprovider.aspx) Klasse).
+- Mitgliedschaft (die [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) Klasse).
+- Rollenverwaltung (die [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) Klasse).
+- Profil (die [SqlProfileProvider](https://msdn.microsoft.com/library/system.web.profile.sqlprofileprovider.aspx) Klasse).
+- Webparts-Personalisierung (die [SqlPersonalizationProvider](https://msdn.microsoft.com/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) Klasse).
+- Web-Ereignisse (die [SqlWebEventProvider](https://msdn.microsoft.com/library/system.web.management.sqlwebeventprovider.aspx) Klasse).
 
 Bei der Installation von ASP.NET enthält die Datei "Machine.config" für den Server Konfigurationselemente, die SQL Server-Anbietern für jede der ASP.NET-Funktionen angeben, die für einen Anbieter abhängig sind. Diese Anbieter sind standardmäßig für die Verbindung mit einer lokalen Benutzerinstanz von SQL Server Express 2005 konfiguriert. Wenn Sie die Standard-Verbindungszeichenfolge, die von den Anbietern ändern, müssen klicken Sie dann vor der Verwendung einer der in der Computerkonfiguration konfigurierten ASP.NET-Funktionen können Sie SQL Server-Datenbank und die Datenbankelemente für die ausgewählte Funktion mit AspnetInstallieren\_regsql.exe. Wenn die Datenbank, die Sie, mit dem SQL-Registrierungstool angeben nicht bereits vorhanden ist (Aspnetdb ist die Standarddatenbank, wenn in der Befehlszeile nicht angegeben wird), muss der aktuelle Benutzer Berechtigungen zum Erstellen von Datenbanken in SQL Server sowie zum Erstellen von Schemas e verfügen Lements innerhalb einer Datenbank.
 
@@ -301,7 +301,7 @@ Die folgenden Optionen sind verfügbar, wenn Aspnet ausgeführt\_regbrowser.exe:
 
 Das Tool für die ASP.NET-Kompilierung kann in zwei allgemeine Arten verwendet werden: für die direkte Kompilierung und Kompilierung für die Bereitstellung, wobei ein Zielverzeichnis für die Ausgabe angegeben wird.
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Kompilieren einer Anwendung vorhanden](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilieren einer Anwendung vorhanden](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Die ASP.NET können Kompilieren einer Anwendung vorhanden, d. h. es das Verhalten, die mehrere Anforderungen an die Anwendung, wodurch die normalen Kompilierung imitiert. Benutzer einer vorkompilierte Website treten keine Verzögerung, die durch Kompilieren der Seite auf die erste Anforderung verursacht.
 
@@ -317,7 +317,7 @@ Sie können auch der erneuten Kompilierung einer Anwendung vorhanden, nachdem ne
 > Kompilierung einer Anwendung, die eine geschachtelte Anwendung enthält kompiliert die geschachtelte Anwendung nicht. Die geschachtelte Anwendung muss separat kompiliert werden.
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Kompilieren einer Anwendung für die Bereitstellung](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilieren einer Anwendung für die Bereitstellung](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Durch Festlegen des Parameters TargetDir kompilieren Sie eine Anwendung für die Bereitstellung (Kompilierung zu einer Zielposition). TargetDir kann der endgültige Position für die Webanwendung, oder die kompilierte Anwendung kann weiter bereitgestellt werden. Mithilfe der **-u** Option wird die Anwendung so, dass Sie Änderungen an bestimmte Dateien in der kompilierten Anwendung vornehmen können, ohne Neukompilieren kompiliert. ASPNET\_compiler.exe wird unterschieden zwischen statischen und dynamischen Dateitypen und ihnen anders verarbeitet, wenn die resultierenden Anwendung zu erstellen.
 
@@ -330,7 +330,7 @@ In der folgenden Tabelle wird beschrieben, wie die ASP.NET-Kompilierung verschie
 
 | **Dateityp** | **Compilerfehler-Aktion** |
 | --- | --- |
-| ASCX, aspx, Master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys kompiliert, deren Namen, die von einem Hashalgorithmus abgeleitet sind, und die Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den  **&lt; %**  und  **% &gt;**  Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Neue Dateien mit dem gleichen Namen wie die Quelldateien werden erstellt, um das Markup enthalten und in die entsprechenden Ausgabeverzeichnisse eingefügt. |
+| .ascx, .aspx, .master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys kompiliert, deren Namen, die von einem Hashalgorithmus abgeleitet sind, und die Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den  **&lt; %**  und  **% &gt;**  Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Neue Dateien mit dem gleichen Namen wie die Quelldateien werden erstellt, um das Markup enthalten und in die entsprechenden Ausgabeverzeichnisse eingefügt. |
 | .ashx, .asmx | Diese Dateien werden nicht kompiliert und in die Ausgabeverzeichnisse ist und nicht kompiliert verschoben werden. Wenn Sie den Ereignishandler Code kompiliert haben möchten, fügen Sie den Code in Quellcodedateien in der App\_Code (Verzeichnis). |
 | cs,. vb, .jsl, cpp (mit Code-Behind-Dateien für die zuvor aufgelisteten Dateitypen) | Diese Dateien werden kompiliert und als Ressource in Assemblys, die auf die Handles verweisen enthalten. Quelldateien werden nicht in das Ausgabeverzeichnis kopiert. Wenn eine Codedatei nicht verwiesen wird, wird er nicht kompiliert. |
 | Benutzerdefinierte Dateitypen | Diese Dateien werden nicht kompiliert. Diese Dateien werden in die entsprechenden Ausgabeverzeichnisse kopiert. |
@@ -349,18 +349,18 @@ In der folgenden Tabelle wird beschrieben, wie die ASP.NET-Kompilierung verschie
 | cs,. vb, .jsl, cpp (mit Code-Behind-Dateien für die zuvor aufgelisteten Dateitypen) | Quellcode, die von .ascx, .ashx oder ASPX-Dateien generierten Assemblys verwiesen wird ist in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. Es werden keine Quelldateien kopiert. |
 | Benutzerdefinierte Dateitypen | Diese Dateien werden wie dynamische Dateien kompiliert. Je nach Typ der Datei, auf denen sie basieren, kann der Compiler Zuordnungsdateien in die Ausgabeverzeichnisse platzieren. |
 | Dateien in der App\_Codeunterverzeichnis | Quellcodedateien in dieses Unterverzeichnis werden in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. |
-| Dateien in der App\_GlobalResources Unterverzeichnis | Diese Dateien werden in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. Keine App\_GlobalResources-Unterverzeichnis unter dem Verzeichnis Hauptausgabe erstellt wird. Wenn die Konfigurationsdatei AppliesTo gibt = "All" RESX- und RESOURCES-Dateien werden in die Ausgabeverzeichnisse kopiert. Sie werden nicht kopiert, wenn sie von referenziert werden eine [BuildProvider](https://msdn.microsoft.com/en-us/library/system.web.configuration.buildprovider.aspx). |
+| Dateien in der App\_GlobalResources Unterverzeichnis | Diese Dateien werden in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. Keine App\_GlobalResources-Unterverzeichnis unter dem Verzeichnis Hauptausgabe erstellt wird. Wenn die Konfigurationsdatei AppliesTo gibt = "All" RESX- und RESOURCES-Dateien werden in die Ausgabeverzeichnisse kopiert. Sie werden nicht kopiert, wenn sie von referenziert werden eine [BuildProvider](https://msdn.microsoft.com/library/system.web.configuration.buildprovider.aspx). |
 | RESX- und RESOURCES-Dateien in der App\_Unterverzeichnis "LocalResources" | Diese Dateien werden in Assemblys mit eindeutigen Namen kompiliert und in das Verzeichnis "bin" abgelegt. Keine RESX- oder RESOURCES-Dateien in die Ausgabeverzeichnisse kopiert. |
 | Skin-Dateien in der App\_Designs Unterverzeichnis | Designs werden in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. Stub-Dateien werden für Skin-Dateien erstellt und im entsprechenden Ausgabeverzeichnis eingefügt. Statische Dateien (z. B. CSS) werden in die Ausgabeverzeichnisse kopiert. |
 | Browser-Datei "Web.config" statischen Typen Assemblys im Bin-Verzeichnis bereits vorhanden. | Diese Dateien werden kopiert, in das Ausgabeverzeichnis ist. |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Feste Assemblynamen](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Feste Assemblynamen](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 Einige Szenarien, z. B. Bereitstellen einer Webanwendung, die mit dem Windows Installer MSI-Datei erfordern die Verwendung von konsistent Dateinamen und Inhalt sowie konsistente Verzeichnisstrukturen um Assemblys oder von Konfigurationseinstellungen für Updates zu identifizieren. In diesen Fällen können Sie die **- Fixednames** Option aus, um anzugeben, dass die ASP.NET eine Assembly kompilieren soll für jede Quelldatei anstelle von Where mit mehreren Seiten in Assemblys kompiliert werden. Dies kann an eine große Anzahl von Assemblys, führen, wenn Sie mit Skalierbarkeit befürchten sollten Sie diese Option mit Vorsicht verwenden.
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Kompilierung mit starkem Namen](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilierung mit starkem Namen](https://msdn.microsoft.com/library/ms229863.aspx##)
 
-Die **Aptca -**, **- Delaysign**, **- Keycontainer** und **- Keyfile** Optionen stehen zur Verfügung, sodass Sie Aspnet verwenden können\_ Compiler.exe stark erstellen mit dem Namen Assemblys ohne Verwendung der [Strong Name-Tool (Sn.exe)](https://msdn.microsoft.com/en-us/library/k5b5tt23.aspx) getrennt. Diese Optionen entsprechen jeweils in **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**, und  **AssemblyKeyFileAttribute**.
+Die **Aptca -**, **- Delaysign**, **- Keycontainer** und **- Keyfile** Optionen stehen zur Verfügung, sodass Sie Aspnet verwenden können\_ Compiler.exe stark erstellen mit dem Namen Assemblys ohne Verwendung der [Strong Name-Tool (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) getrennt. Diese Optionen entsprechen jeweils in **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**, und  **AssemblyKeyFileAttribute**.
 
 Erläuterung dieser Attribute befindet sich außerhalb des Bereichs von diesem Kurs.
 
@@ -447,4 +447,4 @@ In dieser Übung erstellen Sie Code, mit dem Sie die Protokollierung von Anwendu
 
 ## <a name="more-information"></a>Weitere Informationen:
 
-ASP.NET 2.0 Anbietermodell können Sie Ihre eigenen Anbieter für nicht nur Anwendungsinstrumentation, aber für viele weitere Verwendungsmöglichkeiten sowie z. B. Mitgliedschaft, Profile usw. zu erstellen. Ausführliche Informationen zu einen benutzerdefinierten Anbieter zum Protokollieren von Ereignissen in eine Textdatei schreiben, finden Sie auf [diesen Link](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASPNETProvMod_Prt6.asp).
+ASP.NET 2.0 Anbietermodell können Sie Ihre eigenen Anbieter für nicht nur Anwendungsinstrumentation, aber für viele weitere Verwendungsmöglichkeiten sowie z. B. Mitgliedschaft, Profile usw. zu erstellen. Ausführliche Informationen zu einen benutzerdefinierten Anbieter zum Protokollieren von Ereignissen in eine Textdatei schreiben, finden Sie auf [diesen Link](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp).

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Parameterbindung in ASP.NET Web-API
 ====================
@@ -26,7 +26,7 @@ Beim Web-API auf einem Domänencontroller eine Methode aufruft, müssen sie Wert
 
 Standardmäßig verwendet die Web-API die folgenden Regeln zum Binden von Parametern:
 
-- Wenn der Parameter ein "simple"-Typ ist, versucht Web-API zum Abrufen des Werts aus dem URI. Zu einfachen Typen gehören .NET [Grundtypen](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx) (**Int**, **Bool**, **doppelte**usw.), plus **TimeSpan**, **"DateTime"**, **Guid**, **decimal**, und **Zeichenfolge**, *plus* alle Geben Sie einen Typkonverter, der aus einer Zeichenfolge konvertiert werden kann. (Weitere Informationen zu einem späteren Zeitpunkt den Einsatz von Typkonvertern.)
+- Wenn der Parameter ein "simple"-Typ ist, versucht Web-API zum Abrufen des Werts aus dem URI. Zu einfachen Typen gehören .NET [Grundtypen](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**Int**, **Bool**, **doppelte**usw.), plus **TimeSpan**, **"DateTime"**, **Guid**, **decimal**, und **Zeichenfolge**, *plus* alle Geben Sie einen Typkonverter, der aus einer Zeichenfolge konvertiert werden kann. (Weitere Informationen zu einem späteren Zeitpunkt den Einsatz von Typkonvertern.)
 - Verwenden Sie für komplexe Typen, Web-API zum Lesen des Werts aus dem Nachrichtentext versucht, eine [medientypformatierer](media-formatters.md).
 
 Hier ist z. B. eine typische Web-API-Controller-Methode:
@@ -102,7 +102,7 @@ Ein Modellbinder ruft unformatierte Eingabewerten aus einer *Wertanbieter*. Dies
 
 Der Standard-Wertanbieter in Web-API ruft die Routendaten und der Abfragezeichenfolge Werte ab. Wenn der URI ist z. B. `http://localhost/api/values/1?location=48,-122`, Wertanbieter erstellt der folgenden Schlüssel-Wert-Paaren:
 
-- ID = &quot;1&quot;
+- id = &quot;1&quot;
 - Speicherort = &quot;48,122&quot;
 
 (Ich verwende die Standardvorlage für die Route, also vorausgesetzt &quot;api / {Controller} / {Id}&quot;.)
@@ -121,7 +121,7 @@ Sie können auch Hinzufügen einer **[ModelBinder]** -Attribut auf den Typ. Web-
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-Schließlich können Sie einen Modellbinder Anbieter zum Hinzufügen der **HttpConfiguration**. Ein Modellbinder Anbieter ist einfach eine Factoryklasse, die einen Modellbinder erstellt. Sie können einen Anbieter erstellen, durch Ableiten von der [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx) Klasse. Wenn Ihre Modellbinder ein einzelnes Typs behandelt, es ist jedoch einfacher mithilfe die integrierten **SimpleModelBinderProvider**, die für diesen Zweck dient. Dies wird im folgenden Code veranschaulicht.
+Schließlich können Sie einen Modellbinder Anbieter zum Hinzufügen der **HttpConfiguration**. Ein Modellbinder Anbieter ist einfach eine Factoryklasse, die einen Modellbinder erstellt. Sie können einen Anbieter erstellen, durch Ableiten von der [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx) Klasse. Wenn Ihre Modellbinder ein einzelnes Typs behandelt, es ist jedoch einfacher mithilfe die integrierten **SimpleModelBinderProvider**, die für diesen Zweck dient. Dies wird im folgenden Code veranschaulicht.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: b80332487e52930f3a75973f714d2532068ed012
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d588ff6ed03178ac8dc6934162252c1749cc9124
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (c#)
 ====================
@@ -69,7 +69,7 @@ Die `HttpGet` `Edit` Methode nimmt die Film-ID-Parameter, mit dem Entity Framewo
 
 Beachten Sie, wie die Vorlage für die Sicht hat eine `@model MvcMovie.Models.Movie` -Anweisung am Anfang der Datei – Dies gibt an, dass die Sicht erwartet, das Modell für die Vorlage Sicht vom Typ dass `Movie`.
 
-Der scaffolded Code verwendet mehrere *Hilfsmethoden* um das HTML-Markup zu optimieren. Die [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) Hilfsprogramm zeigt den Namen des Felds ("Title", "ReleaseDate", "Genre" oder "Price"). Die [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Hilfsprogramm zeigt eine HTML `<input>` Element. Die [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Hilfsprogramm zeigt Fehlermeldungen Validierung dieser Eigenschaft zugeordnet.
+Der scaffolded Code verwendet mehrere *Hilfsmethoden* um das HTML-Markup zu optimieren. Die [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) Hilfsprogramm zeigt den Namen des Felds ("Title", "ReleaseDate", "Genre" oder "Price"). Die [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Hilfsprogramm zeigt eine HTML `<input>` Element. Die [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Hilfsprogramm zeigt Fehlermeldungen Validierung dieser Eigenschaft zugeordnet.
 
 Führen Sie die Anwendung, und navigieren Sie zu der */Movies* URL. Klicken Sie auf einen Link **Bearbeiten**. Zeigen Sie im Browser den Quelltext für die Seite an. Der HTML-Code auf der Seite sieht wie im folgenden Beispiel. (Das Menü Markup wurde aus Gründen der Übersichtlichkeit ausgeschlossen.)
 
@@ -89,7 +89,7 @@ Wenn die bereitgestellten Werte nicht gültig sind, werden sie in das Formular e
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image8.png)](examining-the-edit-methods-and-edit-view/_static/image7.png)
 
-> **Beachten Sie, Informationen zu Gebietsschemas** Sie normalerweise mit einem anderen Gebietsschema als Englisch arbeiten, finden Sie unter [Unterstützung von ASP.NET MVC 3-Validierung mit nicht englischen Gebietsschemas.](https://msdn.microsoft.com/en-us/library/gg674880(VS.98).aspx)
+> **Beachten Sie, Informationen zu Gebietsschemas** Sie normalerweise mit einem anderen Gebietsschema als Englisch arbeiten, finden Sie unter [Unterstützung von ASP.NET MVC 3-Validierung mit nicht englischen Gebietsschemas.](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Die Bearbeitungsmethode machen unter Umständen stabiler
@@ -116,7 +116,7 @@ Starten Sie durch Hinzufügen einer `SearchIndex` Aktionsmethode zur vorhandenen
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample7.cs)]
 
-Die erste Zeile der `SearchIndex` -Methode erstellt die folgenden [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) Abfrage Filme auswählen:
+Die erste Zeile der `SearchIndex` -Methode erstellt die folgenden [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) Abfrage Filme auswählen:
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample8.cs)]
 
@@ -126,7 +126,7 @@ Wenn die `searchString` -Parameters enthält eine Zeichenfolge, die Filme Abfrag
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert sind oder wenn sie geändert werden, durch Aufrufen einer Methode wie z. B. `Where` oder `OrderBy`. Stattdessen Ausführung der Abfrage wird verzögert, was bedeutet, dass die Auswertung eines Ausdrucks verzögert wird, bis der realisierte Wert tatsächlich in einer Schleife durchlaufen wird oder die [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) -Methode aufgerufen wird. In der `SearchIndex` Sample, die Abfrage in der Ansicht SearchIndex ausgeführt wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert sind oder wenn sie geändert werden, durch Aufrufen einer Methode wie z. B. `Where` oder `OrderBy`. Stattdessen Ausführung der Abfrage wird verzögert, was bedeutet, dass die Auswertung eines Ausdrucks verzögert wird, bis der realisierte Wert tatsächlich in einer Schleife durchlaufen wird oder die [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) -Methode aufgerufen wird. In der `SearchIndex` Sample, die Abfrage in der Ansicht SearchIndex ausgeführt wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Nachdem Sie implementieren können, die `SearchIndex` anzeigen, die der Benutzer das Formular angezeigt wird. Mit der rechten Maustaste innerhalb der `SearchIndex` -Methode, und klicken Sie dann auf **Ansicht hinzufügen**. In der **Ansicht hinzufügen** Dialogfeld geben, dass Sie die offensichtlichen übergeben ein `Movie` Objekt, das die der Ansichtenvorlage als der Modellklasse. In der **Gerüst Vorlage** wählen **Liste**, klicken Sie dann auf **hinzufügen**.
 

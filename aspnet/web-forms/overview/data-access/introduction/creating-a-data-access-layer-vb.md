@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Erstellen eine Datenzugriffsschicht (VB)
 ====================
@@ -89,7 +89,7 @@ Beispielsweise sind das DataReader-Objekt und das DataSet (standardmäßig) lose
 Um stark typisierte Objekte zurückzugeben, können Entwickler ihre eigenen benutzerdefinierten Geschäftsobjekte erstellen oder typisierter DataSets verwenden. Ein Geschäftsobjekt wird vom Entwickler implementiert, wie eine Klasse, deren Eigenschaften in der Regel die Spalten der zugrunde liegenden Datenbanktabelle das Geschäftsobjekt widerspiegeln, darstellt. Ein typisiertes DataSet ist eine Klasse, die für Sie von Visual Studio generiert auf Grundlage eines Datenbankschemas und, deren Mitglieder gemäß diesem Schema stark typisiert sind. Das typisierte DataSet selbst besteht aus Klassen, die ADO.NET DataSet und DataTable DataRow Klassen erweitern. Zusätzlich zu den stark typisierten DataTables umfassen typisierter DataSets jetzt auch TableAdapters, die Klassen mit Methoden zum Auffüllen Datasetss Datentabellen und das Weitergeben von Änderungen in die DataTables wieder in der Datenbank sind.
 
 > [!NOTE]
-> Weitere Informationen zu den vor- und Nachteile der Verwendung typisierter DataSets im Vergleich zu benutzerdefinierten Geschäftsobjekte, finden Sie unter [Datenebenenkomponenten entwerfen und die Übergabe über Datenebenen](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Weitere Informationen zu den vor- und Nachteile der Verwendung typisierter DataSets im Vergleich zu benutzerdefinierten Geschäftsobjekte, finden Sie unter [Datenebenenkomponenten entwerfen und die Übergabe über Datenebenen](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Wir werden stark typisierte DataSets für diese Lernprogramme-Architektur verwenden. Abbildung 3 zeigt die Arbeitsabläufe zwischen den verschiedenen Ebenen einer Anwendung, die typisierte DataSets verwendet.
@@ -293,7 +293,7 @@ Es gibt zwei Muster, die im Allgemeinen zum Einfügen, aktualisieren und Lösche
 **Abbildung 21**: jede einfügen, aktualisieren und löschen anfordern wird an die Datenbank sofort gesendet ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-Andere Muster, die ich verweisen müssen Muster als Batch zu aktualisieren, ist eine gesamte DataSet, DataTable oder Auflistung von DataRows in einem Methodenaufruf zu aktualisieren. Mit diesem Muster ein Entwickler löscht, einfügt, und ändert die DataRows in einer "DataTable" und übergibt dann diese DataRows oder eine Datentabelle in einer Update-Methode. Klicken Sie dann diese Methode zählt die DataRows übergeben, legt fest, ob geändert, hinzugefügt, gelöscht oder wurden haben (über die DataRow [RowState-Eigenschaft](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) Wert), und gibt die entsprechende Datenbank-Anforderung für jeden Datensatz.
+Andere Muster, die ich verweisen müssen Muster als Batch zu aktualisieren, ist eine gesamte DataSet, DataTable oder Auflistung von DataRows in einem Methodenaufruf zu aktualisieren. Mit diesem Muster ein Entwickler löscht, einfügt, und ändert die DataRows in einer "DataTable" und übergibt dann diese DataRows oder eine Datentabelle in einer Update-Methode. Klicken Sie dann diese Methode zählt die DataRows übergeben, legt fest, ob geändert, hinzugefügt, gelöscht oder wurden haben (über die DataRow [RowState-Eigenschaft](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) Wert), und gibt die entsprechende Datenbank-Anforderung für jeden Datensatz.
 
 
 [![Alle Änderungen werden mit der Datenbank synchronisiert, wenn die Updatemethode aufgerufen wird](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ Um eine solche benutzerdefinierte Methode erstellen, geben Sie an der DataSet-De
 **Abbildung 25**: Erstellen Sie eine Methode zum Hinzufügen einer Zeile neu, um die `Products` Tabelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-Auf dem nächsten Bildschirm die `InsertCommand`des `CommandText` angezeigt wird. Erweitern Sie diese Abfrage durch Hinzufügen von `SELECT SCOPE_IDENTITY()` am Ende der Abfrage, die den letzten Identitätswert eingefügt zurückgegeben wird ein `IDENTITY` Spalte im selben Bereich. (Finden Sie unter der [technische Dokumentation](https://msdn.microsoft.com/en-us/library/ms190315.aspx) Weitere Informationen zu `SCOPE_IDENTITY()` und aus welchem Grund Sie wahrscheinlich möchten [Bereich\_IDENTITY() statt @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Stellen Sie sicher, dass Sie am Ende der `INSERT` -Anweisung mit einem Semikolon vor dem Hinzufügen der `SELECT` Anweisung.
+Auf dem nächsten Bildschirm die `InsertCommand`des `CommandText` angezeigt wird. Erweitern Sie diese Abfrage durch Hinzufügen von `SELECT SCOPE_IDENTITY()` am Ende der Abfrage, die den letzten Identitätswert eingefügt zurückgegeben wird ein `IDENTITY` Spalte im selben Bereich. (Finden Sie unter der [technische Dokumentation](https://msdn.microsoft.com/library/ms190315.aspx) Weitere Informationen zu `SCOPE_IDENTITY()` und aus welchem Grund Sie wahrscheinlich möchten [Bereich\_IDENTITY() statt @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Stellen Sie sicher, dass Sie am Ende der `INSERT` -Anweisung mit einem Semikolon vor dem Hinzufügen der `SELECT` Anweisung.
 
 
 [![Erweitern Sie die Abfrage aus, um den SCOPE_IDENTITY() Wert zurückzugeben](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -520,18 +520,18 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Erstellen eine DAL, die mithilfe von stark typisierten TableAdapters und Datentabellen in Visual Studio 2005 und ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [Entwerfen von Datenebenenkomponenten und übergeben von Daten mithilfe von Ebenen](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [Entwerfen von Datenebenenkomponenten und übergeben von Daten mithilfe von Ebenen](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Erstellen Sie eine Datenzugriffsschicht mit DataSet-Designer von Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [Verschlüsseln von Konfigurationsinformationen in ASP.NET 2.0 Anwendungen](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Übersicht über TableAdapters](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Arbeiten mit einem typisierten DataSet](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [Übersicht über TableAdapters](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Arbeiten mit einem typisierten DataSet](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Mithilfe von stark typisierten Datenzugriff in Visual Studio 2005 und ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Gewusst wie: Erweitern Sie diejenigen TableAdapter-Methoden](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Abrufen von skalaren Daten aus einer gespeicherten Prozedur](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Lehrvideos auf die Themen in diesem Lernprogramm
 
-- [Datenzugriffsebene in ASP.NET-Anwendungen](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
+- [Datenzugriffsschichten in ASP.NET-Anwendungen](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
 - [Wie Sie ein Dataset manuell an ein DataGrid-Steuerelement zu binden](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [Wie Arbeiten mit Datasets und Filter aus einer ASP-Anwendung](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 

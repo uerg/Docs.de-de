@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be0b831477e8f68768f1f9a0b52cbe90b3936d3f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9f04089afdbeb1b13725536c9fe97951ee8ca5c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>Anzeigen von mehreren Datensätzen pro Zeile mit dem DataList-Steuerelement (c#)
 ====================
@@ -67,7 +67,7 @@ Nehmen Sie einen Moment Zeit, um die Seite in einem Browser besuchen. Wie in Abb
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Schritt 2: Ändern der DataList-s-Layoutausrichtung
 
-Während das Standardverhalten für die DataList besteht darin, dessen Elemente in einer Tabelle eine Spalte, die mehrzeilige vertikal anordnen dieses Verhalten kann leicht geändert werden über das DataList s [ `RepeatDirection` Eigenschaft](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx). Die `RepeatDirection` Eigenschaft kann einen von zwei möglichen Werten annehmen: `Horizontal` oder `Vertical` (Standard).
+Während das Standardverhalten für die DataList besteht darin, dessen Elemente in einer Tabelle eine Spalte, die mehrzeilige vertikal anordnen dieses Verhalten kann leicht geändert werden über das DataList s [ `RepeatDirection` Eigenschaft](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). Die `RepeatDirection` Eigenschaft kann einen von zwei möglichen Werten annehmen: `Horizontal` oder `Vertical` (Standard).
 
 Durch Ändern der `RepeatDirection` Eigenschaft von `Vertical` zu `Horizontal`, DataList rendert der Datensätze in einer einzelnen Zeile eine Spalte pro Datenquellenelement erstellen. Um diesen Effekt zu veranschaulichen, klicken Sie auf das DataList im Designer, und ändern Sie dann im Fenster Eigenschaften die `RepeatDirection` Eigenschaft von `Vertical` auf `Horiztonal`. Sofort auf diese Weise Designer passt das Layout DataList s Erstellen einer einzigen Zeile und mehrspaltigen-Schnittstelle (siehe Abbildung 3).
 
@@ -87,7 +87,7 @@ Kleine Mengen von Daten, die eine einzelne Zeile und Anzeigen von möglicherweis
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Schritt 3: Anzeigen von Daten in einer Tabelle mit mehreren Spalten, die mehrzeilige
 
-Um einen mehrspaltigen, mehrzeilige DataList zu erstellen, müssen wir Festlegen der [ `RepeatColumns` Eigenschaft](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) auf die Anzahl der anzuzeigenden Spalten. Wird standardmäßig die `RepeatColumns` Eigenschaft ist auf 0 festgelegt, wodurch das DataList zum Anzeigen aller Elemente in einer einzelnen Zeile oder Spalte (abhängig vom Wert der `RepeatDirection` Eigenschaft).
+Um einen mehrspaltigen, mehrzeilige DataList zu erstellen, müssen wir Festlegen der [ `RepeatColumns` Eigenschaft](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) auf die Anzahl der anzuzeigenden Spalten. Wird standardmäßig die `RepeatColumns` Eigenschaft ist auf 0 festgelegt, wodurch das DataList zum Anzeigen aller Elemente in einer einzelnen Zeile oder Spalte (abhängig vom Wert der `RepeatDirection` Eigenschaft).
 
 In unserem Beispiel können Sie s, die drei Produkte pro Tabellenzeile angezeigt. Legen Sie deshalb die `RepeatColumns` -Eigenschaft auf 3. Nehmen Sie einen Moment Zeit, um die Ergebnisse in einem Browser anzuzeigen, nach dieser Änderung. Wie in Abbildung 5 gezeigt, werden die Produkte in einer Tabelle drei Spalten, die mehrzeilige jetzt aufgeführt.
 

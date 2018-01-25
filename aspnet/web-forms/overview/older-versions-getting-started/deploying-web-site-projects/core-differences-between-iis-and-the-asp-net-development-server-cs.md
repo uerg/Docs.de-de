@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d4d1a5795f5edabc51b578ecc45676490711c1a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 79f06707cadf027baa03652dc722cab31f494b09
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Core-Unterschiede zwischen IIS und ASP.NET Development Server (c#)
 ====================
@@ -47,7 +47,7 @@ Auf diese Art von Fehlern in Aktion zeigen ich erstellt habe eine Seite im Buch 
 [!code-csharp[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample1.cs)]
 
 > [!NOTE]
-> Die [ `File.WriteAllText` Methode](https://msdn.microsoft.com/en-us/library/system.io.file.writealltext.aspx) erstellt eine neue Datei, wenn er nicht vorhanden, und klicken Sie dann den angegebenen Inhalt schreibt dort hinein. Wenn die Datei bereits vorhanden ist, wird der vorhandene Inhalt überschrieben.
+> Die [ `File.WriteAllText` Methode](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) erstellt eine neue Datei, wenn er nicht vorhanden, und klicken Sie dann den angegebenen Inhalt schreibt dort hinein. Wenn die Datei bereits vorhanden ist, wird der vorhandene Inhalt überschrieben.
 
 
 Als Nächstes finden Sie auf der *Schulen selbst ASP.NET 3.5 in 24 Stunden* Buch Seite "Überprüfen" in der Entwicklungsumgebung, die mithilfe von ASP.NET Development Server. Vorausgesetzt, dass Sie angemeldet sind auf Ihrem Computer mit einem Konto, verfügt über die erforderlichen Berechtigungen zum Erstellen und ändern eine Textdatei im Web, Stammverzeichnis der Anwendung die Buch-Überprüfung wird der gleiche wie zuvor, aber jedes Mal, wenn die Seite ist besucht hat, das Datum und Uhrzeit und des Benutzers  IP-Adresse befindet sich in der `LastTYASP35Access.txt` Datei. Zeigen Sie Ihren Browser auf diese Datei; Daraufhin sollte eine Meldung wie in Abbildung 1 dargestellt.
@@ -58,7 +58,7 @@ Als Nächstes finden Sie auf der *Schulen selbst ASP.NET 3.5 in 24 Stunden* Buch
 **Abbildung 1**: die Textdatei enthält, das letzte Datum und Uhrzeit die Buch-Überprüfung wurde besucht ([klicken Sie hier, um das Bild in voller Größe angezeigt](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
 
 
-Bereitstellen der Webanwendung bis hin zur Produktion und besuchen dann die gehosteten *Schulen selbst ASP.NET 3.5 in 24 Stunden* Buch Seite "Überprüfen". An diesem Punkt sollte die Buch-Seite "Überprüfen" entweder als Normal oder die Fehlermeldung, die in Abbildung 2 veranschaulichte angezeigt werden. Einige Web Hosten von Anbietern erteilen Sie Schreibberechtigungen für das anonyme Konto zur ASP.NET-Computer, in dem Fall die Seite ohne Fehler ausgeführt wird. Wenn Sie jedoch Ihre Webhostinganbieter Schreibzugriff für das anonyme Konto verhindert ein [ `UnauthorizedAccessException` Ausnahme](https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception.aspx) ausgelöst wird, wenn die `TYASP35.aspx` Seite wird versucht, das aktuelle Datum und die Uhrzeit zum Schreiben der `LastTYASP35Access.txt` Datei.
+Bereitstellen der Webanwendung bis hin zur Produktion und besuchen dann die gehosteten *Schulen selbst ASP.NET 3.5 in 24 Stunden* Buch Seite "Überprüfen". An diesem Punkt sollte die Buch-Seite "Überprüfen" entweder als Normal oder die Fehlermeldung, die in Abbildung 2 veranschaulichte angezeigt werden. Einige Web Hosten von Anbietern erteilen Sie Schreibberechtigungen für das anonyme Konto zur ASP.NET-Computer, in dem Fall die Seite ohne Fehler ausgeführt wird. Wenn Sie jedoch Ihre Webhostinganbieter Schreibzugriff für das anonyme Konto verhindert ein [ `UnauthorizedAccessException` Ausnahme](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) ausgelöst wird, wenn die `TYASP35.aspx` Seite wird versucht, das aktuelle Datum und die Uhrzeit zum Schreiben der `LastTYASP35Access.txt` Datei.
 
 
 [![Das standardmäßige Konto "Machine" von IIS verwendete verfügt nicht über Berechtigungen zum Schreiben in das Dateisystem](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
@@ -90,7 +90,7 @@ Schließlich konfiguriert die Webanwendung aktualisieren, formularbasierte Authe
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample3.xml)]
 
-Mit:
+Durch:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample4.xml)]
 
@@ -123,7 +123,7 @@ Nach der Verwendung von IIS konfiguriert wurde die integrierte Pipeline das folg
 Dieses Markup weist IIS 7 der Module ASP.NET-basierten, Authentifizierung und Autorisierung verwendet werden. Stellen Sie die Anwendung erneut bereit, und besuchen Sie die PDF-Datei dann erneut. Dieses Mal, wenn IIS für die Anforderung verarbeitet, hat es die ASP.NET-Laufzeit Authentifizierung und Autorisierung Logik Gelegenheit, die Anforderung zu überprüfen. Da nur durch authentifizierte Benutzer, zum Anzeigen des Inhalts in autorisiert sind der `PrivateDocs` Ordner, der anonyme Besucher wird automatisch auf die Anmeldeseite umgeleitet (siehe Abbildung 3).
 
 > [!NOTE]
-> Wenn Ihre Webhostinganbieter noch IIS 6 verwendet, können nicht Sie die integrierten Pipeline-Funktion verwenden. Eine Lösung besteht darin, Ihre private Dokumente in einem Ordner abgelegt, die HTTP-Zugriff untersagt (z. B. `App_Data`), und erstellen Sie eine Seite, um diese Dokumente dienen. Auf dieser Seite aufgerufen werden könnte `GetPDF.aspx`, und der Name der PDF-Datei über eine Querystring-Parameter übergeben wird. Die `GetPDF.aspx` Seite würde zunächst prüfen, ob der Benutzer verfügt über die Berechtigung zum Anzeigen der Datei, und wenn dies der Fall ist, verwenden die [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writefile.aspx) Methode, um den Inhalt der angeforderten PDF-Datei an den anfordernden Client zu senden. Dieses Verfahren funktioniert auch für IIS 7, wenn Sie nicht, aktivieren die integrierte Pipeline möchten.
+> Wenn Ihre Webhostinganbieter noch IIS 6 verwendet, können nicht Sie die integrierten Pipeline-Funktion verwenden. Eine Lösung besteht darin, Ihre private Dokumente in einem Ordner abgelegt, die HTTP-Zugriff untersagt (z. B. `App_Data`), und erstellen Sie eine Seite, um diese Dokumente dienen. Auf dieser Seite aufgerufen werden könnte `GetPDF.aspx`, und der Name der PDF-Datei über eine Querystring-Parameter übergeben wird. Die `GetPDF.aspx` Seite würde zunächst prüfen, ob der Benutzer verfügt über die Berechtigung zum Anzeigen der Datei, und wenn dies der Fall ist, verwenden die [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) Methode, um den Inhalt der angeforderten PDF-Datei an den anfordernden Client zu senden. Dieses Verfahren funktioniert auch für IIS 7, wenn Sie nicht, aktivieren die integrierte Pipeline möchten.
 
 
 ## <a name="summary"></a>Zusammenfassung
@@ -138,7 +138,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 - [Integration von ASP.NET in IIS 7.0](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 - [Alle Typen von Inhalten in IIS 7-Foren ASP.NET-Authentifizierung mit](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (Video)
-- [Webserver in Visual Web Developer](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)
+- [Webserver in Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](common-configuration-differences-between-development-and-production-cs.md)

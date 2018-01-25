@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 2458abc863a83364f90fc9d6edaace897c23b4c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Erstellen eine Serverfarm mit Webfarmframework
 ====================
@@ -65,7 +65,7 @@ Aufgaben und exemplarische Vorgehensweisen in diesem Thema wird davon ausgegange
 - Der Server hat eine statische IP-Adresse.
 
 > [!NOTE]
-> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Weitere Informationen zum Hinzufügen von Computern zu einer Domäne, finden Sie unter [Verknüpfen von Computern zur Domäne und Anmelden](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Weitere Informationen zum Konfigurieren von statischen IP-Adressen finden Sie unter [eine statische IP-Adresse konfigurieren](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="create-the-wff-controller-server"></a>Erstellen des WFF-Controller-Servers
@@ -78,7 +78,7 @@ Um einen WFF-Controller-Server erstellen, müssen Sie IIS 7 oder höher und WFF 
 2. Am oberen Rand der **Web Platform Installer 3.0** Fenster, klicken Sie auf **Produkte**.
 3. Klicken Sie auf der linken Seite des Fensters klicken Sie im Navigationsbereich auf **Server**.
 4. In der **empfohlene Konfiguration von IIS 7** auf **hinzufügen**.
-5. In der **Web Farm Framework 2.** *x* auf **hinzufügen**.
+5. In der **Web Farm Framework 2. *** X* auf **hinzufügen**.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Klicken Sie auf **Installieren**. Beachten Sie, dass der Webplattform-Installer das Webbereitstellungstool zusammen mit verschiedenen Abhängigkeiten der Installationsliste hinzugefügt wurde.
@@ -223,7 +223,7 @@ Sie können die Integrität Ihrer Serverfarm jederzeit über den IIS-Manager auf
 
 ![](creating-a-server-farm-with-the-web-farm-framework/_static/image18.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Die Serverfarm WFF sollte jetzt einsatzbereit sein. Sie können den primären Server zur Unterstützung von unabhängig davon, welche Bereitstellungsansatz gewünscht & #x 2014 konfigurieren; finden Sie im Abschnitt Weitere Themen Details & #x 2014; und die Konfiguration wird in jeder sekundären Serverinstanz in der Farm repliziert werden.
 

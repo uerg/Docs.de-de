@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 52052ad202958eb5d648ceb64d9f06fb86ef3777
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bad742af28d6c36bb1b66207c2ba09d140332449
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR-Leistung (SignalR 1.x)
 ====================
@@ -70,7 +70,7 @@ Da Nachrichten im Nachrichtenbus im Arbeitsspeicher des Servers, reduzieren die 
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Optimieren des SignalR-Servers für die Leistung
 
-Die folgenden Konfigurationseinstellungen können verwendet werden, um den Server für eine bessere Leistung in einer SignalR-Anwendung zu optimieren. Allgemeine Informationen zum Verbessern der Leistung in einer ASP.NET-Anwendung finden Sie unter [verbessern die Leistung von ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Die folgenden Konfigurationseinstellungen können verwendet werden, um den Server für eine bessere Leistung in einer SignalR-Anwendung zu optimieren. Allgemeine Informationen zum Verbessern der Leistung in einer ASP.NET-Anwendung finden Sie unter [verbessern die Leistung von ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **SignalR-Konfigurationseinstellungen**
 
@@ -244,6 +244,6 @@ Die folgenden Leistungsindikatoren möglicherweise auch bei der Überwachung der
 
 Weitere Informationen zu ASP.NET-Leistung überwachen und optimieren finden Sie unter den folgenden Themen:
 
-- [ASP.NET Performance Overview (Die Leistung von ASP.NET im Überblick)](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET Performance Overview (Die Leistung von ASP.NET im Überblick)](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [ASP.NET Thread Usage on IIS 7.5, IIS 7.0 und IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;ApplicationPool&gt; Element (Webeinstellungen)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;ApplicationPool&gt; Element (Webeinstellungen)](https://msdn.microsoft.com/library/dd560842.aspx)

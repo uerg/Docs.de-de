@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 23e38416dc294a1a07cb320cf5ab328fa036d1e8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Was ist neu in WebForms in ASP.NET 4.5
 ====================
@@ -562,7 +562,7 @@ In dieser Aufgabe aktualisieren Sie die Produktseite für die Details zum zulass
     (Codeausschnitt - *Web Forms Lab - Ex03 - UpdateProductImage Aufruf*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Führen Sie die Anwendung, und versuchen Sie, ein Bild für ein Produkt hochladen. Sie können z. B. die folgenden Bild-URL aus Office Clip Arts: [ [http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)
+7. Führen Sie die Anwendung, und versuchen Sie, ein Bild für ein Produkt hochladen. Sie können z. B. die folgenden Bild-URL aus Office Clip Arts: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Festlegen eines Bilds für ein Produkt](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "Festlegen eines Bilds für ein Produkt")
 
@@ -718,7 +718,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Azure-Portal erstel
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in Azure für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen in Azure.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in Azure für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Azure.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "der Website herunterladen eines Veröffentlichungsprofils")
 

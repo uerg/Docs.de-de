@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8050d37cfea91701e1cae0413feb41ca9a68baff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity empfohlene Ressourcen
 ====================
@@ -42,9 +42,9 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 - [MVC 5-Anwendung mit Facebook, Twitter, LinkedIn und Google OAuth2 anmelden](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) dieses Lernprogramm veranschaulicht das Schreiben einer ASP.NET MVC 5-Apps mit Facebook und Google OAuth 2 Autorisierung. Es wird gezeigt, wie der Identity-Datenbank zusätzliche Daten hinzugefügt werden.
 - [Bereitstellen eine sicheren ASP.NET MVC-app mit Mitgliedschaft, OAuth und SQL-Datenbank zu einer Azure-](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). In diesem Lernprogramm fügt Azure-Bereitstellung zum Sichern Ihrer Apps mit Rollen, wie die Mitgliedschafts-API zu verwenden, um Benutzern und Rollen und zusätzliche Sicherheitsfunktionen hinzuzufügen.
-- [Einführung in ASP.NET Identity](introduction-to-aspnet-identity.md)
+- [Einführung zu ASP.NET Identity](introduction-to-aspnet-identity.md)
 - [Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, e-Mail-Bestätigung und das Kennwort zurücksetzen](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-- [ASP.NET MVC 5-Anwendung mit SMS und e-Mail-zweistufige Authentifizierung](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+- [ASP.NET MVC 5-App mit zweistufiger Authentifizierung per SMS und E-Mail](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
 ## <a name="new-featured-must-read-articles"></a>Neue wichtige lesen müssen Artikel
@@ -59,11 +59,11 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="intermediate-aspnet-identity"></a>Intermediate ASP.NET-Identität
 
 - [Kontobestätigung und Kennwortwiederherstellung mit ASP.NET Identity](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Zweistufige Authentifizierung mithilfe von SMS und e-Mails mit ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [Migration von einer vorhandenen Website von SQL-Mitgliedschaft zu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Hinzufügen von ASP.NET Identity zu einem leeren oder vorhandene Web Forms-Projekt](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- MSDN Magazine [externe Authentifizierung mit ASP.NET Identity](https://msdn.microsoft.com/en-us/magazine/dn745860.aspx) von Dino Esposito
-- MSDN Magazine[ein erster Blick auf ASP.NET Identity](https://msdn.microsoft.com/en-us/magazine/dn605872.aspx) von Dino Esposito
+- [Zweistufige Authentifizierung mithilfe von SMS und E-Mails mit ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Migrieren einer vorhandenen Website von einem SQL-Mitgliedschaftsanbieter nach ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Hinzufügen von ASP.NET Identity zu einem leeren oder vorhandenen Web Forms-Projekt](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- MSDN Magazine [externe Authentifizierung mit ASP.NET Identity](https://msdn.microsoft.com/magazine/dn745860.aspx) von Dino Esposito
+- MSDN Magazine[ein erster Blick auf ASP.NET Identity](https://msdn.microsoft.com/magazine/dn605872.aspx) von Dino Esposito
 - [ASP.NET Identity – Benutzersperre](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
@@ -101,14 +101,14 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
     - [Optionen zur Anpassung der mit ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/09/customization-options-with-asp-net-identity.aspx)
     - [Implementieren von ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
 - [Benjamin Tag](http://www.benday.com/about/)[Exemplarische Vorgehensweise: ASP.NET MVC-Identität mit Microsoft-Konto-Authentifizierung](http://www.benday.com/2014/02/25/walkthrough-asp-net-mvc-identity-with-microsoft-account-authentication/)
-- [Brock Abläufe](https://twitter.com/BrockLAllen)
+- [Brock Allen](https://twitter.com/BrockLAllen)
 
     - [Einführung in externen anmeldeanbietern (social Anmeldungen) mit OWIN/Katana-authentifizierungsmiddleware beziehen.](http://brockallen.com/2014/01/09/a-primer-on-external-login-providers-social-logins-with-owinkatana-authentication-middleware/)
     - [Einführung in IdentityReboot](http://brockallen.com/2014/02/11/introducing-identityreboot/): ein Satz von Erweiterungen zu ASP.NET Identity, die die Hauptfunktionen des fehlenden implementieren ich unzufrieden haben.
 - [Pranav Rastogi](https://twitter.com/rustd)
 
     - [Weitere Informationen aus sozialen Anbietern abrufen.](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
-- [@beabigrockstar](https://twitter.com/beabigrockstar)(Jerrie Pelser)
+- [@beabigrockstar](https://twitter.com/beabigrockstar) (Jerrie Pelser)
 
     - [2-Faktor-Authentifizierung](http://www.beabigrockstar.com/blog/2-factor-authentication-with-asp-net-identity-2-0-beta-1/)
     - [Verwenden von Google Authenticator mit ASP.NET Identity](http://www.beabigrockstar.com/blog/using-google-authenticator-asp-net-identity/)
@@ -132,7 +132,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 - Channel 9 [sichern Ihre Website mit ASP.NET Identity](https://channel9.msdn.com/Events/TechDays/Techdays-2014-the-Netherlands/Securing-your-website-with-ASP-NET-Identity) von Alex Thissen
 - [Verwenden von ASP.NET Identity für ein vorhandenes DB-Modell](https://www.youtube.com/watch?v=elfqejow5hM) von Alexander Schmidt
 - [Eine ASP.NET-Identität](https://www.youtube.com/watch?v=w8GD-QIusKk) von Ivaylo Kenov von Telerik
-- [Tschechisch ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) In dieser vorlesungsraum veranschaulichen wir Standardauthentifizierung bereitstellen, zum Hinzufügen von Unterstützung für externe Identitätsanbieter, z. B. Twitter oder Facebook und zum Verwenden der Einmalkennwörter (OTP). [ASP.NET Identity Je Nástupce Mitgliedschaft einen Rollenanbieter &#367; V ASP.NET, Tedy Knihovna pro Zajišt #283 Ní Autentizace Uživatel &; #367;. V Této p &#345; Ednášce Si Ukážeme, Jak Nasad]
+- [Tschechisch ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) In dieser vorlesungsraum veranschaulichen wir Standardauthentifizierung bereitstellen, zum Hinzufügen von Unterstützung für externe Identitätsanbieter, z. B. Twitter oder Facebook und zum Verwenden der Einmalkennwörter (OTP). [ASP.NET Identity je nástupce Membership a Role provider&#367; v ASP.NET, tedy knihovna pro zajišt&#283;ní autentizace uživatel&#367;. V této p&#345;ednášce si ukážeme, jak nasad]
 
 <a id="cust"></a>
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Identity

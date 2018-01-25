@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f626731e79d83785057498c53cdf49aecb90261
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42203bdd7c22f3885eecab36dbd710d371107285
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Anzeigen von Daten mit dem DataList und Wiederholungsmodul-Steuerelement (c#)
 ====================
@@ -163,7 +163,7 @@ Zusätzlich zu den `ItemTemplate`, DataList unterstützt sechs anderer optionale
 
 - `HeaderTemplate`Wenn angegeben, die Ausgabe eine Kopfzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
 - `AlternatingItemTemplate`abwechselnde Elemente gerendert.
-- `SelectedItemTemplate`verwendet zum Rendern des ausgewählten Elements. das ausgewählte Element ist das Element, dessen Index der DataList s entspricht [ `SelectedIndex` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`verwendet zum Rendern des ausgewählten Elements. das ausgewählte Element ist das Element, dessen Index der DataList s entspricht [ `SelectedIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`verwendet zum Rendern des Elements, das bearbeitet wird
 - `SeparatorTemplate`Wenn angegeben, fügt ein Trennzeichen zwischen den einzelnen Elementen und wird verwendet, um das Trennzeichen zu rendern.
 - `FooterTemplate`-Wenn angegeben, die Ausgabe eine Fußzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
@@ -222,7 +222,7 @@ In ASP.NET 1.x Repeater Steuerelement häufig verwendet wurde, um eine Liste mit
 - In `SectionLevelTutorialListing.ascx`, ein Repeater wurde verwendet, um eine Aufzählung der in den Abschnitten der untergeordneten Elemente des aktuellen Standorts Zuordnung Abschnitts anzeigen
 
 > [!NOTE]
-> ASP.NET 2.0 bietet die neuen [BulletedList-Steuerelement](https://msdn.microsoft.com/en-us/library/ms228101.aspx), die an ein Datenquellen-Steuerelement um eine einfache Liste mit Aufzählungszeichen anzuzeigen gebunden werden kann. Mit dem Steuerelement BulletedList müssen wir nicht zum Angeben der HTML-listenbezogene; Stattdessen zeigen wir einfach das Feld "Daten" als Text für jedes Listenelement angezeigt.
+> ASP.NET 2.0 bietet die neuen [BulletedList-Steuerelement](https://msdn.microsoft.com/library/ms228101.aspx), die an ein Datenquellen-Steuerelement um eine einfache Liste mit Aufzählungszeichen anzuzeigen gebunden werden kann. Mit dem Steuerelement BulletedList müssen wir nicht zum Angeben der HTML-listenbezogene; Stattdessen zeigen wir einfach das Feld "Daten" als Text für jedes Listenelement angezeigt.
 
 
 Repeater fungiert als ein Catch Gerätedaten Websteuerelement. Besteht kein vorhandenes Steuerelement, das die erforderliche Markup generiert, kann die Wiederholungsmodul-Steuerelement verwendet werden. Zur Veranschaulichung Repeater verwenden, können Sie s die Liste der Kategorien, die über das Produkt Informationen DataList in Schritt2 erstellte angezeigt haben. Insbesondere können s haben die Kategorien angezeigt, die in einer einzelnen Zeile HTML `<table>` mit jeder Kategorie, die als eine Spalte in der Tabelle angezeigt.

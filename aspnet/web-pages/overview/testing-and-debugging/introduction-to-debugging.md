@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Einführung in Debugging ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -62,7 +62,7 @@ Die `ServerInfo` Helper ist ein Diagnosetool, mit dem Sie einen Überblick über
     > **Wichtige** sollten Sie alle Diagnosecode aus Webseiten entfernen, bevor Sie Webseiten auf einem Produktionsserver verschieben. Dies gilt für die `ServerInfo` Helper als auch die anderen Diagnosetechniken in diesem Artikel, bei denen Hinzufügen von Code zu einer Seite. Sie möchten nicht Besucher Ihrer Website, um Informationen zu Ihrem Servernamen, Benutzernamen, Pfaden auf dem Server und ähnliche Details anzuzeigen, da diese Art von Informationen für Personen mit böswilligen Absichten nützlich sein kann.
 3. Speichern Sie die Seite, und führen Sie es in einem Browser.
 
-    ![Debuggen von 1](introduction-to-debugging/_static/image1.jpg)
+    ![Debugging-1](introduction-to-debugging/_static/image1.jpg)
 
     Die `ServerInfo` Hilfsprogramm zeigt vier Tabellen von Informationen auf der Seite:
 
@@ -71,7 +71,7 @@ Die `ServerInfo` Helper ist ein Diagnosetool, mit dem Sie einen Überblick über
     - HTTP-Laufzeitinformationen. Dieser Abschnitt enthält details zu, die die Version von Microsoft .NET Framework, die Ihre Webseite unter ausgeführt wird, den Pfad, der Details zu den Cache und So weiter. (Wie in haben Sie gelernt [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages mithilfe der Razor-Syntax basieren auf Microsoft ASP.NET Web Server-Technologie, die selbst auf eine umfangreiche Software erstellt wird Entwicklung Bibliothek als .NET Framework bezeichnet.)
     - Umgebungsvariablen. Dieser Abschnitt enthält eine Übersicht über die lokale Umgebungsvariablen und deren Werte auf dem Webserver an.
 
-    Eine vollständige Beschreibung aller Informationen für die Server und die Anforderung ist nicht Gegenstand dieses Artikels, aber Sie sehen, dass die `ServerInfo` Helper gibt eine Vielzahl von diagnostische Informationen zurück. Weitere Informationen zu den Werten, die `ServerInfo` zurückgibt, finden Sie unter [Umgebungsvariablen erkannt](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) auf der Microsoft TechNet-Website und [IIS-Servervariablen](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) auf der MSDN-Website.
+    Eine vollständige Beschreibung aller Informationen für die Server und die Anforderung ist nicht Gegenstand dieses Artikels, aber Sie sehen, dass die `ServerInfo` Helper gibt eine Vielzahl von diagnostische Informationen zurück. Weitere Informationen zu den Werten, die `ServerInfo` zurückgibt, finden Sie unter [Umgebungsvariablen erkannt](https://technet.microsoft.com/library/dd560744(WS.10).aspx) auf der Microsoft TechNet-Website und [IIS-Servervariablen](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) auf der MSDN-Website.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Einbetten von Ausgabe-Ausdrücke zum Anzeigen von Seite
 
@@ -93,7 +93,7 @@ Eine weitere Möglichkeit, um festzustellen, was im Code geschieht ist Ausgabe A
 
     Die Seite zeigt die tatsächlichen Tag der Woche zuerst, und klicken Sie dann die aktualisierte Tag der Woche, resultiert aus dem Hinzufügen eines Tages, und klicken Sie dann die resultierende Nachricht aus der `switch` Anweisung. Die Ausgabe aus den beiden Variablen Ausdrücken (`@weekday`) ohne Leerzeichen zwischen den Tagen hat, da Sie die HTML-Elemente hinzugefügt haben `<p>` Tags aus, um die Ausgabe die Ausdrücke, die nur zu Testzwecken dienen.
 
-    ![Debuggen von 2](introduction-to-debugging/_static/image2.jpg)
+    ![Debugging-2](introduction-to-debugging/_static/image2.jpg)
 
     Jetzt sehen Sie, wo der Fehler ist. Wenn Sie zum ersten Mal Anzeigen der `weekday` Variable im Code, zeigt die richtige Tag. Wenn Sie ihn anzeigen zweiten Mal nach der `if` blockieren im Code, der Tag, die von einem deaktiviert ist. Damit Sie wissen, dass ein Fehler zwischen der ersten und zweiten Darstellung der Wochentag Variablen aufgetreten ist. Wenn dies einen echten Fehler wäre, würde diese Art von Ansatz helfen Ihnen bei den Speicherort des Codes einzugrenzen, die das Problem verursacht.
 6. Beheben Sie den Code auf der Seite durch Entfernen von zwei Ausgabe-Ausdrücken, die Sie hinzugefügt, und entfernen den Code, der den Tag der Woche ändert. Die verbleibenden, vollständige Codeblock sieht wie im folgenden Beispiel:
@@ -111,7 +111,7 @@ Die `ObjectInfo` Hilfsprogramm zeigt den Typ und den Wert des jeweiligen Objekts
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
 3. Speichern Sie, und führen Sie die Seite in einem Browser.
 
-    ![Debuggen-4](introduction-to-debugging/_static/image3.jpg)
+    ![Debugging-4](introduction-to-debugging/_static/image3.jpg)
 
     In diesem Beispiel wird die `ObjectInfo` Helper werden zwei Elemente angezeigt:
 
@@ -139,5 +139,5 @@ Informationen zur Verwendung von integrierten Debuggers in Visual Studio zum Deb
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Programmieren von ASP.NET Web Pages (Razor) mithilfe von Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [IIS-Servervariablen](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) (MSDN)
-- [Umgebungsvariablen erkannt](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) (TechNet)
+- [IIS-Servervariablen](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Umgebungsvariablen erkannt](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

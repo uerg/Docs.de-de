@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b14bb4279ac5f6a986fc597b97176b61150044c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7bb8a9bccbd9dfbbf983618ecd32588fd8f69c64
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-site-navigation-vb"></a>Masterseiten und Website-Navigation (VB)
 ====================
@@ -61,7 +61,7 @@ Klicken Sie zum Erstellen einer Masterseite mit der rechten Maustaste auf den Pr
 
 Definieren Sie die standortweite Seitenlayout hier in der Masterseite. Können Sie mithilfe die Entwurfsansicht und Hinzufügen von beliebigen Layout oder Web-Steuerelemente Sie müssen, oder Sie können das Markup manuell in der Datenquellensicht manuell hinzufügen. In meiner Masterseite ich verwende [cascading Stylesheets](http://www.w3schools.com/css/default.asp) zum Positionieren und Formatvorlagen mit den CSS-Einstellungen in der externen Datei definiert `Style.css`. Die CSS-Regeln werden definiert, während Sie nicht aus dem unten gezeigten Markup erkennen können, sodass die Navigation `<div>`des Inhalt ist absolut positioniert, sodass er auf der linken Seite angezeigt und verfügt über eine feste Breite von 200 Pixel.
 
-Site.Master
+Site.master
 
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample1.aspx)]
@@ -167,11 +167,11 @@ Die Siteübersicht definiert die Website Navigationsstruktur, also eine Hierarch
 **Abbildung 10**: die Siteübersicht stellt einen hierarchischen Navigationsstruktur ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-pages-and-site-navigation-vb/_static/image26.png))
 
 
-ASP.NET stellt der Siteübersicht Struktur über das .NET Framework [SiteMap Klasse](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx). Diese Klasse verfügt über eine `CurrentNode` Eigenschaft, die Informationen über den Abschnitt der Benutzer wird gerade besuchen; Zurückgeben der `RootNode` Eigenschaft gibt den Stamm der Siteübersicht zurück (in unserem Siteübersicht Home). Sowohl die `CurrentNode` und `RootNode` Eigenschaften zurückgeben [SiteMapNode](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx) Instanzen, die über Eigenschaften verfügen wie `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`und so weiter, mit denen für die Website-Karte die Hierarchie an, die durchlaufen werden.
+ASP.NET stellt der Siteübersicht Struktur über das .NET Framework [SiteMap Klasse](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Diese Klasse verfügt über eine `CurrentNode` Eigenschaft, die Informationen über den Abschnitt der Benutzer wird gerade besuchen; Zurückgeben der `RootNode` Eigenschaft gibt den Stamm der Siteübersicht zurück (in unserem Siteübersicht Home). Sowohl die `CurrentNode` und `RootNode` Eigenschaften zurückgeben [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) Instanzen, die über Eigenschaften verfügen wie `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`und so weiter, mit denen für die Website-Karte die Hierarchie an, die durchlaufen werden.
 
 ## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>Schritt 3: Anzeigen eines Menüs basierend auf der Website-Karte
 
-Zugreifen auf Daten in ASP.NET 2.0 kann programmgesteuert erreicht, wie in ASP.NET 1.x oder deklarativ über die neue [Datenquellensteuerelementen](https://msdn.microsoft.com/en-us/library/ms227679.aspx). Es gibt mehrere integrierte Datenquellensteuerelemente z. B. die SqlDataSource-Steuerelement für den Zugriff auf relationale Daten, das ObjectDataSource-Steuerelement für den Zugriff auf Daten aus Klassen und andere. Sie können auch eigene erstellen [benutzerdefinierte Datenquellensteuerelementen](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/en-us/dnvs05/html/DataSourceCon1.asp).
+Zugreifen auf Daten in ASP.NET 2.0 kann programmgesteuert erreicht, wie in ASP.NET 1.x oder deklarativ über die neue [Datenquellensteuerelementen](https://msdn.microsoft.com/library/ms227679.aspx). Es gibt mehrere integrierte Datenquellensteuerelemente z. B. die SqlDataSource-Steuerelement für den Zugriff auf relationale Daten, das ObjectDataSource-Steuerelement für den Zugriff auf Daten aus Klassen und andere. Sie können auch eigene erstellen [benutzerdefinierte Datenquellensteuerelementen](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp).
 
 Die Datenquellen-Steuerelementen dienen als Proxy zwischen die ASP.NET-Seite und den zugrunde liegenden Daten. Um ein Datenquellensteuerelement abgerufenen Daten anzeigen zu können, müssen wir in der Regel fügen ein weiteres Websteuerelement auf der Seite und zu den Datenquellen-Steuerelement zu binden. Um ein Websteuerelement an ein Datenquellen-Steuerelement binden möchten, legen Sie einfach des Websteuerelements `DataSourceID` -Eigenschaft auf den Wert für des Datenquellensteuerelements `ID` Eigenschaft.
 
@@ -218,7 +218,7 @@ Dieses Menü ist auf der Masterseite und an der Siteübersicht definierten gebun
 
 Alle ASP.NET-Steuerelemente können optional ihren Zustand zu beizubehalten der [Ansichtszustand](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/), die als ein ausgeblendetes Formularfeld im gerenderten HTML-Code serialisiert wird. Ansichtszustand wird von Steuerelementen verwendet, programmgesteuert geändert Zustand über mehrere Postbacks merken zu müssen, wie z. B. die Daten an ein Webserver-Steuerelement gebunden. Während der Ansichtszustand Informationen über Postbacks speichern erlaubt, vergrößert es das Markup, das an den Client gesendet werden muss und kann zu schweren Seite Aufblähen führen, wenn Sie nicht genau überwacht. Data-Websteuerelemente insbesondere die GridView sind besonders oftmals eine Dutzende zusätzlicher Markup in Kilobyte zu einer Seite hinzufügen. Während eine solche Preiserhöhung für Breitband oder Intranet Benutzer unerheblich sein kann, kann Ansichtszustand einige Sekunden Roundtrips für DFÜ-Benutzer hinzufügen.
 
-Um die Auswirkung des Status anzeigen, finden Sie auf einer Seite in einem Browser, und zeigen Sie dann die Quelle gesendet, indem Sie auf der Webseite anzuzeigen (in Internet Explorer, wechseln Sie zum Menü "Ansicht" und wählen Sie die Quelle aus). Sie können auch aktivieren [Seitenablaufverfolgung](https://msdn.microsoft.com/en-us/library/sfbfw58f.aspx) , finden in der Ansicht Status Zuordnung der Steuerelemente auf der Seite verwendet. Die Ansichtszustandsinformationen erfolgt die Serialisierung in ein ausgeblendetes Formularfeld mit dem Namen `__VIEWSTATE`befindet sich im ein `<div>` -Element unmittelbar nach dem Öffnen `<form>` Tag. Ansichtszustand wird nur beibehalten, wenn es ist ein Web Form verwendet wird; Wenn die ASP.NET-Seite keine umfasst eine `<form runat="server">` in seiner deklarativen Syntax, die es keine `__VIEWSTATE` ausgeblendetes Formularfeld in der gerenderten Markups.
+Um die Auswirkung des Status anzeigen, finden Sie auf einer Seite in einem Browser, und zeigen Sie dann die Quelle gesendet, indem Sie auf der Webseite anzuzeigen (in Internet Explorer, wechseln Sie zum Menü "Ansicht" und wählen Sie die Quelle aus). Sie können auch aktivieren [Seitenablaufverfolgung](https://msdn.microsoft.com/library/sfbfw58f.aspx) , finden in der Ansicht Status Zuordnung der Steuerelemente auf der Seite verwendet. Die Ansichtszustandsinformationen erfolgt die Serialisierung in ein ausgeblendetes Formularfeld mit dem Namen `__VIEWSTATE`befindet sich im ein `<div>` -Element unmittelbar nach dem Öffnen `<form>` Tag. Ansichtszustand wird nur beibehalten, wenn es ist ein Web Form verwendet wird; Wenn die ASP.NET-Seite keine umfasst eine `<form runat="server">` in seiner deklarativen Syntax, die es keine `__VIEWSTATE` ausgeblendetes Formularfeld in der gerenderten Markups.
 
 Die `__VIEWSTATE` Formularfelds generiert, die für die Gestaltungsvorlage generierten Seitenmarkup ungefähr 1.800 Bytes hinzugefügt. Diese zusätzlichen Aufblähen ist in erster Linie zum Wiederholungsmodul-Steuerelement, wie der Inhalt des Steuerelements SiteMapDataSource Ansichtszustand beibehalten werden. Während einer zusätzlichen 1.800 Bytes nicht wie viel, begeistert abrufen, wenn eine GridView mit vielen Felder und Datensätze mit besonders intuitiv erscheinen, kann der Ansichtszustand problemlos mit einem Faktor von 10 oder mehr wächst.
 
@@ -252,7 +252,7 @@ Die Breadcrumb-Leiste zeigt der aktuellen Seite der Benutzer wird in der Standor
 
 Die Lernprogramme in unserer Website sind in verschiedenen Kategorien Basisberichte, filtern, die benutzerdefinierte Formatierung mit einen Ordner für jede Kategorie und die entsprechenden Lernprogramme als ASP.NET-Seiten in diesem Ordner und so weiter unterteilt. Darüber hinaus jeder Ordner enthält eine `Default.aspx` Seite. Für diese Standardseite wir alle Anzeigen der Lernprogramme für den aktuellen Bereich. D. h. für die `Default.aspx` in der `BasicReporting` Ordner hätten wir Links zu `SimpleDisplay.aspx`, `DeclarativeParams.aspx`, und `ProgrammaticParams.aspx`. Hier erneut, wir können die `SiteMap` Klasse und ein Websteuerelement zum Anzeigen dieser Informationen auf Grundlage der Siteübersicht definierten `Web.sitemap`.
 
-Wir zeigen eine ungeordnete Liste mit ein Repeater erneut, diesmal jedoch wir Titel und Beschreibung der Lernprogramme darstellen. Da Markup und Code zum Ausführen dieser wird für jede wiederholt werden müssen `Default.aspx` Seite, können wir diese Benutzeroberflächen-Logik in Kapseln einer [Benutzersteuerelement](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx). Erstellen Sie einen Ordner auf der Website aufgerufen `UserControls` und hinzuzufügen, die ein neues Element vom Typ Webbenutzer-Steuerelement mit dem Namen `SectionLevelTutorialListing.ascx`, und fügen Sie das folgende Markup hinzu:
+Wir zeigen eine ungeordnete Liste mit ein Repeater erneut, diesmal jedoch wir Titel und Beschreibung der Lernprogramme darstellen. Da Markup und Code zum Ausführen dieser wird für jede wiederholt werden müssen `Default.aspx` Seite, können wir diese Benutzeroberflächen-Logik in Kapseln einer [Benutzersteuerelement](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Erstellen Sie einen Ordner auf der Website aufgerufen `UserControls` und hinzuzufügen, die ein neues Element vom Typ Webbenutzer-Steuerelement mit dem Namen `SectionLevelTutorialListing.ascx`, und fügen Sie das folgende Markup hinzu:
 
 
 [![Fügen Sie ein neue Web-Benutzersteuerelement in den Ordner Benutzersteuerelemente](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
@@ -297,15 +297,15 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Übersicht über ASP.NET Master-Seiten](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [Übersicht über ASP.NET Master-Seiten](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Masterseiten in ASP.NET 2.0](http://odetocode.com/Articles/419.aspx)
 - [ASP.NET 2.0 Entwurfsvorlagen](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [Übersicht über die Navigation ASP.NET-Website](https://msdn.microsoft.com/en-us/library/e468hxky.aspx)
+- [Übersicht über die Navigation ASP.NET-Website](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [Untersuchen ASP.NET 2.0 der Websitenavigation](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [Funktionen für die Navigation von ASP.NET 2.0-Standort](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [Grundlegendes zu ASP.NET-Ansichtszustand](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/viewstate.asp)
-- [Vorgehensweise: Aktivieren der Ablaufverfolgung für eine ASP.NET-Seite](https://msdn.microsoft.com/en-us/library/94c55d08%28VS.80%29.aspx)
-- [ASP.NET-Benutzersteuerelemente](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [Grundlegendes zu ASP.NET-Ansichtszustand](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [Vorgehensweise: Aktivieren der Ablaufverfolgung für eine ASP.NET-Seite](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [ASP.NET-Benutzersteuerelemente](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
@@ -316,4 +316,4 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Liz Shulok, Dennis Patterson und Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](creating-a-business-logic-layer-vb.md)
+[Vorherige](creating-a-business-logic-layer-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecde847841eb727a0440f0483c69d1df6757815
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Erste Schritte mit Entity Framework 6 Database First mit MVC 5
 ====================
@@ -37,7 +37,7 @@ Dieses Thema behandelt die Situation, in dem Sie mit einer Datenbank und zum Gen
 
 Einführende beispielsweise der Code First-Entwicklung finden Sie unter [erste Schritte mit ASP.NET MVC 5](../introduction/getting-started.md). Ein komplexeres Beispiel finden Sie unter [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC 4-App](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Anleitung zum Auswählen von Entity Framework Ansatz verwenden, finden Sie unter [Ansätze zur Entity Framework-Entwicklung](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+Anleitung zum Auswählen von Entity Framework Ansatz verwenden, finden Sie unter [Ansätze zur Entity Framework-Entwicklung](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -49,7 +49,7 @@ Zum Imitieren der Umgebung von einer vorhandenen Datenbank müssen Sie zuerst er
 
 Dieses Lernprogramm wurde mit LocalDB mit Visual Studio 2013 oder Visual Studio Express 2013 für Web entwickelt. Sie können einen vorhandenen Datenbankserver anstelle von LocalDB verwenden, aber abhängig von Ihrer Version von Visual Studio und den Typ der Datenbank, aller Data Tools in Visual Studio möglicherweise nicht unterstützt. Wenn die Tools nicht für die Datenbank verfügbar sind, müssen Sie möglicherweise einige der Schritte in der Management Suite datenbankspezifischen für Ihre Datenbank ausführen.
 
-Wenn Sie ein Problem mit der Datenbanktools in Ihrer Version von Visual Studio verfügen, stellen Sie sicher, dass Sie die neueste Version der Datenbanktools installiert haben. Informationen zum Aktualisieren oder installieren die Datenbanktools finden Sie unter [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/hh297027).
+Wenn Sie ein Problem mit der Datenbanktools in Ihrer Version von Visual Studio verfügen, stellen Sie sicher, dass Sie die neueste Version der Datenbanktools installiert haben. Informationen zum Aktualisieren oder installieren die Datenbanktools finden Sie unter [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 
 Starten Sie Visual Studio und erstellen Sie eine **SQL Server-Datenbankprojekt**. Nennen Sie das Projekt **ContosoUniversityData**.
 

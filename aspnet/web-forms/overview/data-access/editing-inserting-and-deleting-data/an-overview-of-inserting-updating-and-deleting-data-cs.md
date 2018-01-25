@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 24320b9f0262fba0aa5ac77f6c1294541c42267a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#)
 ====================
@@ -140,7 +140,7 @@ Nach dem Konfigurieren der ObjectDataSource über den Assistenten an, wechseln S
 
 Das ObjectDataSource enthält einen Parameter für jede der Eingabeparameter für die zugeordneten Methoden, wie eine Liste der `SelectParameter` s ist vorhanden, wenn eine select-Methode aufrufen, die einen Eingabeparameter erwartet das ObjectDataSource konfiguriert ist (z. B. `GetProductsByCategoryID(categoryID)`). Eingehendem in Kürze, Werte für diese `DeleteParameters`, `UpdateParameters`, und `InsertParameters` werden automatisch durch die GridView, DetailsView und FormView festgelegt, vor dem Aufrufen der ObjectDataSource `Insert()`, `Update()`, oder `Delete()` Methode. Diese Werte können auch bei Bedarf programmgesteuert festgelegt werden, wie in einem späteren Lernprogramm erläutert.
 
-Der mithilfe des Assistenten zum Konfigurieren von ObjectDataSource Nebeneffekt ist, Visual Studio legt die [OldValuesParameterFormatString Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) auf `original_{0}`. Dieser Eigenschaftswert wird verwendet, um die ursprünglichen Werte eines bearbeiteten Daten enthalten und ist in zwei Szenarien hilfreich:
+Der mithilfe des Assistenten zum Konfigurieren von ObjectDataSource Nebeneffekt ist, Visual Studio legt die [OldValuesParameterFormatString Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) auf `original_{0}`. Dieser Eigenschaftswert wird verwendet, um die ursprünglichen Werte eines bearbeiteten Daten enthalten und ist in zwei Szenarien hilfreich:
 
 - Wenn bei der Bearbeitung eines Datensatzes Benutzer den Primärschlüsselwert ändern können. In diesem Fall müssen dem neuen Primärschlüsselwert und den ursprünglichen primären Schlüsselwert angegeben werden, damit der Datensatz mit dem ursprünglichen primären Schlüsselwert gefunden werden und deren Wert entsprechend aktualisiert werden kann.
 - Wenn die vollständigen Parallelität verwenden. Optimistische Parallelität eine Technik, um sicherzustellen, dass zwei ist gleichzeitige Benutzern nicht die jeweiligen Änderungen überschreiben und ist das Thema für einen späteren Lernprogramm.
@@ -168,8 +168,8 @@ Starten Sie, indem Sie eine GridView aus der Toolbox in den Designer ziehen. Bin
 
 Binden die GridView an das ObjectDataSource über das Smarttag bietet zwei Vorteile:
 
-- BoundFields und CheckBoxFields werden für jeden der von der ObjectDataSource zurückgegebenen Felder automatisch erstellt. Darüber hinaus werden die BoundField- und des CheckBoxField Eigenschaften basierend auf Metadaten des zugrunde liegenden Felds festgelegt. Z. B. die `ProductID`, `CategoryName`, und `SupplierName` Felder werden als schreibgeschützt markiert die `ProductsDataTable` und aus diesem Grund darf nicht aktualisiert werden beim Bearbeiten. Um diese, diese BoundFields Rechnung zu tragen [ReadOnly-Eigenschaften](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) festgelegt `true`.
-- Die [DataKeyNames Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) Primärschlüsselfelder des zugrunde liegenden Objekts zugewiesen ist. Dies ist wichtig, wenn die GridView zum Bearbeiten oder Löschen von Daten verwenden, wie diese Eigenschaft gibt an, das Feld (oder einen Satz von Feldern), eindeutig identifiziert jeden Datensatz. Weitere Informationen zu den `DataKeyNames` -Eigenschaft, verweisen zurück auf die [Master/Detail mit auswählbaren Master GridView mit einer Details-DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Lernprogramm.
+- BoundFields und CheckBoxFields werden für jeden der von der ObjectDataSource zurückgegebenen Felder automatisch erstellt. Darüber hinaus werden die BoundField- und des CheckBoxField Eigenschaften basierend auf Metadaten des zugrunde liegenden Felds festgelegt. Z. B. die `ProductID`, `CategoryName`, und `SupplierName` Felder werden als schreibgeschützt markiert die `ProductsDataTable` und aus diesem Grund darf nicht aktualisiert werden beim Bearbeiten. Um diese, diese BoundFields Rechnung zu tragen [ReadOnly-Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) festgelegt `true`.
+- Die [DataKeyNames Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) Primärschlüsselfelder des zugrunde liegenden Objekts zugewiesen ist. Dies ist wichtig, wenn die GridView zum Bearbeiten oder Löschen von Daten verwenden, wie diese Eigenschaft gibt an, das Feld (oder einen Satz von Feldern), eindeutig identifiziert jeden Datensatz. Weitere Informationen zu den `DataKeyNames` -Eigenschaft, verweisen zurück auf die [Master/Detail mit auswählbaren Master GridView mit einer Details-DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Lernprogramm.
 
 Auf diese Weise während auf das ObjectDataSource über das Fenster "Eigenschaften" oder die deklarative Syntax die GridView gebunden werden kann, müssen Sie die entsprechenden BoundField manuell hinzufügen und `DataKeyNames` Markup.
 
@@ -327,7 +327,7 @@ Beachten Sie, dass für DetailsView der CommandField am Ende der Auflistung der 
 
 Durch Klicken auf die Schaltfläche "löschen" die gleiche Sequenz von Ereignissen wie bei der GridView beginnt: a Postbacks gefolgt von dessen ObjectDataSource Auffüllen DetailsView `DeleteParameters` basierend auf den `DataKeyNames` Werte und durch Aufrufen seiner ObjectDataSource abgeschlossen `Delete()` -Methode, die das Produkt tatsächlich aus der Datenbank entfernt. Bearbeiten in DetailsView funktioniert auch in einer Weise, die identisch mit der GridView.
 
-Zum Einfügen, erhält der Endbenutzer mit einem neu-Schaltfläche geklickt, DetailsView in "Einfügemodus" rendert Mit "Einfügemodus" die Schaltfläche "Neu" durch die Schaltflächen "und" Abbrechen "Insert", und nur diese BoundFields ersetzt wird, dessen `InsertVisible` -Eigenschaftensatz auf `true` (Standardeinstellung) werden angezeigt. Identifiziert als automatische Inkrementierung-Felder, wie z. B. Datenfelder `ProductID`, haben ihre [InsertVisible Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) festgelegt `false` beim Binden von DetailsView an die Datenquelle mithilfe des Smarttags.
+Zum Einfügen, erhält der Endbenutzer mit einem neu-Schaltfläche geklickt, DetailsView in "Einfügemodus" rendert Mit "Einfügemodus" die Schaltfläche "Neu" durch die Schaltflächen "und" Abbrechen "Insert", und nur diese BoundFields ersetzt wird, dessen `InsertVisible` -Eigenschaftensatz auf `true` (Standardeinstellung) werden angezeigt. Identifiziert als automatische Inkrementierung-Felder, wie z. B. Datenfelder `ProductID`, haben ihre [InsertVisible Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) festgelegt `false` beim Binden von DetailsView an die Datenquelle mithilfe des Smarttags.
 
 Beim Binden einer Datenquelle an einen DetailsView über das Smarttag, legt Visual Studio die `InsertVisible` Eigenschaft `false` nur für automatisch inkrementierte Felder. Schreibgeschützte Felder, wie z. B. `CategoryName` und `SupplierName`, wird in der Benutzeroberfläche "Einfügemodus" angezeigt werden, es sei denn, ihre `InsertVisible` -Eigenschaft explizit festgelegt wird, um `false`. Können Sie diese beiden Felder festlegen `InsertVisible` Eigenschaften `false`, entweder über die DetailsView deklarative Syntax oder über die Felder bearbeiten im Smarttag verknüpfen. Abbildung 19 zeigt die Einstellung der `InsertVisible` Eigenschaften `false` durch Klicken auf die Felder bearbeiten zu verknüpfen.
 
@@ -354,7 +354,7 @@ Nach dem Eingeben der Details für Acme Tee, und klicken Sie auf die Schaltfläc
 
 
 > [!NOTE]
-> Der DetailsView [CurrentMode Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) gibt die Schnittstelle wird angezeigt und kann einen der folgenden Werte: `Edit`, `Insert`, oder `ReadOnly`. Die [DefaultMode-Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) gibt der Modus, DetailsView gibt an, nach einer Änderung oder zum Einfügen von, wurde abgeschlossen und eignet sich zum Anzeigen einer DetailsView, die dauerhaft in Bearbeitung ist, oder im Einfügemodus.
+> Der DetailsView [CurrentMode Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) gibt die Schnittstelle wird angezeigt und kann einen der folgenden Werte: `Edit`, `Insert`, oder `ReadOnly`. Die [DefaultMode-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) gibt der Modus, DetailsView gibt an, nach einer Änderung oder zum Einfügen von, wurde abgeschlossen und eignet sich zum Anzeigen einer DetailsView, die dauerhaft in Bearbeitung ist, oder im Einfügemodus.
 
 
 Der Zeitpunkt und die auf Einfügen und Bearbeitungsfunktionen von DetailsView beeinträchtigt werden, über die gleichen Einschränkungen wie die GridView: der Benutzer muss die vorhandene eingeben `CategoryID` und `SupplierID` Werte über ein Textfeld, besitzt der Schnittstelle eine Validierungslogik; alle Produkt-Felder, die keine zulassen `NULL` Werte oder keinen Standardwert auf der Datenbankebene angegebene Wert in der einfügen-Schnittstelle usw. enthalten sein muss.

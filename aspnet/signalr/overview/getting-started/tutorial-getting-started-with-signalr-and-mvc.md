@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 96a6f6446b26d96b2bcffe4354375ab9c444bbbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca0471114da7363c5df9d459308708e7ab4f8b84
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>Lernprogramm: Erste Schritte mit SignalR 2 und MVC 5
 ====================
@@ -156,7 +156,7 @@ In diesem Abschnitt veranschaulicht das Erstellen einer ASP.NET MVC 5-Anwendung,
 
 Die SignalR-Chat-Anwendung zeigt zwei grundlegende SignalR Entwicklungsaufgaben: Erstellen eines Hubs wie das Hauptfenster Koordinierung-Objekt, auf dem Server und mithilfe der SignalR-jQuery-Bibliothek zum Senden und Empfangen von Nachrichten.
 
-### <a name="signalr-hubs"></a>SignalR-Hubs
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 Im Codebeispiel den **ChatHub** Klasse leitet sich von der **Microsoft.AspNet.SignalR.Hub** Klasse. Ableiten von der **Hub** Klasse ist eine hilfreiche Möglichkeit zum Erstellen einer SignalR-Anwendung. Sie können öffentliche Methoden in der hubklasse erstellen und dann Zugriff auf diese Methoden durch Aufruf aus Skripts auf einer Webseite.
 
@@ -200,10 +200,10 @@ Der folgende Code zeigt, wie Sie eine Verbindung mit dem Hub zu öffnen. Der Cod
 
 Sie erfahren, dass SignalR ein Framework zur Erstellung von Echtzeit-Webanwendungen. Sie haben auch erfahren, mehrere SignalR Entwicklungsaufgaben: zum Hinzufügen von SignalR an eine ASP.NET-Anwendung zum Erstellen einer hubklasse und zum Senden und Empfangen von Nachrichten über den Hub.
 
-Eine exemplarische Vorgehensweise, die SignalR-beispielanwendung in Azure bereitzustellen, finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Eine exemplarische Vorgehensweise, die SignalR-beispielanwendung in Azure bereitzustellen, finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 Erweiterte Konzepte von SignalR-Entwicklungen finden Sie auf den folgenden Websites für SignalR-Quellcode und Ressourcen:
 
 - [SignalR-Projekt](http://signalr.net)
 - [SignalR Github und Beispiele](https://github.com/SignalR/SignalR)
-- [SignalR-Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

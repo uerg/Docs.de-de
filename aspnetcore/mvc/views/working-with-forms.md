@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Einführung in die Verwendung von Tag-Hilfsprogramme in Formularen in ASP.NET Core
 
@@ -22,7 +22,7 @@ Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://
 
 Dieses Dokument veranschaulicht, arbeiten mit Formularen und die HTML-Elemente, die häufig in einem Formular verwendet wird. Der HTML-Code [Formular](https://www.w3.org/TR/html401/interact/forms.html) -Element stellt die primäre Mechanismus Web-apps verwenden zum Bereitstellen von Daten an den Server bereit. Die meisten dieses Dokuments beschreibt [Tag Hilfsprogramme](tag-helpers/intro.md) und wie sie produktiv Erstellung robustere HTML-Formularen helfen können. Sie sollten [Einführung in die Tag-Hilfsprogrammen](tag-helpers/intro.md) , bevor Sie dieses Dokument zu lesen.
 
-In vielen Fällen HTML-Hilfsmethoden bieten eine alternative Methode in einer bestimmten Tag-Hilfsprogramm, aber es ist wichtig zu wissen, dass die Tag-Hilfsprogrammen HTML-Hilfsmethoden nicht ersetzen, und es ist keines Tag-Hilfsprogramms für jedes HTML-Hilfsobjekt. Wenn eine HTML-Hilfsobjekt Alternative vorhanden ist, wird er erwähnt.
+In vielen Fällen HTML-Hilfsmethoden bieten eine alternative Methode in einer bestimmten Tag-Hilfsprogramm, aber es ist wichtig zu wissen, dass Tag Hilfsprogramme nicht HTML-Hilfsmethoden ersetzen, und es keines Tag-Hilfsprogramms für jedes HTML-Hilfsobjekt ist. Wenn eine HTML-Hilfsobjekt Alternative vorhanden ist, wird er erwähnt.
 
 <a name="my-asp-route-param-ref-label"></a>
 
@@ -86,7 +86,7 @@ Das Hilfsobjekt Eingabetag:
 
 * Legt den HTML-Code `type` -Attributwert basierend auf den Typ des Modells und [-datenanmerkung](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) Attribute der Modelleigenschaft angewendet werden
 
-* Überschreibt den HTML-Code keine `type` -Attributwert aus, wenn ein solcher festgelegt wurde
+* Den HTML-Code wird nicht überschreiben `type` -Attributwert aus, wenn ein solcher festgelegt wurde
 
 * Generiert [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) Überprüfung Attributen von [-datenanmerkung](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) Attribute Modelleigenschaften angewendet werden
 
@@ -159,7 +159,7 @@ Die datenanmerkungen angewendet, um die `Email` und `Password` Eigenschaften Met
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>HTML-Hilfsobjekt Alternativen zur Eingabe Tag-Hilfsprogramm
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` und `Html.EditorFor` überlappenden Funktionen mit der Eingabe-Tag-Hilfsmethode. Das Eingabe-Tag-Hilfsobjekt werden automatisch festgelegt, die `type` -Attribut; `Html.TextBox` und `Html.TextBoxFor` geschieht dies nicht. `Html.Editor`und `Html.EditorFor` behandeln, Sammlungen, komplexe Objekte und Vorlagen; die Eingabe-Tag-Hilfsprogramm nicht der Fall. Das Eingabe-Tag-Hilfsobjekt `Html.EditorFor` und `Html.TextBoxFor` sind stark typisiert (sie verwenden ein Lambda-Ausdrücke); `Html.TextBox` und `Html.Editor` nicht sind (sie verwenden die Namen von Gruppierungsausdrücken).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` und `Html.EditorFor` überlappenden Funktionen mit der Eingabe-Tag-Hilfsmethode. Das Eingabe-Tag-Hilfsobjekt werden automatisch festgelegt, die `type` -Attribut; `Html.TextBox` und `Html.TextBoxFor` wird nicht. `Html.Editor`und `Html.EditorFor` behandeln, Sammlungen, die komplexe Objekte und die Vorlagen nicht das Eingabe-Tag-Hilfsobjekt. Das Eingabe-Tag-Hilfsobjekt `Html.EditorFor` und `Html.TextBoxFor` sind stark typisiert (sie verwenden ein Lambda-Ausdrücke); `Html.TextBox` und `Html.Editor` nicht sind (sie verwenden die Namen von Gruppierungsausdrücken).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
@@ -436,7 +436,7 @@ Die folgenden HTML-Code (mit "CA" ausgewählt) generiert:
 ```
 
 > [!NOTE]
-> Es wird nicht empfohlen, mithilfe von `ViewBag` oder `ViewData` mit dem Tag-Helfer auswählen. Einem Ansichtsmodell ist unter Umständen stabiler MVC-Metadaten bereitstellen und in der Regel weniger problematisch.
+> Es empfiehlt sich nicht mit `ViewBag` oder `ViewData` mit dem Tag-Helfer auswählen. Einem Ansichtsmodell ist unter Umständen stabiler MVC-Metadaten bereitstellen und in der Regel weniger problematisch.
 
 Die `asp-for` Attributwert ist ein Sonderfall und erfordert keine `Model` als Präfix des Hilfsprogramm-Tag Attribute stimmen (z. B. `asp-items`)
 
@@ -549,7 +549,7 @@ Die *Views/Shared/EditorTemplates/CountryViewModel.cshtml* Vorlage:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-Hinzufügen von HTML [ \<Option >](https://www.w3.org/wiki/HTML/Elements/option) Elemente gibt keine Beschränkung auf die *keine Auswahl* Fall. Die folgende Sicht und Aktion-Methode wird z. B. HTML ähnelt der obige Code generiert:
+Hinzufügen von HTML [ \<Option >](https://www.w3.org/wiki/HTML/Elements/option) Elemente ist nicht beschränkt auf die *keine Auswahl* Fall. Die folgende Sicht und Aktion-Methode wird z. B. HTML ähnelt der obige Code generiert:
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 

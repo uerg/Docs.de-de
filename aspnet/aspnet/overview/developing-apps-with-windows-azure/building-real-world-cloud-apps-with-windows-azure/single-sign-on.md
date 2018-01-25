@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f0d465b363652c691c203d608f2cb9d139e72fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Einmaliges Anmelden (Building Real-World Cloud Apps with Azure)
 ====================
@@ -31,12 +31,12 @@ Es gibt viele Sicherheitsprobleme zu bedenken, wenn Sie ein Cloud-app entwickeln
 
 ## <a name="introduction-to-azure-ad"></a>Einführung in Azure AD
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/) bietet [Active Directory](https://msdn.microsoft.com/en-us/library/windows/desktop/aa746492.aspx) in der Cloud. Die folgenden: Hauptfunktionen
+[Azure AD](https://docs.microsoft.com/azure/active-directory/) bietet [Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) in der Cloud. Die folgenden: Hauptfunktionen
 
 - In einer lokalen Active Directory integriert.
 - Sie können einmaliges Anmelden bei Ihren apps.
 - Es unterstützt offener Standards, z. B. [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), und [OAuth 2.0](http://oauth.net/2/).
-- Enterprise unterstützt [Graph-REST-API](https://msdn.microsoft.com/en-us/library/hh974476.aspx).
+- Enterprise unterstützt [Graph-REST-API](https://msdn.microsoft.com/library/hh974476.aspx).
 
 Nehmen wir an, dass Sie eine lokale Windows Server Active Directory-Umgebung verfügen, mit denen Sie Mitarbeiter Intranet apps anmelden zu aktivieren:
 
@@ -64,7 +64,7 @@ Wenn Ihr Unternehmen oder das Verschieben in Office 365, die gute Nachricht ist,
 
 ## <a name="set-up-an-azure-ad-tenant"></a>Einrichten von Azure AD-Mandanten
 
-Azure AD-Verzeichnis wird aufgerufen, ein Azure AD [Mandanten](https://technet.microsoft.com/en-us/library/jj573650.aspx), und das Einrichten eines Mandanten ist recht einfach. Wir zeigen Ihnen wie es im Azure-Verwaltungsportal ausgeführt wird, um die Konzepte veranschaulicht, aber natürlich wie die anderen Portal Funktionen auch durchführen mithilfe eines Skripts oder die Verwaltungs-API.
+Azure AD-Verzeichnis wird aufgerufen, ein Azure AD [Mandanten](https://technet.microsoft.com/library/jj573650.aspx), und das Einrichten eines Mandanten ist recht einfach. Wir zeigen Ihnen wie es im Azure-Verwaltungsportal ausgeführt wird, um die Konzepte veranschaulicht, aber natürlich wie die anderen Portal Funktionen auch durchführen mithilfe eines Skripts oder die Verwaltungs-API.
 
 Klicken Sie im Verwaltungsportal auf der Registerkarte "Active Directory".
 
@@ -118,7 +118,7 @@ Klicken Sie auf **Weiter**, und klicken Sie dann an, ob es sich bei einen Hash d
 
 ![Konfigurations-Assistenten WAAD-Synchronisierungstools](single-sign-on/_static/image17.png)
 
-Der Hashwert des Kennworts, die in der Cloud gespeichert werden können, werden als unidirektionaler Hash; tatsächliche Kennwörter werden nie in Azure AD gespeichert. Wenn Sie gegen Hashes in der Cloud speichern möchten, stehen Ihnen verwenden [Active Directory Federation Services](https://technet.microsoft.com/en-us/library/hh831502.aspx) (ADFS). Es gibt auch [Weitere zu berücksichtigenden Faktoren entscheiden, ob ein Verwenden von AD FS](https://technet.microsoft.com/en-us/library/jj573653.aspx). Die AD FS-Option erfordert einige zusätzliche Konfigurationsschritte erforderlich.
+Der Hashwert des Kennworts, die in der Cloud gespeichert werden können, werden als unidirektionaler Hash; tatsächliche Kennwörter werden nie in Azure AD gespeichert. Wenn Sie gegen Hashes in der Cloud speichern möchten, stehen Ihnen verwenden [Active Directory Federation Services](https://technet.microsoft.com/library/hh831502.aspx) (ADFS). Es gibt auch [Weitere zu berücksichtigenden Faktoren entscheiden, ob ein Verwenden von AD FS](https://technet.microsoft.com/library/jj573653.aspx). Die AD FS-Option erfordert einige zusätzliche Konfigurationsschritte erforderlich.
 
 Wenn Sie fertig sind,-Hashes in der Cloud gespeichert werden sollen und das Tool Verzeichnisse synchronisieren startet, wenn Sie auf **Weiter**.
 
@@ -156,7 +156,7 @@ Wählen Sie Organisationskonten, geben Sie Ihren Domänennamen ein, und wählen 
 
 ![Authentifizierung-Dialogfeld "konfigurieren"](single-sign-on/_static/image24.png)
 
-Sie können auch Geben Sie die app Lese- oder Lese-/Schreibberechtigung für die Verzeichnisdaten. Wenn Sie dies tun, können sie die [Azure Graph-REST-API](https://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx) zum Nachschlagen der Telefonnummer des Benutzers herausfinden, ob sie im Büro sind, wenn sie zuletzt usw. angemeldet.
+Sie können auch Geben Sie die app Lese- oder Lese-/Schreibberechtigung für die Verzeichnisdaten. Wenn Sie dies tun, können sie die [Azure Graph-REST-API](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) zum Nachschlagen der Telefonnummer des Benutzers herausfinden, ob sie im Büro sind, wenn sie zuletzt usw. angemeldet.
 
 Dies alles ist, was - Visual Studio fordert die Anmeldeinformationen für einen Administrator für Ihren Azure AD-Mandanten, und klicken Sie dann das Projekt und Azure AD-Mandanten für die neue Anwendung konfiguriert.
 
@@ -186,7 +186,7 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 - [Azure Active Directory-Dokumentation](https://docs.microsoft.com/azure/active-directory/). Portalseite zum Azure AD-Dokumentation auf der Website windowsazure.com. Schritt-für-Schritt-Lernprogramme finden Sie unter der **entwickeln** Abschnitt.
 - [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Portalseite Dokumentation zu Multi-Factor Authentication in Azure.
 - [Organisations-Konto-Authentifizierungsoptionen](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Erläuterung der Azure AD-Authentifizierungsoptionen im der Visual Studio 2013-Dialogfeld "Neues Projekt".
-- [Microsoft Patterns and Practices - Federated Identity Muster](https://msdn.microsoft.com/en-us/library/dn589790.aspx).
+- [Microsoft Patterns and Practices - Federated Identity Muster](https://msdn.microsoft.com/library/dn589790.aspx).
 - [So wird's gemacht: Installieren der Azure Active Directory-Synchronisierungstool](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
 - [Active Directory-Verbunddienste 2.0-Inhalten](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Links in der Dokumentation zu AD FS 2.0.
 - [Rollen- und ACL-basierte Autorisierung in einer Windows Azure AD-Anwendung](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Die beispielanwendung.

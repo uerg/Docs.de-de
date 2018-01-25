@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17157d595e8283628371ff6ad39fe71879e96a56
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Behandeln von Ausnahmen BLL und DAL-Ebene, auf einer ASP.NET-Seite (c#)
 ====================
@@ -101,9 +101,9 @@ An diesem Punkt haben wir eine Liste aller Produkte `ProductName`, `QuantityPerU
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Schritt 2: Ordnungsgemäß Ausnahmebehandlung DAL-Ebene
 
-Unsere bearbeitbaren GridView wunderbar funktioniert, zwar beim Benutzer zulässigen Werte für die bearbeitete Product Name, Preis und Einheiten im Lager eingeben wird eine Ausnahme ausgelöst ungültige Werte eingeben. Z. B. Auslassen der `ProductName` Werts wird eine [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) ausgelöst wird, seit der `ProductName` Eigenschaft in der `ProdcutsRow` -Klasse verfügt über seine `AllowDBNull` -Eigenschaftensatz auf `false`; Wenn der Datenbank betriebsbereit ist, eine `SqlException` von TableAdapter ausgelöst wird, beim Verbinden mit der Datenbank. Ohne weitere Aktionen durchzuführen, diese Ausnahmen Blase Einrichten von der Datenzugriffsebene, die Geschäftslogikschicht und anschließend auf der ASP.NET-Seite und schließlich auf die ASP.NET-Laufzeit.
+Unsere bearbeitbaren GridView wunderbar funktioniert, zwar beim Benutzer zulässigen Werte für die bearbeitete Product Name, Preis und Einheiten im Lager eingeben wird eine Ausnahme ausgelöst ungültige Werte eingeben. Z. B. Auslassen der `ProductName` Werts wird eine [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) ausgelöst wird, seit der `ProductName` Eigenschaft in der `ProdcutsRow` -Klasse verfügt über seine `AllowDBNull` -Eigenschaftensatz auf `false`; Wenn der Datenbank betriebsbereit ist, eine `SqlException` von TableAdapter ausgelöst wird, beim Verbinden mit der Datenbank. Ohne weitere Aktionen durchzuführen, diese Ausnahmen Blase Einrichten von der Datenzugriffsebene, die Geschäftslogikschicht und anschließend auf der ASP.NET-Seite und schließlich auf die ASP.NET-Laufzeit.
 
-Je nach Konfiguration Ihrer Webanwendung und davon, ob die Anwendung von besuchte `localhost`, eine nicht behandelte Ausnahme kann dazu führen, entweder eine generische Fehlerseite des Servers, einer ausführlichen Fehlerbericht oder eine benutzerfreundliche Webseite. Finden Sie unter [Web Application Error Handling in ASP.NET](http://www.15seconds.com/issue/030102.htm) und [CustomErrors Element](https://msdn.microsoft.com/en-US/library/h0hfz6fc(VS.80).aspx) detaillierte Informationen wie die ASP.NET-Laufzeit auf eine nicht abgefangene Ausnahme reagiert.
+Je nach Konfiguration Ihrer Webanwendung und davon, ob die Anwendung von besuchte `localhost`, eine nicht behandelte Ausnahme kann dazu führen, entweder eine generische Fehlerseite des Servers, einer ausführlichen Fehlerbericht oder eine benutzerfreundliche Webseite. Finden Sie unter [Web Application Error Handling in ASP.NET](http://www.15seconds.com/issue/030102.htm) und [CustomErrors Element](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) detaillierte Informationen wie die ASP.NET-Laufzeit auf eine nicht abgefangene Ausnahme reagiert.
 
 Abbildung 6 zeigt den Bildschirm aufgetreten beim Versuch, ein Produkt zu aktualisieren, ohne die `ProductName` Wert. Dies ist die Standardeinstellung, die ausführliche Fehlermeldung-Bericht angezeigt, wenn kommen `localhost`.
 
@@ -153,7 +153,7 @@ Durch das Erstellen dieser Ereignishandler wird den folgenden Code auf der ASP.N
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample4.cs)]
 
-Dieser Ereignishandler zweiten Eingabeparameter ist ein Objekt des Typs [GridViewUpdatedEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), dem verfügt über drei Eigenschaften für das Behandeln von Ausnahmen von Bedeutung sind:
+Dieser Ereignishandler zweiten Eingabeparameter ist ein Objekt des Typs [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), dem verfügt über drei Eigenschaften für das Behandeln von Ausnahmen von Bedeutung sind:
 
 - `Exception`Ein Verweis auf die ausgelöste Ausnahme Wenn keine Ausnahme ausgelöst wurde, wird diese Eigenschaft einen Wert aufweisen.`null`
 - `ExceptionHandled`Ein boolescher Wert, der angibt, ob die Ausnahme behandelt wurde, in der `RowUpdated` Ereignishandler; Wenn `false` (Standard), die Ausnahme wird erneut ausgelöst, bis zu die ASP.NET-Laufzeit durchsickert

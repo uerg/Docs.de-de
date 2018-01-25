@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: e55efd644dd4b6fb57061ffb89a5c041136c7b5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Einheit Testen von SignalR-Anwendungen
 ====================
@@ -41,7 +41,7 @@ durch [Patrick Fletcher](https://github.com/pfletcher)
 <a id="unit"></a>
 ## <a name="unit-testing-signalr-applications"></a>Komponententests für SignalR-Anwendungen
 
-Die Einheit Test-Funktionen können in SignalR 2 Sie um Komponententests für die SignalR-Anwendung zu erstellen. SignalR 2 umfasst die [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) -Schnittstelle, die zum Erstellen einer simulierten-Objekt, um Ihre hubmethoden zu Testzwecken simulieren verwendet werden kann.
+Die Einheit Test-Funktionen können in SignalR 2 Sie um Komponententests für die SignalR-Anwendung zu erstellen. SignalR 2 umfasst die [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) -Schnittstelle, die zum Erstellen einer simulierten-Objekt, um Ihre hubmethoden zu Testzwecken simulieren verwendet werden kann.
 
 In diesem Abschnitt fügen Sie Komponententests für die Anwendung in der [Getting Started Tutorial](../getting-started/tutorial-getting-started-with-signalr.md) mit [XUnit.net](https://github.com/xunit/xunit) und [Moq](https://github.com/Moq/moq4).
 
@@ -82,7 +82,7 @@ In diesem Abschnitt fügen Sie einen Komponententest für die Anwendung in der [
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample1.cs)]
 
-    Im obigen Code wird ein Testclient erstellt, mit der `Mock` -Objekt aus der [Moq](https://github.com/Moq/moq4) Bibliothek des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typ Parameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen. Die `broadcastMessage` Funktion klicken Sie dann für den simulierten Client definiert, dass sie aufgerufen werden kann, indem Sie die `ChatHub` Klasse. Das Modul ruft dann die `Send` Methode der `ChatHub` -Klasse, die ihrerseits die mocked `broadcastMessage` Funktion.
+    Im obigen Code wird ein Testclient erstellt, mit der `Mock` -Objekt aus der [Moq](https://github.com/Moq/moq4) Bibliothek des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typ Parameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen. Die `broadcastMessage` Funktion klicken Sie dann für den simulierten Client definiert, dass sie aufgerufen werden kann, indem Sie die `ChatHub` Klasse. Das Modul ruft dann die `Send` Methode der `ChatHub` -Klasse, die ihrerseits die mocked `broadcastMessage` Funktion.
 9. Erstellen Sie die Projektmappe durch Drücken von **F6**.
 10. Führen Sie den Komponententest aus. Wählen Sie in Visual Studio **Test**, **Windows**, **Test-Explorer**. Im Test-Explorer-Fenster mit der Maustaste **HubsAreMockableViaDynamic** , und wählen Sie **ausgewählte Tests ausführen**.
 
@@ -101,7 +101,7 @@ In diesem Abschnitt fügen Sie einen Test für die Anwendung erstellt, der [Gett
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample2.cs)]
 
-    Im obigen Code wird eine Schnittstelle erstellt, die Signatur der Definition der `broadcastMessage` Methode für die vom Testmodul ein simulierten Clients erstellen. Ein simulierten Client wird dann mit erstellt die `Mock` Objekt des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typparameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen.
+    Im obigen Code wird eine Schnittstelle erstellt, die Signatur der Definition der `broadcastMessage` Methode für die vom Testmodul ein simulierten Clients erstellen. Ein simulierten Client wird dann mit erstellt die `Mock` Objekt des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typparameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen.
 
     Der Test erstellt dann eine Instanz des `ChatHub`, und erstellt dann auf eine Pseudoversion des der `broadcastMessage` -Methode, die wiederum, durch Aufrufen aufgerufen wird der `Send` Methode auf dem Hub.
 3. Erstellen Sie die Projektmappe durch Drücken von **F6**.

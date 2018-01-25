@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 48145b15b4983d6a143a8c53c9e6e8b4639da91e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a8293a5bff9ed73f177be2d9928d8d686c4f311d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a>Verbreitete Mobile Geräte zu Testzwecken simulieren
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 | Gerät bzw. Ihren Browser | Emulator / Simulator |
 | --- | --- |
 | BrowserStack gehostet Browser Virtualisierung ![BrowserStack gehostet Browser Virtualisierung](device-simulators/_static/image1.png) | [Browser-gehostete-Virtualisierung BrowserStack](http://browserstack.com) Testen Ihrer lokalen oder Produktion-Umgebung in jedem Browser auf einer beliebigen Plattform. Sie können einen Tunnel zwischen Ihrem Computer und das Netzwerk BrowserStack in Ihren eigenen gehosteten virtuellen Computer erstellen. Stellen Sie sicher, zum Abrufen der [BrowserStack Visual Studio-Erweiterung](https://visualstudiogallery.msdn.microsoft.com/2dfa32b1-3c47-439d-b1c5-9e28be18b81c) ein sogar noch stärker nahtlosen zu erzielen. |
-| Windows Phone | [Windows Phone SDK-Downloads](https://dev.windowsphone.com/en-us/downloadsdk) der Windows Phone Software Development Kit (SDK) enthält alle Tools, die Sie benötigen für die Entwicklung von apps und Spiele für Windows Phone |
+| Windows Phone | [Windows Phone SDK-Downloads](https://dev.windowsphone.com/downloadsdk) der Windows Phone Software Development Kit (SDK) enthält alle Tools, die Sie benötigen für die Entwicklung von apps und Spiele für Windows Phone |
 | iPhone / iPod / iPad | [Electric Plum](http://www.electricplum.com/studio.aspx) iPhone und iPad-Simulatoren für Windows als auch eine reagierend entwerfen Tool. In Visual Studio 2012 "Durchsuchen mit..."-Option können integriert werden. |
 | Android | [Android SDK-homepage](https://developer.android.com/sdk) |
 | Opera Mobile / Opera Mini | Neueste Versionen: [Opera-Entwicklertools home](http://www.opera.com/developer/tools/) Opera Mini-4.2: [Online Java-basierte Simulator](http://www.opera.com/mobile/demo/?ver=4) |

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Verwenden Sie die Angular-Projektvorlage (RC)
 
@@ -137,7 +137,7 @@ In der *Start* -Klasse, *nach* die Zeile, die konfiguriert `spa.Options.SourcePa
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-In den Entwicklungsmodus, dieser Code versucht, auf das SSR-Bundle erstellen, durch Ausführen des Skripts `build:ssr`, definiert *ClientApp\package.json*. Dies erstellt eine Angular app namens `ssr`, das ist noch nicht definiert. 
+In den Entwicklungsmodus, dieser Code versucht, auf das SSR-Bundle erstellen, durch Ausführen des Skripts `build:ssr`, definiert *ClientApp\package.json*. Dies erstellt eine Angular app namens `ssr`, ist nicht die noch definiert. 
 
 Am Ende der `apps` array *ClientApp/.angular-cli.json*, definieren Sie eine zusätzliche app mit dem Namen `ssr`. Verwenden Sie die folgenden Optionen:
 
@@ -176,7 +176,7 @@ Während der SSR empfiehlt es sich Ihre app Angular pro Anforderung Daten aus Ih
 ```csharp
 options.SupplyData = (context, data) =>
 {
-    // Creates a new value called isHttpsRequest that is passed to TypeScript code
+    // Creates a new value called isHttpsRequest that's passed to TypeScript code
     data["isHttpsRequest"] = context.Request.IsHttps;
 };
 ```

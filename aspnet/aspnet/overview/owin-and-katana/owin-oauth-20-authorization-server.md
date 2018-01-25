@@ -12,13 +12,13 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 8842f57df84d841df77b34e9645dbf4909f82d85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="owin-oauth-20-authorization-server"></a>Owin-OAuth 2.0-Autorisierungsserver
+<a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 Authorization Server
 ====================
 durch [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
 
@@ -57,15 +57,15 @@ Dieses Lernprogramm umfasst folgende Themen:
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
 - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) oder das kostenlose [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), gemäß **Softwareversionen** am oberen Rand der Seite.
-- Vertrautheit mit OWIN. Finden Sie unter [Einstieg in das Projekt Katana](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) und [Neuheiten bei OWIN und Katana](index.md).
+- Vertrautheit mit OWIN. Finden Sie unter [Einstieg in das Projekt Katana](https://msdn.microsoft.com/magazine/dn451439.aspx) und [Neuheiten bei OWIN und Katana](index.md).
 - Vertrautheit mit [OAuth](http://tools.ietf.org/html/rfc6749) Terminologie, einschließlich [Rollen](http://tools.ietf.org/html/rfc6749#section-1.1), [Protokoll Flow](http://tools.ietf.org/html/rfc6749#section-1.2), und [Autorisierungserteilung](http://tools.ietf.org/html/rfc6749#section-1.3). [OAuth 2.0-Einführung](http://tools.ietf.org/html/rfc6749#section-1) bietet eine gute Einführung.
 
 ## <a name="create-an-authorization-server"></a>Einen Autorisierungsserver erstellen
 
-In diesem Lernprogramm werden wir grob, wie Sie skizzieren [OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) und ASP.NET MVC einen autorisierungsserver erstellen. Wir hoffen, Sie bald einen Download für das vollständige Beispiel bereitstellen, wie in diesem Lernprogramm nicht jeder Schritt enthalten ist. Erstellen Sie zunächst eine leeres Web-app mit dem Namen *AuthorizationServer* und installieren Sie die folgenden Pakete:
+In diesem Lernprogramm werden wir grob, wie Sie skizzieren [OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx) und ASP.NET MVC einen autorisierungsserver erstellen. Wir hoffen, Sie bald einen Download für das vollständige Beispiel bereitstellen, wie in diesem Lernprogramm nicht jeder Schritt enthalten ist. Erstellen Sie zunächst eine leeres Web-app mit dem Namen *AuthorizationServer* und installieren Sie die folgenden Pakete:
 
 - Microsoft.AspNet.Mvc
-- "Microsoft.owin.Host.systemweb"
+- Microsoft.Owin.Host.SystemWeb
 - Microsoft.Owin.Security.OAuth
 - Microsoft.Owin.Security.Cookies
 - "Microsoft.owin.Security.Google" (oder einer beliebigen anderen sozialen Anmeldung zu verpacken, z. B. "Microsoft.owin.Security.Facebook")
@@ -112,7 +112,7 @@ Die Anmeldeseite wird unten gezeigt:
 
 Überprüfen Sie der IETF-OAuth-2 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) jetzt Abschnitt. 
 
-**Anbieter** ist (in der folgenden Tabelle) [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Anbieter, der vom Typ `OAuthAuthorizationServerProvider`, die alle OAuth-Server-Ereignisse enthält. 
+**Anbieter** ist (in der folgenden Tabelle) [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Anbieter, der vom Typ `OAuthAuthorizationServerProvider`, die alle OAuth-Server-Ereignisse enthält. 
 
 | Die einzelnen Schritte im Abschnitt "Authorization Code Grant" | Beispiel zum Herunterladen führt diese Schritte mit: |
 | --- | --- |
@@ -226,7 +226,7 @@ Hier wird die beispielimplementierung für `Provider.GrantRefreshToken`:
 Erstellen Sie ein leeres Web-app-Projekt, und folgende Pakete im Projekt installieren:
 
 - Microsoft.AspNet.WebApi.Owin
-- "Microsoft.owin.Host.systemweb"
+- Microsoft.Owin.Host.SystemWeb
 - Microsoft.Owin.Security.OAuth
 
 Erstellen Sie eine Startklasse, und Konfigurieren von Authentifizierung und Web-API. Finden Sie unter *AuthorizationServer\ResourceServer\Startup.cs* im Downloadbeispiel.

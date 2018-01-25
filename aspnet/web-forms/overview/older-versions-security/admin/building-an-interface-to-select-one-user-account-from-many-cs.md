@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1edeaa392abea96a0f5085539cd8ab7810d59e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen (c#)
 ====================
@@ -134,13 +134,13 @@ Abbildung 5 zeigt die `ManageUsers.aspx` Seite, wenn Sie über einen Browser ang
 > Benutzernamen können mit einem beliebigen Zeichen, einschließlich Ziffern und Satzzeichen beginnen. Um diese Konten anzuzeigen, müssen der Administrator die Option alle LinkButton verwenden. Alternativ konnte eine LinkButton, um alle Benutzerkonten zurück, die mit einer Zahl beginnen hinzugefügt werden. Ich lassen Sie dieses als Übung für den Leser.
 
 
-Durch Klicken auf die Filterung LinkButtons einen Postback verursacht, und löst die Repeater `ItemCommand` Ereignis, aber es keine Änderung im Raster, gibt da wir noch zu haben schreiben Sie Code um die Ergebnisse zu filtern. Die `Membership` Klasse enthält eine [ `FindUsersByName` Methode](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx) , die diese Benutzerkonten, deren Benutzername einem angegebenen Suchmuster entspricht, zurückgibt. Wir können diese Methode verwenden, um nur die Benutzerkonten abzurufen, dessen Benutzernamen zu, mit dem Buchstaben gemäß starten, der `CommandName` der gefilterten LinkButton, auf die geklickt wurde.
+Durch Klicken auf die Filterung LinkButtons einen Postback verursacht, und löst die Repeater `ItemCommand` Ereignis, aber es keine Änderung im Raster, gibt da wir noch zu haben schreiben Sie Code um die Ergebnisse zu filtern. Die `Membership` Klasse enthält eine [ `FindUsersByName` Methode](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) , die diese Benutzerkonten, deren Benutzername einem angegebenen Suchmuster entspricht, zurückgibt. Wir können diese Methode verwenden, um nur die Benutzerkonten abzurufen, dessen Benutzernamen zu, mit dem Buchstaben gemäß starten, der `CommandName` der gefilterten LinkButton, auf die geklickt wurde.
 
 Starten mit dem Aktualisieren der `ManageUser.aspx` Seite des Code-Behind-Klasse, enthalten eine Eigenschaft namens `UsernameToMatch`. Diese Eigenschaft weiterhin die Filterzeichenfolge Benutzernamen über Postbacks besteht:
 
 [!code-csharp[Main](building-an-interface-to-select-one-user-account-from-many-cs/samples/sample8.cs)]
 
-Die `UsernameToMatch` Eigenschaft speichert den Wert, in zugewiesen wird der `ViewState` Auflistung unter Verwendung des Schlüssels UsernameToMatch. Wenn der Wert dieser Eigenschaft gelesen wird, er überprüft, um festzustellen, ob ein Wert vorhanden, in ist der `ViewState` Auflistung ist; falls nicht, es der Standardwert, eine leere Zeichenfolge zurückgegeben. Die `UsernameToMatch` Eigenschaft weist ein allgemeines Muster, nämlich Beibehaltung einen Wert zum Anzeigen des Status, sodass alle Änderungen an die Eigenschaft über Postbacks hinweg beibehalten werden. Weitere Informationen zu diesem Muster finden Sie unter [Verständnis ASP.NET-Ansichtszustand](https://msdn.microsoft.com/en-us/library/ms972976.aspx).
+Die `UsernameToMatch` Eigenschaft speichert den Wert, in zugewiesen wird der `ViewState` Auflistung unter Verwendung des Schlüssels UsernameToMatch. Wenn der Wert dieser Eigenschaft gelesen wird, er überprüft, um festzustellen, ob ein Wert vorhanden, in ist der `ViewState` Auflistung ist; falls nicht, es der Standardwert, eine leere Zeichenfolge zurückgegeben. Die `UsernameToMatch` Eigenschaft weist ein allgemeines Muster, nämlich Beibehaltung einen Wert zum Anzeigen des Status, sodass alle Änderungen an die Eigenschaft über Postbacks hinweg beibehalten werden. Weitere Informationen zu diesem Muster finden Sie unter [Verständnis ASP.NET-Ansichtszustand](https://msdn.microsoft.com/library/ms972976.aspx).
 
 Aktualisieren Sie als Nächstes die `BindUserAccounts` Methode, damit der Aufruf von `Membership.GetAllUsers`, ruft er `Membership.FindUsersByName`, und übergeben Sie den Wert des der `UsernameToMatch` Eigenschaft mit dem SQL-Platzhalterzeichen angefügt %.
 
@@ -177,7 +177,7 @@ Der Leistungsunterschied zwischen Standard- und benutzerdefinierte Paging kann z
 
 Benutzerdefiniertes Paging implementieren, das wir zunächst einige Mechanismus, mit dem abzurufenden die präzise Teilmenge der Datensätze, die durch die GridView angezeigt wird. Die gute Nachricht ist, die die `Membership` Klasse `FindUsersByName` Methode weist eine Überladung, die wir der Seitenindex "und" Seitengröße angeben kann, und gibt nur die Benutzerkonten, die innerhalb dieses Bereichs liegt, der Datensätze liegen.
 
-Diese Überladung verfügt insbesondere über die folgende Signatur: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx).
+Diese Überladung verfügt insbesondere über die folgende Signatur: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
 Die *PageIndex* Parameter gibt an, die Seite von Benutzerkonten für zurückgegeben. *PageSize* gibt an, wie viele Datensätze pro Seite angezeigt werden sollen. Die *TotalRecords* Parameter ist ein `out` Parameter, der die Anzahl der insgesamt von Benutzerkonten in den Speicher des Benutzers zurückgegeben.
 

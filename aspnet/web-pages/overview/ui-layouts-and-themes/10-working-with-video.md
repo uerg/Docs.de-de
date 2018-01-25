@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 0e1849fb780908b55520d8108e2227d046759987
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Anzeigen von Video an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -61,7 +61,7 @@ Es gibt viele Formate für Videodateien, und jedes Format in der Regel erfordert
 Die `Video` Hilfsprogramm unterstützt die folgenden MediaPlayer:
 
 - Adobe Flash
-- Windows Media Player
+- Windows MediaPlayer
 - Microsoft Silverlight
 
 ### <a name="the-flash-player"></a>Flash Player
@@ -118,7 +118,7 @@ Dieses Verfahren zeigt, wie ein Flash Video mit dem Namen abgespielt *sample.swf
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Führen Sie die Seite in einem Browser aus. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.) Die Seite wird angezeigt, und das Video automatisch wiedergegeben. 
 
-    ![[Image] ] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 Sie können festlegen, die `quality` -Parameter für ein Flash Video `low`, `autolow`, `autohigh`, `medium`, `high`, und `best`:
 
@@ -126,9 +126,9 @@ Sie können festlegen, die `quality` -Parameter für ein Flash Video `low`, `aut
 
 Sie können das Flash Video an eine bestimmte Größe mit wiedergegeben Ändern der `scale` -Parameter, der Sie die folgenden festlegen können:
 
-- `showall`. Dies macht das gesamte Video beim Beibehalten des ursprünglichen Seitenverhältnisses sichtbar. Allerdings können Sie Rahmen auf jeder Seite am Ende.
-- `noorder`. Skaliert das Video während das Originalseitenverhältnis beibehalten, aber zugeschnitten werden kann.
-- `exactfit`. Dies macht das gesamte Video sichtbar ohne das ursprüngliche Seitenverhältnis beibehalten, aber Verzerrung auftreten.
+- `showall` Dies macht das gesamte Video beim Beibehalten des ursprünglichen Seitenverhältnisses sichtbar. Allerdings können Sie Rahmen auf jeder Seite am Ende.
+- `noorder` Skaliert das Video während das Originalseitenverhältnis beibehalten, aber zugeschnitten werden kann.
+- `exactfit` Dies macht das gesamte Video sichtbar ohne das ursprüngliche Seitenverhältnis beibehalten, aber Verzerrung auftreten.
 
 Wenn Sie nicht angeben einer `scale` Parameter, das gesamte Video werden angezeigt, und das ursprüngliche Seitenverhältnis beibehalten ohne sämtlichen Zuschneidevorgängen aussieht. Das folgende Beispiel zeigt, wie Sie die `scale` Parameter:
 
@@ -148,7 +148,7 @@ Das folgende Verfahren veranschaulicht das Fenster Medien mit dem Namen Videowie
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Führen Sie die Seite in einem Browser aus. Das Video geladen und automatisch wiedergegeben. 
 
-    ![[Image] ] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 Sie können festlegen, `playCount` in eine ganze Zahl, der angibt, wie oft automatisch das Video abzuspielen:
 
@@ -178,14 +178,14 @@ Dieses Verfahren wird gezeigt, wie in Silverlight enthaltenen Video abzuspielen 
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Führen Sie die Seite in einem Browser aus. 
 
-    ![[Image] ] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 
-[Silverlight-Übersicht](https://msdn.microsoft.com/en-us/library/bb404700(VS.95).aspx)
+[Silverlight-Übersicht](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
 [Flash-Objekt und das EMBED-Tag-Attributen](http://kb2.adobe.com/cps/127/tn_12701.html)
 
-[Windows Media Player 11 SDK PARAM-Tags](https://msdn.microsoft.com/en-us/library/aa392321(VS.85).aspx)
+[Windows Media Player 11 SDK PARAM-Tags](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

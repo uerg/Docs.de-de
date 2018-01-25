@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -29,7 +29,7 @@ Derzeit gibt die `Index`-Methode eine Zeichenfolge mit der Meldung zurück, die 
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-Die `Index` oben genannten Methode verwendet eine Vorlage für die Sicht zum Generieren einer HTML-Antwortinhalts an den Browser. Controllermethoden (auch bekannt als [Aktionsmethoden](http://rachelappel.com/asp.net-mvc-actionresults-explained)), wie z. B. die `Index` oben in der Regel Methodenrückgabewert ein [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (oder eine abgeleitete Klasse [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), nicht primitive Typen wie Zeichenfolge.
+Die `Index` oben genannten Methode verwendet eine Vorlage für die Sicht zum Generieren einer HTML-Antwortinhalts an den Browser. Controllermethoden (auch bekannt als [Aktionsmethoden](http://rachelappel.com/asp.net-mvc-actionresults-explained)), wie z. B. die `Index` oben in der Regel Methodenrückgabewert ein [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (oder eine abgeleitete Klasse [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), nicht primitive Typen wie Zeichenfolge.
 
 Klicken Sie mit der rechten Maustaste auf die *Views\HelloWorld* Ordner, und klicken Sie auf **hinzufügen**, klicken Sie dann auf **MVC 5-Ansichtsseite mit Layout (Razor)**.
   
@@ -73,7 +73,7 @@ Zunächst, den Sie ändern möchten die &quot;Anwendungsname&quot; Link am obere
 
 Layoutvorlagen können Sie zum Angeben von HTML-Container-Layout Ihres Standorts an einem Ort, und wenden Sie es über mehrere Seiten an Ihrem Standort. Suchen Sie die Zeile `@RenderBody()`. `RenderBody` ist ein Platzhalter, bei dem alle ansichtsspezifischen Seiten, die Sie erstellen, von der Layoutseite &quot;umschlossen&quot; angezeigt werden. Angenommen, Sie wählen die **zu** Link, der *Views\Home\About.cshtml* Ansicht gerendert wird, innerhalb der `RenderBody` Methode.
 
-Ändern Sie den Inhalt des Elements „title“. Ändern der [ActionLink](https://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx) in die Layoutvorlage aus &quot;Anwendungsname&quot; auf &quot;MVC Film&quot; und dem Controller aus `Home` auf `Movies`. Die vollständige Layoutdatei wird unten gezeigt:
+Ändern Sie den Inhalt des Elements „title“. Ändern der [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) in die Layoutvorlage aus &quot;Anwendungsname&quot; auf &quot;MVC Film&quot; und dem Controller aus `Home` auf `Movies`. Die vollständige Layoutdatei wird unten gezeigt:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 

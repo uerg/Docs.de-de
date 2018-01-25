@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7b32a664975254dcc1d015f2400df30d05346948
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b66c68b8306b905a800465ab0ed720ae6f9d16b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Verwenden parametrisierte Abfragen mit SqlDataSource (c#)
 ====================
@@ -209,7 +209,7 @@ Da die gespeicherte Prozedur einen Eingabeparameter akzeptiert (`@CategoryID`), 
 **Abbildung 11**: Verwenden Sie die Produkte in der Kategorie "Getränke" zurückgegeben Hard-Coded Wert 1 ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-parameterized-queries-with-the-sqldatasource-cs/_static/image22.png))
 
 
-Wie im folgenden deklarativem Markup gezeigt, bei Verwendung einer gespeicherten Prozedur, die ': SqlDataSource-s `SelectCommand` Eigenschaft auf den Namen der gespeicherten Prozedur festgelegt ist und die [ `SelectCommandType` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) festgelegt ist, um `StoredProcedure`gibt an, die die `SelectCommand` ist der Name einer gespeicherten Prozedur, statt eine Ad-hoc-SQL-Anweisung.
+Wie im folgenden deklarativem Markup gezeigt, bei Verwendung einer gespeicherten Prozedur, die ': SqlDataSource-s `SelectCommand` Eigenschaft auf den Namen der gespeicherten Prozedur festgelegt ist und die [ `SelectCommandType` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) festgelegt ist, um `StoredProcedure`gibt an, die die `SelectCommand` ist der Name einer gespeicherten Prozedur, statt eine Ad-hoc-SQL-Anweisung.
 
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample9.aspx)]
@@ -237,9 +237,9 @@ Durch Hinzufügen von einem SqlDataSource zum Starten `ParameterizedQueries.aspx
 
 `ORDER BY NEWID()`Gibt die Datensätze in zufälliger Reihenfolge sortiert (finden Sie unter [Using `NEWID()` , nach dem Zufallsprinzip Sortieren von Datensätzen](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`Gibt den ersten Datensatz aus dem Resultset zurück. Zusammengestellt, die diese Abfrage gibt die `CategoryID` und `CategoryName` Spaltenwerte aus einer einzelnen, zufällig ausgewählten Kategorie.
 
-Die Kategorie s angezeigt `CategoryName` -Wert, der Seite ein Label-Websteuerelement hinzugefügt haben, legen Sie seine `ID` Eigenschaft, um `CategoryNameLabel`, und löschen, dessen `Text` Eigenschaft. Um die Daten von einem SqlDataSource-Steuerelement programmgesteuert abzurufen, müssen wir Aufrufen seiner `Select()` Methode. Die [ `Select()` Methode](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.select.aspx) erwartet einen einzelnen Eingabeparameter vom Typ [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx), der angibt, wie die Daten vor der Rückgabe Nachrichten werden sollte. Dies kann die Anweisungen zum Sortieren und Filtern der Daten enthalten und wird durch die Daten, die Websteuerelemente beim Sortieren oder paging durch die Daten von einem SqlDataSource-Steuerelement verwendet. In unserem Beispiel jedoch wir Verschlüsselungskennwort t müssen die Daten vor der Rückgabe geändert werden, und daher wird auf die `DataSourceSelectArguments.Empty` Objekt.
+Die Kategorie s angezeigt `CategoryName` -Wert, der Seite ein Label-Websteuerelement hinzugefügt haben, legen Sie seine `ID` Eigenschaft, um `CategoryNameLabel`, und löschen, dessen `Text` Eigenschaft. Um die Daten von einem SqlDataSource-Steuerelement programmgesteuert abzurufen, müssen wir Aufrufen seiner `Select()` Methode. Die [ `Select()` Methode](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) erwartet einen einzelnen Eingabeparameter vom Typ [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), der angibt, wie die Daten vor der Rückgabe Nachrichten werden sollte. Dies kann die Anweisungen zum Sortieren und Filtern der Daten enthalten und wird durch die Daten, die Websteuerelemente beim Sortieren oder paging durch die Daten von einem SqlDataSource-Steuerelement verwendet. In unserem Beispiel jedoch wir Verschlüsselungskennwort t müssen die Daten vor der Rückgabe geändert werden, und daher wird auf die `DataSourceSelectArguments.Empty` Objekt.
 
-Die `Select()` Methode gibt ein Objekt, das implementiert `IEnumerable`. Der genaue Typ zurückgegeben, hängt vom Wert des SqlDataSource-Steuerelement s [ `DataSourceMode` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx). Wie im vorherigen Lernprogramm erläutert wird, kann diese Eigenschaft festgelegt werden, auf den Wert entweder `DataSet` oder `DataReader`. Wenn auf festgelegt `DataSet`, die `Select()` Methode gibt ein ["DataView"](https://msdn.microsoft.com/en-us/library/01s96x0z.aspx) Objekt; gesetzt `DataReader`, es gibt ein Objekt, das implementiert [ `IDataReader` ](https://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx). Da die `RandomCategoryDataSource` SqlDataSource hat seine `DataSourceMode` -Eigenschaftensatz auf `DataSet` (Standard), wir arbeiten mit einer "DataView"-Objekt.
+Die `Select()` Methode gibt ein Objekt, das implementiert `IEnumerable`. Der genaue Typ zurückgegeben, hängt vom Wert des SqlDataSource-Steuerelement s [ `DataSourceMode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx). Wie im vorherigen Lernprogramm erläutert wird, kann diese Eigenschaft festgelegt werden, auf den Wert entweder `DataSet` oder `DataReader`. Wenn auf festgelegt `DataSet`, die `Select()` Methode gibt ein ["DataView"](https://msdn.microsoft.com/library/01s96x0z.aspx) Objekt; gesetzt `DataReader`, es gibt ein Objekt, das implementiert [ `IDataReader` ](https://msdn.microsoft.com/library/system.data.idatareader.aspx). Da die `RandomCategoryDataSource` SqlDataSource hat seine `DataSourceMode` -Eigenschaftensatz auf `DataSet` (Standard), wir arbeiten mit einer "DataView"-Objekt.
 
 Im folgende Code wird veranschaulicht, wie die Datensätze aus Abrufen der `RandomCategoryDataSource` SqlDataSource als einer "DataView" sowie zum Lesen der `CategoryName` Spaltenwert aus der ersten Zeile von "DataView":
 

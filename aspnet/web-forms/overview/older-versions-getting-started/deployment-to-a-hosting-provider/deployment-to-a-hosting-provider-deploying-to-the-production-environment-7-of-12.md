@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellung in der Produktionsumgebung - 7 von 12
 ====================
@@ -190,7 +190,7 @@ In der **Datei**/**Ordnerberechtigungen** wählen die **lesen** und **schreiben*
 
 Stellen sicher, dass Elmah Schreibzugriff auf die *Elmah* Ordner verursacht einen Fehler, und klicken Sie dann zum Anzeigen des Fehlerberichts Elmah. Fordern Sie eine ungültige URL wie *Studentsxxx.aspx*. Wie bereits zuvor können Sie sehen die *GenericErrorPage.aspx* Seite. Klicken Sie auf die **Abmelden** verknüpfen, und führen Sie *Elmah.axd*. Sie erhalten die **anmelden** Seite zuerst, die überprüft, ob der *"Web.config"* Transformation erfolgreich Elmah Autorisierung hinzugefügt. Nachdem Sie sich anmelden, sehen Sie den Bericht, der der Fehler angezeigt wird, den Sie soeben verursacht.
 
-[![ELMAH.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
+[![Elmah.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
 
 ## <a name="testing-in-the-production-environment"></a>In der Produktionsumgebung testen
 
@@ -246,7 +246,7 @@ Die *"robots.txt"* Datei wechselt in den Projektordner, und sollte den folgenden
 
 Die `User-agent` Zeile weist Suchmaschinen, die für alle Search Engine-Webcrawler (Roboter), die Regeln in der Datei gelten und die `Disallow` Zeile gibt an, dass keine Seiten auf der Website gecrawlt werden soll.
 
-Sie möchten wahrscheinlich Suchmaschinen, Ihre Produktionswebsite zu katalogisieren, daher Sie diese Datei produktionsbereitstellung ausgeschlossen müssen. Zu diesem Zweck finden Sie unter **kann ich schließt bestimmte Dateien oder Ordner aus Bereitstellung?** in [ASP.NET Web Application Project Deployment FAQ](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Stellen Sie sicher, dass Sie nur für die Produktion Veröffentlichungsprofil den Ausschluss angeben.
+Sie möchten wahrscheinlich Suchmaschinen, Ihre Produktionswebsite zu katalogisieren, daher Sie diese Datei produktionsbereitstellung ausgeschlossen müssen. Zu diesem Zweck finden Sie unter **kann ich schließt bestimmte Dateien oder Ordner aus Bereitstellung?** in [ASP.NET Web Application Project Deployment FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Stellen Sie sicher, dass Sie nur für die Produktion Veröffentlichungsprofil den Ausschluss angeben.
 
 Erstellen ein zweites Hostinganbieters-Konto ist ein Ansatz für die Arbeit mit einer testumgebung, die ist nicht erforderlich, aber möglicherweise Folgendes zusätzliche Kosten für die zu. In den folgenden Lernprogrammen werden Sie weiterhin die IIS als Ihre testumgebung verwenden.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 1f19d54a5f2679f790575d520b28472d4ff3233f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Vorbereiten für die Bereitstellung der Datenbank
 ====================
@@ -52,7 +52,7 @@ Weitere Informationen zu SQL Server-Editionen, einschließlich LocalDB, finden S
 Für den Datenbankzugriff erfordert die Universität von Contoso-Anwendung die folgende Software, die mit der Anwendung bereitgestellt werden, da er nicht in .NET Framework enthalten ist:
 
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (ermöglicht das ASP.NET-Mitgliedschaftssystem mit Azure SQL-Datenbank)
-- [Entity Framework](https://msdn.microsoft.com/en-us/library/gg696172.aspx)
+- [Entity Framework](https://msdn.microsoft.com/library/gg696172.aspx)
 
 Da diese Software in NuGet-Pakete enthalten ist, wird das Projekt bereits eingerichtet, damit, dass die erforderlichen Assemblys mit dem Projekt bereitgestellt werden. (Die Links zeigen Sie auf die aktuellen Versionen dieser Pakete, die möglicherweise aktuellere, was im Startprojekt installiert ist, die Sie für dieses Lernprogramm heruntergeladen haben.)
 
@@ -171,12 +171,12 @@ Hier nicht zu, in der Regel die gleichen Daten in der Produktion werden sollen, 
 Die Development-Benutzer stellen Sie die Umgebung und die Produktionsbenutzer in Staging und Produktion. Dazu erstellen Sie zwei SQL-Skripts in diesem Lernprogramm: eine für die Entwicklung und eine für die Produktion und in späteren Lernprogrammen konfigurieren Sie des Veröffentlichungsprozesses, um sie auszuführen.
 
 > [!NOTE]
-> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der  **[MachineKey](https://msdn.microsoft.com/en-us/library/system.web.configuration.machinekeysection.aspx)**  Element in der Datei "Web.config".
+> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der  **[MachineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Element in der Datei "Web.config".
 
 
 Sie können Skripts für die Bereitstellung von Daten manuell, mithilfe von SQL Server Management Studio (SSMS) oder mithilfe eines Drittanbietertools erstellen. Diese Rest dieses Lernprogramms erfahren Sie, wie es in SSMS, aber wenn Sie nicht möchten, installieren und Verwenden von SSMS können Sie die Skripts aus die abgeschlossene Version des Projekts abrufen und fahren Sie mit Abschnitt, in dem Sie sie im Projektmappenordner gespeichert.
 
-Zum Installieren von SSMS, installieren Sie ihn von [Download Center: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) durch Klicken auf [ENU\x64\SQLManagementStudio\_X64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) oder [ ENU\x86\SQLManagementStudio\_X86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Falls die falsche Datei gewünscht für Ihr System schlägt fehl installieren und Sie können versuchen, eine andere.
+Zum Installieren von SSMS, installieren Sie ihn von [Download Center: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) durch Klicken auf [ENU\x64\SQLManagementStudio\_X64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) oder [ ENU\x86\SQLManagementStudio\_X86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Falls die falsche Datei gewünscht für Ihr System schlägt fehl installieren und Sie können versuchen, eine andere.
 
 (Beachten Sie, dass dies ein Download 600 MB ist. Es kann sehr lange dauern installiert und erfordern einen Neustart des Computers.)
 
@@ -231,7 +231,7 @@ Im folgenden Lernprogramm konfigurieren Sie Einstellungen für Projektdateien, d
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Weitere Informationen zu NuGet, finden Sie unter [verwalten Projektbibliotheken mit NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) und [NuGet-Dokumentation](http://docs.nuget.org/docs/start-here/overview). Wenn Sie NuGet verwenden möchten, müssen Sie Informationen zum Analysieren eines NuGet-Pakets, um zu bestimmen, welche Aktion er ausführt, wenn er installiert ist. (sie können z. B. konfigurieren *"Web.config"* Transformationen, konfigurieren Sie PowerShell-Skripts zur Buildzeit usw. ausführen.) Weitere Informationen zur Funktionsweise von NuGet finden Sie unter [erstellen und veröffentlichen ein Paket](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) und [Konfigurationsdatei und Source Codetransformationen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Weitere Informationen zu NuGet, finden Sie unter [verwalten Projektbibliotheken mit NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) und [NuGet-Dokumentation](http://docs.nuget.org/docs/start-here/overview). Wenn Sie NuGet verwenden möchten, müssen Sie Informationen zum Analysieren eines NuGet-Pakets, um zu bestimmen, welche Aktion er ausführt, wenn er installiert ist. (sie können z. B. konfigurieren *"Web.config"* Transformationen, konfigurieren Sie PowerShell-Skripts zur Buildzeit usw. ausführen.) Weitere Informationen zur Funktionsweise von NuGet finden Sie unter [erstellen und veröffentlichen ein Paket](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) und [Konfigurationsdatei und Source Codetransformationen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Zurück](introduction.md)

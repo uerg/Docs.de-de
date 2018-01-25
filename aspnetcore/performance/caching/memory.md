@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 12d3982ce1abf74a575dae5362b037bd4ecc3d0f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>In-Memory-caching in ASP.NET Core
 
@@ -46,7 +46,7 @@ Anfordern der `IMemoryCache` Instanz im Konstruktor:
 
 `IMemoryCache`erfordert die NuGet-Paket "Microsoft.Extensions.Caching.Memory".
 
-Der folgende code verwendet [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) zum Überprüfen, ob die aktuelle Uhrzeit im Cache befindet. Wenn das Element nicht zwischengespeichert wird, wird ein neuer Eintrag erstellt und hinzugefügt werden, in den Cache mit [festgelegt](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
+Der folgende code verwendet [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) zum Überprüfen, ob die aktuelle Uhrzeit im Cache befindet. Wenn das Element nicht zwischengespeichert ist, wird ein neuer Eintrag erstellt und hinzugefügt werden, in den Cache mit [festgelegt](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
 
 [!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
@@ -94,13 +94,13 @@ Mit einem `CancellationTokenSource` ermöglicht mehrere Cacheeinträge als Grupp
   - Mehrere Anforderungen erhalten die zwischengespeicherte Schlüsselwert leer, da der Rückruf abgeschlossen noch nicht. 
   - Dies kann in mehreren Threads, die für das streckungsschema an das zwischengespeicherte Element führen.
 
-- Wenn ein Cacheeintrag verwendet wird, um eine andere zu erstellen, kopiert das untergeordnete Element, des übergeordnete Eintrags Ablauf-Token und zeitbasierte ablaufeinstellungen. Das untergeordnete Element ist nicht abgelaufen durch manuelles Entfernen oder aktualisieren, der des übergeordnete Eintrags.
+- Wenn ein Cacheeintrag verwendet wird, um eine andere zu erstellen, kopiert das untergeordnete Element, des übergeordnete Eintrags Ablauf-Token und zeitbasierte ablaufeinstellungen. Das untergeordnete Element ist nicht abgelaufene durch manuelles Entfernen oder aktualisieren, der des übergeordnete Eintrags.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

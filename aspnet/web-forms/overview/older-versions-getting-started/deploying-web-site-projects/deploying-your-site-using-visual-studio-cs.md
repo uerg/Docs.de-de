@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d3d2c70346abad5addab5c29d4af9f238b39da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c0c32c3dd24be5edfea3e17695753973f3fad30a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>Bereitstellen Ihrer Website mithilfe von Visual Studio (c#)
 ====================
@@ -33,7 +33,7 @@ Das vorherigen Lernprogramm erläutert, wie Sie eine einfache ASP.NET-Webanwendu
 
 
 > [!NOTE]
-> Andere bereitstellungsbezogenen Tools von Visual Studio enthalten [Setup Webprojekte](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx) und [Bereitstellung Webprojekte](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) Add-In. Setup Webprojekte Verpacken einer Website Inhalt und Konfigurationsinformationen in eine einzelne MSI-Datei. Diese Option ist besonders nützlich für Websites, die in einem Intranet bereitgestellt werden oder für Unternehmen, die eine vorkonfigurierte Webanwendung verkaufen, die Kunden auf ihre eigenen Web-Server installieren. Das Web Bereitstellung Projekte-Add-In ist eine Visual Studio-Add-In, mit der Angabe Konfigurationsunterschiede zwischen ermöglicht für Entwicklung und produktionsumgebungen erstellt. Websetup-Projekte sind nicht in diesem Lernprogramm Reihe erörtert. Web-Bereitstellungsprojekte werden zusammengefasst, der [ *Common Configuration Unterschiede zwischen Entwicklungs- und Produktionsumgebungen* ](common-configuration-differences-between-development-and-production-cs.md) Lernprogramm.
+> Andere bereitstellungsbezogenen Tools von Visual Studio enthalten [Setup Webprojekte](https://msdn.microsoft.com/library/wx3b589t.aspx) und [Bereitstellung Webprojekte](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) Add-In. Setup Webprojekte Verpacken einer Website Inhalt und Konfigurationsinformationen in eine einzelne MSI-Datei. Diese Option ist besonders nützlich für Websites, die in einem Intranet bereitgestellt werden oder für Unternehmen, die eine vorkonfigurierte Webanwendung verkaufen, die Kunden auf ihre eigenen Web-Server installieren. Das Web Bereitstellung Projekte-Add-In ist eine Visual Studio-Add-In, mit der Angabe Konfigurationsunterschiede zwischen ermöglicht für Entwicklung und produktionsumgebungen erstellt. Websetup-Projekte sind nicht in diesem Lernprogramm Reihe erörtert. Web-Bereitstellungsprojekte werden zusammengefasst, der [ *Common Configuration Unterschiede zwischen Entwicklungs- und Produktionsumgebungen* ](common-configuration-differences-between-development-and-production-cs.md) Lernprogramm.
 
 
 ## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Bereitstellen Ihrer Website mithilfe der Kopie Websiteverwaltungs-Tool
@@ -149,11 +149,11 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Kopieren die Website mit der Kopie Websiteverwaltungs-Tool](https://msdn.microsoft.com/en-us/library/1cc82atw.aspx)
+- [Kopieren die Website mit der Kopie Websiteverwaltungs-Tool](https://msdn.microsoft.com/library/1cc82atw.aspx)
 - [Wie I: bereitgestellt einer Website mithilfe der Website-Kopiertool](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
-- [Gewusst wie: Veröffentlichen von Webanwendungsprojekten](https://msdn.microsoft.com/en-us/library/aa983453.aspx)
-- [Gewusst wie: Veröffentlichen von Websites](https://msdn.microsoft.com/en-us/library/20yh9f1b.aspx)
-- [Setup- und Bereitstellungsprojekte in Visual Studio](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)
+- [Gewusst wie: Veröffentlichen von Webanwendungsprojekten](https://msdn.microsoft.com/library/aa983453.aspx)
+- [Gewusst wie: Veröffentlichen von Websites](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Setup- und Bereitstellungsprojekte in Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](deploying-your-site-using-an-ftp-client-cs.md)

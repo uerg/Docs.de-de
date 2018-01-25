@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 wichtige Änderungen
 ====================
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="contents"></a>Inhalt
 
 [ControlRenderingCompatibilityVersion-Einstellung in der Datei "Web.config"](#0.1__Toc256770141 "_Toc256770141")  
-[ClientIDMode Änderungen](#0.1__Toc256770142 "_Toc256770142")  
+[ClientIDMode Changes](#0.1__Toc256770142 "_Toc256770142")  
 [HtmlEncode und UrlEncode jetzt codieren Sie einfache Anführungszeichen](#0.1__Toc256770143 "_Toc256770143")  
 [ASP.NET-Seite (.aspx) Parser ist Stricter](#0.1__Toc256770144 "_Toc256770144")  
 [Browser-Definitionsdateien aktualisiert](#0.1__Toc256770145 "_Toc256770145")  
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [System.Web.Security-Typen für Passport sind veraltet](#0.1__Toc256770158 "_Toc256770158")  
 [Ein Bild in ASP.NET 4 beim Rendern der MenuItem.PopOutImageUrl-Eigenschaft ein Fehler](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl und Menu.DynamicPopOutImageUrl erzeugt einen Fehler, Bilder zu rendern, wenn Pfade umgekehrten Schrägstriche enthalten](#0.1__Toc256770160 "_Toc256770160")  
-[Haftungsausschluss](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -170,7 +170,7 @@ In den nächsten beiden Abschnitten werden die Änderungen, die Sie möglicherwe
 
 Jedoch manuell auf Anwendungsebene geändert `Web.config` Einträge, die nicht genau den ursprünglichen Textbaustein Abschnitt Konfigurationsdefinitionen entsprechen, die mit Visual Studio 2008 eingeführten werden dazu führen, dass ASP.NET Konfigurationsfehler. (Die Standardeinträge für die Konfiguration von den Visual Studio 2008 erstellten ordnungsgemäß funktioniert.) Ein häufig auftretendes Problem ist, die manuell geändert `Web.config` Dateien lassen die **AllowDefinition** und **RequirePermission** Konfigurationsattribute, die auf verschiedenen Konfigurationsabschnitt gefunden werden Definitionen. Dies bewirkt, dass einen Konflikt zwischen den abgekürzten Konfigurationsabschnitt in auf Anwendungsebene `Web.config` Dateien und die vollständige Definition in ASP.NET 4 `machine.config` Datei. Daher löst der ASP.NET 4-Konfigurationssystem zur Laufzeit ein Fehler bei der Konfiguration aus.
 
-**Windows Vista SP2, Windows Server 2008 SP2, Windows 7, Windows Server 2008 R2 und auch von Windows Vista SP1 und Windows Server 2008 SP1, in dem Hotfix KB958854 installiert ist.**
+**Windows Vista SP2, Windows Server 2008 SP2, Windows 7, Windows Server 2008 R2, and also Windows Vista SP1 and Windows Server 2008 SP1 where hotfix KB958854 is installed.**
 
 In diesem Szenario gibt der systemeigenen Konfigurationssystem IIS 7 und IIS 7.5 einen Fehler bei der Konfiguration, da er auf ein Textvergleich ausgeführt der **Typ** -Attribut, das für einen verwalteten Konfigurationsabschnittshandler definiert ist. Da alle `Web.config` Dateien, die von Visual Studio 2008 und Visual Studio 2008 SP1 generiert werden, haben "3.5" in die Typzeichenfolge für die **system.web.extensions** (und zugehörige) Konfigurationsabschnittshandler, und da ASP.NET 4 `machine.config` Datei ist "4.0" in der **Typ** -Attribut für die gleiche Konfigurationsabschnittshandler, Anwendungen, die in Visual Studio 2008 oder Visual Studio 2008 SP1, immer generiert werden die Überprüfung der Konfiguration in IIS 7 fehl und IIS 7.5.
 
@@ -272,15 +272,15 @@ Frühere Versionen von ASP.NET enthalten eine **PathInfo** Wert in den Rückgabe
 
 In früheren Versionen von ASP.NET **HttpRequest** Eigenschaften die folgenden Werte aufweisen:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
-**HttpRequest.PathInfo**: (leer)
+**HttpRequest.PathInfo**: (empty)
 
 In ASP.NET 4 **HttpRequest** Eigenschaften stattdessen die folgenden Werte aufweisen:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
-**HttpRequest.PathInfo**:`SomeAction`
+**HttpRequest.PathInfo**: `SomeAction`
 
 <a id="0.1__Toc252995493"></a><a id="0.1__Toc255587642"></a><a id="0.1__Toc256770153"></a><a id="0.1__Toc245724861"></a>
 
@@ -385,7 +385,7 @@ Im folgenden finden eine Zusammenfassung der Änderungen an der Standard-CAS-Imp
 - Dynamisch kompilierte Assemblys durch die ASP.NET-Anbieter für Build erstellte wurden aktualisiert, um explizit Assemblys als transparent kennzeichnen.
 - Alle Assemblys auf ASP.NET werden jetzt so markiert, die das APTCA-Attribut nur im Webhosting-Umgebungen berücksichtigt wird. Teilweise vertrauenswürdige nicht-Hostingumgebungen wie ClickOnce kann nicht in ASP.NET-Assemblys aufgerufen werden.
 
-Weitere Informationen zu den neuen ASP.NET 4-Codezugriffssicherheitsmodell, finden Sie unter [mithilfe der Codezugriffssicherheit in ASP.NET-Anwendungen](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx) auf der MSDN-Website.
+Weitere Informationen zu den neuen ASP.NET 4-Codezugriffssicherheitsmodell, finden Sie unter [mithilfe der Codezugriffssicherheit in ASP.NET-Anwendungen](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx) auf der MSDN-Website.
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 
@@ -491,7 +491,7 @@ Beachten Sie, dass Anwendungen, die von früheren Versionen von ASP.NET auf ASP.
 
 ## <a name="disclaimer"></a>Haftungsausschluss
 
-Dies ist ein vorläufiges Dokument, das vor der kommerziellen Veröffentlichung der beschriebenen Software ggf. erheblich geändert wird.
+Dies ist ein vorläufiges Dokument, das vor dem kommerziellen Release der beschriebenen Software ggf. erheblich geändert wird.
 
 Die Informationen in diesem Dokument repräsentieren den aktuellen Standpunkt der Microsoft Corporation zu den erörterten Problemen zum Veröffentlichungstermin. Da Microsoft auf das Ändern von Marktlagen reagieren muss, ist das Dokument keinesfalls als Verpflichtung von Microsoft zu interpretieren, und Microsoft kann die Genauigkeit der Informationen nicht über den Zeitpunkt der Veröffentlichung hinaus garantieren.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Arbeiten mit einem verteilten Cache in ASP.NET Core
 
@@ -25,7 +25,7 @@ Verteilte Caches können die Leistung und Skalierbarkeit von ASP.NET Core-apps v
 
 ## <a name="what-is-a-distributed-cache"></a>Was ist ein verteilter Cache
 
-Ein verteilter Cache wird von mehreren app-Servern gemeinsam genutzt (finden Sie unter [Zwischenspeichern Grundlagen](memory.md#caching-basics)). Die Informationen im Cache nicht in den Speicher der einzelnen Webserver gespeichert, und die zwischengespeicherten Daten für alle von der app-Servern verfügbar ist. Dies bietet mehrere Vorteile:
+Ein verteilter Cache wird von mehreren app-Servern gemeinsam genutzt (finden Sie unter [Zwischenspeichern Grundlagen](memory.md#caching-basics)). Die Informationen im Cache befindet sich nicht im Speicher der einzelnen Webserver gespeichert, und die zwischengespeicherten Daten für alle von der app-Servern verfügbar ist. Dies bietet mehrere Vorteile:
 
 1. Zwischengespeicherte Daten sind auf allen Webservern kohärente. Benutzer nicht unterschiedliche Ergebnisse angezeigt, je nachdem welche, die Web Server seine Anforderung behandelt
 
@@ -44,19 +44,19 @@ Cachekonfiguration ist implementierungsspezifisch. Dieser Artikel beschreibt, wi
 
 Die `IDistributedCache` -Schnittstelle enthält synchrone und asynchrone Methoden. Die Schnittstelle kann Elemente hinzugefügt, abgerufen und von der Implementierung verteilter Cache entfernt werden. Die `IDistributedCache` Schnittstelle enthält die folgenden Methoden:
 
-**"Get", "GetAsync**
+**Get, GetAsync**
 
 Akzeptiert einen Zeichenfolgenschlüssel und ruft ein zwischengespeichertes Element als ein `byte[]` Wenn im Cache gefunden.
 
-**Menge SetAsync**
+**Set, SetAsync**
 
 Fügt ein Element hinzu (als `byte[]`) in den Cache mithilfe eines Schlüssels Zeichenfolge.
 
-**Aktualisierung RefreshAsync**
+**Refresh, RefreshAsync**
 
 Aktualisiert ein Element im Cache basierend auf seinen Schlüssel zurücksetzen gleitenden Ablauf des Timeouts (sofern vorhanden).
 
-**Entfernen von removeasync-Vorgang für**
+**Remove, RemoveAsync**
 
 Entfernt einen Cacheeintrag basierend auf seinen Schlüssel.
 
@@ -138,9 +138,9 @@ Wenn Sie entscheiden, welche Implementierung der `IDistributedCache` Recht für 
 
 * [Redis-Cache für Azure](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [SQL­Datenbank in Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
-* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

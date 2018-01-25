@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15de0ca9bcceb7f745fa311b18d2c095f1dafcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d1be6c30cda5a06087516210a77f48b6a3fe45b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Verwenden die vorhandene gespeicherte Prozeduren für das typisierte DataSet TableAdapters (VB)
 ====================
@@ -200,7 +200,7 @@ Dieses Muster kann in T-SQL-Syntax, die mithilfe der folgenden Vorlage implement
 
 Die Vorlage beginnt mit dem Definieren einer `TRY...CATCH` ein Konstrukt, das noch nicht mit SQL Server 2005 zu blockieren. LIKE mit `Try...Catch` Blöcke in Visual Basic, die SQL `TRY...CATCH` Block wird ausgeführt, die Anweisungen in der `TRY` Block. Wenn eine Anweisung einen Fehler auslöst, wird die Steuerung sofort an die `CATCH` Block.
 
-Wenn keine Fehler Ausführen der SQL-Anweisungen, Zusammensetzung der Transaktion die `COMMIT TRANSACTION` -Anweisung führt einen Commit der Änderungen und schließt die Transaktion. Wenn jedoch einer der Anweisungen zu einem Fehler führt der `ROLLBACK TRANSACTION` in die `CATCH` Block wird die Datenbank in den Zustand vor dem Start der Transaktion. Die gespeicherte Prozedur auch löst einen Fehler mit der [RAISERROR-Befehl](https://msdn.microsoft.com/en-us/library/ms178592.aspx), wodurch eine `SqlException` , die in der Anwendung ausgelöst werden.
+Wenn keine Fehler Ausführen der SQL-Anweisungen, Zusammensetzung der Transaktion die `COMMIT TRANSACTION` -Anweisung führt einen Commit der Änderungen und schließt die Transaktion. Wenn jedoch einer der Anweisungen zu einem Fehler führt der `ROLLBACK TRANSACTION` in die `CATCH` Block wird die Datenbank in den Zustand vor dem Start der Transaktion. Die gespeicherte Prozedur auch löst einen Fehler mit der [RAISERROR-Befehl](https://msdn.microsoft.com/library/ms178592.aspx), wodurch eine `SqlException` , die in der Anwendung ausgelöst werden.
 
 > [!NOTE]
 > Da die `TRY...CATCH` Block ist neu in SQL Server 2005, die oben stehende Vorlage kann nicht ausgeführt werden, wenn Sie ältere Versionen von Microsoft SQL Server verwenden. Wenn Sie SQL Server 2005 nicht verwenden, wenden Sie sich an [Verwalten von Transaktionen in gespeicherten Prozeduren von SQL Server](http://www.4guysfromrolla.com/webtech/080305-1.shtml) für eine Vorlage, die mit anderen Versionen von SQL Server verwendet werden kann.

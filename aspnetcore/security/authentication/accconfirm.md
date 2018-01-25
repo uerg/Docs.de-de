@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
@@ -89,7 +89,7 @@ Finden Sie unter [Erzwingen von SSL](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>E-Mail-Bestätigung
 
-Es wird empfohlen, die e-Mail-Adresse eines eine neue benutzerregistrierung, um zu überprüfen, sind sie nicht eine andere Person Identität zu bestätigen (d. h., sie noch nicht registriert mit einer anderen Person e-Mail-Adresse). Angenommen, ein Diskussionsforum mussten, und Sie möchten, um zu verhindern, dass "yli@example.com"aus der Registrierung als"nolivetto@contoso.com." Ohne e-Mail-Bestätigung "nolivetto@contoso.com" könnte unerwünschte e-Mails aus Ihrer app abrufen. Angenommen, das der Benutzer versehentlich als registriert "ylo@example.com" hadn't Tippfehler nun der "Yli", wäre sie nicht kennwortwiederherstellung verwenden, da die app ihre korrekte e-Mail-Adresse hat. E-Mail-Bestätigung enthält nur begrenzt Schutz von Bots und stellt keinen Schutz vor bestimmt Spammern Domänenbenutzern viele funktionierenden e-Mail-Aliase, die sie verwenden können, um zu registrieren.
+Es wird empfohlen, bestätigen die e-Mail-Adresse eines eine neue benutzerregistrierung, um zu überprüfen, haben sie keinen Identitätswechsel eine andere Person (d. h., sie noch nicht registriert mit einer anderen Person e-Mail-Adresse). Angenommen, ein Diskussionsforum mussten, und Sie möchten, um zu verhindern, dass "yli@example.com"aus der Registrierung als"nolivetto@contoso.com." Ohne e-Mail-Bestätigung "nolivetto@contoso.com" könnte unerwünschte e-Mails aus Ihrer app abrufen. Angenommen, das der Benutzer versehentlich als registriert "ylo@example.com" hadn't Tippfehler nun der "Yli", wäre sie nicht kennwortwiederherstellung verwenden, da die app ihre korrekte e-Mail-Adresse hat. E-Mail-Bestätigung enthält nur begrenzt Schutz von Bots und stellt keinen Schutz vor bestimmt Spammern Domänenbenutzern viele funktionierenden e-Mail-Aliase, die sie verwenden können, um zu registrieren.
 
 In der Regel möchten verhindern, dass neue Benutzer keine Daten zu Ihrer Website bereitstellen, bevor sie eine bestätigte e-Mail-Adresse aufweisen. 
 
@@ -110,7 +110,7 @@ Update `ConfigureServices` eine bestätigte e-Mail-Adresse erforderlich ist:
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-Die vorangehende Zeile wird verhindert, dass registrierte Benutzern zur Verfügung protokolliert werden, bis ihre-e-Mail bestätigt ist. Allerdings verhindert dieser Zeile nicht neue Benutzer im protokolliert werden, nachdem sie registriert werden. Der Standardcode meldet einen Benutzer auf, nachdem sie registriert werden. Nachdem sie sich abmelden, können sie nicht erneut anmelden, bis sie registriert werden. Später in diesem Lernprogramm ändern wir der Code so neu registrierte Benutzer sind **nicht** angemeldet.
+Die vorangehende Zeile wird verhindert, dass registrierte Benutzern zur Verfügung protokolliert werden, bis ihre-e-Mail bestätigt ist. Allerdings ist nicht dieser Zeile verhindern, dass neue Benutzer im protokolliert werden, nachdem sie registriert werden. Der Standardcode meldet einen Benutzer auf, nachdem sie registriert werden. Nachdem sie sich abmelden, können sie nicht erneut anmelden, bis sie registriert werden. Später in diesem Lernprogramm ändern wir der Code so neu registrierte Benutzer sind **nicht** angemeldet.
 
 ### <a name="configure-email-provider"></a>Konfigurieren von e-Mail-Anbieter
 
@@ -277,7 +277,7 @@ Wenn Sie e-Mail-nicht funktioniert:
 
 ## <a name="prevent-login-at-registration"></a>Zu verhindern, dass die Anmeldung bei der Registrierung
 
-Mit den aktuellen Vorlagen, sobald ein Benutzer das Registrierungsformular abgeschlossen ist. sie angemeldet sind (authentifiziert). In der Regel möchten Sie ihre e-Mails zu überprüfen, bevor im Clientbrowser. Im folgenden Abschnitt werden wir ändern Sie den Code erfordern neue Benutzer haben eine bestätigte e-Mail-Adresse aus, bevor sie angemeldet sind. Update der `[HttpPost] Login` Aktion in der *AccountController.cs* Datei mit den folgenden hervorgehobenen Änderungen.
+Mit den aktuellen Vorlagen, sobald ein Benutzer das Registrierungsformular abgeschlossen ist. sie sind angemeldet (authentifiziert). In der Regel möchten Sie ihre e-Mails zu überprüfen, bevor im Clientbrowser. Im folgenden Abschnitt werden wir ändern Sie den Code erfordern neue Benutzer haben eine bestätigte e-Mail-Adresse aus, bevor sie angemeldet sind. Update der `[HttpPost] Login` Aktion in der *AccountController.cs* Datei mit den folgenden hervorgehobenen Änderungen.
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c610f84cfb82f38f9c67b757aa341c7a1497369c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Erstellen eine Datenzugriffsschicht (c#)
 ====================
@@ -79,17 +79,17 @@ Der gesamte Code, der speziell für die zugrunde liegende Datenquelle z. B. das 
 
 - **GetCategories(),** die Informationen über alle Kategorien zurück
 - **GetProducts()**, die Informationen für alle Produkte zurück
-- **GetProductsByCategoryID (*CategoryID*) **, das alle Produkte, die eine angegebene Kategorie angehören, zurück
-- **GetProductByProductID (*"ProductID"*) **, die Informationen zu einem bestimmten Produkt zurück
+- **GetProductsByCategoryID(*categoryID*)**, which will return all products that belong to a specified category
+- **GetProductByProductID(*productID*)**, which will return information about a particular product
 
 Beim Aufrufen dieser Methoden werden eine Verbindung mit der Datenbank herstellen, geben Sie die entsprechende Abfrage und Zurückgeben der Ergebnisse. Es ist wichtig, wie wir diese Ergebnisse zurückgeben. Diese Methoden einfach ein DataSet oder DataReader ausgefüllt, indem der Datenbankabfrage zurückgeben, aber idealerweise diese Ergebnisse zurückgegeben werden soll mit *stark typisierten Objekten*. Ein stark typisiertes Objekt ist, deren Schema starr zum Zeitpunkt der Kompilierung definiert ist, während das Gegenteil, ein Objekt lose typisierten eines ist, deren Schema nicht bis zur Laufzeit bekannt ist.
 
-Beispielsweise sind das DataReader-Objekt und das DataSet (standardmäßig) lose typisierte Objekte, da ihr Schema nach den Spalten, die von der Datenbankabfrage verwendet, um sie aufzufüllen zurückgegebenen definiert ist. Wir benötigen, mithilfe von Syntax wie eine bestimmte Spalte aus einer "DataTable lose typisierte" zugreifen:   ***DataTable*. Zeilen [*Index*] ["*ColumnName*"]**. Die DataTable lose Typisierung, in diesem Beispiel wird durch die Tatsache ausgestellt, die wir den Namen der Spalte mit einer Zeichenfolge oder Ordinalindex zugreifen müssen. Eine stark typisierte DataTable andererseits, müssen alle zugehörigen Spalten, die als Eigenschaften implementiert resultierenden in Code, der aussieht:   ***DataTable*. Zeilen [*Index*].* ColumnName***.
+Beispielsweise sind das DataReader-Objekt und das DataSet (standardmäßig) lose typisierte Objekte, da ihr Schema nach den Spalten, die von der Datenbankabfrage verwendet, um sie aufzufüllen zurückgegebenen definiert ist. Wir benötigen, mithilfe von Syntax wie eine bestimmte Spalte aus einer "DataTable lose typisierte" zugreifen: ***DataTable*. Zeilen [*Index*] ["*ColumnName *"]**. Die DataTable lose Typisierung, in diesem Beispiel wird durch die Tatsache ausgestellt, die wir den Namen der Spalte mit einer Zeichenfolge oder Ordinalindex zugreifen müssen. Eine stark typisierte DataTable andererseits, müssen alle zugehörigen Spalten, die als Eigenschaften implementiert resultierenden in Code, der aussieht: ***DataTable*. Zeilen [*Index*].* ColumnName***.
 
 Um stark typisierte Objekte zurückzugeben, können Entwickler ihre eigenen benutzerdefinierten Geschäftsobjekte erstellen oder typisierter DataSets verwenden. Ein Geschäftsobjekt wird vom Entwickler implementiert, wie eine Klasse, deren Eigenschaften in der Regel die Spalten der zugrunde liegenden Datenbanktabelle das Geschäftsobjekt widerspiegeln, darstellt. Ein typisiertes DataSet ist eine Klasse, die für Sie von Visual Studio generiert auf Grundlage eines Datenbankschemas und, deren Mitglieder gemäß diesem Schema stark typisiert sind. Das typisierte DataSet selbst besteht aus Klassen, die ADO.NET DataSet und DataTable DataRow Klassen erweitern. Zusätzlich zu den stark typisierten DataTables umfassen typisierter DataSets jetzt auch TableAdapters, die Klassen mit Methoden zum Auffüllen Datasetss Datentabellen und das Weitergeben von Änderungen in die DataTables wieder in der Datenbank sind.
 
 > [!NOTE]
-> Weitere Informationen zu den vor- und Nachteile der Verwendung typisierter DataSets im Vergleich zu benutzerdefinierten Geschäftsobjekte, finden Sie unter [Datenebenenkomponenten entwerfen und die Übergabe über Datenebenen](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Weitere Informationen zu den vor- und Nachteile der Verwendung typisierter DataSets im Vergleich zu benutzerdefinierten Geschäftsobjekte, finden Sie unter [Datenebenenkomponenten entwerfen und die Übergabe über Datenebenen](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Wir werden stark typisierte DataSets für diese Lernprogramme-Architektur verwenden. Abbildung 3 zeigt die Arbeitsabläufe zwischen den verschiedenen Ebenen einer Anwendung, die typisierte DataSets verwendet.
@@ -114,7 +114,7 @@ Nach dem Klicken auf Hinzufügen, bei der Aufforderung zum DataSet zum Hinzufüg
 
 Ein typisiertes DataSet dient als eine stark typisierte Auflistung von Daten; Es besteht von stark typisierten DataTable-Instanzen, von denen jeder wiederum von stark typisierten DataRow-Instanzen besteht. Es wird eine stark typisierte DataTable für jede der zugrunde liegenden Datenbanktabellen erstellt, die wir zur Bearbeitung dieser Reihe Lernprogramme benötigen. Beginnen wir mit dem Erstellen einer "DataTable" für die **Produkte** Tabelle.
 
-Bedenken Sie, dass stark typisierte DataTables keine Informationen zum Zugriff auf Daten aus ihren zugrunde liegenden Datenbanktabelle enthalten. Um die Daten zum Auffüllen der Datentabelle abzurufen, verwenden wir eine TableAdapter-Klasse, die als unsere Datenzugriffsebene fungiert. Für unsere **Produkte** DataTable, in der TableAdapter enthält die Methoden **GetProducts()**,  **GetProductByCategoryID (*CategoryID*) ** usw., die wir von der Darstellungsschicht aufrufen müssen. Die DataTable-Rolle besteht darin, dienen als stark typisierte Objekte verwendet, um Daten zwischen den Ebenen zu übergeben.
+Bedenken Sie, dass stark typisierte DataTables keine Informationen zum Zugriff auf Daten aus ihren zugrunde liegenden Datenbanktabelle enthalten. Um die Daten zum Auffüllen der Datentabelle abzurufen, verwenden wir eine TableAdapter-Klasse, die als unsere Datenzugriffsebene fungiert. Für unsere **Produkte** DataTable, in der TableAdapter enthält die Methoden **GetProducts()**, **GetProductByCategoryID (*CategoryID*)**usw., die wir von der Darstellungsschicht aufrufen müssen. Die DataTable-Rolle besteht darin, dienen als stark typisierte Objekte verwendet, um Daten zwischen den Ebenen zu übergeben.
 
 Der TableAdapter-Konfigurations-Assistent beginnt, indem Sie dazu aufgefordert, die Datenbank zur Bearbeitung auswählen. Die Dropdownliste zeigt diese Datenbanken im Server-Explorer. Wenn Sie die Northwind-Datenbank nicht im Server-Explorer hinzugefügt haben, können Sie die Schaltfläche neue Verbindung zu diesem Zeitpunkt zu diesem Zweck klicken.
 
@@ -217,7 +217,7 @@ Obwohl in diesem Beispiel erforderlich, dass wir in unserer ASP.NET-Seite drei C
 
 An diesem Punkt unsere **ProductsTableAdapter** -Klasse, die jedoch eine Methode verfügt über **GetProducts()**, womit alle Produkte in der Datenbank zurückgegeben. Wird mit allen Produkten arbeiten definitiv ist, zwar hilfreich gibt es Situationen wir müssen Abrufen von Informationen zu einem bestimmten Produkt oder alle Produkte, die einer bestimmten Kategorie angehören. Um solche Funktionen unserer Datenzugriffsebene hinzuzufügen können wir dem TableAdapter parametrisierte Methoden hinzufügen.
 
-Fügen Sie der  **GetProductsByCategoryID (*CategoryID*) ** Methode. Hinzufügen eine neue Methode zu DAL, zurück zu DataSet-Designer mit der Maustaste in den **ProductsTableAdapter** Abschnitt, und wählen Sie die Abfrage hinzufügen.
+Fügen Sie der **GetProductsByCategoryID (*CategoryID*)** Methode. Hinzufügen eine neue Methode zu DAL, zurück zu DataSet-Designer mit der Maustaste in den **ProductsTableAdapter** Abschnitt, und wählen Sie die Abfrage hinzufügen.
 
 
 ![Mit der rechten Maustaste auf den TableAdapter, und wählen Sie Abfrage hinzufügen](creating-a-data-access-layer-cs/_static/image38.png)
@@ -241,7 +241,7 @@ Der nächste Schritt ist die SQL-Abfrage verwendet, um den Datenzugriff zu defin
 **Abbildung 16**: Geben Sie eine Abfrage nur Zurückgeben von Produkten in eine angegebene Kategorie ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-Im letzten Schritt, die wir ausgewählt, können die Daten, Muster zugreifen zu verwenden, sowie die Namen der generierten Methoden anpassen. Nach dem Muster Füllung ändern wir den Namen in **FillByCategoryID** und für die Rückgabe eine "DataTable" Muster zurück (die  **abrufen*X*** Methoden), nutzen wir  **GetProductsByCategoryID**.
+Im letzten Schritt, die wir ausgewählt, können die Daten, Muster zugreifen zu verwenden, sowie die Namen der generierten Methoden anpassen. Nach dem Muster Füllung ändern wir den Namen in **FillByCategoryID** und für die Rückgabe eine "DataTable" Muster zurück (die **abrufen * X*** Methoden), nutzen wir **GetProductsByCategoryID**.
 
 
 [![Wählen Sie den Namen für die TableAdapter-Methoden](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -257,7 +257,7 @@ Nach Abschluss des Assistenten enthält die DataSet-Designer die neuen TableAdap
 **Abbildung 18**: die Produkte können jetzt nach Kategorie abgefragt werden
 
 
-Erkundet Hinzufügen einer  **GetProductByProductID (*"ProductID"*) ** Methode, die das gleiche Verfahren verwenden.
+Erkundet Hinzufügen einer **GetProductByProductID (*"ProductID"*)** Methode, die das gleiche Verfahren verwenden.
 
 Diese parametrisierten Abfragen können direkt aus dem DataSet-Designer getestet werden. Mit der rechten Maustaste auf die Methode im TableAdapter, und wählen Sie Vorschaudaten. Geben Sie anschließend die Werte für die Parameter, und klicken Sie auf Vorschau.
 
@@ -267,9 +267,9 @@ Diese parametrisierten Abfragen können direkt aus dem DataSet-Designer getestet
 **Abbildung 19**: die Produkte zu gehörenden der Kategorie "Getränke" werden angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-cs/_static/image51.png))
 
 
-Mit der  **GetProductsByCategoryID (*CategoryID*) **-Methode in unserer DAL, wir können jetzt eine ASP.NET-Seite auf, die nur solche Produkte in einer angegebenen Kategorie anzeigt erstellen. Das folgende Beispiel zeigt alle Produkte, die in der Kategorie "Getränke" sind mit einem **CategoryID** 1.
+Mit der **GetProductsByCategoryID (*CategoryID*)** -Methode in unserer DAL, wir können jetzt eine ASP.NET-Seite auf, die nur solche Produkte in einer angegebenen Kategorie anzeigt erstellen. Das folgende Beispiel zeigt alle Produkte, die in der Kategorie "Getränke" sind mit einem **CategoryID** 1.
 
-Beverages.ASP
+Beverages.asp
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample4.aspx)]
 
@@ -293,7 +293,7 @@ Es gibt zwei Muster, die im Allgemeinen zum Einfügen, aktualisieren und Lösche
 **Abbildung 21**: jede einfügen, aktualisieren und löschen anfordern wird an die Datenbank sofort gesendet ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-cs/_static/image57.png))
 
 
-Andere Muster, die ich verweisen müssen Muster als Batch zu aktualisieren, ist eine gesamte DataSet, DataTable oder Auflistung von DataRows in einem Methodenaufruf zu aktualisieren. Mit diesem Muster ein Entwickler löscht, einfügt, und ändert die DataRows in einer "DataTable" und übergibt dann diese DataRows oder eine Datentabelle in einer Update-Methode. Klicken Sie dann diese Methode zählt die DataRows übergeben, legt fest, ob geändert, hinzugefügt, gelöscht oder wurden haben (über die DataRow [RowState-Eigenschaft](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) Wert), und gibt die entsprechende Datenbank-Anforderung für jeden Datensatz.
+Andere Muster, die ich verweisen müssen Muster als Batch zu aktualisieren, ist eine gesamte DataSet, DataTable oder Auflistung von DataRows in einem Methodenaufruf zu aktualisieren. Mit diesem Muster ein Entwickler löscht, einfügt, und ändert die DataRows in einer "DataTable" und übergibt dann diese DataRows oder eine Datentabelle in einer Update-Methode. Klicken Sie dann diese Methode zählt die DataRows übergeben, legt fest, ob geändert, hinzugefügt, gelöscht oder wurden haben (über die DataRow [RowState-Eigenschaft](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) Wert), und gibt die entsprechende Datenbank-Anforderung für jeden Datensatz.
 
 
 [![Alle Änderungen werden mit der Datenbank synchronisiert, wenn die Updatemethode aufgerufen wird](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
@@ -339,7 +339,7 @@ Um eine solche benutzerdefinierte Methode erstellen, geben Sie an der DataSet-De
 **Abbildung 25**: Erstellen Sie eine Methode zum Hinzufügen einer Zeile neu, um die **Produkte** Tabelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-data-access-layer-cs/_static/image69.png))
 
 
-Auf dem nächsten Bildschirm die **InsertCommand**des **CommandText** angezeigt wird. Erweitern Sie diese Abfrage durch Hinzufügen von **Bereich auswählen\_IDENTITY()** am Ende der Abfrage, die den letzten Identitätswert eingefügt zurückgegeben wird ein **Identität** Spalte im selben Bereich. (Finden Sie unter der [technische Dokumentation](https://msdn.microsoft.com/en-us/library/ms190315.aspx) Weitere Informationen zu **Bereich\_IDENTITY()** und aus welchem Grund Sie wahrscheinlich möchten [Bereich\_IDENTITY() statt @ @IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Stellen Sie sicher, dass Sie am Ende der **einfügen** -Anweisung mit einem Semikolon vor dem Hinzufügen der **wählen** Anweisung.
+Auf dem nächsten Bildschirm die **InsertCommand**des **CommandText** angezeigt wird. Erweitern Sie diese Abfrage durch Hinzufügen von **Bereich auswählen\_IDENTITY()** am Ende der Abfrage, die den letzten Identitätswert eingefügt zurückgegeben wird ein **Identität** Spalte im selben Bereich. (Finden Sie unter der [technische Dokumentation](https://msdn.microsoft.com/library/ms190315.aspx) Weitere Informationen zu **Bereich\_IDENTITY()** und aus welchem Grund Sie wahrscheinlich möchten [Bereich\_IDENTITY() statt @ @IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Stellen Sie sicher, dass Sie am Ende der **einfügen** -Anweisung mit einem Semikolon vor dem Hinzufügen der **wählen** Anweisung.
 
 
 [![Erweitern Sie die Abfrage aus, um den SCOPE_IDENTITY() Wert zurückzugeben](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
@@ -391,7 +391,7 @@ Nach der Aktualisierung der **GetProducts()** Methode, um mithilfe dieser neuen 
 **Abbildung 30**: die **Produkte** DataTable verfügt über zwei neue Spalten
 
 
-Erkundet zum Aktualisieren der **wählen** -Klausel in der  **GetProductsByCategoryID (*CategoryID*) ** Methode ebenfalls.
+Erkundet zum Aktualisieren der **wählen** -Klausel in der **GetProductsByCategoryID (*CategoryID*)** Methode ebenfalls.
 
 Wenn Sie aktualisieren die **GetProducts()** **wählen** mit **JOIN** Syntax der DataSet-Designer kann nicht die Methoden zum Einfügen, aktualisieren und Löschen von automatisch generiert Datenbankdaten unter Verwendung des DB-direct-Musters. Stattdessen müssen manuell viel Erstellungsvorgang wie mit der **InsertProduct** Methode weiter oben in diesem Lernprogramm. Darüber hinaus manuell haben, geben Sie die **InsertCommand**, **UpdateCommand**, und **DeleteCommand** Eigenschaftswerte, wenn Sie den Batch aktualisieren Muster verwenden möchten.
 
@@ -399,7 +399,7 @@ Wenn Sie aktualisieren die **GetProducts()** **wählen** mit **JOIN** Syntax der
 
 Bis jetzt wurde nur mit einem einzelnen TableAdapter für eine einzelne Datenbanktabelle arbeiten erläutert. Die Northwind-Datenbank enthält jedoch mehrere verwandte Tabellen, die wir zur Bearbeitung in der vorliegenden Webanwendung müssen. Ein typisiertes DataSet mehrere darf im Zusammenhang mit Datentabellen. Unsere DAL Fertigstellung müssen wir daher DataTables für die anderen Tabellen hinzufügen, die wir in diesen Lernprogrammen verwenden. Um einen neuen TableAdapter ein typisiertes DataSet hinzuzufügen, öffnen Sie den DataSet-Designer, mit der rechten Maustaste im Designer und wählen Sie hinzufügen / TableAdapter. Dadurch wird ein neues DataTable und einen TableAdapter erstellen und führt Sie durch den Assistenten, den wir zuvor in diesem Lernprogramm untersucht.
 
-Erstellen Sie die folgenden Methoden, die mithilfe der folgenden Abfragen und TableAdapters einige Minuten dauern. Beachten Sie, dass die Abfragen in der **ProductsTableAdapter** enthalten die Unterabfragen, um Namen für jedes Produkt Kategorie und Lieferanten zu ziehen. Darüber hinaus, wenn Sie bislang befolgt haben zusammen, Sie haben bereits hinzugefügt der **ProductsTableAdapter** Klasse **GetProducts()** und  **GetProductsByCategoryID (*CategoryID*) ** Methoden.
+Erstellen Sie die folgenden Methoden, die mithilfe der folgenden Abfragen und TableAdapters einige Minuten dauern. Beachten Sie, dass die Abfragen in der **ProductsTableAdapter** enthalten die Unterabfragen, um Namen für jedes Produkt Kategorie und Lieferanten zu ziehen. Darüber hinaus, wenn Sie bislang befolgt haben zusammen, Sie haben bereits hinzugefügt der **ProductsTableAdapter** Klasse **GetProducts()** und **GetProductsByCategoryID (*CategoryID* )** Methoden.
 
 - **ProductsTableAdapter**
 
@@ -520,18 +520,18 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Erstellen eine DAL, die mithilfe von stark typisierten TableAdapters und Datentabellen in Visual Studio 2005 und ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [Entwerfen von Datenebenenkomponenten und übergeben von Daten mithilfe von Ebenen](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [Entwerfen von Datenebenenkomponenten und übergeben von Daten mithilfe von Ebenen](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Erstellen Sie eine Datenzugriffsschicht mit DataSet-Designer von Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [Verschlüsseln von Konfigurationsinformationen in ASP.NET 2.0 Anwendungen](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Übersicht über TableAdapters](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Arbeiten mit einem typisierten DataSet](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [Übersicht über TableAdapters](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Arbeiten mit einem typisierten DataSet](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Mithilfe von stark typisierten Datenzugriff in Visual Studio 2005 und ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Gewusst wie: Erweitern Sie diejenigen TableAdapter-Methoden](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Abrufen von skalaren Daten aus einer gespeicherten Prozedur](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Lehrvideos auf die Themen in diesem Lernprogramm
 
-- [Datenzugriffsebene in ASP.NET-Anwendungen](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
+- [Datenzugriffsschichten in ASP.NET-Anwendungen](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
 - [Wie Sie ein Dataset manuell an ein DataGrid-Steuerelement zu binden](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [Wie Arbeiten mit Datasets und Filter aus einer ASP-Anwendung](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 

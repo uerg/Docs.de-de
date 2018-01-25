@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 7
 ====================
@@ -93,7 +93,7 @@ Legen Sie die **einfügen** -Funktion **InsertStudent**. Das Fenster zeigt eine 
 
 In der gleichen **Mappingdetails** Fenster, die Zuordnung der `Update` -Funktion die `UpdateStudent` gespeicherte Prozedur (Stellen Sie sicher, dass Sie angeben `FirstMidName` als Parameterwert für `FirstName`, wie Sie für die `Insert` gespeicherte Systemprozedur) und die `Delete` -Funktion die `DeletePerson` gespeicherte Prozedur.
 
-[![Image01 abgerufen wird](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
 Führen Sie dasselbe Verfahren zum Zuordnen der INSERT-, Update- und Delete-Prozeduren für Lehrkräfte auf die `Instructor` Entität.
 
@@ -135,7 +135,7 @@ Ersetzen Sie dies durch den folgenden Code:
 
 Die Seite nun verwendet der `GetCourses` gespeicherte Prozedur beim Abrufen der Liste aller Kurse. Führen Sie die Seite, um sicherzustellen, dass er funktioniert es hat sich nichts geändert.
 
-(Navigationseigenschaften von Entitäten, die abgerufen, indem eine gespeicherte Prozedur können mit den Daten im Zusammenhang mit diesen Entitäten, die je nach nicht automatisch aufgefüllt `ObjectContext` Standardeinstellungen. Weitere Informationen finden Sie unter [Laden von verknüpften Objekten](https://msdn.microsoft.com/en-us/library/bb896272.aspx) in der MSDN Library.)
+(Navigationseigenschaften von Entitäten, die abgerufen, indem eine gespeicherte Prozedur können mit den Daten im Zusammenhang mit diesen Entitäten, die je nach nicht automatisch aufgefüllt `ObjectContext` Standardeinstellungen. Weitere Informationen finden Sie unter [Laden von verknüpften Objekten](https://msdn.microsoft.com/library/bb896272.aspx) in der MSDN Library.)
 
 In den nächsten Lernprogrammen erfahren Sie, wie Dynamic Data-Funktionen zu verwenden, um das Programm und Testen von Formatierung und Validierung Regeln erleichtern. Statt anzugeben, auf jeder Webseite Regeln wie z. B. Formatzeichenfolgen Daten und davon, ob ein Feld erforderlich ist, können Sie diese Regeln in Daten darin enthaltenen Modellmetadaten angeben und sie automatisch auf jeder Seite angewendet werden.
 

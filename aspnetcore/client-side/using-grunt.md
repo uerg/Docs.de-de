@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core 
 
@@ -101,7 +101,7 @@ Als Nächstes konfigurieren Sie NPM, die zum Herunterladen von Grunt und Grunt-A
     > [!NOTE]
     > NPM verwendet [semantischer versionsverwaltung](http://semver.org/) , Abhängigkeiten zu organisieren. Semantische versionsverwaltung, auch bekannt als SemVer, identifiziert die Pakete mit den Nummerierungsschema <major>.<minor>. <patch>. IntelliSense vereinfacht semantischen versionsverwaltung, indem nur einige allgemeine Optionen angezeigt. Das oberste Element in der Intellisense-Liste (0.4.5 im obigen Beispiel) wird die neueste stabile Version des Pakets betrachtet. Das Caretzeichen (^) Symbol entspricht der aktuellsten Hauptversion und die Tilde (~) entspricht der aktuellsten Nebenversion. Finden Sie unter der [NPM Semver Version Parser Verweis](https://www.npmjs.com/package/semver) als Leitfaden für die vollständige expressivität, die SemVer bereitstellt.
 
-3. Hinzufügen Weitere Abhängigkeiten zu laden grunt-für die Altersvorsorge -\* für Pakete *Bereinigen*, *Jshint*, *Concat*, *uglify*, und *Überwachen* wie im folgenden Beispiel gezeigt. Die Versionen müssen nicht entsprechend das Beispiel.
+3. Hinzufügen Weitere Abhängigkeiten zu laden grunt-für die Altersvorsorge -\* für Pakete *Bereinigen*, *Jshint*, *Concat*, *uglify*, und *Überwachen* wie im folgenden Beispiel gezeigt. Die Versionen müssen nicht im Beispiel übereinstimmen.
 
     ```json
     "devDependencies": {

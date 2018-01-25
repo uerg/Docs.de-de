@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Warteschlange anwendungsorientierte Arbeit Muster (Building Real-World Cloud Apps with Azure)
 ====================
@@ -91,7 +91,7 @@ Um die Warteschlange Muster zu implementieren, müssen wir zwei Änderungen an d
 - Wenn ein Benutzer eine neue korrigieren-Aufgabe sendet, platzieren Sie den Task in der Warteschlange, statt sie auf die Datenbank geschrieben.
 - Erstellen Sie einen Back-End-Dienst, der Nachrichten in der Warteschlange verarbeitet.
 
-Für die Warteschlange verwenden wir die [Azure Warteschlangenspeicherdiensts](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/). Eine andere Möglichkeit ist die Verwendung [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Für die Warteschlange verwenden wir die [Azure Warteschlangenspeicherdiensts](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Eine andere Möglichkeit ist die Verwendung [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 Um zu entscheiden, welche Warteschlangendienst zu verwenden, beachten Sie, wie Ihre app benötigt zum Senden und Empfangen von Nachrichten in der Warteschlange:
 
@@ -106,10 +106,10 @@ Ein weiterer Aspekt ist die Verfügbarkeit der Anwendung. Warteschlangenspeicher
 
 Um eine Aufgabe zu beheben in der Warteschlange zu versetzen, führt das Web-front-End die folgenden Schritte aus:
 
-1. Erstellen einer [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) Instanz. Die `CloudQueueClient` Instanz wird verwendet, um die Anforderungen für den Warteschlangendienst ausgeführt werden.
+1. Erstellen einer [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) Instanz. Die `CloudQueueClient` Instanz wird verwendet, um die Anforderungen für den Warteschlangendienst ausgeführt werden.
 2. Erstellen Sie die Warteschlange aus, wenn er noch nicht vorhanden ist.
 3. Serialisieren Sie die Aufgabe zu beheben.
-4. Rufen Sie [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) , die Nachricht die Warteschlange eingefügt werden soll.
+4. Rufen Sie [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) , die Nachricht die Warteschlange eingefügt werden soll.
 
 Wir erledigen Sie diese dem Konstruktor arbeiten und `SendMessageAsync` Methode eines neuen `FixItQueueManager` Klasse.
 
@@ -117,7 +117,7 @@ Wir erledigen Sie diese dem Konstruktor arbeiten und `SendMessageAsync` Methode 
 
 Hier verwenden wir die [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) Bibliothek die Fixit in JSON-Format serialisiert. Sie können unabhängig vom gewählten Ansatz Serialisierung gewünscht. JSON hat den Vorteil, dass lesbare, während weniger aufwändig als XML.
 
-Professionell Code würde Fehlerbehandlungslogik hinzufügen, anhalten, wenn die Datenbank nicht verfügbar war Recovery mehr ordnungsgemäß behandeln, die Warteschlange beim Start der Anwendung erstellen und verwalten "[für potenziell schädliche Nachrichten" Nachrichten](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx). (Eine nicht verarbeitbare Nachricht ist eine Nachricht, die aus irgendeinem Grund nicht verarbeitet werden kann. Sie möchten schließlich nicht nicht verarbeitbare Nachrichten ungefähr in der Warteschlange, in denen die Worker-Rolle fortlaufend versucht, verarbeiten, schlägt fehl, versuchen Sie es erneut, fehlschlagen und usw.)
+Professionell Code würde Fehlerbehandlungslogik hinzufügen, anhalten, wenn die Datenbank nicht verfügbar war Recovery mehr ordnungsgemäß behandeln, die Warteschlange beim Start der Anwendung erstellen und verwalten "[für potenziell schädliche Nachrichten" Nachrichten](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Eine nicht verarbeitbare Nachricht ist eine Nachricht, die aus irgendeinem Grund nicht verarbeitet werden kann. Sie möchten schließlich nicht nicht verarbeitbare Nachrichten ungefähr in der Warteschlange, in denen die Worker-Rolle fortlaufend versucht, verarbeiten, schlägt fehl, versuchen Sie es erneut, fehlschlagen und usw.)
 
 In der Front-End-MVC-Anwendung müssen Sie den Code aktualisieren, der eine neue Aufgabe erstellt. Rufen Sie probieren die Aufgabe, in das Repository, Sie anstelle der `SendMessageAsync` oben gezeigten Methode.
 
@@ -156,7 +156,7 @@ Klicken Sie auf **OK** um das Dialogfeld "abzuschließen. Dadurch wird der Visua
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Weitere Informationen finden Sie unter [erstellen ein Azure-Projekts mit Visual Studio.](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+Weitere Informationen finden Sie unter [erstellen ein Azure-Projekts mit Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 Innerhalb der Worker-Rolle wir Nachrichten abrufen durch Aufrufen der `ProcessMessageAsync` Methode der `FixItQueueManager` -Klasse, die wir bereits kennen.
 
@@ -168,7 +168,7 @@ Die `ProcessMessagesAsync` Methode überprüft, ob es eine Nachricht wartet. Sof
 
 Abrufen der Warteschlangennachrichten verursacht eine kleine Transaktion in Rechnung zu stellen, wenn keine Nachricht, die noch verarbeitet werden müssen, es ist also der Worker-Rolle `RunAsync` -Methode wartet vor dem Abruf erneut durch Aufrufen von `Task.Delay(1000)`.
 
-In einem Webprojekt verbessert Hinzufügen von asynchronen Code automatisch Leistung, da IIS einen begrenzten Threadpool verwaltet. Also nicht der Fall in einem workerrollenprojekt. Zum Verbessern der Skalierbarkeit der workerrolle können Sie mit mehreren Threads Code schreiben oder verwenden Sie asynchronen Code implementieren [parallele Programmierung](https://msdn.microsoft.com/en-us/library/ff963553.aspx). Das Beispiel implementiert nicht die parallele Programmierung, jedoch wird gezeigt, wie der Code asynchron auszuführen, damit Sie parallele Programmierung implementieren können.
+In einem Webprojekt verbessert Hinzufügen von asynchronen Code automatisch Leistung, da IIS einen begrenzten Threadpool verwaltet. Also nicht der Fall in einem workerrollenprojekt. Zum Verbessern der Skalierbarkeit der workerrolle können Sie mit mehreren Threads Code schreiben oder verwenden Sie asynchronen Code implementieren [parallele Programmierung](https://msdn.microsoft.com/library/ff963553.aspx). Das Beispiel implementiert nicht die parallele Programmierung, jedoch wird gezeigt, wie der Code asynchron auszuführen, damit Sie parallele Programmierung implementieren können.
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -184,11 +184,11 @@ Weitere Informationen zu Warteschlangen finden Sie unter den folgenden Ressource
 Dokumentation:
 
 - [Microsoft Azure-Speicher-Warteschlangen Teil 1: Erste Schritte](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Artikel von Roman Schacherl.
-- [Ausführen von Hintergrundaufgaben](https://msdn.microsoft.com/en-us/library/ff803365.aspx), Kapitel 5 [Verschieben von Anwendungen in der Cloud, 3. Edition](https://msdn.microsoft.com/en-us/library/ff728592.aspx) aus Microsoft Patterns and Practices. (Insbesondere den Abschnitt ["Mithilfe der Azure-Speicher-Warteschlangen"](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).)
-- [Bewährte Methoden zum Maximieren der Skalierbarkeit und Wirtschaftlichkeit von Warteschlangenbasierten Messaging-Lösungen unter Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx). Whitepaper von Valery Mizonov.
-- [Vergleich zwischen Azure-Warteschlangen und Servicebus-Warteschlangen](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx). MSDN Magazine-Artikel enthält zusätzliche Informationen, die Ihnen bei der Auswahl der Warteschlangendienst verwenden kann. Der Artikel erwähnt, dass Service Bus ACS für die Authentifizierung abhängig dies, dass die Servicebus-Warteschlangen wäre nicht verfügbar ist bedeutet, wenn ACS nicht verfügbar ist. Jedoch, da der Artikel geschrieben wurde, SB wurde geändert, um Sie verwenden können [SAS-Token](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx) als Alternative zum ACS.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Finden Sie unter Primer asynchrones Messaging, Pipes und Filter (Muster), kompensierende Transaktion Muster, konkurrierende Consumer-Muster, CQRS-Muster.
-- [CQRS-Reise](https://msdn.microsoft.com/en-us/library/jj554200). E-Book zu CQRS vom Microsoft Patterns and Practices.
+- [Ausführen von Hintergrundaufgaben](https://msdn.microsoft.com/library/ff803365.aspx), Kapitel 5 [Verschieben von Anwendungen in der Cloud, 3. Edition](https://msdn.microsoft.com/library/ff728592.aspx) aus Microsoft Patterns and Practices. (Insbesondere den Abschnitt ["Mithilfe der Azure-Speicher-Warteschlangen"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Bewährte Methoden zum Maximieren der Skalierbarkeit und Wirtschaftlichkeit von Warteschlangenbasierten Messaging-Lösungen unter Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Whitepaper von Valery Mizonov.
+- [Vergleich zwischen Azure-Warteschlangen und Servicebus-Warteschlangen](https://msdn.microsoft.com/magazine/jj159884.aspx). MSDN Magazine-Artikel enthält zusätzliche Informationen, die Ihnen bei der Auswahl der Warteschlangendienst verwenden kann. Der Artikel erwähnt, dass Service Bus ACS für die Authentifizierung abhängig dies, dass die Servicebus-Warteschlangen wäre nicht verfügbar ist bedeutet, wenn ACS nicht verfügbar ist. Jedoch, da der Artikel geschrieben wurde, SB wurde geändert, um Sie verwenden können [SAS-Token](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) als Alternative zum ACS.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Finden Sie unter Primer asynchrones Messaging, Pipes und Filter (Muster), kompensierende Transaktion Muster, konkurrierende Consumer-Muster, CQRS-Muster.
+- [CQRS-Reise](https://msdn.microsoft.com/library/jj554200). E-Book zu CQRS vom Microsoft Patterns and Practices.
 
 Video:
 

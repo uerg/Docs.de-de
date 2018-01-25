@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Einführung in die Abhängigkeitsinjektion in ASP.NET Core
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 
 Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.com)
 
-ASP.NET Core dient zur Unterstützung und Abhängigkeitsinjektion Nutzen von Grund auf neu einrichten. ASP.NET Core-Anwendungen können integriertes Framework Services, wenn diese in Methoden, die in die Startklasse eingeschleust nutzen und Anwendungsdienste für Injection ebenfalls konfiguriert werden können. Der von ASP.NET Core bereitgestellten Dienste Standardcontainer bietet eine minimale Funktion festgelegt und sollte nicht auf andere Container zu ersetzen.
+ASP.NET Core dient zur Unterstützung und Abhängigkeitsinjektion Nutzen von Grund auf neu einrichten. ASP.NET Core-Anwendungen können integriertes Framework Services, wenn diese in Methoden, die in die Startklasse eingeschleust nutzen und Anwendungsdienste für Injection ebenfalls konfiguriert werden können. Der von ASP.NET Core bereitgestellten Dienste Standardcontainer bietet eine minimale Funktion festgelegt und ist nicht vorgesehen, um andere Container zu ersetzen.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
@@ -30,7 +30,7 @@ ASP.NET Core dient zur Unterstützung und Abhängigkeitsinjektion Nutzen von Gru
 
 Abhängigkeiteneinschleusung (DI) ist eine Technik zum Erreichen einer losen Kopplung zwischen Objekten und ihren Mitarbeitern oder Abhängigkeiten. Statt direkt instanziieren Projektmitarbeiter oder der Code statische Verweise verwenden werden die Objekte, die eine Klasse benötigt wird, um ihre Aktionen, auf die Klasse in irgendeiner Weise bereitgestellt. In den meisten Fällen werden Klassen deklarieren ihre Abhängigkeiten über ihren Konstruktor, der ihnen ermöglicht, befolgen die [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/). Dieser Ansatz wird als "Konstruktoreinfügung" bezeichnet.
 
-Bei Klassen mit DI entworfen werden, sind sie besser lose gekoppelt, da sie nicht direkte und hartcodierten Abhängigkeiten für ihre Mitarbeiter verfügen. Dies folgt dem [Abhängigkeit Umkehrung Prinzip](http://deviq.com/dependency-inversion-principle/), der gibt an, dass *"hohe Ebene Module sollten nicht auf niedriger Ebene Module abhängen; beide sollte Abstraktionen abhängen."* Anstelle von Verweisen auf bestimmte Implementierungen Klassen Abstraktionen anfordern (in der Regel `interfaces`) die werden Ihnen bereitgestellt, wenn die Klasse erstellt wird. Extrahieren von Abhängigkeiten in Schnittstellen und Implementierungen dieser Schnittstellen als Parameter bereitstellen, ist auch ein Beispiel für die [Strategie Entwurfsmuster](http://deviq.com/strategy-design-pattern/).
+Bei Klassen mit DI entworfen werden, sind sie Lose gekoppelt, da diese keine direkte, hartcodierte Abhängigkeiten für ihre Mitarbeiter haben. Dies folgt dem [Abhängigkeit Umkehrung Prinzip](http://deviq.com/dependency-inversion-principle/), der gibt an, dass *"hohe Ebene Module darf nicht auf niedriger Ebene Module abhängen;" sollte sowohl Abstraktionen abhängen."* Anstelle von Verweisen auf bestimmte Implementierungen Klassen Abstraktionen anfordern (in der Regel `interfaces`) die werden Ihnen bereitgestellt, wenn die Klasse erstellt wird. Extrahieren von Abhängigkeiten in Schnittstellen und Implementierungen dieser Schnittstellen als Parameter bereitstellen, ist auch ein Beispiel für die [Strategie Entwurfsmuster](http://deviq.com/strategy-design-pattern/).
 
 Wenn ein System mit DI konzipiert ist, ist es mit vielen Klassen anfordern ihre Abhängigkeiten über ihren Konstruktor (oder Eigenschaften) hilfreich, wenn eine Klasse, die für diese Klassen mit ihren zugehörigen Abhängigkeiten erstellen können. Diese Klassen werden als bezeichnet *Container*, genauer gesagt, [Inversion of Control (IoC)](http://deviq.com/inversion-of-control/) Container oder Container (Dependency Injection, DI). Ein Container ist im Wesentlichen eine Factory, die ist verantwortlich für das Bereitstellen von Instanzen von Typen, die von ihm angefordert werden. Wenn ein bestimmten Typs deklariert hat, dass sie Abhängigkeiten und der Container konfiguriert wurde, dass die Abhängigkeit Typen bereitzustellen, erstellt er die Abhängigkeiten im Rahmen der Erstellung der angeforderten Instanz. Auf diese Weise können komplexe Abhängigkeitsdiagramme auf Klassen ohne die Notwendigkeit für alle hartcodierten Objektkonstruktion bereitgestellt werden. Zusätzlich zum Erstellen von Objekten mit deren Abhängigkeiten, Verwalten von Containern in der Regel Objektlebensdauer innerhalb der Anwendung.
 
@@ -112,7 +112,7 @@ Sie können eigene Anwendungsdienste wie folgt registrieren. Der erste generisch
 
 Die `AddTransient` Methode wird verwendet, um die konkrete Services abstrakte Typen zuordnen, die separat für jedes Objekt instanziiert, der dies erfordert. Dies bezeichnet man des Diensts *Lebensdauer*, und zusätzliche Lebensdauer Optionen sind im folgenden beschrieben. Es ist wichtig, eine entsprechende Lebensdauer für jeden der Dienste auszuwählen, die Sie registrieren. Sollte eine neue Instanz des Diensts für die einzelnen Klassen werden bereitgestellt, die diese anfordert? Eine Instanz in einer bestimmten webanforderung verwendet werden soll? Oder sollte für die Lebensdauer der Anwendung eine einzelne Instanz verwendet werden?
 
-Im Beispiel für diesen Artikel ein einfachen Controller, der Zeichennamen aufgerufen zeigt besteht `CharactersController`. Die `Index` Methode zeigt die aktuelle Liste von Zeichen, die in der Anwendung gespeichert worden sind, und initialisiert die Auflistung mit einer Reihe von Zeichen, wenn kein Wert vorhanden ist. Beachten Sie, dass, obwohl diese Anwendung verwendet die Entity Framework Core und die `ApplicationDbContext` Klasse für die Beibehaltung, none, ist offensichtlich, im Controller. Stattdessen wurde die spezifischen Daten Zugriffsmechanismus hinter einer Schnittstelle abstrahiert `ICharacterRepository`, folgt die [Repositorymusters](http://deviq.com/repository-pattern/). Eine Instanz von `ICharacterRepository` angefordert wird, über den Konstruktor und die dann verwendet wird, Zeichen nach Bedarf den Zugriff auf ein privates Feld zugewiesen wird.
+Im Beispiel für diesen Artikel ein einfachen Controller, der Zeichennamen aufgerufen zeigt besteht `CharactersController`. Die `Index` Methode zeigt die aktuelle Liste von Zeichen, die in der Anwendung gespeichert worden sind, und initialisiert die Auflistung mit einer Reihe von Zeichen, wenn kein Wert vorhanden ist. Beachten Sie, dass, obwohl diese Anwendung verwendet die Entity Framework Core und die `ApplicationDbContext` für die Beibehaltung, keine Klasse, die im Controller offensichtlich ist. Stattdessen wurde die spezifischen Daten Zugriffsmechanismus hinter einer Schnittstelle abstrahiert `ICharacterRepository`, folgt die [Repositorymusters](http://deviq.com/repository-pattern/). Eine Instanz von `ICharacterRepository` angefordert wird, über den Konstruktor und die dann verwendet wird, Zeichen nach Bedarf den Zugriff auf ein privates Feld zugewiesen wird.
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -120,7 +120,7 @@ Die `ICharacterRepository` definiert die zwei Methoden, die der Controller zur B
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
-Diese Schnittstelle wird wiederum von einem konkreten Typ implementiert `CharacterRepository`, d. h. zur Laufzeit verwendet.
+Diese Schnittstelle wird wiederum von einem konkreten Typ implementiert `CharacterRepository`, die zur Laufzeit verwendet wird.
 
 > [!NOTE]
 > Die Möglichkeit DI wird verwendet, mit der `CharacterRepository` Klasse ist ein allgemeines Modell können Sie für alle Anwendungsdienste, nicht nur in "Repositorys" oder Datenzugriffsklassen befolgen.
@@ -149,7 +149,7 @@ ASP.NET-Dienste können mit den folgenden Lebensdauer konfiguriert werden:
 
 **Transient**
 
-Vorübergehender Lebensdauerdienste werden jedes Mal erstellt, die sie angefordert werden. Diese Lebensdauer funktioniert am besten geeignet für einfache, zustandslose Dienste.
+Vorübergehender Lebensdauerdienste werden jedes Mal erstellt, die sie angefordert haben. Diese Lebensdauer funktioniert am besten geeignet für einfache, zustandslose Dienste.
 
 **Im Bereich**
 
@@ -157,7 +157,7 @@ Bereichsbezogene Lebensdauerdienste werden einmal pro Anforderung erstellt.
 
 **Singleton**
 
-Singleton-Lebensdauerdienste werden beim ersten angefordert werden erstellt (oder wenn `ConfigureServices` ausgeführt wird, wenn Sie angeben, dass es eine Instanz) und verwenden Sie dann jede nachfolgende Anforderung wird dieselbe Instanz. Wenn Ihre Anwendung Laufzeitverhalten von Singleton erfordert, wird ermöglicht den Container zum Verwalten der Lebensdauer des Diensts empfohlen, statt Implementieren des Entwurfsmusters Singleton und Objektlebensdauer in der Klasse selbst verwalten.
+Singleton-Lebensdauerdienste sind zum ersten Mal, die sie angefordert haben erstellt (oder wenn `ConfigureServices` ausgeführt wird, wenn Sie angeben, dass es eine Instanz) und verwenden Sie dann jede nachfolgende Anforderung wird dieselbe Instanz. Wenn Ihre Anwendung Laufzeitverhalten von Singleton erfordert, wird ermöglicht den Container zum Verwalten der Lebensdauer des Diensts empfohlen, statt Implementieren des Entwurfsmusters Singleton und Objektlebensdauer in der Klasse selbst verwalten.
 
 Dienste können mit dem Container auf verschiedene Arten registriert werden. Wir haben bereits gesehen, wie eine dienstimplementierung mit einem angegebenen Typ registrieren, indem der konkrete Typ verwenden. Darüber hinaus kann eine Factory angegeben werden, die zum Erstellen der Instanz bei Bedarf verwendet werden soll. Der dritte Ansatz darin ist die Instanz des Typs zu verwenden, direkt angeben, in dem Fall Container versucht nie zum Erstellen einer Instanz (noch dispose der Instanz wird).
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> In Version 1.0 der Container Dispose für aufgerufen *alle* `IDisposable` Objekte, einschließlich der er erstellt wurde.
+> In Version 1.0 der Container Dispose für aufgerufen *alle* `IDisposable` Objekte, einschließlich der nicht erstellen.
 
 ## <a name="replacing-the-default-services-container"></a>Ersetzen der Standardcontainer für Dienste
 
@@ -310,7 +310,7 @@ Bei der Arbeit mit Abhängigkeitsinjektion Bedenken Sie die folgenden Empfehlung
 > [!NOTE]
 > Wie alle Sätze von Empfehlungen kann es Situationen, in denen ignorieren einer erforderlich ist. Wir haben Ausnahmen selten--größtenteils sehr spezielle Fälle im Framework selbst gefunden werden.
 
-Beachten Sie, dass Dependency Injection-Angriff wird ein *alternative* , Zugriffsmuster statischen/global-Objekt. Sie werden nicht kann die Vorzüge des DI Wenn Sie es mit Zugriff auf statische Objekte kombinieren.
+Beachten Sie, dass Dependency Injection-Angriff wird ein *alternative* , Zugriffsmuster statischen/global-Objekt. Kann nicht auf die Vorzüge des DI Wenn Sie es mit Zugriff auf statische Objekte kombinieren.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

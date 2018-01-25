@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 167cd24d27977c3652f6a8903054654f5edf7756
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bda5148a4c1553d70f3173de66371fbb8576e83f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>UnitTests Controller in ASP.NET Web API 2
 ====================
@@ -68,7 +68,7 @@ Die `Post` Methodenaufrufe **UrlHelper.Link** zum Erstellen von Links in der Ant
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample3.cs)]
 
-Die **UrlHelper** Klasse benötigt der Anforderungsdaten URL und die Routenwerte verwendet werden, weshalb der Test für diese Werte festgelegt. Eine andere Möglichkeit besteht, Mock oder Stub **UrlHelper**. Bei diesem Ansatz, ersetzen Sie den Standardwert [ApiController.Url](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.url.aspx) mit einer Mock oder Stub-Version, die einen festen Wert zurückgibt.
+Die **UrlHelper** Klasse benötigt der Anforderungsdaten URL und die Routenwerte verwendet werden, weshalb der Test für diese Werte festgelegt. Eine andere Möglichkeit besteht, Mock oder Stub **UrlHelper**. Bei diesem Ansatz, ersetzen Sie den Standardwert [ApiController.Url](https://msdn.microsoft.com/library/system.web.http.apicontroller.url.aspx) mit einer Mock oder Stub-Version, die einen festen Wert zurückgibt.
 
 Wir schreiben Sie den Test mit der [Moq](https://github.com/Moq) Framework. Installieren der `Moq` NuGet-Paket im Testprojekt befindet.
 

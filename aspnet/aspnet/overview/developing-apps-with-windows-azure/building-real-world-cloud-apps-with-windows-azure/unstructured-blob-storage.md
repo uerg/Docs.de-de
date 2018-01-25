@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 6cb77e8ef301c2eeef7df3e391e14f4e2c0364e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Unstrukturierte Blob-Speicher (Building Real-World Cloud Apps with Azure)
 ====================
@@ -33,7 +33,7 @@ Im vorherigen Kapitel wir Partitionierungsschemas betrachtet und erläutert, wie
 
 Der Azure-Speicher-Blob-Dienst bietet eine Möglichkeit zum Speichern von Dateien in der Cloud. Der Blob-Dienst verfügt über eine Reihe von Vorteilen gegenüber der Speicherung von Dateien in einem lokalen Netzwerk-Dateisystem:
 
-- Es ist äußerst skalierbar. Ein einzelnes Speicherkonto speichern kann [Hunderte von Terabyte](https://msdn.microsoft.com/en-us/library/windowsazure/dn249410.aspx), und Sie können mehrere Speicherkonten haben. Einige der wichtigsten Kunden von Azure speichern Hunderte von Petabytes. Microsoft SkyDrive verwendet Blob-Speicher.
+- Es ist äußerst skalierbar. Ein einzelnes Speicherkonto speichern kann [Hunderte von Terabyte](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), und Sie können mehrere Speicherkonten haben. Einige der wichtigsten Kunden von Azure speichern Hunderte von Petabytes. Microsoft SkyDrive verwendet Blob-Speicher.
 - Es ist dauerhaft. Jede Datei, die Sie in den Blob-Dienst speichern wird automatisch gesichert.
 - Es bietet eine hohe Verfügbarkeit. Die [SLA zum Speicher](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) Zusagen 99,9 % oder 99,99 % Verfügbarkeit, je nach ausgewählter Option Geo-Redundanz gewünscht.
 - Es ist eine Platform-as-a-Service (PaaS)-Funktion von Azure, was bedeutet, dass Sie nur zu speichern und Abrufen von Dateien, die nur für die tatsächliche Menge an Speicherplatz, die Sie verwenden, und Azure automatisch übernimmt das Einrichten und verwalten alle virtuellen Computer und Laufwerke, die erforderlich sind, für die -Dienst.
@@ -146,7 +146,7 @@ Weitere Informationen finden Sie unter den folgenden Ressourcen:
 - [Eine Einführung in Azure BLOB-Speicher](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Blog von Mike Holz.
 - [Gewusst wie: Verwenden des Azure-Blob-Speicherdiensts in .NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Offizieller Dokumentation auf der Website MicrosoftAzure.com. Eine kurze Einführung in den blob-Speicher, gefolgt von Codebeispielen, die Darstellung des Blob-Speicher verbinden Container erstellen, hochladen und Herunterladen von Blobs usw.
 - [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Videoreihe Marc Mercuri, Ulrich Homann und Mark Simms neun Teil. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Eine Erläuterung der Azure-Speicherdienst und Blobs finden Sie in der Folge 5 35:13 ab.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Siehe Valet Schlüssel Muster.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Siehe Valet Schlüssel Muster.
 
 >[!div class="step-by-step"]
 [Zurück](data-partitioning-strategies.md)

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 9a0fb52a1d1a62bce3f11c7e0394c00b9d544ab3
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 7b0a3f73efd1d30b903b3258bea2082792eb6e8c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrationen - EF-Core mit Razor-Seiten Lernprogramm (4 von 8)
 
@@ -54,7 +54,7 @@ In der *appsettings.json* Datei, ändern Sie den Namen der Datenbank in der Verb
 
 [!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Ändern der DB-Name in der Verbindungszeichenfolge bewirkt, dass die erste Migration zu eine neue Datenbank zu erstellen. Eine neue Datenbank wird erstellt, da eine mit diesem Namen nicht vorhanden ist. Die Verbindungszeichenfolge ändern, ist nicht erforderlich für erste Schritte mit Migrationen.
+Ändern der DB-Name in der Verbindungszeichenfolge bewirkt, dass die erste Migration zu eine neue Datenbank zu erstellen. Eine neue Datenbank wird erstellt, da eine mit diesem Namen vorhanden ist. Die Verbindungszeichenfolge ändern, ist nicht erforderlich für erste Schritte mit Migrationen.
 
 Eine Alternative zum Ändern der DB-Name ist die Datenbank gelöscht. Verwendung **Objekt-Explorer von SQL Server** (SSOX) oder die `database drop` CLI-Befehl:
 
@@ -130,7 +130,7 @@ Der Datenbankmomentaufnahme-Datei muss mit die Migrationen synchron sein, der Si
 Bei frühen-Bereitstellung müssen die `EnsureCreated` -Befehl wurde verwendet. In diesem Lernprogramm wird die Migrationen verwendet. `EnsureCreated`verfügt über die folgenden Einschränkungen:
 
 * Migrationen umgangen wird und die DB- und das Schema erstellt.
-* Eine Tabelle Migrationen wird nicht erstellt werden.
+* Eine Tabelle Migrationen nicht erstellt werden.
 * Können *nicht* mit Migrationen verwendet werden.
 * Dient zum Testen oder schnellen Prototyping, in dem die Datenbank gelöscht und neu erstellt häufig.
 
@@ -189,7 +189,7 @@ Führen Sie die app, und stellen Sie sicher, dass alles funktioniert.
 
 ## <a name="appling-migrations-in-production"></a>Appling Migrationen in der Produktion
 
-Es wird empfohlen, sollte der Produktion apps **nicht** Aufrufen [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart. `Migrate`sollte nicht von einer app in der Serverfarm aufgerufen werden. Beispielsweise, wenn die app wurde Cloud mit horizontaler Skalierung (mehrere Instanzen der app ausgeführt werden) bereitgestellt.
+Es wird empfohlen, sollte der Produktion apps **nicht** Aufrufen [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart. `Migrate`darf nicht von einer app in der Serverfarm aufgerufen werden. Beispielsweise, wenn die app wurde Cloud mit horizontaler Skalierung (mehrere Instanzen der app ausgeführt werden) bereitgestellt.
 
 Datenbankmigration sollte im Rahmen der Bereitstellung, und klicken Sie auf kontrollierte Weise erfolgen. Produktion Datenbank Migrationsansätze gehören:
 
@@ -210,7 +210,7 @@ Dieses Lernprogramm zeigt, wie die CLI, einige Entwickler bevorzugen, mit der Sy
 
 Die EF Kernbefehle für die PMC befinden sich in der [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) Paket. Dieses Paket ist in enthalten die [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) Metapackage, daher ist es nicht, es zu installieren.
 
-**Wichtig:** Dies ist nicht das gleiche Paket mit dem Sie für die CLI, indem Sie die Bearbeitung Installieren der *csproj* Datei. Der Name dieser endet `Tools`, im Gegensatz zu den CLI-Paketnamen die endet in `Tools.DotNet`.
+**Wichtig:** dieses Element wird nicht das gleiche Paket mit dem Sie für die CLI, indem Sie die Bearbeitung Installieren der *csproj* Datei. Der Name dieser endet `Tools`, im Gegensatz zu den CLI-Paketnamen die endet in `Tools.DotNet`.
 
 Weitere Informationen zu CLI-Befehlen finden Sie unter [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
 

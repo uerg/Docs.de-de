@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3de952224e23eed29f90ed0e8c662e4ee3f531ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-4"></a>Was ist neu in ASP.NET MVC 4
 ====================
 durch [Web Lager Team](https://twitter.com/webcamps)
 
-[Herunterladen von Web-Lager Training Kit](http://www.microsoft.com/en-us/download/29843)
+[Herunterladen von Web-Lager Training Kit](http://www.microsoft.com/download/29843)
 
 > ASP.NET MVC 4 ist ein Framework zum Erstellen von skalierbaren, standardbasierte Windows-Webanwendungen, die unter Verwendung von bewährte Entwurfsmuster geeinigt und die Leistung von ASP.NET und .NET Framework. Diese neue, vierte Version des Frameworks konzentriert sich auf die mobile Anwendung Webentwicklung einfacher zu machen.
 > 
@@ -30,7 +30,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > In dieser praktischen Übungseinheit, beginnen Sie mit der ASP.NET MVC 4 &quot;Internetanwendung&quot; Projektvorlage für eine Fotogalerie-Anwendung zu erstellen. Sie werden schrittweise erhöhen, die app mithilfe von jQuery Mobile und ASP.NET MVC 4 neuen Funktionen, die um sie mit anderen mobilen Geräten und desktop Webbrowsern kompatibel zu machen. Außerdem lernen Sie neuen Code Know-how für die codegenerierung und wie ASP.NET MVC 4 asynchrone Aktionsmethoden schreiben, durch die Unterstützung einer Aufgabe erleichtert&lt;ActionResult&gt; Rückgabetypen.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -56,7 +56,7 @@ Sie benötigen zum Abschließen dieser testumgebung die folgenden Elemente:
 
 - [Microsoft Visual Studio Express 2012 für das Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) oder sogar eine höhere (Lesen [Anhang B](#AppendixB) Anleitungen zur Installation).
 - [ASP.NET MVC 4](../../../mvc4.md) (enthalten in der Microsoft Visual Studio 2012-Installation)
-- Windows Phone-Emulator (enthalten der [Windows Phone 7.1.1 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=29233))
+- Windows Phone-Emulator (enthalten der [Windows Phone 7.1.1 SDK](https://www.microsoft.com/download/details.aspx?id=29233))
 - Optional – [WebMatrix 2](https://www.microsoft.com/web/webmatrix/) mit **Electric Plum iPhone-Simulator** -Erweiterung (nur für Übung 3 verwendet, um die Webanwendung mit einem iPhone-Simulator durchsuchen)
 
 <a id="Setup"></a>
@@ -345,7 +345,7 @@ In dieser Aufgabe aktualisieren Sie die Homepage, um die Fotogalerie mithilfe de
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-4. Öffnen der **HomeController.cs** -Datei von der **Controller** Ordner.
+4. Öffnen Sie im Ordner **Controller** die Datei **HomeController.cs**.
 5. Fügen Sie die folgenden using-Anweisungen hinzu.
 
     (Codeausschnitt - *ASP.NET MVC 4 Lab - Ex02 - HomeController Using-Direktiven*)
@@ -611,7 +611,7 @@ In dieser Aufgabe erstellen Sie ein benutzerdefiniertes Layout für iPhone-Gerä
 7. Drücken Sie **F5** führen Sie die Anwendung, und suchen den Standort in der **Windows Phone-Emulator**.
 8. Öffnen einer **iPhone-Simulator** (finden Sie unter [Anhang C](#AppendixC) Anweisungen zum Installieren und konfigurieren einen iPhone-Simulator), und wechseln Sie zur Website zu. Beachten Sie, dass die betreffende Vorlage jedes Telefon verwendet.
 
-    ![Using-different-Views-for-each-Mobile-Device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Verwenden verschiedene Ansichten für jedes mobile Gerät*
 
@@ -622,7 +622,7 @@ In dieser Aufgabe erstellen Sie ein benutzerdefiniertes Layout für iPhone-Gerä
 
 Microsoft .NET Framework 4.5 führt neue Sprachfeatures in c# und Visual Basic um ein neues Fundament für Asynchronie in der .NET-Programmierung bereitzustellen. Diese neue Foundation stellt asynchrone Programmierung, - ähnelt und ungefähr so einfach wie das - synchronen Programmierung. Sie können nun schreiben Sie asynchrone Aktionsmethoden in ASP.NET MVC 4 mithilfe der **AsyncController im Vergleich zum** Klasse. Sie können asynchrone Aktionsmethoden für lang andauernde, nicht CPU-gebundene Anforderungen. Dadurch wird vermieden, dass der Webserver aus arbeiten ausführen, während die Anforderung verarbeitet wird. AsyncController im Vergleich zum Klasse dient normalerweise für lang andauernde Webdienstaufrufe.
 
-In dieser Übung erläutert die Grundlagen des asynchronen Vorgangs in ASP.NET MVC 4. Wenn Sie eine Vertiefung möchten, können Sie sehen Sie sich im folgenden Artikel: [ [https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)
+In dieser Übung erläutert die Grundlagen des asynchronen Vorgangs in ASP.NET MVC 4. Wenn Sie eine Vertiefung möchten, können Sie sehen Sie sich im folgenden Artikel: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>Aufgabe 1: Implementieren eines asynchronen Controllers
@@ -882,7 +882,7 @@ Um Ihre Website in einem simulierten iPhone-Gerät ausführen können Sie die We
 
     ![WebMatrix-Erweiterung EULA](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix-Erweiterung EULA")
 
-    *WebMatrix-Erweiterung EULA*
+    *WebMatrix extension EULA*
 6. Jetzt können Sie Ihre Website von WebMatrix ausführen, mit der iPhone-Simulator-Option.
 
     ![Führen Sie mithilfe von iPhone](whats-new-in-aspnet-mvc-4/_static/image57.png "mit iPhone ausgeführt")
@@ -903,7 +903,7 @@ Um Ihre Website in einem simulierten iPhone-Gerät ausführen können Sie die We
 3. In der &quot;Browserauswahl&quot; Dialogfeld klicken Sie auf **hinzufügen**.
 4. In der &quot;Programm hinzufügen&quot; Dialogfeld, verwenden Sie die folgenden Werte:
 
-    - **Programm**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(Aktualisieren Sie den Pfad entsprechend)*
+    - **Program**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(update the path accordingly)*
     - **Argumente**: &quot;1&quot;
     - **Anzeigename**: iPhone-Simulator
 
@@ -968,7 +968,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Windows Azure websites.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](whats-new-in-aspnet-mvc-4/_static/image67.png "der Website herunterladen eines Veröffentlichungsprofils")
 

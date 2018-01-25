@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.topic: article
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -34,9 +34,9 @@ Allgemeine `Cache-Control` Direktiven sind in der folgenden Tabelle gezeigt.
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Ein Cache möglicherweise die Antwort zu speichern. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Die Antwort muss von einem geteilten Datencache nicht gespeichert werden. Ein privater Cache möglicherweise speichern und wiederverwenden die Antwort. |
-| [Max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Der Client wird nicht als eine Antwort nicht akzeptiert, deren Alter größer als die angegebene Anzahl von Sekunden ist. Beispiele: `max-age=60` (60 Sekunden), `max-age=2592000` (1 Monat) |
-| [ohne-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Für Anforderungen**: ein Caches muss nicht gespeicherte Antwort zum Erfüllen der Anforderung verwenden. Hinweis: Ursprungsservers wird erneut die Antwort für den Client generiert und die Middleware aktualisiert die gespeicherte Antwort in seinem Cache.<br><br>**Auf Antworten**: die Antwort dürfen nicht für eine nachfolgende Anforderung ohne Überprüfung auf dem Ursprungsserver verwendet werden. |
-| [ohne-Speicher](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Für Anforderungen**: Speichern ein Caches muss nicht die Anforderung.<br><br>**Auf Antworten**: ein Caches muss einen beliebigen Teil der Antwort nicht speichern. |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Der Client wird nicht als eine Antwort nicht akzeptiert, deren Alter größer als die angegebene Anzahl von Sekunden ist. Beispiele: `max-age=60` (60 Sekunden), `max-age=2592000` (1 Monat) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Für Anforderungen**: ein Caches muss nicht gespeicherte Antwort zum Erfüllen der Anforderung verwenden. Hinweis: Ursprungsservers wird erneut die Antwort für den Client generiert und die Middleware aktualisiert die gespeicherte Antwort in seinem Cache.<br><br>**Auf Antworten**: die Antwort dürfen nicht für eine nachfolgende Anforderung ohne Überprüfung auf dem Ursprungsserver verwendet werden. |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Für Anforderungen**: Speichern ein Caches muss nicht die Anforderung.<br><br>**Auf Antworten**: ein Caches muss einen beliebigen Teil der Antwort nicht speichern. |
 
 Andere Cacheheader, die eine Rolle am caching spielen sind in der folgenden Tabelle gezeigt.
 
@@ -45,7 +45,7 @@ Andere Cacheheader, die eine Rolle am caching spielen sind in der folgenden Tabe
 | [ALTER](https://tools.ietf.org/html/rfc7234#section-5.1)     | Eine Schätzung der die Zeitdauer in Sekunden seit die Antwort generiert wurde, oder auf dem Ausgangsserver erfolgreich überprüft. |
 | [Läuft ab](https://tools.ietf.org/html/rfc7234#section-5.3) | Das Datum/Uhrzeit, nach dem die Antwort als veraltet angesehen wird. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Vorhanden ist, für die Kompatibilität mit HTTP/1.0 Abwärtskompatibilität Einstellung zwischenspeichert `no-cache` Verhalten. Wenn die `Cache-Control` Header vorhanden ist, ist die `Pragma` -Header wird ignoriert. |
-| [Variieren](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
+| [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP-basierte Zwischenspeichern Hinsicht anfordern cachesteuerungsdirektiven
 
@@ -65,7 +65,7 @@ Weitere Informationen finden Sie unter [Einführung in die im Arbeitsspeicher Zw
 
 ### <a name="distributed-cache"></a>Verteilter Cache
 
-Verwenden Sie einen verteilten Cache zum Speichern von Daten im Arbeitsspeicher, wenn die app in einer Cloud oder Server-Farm gehostet wird. Der Cache wird auf den Servern gemeinsam genutzt, die Anforderungen zu verarbeiten. Ein Client eine Anforderung, die von einem beliebigen Server in der Gruppe "behandelt wird zu übermitteln, und zwischengespeicherte Daten für den Client verfügbar ist. ASP.NET Core bietet SQL Server und verteilt Redis-Caches.
+Verwenden Sie einen verteilten Cache zum Speichern von Daten im Arbeitsspeicher, wenn die app in einer Cloud oder Server-Farm gehostet wird. Der Cache wird auf den Servern gemeinsam genutzt, die Anforderungen zu verarbeiten. Ein Client kann senden, dass eine Anforderung, die von einem beliebigen Server in der Gruppe behandelt und zwischengespeicherte Daten für den Client verfügbar ist. ASP.NET Core bietet SQL Server und verteilt Redis-Caches.
 
 Weitere Informationen finden Sie unter [arbeiten mit einem verteilten Cache](xref:performance/caching/distributed).
 
@@ -177,9 +177,9 @@ Cache-Control: public,max-age=60
 
 * [Caching in HTTP aus der Spezifikation](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Im Arbeitsspeicher Zwischenspeichern](xref:performance/caching/memory)
-* [Arbeiten mit einem verteilten cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Token ändern](xref:fundamentals/primitives/change-tokens)
+* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
+* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-* [Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Verteilter Cache-Tag-Hilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

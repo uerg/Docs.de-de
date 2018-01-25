@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 65e369a393a8c5d2d1bba11b5c71347df8f9c69d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 794ab576d3c6600911f331bab7c335476e45a0c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR-Hubs-API-Handbuch - JavaScript-Client
 ====================
@@ -142,7 +142,7 @@ Verwenden Sie in einer ASP.NET Web Forms-Anwendung `ResolveClientUrl` für die P
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Verwenden Sie als allgemeine Regel die gleiche Methode zum Angeben der URL "/ Signalr/Hubs", die Sie für CSS oder JavaScript-Dateien verwenden. Wenn Sie eine URL angeben, ohne mit einer Tilde, wird in einigen Szenarien Ihrer Anwendung fehlerfrei, wenn Sie in Visual Studio mit IIS Express testen schlägt jedoch fehl mit Fehler 404 während der Bereitstellung auf vollständige IIS. Weitere Informationen finden Sie unter **Auflösen von Verweisen auf Ressourcen auf der Stammebene** in [Webserver in Visual Studio für ASP.NET-Webprojekte](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) auf der MSDN-Website.
+Verwenden Sie als allgemeine Regel die gleiche Methode zum Angeben der URL "/ Signalr/Hubs", die Sie für CSS oder JavaScript-Dateien verwenden. Wenn Sie eine URL angeben, ohne mit einer Tilde, wird in einigen Szenarien Ihrer Anwendung fehlerfrei, wenn Sie in Visual Studio mit IIS Express testen schlägt jedoch fehl mit Fehler 404 während der Bereitstellung auf vollständige IIS. Weitere Informationen finden Sie unter **Auflösen von Verweisen auf Ressourcen auf der Stammebene** in [Webserver in Visual Studio für ASP.NET-Webprojekte](https://msdn.microsoft.com/library/58wxa9w5.aspx) auf der MSDN-Website.
 
 Wenn Sie ein Webprojekt in Visual Studio 2013 im Debugmodus ausgeführt, und wenn Sie Internet Explorer als Ihren Browser verwenden, Sie die Proxydatei in sehen **Projektmappen-Explorer** unter **Skriptdokumente**, entsprechend der folgende Abbildung.
 
@@ -308,10 +308,10 @@ Als Alternative können Sie mehrere Transportmethoden in der Reihenfolge angeben
 
 Sie können die folgenden Werte zur Angabe der Transportmethode verwenden:
 
-- "WebSockets"
-- "ForeverFrame"
-- "ServerSentEvents"
-- "LongPolling"
+- "webSockets"
+- "foreverFrame"
+- "serverSentEvents"
+- "longPolling"
 
 Die folgenden Beispiele zeigen, wie Sie herausfinden, welche Transportmethode von eine Verbindung verwendet wird.
 

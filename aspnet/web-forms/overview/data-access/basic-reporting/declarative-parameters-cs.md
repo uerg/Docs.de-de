@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3a4685741e0acab7a944e2822a5c43c5cf3e9cf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-c"></a>Deklarative Parametern (c#)
 ====================
@@ -111,7 +111,7 @@ Da die `GetSuppliersByCountry(country)` Methode verfügt über einen Eingabepara
 **Abbildung 8**: Legen Sie den Parameterwert auf den `CountryName` Steuerelementwert ([klicken Sie hier, um das Bild in voller Größe angezeigt](declarative-parameters-cs/_static/image24.png))
 
 
-Das ObjectDataSource deklarative Markup unterscheidet sich geringfügig vom ersten Beispiel mit einer [ControlParameter](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx) anstelle des `Parameter` Objekt. Ein `ControlParameter` verfügt über zusätzliche Eigenschaften zur Angabe der `ID` das Websteuerelement und den Eigenschaftswert angibt, für den Parameter verwendet (`PropertyName`). Konfigurieren von Datenquellen-Assistenten wurde intelligent genug, um zu ermitteln, die für ein Textfeld wird wahrscheinlich verwenden möchten die `Text` Eigenschaft für den Parameterwert. Wenn Sie jedoch einen anderen Eigenschaftswert aus dem Web-Steuerelement verwenden möchten können Sie ändern die `PropertyName` Wert hier oder indem Sie auf den Link "Erweiterte Eigenschaften einblenden" im Assistenten.
+Das ObjectDataSource deklarative Markup unterscheidet sich geringfügig vom ersten Beispiel mit einer [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) anstelle des `Parameter` Objekt. Ein `ControlParameter` verfügt über zusätzliche Eigenschaften zur Angabe der `ID` das Websteuerelement und den Eigenschaftswert angibt, für den Parameter verwendet (`PropertyName`). Konfigurieren von Datenquellen-Assistenten wurde intelligent genug, um zu ermitteln, die für ein Textfeld wird wahrscheinlich verwenden möchten die `Text` Eigenschaft für den Parameterwert. Wenn Sie jedoch einen anderen Eigenschaftswert aus dem Web-Steuerelement verwenden möchten können Sie ändern die `PropertyName` Wert hier oder indem Sie auf den Link "Erweiterte Eigenschaften einblenden" im Assistenten.
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample2.aspx)]
 

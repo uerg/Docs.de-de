@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6f7507bcd4f9150e4ebf239bfa9f90fce103b0d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a31ce101c3264d10ec80a45718d9222fc18c093c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>Implementieren der vollständigen Parallelität (VB)
 ====================
@@ -257,7 +257,7 @@ Für die vorherigen Lernprogrammen, die Änderung von Daten beteiligt, entfernen
 > Der Wert, der die `OldValuesParameterFormatString` Eigenschaft muss den input Parameternamen in der BLL, bei denen die ursprünglichen Werte zuordnen. Da wir diese Parameter mit dem Namen `original_productName`, `original_supplierID`usw., lassen Sie die `OldValuesParameterFormatString` Eigenschaftswert als `original_{0}`. Wäre, allerdings BLL Methoden Eingabeparameter Namen wie `old_productName`, `old_supplierID`usw., müssen Sie beim Aktualisieren der `OldValuesParameterFormatString` Eigenschaft `old_{0}`.
 
 
-Es ist eine abschließende Eigenschaft-Einstellung, die in der Reihenfolge für das ObjectDataSource auf die ursprünglichen Werte ordnungsgemäß an die BLL-Methoden übergeben vorgenommen werden muss. Das ObjectDataSource hat eine [ConflictDetection-Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) , können zugewiesen [einen von zwei Werten](https://msdn.microsoft.com/en-US/library/system.web.ui.conflictoptions.aspx):
+Es ist eine abschließende Eigenschaft-Einstellung, die in der Reihenfolge für das ObjectDataSource auf die ursprünglichen Werte ordnungsgemäß an die BLL-Methoden übergeben vorgenommen werden muss. Das ObjectDataSource hat eine [ConflictDetection-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) , können zugewiesen [einen von zwei Werten](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
 - `OverwriteChanges`-Der Standardwert; die ursprünglichen Werte werden keine an der ursprünglichen Eingabeparameter BLL Methoden gesendet werden.
 - `CompareAllValues`-die ursprünglichen Werte, die Methoden für BLL sendet. Wählen Sie diese Option aus, wenn Sie vollständigen Parallelität verwenden
@@ -342,7 +342,7 @@ Mit diesen Änderungen werden wir jetzt erfolgreich löschen und Bearbeiten von 
 
 Um sicherzustellen, dass parallelitätsverletzungen erkannten (statt resultierenden Daten Blind überschrieben) werden, müssen wir zwei Browserfenstern auf dieser Seite zu öffnen. Klicken Sie in beiden Browserinstanzen für Chai auf die Schaltfläche "Bearbeiten". Klicken Sie dann nur einen Browser, ändern Sie den Namen in "Chai Tee", und klicken Sie auf aktualisieren. Das Update sollte erfolgreich sind und die GridView Datenbankzustands vorab Bearbeitung mit "Chai Tee" als neues Produktname.
 
-In den anderen Fenster Browserinstanz zeigt jedoch der Produktnamen Textfeld immer noch "Chai". In diesem zweiten Browserfenster aktualisieren, die `UnitPrice` auf `25.00`. Keine Unterstützung für vollständige Parallelität würde Update in der zweiten Browserinstanz auf den Produktnamen an "Chai", wodurch die von der ersten Browserinstanz vorgenommenen Änderungen überschrieben ändern. Mit vollständiger Parallelität verwendet, jedoch auf die Schaltfläche "Aktualisieren" in der zweiten Browserinstanz führt zu einem [DBConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.dbconcurrencyexception.aspx).
+In den anderen Fenster Browserinstanz zeigt jedoch der Produktnamen Textfeld immer noch "Chai". In diesem zweiten Browserfenster aktualisieren, die `UnitPrice` auf `25.00`. Keine Unterstützung für vollständige Parallelität würde Update in der zweiten Browserinstanz auf den Produktnamen an "Chai", wodurch die von der ersten Browserinstanz vorgenommenen Änderungen überschrieben ändern. Mit vollständiger Parallelität verwendet, jedoch auf die Schaltfläche "Aktualisieren" in der zweiten Browserinstanz führt zu einem [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
 
 
 [![Wenn eine Parallelitätsverletzung erkannt wird, wird eine DBConcurrencyException ausgelöst.](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)

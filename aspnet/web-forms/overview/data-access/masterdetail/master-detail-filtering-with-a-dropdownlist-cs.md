@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4632d3939204a954ed4fac88a04b0fea9bb15c83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Master/Detail-Filtern mit einer DropDownList (c#)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Kein gemeinsamer Typ des Berichts ist die *Master/Detail-Bericht*, in dem der Bericht Bericht enthält einen Satz mit "Masterdatensätze" beginnt. Der Benutzer kann dann einen der master Datensätze Drilldown in und Anzeigen von diesen master Datensatz "Details." Master/Detail-Berichte sind eine ideale Option zum Visualisieren von 1: n-Beziehungen, z. B. einen Bericht alle Kategorien anzeigen und klicken Sie dann ermöglichen einen Benutzer wählen Sie eine bestimmte Kategorie und seine zugehörigen Produkte angezeigt. Darüber hinaus eignen sich Master/Detail-Berichten zum Anzeigen ausführlicher Informationen aus besonders "Breite" Tabellen (Argumente, die viele Spalten haben). Beispielsweise der "master" Maß an einer Master/Detail-Bericht möglicherweise nur den Namen und die Einheit Produktpreis der Produkte in der Datenbank anzeigen und Drilldowns in ein bestimmtes Produkt würde Felder anzeigen, die zusätzliche Produkt (Kategorie "," Supplier "," Menge pro Einheit, und usw.).
 
-Es gibt viele Möglichkeiten, die mit denen ein Master/Detail-Bericht implementiert werden kann. Über diese und die nächsten drei Lernprogramme sehen wir uns eine Vielzahl von Master/Detail-Berichten. In diesem Lernprogramm sehen wir, Vorgehensweise beim Anzeigen von Masterdatensätze in einem [DropDownList-Steuerelement](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx) und die Details des ausgewählten Listenelements in einem GridView. Insbesondere werden in diesem Lernprogramm Master/Detail-Bericht, Kategorie und Produktinformationen aufgelistet.
+Es gibt viele Möglichkeiten, die mit denen ein Master/Detail-Bericht implementiert werden kann. Über diese und die nächsten drei Lernprogramme sehen wir uns eine Vielzahl von Master/Detail-Berichten. In diesem Lernprogramm sehen wir, Vorgehensweise beim Anzeigen von Masterdatensätze in einem [DropDownList-Steuerelement](https://msdn.microsoft.com/library/dtx91y0z.aspx) und die Details des ausgewählten Listenelements in einem GridView. Insbesondere werden in diesem Lernprogramm Master/Detail-Bericht, Kategorie und Produktinformationen aufgelistet.
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>Schritt 1: Anzeigen der Kategorien in einer DropDownList
 
@@ -97,7 +97,7 @@ Nachdem Sie diese Methode auswählen, der ObjectDataSource Assistent fordert uns
 
 Nehmen Sie einen Moment Zeit, um unseren Fortschritt in einem Browser zu überprüfen. Wenn die Seite zuerst besuchen zu können, gehören dieser Produkte der ausgewählten Kategorie (Getränke) angezeigt werden, (wie in Abbildung 9 gezeigt), aber der DropDownList ändern nicht die Daten aktualisiert. Dies ist, da ein Postback, damit die GridView auftreten muss zu aktualisieren. Zu diesem Zweck haben wir zwei Möglichkeiten, die (nicht erforderlich, Code schreiben zu müssen):
 
-- **Legen Sie der Kategorien DropDownList**[AutoPostBack-Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**auf "true".** (Sie können dies durch Aktivieren der Option "AutoPostBack aktivieren" in der DropDownList-Smarttag.) Dadurch werden einen Postback ausgelöst, wenn der DropDownList ausgewählt Element vom Benutzer geändert wird. Daher, wenn der Benutzer eine neue Kategorie aus der Dropdownliste auswählt ein Postback wird Stellen Sie sicher, und GridView wird mit der Produkte für die neu ausgewählte Kategorie aktualisiert. (Dies ist der Ansatz, den ich in diesem Lernprogramm verwendet haben.)
+- **Legen Sie der Kategorien DropDownList**[AutoPostBack-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**auf "true".** (Sie können dies durch Aktivieren der Option "AutoPostBack aktivieren" in der DropDownList-Smarttag.) Dadurch werden einen Postback ausgelöst, wenn der DropDownList ausgewählt Element vom Benutzer geändert wird. Daher, wenn der Benutzer eine neue Kategorie aus der Dropdownliste auswählt ein Postback wird Stellen Sie sicher, und GridView wird mit der Produkte für die neu ausgewählte Kategorie aktualisiert. (Dies ist der Ansatz, den ich in diesem Lernprogramm verwendet haben.)
 - **Fügen Sie ein Websteuerelement auf Schaltfläche neben der DropDownList hinzu.** Legen Sie dessen `Text` Eigenschaft zu aktualisieren oder etwas Ähnliches. Bei diesem Ansatz muss der Benutzer wählen Sie eine neue Kategorie, und klicken Sie dann auf die Schaltfläche "". Auf die Schaltfläche wird dazu führen, dass einen Postback und aktualisieren die GridView, um die Produkte der ausgewählten Kategorie aufzulisten.
 
 Abbildung 9 und 10 veranschaulichen den Master-/Detail-Bericht in Aktion.

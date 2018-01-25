@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 title: "Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests | Microsoft Docs"
 author: tdykstra
-description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. ICH...
+description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests
 ====================
@@ -74,7 +74,7 @@ Die Class-Variable, die einen Verweis auf die Repository-Klasse enthält als ein
 Die CRUD-Methoden, die die Repository-Klasse und die beiden Konstruktoren aufrufen können sie die Geschäftslogik Klasse mit den Back-End-Datenspeicher verwendet werden. Die Geschäftslogik Klasse muss nicht beachten wie die Klasse, die ihn aufruft die Daten weiterhin besteht. (Dies wird häufig aufgerufen *Persistenz Unkenntnis*.) Dies erleichtert die Komponententests bereit, auf, weil Sie die Geschäftslogik Klasse eine Repository-Implementierung herstellen können, die etwas als einfache verwendet als in-Memory- `List` Sammlungen, um Daten zu speichern.
 
 > [!NOTE]
-> Technisch gesehen sind die Entitätsobjekten noch nicht Dauerhaftigkeit ignorierende, da von Klassen instanziiert werden, die von der Entity Framework erben `EntityObject` Klasse. Für vollständige Dauerhaftigkeit Unkenntnis, können Sie *plain old CLR-Objekte*, oder *POCOs*, anstelle von Objekten, die von erben die `EntityObject` Klasse. Mithilfe von POCOs ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen finden Sie unter [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) auf der MSDN-Website.)
+> Technisch gesehen sind die Entitätsobjekten noch nicht Dauerhaftigkeit ignorierende, da von Klassen instanziiert werden, die von der Entity Framework erben `EntityObject` Klasse. Für vollständige Dauerhaftigkeit Unkenntnis, können Sie *plain old CLR-Objekte*, oder *POCOs*, anstelle von Objekten, die von erben die `EntityObject` Klasse. Mithilfe von POCOs ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen finden Sie unter [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) auf der MSDN-Website.)
 
 
 Nachdem Sie eine Verbindung herstellen können die `ObjectDataSource` von Steuerelementen an die Geschäftslogik-Klasse statt im Repository, und stellen Sie sicher, dass alles funktioniert, es hat sich nichts geändert.
@@ -221,7 +221,7 @@ Fügen Sie den folgenden Ereignishandler hinzu:
 
 Sie können jetzt testen der *DepartmentsAdd.aspx.cs* Seite, um sicherzustellen, dass sie versuchen, eine Person mehrere Abteilung Administratorberechtigungen auch ordnungsgemäß behandelt.
 
-Dies schließt die Einführung zum Implementieren des Repositorymusters für die Verwendung der `ObjectDataSource` Steuerelement mit dem Entity Framework. Weitere Informationen zu den Repository-Muster und die Prüfbarkeit finden Sie im MSDN-Whitepaper [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx).
+Dies schließt die Einführung zum Implementieren des Repositorymusters für die Verwendung der `ObjectDataSource` Steuerelement mit dem Entity Framework. Weitere Informationen zu den Repository-Muster und die Prüfbarkeit finden Sie im MSDN-Whitepaper [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
 Im folgenden Lernprogramm sehen Sie, wie Sortier- und Filterfunktionen zur Anwendung hinzugefügt werden.
 

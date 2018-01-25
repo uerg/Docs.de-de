@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 561c5739c4e8465efeb4b5d1eaf8a196dab8673f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 896bf4142ce090e39ed5697ff053cd56728318ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>Zuordnen von SignalR-Benutzern zu Verbindungen in SignalR 1.x
 ====================
@@ -98,7 +98,7 @@ Anschließend können Sie über den Hub den Status jeder Verbindung mit dem unte
 
 ### <a name="azure-table-storage"></a>Azure-Tabellenspeicher
 
-Das folgende Beispiel der Azure-Tabelle-Speicher ist ähnlich wie im Beispiel für die Datenbank. Sie schließt nicht alle Informationen ein, die Sie zum Einstieg in Azure-Tabellenspeicherdienst benötigen würde. Informationen finden Sie unter [zum Tabellenspeicher aus .NET verwenden](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/).
+Das folgende Beispiel der Azure-Tabelle-Speicher ist ähnlich wie im Beispiel für die Datenbank. Sie schließt nicht alle Informationen ein, die Sie zum Einstieg in Azure-Tabellenspeicherdienst benötigen würde. Informationen finden Sie unter [zum Tabellenspeicher aus .NET verwenden](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/).
 
 Das folgende Beispiel zeigt eine Tabellenentität zum Speichern von Verbindungsinformationen. Er nach Benutzername werden die Daten partitioniert und jede Entität durch die Verbindungs-Id identifiziert werden, damit ein Benutzer mehrere Verbindungen zu einem beliebigen Zeitpunkt verfügen kann.
 

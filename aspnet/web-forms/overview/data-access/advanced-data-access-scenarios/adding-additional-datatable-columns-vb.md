@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2668a685389938979fc4b0a1e1701a90cef5dc1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Hinzufügen von zusätzlichen DataTable-Spalten (VB)
 ====================
@@ -90,12 +90,12 @@ Wir werden als Nächstes aufgefordert, für die `SELECT` Abfrage. Geben Sie die 
 
 [!code-sql[Main](adding-additional-datatable-columns-vb/samples/sample1.sql)]
 
-Die oben dargestellte Abfrage verwendet die SQL Server 2005-s neue [ `NTILE` Funktion](https://msdn.microsoft.com/en-us/library/ms175126.aspx) , die Ergebnisse in vier Gruppen unterteilen, bei dem Gruppen von bestimmt sind, die `UnitPrice` Werte, die in absteigender Reihenfolge sortiert.
+Die oben dargestellte Abfrage verwendet die SQL Server 2005-s neue [ `NTILE` Funktion](https://msdn.microsoft.com/library/ms175126.aspx) , die Ergebnisse in vier Gruppen unterteilen, bei dem Gruppen von bestimmt sind, die `UnitPrice` Werte, die in absteigender Reihenfolge sortiert.
 
 Abfrage-Generator weiß leider nicht wie beim Analysieren der `OVER` Schlüsselwort und zeigt einen Fehler beim Analysieren der obigen Abfrage. Daher geben Sie die oben dargestellte Abfrage direkt in das Textfeld im Assistenten ohne mit dem Abfrage-Generator ein.
 
 > [!NOTE]
-> Weitere Informationen zu NTILE und SQL Server 2005 s andere Rangfolgefunktionen finden Sie unter [aufgelisteten Ergebnisse zurückgeben, mit Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) und die [Rangfolge Funktionen Abschnitt](https://msdn.microsoft.com/en-us/library/ms189798.aspx) aus der [SQL Server 2005-Onlinedokumentation](https://msdn.microsoft.com/en-us/library/ms189798.aspx).
+> Weitere Informationen zu NTILE und SQL Server 2005 s andere Rangfolgefunktionen finden Sie unter [aufgelisteten Ergebnisse zurückgeben, mit Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) und die [Rangfolge Funktionen Abschnitt](https://msdn.microsoft.com/library/ms189798.aspx) aus der [SQL Server 2005-Onlinedokumentation](https://msdn.microsoft.com/library/ms189798.aspx).
 
 
 Nach der Eingabe der `SELECT` Abfrage und auf Weiter klicken, wird der Assistent stellt uns, geben Sie einen Namen für die gespeicherte Prozedur wird erstellt. Benennen Sie die neue gespeicherte Prozedur `Products_SelectWithPriceQuartile` , und klicken Sie auf Weiter.

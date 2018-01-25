@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dadc1641e427b025d71ef567a626fa7c37c9fc08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Hinzufügen von und reagieren auf Schaltflächen an eine GridView (c#)
 ====================
@@ -194,7 +194,7 @@ Mit der `DiscontinueAllProductsForSupplier(supplierID)` Methode in der BLL und D
 **Abbildung 15**: Hinzufügen ein Beenden aller Produkte Schaltfläche Websteuerelement die FormView `ItemTemplate` ([klicken Sie hier, um das Bild in voller Größe angezeigt](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image41.png))
 
 
-Wenn die Schaltfläche geklickt wird, durch die ein Benutzer auf die Seite ein Postback erfolgt und die FormView [ `ItemCommand` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formview.itemcommand.aspx) ausgelöst wird. Zum Ausführen von benutzerdefinierten Codes als Reaktion auf diese Schaltfläche geklickt wird, können wir einen Ereignishandler für dieses Ereignis erstellen. Verstehen, aber, die `ItemCommand` Ereignis wird ausgelöst, wenn *alle* innerhalb der FormView Schaltfläche, LinkButton oder ImageButton-Steuerelement geklickt wird. Dies bedeutet, dass, wenn der Benutzer von einer Seite in eine andere in der FormView richtet die `ItemCommand` Ereignisses; identisch, wenn der Benutzer klickt auf New, Edit, oder Löschen von Daten in einem FormView, das Einfügen, aktualisieren oder Löschen von unterstützt.
+Wenn die Schaltfläche geklickt wird, durch die ein Benutzer auf die Seite ein Postback erfolgt und die FormView [ `ItemCommand` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx) ausgelöst wird. Zum Ausführen von benutzerdefinierten Codes als Reaktion auf diese Schaltfläche geklickt wird, können wir einen Ereignishandler für dieses Ereignis erstellen. Verstehen, aber, die `ItemCommand` Ereignis wird ausgelöst, wenn *alle* innerhalb der FormView Schaltfläche, LinkButton oder ImageButton-Steuerelement geklickt wird. Dies bedeutet, dass, wenn der Benutzer von einer Seite in eine andere in der FormView richtet die `ItemCommand` Ereignisses; identisch, wenn der Benutzer klickt auf New, Edit, oder Löschen von Daten in einem FormView, das Einfügen, aktualisieren oder Löschen von unterstützt.
 
 Da die `ItemCommand` ausgelöst wird, unabhängig davon, welche Schaltfläche klicken, wird im Ereignisprotokoll Handler wir benötigen eine Möglichkeit, um festzustellen, ob die beenden Sie alle Produkte Schaltfläche geklickt wurde oder wenn es sich um eine Schaltfläche "Sonstige" war. Um dies zu erreichen, legen wir den Schaltfläche Websteuerelement `CommandName` Eigenschaft auf einen beliebigen Wert identifiziert. Wenn die Schaltfläche geklickt wird, dies `CommandName` übergebene Wert den `ItemCommand` -Ereignishandler, aktivieren uns, um festzustellen, ob die beenden Sie die Schaltfläche "alle Produkte" auf die Schaltfläche geklickt wurde. Beenden Sie alle Produkte Schaltfläche festlegen des `CommandName` DiscontinueProducts Eigenschaft.
 
@@ -208,7 +208,7 @@ Als Nächstes erstellen Sie einen Ereignishandler für die FormView `ItemCommand
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample7.cs)]
 
-Beachten Sie, dass die `SupplierID` des aktuellen ausgewählten Lieferanten in FormView möglich, die mithilfe der FormView [ `SelectedValue` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). Die `SelectedValue` Eigenschaft gibt die ersten Daten-Schlüsselwert für den Datensatz in die FormView angezeigt wird. Die FormView [ `DataKeyNames` Eigenschaft](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.formview.datakeynames.aspx), die Daten, die Felder aus dem die Daten die Schlüsselwerte in Raumfahrt aus, womit auf automatisch festgelegt wurde `SupplierID` von Visual Studio beim Binden der ObjectDataSource FormView in Schritt2.
+Beachten Sie, dass die `SupplierID` des aktuellen ausgewählten Lieferanten in FormView möglich, die mithilfe der FormView [ `SelectedValue` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). Die `SelectedValue` Eigenschaft gibt die ersten Daten-Schlüsselwert für den Datensatz in die FormView angezeigt wird. Die FormView [ `DataKeyNames` Eigenschaft](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx), die Daten, die Felder aus dem die Daten die Schlüsselwerte in Raumfahrt aus, womit auf automatisch festgelegt wurde `SupplierID` von Visual Studio beim Binden der ObjectDataSource FormView in Schritt2.
 
 Mit der `ItemCommand` -Ereignishandler erstellt haben, nehmen einen Moment Zeit, zu der Seite zu testen. Navigieren Sie zu der Cooperativa de Quesos "Las Cabras" Lieferanten (er befindet sich die fünfte Lieferanten in der FormView für mich). Diese Lieferanten bietet zwei Produkte, Queso Cabrales und Queso Manchego La Pastora beide *nicht* nicht mehr unterstützt.
 
@@ -244,7 +244,7 @@ Diese Überladung ruft Informationen über das angegebene Produkt über der DAL 
 
 ## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>Schritt 7: Hinzufügen der erhöhen und die Verringerung der Schaltflächen an die GridView
 
-Die GridView (und DetailsView) sowohl eine Auflistung von Feldern bestehen aus. Zusätzlich zur BoundFields, CheckBoxFields, und von TemplateFields schließt ASP.NET den ButtonField, die als eine Spalte mit einer Schaltfläche, LinkButton oder ImageButton für jede Zeile wie der Name schon sagt, rendert. Ähnlich wie die FormView auf *alle* innerhalb der GridView Pagingschaltflächen, bearbeiten oder löschen Schaltflächen Sortieren Schaltflächen und usw. einen Postback verursacht, und löst der GridView [ `RowCommand` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
+Die GridView (und DetailsView) sowohl eine Auflistung von Feldern bestehen aus. Zusätzlich zur BoundFields, CheckBoxFields, und von TemplateFields schließt ASP.NET den ButtonField, die als eine Spalte mit einer Schaltfläche, LinkButton oder ImageButton für jede Zeile wie der Name schon sagt, rendert. Ähnlich wie die FormView auf *alle* innerhalb der GridView Pagingschaltflächen, bearbeiten oder löschen Schaltflächen Sortieren Schaltflächen und usw. einen Postback verursacht, und löst der GridView [ `RowCommand` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
 
 Die ButtonField verfügt über eine `CommandName` -Eigenschaft, die auf jedem der zugehörigen Schaltflächen den angegebenen Wert weist `CommandName` Eigenschaften. Mit FormView, wie die `CommandName` Wert wird verwendet, durch die `RowCommand` -Ereignishandler, um zu bestimmen, welches Steuerelement die Schaltfläche geklickt wurde.
 
@@ -256,7 +256,7 @@ Fügen Sie zwei neue ButtonFields an die GridView, eine mit einem Schaltflächen
 **Abbildung 18**: Hinzufügen von zwei ButtonFields an die GridView
 
 
-Verschieben Sie zwei ButtonFields, so dass sie als die ersten beiden GridView-Felder angezeigt werden. Legen Sie anschließend die `Text` Eigenschaften von diesen beiden ButtonFields zum Preis + 10 % und Preis-10 % und die `CommandName` IncreasePrice und DecreasePrice, Eigenschaften bzw. Standardmäßig wird ein ButtonField die Spalte von Schaltflächen als LinkButtons gerendert. Dies kann geändert werden, jedoch über die ButtonField [ `ButtonType` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Wir haben diese zwei ButtonFields als reguläre Schaltflächen gerendert. Legen Sie deshalb die `ButtonType` Eigenschaft `Button`. Abbildung 19 zeigt die Felder (Dialogfeld), nachdem diese Änderungen vorgenommen wurden; folgt, ist die GridView deklarativem Markup.
+Verschieben Sie zwei ButtonFields, so dass sie als die ersten beiden GridView-Felder angezeigt werden. Legen Sie anschließend die `Text` Eigenschaften von diesen beiden ButtonFields zum Preis + 10 % und Preis-10 % und die `CommandName` IncreasePrice und DecreasePrice, Eigenschaften bzw. Standardmäßig wird ein ButtonField die Spalte von Schaltflächen als LinkButtons gerendert. Dies kann geändert werden, jedoch über die ButtonField [ `ButtonType` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Wir haben diese zwei ButtonFields als reguläre Schaltflächen gerendert. Legen Sie deshalb die `ButtonType` Eigenschaft `Button`. Abbildung 19 zeigt die Felder (Dialogfeld), nachdem diese Änderungen vorgenommen wurden; folgt, ist die GridView deklarativem Markup.
 
 
 ![Konfigurieren der ButtonFields Text, CommandName und ButtonType-Eigenschaften](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image49.png)
@@ -291,7 +291,7 @@ Abbildung 20 zeigt die Seite beim Anzeigen der Produkte von OMA-Kelly Homestead 
 
 > [!NOTE]
 > Die GridView (und DetailsView) können auch Schaltflächen, LinkButtons oder ImageButtons ihre von TemplateFields hinzugefügt haben. Wie Sie mit der BoundField diese Schaltflächen, die beim Klicken auf einen Postback nachdenken werden, durch das Auslösen der GridView `RowCommand` Ereignis. Beim Hinzufügen von Schaltflächen in einem TemplateField jedoch der Schaltfläche `CommandArgument` wird nicht automatisch festgelegt, der Index der Zeile wie bei Verwendung von ButtonFields ist. Wenn Sie den Zeilenindex der Schaltfläche zu bestimmen, die innerhalb von per Mausklick müssen die `RowCommand` Ereignishandler, d. h. Sie müssen manuell festlegen, der Schaltfläche `CommandArgument` Eigenschaft in seiner deklarativen Syntax innerhalb der TemplateField Verwendung eines Codes:  
-> `<asp:Button runat="server" ... CommandArgument='<%# ((GridViewRow) Container).RowIndex %>'`.
+> `<asp:Button runat="server" ... CommandArgument='<%# ((GridViewRow) Container).RowIndex %>'`
 
 
 ## <a name="summary"></a>Zusammenfassung

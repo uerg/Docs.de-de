@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: d23110944642686b3e62aef1c324847de57a07c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e46616d45ad0e4a0ab861e6fb53f33bc567cbdea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="improving-the-details-and-delete-methods-c"></a>Verbessern die Details und Delete-Methoden (c#)
 ====================
@@ -77,15 +77,15 @@ Dieses Lernprogramm wurde Ihnen den Einstieg, Controller, Ansichten zuordnen, un
 
 Wenn Sie die Anwendung bereitstellen möchten, empfiehlt es sich zum ersten Testen der Anwendung auf dem lokalen IIS 7-Server. Sie können dies [Webplattform-Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) Link zur IIS-Einstellung für ASP.NET-Anwendungen aktivieren. Finden Sie unter den folgenden Links für die Bereitstellung:
 
-- [ASP.NET Bereitstellung-Inhaltszuordnung](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [ASP.NET Bereitstellung-Inhaltszuordnung](https://msdn.microsoft.com/library/dd394698.aspx)
 - [Aktivieren von IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Bereitstellung von Webanwendungen-Projekte](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [Bereitstellung von Webanwendungen-Projekte](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Jetzt sollten Sie auf unserer Intermediate-Stufe zu verschieben, auf [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC-Anwendung](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) und [MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md) Lernprogramme zum Durchsuchen der [ASP.NET MSDN-Artikel](https://msdn.microsoft.com/en-us/library/gg416514(VS.98).aspx), und beim Auschecken der viele Videos und Ressourcen auf [https://asp.net/mvc](https://asp.net/mvc) , sogar noch stärker ASP.NET MVC vertraut zu machen! Die [ASP.NET MVC-Foren](https://forums.asp.net/1146.aspx) sind ein idealer Ausgangspunkt, um Fragen zu stellen.
+Jetzt sollten Sie auf unserer Intermediate-Stufe zu verschieben, auf [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC-Anwendung](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) und [MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md) Lernprogramme zum Durchsuchen der [ASP.NET MSDN-Artikel](https://msdn.microsoft.com/library/gg416514(VS.98).aspx), und beim Auschecken der viele Videos und Ressourcen auf [https://asp.net/mvc](https://asp.net/mvc) , sogar noch stärker ASP.NET MVC vertraut zu machen! Die [ASP.NET MVC-Foren](https://forums.asp.net/1146.aspx) sind ein idealer Ausgangspunkt, um Fragen zu stellen.
 
-Viel Spaß!
+Viel Erfolg!
 
 – Scott Hanselman ([http://hanselman.com](http://hanselman.com) und [ @shanselman ](http://twitter.com/shanselman) auf Twitter) und Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
 >[!div class="step-by-step"]
-[Zurück](adding-validation-to-the-model.md)
+[Vorherige](adding-validation-to-the-model.md)

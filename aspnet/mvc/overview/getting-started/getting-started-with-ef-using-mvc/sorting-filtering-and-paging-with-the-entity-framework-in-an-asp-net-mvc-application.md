@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8d11bf47f8c43040ef30d7132f0bb756748dbacd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d54c0e133bc2f6f2021821dc16cdf86cc23a5667
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Sortieren, Filtern und Paging mit Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
@@ -60,7 +60,7 @@ Hierbei handelt es sich um ternäre-Anweisungen. Das erste Schema gibt an, dass 
 | Datum aufsteigend | ascending | descending |
 | Absteigend nach Datum | ascending | ascending |
 
-Die Methode verwendet [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) an die Spalte zu sortieren. Der Code erstellt ein [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) Variable vor der `switch` -Anweisung ändert sie in der `switch` -Anweisung, und ruft die `ToList` Methode nach der `switch` Anweisung. Beim Erstellen und ändern Sie `IQueryable` Variablen, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird nicht ausgeführt, bis Sie konvertieren die `IQueryable` Objekt in eine Auflistung durch Aufrufen einer Methode wie z. B. `ToList`. Aus diesem Grund dieser Code führt zu einer einzelnen Abfrage, die nicht, bis ausgeführt wird die `return View` Anweisung.
+Die Methode verwendet [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) an die Spalte zu sortieren. Der Code erstellt ein [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) Variable vor der `switch` -Anweisung ändert sie in der `switch` -Anweisung, und ruft die `ToList` Methode nach der `switch` Anweisung. Beim Erstellen und ändern Sie `IQueryable` Variablen, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird nicht ausgeführt, bis Sie konvertieren die `IQueryable` Objekt in eine Auflistung durch Aufrufen einer Methode wie z. B. `ToList`. Aus diesem Grund dieser Code führt zu einer einzelnen Abfrage, die nicht, bis ausgeführt wird die `return View` Anweisung.
 
 Als Alternative zum Schreiben von verschiedenen LINQ-Anweisungen für jede Sortierreihenfolge können Sie dynamisch eine LINQ-Anweisung erstellen. Informationen über dynamische LINQ finden Sie unter [dynamische LINQ](https://go.microsoft.com/fwlink/?LinkID=323957).
 
@@ -90,7 +90,7 @@ In *Controllers\StudentController.cs*, ersetzen Sie die `Index` -Methode durch f
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Sie hinzugefügt haben eine `searchString` Parameter an die `Index` Methode. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, die Sie die Indexansicht hinzufügen. Sie haben auch die LINQ-Anweisung hinzugefügt eine `where` -Klausel, die nur Studenten auswählt, deren vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Die Anweisung, die fügt der [, in dem](https://msdn.microsoft.com/en-us/library/bb535040.aspx) -Klausel nur, wenn ein Wert für die Suche ausgeführt wird.
+Sie hinzugefügt haben eine `searchString` Parameter an die `Index` Methode. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, die Sie die Indexansicht hinzufügen. Sie haben auch die LINQ-Anweisung hinzugefügt eine `where` -Klausel, die nur Studenten auswählt, deren vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Die Anweisung, die fügt der [, in dem](https://msdn.microsoft.com/library/bb535040.aspx) -Klausel nur, wenn ein Wert für die Suche ausgeführt wird.
 
 > [!NOTE]
 > In vielen Fällen können Sie die gleiche Methode aufrufen, bei einer Entity Framework-Entitätenmenge oder als eine Erweiterungsmethode für eine in-Memory-Auflistung. Die Ergebnisse sind normalerweise identisch, aber in einigen Fällen unterscheiden.
@@ -160,7 +160,7 @@ Am Ende der Methode die `ToPagedList` Erweiterungsmethode für Studenten `IQuery
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Die `ToPagedList` Methode nimmt eine Seitenzahl an. Die zwei Fragezeichen darstellen der [Null-Sammeloperator](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Der Null-Sammeloperator definiert einen Standardwert für einen NULL-Werte zulässt. der Ausdruck `(page ?? 1)` bedeutet, dass der Rückgabewert von `page` , wenn es einen Wert, oder 1 zurück, wenn `page` ist null.
+Die `ToPagedList` Methode nimmt eine Seitenzahl an. Die zwei Fragezeichen darstellen der [Null-Sammeloperator](https://msdn.microsoft.com/library/ms173224.aspx). Der Null-Sammeloperator definiert einen Standardwert für einen NULL-Werte zulässt. der Ausdruck `(page ?? 1)` bedeutet, dass der Rückgabewert von `page` , wenn es einen Wert, oder 1 zurück, wenn `page` ist null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Können die Indexansicht Student Paginierungslinks hinzufügen
 
@@ -172,11 +172,11 @@ Die `@model` Anweisung am oberen Rand der Seite "gibt an, dass die Sicht nun Ruf
 
 Die `using` -Anweisung für `PagedList.Mvc` bietet Zugriff auf das MVC-Hilfsprogramm für die Auslagerung Schaltflächen.
 
-Der Code verwendet eine Überladung der [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) ermöglicht es an [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Der Code verwendet eine Überladung der [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) ermöglicht es an [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Die Standardeinstellung [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) übermittelt Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Die [W3C-Richtlinien für die Verwendung von HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) wird empfohlen, dass Sie GET verwenden soll, wenn die Aktion nicht in einem Update führt.
+Die Standardeinstellung [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) übermittelt Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Die [W3C-Richtlinien für die Verwendung von HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) wird empfohlen, dass Sie GET verwenden soll, wenn die Aktion nicht in einem Update führt.
 
 Im Textfeld wird mit der aktuellen Suchzeichenfolge initialisiert, wenn Sie eine neue Seite klicken Sie auf die aktuelle Suchzeichenfolge zu sehen.
 

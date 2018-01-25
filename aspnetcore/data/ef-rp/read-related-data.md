@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lesen bezogene Daten per Push – EF-Core mit Razor-Seiten (6 von 8)
 
@@ -54,7 +54,7 @@ Es gibt mehrere Möglichkeiten, EF Core in die Navigationseigenschaften einer En
 
  ![Explizites Laden-Beispiel](read-related-data/_static/explicit-loading.png)
 
-* [Verzögertes Laden](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core unterstützt derzeit keine verzögertes Laden](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Eine Navigationseigenschaft zugegriffen wird, das zum ersten Mal werden automatisch für diese Navigationseigenschaft erforderlichen Daten abgerufen werden. Mit der Datenbank wird eine Abfrage gesendet jedes Mal eine Navigationseigenschaft zum ersten Mal zugegriffen wird.
+* [Verzögertes Laden](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core unterstützt derzeit nicht das verzögertes Laden](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Eine Navigationseigenschaft zugegriffen wird, das zum ersten Mal werden automatisch für diese Navigationseigenschaft erforderlichen Daten abgerufen werden. Mit der Datenbank wird eine Abfrage gesendet jedes Mal eine Navigationseigenschaft zum ersten Mal zugegriffen wird.
 
 * Die `Select` Operator lädt nur die verknüpften Daten erforderlich sind.
 
@@ -93,7 +93,7 @@ Erstellen Sie das Projekt. Der Build generiert Fehler wie folgt:
 
 Open *Pages/Courses/Index.cshtml.cs* und untersuchen Sie die `OnGetAsync` Methode. Das Modul Gerüstbau angegeben unverzüglichem Laden für die `Department` Navigationseigenschaft. Die `Include` Methode gibt unverzüglichem Laden.
 
-Führen Sie die app, und wählen Sie die **Kurse** Link. Department-Spalte zeigt die `DepartmentID`, was nicht nützlich ist.
+Führen Sie die app, und wählen Sie die **Kurse** Link. Department-Spalte zeigt die `DepartmentID`, die nicht hilfreich sind.
 
 Aktualisieren Sie die `OnGetAsync`-Methode mit folgendem Code:
 
@@ -108,7 +108,7 @@ Update *Views/Courses/Index.cshtml* mit dem folgenden hervorgehobenen Markup:
 An den scaffolded Code wurden die folgenden Änderungen vorgenommen:
 
 * Die Überschrift von Index in Courses geändert.
-* Hinzugefügt eine **Anzahl** Spalte, die zeigt die `CourseID` Eigenschaftswert. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise sie Endbenutzern bedeutungslos sind. Allerdings ist in diesem Fall der Primärschlüssel sinnvoll.
+* Hinzugefügt eine **Anzahl** Spalte, die zeigt die `CourseID` Eigenschaftswert. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise ohne Bedeutung für Endbenutzer sind. Allerdings ist in diesem Fall der Primärschlüssel sinnvoll.
 * Geändert die **Abteilung** Spalte der Abteilungsname angezeigt. Der Code zeigt die `Name` Eigenschaft von der `Department` Entität, die geladen wird die `Department` Navigationseigenschaft:
 
   ```html
@@ -210,7 +210,7 @@ Das vorhergehende Markup nimmt folgende Änderungen:
     `http://localhost:1234/Instructors/2`
 
 * Seitentitel wird **Lehrkräfte**.
-* Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` ist ungleich null. Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise nicht verknüpfte OfficeAssignment Entität.
+* Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise nicht verknüpfte OfficeAssignment Entität.
 
   ```html
   @if (item.OfficeAssignment != null)

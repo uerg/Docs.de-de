@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Einführung in ASP.NET MVC 4
 ====================
@@ -24,7 +24,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Eine aktualisierte Version ist in diesem Lernprogramm verfügbar [hier](../../getting-started/introduction/getting-started.md) mit [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Das neue Lernprogramm verwendet ASP.NET MVC 5, viele Verbesserungen über dieses Lernprogramms bereitstellt.
 > 
-> In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC 4-Web-Anwendung mithilfe von Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) oder Visual Web Developer 2010 Express Service Pack 1. Visual Studio 2012 wird empfohlen, Sie wird nicht nichts unternommen, um das Lernprogramm abgeschlossen installieren müssen. Wenn Sie Visual Studio 2010 verwenden, müssen Sie die folgenden Komponenten installieren. Alle von ihnen installieren, indem Sie den folgenden Links:
+> In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC 4-Web-Anwendung mithilfe von Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) oder Visual Web Developer 2010 Express Service Pack 1. Visual Studio 2012 wird empfohlen, Sie wird nicht nichts unternommen, um das Lernprogramm abgeschlossen installieren müssen. Wenn Sie Visual Studio 2010 verwenden, müssen Sie die folgenden Komponenten installieren. Alle von ihnen installieren, indem Sie den folgenden Links:
 > 
 > - [Visual Studio Web Developer Express SP1-Voraussetzungen](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [WPI Installer für ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
@@ -35,7 +35,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 > 
 > Ein Visual Web Developer-Projekt mit C#-Quellcode ist zu diesem Thema steht zur Verfügung. [Die C#-Version herunterladen](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
-> In diesem Lernprogramm führen Sie die Anwendung in Visual Studio. Sie können auch die Anwendung verfügbar über das Internet, indem sie in einem Hostinganbieter bereitstellen. Microsoft bietet kostenlose Webhosting für bis zu 10 Websites in einer [frei von Windows Azure-Testkonto](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Weitere Informationen dazu, wie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen und Bereitstellen einer ASP.NET-Website und SQL-Datenbank mit Visual Studio](https://docs.microsoft.com/dotnet/azure/). Dieses Lernprogramm wird gezeigt, wie Entity Framework Code First-Migrationen zu verwenden, um die SQL Server-Datenbank auf Windows Azure SQL-Datenbank (früher SQL Azure) bereitstellen.
+> In diesem Lernprogramm führen Sie die Anwendung in Visual Studio. Sie können auch die Anwendung verfügbar über das Internet, indem sie in einem Hostinganbieter bereitstellen. Microsoft bietet kostenlose Webhosting für bis zu 10 Websites in einer [frei von Windows Azure-Testkonto](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Weitere Informationen dazu, wie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen und Bereitstellen einer ASP.NET-Website und SQL-Datenbank mit Visual Studio](https://docs.microsoft.com/dotnet/azure/). Dieses Lernprogramm wird gezeigt, wie Entity Framework Code First-Migrationen zu verwenden, um die SQL Server-Datenbank auf Windows Azure SQL-Datenbank (früher SQL Azure) bereitstellen.
 > 
 > Dieses Lernprogramm wurde von Rick Anderson geschrieben ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lesen-bezogene Daten – EF-Core mit ASP.NET Core MVC-Lernprogramm (6 von 10)
 
@@ -45,7 +45,7 @@ Es gibt mehrere Möglichkeiten, objektrelationales Mapping (ORM)-Software, z. B.
 
   ![Explizites Laden-Beispiel](read-related-data/_static/explicit-loading.png)
 
-* Verzögertes Laden. Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Allerdings werden beim ersten Versuch, auf eine Navigationseigenschaft, für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Eine Abfrage wird jedes Mal an die Datenbank gesendet Sie zum Abrufen von Daten von einer Navigationseigenschaft zum ersten Mal versuchen. Verzögertes Laden von Entity Framework Core 1.0 nicht unterstützt.
+* Verzögertes Laden. Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Allerdings werden beim ersten Versuch, auf eine Navigationseigenschaft, für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Eine Abfrage wird jedes Mal an die Datenbank gesendet Sie zum Abrufen von Daten von einer Navigationseigenschaft zum ersten Mal versuchen. Entity Framework Core 1.0 unterstützt nicht das verzögertes Laden.
 
 ### <a name="performance-considerations"></a>Überlegungen zur Leistung
 
@@ -75,7 +75,7 @@ Sie haben die folgenden Änderungen an der scaffolded Code vorgenommen:
 
 * Die Überschrift von Index in Courses geändert.
 
-* Hinzugefügt eine **Anzahl** Spalte, die zeigt die `CourseID` Eigenschaftswert. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise sie Endbenutzern bedeutungslos sind. Allerdings in diesem Fall der Primärschlüssel sinnvoll ist und Sie sie anzeigen möchten.
+* Hinzugefügt eine **Anzahl** Spalte, die zeigt die `CourseID` Eigenschaftswert. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise ohne Bedeutung für Endbenutzer sind. Allerdings in diesem Fall der Primärschlüssel sinnvoll ist und Sie sie anzeigen möchten.
 
 * Geändert die **Abteilung** Spalte der Abteilungsname angezeigt. Der Code zeigt die `Name` -Eigenschaft der Abteilung-Entität, die in geladen ist die `Department` Navigationseigenschaft:
 
@@ -173,7 +173,7 @@ Sie haben die folgenden Änderungen an den vorhandenen Code vorgenommen:
 
 * Der Seitenname von geändert **Index** auf **Lehrkräfte**.
 
-* Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` ist ungleich null. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise nicht verknüpfte Entität OfficeAssignment.)
+* Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise nicht verknüpfte Entität OfficeAssignment.)
 
   ```html
   @if (item.OfficeAssignment != null)

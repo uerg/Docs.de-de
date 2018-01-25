@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Aktivieren von Cross-Origin-Anforderungen (CORS)
 
@@ -44,7 +44,7 @@ Diese URLs haben unterschiedliche Ursprünge als den vorherigen zwei:
 * `http://example.com:9000/foo.html`-Anschluss
 
 > [!NOTE]
-> Den Port wird von Internet Explorer nicht berücksichtigt werden, für den Vergleich von Ursprüngen.
+> Internet Explorer berücksichtigen nicht den Port Ursprünge zu vergleichen.
 
 ## <a name="setting-up-cors"></a>CORS einrichten
 
@@ -78,7 +78,7 @@ In diesem Beispiel wird eine CORS-Richtlinie mit dem Namen "AllowSpecificOrigin"
 
 ## <a name="enabling-cors-in-mvc"></a>Aktivieren von CORS in MVC
 
-Sie können alternativ MVC verwenden, um bestimmte CORS pro Aktion, die pro Controller oder global für alle Controller anzuwenden. Verwendung von MVC CORS aktivieren, werden die gleichen CORS-Dienste verwendet, aber die CORS-Middleware ist.
+Sie können alternativ MVC verwenden, um bestimmte CORS pro Aktion, die pro Controller oder global für alle Controller anzuwenden. Verwendung von MVC CORS aktivieren, werden die gleichen CORS-Dienste verwendet, jedoch nicht von den CORS-Middleware.
 
 ### <a name="per-action"></a>Pro Aktion
 
@@ -160,7 +160,7 @@ Browser sind nicht vollständig in diese Festlegung von Access-Control-Request-H
 
 ### <a name="set-the-exposed-response-headers"></a>Legen Sie die verfügbar gemachten Antwortheader
 
-Standardmäßig macht der Browser nicht alle der Antwortheader für die Anwendung verfügbar. (Siehe [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Die Antwortheader, die standardmäßig verfügbar sind:
+Standardmäßig nicht im Browser aller die Antwortheader für die Anwendung verfügbar machen. (Siehe [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Die Antwortheader, die standardmäßig verfügbar sind:
 
 * Cache-Control
 
@@ -180,7 +180,7 @@ Die CORS-Spezifikation ruft diese *einfache Antwortheader*. Um weitere Header f�
 
 ### <a name="credentials-in-cross-origin-requests"></a>Anmeldeinformationen in Cross-Origin-Anforderungen
 
-Anmeldeinformationen erfordern eine besondere Behandlung in einer CORS-Anforderung. Standardmäßig sendet der Browser keine Anmeldeinformationen mit einem Cross-Origin-Anforderung. Anmeldeinformationen werden Cookies sowie HTTP-Authentifizierungsschemas einschließen. Der Client muss zum Senden von Anmeldeinformationen mit einem Cross-Origin-Anforderung XMLHttpRequest.withCredentials auf "true" festlegen.
+Anmeldeinformationen erfordern eine besondere Behandlung in einer CORS-Anforderung. Standardmäßig senden nicht im Browser keine Anmeldeinformationen mit einem Cross-Origin-Anforderung. Anmeldeinformationen werden Cookies sowie HTTP-Authentifizierungsschemas einschließen. Der Client muss zum Senden von Anmeldeinformationen mit einem Cross-Origin-Anforderung XMLHttpRequest.withCredentials auf "true" festlegen.
 
 Mithilfe von XMLHttpRequest direkt:
 
@@ -207,7 +207,7 @@ Darüber hinaus muss der Server die Anmeldeinformationen zulassen. Um Cross-Orig
 
 Die HTTP-Antwort enthalten nun einen Access-Control-Allow-Credentials-Header, der wodurch dem Browser angewiesen wird, dass der Server die Anmeldeinformationen für eine Anforderung Cross-Origin zulässt.
 
-Wenn der Browser Anmeldeinformationen sendet, aber die Antwort enthält keinen gültigen Access-Control-Allow-Credentials-Header, der Browser wird die Antwort an die Anwendung nicht verfügbar, und die AJAX-Anforderung schlägt fehl.
+Wenn der Browser Anmeldeinformationen sendet, aber die Antwort keinen gültigen Access-Control-Allow-Credentials-Header, der Browser wird nicht die Antwort an die Anwendung verfügbar machen, und die AJAX-Anforderung ein Fehler auftritt.
 
 Cross-Origin-Anmeldeinformationen, sodass nur mit großer Vorsicht sein, da es bedeutet, dass eine Website finden Sie unter einer anderen Domäne Anmeldeinformationen eines angemeldeten Benutzers an die app im Auftrag des Benutzers, ohne dass der Benutzer die Erkennung senden kann. Die CORS-Spezifikation auch Status dieser Einstellung Ursprünge zu "*" (alle Ursprünge) ist ungültig, wenn der Access-Control-Allow-Credentials-Header vorhanden ist.
 
@@ -252,7 +252,7 @@ Content-Length: 12
 Test message
 ```
 
-Wenn die Antwort den Access-Control-Allow-Origin-Header nicht enthalten ist, schlägt fehl, die AJAX-Anforderung. Der Browser lässt, die die Anforderung. Selbst wenn der Server eine erfolgreiche Antwort zurückgibt, wird der Browser nicht die Antwort an die Clientanwendung zur Verfügung.
+Wenn die Antwort den Access-Control-Allow-Origin-Header enthält, schlägt die AJAX-Anforderung. Der Browser lässt, die die Anforderung. Auch wenn der Server eine erfolgreiche Antwort zurückgibt, machen nicht im Browser die Antwort an die Clientanwendung verfügbar.
 
 ### <a name="preflight-requests"></a>Preflight-Anforderungen
 
@@ -260,7 +260,7 @@ Für einige CORS-Anforderungen sendet der Browser eine zusätzliche Anforderung,
 
 * Die Anforderungsmethode ist GET, HEAD oder POST, und
 
-* Die Anwendung wird nicht festgelegt Anforderungsheader als Accept, Accept-Language-Content-Language, Content-Type oder letzten-Ereignis-ID und
+* Die Anwendung keine Anforderungsheader als Accept, Accept-Language-Content-Language, festzulegen, die Content-Type oder letzten-Ereignis-ID und
 
 * Der Content-Type-Header (falls festgelegt) ist eines der folgenden:
 
@@ -290,7 +290,7 @@ Die Preflight-Anforderung mithilfe der HTTP OPTIONS-Methode. Sie schließt zwei 
 
 * Access-Control-Request-Method: Die HTTP-Methode, die für die tatsächliche Anforderung verwendet werden.
 
-* Access-Control-Request-Headers: Eine Liste der Anforderungsheader, die die Anwendung für die tatsächliche Anforderung festgelegt. (Erneut, schließt dies keine Header, die der Browser legt ein.)
+* Access-Control-Request-Headers: Eine Liste der Anforderungsheader, die die Anwendung für die tatsächliche Anforderung festgelegt. (Erneut nicht dazu gehören Header, die der Browser legt sie fest.)
 
 Hier ist eine Beispielantwort, vorausgesetzt, dass der Server die Anforderung zulässt:
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b02ef9121e50ab9d9f24032d32f1e65fe73049c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-data-protection"></a>Einführung in Data Protection
 
@@ -23,7 +23,7 @@ ASP.NET Core Data Protection Stapel dient als der langfristige Ersatz für diene
 
 ## <a name="problem-statement"></a>Problemerläuterung
 
-Das allgemeine Problem-Anweisung kann in einem einzigen Satz kurz angegeben werden: Ich benötige um vertrauenswürdige Informationen für den späteren Abruf persistent zu speichern, aber ich die Dauerhaftigkeit nicht vertrauen. Web ausgedrückt könnte dies geschrieben sein, wie "Round-Trip vertrauenswürdigen Zustand über einen nicht vertrauenswürdigen Client muss ich."
+Das allgemeine Problem-Anweisung kann in einem einzigen Satz kurz angegeben werden: Ich benötige um vertrauenswürdige Informationen für den späteren Abruf persistent zu speichern, aber die Dauerhaftigkeit ist nicht vertrauenswürdig. Web ausgedrückt könnte dies geschrieben sein, wie "Round-Trip vertrauenswürdigen Zustand über einen nicht vertrauenswürdigen Client muss ich."
 
 Das kanonische Beispiel hierfür ist ein Authentifizierungscookie bzw. Bearer Sicherheitstoken. Der Server generiert eine "Ich habe Groot und Xyz berechtigt" token und übergibt diesen an dem Client. Irgendwann wird der Client dieses Token an den Server vorhanden, aber der Server benötigt eine Art von Gewissheit, dass der Client das Token gefälscht wurde nicht. Daher die erste Anforderung: Echtheit (auch als) Integrität, vor unbefugtem Zugriff-Strategien).
 
@@ -31,7 +31,7 @@ Da der persistente Zustand vom Server als vertrauenswürdig eingestuft wird, erw
 
 Schließlich, da moderne Anwendungen componentized sind, was wir gesehen haben ist, dass Einzelkomponenten dieses System unabhängig von der anderen Komponenten im System nutzen möchten. Für die Instanz, wenn eine Bearer-token-Komponente auf diesem Stapel verwendet wird, sollte es ohne Störung möglich sind, aus einem Anti-CSRF-Mechanismus arbeiten, die u. u. auch den gleichen Stapel verwendet werden. Daher die letzte Anforderung: Isolation.
 
-Es können weitere Einschränkungen bereitstellen, um den Überwachungsumfang unsere Anforderungen. Es wird vorausgesetzt, dass alle Dienste, die innerhalb der Kryptografiesystem gleichermaßen vertraut sind und, dass die Daten nicht generiert oder außerhalb der Dienste unter einem unserer direkte Kontrolle genutzt werden. Darüber hinaus müssen Vorgänge sind so schnell wie möglich, da für jede Anforderung an den Webdienst die Kryptografiesystem ein- oder mehrmals durchlaufen kann. Auf diese Weise symmetrische Kryptografie ideal für unser Szenario, und wir können asymmetrische Kryptografie Rabatt, bis etwa eine Zeit, die es benötigt wird.
+Es können weitere Einschränkungen bereitstellen, um den Überwachungsumfang unsere Anforderungen. Es wird vorausgesetzt, dass alle Dienste, die innerhalb der Kryptografiesystem gleichermaßen vertraut sind und die Daten müssen nicht generiert oder außerhalb der Dienste unter einem unserer direkte Kontrolle genutzt werden. Darüber hinaus müssen Vorgänge sind so schnell wie möglich, da für jede Anforderung an den Webdienst die Kryptografiesystem ein- oder mehrmals durchlaufen kann. Auf diese Weise symmetrische Kryptografie ideal für unser Szenario, und wir können asymmetrische Kryptografie Rabatt, bis etwa eine Zeit, die es benötigt hat.
 
 ## <a name="design-philosophy"></a>Entwurfsphilosophie von
 

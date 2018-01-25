@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 65d32309cbd8bed6decbba4c5027d8e10a558ae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f22a745f42dae66cd64dc38df28c59b910c17070
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>Entsperren und Genehmigen von Benutzerkonten (c#)
 ====================
@@ -57,7 +57,7 @@ Nehmen Sie nach dem Hinzufügen der HyperLinkField an die GridView, einen Moment
 **Abbildung 1**: die HyperLinkField Fügt einen Link "Verwalten" für jedes Benutzerkonto ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-cs/_static/image3.png))
 
 
-Wir erstellen der Benutzeroberfläche und code für die `UserInformation.aspx` auf der Seite einen Moment Zeit, doch zunächst sehen wir reden über so ändern Sie einen Benutzer programmgesteuert gesperrt und Status genehmigt. Die [ `MembershipUser` Klasse](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx) hat [ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx) und [ `IsApproved` Eigenschaften](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.isapproved.aspx). Die `IsLockedOut` Eigenschaft ist schreibgeschützt. Es gibt keinen Mechanismus zum programmgesteuert zu sperren, bis ein Benutzer; Verwenden Sie zum Entsperren eines Benutzers die `MembershipUser` Klasse [ `UnlockUser` Methode](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx). Die `IsApproved` Eigenschaft ist lesbar und schreibbar. Zum Speichern von Änderungen an dieser Eigenschaft müssen wir rufen die `Membership` Klasse [ `UpdateUser` Methode](https://msdn.microsoft.com/en-us/library/system.web.security.membership.updateuser.aspx), und übergeben Sie das geänderte `MembershipUser` Objekt.
+Wir erstellen der Benutzeroberfläche und code für die `UserInformation.aspx` auf der Seite einen Moment Zeit, doch zunächst sehen wir reden über so ändern Sie einen Benutzer programmgesteuert gesperrt und Status genehmigt. Die [ `MembershipUser` Klasse](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) hat [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) und [ `IsApproved` Eigenschaften](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). Die `IsLockedOut` Eigenschaft ist schreibgeschützt. Es gibt keinen Mechanismus zum programmgesteuert zu sperren, bis ein Benutzer; Verwenden Sie zum Entsperren eines Benutzers die `MembershipUser` Klasse [ `UnlockUser` Methode](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). Die `IsApproved` Eigenschaft ist lesbar und schreibbar. Zum Speichern von Änderungen an dieser Eigenschaft müssen wir rufen die `Membership` Klasse [ `UpdateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), und übergeben Sie das geänderte `MembershipUser` Objekt.
 
 Da die `IsApproved` Eigenschaft lesbar und beschreibbar ist, ein CheckBox-Steuerelement ist wahrscheinlich die beste Element der Benutzeroberfläche für das Konfigurieren dieser Eigenschaft. Allerdings ein Kontrollkästchen funktionieren nicht bei der `IsLockedOut` Eigenschaft, da ein Administrator ein Benutzer gesperrt werden kann, kann sie nur einen Benutzer freigeben. Eine geeignete Benutzeroberfläche für die `IsLockedOut` Eigenschaft ist eine Schaltfläche, die beim Klicken auf Entsperren Sie das Benutzerkonto ein. Diese Schaltfläche sollte nur aktiviert werden, wenn der Benutzer gesperrt ist.
 
@@ -88,7 +88,7 @@ Der obige Code wird gestartet, indem Sie sicherstellen, dass dies die ersten Bes
 
 Die `MembershipUser` des Objekts `UserName` Wert wird dann angezeigt, der `UserNameLabel` und `IsApproved` aktiviert ist auf der Grundlage der `IsApproved` Eigenschaftswert.
 
-Die `MembershipUser` des Objekts [ `LastLockoutDate` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.lastlockoutdate.aspx) gibt eine `DateTime` Wert, der angibt, wenn der Benutzer zuletzt wurde gesperrt. Wenn der Benutzer nicht gesperrt wurde, hängt der zurückgegebene Wert den Mitgliedschaftsanbieter ab. Wenn ein neues Konto erstellt wird, die `SqlMembershipProvider` legt die `aspnet_Membership` tabellenspezifischen `LastLockoutDate` Feld `1754-01-01 12:00:00 AM`. Der obige Code zeigt eine leere Zeichenfolge in der `LastLockoutDateLabel` Wenn die `LastLockoutDate` -Eigenschaft tritt vor dem Jahr 2000 ist, andernfalls der Date-Teil der `LastLockoutDate` Eigenschaft wird in der Bezeichnung angezeigt. Die `UnlockUserButton'` s `Enabled` Eigenschaft ist gesperrt, Status, was bedeutet, dass diese Schaltfläche nur aktiviert werden, wird Wenn der Benutzer gesperrt wird, für des Benutzers festgelegt.
+Die `MembershipUser` des Objekts [ `LastLockoutDate` Eigenschaft](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) gibt eine `DateTime` Wert, der angibt, wenn der Benutzer zuletzt wurde gesperrt. Wenn der Benutzer nicht gesperrt wurde, hängt der zurückgegebene Wert den Mitgliedschaftsanbieter ab. Wenn ein neues Konto erstellt wird, die `SqlMembershipProvider` legt die `aspnet_Membership` tabellenspezifischen `LastLockoutDate` Feld `1754-01-01 12:00:00 AM`. Der obige Code zeigt eine leere Zeichenfolge in der `LastLockoutDateLabel` Wenn die `LastLockoutDate` -Eigenschaft tritt vor dem Jahr 2000 ist, andernfalls der Date-Teil der `LastLockoutDate` Eigenschaft wird in der Bezeichnung angezeigt. Die `UnlockUserButton'` s `Enabled` Eigenschaft ist gesperrt, Status, was bedeutet, dass diese Schaltfläche nur aktiviert werden, wird Wenn der Benutzer gesperrt wird, für des Benutzers festgelegt.
 
 Erkundet zum Testen der `UserInformation.aspx` Seite über einen Browser. Natürlich müssen Sie am start `ManageUsers.aspx` , und wählen Sie ein Benutzerkonto zu verwalten. Beim Eintreffen an `UserInformation.aspx`, beachten Sie, dass die `IsApproved` Kontrollkästchen ist nur aktiviert, wenn der Benutzer genehmigt wird. Wenn der Benutzer jemals gesperrt wurde, wird ihre letzte Datum gesperrt angezeigt. Die Schaltfläche "Benutzer entsperren" nur aktiviert, wenn der Benutzer aktuell gesperrt ist. Aktivieren oder Deaktivieren der `IsApproved` Kontrollkästchen oder durch Klicken auf die Schaltfläche "Benutzer entsperren" bewirkt, dass einen Postback, jedoch werden mit dem Benutzerkonto keine Änderungen vorgenommen, da wir noch, haben die Ereignishandler für diese Ereignisse erstellen.
 
@@ -146,7 +146,7 @@ Als Nächstes müssen wir das CreateUserWizard-Steuerelement, um eine e-Mail an 
 
 ### <a name="sending-a-verification-email-to-new-users"></a>Eine Überprüfung der E-Mail an neue Benutzer zu senden.
 
-Um eine e-Mail-Nachricht aus dem Steuerelement CreateUserWizard senden möchten, konfigurieren die `MailDefinition` Eigenschaft entsprechend. Wie in beschrieben die <a id="Tutorial13"> </a> [vorherigen Lernprogramm](recovering-and-changing-passwords-cs.md), die ChangePassword und PasswordRecovery Steuerelemente umfassen eine [ `MailDefinition` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) , funktioniert in gleicher Weise wie CreateUserWizard des Steuerelements.
+Um eine e-Mail-Nachricht aus dem Steuerelement CreateUserWizard senden möchten, konfigurieren die `MailDefinition` Eigenschaft entsprechend. Wie in beschrieben die <a id="Tutorial13"> </a> [vorherigen Lernprogramm](recovering-and-changing-passwords-cs.md), die ChangePassword und PasswordRecovery Steuerelemente umfassen eine [ `MailDefinition` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) , funktioniert in gleicher Weise wie CreateUserWizard des Steuerelements.
 
 > [!NOTE]
 > Verwenden der `MailDefinition` Eigenschaft müssen Sie die e-Mail-Übermittlung an pipelineoptionen `Web.config`. Weitere Informationen finden Sie unter [Senden von E-Mails in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
@@ -160,7 +160,7 @@ Legen Sie die `MailDefinition'` s `BodyFileName` -Eigenschaft auf "~ / EmailTemp
 
 Beachten Sie, dass die `CreateUserWizard.txt` e-Mail-Vorlage enthält einen `<%VerificationUrl%>` Platzhalter. Dies ist, wenn die URL für die `Verification.aspx` Seite gespeichert werden sollen. Die CreateUserWizard automatisch ersetzt die `<%UserName%>` und `<%Password%>` -Platzhalter durch des neuen Kontos Benutzername und Kennwort, aber es keine integrierte ist `<%VerificationUrl%>` Platzhalter. Wir müssen manuell mit der entsprechenden überprüfungs-URL zu ersetzen.
 
-Um dies zu erreichen, erstellen Sie einen Ereignishandler für die CreateUserWizard [ `SendingMail` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) und fügen Sie den folgenden Code hinzu:
+Um dies zu erreichen, erstellen Sie einen Ereignishandler für die CreateUserWizard [ `SendingMail` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) und fügen Sie den folgenden Code hinzu:
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample4.cs)]
 

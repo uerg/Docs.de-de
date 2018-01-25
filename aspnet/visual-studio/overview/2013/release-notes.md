@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET und Webtools für Visual Studio 2013-Versionshinweise
 ====================
@@ -33,14 +33,14 @@ durch [Microsoft](https://github.com/microsoft)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Neue Funktionen in ASP.NET und Webtools für Visual Studio 2013
 
-- [Eine ASP.NET](#TOC6)
+- [One ASP.NET](#TOC6)
 - [Neue Web Project-Benutzeroberfläche](#newproj)
 - [ASP.NET Gerüstbau](#scaffold)
-- [Browserlink](#browser-link)
+- [Browserverknüpfung](#browser-link)
 - [Web-Editor von Visual Studio-Erweiterungen](#web-editor)
 - [Azure App Service-Web-Apps-Support in Visual Studio](#waws)
 - [Web veröffentlichen Erweiterungen](#publish)
-- [NuGet-2.7](#nuget)
+- [NuGet 2.7](#nuget)
 - [ASP.NET Web Forms](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
@@ -73,7 +73,7 @@ ASP.NET und Webtools erfordert Visual Studio 2013.
 Die folgenden Abschnitte beschreiben die Funktionen, die in der Version eingeführt wurden.
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>Eine ASP.NET
+## <a name="one-aspnet"></a>One ASP.NET
 
 Mit der Version von Visual Studio 2013 haben wir einen Schritt in Richtung zusammen, die Verwendung von ASP.NET-Technologien, sodass Sie problemlos mischen und Zuordnen der gewünschten ausgeführt. Beispielsweise können Sie Starten eines Projekts mit MVC und bequem später Web Forms-Seiten zum Projekt hinzufügen oder Web-APIs in einer Web Forms-Projekt zu erstellen. Eine ASP.NET ist leichter Sie als Entwickler Schritte auszuführen, die Ihnen in ASP.NET gefallen. Unabhängig davon, welche Technologie Sie wählen, haben Sie mehr Gewissheit, die Sie auf die vertrauenswürdige zugrunde liegende Framework von einer ASP.NET erstellen.
 
@@ -137,8 +137,8 @@ In Visual Studio 2013 mit dem Azure SDK für .NET 2.2 enthält, können Sie **Se
 
 Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-- [Erstellen einer ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Erstellen einer ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web veröffentlichen Erweiterungen
@@ -162,7 +162,7 @@ Diese Version von NuGet entfernt auch die Notwendigkeit, bieten explizite Zustim
 <a id="TOC9"></a>
 ## <a name="aspnet-web-forms"></a>ASP.NET-Web Forms
 
-### <a name="one-aspnet"></a>Eine ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Die Web Forms-Projektvorlagen nahtlose Integration in die neue Umgebung für eine ASP.NET. Sie können hinzufügen, MVC und Web-API unterstützen, dem Web Forms-Projekt, und Sie können Authentifizierung mit der ein ASP.NET Projekt Fertigstellen des Assistenten konfigurieren. Weitere Informationen finden Sie unter [Erstellen von ASP.NET-Webprojekten in Visual Studio 2013](creating-web-projects-in-visual-studio.md).
 
@@ -177,7 +177,7 @@ Verwenden Sie die Web Forms-Vorlagen [Bootstrap](http://twitter.github.io/bootst
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>Eine ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Die Web-MVC-Projektvorlagen nahtlose Integration in die neue Umgebung für eine ASP.NET. Sie können das MVC-Projekt anpassen und konfigurieren Sie die Authentifizierung mit dem Assistenten für eine ASP.NET erstellen. Ein einführendes Lernprogramm zu ASP.NET MVC 5 finden Sie unter [erste Schritte mit ASP.NET MVC 5](../../../mvc/overview/getting-started/introduction/getting-started.md).
 
@@ -185,7 +185,7 @@ Informationen zum Upgrade von MVC 4-Projekte auf MVC 5 finden Sie unter [das Upg
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-Die MVC-Projektvorlagen wurden aktualisiert, um ASP.NET Identity für die Authentifizierung und identitätsverwaltung verwenden. Ein Lernprogramm mit Facebook und Google-Authentifizierung und die neue Mitgliedschafts-API finden Sie unter [erstellen Sie eine ASP.NET MVC 5-App mit Facebook und Google OAuth2 und OpenID-Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) und [erstellen Sie eine ASP.NET MVC-Anwendung mit Auth und SQL-Datenbank und in Azure App Service bereitstellen](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+Die MVC-Projektvorlagen wurden aktualisiert, um ASP.NET Identity für die Authentifizierung und identitätsverwaltung verwenden. Ein Lernprogramm mit Facebook und Google-Authentifizierung und die neue Mitgliedschafts-API finden Sie unter [erstellen Sie eine ASP.NET MVC 5-App mit Facebook und Google OAuth2 und OpenID-Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) und [erstellen Sie eine ASP.NET MVC-Anwendung mit Auth und SQL-Datenbank und in Azure App Service bereitstellen](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 ### <a name="bootstrap"></a>Bootstrap
 
@@ -303,7 +303,7 @@ ASP.NET Web API nun vollständig unterstützt OWIN und kann auf alle OWIN-fähig
 OWIN-Integration können Sie Web-API in Ihrem eigenen Prozess zusammen mit anderen OWIN-Middleware, z. B. SignalR selbst hosten. Weitere Informationen finden Sie unter [verwenden OWIN Self-Host ASP.NET Web API](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="TOC13"></a>
-## <a name="aspnet-signalr-20"></a>SignalR für ASP.NET 2.0
+## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
 In den folgenden Abschnitten werden die Funktionen von SignalR 2.0 beschrieben.
 
@@ -553,12 +553,12 @@ Diese Version enthält auch das Paket "Microsoft.owin.Diagnostics", einschließl
 
 Die folgenden Authentifizierungskomponenten sind verfügbar.
 
-- **"Microsoft.owin.Security.ActiveDirectory"**. Aktiviert die Authentifizierung mithilfe einer lokalen oder cloudbasierten Verzeichnisdienst.
+- **Microsoft.Owin.Security.ActiveDirectory**. Aktiviert die Authentifizierung mithilfe einer lokalen oder cloudbasierten Verzeichnisdienst.
 - **Microsoft.Owin.Security.Cookies** aktiviert die Authentifizierung mithilfe von Cookies. Dieses Paket wurde zuvor mit dem Namen `Microsoft.Owin.Security.Forms`.
 - **"Microsoft.owin.Security.Facebook"** aktiviert die Authentifizierung mithilfe Facebooks-OAuth-basierten Dienst.
 - **"Microsoft.owin.Security.Google"** aktiviert die Authentifizierung mithilfe Googles OpenID-basierten Dienst.
 - **"Microsoft.owin.Security.jwt"** aktiviert die Authentifizierung mithilfe von JWT-Token.
-- **"Microsoft.owin.Security.MicrosoftAccount"** aktiviert die Authentifizierung mithilfe von Microsoft-Konten.
+- **Microsoft.Owin.Security.MicrosoftAccount** Enables authentication using Microsoft accounts.
 - **Microsoft.Owin.Security.OAuth**. Stellt ein OAuth-autorisierungsservers sowie die Middleware zum Authentifizieren von Bearer-Token.
 - **"Microsoft.owin.Security.Twitter"** aktiviert die Authentifizierung mithilfe von Twitter OAuth-basierten Dienst.
 
@@ -643,7 +643,7 @@ In diesem Abschnitt werden bekannte Probleme und aktueller Änderungen im ASP.NE
     Dies wird für die der nächsten Version behoben werden.
 2. Nach dem Upgrade einer MVC4 app MVC5 – erstellen Sie die Projektmappe, und starten Sie ihn. Sie sollten die folgende Fehlermeldung angezeigt:
 
-    [A] System.Web.WebPages.Razor.Configuration.HostSection kann nicht umgewandelt werden, um [B]System.Web.WebPages.Razor.Configuration.HostSection. Typ A, stammen aus "System.Web.WebPages.Razor, Version = 2.0.0.0, Culture = Neutral, PublicKeyToken = 31bf3856ad364e35' im Kontext 'Default' an Position" C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4. 0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll ". Typ B stammt aus der "System.Web.WebPages.Razor, Version = 3.0.0.0, Culture = Neutral, PublicKeyToken = 31bf3856ad364e35' im Kontext 'Default' an Position ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll ".
+    [A]System.Web.WebPages.Razor.Configuration.HostSection cannot be cast to [B]System.Web.WebPages.Razor.Configuration.HostSection. Typ A, stammen aus "System.Web.WebPages.Razor, Version = 2.0.0.0, Culture = Neutral, PublicKeyToken = 31bf3856ad364e35' im Kontext 'Default' an Position" C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4. 0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll ". Typ B stammt aus der "System.Web.WebPages.Razor, Version = 3.0.0.0, Culture = Neutral, PublicKeyToken = 31bf3856ad364e35' im Kontext 'Default' an Position ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll ".
 
     Um den oben aufgeführten Fehler zu beheben, öffnen Sie *alle* die Dateien "Web.config" (einschließlich derjenigen, die im Ordner "Sichten") im Projekt und führen Sie Folgendes:
 
@@ -666,7 +666,7 @@ In diesem Abschnitt werden bekannte Probleme und aktueller Änderungen im ASP.NE
     Nach:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. Teilweise Vertrauenswürdigkeit wird von ASP.NET MVC 5 nicht mehr unterstützt. Verknüpfen mit den Binärdateien für MVC oder WebAPI Projekte sollten Entfernen der [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx) Attribut und der [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx) Attribut. Entfernen dieser Attribute wird Compilerfehler wie z. B. die folgenden beseitigt.
+4. Teilweise Vertrauenswürdigkeit wird von ASP.NET MVC 5 nicht mehr unterstützt. Verknüpfen mit den Binärdateien für MVC oder WebAPI Projekte sollten Entfernen der [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) Attribut und der [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) Attribut. Entfernen dieser Attribute wird Compilerfehler wie z. B. die folgenden beseitigt.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 

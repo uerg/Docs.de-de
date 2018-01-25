@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1e9950619dc9d0c8aa2911eb05911cf008989e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Abfragen von Daten mit SqlDataSource-Steuerelement (c#)
 ====================
@@ -33,7 +33,7 @@ Alle Lernprogramme wir haben bisher untersucht eine mehrstufige Architektur, die
 
 Während alle bisher die Lernprogramme die Architektur zum Arbeiten mit Daten verwendet haben, kann es auch zugreifen, einfügen, aktualisieren und Löschen von Datenbankdaten direkt von einer ASP.NET-Seite unter Umgehung der Architektur. Auf diese Weise wird der angegebenen Datenbankabfragen und Geschäftslogik direkt auf der Webseite. Ausreichend große oder komplexe Anwendungen ist es äußerst wichtig für Erfolg, aktualisierbarkeit und verwaltbarkeit der Anwendung entwerfen, implementieren und Verwenden einer mehrstufigen Architektur. Entwickeln eine robuste Architektur, kann jedoch nicht erforderlich sein, wenn äußerst einfache, einmalige Anwendungen zu erstellen.
 
-ASP.NET 2.0 verfügt über fünf integrierte Datenquellensteuerelementen [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx), und [SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx). Zugreifen auf und Ändern von Daten direkt aus einer relationalen Datenbank, einschließlich Microsoft SQL Server, Microsoft Access, Oracle, MySQL usw., kann die SqlDataSource verwendet werden. In diesem Lernprogramm und den nächsten drei untersuchen wir zum Arbeiten mit SqlDataSource-Steuerelement einfügen, aktualisieren und Löschen von Daten zum Abfragen und Filter-Datenbankdaten sowie zum Verwenden der SqlDataSource zu untersuchen.
+ASP.NET 2.0 verfügt über fünf integrierte Datenquellensteuerelementen [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), und [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). Zugreifen auf und Ändern von Daten direkt aus einer relationalen Datenbank, einschließlich Microsoft SQL Server, Microsoft Access, Oracle, MySQL usw., kann die SqlDataSource verwendet werden. In diesem Lernprogramm und den nächsten drei untersuchen wir zum Arbeiten mit SqlDataSource-Steuerelement einfügen, aktualisieren und Löschen von Daten zum Abfragen und Filter-Datenbankdaten sowie zum Verwenden der SqlDataSource zu untersuchen.
 
 
 ![ASP.NET 2.0 enthält fünf integrierte Datenquellensteuerelemente](querying-data-with-the-sqldatasource-control-cs/_static/image1.gif)
@@ -144,12 +144,12 @@ Nach der Konfiguration des Assistenten werden die `ProductID`, `ProductName`, un
 
 Klicken Sie auf "Fertig stellen", um den Assistenten zu beenden.
 
-Wie Sie mit der ObjectDataSource SqlDataSource-s-Assistenten nur Werte der Steuerelementeigenschaften s, nämlich zuweist der [ `ConnectionString` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) und [ `SelectCommand` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) Eigenschaften. Nach Abschluss des Assistenten, sollte SqlDataSource-Steuerelement s deklarative Markup etwa wie folgt aussehen:
+Wie Sie mit der ObjectDataSource SqlDataSource-s-Assistenten nur Werte der Steuerelementeigenschaften s, nämlich zuweist der [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) und [ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) Eigenschaften. Nach Abschluss des Assistenten, sollte SqlDataSource-Steuerelement s deklarative Markup etwa wie folgt aussehen:
 
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample2.aspx)]
 
-Die `ConnectionString` Eigenschaft enthält Informationen zum Verbinden mit der Datenbank. Diese Eigenschaft kann einen Wert vollständig, hartcodierte Verbindungszeichenfolge zugewiesen werden oder auf eine Verbindungszeichenfolge in verweisen `Web.config`. Um eine verbindungszeichenwert in "Web.config" zu verweisen, verwenden Sie die Syntax `<%$ expressionPrefix:expressionValue %>`. In der Regel *ExpressionPrefix* ist ConnectionStrings und *ExpressionValue* ist der Name der Verbindungszeichenfolge in der `Web.config` [ `<connectionStrings>` Abschnitt](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). Die Syntax kann jedoch verwendet werden, Verweis `<appSettings>` Elemente oder Inhalte aus Ressourcendateien. Finden Sie unter [Übersicht über ASP.NET-Ausdrücke](https://msdn.microsoft.com/en-us/library/d5bd1tad.aspx) für Weitere Informationen über diese Syntax.
+Die `ConnectionString` Eigenschaft enthält Informationen zum Verbinden mit der Datenbank. Diese Eigenschaft kann einen Wert vollständig, hartcodierte Verbindungszeichenfolge zugewiesen werden oder auf eine Verbindungszeichenfolge in verweisen `Web.config`. Um eine verbindungszeichenwert in "Web.config" zu verweisen, verwenden Sie die Syntax `<%$ expressionPrefix:expressionValue %>`. In der Regel *ExpressionPrefix* ist ConnectionStrings und *ExpressionValue* ist der Name der Verbindungszeichenfolge in der `Web.config` [ `<connectionStrings>` Abschnitt](https://msdn.microsoft.com/library/bf7sd233.aspx). Die Syntax kann jedoch verwendet werden, Verweis `<appSettings>` Elemente oder Inhalte aus Ressourcendateien. Finden Sie unter [Übersicht über ASP.NET-Ausdrücke](https://msdn.microsoft.com/library/d5bd1tad.aspx) für Weitere Informationen über diese Syntax.
 
 Die `SelectCommand` Eigenschaft gibt an, die Ad-hoc-SQL-Anweisung oder gespeicherte Prozedur ausgeführt wird, um die Daten zurückzugeben.
 
@@ -190,7 +190,7 @@ Tritt auf, eine andere Besonderheit mit paging und Sortieren mit der SqlDataSour
 
 Sortieren und paging funktioniert, da die ': SqlDataSource in einer lose typisierten DataSet Daten in der Datenbank abruft. Die Gesamtzahl der Datensätze, die von der Abfrage zurückgegebenen einen wesentlichen Aspekt Implementieren von Paging kann aus dem DataSet ermittelt werden. Darüber hinaus können die DataSet-s-Ergebnisse mit einer "DataView" sortiert werden. Diese Funktionen werden automatisch durch die ': SqlDataSource verwendet, wenn Anforderungen GridView ausgelagert oder Daten sortierte.
 
-Die SqlDataSource kann konfiguriert werden, zum Zurückgeben eines "DataReader" anstelle eines Datasets durch Ändern der [ `DataSourceMode` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) aus `DataSet` (Standard) zu `DataReader`. Mithilfe ein "DataReader" kann in Situationen bevorzugt wird, wenn SqlDataSource-s-Ergebnisse am vorhandenen Code übergeben, die ein "DataReader" erwartet. Da DataReaders erheblich einfacher Objekte als DataSets sind, bieten sie darüber hinaus eine bessere Leistung. Wenn Sie diese Änderung vornehmen, jedoch das Websteuerelement Daten kann weder sortieren noch Seite, da die ': SqlDataSource kann nicht ermitteln, wie viele Datensätze von der Abfrage zurückgegeben werden, ebenso wie nicht DataReader bieten alle Verfahren für die zurückgegebenen Daten zu sortieren.
+Die SqlDataSource kann konfiguriert werden, zum Zurückgeben eines "DataReader" anstelle eines Datasets durch Ändern der [ `DataSourceMode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) aus `DataSet` (Standard) zu `DataReader`. Mithilfe ein "DataReader" kann in Situationen bevorzugt wird, wenn SqlDataSource-s-Ergebnisse am vorhandenen Code übergeben, die ein "DataReader" erwartet. Da DataReaders erheblich einfacher Objekte als DataSets sind, bieten sie darüber hinaus eine bessere Leistung. Wenn Sie diese Änderung vornehmen, jedoch das Websteuerelement Daten kann weder sortieren noch Seite, da die ': SqlDataSource kann nicht ermitteln, wie viele Datensätze von der Abfrage zurückgegeben werden, ebenso wie nicht DataReader bieten alle Verfahren für die zurückgegebenen Daten zu sortieren.
 
 ## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>Schritt 4: Verwenden einer benutzerdefinierten SQL-Anweisung oder gespeicherten Prozedur
 
@@ -249,9 +249,9 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Zugreifen auf Daten der relationalen Datenbank](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
-- [SqlDataSource-Steuerelement (Übersicht)](https://msdn.microsoft.com/en-us/library/dz12d98w.aspx)
+- [SqlDataSource-Steuerelement (Übersicht)](https://msdn.microsoft.com/library/dz12d98w.aspx)
 - [ASP.NET Schnellstart-Lernprogrammen: SqlDataSource-Steuerelement](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Die Datei "Web.config" `<connectionStrings>` Element](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Die Datei "Web.config" `<connectionStrings>` Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [Datenbankverweis Connection-Zeichenfolge](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>Informationen zum Autor

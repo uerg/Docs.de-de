@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Verwenden JavaScriptServices für einseitige Anwendungen mit ASP.NET Core erstellen
 
@@ -200,7 +200,7 @@ Nach dem Laden der app im Browser, bietet die Entwicklertools Konsole Registerka
 
 ## <a name="routing-helpers"></a>Routing-Hilfsprogramme
 
-In den meisten ASP.NET Core-basierte SPAs sollten Sie clientseitige neben dem routing serverseitige routing. Die SPA und MVC-routing-Systeme können ohne Störung möglich sind unabhängig voneinander arbeiten. Es ist jedoch eine Herausforderung machen Grenzfall: 404 HTTP-Antworten zu identifizieren.
+In den meisten ASP.NET Core-basierte SPAs sollten Sie clientseitige neben dem routing serverseitige routing. Die SPA und MVC-routing-Systeme können ohne Störung möglich sind unabhängig voneinander arbeiten. Vorhanden ist, jedoch eine Kante Groß-/Kleinschreibung machen Herausforderungen: 404 HTTP-Antworten zu identifizieren.
 
 Betrachten Sie das Szenario, in dem ein Standarddokument Route des `/some/page` verwendet wird. Angenommen Sie, die Anforderung nicht-Musterübereinstimmung eine serverseitige Route, aber die entsprechende Muster entspricht einer Route für die clientseitige. Betrachten Sie nun eine eingehende Anforderung für `/images/user-512.png`, die im Allgemeinen davon ausgeht, eine Bilddatei auf dem Server. Wenn diesem Pfad für die angeforderte Ressource keine serverseitigen Route oder eine statische Datei übereinstimmt, ist es unwahrscheinlich, dass die clientseitige Anwendung behandelt werden würde, in der Regel einen 404 HTTP-Statuscode zurückgegeben werden soll.
 

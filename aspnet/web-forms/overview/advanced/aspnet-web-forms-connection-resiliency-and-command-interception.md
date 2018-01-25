@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 1c24ccd220bf6df09a958d07b13077f004da0a03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms Connection Resiliency und Befehl abfangen
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 In diesem Lernprogramm ändern Sie die Wingtip Toys-beispielanwendung zur Unterstützung von resilienz von Verbindungen und Befehl abfangen. Durch die Aktivierung von resilienz von Verbindungen, wiederholt die beispielanwendung des Wingtip Toys automatisch Daten aufrufen, treten vorübergehende Fehler, die typisch für eine Cloud-Umgebung. Darüber hinaus durch die Implementierung Befehl abfangen können die beispielanwendung des Wingtip Toys fängt alle SQL-Abfragen gesendet, um die Datenbank aus, um die melden oder Sie zu ändern.
 
@@ -39,13 +39,13 @@ In diesem Lernprogramm ändern Sie die Wingtip Toys-beispielanwendung zur Unters
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgende Software auf Ihrem Computer installiert haben:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework wird automatisch installiert.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework wird automatisch installiert.
 - Die Wingtip Toys Beispielprojekt, damit Sie die Funktionalität, die in diesem Lernprogramm innerhalb des Wingtip Toys-Projekts genannten implementieren können. Der folgende Link enthält Details herunterladen:
 
     - [Erste Schritte mit ASP.NET 4.5.1 Web Forms - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
 - Vor dem Abschluss dieses Lernprogramms sollten Sie das Lernprogrammen aufeinander bezogene Reihen, [erste Schritte mit ASP.NET 4.5 Web Forms und Visual Studio 2013](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md). Die Reihe von Lernprogrammen hilft Ihnen, sich mit vertraut der **WingtipToys** Projekt- und Code.
 
-## <a name="connection-resiliency"></a>Verbindungsstabilität
+## <a name="connection-resiliency"></a>Verbindungsresilienz
 
 Wenn Sie in Betracht ziehen, eine Anwendung in Windows Azure bereitstellen, wird eine Option zu berücksichtigenden Bereitstellen der Datenbank zu **Windows** **Azure SQL-Datenbank**, einen Cloud-Dienst-Datenbank. Vorübergehende Verbindungsfehler sind in der Regel häufiger, beim Herstellen der Verbindung mit einem Clouddienst für die Datenbank oder Ihrem Webserver und dem Datenbankserver direkt zusammen im selben Rechenzentrum angeschlossen sind. Auch wenn ein Cloud-Web-Server und einen Clouddienst für die Datenbank im selben Rechenzentrum gehostet werden, stehen weitere Netzwerkverbindungen zwischen ihnen, die Probleme, z. B. Lastenausgleichsmodule aufweisen können.
 
@@ -81,7 +81,7 @@ Das Entity Framework automatisch ausgeführt wird, den Code in einer Klasse, die
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-Durch Hinzufügen der `RetryLimitExceededException` Ausnahme, die von Ihnen bereitgestellte besser Protokollierung oder zeigt eine Fehlermeldung an, die dem Benutzer, die den Prozess erneut auswählen können. Indem Sie Sie Abfangen der `RetryLimitExceededException` Ausnahme, die wahrscheinlich nur vorübergehend aufzutreten nur Fehler werden bereits ausprobiert und wurden Fehler mehrere Male. Die eigentliche Ausnahme zurückgegeben wird umschlossen werden, der `RetryLimitExceededException` Ausnahme. Darüber hinaus nun auch einen allgemeinen Catch-Block. Weitere Informationen zu den `RetryLimitExceededException` Ausnahme finden Sie unter [Entity Framework Connection Resiliency / Wiederholungslogik](https://msdn.microsoft.com/en-us/data/dn456835).
+Durch Hinzufügen der `RetryLimitExceededException` Ausnahme, die von Ihnen bereitgestellte besser Protokollierung oder zeigt eine Fehlermeldung an, die dem Benutzer, die den Prozess erneut auswählen können. Indem Sie Sie Abfangen der `RetryLimitExceededException` Ausnahme, die wahrscheinlich nur vorübergehend aufzutreten nur Fehler werden bereits ausprobiert und wurden Fehler mehrere Male. Die eigentliche Ausnahme zurückgegeben wird umschlossen werden, der `RetryLimitExceededException` Ausnahme. Darüber hinaus nun auch einen allgemeinen Catch-Block. Weitere Informationen zu den `RetryLimitExceededException` Ausnahme finden Sie unter [Entity Framework Connection Resiliency / Wiederholungslogik](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="command-interception"></a>Befehl abfangen
 

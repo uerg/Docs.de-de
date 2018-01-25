@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8a3f4cf267998ddc7f393401059ca9d83ef2d8e7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Core-kryptografieerweiterbarkeit
 
@@ -128,7 +128,7 @@ Der serialisierte Deskriptor enthalten möglicherweise vertrauliche Informatione
 >[!TIP]
 > Für das Festlegen dieses Attributs ist ein Hilfs-API. Rufen Sie die Erweiterungsmethode XElement.MarkAsRequiresEncryption() im Namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel befindet.
 
-Es kann auch Fälle, in denen der serialisierte Deskriptor vertrauliche Informationen enthalten, nicht, vorhanden sein. Schauen wir uns erneut die Groß-/Kleinschreibung ein kryptografischer Schlüssel in einem HSM gespeichert. Der Deskriptor kann nicht das Schlüsselmaterial schreiben beim selbst zu serialisieren, da das HSM nicht das Material in Klartext verfügbar macht. Stattdessen kann der Deskriptor schreiben, die Schlüssel eingebunden Version des Schlüssels (falls das HSM Export auf diese Weise kann) oder den HSMs-Bezeichner für den Schlüssel.
+Es kann auch Fälle, in denen der serialisierte Deskriptor vertrauliche Informationen enthalten, nicht, vorhanden sein. Schauen wir uns erneut die Groß-/Kleinschreibung ein kryptografischer Schlüssel in einem HSM gespeichert. Der Deskriptor kann nicht das Schlüsselmaterial beim selbst zu serialisieren, da das HSM des Materials in Klartext verfügbar gemacht wird nicht schreiben. Stattdessen kann der Deskriptor schreiben, die Schlüssel eingebunden Version des Schlüssels (falls das HSM Export auf diese Weise kann) oder den HSMs-Bezeichner für den Schlüssel.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
@@ -157,7 +157,7 @@ Die **AlgorithmConfiguration** Klasse stellt einen Typ, der weiß, wie erstellen
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-Sichereres AlgorithmConfiguration der obersten Ebene Factory. Die Konfiguration dient als Vorlage. Es dient als Wrapper für algorithmische Informationen (z. B. diese Konfiguration erzeugt Deskriptoren mit einem Hauptschlüssel AES-128-GCM), aber es ist noch nicht mit einem bestimmten Schlüssel zugeordnete.
+Sichereres AlgorithmConfiguration der obersten Ebene Factory. Die Konfiguration dient als Vorlage. Es dient als Wrapper für algorithmische Informationen (z. B. diese Konfiguration erzeugt Deskriptoren mit einem Hauptschlüssel AES-128-GCM), aber es wurde noch nicht mit einem bestimmten Schlüssel zugewiesen.
 
 Wenn CreateNewDescriptor aufgerufen wird, neue Schlüsselmaterial wird ausschließlich für diesen Aufruf erstellt, und eine neue IAuthenticatedEncryptorDescriptor erstellt umschließt die dieser Schlüsselmaterial sowie die algorithmische Informationen erforderlich, um das Material zu verwenden. Das Schlüsselmaterial konnte in der Software erstellt (und im Speicher gehalten werden), erstellt und innerhalb einer HSM usw. werden konnte. Der wichtige Punkt ist, dass zwei Aufrufe CreateNewDescriptor nie entsprechende IAuthenticatedEncryptorDescriptor-Instanzen erstellen soll.
 
@@ -169,7 +169,7 @@ Die **IAuthenticatedEncryptorConfiguration** Schnittstelle darstellt, einen Typ,
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-Sichereres IAuthenticatedEncryptorConfiguration der obersten Ebene Factory. Die Konfiguration dient als Vorlage. Es dient als Wrapper für algorithmische Informationen (z. B. diese Konfiguration erzeugt Deskriptoren mit einem Hauptschlüssel AES-128-GCM), aber es ist noch nicht mit einem bestimmten Schlüssel zugeordnete.
+Sichereres IAuthenticatedEncryptorConfiguration der obersten Ebene Factory. Die Konfiguration dient als Vorlage. Es dient als Wrapper für algorithmische Informationen (z. B. diese Konfiguration erzeugt Deskriptoren mit einem Hauptschlüssel AES-128-GCM), aber es wurde noch nicht mit einem bestimmten Schlüssel zugewiesen.
 
 Wenn CreateNewDescriptor aufgerufen wird, neue Schlüsselmaterial wird ausschließlich für diesen Aufruf erstellt, und eine neue IAuthenticatedEncryptorDescriptor erstellt umschließt die dieser Schlüsselmaterial sowie die algorithmische Informationen erforderlich, um das Material zu verwenden. Das Schlüsselmaterial konnte in der Software erstellt (und im Speicher gehalten werden), erstellt und innerhalb einer HSM usw. werden konnte. Der wichtige Punkt ist, dass zwei Aufrufe CreateNewDescriptor nie entsprechende IAuthenticatedEncryptorDescriptor-Instanzen erstellen soll.
 

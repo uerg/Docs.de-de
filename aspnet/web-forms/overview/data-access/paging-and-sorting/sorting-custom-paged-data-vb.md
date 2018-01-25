@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f7ba21116c2f5f976ffa95955247a49dc5f81e6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee02915a5c69d824c6450157b0c734a2e2ab5c11
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-custom-paged-data-vb"></a>Benutzerdefinierte Sortierung von ausgelagerten Daten (VB)
 ====================
@@ -51,7 +51,7 @@ Leider parametrisiert `ORDER BY` Klauseln sind nicht zulässig. Stattdessen müs
 
 - Schreiben Sie hartcodierte Abfragen für jeden der von Sortierungsausdrücken, die verwendet werden kann; Verwenden Sie dann `IF/ELSE` T-SQL-Anweisungen, um zu bestimmen, welche die auszuführende Abfrage.
 - Verwenden einer `CASE` Anweisung dynamische bereitstellen `ORDER BY` Ausdrücke basierend auf der `@sortExpressio` n Eingabeparameter; finden Sie unter der wird verwendet, um dynamisch Sortieren von Abfrageergebnissen Abschnitt in [Power von SQL `CASE` Anweisungen](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Weitere Informationen.
-- Erstellen Sie die entsprechende Abfrage als Zeichenfolge in der gespeicherten Prozedur, und verwenden Sie dann [der `sp_executesql` gespeicherte Systemprozedur](https://msdn.microsoft.com/en-us/library/ms188001.aspx) zum Ausführen der dynamischen Abfrage.
+- Erstellen Sie die entsprechende Abfrage als Zeichenfolge in der gespeicherten Prozedur, und verwenden Sie dann [der `sp_executesql` gespeicherte Systemprozedur](https://msdn.microsoft.com/library/ms188001.aspx) zum Ausführen der dynamischen Abfrage.
 
 Jede der folgenden Vorgehensweisen verfügt über einige Nachteile. Die erste Option ist nicht als verwaltbar als die anderen beiden benötigt wird, dass Sie eine Abfrage für jeden möglichen Sortierungsausdruck erstellen. Aus diesem Grund, wenn Sie später entscheiden, um die GridView neue, sortierbar Felder hinzuzufügen auch müssen Sie zurückgehen und Aktualisieren der gespeicherten Prozedur. Der zweite Ansatz weist einige Besonderheiten, die einführen von leistungsbeeinträchtigungen beim Sortieren nach keine Zeichenfolgenmethoden Datenbankspalten und verwaltbarkeit dasselbe wie das erste auch noch dadurch erschwert. Und die dritte Option, dynamische SQL-Anweisungen, die verwendet, bietet das Risiko für einen SQL-Injection-Angriff auf, wenn ein Angreifer die gespeicherte Prozedur übergeben werden, in der Eingabe von eingabeparameterwerten ihrer Wahl ausführen kann.
 
@@ -126,7 +126,7 @@ Jetzt, dass wir Ve erweiterte DAL, wir re kann jetzt die BLL aktivieren. Öffnen
 
 HAVING ergänzt, die DAL und BLL erfolgen, die genutzt werden die `GetProductsPagedAndSorted` gespeicherte Prozedur, die alle, die verbleibt, wird "ObjectDataSource" Konfigurieren der `SortParameter.aspx` Seite zur Verwendung der neuen BLL-Methode und übergeben der `SortExpression` Parameter basierend auf der Spalte, die der Benutzer angefordert hat, um die Ergebnisse nach zu sortieren.
 
-Als erstes ändern die s ObjectDataSource `SelectMethod` aus `GetProductsPaged` auf `GetProductsPagedAndSorted`. Dies kann mithilfe des Assistenten konfigurieren von Datenquellen über das Eigenschaftenfenster oder direkt über die deklarative Syntax erfolgen. Wir als Nächstes geben Sie einen Wert für das ObjectDataSource-s [ `SortParameterName` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Wenn diese Eigenschaft festgelegt ist, versucht das ObjectDataSource Übergabe in die GridView s `SortExpression` Eigenschaft, um die `SelectMethod`. Insbesondere sucht das ObjectDataSource für einen Eingabeparameter, dessen Name gleich dem Wert von ist, der `SortParameterName` Eigenschaft. Seit der BLL s `GetProductsPagedAndSorted` Methode hat den Expression-Eingabeparameter sortieren mit dem Namen `sortExpression`, legen Sie die s ObjectDataSource `SortExpression` SortExpression Eigenschaft.
+Als erstes ändern die s ObjectDataSource `SelectMethod` aus `GetProductsPaged` auf `GetProductsPagedAndSorted`. Dies kann mithilfe des Assistenten konfigurieren von Datenquellen über das Eigenschaftenfenster oder direkt über die deklarative Syntax erfolgen. Wir als Nächstes geben Sie einen Wert für das ObjectDataSource-s [ `SortParameterName` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Wenn diese Eigenschaft festgelegt ist, versucht das ObjectDataSource Übergabe in die GridView s `SortExpression` Eigenschaft, um die `SelectMethod`. Insbesondere sucht das ObjectDataSource für einen Eingabeparameter, dessen Name gleich dem Wert von ist, der `SortParameterName` Eigenschaft. Seit der BLL s `GetProductsPagedAndSorted` Methode hat den Expression-Eingabeparameter sortieren mit dem Namen `sortExpression`, legen Sie die s ObjectDataSource `SortExpression` SortExpression Eigenschaft.
 
 Nach diesen beiden Änderungen durchführen, sollte das ObjectDataSource-s-Deklarationssyntax etwa wie folgt aussehen:
 
@@ -139,7 +139,7 @@ Nach diesen beiden Änderungen durchführen, sollte das ObjectDataSource-s-Dekla
 
 Zum Aktivieren der Sortierung in die GridView einfach das Kontrollkästchen Sortieren aktivieren im GridView s Smarttag, die die GridView s festlegt `AllowSorting` Eigenschaft `true` und verursacht den Headertext für jede Spalte als LinkButton gerendert werden soll. Wenn der Endbenutzer auf einem des Headers LinkButtons klickt, erfolgt ein Postback und ablaufen, müssen die folgenden Schritte aus:
 
-1. Die GridView Updates seine [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) auf den Wert von der `SortExpression` des Felds, dessen Header Link geklickt wurde,
+1. Die GridView Updates seine [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) auf den Wert von der `SortExpression` des Felds, dessen Header Link geklickt wurde,
 2. Das ObjectDataSource ruft die BLL s `GetProductsPagedAndSorted` -Methode auf und übergibt die GridView-s `SortExpression` Eigenschaft als Wert für die Methode s `sortExpression` input-Parameter (zusammen mit dem entsprechenden `startRowIndex` und `maximumRows` Werte für Eingabeparameter)
 3. Die BLL Ruft die DAL s `GetProductsPagedAndSorted` Methode
 4. Die DAL führt die `GetProductsPagedAndSorted` gespeicherte Prozedur übergeben, der `@sortExpression` Parameter (zusammen mit der `@startRowIndex` und `@maximumRows` Werte für Eingabeparameter)

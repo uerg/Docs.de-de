@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Was ist neu in ASP.NET MVC 2
 ====================
@@ -88,7 +88,7 @@ Wenn Sie nicht den Namespace in der Methode RegisterArea angeben durch Aufrufen 
 
 ### <a id="_TOC3_3"></a>Unterstützung für asynchrone Controller
 
-ASP.NET MVC 2 können jetzt Anforderungen asynchron zu verarbeiten. Dies kann zu einer Verbesserung der Leistung führen, können Sie die Server, die häufig blockierende Vorgänge (z. B. netzwerkanforderungen) aufrufen, um die nicht blockierend Entsprechungen rufen stattdessen. Weitere Informationen finden Sie unter der [Verwenden eines asynchronen Controllers in ASP.NET-MVC](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx) Thema auf MSDN.
+ASP.NET MVC 2 können jetzt Anforderungen asynchron zu verarbeiten. Dies kann zu einer Verbesserung der Leistung führen, können Sie die Server, die häufig blockierende Vorgänge (z. B. netzwerkanforderungen) aufrufen, um die nicht blockierend Entsprechungen rufen stattdessen. Weitere Informationen finden Sie unter der [Verwenden eines asynchronen Controllers in ASP.NET-MVC](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) Thema auf MSDN.
 
 ### <a id="_TOC3_4"></a>Unterstützung für DefaultValueAttribute in Aktionsmethodenparameter
 
@@ -102,9 +102,9 @@ Darüber hinaus vorausgesetzt, dass die folgende Methode der Controller und Akti
 
 Keines der folgenden Anforderung werden URLs die anzeigen-Action-Methode aufrufen, die im vorherigen Beispiel definiert ist.
 
-- / Artikel/Sicht/123
+- /Article/View/123
 - / Artikel/Sicht/123? Seite = 1 (effektiv identisch mit der vorhergehenden Anforderung)
-- / Artikel/Sicht/123? Seite = 2
+- /Article/View/123?page=2
 
 Die erste URL aus der vorangehenden Liste würde ohne DefaultValueAttribute-Attribut nicht funktionieren, da das Seitenargument ein NULL-Werttyp ist, dessen Wert nicht angegeben wurde.
 
@@ -142,7 +142,7 @@ Die ModelMetadataProvider-Klasse stellt eine Abstraktion zum Abrufen von Metadat
 
 Die ViewDataDictionary-Klasse macht ein ModelMetadata-Objekt, das Metadaten enthält, das von der Klasse ModelMetadataProvider aus dem Modell extrahiert wird. Dies ermöglicht die Hilfsvorlagen nutzen diese Metadaten und ihre Ausgabe entsprechend anpassen.
 
-Weitere Informationen finden Sie in der Dokumentation für die [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) und [ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) Klassen.
+Weitere Informationen finden Sie in der Dokumentation für die [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) und [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) Klassen.
 
 ### <a id="_TOC3_7"></a>Unterstützung für DataAnnotations-Attributen
 
@@ -152,7 +152,7 @@ Weitere Informationen finden Sie unter [Vorgehensweise: Validieren Modell Daten 
 
 ### <a id="_TOC3_8"></a>Modellvalidierungssteuerelement-Anbieter
 
-Die modellvalidierung Provider-Klasse stellt eine Abstraktion, die Validierungslogik für das Modell bereitstellt. ASP.NET MVC umfasst einen Standardanbieter basierend auf Validierungsattribute, die im System.ComponentModel.DataAnnotations-Namespace enthalten sind. Sie können auch eigene Validierungsanbietern erstellen, die benutzerdefinierte Validierungsregeln und benutzerdefinierten Zuordnungen von Validierungsregeln für das Modell zu definieren. Weitere Informationen finden Sie in der Dokumentation für die [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) Klasse.
+Die modellvalidierung Provider-Klasse stellt eine Abstraktion, die Validierungslogik für das Modell bereitstellt. ASP.NET MVC umfasst einen Standardanbieter basierend auf Validierungsattribute, die im System.ComponentModel.DataAnnotations-Namespace enthalten sind. Sie können auch eigene Validierungsanbietern erstellen, die benutzerdefinierte Validierungsregeln und benutzerdefinierten Zuordnungen von Validierungsregeln für das Modell zu definieren. Weitere Informationen finden Sie in der Dokumentation für die [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) Klasse.
 
 ### <a id="_TOC3_9"></a>Die clientseitige Validierung
 

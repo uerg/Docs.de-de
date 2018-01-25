@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 En-us /
 
@@ -32,7 +32,7 @@ Parallelitätskonflikt tritt auf, wenn:
 * Ein Benutzer navigiert zu der Seite "Bearbeiten" für eine Entität.
 * Ein anderer Benutzer aktualisiert dieselbe Entität, bevor die erste Änderung des Benutzers mit der Datenbank geschrieben werden.
 
-Wenn die Erkennung der Parallelität nicht aktiviert ist, beim Auftreten von gleichzeitige Updates:
+Wenn Parallelität Erkennung, aktiviert ist wenn gleichzeitige Updates auftreten:
 
 * Das letzte Update gewinnt. D. h. werden die letzten Aktualisieren von Werten mit der Datenbank gespeichert.
 * Die erste von der aktuellen Updates verloren.
@@ -57,7 +57,7 @@ Vollständige Parallelität umfasst die folgenden Optionen:
 
 * Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren.
 
- In diesem Szenario würden keine Daten verloren. Unterschiedliche Eigenschaften wurden durch die beiden Benutzer aktualisiert. Das nächste Mal, das eine Person die englische Abteilung durchsucht, werden Janes und Peters Änderungen angezeigt. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können. Dieser Ansatz: * Datenverlust nicht vermieden werden, wenn die gleiche Eigenschaft konkurrierende geändert werden.
+ In diesem Szenario würden keine Daten verloren. Unterschiedliche Eigenschaften wurden durch die beiden Benutzer aktualisiert. Sie können das nächste Mal, das eine Person die englische Abteilung durchsucht, Janes und Peters Änderungen sehen. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können. Dieser Ansatz: * Datenverlust nicht vermieden werden, wenn die gleiche Eigenschaft konkurrierende geändert werden.
         * Wird im Allgemeinen nicht besonders praktisch in einer Web-app. Sie erfordert erhebliche Zustand beibehalten, um nachzuverfolgen, um alle abgerufenen Werte und neue Werte. Verwalten von großen Datenmengen Zustand kann die app-Leistung beeinträchtigen.
         * Können app-Komplexität, die im Vergleich zur Erkennung der Parallelität für eine Entität zu erhöhen.
 
@@ -73,18 +73,18 @@ Vollständige Parallelität umfasst die folgenden Optionen:
 
 ## <a name="handling-concurrency"></a>Behandeln von Parallelität 
 
-Wenn eine Eigenschaft konfiguriert ist, als ein [parallelitätstoken](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+Wenn eine Eigenschaft konfiguriert ist, als ein [parallelitätstoken](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF Core stellt sicher, dass die Eigenschaft nicht geändert wurde, nachdem es abgerufen wurde. Die Überprüfung tritt auf, wenn [SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) oder [SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) aufgerufen wird.
+* EF Core stellt sicher, dass die Eigenschaft nicht geändert wurde, nachdem es abgerufen wurde. Die Überprüfung tritt auf, wenn [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) oder [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) aufgerufen wird.
 * Wenn die Eigenschaft geändert wurde, nachdem es abgerufen wurde, eine [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) ausgelöst wird. 
 
 Die DB- und Datenmodell must be configured auslösen unterstützen `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Erkennen von Konflikten bei der Parallelität für eine Eigenschaft
 
-Parallelitätskonflikte erkannt werden können, auf der Eigenschaftenebene mit der [ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) Attribut. Das Attribut kann mehreren Eigenschaften für das Modell angewendet werden. Weitere Informationen finden Sie unter [Daten Anmerkungen-ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations).
+Parallelitätskonflikte erkannt werden können, auf der Eigenschaftenebene mit der [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) Attribut. Das Attribut kann mehreren Eigenschaften für das Modell angewendet werden. Weitere Informationen finden Sie unter [Daten Anmerkungen-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
-Die `[ConcurrencyCheck]` Attribut wird in diesem Lernprogramm nicht verwendet.
+Die `[ConcurrencyCheck]` Attribut wird nicht in diesem Lernprogramm verwendet.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Erkennen von Konflikten bei der Parallelität in einer Zeile
 
@@ -127,7 +127,7 @@ Die folgende hervorgehobene Code zeigt das T-SQL, die überprüft, dass genau ei
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql) gibt die Anzahl der von der letzten Anweisung betroffenen Zeilen zurück. In keine Zeilen aktualisiert werden, EF Core löst eine `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) gibt die Anzahl der von der letzten Anweisung betroffenen Zeilen zurück. In keine Zeilen aktualisiert werden, EF Core löst eine `DbUpdateConcurrencyException`.
 
 Sie können sehen, dass die T-SQL EF Core im Ausgabefenster von Visual Studio generiert.
 
@@ -175,7 +175,7 @@ Erstellen Sie das Projekt. Der Build generiert Fehler wie folgt:
 
 ### <a name="update-the-departments-index-page"></a>Aktualisieren Sie die Abteilungen Indexseite
 
-Das Gerüst Modul erstellt eine `RowVersion` Spalte für die Seite "Index", aber dieses Feld darf nicht angezeigt werden. In diesem Lernprogramm, das letzte Byte der `RowVersion` wird angezeigt, um die Parallelität zu verstehen. Das letzte Byte ist nicht unbedingt eindeutig sein. Eine wirkliche app wäre nicht anzeigen `RowVersion` oder das letzte Byte der `RowVersion`.
+Das Gerüst Modul erstellt eine `RowVersion` Spalte für die Seite "Index", aber dieses Feld darf nicht angezeigt werden. In diesem Lernprogramm, das letzte Byte der `RowVersion` wird angezeigt, um die Parallelität zu verstehen. Das letzte Byte ist nicht unbedingt eindeutig. Eine wirkliche app wäre nicht anzeigen `RowVersion` oder das letzte Byte der `RowVersion`.
 
 Aktualisieren Sie die Seite "Index":
 
@@ -250,7 +250,7 @@ Klicken Sie auf **Speichern**. Fehlermeldungen für alle Felder, die die DB-Wert
 
 ![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/edit-error.png)
 
-Dieses Browserfenster wollten nicht so ändern Sie das Feld Name. Kopieren Sie den aktuellen Wert (Sprachen) in das Feld "Name". Registerkarte "aus. Die clientseitige Validierung entfernt die Fehlermeldung angezeigt.
+Dieses Browserfenster möchten nicht das Namensfeld ändern. Kopieren Sie den aktuellen Wert (Sprachen) in das Feld "Name". Registerkarte "aus. Die clientseitige Validierung entfernt die Fehlermeldung angezeigt.
 
 ![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ Finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance) zum erben von einem D
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Parallelitätstoken in EF Core](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [Behandeln von Parallelität in EF Core](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [Parallelitätstoken in EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [Behandeln von Parallelität in EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Vorherige](xref:data/ef-rp/update-related-data)

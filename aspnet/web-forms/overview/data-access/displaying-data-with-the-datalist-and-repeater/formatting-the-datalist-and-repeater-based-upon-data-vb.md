@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 48e0f2bad8c048e943ec2a3ce72cc0f7ca4d34d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Formatieren der DataList und Repeater basierend auf Daten (VB)
 ====================
@@ -40,25 +40,25 @@ Beide dieser Techniken Formatierung sind mit den verschiedenen Steuerelementen v
 
 ## <a name="using-theitemdataboundevent-handler"></a>Mithilfe der`ItemDataBound`-Ereignishandler
 
-Wenn Daten gebunden ist, eine DataList ein Datenquellen-Steuerelement oder über programmgesteuert Zuweisen von Daten an das Steuerelement s `DataSource` -Eigenschaft und der Aufruf seiner `DataBind()` -Methode, die DataList s `DataBinding` Ereignis ausgelöst wird, die Datenquelle aufgelistet, und jeder Datensatz an DataList gebunden ist. Für jeden Datensatz in der Datenquelle, die DataList erstellt eine [ `DataListItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.aspx) -Objekt ab, und klicken Sie dann auf den aktuellen Datensatz gebunden. Während dieses Vorgangs werden die DataList zwei Ereignisse ausgelöst:
+Wenn Daten gebunden ist, eine DataList ein Datenquellen-Steuerelement oder über programmgesteuert Zuweisen von Daten an das Steuerelement s `DataSource` -Eigenschaft und der Aufruf seiner `DataBind()` -Methode, die DataList s `DataBinding` Ereignis ausgelöst wird, die Datenquelle aufgelistet, und jeder Datensatz an DataList gebunden ist. Für jeden Datensatz in der Datenquelle, die DataList erstellt eine [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) -Objekt ab, und klicken Sie dann auf den aktuellen Datensatz gebunden. Während dieses Vorgangs werden die DataList zwei Ereignisse ausgelöst:
 
 - **`ItemCreated`**wird ausgelöst, nachdem der `DataListItem` erstellt wurde
 - **`ItemDataBound`**wird ausgelöst, nachdem der aktuelle Datensatz an gebunden wurde die`DataListItem`
 
 Die folgenden Schritte beschreiben die Bindung von Daten für das DataList-Steuerelement.
 
-1. Das DataList s [ `DataBinding` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.control.databinding.aspx) ausgelöst wird
+1. Das DataList s [ `DataBinding` Ereignis](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) ausgelöst wird
 2. Die Daten ist an das DataList gebunden.  
   
  Für jeden Datensatz in der Datenquelle 
 
     1. Erstellen einer `DataListItem` Objekt
-    2. Auslösen der [ `ItemCreated` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. Auslösen der [ `ItemCreated` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. Binden Sie den Datensatz der`DataListItem`
-    4. Auslösen der [ `ItemDataBound` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. Auslösen der [ `ItemDataBound` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Hinzufügen der `DataListItem` auf die `Items` Auflistung
 
-Beim Binden von Daten an das Wiederholungsmodul-Steuerelement, wechselt es über die gleichen genaue Reihenfolge von Schritten. Der einzige Unterschied ist, dass statt des `DataListItem` Instanzen erstellt wird, die Repeater verwendet [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
+Beim Binden von Daten an das Wiederholungsmodul-Steuerelement, wechselt es über die gleichen genaue Reihenfolge von Schritten. Der einzige Unterschied ist, dass statt des `DataListItem` Instanzen erstellt wird, die Repeater verwendet [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
 
 > [!NOTE]
 > Der aufmerksame Leser eine leichte Anomalie zwischen der Abfolge von Schritten aufgefallen, die ablaufen müssen, wenn die DataList und Repeater an Daten im Vergleich zu gebunden sind, wenn die GridView an Daten gebunden ist. Am Ende des Protokollfragments der Bindung von Daten, die GridView löst die `DataBound` Ereignis; jedoch weder die Repeater das DataList-Steuerelement einem solchen haben. Dies ist, da die verschiedenen Steuerelemente wieder in den ASP.NET 1.x Zeitrahmen erstellt wurden, bevor die vor und nach dem Kompatibilitätsgrad Handler-Ereignismuster allgemeine werden mussten.
@@ -93,7 +93,7 @@ Erstellen Sie ein `ItemDataBound` -Ereignis für das DataList und fügen Sie den
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-Während das Konzept und die Semantik hinter der DataList s `ItemDataBound` Ereignishandler sind identisch mit denen durch die GridView s. verwendet `RowDataBound` -Ereignishandler in der *benutzerdefinierte Formatierung basierend auf Daten* Lernprogramm unterscheidet sich die Syntax etwas. Wenn der `ItemDataBound` Ereignis wird ausgelöst, der `DataListItem` nur an Daten gebunden wird übergeben, in die entsprechenden Ereignishandler über `e.Item` (anstelle von `e.Row`bei der GridView s `RowDataBound` Ereignishandler). Das DataList s `ItemDataBound` -Ereignishandler ausgelöst wird, für die *jedes* Zeile DataList, einschließlich der Kopfzeilen, Fußzeilen und Trennzeichen für Zeilen hinzugefügt. Die Produktinformationen ist allerdings nur auf die Datenzeilen gebunden. Aus diesem Grund bei Verwendung der `ItemDataBound` Ereignis, um die Daten zu überprüfen, die an das DataList gebunden werden, müssen wir zuerst sicherstellen, dass wir arbeiten mit einem Datenelement. Dies kann durch Überprüfen der `DataListItem` s [ `ItemType` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), wofür eines können [die folgenden acht Werte](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.listitemtype.aspx):
+Während das Konzept und die Semantik hinter der DataList s `ItemDataBound` Ereignishandler sind identisch mit denen durch die GridView s. verwendet `RowDataBound` -Ereignishandler in der *benutzerdefinierte Formatierung basierend auf Daten* Lernprogramm unterscheidet sich die Syntax etwas. Wenn der `ItemDataBound` Ereignis wird ausgelöst, der `DataListItem` nur an Daten gebunden wird übergeben, in die entsprechenden Ereignishandler über `e.Item` (anstelle von `e.Row`bei der GridView s `RowDataBound` Ereignishandler). Das DataList s `ItemDataBound` -Ereignishandler ausgelöst wird, für die *jedes* Zeile DataList, einschließlich der Kopfzeilen, Fußzeilen und Trennzeichen für Zeilen hinzugefügt. Die Produktinformationen ist allerdings nur auf die Datenzeilen gebunden. Aus diesem Grund bei Verwendung der `ItemDataBound` Ereignis, um die Daten zu überprüfen, die an das DataList gebunden werden, müssen wir zuerst sicherstellen, dass wir arbeiten mit einem Datenelement. Dies kann durch Überprüfen der `DataListItem` s [ `ItemType` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), wofür eines können [die folgenden acht Werte](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -104,7 +104,7 @@ Während das Konzept und die Semantik hinter der DataList s `ItemDataBound` Erei
 - `SelectedItem`
 - `Separator`
 
-Beide `Item` und `AlternatingItem``DataListItem` s Zusammensetzung der DataList-s-Datenelemente. Wir arbeiten vorausgesetzt ein `Item` oder `AlternatingItem`, wir Zugriff auf den tatsächlichen `ProductsRow` -Instanz, die mit dem aktuellen gebunden war `DataListItem`. Die `DataListItem` s [ `DataItem` Eigenschaft](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalistitem.dataitem.aspx) enthält einen Verweis auf die `DataRowView` Objekt, dessen `Row` Eigenschaft stellt einen Verweis auf den tatsächlichen `ProductsRow` Objekt.
+Beide `Item` und `AlternatingItem``DataListItem` s Zusammensetzung der DataList-s-Datenelemente. Wir arbeiten vorausgesetzt ein `Item` oder `AlternatingItem`, wir Zugriff auf den tatsächlichen `ProductsRow` -Instanz, die mit dem aktuellen gebunden war `DataListItem`. Die `DataListItem` s [ `DataItem` Eigenschaft](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) enthält einen Verweis auf die `DataRowView` Objekt, dessen `Row` Eigenschaft stellt einen Verweis auf den tatsächlichen `ProductsRow` Objekt.
 
 Wir überprüfen Sie anschließend die `ProductsRow` Instanz s `UnitPrice` Eigenschaft. Seit der Products-Tabelle s `UnitPrice` Feld ermöglicht es `NULL` Werte, bevor Sie versuchen, den Zugriff auf die `UnitPrice` Eigenschaft wir zuerst prüfen um festzustellen, ob eine `NULL` mithilfe der `IsUnitPriceNull()` Methode. Wenn der `UnitPrice` Wert ist kein `NULL`, wir überprüfen Sie dann, wenn finden Sie unter er kleiner als 20,00. Wenn es tatsächlich unter 20,00 handelt, müssen wir die benutzerdefinierte Formatierung anwenden.
 

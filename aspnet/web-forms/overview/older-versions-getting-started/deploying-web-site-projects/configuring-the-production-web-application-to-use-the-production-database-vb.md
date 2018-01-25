@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b193fa3256e5886481c7b36d88aa09c1fa7017c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Konfigurieren der Produktions-Webanwendung mithilfe die Produktionsdatenbank (VB)
 ====================
@@ -37,7 +37,7 @@ Es ist nicht ungewöhnlich, dass Informationen zu den Entwicklungs- und produkti
 
 ## <a name="examining-the-connection-string-information"></a>Untersuchen die Verbindungszeichenfolgeninformationen
 
-Von der Webanwendung Buch Reviews verwendete Verbindungszeichenfolge befindet sich in der Konfigurationsdatei der Anwendung-s `Web.config`. `Web.config`enthält einen speziellen Bereich für das Speichern von Verbindungszeichenfolgen, geeignet benannt, [ &lt;ConnectionStrings&gt;](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). Die `Web.config` -Konfigurationsdatei für das Buch Reviews-Website eine Verbindungszeichenfolge, die in diesem Abschnitt mit dem Namen definiert ist `ReviewsConnectionString`:
+Von der Webanwendung Buch Reviews verwendete Verbindungszeichenfolge befindet sich in der Konfigurationsdatei der Anwendung-s `Web.config`. `Web.config`enthält einen speziellen Bereich für das Speichern von Verbindungszeichenfolgen, geeignet benannt, [ &lt;ConnectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Die `Web.config` -Konfigurationsdatei für das Buch Reviews-Website eine Verbindungszeichenfolge, die in diesem Abschnitt mit dem Namen definiert ist `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ Die Verbindungszeichenfolge - Datenquelle =. \SQLEXPRESS; AttachDbFilename = | D
 - `Data Source`-Gibt den Speicherort des Datenbankservers und der Datenbankserver-Instanzname (falls vorhanden). Der Wert `.\SQLEXPRESS`, ist ein Beispiel, in dem es ist ein Datenbankserver und einen Instanznamen an. Der Punkt gibt an, dass der Datenbankserver auf dem gleichen Computer wie die Anwendung; der Instanzname `SQLEXPRESS`.
 - `AttachDbFilename`-Gibt den Speicherort der Datenbankdatei. Der Wert enthält den Platzhalter `|DataDirectory|`, also in den vollständigen Pfad der Anwendung s aufgelöst `App_Data` Ordner zur Laufzeit.
 - `Integrated Security`– Ein boolescher Wert, der angibt, ob einen angegebene Benutzername/Kennwort verwendet wird, beim Verbinden mit der Datenbank ("false") oder der aktuelle Windows-Anmeldeinformationen ("true").
-- `User Instance`-eine Konfigurationsoption, die spezifisch für die SQL Server Express-Edition, der angibt, ob nicht-Administratoren auf dem lokalen Computer Anfügen und Herstellen einer Verbindung mit einer SQL Server Express Edition-Datenbank erlauben. Finden Sie unter [SQL Server Express-Benutzerinstanzen](https://msdn.microsoft.com/en-us/library/ms254504.aspx) für Weitere Informationen zu dieser Einstellung.
+- `User Instance`-eine Konfigurationsoption, die spezifisch für die SQL Server Express-Edition, der angibt, ob nicht-Administratoren auf dem lokalen Computer Anfügen und Herstellen einer Verbindung mit einer SQL Server Express Edition-Datenbank erlauben. Finden Sie unter [SQL Server Express-Benutzerinstanzen](https://msdn.microsoft.com/library/ms254504.aspx) für Weitere Informationen zu dieser Einstellung.
   
 
 Optionen für die zulässige Verbindungszeichenfolge hängt von der Datenbank, die Sie eine Verbindung mit und die [ADO.NET](http://ADO.NET) Datenbankanbieter verwendet wird. Z. B. die Verbindungszeichenfolge zum Herstellen einer Verbindung mit einer Microsoft SQL Server Datenbank unterscheidet, die zur Verbindung mit einer Oracle-Datenbank. Ebenso verwendet, Herstellen einer Verbindung mit einer Microsoft SQL Server-Datenbank mit dem SqlClient-Anbieter eine andere Verbindungszeichenfolge als bei Verwendung des OLE DB-Anbieters.
@@ -71,7 +71,7 @@ Geben Sie anschließend die verschiedenen Datenbank-Verbindungsinformationen (si
 
 Die Umgebung Produktionsdatenbank sollte jetzt im Server-Explorer aufgeführt. Wählen Sie die Datenbank im Server-Explorer, und wechseln Sie zum Fenster Eigenschaften. Dort finden Sie eine Eigenschaft mit dem Namen Verbindungszeichenfolge mit der Datenbank-s-Verbindungszeichenfolge. Vorausgesetzt, dass Sie eine Microsoft SQL Server-Datenbank auf Produktions- und dem SqlClient-Anbieter verwenden, sollte Ihre Verbindungszeichenfolge ähnlich der folgenden aussehen:
 
-**Datenquelle =*ServerName*; Initial Catalog =*DatabaseName*; Persist Security Info = True; Benutzer-ID =*Benutzername*; Kennwort =*Kennwort***
+**Datenquelle =*ServerName*; Initial Catalog =*DatabaseName*; Persist Security Info = True; Benutzer-ID =*Benutzername*; Kennwort = * Kennwort***
 
 Wobei *ServerName*, *DatabaseName*, *Benutzername*, und *Kennwort* sind mit den Werten für den Datenbank-Servernamen der Datenbank Namen und den Benutzernamen und Kennwort, die Ihnen von Ihrem Web Host Unternehmen bereitgestellt.
 
@@ -120,7 +120,7 @@ Erstellen Sie eine Kopie der Datei databaseConnectionStrings.dev.config, und nen
 An diesem Punkt der `ConfigSections` Ordner sollte drei Dateien (siehe Abbildung 4) enthalten. Die databaseConnectionStrings.dev.config und databaseConnectionStrings.production.config-Dateien enthalten die Verbindungszeichenfolgen für die Entwicklung und Produktion Umgebungen bzw. aus. Die databaseConnectionStrings.config-Datei enthält die Verbindungszeichenfolgen-Informationen, die von der Webanwendung zur Laufzeit verwendet werden. Daher sollte die Datei databaseConnectionStrings.config identisch mit der databaseConnectionStrings.dev.config-Datei in der Entwicklungsumgebung sein, während für Produktions-databaseConnectionStrings.config-Datei identisch mit sollten databaseConnectionStrings.production.config.
 
 
-[!["ConfigSections"](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image10.jpg) 
+[![ConfigSections](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image10.jpg) 
 
 **Abbildung 4**: "configSections" ([klicken Sie hier, um das Bild in voller Größe angezeigt](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
 
@@ -147,10 +147,10 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Verbindungszeichenfolgen und Konfigurationsdateien](https://msdn.microsoft.com/en-us/library/ms254494.aspx)
+- [Verbindungszeichenfolgen und Konfigurationsdateien](https://msdn.microsoft.com/library/ms254494.aspx)
 - [Datenbankkonfiguration Zeichenfolgen Informationen @ ConnectionStrings.com](http://www.connectionstrings.com/)
 - [Verschieben Sie die Datei "Web.config" mit Standardeinstellungen](http://www.asp101.com/tips/index.asp?id=154)
-- [Technische Dokumentation für die &lt;ConnectionStrings&gt; Element](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Technische Dokumentation für die &lt;ConnectionStrings&gt; Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](deploying-a-database-vb.md)

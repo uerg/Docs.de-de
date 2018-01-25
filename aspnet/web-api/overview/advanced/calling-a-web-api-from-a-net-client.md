@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 41f014e1d23d46ed28c8c1be5ee92f1a6d878ad9
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Rufen Sie eine Web-API aus einem .NET-Client (c#)
 ====================
@@ -23,16 +23,16 @@ durch [Mike Wasson](https://github.com/MikeWasson) und [Rick Anderson](https://t
 
 [Herunterladen des abgeschlossenen Projekts](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-Dieses Lernprogramm zeigt, wie eine Web-API in einer .NET-Anwendung mit [System.Net.Http.HttpClient.](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx)
+Dieses Lernprogramm zeigt, wie eine Web-API in einer .NET-Anwendung mit [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 In diesem Lernprogramm wird eine Client-app, die die folgenden Web-API nutzt geschrieben:
 
 | Aktion | HTTP-Methode | Relativer URI |
 | --- | --- | --- |
-| Abrufen eines Produkts nach ID | GET | /API/Produkte/*Id* |
-| Erstellen eines neuen Produkts | BEREITSTELLEN | / api /-Produkte |
-| Aktualisieren eines Produkts | PUT | /API/Produkte/*Id* |
-| Löschen eines Produkts | DELETE | /API/Produkte/*Id* |
+| Abrufen eines Produkts nach ID | GET | /api/products/*id* |
+| Erstellen eines neuen Produkts | BEREITSTELLEN | /api/products |
+| Aktualisieren eines Produkts | PUT | /api/products/*id* |
+| Löschen eines Produkts | DELETE | /api/products/*id* |
 
 Zum Implementieren dieser API mit ASP.NET Web-API finden Sie unter [erstellen eine Web-API, CRUD-Vorgänge unterstützt](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 ).
@@ -109,7 +109,7 @@ Der folgende Code sendet eine GET-Anforderung für ein Produkt:
 
 Die **GetAsync** Methode sendet die HTTP-GET-Anforderung. Wenn die Methode abgeschlossen wird, gibt es eine **HttpResponseMessage** , enthält die HTTP-Antwort. Wenn der Statuscode in der Antwort einen Erfolgscode ist, enthält der Antworttext die JSON-Darstellung eines Produkts. Rufen Sie **ReadAsAsync** zu deserialisierende JSON-Nutzlast an einen `Product` Instanz. Die **ReadAsAsync** Methode ist asynchron, da der Antworttext beliebig groß sein kann.
 
-**"HttpClient"** löst keine Ausnahme aus, wenn die HTTP-Antwort einen Fehlercode enthält. Stattdessen die **IsSuccessStatusCode** Eigenschaft **"false"** lautet der Status ein Fehlercode. Wenn Sie es vorziehen, die HTTP-Fehlercodes als Ausnahmen behandelt werden sollen, rufen Sie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) auf dem Antwortobjekt. `EnsureSuccessStatusCode`löst eine Ausnahme aus, wenn der Statuscode außerhalb des Bereichs 200 liegt&ndash;299. Beachten Sie, dass **"HttpClient"** kann Ausnahmen auslösen, aus anderen Gründen &mdash; z. B., wenn die Anforderung ein Timeout eintritt.
+**"HttpClient"** löst keine Ausnahme aus, wenn die HTTP-Antwort einen Fehlercode enthält. Stattdessen die **IsSuccessStatusCode** Eigenschaft **"false"** lautet der Status ein Fehlercode. Wenn Sie es vorziehen, die HTTP-Fehlercodes als Ausnahmen behandelt werden sollen, rufen Sie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) auf dem Antwortobjekt. `EnsureSuccessStatusCode`löst eine Ausnahme aus, wenn der Statuscode außerhalb des Bereichs 200 liegt&ndash;299. Beachten Sie, dass **"HttpClient"** kann Ausnahmen auslösen, aus anderen Gründen &mdash; z. B., wenn die Anforderung ein Timeout eintritt.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Medientypformatierer deserialisiert
@@ -167,7 +167,7 @@ Wie "GET" muss eine DELETE-Anforderung keinen Anforderungstext. Sie müssen nich
 
 So testen Sie die Client-app:
 
-1. [Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) und führen Sie die Server-app. [Anweisungen zum Herunterladen](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Stellen Sie sicher, dass die Server-app funktioniert. Für Exaxmple `http://localhost:64195/api/products` sollte eine Liste der Produkte zurück.
+1. [Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) und führen Sie die Server-app. [Anweisungen zum Herunterladen](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Stellen Sie sicher, dass die Server-app funktioniert. Für Exaxmple `http://localhost:64195/api/products` sollte eine Liste der Produkte zurück.
 2. Legen Sie die Basis-URI für HTTP-Anforderungen. Ändern Sie die Portnummer an den Port in der Server-app verwendet.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

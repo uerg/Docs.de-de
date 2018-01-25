@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 67ab1536b4a72abf8c0d3ed5aa0c48bc79a8fb5f
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -261,7 +261,7 @@ Hier wird die gesamte Sortierung festgelegt:
     3. Routenparameter ohne Einschränkungen.
     4. Parameter-platzhaltersegmente mit Einschränkungen.
     5. Parameter-platzhaltersegmente ohne Einschränkungen.
-3. Bei einem gleichwertigen Objekt werden Routen nach einem Ordinalzeichenfolgenvergleich sortiert ([OrdinalIgnoreCase](https://msdn.microsoft.com/en-us/library/system.stringcomparer.ordinalignorecase.aspx)) für die routenvorlage.
+3. Bei einem gleichwertigen Objekt werden Routen nach einem Ordinalzeichenfolgenvergleich sortiert ([OrdinalIgnoreCase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) für die routenvorlage.
 
 Im Folgenden ein Beispiel. Nehmen Sie an, dass Sie die folgenden Controller definieren:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: df75a69644033cc76fee86b5a9692ab65beb4d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Verwenden Sie Code First-Migrationen, um das Seeding der Datenbank
 ====================
@@ -24,7 +24,7 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 
 [Herunterladen des abgeschlossenen Projekts](https://github.com/MikeWasson/BookService)
 
-In diesem Abschnitt verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/en-us/data/jj591621) in EF zum Ausgangswert für der Datenbank mit Testdaten.
+In diesem Abschnitt verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) in EF zum Ausgangswert für der Datenbank mit Testdaten.
 
 Aus der **Tools** klicken Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **Package Manager Console**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
@@ -46,7 +46,7 @@ Geben Sie im Fenster Paket-Manager-Konsole die folgenden Befehle ein:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-Der erste Befehl generiert Code, der die Datenbank erstellt und mit dem zweite Befehl wird dieser Code ausgeführt. Die Datenbank wird lokal mit erstellt [LocalDB](https://msdn.microsoft.com/en-us/library/hh510202.aspx).
+Der erste Befehl generiert Code, der die Datenbank erstellt und mit dem zweite Befehl wird dieser Code ausgeführt. Die Datenbank wird lokal mit erstellt [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
 
 ![](part-3/_static/image2.png)
 
@@ -67,18 +67,18 @@ Die API ermöglicht CRUD-Vorgänge in der Datenbank. Im folgenden werden die API
 | Authors |  |
 | --- | -- |
 | Api-Autoren abrufen | Rufen Sie aller Autoren ab. |
-| GET-api/Autoren / {Id} | Einen Autor-ID abrufen |
+| GET api/authors/{id} | Einen Autor-ID abrufen |
 | POST/api/Autoren | Erstellen Sie eine neue erstellen. |
-| PUT/API/Autoren / {Id} | Aktualisieren eines vorhandenen Autors. |
-| Löschen Sie/API/Autoren / {Id} | Löschen eines Autors an. |
+| PUT /api/authors/{id} | Aktualisieren eines vorhandenen Autors. |
+| DELETE /api/authors/{id} | Löschen eines Autors an. |
 
 | Bücher |  |
 | --- | -- |
 | /Api/books abrufen | Rufen Sie aller Bücher an ab. |
-| Abrufen Sie/API/Books / {Id} | Ein Buch-ID abrufen |
+| GET /api/books/{id} | Ein Buch-ID abrufen |
 | Bereitstellen Sie/api/Bücher | Erstellen Sie ein neues Buch. |
-| PUT/API/Books / {Id} | Aktualisieren Sie ein vorhandenes Buch. |
-| Löschen Sie/API/Books / {Id} | Löschen Sie ein Buch. |
+| PUT /api/books/{id} | Aktualisieren Sie ein vorhandenes Buch. |
+| DELETE /api/books/{id} | Löschen Sie ein Buch. |
 
 ## <a name="view-the-database-optional"></a>Anzeigen der Datenbank (Optional)
 

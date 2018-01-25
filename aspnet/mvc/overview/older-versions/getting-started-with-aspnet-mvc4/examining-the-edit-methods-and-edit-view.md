@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: fb20c98283bfd46e62d56252bbec4f4b4b08b1c3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a20693f3e83053dd99499d486412b66777189f1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Prüfen der Methoden bearbeiten und die Bearbeitungsansicht
 ====================
@@ -38,7 +38,7 @@ Die **bearbeiten** Link wurde generiert, indem die `Html.ActionLink` Methode in 
 
 ![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-Die `Html` Objekt ist ein Hilfsprogramm, das verfügbar, die mit einer Eigenschaft gemacht wird für die [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx) Basisklasse. Die `ActionLink` Methode des Hilfsprogramms ganz einfach zum dynamischen Generieren von HTML-Links, die mit Aktionsmethoden im Controller verknüpft. Das erste Argument für die `ActionLink` Methode ist der Text des Links zum Rendern (z. B. `<a>Edit Me</a>`). Das zweite Argument ist der Name der aufzurufenden Aktionsmethode. Das letzte Argument ist ein [anonymes Objekt](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) , generiert die Routendaten (in diesem Fall wird die ID des 4).
+Die `Html` Objekt ist ein Hilfsprogramm, das verfügbar, die mit einer Eigenschaft gemacht wird für die [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx) Basisklasse. Die `ActionLink` Methode des Hilfsprogramms ganz einfach zum dynamischen Generieren von HTML-Links, die mit Aktionsmethoden im Controller verknüpft. Das erste Argument für die `ActionLink` Methode ist der Text des Links zum Rendern (z. B. `<a>Edit Me</a>`). Das zweite Argument ist der Name der aufzurufenden Aktionsmethode. Das letzte Argument ist ein [anonymes Objekt](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) , generiert die Routendaten (in diesem Fall wird die ID des 4).
 
 Der generierte Link in der vorherigen Abbildung dargestellt ist `http://localhost:xxxxx/Movies/Edit/4`. Die Standardroute (in vielen Branchen *App\_Start\RouteConfig.cs*) nimmt das URL-Muster `{controller}/{action}/{id}`. Aus diesem Grund ASP.NET übersetzt `http://localhost:xxxxx/Movies/Edit/4` in eine Anforderung an die `Edit` Aktionsmethode des der `Movies` Controller mit dem Parameter `ID` gleich 4. Überprüfen Sie den folgenden Code aus der *App\_Start\RouteConfig.cs* Datei.
 
@@ -54,13 +54,13 @@ Sie können auch die Aktionsmethodenparameter über eine Abfragezeichenfolge üb
 
 Beachten Sie, dass der zweiten `Edit`-Aktionsmethode das `HttpPost`-Attribut vorangestellt ist. Dieses Attribut gibt an, dass die Überladung, die von der `Edit` Methode kann nur für die POST-Anforderungen aufgerufen werden. Sie können Werte anwenden der `HttpGet` Attribut mit dem ersten bearbeiten Methode, aber dies ist nicht erforderlich, da dies die Standardeinstellung ist. (Verweisen wir auf Aktionsmethoden, die implizit zugewiesen sind die `HttpGet` Attribut `HttpGet` Methoden.)
 
-Die `HttpGet` `Edit` Methode nimmt die Film-ID-Parameter, mit dem Entity Framework Film sucht `Find` -Methode, und gibt den ausgewählten Film an die Bearbeitungsansicht zurück. Gibt die ID-Parameter an eine [Standardwert](https://msdn.microsoft.com/en-us/library/dd264739.aspx) 0 (null) zurück, wenn die `Edit` Methode wird aufgerufen, ohne einen Parameter. Wenn Sie ein Film nicht gefunden werden kann, [HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx) wird zurückgegeben. Als das Gerüstsystem die Bearbeitungsansicht erstellt hat, wurde die `Movie`-Klasse überprüft und Code zum Rendern der `<label>`- und `<input>`-Elemente für jede Eigenschaft der Klasse erstellt. Das folgende Beispiel zeigt die Bearbeitungsansicht, die generiert wurde:
+Die `HttpGet` `Edit` Methode nimmt die Film-ID-Parameter, mit dem Entity Framework Film sucht `Find` -Methode, und gibt den ausgewählten Film an die Bearbeitungsansicht zurück. Gibt die ID-Parameter an eine [Standardwert](https://msdn.microsoft.com/library/dd264739.aspx) 0 (null) zurück, wenn die `Edit` Methode wird aufgerufen, ohne einen Parameter. Wenn Sie ein Film nicht gefunden werden kann, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) wird zurückgegeben. Als das Gerüstsystem die Bearbeitungsansicht erstellt hat, wurde die `Movie`-Klasse überprüft und Code zum Rendern der `<label>`- und `<input>`-Elemente für jede Eigenschaft der Klasse erstellt. Das folgende Beispiel zeigt die Bearbeitungsansicht, die generiert wurde:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cshtml)]
 
 Beachten Sie, wie die Vorlage für die Sicht hat eine `@model MvcMovie.Models.Movie` -Anweisung am Anfang der Datei – Dies gibt an, dass die Sicht erwartet, das Modell für die Vorlage Sicht vom Typ dass `Movie`.
 
-Der scaffolded Code verwendet mehrere *Hilfsmethoden* um das HTML-Markup zu optimieren. Die [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) Hilfsprogramm zeigt den Namen des Felds (&quot;Titel&quot;, &quot;ReleaseDate&quot;, &quot;"Genre"&quot;, oder &quot;Preis &quot;). Die [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) -Hilfsmethode rendert ein HTML `<input>` Element. Die [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Hilfsprogramm zeigt Fehlermeldungen Validierung dieser Eigenschaft zugeordnet.
+Der scaffolded Code verwendet mehrere *Hilfsmethoden* um das HTML-Markup zu optimieren. Die [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) Hilfsprogramm zeigt den Namen des Felds (&quot;Titel&quot;, &quot;ReleaseDate&quot;, &quot;"Genre"&quot;, oder &quot;Preis &quot;). Die [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) -Hilfsmethode rendert ein HTML `<input>` Element. Die [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Hilfsprogramm zeigt Fehlermeldungen Validierung dieser Eigenschaft zugeordnet.
 
 Führen Sie die Anwendung, und navigieren Sie zu der */Movies* URL. Klicken Sie auf einen Link **Bearbeiten**. Zeigen Sie im Browser den Quelltext für die Seite an. Der HTML-Code für das Form-Element wird unten gezeigt.
 
@@ -74,7 +74,7 @@ Die folgende Liste zeigt die `HttpPost`-Version der `Edit`-Aktionsmethode.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cs)]
 
-Die [ASP.NET MVC-modellbindung](https://msdn.microsoft.com/en-us/magazine/hh781022.aspx) nimmt die übermittelte Formularwerte und erstellt eine `Movie` -Objekt, das als übergeben wird, die `movie` Parameter. Die `ModelState.IsValid`-Methode stellt sicher, dass die im Formular übermittelten Daten verwendet werden können, um ein `Movie`-Objekt zu ändern (bearbeiten oder aktualisieren). Wenn die Daten gültig ist, wird die Filmdaten gespeichert, auf die `Movies` Auflistung von der `db(MovieDBContext` Instanz). Die neue Filmdaten in der Datenbank gespeichert ist, durch Aufrufen der `SaveChanges` Methode `MovieDBContext`. Nach dem Speichern der Daten an, der Code leitet den Benutzer die `Index` Aktionsmethode des der `MoviesController` Klasse, welche zeigt die Film-Auflistung, einschließlich der gerade vorgenommenen Änderungen.
+Die [ASP.NET MVC-modellbindung](https://msdn.microsoft.com/magazine/hh781022.aspx) nimmt die übermittelte Formularwerte und erstellt eine `Movie` -Objekt, das als übergeben wird, die `movie` Parameter. Die `ModelState.IsValid`-Methode stellt sicher, dass die im Formular übermittelten Daten verwendet werden können, um ein `Movie`-Objekt zu ändern (bearbeiten oder aktualisieren). Wenn die Daten gültig ist, wird die Filmdaten gespeichert, auf die `Movies` Auflistung von der `db(MovieDBContext` Instanz). Die neue Filmdaten in der Datenbank gespeichert ist, durch Aufrufen der `SaveChanges` Methode `MovieDBContext`. Nach dem Speichern der Daten an, der Code leitet den Benutzer die `Index` Aktionsmethode des der `MoviesController` Klasse, welche zeigt die Film-Auflistung, einschließlich der gerade vorgenommenen Änderungen.
 
 Wenn die bereitgestellten Werte nicht gültig sind, werden sie in das Formular erneut angezeigt. Die `Html.ValidationMessageFor` Hilfen in den *Edit.cshtml* anzeigen, die Vorlage zum Anzeigen von entsprechenden Fehlermeldungen achten.
 
@@ -102,7 +102,7 @@ Starten Sie durch Hinzufügen einer `SearchIndex` Aktionsmethode zur vorhandenen
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-Die erste Zeile der `SearchIndex` -Methode erstellt die folgenden [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) Abfrage Filme auswählen:
+Die erste Zeile der `SearchIndex` -Methode erstellt die folgenden [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) Abfrage Filme auswählen:
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cs)]
 
@@ -112,7 +112,7 @@ Wenn die `searchString` -Parameters enthält eine Zeichenfolge, die Filme Abfrag
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample11.cs)]
 
-Der Code `s => s.Title` oben ist ein [Lambdaausdruck](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Lambdas werden in methodenbasierten verwendet [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) -Abfragen als Argumente für Standardabfrageoperator-Methoden wie z. B. die [, in denen](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) Methode, die im obigen Code verwendet. LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert sind oder wenn sie geändert werden, durch Aufrufen einer Methode wie z. B. `Where` oder `OrderBy`. Stattdessen Ausführung der Abfrage wird verzögert, was bedeutet, dass die Auswertung eines Ausdrucks verzögert wird, bis der realisierte Wert tatsächlich in einer Schleife durchlaufen wird oder die [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) -Methode aufgerufen wird. In der `SearchIndex` Sample, die Abfrage in der Ansicht SearchIndex ausgeführt wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+Der Code `s => s.Title` oben ist ein [Lambdaausdruck](https://msdn.microsoft.com/library/bb397687.aspx). Lambdas werden in methodenbasierten verwendet [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) -Abfragen als Argumente für Standardabfrageoperator-Methoden wie z. B. die [, in denen](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) Methode, die im obigen Code verwendet. LINQ-Abfragen werden nicht ausgeführt, wenn sie definiert sind oder wenn sie geändert werden, durch Aufrufen einer Methode wie z. B. `Where` oder `OrderBy`. Stattdessen Ausführung der Abfrage wird verzögert, was bedeutet, dass die Auswertung eines Ausdrucks verzögert wird, bis der realisierte Wert tatsächlich in einer Schleife durchlaufen wird oder die [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) -Methode aufgerufen wird. In der `SearchIndex` Sample, die Abfrage in der Ansicht SearchIndex ausgeführt wird. Weitere Informationen zur verzögerten Abfrageausführung finden Sie unter [Abfrageausführung](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Nachdem Sie implementieren können, die `SearchIndex` anzeigen, die der Benutzer das Formular angezeigt wird. Mit der rechten Maustaste innerhalb der `SearchIndex` -Methode, und klicken Sie dann auf **Ansicht hinzufügen**. In der **Ansicht hinzufügen** Dialogfeld geben, dass Sie die offensichtlichen übergeben ein `Movie` Objekt, das die der Ansichtenvorlage als der Modellklasse. In der **Gerüst Vorlage** wählen **Liste**, klicken Sie dann auf **hinzufügen**.
 

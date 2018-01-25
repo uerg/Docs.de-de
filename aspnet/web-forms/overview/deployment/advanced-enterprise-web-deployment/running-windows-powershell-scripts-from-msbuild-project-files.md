@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Ausführen von Windows PowerShell-Skripts von MSBuild-Projektdateien
 ====================
@@ -137,10 +137,10 @@ Wenn Sie dieses Ziel als Teil des Buildprozesses ausführen, wird Windows PowerS
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Ein Windows PowerShell-Skript ausführen auf einem Remotecomputer
 
-Windows PowerShell ist zur Ausführung von Skripts auf Remotecomputern über [Windows Remote Management](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx) (WinRM). Zu diesem Zweck müssen Sie verwenden die [Invoke-Command](https://technet.microsoft.com/en-us/library/dd347578.aspx) Cmdlet. Dadurch können Sie das Skript auf einem oder mehreren Remotecomputern ausführen, ohne kopieren das Skript auf den Remotecomputern. Ergebnisse werden auf dem lokalen Computer zurückgegeben, in denen Sie das Skript ausgeführt.
+Windows PowerShell ist zur Ausführung von Skripts auf Remotecomputern über [Windows Remote Management](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). Zu diesem Zweck müssen Sie verwenden die [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) Cmdlet. Dadurch können Sie das Skript auf einem oder mehreren Remotecomputern ausführen, ohne kopieren das Skript auf den Remotecomputern. Ergebnisse werden auf dem lokalen Computer zurückgegeben, in denen Sie das Skript ausgeführt.
 
 > [!NOTE]
-> Vor der Verwendung der **Invoke-Command** -Cmdlet zum Ausführen von Windows PowerShell-Skripts auf einem Remotecomputer befindet, müssen Sie einen WinRM-Listener zur Aufnahme von remote-Nachrichten konfigurieren. Hierzu können Sie durch Ausführen des Befehls **Winrm Quickconfig** auf dem Remotecomputer. Weitere Informationen finden Sie unter [Installation und Konfiguration für Windows Remote Management](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Vor der Verwendung der **Invoke-Command** -Cmdlet zum Ausführen von Windows PowerShell-Skripts auf einem Remotecomputer befindet, müssen Sie einen WinRM-Listener zur Aufnahme von remote-Nachrichten konfigurieren. Hierzu können Sie durch Ausführen des Befehls **Winrm Quickconfig** auf dem Remotecomputer. Weitere Informationen finden Sie unter [Installation und Konfiguration für Windows Remote Management](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
 
 Im Windows PowerShell-Fenster, verwenden Sie diese Syntax zum Ausführen der **LogDeploy.ps1** Skript auf einem Remotecomputer:
@@ -173,13 +173,13 @@ Zum Schluss wie zuvor können Sie die **Exec** Aufgabe in eine benutzerdefiniert
 
 Wenn Sie dieses Ziel als Teil des Buildprozesses ausführen, führen Windows PowerShell das Skript auf dem Computer, die Sie, in angegeben der **– Computername** Argument.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschriebenen Windows PowerShell-Skript aus einer MSBuild-Projektdatei ausführen. Sie können diesen Ansatz verwenden, ein Windows PowerShell-Skript im Rahmen einer automatisierten Prozesses oder eines einstufiger Build- und Bereitstellungsprozess entweder lokal oder auf einem Remotecomputer ausgeführt.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Anleitungen zum Signieren von Windows PowerShell-Skripts und Verwalten von Ausführungsrichtlinien finden Sie unter [Ausführen von Windows PowerShell-Skripts](https://technet.microsoft.com/en-us/library/ee176949.aspx). Um Hilfe bei der Windows PowerShell-Befehle von einem Remotecomputer ausführen, finden Sie unter [Ausführen von Remotebefehlen](https://technet.microsoft.com/en-us/library/dd819505.aspx).
+Anleitungen zum Signieren von Windows PowerShell-Skripts und Verwalten von Ausführungsrichtlinien finden Sie unter [Ausführen von Windows PowerShell-Skripts](https://technet.microsoft.com/library/ee176949.aspx). Um Hilfe bei der Windows PowerShell-Befehle von einem Remotecomputer ausführen, finden Sie unter [Ausführen von Remotebefehlen](https://technet.microsoft.com/library/dd819505.aspx).
 
 Weitere Informationen finden Sie unter benutzerdefinierte MSBuild-Projektdateien um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 

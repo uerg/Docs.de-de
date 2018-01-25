@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42beb4ffcff9974230ba0c4a2f243020bcd4f99d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (Visual Basic)
 ====================
@@ -58,7 +58,7 @@ Die `@` Inlineausdrücke Single-Anweisungsblöcken und mit mehreren Anweisungen 
 
 Das Ergebnis in einem Browser angezeigt:
 
-![Razor Bild1](introducing-razor-syntax-vb/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ Ein Codeblock enthält eine oder mehrere codeanweisungen und wird mit den Schlü
 
 Das Ergebnis in einem Browser angezeigt:
 
-![Razor Bild2](introducing-razor-syntax-vb/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. Innerhalb eines Blocks am Ende jeder codeanweisung mit Zeilenumbrüchen
 
@@ -95,7 +95,7 @@ Sie können Werte in Speichern einer *Variable*, einschließlich Zeichenfolgen, 
 
 Das Ergebnis in einem Browser angezeigt:
 
-![Razor bild3](introducing-razor-syntax-vb/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
 
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Sie setzen literale Zeichenfolgenwerte in Anführungszeichen
 
@@ -109,7 +109,7 @@ Fügen Sie zum Einbetten von Anführungszeichen in einen Zeichenfolgenwert, zwei
 
 Das Ergebnis in einem Browser angezeigt:
 
-![Razor bild4](introducing-razor-syntax-vb/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
 
 ### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. Visual Basic-Code ist nicht in der Groß-/Kleinschreibung unterschieden
 
@@ -121,7 +121,7 @@ Die folgenden Codezeilen die Variable einen Wert zuweisen `lastname` mit einem K
 
 Das Ergebnis in einem Browser angezeigt:
 
-![VB-Syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
+![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Viele der Codierung umfasst das Arbeiten mit Objekten
 
@@ -318,7 +318,7 @@ Hier ist ein Beispiel, um die Unterschiede zu verstehen:
 | Vollständige URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Servername | *mycompanyserver* |
-| Virtueller Pfad | */HumanResources/CompanyPolicy.htm* |
+| Virtueller Pfad | */humanresources/CompanyPolicy.htm* |
 | Physischer Pfad | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Das virtuelle Stammverzeichnis ist /, wie der Stamm von Laufwerk C: Laufwerk ist \. (Virtuelle Ordnerpfaden verwenden immer Schrägstriche). Der virtuelle Pfad eines Ordners verfügt nicht über den gleichen Namen wie der physische Ordner haben; Es kann ein Alias sein. (Auf Produktionsservern, der virtuelle Pfad selten einen genaue physischen Pfad entspricht.)
@@ -430,8 +430,8 @@ Das grundlegendste Objekt in ASP.NET ist die Seite. Sie können die Eigenschafte
 
 Können Sie Eigenschaften der `Page` Objekt, eine Vielzahl von Informationen, wie z. B. abgerufen werden:
 
-- `Request`. Wie Sie bereits gesehen haben, ist dies eine Auflistung von Informationen über die aktuelle Anforderung, z. B., welche Art von Browser, die URL der Seite, die Identität des Benutzers usw. angefordert.
-- `Response`. Dies ist eine Auflistung von Informationen über die Antwort (Seite), die an den Browser gesendet wird, wenn der Code ausgeführt wurde. Beispielsweise können Sie diese Eigenschaft verwenden, um Informationen in die Antwort zu schreiben.
+- `Request` Wie Sie bereits gesehen haben, ist dies eine Auflistung von Informationen über die aktuelle Anforderung, z. B., welche Art von Browser, die URL der Seite, die Identität des Benutzers usw. angefordert.
+- `Response` Dies ist eine Auflistung von Informationen über die Antwort (Seite), die an den Browser gesendet wird, wenn der Code ausgeführt wurde. Beispielsweise können Sie diese Eigenschaft verwenden, um Informationen in die Antwort zu schreiben.
 
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample51.vbhtml)]
 
@@ -518,5 +518,5 @@ Wenn Ihr Code die Ausnahme behandelt hat nicht, sehen Sie eine Fehlerseite, wie 
 
 ### <a name="reference-documentation"></a>Referenzdokumentation
 
-- [ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
-- [Visual Basic-Sprache](https://msdn.microsoft.com/en-us/library/2x7h1hfk.aspx)
+- [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
+- [Visual Basic-Sprache](https://msdn.microsoft.com/library/2x7h1hfk.aspx)

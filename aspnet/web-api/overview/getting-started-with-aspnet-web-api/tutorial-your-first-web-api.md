@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: fa1cd068a7466e0b6b6fe7716090c8a7afd2a4d5
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-web-api-2-c"></a>Erste Schritte mit ASP.NET Web API 2 (c#)
 ====================
@@ -111,8 +111,8 @@ Das ist alles! Sie verfügen über eine funktionierende-Web-API. Jede Methode au
 
 | Controllermethode | URI |
 | --- | --- |
-| GetAllProducts | / api /-Produkte |
-| GetProduct | /API/Produkte/*Id* |
+| GetAllProducts | /api/products |
+| GetProduct | /api/products/*id* |
 
 Für die `GetProduct` -Methode, die *Id* im URI ist ein Platzhalter. Um das Produkt mit der ID 5 zu erhalten, ist der URI z. B. `api/products/5`.
 
@@ -186,11 +186,11 @@ Möchten Sie nicht mehr benötigen Standort ausgeführt wird, als live-Web-app a
 
 Sie benötigen ein Azure-Konto zum Bereitstellen dieser Lösung in Azure. Wenn Sie nicht bereits über ein Konto verfügen, müssen Sie die folgenden Optionen aus:
 
-- [Öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) – Sie erhalten ein Guthaben können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
-- [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
+- [Öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) – Sie erhalten ein Guthaben können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
+- [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Ein ausführlicheres Beispiel für einen HTTP-Dienst, POST, PUT und DELETE-Aktionen unterstützt und schreibt in einer Datenbank, finden Sie unter [mithilfe von Web-API 2 mit Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md).
 - Weitere Informationen zum Erstellen von flüssig und schnell reagierend Webanwendungen über einen HTTP-Dienst finden Sie unter [ASP.NET einseitigen Anwendung](../../../single-page-application/index.md).
-- Informationen zum Bereitstellen einer Visual Studio-Webprojekt nach Azure App Service finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+- Informationen zum Bereitstellen einer Visual Studio-Webprojekt nach Azure App Service finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

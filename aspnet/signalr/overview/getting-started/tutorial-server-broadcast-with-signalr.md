@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: cd800062e87c07a0ef1d8d3d32c910aaf3e683cc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Lernprogramm: Broadcast-Server mit SignalR 2
 ====================
@@ -133,7 +133,7 @@ Sie möchten nur eine Instanz der Klasse StockTicker auf dem Server ausgeführt 
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample2.cs)]
 
-    Die [Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) Klasse wird verwendet, um Methoden definieren, die Clients auf dem Server aufrufen können. Definieren Sie eine Methode: `GetAllStocks()`. Wenn ein Client zunächst mit dem Server verbunden ist, wird diese Methode, um eine Liste aller von der Aktien mit ihrer aktuellen Preise abzurufen aufgerufen. Die Methode synchron ausgeführt und zurückgeben kann `IEnumerable<Stock>` , da er Daten aus dem Arbeitsspeicher zurückgibt. Wenn die Methode die Daten abrufen, indem Sie die Aktionen ausgeführt werden, die warten, z. B. einer Datenbanksuche oder einem Webdienstaufruf umfassen würde musste würden Sie angeben `Task<IEnumerable<Stock>>` als den Rückgabewert in die asynchrone Verarbeitung zu ermöglichen. Weitere Informationen finden Sie unter [Handbuch für ASP.NET SignalR-Hubs-API - Server - beim asynchron ausführen](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
+    Die [Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) Klasse wird verwendet, um Methoden definieren, die Clients auf dem Server aufrufen können. Definieren Sie eine Methode: `GetAllStocks()`. Wenn ein Client zunächst mit dem Server verbunden ist, wird diese Methode, um eine Liste aller von der Aktien mit ihrer aktuellen Preise abzurufen aufgerufen. Die Methode synchron ausgeführt und zurückgeben kann `IEnumerable<Stock>` , da er Daten aus dem Arbeitsspeicher zurückgibt. Wenn die Methode die Daten abrufen, indem Sie die Aktionen ausgeführt werden, die warten, z. B. einer Datenbanksuche oder einem Webdienstaufruf umfassen würde musste würden Sie angeben `Task<IEnumerable<Stock>>` als den Rückgabewert in die asynchrone Verarbeitung zu ermöglichen. Weitere Informationen finden Sie unter [Handbuch für ASP.NET SignalR-Hubs-API - Server - beim asynchron ausführen](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
 
     Der HubName-Attribut gibt an, wie der Hub im JavaScript-Code auf dem Client verwiesen wird. Auf dem Client, wenn Sie dieses Attribut verwenden, nicht der Standardnamen ist eine Version in Kamel-Schreibweise des Klassennamens, was in diesem Fall StockTickerHub wäre.
 
@@ -146,7 +146,7 @@ Sie möchten nur eine Instanz der Klasse StockTicker auf dem Server ausgeführt 
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Speichern die Singleton-Instanz in einem statischen Feld
 
-    Im Code initialisiert die statische \_Instanzenfeld, die die Instance-Eigenschaft mit einer Instanz der Klasse, und dies sichert ist die einzige Instanz der Klasse, die erstellt werden kann, da der Konstruktor als privat gekennzeichnet ist. [Verzögerte Initialisierung](https://msdn.microsoft.com/en-us/library/dd997286.aspx) wird verwendet, für die \_Instanzenfeld, nicht für aus Leistungsgründen jedoch sicher, dass die instanzerstellung hinsichtlich ist.
+    Im Code initialisiert die statische \_Instanzenfeld, die die Instance-Eigenschaft mit einer Instanz der Klasse, und dies sichert ist die einzige Instanz der Klasse, die erstellt werden kann, da der Konstruktor als privat gekennzeichnet ist. [Verzögerte Initialisierung](https://msdn.microsoft.com/library/dd997286.aspx) wird verwendet, für die \_Instanzenfeld, nicht für aus Leistungsgründen jedoch sicher, dass die instanzerstellung hinsichtlich ist.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
@@ -160,7 +160,7 @@ Sie möchten nur eine Instanz der Klasse StockTicker auf dem Server ausgeführt 
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample6.cs)]
 
-    Die Aktien-Auflistung ist definiert als eine [ConcurrentDictionary](https://msdn.microsoft.com/en-us/library/dd287191.aspx) Typ für die Threadsicherheit. Als Alternative können Sie eine [Wörterbuch](https://msdn.microsoft.com/en-us/library/xfhwa508.aspx) -Objekt und das Wörterbuch explizit zu sperren, wenn Sie Änderungen vornehmen.
+    Die Aktien-Auflistung ist definiert als eine [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) Typ für die Threadsicherheit. Als Alternative können Sie eine [Wörterbuch](https://msdn.microsoft.com/library/xfhwa508.aspx) -Objekt und das Wörterbuch explizit zu sperren, wenn Sie Änderungen vornehmen.
 
     Diese beispielanwendung ist es OK zum Speichern von Anwendungsdaten im Arbeitsspeicher und Daten zu verlieren, wenn die Instanz StockTicker verworfen wird. In einer echten Anwendung würden Sie mit einer Back-End-Datenspeicher, z. B. einer Datenbank arbeiten.
 
@@ -172,7 +172,7 @@ Sie möchten nur eine Instanz der Klasse StockTicker auf dem Server ausgeführt 
 
     UpdateStockPrices wird von den Zeitgeber aufgerufen, der auf Null in den Statusparameter übergibt. Vor dem Aktualisieren die Preise, wird eine Sperre auf die \_UpdateStockPricesLock-Objekt. Der Code überprüft, ob ein anderer Thread bereits Preise aktualisiert, und dann TryUpdateStockPrice auf jede Aktie in der Liste ruft. Die Methode TryUpdateStockPrice entscheidet, ob den Aktienkurs ändern und wie viel, um ihn zu ändern. Wenn der Aktienkurs geändert wird, wird BroadcastStockPrice aufgerufen, um die Änderung Aktienkurs für alle verbundenen Clients zu senden.
 
-    Die \_UpdatingStockPrices Flag markiert, als [volatile](https://msdn.microsoft.com/en-us/library/x13ttww7.aspx) um sicherzustellen, dass der Zugriff darauf hinsichtlich ist.
+    Die \_UpdatingStockPrices Flag markiert, als [volatile](https://msdn.microsoft.com/library/x13ttww7.aspx) um sicherzustellen, dass der Zugriff darauf hinsichtlich ist.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample8.cs)]
 
@@ -192,7 +192,7 @@ Sie möchten nur eine Instanz der Klasse StockTicker auf dem Server ausgeführt 
 
     Die UpdateStockPrice-Methode, die Sie in BroadcastStockPrice aufrufen vorhanden nicht noch. Sie müssen es später hinzufügen, wenn Sie Code schreiben, der auf dem Client ausgeführt wird. Sie können auf UpdateStockPrice hier verweisen, da Clients.All dynamisch "," ist. Dies bedeutet, dass der Ausdruck zur Laufzeit ausgewertet werden soll. Bei der Ausführung dieser Methodenaufruf SignalR wird der Name der Methode und der Wert des Parameters an den Client gesendet, und wenn der Client eine Methode namens UpdateStockPrice verfügt, wird diese Methode aufgerufen werden und der Wert des Parameters wird an sie übergeben werden.
 
-    Clients.All bedeutet an alle Clients zu senden. SignalR bietet Ihnen weitere Optionen an, welche Clients oder Gruppen von Clients zum Senden an. Weitere Informationen finden Sie unter [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+    Clients.All bedeutet an alle Clients zu senden. SignalR bietet Ihnen weitere Optionen an, welche Clients oder Gruppen von Clients zum Senden an. Weitere Informationen finden Sie unter [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
 ### <a name="register-the-signalr-route"></a>Registrieren Sie die SignalR-route
 
@@ -295,11 +295,11 @@ Für eine bestimmte Verbindung wählt SignalR die beste Transportmethode, die de
 
     Wenn Sie Internet Explorer 10 unter Windows 8 (IIS 8) ausgeführt werden, ist die Transportmethode WebSockets.
 
-    ![IE 10 IIS 8-Konsole](tutorial-server-broadcast-with-signalr/_static/image9.png)
+    ![IE 10 IIS 8 Console](tutorial-server-broadcast-with-signalr/_static/image9.png)
 
     Wenn Sie Internet Explorer 10 unter Windows 7 (IIS 7.5) ausgeführt werden, ist die Transportmethode Iframe.
 
-    ![IE 10-Konsole, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
+    ![IE 10 Console, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
 
     Installieren Sie in Firefox das Firebug-add-in zum Abrufen eines Konsolenfensters. Wenn Sie Firefox 19 unter Windows 8 (IIS 8) ausgeführt werden, ist die Transportmethode WebSockets.
 
@@ -307,7 +307,7 @@ Für eine bestimmte Verbindung wählt SignalR die beste Transportmethode, die de
 
     Wenn Sie Firefox 19 unter Windows 7 (IIS 7.5) ausgeführt werden, ist die Transportmethode Server gesendete Ereignisse.
 
-    ![Firefox 19-Konsole IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image12.png)
+    ![Firefox 19 IIS 7.5 Console](tutorial-server-broadcast-with-signalr/_static/image12.png)
 
 <a id="fullsample"></a>
 
@@ -410,6 +410,6 @@ Erweiterte Konzepte von SignalR-Entwicklung finden Sie auf den folgenden Website
 - [ASP.NET SignalR](../../index.md)
 - [SignalR-Projekt](http://signalr.net/)
 - [SignalR Github und Beispiele](https://github.com/SignalR/SignalR)
-- [SignalR-Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-Eine exemplarische Vorgehensweise zum Bereitstellen einer SignalR-Anwendung in Azure finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Eine exemplarische Vorgehensweise zum Bereitstellen einer SignalR-Anwendung in Azure finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

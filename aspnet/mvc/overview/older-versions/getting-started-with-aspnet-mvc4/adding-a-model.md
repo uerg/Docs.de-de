@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1d066e4bab866a2195647f43aa886279fee941db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 304c428b0d787e902f30c1989471c476f54d3b39
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-model"></a>Hinzufügen eines Modells
 ====================
@@ -28,7 +28,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 In diesem Abschnitt fügen Sie einige Klassen für die Verwaltung von Kinofilmen in einer Datenbank. Diese Klassen werden die &quot;Modell&quot; Teil der ASP.NET MVC-Anwendung.
 
-Verwenden Sie eine .NET Framework Datenzugriffs-Technologie als bezeichnet den [Entity Framework](https://msdn.microsoft.com/en-us/library/bb399572(VS.110).aspx) definieren und mit diesen Modellklassen arbeiten. Der Entity Framework (häufig als EF bezeichnet) unterstützt ein Entwicklung Paradigma aufgerufen *Code First*. Code können zuerst Modellobjekte zu erstellen, indem Sie einfache Klassen schreiben. (Diese werden auch bezeichnet als POCO-Klassen aus &quot;Plain-Old CLR-Objekte.&quot;) Sie können dann die Datenbank im Handumdrehen von Klassen, dadurch kann einen sehr sauber und eine schnelle Entwicklungsworkflow erstellt haben.
+Verwenden Sie eine .NET Framework Datenzugriffs-Technologie als bezeichnet den [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) definieren und mit diesen Modellklassen arbeiten. Der Entity Framework (häufig als EF bezeichnet) unterstützt ein Entwicklung Paradigma aufgerufen *Code First*. Code können zuerst Modellobjekte zu erstellen, indem Sie einfache Klassen schreiben. (Diese werden auch bezeichnet als POCO-Klassen aus &quot;Plain-Old CLR-Objekte.&quot;) Sie können dann die Datenbank im Handumdrehen von Klassen, dadurch kann einen sehr sauber und eine schnelle Entwicklungsworkflow erstellt haben.
 
 ## <a name="adding-model-classes"></a>Hinzufügen von Modellklassen
 

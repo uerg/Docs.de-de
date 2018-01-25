@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>In der ASP.NET Web API 2 zur globalen Fehlerbehandlung
 ====================
@@ -46,7 +46,7 @@ Zusätzlich zu [Ausnahmefilter](exception-handling.md), [message-Handler](../adv
 1. Wir unterstützen mehrere Ausnahme Protokollierungen jedoch nur einen einzigen Ausnahmehandler registrieren.
 2. Ausnahme Protokollierungen erhalten immer aufgerufen, auch wenn wir sind im Begriff, die Verbindung abgebrochen. Ausnahmehandler erhalten nur dann aufgerufen, wenn wir weiterhin auf die Antwortnachricht zu senden sind.
 
-Beide Dienste ermöglichen den Zugriff auf einen Ausnahmekontext enthält relevante Informationen an der Stelle, wo die Ausnahme erkannt wurde, insbesondere die [HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), wird die Ausnahme und die Quelle der Ausnahme (s. unten) ausgelöst.
+Beide Dienste ermöglichen den Zugriff auf einen Ausnahmekontext enthält relevante Informationen an der Stelle, wo die Ausnahme erkannt wurde, insbesondere die [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), wird die Ausnahme und die Quelle der Ausnahme (s. unten) ausgelöst.
 
 ### <a name="design-principles"></a>Entwurfsprinzipien
 
@@ -77,13 +77,13 @@ Wenn das Framework eine ausnahmeprotokollierung oder einen Ausnahmehandler aufge
 - Iexceptionfilter (ApiControllers Verarbeitung der Ausnahme Filterpipeline in ExecuteAsync).
 - OWIN-Host:
 
-    - HttpMessageHandlerAdapter.BufferResponseContentAsync (für die Pufferung)
-    - HttpMessageHandlerAdapter.CopyResponseContentAsync (für streaming-Ausgabe)
+    - HttpMessageHandlerAdapter.BufferResponseContentAsync (for buffering output)
+    - HttpMessageHandlerAdapter.CopyResponseContentAsync (for streaming output)
 - Webhost:
 
-    - HttpControllerHandler.WriteBufferedResponseContentAsync (für die Pufferung)
-    - HttpControllerHandler.WriteStreamedResponseContentAsync (für streaming-Ausgabe)
-    - HttpControllerHandler.WriteErrorResponseContentAsync (für Fehler in der Fehlerbehebung im Modus für gepufferte Ausgabe)
+    - HttpControllerHandler.WriteBufferedResponseContentAsync (for buffering output)
+    - HttpControllerHandler.WriteStreamedResponseContentAsync (for streaming output)
+    - HttpControllerHandler.WriteErrorResponseContentAsync (for failures in error recovery under buffered output mode)
 
 Die Liste der Catch-Block Zeichenfolgen steht auch über statische Readonly-Eigenschaften. (Die Core Catch-Block Zeichenfolge befinden sich auf die statische ExceptionCatchBlocks; der Rest auf eine statische Klasse jeden für OWIN und Web Host angezeigt werden).`IsTopLevelCatchBlock` ist nützlich zum Behandeln von Ausnahmen, die nur am Anfang der Aufrufliste das empfohlene Muster folgen. Anstatt aktivieren Ausnahmen in mit 500 Antworten, in denen auch ein geschachtelte Catch-Block auftritt, kann ein Ausnahmehandler Ausnahmen weitergegeben, bis sie sind im Begriff, den Host sichtbar sein können.
 
@@ -97,7 +97,7 @@ In zusätzlich zu den `ExceptionContext`, ein Handler Ruft eine weitere Eigensch
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Ein Ausnahmehandler gibt an, dass er eine Ausnahme, indem behandelt wurde die `Result` Eigenschaft, um ein Aktionsergebnis (z. B. ein [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), oder ein benutzerdefiniertes Ergebnis). Wenn die `Result` -Eigenschaft null ist, die Ausnahme nicht behandelt wird und die ursprüngliche Ausnahme erneut ausgelöst werden.
+Ein Ausnahmehandler gibt an, dass er eine Ausnahme, indem behandelt wurde die `Result` Eigenschaft, um ein Aktionsergebnis (z. B. ein [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), oder ein benutzerdefiniertes Ergebnis). Wenn die `Result` -Eigenschaft null ist, die Ausnahme nicht behandelt wird und die ursprüngliche Ausnahme erneut ausgelöst werden.
 
 Für Ausnahmen, die am oberen Rand der Aufrufliste haben wir einen zusätzlichen Schritt, um sicherzustellen, dass die Antwort für API-Aufrufer geeignet ist. Die Ausnahme verteilt werden soll, bis zu dem Host, der Aufrufer würde dem gelben Bildschirm zum Tod finden Sie unter ein anderen Host bereitgestellte oder i. d. r. HTML-Antwort und nicht in der Regel eine entsprechende API-Fehlerantwort. In diesen Fällen ist das Ergebnis beginnt ungleich Null ist, und nur, wenn Sie ein benutzerdefinierten Ausnahmehandler explizit festlegt zurück zum `null` (nicht behandelt) wird die Ausnahme weitergeleitet an den Host. Festlegen von `Result` zu `null` kann in einem solchen Fall für zwei Szenarien nützlich sein:
 

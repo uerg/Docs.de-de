@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 0e4df407a1ca15aa5baa2b7226be1cf91902a583
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3cdd36ae03824645e09f97cae85cc55956679390
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualisieren von verknüpften Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (7 von 10)
 
@@ -49,7 +49,7 @@ Nach der `Edit` HttpPost-Methode erstellen Sie eine neue Methode, die Abteilung 
 
 Die `PopulateDepartmentsDropDownList` Methode ruft eine Liste aller Abteilungen, sortiert nach dem Namen ab, erstellt eine `SelectList` Auflistung eine Dropdown-Liste, und übergibt die Auflistung an der Sicht `ViewBag`. Akzeptiert die Methode den optionalen `selectedDepartment` Parameter, der den Aufrufcode das Element an, die beim Rendern der Dropdown Liste ausgewählt werden kann. Die Ansicht übergeben den Namen "DepartmentID" die `<select>` Tag-Hilfsobjekt und das Hilfsprogramm zum Suchen in weiß der `ViewBag` -Objekt für eine `SelectList` mit dem Namen "DepartmentID".
 
-Die HttpGet `Create` Methodenaufrufe der `PopulateDepartmentsDropDownList` Methode ohne das ausgewählte Element festlegen, da für einen neuen Kurs die Abteilung noch nicht eingerichtet wurde:
+Die HttpGet `Create` Methodenaufrufe der `PopulateDepartmentsDropDownList` Methode ohne das ausgewählte Element festlegen, da für einen neuen Kurs noch die Abteilung eingerichtet ist nicht:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
@@ -129,7 +129,7 @@ Der Code führt Folgendes aus:
 
 -  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die weiße Liste die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
 
-    <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -140,7 +140,7 @@ Der Code führt Folgendes aus:
     
 -   Wenn der Niederlassung leer ist, legt die Instructor.OfficeAssignment-Eigenschaft auf null fest, damit die zugehörige Zeile in der Tabelle OfficeAssignment gelöscht werden.
 
-    <!-- Snippets do not play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
+    <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
     ```csharp
     if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
@@ -221,7 +221,7 @@ In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem A
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
-Dieser Code erstellt eine HTML-Tabelle, die drei Spalten aufweist. In jeder Spalte wird ein Kontrollkästchen, gefolgt von einem Titel, der den Titel und Kursnummer besteht. Die Kontrollkästchen, die alle haben den gleichen Namen ("SelectedCourses"), der den Modellbinder informiert, die sie als eine Gruppe behandelt werden soll. Das Value-Attribut der einzelnen Kontrollkästchen wird festgelegt, auf den Wert des `CourseID`. Wenn die Seite zurückgesendet wird, übergibt der Modellbinder ein Array mit dem Controller an, aus denen besteht die `CourseID` Werte für nur die Kontrollkästchen ausgewählt sind.
+Dieser Code erstellt eine HTML-Tabelle, die drei Spalten aufweist. In jeder Spalte wird ein Kontrollkästchen, gefolgt von einem Titel, der den Titel und Kursnummer besteht. Die Kontrollkästchen, die alle haben den gleichen Namen ("SelectedCourses"), der dem Modellbinder darüber informiert, dass sie sind als eine Gruppe behandelt werden soll. Das Value-Attribut der einzelnen Kontrollkästchen wird festgelegt, auf den Wert des `CourseID`. Wenn die Seite zurückgesendet wird, übergibt der Modellbinder ein Array mit dem Controller an, aus denen besteht die `CourseID` Werte für nur die Kontrollkästchen ausgewählt sind.
 
 Die Kontrollkästchen gerendert werden, können solche, die für Kurse zu den Dozenten zugewiesen werden Attribute, die ausgewählt werden (angezeigt werden, wenn sie aktiviert), überprüft.
 

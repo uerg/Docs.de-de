@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 551e31a7a2d0a4e6259f74977c2f8e21cb694e42
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-the-build-process"></a>Grundlegendes zu den Buildprozess
 ====================
@@ -77,7 +77,7 @@ Um die Kontakt-Manager-Lösung in einer testumgebung für Entwickler bereitzuste
 
 
 > [!NOTE]
-> Die **/fl** wechseln (Kurzform für **/FileLogger**) protokolliert die Buildausgabe in einer Datei namens *msbuild.log* im aktuellen Verzeichnis. Weitere Informationen finden Sie unter der [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+> Die **/fl** wechseln (Kurzform für **/FileLogger**) protokolliert die Buildausgabe in einer Datei namens *msbuild.log* im aktuellen Verzeichnis. Weitere Informationen finden Sie unter der [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
 An diesem Punkt MSBuild ausgeführt wird, lädt die *Publish.proj* Datei- und beginnt die Verarbeitung der Anweisungen darin. Die erste Anweisung weist MSBuild das Projekt importieren-Datei mit der **TargetEnvPropsFile** gibt Parameter an.
@@ -178,7 +178,7 @@ Die Elemente werden nicht innerhalb dieses Ziel & #x 2014 verwendet; dieses Ziel
 Die **DbPublishPackages** Element enthält einen einzelnen Wert, der den Pfad zu der *ContactManager.Database.deploymanifest* Datei.
 
 > [!NOTE]
-> Eine DEPLOYMANIFEST-Datei wird generiert, wenn Sie ein Datenbankprojekt erstellen und das gleiche Schema wie eine MSBuild-Projektdatei verwendet. Sie enthält alle Informationen, die zum Bereitstellen einer Datenbank, einschließlich der Speicherort des Datenbankschemas (.dbschema) und Details zum beliebiger anderer Skripts vor und nach der Bereitstellung erforderlich sind. Weitere Informationen finden Sie unter [eine Übersicht über die der Datenbank zu erstellen und die Bereitstellung](https://msdn.microsoft.com/en-us/library/aa833165.aspx).
+> Eine DEPLOYMANIFEST-Datei wird generiert, wenn Sie ein Datenbankprojekt erstellen und das gleiche Schema wie eine MSBuild-Projektdatei verwendet. Sie enthält alle Informationen, die zum Bereitstellen einer Datenbank, einschließlich der Speicherort des Datenbankschemas (.dbschema) und Details zum beliebiger anderer Skripts vor und nach der Bereitstellung erforderlich sind. Weitere Informationen finden Sie unter [eine Übersicht über die der Datenbank zu erstellen und die Bereitstellung](https://msdn.microsoft.com/library/aa833165.aspx).
 
 
 Erfahren Sie mehr darüber, wie Pakete und die Bereitstellungsmanifeste für die Datenbank erstellt und verwendet [erstellen und Packen Webanwendungsprojekte](building-and-packaging-web-application-projects.md) und [Datenbankprojekte bereitstellen](deploying-database-projects.md).
@@ -193,13 +193,13 @@ Erstens ist zu beachten, dass das öffnende Tag enthält eine **Ausgaben** Attri
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-Dies ist ein Beispiel der *Batchverarbeitung von Zielen*. In MSBuild-Projektdateien ist Batchverarbeitung eine Technik zum Durchlaufen der Auflistungen aus. Der Wert des der **Ausgaben** -Attribut, **"% (DbPublishPackages.Identity)"**, bezieht sich auf die **Identität** Metadata-Eigenschaft von der **DbPublishPackages**  Elementliste. Diese Notation **Ausgaben = %***(ItemList.ItemMetadataName)*, wird als übersetzt:
+Dies ist ein Beispiel der *Batchverarbeitung von Zielen*. In MSBuild-Projektdateien ist Batchverarbeitung eine Technik zum Durchlaufen der Auflistungen aus. Der Wert des der **Ausgaben** -Attribut, **"% (DbPublishPackages.Identity)"**, bezieht sich auf die **Identität** Metadata-Eigenschaft von der **DbPublishPackages**  Elementliste. Diese Notation **Outputs=%***(ItemList.ItemMetadataName)*, wird als übersetzt:
 
 - Teilen die Elemente in **DbPublishPackages** in Batches von Elementen, die die gleiche **Identität** Metadatenwert.
 - Führen Sie das Ziel einmal pro Batch.
 
 > [!NOTE]
-> **Identität** ist eines der [integrierte Metadatenwerte](https://msdn.microsoft.com/en-us/library/ms164313.aspx) , die jedes Element bei der Erstellung zugewiesen. Er verweist auf den Wert von der **Include** Attribut in der **Element** -Element & #x 2014; das heißt, den Pfad und Dateinamen des Elements.
+> **Identität** ist eines der [integrierte Metadatenwerte](https://msdn.microsoft.com/library/ms164313.aspx) , die jedes Element bei der Erstellung zugewiesen. Er verweist auf den Wert von der **Include** Attribut in der **Element** -Element & #x 2014; das heißt, den Pfad und Dateinamen des Elements.
 
 
 In diesem Fall, da es nie mehr als ein Element mit dem gleichen Pfad und Dateiname vorhanden sein sollte, arbeiten es im Wesentlichen mit Batchgrößen eines. Das Ziel wird einmal für jedes Datenbankpaket ausgeführt.
@@ -219,7 +219,7 @@ In diesem Fall **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishP
 Als Ergebnis dieser Notation der **Exec** aufgabenerstellung basierend auf eindeutige Kombinationen von Batches den **DatabaseConnectionString**, **TargetDatabase**, und **FullPath** Metadatenwerte und die Aufgabe wird einmal für jeden Batch ausgeführt. Dies ist ein Beispiel der *Aufgabenbatchverarbeitung*. Jedoch, da die Zielebene Batchverarbeitung bereits unsere Item-Auflistung in einzelne-Item-Batches unterteilt wurde die **Exec** Task nur einmal für jede Iteration des Ziels ausgeführt. Das heißt, wird diese Aufgabe des Hilfsprogramms VSDBCMD einmal für jede Datenbankpaket in der Projektmappe aufgerufen.
 
 > [!NOTE]
-> Weitere Informationen zu Ziel- und Batchverarbeitung von Aufgaben, finden Sie unter MSBuild [Batchverarbeitung](https://msdn.microsoft.com/en-us/library/ms171473.aspx), [Elementmetadaten bei der Batchverarbeitung von Zielen](https://msdn.microsoft.com/en-US/library/ms228229.aspx), und [Elementmetadaten bei der Batchverarbeitung von Aufgaben](https://msdn.microsoft.com/en-us/library/ms171474.aspx).
+> Weitere Informationen zu Ziel- und Batchverarbeitung von Aufgaben, finden Sie unter MSBuild [Batchverarbeitung](https://msdn.microsoft.com/library/ms171473.aspx), [Elementmetadaten bei der Batchverarbeitung von Zielen](https://msdn.microsoft.com/library/ms228229.aspx), und [Elementmetadaten bei der Batchverarbeitung von Aufgaben](https://msdn.microsoft.com/library/ms171474.aspx).
 
 
 ### <a name="the-publishwebpackages-target"></a>Das Ziel PublishWebPackages
@@ -243,7 +243,7 @@ Innerhalb des Ziels der **Exec** Task dient zum Ausführen der *deploy.cmd* -Dat
 
 Weitere Informationen zum Konfigurieren der Bereitstellung von Webpaketen finden Sie unter [erstellen und Packen Webanwendungsprojekte](building-and-packaging-web-application-projects.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema bereitgestellten eine exemplarische Vorgehensweise wie Split-Projektdateien zum Steuern des Build- und Bereitstellungsprozess Prozess von Anfang bis Ende für die Kontakt-Manager-beispiellösung verwendet werden. Bei diesem Ansatz kann Ausführen komplexer, Enterprise-Bereitstellungen in einem einzelnen, wiederholbare Schritt einfach, indem Sie eine Befehlsdatei umgebungsspezifische ausführen.
 

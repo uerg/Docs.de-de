@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>Was ist neu in ASP.NET 4.5 und Visual Studio 2012
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
     - [Unterstützung für nicht überprüfte Anforderungen](#_Toc318097381)
     - [AntiXSS-Bibliothek](#_Toc318097382)
     - [Unterstützung für WebSockets-Protokoll](#_Toc318097383)
-    - [Bundling und Minimierung](#_Toc318097384)
+    - [Bündelung und Minimierung](#_Toc318097384)
     - [Verbesserte Leistung beim Webhosting](#_Toc_perf)
 
         - [Wichtige Leistungsfaktoren](#_Toc_perf_1)
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
         - [Vorabruf für Webanwendungen](#_Toc_perf_6)
 - [ASP.NET Web Forms](#_Toc318097385)
 
-    - [Stark typisierte Daten-Steuerelemente](#_Toc318097386)
+    - [Stark typisierte Datensteuerelemente](#_Toc318097386)
     - [Modellbindung](#_Toc318097387)
 
         - [Auswählen von Daten](#_Toc318097388)
@@ -74,13 +74,13 @@ ms.lasthandoff: 11/10/2017
         - [Handler-Generierung von Ereignissen](#_Toc318097404)
         - [Intelligenten Einzug](#_Toc318097405)
         - [Anweisungsvervollständigung Auto / reduzieren](#_Toc318097406)
-    - [JavaScript-Editor](#_Toc318097407)
+    - [JavaScript Editor](#_Toc318097407)
 
         - [Gliedern von Code](#_Toc318097408)
         - [Zugehörige Klammer](#_Toc318097409)
         - [Gehe zu Definition](#_Toc318097410)
         - [ECMAScript5-Unterstützung](#_Toc318097411)
-        - [DOM-IntelliSense](#_Toc318097412)
+        - [DOM IntelliSense](#_Toc318097412)
         - [Überladungen für das VSDOC-Signatur](#_Toc318097413)
         - [Impliziten verweisen](#_Toc318097414)
     - [CSS-Editor](#_Toc318097415)
@@ -266,19 +266,19 @@ Aktivieren oder Deaktivieren der Optimierung kann darüber hinaus direkt über d
 
 Wenn Dateien gebündelt werden, diese zuerst alphabetisch sortiert (wie sie, in angezeigt werden **Projektmappen-Explorer**). Sie sind dann organisiert, sodass Bibliotheken bezeichnet, und ihre benutzerdefinierten Erweiterungen (z. B. jQuery, MooTools und Dojo) zuerst geladen werden. Beispielsweise wird die endgültige Reihenfolge für die Bündelung der Ordner "Skripts", wie oben dargestellt werden:
 
-1. jQuery-1.6.2.js
-2. jQuery-ui.js
-3. jQuery.Tools.js
+1. jquery-1.6.2.js
+2. jquery-ui.js
+3. jquery.tools.js
 4. a.js
 
 CSS-Dateien werden ebenfalls alphabetisch sortiert, und klicken Sie dann neu organisiert, damit jede andere Datei reset.css und normalize.css vorangestellt. Die endgültige Sortierung der die Bündelung der oben angezeigten Ordner Styles wird dies Folgendes sein:
 
-1. Reset.CSS
-2. Content.CSS
-3. Forms.CSS
-4. Globals.CSS
-5. Menu.CSS
-6. Styles.CSS
+1. reset.css
+2. content.css
+3. forms.css
+4. globals.css
+5. menu.css
+6. styles.css
 
 <a id="_Toc_perf"></a>
 ### <a name="performance-improvements-for-web-hosting"></a>Verbesserte Leistung beim Webhosting
@@ -330,7 +330,7 @@ Um alle Optionen anzuzeigen, führen Sie das Tool ohne Argumente ein.
 
 **Anforderung**: .NET Framework 4.5
 
-Für ein Start kalte Standort nicht nur müssen Assemblys vom Datenträger gelesen werden, sondern die Site JIT-kompiliert werden muss. Für einen komplexen Standort kann dies zu erhebliche Verzögerungen hinzufügen. Ein neues allgemeines Verfahren in .NET Framework 4.5 wird verringert, dass diese Verzögerungen bei der JIT-Kompilierung über verfügbare Prozessorkerne verbreiten. Dies geschieht möglichst alle Aufgaben und so früh wie möglich mit Informationen, die während der vorherigen startet des Standorts. Diese Funktionalität implementiert werden, indem Sie die [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) Methode.
+Für ein Start kalte Standort nicht nur müssen Assemblys vom Datenträger gelesen werden, sondern die Site JIT-kompiliert werden muss. Für einen komplexen Standort kann dies zu erhebliche Verzögerungen hinzufügen. Ein neues allgemeines Verfahren in .NET Framework 4.5 wird verringert, dass diese Verzögerungen bei der JIT-Kompilierung über verfügbare Prozessorkerne verbreiten. Dies geschieht möglichst alle Aufgaben und so früh wie möglich mit Informationen, die während der vorherigen startet des Standorts. Diese Funktionalität implementiert werden, indem Sie die [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) Methode.
 
 JIT-Kompilierung mit mehreren Kernen ist standardmäßig aktiviert, in ASP.NET, daher Sie kein gar nichts Unternehmen, um dieses Feature nutzen müssen. Wenn Sie diese Funktion deaktivieren möchten, stellen Sie die folgende Einstellung in der Datei "Web.config" ein:
 
@@ -743,7 +743,7 @@ Gehe zu Definition (Befehl) können Sie die Quelle für eine Funktion oder Varia
 Der Editor unterstützt die neue Syntax und die APIs im ECMAScript5, die neueste Version des Standards, die die JavaScript-Sprache beschreibt.
 
 <a id="_Toc318097412"></a>
-#### <a name="dom-intellisense"></a>DOM-IntelliSense
+#### <a name="dom-intellisense"></a>DOM IntelliSense
 
 IntelliSense für DOM-APIs wurde verbessert, mit Unterstützung für viele neue HTML5-APIs, darunter *QuerySelector*, dokumentübergreifendes messaging, DOM-Speicher und *Zeichenbereich*. DOM-IntelliSense wird jetzt eine einzelne einfache JavaScript-Datei, statt von einer systemeigenen Bibliothek Typdefinition gesteuert. Dies vereinfacht das Erweitern oder ersetzen.
 
@@ -874,7 +874,7 @@ In Visual Studio 2010 Veröffentlichung von Informationen für Webanwendungsproj
 
 Veröffentlichen von Profilen werden im Ordner "PublishProfiles" gespeichert. Der Speicherort des Ordners hängt Programmiersprache, die Sie verwenden:
 
-- C#-: Properties\PublishProfiles
+- C#: Properties\PublishProfiles
 - Visual Basic: Meine Project\PublishProfiles
 
 Jedes Profil ist eine MSBuild-Datei. Während der Veröffentlichung, wird diese Datei in MSBuild-Projektdatei importiert. In Visual Studio 2010, wenn Sie Änderungen an den Prozess veröffentlichen oder ein Paket vornehmen möchten stehen Ihnen Ihre Anpassungen in eine Datei namens gelegt **Projektname**. wpp.targets. Dies wird weiterhin unterstützt, aber Sie können jetzt Ihre Anpassungen im Veröffentlichungsprofil selbst einfügen. Auf diese Weise werden die Anpassungen nur für dieses Profil verwendet werden.
@@ -902,7 +902,7 @@ Der Standardwebserver für Tests Webprojekte in Visual Studio ist jetzt IIS Expr
 <a id="_Toc318097429"></a>
 ## <a name="disclaimer"></a>Haftungsausschluss
 
-Dies ist ein vorläufiges Dokument, das vor der kommerziellen Veröffentlichung der beschriebenen Software ggf. erheblich geändert wird.
+Dies ist ein vorläufiges Dokument, das vor dem kommerziellen Release der beschriebenen Software ggf. erheblich geändert wird.
 
 Die Informationen in diesem Dokument repräsentieren den aktuellen Standpunkt der Microsoft Corporation zu den erörterten Problemen zum Veröffentlichungstermin. Da Microsoft auf das Ändern von Marktlagen reagieren muss, ist das Dokument keinesfalls als Verpflichtung von Microsoft zu interpretieren, und Microsoft kann die Genauigkeit der Informationen nicht über den Zeitpunkt der Veröffentlichung hinaus garantieren.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
 
@@ -42,7 +42,7 @@ Innerhalb der **M**Odel -**V**vorhandenes -**C**Ontroller-Muster, ein Controller
 
 Der Controller nutzt das Ergebnis der Verarbeitung des Modells, (sofern vorhanden) und gibt die richtige Ansicht und deren zugeordneten Daten oder das Ergebnis des API-Aufrufs. Weitere Informationen zu [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
-Der Controller ist ein *-Benutzeroberflächenebene* Abstraktion. Ihren Aufgaben sind, um sicherzustellen, dass Anforderungsdaten gültig ist und auswählen, welche Ansicht (oder das Ergebnis für eine API) zurückgegeben werden sollen. In gut ausgearbeitete apps ist es nicht direkt Daten zugreifen oder die Geschäftslogik enthalten. Stattdessen werden der Controller an Diensten behandeln diese Aufgaben delegiert.
+Der Controller ist ein *-Benutzeroberflächenebene* Abstraktion. Ihren Aufgaben sind, um sicherzustellen, dass Anforderungsdaten gültig ist und auswählen, welche Ansicht (oder das Ergebnis für eine API) zurückgegeben werden sollen. In gut ausgearbeitete apps einschließen nicht direkt Daten zugreifen oder die Geschäftslogik. Stattdessen werden der Controller an Diensten behandeln diese Aufgaben delegiert.
 
 ## <a name="defining-actions"></a>Definieren von Aktionen
 

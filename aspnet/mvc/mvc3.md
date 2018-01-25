@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -136,11 +136,11 @@ Einige neuen Razor-Funktionen umfassen Folgendes:
 
 Razor enthält auch neue HTML-Hilfsmethoden, z. B. Folgendes an:
 
-- `Chart`. Rendert ein Diagramm, bietet die gleichen Funktionen wie das Diagrammsteuerelement in ASP.NET 4.
-- `WebGrid`. Rendert ein Datenraster, paging und Sortieren von Funktionen an.
-- `Crypto`. Verwendet Hashalgorithmen ordnungsgemäß erstellen Salt-Wert und ein Hashwert erstellt Kennwörter.
-- `WebImage`. Rendert ein Bild an.
-- `WebMail`. Sendet eine e-Mail-Nachricht an.
+- `Chart` Rendert ein Diagramm, bietet die gleichen Funktionen wie das Diagrammsteuerelement in ASP.NET 4.
+- `WebGrid` Rendert ein Datenraster, paging und Sortieren von Funktionen an.
+- `Crypto` Verwendet Hashalgorithmen ordnungsgemäß erstellen Salt-Wert und ein Hashwert erstellt Kennwörter.
+- `WebImage` Rendert ein Bild an.
+- `WebMail` Sendet eine e-Mail-Nachricht an.
 
 Weitere Informationen zu Razor finden Sie unter den folgenden Ressourcen:
 
@@ -165,7 +165,7 @@ Die **Ansicht hinzufügen** Dialogfeld in ASP.NET MVC 3 können Sie das Ansichts
 Unter Umständen möchten Sie Logik ausführen, bevor eine Aktionsmethode ausgeführt wird, oder nach einer Aktionsmethode ausgeführt wird. Um dies zu unterstützen, bereitgestellten ASP.NET MVC 2 Aktionsfilter verwendet werden. Aktionsfilter sind benutzerdefinierte Attribute, die ein deklaratives Mittel Hinzufügen des Verhaltens einfügen vor und nach Abschluss der Aktion zu bestimmten Controlleraktionsmethoden bereitstellen. In einigen Fällen möchten jedoch möglicherweise einfügen vor oder nach Abschluss der Aktion Verhalten angeben, die für alle Aktionsmethoden gelten. MVC 3 können Sie die globalen Filter angeben, indem Sie sie zum Hinzufügen der `GlobalFilters` Auflistung. Weitere Informationen zu globalen Aktionsfilter verwendet werden finden Sie unter den folgenden Ressourcen:
 
 - [Scott Guthries Blog auf das MVC 3 Preview?](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [Filtern in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [Filtern in ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Neue "ViewBag"-Eigenschaft
 
@@ -175,9 +175,9 @@ Unterstützung von MVC 2-Controller eine `ViewData` -Eigenschaft, die Ihnen erm�
 
 Die folgenden `ActionResult` Typen und zugehörigen Hilfsmethoden werden neue oder verbesserte in MVC 3:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). HTTP-Statuscode 404 zurückgegeben an den Client.
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx). Gibt eine temporäre Umleitung (Statuscode "HTTP 302") oder eine permanente Umleitung (301 HTTP-Statuscode ""), je nach einem booleschen Parameter zurück. In Verbindung mit dieser Änderung der [Controller](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx) -Klasse verfügt jetzt über drei Methoden zum Ausführen von permanenten leitet: `RedirectPermanent`, `RedirectToRoutePermanent`, und `RedirectToActionPermanent`. Diese Methoden zurückgeben eine Instanz von `RedirectResult` mit der `Permanent` -Eigenschaftensatz auf `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Gibt einen benutzerdefinierten HTTP-Statuscode zurück.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). HTTP-Statuscode 404 zurückgegeben an den Client.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Gibt eine temporäre Umleitung (Statuscode "HTTP 302") oder eine permanente Umleitung (301 HTTP-Statuscode ""), je nach einem booleschen Parameter zurück. In Verbindung mit dieser Änderung der [Controller](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) -Klasse verfügt jetzt über drei Methoden zum Ausführen von permanenten leitet: `RedirectPermanent`, `RedirectToRoutePermanent`, und `RedirectToActionPermanent`. Diese Methoden zurückgeben eine Instanz von `RedirectResult` mit der `Permanent` -Eigenschaftensatz auf `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Gibt einen benutzerdefinierten HTTP-Statuscode zurück.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ In der Reihenfolge für die clientseitige Validierung funktioniert müssen Sie i
 
 ### <a name="remote-validator"></a>Die Remotebestätigung
 
-ASP.NET MVC 3 unterstützt die neue [RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx) Klasse, die Sie nutzen von jQuery-Validierung-Plug-ins ermöglicht die remotebestätigung Unterstützung. Dies ermöglicht die clientseitige Validierungsbibliothek automatisch serverseitige Aufrufen eine benutzerdefinierte Methode, die Sie auf dem Server zu definieren, damit die Validierungslogik ausgeführt werden, die nur ausgeführt werden können.
+ASP.NET MVC 3 unterstützt die neue [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) Klasse, die Sie nutzen von jQuery-Validierung-Plug-ins ermöglicht die remotebestätigung Unterstützung. Dies ermöglicht die clientseitige Validierungsbibliothek automatisch serverseitige Aufrufen eine benutzerdefinierte Methode, die Sie auf dem Server zu definieren, damit die Validierungslogik ausgeführt werden, die nur ausgeführt werden können.
 
 Im folgenden Beispiel die `Remote` Attribut gibt an, dass die Clientvalidierung eine Aktion, die mit dem Namen angerufen `UserNameAvailable` auf die `UsersController` Klasse, um zu überprüfen der `UserName` Feld.
 
@@ -209,7 +209,7 @@ Das folgende Beispiel zeigt den entsprechenden Controller an.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Weitere Informationen zur Verwendung der `Remote` -Attribut angegeben wird, finden Sie unter [Vorgehensweise: Implementieren der Remotevalidierung in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx) in der MSDN Library.
+Weitere Informationen zur Verwendung der `Remote` -Attribut angegeben wird, finden Sie unter [Vorgehensweise: Implementieren der Remotevalidierung in ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) in der MSDN Library.
 
 ### <a name="json-binding-support"></a>Unterstützung für JSON-Bindung
 
@@ -231,9 +231,9 @@ Die `ValidationAttribute` Klasse wurde verbessert die Leistung in .NET Framework
 
 ### <a name="validation-interfaces"></a>Überprüfung von Schnittstellen
 
-Die [IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) -Schnittstelle ermöglicht Ihnen das Ausführen der Validierung auf Modellebene und dadurch werden Sie zur Bereitstellung der Validierung Fehlermeldungen, die in den Zustand des gesamten Modells oder zwischen zwei Eigenschaften in das Modell spezifisch sind . MVC 3 ruft nun Fehler aus der `IValidatableObject` -Schnittstelle beim wurden die modellbindung, und automatisch Flags oder Highlights Felder innerhalb einer Ansicht mithilfe der integrierten HTML-Formular-Hilfsprogrammen betroffen.
+Die [IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) -Schnittstelle ermöglicht Ihnen das Ausführen der Validierung auf Modellebene und dadurch werden Sie zur Bereitstellung der Validierung Fehlermeldungen, die in den Zustand des gesamten Modells oder zwischen zwei Eigenschaften in das Modell spezifisch sind . MVC 3 ruft nun Fehler aus der `IValidatableObject` -Schnittstelle beim wurden die modellbindung, und automatisch Flags oder Highlights Felder innerhalb einer Ansicht mithilfe der integrierten HTML-Formular-Hilfsprogrammen betroffen.
 
-Die [IClientValidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) Schnittstelle ermöglicht ASP.NET MVC, um zur Laufzeit zu ermitteln, ob ein Validator Unterstützung für Clientvalidierung verfügt. Diese Schnittstelle wurde entwickelt, sodass er mit einer Vielzahl von Überprüfung Frameworks integriert werden kann.
+Die [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) Schnittstelle ermöglicht ASP.NET MVC, um zur Laufzeit zu ermitteln, ob ein Validator Unterstützung für Clientvalidierung verfügt. Diese Schnittstelle wurde entwickelt, sodass er mit einer Vielzahl von Überprüfung Frameworks integriert werden kann.
 
 Weitere Informationen zur Überprüfung Schnittstellen finden Sie unter der **Modell Überprüfung Verbesserungen** Abschnitt [Guthries MVC 3 Preview Blogbeitrag](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Beachten Sie jedoch, dass der Verweis auf "IValidateObject" im Blog "IValidatableObject" werden soll.)
 
@@ -278,7 +278,7 @@ ASP.NET MVC unterstützt Zwischenspeichern der Ausgabe der gesamte Seitenantwort
 
 ### <a name="granular-control-over-request-validation"></a>Eine präzise Kontrolle über die Anforderungsüberprüfung
 
-ASP.NET MVC verfügt über integrierte anforderungsüberprüfung, automatisch mit der vor XSS und HTML-Injection-Angriffen geschützt. Allerdings unter Umständen explizit deaktivieren anforderungsüberprüfung, möchten Sie z. B. Wenn Sie möchten Benutzer HTML Inhalte (z. B. in Blogeinträgen oder CMS-Inhalt) bereitstellen können. Sie können jetzt Hinzufügen einer [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) -Attribut auf Modelle oder Modelle zum Deaktivieren der Anforderungsvalidierung auf Grundlage einzelner Eigenschaften während der modellbindung anzeigen. Weitere Informationen zur anforderungsüberprüfung finden Sie unter den folgenden Ressourcen:
+ASP.NET MVC verfügt über integrierte anforderungsüberprüfung, automatisch mit der vor XSS und HTML-Injection-Angriffen geschützt. Allerdings unter Umständen explizit deaktivieren anforderungsüberprüfung, möchten Sie z. B. Wenn Sie möchten Benutzer HTML Inhalte (z. B. in Blogeinträgen oder CMS-Inhalt) bereitstellen können. Sie können jetzt Hinzufügen einer [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) -Attribut auf Modelle oder Modelle zum Deaktivieren der Anforderungsvalidierung auf Grundlage einzelner Eigenschaften während der modellbindung anzeigen. Weitere Informationen zur anforderungsüberprüfung finden Sie unter den folgenden Ressourcen:
 
 - Die **unaufdringliches JavaScript und Validierung** im Abschnitt [Scott Guthries Blog Post für MVC 3 Release Candidate](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
 - [MVC 3-Versionsanmerkungen](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ In ASP.NET MVC 3 Sie angeben können, ob eine Controllerklasse Sitzungsstatus ve
 
 ### <a name="new-additionalmetadataattribute-class"></a>Neue "AdditionalMetadataAttribute"-Klasse
 
-Sie können die [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) -Attributs zum Auffüllen der `ModelMetadata.AdditionalValues` Wörterbuch für eine Modelleigenschaft. Beispielsweise verfügt ein Ansichtsmodell eine Eigenschaft, die nur an einen Administrator angezeigt werden soll, können Sie diese Eigenschaft versehen, wie im folgenden Beispiel gezeigt:
+Sie können die [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) -Attributs zum Auffüllen der `ModelMetadata.AdditionalValues` Wörterbuch für eine Modelleigenschaft. Beispielsweise verfügt ein Ansichtsmodell eine Eigenschaft, die nur an einen Administrator angezeigt werden soll, können Sie diese Eigenschaft versehen, wie im folgenden Beispiel gezeigt:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

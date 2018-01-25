@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: dfb0158ec05c890ecf80571d95b22d8c791ba7fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Überwachung und Telemetrie (Building Real-World Cloud Apps with Azure)
 ====================
@@ -41,7 +41,7 @@ Eine der Aufgaben, die über die Cloudumgebung hervorragende des ist die für de
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Ab März 2015 [Microsoft Application Insights für Visual Studio Online](https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/) wurde noch nicht freigegeben, doch sind in Vorschau auszuprobieren. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) umfasst auch die Überwachungsfunktionen.
+Ab März 2015 [Microsoft Application Insights für Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) wurde noch nicht freigegeben, doch sind in Vorschau auszuprobieren. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) umfasst auch die Überwachungsfunktionen.
 
 Wir müssen schnell durchlaufen New Relic einrichten, um anzuzeigen, wie einfach es ist ein Telemetriesystem verwenden.
 
@@ -156,13 +156,13 @@ Es wird dringend empfohlen, dass Sie ein Protokoll schreiben jedes Mal, wenn Ihr
 
 Erstellen eine einfachen werden empfohlen, auf diese Weise bei der Erstellung einer produktionsanwendung *ILogger* Schnittstelle, und einige Methoden darin bleiben. Dies vereinfacht die protokollierungsimplementierung bereitgestellt werden später ändern und nicht in Ihren gesamten Code zu diesem Zweck zu. Es konnte unter Verwendung der `System.Diagnostics.Trace` Klasse in der app zu beheben, aber stattdessen verwenden wir es im Hintergrund in einer Protokollierung-Klasse, die implementiert *ILogger*, und stellen wir *ILogger* Methodenaufrufe in der gesamten die app.
 
-Auf diese Weise, wenn Sie Ihre Meinung Ihrer Protokollierung umfangreichere, stellen können Sie ersetzen [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) mit den Protokollierungsmechanismus werden sollen. Beispielsweise wenn Ihre app wächst Sie können festlegen, dass Sie so verwenden Sie ein umfassenderes Protokollierung Paket wie z. B. [NLog](http://nlog-project.org/) oder [Enterprise Library-Anwendungsblock Protokollierung](https://msdn.microsoft.com/en-us/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) eine andere beliebte protokollierungsframework ist jedoch nicht asynchronen protokollierungs.)
+Auf diese Weise, wenn Sie Ihre Meinung Ihrer Protokollierung umfangreichere, stellen können Sie ersetzen [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) mit den Protokollierungsmechanismus werden sollen. Beispielsweise wenn Ihre app wächst Sie können festlegen, dass Sie so verwenden Sie ein umfassenderes Protokollierung Paket wie z. B. [NLog](http://nlog-project.org/) oder [Enterprise Library-Anwendungsblock Protokollierung](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) eine andere beliebte protokollierungsframework ist jedoch nicht asynchronen protokollierungs.)
 
 Ein möglicher Grund für die Verwendung von ein Framework wie NLog ist zur Erleichterung der Protokollausgabe in separaten hohem Volumen und hoher / Wert-Datenspeicher unterteilen. Mit dem Sie große Datenmengen INFORM effizienter zu speichern, die nicht schnelle Abfragen auf und schnellen Zugriff auf Daten von ACT gleichzeitig ausgeführt werden müssen.
 
 ### <a name="semantic-logging"></a>Semantische Protokollierung
 
-Eine relativ neue Möglichkeit Protokollierung ausführen können, die weitere nützliche Diagnoseinformationen erstellt werden kann, finden Sie unter [Enterprise Library semantische Protokollierung Application Block (Bereich)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Bereich verwendet [Event Tracing for Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803.aspx) (ETW) und [EventSource](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.aspx) -Unterstützung in .NET 4.5, um weitere strukturierte und des queryable-Protokolle erstellen können. Sie definieren eine andere Methode für jede Art von Ereignis, das Sie sich anmelden, dem Sie die Anpassung der Informationen, die Sie schreiben kann. Um beispielsweise einen SQL-Datenbank-Fehler zu protokollieren, rufen Sie möglicherweise, eine `LogSQLDatabaseError` Methode. Art der Ausnahme bedeutet dies, dass eine wichtige Information die Fehlernummer ist, sodass Sie einen Fehler-Number-Parameter in der Methodensignatur enthalten und zeichnen Sie die Nummer des Fehlers als ein separates Feld in der Systemprotokoll-Datensatz, den Sie schreiben konnte. Da die Zahl in einem separaten Feld erhalten mehr einfach und zuverlässig Sie Berichte auf Grundlage der SQL-Fehlernummern als könnten Sie, wenn Sie nur die Nummer des Fehlers in eine Meldungszeichenfolge verkettet wurden.
+Eine relativ neue Möglichkeit Protokollierung ausführen können, die weitere nützliche Diagnoseinformationen erstellt werden kann, finden Sie unter [Enterprise Library semantische Protokollierung Application Block (Bereich)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Bereich verwendet [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) und [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -Unterstützung in .NET 4.5, um weitere strukturierte und des queryable-Protokolle erstellen können. Sie definieren eine andere Methode für jede Art von Ereignis, das Sie sich anmelden, dem Sie die Anpassung der Informationen, die Sie schreiben kann. Um beispielsweise einen SQL-Datenbank-Fehler zu protokollieren, rufen Sie möglicherweise, eine `LogSQLDatabaseError` Methode. Art der Ausnahme bedeutet dies, dass eine wichtige Information die Fehlernummer ist, sodass Sie einen Fehler-Number-Parameter in der Methodensignatur enthalten und zeichnen Sie die Nummer des Fehlers als ein separates Feld in der Systemprotokoll-Datensatz, den Sie schreiben konnte. Da die Zahl in einem separaten Feld erhalten mehr einfach und zuverlässig Sie Berichte auf Grundlage der SQL-Fehlernummern als könnten Sie, wenn Sie nur die Nummer des Fehlers in eine Meldungszeichenfolge verkettet wurden.
 
 ## <a name="logging-in-the-fix-it-app"></a>Die Lösung Fehleranzahl app
 
@@ -228,14 +228,14 @@ Azure unterstützt die folgenden Arten von [Protokollierung für Web-Apps in Azu
 
 - System.Diagnostics-Ablaufverfolgung (Sie können ein-und ausschalten und zielsatzebenen im Handumdrehen ohne Neustart der Website).
 - Windows-Ereignisse.
-- IIS-Protokolle (HTTP/FREB).
+- IIS Logs (HTTP/FREB).
 
 Azure unterstützt die folgenden Arten von [Clouddiensten anmelden](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics):
 
 - System.Diagnostics-Ablaufverfolgung.
 - Leistungsindikatoren.
 - Windows-Ereignisse.
-- IIS-Protokolle (HTTP/FREB).
+- IIS Logs (HTTP/FREB).
 - Überwachen von benutzerdefinierten Verzeichnis.
 
 Die korrigieren-app verwendet die System.Diagnostics-Ablaufverfolgung. Alles, was Sie zum Aktivieren der Protokollierung in einer Web-app System.Diagnostics tun müssen ist einen Switch in das Portal wechseln oder die REST-API aufrufen. Klicken Sie im Portal auf der **Konfiguration** Ihrer Website auf der Registerkarte, und führen Sie einen Bildlauf nach unten zu finden Sie unter der **Application Diagnostics** Abschnitt. Sie können aktivieren oder deaktivieren Sie die Protokollierung, und wählen den gewünschten Protokolliergrad. Sie können Azure-Protokolle im Dateisystem oder in ein Speicherkonto geschrieben haben.
@@ -244,13 +244,13 @@ Die korrigieren-app verwendet die System.Diagnostics-Ablaufverfolgung. Alles, wa
 
 Nach der Aktivierung der Protokollierung in Azure können Sie die Protokolle im Ausgabefenster von Visual Studio sehen, wie sie erstellt werden.
 
-![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
 Außerdem können Sie Protokolle in Ihrem Speicherkonto geschrieben und anzeigen, die sie mit jedem tool, kann Azure-Speichertabelle auf den Dienst zugreifen, wie z. B. **Server-Explorer** in Visual Studio oder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Protokolle in Server-Explorer](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![Protokolle in Server-Explorer](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -264,10 +264,10 @@ Weitere Informationen finden Sie in den folgenden Ressourcen.
 
 Die Dokumentation hauptsächlich über Telemetrie:
 
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Instrumentation und Telemetrie Anleitungen, Dienst Messung Anleitungen, Muster Integrität Webendpunkt-Überwachung und Runtime-Neukonfiguration Muster angezeigt.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Instrumentation und Telemetrie Anleitungen, Dienst Messung Anleitungen, Muster Integrität Webendpunkt-Überwachung und Runtime-Neukonfiguration Muster angezeigt.
 - [In der Cloud Pinch Cent: Aktivieren der Überwachung auf Azure-Websites New Relic-Leistungsüberwachung](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt Telemetrie und Diagnose.
-- [Entwicklung der nächsten Generation mit Application Insights](https://msdn.microsoft.com/en-us/magazine/dn683794.aspx). MSDN Magazine-Artikel.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt Telemetrie und Diagnose.
+- [Entwicklung der nächsten Generation mit Application Insights](https://msdn.microsoft.com/magazine/dn683794.aspx). MSDN Magazine-Artikel.
 
 Dokumentation in erster Linie zur Protokollierung:
 

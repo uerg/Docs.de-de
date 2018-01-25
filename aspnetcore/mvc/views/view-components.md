@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>Anzeigen von Komponenten
 
@@ -60,7 +60,7 @@ Eine Komponentenklasse für die Sicht:
 
 * Unterstützt uneingeschränkt Konstruktor [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md)
 
-* Verwendet keinen Teil des Controller-Lebenszyklus, d. h., Sie können keine [Filter](../controllers/filters.md) in einer Ansichtskomponente
+* Nehmen Sie nicht Teil des Controller-Lebenszyklus, d. h., Sie können keine [Filter](../controllers/filters.md) in einer Ansichtskomponente
 
 ### <a name="view-component-methods"></a>Die Komponentenmethoden anzuzeigen
 
@@ -69,7 +69,7 @@ Eine Ansichtskomponente definiert ihre Logik in einer `InvokeAsync` Methode, die
 * Definieren einer `InvokeAsync` Methode, die zurückgibt ein`IViewComponentResult`
 * In der Regel ein Modell initialisiert und übergibt sie an einer Ansicht durch Aufrufen der `ViewComponent` `View` Methode
 * Parameter aus der aufrufenden Methode nicht HTTP stammen, es erfolgt keine modellbindung
-* Werden direkt als ein HTTP-Endpunkt nicht erreichbar, sie werden aufgerufen, aus dem Code (in der Regel in einer Ansicht). Eine Ansichtskomponente behandelt nie eine Anforderung.
+* Werden direkt als ein HTTP-Endpunkt nicht erreichbar, sie sind aufgerufen aus dem Code (in der Regel in einer Ansicht). Eine Ansichtskomponente behandelt nie eine Anforderung.
 * Alle Details aus der aktuellen HTTP-Anforderung, anstatt die Signatur sind überladen werden.
 
 ### <a name="view-search-path"></a>Suchpfad für die Ansicht
@@ -130,7 +130,7 @@ Im obigen Beispiel die `PriorityList` Ansichtskomponente wird `priority-list`. D
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Aufrufen einer Ansichtskomponente direkt von einem controller
 
-Anzeigen von Komponenten in der Regel aus einer Sicht aufgerufen werden, aber Sie direkt von einem Controllermethode aufrufen. Während ansichtskomponenten keine Endpunkte wie Controller definieren, können Sie problemlos eine Controlleraktion, die den Inhalt des zurückgibt implementieren eine `ViewComponentResult`.
+Anzeigen von Komponenten in der Regel aus einer Sicht aufgerufen werden, aber Sie direkt von einem Controllermethode aufrufen. Während ansichtskomponenten Endpunkte wie Domänencontroller nicht definieren, können Sie problemlos eine Controlleraktion, die den Inhalt des zurückgibt implementieren eine `ViewComponentResult`.
 
 In diesem Beispiel wird die Ansichtskomponente direkt auf dem Controller aufgerufen:
 
@@ -212,17 +212,17 @@ Führen Sie die app, und überprüfen Sie PVC anzeigen.
 
 ![Priorität Ansichtskomponente](view-components/_static/pvc.png)
 
-Wenn die Sicht PVC nicht gerendert wird, stellen Sie sicher, dass Sie die Ansichtskomponente mit einer Priorität von 4 oder höher aufrufen.
+Wenn die Sicht PVC nicht dargestellt wird, stellen Sie sicher, dass Sie die Ansichtskomponente mit einer Priorität von 4 oder höher aufrufen.
 
 ### <a name="examine-the-view-path"></a>Überprüfen Sie den Pfad anzeigen
 
-* Ändern Sie den Parameter Priorität auf drei oder weniger ein, damit die Ansicht Priorität nicht zurückgegeben wird.
+* Ändern Sie den Parameter Priorität auf drei oder weniger ein, damit die Priorität Sicht zurückgegeben wird.
 * Benennen Sie vorübergehend die *Views/Todo/Components/PriorityList/Default.cshtml* auf *1Default.cshtml*.
 * Testen der app, die Sie erhalten die folgende Fehlermeldung:
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

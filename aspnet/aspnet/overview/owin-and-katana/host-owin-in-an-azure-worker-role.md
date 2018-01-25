@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 647514ae5a92b9d729179327fb97bd8005b0a4b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8c0fdfdf60ff3bde34b6869adf3f8693b4d9615d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Host in einer Azure-Workerrolle OWIN
 ====================
@@ -26,13 +26,13 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 > 
 > [Öffnen Sie die Weboberfläche für .NET](http://owin.org/) (OWIN) definiert eine Abstraktion zwischen .NET Webservern und Webanwendungen. OWIN entkoppelt die Webanwendung aus dem Server, wodurch OWIN ideal für eine Webanwendung in Ihrem eigenen Prozess, außerhalb von IIS-Self-hosting – z. B. in einer Azure-workerrolle.
 > 
-> In diesem Lernprogramm erfahren Sie, wie einer OWIN-Anwendung in eine Microsoft Azure-Worker-Rolle selbst gehostet. Weitere Informationen zu Workerrollen finden Sie unter [Azure-Ausführungsmodelle](https://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices).
+> In diesem Lernprogramm erfahren Sie, wie einer OWIN-Anwendung in eine Microsoft Azure-Worker-Rolle selbst gehostet. Weitere Informationen zu Workerrollen finden Sie unter [Azure-Ausführungsmodelle](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - [Azure SDK für .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK für .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
 
@@ -125,7 +125,7 @@ Suchen Sie die IP-Adresse unter Dienstbereitstellungen, Bereitstellung [Id], Die
 
 ## <a name="deploy-to-azure"></a>In Azure bereitstellen
 
-Für diesen Schritt müssen Sie ein Azure-Konto verfügen. Wenn Sie einen noch nicht haben, können Sie in wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlosen Microsoft Azure-Testversion](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+Für diesen Schritt müssen Sie ein Azure-Konto verfügen. Wenn Sie einen noch nicht haben, können Sie in wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlosen Microsoft Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Im Projektmappen-Explorer mit der rechten Maustaste des Projekts AzureApp. Wählen Sie **Veröffentlichen**.
 
@@ -151,5 +151,5 @@ Das Azure-Aktivitätsprotokoll-Fenster wird der Fortschritt der Bereitstellung. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Eine Übersicht über Project Katana](an-overview-of-project-katana.md)
+- [Übersicht über das Katana-Projekt](an-overview-of-project-katana.md)
 - [Katana-Projekt auf GitHub](https://github.com/aspnet/AspNetKatana/)

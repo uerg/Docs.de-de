@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Erstellen ein Modell mit komplexen Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (5 10)
 
@@ -39,9 +39,9 @@ In *Models/Student.cs*, Hinzufügen einer `using` -Anweisung für die `System.Co
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-Das `DataType`-Attribut wird verwendet, um einen Datentyp anzugeben, der spezifischer als der datenbankinterne Typ ist. In diesem Fall möchten wir nur zum Nachverfolgen der Datum nicht das Datum und die Uhrzeit. Die `DataType` Enumeration stellt für viele Datentypen, wie Datum, Uhrzeit, Währung, PhoneNumber, EmailAddress und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Beispielsweise kann ein `mailto:`-Link für `DataType.EmailAddress` erstellt werden, und eine Datumsauswahl kann in Browsern mit Unterstützung für HTML5 für `DataType.Date` bereitgestellt werden. Die `DataType` Attribut ausgibt HTML 5 `data-` (ausgesprochen als Daten Dash) Attribute, die HTML 5-Browser zu bringen. Die `DataType` Attribute bieten keine Validierung.
+Die `DataType` Attribut wird verwendet, um einen Datentyp angeben, die als Datenbank systeminternen Typ genauer bestimmt ist. In diesem Fall möchten wir nur zum Nachverfolgen der Datum nicht das Datum und die Uhrzeit. Die `DataType` Enumeration stellt für viele Datentypen, wie Datum, Uhrzeit, Währung, PhoneNumber, EmailAddress und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Beispielsweise kann ein `mailto:`-Link für `DataType.EmailAddress` erstellt werden, und eine Datumsauswahl kann in Browsern mit Unterstützung für HTML5 für `DataType.Date` bereitgestellt werden. Die `DataType` Attribut ausgibt HTML 5 `data-` (ausgesprochen als Daten Dash) Attribute, die HTML 5-Browser zu bringen. Die `DataType` Attribute stellen keine Validierung.
 
-`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server CultureInfo angezeigt.
+`DataType.Date`das Format des Datums, das angezeigt wird, nicht angegeben werden. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server CultureInfo angezeigt.
 
 Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 
@@ -103,7 +103,7 @@ Die app auszuführen, wählen Sie die **Studenten** auf **neu erstellen**, und g
 
 Attribute können auch steuern, wie die Klassen und Eigenschaften in der Datenbank zugeordnet werden. Angenommen, Sie den Namen verwendet haben `FirstMidName` für den Vornamen-Feld verwendet wird, weil das Feld kann auch ein zweiter Vorname enthalten. Die Datenbankspalte benannt werden, möchten jedoch `FirstName`, da der Benutzer, die Ad-hoc-Abfragen für die Datenbank geschrieben werden auf diesen Namen daran gewöhnt sind. Um diese Zuordnung vornehmen, können Sie die `Column` Attribut.
 
-Die `Column` Attribut gibt an, wenn die Datenbank erstellt wurde, ist die Spalte von der `Student` Tabelle, zugeordnet der `FirstMidName` Eigenschaft den Namen `FirstName`. Das heißt, wenn Ihr Code bezieht sich auf `Student.FirstMidName`, die Daten aus stammen oder aktualisiert werden, der `FirstName` Spalte die `Student` Tabelle. Wenn Sie keinen Spaltennamen angeben, werden ihm den gleichen Namen wie den Namen der Eigenschaft zugewiesen.
+Die `Column` Attribut gibt an, wenn die Datenbank erstellt wurde, ist die Spalte von der `Student` Tabelle, zugeordnet der `FirstMidName` Eigenschaft den Namen `FirstName`. Das heißt, wenn Ihr Code bezieht sich auf `Student.FirstMidName`, die Daten aus stammen oder aktualisiert werden, der `FirstName` Spalte die `Student` Tabelle. Wenn Sie keinen Spaltennamen angeben, erhalten sie den gleichen Namen wie den Namen der Eigenschaft.
 
 In der *Student.cs* hinzufügen. eine `using` -Anweisung für `System.ComponentModel.DataAnnotations.Schema` und Hinzufügen der Spalte Name-Attribut, das `FirstMidName` Eigenschaft, die in den folgenden hervorgehobenen Code dargestellt:
 
@@ -125,7 +125,7 @@ In **Objekt-Explorer von SQL Server**, öffnen Sie die Student-Tabellen-Designer
 
 ![Students-Tabelle in SSOX nach der Migration](complex-data-model/_static/ssox-after-migration.png)
 
-Bevor Sie die ersten beiden Migrationen angewendet, wurden die Namensspalten von Typ nvarchar(MAX). Sie sind jetzt nvarchar(50) und der Spaltennamen FirstMidName FirstName geändert hat.
+Bevor Sie die ersten beiden Migrationen angewendet, wurden die Namensspalten von Typ nvarchar(MAX). Sie sind jetzt nvarchar(50) und der Spaltenname wurde von FirstMidName in FirstName geändert.
 
 > [!Note]
 > Wenn Sie versuchen, die kompiliert werden, bevor Sie alle der Entitätsklassen in den folgenden Abschnitten erstellt haben, erhalten Sie möglicherweise Compilerfehler angezeigt.
@@ -231,7 +231,7 @@ In *Models/Course.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgende
 
 Die Kurs-Entität verfügt über eine Fremdschlüsseleigenschaft `DepartmentID` hat das auf die verknüpfte Entität Department und zeigt eine `Department` Navigationseigenschaft.
 
-Das Entity Framework erfordern nicht, dass Sie eine foreign Key-Eigenschaft mit dem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für einer verknüpften Entität sind.  EF Fremdschlüssel in der Datenbank erstellt wird, werden im Bedarfsfall automatisch und erstellt [Shadowing von Eigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für sie. Jedoch müssen die Fremdschlüssel im Datenmodell kann Updates vornehmen, einfacher und effizienter. Z. B. Wenn Sie eine Entität Kurs bearbeiten abzurufen, die Entität Department ist null, wenn Sie es nicht geladen werden, also bei der Aktualisierung von der Entität Kurs Sie müssten zuerst die Entität Department abzurufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` enthalten ist in das Datenmodell, müssen Sie die Entität Department zu abzurufen, bevor Sie aktualisieren.
+Das Entity Framework erfordern nicht, dass Sie eine foreign Key-Eigenschaft mit dem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für einer verknüpften Entität sind.  EF automatisch Fremdschlüssel in der Datenbank erstellt werden, wo sie benötigt werden, und erstellt [Shadowing von Eigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für sie. Jedoch müssen die Fremdschlüssel im Datenmodell kann Updates vornehmen, einfacher und effizienter. Z. B. Wenn Sie eine Entität Kurs bearbeiten abzurufen, die Entität Department ist null, wenn Sie es nicht geladen werden, also bei der Aktualisierung von der Entität Kurs Sie müssten zuerst die Entität Department abzurufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` enthalten ist in das Datenmodell, müssen Sie die Entität Department zu abzurufen, bevor Sie aktualisieren.
 
 ### <a name="the-databasegenerated-attribute"></a>Das DatabaseGenerated-Attribut
 
@@ -308,7 +308,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Gemäß der Konvention ermöglicht das Entity Framework kaskadierendes Delete für die NULL-Fremdschlüssel und für viele-zu-viele-Beziehungen. Dies kann zu zirkuläre Cascade Delete Regeln führen, der eine Ausnahme verursacht wird, wenn Sie versuchen, eine Migration hinzuzufügen. Z. B. Wenn Sie die Eigenschaft Department.InstructorID als auf NULL festlegbar definiert haben, würden EF eine Cascade Löschregel konfigurieren den Dozenten löschen, beim Löschen der Abteilung, also nicht passieren sollen. Bei Bedarf Ihre Geschäftsregeln der `InstructorID` Eigenschaft nicht NULL-Werte zulässt, müssten Sie die folgende fluent-API-Anweisung verwenden, um kaskadierte Löschung auf der Beziehung zu deaktivieren:
+> Gemäß der Konvention ermöglicht das Entity Framework kaskadierendes Delete für die NULL-Fremdschlüssel und für viele-zu-viele-Beziehungen. Dies kann zu zirkuläre Cascade Delete Regeln führen, der eine Ausnahme verursacht wird, wenn Sie versuchen, eine Migration hinzuzufügen. Beispielsweise wenn Sie die Eigenschaft Department.InstructorID als auf NULL festlegbar definiert haben, würden EF konfigurieren eine Cascade Delete-Regel klicken, um den Dozenten zu löschen, wenn Sie die Abteilung, die nicht ist löschen, was passieren soll. Bei Bedarf Ihre Geschäftsregeln der `InstructorID` Eigenschaft nicht NULL-Werte zulässt, müssten Sie die folgende fluent-API-Anweisung verwenden, um kaskadierte Löschung auf der Beziehung zu deaktivieren:
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -354,7 +354,7 @@ Jede Beziehungslinie hat eine 1 an einem Ende und ein Sternchen (*) am anderen E
 
 Wenn die Enrollment-Tabelle Grade Informationen nicht enthalten waren, müssten sie nur die zwei Fremdschlüssel CourseID und StudentID enthalten. In diesem Fall wäre es eine m: n-Jointabelle ohne Nutzlast (oder eine reine Jointabelle) in der Datenbank. Die Instructor und Kurs Entitäten sein, diese Art von m: n-Beziehung, und der nächste Schritt ist die Erstellung eine Entitätsklasse zur als eine Jointabelle ohne Nutzlast fungieren.
 
-(EF 6.x unterstützt, die implizite Verknüpfung von Tabellen für m: n-Beziehungen, aber EF Core nicht. Weitere Informationen finden Sie unter der [Diskussion in der EF-Core-GitHub-Repository](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(EF 6.x unterstützt, die nicht von implizitem Join von Tabellen für m: n-Beziehungen, aber EF Core. Weitere Informationen finden Sie unter der [Diskussion in der EF-Core-GitHub-Repository](https://github.com/aspnet/EntityFramework/issues/1368).) 
 
 ## <a name="the-courseassignment-entity"></a>Die CourseAssignment-Entität
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Verteiltes Caching (Building Real-World Cloud Apps with Azure)
 ====================
@@ -79,12 +79,12 @@ Dabei handelt es sich um Beispiele zur Veranschaulichung einfachen caching-Codes
 
 ## <a name="azure-caching-services"></a>Azure-zwischenspeicherdienste
 
-Azure bietet die folgenden Cachingdienste: [Azure Redis Cache](https://msdn.microsoft.com/en-us/library/dn690523.aspx) und [Azure Managed Cache](https://msdn.microsoft.com/en-us/library/dn386094.aspx). Azure Redis Cache basiert auf dem beliebten [open-Source-Redis-Cache](http://redis.io/) und ist die erste Wahl für die meisten zwischenspeicherszenarien.
+Azure bietet die folgenden Cachingdienste: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) und [Azure Managed Cache](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redis Cache basiert auf dem beliebten [open-Source-Redis-Cache](http://redis.io/) und ist die erste Wahl für die meisten zwischenspeicherszenarien.
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>ASP.NET-Sitzungsstatus mit einem Cacheanbieter
 
-Siehe die [Web Development best Practices Kapitel](web-development-best-practices.md), eine bewährte Methode wird zur Vermeidung des Sitzungsstatus. Wenn Ihre Anwendung den Sitzungsstatus erfordert, wird die nächste bewährte zu den in-Memory-Standardanbieter zu vermeiden, da die Dezentrales Skalieren (mehrere Instanzen des Webservers) ermöglichen nicht. Die ASP.NET SQL Server-Sitzungsstatusanbieter ermöglicht eine Website, die auf mehrere Webserver Sitzungsstatus verwendet ausgeführt wird, sondern im Vergleich zu einer in-Memory-Anbieter Kosten hoher Latenz verursacht. Die beste Lösung, wenn Sie die Sitzungszustand zu verwenden ist, in einen Cacheanbieter, z. B. die [Sitzungsstatusanbieter für Azure-Cache](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Siehe die [Web Development best Practices Kapitel](web-development-best-practices.md), eine bewährte Methode wird zur Vermeidung des Sitzungsstatus. Wenn Ihre Anwendung den Sitzungsstatus erfordert, wird die nächste bewährte zu den in-Memory-Standardanbieter zu vermeiden, da die Dezentrales Skalieren (mehrere Instanzen des Webservers) ermöglichen nicht. Die ASP.NET SQL Server-Sitzungsstatusanbieter ermöglicht eine Website, die auf mehrere Webserver Sitzungsstatus verwendet ausgeführt wird, sondern im Vergleich zu einer in-Memory-Anbieter Kosten hoher Latenz verursacht. Die beste Lösung, wenn Sie die Sitzungszustand zu verwenden ist, in einen Cacheanbieter, z. B. die [Sitzungsstatusanbieter für Azure-Cache](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -96,11 +96,11 @@ Weitere Informationen zum Zwischenspeichern finden Sie unter den folgenden Resso
 
 Dokumentation
 
-- [Azure-Cache](https://msdn.microsoft.com/en-us/library/gg278356.aspx). Offizielle MSDN-Dokumentation für das caching in Azure.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Caching Guidance finden Sie in der Cache-Aside-Muster.
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Caching finden Sie im Abschnitt.
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). W. Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt für Verteiltes Zwischenspeichern.
-- [Verteiltes Caching für den Pfad zur Skalierbarkeit](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx). Eine ältere (2009) MSDN Magazine-Artikel, aber eine gut geschriebene Einführung in Verteiltes Zwischenspeichern im Allgemeinen; Wechselt in genauer als die Zwischenspeichern Abschnitte des Whitepapers FailSafe und Best Practices.
+- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx). Offizielle MSDN-Dokumentation für das caching in Azure.
+- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Caching Guidance finden Sie in der Cache-Aside-Muster.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Caching finden Sie im Abschnitt.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt für Verteiltes Zwischenspeichern.
+- [Verteiltes Caching für den Pfad zur Skalierbarkeit](https://msdn.microsoft.com/magazine/dd942840.aspx). Eine ältere (2009) MSDN Magazine-Artikel, aber eine gut geschriebene Einführung in Verteiltes Zwischenspeichern im Allgemeinen; Wechselt in genauer als die Zwischenspeichern Abschnitte des Whitepapers FailSafe und Best Practices.
 
 Videos
 

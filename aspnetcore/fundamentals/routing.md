@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/Details/17` und extrahieren Sie die Routenwerte `{ controller = Products, action = Details, id = 17 }`. Die Routenwerte hängen von der URL-Pfad in Segmente aufteilen und zum Abgleich jedes Segment mit dem *Routenparameter* Name in der routenvorlage. Routenparameter heißen. Sie definiert sind, durch Schließen den Namen des Parameters in geschweifte Klammern `{ }`.
+Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/Details/17` und extrahieren Sie die Routenwerte `{ controller = Products, action = Details, id = 17 }`. Die Routenwerte hängen von der URL-Pfad in Segmente aufteilen und zum Abgleich jedes Segment mit dem *Routenparameter* Name in der routenvorlage. Routenparameter heißen. Sie sind durch Schließen den Namen des Parameters in geschweifte Klammern definiert `{ }`.
 
-Die Vorlage, die oben genannten übereinstimmen könnten auch die URL-Pfad `/` und es wird die Werte `{ controller = Home, action = Index }`. Dies liegt daran, dass die `{controller}` und `{action}` Routenparameter weisen Standardwerte, und die `id` Routenparameter ist optional. Ein Gleichheitszeichen `=` Zeichen gefolgt von einem Wert, nachdem die Namen der Route-Parameter einen Standardwert für den Parameter definiert. Ein Fragezeichen `?` nach der Namen der Route-Parameter den Parameter als optional definiert. Weiterleiten von Parametern mit einem Standardwert *immer* ein routenwert erzeugen, wenn die Route übereinstimmt: optionale Parameter ein routenwert erzeugt werden, wenn es keine entsprechende URL-OData-Pfadsegment wurde.
+Die Vorlage, die oben genannten übereinstimmen könnten auch die URL-Pfad `/` und es wird die Werte `{ controller = Home, action = Index }`. Dies liegt daran, dass die `{controller}` und `{action}` Routenparameter weisen Standardwerte, und die `id` Routenparameter ist optional. Ein Gleichheitszeichen `=` Zeichen gefolgt von einem Wert, nachdem die Namen der Route-Parameter einen Standardwert für den Parameter definiert. Ein Fragezeichen `?` nach der Namen der Route-Parameter den Parameter als optional definiert. Weiterleiten von Parametern mit einem Standardwert *immer* ein routenwert erzeugen, wenn die Route übereinstimmt: optionale Parameter wird kein routenwert erzeugen, wenn es keine entsprechende URL-OData-Pfadsegment wurde.
 
 Finden Sie unter [Route-vorlagenreferenz](#route-template-reference) für eine ausführliche Beschreibung der Route Vorlagenfeatures und Syntax.
 
@@ -255,7 +255,7 @@ Die `Map[Verb]` Methoden Einschränkungen verwenden, um die Route, die dem HTTP-
 
 ## <a name="route-template-reference"></a>Route-Vorlagenreferenz
 
-Token in der geschweiften Klammern (`{ }`) definieren *Parameter weiterleiten* gebunden werden wird, wenn die Route verglichen wird. Sie können mehr als ein Routenparameter in einem Segment Route definieren, aber sie müssen durch einen Literalwert getrennt werden. Z. B. `{controller=Home}{action=Index}` wäre keine gültige Route aus, da es kein Literalwert zwischen ist `{controller}` und `{action}`. Diese Routenparameter müssen einen Namen aufweisen, und haben möglicherweise zusätzliche Attribute angegeben.
+Token in der geschweiften Klammern (`{ }`) definieren *Parameter weiterleiten* gebunden werden wird, wenn die Route verglichen wird. Sie können mehr als ein Routenparameter in einem Segment Route definieren, aber sie müssen durch einen Literalwert getrennt werden. Z. B. `{controller=Home}{action=Index}` wäre eine gültige Route nicht, da es kein Literalwert zwischen ist `{controller}` und `{action}`. Diese Routenparameter müssen einen Namen aufweisen, und haben möglicherweise zusätzliche Attribute angegeben.
 
 Literaltext als Routenparameter (z. B. `{id}`) und die Pfadtrennzeichen `/` muss den Text in der URL übereinstimmen. Text Abgleich wird die Groß-/Kleinschreibung und basiert auf die decodierte Darstellung des Pfads URLs. Das literal Route Parameter Trennzeichen entsprechend `{` oder `}`, es durch die Wiederholung des Zeichens mit Escapezeichen versehen (`{{` oder `}}`).
 
@@ -317,7 +317,7 @@ Die folgende Tabelle enthält einige routeneinschränkungen und des erwarteten V
 | `required`  | `{name:required}` | `Rick` |  Zum durchsetzen, dass ein Parameterwert während der URL-Generierung vorhanden ist. |
 
 >[!WARNING]
-> Routeneinschränkungen, die die URL überprüfen Sie auf einen CLR-Typ konvertiert werden können (z. B. `int` oder `DateTime`) immer die invariante Kultur verwenden – wird davon ausgegangen, die URL ist nicht lokalisiert. Die routeneinschränkungen Framework bereitgestellten ändern nicht in Routenwerte gespeicherten Werte. Alle Routenwerte analysiert, die von der URL werden als Zeichenfolgen gespeichert werden. Z. B. die ["float" routeneinschränkung](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) wird versucht, den routenwert in einen float-Wert konvertiert, aber der konvertierte Wert dient nur zu überprüfen, ob sie die in einen float-Wert konvertiert werden kann.
+> Routeneinschränkungen, die die URL überprüfen Sie auf einen CLR-Typ konvertiert werden können (z. B. `int` oder `DateTime`) immer die invariante Kultur verwenden – wird davon ausgegangen, die URL ist nicht lokalisiert. Die routeneinschränkungen Framework bereitgestellten ändern Sie nicht die Werte in Routenwerte gespeichert. Alle Routenwerte analysiert, die von der URL werden als Zeichenfolgen gespeichert werden. Z. B. die ["float" routeneinschränkung](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) wird versucht, den routenwert in einen float-Wert konvertiert, aber der konvertierte Wert dient nur zu überprüfen, ob sie die in einen float-Wert konvertiert werden kann.
 
 ## <a name="regular-expressions"></a>Reguläre Ausdrücke 
 

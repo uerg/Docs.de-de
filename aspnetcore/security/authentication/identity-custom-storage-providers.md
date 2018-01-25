@@ -9,17 +9,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0953ad5d9f1bfa92ecc5169d9a211ce6b8cda8f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
 Durch [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core Identität ist ein erweiterbares System können Sie zum Erstellen eines benutzerdefinierten Speicheranbieters und verbinden Sie ihn mit Ihrer app. Dieses Thema beschreibt das Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Core Identität. Wichtige Konzepte zum Erstellen eigener Speicheranbieter, aber eine schrittweise exemplarische Vorgehensweise ist.
+ASP.NET Core Identität ist ein erweiterbares System können Sie zum Erstellen eines benutzerdefinierten Speicheranbieters und verbinden Sie ihn mit Ihrer app. Dieses Thema beschreibt das Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Core Identität. Es enthält die wichtige Konzepte zum Erstellen eigener Speicheranbieter, ist jedoch eine schrittweise exemplarische Vorgehensweise.
 
 [Anzeigen oder Herunterladen des Beispiels aus GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
@@ -78,9 +78,9 @@ Eine Autorisierungsgruppe für Ihre Website. Enthält den Rollennamen-Id und die
 
 ## <a name="the-data-access-layer"></a>Die Datenzugriffsebene
 
-In diesem Thema wird davon ausgegangen, dass Sie mit der Persistenz-Mechanismus, den Sie verwenden möchten, und zum Erstellen von Entitäten für diesen Mechanismus vertraut sind. Dieses Thema bietet detaillierte Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen; Es enthält einige Vorschläge für die entwurfsentscheidungen beim Arbeiten mit ASP.NET Core Identity.
+In diesem Thema wird davon ausgegangen, dass Sie mit der Persistenz-Mechanismus, den Sie verwenden möchten, und zum Erstellen von Entitäten für diesen Mechanismus vertraut sind. Dieses Thema stellt ausführliche Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen keinen; Es enthält einige Vorschläge für die entwurfsentscheidungen beim Arbeiten mit ASP.NET Core Identity.
 
-Beim Entwerfen eines benutzerdefinierten Speicheranbieters der Datenzugriffsebene, stehen Ihnen viel Flexibilität. Sie müssen nur Persistenz Mechanismen für die Funktionen erstellen, die Sie in Ihrer app verwenden möchten. Beispielsweise, wenn Sie keine Rollen in Ihrer app verwenden, müssen nicht Sie Speicher für Rollen oder Zuordnungen zwischen Benutzer und Rollen erstellen. Die Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die die standardmäßige Implementierung des ASP.NET Core Identity erheblich unterscheiden. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Speicher-Implementierung.
+Beim Entwerfen eines benutzerdefinierten Speicheranbieters der Datenzugriffsebene, stehen Ihnen viel Flexibilität. Sie müssen nur Persistenz Mechanismen für die Funktionen erstellen, die Sie in Ihrer app verwenden möchten. Wenn Sie keine Rollen in Ihrer app verwenden, müssen Sie z. B. Speicher für Rollen oder Zuordnungen zwischen Benutzer und Rollen zu erstellen. Die Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die die standardmäßige Implementierung des ASP.NET Core Identity erheblich unterscheiden. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Speicher-Implementierung.
 
 Die Datenzugriffsebene enthält die Logik zum Speichern der Daten von ASP.NET Core Identität mit einer Datenquelle. Die Datenzugriffsebene für Ihre benutzerdefinierten Speicheranbieter kann die folgenden Klassen zum Speichern von Benutzer-und Rolle enthalten.
 

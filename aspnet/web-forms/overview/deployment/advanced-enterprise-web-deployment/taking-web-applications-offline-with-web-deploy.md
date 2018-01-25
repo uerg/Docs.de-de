@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Erstellen von Webanwendungen Offline mit Web Deploy
 ====================
@@ -74,7 +74,7 @@ Der nächste Schritt ist so ändern Sie Ihre Bereitstellung Logik kopieren Sie d
 > Im nächste Verfahren wird davon ausgegangen, dass Sie eine benutzerdefinierte MSBuild-Projektdatei zum Steuern des Verfahren zum Bereitstellen, wie in beschrieben verwenden, [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Wenn Sie direkt von Visual Studio bereitstellen, müssen Sie einen anderen Ansatz zu verwenden. Sayed Ibrahim Hashimi beschreibt einen solchen Ansatz in [zum Ausführen Ihrer App Offline während Webveröffentlichung](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
 
-Bereitstellen einer *App\_offline* Datei an eine Ziel-IIS-Website müssen Sie zum Aufrufen MSDeploy.exe mithilfe der [Web Deploy **ContentPath** Anbieter](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx). Die **ContentPath** Anbieter unterstützt physischen Verzeichnispfade und Pfade in IIS-Website oder Anwendung, wodurch die ideale Option zum Synchronisieren einer Datei zwischen einem Visual Studio-Projektordner und eine IIS-Webanwendung. Um die Datei bereitstellen, sieht der MSDeploy-Befehl folgendermaßen aus:
+Bereitstellen einer *App\_offline* Datei an eine Ziel-IIS-Website müssen Sie zum Aufrufen MSDeploy.exe mithilfe der [Web Deploy **ContentPath** Anbieter](https://technet.microsoft.com/library/dd569034(WS.10).aspx). Die **ContentPath** Anbieter unterstützt physischen Verzeichnispfade und Pfade in IIS-Website oder Anwendung, wodurch die ideale Option zum Synchronisieren einer Datei zwischen einem Visual Studio-Projektordner und eine IIS-Webanwendung. Um die Datei bereitstellen, sieht der MSDeploy-Befehl folgendermaßen aus:
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ Um diese Befehle als Teil eines Prozesses Build- und Bereitstellungsprozess auto
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. Die **SourceRoot** Eigenschaft an anderer Stelle definiert ist, der *Publish.proj* Datei. Er gibt den Speicherort des Stammordners für den Quellinhalt relativ zu den aktuellen Pfad & #x 2014; das heißt, relativ zum Speicherort der an die *Publish.proj* Datei.
-4. Die **ContentPath** Anbieter akzeptiert keine relative Dateipfade, daher müssen Sie einen absoluten Pfad der Quelldatei abrufen, bevor Sie bereitgestellt werden können. Sie können die [ConvertToAbsolutePath](https://msdn.microsoft.com/en-us/library/bb882668.aspx) Aufgabe dazu.
+4. Die **ContentPath** Anbieter akzeptiert keine relative Dateipfade, daher müssen Sie einen absoluten Pfad der Quelldatei abrufen, bevor Sie bereitgestellt werden können. Sie können die [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) Aufgabe dazu.
 5. Fügen Sie einen neuen **Ziel** Element mit dem Namen **GetAppOfflineAbsolutePath**. In diesem Ziel verwenden die **ConvertToAbsolutePath** ausführen einen absoluten Pfad zum Abrufen der *App\_offline-Vorlage* Datei im Projektordner.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ Das nächste Verfahren veranschaulicht das Hinzufügen dieser *. wpp.targets* Da
 1. Öffnen Sie die Projektmappe in Visual Studio 2010.
 2. In der **Projektmappen-Explorer** Fenster mit der rechten Maustaste des Projektknoten der Web-Anwendung (z. B. **ContactManager.Mvc**), zeigen Sie auf **hinzufügen**, und klicken Sie dann auf **Neues Element**.
 3. In der **neues Element hinzufügen** wählen Sie im Dialogfeld die **XML-Datei** Vorlage.
-4. In der **Namen** geben *[Projektname]***. wpp.targets** (z. B. **ContactManager.Mvc.wpp.targets**), und klicken Sie dann auf  **Hinzufügen**.
+4. In der **Namen** geben *[Projektname] ***.wpp.targets** (z. B. **ContactManager.Mvc.wpp.targets**), und klicken Sie dann auf **hinzufügen**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 
@@ -165,7 +165,7 @@ Das nächste Mal Sie Builds und des Pakets, das Webanwendungsprojekt, WPP erkenn
 > Wenn Ihre Bereitstellung ein Fehler auftritt, die *App\_offline.htm* Datei bleibt an Ort und die Anwendung bleibt offline. Dies ist normalerweise das gewünschte Verhalten. Schalten Sie die Anwendung wieder online können Sie löschen die *App\_offline.htm* Datei von Ihrem Webserver. Sie können auch, wenn Sie Fehler korrigieren, und führen Sie eine erfolgreiche Bereitstellung der *App\_offline.htm* wird entfernt.
 
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben, wie eine Webanwendung für die Dauer einer Bereitstellung offline durch die Veröffentlichung erstellt werden ein *App\_offline.htm* Datei auf den Zielserver zu Beginn des Bereitstellungsprozesses und entfernen Sie es an den Ende. Es fallen auch zum Einschließen einer *App\_offline.htm* Datei in ein Webbereitstellungspaket.
 

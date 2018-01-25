@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bc009272df3626402ee4c52578f9b364f70a4e78
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Erstellen einer Benutzeroberfläche benutzerdefinierte Sortierung (c#)
 ====================
@@ -187,7 +187,7 @@ Durch die oben aufgeführten Code hinzufügen jetzt der Gruppenheader Sortierrei
 
 
 > [!NOTE]
-> Wenn Sie über Produkte mit `NULL` Datenbank Werte für die `CategoryID`, `SupplierID`, oder `UnitPrice` Felder, diese Werte als leere Zeichenfolgen in die GridView angezeigt werden, wird standardmäßig, d. h. Trennzeichen Zeilentext s für diese Produkte mit `NULL`Werte liest z. B. Kategorie: (d. h. es s kein Name nach Kategorie: like mit Kategorie: Getränke). Wenn ein Wert, der hier angezeigt werden soll, können Sie entweder die BoundFields festlegen [ `NullDisplayText` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) auf den Text angezeigt werden soll, oder Sie können eine bedingte Anweisung in der Render-Methode hinzufügen, beim Zuweisen der `currentValue` für den Separator Zeile s `Text` Eigenschaft.
+> Wenn Sie über Produkte mit `NULL` Datenbank Werte für die `CategoryID`, `SupplierID`, oder `UnitPrice` Felder, diese Werte als leere Zeichenfolgen in die GridView angezeigt werden, wird standardmäßig, d. h. Trennzeichen Zeilentext s für diese Produkte mit `NULL`Werte liest z. B. Kategorie: (d. h. es s kein Name nach Kategorie: like mit Kategorie: Getränke). Wenn ein Wert, der hier angezeigt werden soll, können Sie entweder die BoundFields festlegen [ `NullDisplayText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) auf den Text angezeigt werden soll, oder Sie können eine bedingte Anweisung in der Render-Methode hinzufügen, beim Zuweisen der `currentValue` für den Separator Zeile s `Text` Eigenschaft.
 
 
 ## <a name="summary"></a>Zusammenfassung

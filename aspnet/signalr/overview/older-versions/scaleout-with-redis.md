@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: c0d6fd421dad02298326d1975ae68d1e7cc78d8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8376c6537d693841a621158358cc8f69cda0a1d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>SignalR mit horizontaler Skalierung mit Redis (SignalR 1.x)
 ====================
@@ -132,7 +132,7 @@ Außerdem enthalten Sie den Verwaltungsdienst (unter "Verwaltungstools" aufgefü
 
 Überprüfen Sie, dass die Web-Management-Dienst ausgeführt wird. Wenn dies nicht der Fall ist, starten Sie den Dienst. (Wenn Webverwaltungsdienst in der Liste der Windows-Dienste nicht angezeigt wird, stellen Sie sicher, dass Sie den Management-Dienst installiert, wenn Sie die IIS-Rolle hinzugefügt.)
 
-Standardmäßig lauscht der Webverwaltungsdienst an TCP-Port 8172. Erstellen Sie in Windows-Firewall eine neue eingehende Regel zum Zulassen von TCP-Datenverkehr über Port 8172. Weitere Informationen finden Sie unter [Konfigurieren von Firewallregeln](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). (Wenn Sie die VMs in Azure hosten, können Sie direkt im Azure-Portal dazu. Finden Sie unter [Einrichten von Endpunkten für einen virtuellen Computer](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).)
+Standardmäßig lauscht der Webverwaltungsdienst an TCP-Port 8172. Erstellen Sie in Windows-Firewall eine neue eingehende Regel zum Zulassen von TCP-Datenverkehr über Port 8172. Weitere Informationen finden Sie unter [Konfigurieren von Firewallregeln](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Wenn Sie die VMs in Azure hosten, können Sie direkt im Azure-Portal dazu. Finden Sie unter [Einrichten von Endpunkten für einen virtuellen Computer](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
 Jetzt sind Sie bereit für die Bereitstellung von Visual Studio-Projekt vom Entwicklungscomputer auf den Server. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in der Projektmappe, und klicken Sie auf **veröffentlichen**.
 

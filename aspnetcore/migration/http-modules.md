@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen. 
 
@@ -77,7 +77,7 @@ Zusätzlich zu den Modulen, können Sie Handler für die Lebenszyklusereignisse 
 
 **Middleware und Module werden in einer anderen Reihenfolge verarbeitet:**
 
-   * Reihenfolge der Middleware basiert auf der Reihenfolge, in dem sie, in der Anforderungspipeline eingefügt werden während Reihenfolge von Modulen hauptsächlich basiert [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx) Ereignisse
+   * Reihenfolge der Middleware basiert auf der Reihenfolge, in dem sie in der Anforderungspipeline, eingefügt sind während die Reihenfolge der Module hauptsächlich basiert [Anwendungslebenszyklus](https://msdn.microsoft.com/library/ms227673.aspx) Ereignisse
 
    * Reihenfolge der Middleware für Antworten ist das Gegenteil aus, die für Anforderungen, während der Reihenfolge von Modulen für Anforderungen und Antworten identisch ist
 
@@ -109,7 +109,7 @@ Das Modul wird eine Anforderung, z. B. wenn der Benutzer nicht autorisiert ist m
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Eine Middleware verarbeitet diese durch Aufrufen von nicht `Invoke` auf die nächste Middleware in der Pipeline. Behalten Sie denken Sie daran, dass dies die Anforderung nicht vollständig beendet, da die vorherige Middlewares weiterhin aufgerufen wird, wenn die Antwort die Transportadresse wieder über die Pipeline macht.
+Eine Middleware verarbeitet diese durch Aufrufen von nicht `Invoke` auf die nächste Middleware in der Pipeline. Behalten Sie denken Sie daran, dass dies die Anforderung vollständig beenden nicht, da die vorherige Middlewares weiterhin aufgerufen wird, wenn die Antwort die Transportadresse wieder über die Pipeline macht.
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
@@ -319,7 +319,7 @@ Bietet Ihnen eine eindeutige Id für jede Anforderung. Sehr nützlich, um Ihre P
 >
 >Sie können die unformatierten Text lesen, wie oben nur einmal pro Anforderung. Middleware, die versuchen, den Nachrichtentext lesen, nachdem der erste Lesevorgang keinen Text gelesen wird.
 >
->Dies gilt nicht zum Lesen eines Formulars wie oben dargestellt, da, die aus einem Puffer erfolgt.
+>Dies gilt nicht für ein Formular wie oben gezeigt lesen, da, die aus einem Puffer erfolgt.
 
 ### <a name="httpcontextresponse"></a>HttpContext.Response
 

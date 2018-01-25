@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 090d0777b9d541003c3115d0da7cd974820c2939
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 191de7546e2ba913fda0c8c8a8bfd3531b53336e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-vb"></a>Programmgesteuertes Festlegen der Gestaltungsvorlage (VB)
 ====================
@@ -34,7 +34,7 @@ Seit dem ersten Beispiel in [ *erstellen eine standortweite Layout mithilfe von 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample1.aspx)]
 
-Die [ `Page` Klasse](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx) in der `System.Web.UI` Namespace beinhaltet eine [ `MasterPageFile` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx) , die gibt den Pfad zur Masterseite der Inhaltsseite; es ist diese Eigenschaft, die von der festgelegtist`@Page` Richtlinie. Diese Eigenschaft kann auch verwendet werden, Masterseite der Inhaltsseite programmgesteuert angegeben. Dieser Ansatz ist hilfreich, wenn Sie die Gestaltungsvorlage basierend auf externe Faktoren wie der Benutzer Zugriff auf die Seite dynamisch zuweisen möchten.
+Die [ `Page` Klasse](https://msdn.microsoft.com/library/system.web.ui.page.aspx) in der `System.Web.UI` Namespace beinhaltet eine [ `MasterPageFile` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) , die gibt den Pfad zur Masterseite der Inhaltsseite; es ist diese Eigenschaft, die von der festgelegtist`@Page` Richtlinie. Diese Eigenschaft kann auch verwendet werden, Masterseite der Inhaltsseite programmgesteuert angegeben. Dieser Ansatz ist hilfreich, wenn Sie die Gestaltungsvorlage basierend auf externe Faktoren wie der Benutzer Zugriff auf die Seite dynamisch zuweisen möchten.
 
 In diesem Lernprogramm werden eine zweite Masterseite auf unserer Website hinzufügen und die Masterseite zur Laufzeit dynamisch zu entscheiden.
 
@@ -54,7 +54,7 @@ Abbildung 1 zeigt diese Fusion. Schritt 1 in Abbildung 1 zeigt die anfänglichen
 
 Welche Gestaltungsvorlage in diese Fusion partakes hängt vom Wert von der `Page` des Objekts `MasterPageFile` Eigenschaft. Festlegen der `MasterPageFile` Attribut in der `@Page` Richtlinie wurde im Endeffekt Zuweisen der `Page`des `MasterPageFile` Eigenschaft während der Initialisierungsphase, die die erste Phase des Lebenszyklus der Seite ist. Wir können diese Eigenschaft auch programmgesteuert festlegen. Allerdings ist es obligatorisch, dass diese Eigenschaft festgelegt werden, bevor die Fusion in Abbildung 1 stattfindet.
 
-Am Anfang der PreInit-Phase der `Page` -Objekt löst die [ `PreInit` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx) und ruft seine [ `OnPreInit` Methode](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx). Um die Gestaltungsvorlage programmgesteuert festzulegen, erstellen Sie dann wir können entweder einen Ereignishandler für das `PreInit` Ereignis oder Überschreibung der `OnPreInit` Methode. Betrachten Sie beide Ansätze aus.
+Am Anfang der PreInit-Phase der `Page` -Objekt löst die [ `PreInit` Ereignis](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) und ruft seine [ `OnPreInit` Methode](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Um die Gestaltungsvorlage programmgesteuert festzulegen, erstellen Sie dann wir können entweder einen Ereignishandler für das `PreInit` Ereignis oder Überschreibung der `OnPreInit` Methode. Betrachten Sie beide Ansätze aus.
 
 Öffnen Sie zunächst `Default.aspx.vb`, die Code-Behind-Klassendatei für unsere Website-Homepage. Fügen Sie einen Ereignishandler für der Seite `PreInit` Ereignis, indem Sie in den folgenden Code eingeben:
 
@@ -275,8 +275,8 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Lebenszyklusdiagramm für ASP.NET die Seite "](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [Übersicht über ASP.NET Seite-Lebenszyklus](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [ASP.NET-Designs und Skins (Übersicht)](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [Übersicht über ASP.NET Seite-Lebenszyklus](https://msdn.microsoft.com/library/ms178472.aspx)
+- [ASP.NET-Designs und Skins (Übersicht)](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Masterseiten: Tipps, Tricks und Traps](http://www.odetocode.com/articles/450.aspx)
 - [Designs in ASP.NET](http://www.odetocode.com/articles/423.aspx)
 

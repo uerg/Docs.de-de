@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 898259885da8a089db296bd0f400ee8863877d08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeec69c7373a111d30e8f32a374a9f02fb4c080a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen einer SQL Server-Datenbankupdate - 11 12
 ====================
@@ -153,7 +153,7 @@ Sie haben jetzt erfolgreich bereitgestellt eine Anwendung aktualisieren, die ein
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Dies schließt diese Reihe von Lernprogrammen zum Bereitstellen einer ASP.NET-WEBANWENDUNG zwischen einem Hostinganbieter eines Drittanbieters. Weitere Informationen zu den Themen in diesen Lernprogrammen behandelt, finden Sie unter der [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521(v=vs.110).aspx) auf der MSDN-Website.
+Dies schließt diese Reihe von Lernprogrammen zum Bereitstellen einer ASP.NET-WEBANWENDUNG zwischen einem Hostinganbieter eines Drittanbieters. Weitere Informationen zu den Themen in diesen Lernprogrammen behandelt, finden Sie unter der [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) auf der MSDN-Website.
 
 ## <a name="acknowledgements"></a>Bestätigungen
 
@@ -170,7 +170,7 @@ Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträ
 - [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
 - [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
-- [Srđan Božović, Serbien](http://msforge.net/blogs/zmajcek/)
+- [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
 >[!div class="step-by-step"]

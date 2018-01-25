@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 449c448d1be237f3f95a437bb2c0415bd8ed0d99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Anpassen von Datenbank-Bereitstellungen für mehrere Umgebungen
 ====================
@@ -82,7 +82,7 @@ Diese Tabelle zeigt typische Einstellungen für unterschiedliche zielumgebungen.
   
 
 > [!NOTE]
-> Weitere Informationen zu den Eigenschaften für die datenbankbereitstellung und Aspekte der Umgebung, finden Sie unter [eine Übersicht der Datenbankprojekteinstellungen](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx), [Vorgehensweise: Konfigurieren von Eigenschaften für Bereitstellungsdetails](https://msdn.microsoft.com/en-us/library/dd172125.aspx), [ Erstellen und Bereitstellen der Datenbank in einer isolierten Entwicklungsumgebung](https://msdn.microsoft.com/en-us/library/dd193409.aspx), und [erstellen und Bereitstellen von Datenbanken in einer Staging- oder Produktionsumgebung](https://msdn.microsoft.com/en-us/library/dd193413.aspx).
+> Weitere Informationen zu den Eigenschaften für die datenbankbereitstellung und Aspekte der Umgebung, finden Sie unter [eine Übersicht der Datenbankprojekteinstellungen](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [Vorgehensweise: Konfigurieren von Eigenschaften für Bereitstellungsdetails](https://msdn.microsoft.com/library/dd172125.aspx), [ Erstellen und Bereitstellen der Datenbank in einer isolierten Entwicklungsumgebung](https://msdn.microsoft.com/library/dd193409.aspx), und [erstellen und Bereitstellen von Datenbanken in einer Staging- oder Produktionsumgebung](https://msdn.microsoft.com/library/dd193413.aspx).
 
 
 Um die Bereitstellung eines Datenbankprojekts an mehrere Ziele zu unterstützen, sollten Sie eine Bereitstellungskonfigurationsdatei für jede zielumgebung erstellen.
@@ -94,7 +94,7 @@ Um die Bereitstellung eines Datenbankprojekts an mehrere Ziele zu unterstützen,
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. In der **neue Bereitstellungskonfigurationsdatei** Dialogfeld Feld, geben Sie der Datei einen aussagekräftigen Namen (z. B. **TestEnvironment.sqldeployment**), und klicken Sie dann auf **speichern**.
-4. Auf der *[Dateiname]***SQLDEPLOYMENT** Seite, legen Sie die Bereitstellungseigenschaften entsprechend die Anforderungen der zielumgebung und speichern Sie die Datei.
+4. Auf der *[Dateiname] *** SQLDEPLOYMENT** Seite, legen Sie die Bereitstellungseigenschaften entsprechend die Anforderungen der zielumgebung und speichern Sie die Datei.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Beachten Sie, dass die neue Datei im Ordner "Eigenschaften" auf das Datenbankprojekt hinzugefügt wird.
@@ -131,7 +131,7 @@ Sie können einen VSDBCMD-Befehl von einer MSBuild-Projektdatei aufrufen, indem 
 
 Sie sollten auch sicherstellen, dass Sie das Datenbankprojekt erstellen, bevor Sie VSDBCMD aufrufen, damit die DEPLOYMANIFEST-Datei erstellt wurde und einsatzbereit ist. Sehen Sie ein vollständiges Beispiel dieses Ansatzes im Thema [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md), die führt Sie durch die Projektdateien in die [Vorgesetzten Kontakts Beispielprojektmappe](../web-deployment-in-the-enterprise/the-contact-manager-solution.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema wird beschrieben, wie Sie die Datenbankeigenschaften, die unterschiedliche zielumgebungen beim Bereitstellen von Datenbankprojekten, die mithilfe von MSBuild und VSDBCMD anpassen können. Dieser Ansatz ist hilfreich, wenn Sie Datenbankprojekte als Teil der größeren, unternehmensweite Lösungen bereitstellen müssen. Diese Lösungen werden häufig an mehrere Ziele, wie Sandbox Entwicklungs- oder Testserver Umgebungen, Staging- oder Integration Plattformen und Produktion oder live-Umgebungen bereitgestellt werden. Jede dieser zielumgebungen erfordert in der Regel einen eindeutigen Satz von Eigenschaften für die datenbankbereitstellung.
 
@@ -141,10 +141,10 @@ Weitere Informationen zum Bereitstellen von Datenbankprojekten mit VSDBCMD.exe f
 
 Diese Artikel auf MSDN bieten allgemeineren Leitfaden für die Bereitstellung:
 
-- [Eine Übersicht über Datenbankprojekteinstellungen](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx)
-- [Vorgehensweise: Konfigurieren von Eigenschaften für Bereitstellungsdetails](https://msdn.microsoft.com/en-us/library/dd172125.aspx)
-- [Erstellen und Bereitstellen von Datenbanken in einer isolierten Entwicklungsumgebung](https://msdn.microsoft.com/en-us/library/dd193409.aspx)
-- [Erstellen und Bereitstellen von Datenbanken in einer Staging- oder Produktionsumgebung](https://msdn.microsoft.com/en-us/library/dd193413.aspx)
+- [Eine Übersicht über Datenbankprojekteinstellungen](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Vorgehensweise: Konfigurieren von Eigenschaften für Bereitstellungsdetails](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Erstellen und Bereitstellen von Datenbanken in einer isolierten Entwicklungsumgebung](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Erstellen und Bereitstellen von Datenbanken in einer Staging- oder Produktionsumgebung](https://msdn.microsoft.com/library/dd193413.aspx)
 
 >[!div class="step-by-step"]
 [Zurück](performing-a-what-if-deployment.md)

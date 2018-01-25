@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b6f3821a8022daa26f5efcc009ab3e6283a76a19
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Erstellen Sie eine sichere ASP.NET Web Forms-app mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurücksetzen (c#)
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 > In diesem Lernprogramm wird gezeigt, wie eine ASP.NET Web Forms-Anwendung mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurückzusetzen, verwenden das Mitgliedschaftssystem ASP.NET Identity zu erstellen. Dieses Lernprogramm basiert auf andersons [MVC-Lernprogramm](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md).
 
@@ -53,7 +53,7 @@ Starten, indem Sie installieren und Ausführen von [Visual Studio Express 2013 f
  Klicken Sie auf **OK** zum Erstellen eines neuen Projekts.  
     ![Neues ASP.NET-Projekt (Dialogfeld)](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image1.png)
 3. Aktivieren Sie Secure Sockets Layer (SSL) für das Projekt ein. Führen Sie die Schritte zur Verfügung, in der **"SSL aktivieren", für das Projekt** Teil der [erste Schritte mit Web Forms Reihe von Lernprogrammen](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms).
-4. Führen Sie die app, klicken Sie auf die **registrieren** verknüpfen und einen neuen Benutzer registrieren. Die ausschließliche Überprüfung auf die e-Mail-Adresse zu diesem Zeitpunkt basiert auf der [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) Attribut, um sicherzustellen, dass die e-Mail-Adresse wohlgeformt ist. Ändern Sie den Code zum Hinzufügen von e-Mail-Bestätigung. Schließen Sie das Browserfenster.
+4. Führen Sie die app, klicken Sie auf die **registrieren** verknüpfen und einen neuen Benutzer registrieren. Die ausschließliche Überprüfung auf die e-Mail-Adresse zu diesem Zeitpunkt basiert auf der [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) Attribut, um sicherzustellen, dass die e-Mail-Adresse wohlgeformt ist. Ändern Sie den Code zum Hinzufügen von e-Mail-Bestätigung. Schließen Sie das Browserfenster.
 5. In **Server-Explorer** von Visual Studio (**Ansicht**  - &gt; **Server-Explorer**), navigieren Sie zu **Daten Connections\ DefaultConnection\Tables\AspNetUsers**, mit der rechten Maustaste, und wählen Sie **Tabellendefinition öffnen**. 
 
     Die folgende Abbildung zeigt die `AspNetUsers` Tabellenschema:
@@ -78,7 +78,7 @@ Obwohl dieses Lernprogramm zeigt nur zum Hinzufügen von e-Mail-Benachrichtigung
 
 1. Öffnen Sie in Visual Studio die **Package Manager Console** (**Tools**  - &gt; **NuGet-Paket-Manager**  - &gt; **Package Manager Console**), und geben Sie den folgenden Befehl aus:  
     `Install-Package SendGrid`
-2. Wechseln Sie zu der [Azure SendGrid-Registrierungsseite](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/) und kostenlos SendGrid-Konto registrieren. Sie können auch registrieren Sie sich für ein kostenloses SendGrid-Konto direkt auf [SendGrids-Website](http://www.sendgrid.com).
+2. Wechseln Sie zu der [Azure SendGrid-Registrierungsseite](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/) und kostenlos SendGrid-Konto registrieren. Sie können auch registrieren Sie sich für ein kostenloses SendGrid-Konto direkt auf [SendGrids-Website](http://www.sendgrid.com).
 3. Aus **Projektmappen-Explorer** öffnen Sie die *IdentityConfig.cs* in der Datei die *App\_starten* Ordner, und fügen Sie folgenden Code, um die gelbhervorgehoben`EmailService` Klasse so konfigurieren Sie **SendGrid**:
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample1.cs?highlight=3,5,8-37)]
@@ -186,5 +186,5 @@ Wenn Sie eine e-Mail mit den Link, um Ihre Anmeldeinformationen überprüfen nic
 - [Links zu ASP.NET Identity empfohlene Ressourcen](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [Kontobestätigung und Kennwortwiederherstellung mit ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [ASP.NET Web Forms Reihe von Lernprogrammen - Hinzufügen einer OAuth 2.0-Anbieter](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [Bereitstellen von Mitgliedschaft, OAuth und SQL-Datenbank eine sichere ASP.NET Web Forms-App in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [Bereitstellen von Mitgliedschaft, OAuth und SQL-Datenbank eine sichere ASP.NET Web Forms-App in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [ASP.NET Web Forms Reihe von Lernprogrammen - SSL für das Projekt aktivieren](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)

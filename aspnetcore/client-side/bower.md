@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57a6941155c60e2769636fd4abc98531266c206c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7e3e936c81126b7ed01332565f997910a2886993
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
 
@@ -45,7 +45,7 @@ In diesem Lernprogramm fügen wir Unterstützung für [Schriftart Awesome](http:
 
 ### <a name="manual-installation-in-bowerjson"></a>Manuelle Installation in "bower.JSON"
 
-Öffnen der *"bower.JSON"* Datei und die Abhängigkeiten hinzuzufügen "Schriftart awesome". IntelliSense zeigt die verfügbaren Pakete. Wenn ein Paket ausgewählt ist, werden die verfügbaren Versionen angezeigt. Die folgenden Bilder sind ältere und stimmen nicht überein, was Sie sehen.
+Öffnen der *"bower.JSON"* Datei und die Abhängigkeiten hinzuzufügen "Schriftart awesome". IntelliSense zeigt die verfügbaren Pakete. Wenn ein Paket ausgewählt ist, werden die verfügbaren Versionen angezeigt. Die folgenden Bilder sind ältere und nicht überein, was Sie sehen.
 
 ![IntelliSense von Bower Paket-explorer](bower/_static/add-package.png)
 

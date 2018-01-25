@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: a1fe1844e582f402a1eed9ddf10ee249e856b083
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-mvc-template"></a>Benutzerdefinierte MVC-Vorlage
 ====================
@@ -26,7 +26,7 @@ Die Version von MVC 3 Tools Update für Visual Studio 2010 eingeführt, ein sepa
 
 Hinzufügen von benutzerdefinierten Vorlagen, wurde ein damit den mühseligen Prozess, der basieren auf den Einsatz der Registrierung zum neue Vorlagen für die MVC-Projekt-Assistent sichtbar zu machen. Der Autor einer neuen Vorlage musste binden Sie diese in eine MSI-Datei, um sicherzustellen, dass die erforderlichen Registrierungseinträge während der Installation erstellt werden würde. Die Alternative wurde eine ZIP-Datei mit der Vorlage zur Verfügung stellen und des Endbenutzers die erforderliche Registrierungseinträge manuell erstellen.
 
-Keiner der oben genannten Ansätze ist ideal, damit wir uns entschlossen haben Sie einige der vorhandenen Internetinfrastruktur können [VSIX](https://msdn.microsoft.com/en-us/library/ff363239.aspx) Erweiterungen zum Autor, erleichtern verteilen und Installieren des benutzerdefinierte beginnend mit MVC 4 MVC-Vorlagen für Visual Studio 2012. Einige der Vorteile dieses Ansatzes sind:
+Keiner der oben genannten Ansätze ist ideal, damit wir uns entschlossen haben Sie einige der vorhandenen Internetinfrastruktur können [VSIX](https://msdn.microsoft.com/library/ff363239.aspx) Erweiterungen zum Autor, erleichtern verteilen und Installieren des benutzerdefinierte beginnend mit MVC 4 MVC-Vorlagen für Visual Studio 2012. Einige der Vorteile dieses Ansatzes sind:
 
 - Eine VSIX-Erweiterung kann mehrere Vorlagen, die mehrere Sprachen (C#- und Visual Basic) zu unterstützen und mehrere Ansichtsmodule (ASPX und Razor) enthalten.
 - Eine VSIX-Erweiterung kann mehrere SKUs von Visual Studio Express-SKUs einschließlich abzielen.
@@ -65,13 +65,13 @@ Die **Bestand** Registerkarte wird verwendet, um alle Inhaltsdateien VSIX-Projek
 
 &lt;Inhalt enthalten =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;immer&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
 
-&lt;IncludeInVSIX&gt;"true"&lt;/IncludeInVSIX&gt;
+&lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
-&lt;/ Content&gt;
+&lt;/Content&gt;
 
-Wenn dies nicht der Fall ist, wird die IDE versucht, kompilieren den Inhalt der Vorlage aus, wenn Sie die VSIX-Pakete erstellen und ein Fehler wird wahrscheinlich angezeigt. Codedateien in Vorlagen enthalten häufig spezielle [Vorlagenparameter](https://msdn.microsoft.com/en-us/library/eehb4faa(v=vs.110).aspx) von Visual Studio verwendet werden, wenn die Projektvorlage instanziiert wird und kann daher nicht in der IDE kompiliert werden.
+Wenn dies nicht der Fall ist, wird die IDE versucht, kompilieren den Inhalt der Vorlage aus, wenn Sie die VSIX-Pakete erstellen und ein Fehler wird wahrscheinlich angezeigt. Codedateien in Vorlagen enthalten häufig spezielle [Vorlagenparameter](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) von Visual Studio verwendet werden, wenn die Projektvorlage instanziiert wird und kann daher nicht in der IDE kompiliert werden.
 
 ![Projektmappen-Explorer](custom-mvc-templates/_static/image6.jpg)
 
@@ -83,19 +83,19 @@ Erstellen einer  **&lt;Bestand&gt;**  Element und Hinzufügen einer  **&lt;Asset
 
 Nur die Dateien der VSIX hinzufügen reicht nicht aus, um die Vorlagen mit dem Assistenten für MVC zu registrieren. Sie müssen Informationen wie Namen, Beschreibung, unterstützten Ansichtsmodule und Programmiersprache für die MVC-Assistenten bereitstellen. Diese Informationen in benutzerdefinierten Attributen zugeordneten durchgeführt wird die  **&lt;Asset&gt;**  -Element für jede **Vstemplate** Datei.
 
-&lt;Asset-D:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
-Typ =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-D:Source =&quot;Datei&quot;
+d:Source=&quot;File&quot;
 
 Path =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-ProjectType =&quot;MVC&quot;
+ProjectType=&quot;MVC&quot;
 
-Language =&quot;c#&quot;
+Language=&quot;C#&quot;
 
-Viewengine mit =&quot;Aspx&quot;
+ViewEngine=&quot;Aspx&quot;
 
 TemplateId =&quot;MyMvcApplication&quot;
 
@@ -103,7 +103,7 @@ Titel =&quot;benutzerdefinierte grundlegende Webanwendung&quot;
 
 Description =&quot;eine benutzerdefinierte Vorlage abgeleitet wurde eine grundlegende MVC-Webanwendung (Razor)&quot;
 
-Version =&quot;4.0&quot;/&gt;
+Version=&quot;4.0&quot;/&gt;
 
 Es folgt eine Erklärung der benutzerdefinierten Attribute, die vorhanden sein müssen:
 
@@ -122,7 +122,7 @@ Alle jetzt bleibt das VSIX-Projekt zu kompilieren und installieren es.
 
 Stellen Sie sicher, dass alle Instanzen von Visual Studio geschlossen sind, auf dem Computer, auf dem Sie die VSIX-Erweiterung zu testen möchten. Visual Studio sucht nach neuen Erweiterungen während des Starts, daher, wenn die IDE geöffnet ist, während der Installation von einer VSIX Sie Visual Studio neu starten müssen. Im Explorer, klicken Sie mit der Doppelklicken auf die VSIX-Datei zum Starten der **VSIX-Installationsprogramm**, klicken Sie auf **installieren** , und starten Sie Visual Studio.
 
-![VSIX-Installationsprogramm](custom-mvc-templates/_static/image9.jpg)
+![VSIX Installer](custom-mvc-templates/_static/image9.jpg)
 
 Wählen Sie in der Menüleiste **Tools > Erweiterungen und Updates** zu bestätigen, dass die Erweiterung installiert wurde. Das VSIX-Installationsprogramm Fehler während der Installation der Erweiterung gemeldet können Sie das VSIX-Installationsprogramm-Protokoll für Weitere Informationen anzeigen. Das Protokoll wird in der Regel erstellt, der **"% Temp%"** Ordner des Benutzers, der die Erweiterung, z. B. installiert **C:\Users\Bob\AppData\Local\Temp**.
 

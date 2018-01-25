@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 99d04c95b42402ae2bc72562a652b6edec5e9313
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master/Detail-verwenden eine Aufzählung der Master-Datensätze mit Details DataList (VB)
 ====================
@@ -243,9 +243,9 @@ Nach Abschluss des Assistenten für die Datenquelle konfigurieren Visual Studio 
 
 Derzeit ist die `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  Parameter nicht festgelegt ist, damit keine Produkte angezeigt werden, wenn die Seite anzeigen. Müssen wir handelt es sich dieser Parameterwert legen Sie auf der Grundlage der `CategoryID` der geklickt wurde Kategorie im wiederholungsmodul ab. Dies führt zu zwei Herausforderungen: zuerst, wie wir feststellen, wenn ein LinkButton im Wiederholungsmodul s `ItemTemplate` wurde geklickt wurde, und zweitens wie können wir ermitteln der `CategoryID` der entsprechenden Kategorie, deren LinkButton geklickt wurde?
 
-Wie die Steuerelemente für Schaltfläche und ImageButton LinkButton verfügt über eine `Click` Ereignis und eine [ `Command` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.command.aspx). Die `Click` Ereignis dient lediglich Beachten Sie, dass die LinkButton geklickt wurde. In einigen Fällen müssen jedoch zusätzlich zu beachten, dass die LinkButton geklickt wurde es auch einige zusätzliche Informationen an den Ereignishandler übergeben. Wenn dies der Fall, die LinkButton s ist [ `CommandName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) und [ `CommandArgument` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) Eigenschaften können diese zusätzlichen Informationen zugewiesen werden. Dann, wenn die LinkButton geklickt wird, dessen `Command` -Ereignis ausgelöst (anstelle von seiner `Click` Ereignis) und der Ereignishandler übergeben die Werte von der `CommandName` und `CommandArgument` Eigenschaften.
+Wie die Steuerelemente für Schaltfläche und ImageButton LinkButton verfügt über eine `Click` Ereignis und eine [ `Command` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). Die `Click` Ereignis dient lediglich Beachten Sie, dass die LinkButton geklickt wurde. In einigen Fällen müssen jedoch zusätzlich zu beachten, dass die LinkButton geklickt wurde es auch einige zusätzliche Informationen an den Ereignishandler übergeben. Wenn dies der Fall, die LinkButton s ist [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) und [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) Eigenschaften können diese zusätzlichen Informationen zugewiesen werden. Dann, wenn die LinkButton geklickt wird, dessen `Command` -Ereignis ausgelöst (anstelle von seiner `Click` Ereignis) und der Ereignishandler übergeben die Werte von der `CommandName` und `CommandArgument` Eigenschaften.
 
-Wenn eine `Command` Ereignis wird von innerhalb einer Vorlage im wiederholungsmodul ab, die Repeater s [ `ItemCommand` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) ausgelöst wird, und übergeben der `CommandName` und `CommandArgument` Werte der LinkButton geklickt wurde (oder die Schaltfläche oder ImageButton). Um zu bestimmen, wann eine Kategorie LinkButton im Wiederholungsmodul auf den geklickt wurde, müssen wir daher wie folgt vorgehen:
+Wenn eine `Command` Ereignis wird von innerhalb einer Vorlage im wiederholungsmodul ab, die Repeater s [ `ItemCommand` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) ausgelöst wird, und übergeben der `CommandName` und `CommandArgument` Werte der LinkButton geklickt wurde (oder die Schaltfläche oder ImageButton). Um zu bestimmen, wann eine Kategorie LinkButton im Wiederholungsmodul auf den geklickt wurde, müssen wir daher wie folgt vorgehen:
 
 1. Legen Sie die `CommandName` Eigenschaft LinkButton im Wiederholungsmodul s `ItemTemplate` auf einen beliebigen Wert (ich Ve verwendet ListProducts). Durch Festlegen dieses `CommandName` Wert, der LinkButton s `Command` Ereignis wird ausgelöst, wenn die LinkButton geklickt wird.
 2. Legen Sie die s LinkButton `CommandArgument` -Eigenschaft auf den Wert des aktuellen Elements s `CategoryID`.
@@ -303,4 +303,4 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Zack Jones. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](master-detail-filtering-acess-two-pages-datalist-vb.md)
+[Vorherige](master-detail-filtering-acess-two-pages-datalist-vb.md)

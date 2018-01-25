@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 7d89416626433bf737b63eda4b17e65b089ae142
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: aab96b5313a8632950e51f5586612c1d0d3d176e
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Optionen-Musters in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-Das Muster Optionen verwendet Optionsklassen aus zur Darstellung von Gruppen von Verwandte Einstellungen. Wenn Konfigurationseinstellungen von der Funktion in getrennte Optionsklassen isoliert werden, unterliegen die app zwei wichtige Softwareentwicklung Prinzipien:
+Das Optionsmuster stellt anhand von Optionsklassen Gruppen von zusammengehörigen Einstellungen dar. Wenn Konfigurationseinstellungen von der Funktion in getrennte Optionsklassen isoliert werden, unterliegen die app zwei wichtige Softwareentwicklung Prinzipien:
 
 * Die [Schnittstelle Trennung Prinzip (ISP)](http://deviq.com/interface-segregation-principle/): Funktionen (Klassen), die auf Konfigurationseinstellungen beruhen abhängig sind, nur auf den Konfigurationseinstellungen, die sie verwenden.
 * [Trennung von Anliegen](http://deviq.com/separation-of-concerns/): Einstellungen für die verschiedenen Teile der app werden nicht abhängige oder gekoppelten miteinander.
@@ -257,7 +257,13 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) (ASP.NET Core 2.0 oder höher) ist für das Erstellen neuer Instanzen Optionen verantwortlich. Er verfügt über ein einzelnes [erstellen](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create) Methode. Die standardmäßige Implementierung akzeptiert alle registrierten `IConfigureOptions` und `IPostConfigureOptions` und führt alle die zuerst konfiguriert, gefolgt von den nachträglich konfiguriert. Es unterscheidet zwischen `IConfigureNamedOptions` und `IConfigureOptions` und ruft nur die entsprechende Schnittstelle.
 
-[IOptionsMonitorCache&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (ASP.NET Core 2.0 oder höher) werden vom `IOptionsMonitor` Cache `TOptions` Instanzen. Die `IOptionsMonitorCache` Optionen Instanzen im Systemmonitor erklärt, sodass der Wert neu berechnet wird ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove)). Werte können manuell eingeleitet werden ebenfalls mit [TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd). Die [deaktivieren](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear) Methode wird verwendet, wenn alle benannten Instanzen bei Bedarf neu erstellt werden soll.
+[IOptionsMonitorCache&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (ASP.NET Core 2.0 or later) is used by `IOptionsMonitor` to cache `TOptions` instances. Die `IOptionsMonitorCache` Optionen Instanzen im Systemmonitor erklärt, sodass der Wert neu berechnet wird ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove)). Werte können manuell eingeleitet werden ebenfalls mit [TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd). Die [deaktivieren](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear) Methode wird verwendet, wenn alle benannten Instanzen bei Bedarf neu erstellt werden soll.
+
+## <a name="accessing-options-during-startup"></a>Beim Zugriff auf Optionen während des Starts
+
+`IOptions`kann verwendet werden, `Configure`, da Dienste, bevor erstellt werden die `Configure` Methode ausgeführt wird. Wenn ein Dienstanbieter in integrierten `ConfigureServices` um Optionen zuzugreifen, er wäre nicht enthalten sein Konfigurationen nach der Erstellung des Dienstanbieters bereitgestellten Optionen. Aus diesem Grund kann Zustand inkonsistente Optionen vorhanden, aufgrund der Reihenfolge von Dienst-Registrierungen.
+
+Da Optionen in der Regel aus der Konfiguration geladen werden, kann Konfiguration verwendet werden, in den starttasks in beiden `Configure` und `ConfigureServices`. Beispiele für die Verwendung der Konfiguration während des Starts, finden Sie unter der [Anwendungsstart](xref:fundamentals/startup) Thema.
 
 ## <a name="see-also"></a>Siehe auch
 

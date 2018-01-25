@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 98b21a54ba00a8c82c3be7ba4e39d44041ed42c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Ein Profil erstellen und Debuggen von ASP.NET MVC-Anwendung mit Glimpse
 ====================
 Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Glimpse ist eine verbergen und wachsenden-Familie von open Source-NuGet-Pakete, die detaillierte Leistung bietet, debugging und Diagnoseinformationen für ASP.NET-Apps. Es ist sehr einfach zu installieren, einfache, extrem schnelle und wichtige Leistungsmetriken am unteren Rand jeder Seite angezeigt. Sie können einen Drilldown in Ihre app ausführen, wenn Sie benötigen, um herauszufinden, auf dem Server was. Glimpse bietet so viel wertvolle Informationen empfehlen wir, dass Sie es in der gesamten Entwicklungszyklus, einschließlich der Azure-testumgebung verwenden. Während [Fiddler](http://www.telerik.com/fiddler) und [F-12 Entwicklungstools](https://msdn.microsoft.com/en-us/library/ie/gg589512(v=vs.85).aspx) bieten eine clientseitige Sicht Glimpse bietet eine detaillierte Übersicht über den Server. Dieses Lernprogramm konzentriert sich auf die mit der Glimpse ASP.NET MVC und EF-Paketen, aber viele andere Pakete verfügbar sind. Nach Möglichkeit wird ich eine Verknüpfung in die entsprechende [Notizenlayouts Docs](http://getglimpse.com/Docs/) die ich zu gewährleisten. Glimpse ist ein open-Source-Projekt, Sie zu können tragen zu den Quellcode und Dokumente.
+> Glimpse ist eine verbergen und wachsenden-Familie von open Source-NuGet-Pakete, die detaillierte Leistung bietet, debugging und Diagnoseinformationen für ASP.NET-Apps. Es ist sehr einfach zu installieren, einfache, extrem schnelle und wichtige Leistungsmetriken am unteren Rand jeder Seite angezeigt. Sie können einen Drilldown in Ihre app ausführen, wenn Sie benötigen, um herauszufinden, auf dem Server was. Glimpse bietet so viel wertvolle Informationen empfehlen wir, dass Sie es in der gesamten Entwicklungszyklus, einschließlich der Azure-testumgebung verwenden. Während [Fiddler](http://www.telerik.com/fiddler) und [F-12 Entwicklungstools](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) bieten eine clientseitige Sicht Glimpse bietet eine detaillierte Übersicht über den Server. Dieses Lernprogramm konzentriert sich auf die mit der Glimpse ASP.NET MVC und EF-Paketen, aber viele andere Pakete verfügbar sind. Nach Möglichkeit wird ich eine Verknüpfung in die entsprechende [Notizenlayouts Docs](http://getglimpse.com/Docs/) die ich zu gewährleisten. Glimpse ist ein open-Source-Projekt, Sie zu können tragen zu den Quellcode und Dokumente.
 
 
 - [Installieren von Glimpse](#ig)
@@ -113,7 +113,7 @@ Die Standardsicherheitsrichtlinie Glimpse kann nur Glimpse Daten vom lokalen Hos
 
 Durch diese Änderung allein kann jeder Benutzer Daten Glimpse an einem Remotestandort sehen. Betrachten Sie das Markup oben auf die Veröffentlichungsprofile hinzufügen, sodass sie nur eine angewendeten bereitgestellt hat bei der Verwendung dieses Veröffentlichungsprofil (z. B. Ihre Azure-Test-Proifle.) Um Einblick Daten zu beschränken, fügen wir der `canViewGlimpseData` Rolle und Benutzer in dieser Rolle zum Anzeigen von Glimpse Daten sind nur zulässig.
 
-Entfernen Sie die Kommentare aus der *GlimpseSecurityPolicy.cs* Datei und ändern Sie die [IsInRole](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) aus aufrufen `Administrator` auf die `canViewGlimpseData` Rolle:
+Entfernen Sie die Kommentare aus der *GlimpseSecurityPolicy.cs* Datei und ändern Sie die [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) aus aufrufen `Administrator` auf die `canViewGlimpseData` Rolle:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
@@ -121,10 +121,10 @@ Entfernen Sie die Kommentare aus der *GlimpseSecurityPolicy.cs* Datei und änder
 > Sicherheit – konnte von Glimpse bereitgestellten umfangreichen Daten die Sicherheit Ihrer App verfügbar machen. Microsoft hat eine sicherheitsüberwachung von Glimpse nicht für die Verwendung auf Produktionen-apps ausgeführt.
 
 
-Informationen zum Hinzufügen von Rollen finden Sie unter meinem [Secure ASP.NET MVC 5-Web-app mit Mitgliedschaft, OAuth und SQL-Datenbank in Azure bereitstellen](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Lernprogramm.
+Informationen zum Hinzufügen von Rollen finden Sie unter meinem [Secure ASP.NET MVC 5-Web-app mit Mitgliedschaft, OAuth und SQL-Datenbank in Azure bereitstellen](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Lernprogramm.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Bereitstellen Sie eine sichere ASP.NET MVC 5-app mit Mitgliedschaft, OAuth und SQL-Datenbank in Azure.](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Bereitstellen Sie eine sichere ASP.NET MVC 5-app mit Mitgliedschaft, OAuth und SQL-Datenbank in Azure.](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 - [Konfiguration Notizenlayouts](http://getglimpse.com/Docs/Configuration) -Doc-Seite zum Konfigurieren von Registerkarten, Laufzeitrichtlinie, Protokollierung und vieles mehr.

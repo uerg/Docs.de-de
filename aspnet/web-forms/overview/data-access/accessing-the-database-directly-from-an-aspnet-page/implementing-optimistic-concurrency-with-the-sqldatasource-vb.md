@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603aaa35a533fc8853ea72fc9be05ca82b213049
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 974ea50a0d12aae09107470815214b20068ea553
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>Implementieren der vollständigen Parallelität mit SqlDataSource-(VB)
 ====================
@@ -116,8 +116,8 @@ Auf ähnliche Weise die `DeleteCommand` Eigenschaft und `DeleteParameters` Aufli
 
 Zusätzlich zum Erweitern der `WHERE` -Klauseln der `UpdateCommand` und `DeleteCommand` Eigenschaften (und die zusätzlichen Parameter für die jeweiligen Parameter Sammlungen hinzufügen), die vollständige Parallelitätsoption passt zwei andere Verwendung auswählen Eigenschaften:
 
-- Ändert die [ `ConflictDetection` Eigenschaft](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) aus `OverwriteChanges` (Standard),`CompareAllValues`
-- Ändert die [ `OldValuesParameterFormatString` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) von {0} (Standard) zum ursprünglichen\_{0}.
+- Ändert die [ `ConflictDetection` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) aus `OverwriteChanges` (Standard),`CompareAllValues`
+- Ändert die [ `OldValuesParameterFormatString` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) von {0} (Standard) zum ursprünglichen\_{0}.
 
 Wenn die Daten Websteuerelement SqlDataSource s aufruft `Update()` oder `Delete()` -Methode, die ursprünglichen Werte übergibt. Wenn die SqlDataSource s `ConflictDetection` -Eigenschaftensatz auf `CompareAllValues`, diese ursprünglichen Werte der Befehl hinzugefügt werden. Die `OldValuesParameterFormatString` Eigenschaft ermöglicht dem Benennungsschema für diese Werteparameter der ursprüngliche verwendet. Das Konfigurieren von Datenquellen-Assistent verwendet ursprünglichen\_{0} und benennt Sie jeden ursprünglichen Parameter in der `UpdateCommand` und `DeleteCommand` Eigenschaften und `UpdateParameters` und `DeleteParameters` Sammlungen entsprechend.
 
@@ -234,4 +234,4 @@ Viel Spaß beim Programmieren!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Zurück](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+[Vorherige](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

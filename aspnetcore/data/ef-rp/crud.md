@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit Razor-Seiten (2 von 8)
 
@@ -86,7 +86,7 @@ Die app auszuführen, klicken Sie auf einen Link Details und überprüfen Sie di
 
 ### <a name="add-related-data"></a>Fügen Sie verwandte Daten
 
-Scaffolded Code für die Studenten Indexseite schließt nicht die `Enrollments` Eigenschaft. In diesem Abschnitt, den Inhalt der `Enrollments` Sammlung wird die Seite "Details" angezeigt.
+Scaffolded Code für die Studenten Indexseite enthalten nicht die `Enrollments` Eigenschaft. In diesem Abschnitt, den Inhalt der `Enrollments` Sammlung wird die Seite "Details" angezeigt.
 
 Die `OnGetAsync` Methode *Pages/Students/Details.cshtml.cs* verwendet die `FirstOrDefaultAsync` Methode zum Abrufen einer einzelnes `Student` Entität. Fügen Sie den folgenden hervorgehobenen Code hinzu:
 
@@ -132,7 +132,7 @@ Im vorhergehenden Beispiel:
 <a id="overpost"></a>
 ### <a name="overposting"></a>Overposting
 
-Mithilfe von `TryUpdateModel` Felder mit bereitgestellter Werte aktualisieren, ist eine bewährte Sicherheitsmethode, da er Overposting verhindert. Nehmen wir beispielsweise an, die Student-Entität enthält eine `Secret` -Eigenschaft, die diese Webseite nicht aktualisieren oder hinzufügen sollten:
+Mithilfe von `TryUpdateModel` Felder mit bereitgestellter Werte aktualisieren, ist eine bewährte Sicherheitsmethode, da er Overposting verhindert. Nehmen wir beispielsweise an, die Student-Entität enthält eine `Secret` -Eigenschaft, die dieser Webseite aktualisieren oder hinzufügen sollten nicht:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
@@ -185,7 +185,7 @@ Der Datenbankkontext der nachverfolgt, ob Entitäten im Arbeitsspeicher mit ihre
 
 Eine Entität kann in einem der folgenden Zustände werden:
 
-* `Added`: Die Entität ist in der Datenbank noch nicht vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
+* `Added`: Die Entität ist nicht in der Datenbank noch vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
 
 * `Unchanged`: Keine Änderungen müssen mit dieser Entität gespeichert werden. Eine Entität weist diesen Status beim Lesen aus der Datenbank.
 

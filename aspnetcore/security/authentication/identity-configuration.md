@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: d3a13d1cef3417522460b44c52c1361c3e9d1162
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9e79e670173952f1e791a0cefba61c41e1ad4437
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-identity"></a>Konfigurieren von Identität
 
@@ -103,7 +103,7 @@ Unter `ConfigureServices` in der `Startup` -Klasse, Sie können die Anwendung Co
 | Eigenschaft                | Beschreibung                       | Standard |
 | ----------------------- | --------------------------------- | ------- |
 | `Cookie.Name`  | Der Name des Cookies.  | .AspNetCore.Cookies.  |
-| `Cookie.HttpOnly`  | Bei "true", ist das Cookie nicht aus einer clientseitigen Skripts zugegriffen werden kann.  |  true |
+| `Cookie.HttpOnly`  | Bei "true", nicht das Cookie aus einer clientseitigen Skripts zugegriffen werden.  |  true |
 | `ExpireTimeSpan`  | Steuert, wie viel Zeit das Authentifizierungsticket im Cookie gespeichert ab dem Punkt gültig bleibt, die er erstellt wird.  | 14 Tage  |
 | `LoginPath`  | Wenn ein Benutzer nicht autorisiert ist, werden er auf diesen Pfad für die Anmeldung umgeleitet. | /Account/Login  |
 | `LogoutPath`  | Wenn ein Benutzer abgemeldet ist, werden er auf diesen Pfad umgeleitet.  | /Account/Logout  |

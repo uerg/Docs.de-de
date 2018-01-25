@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 4dd10430778dc51fef1199315ee02eb2cd4970ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4-Hilfsprogrammen, Formulare und Überprüfung
 ====================
@@ -36,7 +36,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -228,7 +228,7 @@ In der folgenden Abbildung sehen Sie, wie das Format aufgrund der Länge des Tex
 In dieser Aufgabe fügen Sie eine neue Methode **Truncate** auf die **HTML** in ASP.NET MVC-Ansichten verfügbar gemachtes Objekt zu. Implementieren Sie zu diesem Zweck ein **Erweiterungsmethode** für die integrierte **System.Web.Mvc.HtmlHelper** von ASP.NET MVC bereitgestellte-Klasse.
 
 > [!NOTE]
-> Weitere Informationen zu **Erweiterungsmethoden**, besuchen Sie die in diesem Msdn-Artikel. [https://msdn.Microsoft.com/en-us/library/bb383977.aspx](https://msdn.microsoft.com/en-us/library/bb383977.aspx).
+> Weitere Informationen zu **Erweiterungsmethoden**, besuchen Sie die in diesem Msdn-Artikel. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
 
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex2-AddingAnHTMLHelper/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
@@ -711,7 +711,7 @@ In dieser Aufgabe aktivieren Sie jQuery **unaufdringliche Clientvalidierung** au
     > [!NOTE]
     > Sie können auch die Clientvalidierung durch Code am Global.asax.cs dieselben Ergebnisse abrufen aktivieren:
     > 
-    > **HtmlHelper.ClientValidationEnabled = True;**
+    > **HtmlHelper.ClientValidationEnabled = true;**
     > 
     > Darüber hinaus können Sie ClientValidationEnabled-Attributs in jedem Controller haben Sie ein benutzerdefiniertes Verhalten zuweisen.
 2. Open **Create.cshtml** am **Views\StoreManager**.

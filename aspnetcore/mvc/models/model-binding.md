@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="model-binding"></a>Wurden die Modellbindung
 
@@ -56,7 +56,7 @@ Hinweis: Bilden Sie Werte Routendaten und Abfrage-Zeichenfolgen als Name / Wert-
 
 Da wurden die modellbindung, einen Schlüssel Namens aufgefordert `id` nichts muss mit dem Namen `id` in die Formularwerte es in verschoben, die Routenwerte für diesen Schlüssel zu suchen. In unserem Beispiel ist es eine Übereinstimmung. Bindung erfolgt, und der Wert wird auf die ganze Zahl 2 konvertiert. Bearbeiten (Zeichenfolgen-Id) mit derselben Anforderung würde in die Zeichenfolge "2" konvertiert werden.
 
-Bisher wird die einfache Typen verwendet. Simple-Typen sind in MVC eine beliebige .NET primitiven Typ oder ein Typ mit einen Typkonverter für die Zeichenfolge an. Wenn eine Klasse von der Aktionsmethode Parameter wie z. B. wurden der `Movie` -Typ, der einfache und komplexe Typen enthält, wie die Eigenschaften MVCs-Modell Bindung wird weiterhin ordentlich behandeln. Er verwendet Reflektion und Rekursion, um die Eigenschaften der komplexen Typen, die Suche nach Übereinstimmungen zu durchlaufen. Wurden die modellbindung sucht nach dem Muster *parameter_name.property_name* an Eigenschaften Werte zu binden. Wenn es nicht übereinstimmende Werte dieses Formulars findet, versucht zu binden, indem einfach den Namen der Eigenschaft. Für diese Typen wie z. B. `Collection` Typen, wurden die modellbindung sucht nach Übereinstimmungen mit *Parameter_name [Index]* oder einfach *[Index]*. Modell Bindung behandelt `Dictionary` Typen auf ähnliche Weise, in der die *Parameter_name [Key]* oder einfach *[Key]*, solange die Schlüssel einfache Typen sind. Schlüssel, die unterstützt werden entsprechen den Feldnamen HTML und den Tag-Hilfsprogramme, die für den Typ des gleichen Modells generiert. Dies ermöglicht Round-Tripping-Werte, die Felder mit der Eingabe des Benutzers, für deren Vereinfachung gefüllt beispielsweise bleiben, wenn gebundene Daten aus einer erstellen oder bearbeiten die Validierung nicht bestanden haben.
+Bisher wird die einfache Typen verwendet. Simple-Typen sind in MVC eine beliebige .NET primitiven Typ oder ein Typ mit einen Typkonverter für die Zeichenfolge an. Wenn eine Klasse von der Aktionsmethode Parameter wie z. B. wurden der `Movie` -Typ, der einfache und komplexe Typen enthält, wie die Eigenschaften MVCs-Modell Bindung wird weiterhin ordentlich behandeln. Er verwendet Reflektion und Rekursion, um die Eigenschaften der komplexen Typen, die Suche nach Übereinstimmungen zu durchlaufen. Wurden die modellbindung sucht nach dem Muster *parameter_name.property_name* an Eigenschaften Werte zu binden. Wenn es nicht übereinstimmende Werte dieses Formulars findet, versucht zu binden, indem einfach den Namen der Eigenschaft. Für diese Typen wie z. B. `Collection` Typen, wurden die modellbindung sucht nach Übereinstimmungen mit *Parameter_name [Index]* oder einfach *[Index]*. Modell Bindung behandelt `Dictionary` Typen auf ähnliche Weise, in der die *Parameter_name [Key]* oder einfach *[Key]*, solange die Schlüssel einfache Typen sind. Schlüssel, die unterstützt werden entsprechen den Feldnamen HTML und den Tag-Hilfsprogramme, die für den Typ des gleichen Modells generiert. Dies ermöglicht die Round-Tripping-Werte, sodass Felder des Formulars mit der Eingabe des Benutzers, für deren Vereinfachung gefüllt z. B. sind Wenn gebundene Daten aus einer erstellen oder bearbeiten die Validierung nicht besteht.
 
 Damit Bindung aufweisen muss die Klasse einen öffentlichen Standardkonstruktor verfügen und Member zu bindenden muss auf öffentlichen beschreibbare Eigenschaften. Wenn die modellbindung erfolgt, dass die Klasse mit dem öffentlichen Standardkonstruktor nur instanziiert werden, können die Eigenschaften festgelegt werden.
 
@@ -70,7 +70,7 @@ Wenn ein Parameter gebunden ist, wurden die modellbindung beendet die Suche nach
 
 * Werttypen: NULL-Wert-Typen des Typs `T` festgelegt `default(T)`. Beispielsweise wurden die modellbindung Festlegen eines Parameters wird `int id` auf 0. Können Sie modellvalidierung oder auf NULL festlegbare Typen verwenden, statt der vertrauenden Seite auf die Standardwerte.
 
-Wenn die Bindung ein Fehler auftritt, löst MVC keine Fehler. Jede Aktion, die eine Benutzereingabe akzeptiert Prüfen der `ModelState.IsValid` Eigenschaft.
+Wenn die Bindung schlägt fehl, löst MVC keine Fehler. Jede Aktion, die eine Benutzereingabe akzeptiert Prüfen der `ModelState.IsValid` Eigenschaft.
 
 Hinweis: Jeder Eintrag in des Controllers `ModelState` Eigenschaft ist ein `ModelStateEntry` , enthält eine `Errors` Eigenschaft. Es ist nur selten notwendig, diese Sammlung selbst abzufragen. Verwenden Sie stattdessen `ModelState.IsValid`.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b5f223f59a8b222f4f01322d228cf7434e3dfc14
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Szenario: Konfigurieren einer Stagingumgebung für die Bereitstellung
 ====================
@@ -35,7 +35,7 @@ Viele Organisationen verwenden Stagingumgebungen, um Updates für Webanwendungen
 - Änderungen an Anwendungen in regelmäßigen Abständen, bereitgestellt werden, damit die Umgebung zur Unterstützung von einstufiger muss oder automatisierte Bereitstellung.
 
 > [!NOTE]
-> Dezentrales Skalieren einer datenbankbereitstellung auf mehreren Servern ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Dezentrales Skalieren einer datenbankbereitstellung auf mehreren Servern ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Z. B. in unserer [lernprogrammszenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) verwaltet die Kontakt-Manager-Lösung. Die TFS-Administrator Rob Walters, hat eine Builddefinition erstellt, mit dem Entwickler, die eine Bereitstellung in der Stagingumgebung nach Bedarf auszulösen.

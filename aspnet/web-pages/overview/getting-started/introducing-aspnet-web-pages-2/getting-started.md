@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Einführung in ASP.NET Web Pages - erste Schritte
 ====================
@@ -53,7 +53,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
-> - WebMatrix-3
+> - WebMatrix 3
 
 
 ## <a name="what-should-you-know"></a>Was wissen Sie sollten?
@@ -124,8 +124,8 @@ Möchten Sie nicht mehr benötigen Standort ausgeführt wird, als live-Web-app a
 
 Sie benötigen ein Azure-Konto zum Bereitstellen dieser Lösung in Azure. Wenn Sie nicht bereits über ein Konto verfügen, müssen Sie die folgenden Optionen aus:
 
-- [Öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) – Sie erhalten ein Guthaben können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
-- [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
+- [Öffnen Sie ein Azure-Konto kostenlos](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) – Sie erhalten ein Guthaben können Sie kostenpflichtige Azure-Dienste zu testen und sogar nachdem sie verwendet werden bis können Sie das Konto beibehalten und Verwendung frei Azure-Dienste.
+- [MSDN-abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Ihr MSDN-Abonnement erhalten Sie Gutschriften jedes Monats, die Sie für kostenpflichtige Azure-Dienste verwenden können.
 
 ## <a name="installing-everything"></a>Installieren alle Elemente
 
@@ -155,7 +155,7 @@ Während des Installationsvorgangs schließt, er auf dem Computer installieren m
 
 Wenn dies erfolgt ist, kann während des Installationsvorgangs WebMatrix automatisch starten. Wenn es, in Windows aus nicht die **starten** Menü **Microsoft WebMatrix**.
 
-Wenn Sie WebMatrix zum ersten Mal starten, erhalten Sie die Möglichkeit, die in Microsoft Azure mit Ihrem Microsoft-Konto anmelden. Durch die Anmeldung bei, erhalten Sie über Azure 10 kostenloses Web-apps. Dieser kostenlose Web-apps bieten eine einfache Möglichkeit zum Testen Ihrer apps. Wenn Sie nicht bereits über ein Azure-Konto verfügen, aber Sie ein MSDN-Abonnement verfügen, können Sie [Vorteile Ihres MSDN-Abonnements aktivieren](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Andernfalls können Sie in wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlose Azure-Testversion](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Wenn Sie WebMatrix zum ersten Mal starten, erhalten Sie die Möglichkeit, die in Microsoft Azure mit Ihrem Microsoft-Konto anmelden. Durch die Anmeldung bei, erhalten Sie über Azure 10 kostenloses Web-apps. Dieser kostenlose Web-apps bieten eine einfache Möglichkeit zum Testen Ihrer apps. Wenn Sie nicht bereits über ein Azure-Konto verfügen, aber Sie ein MSDN-Abonnement verfügen, können Sie [Vorteile Ihres MSDN-Abonnements aktivieren](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Andernfalls können Sie in wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlose Azure-Testversion](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 Sie müssen nicht jetzt anmelden, um dieses Lernprogramm fortsetzen. Wenn Sie nicht jetzt anmelden, müssen Sie immer noch die Option später anzumelden. Der letzte [Thema](publishing.md) in diesem Lernprogramm Reihe wird beschrieben, wie Ihre Website in Azure bereitgestellt, daher müssen Sie sich zum Abschließen dieses Themas anmelden.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: f1bdbc723e4602c2e53723aff91ec5d254f4bd93
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener webserverimplementierung in ASP.NET Core
 
@@ -91,7 +91,7 @@ Es gibt auch [Http.Sys-registrierungseinstellungen](https://support.microsoft.co
   > [!NOTE]
   > Stellen Sie sicher, dass Sie angeben, dass die gleichen Präfixzeichenfolgen in `UseUrls` , die Sie auf dem Server zu registrieren. 
 
-* Stellen Sie sicher, dass Ihre Anwendung nicht für die Ausführung der IIS- oder IIS Express konfiguriert ist.
+* Stellen Sie sicher, dass Ihre Anwendung zum Ausführen von IIS oder IIS Express konfiguriert ist.
 
   Ist in Visual Studio das Standardprofil für den Start für IIS Express.  Zum Ausführen des Projekts als Konsolenanwendung müssen Sie manuell das ausgewählte Profil zu ändern, wie im folgenden Screenshot gezeigt.
 
@@ -131,11 +131,11 @@ using (WebListener listener = new WebListener(settings))
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>Zu URL-Präfixe registrieren und Konfigurieren von SSL
 
-Sowohl IIS als auch WebListener basieren auf den zugrunde liegenden Http.Sys-Kernelmodustreiber zum Abhören von Anforderungen und Verarbeitung ursprüngliche. In IIS bietet die Verwaltungsbenutzeroberfläche eine relativ einfache Möglichkeit, alles zu konfigurieren. Allerdings müssen Sie bei Verwendung von WebListener Http.Sys selbst konfigurieren. Die integrierten Tool für die auf diese Weise ist netsh.exe. 
+Sowohl IIS als auch WebListener basieren auf den zugrunde liegenden Http.Sys-Kernelmodustreiber zum Abhören von Anforderungen und Verarbeitung ursprüngliche. In IIS bietet die Verwaltungsbenutzeroberfläche eine relativ einfache Möglichkeit, alles zu konfigurieren. Allerdings müssen Sie bei Verwendung von WebListener Http.Sys selbst konfigurieren. Die integrierten Tool netsh.exe ist dafür. 
 
 Am häufigsten auszuführenden Aufgaben, denen Sie für netsh.exe verwenden müssen, sind Reservieren von URL-Präfixe und Zuweisen von SSL-Zertifikate.
 
-NetSh.exe ist ein benutzerfreundliches Tool für Anfänger verwenden. Das folgende Beispiel zeigt die absolute Mindestanforderungen zum Reservieren von URL-Präfixe für die Ports 80 und 443 erforderlich sind:
+NetSh.exe ist ein benutzerfreundliches Tool für Anfänger verwenden nicht. Das folgende Beispiel zeigt die absolute Mindestanforderungen zum Reservieren von URL-Präfixe für die Ports 80 und 443 erforderlich sind:
 
 ```console
 netsh http add urlacl url=http://+:80/ user=Users

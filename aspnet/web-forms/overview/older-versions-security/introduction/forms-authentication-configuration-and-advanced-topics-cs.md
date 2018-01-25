@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8168f2d8431a1f051167dcd2f5123fafa942fa23
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguration der Formularauthentifizierung und Weiterführende Themen (c#)
 ====================
@@ -35,7 +35,7 @@ In diesem Lernprogramm wir untersuchen die unterschiedlichen Einstellungen für 
 
 ## <a name="step-1-examining-the-ltformsgt-configuration-settings"></a>Schritt 1: Untersuchen der &lt;Forms&gt; -Konfigurationseinstellungen
 
-Das Authentifizierungssystem Formularen in ASP.NET bietet eine Reihe von Konfigurationseinstellungen, die auf eine Anwendungsbasis angepasst werden kann. Hierzu zählen Einstellungen wie: die Lebensdauer der Formularauthentifizierung ticket; Welche Art des Schutzes wird auf das Ticket angewendet; Tickets werden verwendet, unter welchen Bedingungen Authentifizierung ohne Cookies. der Pfad zur Anmeldeseite. und andere Informationen. Um die Standardwerte zu ändern, fügen einen [ &lt;Forms&gt; Element](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) als untergeordnetes Element von der [ &lt;Authentifizierung&gt; Element](https://msdn.microsoft.com/en-us/library/532aee0e.aspx), diese Eigenschaft angeben Werte, die Sie als XML-Attribute anpassen möchten, wie folgt:
+Das Authentifizierungssystem Formularen in ASP.NET bietet eine Reihe von Konfigurationseinstellungen, die auf eine Anwendungsbasis angepasst werden kann. Hierzu zählen Einstellungen wie: die Lebensdauer der Formularauthentifizierung ticket; Welche Art des Schutzes wird auf das Ticket angewendet; Tickets werden verwendet, unter welchen Bedingungen Authentifizierung ohne Cookies. der Pfad zur Anmeldeseite. und andere Informationen. Um die Standardwerte zu ändern, fügen einen [ &lt;Forms&gt; Element](https://msdn.microsoft.com/library/1d3t3c61.aspx) als untergeordnetes Element von der [ &lt;Authentifizierung&gt; Element](https://msdn.microsoft.com/library/532aee0e.aspx), diese Eigenschaft angeben Werte, die Sie als XML-Attribute anpassen möchten, wie folgt:
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample1.xml)]
 
@@ -52,12 +52,12 @@ Tabelle 1 werden die Eigenschaften zusammengefasst, die über angepasst werden k
 | path | Bei Verwendung von Cookie-basierte Authentifizierungstickets wird mit dieser Einstellung das Cookie Path-Attribut. Der Path-Attribut kann der Entwickler den Umfang eines Cookies zu einem bestimmten Verzeichnishierarchie zu beschränken. Der Standardwert ist / dem informiert des Browsers, um das Ticket Authentifizierungscookie zu jeder Anforderung an die Domäne zu senden. |
 | Schutz | Gibt an, welche Methoden verwendet werden, um das Formularauthentifizierungsticket zu schützen. Die zulässigen Werte sind: alle (Standardeinstellung); Verschlüsselung; None; und -Validierung. Diese Einstellungen werden in Schritt 3 im Detail erläutert. |
 | requireSSL | Ein boolescher Wert, der angibt, ob eine SSL-Verbindung erforderlich ist, um das Authentifizierungscookie zu übermitteln. Der Standardwert ist false. |
-| SlidingExpiration | Ein boolescher Wert, der angibt, ob das Authentifizierungscookie Timeout jedes Mal zurückgesetzt wird der Benutzer die Website während einer Sitzung besucht wird. Der Standardwert ist true. Timeout die Authentifizierungsrichtlinie für Ticket wird ausführlicher in den unter Angabe der Ticket-Timeoutwert-Abschnitt. |
+| slidingExpiration | Ein boolescher Wert, der angibt, ob das Authentifizierungscookie Timeout jedes Mal zurückgesetzt wird der Benutzer die Website während einer Sitzung besucht wird. Der Standardwert ist true. Timeout die Authentifizierungsrichtlinie für Ticket wird ausführlicher in den unter Angabe der Ticket-Timeoutwert-Abschnitt. |
 | timeout | Gibt die Zeit in Minuten, nach denen das Ticket Authentifizierungscookie abläuft. Der Standardwert ist 30. Timeout die Authentifizierungsrichtlinie für Ticket wird ausführlicher in den unter Angabe der Ticket-Timeoutwert-Abschnitt. |
 
 **Tabelle 1**: eine Zusammenfassung der &lt;Forms&gt; Attribute des Elements
 
-In ASP.NET 2.0 und jenseits der Standardgrenze wird Forms Authentifizierungswerte in der FormsAuthenticationConfiguration-Klasse in .NET Framework hartcodiert sind. Alle Änderungen müssen auf Basis von Anwendung in der Datei "Web.config" angewendet werden. Dies unterscheidet sich von ASP.NET 1.x, in dem die Standardwerte der Forms-Authentifizierung in der Datei "Machine.config" gespeichert wurden (und deshalb über das Bearbeiten von "Machine.config" geändert werden). Zeit für das Thema von ASP.NET 1.x, lohnt es sich, nennen Sie, dass eine Anzahl von den Einstellungen für Formularauthentifizierung System unterschiedliche Standardwerte in ASP.NET 2.0 haben und mehr als in ASP.NET 1.x. Wenn Sie Ihre Anwendung von einer ASP.NET 1.x-Umgebung migrieren, ist es wichtig, diese Unterschiede bewusst sein. Wenden Sie sich an [der &lt;Forms&gt; Element technische Dokumentation](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) eine Liste der Unterschiede.
+In ASP.NET 2.0 und jenseits der Standardgrenze wird Forms Authentifizierungswerte in der FormsAuthenticationConfiguration-Klasse in .NET Framework hartcodiert sind. Alle Änderungen müssen auf Basis von Anwendung in der Datei "Web.config" angewendet werden. Dies unterscheidet sich von ASP.NET 1.x, in dem die Standardwerte der Forms-Authentifizierung in der Datei "Machine.config" gespeichert wurden (und deshalb über das Bearbeiten von "Machine.config" geändert werden). Zeit für das Thema von ASP.NET 1.x, lohnt es sich, nennen Sie, dass eine Anzahl von den Einstellungen für Formularauthentifizierung System unterschiedliche Standardwerte in ASP.NET 2.0 haben und mehr als in ASP.NET 1.x. Wenn Sie Ihre Anwendung von einer ASP.NET 1.x-Umgebung migrieren, ist es wichtig, diese Unterschiede bewusst sein. Wenden Sie sich an [der &lt;Forms&gt; Element technische Dokumentation](https://msdn.microsoft.com/library/1d3t3c61.aspx) eine Liste der Unterschiede.
 
 > [!NOTE]
 > Verschiedene Einstellungen für die Formularauthentifizierung, z. B. Timeout, Domäne und den Pfad, geben Sie Details für das resultierende Ticket Formularauthentifizierungscookies. Weitere Informationen auf Cookies, deren Funktionsweise und ihre verschiedenen Eigenschaften lesen [dieses Lernprogramms Cookies](http://www.quirksmode.org/js/cookies.html).
@@ -137,7 +137,7 @@ Die Cookierichtlinie verwendet wird, von dem Authentifizierungssystem Forms hän
 Einstellungen für die automatische Erkennung und UseDeviceProfile basieren auf einer *Geräteprofil* Punkte, ob Cookie-basierte oder cookieless Authentifizierungstickets verwendet. ASP.NET verwaltet eine Datenbank von verschiedenen Geräten und ihre Funktionen, z. B., ob sie Cookies unterstützen, welche Version von JavaScript unterstützen und So weiter. Jedes Mal fordert ein Gerät von einem Webserver, er entlang sendet, einer Webseite ein *Benutzer-Agent-* HTTP-Header, der den Gerätetyp identifiziert. ASP.NET entspricht automatisch die angegebenen Benutzer-Agent-Zeichenfolge mit dem entsprechenden Profil in der Datenbank angegeben.
 
 > [!NOTE]
-> Diese Datenbank von Gerätefunktionen befindet sich in einer Reihe von XML-Dateien, die Folgen der [Browserdefinitionsdatei Schema](https://msdn.microsoft.com/en-us/library/ms228122.aspx). Die Standardeinstellung Gerät Profildateien befinden sich in % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers. Sie können auch benutzerdefinierte Dateien hinzufügen, um Ihre Anwendung App\_Browsern-Ordner. Weitere Informationen finden Sie unter [Vorgehensweise: Erkennen von Browsertypen in ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/3yekbd5b.aspx).
+> Diese Datenbank von Gerätefunktionen befindet sich in einer Reihe von XML-Dateien, die Folgen der [Browserdefinitionsdatei Schema](https://msdn.microsoft.com/library/ms228122.aspx). Die Standardeinstellung Gerät Profildateien befinden sich in % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers. Sie können auch benutzerdefinierte Dateien hinzufügen, um Ihre Anwendung App\_Browsern-Ordner. Weitere Informationen finden Sie unter [Vorgehensweise: Erkennen von Browsertypen in ASP.NET Web Pages](https://msdn.microsoft.com/library/3yekbd5b.aspx).
 
 
 Da die Standardeinstellung UseDeviceProfile ist, werden cookieless Formularauthentifizierungstickets verwendet werden, bei die Website von einem Gerät zugegriffen wird, deren Profil meldet, dass es keine Cookies unterstützt.
@@ -199,14 +199,14 @@ Microsoft empfiehlt dringend, über die Einstellung "alle".
 
 ### <a name="setting-the-validation-and-decryption-keys"></a>Festlegen der Validierung und den Entschlüsselungsschlüssel
 
-Die Verschlüsselung und Hashalgorithmen, die von dem Authentifizierungssystem Forms verwendet, um zu verschlüsseln, und überprüfen das Authentifizierungsticket sind anpassbare über die [ &lt;MachineKey&gt; Element](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx) in "Web.config". Tabelle 2 zeigt die &lt;MachineKey&gt; Attribute des Elements und ihren möglichen Werten.
+Die Verschlüsselung und Hashalgorithmen, die von dem Authentifizierungssystem Forms verwendet, um zu verschlüsseln, und überprüfen das Authentifizierungsticket sind anpassbare über die [ &lt;MachineKey&gt; Element](https://msdn.microsoft.com/library/w8h3skw9.aspx) in "Web.config". Tabelle 2 zeigt die &lt;MachineKey&gt; Attribute des Elements und ihren möglichen Werten.
 
 | **Attribut** | **Beschreibung** |
 | --- | --- |
 | Entschlüsselung | Gibt den Algorithmus für die Verschlüsselung verwendet. Dieses Attribut kann einen der folgenden vier Werten haben: - Auto - die Standardeinstellung. Bestimmt den Algorithmus basierend auf der Länge des Attributs DecryptionKey an. -AES - verwendet die [erweiterte Verschlüsselung (Advanced Encryption Standard, AES)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) Algorithmus. -DES - verwendet die [Standard DES (Data Encryption)](http://en.wikipedia.org/wiki/Data_Encryption_Standard) dieser Algorithmus wird als rechnerisch schwache und sollte nicht verwendet werden. -3DES - verwendet die [Triple DES](http://en.wikipedia.org/wiki/Triple_DES) -Algorithmus, der durch Anwenden des DES-Algorithmus dreimal funktioniert. |
 | decryptionKey | Der geheime Schlüssel des Verschlüsselungsalgorithmus verwendet. Dieser Wert muss entweder eine hexadezimale Zeichenfolge, die entsprechende Länge (basierend auf den Wert in der Entschlüsselung), automatisch generieren oder entweder Wert angefügt, IsolateApps. Hinzufügen von IsolateApps weist ASP.NET für einen eindeutigen Wert für jede Anwendung verwenden. Der Standardwert ist AutoGenerate, IsolateApps. |
 | Validierung | Gibt den Algorithmus für die Überprüfung verwendet. Dieses Attribut kann einen der folgenden vier Werten haben: - AES - verwendet den Algorithmus für die erweiterte Verschlüsselung (Advanced Encryption Standard, AES). -MD5 - verwendet die [Message-Digest 5 (MD5)](http://en.wikipedia.org/wiki/MD5) Algorithmus. -SHA1 - verwendet die [SHA1](http://en.wikipedia.org/wiki/Sha1) Algorithmus (Standard). -3DES - mithilfe des Triple DES-Algorithmus. |
-| "ValidationKey" entspricht | Der geheime Schlüssel, die von den Validierungsalgorithmus verwendet wird. Dieser Wert muss entweder eine hexadezimale Zeichenfolge, die entsprechende Länge (basierend auf den Wert bei der Validierung), automatisch generieren oder entweder Wert angefügt, IsolateApps. Hinzufügen von IsolateApps weist ASP.NET für einen eindeutigen Wert für jede Anwendung verwenden. Der Standardwert ist AutoGenerate, IsolateApps. |
+| validationKey | Der geheime Schlüssel, die von den Validierungsalgorithmus verwendet wird. Dieser Wert muss entweder eine hexadezimale Zeichenfolge, die entsprechende Länge (basierend auf den Wert bei der Validierung), automatisch generieren oder entweder Wert angefügt, IsolateApps. Hinzufügen von IsolateApps weist ASP.NET für einen eindeutigen Wert für jede Anwendung verwenden. Der Standardwert ist AutoGenerate, IsolateApps. |
 
 **Tabelle 2**: die &lt;MachineKey&gt; Elementattribute
 
@@ -223,7 +223,7 @@ Während keiner der beiden oben genannten Szenarien für unsere beispielanwendun
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample5.xml)]
 
-Weitere Informationen finden Sie [Vorgehensweise: Konfigurieren von MachineKey in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998288.aspx).
+Weitere Informationen finden Sie [Vorgehensweise: Konfigurieren von MachineKey in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998288.aspx).
 
 > [!NOTE]
 > Die Werte DecryptionKey und "ValidationKey" entspricht entnommen wurden [Steve Gibson](http://www.grc.com/stevegibson.htm)des [perfekten Kennwörter Webseite](https://www.grc.com/passwords.htm), die zufällige 64-Hexadezimalzeichen auf jeder Seite Besuch generiert. Um zu verringern, die Wahrscheinlichkeit dieser Schlüssel, wie in der Produktionsanwendungen vornehmen, sollten Sie die oben aufgeführten Schlüssel auf der Seite perfekten Kennwörter durch zufällig generierten zu ersetzen.
@@ -233,7 +233,7 @@ Weitere Informationen finden Sie [Vorgehensweise: Konfigurieren von MachineKey i
 
 Viele Webanwendungen Anzeigen von Informationen zu oder Anzeigen der Seite als Grundlage für den derzeit angemeldeten Benutzer. Z. B. möglicherweise eine Webseite anzeigen, den Namen des Benutzers und das Datum, an das sie zuletzt in der oberen Ecke von jeder Seite angemeldet haben, auf. Das Formularauthentifizierungsticket speichert den aktuell angemeldeten Benutzernamen des Benutzers, aber wenn alle anderen Informationen benötigt wird, muss die Seite wechseln Sie zu Benutzerspeicher - typischerweise eine Datenbank - nachgeschlagen werden die Informationen, die nicht in das Authentifizierungsticket gespeichert.
 
-Mit ein wenig Code können wir zusätzliche Benutzerinformationen in das Formularauthentifizierungsticket gespeichert. Diese Daten können durch ausgedrückt werden, die [FormsAuthenticationTicket Klasse](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx)des [UserData Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.userdata.aspx). Dies ist nützlich zum Ablegen kleine Mengen von Informationen über den Benutzer zu konzentrieren, die häufig erforderlich ist. In "UserData"-Eigenschaft ist Bestandteil des Authentifizierungscookies Ticket und wie die anderen Felder der Ticket, verschlüsselt und überprüft angegebene Wert basierend auf dem Forms-Authentifizierungssystem-Konfiguration. Standardmäßig ist die UserData eine leere Zeichenfolge.
+Mit ein wenig Code können wir zusätzliche Benutzerinformationen in das Formularauthentifizierungsticket gespeichert. Diese Daten können durch ausgedrückt werden, die [FormsAuthenticationTicket Klasse](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx)des [UserData Eigenschaft](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.userdata.aspx). Dies ist nützlich zum Ablegen kleine Mengen von Informationen über den Benutzer zu konzentrieren, die häufig erforderlich ist. In "UserData"-Eigenschaft ist Bestandteil des Authentifizierungscookies Ticket und wie die anderen Felder der Ticket, verschlüsselt und überprüft angegebene Wert basierend auf dem Forms-Authentifizierungssystem-Konfiguration. Standardmäßig ist die UserData eine leere Zeichenfolge.
 
 Damit Benutzerdaten in das Authentifizierungsticket speichern, müssen wir viel Code auf der Anmeldungsseite zu schreiben, holt der benutzerspezifische Informationen und speichert ihn in das Ticket. Da UserData eine Eigenschaft vom Typzeichenfolge ist, müssen die darin gespeicherten Daten ordnungsgemäß als eine Zeichenfolge serialisiert werden. Angenommen Sie, dass unsere Benutzerspeicher, das Geburtsdatum des Benutzers und den Namen ihres Arbeitgebers enthalten, und wollten wir diese zwei Eigenschaftswerte in das Authentifizierungsticket zu speichern. Wir konnten diese Werte in eine Zeichenfolge serialisiert werden durch Verketten des Benutzers Datum Geburtsdatum der Zeichenfolge mit einem senkrechten Strich (|), gefolgt vom Namen Arbeitgeber. Für einen Benutzer auf 15 August 1974 geboren, die von Northwind Traders arbeitet, es würde die UserData-Eigenschaft zuweisen die Zeichenfolge: 1974-08-15 | Northwind Traders.
 
@@ -263,13 +263,13 @@ Im vorherigen Lernprogramm Wenn die angegebenen Anmeldeinformationen gültig sin
 
 Diese Schritte werden im obigen Code repliziert. Zunächst wird die Zeichenfolge, die wir in der Eigenschaft UserData schließlich gespeichert werden gebildet, indem Sie den Firmennamen und den vollständigen Titel, begrenzen die beiden Werte durch einen senkrechten Strich (|) kombiniert.
 
-eine Zeichenfolge UserDataString = Zeichenfolge. Concat (CompanyName [i], "|", titleAtCompany[i]);
+string userDataString = string.Concat(companyName[i], "|", titleAtCompany[i]);
 
 Als Nächstes die FormsAuthentication.GetAuthCookie Methode aufgerufen wird, wodurch das Authentifizierungsticket entsteht, verschlüsselt es gemäß den Konfigurationseinstellungen überprüft und platziert es in einem HttpCookie-Objekt.
 
 HttpCookie AuthCookie = FormsAuthentication.GetAuthCookie (UserName.Text, RememberMe.Checked);
 
-Um mit der das Cookie eingebettet FormAuthenticationTicket arbeiten, müssen wir die FormAuthentication Klasse aufrufen, [entschlüsseln Methode](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.decrypt.aspx), und übergeben Sie den Cookiewert.
+Um mit der das Cookie eingebettet FormAuthenticationTicket arbeiten, müssen wir die FormAuthentication Klasse aufrufen, [entschlüsseln Methode](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx), und übergeben Sie den Cookiewert.
 
 FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
@@ -277,7 +277,7 @@ Dann erstellen Sie eine *neue* FormsAuthenticationTicket-Instanz basierend auf d
 
 FormsAuthenticationTicket NewTicket = neue FormsAuthenticationTicket (Ticket. Ticket-Version. Der Name, Ticket. IssueDate, ticket. Ablauf, Ticket. IsPersistent UserDataString);
 
-Wir dann verschlüsseln (und überprüfen) die neue FormsAuthenticationTicket-Instanz durch Aufrufen der [verschlüsseln Methode](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.encrypt.aspx), und diese verschlüsselten (und überprüften) Daten zurück in AuthCookie gelegt.
+Wir dann verschlüsseln (und überprüfen) die neue FormsAuthenticationTicket-Instanz durch Aufrufen der [verschlüsseln Methode](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx), und diese verschlüsselten (und überprüften) Daten zurück in AuthCookie gelegt.
 
 authCookie.Value = FormsAuthentication.Encrypt(newTicket);
 
@@ -322,7 +322,7 @@ Das principal-Objekt hat zwei Aufgaben: welche Rollen gibt an, der Benutzer geh�
 GenericPrincipal-Klasse erfüllt die Anforderungen für die meisten Forms zertifikatbasierte Authentifizierungsszenarien, in denen Rollen nicht verwendet werden. Für solche Situationen, in denen die Rolle Standardbehandlung reicht nicht aus, oder wenn Sie ein benutzerdefiniertes Objekt für "IIdentity" wird der Benutzer zuordnen müssen, erstellen Sie ein benutzerdefiniertes IPrincipal Objekt während des Workflows für die Authentifizierung und die HttpContext.User-Eigenschaft zuweisen.
 
 > [!NOTE]
-> Da wir in Zukunft, Lernprogramme angezeigt wird, wenn ASP. NET Rollen-Framework ist aktiviert er erstellt ein benutzerdefinierte principal-Objekt des Typs [RolePrincipal](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.aspx) und überschreibt das Forms-Authentifizierung erstellten GenericPrincipal-Objekt. Dies geschieht, um dem Prinzipal IsInRole-Methode für die Kommunikation mit dem Rollen-Framework-API anpassen.
+> Da wir in Zukunft, Lernprogramme angezeigt wird, wenn ASP. NET Rollen-Framework ist aktiviert er erstellt ein benutzerdefinierte principal-Objekt des Typs [RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx) und überschreibt das Forms-Authentifizierung erstellten GenericPrincipal-Objekt. Dies geschieht, um dem Prinzipal IsInRole-Methode für die Kommunikation mit dem Rollen-Framework-API anpassen.
 
 
 Da wir nicht uns mit Rollen noch Bedenken haben, wäre der einzige Grund, den wir, zum Erstellen von eines benutzerdefinierten Prinzipals an diesem Punkt den Client haben würden ein benutzerdefiniertes Objekt für "IIdentity" wird dem Prinzipal zuordnen. In Schritt 4 erläutert wird, zusätzliche Benutzerinformationen in das Authentifizierungsticket UserData-Eigenschaft, insbesondere zu speichern, des Benutzers Firmennamen und deren Titel. Die UserData Informationen ist jedoch nur über das Authentifizierungsticket zugegriffen werden kann und nur dann eine serialisierte Zeichenfolge übereinstimmt, was bedeutet, dass jedes Mal, wenn wir den Benutzerinformationen in das Ticket anzeigen möchten, wir analysieren, die UserData-Eigenschaft müssen.
@@ -334,7 +334,7 @@ Wir können die entwicklererfahrung durch Erstellen einer Klasse, die "IIdentity
 Für dieses Lernprogramm erstellen Sie wir die benutzerdefinierten Haupt- und Identitätsobjekte Objekte in der App\_Codeordner. Starten, indem Sie eine App\_Code Ordner zu Ihrem Projekt – mit der rechten Maustaste auf den Projektnamen im Projektmappen-Explorer, wählen Sie die Option ASP.NET-Ordner hinzufügen, und wählen Sie die App\_Code. Die App\_Code ist ein spezieller ASP.NET-Ordner, die Dateien Klasse speziell für die Website enthält.
 
 > [!NOTE]
-> Die App\_Codeordner sollte nur verwendet werden, wenn Sie das Projekt über das Website-Projektmodell verwalten. Bei Verwendung der [Webanwendungsprojekt-Modell](https://msdn.microsoft.com/en-us/asp.net/Aa336618.aspx), erstellen Sie einen Standardordner und Hinzufügen von Klassen mit. Sie könnten z. B. einen neuen Ordner namens Klassen hinzufügen und platzieren Sie es Ihren Code.
+> Die App\_Codeordner sollte nur verwendet werden, wenn Sie das Projekt über das Website-Projektmodell verwalten. Bei Verwendung der [Webanwendungsprojekt-Modell](https://msdn.microsoft.com/asp.net/Aa336618.aspx), erstellen Sie einen Standardordner und Hinzufügen von Klassen mit. Sie könnten z. B. einen neuen Ordner namens Klassen hinzufügen und platzieren Sie es Ihren Code.
 
 
 Fügen Sie zwei neue Klassendateien an die App\_Codeordner, eine benannte CustomIdentity.cs und eine mit dem Namen CustomPrincipal.cs.
@@ -359,9 +359,9 @@ Als Nächstes erstellen Sie die CustomPrincipal-Klasse. Da wir in diesem Zusamme
 
 Wir haben jetzt eine Klasse, die "IIdentity" wird Standardspezifikation CompanyName "und" Title-Eigenschaften verwenden erweitert, als auch eine benutzerdefinierte principal-Klasse, die benutzerdefinierte Identität verwendet. Wir sind bereit, um einen Einzelschritt der ASP.NET-Pipeline und weisen unsere benutzerdefinierte principal-Objekt an die eingehende Anforderung Sicherheitskontext.
 
-Die ASP.NET-Pipeline eine eingehende Anforderung akzeptiert und verarbeitet diese durch eine Reihe von Schritten. Bei jedem Schritt wird ein bestimmtes Ereignis ausgelöst, wodurch für Entwickler, tippen Sie in der ASP.NET-Pipeline auf und ändern die Anforderung an bestimmten Punkten im Lebenszyklus. Die FormsAuthenticationModule wartet z. B. ASP.NET zum Auslösen der [Ereignis AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), an diesem Punkt er die eingehende Anforderung für ein Authentifizierungsticket untersucht. Wenn ein Authentifizierungsticket gefunden wird, wird ein GenericPrincipal-Objekt erstellt und der HttpContext.User-Eigenschaft zugewiesen.
+Die ASP.NET-Pipeline eine eingehende Anforderung akzeptiert und verarbeitet diese durch eine Reihe von Schritten. Bei jedem Schritt wird ein bestimmtes Ereignis ausgelöst, wodurch für Entwickler, tippen Sie in der ASP.NET-Pipeline auf und ändern die Anforderung an bestimmten Punkten im Lebenszyklus. Die FormsAuthenticationModule wartet z. B. ASP.NET zum Auslösen der [Ereignis AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), an diesem Punkt er die eingehende Anforderung für ein Authentifizierungsticket untersucht. Wenn ein Authentifizierungsticket gefunden wird, wird ein GenericPrincipal-Objekt erstellt und der HttpContext.User-Eigenschaft zugewiesen.
 
-Nach dem Ereignis AuthenticateRequest die ASP.NET-Pipeline löst die [PostAuthenticateRequest Ereignis](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.postauthenticaterequest.aspx), welche ist, in dem wir das GenericPrincipal-Objekt erstellt, indem die FormsAuthenticationModule mit einer Instanz von ersetzen können unsere CustomPrincipal-Objekt. Abbildung 7 zeigt dieses Workflows.
+Nach dem Ereignis AuthenticateRequest die ASP.NET-Pipeline löst die [PostAuthenticateRequest Ereignis](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), welche ist, in dem wir das GenericPrincipal-Objekt erstellt, indem die FormsAuthenticationModule mit einer Instanz von ersetzen können unsere CustomPrincipal-Objekt. Abbildung 7 zeigt dieses Workflows.
 
 
 [![GenericPrincipal wird durch eine CustomPrincipal im Ereignis PostAuthenticationRequest ersetzt.](forms-authentication-configuration-and-advanced-topics-cs/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image19.png)
@@ -377,13 +377,13 @@ Um Code in ASP.NET Pipeline Ereignisses ausführen, können wir den passenden Er
 **Abbildung 08**: Hinzufügen einer Datei "Global.asax" zu Ihrer Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](forms-authentication-configuration-and-advanced-topics-cs/_static/image24.png))
 
 
-Die Standardvorlage "Global.asax" enthält die Ereignishandler für eine Reihe von ASP.NET-Pipelineereignisse, einschließlich Start und Ende und [Fehlerereignis](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx), o. ä. Gerne an diese Ereignishandler entfernt werden, da es nicht für diese Anwendung benötigt werden. Das Ereignis, dem wir interessiert ist PostAuthenticateRequest. Aktualisieren Sie die Datei "Global.asax" aus, damit das Markup etwa wie folgt aussieht:
+Die Standardvorlage "Global.asax" enthält die Ereignishandler für eine Reihe von ASP.NET-Pipelineereignisse, einschließlich Start und Ende und [Fehlerereignis](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx), o. ä. Gerne an diese Ereignishandler entfernt werden, da es nicht für diese Anwendung benötigt werden. Das Ereignis, dem wir interessiert ist PostAuthenticateRequest. Aktualisieren Sie die Datei "Global.asax" aus, damit das Markup etwa wie folgt aussieht:
 
 [!code-aspx[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample11.aspx)]
 
 Die Anwendung\_OnPostAuthenticateRequest-Methode wird jedes Mal, den die ASP.NET-Laufzeit löst das PostAuthenticateRequest-Ereignis, die einmal für jede eingehende Seitenanforderung ausgeführt wird. Der Ereignishandler wird gestartet, indem überprüft wird, um festzustellen, ob der Benutzer authentifiziert wird und über Formularauthentifizierung authentifiziert wurde. Wenn dies der Fall ist, wird ein neues CustomIdentity-Objekt erstellt und die aktuelle Anforderung Authentifizierungsticket in seinem Konstruktor übergeben. Danach ein CustomPrincipal-Objekt erstellt und übergeben das gerade erstellte CustomIdentity-Objekt in seinem Konstruktor. Schließlich wird der Sicherheitskontext für die aktuelle Anforderung auf das neu erstellte CustomPrincipal-Objekt zugewiesen.
 
-Beachten Sie, dass der letzte Schritt - Sicherheitskontext für die Anforderung der CustomPrincipal-Objekt zuordnen - zwei Eigenschaften den Prinzipal zugewiesen: HttpContext.User und Thread.CurrentPrincipal. Diese zwei Zuweisungen sind erforderlich, durch das Verfahren begründet Sicherheitskontexten in ASP.NET behandelt werden. .NET Framework ordnet jeden ausgeführten Thread einen Sicherheitskontext; Diese Informationen sind verfügbar, als eine IPrincipal-Objekt, über die [Threadobjekt](https://msdn.microsoft.com/en-us/library/system.threading.thread.aspx)des [CurrentPrincipal Eigenschaft](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentcontext.aspx). Was ist eine verwirrend ist, dass ASP.NET eigene Sicherheitskontextinformationen (HttpContext.User).
+Beachten Sie, dass der letzte Schritt - Sicherheitskontext für die Anforderung der CustomPrincipal-Objekt zuordnen - zwei Eigenschaften den Prinzipal zugewiesen: HttpContext.User und Thread.CurrentPrincipal. Diese zwei Zuweisungen sind erforderlich, durch das Verfahren begründet Sicherheitskontexten in ASP.NET behandelt werden. .NET Framework ordnet jeden ausgeführten Thread einen Sicherheitskontext; Diese Informationen sind verfügbar, als eine IPrincipal-Objekt, über die [Threadobjekt](https://msdn.microsoft.com/library/system.threading.thread.aspx)des [CurrentPrincipal Eigenschaft](https://msdn.microsoft.com/library/system.threading.thread.currentcontext.aspx). Was ist eine verwirrend ist, dass ASP.NET eigene Sicherheitskontextinformationen (HttpContext.User).
 
 In bestimmten Szenarien wird die Eigenschaft Thread.CurrentPrincipal untersucht, beim Bestimmen des Sicherheitskontexts; in anderen Szenarien wird HttpContext.User verwendet. Beispielsweise bestehen Sicherheitsfunktionen, die Entwicklern deklarativ angeben, welche Benutzer ermöglichen, in .NET oder Rollen können eine Klasse instanziieren oder bestimmte Methoden aufrufen (finden Sie unter [Hinzufügen von Autorisierungsregeln für Geschäft und Daten mithilfe von Ebenen PrincipalPermissionAttributes](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)). Im Hintergrund bestimmen diese deklarative Techniken des Sicherheitskontexts über die Thread.CurrentPrincipal-Eigenschaft.
 
@@ -412,23 +412,23 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Formularauthentifizierung unterzogen, wodurch](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
-- [Erläutert: Formularauthentifizierung in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/aa480476.aspx)
-- [Gewusst wie: Schützen Sie Formularauthentifizierung in ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998310.aspx)
+- [Erläutert: Formularauthentifizierung in ASP.NET 2.0](https://msdn.microsoft.com/library/aa480476.aspx)
+- [Gewusst wie: Schützen Sie Formularauthentifizierung in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
 - [Professionelle ASP.NET 2.0 Sicherheit, Mitgliedschaft und Rollenverwaltung](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Sichern von Anmeldesteuerelementen](https://msdn.microsoft.com/en-us/library/ms178346.aspx)
-- [Die &lt;Authentifizierung&gt; Element](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [Die &lt;Forms&gt; -Element für &lt;Authentifizierung&gt;](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
-- [Die &lt;MachineKey&gt; Element](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)
+- [Sichern von Anmeldesteuerelementen](https://msdn.microsoft.com/library/ms178346.aspx)
+- [Die &lt;Authentifizierung&gt; Element](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [Die &lt;Forms&gt; -Element für &lt;Authentifizierung&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [Die &lt;MachineKey&gt; Element](https://msdn.microsoft.com/library/w8h3skw9.aspx)
 - [Grundlegendes zu den Formularauthentifizierungsticket und Cookies](https://support.microsoft.com/kb/910443)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Lehrvideos auf die Themen in diesem Lernprogramm
 
 - [Gewusst wie: Ändern der Authentifizierungseigenschaften Formulare](../../../videos/authentication/how-to-change-the-forms-authentication-properties.md)
 - [Zum Einrichten und Verwenden von Cookies Authentifizierung in einer ASP.NET-Anwendung](../../../videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-- [ASP Forms Anmeldung Verschiebung](../../../videos/authentication/asp-forms-login-relocation.md)
-- [Benutzerdefinierte Schlüssel Anmeldekonfiguration von Formularen](../../../videos/authentication/forms-login-custom-key-configuration.md)
-- [Fügen Sie benutzerdefinierte Daten hinzu, um die Authentifizierungsmethode](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
-- [Verwenden benutzerdefinierter Prinzipal-Objekte](../../../videos/authentication/use-custom-principal-objects.md)
+- [Verschieben der ASP-Formularanmeldung](../../../videos/authentication/asp-forms-login-relocation.md)
+- [Benutzerdefinierte Schlüsselkonfiguration für die Formularanmeldung](../../../videos/authentication/forms-login-custom-key-configuration.md)
+- [Hinzufügen von benutzerdefinierten Daten zur Authentifizierungsmethode](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
+- [Verwenden von benutzerdefinierten Prinzipalobjekten](../../../videos/authentication/use-custom-principal-objects.md)
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 

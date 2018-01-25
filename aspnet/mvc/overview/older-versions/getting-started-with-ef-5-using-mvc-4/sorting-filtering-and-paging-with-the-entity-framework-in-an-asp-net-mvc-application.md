@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18c3825c58e7cfe0a73817a8431593c661c5fa4f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortieren, Filtern und Paging mit Entity Framework in einer ASP.NET MVC-Anwendung (3 von 10)
 ====================
@@ -64,7 +64,7 @@ Hierbei handelt es sich um ternäre-Anweisungen. Das erste Schema gibt an, dass 
 | Datum aufsteigend | ascending | descending |
 | Absteigend nach Datum | ascending | ascending |
 
-Die Methode verwendet [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) an die Spalte zu sortieren. Der Code erstellt ein [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) Variable vor der `switch` -Anweisung ändert sie in der `switch` -Anweisung, und ruft die `ToList` Methode nach der `switch` Anweisung. Beim Erstellen und ändern Sie `IQueryable` Variablen, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird nicht ausgeführt, bis Sie konvertieren die `IQueryable` Objekt in eine Auflistung durch Aufrufen einer Methode wie z. B. `ToList`. Aus diesem Grund dieser Code führt zu einer einzelnen Abfrage, die nicht, bis ausgeführt wird die `return View` Anweisung.
+Die Methode verwendet [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) an die Spalte zu sortieren. Der Code erstellt ein [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) Variable vor der `switch` -Anweisung ändert sie in der `switch` -Anweisung, und ruft die `ToList` Methode nach der `switch` Anweisung. Beim Erstellen und ändern Sie `IQueryable` Variablen, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird nicht ausgeführt, bis Sie konvertieren die `IQueryable` Objekt in eine Auflistung durch Aufrufen einer Methode wie z. B. `ToList`. Aus diesem Grund dieser Code führt zu einer einzelnen Abfrage, die nicht, bis ausgeführt wird die `return View` Anweisung.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Hinzufügen von links, um die Indexansicht Student für den Spaltenüberschrift
 
@@ -92,7 +92,7 @@ In *Controllers\StudentController.cs*, ersetzen Sie die `Index` -Methode durch f
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Sie hinzugefügt haben eine `searchString` Parameter an die `Index` Methode. Sie haben auch die LINQ-Anweisung hinzugefügt eine `where` Clausethat wählt nur die Studenten, deren vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, die Sie die Indexansicht hinzufügen. Die Anweisung, die fügt der [, in dem](https://msdn.microsoft.com/en-us/library/bb535040.aspx) -Klausel nur, wenn ein Wert für die Suche ausgeführt wird.
+Sie hinzugefügt haben eine `searchString` Parameter an die `Index` Methode. Sie haben auch die LINQ-Anweisung hinzugefügt eine `where` Clausethat wählt nur die Studenten, deren vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, die Sie die Indexansicht hinzufügen. Die Anweisung, die fügt der [, in dem](https://msdn.microsoft.com/library/bb535040.aspx) -Klausel nur, wenn ein Wert für die Suche ausgeführt wird.
 
 > [!NOTE]
 > In vielen Fällen können Sie die gleiche Methode aufrufen, bei einer Entity Framework-Entitätenmenge oder als eine Erweiterungsmethode für eine in-Memory-Auflistung. Die Ergebnisse sind normalerweise identisch, aber in einigen Fällen unterscheiden. Angenommen, die .NET Framework-Implementierung von der `Contains` Methode werden alle Zeilen zurückgegeben, wenn Sie eine leere Zeichenfolge an sie übergeben, aber der Entity Framework-Datenanbieter für SQL Server Compact 4.0 0 Zeilen für leere Zeichenfolgen zurück. Daher den Code im Beispiel (Einfügen der `Where` -Anweisung innerhalb einer `if` Anweisung) wird sichergestellt, dass Sie die gleichen Ergebnisse für alle Versionen von SQL Server erhalten. Darüber hinaus die .NET Framework-Implementierung von der `Contains` -Methode führt einen Vergleich Groß-/Kleinschreibung beachtet, standardmäßig aber Entity Framework SQL Server-Anbietern für Vergleiche Groß-/Kleinschreibung standardmäßig. Aus diesem Grund Aufrufen der `ToUpper` Methode, um den Test explizit Groß-/Kleinschreibung, wird sichergestellt, dass die Ergebnisse nicht verändern, wenn Sie ändern den Code später, um ein Repository zu verwenden, die zurückgibt, wird ein `IEnumerable` Auflistung anstelle von einer `IQueryable` Objekt. (Beim Aufrufen der `Contains` Methode auf eine `IEnumerable` -Auflistung, erhalten Sie die .NET Framework-Implementierung; Wenn Sie es auf Aufrufen einer `IQueryable` -Objekt erhalten Sie die Implementierung des Anbieters.)
@@ -158,7 +158,7 @@ Am Ende der Methode die `ToPagedList` Erweiterungsmethode für Studenten `IQuery
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Die `ToPagedList` Methode nimmt eine Seitenzahl an. Die zwei Fragezeichen darstellen der [Null-Sammeloperator](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Der Null-Sammeloperator definiert einen Standardwert für einen NULL-Werte zulässt. der Ausdruck `(page ?? 1)` bedeutet, dass der Rückgabewert von `page` , wenn es einen Wert, oder 1 zurück, wenn `page` ist null.
+Die `ToPagedList` Methode nimmt eine Seitenzahl an. Die zwei Fragezeichen darstellen der [Null-Sammeloperator](https://msdn.microsoft.com/library/ms173224.aspx). Der Null-Sammeloperator definiert einen Standardwert für einen NULL-Werte zulässt. der Ausdruck `(page ?? 1)` bedeutet, dass der Rückgabewert von `page` , wenn es einen Wert, oder 1 zurück, wenn `page` ist null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Können die Indexansicht Student Paginierungslinks hinzufügen
 
@@ -170,11 +170,11 @@ Die `@model` Anweisung am oberen Rand der Seite "gibt an, dass die Sicht nun Ruf
 
 Die `using` -Anweisung für `PagedList.Mvc` bietet Zugriff auf das MVC-Hilfsprogramm für die Auslagerung Schaltflächen.
 
-Der Code verwendet eine Überladung der [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) ermöglicht es an [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Der Code verwendet eine Überladung der [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) ermöglicht es an [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Die Standardeinstellung [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) übermittelt Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Die [W3C-Richtlinien für die Verwendung von HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) angeben, dass Sie GET verwenden soll, wenn die Aktion nicht in einem Update führt.
+Die Standardeinstellung [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) übermittelt Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Die [W3C-Richtlinien für die Verwendung von HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) angeben, dass Sie GET verwenden soll, wenn die Aktion nicht in einem Update führt.
 
 Im Textfeld wird mit der aktuellen Suchzeichenfolge initialisiert, wenn Sie eine neue Seite klicken Sie auf die aktuelle Suchzeichenfolge zu sehen.
 
@@ -291,7 +291,7 @@ Windows Azure SQL-Datenbank ist eine cloudbasierte relationale Datenbankdienst, 
 7. Klicken Sie auf den Pfeil nach rechts am unteren Rand der Box. Der Assistent springt zu der **Datenbankeinstellungen** Schritt.
 8. In der **Namen** geben *ContosoUniversityDB*.
 9. In der **Server** wählen Sie im **neue SQL-Datenbankserver**. Wenn Sie einen Server zuvor erstellt haben, können Sie Alternativ können Sie diesen Server aus der Dropdown-Liste auswählen.
-10. Geben Sie einen Administrator **ANMELDENAME** und **Kennwort**. Wenn Sie ausgewählt haben **neue SQL-Datenbankserver** Sie sind nicht Sie einen vorhandenen Namen und Kennwort hier eingeben, die Sie einen neuen Namen und ein Kennwort, die Sie jetzt definieren, zur späteren Verwendung beim Zugriff auf die Datenbank eingeben. Wenn Sie einen Server ausgewählt haben, den Sie zuvor erstellt haben, müssen Sie Anmeldeinformationen für diesen Server eingeben. Sie wird nicht für dieses Lernprogramm wählen die ***erweitert*** Kontrollkästchen. Die ***erweitert*** Optionen ermöglichen es Ihnen, legen Sie die Datenbank [Sortierung](https://msdn.microsoft.com/en-us/library/aa174903(v=SQL.80).aspx).
+10. Geben Sie einen Administrator **ANMELDENAME** und **Kennwort**. Wenn Sie ausgewählt haben **neue SQL-Datenbankserver** Sie sind nicht Sie einen vorhandenen Namen und Kennwort hier eingeben, die Sie einen neuen Namen und ein Kennwort, die Sie jetzt definieren, zur späteren Verwendung beim Zugriff auf die Datenbank eingeben. Wenn Sie einen Server ausgewählt haben, den Sie zuvor erstellt haben, müssen Sie Anmeldeinformationen für diesen Server eingeben. Sie wird nicht für dieses Lernprogramm wählen die ***erweitert*** Kontrollkästchen. Die ***erweitert*** Optionen ermöglichen es Ihnen, legen Sie die Datenbank [Sortierung](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx).
 11. Wählen Sie die gleiche **Region** , die Sie ausgewählt haben, für die Website.
 12. Klicken Sie auf das Häkchen unten rechts neben dem Feld, um anzugeben, dass Sie fertig sind.   
   
@@ -367,7 +367,7 @@ Windows Azure SQL-Datenbank ist eine cloudbasierte relationale Datenbankdienst, 
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-Zu diesem Zeitpunkt Ihrer *SchoolContext* Datenbank wurde in der Windows Azure SQL-Datenbank erstellt, da Sie ausgewählte **führen Sie Code First-Migrationen (wird beim Anwendungsstart ausgeführt)**. Die *"Web.config"* -Datei in die bereitgestellte Website geändert wurde, damit die [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) Initialisierer führen zum ersten Mal Code liest oder schreibt Daten in der Datenbank (die geschah, als Sie ausgewählt haben die **Studenten** Registerkarte "):
+Zu diesem Zeitpunkt Ihrer *SchoolContext* Datenbank wurde in der Windows Azure SQL-Datenbank erstellt, da Sie ausgewählte **führen Sie Code First-Migrationen (wird beim Anwendungsstart ausgeführt)**. Die *"Web.config"* -Datei in die bereitgestellte Website geändert wurde, damit die [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) Initialisierer führen zum ersten Mal Code liest oder schreibt Daten in der Datenbank (die geschah, als Sie ausgewählt haben die **Studenten** Registerkarte "):
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
@@ -387,7 +387,7 @@ Sie finden die bereitgestellte Version der Datei "Web.config" auf dem lokalen Co
 
 ## <a name="code-first-initializers"></a>Erste Initialisierer Code
 
-Im Abschnitt Bereitstellung Sie gesehen haben die [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) Initialisierer verwendet wird. Code enthält zunächst auch andere Initialisierer, die Sie verwenden können, einschließlich, [CreateDatabaseIfNotExists](https://msdn.microsoft.com/en-us/library/gg679221(v=vs.103).aspx) (Standard), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=VS.103).aspx) und [ DropCreateDatabaseAlways](https://msdn.microsoft.com/en-us/library/gg679506(v=VS.103).aspx). Die `DropCreateAlways` Initialisierer kann nützlich zum Einrichten von Bedingungen für die Komponententests werden. Sie können auch eigene Initialisierer schreiben, und Sie können einen Initialisierer explizit aufrufen, wenn Sie nicht warten, bis die Anwendung liest aus oder in die Datenbank geschrieben werden sollen. Eine umfassende Erläuterung der Initialisierer, finden Sie in Kapitel 6 des Buchs [Entity Framework-Programmierung: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman und Rowan Miller.
+Im Abschnitt Bereitstellung Sie gesehen haben die [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) Initialisierer verwendet wird. Code enthält zunächst auch andere Initialisierer, die Sie verwenden können, einschließlich, [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (Standard), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) und [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). Die `DropCreateAlways` Initialisierer kann nützlich zum Einrichten von Bedingungen für die Komponententests werden. Sie können auch eigene Initialisierer schreiben, und Sie können einen Initialisierer explizit aufrufen, wenn Sie nicht warten, bis die Anwendung liest aus oder in die Datenbank geschrieben werden sollen. Eine umfassende Erläuterung der Initialisierer, finden Sie in Kapitel 6 des Buchs [Entity Framework-Programmierung: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman und Rowan Miller.
 
 ## <a name="summary"></a>Zusammenfassung
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d5d89a6a82c91b915d61ddc3c350ea0935511c07
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5ec43ac78be4a9452ebaa6495a6883506ac162f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET-Fehlerbehandlung
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -313,7 +313,7 @@ In diesem Lernprogramm haben Sie gelernt, zur Behandlung von Fehlern auf Anwendu
 
 ## <a name="tutorial-series-conclusion"></a>Zusammenfassung der Reihe von Lernprogrammen
 
-*Vielen Dank, dass folgende zusammen. Ich hoffe, diese Reihe von Lernprogrammen Sie ASP.NET Web Forms kennen gelernt haben. Wenn Sie weitere Informationen zu Web Forms-Funktionen in ASP.NET 4.5 und Visual Studio 2013 verfügbar möchten, finden Sie unter* [ *ASP.NET und Webtools für Visual Studio 2013-Versionshinweise* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Achten Sie auch auf einen Blick auf das Lernprogramm erwähnt, der*   ***Arbeitsschritte *** Abschnitt und Defintely Probieren Sie Sie aus der* [ *kostenlose Azure-Testversion* ](https://azure.microsoft.com/pricing/free-trial/)*.*
+*Vielen Dank, dass folgende zusammen. Ich hoffe, diese Reihe von Lernprogrammen Sie ASP.NET Web Forms kennen gelernt haben. Wenn Sie weitere Informationen zu Web Forms-Funktionen in ASP.NET 4.5 und Visual Studio 2013 verfügbar möchten, finden Sie unter* [ *ASP.NET und Webtools für Visual Studio 2013-Versionshinweise* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Achten Sie auch auf einen Blick auf das Lernprogramm erwähnt, der* ***Arbeitsschritte *** Abschnitt und Defintely Probieren Sie Sie aus der* [ *kostenlose Azure-Testversion* ](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![Vielen Dank, dass - Erik](aspnet-error-handling/_static/image10.png)  
 
@@ -335,22 +335,22 @@ Weitere Informationen zum Bereitstellen der Webanwendung in Microsoft Azure, fin
 
 Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträge auf den Inhalt dieser Reihe von Lernprogrammen vorgenommen:
 
-- [Alberto Poblacion, MVP &amp; MCT, Spanien](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, Spanien](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen, Niederlande](http://blog.alexthissen.nl/) (twitter: [ @alexthissen ](http://twitter.com/alexthissen))
 - [Andre Tournier, USA](http://andret503.wordpress.com/)
 - Apurva Joshi, Microsoft
 - [Bojan Vrhovnik, Slowenien](http://twitter.com/bvrhovnik)
 - [Bruno Sonnino, Brasilien](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
-- [Carlos Dos Santos, Brasilien](http://www.carloscds.net/)
+- [Carlos dos Santos, Brazil](http://www.carloscds.net/)
 - [Dave Campbell, USA](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
 - [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Michael Doppelkreuze, USA](http://www.930solutions.com/) (twitter: [ @mrsharps ](http://twitter.com/mrsharps))
 - Mike PPPoE
 - [Mitchel Verkäufer, USA](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
-- [Paulo Morgado Portugal](http://paulomorgado.net/)
+- [Paulo Morgado, Portugal](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
-- [TIM Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
+- [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## <a name="community-contributions"></a>Beiträge aus der Community
@@ -363,4 +363,4 @@ Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträ
  Visual Studio 2012-Übersetzung: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
 >[!div class="step-by-step"]
-[Zurück](url-routing.md)
+[Vorherige](url-routing.md)

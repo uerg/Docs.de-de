@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 997756ff8d48e41da981491d6154f3107ec7a051
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d38e6fbc3407e4beca6942bbdefcaa8258ebc5ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-signalr-self-host"></a>Lernprogramm: SignalR Selbsthosting
 ====================
@@ -94,7 +94,7 @@ In diesem Lernprogramm erstellen Sie einen Server, der gehostet wird in einer Ko
 
     Der obige Code umfasst drei Klassen:
 
-    - **Programm**, einschließlich der **Main** Methode primären Ausführungspfad definieren. Bei dieser Methode wird eine Webanwendung vom Typ **Start** wird an der angegebenen URL gestartet (`http://localhost:8080`). Wenn die Sicherheit für den Endpunkt erforderlich ist, kann SSL implementiert werden. Finden Sie unter [Vorgehensweise: Konfigurieren eines Anschlusses mit einem SSL-Zertifikat](https://msdn.microsoft.com/en-us/library/ms733791.aspx) für Weitere Informationen.
+    - **Programm**, einschließlich der **Main** Methode primären Ausführungspfad definieren. Bei dieser Methode wird eine Webanwendung vom Typ **Start** wird an der angegebenen URL gestartet (`http://localhost:8080`). Wenn die Sicherheit für den Endpunkt erforderlich ist, kann SSL implementiert werden. Finden Sie unter [Vorgehensweise: Konfigurieren eines Anschlusses mit einem SSL-Zertifikat](https://msdn.microsoft.com/library/ms733791.aspx) für Weitere Informationen.
     - **Start**, Klasse, die die Konfiguration für den SignalR-Server enthält (die einzige Konfiguration, die in diesem Lernprogramm wird verwendet, ist der Aufruf an `UseCors`), und der Aufruf von `MapSignalR`, die Routen für Hub Objekte im Projekt erstellt.
     - **MyHub**, die SignalR-Hub-Klasse, die die Anwendung für Clients bereitstellt. Diese Klasse verfügt über eine einzelne Methode **senden**, dass Clients aufgerufen werden, um eine Nachricht an alle anderen verbundenen Clients zu übertragen.
 6. Kompilieren Sie die Anwendung, und führen Sie sie aus. Die Adresse, die der Server ausgeführt wird, sollte in einem Konsolenfenster angezeigt.

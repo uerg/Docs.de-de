@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 659976d40f6109422f222d794b54d837faeb0764
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 284f3bebcd07c9cc70b3a7d645f353f5797889a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>Behandeln von Ausnahmen für BLL und DAL-Ebene (c#)
 ====================
@@ -101,7 +101,7 @@ Wenn ein Fehler auftritt, möchten wir nur die Bezeichnung, die einmal angezeigt
 
 Wenn eine Ausnahme ausgelöst wird, müssen wir weisen Sie die Details der Ausnahme, um die `ExceptionDetails` Label-Steuerelement s `Text` Eigenschaft. Da seinen Ansichtszustand, bei nachfolgenden Postbacks deaktiviert ist der `Text` Eigenschaft s programmgesteuerte Änderungen verloren, das Zurückkehren zur des Standardtexts (eine leere Zeichenfolge), dadurch wird die Warnmeldung ausgeblendet.
 
-Um zu bestimmen, wann ein Fehler ausgelöst wurde um eine nützliche Nachricht auf der Seite anzuzeigen, müssen wir Hinzufügen einer `Try ... Catch` -block, um die `UpdateCommand` -Ereignishandler. Die `Try` Teil enthält Code, der zu einer Ausnahme führen könnte, während die `Catch` -Block enthält Code, der bei einer Ausnahme ausgeführt wird. Sehen Sie sich die [Exception Handling Fundamentals](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx) auf .NET Framework-Dokumentation weitere Informationen im Abschnitt der `Try ... Catch` Block.
+Um zu bestimmen, wann ein Fehler ausgelöst wurde um eine nützliche Nachricht auf der Seite anzuzeigen, müssen wir Hinzufügen einer `Try ... Catch` -block, um die `UpdateCommand` -Ereignishandler. Die `Try` Teil enthält Code, der zu einer Ausnahme führen könnte, während die `Catch` -Block enthält Code, der bei einer Ausnahme ausgeführt wird. Sehen Sie sich die [Exception Handling Fundamentals](https://msdn.microsoft.com/library/2w8f0bss.aspx) auf .NET Framework-Dokumentation weitere Informationen im Abschnitt der `Try ... Catch` Block.
 
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
@@ -142,7 +142,7 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Entwurfsrichtlinien für Ausnahmen](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [Entwurfsrichtlinien für Ausnahmen](https://msdn.microsoft.com/library/ms298399.aspx)
 - [Error Logging Modules und Ereignishandler (ELMAH)](http://workspaces.gotdotnet.com/elmah) (eine Open Source-Bibliothek für die Protokollierung von Fehlern)
 - [Enterprise Library für .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (einschließlich der Ausnahme Management Application Block)
 

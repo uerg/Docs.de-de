@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8294b5a8824c6a27e958e1ea78b7909a134447d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a67ca5422d4353b8c23b3fd804246906b8b6d717
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>Erstellen Sie eine Datenbankanwendung Film innerhalb von 15 Minuten mit ASP.NET MVC (c#)
 ====================
@@ -59,21 +59,21 @@ Sie benötigen Visual Studio 2008 oder Visual Web Developer 2008 Express, zum Er
 
 Wenn Sie Visual Studio 2008 nicht besitzen, können Sie eine 90-Tage-Testversion von Visual Studio 2008 dieser Website herunterladen:
 
-[https://msdn.Microsoft.com/en-US/VS2008/Products/cc268305.aspx](https://msdn.microsoft.com/en-us/vs2008/products/cc268305.aspx)
+[https://msdn.microsoft.com/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/vs2008/products/cc268305.aspx)
 
 Alternativ können Sie ASP.NET MVC Anwendungen mit Visual Web Developer Express 2008 erstellen. Wenn Sie Visual Web Developer Express verwenden möchten, müssen Sie Service Pack 1 installiert haben. Sie können Visual Web Developer-2008 Express mit Service Pack 1 von dieser Website herunterladen:
 
-[https://www.Microsoft.com/downloads/details.aspx?FamilyID=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;Displaylang = En](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
 Nach der Installation von Visual Studio 2008 oder Visual Web Developer 2008 müssen Sie ASP.NET MVC-Framework zu installieren. Sie können das ASP.NET MVC-Framework von folgender Website herunterladen:
 
-[https://www.ASP.NET/MVC/](../../../index.md)
+[https://www.asp.net/mvc/](../../../index.md)
 
 > [!NOTE] 
 > 
 > Anstelle von ASP.NET-Framework und ASP.NET MVC-Framework einzeln herunterladen, können Sie den Webplattform-Installer nutzen. Der Webplattform-Installer ist eine Anwendung, die Ihnen ermöglicht, die die installierten Anwendungen problemlos zu verwalten sind Ihrem Computer:
 > 
-> [https://www.Microsoft.com/Web/Gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
+> [https://www.microsoft.com/web/gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
 
 
 ## <a name="creating-an-aspnet-mvc-web-application-project"></a>Erstellen einer ASP.NET MVC-Webanwendungsprojekts
@@ -105,7 +105,7 @@ ASP.NET MVC-Anwendung verfügt über einen standardmäßigen Satz von Ordnern: e
 
 Wenn Sie eine neue MVC-Anwendung mit Visual Studio erstellen, erhalten Sie eine beispielanwendung aus. Da wir von Grund auf neu starten möchten, müssen wir den Inhalt für diese Anwendung zu löschen. Sie müssen die folgende Datei und den folgenden Ordner löschen:
 
-- Controllers\HomeController. cs
+- Controllers\HomeController.cs
 - Views\Home den
 
 ## <a name="creating-the-database"></a>Erstellen der Datenbank

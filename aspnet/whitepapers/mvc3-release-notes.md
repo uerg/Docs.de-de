@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: a86fae5698c54a71cb598f508aa91e7d96d1b409
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 - [ASP IST. MVC 3 notiert Beta (6 Oktober 2010)](#TOC_ASP_NET_3_Beta)
 
     - [Neue Funktionen in ASP.NET MVC 3-Beta](#0.1__Toc274034215)
-    - [NuPack-Paket-Manager](#0.1__Toc274034216)
+    - [NuPack Package Manager](#0.1__Toc274034216)
     - [Verbesserte neues Projekt (Dialogfeld)](#0.1__Toc274034217)
     - [Vereinfachte Möglichkeit stark angeben typisierte Modelle in Razor-Ansichten](#0.1__Toc274034218)
     - [Unterstützung für neue ASP.NET Web Pages-Hilfsmethoden](#0.1__Toc274034219)
@@ -107,18 +107,18 @@ Dieses Dokument beschreibt die Version von ASP.NET MVC 3 RTM für Visual Studio 
 
 Der vollständige Satz von Anmerkungen zu dieser Version für jede Vorabversion von ASP.NET MVC 3 finden Sie auf der ASP.NET-Website unter folgender URL:
 
-https://www.ASP.NET/Learn/Whitepapers/MVC3-Release-Notes
+https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
 ## <a name="installation-notes"></a>Hinweise zur installationsnachbereitung
 
 Um ASP.NET MVC 3 RTM mit dem Webplattform-Installer (Web PI) installieren, finden Sie auf der folgenden Seite:
 
-[https://www.Microsoft.com/Web/Gallery/Install.aspx?AppID=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
+[https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
 Alternativ können Sie das Installationsprogramm für ASP.NET MVC 3 RTM für Visual Studio 2010 auf der folgenden Seite herunterladen:
 
-https://go.Microsoft.com/fwlink/?LinkId=208140
+https://go.microsoft.com/fwlink/?LinkID=208140
 
 ASP.NET MVC 3 installiert werden kann und Seite-an-Seite ausführen können mit ASP.NET MVC 2.
 
@@ -137,11 +137,11 @@ ASP.NET MVC 3-Laufzeitkomponenten benötigen die folgende Software:
 
 Dokumentation für ASP.NET MVC ist auf der MSDN-Website unter folgender URL verfügbar:
 
-[https://go.Microsoft.com/fwlink/?LinkId=205717](https://go.microsoft.com/fwlink/?LinkId=205717)
+[https://go.microsoft.com/fwlink/?LinkId=205717](https://go.microsoft.com/fwlink/?LinkId=205717)
 
 Lernprogramme und Weitere Informationen zu ASP.NET MVC sind auf die MVC-Seite der ASP.NET-Website unter folgender URL verfügbar:
 
-[https://www.ASP.NET/MVC/](../mvc/index.md)
+[https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
 ## <a name="support"></a>Unterstützung
@@ -150,7 +150,7 @@ Dies ist eine vollständige Unterstützung geboten. Informationen zur Inanspruch
 
 Darüber hinaus können Sie Fragen zu dieser Version auf der ASP.NET MVC-Forum bereitgestellt, in denen die ASP.NET-Community informelle Unterstützung leisten häufig können gehören:
 
-[https://forums.ASP.NET/1146.aspx](https://forums.asp.net/1146.aspx)
+[https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
 ## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Aktualisieren eines ASP.NET MVC 2-Projekts zu ASP.NET MVC Update 3 Tools
@@ -163,9 +163,9 @@ Um eine vorhandene ASP.NET MVC 2-Anwendung auf Version 3 manuell zu aktualisiere
 2. Kopieren Sie die folgenden Dateien aus dem ASP.NET MVC 3-Projekt, in die entsprechende Position Ihres ASP.NET MVC 2-Projekts. Sie müssen alle Verweise auf die jQuery-Bibliothek für den neuen Dateinamen (jQuery-1.5.1.js) tragen zu aktualisieren: 
 
     - /Views/Web.config
-    - /Packages.config
-    - /Scripts/\*.js
-    - /Inhalt/Designs/\*.\*
+    - /packages.config
+    - /scripts/\*.js
+    - /Content/themes/\*.\*
 3. Kopieren der *Pakete* Ordner im Stammverzeichnis der leeren ASP.NET MVC 3-Projektmappe in das Stammverzeichnis der Projektmappe im Verzeichnis befindet sich die SLN Datei befindet.
 4. Wenn Ihr ASP.NET MVC 2-Projekt irgendwelche Bereiche enthält, kopieren Sie die Datei /Views/Web.config die *Ansichten* Ordner jedes Bereichs.
 5. In beiden "Web.config"-Dateien in das ASP.NET MVC 2-Projekt Global suchen Sie und Ersetzen Sie die ASP.NET MVC-Version. Suchen Sie nach: 
@@ -251,7 +251,7 @@ Das Dialogfeld, das Sie verwenden, um neue ASP.NET MVC 3-Projekte erstellen umfa
 
 Die Liste Projektvorlage enthält eine neue Vorlage Intranetanwendung. Diese Vorlage enthält Einstellungen für das Erstellen einer Webanwendung, die mithilfe von Windows-Authentifizierung anstatt der Formularauthentifizierung. Da eine Intranetanwendung bestimmte IIS-Einstellungen erforderlich, die in einer Projektvorlage gekapselt werden können ist, enthält die Vorlage eine Infodatei durch Anweisungen dazu, wie Sie die Projektvorlage in IIS zum funktionieren. Dokumentation für die eine neue Vorlage Intranetanwendung ist auf der MSDN-Website unter folgender URL verfügbar:
 
-[https://msdn.Microsoft.com/en-us/library/gg703322 (VS.98).aspx](https://msdn.microsoft.com/en-us/library/gg703322(VS.98).aspx)
+[https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Projektvorlagen sind nun HTML5 aktiviert
 
@@ -284,7 +284,7 @@ Code First legt das Hauptaugenmerk auf die das Modell unter Verwendung von POCO-
 
 Dokumentation für die Verwendung von Code Firstwith ASP.NET MVC ist auf der ASP.NET-Website unter den folgenden URLs verfügbar:
 
-[https://www.ASP.NET/MVC/Tutorials/Getting-Started-with-MVC3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+[https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
 ### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Neue Projektvorlagen: JavaScript-Bibliotheken als vorinstallierte NuGet-Pakete
@@ -465,7 +465,7 @@ In früheren Versionen, explizite Werte, die übergeben wurden, die *RenderActio
 - In früheren Versionen von ASP.NET MVC erstellt wurden die Aktionsfilter pro Anforderung außer in einigen Fällen. Dieses Verhalten wurde nie ein Verhalten garantiert jedoch lediglich ein Implementierungsdetail, und der Vertrag für Filter sie zustandslose berücksichtigt wurde. Filter werden in ASP.NET MVC 3 genauer zwischengespeichert. Aus diesem Grund können benutzerdefinierten Aktionsfiltern die Instanzstatus nicht ordnungsgemäß speichern unterbrochen werden.
 - Die Ausführungsreihenfolge für Ausnahmefilter wurde geändert, für die Ausnahmefilter, die dieselbe *Reihenfolge* Wert. In ASP.NET MVC 2 und früheren Ausnahmefilter auf dem Controller an, die die gleiche mussten *Reihenfolge* Wert wie denen auf eine Aktionsmethode vor die Ausnahmefilter auf die Aktionsmethode ausgeführt wurden. Dies würde i. d. r. der Fall sein, wenn Ausnahmefilter angewendet wurden ohne angegebenen *Reihenfolge* Wert. In ASP.NET MVC 3 wurde diese Reihenfolge umgekehrt, damit der spezifischste Ausnahmehandler zuerst ausgeführt wird. Wie in früheren Versionen Wenn die *Reihenfolge* explizit angegeben wird, werden die Filter in der angegebenen Reihenfolge ausgeführt werden.
 - Eine neue Eigenschaft mit dem Namen *FileExtensions* wurde hinzugefügt, um die *VirtualPathProviderViewEngine* Basisklasse. Wenn ASP.NET eine Ansicht von Pfad (nicht durch den Namen) sucht, werden nur Ansichten mit der Erweiterung in der Liste, die durch diese neue Eigenschaft angegebene enthaltenen berücksichtigt. Dies ist eine wichtige Änderung in Anwendungen, in denen ein benutzerdefinierte Buildanbieter registriert ist, um eine benutzerdefinierte Erweiterung für Web Form-Ansichten zu aktivieren und der Anbieter diese Sichten mit einem Namen, statt einen vollständigen Pfad verweist. Die problemumgehung besteht darin, Ändern des Werts der *FileExtensions* Eigenschaft, um die benutzerdefinierte Erweiterung einschließen.
-- Implementierungen von benutzerdefinierten Controller-Factory, die direkt implementieren die *IControllerFactory* Schnittstelle muss eine Implementierung der neuen bereitstellen *GetControllerSessionBehavior*  *Methode, die die Schnittstelle in dieser Version hinzugefügte*. Im Allgemeinen wird empfohlen, dass Sie nicht direkt diese Schnittstelle implementieren und stattdessen eine Klasse von leiten *DefaultControllerFactory*.
+- Implementierungen von benutzerdefinierten Controller-Factory, die direkt implementieren die *IControllerFactory* Schnittstelle muss eine Implementierung der neuen bereitstellen *GetControllerSessionBehavior ** Methode, die hinzugefügt wurde die Schnittstelle, die in dieser Version*. Im Allgemeinen wird empfohlen, dass Sie nicht direkt diese Schnittstelle implementieren und stattdessen eine Klasse von leiten *DefaultControllerFactory*.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bekannte Probleme
@@ -519,7 +519,7 @@ Die Liste der Projektvorlagen, die Sie im Dialogfeld angezeigt wird, wird in der
 <a id="_Toc276711788"></a>
 ### <a name="sessionless-controllers"></a>Sessionless-Controller
 
-Die neue *ControllerSessionStateAttribute* bietet Ihnen mehr Kontrolle über das Verhalten des Sitzungszustands für Controller durch Angabe einer [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/en-us/library/system.web.sessionstate.sessionstatebehavior.aspx) -Enumerationswert.
+Die neue *ControllerSessionStateAttribute* bietet Ihnen mehr Kontrolle über das Verhalten des Sitzungszustands für Controller durch Angabe einer [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) -Enumerationswert.
 
 Das folgende Beispiel veranschaulicht das Deaktivieren des Sitzungsstatus für alle Anforderungen an einen Controller.
 
@@ -625,7 +625,7 @@ Alternativ zum Deaktivieren der anforderungsüberprüfung für jede Eigenschaft 
 - Bei der Bearbeitung einer Razor-Ansicht (cshtml-Datei), das Menüelement zu Controller wechseln Sie in Visual Studio ist nicht verfügbar, und es sind keine Codeausschnitte.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3-Beta
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
 
 ASP.NET MVC 3 Beta wurde 6 Oktober 2010 veröffentlicht. Die folgenden Hinweise gelten für die Betaversion und unterliegen alle Updates oder Änderungen, die im obigen Abschnitt zu ASP.NET MVC 3 Release Candidate verwiesen.
 
@@ -669,17 +669,17 @@ In dieser Version können Sie die folgende Syntax verwenden:
 
 Die neue ASP.NET Web Pages-Technologie umfasst einen Satz von Hilfsmethoden, die für das Hinzufügen von häufig verwendeten Funktionen, Ansichten und Controllern nützlich sind. ASP.NET MVC 3 unterstützt diese Hilfsmethoden innerhalb der Controller und Ansichten (falls zutreffend). Diese Methoden sind in der Assembly System.Web.Helpers enthalten. Die folgende Tabelle enthält nur einige der ASP.NET Web Pages-Hilfsmethoden.
 
-| **Hilfsprogramm** | **Beschreibung** |
+| **Helper** | **Beschreibung** |
 | --- | --- |
 | Diagramm | Rendert ein Diagramm innerhalb einer Ansicht an. Enthält Methoden, wie z. B. Chart.ToWebImage Chart.Save und Chart.Write. |
 | Crypto | Verwendet Hashalgorithmen ordnungsgemäß erstellen Salt-Wert und ein Hashwert erstellt Kennwörter. |
 | WebGrid | Wird eine Auflistung von Objekten (in der Regel Daten aus einer Datenbank) als Raster gerendert. Unterstützt das paging und sortieren. |
-| Webbild | Rendert ein Bild an. |
+| WebImage | Rendert ein Bild an. |
 | WebMail | Sendet eine e-Mail-Nachricht an. |
 
 Eine Kurzübersicht Thema mit den Hilfsprogrammen und grundlegende Syntax steht als Teil der Dokumentation des ASP.NET Razor-Syntax unter folgender URL:
 
-[https://www.ASP.NET/WebMatrix/Tutorials/ASP-NET-Web-Pages-API-Reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
 ### <a id="0.1__Toc274034220"></a>Unterstützung für zusätzliche Abhängigkeiten-Injection
 
@@ -743,8 +743,8 @@ ASP.NET MVC umfasst Ajax-Hilfsmethoden, z. B. Folgendes an:
 
 Diese Methoden verwenden JavaScript zum Aufrufen einer Aktionsmethode auf dem Server statt verwenden ein komplettes Postback. Diese Funktionalität wurde aktualisiert, um die jQuery in einer unaufdringlichen Weise nutzen. Anstatt intrusively ausgeben Client Inlineskripts, trennen mit diesen Hilfsmethoden das Verhalten von der Markuperweiterung durch das Ausgeben von HTML5-Attribute, die mit der *Data-Ajax* Präfix. Verhalten wird dann dem Markup durch Verweisen auf die entsprechenden JavaScript-Dateien angewendet. Stellen Sie sicher, dass die folgenden JavaScript-Dateien verwiesen werden:
 
-- jQuery-1.4.1.js
-- jQuery.unobtrusive.AJAX.js
+- jquery-1.4.1.js
+- jquery.unobtrusive.ajax.js
 
 Diese Funktion ist standardmäßig in der Datei "Web.config" in der ASP.NET MVC 3-Vorlagen für neuen Projekte aktiviert, aber es ist für vorhandene Projekte standardmäßig deaktiviert. Weitere Informationen finden Sie unter [hinzugefügt anwendungsweite Flags für die Clientvalidierung und unaufdringliches JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) weiter unten in diesem Dokument.
 
@@ -760,9 +760,9 @@ Dies erfordert, dass ViewContext.UnobtrusiveJavaScriptEnabled-Eigenschaft auf "t
 
 Stellen Sie außerdem sicher, dass die folgenden JavaScript-Dateien verwiesen werden.
 
-- jQuery-1.4.1.js
-- jQuery.Validate.js
-- jQuery.Validate.unobtrusive.js
+- jquery-1.4.1.js
+- jquery.validate.js
+- jquery.validate.unobtrusive.js
 
 Diese Funktion ist standardmäßig in der Datei "Web.config" in Vorlagen für neue ASP.NET MVC 3-Projekte auf aktiviert, aber es ist für vorhandene Projekte standardmäßig deaktiviert. Weitere Informationen finden Sie unter [neue anwendungsweite-Flags für die Clientvalidierung und unaufdringliches JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) weiter unten in diesem Dokument.
 
@@ -800,7 +800,7 @@ Die vorherigen ASP.NET MVC-Vorschau enthalten Unterstützung für Ansichten mit 
 
 Eine Einführung zur Verwendung von Visual Basic-Syntax in VBHTML-Seiten finden Sie im Lernprogramm unter folgender URL:
 
-[https://www.ASP.NET/WebMatrix/Tutorials/ASP-NET-Web-Pages-Visual-Basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
 ### <a id="0.1__Toc274034226"></a>Präzisere Kontrolle über "validateinputattribute"
 

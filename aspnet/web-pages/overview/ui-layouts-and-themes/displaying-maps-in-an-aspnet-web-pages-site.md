@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a802e4fed81fadca195c8aa83c37c7100ac5cbec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Anzeigen von Maps an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -70,7 +70,7 @@ Schließlich, wenn Sie die Bing Maps verwenden möchten, müssen Sie zuerst erst
     Sie können angeben, dass Sie die Verwendung des Schlüssels für möchten **Auswertung/Test**. Wenn Sie auf dem lokalen Computer mithilfe von WebMatrix und IIS Express die Zuordnungsfunktion testen, rufen Sie die **Website** Arbeitsbereich, und beachten Sie die URL Ihrer Website (z. B. `http://localhost:50408`, obwohl die Portnummer wahrscheinlich unterschiedlich sind). Sie können dies *"localhost"* Adresse wie der Standort, wenn Sie sich registrieren.
 2. Nachdem Sie für ein Konto registriert haben, wechseln Sie zu den Bing Maps Account Center, und klicken Sie auf **erstellen oder Anzeigen von Schlüsseln**:
 
-    ![Zuordnung 2](displaying-maps-in-an-aspnet-web-pages-site/_static/image1.png)
+    ![mapping-2](displaying-maps-in-an-aspnet-web-pages-site/_static/image1.png)
 3. Notieren Sie sich den Schlüssel, den Bing erstellt.
 
 ## <a name="creating-a-map-based-on-an-address-using-google"></a>Erstellen einer Zuordnung basierend auf einer Adresse (mithilfe von Google)
@@ -91,7 +91,7 @@ Das folgende Beispiel zeigt, wie eine Seite zu erstellen, die eine Zuordnung bas
     - Der Aufruf der `@Maps.GetGoogleHtml` im Text der Seite. Um eine Adresse zuordnen, müssen Sie eine Adresszeichenfolge übergeben. Die Methoden für die andere Module der Karte funktionieren auf ähnliche Weise (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
 - Führen Sie die Seite, und geben Sie eine Adresse. Die Seite zeigt eine Zuordnung, basierend auf Google Maps, die den Speicherort zeigt, den Sie angegeben haben.
 
-    ![1-Zuordnung](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+    ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Erstellen einer Zuordnung basierend auf den Breiten- und Längengrad Koordinaten (über Bing)
 
@@ -104,14 +104,14 @@ In diesem Beispiel wird gezeigt, wie zum Erstellen einer Zuordnung basierend auf
 3. Führen Sie die *MapCoordinates.cshtml* Seite Geben Sie die Breiten-und Längenkoordinaten, und klicken Sie dann auf die **Map It!** Schaltfläche. (Wenn Sie nicht, dass alle Koordinaten wissen, versuchen Sie Folgendes. Dies ist ein Speicherort in das Microsoft in Redmond wurde auf.)
 
     - Breitengrad: 47.6781005859375
-    - Längengrad:-122.158317565918
+    - Longitude: -122.158317565918
 
     Die Seite wird angezeigt, über die Koordinaten, die Sie angegeben haben.
 
-    ![Zuordnung 3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 
-[Microsoft.Maps-API-Referenz](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Microsoft.Maps-API-Referenz](https://msdn.microsoft.com/library/gg427611.aspx)

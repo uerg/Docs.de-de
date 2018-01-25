@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4904037838441942ea266ce71d735642d0a717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async und gespeicherten Prozeduren mit dem Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
@@ -128,11 +128,11 @@ Einige Entwickler und Datenbankadministratoren möchten gespeicherte Prozeduren 
 
     ![Abteilung Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Code wird zuerst Standardnamen gespeicherte Prozedur erstellt. Wenn Sie eine vorhandene Datenbank verwenden, müssen Sie die Namen der gespeicherten Prozedur anpassen, um gespeicherte Prozeduren, die bereits in der Datenbank definierten verwenden. Informationen hierzu finden Sie unter [Entity Framework Code erste Insert/Update/Delete Stored Procedures](https://msdn.microsoft.com/en-us/data/dn468673).
+Code wird zuerst Standardnamen gespeicherte Prozedur erstellt. Wenn Sie eine vorhandene Datenbank verwenden, müssen Sie die Namen der gespeicherten Prozedur anpassen, um gespeicherte Prozeduren, die bereits in der Datenbank definierten verwenden. Informationen hierzu finden Sie unter [Entity Framework Code erste Insert/Update/Delete Stored Procedures](https://msdn.microsoft.com/data/dn468673).
 
 Wenn Sie anpassen, welche gespeicherten Prozeduren werden generiert werden sollen, können Sie die scaffolded Code für die Migrationen bearbeiten `Up` -Methode, die gespeicherte Prozedur erstellt. Auf diese Weise werden die Änderungen bei jedem wiedergegeben, dass die Migration wird ausgeführt, und gelten für die Produktionsdatenbank bei Migrationen wird automatisch in der Produktion nach der Bereitstellung ausgeführt werden.
 
-Wenn Sie eine vorhandene gespeicherte Prozedur, die in eine vorherige Migration erstellt wurde, ändern möchten, können Sie mithilfe des Befehls Add-Migration um eine leere Migration zu generieren und dann manuell Code schreiben, aufgerufen der [AlterStoredProcedure](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) Methode .
+Wenn Sie eine vorhandene gespeicherte Prozedur, die in eine vorherige Migration erstellt wurde, ändern möchten, können Sie mithilfe des Befehls Add-Migration um eine leere Migration zu generieren und dann manuell Code schreiben, aufgerufen der [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) Methode .
 
 ## <a name="deploy-to-azure"></a>In Azure bereitstellen
 

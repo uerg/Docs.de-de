@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>Problembehandlung für SignalR
 ====================
@@ -192,7 +192,7 @@ Es gibt mehrere Ursachen für dieses Problem. Überprüfen Sie die folgenden:
 
 - **Hub-Proxy-Adresse Verweis nicht korrekt formatiert:** dieser Fehler wird häufig angezeigt, wenn der Verweis auf die generierten Hub Proxyadresse nicht ordnungsgemäß formatiert ist. Stellen Sie sicher, dass der Verweis auf die Adresse Hub ordnungsgemäß erstellt wurde. Finden Sie unter [wie der dynamisch generierten Proxy Verweise](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Details.
 - **Hinzufügen von Routen für die Anwendung vor dem Hinzufügen der Route Hub:** Wenn Ihre Anwendung andere Routen verwendet wird, überprüfen Sie, ob die erste Route hinzugefügt der Aufruf von `MapSignalR`.
-- **Mithilfe von IIS 7 oder 7.5 ohne das Update für URLs ohne Erweiterung:** mithilfe von IIS 7 oder 7.5 erfordert ein Update für URLs ohne Erweiterung, damit der Server Zugriff auf den Hub-Definitionen bereitstellen kann `/signalr/hubs`. Das Update verwendbaren [hier](https://support.microsoft.com/kb/980368/en-us).
+- **Mithilfe von IIS 7 oder 7.5 ohne das Update für URLs ohne Erweiterung:** mithilfe von IIS 7 oder 7.5 erfordert ein Update für URLs ohne Erweiterung, damit der Server Zugriff auf den Hub-Definitionen bereitstellen kann `/signalr/hubs`. Das Update verwendbaren [hier](https://support.microsoft.com/kb/980368).
 - **IIS-cache abgelaufen oder ist fehlerhaft:** um sicherzustellen, dass der Cacheinhalt nicht veraltet ist, geben Sie den folgenden Befehl in einem PowerShell-Fenster, um den Zwischenspeicher zu löschen:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]

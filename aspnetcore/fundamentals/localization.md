@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -39,9 +39,9 @@ Eingeführt in ASP.NET Core, `IStringLocalizer` und `IStringLocalizer<T>` wurden
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
-Im obigen Code die `IStringLocalizer<T>` Implementierung ergibt sich aus der [Abhängigkeitsinjektion](dependency-injection.md). Wenn Sie der lokalisierte Wert von "Zu Title" wurde nicht gefunden, und klicken Sie dann der Indexerschlüssel zurückgegeben wird, d. h. die Zeichenfolge "Zu Title". Sie können die Standardeinstellung Sprache Literalzeichenfolgen in der app und umschließen sie den Lokalisierungsexperten, damit Sie sich bei der Entwicklung der app konzentrieren können. Sie entwickeln von Apps mit der Standardsprache und Schritt der Lokalisierung vorbereiten, ohne zunächst eine Standarddatei für die Ressource erstellt. Alternativ können Sie den herkömmlichen Ansatz verwenden, und geben Sie einen Schlüssel zum Abrufen der Zeichenfolge der Standardsprache. Für viele Entwickler den neuen Workflow, der ohne einer Standardsprache *resx* Datei sowie das Umbrechen von einfach die Zeichenfolgenliterale können die gering Lokalisierungsprozess einer app. Andere Entwickler bevorzugt den herkömmlichen Ablauf wie vereinfachen können zum Arbeiten mit länger Zeichenfolgenliterale und erleichtern die lokalisierte Zeichenfolgen zu aktualisieren.
+Im obigen Code die `IStringLocalizer<T>` Implementierung ergibt sich aus der [Abhängigkeitsinjektion](dependency-injection.md). Wenn der lokalisierte Wert von "Zu Title" nicht gefunden wird, der Indexerschlüssel zurückgegeben wird, d. h. die Zeichenfolge "Zu Title". Sie können die Standardeinstellung Sprache Literalzeichenfolgen in der app und umschließen sie den Lokalisierungsexperten, damit Sie sich bei der Entwicklung der app konzentrieren können. Sie entwickeln von Apps mit der Standardsprache und Schritt der Lokalisierung vorbereiten, ohne zunächst eine Standarddatei für die Ressource erstellt. Alternativ können Sie den herkömmlichen Ansatz verwenden, und geben Sie einen Schlüssel zum Abrufen der Zeichenfolge der Standardsprache. Für viele Entwickler den neuen Workflow, der ohne einer Standardsprache *resx* Datei sowie das Umbrechen von einfach die Zeichenfolgenliterale können die gering Lokalisierungsprozess einer app. Andere Entwickler bevorzugt den herkömmlichen Ablauf wie vereinfachen können zum Arbeiten mit länger Zeichenfolgenliterale und erleichtern die lokalisierte Zeichenfolgen zu aktualisieren.
 
-Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML-codiert Argumente, die in der Ressourcenzeichenfolge formatiert werden, jedoch wird keine HTML-codiert die Ressourcenzeichenfolge selbst darstellt. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
+Verwenden der `IHtmlLocalizer<T>` Implementierung für Ressourcen, die HTML enthalten. `IHtmlLocalizer`HTML-codiert Argumente, die in der Ressourcenzeichenfolge formatiert werden, jedoch keine HTML-Codierung die Ressourcenzeichenfolge selbst darstellt. Im Beispiel für den hervorgehobenen, nur des Wert des `name` Parameter ist HTML-codiert.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -152,7 +152,7 @@ Alternativ können Sie diesen Fehler ignorieren. Wir hoffen, diese in der nächs
 
 ## <a name="resource-file-naming"></a>Ressource Dateibenennung
 
-Ressourcen sind für den vollständigen Typnamen, der ihre Klasse minus der Name der Assembly mit dem Namen. Z. B. eine französische Ressource in einem Projekt, dessen Hauptassembly `LocalizationWebsite.Web.dll` für die Klasse `LocalizationWebsite.Web.Startup` Namen *Startup.fr.resx*. Eine Ressource für die Klasse `LocalizationWebsite.Web.Controllers.HomeController` Namen *Controllers.HomeController.fr.resx*. Wenn Ihre Zielklasse Namespace nicht der Name der Assembly identisch ist, benötigen Sie den vollständigen Typnamen. Beispielsweise in der Stichprobe Projekt eine Ressource für den Typ `ExtraNamespace.Tools` Namen *ExtraNamespace.Tools.fr.resx*.
+Ressourcen sind für den vollständigen Typnamen, der ihre Klasse minus der Name der Assembly mit dem Namen. Z. B. eine französische Ressource in einem Projekt, dessen Hauptassembly `LocalizationWebsite.Web.dll` für die Klasse `LocalizationWebsite.Web.Startup` Namen *Startup.fr.resx*. Eine Ressource für die Klasse `LocalizationWebsite.Web.Controllers.HomeController` Namen *Controllers.HomeController.fr.resx*. Wenn Ihre Zielklasse Namespace nicht als Name der Assembly identisch ist, benötigen Sie den vollständigen Typnamen. Beispielsweise in der Stichprobe Projekt eine Ressource für den Typ `ExtraNamespace.Tools` Namen *ExtraNamespace.Tools.fr.resx*.
 
 Im Beispielprojekt das `ConfigureServices` Methode legt die `ResourcesPath` "Resources", also den relativen Pfad des Projekts für den home-Controller französischen Ressourcendatei ist *Resources/Controllers.HomeController.fr.resx*. Alternativ können Sie Ordner verwenden, um Ressourcendateien zu organisieren. Für den home-Controller, wäre der Pfad *Resources/Controllers/HomeController.fr.resx*. Wenn Sie nicht verwenden die `ResourcesPath` -Option der *resx* Datei im Projektverzeichnis Basis gehen würde. Die Ressourcendatei für `HomeController` Namen *Controllers.HomeController.fr.resx*. Die Wahl der Verwendung der Benennungskonvention Punkt oder ein Pfad, hängt davon ab, wie Sie die Ressourcendateien organisieren möchten.
 
@@ -176,7 +176,7 @@ Als Beispiel wenn die Kultur auf Französisch festgelegt haben, und Sie die Kult
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generieren von Ressourcendateien mit Visual Studio
 
-Wenn Sie eine Ressourcendatei in Visual Studio, ohne eine Kultur im Dateinamen erstellen (z. B. *Welcome.resx*), Visual Studio erstellt eine C#-Klasse mit einer Eigenschaft für jede Zeichenfolge. Das ist in der Regel nicht mit ASP.NET Core wollten; Sie haben in der Regel keinen Standardwert *resx* Ressourcendatei (ein *resx* Datei ohne den Namen der Kultur). Empfohlen, die Sie erstellen die *resx* Datei mit einem Kulturnamen (z. B. *Welcome.fr.resx*). Beim Erstellen einer *resx* Datei mit einem Kulturnamen, Visual Studio generiert keine Klassendatei. Wir erwarten, dass viele Entwickler **nicht** erstellen Sie eine Ressourcendatei der Standardsprache.
+Wenn Sie eine Ressourcendatei in Visual Studio, ohne eine Kultur im Dateinamen erstellen (z. B. *Welcome.resx*), Visual Studio erstellt eine C#-Klasse mit einer Eigenschaft für jede Zeichenfolge. Das ist in der Regel nicht mit ASP.NET Core wollten; Sie haben in der Regel keinen Standardwert *resx* Ressourcendatei (ein *resx* Datei ohne den Namen der Kultur). Empfohlen, die Sie erstellen die *resx* Datei mit einem Kulturnamen (z. B. *Welcome.fr.resx*). Beim Erstellen einer *resx* Datei mit einem Kulturnamen, Visual Studio generiert keinen die Klassendatei. Wir erwarten, dass viele Entwickler **nicht** erstellen Sie eine Ressourcendatei der Standardsprache.
 
 ### <a name="add-other-cultures"></a>Hinzufügen von anderen Kulturen
 
@@ -234,7 +234,7 @@ Wenn Sie nur kulturinformationen und Benutzeroberflächenkultur angeben, wird di
 
 ### <a name="the-accept-language-http-header"></a>Der Accept-Language-HTTP-header
 
-Die [Accept-Language-Headers](https://www.w3.org/International/questions/qa-accept-lang-locales) ist in den meisten Browsern festgelegt werden und wurde ursprünglich beabsichtigt, um die Sprache des Benutzers anzugeben. Diese Einstellung gibt an, was den Browser senden festgelegt wurde, oder aus dem zugrunde liegenden Betriebssystem geerbt wurde. Der Accept-Language-HTTP-Header aus einer Browseranforderung ist keine ausfallsichere Möglichkeit zum Erkennen von bevorzugte Sprache des Benutzers (finden Sie unter [Festlegen der bevorzugten Sprache in einem Browser](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Eine produktionsanwendung sollte eine Möglichkeit für einen Benutzer anpassen ihrer Wahl der Kultur enthalten.
+Die [Accept-Language-Headers](https://www.w3.org/International/questions/qa-accept-lang-locales) ist in den meisten Browsern festgelegt werden und wurde ursprünglich beabsichtigt, um die Sprache des Benutzers anzugeben. Diese Einstellung gibt an, was den Browser senden festgelegt wurde, oder aus dem zugrunde liegenden Betriebssystem geerbt wurde. Der Accept-Language-HTTP-Header aus einer Browseranforderung ist eine ausfallsichere Möglichkeit zum Erkennen von bevorzugte Sprache des Benutzers nicht (siehe [Festlegen der bevorzugten Sprache in einem Browser](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Eine produktionsanwendung sollte eine Möglichkeit für einen Benutzer anpassen ihrer Wahl der Kultur enthalten.
 
 ### <a name="set-the-accept-language-http-header-in-ie"></a>Legen Sie den Accept-Language-HTTP-Header in IE
 

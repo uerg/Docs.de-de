@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cb0d72330086ecb8cd9e6fb70ce0a57698dda5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>Erstellen ein Teamprojekt in TFS
 ====================
@@ -111,12 +111,12 @@ Als Nächstes müssen Sie neue Teamwebsites in der SharePoint-Websitesammlung zu
     > Möglicherweise erhalten Sie eine **HTTP 404 Not Found** Fehler aufgrund eines doppelten Codierung HTTP-Fehlers. In diesem Fall ersetzen Sie dabei die URL:   
     > [*URL Websitesammlung*] /\_layouts/permsetup.aspx  
     > Zum Beispiel:  
-    > http://TFS/Sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Auf der **Gruppen einrichten für diesen Standort** Seite, fügen Sie den Benutzer, die Teamprojekte erstellen, wird die **Besitzer** Gruppe, und klicken Sie dann auf **OK**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-Weitere Informationen zum Aktivieren von Benutzern die Erstellung neuer Teamprojekte innerhalb einer Teamprojektsammlung finden Sie unter [Festlegen von Administratorberechtigungen für Teamprojektsammlungen](https://msdn.microsoft.com/en-us/library/dd547204.aspx).
+Weitere Informationen zum Aktivieren von Benutzern die Erstellung neuer Teamprojekte innerhalb einer Teamprojektsammlung finden Sie unter [Festlegen von Administratorberechtigungen für Teamprojektsammlungen](https://msdn.microsoft.com/library/dd547204.aspx).
 
 ## <a name="create-a-new-team-project-and-add-users"></a>Ein neues Teamprojekt erstellen und Hinzufügen von Benutzern
 
@@ -162,9 +162,9 @@ Das nächste Verfahren beschreibt, wie ein neues Teamprojekt in TFS 2010 zu erst
 11. Auf der **Auswählen einer Prozessvorlage** Seite, wählen Sie die Prozessvorlage, die Sie verwenden, um den Entwicklungsprozess zu verwalten, und klicken Sie dann auf möchten **Weiter**.
 
     > [!NOTE]
-    > Weitere Informationen zu Prozessvorlagen für TFS, finden Sie unter [Prozessvorlagen und Tools](https://msdn.microsoft.com/en-us/vstudio/aa718795).
+    > Weitere Informationen zu Prozessvorlagen für TFS, finden Sie unter [Prozessvorlagen und Tools](https://msdn.microsoft.com/vstudio/aa718795).
 12. Auf der **Team Standorteinstellungen** Seite, übernehmen Sie die Standardeinstellungen unverändert, und klicken Sie dann auf **Weiter**.
-13. Mit dieser Einstellung erstellt oder identifiziert wird, eine SharePoint-Teamwebsite, die die TFS-Teamprojekt zugeordnet ist. Ihr Entwicklungsteam können diese Website verwalten-Dokumentation, Diskussionsthemen teilnehmen, Wiki-Seiten erstellen und verschiedene andere Aufgaben ausführen, die nicht mit Code verknüpft sind. Weitere Informationen finden Sie unter [Interaktionen zwischen SharePoint-Produkte und Team Foundation Server](https://msdn.microsoft.com/en-us/library/ms253177.aspx).
+13. Mit dieser Einstellung erstellt oder identifiziert wird, eine SharePoint-Teamwebsite, die die TFS-Teamprojekt zugeordnet ist. Ihr Entwicklungsteam können diese Website verwalten-Dokumentation, Diskussionsthemen teilnehmen, Wiki-Seiten erstellen und verschiedene andere Aufgaben ausführen, die nicht mit Code verknüpft sind. Weitere Informationen finden Sie unter [Interaktionen zwischen SharePoint-Produkte und Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx).
 14. Auf der **Quellcodeverwaltungseinstellungen geben** Seite, übernehmen Sie die Standardeinstellungen unverändert, und klicken Sie dann auf **Weiter**.
 15. Diese Einstellung identifiziert, oder erstellt den Speicherort in der Hierarchie der TFS-Ordner, die als einen Stammordner für Ihre Inhalte fungiert.
 16. Auf der **Teamprojekteinstellungen bestätigen** auf **Fertig stellen**.
@@ -192,7 +192,7 @@ Nun, dass Sie das neue Teamprojekt erstellt haben, können Sie für Benutzer, da
 6. In der **Eigenschaften für die Team Foundation Server-Gruppe** (Dialogfeld), klicken Sie auf **OK**.
 7. In der **Teamprojektgruppen** (Dialogfeld), klicken Sie auf **schließen**.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Zu diesem Zeitpunkt das neue Teamprojekt einsatzbereit ist, und Ihr Team Developer kann beginnen, Hinzufügen von Inhalt und Zusammenarbeit bei der Entwicklung.
 
@@ -200,7 +200,7 @@ Im nächsten Thema [Hinzufügen von Inhalt zur Quellcodeverwaltung](adding-conte
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Umfassendere Anleitung zum Erstellen von Teamprojekten in TFS finden Sie unter [Erstellen eines Teamprojekts](https://msdn.microsoft.com/en-us/library/ms181477(v=VS.100).aspx). Weitere Informationen zum Aktivieren von Benutzern die Erstellung neuer Teamprojekte innerhalb einer Teamprojektsammlung finden Sie unter [Festlegen von Administratorberechtigungen für Teamprojektsammlungen](https://msdn.microsoft.com/en-us/library/dd547204.aspx). Weitere Informationen zum Hinzufügen von Benutzern zu Teamprojekten finden Sie unter [Hinzufügen von Benutzern zu Teamprojekten](https://msdn.microsoft.com/en-us/library/bb558971.aspx).
+Umfassendere Anleitung zum Erstellen von Teamprojekten in TFS finden Sie unter [Erstellen eines Teamprojekts](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Weitere Informationen zum Aktivieren von Benutzern die Erstellung neuer Teamprojekte innerhalb einer Teamprojektsammlung finden Sie unter [Festlegen von Administratorberechtigungen für Teamprojektsammlungen](https://msdn.microsoft.com/library/dd547204.aspx). Weitere Informationen zum Hinzufügen von Benutzern zu Teamprojekten finden Sie unter [Hinzufügen von Benutzern zu Teamprojekten](https://msdn.microsoft.com/library/bb558971.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](configuring-team-foundation-server-for-web-deployment.md)

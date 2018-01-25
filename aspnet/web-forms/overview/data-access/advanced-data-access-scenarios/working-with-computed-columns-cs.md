@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 133c55371cccabbbefe1b0eb3f4c7a67f2834f1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-c"></a>Arbeiten mit berechneten Spalten (c#)
 ====================
@@ -29,7 +29,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Einführung
 
-Microsoft SQL Server ermöglicht  *[berechnete Spalten](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*, die Spalten, deren Werte werden von einem Ausdruck, der in der Regel die Werte aus anderen Spalten in derselben Tabelle verweist auf berechnet, werden. Eine Zeit nachverfolgen Datenmodell möglicherweise als Beispiel eine Tabelle namens `ServiceLog` mit Spalten, einschließlich `ServicePerformed`, `EmployeeID`, `Rate`, und `Duration`, o. ä. Während der Gesamtbetrag pro-Dienst-Element (wird die Rate, multipliziert mit der Dauer) konnte über eine Webseite oder andere programmgesteuerte Schnittstelle berechnet werden, ist es möglicherweise hilfreich, eine Spalte in der `ServiceLog` Tabelle mit dem Namen `AmountDue` , die dies gemeldet Informationen. Diese Spalte kann als normale Spalte erstellt werden, aber er dürfte jederzeit aktualisiert werden die `Rate` oder `Duration` Spaltenwerte geändert. Ein besserer Ansatz wäre, stellen die `AmountDue` Spalte eine berechnete Spalte mit dem Ausdruck `Rate * Duration`. Auf diese Weise würde dazu führen, dass SQL Server für die automatische Berechnung der `AmountDue` Spaltenwert immer in einer Abfrage auf sie verwiesen wurde.
+Microsoft SQL Server ermöglicht  *[berechnete Spalten](https://msdn.microsoft.com/library/ms191250.aspx)*, die Spalten, deren Werte werden von einem Ausdruck, der in der Regel die Werte aus anderen Spalten in derselben Tabelle verweist auf berechnet, werden. Eine Zeit nachverfolgen Datenmodell möglicherweise als Beispiel eine Tabelle namens `ServiceLog` mit Spalten, einschließlich `ServicePerformed`, `EmployeeID`, `Rate`, und `Duration`, o. ä. Während der Gesamtbetrag pro-Dienst-Element (wird die Rate, multipliziert mit der Dauer) konnte über eine Webseite oder andere programmgesteuerte Schnittstelle berechnet werden, ist es möglicherweise hilfreich, eine Spalte in der `ServiceLog` Tabelle mit dem Namen `AmountDue` , die dies gemeldet Informationen. Diese Spalte kann als normale Spalte erstellt werden, aber er dürfte jederzeit aktualisiert werden die `Rate` oder `Duration` Spaltenwerte geändert. Ein besserer Ansatz wäre, stellen die `AmountDue` Spalte eine berechnete Spalte mit dem Ausdruck `Rate * Duration`. Auf diese Weise würde dazu führen, dass SQL Server für die automatische Berechnung der `AmountDue` Spaltenwert immer in einer Abfrage auf sie verwiesen wurde.
 
 Da ein berechnete Spalte s-Wert durch einen Ausdruck bestimmt ist, solche Spalten sind schreibgeschützt und aus diesem Grund können keine Werte zugewiesene auf diese Dateien im `INSERT` oder `UPDATE` Anweisungen. Wenn berechnete Spalten Teil der Hauptabfrage für einen TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet handelt, sie werden jedoch automatisch eingeschlossen in automatisch generierte `INSERT` und `UPDATE` Anweisungen. Folglich die TableAdapter `INSERT` und `UPDATE` Abfragen und `InsertCommand` und `UpdateCommand` Eigenschaften müssen aktualisiert werden, um Verweise auf alle berechneten Spalten zu entfernen.
 
@@ -51,7 +51,7 @@ Die Northwind-Datenbank besitzt keine berechneten Spalten, sodass wir uns ein hi
 Beachten Sie, dass Zeichenfolgen können, in SQL verkettet werden mit dem `+` Operator. Die `CASE` -Anweisung kann verwendet werden, wie eine bedingte in einer herkömmlichen Programmiersprache Ihrer Wahl. Im obigen Ausdruck der `CASE` Anweisung als gelesen werden kann: Wenn `ContactTitle` ist nicht `NULL` ausgeben der `ContactTitle` durch ein Komma, andernfalls verketteter Wert ausgeben nichts. Weitere Informationen über die Nützlichkeit der der `CASE` -Anweisung finden Sie unter [der SQL-Power `CASE` Anweisungen](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Anstatt eine `CASE` Anweisung hier wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)Gibt *CheckExpression* , wenn er nicht NULL ist, anderfalls wird *Ersatzwert*. Entweder während `ISNULL` oder `CASE` funktioniert in dieser Instanz stehen mehr komplizierte Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
+> Anstatt eine `CASE` Anweisung hier wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Gibt *CheckExpression* , wenn er nicht NULL ist, anderfalls wird *Ersatzwert*. Entweder während `ISNULL` oder `CASE` funktioniert in dieser Instanz stehen mehr komplizierte Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
 
 
 Nach dem Hinzufügen der diese berechnete Spalte sollten Ihren Bildschirm wie im Screenshot in Abbildung 1 aussehen.
@@ -69,10 +69,10 @@ Speichern der Tabelle einschließlich der gerade hinzugefügten Spalte im Server
 
 [!code-sql[Main](working-with-computed-columns-cs/samples/sample2.sql)]
 
-Weitere Informationen zu berechneten Spalten in der Microsoft SQL Server, finden Sie in der [technische Dokumentation](https://msdn.microsoft.com/en-us/library/ms191250.aspx). Außerdem sehen Sie sich die [How to: Specify Computed Columns](https://msdn.microsoft.com/en-us/library/ms188300.aspx) eine schrittweise Anleitung zum Erstellen von berechneten Spalten.
+Weitere Informationen zu berechneten Spalten in der Microsoft SQL Server, finden Sie in der [technische Dokumentation](https://msdn.microsoft.com/library/ms191250.aspx). Außerdem sehen Sie sich die [How to: Specify Computed Columns](https://msdn.microsoft.com/library/ms188300.aspx) eine schrittweise Anleitung zum Erstellen von berechneten Spalten.
 
 > [!NOTE]
-> Standardmäßig werden berechnete Spalten nicht physisch in der Tabelle gespeichert sind jedoch jedes Mal, wenn diese in einer Abfrage verwiesen wird, werden stattdessen neu berechnet. Überprüfen Sie das Kontrollkästchen wird beibehalten, jedoch können Sie SQL Server, um die berechnete Spalte in der Tabelle physisch gespeichert anweisen. Auf diese Weise kann ein Index für die berechnete Spalte erstellt werden, die die Leistung von Abfragen verbessern können, mit denen der Wert der berechneten Spalte in ihren `WHERE` Klauseln. Finden Sie unter [Erstellen von Indizes für berechnete Spalten](https://msdn.microsoft.com/en-us/library/ms189292.aspx) für Weitere Informationen.
+> Standardmäßig werden berechnete Spalten nicht physisch in der Tabelle gespeichert sind jedoch jedes Mal, wenn diese in einer Abfrage verwiesen wird, werden stattdessen neu berechnet. Überprüfen Sie das Kontrollkästchen wird beibehalten, jedoch können Sie SQL Server, um die berechnete Spalte in der Tabelle physisch gespeichert anweisen. Auf diese Weise kann ein Index für die berechnete Spalte erstellt werden, die die Leistung von Abfragen verbessern können, mit denen der Wert der berechneten Spalte in ihren `WHERE` Klauseln. Finden Sie unter [Erstellen von Indizes für berechnete Spalten](https://msdn.microsoft.com/library/ms189292.aspx) für Weitere Informationen.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>Schritt 2: Anzeigen der Werte für berechnete Spalten s

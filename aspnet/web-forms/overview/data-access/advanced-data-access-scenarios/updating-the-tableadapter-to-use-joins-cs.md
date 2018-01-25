@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 30bc92c5c5a54e8c43092c69d0b0707a96d6b331
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a24245a3c846d061a528d520f915b8eac3ff475
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>Aktualisieren des TableAdapters zu verwendenden Verknüpfungen (c#)
 ====================
@@ -54,7 +54,7 @@ Alternativ können Sie eine `JOIN` können verwendet werden, um jede s Supplier 
 Ein `JOIN` Datensätze aus einer Tabelle mit Datensätzen aus einer anderen Tabelle basierend auf bestimmte Kriterien. In der obigen Abfrage, z. B. die `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` weist SQL Server jedes Zusammenführen Produktdatensatz, der Kategorie aufzeichnen, deren `CategoryID` Wert entspricht das Produkt s `CategoryID` Wert. Zusammengeführte Ergebnis erlaubt es uns, mit der entsprechenden Kategoriefelder für jedes Produkt arbeiten (z. B. `CategoryName`).
 
 > [!NOTE]
-> `JOIN`s werden häufig verwendet, bei der Abfrage von Daten aus relationalen Datenbanken. Wenn Sie neu der `JOIN` Syntax oder müssen auf ihre Nutzung etwas auffrischen d sollten die [SQL Join Lernprogramm](http://www.w3schools.com/sql/sql_join.asp) am [W3 Schulen](http://www.w3schools.com/). Auch Folgendes zu lesen sind die [ `JOIN` Grundlagen](https://msdn.microsoft.com/en-us/library/ms191517.aspx) und [Unterabfrage Grundlagen](https://msdn.microsoft.com/en-us/library/ms189575.aspx) Abschnitte der [SQL-Onlinedokumentation](https://msdn.microsoft.com/en-us/library/ms130214.aspx).
+> `JOIN`s werden häufig verwendet, bei der Abfrage von Daten aus relationalen Datenbanken. Wenn Sie neu der `JOIN` Syntax oder müssen auf ihre Nutzung etwas auffrischen d sollten die [SQL Join Lernprogramm](http://www.w3schools.com/sql/sql_join.asp) am [W3 Schulen](http://www.w3schools.com/). Auch Folgendes zu lesen sind die [ `JOIN` Grundlagen](https://msdn.microsoft.com/library/ms191517.aspx) und [Unterabfrage Grundlagen](https://msdn.microsoft.com/library/ms189575.aspx) Abschnitte der [SQL-Onlinedokumentation](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Da `JOIN` s und korrelierte Unterabfragen können beide werden verwendet, um verwandte Daten aus anderen Tabellen abzurufen, für die meisten Entwickler bleiben ihre Köpfe beträchtliche und Fragen Sie sich, welchen Ansatz verwenden. Alle SQL-Experten ich Ve gesprochen um ungefähr die gleiche Aufgabe gesagt haben, dass die It t verfügt über eine Rolle spielen performance-wise wie SQL Server ungefähr identische Ausführungspläne erstellt werden. Ihre Ratschläge ist dann das Verfahren verwenden, dem Sie und Ihr Team am häufigsten mit vertraut sind. Sie verdient Beachten Sie, dass diese Experten nach diesen Rat imparting sofort ihre Einstellung express `JOIN` s über korrelierte Unterabfragen.

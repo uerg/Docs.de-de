@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
-ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
+ms.openlocfilehash: 829f3a024bc15bec8b60b91193ba9bca37b78009
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/27/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Auszuführende Aktion nicht in ASP.NET und wie stattdessen vorzugehen ist
 ====================
@@ -45,7 +45,7 @@ Dieses Thema enthält folgende Abschnitte:
     - [Formularauthentifizierung und Sitzung](#cookieless)
     - [EnableViewStateMac](#viewstatemac)
     - [Mittlere Vertrauenswürdigkeit](#medium)
-    - [&lt;"appSettings"&gt;](#appsettings)
+    - [&lt;appSettings&gt;](#appsettings)
     - [UrlPathEncode](#urlpathencode)
 - [Zuverlässigkeit und Leistung](#performance)
 
@@ -94,7 +94,7 @@ Im nächste Beispiel veranschaulicht die dynamisch anwenden, die CSS-Klasse.
 
 Empfehlung: Beenden Sie die Verwendung der Seiten- und Rückrufe und stattdessen eine der folgenden: AJAX, UpdatePanel, MVC-Aktionsmethoden, Web-API oder SignalR.
 
-In früheren Versionen von ASP.NET ermöglichte Seiten- und Rückrufmethoden Teil der Webseite zu aktualisieren, ohne eine gesamte Seite zu aktualisieren. Erreichen Sie Aktualisierungen von Teilseiten bis jetzt [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/en-US/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web-API](../../../web-api/index.md) oder [SignalR](../../../signalr/index.md). Beenden Sie Rückrufmethoden verwenden, da Probleme mit friendly URLs verursacht werden können und routing. Standardmäßig Steuerelemente Rückrufmethoden nicht aktivieren, aber wenn Sie diese Funktion in einem Steuerelement aktiviert haben, sollten Sie es deaktivieren.
+In früheren Versionen von ASP.NET ermöglichte Seiten- und Rückrufmethoden Teil der Webseite zu aktualisieren, ohne eine gesamte Seite zu aktualisieren. Erreichen Sie Aktualisierungen von Teilseiten bis jetzt [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web-API](../../../web-api/index.md) oder [SignalR](../../../signalr/index.md). Beenden Sie Rückrufmethoden verwenden, da Probleme mit friendly URLs verursacht werden können und routing. Standardmäßig Steuerelemente Rückrufmethoden nicht aktivieren, aber wenn Sie diese Funktion in einem Steuerelement aktiviert haben, sollten Sie es deaktivieren.
 
 <a id="browsercap"></a>
 
@@ -138,7 +138,7 @@ Im folgenden Beispiel gezeigt Codieren der HTML wie einen Wert im Code-Behind.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample7.cs)]
 
-Um einen Wert für die SQL-Befehle sicher zu codieren, verwenden Sie Parameter des Befehls wie z. B. die ["SqlParameter"](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
+Um einen Wert für die SQL-Befehle sicher zu codieren, verwenden Sie Parameter des Befehls wie z. B. die ["SqlParameter"](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
 
 ### <a name="cookieless-forms-authentication-and-session"></a>Formularauthentifizierung und Sitzung
 
@@ -174,21 +174,21 @@ Teilweiser Vertrauenswürdigkeit schützt Ihre Anwendung nicht angemessen und so
 
 <a id="appsettings"></a>
 
-### <a name="ltappsettingsgt"></a>&lt;"appSettings"&gt;
+### <a name="ltappsettingsgt"></a>&lt;appSettings&gt;
 
 Empfehlung: Deaktivieren Sie die Sicherheitseinstellungen in nicht &lt;"appSettings"&gt; Element.
 
 Das Element "appSettings" enthält viele Werte, die für die Sicherheitsupdates erforderlich sind. Sie sollten nicht ändern oder deaktivieren diese Werte. Wenn Sie diese Werte bei der Bereitstellung eines Updates deaktivieren müssen, sofort aktivieren Sie wieder nach Abschluss der Bereitstellung.
 
-Weitere Informationen finden Sie unter [ASP.NET AppSettings-Element](https://msdn.microsoft.com/en-us/library/hh975440.aspx).
+Weitere Informationen finden Sie unter [ASP.NET AppSettings-Element](https://msdn.microsoft.com/library/hh975440.aspx).
 
 <a id="urlpathencode"></a>
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-Empfehlung: Verwenden von [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx) stattdessen.
+Empfehlung: Verwenden von [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) stattdessen.
 
-.NET Framework ein sehr spezifischen Browser Kompatibilitätsproblem behoben wurde die UrlPathEncode-Methode hinzugefügt. Er nicht ordnungsgemäß codiert eine URL und die Anwendung von siteübergreifendem Skripting bietet keinen Schutz. Sie sollten niemals in Ihrer Anwendung verwenden. Verwenden Sie stattdessen [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx).
+.NET Framework ein sehr spezifischen Browser Kompatibilitätsproblem behoben wurde die UrlPathEncode-Methode hinzugefügt. Er nicht ordnungsgemäß codiert eine URL und die Anwendung von siteübergreifendem Skripting bietet keinen Schutz. Sie sollten niemals in Ihrer Anwendung verwenden. Verwenden Sie stattdessen [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
 
 Im folgende Beispiel wird gezeigt, wie eine codierte URL als ein Abfragezeichenfolgen-Parameter für ein Linksteuerelement übergeben wird.
 
@@ -202,9 +202,9 @@ Im folgende Beispiel wird gezeigt, wie eine codierte URL als ein Abfragezeichenf
 
 ### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders und PreSendRequestContent
 
-Empfehlung: Verwenden Sie diese Ereignisse nicht mit verwalteten Module an. Schreiben Sie stattdessen ein natives Modul für IIS zum Ausführen der gewünschten Aufgabe. Finden Sie unter [Erstellen von systemeigenem Code HTTP-Modulen](https://msdn.microsoft.com/en-us/library/ms693629.aspx).
+Empfehlung: Verwenden Sie diese Ereignisse nicht mit verwalteten Module an. Schreiben Sie stattdessen ein natives Modul für IIS zum Ausführen der gewünschten Aufgabe. Finden Sie unter [Erstellen von systemeigenem Code HTTP-Modulen](https://msdn.microsoft.com/library/ms693629.aspx).
 
-Sie können die [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx) und [PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx) Ereignisse mit dem systemeigenen IIS-Module.
+Sie können die [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx) und [PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx) Ereignisse mit dem systemeigenen IIS-Module.
 > [!WARNING]
 > Verwenden Sie keine `PreSendRequestHeaders` und `PreSendRequestContent` mit verwalteten Modulen, die implementieren `IHttpModule`. Das Festlegen dieser Eigenschaften kann dazu führen, dass Probleme bei asynchronen Anforderungen. Die Kombination der Anwendung angeforderte Routing (ARR) und Websockets kann zu Ausnahmen für den Verstoß führen, die zum Absturz w3wp verursachen kann. Z. B. Iiscore! W3_CONTEXT_BASE::GetIsLastNotification + 68 in iiscore.dll verursacht eine Verletzung Zugriffsausnahme (0xC0000005).
 
@@ -212,7 +212,7 @@ Sie können die [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library
 
 ### <a name="asynchronous-page-events-with-web-forms"></a>Asynchrone Page-Ereignisse mit WebForms
 
-Empfehlung: In Web Forms, zu vermeiden, Schreiben asynchrone "void" Methoden für die Seite-Lebenszyklusereignisse und stattdessen [Page.RegisterAsyncTask](https://msdn.microsoft.com/en-us/library/system.web.ui.page.registerasynctask.aspx) für asynchronen Code.
+Empfehlung: In Web Forms, zu vermeiden, Schreiben asynchrone "void" Methoden für die Seite-Lebenszyklusereignisse und stattdessen [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) für asynchronen Code.
 
 Wenn Sie ein Page-Ereignisklasse mit markieren **Async** und **"void"**, Sie können nicht bestimmen, wann der asynchrone Code beendet wurde. Verwenden Sie stattdessen Page.RegisterAsyncTask, um den asynchronen Code auf eine Weise auszuführen, die Ihnen ermöglicht, dessen Abschluss nachzuverfolgen.
 
@@ -244,15 +244,15 @@ Empfehlung: Vermeiden Sie Request.Form oder Request.InputStream lesen, bevor des
 
 Frühestens Request.Form oder Request.InputStream gelesen sollte ausführen während der Ereignishandler Ereignis. In MVC wird der Controller ist der Handler und das Execute-Ereignis ist, wenn die Aktionsmethode ausgeführt wird. In Web Forms die Seite wird der Handler und das Execute-Ereignis ist, wenn das Page.Init-Ereignis auslöst. Wenn Sie die Anforderungs-einheitstextkörper vor der Execute-Ereignis lesen, beeinträchtigen Sie bei der Verarbeitung der Anforderung.
 
-Wenn Sie die Anforderungs-einheitstextkörper vor der Execute-Ereignis zu lesen, verwenden Sie entweder [Request.GetBufferlessInputStream](https://msdn.microsoft.com/en-us/library/ff406798.aspx) oder [Request.GetBufferedInputStream](https://msdn.microsoft.com/en-us/library/system.web.httprequest.getbufferedinputstream.aspx). Bei Verwendung von GetBufferlessInputStream den unformatierten Stream aus der Anforderung abrufen und für die Verarbeitung der gesamten Anforderungs verantwortlich. Nach dem Aufruf von GetBufferlessInputStream sind Request.Form und Request.InputStream nicht verfügbar, da sie nicht von ASP.NET aufgefüllt wurden. Wenn Sie GetBufferedInputStream verwenden, erhalten Sie eine Kopie des Datenstroms aus der Anforderung. Request.Form und Request.InputStream sind weiter unten in der Anforderung weiterhin verfügbar, da ASP.NET die andere Kopie füllt.
+Wenn Sie die Anforderungs-einheitstextkörper vor der Execute-Ereignis zu lesen, verwenden Sie entweder [Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx) oder [Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx). Bei Verwendung von GetBufferlessInputStream den unformatierten Stream aus der Anforderung abrufen und für die Verarbeitung der gesamten Anforderungs verantwortlich. Nach dem Aufruf von GetBufferlessInputStream sind Request.Form und Request.InputStream nicht verfügbar, da sie nicht von ASP.NET aufgefüllt wurden. Wenn Sie GetBufferedInputStream verwenden, erhalten Sie eine Kopie des Datenstroms aus der Anforderung. Request.Form und Request.InputStream sind weiter unten in der Anforderung weiterhin verfügbar, da ASP.NET die andere Kopie füllt.
 
 <a id="redirect"></a>
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect und Response.End
 
-Empfehlung: Achten Sie Unterschiede in der Behandlung der Thread nach dem Aufruf [Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx).
+Empfehlung: Achten Sie Unterschiede in der Behandlung der Thread nach dem Aufruf [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
-Die [Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx) Methode ruft die Response.End-Methode. In einem synchronen Prozess durch den Aufruf von Request.Redirect der aktuelle Thread sofort abgebrochen. Allerdings in einem asynchronen Prozess aufrufen Response.Redirect nicht den aktuellen Thread abgebrochen wird, damit die Ausführung von Code für die Anforderung ausgeführt wird. In einem asynchronen Prozess müssen Sie die Methode zum Beenden der Ausführung des Codes die Aufgabe zurückgeben.
+Die [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) Methode ruft die Response.End-Methode. In einem synchronen Prozess durch den Aufruf von Request.Redirect der aktuelle Thread sofort abgebrochen. Allerdings in einem asynchronen Prozess aufrufen Response.Redirect nicht den aktuellen Thread abgebrochen wird, damit die Ausführung von Code für die Anforderung ausgeführt wird. In einem asynchronen Prozess müssen Sie die Methode zum Beenden der Ausführung des Codes die Aufgabe zurückgeben.
 
 In einer MVC-Projekt sollten Sie nicht Response.Redirect aufrufen. Geben Sie stattdessen ein RedirectResult zurück.
 
@@ -286,7 +286,7 @@ Weitere Informationen finden Sie unter [Einführung in ASP.NET Universal Provide
 
 ### <a name="long-running-requests-110-seconds"></a>Lang ausgeführte Anforderungen (> 110 Sekunden)
 
-Empfehlung: Verwenden von [WebSockets](https://msdn.microsoft.com/en-us/library/system.net.websockets.websocket.aspx) oder [SignalR](../../../signalr/index.md) für verbundene Clients und die Verwendung asynchroner e/a-Vorgänge.
+Empfehlung: Verwenden von [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) oder [SignalR](../../../signalr/index.md) für verbundene Clients und die Verwendung asynchroner e/a-Vorgänge.
 
 Lang ausgeführte Anforderungen können in der Webanwendung zu unvorhersehbaren Ergebnissen führt und eine schlechte Leistung führen. Die standardmäßige Timeouteinstellung für eine Anforderung beträgt 110 Sekunden. Bei Verwendung von Sitzungsstatus mit einer lang andauernden-Anforderung gibt ASP.NET die Sperre für das Sitzungsobjekt nach 110 Sekunden frei. Allerdings kann die Anwendung gerade ein Vorgang für das Sitzungsobjekt sein, wenn die Sperre wird aufgehoben, und der Vorgang kann nicht erfolgreich abgeschlossen. Wenn eine zweite Anforderung vom Benutzer blockiert wird, während die erste Anforderung ausgeführt wird, kann die zweite Anforderung das Sitzungsobjekt in einem inkonsistenten Zustand zugreifen.
 

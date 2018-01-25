@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: afac083c96c1396ad60275fcb55a0ec9c4c0bd44
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-a-specific-build"></a>Bereitstellen von einem bestimmten Build
 ====================
@@ -125,13 +125,13 @@ Wenn Sie einen Build auszulösen, müssen Sie beim Aktualisieren der **OutputRoo
 
 Bei der Sie den Build zur Warteschlange hinzu, die Projektdatei wird die Datenbankskripts bereitstellen und Web Paketen aus Buildablageordners Sie in der **OutputRoot** Eigenschaft.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben, wie die Bereitstellungsressourcen wie Webpaketen und Datenbankskripts zu veröffentlichen, die von einem bestimmten vorherigen erstellen mithilfe der Split-Datei projektbereitstellungsmodells. Es wird erläutert, wie zum Überschreiben der **OutputRoot** Eigenschaft und wie Sie die Logik für die Bereitstellung in einem TFS integrieren Builddefinition.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/en-us/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](creating-a-build-definition-that-supports-deployment.md)

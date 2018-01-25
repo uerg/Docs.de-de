@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -50,7 +50,7 @@ Ansichten sind für die Darstellung von Inhalten über die Benutzeroberfläche z
 Controller sind die Komponenten behandeln Benutzerinteraktionen, mit dem Modell arbeiten und letztlich wählen Sie eine Ansicht zu rendern. In einer MVC-Anwendung zeigt die Ansicht nur Informationen; der Controller behandelt und antwortet auf Benutzereingaben und Interaktion. In der MVC-Muster, der Controller ist der anfängliche Einstiegspunkt und ist verantwortlich für die Auswahl, welches Modell zum Arbeiten mit Typen und die zu rendernde Ansicht (daher Sie seinen Namen - Steuerelemente wie die app auf eine bestimmte Anforderung reagiert).
 
 > [!NOTE]
-> Domänencontroller sollten durch zu viele Aufgaben nicht übermäßig kompliziert sein. Damit Controllerlogik nicht übermäßig kompliziert, verwenden die [Prinzip einzigen Verantwortung](http://deviq.com/single-responsibility-principle/) Push Geschäftslogik aus dem Controller und in das Domänenmodell.
+> Domänencontroller sollten nicht durch zu viele Aufgaben nicht übermäßig kompliziert sein. Damit Controllerlogik nicht übermäßig kompliziert, verwenden die [Prinzip einzigen Verantwortung](http://deviq.com/single-responsibility-principle/) Push Geschäftslogik aus dem Controller und in das Domänenmodell.
 
 >[!TIP]
 > Wenn Sie feststellen, dass Ihre Controlleraktionen häufig die gleichen Arten von Aktionen ausführen, führen Sie Sie der [nicht selbst Prinzip wiederholen](http://deviq.com/don-t-repeat-yourself/) umgezogen diese häufig verwendete Aktionen in [Filter](#filters).

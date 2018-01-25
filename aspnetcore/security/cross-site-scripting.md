@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Verhindern von siteübergreifendem Skripting
 
@@ -31,7 +31,7 @@ AT einer grundlegenden Ebene XSS funktioniert, indem Sie dazu die Anwendung in d
 
 3. Stellen Sie sicher, dass es sich um HTML-Attributs codiert ist, vor dem Einfügen von nicht vertrauenswürdiger Daten in einem HTML-Attribut. HTML-attributcodierung eine Obermenge der HTML-Codierung codiert und zusätzliche Zeichen wie z. B. "und".
 
-4. Platzieren Sie die Daten vor dem Einfügen von nicht vertrauenswürdiger Daten in JavaScript in einem HTML-Element, dessen Inhalt Sie zur Laufzeit abrufen. Wenn dies ist nicht möglich, stellen Sie sicher Daten wird JavaScript codiert. JavaScript-Codierung nimmt gefährliche Zeichen für JavaScript und z. B. durch ihre Hex ersetzt &lt; würde codiert werden, als `\u003C`.
+4. Platzieren Sie die Daten vor dem Einfügen von nicht vertrauenswürdiger Daten in JavaScript in einem HTML-Element, dessen Inhalt Sie zur Laufzeit abrufen. Wenn dies nicht möglich, stellen Sie sicher Daten wird JavaScript codiert. JavaScript-Codierung nimmt gefährliche Zeichen für JavaScript und z. B. durch ihre Hex ersetzt &lt; würde codiert werden, als `\u003C`.
 
 5. Stellen Sie sicher, dass sie die URL-codiert ist, vor dem Einfügen von nicht vertrauenswürdiger Daten in einer URL-Abfragezeichenfolge.
 
@@ -56,7 +56,7 @@ Diese Sicht gibt den Inhalt der *UntrustedInput* Variable. Diese Variable enthä
    ```
 
 >[!WARNING]
-> ASP.NET Core MVC bietet eine `HtmlString` Klasse, die nicht automatisch nach Ausgabe codiert ist. Dies sollte nie in Kombination mit nicht vertrauenswürdigen Eingabe verwendet werden, da dies ein Sicherheitsrisiko XSS verfügbar machen soll.
+> ASP.NET Core MVC bietet eine `HtmlString` Klasse, die automatisch bei Ausgabe codiert ist nicht. Dies sollte nie in Kombination mit nicht vertrauenswürdigen Eingabe verwendet werden, da dies ein Sicherheitsrisiko XSS verfügbar machen soll.
 
 ## <a name="javascript-encoding-using-razor"></a>JavaScript-Codierung mithilfe von Razor
 
@@ -145,7 +145,7 @@ Dies wird wie folgt im Browser gerendert;
 
 ## <a name="accessing-encoders-in-code"></a>Beim Zugriff auf den Encoder in code
 
-Die HTML, JavaScript und URL-Encoder für Ihren Code auf zwei Arten verfügbar sind, können Sie sie über einfügen [Abhängigkeitsinjektion](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) oder Sie können die Standard-Encoder in enthalten die `System.Text.Encodings.Web` Namespace. Wenn Sie die Standard-Encoder verwenden, und klicken Sie dann alle auf Zeichenbereiche angewendet um als sicher betrachtet werden nicht wirksam: die Standard-Encoder verwenden die sichersten mögliche Codierungsregeln.
+Die HTML, JavaScript und URL-Encoder für Ihren Code auf zwei Arten verfügbar sind, können Sie sie über einfügen [Abhängigkeitsinjektion](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) oder Sie können die Standard-Encoder in enthalten die `System.Text.Encodings.Web` Namespace. Wenn Sie die Standard-Encoder verwenden, und klicken Sie dann alle auf Sie angewendet Zeichenbereiche werden als sicher behandelt wird nicht wirksam: Verwenden Sie die Standard-Encoder die sichersten mögliche Codierungsregeln.
 
 Die konfigurierbaren Encoder über DI verwenden Ihre Konstruktoren sollte ein *HtmlEncoder*, *JavaScriptEncoder* und *UrlEncoder* Parameter nach Bedarf. Beispiel:
 
@@ -179,7 +179,7 @@ var example = "\"Quoted Value with spaces and &\"";
 Nach der Codierung der Codierterwert enthält Variable `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Leerzeichen, Anführungszeichen, Satzzeichen und andere unsicheren Zeichen in Prozent in ihren Hexadezimalwert codiert, z. B. wird ein Leerzeichen %20 sein.
 
 >[!WARNING]
-> Verwenden Sie nicht vertrauenswürdige Eingabe nicht als Teil eines URL-Pfads. Übergeben Sie nicht vertrauenswürdige Eingaben immer als Wert einer Abfragezeichenfolge.
+> Verwenden Sie keine nicht vertrauenswürdigen Eingabe als Teil eines URL-Pfads. Übergeben Sie nicht vertrauenswürdige Eingaben immer als Wert einer Abfragezeichenfolge.
 
 <a name="security-cross-site-scripting-customization"></a>
 
@@ -228,4 +228,4 @@ Die allgemeinen angenommen, dass die Methode besteht darin, dass die Codierung e
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Überprüfung als eine XSS-Technik zum Verhindern von Datenverlusten
 
-Überprüfung kann ein nützliches Tool in XSS-Angriffen eingeschränkt werden. Beispielsweise wird eine einfache numerische Zeichenfolge, enthält nur die Zeichen 0-9 XSS-Angriff nicht ausgelöst. Überprüfung komplizierter Sie HTML in Benutzereingaben - akzeptieren möchten, sollten Analyse von HTML-Eingaben schwierig, wenn nicht sogar unmöglich ist. MarkDown und andere Textformate wäre eine sicherere Option für umfangreiche Eingaben auf. Sie sollten niemals zur Validierung von allein verlassen. Nicht vertrauenswürdige Eingaben vor der Ausgabe immer zu codieren, unabhängig davon, was eine Überprüfung durchgeführt.
+Überprüfung kann ein nützliches Tool in XSS-Angriffen eingeschränkt werden. Wird nicht für eine einfache numerische Zeichenfolge, enthält nur die Zeichen 0-9 z. B. ein XSS-Angriffen ausgelöst werden. Überprüfung komplizierter Sie HTML in Benutzereingaben - akzeptieren möchten, sollten Analyse von HTML-Eingaben schwierig, wenn nicht sogar unmöglich ist. MarkDown und andere Textformate wäre eine sicherere Option für umfangreiche Eingaben auf. Sie sollten niemals zur Validierung von allein verlassen. Nicht vertrauenswürdige Eingaben vor der Ausgabe immer zu codieren, unabhängig davon, was eine Überprüfung durchgeführt.

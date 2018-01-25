@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit ASP.NET Core MVC-Lernprogramm (2 von 10)
 
@@ -46,7 +46,7 @@ In *Controllers/StudentsController.cs*, die Aktionsmethode Details anzeigen, ver
 
 Die `Include` und `ThenInclude` Methoden dazu führen, dass den Kontext beim Laden der `Student.Enrollments` Navigationseigenschaft, und innerhalb jeder Registrierung der `Enrollment.Course` Navigationseigenschaft.  Erfahren Sie mehr über diese Methoden in der [lesen verknüpfte Daten](read-related-data.md) Lernprogramm.
 
-Die `AsNoTracking` Methode verbessert die Leistung in Szenarien, in dem die zurückgegebenen Entitäten nicht in den aktuellen Kontext Lebensdauer aktualisiert werden werden. Erfahren Sie mehr über `AsNoTracking` am Ende dieses Lernprogramms.
+Die `AsNoTracking` Methode verbessert die Leistung in Szenarien, in dem die zurückgegebenen Entitäten wird nicht in den aktuellen Kontext Lebensdauer aktualisiert werden. Erfahren Sie mehr über `AsNoTracking` am Ende dieses Lernprogramms.
 
 ### <a name="route-data"></a>Weiterleitung von Daten
 
@@ -118,7 +118,7 @@ In *StudentsController.cs*, ändern Sie die HttpPost `Create` Methode durch eine
 
 Dieser Code fügt die Student-Entität erstellt, indem der ASP.NET MVC-Modellbinder für die Entität Studenten festgelegt, und klicken Sie dann die Änderungen in der Datenbank gespeichert. (Modellbinder bezieht sich auf die ASP.NET MVC-Funktionalität, die Sie zum Arbeiten mit Daten, die von einem Formular übermittelt erleichtert, ein Modellbinder übermittelte Formularwerte in CLR-Typen konvertiert, und übergibt sie an die Aktionsmethode im Parameters. In diesem Fall instanziiert der Modellbinder eine Student-Entität für Sie Eigenschaftswerte aus der Auflistung Formular verwenden.)
 
-Sie entfernt `ID` aus der `Bind` Attribut, da-ID des Primärschlüsselwerts ist die SQL Server automatisch festgelegt wird, wenn die Zeile eingefügt wird. Eingaben des Benutzers ist nicht mit den ID-Wert festgelegt.
+Sie entfernt `ID` aus der `Bind` Attribut, da-ID des Primärschlüsselwerts ist die SQL Server automatisch festgelegt wird, wenn die Zeile eingefügt wird. Eingaben des Benutzers festgelegt nicht den ID-Wert.
 
 Anders als die `Bind` Try-Catch-Block befindet, die einzige Änderung, die Sie an den scaffolded Code vorgenommen haben. Wenn eine Ausnahme, die abgeleitet `DbUpdateException` wird erfasst, während die Änderungen gespeichert werden, wird eine allgemeine Fehlermeldung angezeigt. `DbUpdateException`Ausnahmen werden manchmal etwas anderes außerhalb der Anwendung statt auf einen Programmierfehler verursacht, damit der Benutzer informiert wird, versuchen Sie es erneut. Obwohl in diesem Beispiel nicht implementiert wird, würde eine Qualität produktionsanwendung protokolliert die Ausnahme. Weitere Informationen finden Sie unter der **Protokoll Einblicke** im Abschnitt [Überwachung und Telemetrie (Building Real-World Cloud Apps with Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
@@ -176,7 +176,7 @@ Ersetzen Sie die Aktionsmethode HttpPost bearbeiten, durch den folgenden Code.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
-Eine bewährte Sicherheitsmethode um zu verhindern, dass Overposting Implementierung dieser Änderungen. Die Scaffolder generiert eine `Bind` Attribut, und die Entität erstellt, indem die Modellbinder, die Entitätenmenge mit hinzugefügt eine `Modified` Flag. Code für viele Szenarien da nicht empfohlen wird, die `Bind` Attribut löscht vorhandenen Daten in Feldern, die nicht aufgeführt, der `Include` Parameter.
+Eine bewährte Sicherheitsmethode um zu verhindern, dass Overposting Implementierung dieser Änderungen. Die Scaffolder generiert eine `Bind` Attribut, und die Entität erstellt, indem die Modellbinder, die Entitätenmenge mit hinzugefügt eine `Modified` Flag. Code für viele Szenarien empfohlen befindet sich nicht, da die `Bind` Attribut löscht vorhandenen Daten in Feldern, die nicht aufgeführt, der `Include` Parameter.
 
 Der neue Code liest, die vorhandene Entität und ruft `TryUpdateModel` Felder in die abgerufene Entität aktualisieren [basierend auf Benutzereingaben in das gesendete Formulardaten](xref:mvc/models/model-binding#how-model-binding-works). Die automatische änderungsnachverfolgung der Entity Framework legt die `Modified` Flag für die Felder, die durch die Formulareingabe geändert werden. Wenn die `SaveChanges` -Methode aufgerufen wird, Entity Framework erstellt SQL-Anweisungen, um die Datenbankzeile zu aktualisieren. Parallelitätskonflikte werden ignoriert, und nur die Tabellenspalten, die vom Benutzer aktualisiert wurden, werden in der Datenbank aktualisiert. (Einem späteren Lernprogramm zeigt, wie Parallelitätskonflikte behandelt.)
 
@@ -200,7 +200,7 @@ Der Datenbankkontext der nachverfolgt, ob Entitäten im Arbeitsspeicher mit ihre
 
 Eine Entität kann in einem der folgenden Zustände werden:
 
-* `Added` Die Entität ist noch nicht in der Datenbank vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
+* `Added` Die Entität ist nicht in der Datenbank noch vorhanden. Die `SaveChanges` -Methode gibt eine INSERT-Anweisung.
 
 * `Unchanged` Keine Aktionen erforderlich, mit diese Entität durch erfolgen die `SaveChanges` Methode. Wenn Sie eine Entität aus der Datenbank lesen, beginnt die Entität mit diesem Status.
 
@@ -216,7 +216,7 @@ In einer Web-app die `DbContext` , die anfänglich liest eine Entität und zeigt
 
 Aber wenn Sie möchten der zusätzlichen Lesevorgang, müssen Sie das Entitätsobjekt erstellt, indem die modellbindung verwenden.  Die einfachste Möglichkeit hierzu ist für den Entitätsstatus "geändert" festzulegen, wie in den zuvor aufgeführten alternative HttpPost bearbeiten Code verwendet werden. Klicken Sie dann beim Aufrufen `SaveChanges`, Entity Framework alle Spalten der Datenbankzeile aktualisiert, da der Kontext kann nicht wissen, welche Eigenschaften Sie geändert haben.
 
-Wenn Sie die Read-First-Ansatz vermeiden möchten, aber außerdem SQL UPDATE-Anweisung, um nur die Felder zu aktualisieren, die der Benutzer tatsächlich geändert werden soll, ist der Code komplexer. Müssen Sie die ursprünglichen Werte in irgendeiner Form speichern (z. B. ausgeblendete Felder mit), damit sie verfügbar wenn sind HttpPost `Edit` -Methode aufgerufen wird. Anschließend können Sie eine Student-Entität mit den ursprünglichen Werten Aufruf erstellen die `Attach` Methode mit diesem Originalversion der Entität, Werten der Entität mit den neuen Werten aktualisiert, und rufen dann `SaveChanges`.
+Wenn Sie die Read-First-Ansatz vermeiden möchten, aber außerdem SQL UPDATE-Anweisung, um nur die Felder zu aktualisieren, die der Benutzer tatsächlich geändert werden soll, ist der Code komplexer. Müssen Sie die ursprünglichen Werte in irgendeiner Form speichern (z. B. mithilfe der ausgeblendete Felder), damit sie verfügbar wenn sind HttpPost `Edit` Methode wird aufgerufen. Anschließend können Sie eine Student-Entität mit den ursprünglichen Werten Aufruf erstellen die `Attach` Methode mit diesem Originalversion der Entität, Werten der Entität mit den neuen Werten aktualisiert, und rufen dann `SaveChanges`.
 
 ### <a name="test-the-edit-page"></a>Testen Sie die Seite "Bearbeiten"
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 7f6dc3b56a33bcbe3e1e4086681ca1ba76d7d153
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60cc4ca364923cb131d5e91cd7b6307b1e68644b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Pages (Razor) – häufig gestellte Fragen
 ====================
@@ -32,7 +32,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
-> - WebMatrix-3
+> - WebMatrix 3
 >   
 > 
 > Dieses Lernprogramm funktioniert auch mit ASP.NET Web Pages 2, 2 von WebMatrix und Visual Studio 2012.
@@ -99,7 +99,7 @@ Geben Sie Informationen zu IIS Express-Befehlszeilenoptionen, `iisexpress.exe /?
 <a id="Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page"></a>
 ## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>Kann ich die ASP.NET Web Forms-Steuerelemente auf einer Web Pages-Seite verwenden?
 
-Nein. Web Forms-Steuerelemente, z. B. die [Kontrollkästchen](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.checkbox) -Steuerelement, das [Validierungssteuerelemente](https://msdn.microsoft.com/en-us/library/bwd43d0x), und die [GridView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview) steuern, nur die Arbeitsaufgaben in Web Forms-Seiten (*aspx* Dateien). Diese Steuerelemente erfordern das Web Forms-Seite-Framework.
+Nein. Web Forms-Steuerelemente, z. B. die [Kontrollkästchen](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox) -Steuerelement, das [Validierungssteuerelemente](https://msdn.microsoft.com/library/bwd43d0x), und die [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) steuern, nur die Arbeitsaufgaben in Web Forms-Seiten (*aspx* Dateien). Diese Steuerelemente erfordern das Web Forms-Seite-Framework.
 
 <a id="Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix"></a>
 ## <a name="can-i-deploy-an-aspnet-web-pages-site-without-using-webmatrix"></a>Kann ich eine ASP.NET Web Pages-Website bereitstellen, ohne mithilfe von WebMatrix?
@@ -135,6 +135,6 @@ Hier sind einige Blogbeiträge, die die Verwendungsmöglichkeiten von jQuery mit
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 
-[ASP.NET Web Pages (Razor) Handbuch zur Problembehandlung](https://go.microsoft.com/fwlink/?LinkId=253001)
+[Leitfaden zur Behandlung von Problemen mit ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
 
 [WebMatrix und ASP.NET Web Pages-Forum](https://forums.asp.net/1224.aspx/1?WebMatrix) auf der ASP.NET-Website

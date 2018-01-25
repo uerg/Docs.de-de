@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-field"></a>Hinzufügen eines neuen Felds
 ====================
@@ -42,7 +42,7 @@ Aus der **Tools** Menü klicken Sie auf **NuGet Package Manager** und dann **Pac
 
 In der **Package Manager Console** -Fensters am der `PM>` Eingabeaufforderung eingeben.
 
-Enable-Migrations - ContextTypeName MvcMovie.Models.MovieDBContext
+Enable-Migrations -ContextTypeName MvcMovie.Models.MovieDBContext
 
 ![](adding-a-new-field/_static/image3.png)
 
@@ -66,13 +66,13 @@ Auf diese Weise fügt die folgende Anweisung:
 > 
 > Code First-Migrationen Ruft die `Seed` Methode nach jeder Migration (d. h. Aufrufen **Update-Database '** in der Paket-Manager-Konsole), und diese Methode aktualisiert die Zeilen, die bereits eingefügt wurde, oder fügt sie an, wenn sie nicht noch vorhanden ist.
 > 
-> Die [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) Methode in der folgende Code führt einen Vorgang "Upsert":
+> Die [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) Methode in der folgende Code führt einen Vorgang "Upsert":
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
-> Da die [Ausgangswert](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) Methode, die mit jeder Migration ausgeführt wird, die Daten können nicht nur eingefügt werden, da die Zeilen, die Sie hinzufügen möchten bereits es nach der ersten Migration entsprechen, die die Datenbank erstellt. Die "[Upsert](http://en.wikipedia.org/wiki/Upsert)" Vorgang wird verhindert, dass Fehler, die eintreten würden, wenn Sie versuchen, eine Zeile einzufügen, die bereits vorhanden ist, aber sie überschreibt alle Änderungen an den Daten, die Sie möglicherweise beim Testen der Anwendung vorgenommen haben. Mit Testdaten in einigen Tabellen nicht empfiehlt, die durchgeführt werden soll: in einigen Fällen beim Ändern von Daten beim Testen soll Ihre Änderungen bleiben nach einer Aktualisierung der Datenbank. In diesem Fall einen bedingten Einfügevorgang erstellt werden sollen: Fügen Sie eine Zeile nur dann, wenn er nicht bereits vorhanden.   
+> Da die [Ausgangswert](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) Methode, die mit jeder Migration ausgeführt wird, die Daten können nicht nur eingefügt werden, da die Zeilen, die Sie hinzufügen möchten bereits es nach der ersten Migration entsprechen, die die Datenbank erstellt. Die "[Upsert](http://en.wikipedia.org/wiki/Upsert)" Vorgang wird verhindert, dass Fehler, die eintreten würden, wenn Sie versuchen, eine Zeile einzufügen, die bereits vorhanden ist, aber sie überschreibt alle Änderungen an den Daten, die Sie möglicherweise beim Testen der Anwendung vorgenommen haben. Mit Testdaten in einigen Tabellen nicht empfiehlt, die durchgeführt werden soll: in einigen Fällen beim Ändern von Daten beim Testen soll Ihre Änderungen bleiben nach einer Aktualisierung der Datenbank. In diesem Fall einen bedingten Einfügevorgang erstellt werden sollen: Fügen Sie eine Zeile nur dann, wenn er nicht bereits vorhanden.   
 >   
-> Der erste Parameter übergeben wird, um die [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) Methode gibt die Eigenschaft zu verwenden, um zu überprüfen, ob bereits eine Zeile vorhanden. Für die Film-Testdaten, die Sie bereitstellen, die `Title` Eigenschaft kann für diesen Zweck verwendet werden, da jeder Titel in der Liste eindeutig ist:
+> Der erste Parameter übergeben wird, um die [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) Methode gibt die Eigenschaft zu verwenden, um zu überprüfen, ob bereits eine Zeile vorhanden. Für die Film-Testdaten, die Sie bereitstellen, die `Title` Eigenschaft kann für diesen Zweck verwendet werden, da jeder Titel in der Liste eindeutig ist:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
@@ -80,7 +80,7 @@ Auf diese Weise fügt die folgende Anweisung:
 >   
 >  *Die Sequenz enthält mehr als ein element*  
 >   
-> Weitere Informationen zu den [kann nicht](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) -Methode finden Sie unter [Achten Sie darauf mit EF 4.3 AddOrUpdate-Methode](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
+> Weitere Informationen zu den [kann nicht](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) -Methode finden Sie unter [Achten Sie darauf mit EF 4.3 AddOrUpdate-Methode](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
 **Drücken Sie STRG-UMSCHALT + B, um das Projekt zu erstellen.** (Die folgenden Schritte schlägt fehl, wenn Sie zu diesem Zeitpunkt nicht erstellt werden.)

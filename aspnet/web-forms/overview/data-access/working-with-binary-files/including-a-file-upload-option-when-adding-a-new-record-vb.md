@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f49c201c71ca8f98d7e15b29f1df9a6bcd1b12e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb462a0e8ce88037855ea12d00c1afc0419fa04e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>Z. B. eine Datei hochladen-Option beim Hinzufügen eines neuen Datensatzes (VB)
 ====================
@@ -176,7 +176,7 @@ Wenn ein Benutzer einen falschen Dateityp hochlädt, müssen wir auf "Abbrechen"
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>Schritt 6: Hochgeladene Broschüren Web Server s im Dateisystem speichern
 
-Wenn der Benutzer die Werte für eine neue Kategorie eingegeben und klickt auf die Schaltfläche zum Einfügen, asynchronen Postback und das Einfügen von Workflow erweitert. Erste, DetailsView s [ `ItemInserting` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) ausgelöst wird. Anschließend wird die s ObjectDataSource `Insert()` Methode wird aufgerufen, was dazu führt, in einen neuen Datensatz hinzugefügt wird die `Categories` Tabelle. Danach, DetailsView s [ `ItemInserted` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) ausgelöst wird.
+Wenn der Benutzer die Werte für eine neue Kategorie eingegeben und klickt auf die Schaltfläche zum Einfügen, asynchronen Postback und das Einfügen von Workflow erweitert. Erste, DetailsView s [ `ItemInserting` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) ausgelöst wird. Anschließend wird die s ObjectDataSource `Insert()` Methode wird aufgerufen, was dazu führt, in einen neuen Datensatz hinzugefügt wird die `Categories` Tabelle. Danach, DetailsView s [ `ItemInserted` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) ausgelöst wird.
 
 Vor dem ObjectDataSource s `Insert()` Methode aufgerufen wird, müssen Sie zunächst sicherstellen, dass die entsprechenden Dateitypen vom Benutzer hochgeladen wurden und speichern Sie die Broschüren PDF-Datei im Web Server s-Dateisystem. Erstellen Sie einen Ereignishandler für das DetailsView s `ItemInserting` Ereignis und fügen Sie den folgenden Code hinzu:
 
@@ -191,7 +191,7 @@ Der Ereignishandler wird gestartet, durch Verweisen auf die `BrochureUpload` Fil
 
 Entsprechend der Anleitung unter dem [Hochladen von Dateien](uploading-files-vb.md) Tutorial, muss darauf geachtet werden beim Speichern im Dateisystem Dateien, damit dieses Uploads einen Benutzer s nicht einem anderen s überschrieben wird. Für dieses Lernprogramm versuchen wir, die denselben Namen wie die hochgeladene Datei verwenden. Wenn es eine Datei in bereits die `~/Brochures` Verzeichnis mit diesem gleichen Dateinamen, allerdings müssen wir eine Zahl am Ende anfügen, bis ein eindeutiger Name gefunden wird. Z. B., wenn der Benutzer eine Broschüren mit dem Namen Dateiuploads `Meats.pdf`, aber es bereits eine Datei namens ist `Meats.pdf` in der `~/Brochures` Ordner ändern wir den gespeicherten Dateinamen an `Meats-1.pdf`. Wenn vorhanden ist, müssen wir versuchen `Meats-2.pdf`usw., bis ein eindeutiger Dateiname gefunden wird.
 
-Der folgende code verwendet die [ `File.Exists(path)` Methode](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx) zu bestimmen, ob eine Datei mit dem angegebenen Namen ist bereits vorhanden. Wenn dies der Fall ist, wird er weiterhin wiederholen Sie den neuen Dateinamen für die Broschüren, bis kein Konflikt gefunden wird.
+Der folgende code verwendet die [ `File.Exists(path)` Methode](https://msdn.microsoft.com/library/system.io.file.exists.aspx) zu bestimmen, ob eine Datei mit dem angegebenen Namen ist bereits vorhanden. Wenn dies der Fall ist, wird er weiterhin wiederholen Sie den neuen Dateinamen für die Broschüren, bis kein Konflikt gefunden wird.
 
 
 [!code-vb[Main](including-a-file-upload-option-when-adding-a-new-record-vb/samples/sample7.vb)]

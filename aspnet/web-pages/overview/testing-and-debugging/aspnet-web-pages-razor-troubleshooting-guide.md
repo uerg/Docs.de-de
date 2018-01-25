@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: e507d97903583c7233456e9139e1a869f8bf75bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) Handbuch zur Problembehandlung
 ====================
@@ -60,7 +60,7 @@ Stellen Sie sicher, dass das Stammverzeichnis der Website mindestens hat *cshtml
 
 Wenn dieser Fehler angezeigt wird, wenn der Webserver auf einem Remoteserver gespeichert ist, wenden Sie sich an den Serveradministrator. Stellen Sie sicher, dass der Server die .NET Framework 4 oder höher installiert. Stellen Sie außerdem sicher, dass die Anwendung in einem Anwendungspool ausgeführt wird, die Verwendung dieser Version von.NET Framework konfiguriert ist.
 
-Wenn Sie die Kontrolle über den Server haben, stellen Sie sicher, dass sie die richtige Version von .NET Framework ausgeführt wird. Sie können auch versuchen, reparieren Sie die Installation durch Ausführen der `aspnet_regiis -iru` Befehl. (Z. B. Wenn Sie IIS nach der Installation von .NET Framework installieren, wird IIS nicht ordnungsgemäß konfiguriert werden ASP.NET-Seiten ausführen.) Weitere Informationen finden Sie unter [ASP.NET IIS Registration-Tool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-US/library/k6h9cz8h(v=vs.100).aspx).
+Wenn Sie die Kontrolle über den Server haben, stellen Sie sicher, dass sie die richtige Version von .NET Framework ausgeführt wird. Sie können auch versuchen, reparieren Sie die Installation durch Ausführen der `aspnet_regiis -iru` Befehl. (Z. B. Wenn Sie IIS nach der Installation von .NET Framework installieren, wird IIS nicht ordnungsgemäß konfiguriert werden ASP.NET-Seiten ausführen.) Weitere Informationen finden Sie unter [ASP.NET IIS Registration-Tool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
 ### <a name="http-error-40314---forbidden"></a>HTTP-Fehler 403.14 - verboten
 
@@ -158,6 +158,6 @@ Ersetzen Sie die entsprechenden Werte für `your-SMTP-server-name`und so weiter.
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[ASP.NET Web Pages (Razor) – häufig gestellte Fragen](https://go.microsoft.com/fwlink/?LinkId=253000)
+[ASP.NET-Webseiten (Razor) – FAQs](https://go.microsoft.com/fwlink/?LinkId=253000)
 
 [WebMatrix und ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) -Forum auf der ASP.NET-Website

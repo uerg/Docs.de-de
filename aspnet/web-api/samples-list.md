@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/samples-list
 msc.type: content
-ms.openlocfilehash: 2f40cd4bebdd64c3a4b94cfc1e717fa4b304e57e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e1f43bbeedfc052f0b3a3924f51b544a5a79dca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-api-samples-list"></a>Liste der Web-API-Beispiele
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 **Bing übersetzen Sample** | [VS 2012-Quelle](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fBingTranslateSample%2fReadMe.txt)
 
-Zeigt, wie die [Microsoft Translator Dienst](https://msdn.microsoft.com/en-us/library/ff512419.aspx) mithilfe der **"HttpClient"** Klasse. Die Microsoft Translator-dienstverwaltungs-API erfordert einen OAuth-Token, das durch Senden einer Anforderung an den Azure-token-Server für jede Anforderung an den Dienst Konvertierer, ruft die Anwendung ab. Das Ergebnis aus der token-Server ist in der Anforderung an den Übersetzungsdienst gesendet eingezogen. Vor dem Ausführen dieses Beispiels benötigen Sie ein [Anwendungsschlüssel aus Azure Marketplace](https://msdn.microsoft.com/en-us/library/hh454950.aspx) und füllen Sie die Informationen in der AccessTokenMessageHandler-Beispiel-Klasse.
+Zeigt, wie die [Microsoft Translator Dienst](https://msdn.microsoft.com/library/ff512419.aspx) mithilfe der **"HttpClient"** Klasse. Die Microsoft Translator-dienstverwaltungs-API erfordert einen OAuth-Token, das durch Senden einer Anforderung an den Azure-token-Server für jede Anforderung an den Dienst Konvertierer, ruft die Anwendung ab. Das Ergebnis aus der token-Server ist in der Anforderung an den Übersetzungsdienst gesendet eingezogen. Vor dem Ausführen dieses Beispiels benötigen Sie ein [Anwendungsschlüssel aus Azure Marketplace](https://msdn.microsoft.com/library/hh454950.aspx) und füllen Sie die Informationen in der AccessTokenMessageHandler-Beispiel-Klasse.
 
 **Google Maps Sample** | [ausführliche Beschreibung](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [VS 2012-Quelle](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
 
@@ -74,7 +74,7 @@ Zeigt, wie der parameterbindungsprozess umfasst, angepasst wird, der bestimmt, w
 
 1. BindPrincipal wird gezeigt, wie Sie einen IPrincipal-Parameter aus einer benutzerdefinierten generischen Prinzipal nicht aus einer HTTP GET-Nachricht zu binden:
 2. BindCustomComplexTypeFromUriOrBody wird gezeigt, wie einen komplexen Typ-Parameter gebunden, der aus dem Nachrichtentext oder vom Anforderungs-URI einer HTTP POST-Nachricht werden konnte:
-3. BindCustomComplexTypeFromUriWithRenamedProperty wird gezeigt, wie einen Parameter der komplexen Typ umbenannte Eigenschaft gebunden, die aus der Anforderungs-URI einer HTTP POST-Nachricht stammt:
+3. BindCustomComplexTypeFromUriWithRenamedProperty shows how to bind a complex-type parameter with a renamed property which comes from the request URI of an HTTP POST message;
 4. PostMultipleParametersFromBody wird gezeigt, wie Sie mehrere Parameter aus dem Text für eine POST-Nachricht zu binden:
 
 **Datei hochladen Beispiel** | [ausführliche Beschreibung](https://blogs.msdn.com/b/henrikn/archive/2012/03/01/file-upload-and-asp-net-web-api.aspx) | [VS 2012-Quelle](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fFileUploadSample%2fReadMe.txt)
@@ -83,7 +83,7 @@ Zeigt, wie zum Hochladen von Dateien auf einer **ApiController** mit MIME-Multip
 
 **Datei hochladen in Azure BLOB-Speicher – Beispiel** | [ausführliche Beschreibung](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [VS 2012-Quelle](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
 
-Dieses Beispiel ist die Datei hochladen Beispiel ähnelt, aber statt der hochgeladenen Dateien auf dem lokalen Datenträger speichern asynchron hochgeladen Dateien [Azure Blob-Speicher](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) mit [Windows Azure SDK für .NET](https://www.windowsazure.com/en-us/develop/net/). Es bietet auch einen Mechanismus zum Auflisten der Blobs, die derzeit in einer [Azure Blob-Speichercontainer](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Sie können versuchen, das Beispiel für **Azure-Speicheremulator** wird, die mit dem Azure SDK. Ist ein [Azure Storage-Konto](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), Sie können für den real-Speicherdienst ausführen.
+Dieses Beispiel ist die Datei hochladen Beispiel ähnelt, aber statt der hochgeladenen Dateien auf dem lokalen Datenträger speichern asynchron hochgeladen Dateien [Azure Blob-Speicher](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) mit [Windows Azure SDK für .NET](https://www.windowsazure.com/develop/net/). Es bietet auch einen Mechanismus zum Auflisten der Blobs, die derzeit in einer [Azure Blob-Speichercontainer](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Sie können versuchen, das Beispiel für **Azure-Speicheremulator** wird, die mit dem Azure SDK. Ist ein [Azure Storage-Konto](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), Sie können für den real-Speicherdienst ausführen.
 
 **HTTP-Nachricht Handler Pipelinebeispiel** | [ausführliche Beschreibung](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [VS 2010-Quelle](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
 
@@ -140,7 +140,7 @@ In diesem Beispiel wird veranschaulicht, wie einen OData-Dienst besteht aus drei
 Die SupplierController macht eine Teilmenge der Funktionen, einschließlich der Abfrage, abrufen, indem Schlüssel und erstellen, durch die Behandlung dieser Anforderungen:
 
 - /Suppliers abrufen
-- /Suppliers(key) abrufen
+- GET /Suppliers(key)
 - GET-/Suppliers? $filter =... &amp;$orderby =... &amp;$top =... &amp;$skip =...
 - POST /Suppliers
 

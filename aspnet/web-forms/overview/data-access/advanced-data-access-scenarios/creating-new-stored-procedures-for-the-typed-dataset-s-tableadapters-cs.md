@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e8b4e6a12c010b227ee9a236130cbfd26d75657
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 715f7e3fae89e773b686faa7c49522c587693eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Erstellen neuer gespeicherte Prozeduren für das typisierte DataSet TableAdapters (c#)
 ====================
@@ -47,7 +47,7 @@ Funktionen sind ein Konstrukt, das häufig für alle Programmiersprachen. Eine F
 > Gespeicherte Prozeduren werden häufig als gespeicherte Prozeduren oder SPs bezeichnet.
 
 
-Gespeicherte Prozeduren werden erstellt, mit der [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) T-SQL-Anweisung. Das folgende T-SQL-Skript erstellt z. B. eine gespeicherte Prozedur namens `GetProductsByCategoryID` nimmt einen einzelnen Parameter mit dem Namen `@CategoryID` und gibt die `ProductID`, `ProductName`, `UnitPrice`, und `Discontinued` Felder dieser Spalten in der `Products` Tabelle, die entsprechende `CategoryID` Wert:
+Gespeicherte Prozeduren werden erstellt, mit der [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) T-SQL-Anweisung. Das folgende T-SQL-Skript erstellt z. B. eine gespeicherte Prozedur namens `GetProductsByCategoryID` nimmt einen einzelnen Parameter mit dem Namen `@CategoryID` und gibt die `ProductID`, `ProductName`, `UnitPrice`, und `Discontinued` Felder dieser Spalten in der `Products` Tabelle, die entsprechende `CategoryID` Wert:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Erstellen und Verwalten von gespeicherten Prozeduren](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Erstellen und Verwalten von gespeicherten Prozeduren](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Abrufen von skalaren Daten aus einer gespeicherten Prozedur](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [SQLServer gespeicherte Prozedur-Grundlagen](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Gespeicherte Prozeduren: Übersicht](http://www.sqlteam.com/item.asp?ItemID=563)

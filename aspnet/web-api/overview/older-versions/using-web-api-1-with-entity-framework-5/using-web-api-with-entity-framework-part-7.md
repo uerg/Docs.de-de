@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: a17b9f26ec48b5410211d6dad6e4deec971642d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Teil 7: Erstellen den Hauptknoten Seite
 ====================
@@ -86,7 +86,7 @@ Diese Produkte Array durchläuft und zeigt den Namen und den Preis. Die Schaltfl
 
 Schaltfläche "Hinzufügen, Order" ruft `addItemToCart` auf die `ProductViewModel` Instanz für das Produkt. Dies beweist, dass ein nützliches Feature der Knockout.js: bei einem Ansichtsmodell andere Modelle anzeigen enthält, können Sie die Bindungen auf das interne Modell anwenden. In diesem Beispiel die Bindungen innerhalb der `foreach` gelten für jede der `ProductViewModel` Instanzen. Dieser Ansatz ist wesentlich übersichtlicher als einfügen alle Funktionen in einem einzelnen Modell anzeigen.
 
-**Einkaufswagen**
+**Cart**
 
 Hier werden die Bindungen für den Einkaufswagen:
 
@@ -110,14 +110,14 @@ Hier werden die Bindungen für die Auftragsdetails enthält:
 
 Dies führt eine Iteration durch die Elemente in der Reihenfolge und zeigt an, das Produkt, Preis und eines Orts. Umgebenden DIV-Elements ist nur sichtbar, wenn das Details-Array ein oder mehrere Elemente enthält.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm erstellt Sie eine Anwendung, die Entity Framework verwendet, um die Kommunikation mit dem Datenbank- und ASP.NET Web-API, um eine öffentliche Schnittstelle auf die Datenschicht bereitzustellen. Wir verwenden die ASP.NET MVC 4 zum Rendern der HTML-Seiten und den Knockout.js sowie die jQuery um dynamische Aktivitäten ohne Seite Neuladen bereitzustellen.
 
 Zusätzliche Ressourcen:
 
-- [ASP.NET Data Access-Inhaltszuordnung](https://msdn.microsoft.com/en-us/library/6759sth4.aspx)
-- [Entity Framework-Developer Center](https://msdn.microsoft.com/en-US/data/ef)
+- [ASP.NET Data Access-Inhaltszuordnung](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [Entity Framework Developer Center](https://msdn.microsoft.com/data/ef)
 
 >[!div class="step-by-step"]
-[Zurück](using-web-api-with-entity-framework-part-6.md)
+[Vorherige](using-web-api-with-entity-framework-part-6.md)

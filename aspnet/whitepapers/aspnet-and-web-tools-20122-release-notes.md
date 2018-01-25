@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: e6c940aa507d72928d71019070ded5197458a763
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52559a47f86e572f873d4eaaab50e87eb51722fd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>Anmerkungen zur Version von ASP.NET und Webtools 2012.2
 ====================
@@ -152,7 +152,7 @@ Weitere Informationen zu ASP.NET Web API OData finden Sie unter [https://go.micr
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API Tracing
 
-ASP.NET Web API Tracing integriert .NET Tracing Ablaufverfolgungsdaten aus der Web-APIs. Es ist jetzt in der Web-API-Projektvorlage standardmäßig aktiviert. Protokollierungsdaten für Ihre Web-APIs wird gesendet, um das Fenster "Ausgabe" und mit IntelliTrace verfügbar gemacht. ASP.NET Web API Tracing können Sie Ablaufverfolgungsinformationen zu Ihrer Web-API beim Hosten in Windows Azure durch die Integration mit [Windows Azure-Diagnose](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx). Sie können außerdem installieren und Aktivieren von ASP.NET Web API Tracing in jeder Anwendung, die mithilfe des ASP.NET Web API Tracing NuGet-Pakets ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+ASP.NET Web API Tracing integriert .NET Tracing Ablaufverfolgungsdaten aus der Web-APIs. Es ist jetzt in der Web-API-Projektvorlage standardmäßig aktiviert. Protokollierungsdaten für Ihre Web-APIs wird gesendet, um das Fenster "Ausgabe" und mit IntelliTrace verfügbar gemacht. ASP.NET Web API Tracing können Sie Ablaufverfolgungsinformationen zu Ihrer Web-API beim Hosten in Windows Azure durch die Integration mit [Windows Azure-Diagnose](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Sie können außerdem installieren und Aktivieren von ASP.NET Web API Tracing in jeder Anwendung, die mithilfe des ASP.NET Web API Tracing NuGet-Pakets ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
 Weitere Informationen zum Konfigurieren und Verwenden von ASP.NET Web API Tracing finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
@@ -240,8 +240,8 @@ Der OData-URI-Parser kann teilweise Datetime-Literale ordnungsgemäß zu analysi
 
 OData unterstützt keine Groß-/Kleinschreibung Eigenschaftennamen in OData-Abfragen und OData-Pfad. Finden Sie unter "Arbeitsaufgaben":
 
-- [http://aspnetwebstack.codeplex.com/WorkItem/366](http://aspnetwebstack.codeplex.com/workitem/366)
-- [http://aspnetwebstack.codeplex.com/WorkItem/704](http://aspnetwebstack.codeplex.com/workitem/704)
+- [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
+- [http://aspnetwebstack.codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
 
 Wenn Benutzer mit abweichender Groß-/Kleinschreibung auf Javascript clientseitige und serverseitige vorhanden sind, werden sie möglicherweise dieses Problem auftreten. Dieses Problem ist ein Merkmal OData-Protokoll. Meldet jedoch viele Benutzer dieses Problem. Dieses Problem, zu umgehen müssen die Benutzer inbegriffen in URL zu korrigieren.
 
@@ -283,9 +283,9 @@ Datei todo.model.js
 
 todoList.prototype.addTodo-Funktion, fügen Sie den folgenden blacked Text hinzu:  
  **self.isSelected(true);**  
- self.newTodoTitle (&quot;&quot;);
+ self.newTodoTitle(&quot;&quot;);
 
 Datei index.cshtml, fügen Sie den folgenden blacked Text hinzu:  
  &lt;bilden Sie Data-Bind =&quot;übermitteln: AddTodo&quot;&gt;  
- &lt;Geben Sie die Klasse =&quot;AddTodo&quot; Typ =&quot;Text&quot; Data-Bind =&quot;Wert: NewTodoTitle, Platzhalter: "Typ hier hinzufügen", BlurOnEnter: "true" **Hasfocus: IsSelected**, Ereignis: {Weichzeichnen: AddTodo}&quot; /&gt;  
- &lt;/ Form&gt;
+ &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
+ &lt;/form&gt;

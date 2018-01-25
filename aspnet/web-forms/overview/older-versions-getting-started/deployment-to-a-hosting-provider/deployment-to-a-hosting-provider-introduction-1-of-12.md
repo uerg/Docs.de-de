@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 7c03453e64cfc065d9f424702cc5af373e9bf536
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12
 ====================
@@ -63,7 +63,7 @@ Der hosting-Anbieter verwendet für dieses Lernprogramm Cytanium.com, ist eins v
 
 ## <a name="deploying-web-site-projects"></a>Bereitstellen von Website-Projekten
 
-Contoso University ist eine Visual Studio-Webanwendungsprojekt. Die meisten der Bereitstellungsmethoden und Tools, die in diesem Lernprogramm demonstriert gelten nicht für [Websiteprojekte](https://msdn.microsoft.com/en-us/library/dd547590.aspx). Informationen zum Bereitstellen von Website-Projekten finden Sie unter [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521.aspx#deployment_for_web_site_projects).
+Contoso University ist eine Visual Studio-Webanwendungsprojekt. Die meisten der Bereitstellungsmethoden und Tools, die in diesem Lernprogramm demonstriert gelten nicht für [Websiteprojekte](https://msdn.microsoft.com/library/dd547590.aspx). Informationen zum Bereitstellen von Website-Projekten finden Sie unter [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
 ## <a name="deploying-aspnet-mvc-projects"></a>Bereitstellen von ASP.NET MVC-Projekte
 
@@ -110,7 +110,7 @@ Speichern Sie ContosoUniversity Begin zum Vorbereiten der durch die Schritte des
 
 Starten Sie Visual Studio, öffnen Sie das Projekt, und drücken Sie STRG + F5, um es auszuführen.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Die Webseiten Tastenkombinationen sind in der Menüleiste und können Sie die folgenden Funktionen ausführen:
 

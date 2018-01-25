@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab0b4c24c1771a21c45bac011b5f156cb15d28a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="manually-installing-web-packages"></a>Manuelles Installieren von Webpaketen
 ====================
@@ -125,13 +125,13 @@ Weitere Informationen zum Konfigurieren eines IIS-Webservers zur Unterstützung 
 
 An diesem Punkt haben Sie Ihre Webanwendungen in IIS erfolgreich veröffentlicht.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Dieses Thema beschreibt, wie Sie ein Webbereitstellungspaket in einer IIS-Website mit dem IIS-Manager zu importieren. Diese Vorgehensweise bei der Veröffentlichung von Webdienst-Anwendung ist geeignet, wenn Sicherheits- oder Infrastruktur Einschränkungen nicht möglich oder unerwünscht Remotebereitstellung vornehmen.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Anleitung zum Konfigurieren eines IIS-Webservers zum manuellen Importieren einer Web-Paket zu unterstützen, finden Sie unter [konfigurieren Sie einen Webserver für bereitstellen Webveröffentlichung (Offline Bereitstellung)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Weitere allgemeine Anleitungen zum Bereitstellen von Webpaketen finden Sie unter [Exemplarische Vorgehensweise: Bereitstellen einer Web Application Project Using ein Webbereitstellungspaket (Teil 1 von 4)](https://msdn.microsoft.com/en-us/library/dd483479.aspx).
+Anleitung zum Konfigurieren eines IIS-Webservers zum manuellen Importieren einer Web-Paket zu unterstützen, finden Sie unter [konfigurieren Sie einen Webserver für bereitstellen Webveröffentlichung (Offline Bereitstellung)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Weitere allgemeine Anleitungen zum Bereitstellen von Webpaketen finden Sie unter [Exemplarische Vorgehensweise: Bereitstellen einer Web Application Project Using ein Webbereitstellungspaket (Teil 1 von 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
 >[!div class="step-by-step"]
-[Zurück](creating-and-running-a-deployment-command-file.md)
+[Vorherige](creating-and-running-a-deployment-command-file.md)

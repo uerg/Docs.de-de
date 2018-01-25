@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Erste Schritte mit ASP.NET 4.5 WebForms und Visual Studio 2013
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -60,7 +60,7 @@ Die Zielgruppe dieses Reihe von Lernprogrammen wird erfahrenen Entwickler, die A
 Wenn Sie interessiert, überprüfen die oben aufgeführten Bereiche sind, erwägen Sie, überprüfen den folgenden Inhalt:
 
 - [Erste Schritte mit Visual c#](https://msdn.microsoft.com/library/a72418yk.aspx)
-- [Webentwicklung](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP und JQuery](http://w3schools.com/)
+- [Web Development](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP, JQuery](http://w3schools.com/)
 - [Relationale Datenbank](http://en.wikipedia.org/wiki/Relational_database)
 - [Multi-Tier-Architektur](http://en.wikipedia.org/wiki/Multitier_architecture)
 
@@ -150,7 +150,7 @@ Nach der Rückkehr von PayPal, können Sie überprüfen und Ihre Bestellung abzu
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgende Software auf Ihrem Computer installiert haben:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework wird automatisch installiert.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework wird automatisch installiert.
 
 Diese Reihe von Lernprogrammen verwendet Microsoft Visual Studio Express 2013 für Web an. Sie können entweder Microsoft Visual Studio Express 2013 für Web oder Microsoft Visual Studio 2013 verwenden, zum Abschließen dieser Reihe von Lernprogrammen.
 
@@ -163,7 +163,7 @@ Wenn Sie bereits eine Version von Visual Studio installiert haben, wird während
 
 > [!NOTE] 
 > 
-> In dieser exemplarischen Vorgehensweise wird davon ausgegangen, dass die Auswahl der *Webentwicklung* Auflistung von Einstellungen zum ersten Mal starten von Visual Studio. Weitere Informationen finden Sie unter [wie: Wählen Sie Web Development Umgebungseinstellungen](https://msdn.microsoft.com/en-us/library/ff521558.aspx).
+> In dieser exemplarischen Vorgehensweise wird davon ausgegangen, dass die Auswahl der *Webentwicklung* Auflistung von Einstellungen zum ersten Mal starten von Visual Studio. Weitere Informationen finden Sie unter [wie: Wählen Sie Web Development Umgebungseinstellungen](https://msdn.microsoft.com/library/ff521558.aspx).
 
 
 ## <a name="download-the-sample-application"></a>Laden Sie die Beispielanwendung

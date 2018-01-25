@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET und Webtools 2013.2 für Versionshinweisen zu Visual Studio 2013
 ====================
@@ -41,7 +41,7 @@ Die folgenden Abschnitte beschreiben die Funktionen, die in der Version eingefü
 - [Vorlagen für ein ASP.NET-Projekt](#oneaspnet)
 - [Unterstützung von SSL beim Starten von Webanwendungen unter IIS Express](#ssl)
 - [Web-Editor von Visual Studio-Erweiterungen](#vswebeditor)
-- [Browserlink](#browserlink)
+- [Browserverknüpfung](#browserlink)
 - [Unterstützung für Azure App Service-Web-Apps in Visual Studio](#waws)
 - [Erstellen Sie remote-Azure-Ressourcen, wenn ein neues Webprojekt erstellen](#AzureResources)
 - [Web veröffentlichen Erweiterungen](#webpublish)
@@ -49,7 +49,7 @@ Die folgenden Abschnitte beschreiben die Funktionen, die in der Version eingefü
 - [NuGet 2.8.1](#nuget)
 - [ASP.NET Web Forms](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
-- [ASP.NET Web-API 2.1.2](#webapi)
+- [ASP.NET Web API 2.1.2](#webapi)
 - [ASP.NET Web Pages 3.1.2](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)
@@ -99,7 +99,7 @@ Firefox verwendet einen eigenen Zertifikatspeicher an, damit sie eine Warnung an
 
     IntelliSense unterstützt jetzt auch [JSON-Schema](http://json-schema.org/) v3 und v4. Es ist ein Schema Kombinationsfeld vorhandenen Schemas auswählen, bearbeiten die lokalen Schemapfad oder einfach Drag & drop eine JSON-Projektdatei, um den relativen Pfad abzurufen.
 
-    ![JSON-Intellisense](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON-Schema-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
+    ![JSON Intellisense](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON-Schema-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
 - **Editor für neues Sass (SCSS)**: weniger VS2013 RTM hinzugefügt, und wir verfügen jetzt über ein Projektelement Sass und -Editor. Sass-Editor-Funktionen sind vergleichbar mit dem LESS-Editor, und schließen farbliche Kennzeichnung, Variablen und Mixins IntelliSense, Kommentar/kommentieren, QuickInfo, Formatierung, syntaxüberprüfung, Gliederung, Gehe zu Definition, Farbauswahl, tools usw. Festlegen der Option.
 
     ![Neues Element hinzufügen: SCSS-Stylesheet](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image9.png)    ![Formatvorlagen-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image10.png)
@@ -213,7 +213,7 @@ NuGet 2.8.1, die im April 2014 RTM veröffentlicht wird. Hier werden die wichtig
 - Verschiedene [Fehlerkorrekturen](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=MVC&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 
 <a id="webapi"></a>
-### <a name="aspnet-web-api-212"></a>ASP.NET Web-API 2.1.2
+### <a name="aspnet-web-api-212"></a>ASP.NET Web API 2.1.2
 
 - [Globale Fehlerbehandlung](../../../web-api/overview/releases/whats-new-in-aspnet-web-api-21.md#global-error)
 - [-Attribut routing Erweiterungen](../../../web-api/overview/releases/whats-new-in-aspnet-web-api-21.md#attribute-routing)
@@ -232,10 +232,10 @@ NuGet 2.8.1, die im April 2014 RTM veröffentlicht wird. Hier werden die wichtig
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework wurde aktualisiert auf Version 6.1 für Common Language Runtime und Tools erforderlich sind. Entity Framework (EF) 6.1 ist ein kleineres Update auf Entity Framework 6 und umfasst eine Reihe von Fehlerkorrekturen und neue Funktionen. Ausführliche Informationen zu EF6.1, einschließlich Links zur Dokumentation für die neuen Funktionen finden Sie unter [Entity Framework-Versionsverlaufs](https://msdn.microsoft.com/en-US/data/jj574253). Die neuen Funktionen in dieser Version enthalten:
+Entity Framework wurde aktualisiert auf Version 6.1 für Common Language Runtime und Tools erforderlich sind. Entity Framework (EF) 6.1 ist ein kleineres Update auf Entity Framework 6 und umfasst eine Reihe von Fehlerkorrekturen und neue Funktionen. Ausführliche Informationen zu EF6.1, einschließlich Links zur Dokumentation für die neuen Funktionen finden Sie unter [Entity Framework-Versionsverlaufs](https://msdn.microsoft.com/data/jj574253). Die neuen Funktionen in dieser Version enthalten:
 
 - **Konsolidierung Tooling** bietet eine konsistente Möglichkeit zum Erstellen eines neuen EF-Modells. Diese Funktion erweitert den ADO.NET Entity Data Model-Assistenten zum Erstellen von Code First-Modelle, einschließlich reverse Engineering aus einer vorhandenen Datenbank zu unterstützen. Diese Funktionen wurden zuvor in der Beta-Qualität in der EF Power Tools verfügbar.
-- **Handhabung von commitfehlern Transaktion** bietet die neuen [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) welche nutzt die neu eingeführte Möglichkeit Transaktionsvorgänge abzufangen. Die **CommitFailureHandler** können Sie eine automatische Wiederherstellung bei Verbindungsfehlern, während eine Transaktion ein Commit ausgeführt.
+- **Handhabung von commitfehlern Transaktion** bietet die neuen [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) welche nutzt die neu eingeführte Möglichkeit Transaktionsvorgänge abzufangen. Die **CommitFailureHandler** können Sie eine automatische Wiederherstellung bei Verbindungsfehlern, während eine Transaktion ein Commit ausgeführt.
 - **' Indexattribute '** Indizes angegeben werden, indem Sie ein Attribut auf eine Eigenschaft (oder Eigenschaften) in Ihrem Code First-Modell platzieren können. Code wird einen entsprechenden Index zunächst klicken Sie dann in der Datenbank erstellt.
 - **Die öffentliche API-Zuordnung** ermöglicht den Zugriff auf die Informationen EF hat, auf wie die Eigenschaften und Typen für Spalten und Tabellen in der Datenbank zugeordnet sind. In früheren Versionen war diese API interne.
 - **Möglichkeit, die über die Datei App/Web.config Interceptors konfigurieren**(die Schaffung Interceptors ohne erneute Kompilierung der Anwendung hinzugefügt werden).

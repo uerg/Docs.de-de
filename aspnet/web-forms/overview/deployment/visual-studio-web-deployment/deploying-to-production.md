@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellung bis hin zur Produktion
 ====================
@@ -150,7 +150,7 @@ Nun, dass Sie eine Web-app und die Datenbank für die Stagingumgebung erstellt h
     5. Schließen der **Datenbankupdates konfigurieren** (Dialogfeld).
 10. Klicken Sie unter **SchoolContext** in der **Datenbanken** Abschnitt **führen Sie Code First-Migrationen (wird beim Anwendungsstart ausgeführt)**.
 
-    Zeigt Visual Studio **führen Sie Code First-Migrationen** anstelle von **Update Database** für `DbContext` Klassen. Gegebenenfalls Migrationen zum Bereitstellen einer Datenbank, die Sie zugreifen, indem Sie mit den DbDacFx-Anbieter verwenden ein `DbContext` Klasse, finden Sie unter [wie ich eine Code First Datenbank ohne Migrationen bereitstellen?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) in der Web-Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET auf MSDN.
+    Zeigt Visual Studio **führen Sie Code First-Migrationen** anstelle von **Update Database** für `DbContext` Klassen. Gegebenenfalls Migrationen zum Bereitstellen einer Datenbank, die Sie zugreifen, indem Sie mit den DbDacFx-Anbieter verwenden ein `DbContext` Klasse, finden Sie unter [wie ich eine Code First Datenbank ohne Migrationen bereitstellen?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) in der Web-Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET auf MSDN.
 
     Die **Einstellungen** Registerkarte sieht nun wie im folgenden Beispiel:
 
@@ -193,7 +193,7 @@ Ein wichtiger Aspekt für die staging-app ist, live im Internet werden, aber nic
 - Verwenden Sie eine verborgene URL, die nicht möglich, zu erraten, wäre.
 - Erstellen einer *"robots.txt"* Datei, um sicherzustellen, dass Suchmaschinen nicht in den Suchergebnissen die Test-app und der Bericht Links zu crawlen.
 
-Die erste dieser Methoden ist am effektivsten, jedoch wird in diesem Lernprogramm nicht behandelt, da es erfordert, dass Sie ein Azure-Cloud-Dienst anstelle von Azure App Service bereitstellen. Weitere Informationen zu Cloud-Dienste und IP-Einschränkungen in Azure finden Sie unter [Ausführungsmodelle von Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) und [Block bestimmte IP-Adressen aus den Zugriff auf eine Webrolle](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx). Wenn Sie mit einem Drittanbieter-Hostinganbieter bereitstellen, wenden Sie sich an den Anbieter, um herauszufinden, wie IP-Einschränkungen implementieren.
+Die erste dieser Methoden ist am effektivsten, jedoch wird in diesem Lernprogramm nicht behandelt, da es erfordert, dass Sie ein Azure-Cloud-Dienst anstelle von Azure App Service bereitstellen. Weitere Informationen zu Cloud-Dienste und IP-Einschränkungen in Azure finden Sie unter [Ausführungsmodelle von Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) und [Block bestimmte IP-Adressen aus den Zugriff auf eine Webrolle](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Wenn Sie mit einem Drittanbieter-Hostinganbieter bereitstellen, wenden Sie sich an den Anbieter, um herauszufinden, wie IP-Einschränkungen implementieren.
 
 In diesem Lernprogramm erstellen Sie eine *"robots.txt"* Datei.
 
@@ -256,7 +256,7 @@ Standardmäßig *pubxml* Dateien im Projekt enthalten sind, beim Erstellen eines
 
 Für jede *pubxml* Datei besteht eine *. pubxml.user* Datei. Die *. pubxml.user* -Datei enthält das verschlüsselte Kennwort aus, wenn Sie ausgewählt haben die **Kennwort speichern** -Option wird standardmäßig, die sie aus dem Projekt ausgeschlossen wird.
 
-Ein *pubxml* -Datei enthält die Einstellungen, die einen bestimmten Veröffentlichungsprofil betreffen. Wenn Sie Einstellungen konfigurieren, die für alle Profile anwenden möchten, können Sie erstellen eine *. wpp.targets* Datei. Während des Erstellungsprozesses importiert diese Dateien in den *csproj* oder *vbproj* Projektdatei, damit die meisten Einstellungen, die Sie in der Projektdatei konfigurieren können, die in diesen Dateien konfiguriert werden können. Weitere Informationen zu *pubxml* Dateien und *. wpp.targets* finden Sie unter [wie: Bearbeiten von Bereitstellungseinstellungen im Veröffentlichungsprofil (.pubxml)-Dateien und die. wpp.targets Datei in Visual Studio Webprojekte](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Ein *pubxml* -Datei enthält die Einstellungen, die einen bestimmten Veröffentlichungsprofil betreffen. Wenn Sie Einstellungen konfigurieren, die für alle Profile anwenden möchten, können Sie erstellen eine *. wpp.targets* Datei. Während des Erstellungsprozesses importiert diese Dateien in den *csproj* oder *vbproj* Projektdatei, damit die meisten Einstellungen, die Sie in der Projektdatei konfigurieren können, die in diesen Dateien konfiguriert werden können. Weitere Informationen zu *pubxml* Dateien und *. wpp.targets* finden Sie unter [wie: Bearbeiten von Bereitstellungseinstellungen im Veröffentlichungsprofil (.pubxml)-Dateien und die. wpp.targets Datei in Visual Studio Webprojekte](https://msdn.microsoft.com/library/ff398069.aspx).
 
 1. In **Projektmappen-Explorer**, erweitern Sie **Eigenschaften** und erweitern Sie **PublishProfiles**.
 2. Mit der rechten Maustaste *Production.pubxml* , und klicken Sie auf **öffnen**.
@@ -271,7 +271,7 @@ Ein *pubxml* -Datei enthält die Einstellungen, die einen bestimmten Veröffentl
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Weitere Informationen zur Vorgehensweise beim Ausschließen von Dateien und Ordnern finden Sie unter [kann ich schließt bestimmte Dateien oder Ordner aus Bereitstellung?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) in der **Web-Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET** auf MSDN.
+    Weitere Informationen zur Vorgehensweise beim Ausschließen von Dateien und Ordnern finden Sie unter [kann ich schließt bestimmte Dateien oder Ordner aus Bereitstellung?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) in der **Web-Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET** auf MSDN.
 
 ### <a name="deploy-to-production"></a>Für die Produktion bereitstellen
 
@@ -295,7 +295,7 @@ Sie haben jetzt erfolgreich bereitgestellt und Ihre Web-app getestet, und er öf
 In den nächsten Lernprogrammen Sie Anwendungscode zu aktualisieren und die Änderung für den Test, Staging und Produktion Umgebungen bereitstellen.
 
 > [!NOTE]
-> Während die Anwendung in der produktionsumgebung eingesetzt wird sollten Sie einen Wiederherstellungsplan implementieren. D. h., Sie sollten werden in regelmäßigen Abständen Sichern der Datenbanken aus der Produktions-app an einem sicheren Speicherort, und Generationen solcher Sicherungen beibehalten werden soll. Wenn Sie die Datenbank aktualisieren, sollten Sie eine Sicherungskopie von unmittelbar vor der Änderung. Klicken Sie dann, wenn Sie ein Fehler unterläuft und nicht erst ermitteln, nachdem Sie es in der produktionsumgebung bereitgestellt haben, noch werden Sie können zum Wiederherstellen der Datenbank in den Zustand, der vorlag, bevor er beschädigt wurde. Weitere Informationen finden Sie unter [Azure SQL-Datenbank sichern und Wiederherstellen](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx).
+> Während die Anwendung in der produktionsumgebung eingesetzt wird sollten Sie einen Wiederherstellungsplan implementieren. D. h., Sie sollten werden in regelmäßigen Abständen Sichern der Datenbanken aus der Produktions-app an einem sicheren Speicherort, und Generationen solcher Sicherungen beibehalten werden soll. Wenn Sie die Datenbank aktualisieren, sollten Sie eine Sicherungskopie von unmittelbar vor der Änderung. Klicken Sie dann, wenn Sie ein Fehler unterläuft und nicht erst ermitteln, nachdem Sie es in der produktionsumgebung bereitgestellt haben, noch werden Sie können zum Wiederherstellen der Datenbank in den Zustand, der vorlag, bevor er beschädigt wurde. Weitere Informationen finden Sie unter [Azure SQL-Datenbank sichern und Wiederherstellen](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 
 
 > [!NOTE]

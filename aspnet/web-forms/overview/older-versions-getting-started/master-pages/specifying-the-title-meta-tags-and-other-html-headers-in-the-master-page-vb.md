@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1bbc2efc67d2d828dd0a5c1fcfe95145e8ffb2cb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Angeben der Titel, Meta-Tags und andere HTML-Header in der Gestaltungsvorlage (VB)
 ====================
@@ -42,7 +42,7 @@ Die Standardeinstellung Masterseitendatei von Visual Studio 2008 erstellte enth�
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample1.aspx)]
 
-Beachten Sie, dass die `<head>` Element enthält eine `runat="server"` -Attribut, das angibt, dass es ein Webserversteuerelement (anstelle von statischem HTML-Code). Alle ASP.NET-Seiten Ableiten der [ `Page` Klasse](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx), befindet sich der `System.Web.UI` Namespace. Diese Klasse enthält eine [ `Header` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.page.header.aspx) , Zugriff auf der Seite bietet `<head>` Region. Mithilfe der `Header` Eigenschaft können wir eine ASP.NET-Seite Titel festlegen, oder fügen Sie zusätzliche Markup hinzu, um den gerenderten `<head>` Abschnitt. Es ist möglich, klicken Sie dann zum Anpassen einer Inhaltsseite `<head>` Element durch das Schreiben von viel Code auf der Seite `Page_Load` -Ereignishandler. Untersuchen wir wie Titel der Seite programmgesteuert in Schritt 1 festgelegt.
+Beachten Sie, dass die `<head>` Element enthält eine `runat="server"` -Attribut, das angibt, dass es ein Webserversteuerelement (anstelle von statischem HTML-Code). Alle ASP.NET-Seiten Ableiten der [ `Page` Klasse](https://msdn.microsoft.com/library/system.web.ui.page.aspx), befindet sich der `System.Web.UI` Namespace. Diese Klasse enthält eine [ `Header` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx) , Zugriff auf der Seite bietet `<head>` Region. Mithilfe der `Header` Eigenschaft können wir eine ASP.NET-Seite Titel festlegen, oder fügen Sie zusätzliche Markup hinzu, um den gerenderten `<head>` Abschnitt. Es ist möglich, klicken Sie dann zum Anpassen einer Inhaltsseite `<head>` Element durch das Schreiben von viel Code auf der Seite `Page_Load` -Ereignishandler. Untersuchen wir wie Titel der Seite programmgesteuert in Schritt 1 festgelegt.
 
 Das Markup angezeigt, der `<head>` Element oben enthält auch ein ContentPlaceHolder-Steuerelement namens `head`. Dieses ContentPlaceHolder-Steuerelement ist nicht erforderlich, wie Inhaltsseiten benutzerdefinierten Inhalten hinzufügen, können die `<head>` Element programmgesteuert. Es ist hilfreich in Situationen, in denen Inhaltsseite statische Markup hinzufügen muss, jedoch die `<head>` -Element als statische Markup deklarativ programmgesteuert, statt an das entsprechende Inhaltssteuerelement hinzugefügt werden können.
 
@@ -69,7 +69,7 @@ Inhalt keine Seiten eine `<title>` -Funktionselement zu, wie es in die Mastersei
 
 ### <a name="setting-the-pages-title-declaratively"></a>Titel der Seite festlegen deklarativ
 
-Eine Inhaltsseite Titel kann festgelegt werden, deklarativ über die `Title` Attribut von der [ `<%@ Page %>` Richtlinie](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx). Diese Eigenschaft kann festgelegt werden, durch direkte Modifizierung der `<%@ Page %>` Richtlinie oder über das Fenster "Eigenschaften". Betrachten Sie beide Ansätze aus.
+Eine Inhaltsseite Titel kann festgelegt werden, deklarativ über die `Title` Attribut von der [ `<%@ Page %>` Richtlinie](https://msdn.microsoft.com/library/ydy4x04a.aspx). Diese Eigenschaft kann festgelegt werden, durch direkte Modifizierung der `<%@ Page %>` Richtlinie oder über das Fenster "Eigenschaften". Betrachten Sie beide Ansätze aus.
 
 Suchen Sie aus der Datenquellensicht an, die `<%@ Page %>` -Direktive, die am oberen Rand deklarativem Markup der Seite ist. Die `<%@ Page %>` für die Richtlinie `Default.aspx` folgt:
 
@@ -96,7 +96,7 @@ Titel der Seite kann auch im Eigenschaftenfenster festgelegt werden. Wählen Sie
 
 ### <a name="setting-the-pages-title-programmatically"></a>Programmgesteuertes Festlegen der Titel der Seite
 
-Der Gestaltungsvorlage `<head runat="server">` Markup übersetzt in ein [ `HtmlHead` Klasse](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlhead.aspx) -Instanz auf, wenn die Seite vom Modul ASP.NET gerendert wird. Die `HtmlHead` -Klasse verfügt über eine [ `Title` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) wiedergegeben, deren Wert in der gerenderten `<title>` Element. Diese Eigenschaft wird von einer ASP.NET-Seite Code-Behind-Klasse über zugänglich `Page.Header.Title`; diesem dieselbe Eigenschaft kann auch über zugegriffen werden `Page.Title`.
+Der Gestaltungsvorlage `<head runat="server">` Markup übersetzt in ein [ `HtmlHead` Klasse](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx) -Instanz auf, wenn die Seite vom Modul ASP.NET gerendert wird. Die `HtmlHead` -Klasse verfügt über eine [ `Title` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) wiedergegeben, deren Wert in der gerenderten `<title>` Element. Diese Eigenschaft wird von einer ASP.NET-Seite Code-Behind-Klasse über zugänglich `Page.Header.Title`; diesem dieselbe Eigenschaft kann auch über zugegriffen werden `Page.Title`.
 
 Üben Sie die Titel der Seite programmgesteuert festzulegen, navigieren zu der `About.aspx` Seite des Code-Behind-Klasse, und erstellen Sie einen Ereignishandler für der Seite `Load` Ereignis. Legen Sie anschließend den Titel der Seite auf "Master Seite Lernprogramme:: zu:: *Datum*", wobei *Datum* ist das aktuelle Datum. Nach dem Hinzufügen dieses Codes Ihrer `Page_Load` Ereignishandler sollte etwa wie folgt aussehen:
 
@@ -189,7 +189,7 @@ Die Siteübersichtsstruktur kann auch programmgesteuert mithilfe einer ASP.NET-S
 
 ### <a name="creating-the-site-map"></a>Erstellen der Site-Zuordnung
 
-Das Map-Standortsystem wird erstellt, über die [Anbietermodell](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), dem entkoppelt die Siteübersicht API von der Logik, die Standortinformationen über die Zuordnung zwischen Arbeitsspeicher und einem persistenten Speicher serialisiert. .NET Framework im Lieferumfang der [ `XmlSiteMapProvider` Klasse](https://msdn.microsoft.com/en-us/library/system.web.xmlsitemapprovider.aspx), dies ist der Standardanbieter der Siteübersicht. Wie der Name schon sagt, `XmlSiteMapProvider` wird eine XML-Datei als seine Zuordnung Websitespeicher verwendet. Ermöglicht die Verwendung dieser Anbieter für unsere Siteübersicht definieren.
+Das Map-Standortsystem wird erstellt, über die [Anbietermodell](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), dem entkoppelt die Siteübersicht API von der Logik, die Standortinformationen über die Zuordnung zwischen Arbeitsspeicher und einem persistenten Speicher serialisiert. .NET Framework im Lieferumfang der [ `XmlSiteMapProvider` Klasse](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx), dies ist der Standardanbieter der Siteübersicht. Wie der Name schon sagt, `XmlSiteMapProvider` wird eine XML-Datei als seine Zuordnung Websitespeicher verwendet. Ermöglicht die Verwendung dieser Anbieter für unsere Siteübersicht definieren.
 
 Starten Sie durch das Erstellen einer Website-Zuordnungsdatei mit dem Namen der Website-Stammordner `Web.sitemap`. Um dies zu erreichen, mit der rechten Maustaste auf den Namen der Website im Projektmappen-Explorer, neues Element hinzufügen, und wählen Sie die Vorlage Siteübersicht. Stellen Sie sicher, dass die Datei heißt `Web.sitemap` , und klicken Sie auf Hinzufügen.
 
@@ -247,7 +247,7 @@ Nach dem Konfigurieren der ListView-Vorlagen, besuchen Sie die Website. Wie in A
 **Abbildung 09**: Abschnitt Lektionen enthält ein einzelnes Element der Liste ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))
 
 
-Anzuzeigende mehrere Ebenen schachteln wir mehrere Listenansichten innerhalb der `ItemTemplate`. Diese Technik wurde in untersucht die [ *Masterseiten und Websitenavigation* Lernprogramm](../../data-access/introduction/master-pages-and-site-navigation-vb.md) von Meine [arbeiten mit Tutorial Datenreihe](../../data-access/index.md). Für dieses Lernprogramm Reihe unsere Siteübersicht enthält jedoch nur eine zwei Ebenen: Home (die oberste Ebene); und jede Lektion als untergeordnetes Element der Startseite. Anstatt das Erstellen einer geschachtelten ListView, können wir stattdessen anweisen SiteMapDataSource nicht zurückzugebenden Startknoten durch Festlegen seiner [ `ShowStartingNode` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) auf `False`. Im Endeffekt ist, dass die SiteMapDataSource gestartet wird, wird durch Zurückgeben des Websiteknoten für die Zuordnung der zweiten Ebene.
+Anzuzeigende mehrere Ebenen schachteln wir mehrere Listenansichten innerhalb der `ItemTemplate`. Diese Technik wurde in untersucht die [ *Masterseiten und Websitenavigation* Lernprogramm](../../data-access/introduction/master-pages-and-site-navigation-vb.md) von Meine [arbeiten mit Tutorial Datenreihe](../../data-access/index.md). Für dieses Lernprogramm Reihe unsere Siteübersicht enthält jedoch nur eine zwei Ebenen: Home (die oberste Ebene); und jede Lektion als untergeordnetes Element der Startseite. Anstatt das Erstellen einer geschachtelten ListView, können wir stattdessen anweisen SiteMapDataSource nicht zurückzugebenden Startknoten durch Festlegen seiner [ `ShowStartingNode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) auf `False`. Im Endeffekt ist, dass die SiteMapDataSource gestartet wird, wird durch Zurückgeben des Websiteknoten für die Zuordnung der zweiten Ebene.
 
 Durch diese Änderung ListView Aufzählungszeichen Elemente für die Info und mehrere ContentPlaceHolder-Steuerelemente mithilfe von Lektionen, lässt aber eine Aufzählungspunkt für die Startseite. Wir können zur Behebung des Problems, explizit eine Aufzählungspunkt hinzufügen, für die Startseite in der `LayoutTemplate`:
 
@@ -279,7 +279,7 @@ Update der `BasePage` Klasse `OnLoadComplete` Methode, um den folgenden Code ein
 
 Wie zuvor die `OnLoadComplete` Methode startet, wird festgestellt, ob der Titel der Seite explizit festgelegt wurde. Wenn `Page.Title` ist `Nothing`, eine leere Zeichenfolge oder den Wert "Seite" unbenannt "" zugewiesen ist, und klicken Sie dann der Code automatisch einen Wert zuweist `Page.Title`.
 
-Zum Bestimmen des Titels, startet der Code durch Verweisen auf die [ `SiteMap` Klasse](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx)des [ `CurrentNode` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Gibt die [ `SiteMapNode` ](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx) Instanz in der Siteübersicht, die die derzeit angeforderte Seite entspricht. Vorausgesetzt, die gerade angeforderte Seite befindet sich innerhalb der Siteübersicht der `SiteMapNode`des `Title` Titel der Seite Eigenschaft zugewiesen ist. Ist die aktuell angeforderte Seite nicht in der Siteübersicht `CurrentNode` gibt `Nothing` und Dateiname für die angeforderte Seite dient als Titel (wie in Schritt2 vorgenommen wurde).
+Zum Bestimmen des Titels, startet der Code durch Verweisen auf die [ `SiteMap` Klasse](https://msdn.microsoft.com/library/system.web.sitemap.aspx)des [ `CurrentNode` Eigenschaft](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Gibt die [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) Instanz in der Siteübersicht, die die derzeit angeforderte Seite entspricht. Vorausgesetzt, die gerade angeforderte Seite befindet sich innerhalb der Siteübersicht der `SiteMapNode`des `Title` Titel der Seite Eigenschaft zugewiesen ist. Ist die aktuell angeforderte Seite nicht in der Siteübersicht `CurrentNode` gibt `Nothing` und Dateiname für die angeforderte Seite dient als Titel (wie in Schritt2 vorgenommen wurde).
 
 Abbildung 12 zeigt die `MultipleContentPlaceHolders.aspx` Seite, wenn Sie über einen Browser angezeigt. Da auf dieser Seite Titel nicht explizit festgelegt ist, wird die entsprechende Zuordnung Websiteknoten der Titel wird stattdessen verwendet.
 
@@ -320,10 +320,10 @@ Können programmgesteuert Inhalt hinzugefügt wird die `<head>` Region ist nütz
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample15.vb)]
 
-Der obige Code fügt der `<meta>` Keywords-Element, um die `<head>` Region, die eine durch Trennzeichen getrennte Liste mit Schlüsselwörtern bereitstellt, die die Seite zu beschreiben. Beachten Sie, dass Hinzufügen einer `<meta>` Tag, die Sie erstellen eine [ `HtmlMeta` ](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlmeta.aspx) Instanz, legen dessen `Name` und `Content` Eigenschaften, und fügen Sie diese der `Header`des `Controls` Auflistung. Auf ähnliche Weise programmgesteuert hinzufügen einer `<link>` Element, erstellen eine [ `HtmlLink` ](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmllink.aspx) Objekt, dessen Eigenschaften festlegen und fügen Sie es auf die `Header`des `Controls` Auflistung.
+Der obige Code fügt der `<meta>` Keywords-Element, um die `<head>` Region, die eine durch Trennzeichen getrennte Liste mit Schlüsselwörtern bereitstellt, die die Seite zu beschreiben. Beachten Sie, dass Hinzufügen einer `<meta>` Tag, die Sie erstellen eine [ `HtmlMeta` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx) Instanz, legen dessen `Name` und `Content` Eigenschaften, und fügen Sie diese der `Header`des `Controls` Auflistung. Auf ähnliche Weise programmgesteuert hinzufügen einer `<link>` Element, erstellen eine [ `HtmlLink` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx) Objekt, dessen Eigenschaften festlegen und fügen Sie es auf die `Header`des `Controls` Auflistung.
 
 > [!NOTE]
-> Beliebiges Markup hinzufügen möchten, erstellen Sie eine [ `LiteralControl` ](https://msdn.microsoft.com/en-us/library/system.web.ui.literalcontrol.aspx) Instanz, legen dessen `Text` -Eigenschaft, und fügen Sie diese der `Header`des `Controls` Auflistung.
+> Beliebiges Markup hinzufügen möchten, erstellen Sie eine [ `LiteralControl` ](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx) Instanz, legen dessen `Text` -Eigenschaft, und fügen Sie diese der `Header`des `Controls` Auflistung.
 
 
 ## <a name="summary"></a>Zusammenfassung

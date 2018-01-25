@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 425f8edff41588db363055d166995d5f563c5a23
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Entwickeln von ASP.NET-Apps mit Azure Active Directory
 ====================
 Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Microsoft ASP.NET tools für Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Azure](https://www.windowsazure.com/en-us/home/features/web-sites/). Sie können Azure-Authentifizierung verwenden, Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihrer eigenen benutzerdefinierten Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
+> Microsoft ASP.NET tools für Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Azure](https://www.windowsazure.com/home/features/web-sites/). Sie können Azure-Authentifizierung verwenden, Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihrer eigenen benutzerdefinierten Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
 > 
 >  Dieses Lernprogramm wurde von Rick Anderson geschrieben.[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
-In diesem Lernprogramm erfahren Sie, wie Sie eine ASP.NET-Anwendung erstellen, die für die Anmeldung bei konfiguriert ist [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (Azure AD). Außerdem erfahren Sie, wie der Graph-API zum Abrufen von Informationen über den derzeit angemeldeten Benutzer aufrufen und die Anwendung in Azure bereitzustellen.
+In diesem Lernprogramm erfahren Sie, wie Sie eine ASP.NET-Anwendung erstellen, die für die Anmeldung bei konfiguriert ist [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Außerdem erfahren Sie, wie der Graph-API zum Abrufen von Informationen über den derzeit angemeldeten Benutzer aufrufen und die Anwendung in Azure bereitzustellen.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
 1. [Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express) oder [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads).
-2. [Visual Studio 2013 Update 4](https://www.microsoft.com/en-us/download/details.aspx?id=44921) -Update 3 oder höher ist erforderlich.
-3. Ein Azure-Konto. [Klicken Sie hier](https://azure.microsoft.com/en-us/pricing/free-trial/) für eine kostenlose Testversion, wenn Sie nicht bereits ein Konto verfügen.
+2. [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=44921) -Update 3 oder höher ist erforderlich.
+3. Ein Azure-Konto. [Klicken Sie hier](https://azure.microsoft.com/pricing/free-trial/) für eine kostenlose Testversion, wenn Sie nicht bereits ein Konto verfügen.
 
 ## <a name="add-a-global-administrator-to-your-active-directory"></a>Fügen Sie einen globalen Administrator zu Active Directory
 
@@ -58,7 +58,7 @@ In diesem Lernprogramm erfahren Sie, wie Sie eine ASP.NET-Anwendung erstellen, d
 
 ## <a name="create-an-aspnet-application"></a>Erstellen einer ASP.NET-Anwendung
 
-Die folgenden Schritte verwenden [Visual Studio Express 2013 für Web](https://www.microsoft.com/en-us/download/details.aspx?id=40747), und erfordert [Visual Studio 2013 Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=43721).
+Die folgenden Schritte verwenden [Visual Studio Express 2013 für Web](https://www.microsoft.com/download/details.aspx?id=40747), und erfordert [Visual Studio 2013 Update 3](https://www.microsoft.com/download/details.aspx?id=43721).
 
 1. Klicken Sie in Visual Studio auf **Datei** und dann **neues Projekt**. Auf der **neues Projekt** Dialog, wählen Sie die Visual C#-Web im linken Menü Projekt, und klicken Sie auf **OK**. Sie sollten auch deaktivieren die **Application Insights zu Projekt hinzufügen** Wenn Sie nicht die Funktionalität für Ihre Anwendung möchten.
 2. In der **neues ASP.NET-Projekt** wählen Sie im Dialogfeld **MVC**, und klicken Sie dann auf **Authentifizierung ändern**.   
@@ -74,7 +74,7 @@ Die folgenden Schritte verwenden [Visual Studio Express 2013 für Web](https://w
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
     > [!NOTE]
-    > Optional können Sie die Anwendung-ID-URI, der durch Klicken auf in Azure AD registriert werden, konfigurieren **Weitere Optionen**. Die App-ID-URI ist der eindeutige Bezeichner für eine Anwendung, die in Azure AD registriert und von der Anwendung verwendet werden, um sich bei der Kommunikation mit Azure AD identifizieren. Weitere Informationen zu den App-ID-URI und andere Eigenschaften der registrierten Anwendungen, finden Sie unter [in diesem Thema](https://msdn.microsoft.com/en-us/library/azure/dn499820.aspx#BKMK_Registering). Indem Sie das Kontrollkästchen unter dem Feld "App-ID-URI" aktivieren, können Sie auch auswählen, um eine vorhandene Registrierung in Azure AD zu überschreiben, die die gleiche App-ID-URI verwendet.
+    > Optional können Sie die Anwendung-ID-URI, der durch Klicken auf in Azure AD registriert werden, konfigurieren **Weitere Optionen**. Die App-ID-URI ist der eindeutige Bezeichner für eine Anwendung, die in Azure AD registriert und von der Anwendung verwendet werden, um sich bei der Kommunikation mit Azure AD identifizieren. Weitere Informationen zu den App-ID-URI und andere Eigenschaften der registrierten Anwendungen, finden Sie unter [in diesem Thema](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering). Indem Sie das Kontrollkästchen unter dem Feld "App-ID-URI" aktivieren, können Sie auch auswählen, um eine vorhandene Registrierung in Azure AD zu überschreiben, die die gleiche App-ID-URI verwendet.
 4. Nach dem Klicken auf **OK**, ein Anmeldedialogfeld wird angezeigt, und Sie müssen über ein globales Administratorkonto (nicht die Microsoft-Konto mit Ihrem Abonnement verknüpft ist) anmelden. Wenn Sie ein neues Administratorkonto ein zuvor erstellt haben, müssen Sie dazu das Kennwort ändern, und klicken Sie dann erneut mit dem neuen Kennwort anmelden.   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)
@@ -102,7 +102,7 @@ Die folgenden Schritte verwenden [Visual Studio Express 2013 für Web](https://w
 
 ## <a name="basics-of-the-graph-api"></a>Grundlagen der Graph-API
 
-[Der Graph-API](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx) ist die programmgesteuerte Schnittstelle, die zum Ausführen von CRUD und andere Vorgänge für Objekte in Ihrem Azure AD-Verzeichnis verwendet. Wenn Sie eine Option Organisations-Konto für die Authentifizierung beim Erstellen eines neuen Projekts in Visual Studio 2013 auswählen, wird die Anwendung bereits konfiguriert sein, zum Aufrufen der Graph-API. Dieser Abschnitt wird kurz Funktionsweise der Graph-API.
+[Der Graph-API](https://msdn.microsoft.com/library/azure/hh974476.aspx) ist die programmgesteuerte Schnittstelle, die zum Ausführen von CRUD und andere Vorgänge für Objekte in Ihrem Azure AD-Verzeichnis verwendet. Wenn Sie eine Option Organisations-Konto für die Authentifizierung beim Erstellen eines neuen Projekts in Visual Studio 2013 auswählen, wird die Anwendung bereits konfiguriert sein, zum Aufrufen der Graph-API. Dieser Abschnitt wird kurz Funktionsweise der Graph-API.
 
 1. Klicken Sie in der ausgeführten Anwendung auf, auf den Namen des angemeldeten Benutzers oben rechts auf der Seite. Dadurch gelangen Sie zu der Seite "Benutzerprofil", also eine Aktion auf dem Home-Controller. Sie werden bemerken, dass die Tabelle enthält die Benutzerinformationen zu dem Administratorkonto an, dass Sie zuvor erstellt haben. Diese Informationen werden in Ihrem Verzeichnis gespeichert, und der Graph-API zum Abrufen dieser Informationen beim Laden der Seite aufgerufen wird.   
   
@@ -151,6 +151,6 @@ Eine hervorragende Lernprogramm anzuwendendes ist Rick Rainey des [Deep Dive: Az
 ## <a name="more-information"></a>Weitere Informationen
 
 - [Deep Dive: Azure-Websites und Organisationseinheit mithilfe von Azure AD-Authentifizierung](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
-- [Übersicht über Azure AD Graph-API](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx)
-- [Authentifizierungsszenarien in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn499820.aspx)
+- [Übersicht über Azure AD Graph-API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+- [Authentifizierungsszenarien in Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
 - [Azure AD-Codebeispiele auf GitHub](https://github.com/AzureADSamples)

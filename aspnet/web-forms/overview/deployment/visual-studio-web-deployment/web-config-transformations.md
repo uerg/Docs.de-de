@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Transformationen für die Datei "Web.config"
 ====================
@@ -35,7 +35,7 @@ Hinweis: Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, we
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>"Web.config" Transformationen im Vergleich zu Web Deploy-Parameter
 
-Es gibt zwei Möglichkeiten zum Automatisieren von veränderlichen *"Web.config"* Settings-Datei: ["Web.config" Transformationen](https://msdn.microsoft.com/en-us/library/dd465326.aspx) und [Web Deploy-Parameter](https://msdn.microsoft.com/en-us/library/ff398068.aspx). Ein *"Web.config"* Transformationsdatei enthält XML-Markup, der angibt, wie Sie ändern die *"Web.config"* Datei bei der Bereitstellung. Sie können die verschiedene Änderungen für bestimmte Buildkonfigurationen und für bestimmte Veröffentlichungsprofile angeben. Die standardmäßige Buildkonfigurationen werden Debug- und, und Sie können benutzerdefinierte Buildkonfigurationen erstellen. Ein Veröffentlichungsprofil entspricht in der Regel eine zielumgebung. (Erfahren Sie mehr über Veröffentlichungsprofile in der [Bereitstellung in IIS als Testumgebung](deploying-to-iis.md) Lernprogramm.)
+Es gibt zwei Möglichkeiten zum Automatisieren von veränderlichen *"Web.config"* Settings-Datei: ["Web.config" Transformationen](https://msdn.microsoft.com/library/dd465326.aspx) und [Web Deploy-Parameter](https://msdn.microsoft.com/library/ff398068.aspx). Ein *"Web.config"* Transformationsdatei enthält XML-Markup, der angibt, wie Sie ändern die *"Web.config"* Datei bei der Bereitstellung. Sie können die verschiedene Änderungen für bestimmte Buildkonfigurationen und für bestimmte Veröffentlichungsprofile angeben. Die standardmäßige Buildkonfigurationen werden Debug- und, und Sie können benutzerdefinierte Buildkonfigurationen erstellen. Ein Veröffentlichungsprofil entspricht in der Regel eine zielumgebung. (Erfahren Sie mehr über Veröffentlichungsprofile in der [Bereitstellung in IIS als Testumgebung](deploying-to-iis.md) Lernprogramm.)
 
 Web Deploy-Parameter können verwendet werden, können viele verschiedene Arten von Einstellungen angeben, die konfiguriert werden müssen, während der Bereitstellung, einschließlich der Einstellungen, die im gefunden *"Web.config"* Dateien. Wenn zur Angabe *"Web.config"* Datei ändert, Web Deploy-Parameter sind komplexer eingerichtet, aber sie sind hilfreich, wenn Sie den Wert festgelegt werden, bevor Sie bereitstellen, nicht kennen. Z. B. in einer unternehmensumgebung möglicherweise erstellen Sie eine *Bereitstellungspaket* und weisen Sie ihm eine Person in der IT-Abteilung in einer produktionsumgebung installieren und diese Person hat in der Lage, geben Verbindungszeichenfolgen oder Kennwörter, die Sie nicht kennen.
 

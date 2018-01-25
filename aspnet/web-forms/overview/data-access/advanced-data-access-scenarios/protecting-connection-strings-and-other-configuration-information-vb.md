@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8eaa9f43a69620862c95194117a026be391e2fb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1514c4b6d041f6bbd83788e2110a95d3d831ff6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Schützen von Verbindungszeichenfolgen und anderen Konfigurationsinformationen (VB)
 ====================
@@ -60,10 +60,10 @@ ASP.NET 2.0 umfasst eine geschützte Konfigurationssystem zum Verschlüsseln und
 
 Im Lieferumfang von .NET Framework sind zwei geschützte Konfigurationsanbieter:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/library/system.configuration.rsaprotectedconfigurationprovider.aspx)– verwendet den asymmetrischen [RSA-Algorithmus](http://en.wikipedia.org/wiki/Rsa) für die Ver- und Entschlüsselung.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/system.configuration.dpapiprotectedconfigurationprovider.aspx)-verwendet die Windows [Data Protection API (DPAPI)](https://msdn.microsoft.com/en-us/library/ms995355.aspx) für die Ver- und Entschlüsselung.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)– verwendet den asymmetrischen [RSA-Algorithmus](http://en.wikipedia.org/wiki/Rsa) für die Ver- und Entschlüsselung.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-verwendet die Windows [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) für die Ver- und Entschlüsselung.
 
-Da das System die geschützte Konfiguration des Entwurfsmusters Anbieter implementiert, ist es möglich, einen eigenen Anbieter für die geschützte Konfiguration erstellen und binden diese in Ihrer Anwendung. Finden Sie unter [Implementieren eines Anbieters für die geschützte Konfiguration](https://msdn.microsoft.com/en-us/library/wfc2t3az(VS.80).aspx) für Weitere Informationen zu diesem Vorgang.
+Da das System die geschützte Konfiguration des Entwurfsmusters Anbieter implementiert, ist es möglich, einen eigenen Anbieter für die geschützte Konfiguration erstellen und binden diese in Ihrer Anwendung. Finden Sie unter [Implementieren eines Anbieters für die geschützte Konfiguration](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) für Weitere Informationen zu diesem Vorgang.
 
 Die RSA und DPAPI-Anbieter verwenden die Schlüssel für ihren Routinen Ver- und Entschlüsselung, und dieser Schlüssel können auf dem Computer oder Benutzerebene gespeichert werden. Computerebene Schlüssel sich ideal für Szenarien sind, in denen die Webanwendung auf einem eigenen dedizierten Server ausgeführt wird, oder wenn es mehrere Anwendungen auf einem Server, die gemeinsam nutzen müssen verschlüsselte Informationen. Benutzerebene Schlüssel werden eine sicherere Option in der gemeinsam genutzten Hostingumgebungen, in dem andere Anwendungen auf dem gleichen Server nicht entschlüsseln Ihrer Anwendung s geschützt Konfigurationsabschnitte werden soll.
 
@@ -96,20 +96,20 @@ Wir als Nächstes Code zu schreiben, lädt und zeigt den Inhalt des `Web.config`
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
-Die `DisplayWebConfig` -Methode verwendet die [ `File` Klasse](https://msdn.microsoft.com/en-us/library/system.io.file.aspx) , öffnen Sie die Anwendung s `Web.config` Datei, die [ `StreamReader` Klasse](https://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx) zum Lesen von Inhalt in eine Zeichenfolge ein, und die [ `Path` Klasse](https://msdn.microsoft.com/en-us/library/system.io.path.aspx) auf den physischen Pfad zum Generieren der `Web.config` Datei. Diese drei Klassen alle befinden sich unter dem [ `System.IO` Namespace](https://msdn.microsoft.com/en-us/library/system.io.aspx). Sie müssen daher Hinzufügen einer `Imports``System.IO` Anweisung am Anfang der Code-Behind-Klasse oder alternativ diese Klassennamen mit Präfix`System.IO.`
+Die `DisplayWebConfig` -Methode verwendet die [ `File` Klasse](https://msdn.microsoft.com/library/system.io.file.aspx) , öffnen Sie die Anwendung s `Web.config` Datei, die [ `StreamReader` Klasse](https://msdn.microsoft.com/library/system.io.streamreader.aspx) zum Lesen von Inhalt in eine Zeichenfolge ein, und die [ `Path` Klasse](https://msdn.microsoft.com/library/system.io.path.aspx) auf den physischen Pfad zum Generieren der `Web.config` Datei. Diese drei Klassen alle befinden sich unter dem [ `System.IO` Namespace](https://msdn.microsoft.com/library/system.io.aspx). Sie müssen daher Hinzufügen einer `Imports``System.IO` Anweisung am Anfang der Code-Behind-Klasse oder alternativ diese Klassennamen mit Präfix`System.IO.`
 
 Wir als Nächstes fügen Ereignishandler für die zwei Schaltflächen-Steuerelemente `Click` Ereignisse und fügen Sie den erforderlichen Code zum Verschlüsseln und Entschlüsseln der `<connectionStrings>` Abschnitt mithilfe einer Computerebene Schlüssels mit der DPAPI-Anbieter. Doppelklicken Sie im Designer auf die Schaltflächen Hinzufügen einer `Click` -Ereignishandler in der CodeBehind-Klasse, und fügen Sie den folgenden Code hinzu:
 
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample2.vb)]
 
-Der Code verwendet die zwei Ereignishandler ist nahezu identisch. Beide starten, indem das Abrufen von Informationen über die aktuelle Anwendung s `Web.config` Datei über die [ `WebConfigurationManager` Klasse](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` Methode](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Diese Methode gibt die Webkonfigurationsdatei für den angegebenen virtuellen Pfad zurück. Als Nächstes wird die `Web.config` Datei "s" `<connectionStrings>` Abschnitt erfolgt über die [ `Configuration` Klasse](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` Methode](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.getsection.aspx), welche gibt eine [ `ConfigurationSection` ](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.aspx) Objekt.
+Der Code verwendet die zwei Ereignishandler ist nahezu identisch. Beide starten, indem das Abrufen von Informationen über die aktuelle Anwendung s `Web.config` Datei über die [ `WebConfigurationManager` Klasse](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` Methode](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Diese Methode gibt die Webkonfigurationsdatei für den angegebenen virtuellen Pfad zurück. Als Nächstes wird die `Web.config` Datei "s" `<connectionStrings>` Abschnitt erfolgt über die [ `Configuration` Klasse](https://msdn.microsoft.com/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` Methode](https://msdn.microsoft.com/library/system.configuration.configuration.getsection.aspx), welche gibt eine [ `ConfigurationSection` ](https://msdn.microsoft.com/library/system.configuration.configurationsection.aspx) Objekt.
 
-Die `ConfigurationSection` Objekt enthält eine [ `SectionInformation` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.sectioninformation.aspx) , zusätzliche Informationen und Funktionen zu den Konfigurationsabschnitt bereitstellt. Wie der Code oben zeigt, können wir feststellen, ob Konfigurationsabschnitts, überprüft verschlüsselt ist der `SectionInformation` Eigenschaft s `IsProtected` Eigenschaft. Darüber hinaus kann im Abschnitt verschlüsselt oder entschlüsselt, die über die `SectionInformation` Eigenschaft s `ProtectSection(provider)` und `UnprotectSection` Methoden.
+Die `ConfigurationSection` Objekt enthält eine [ `SectionInformation` Eigenschaft](https://msdn.microsoft.com/library/system.configuration.configurationsection.sectioninformation.aspx) , zusätzliche Informationen und Funktionen zu den Konfigurationsabschnitt bereitstellt. Wie der Code oben zeigt, können wir feststellen, ob Konfigurationsabschnitts, überprüft verschlüsselt ist der `SectionInformation` Eigenschaft s `IsProtected` Eigenschaft. Darüber hinaus kann im Abschnitt verschlüsselt oder entschlüsselt, die über die `SectionInformation` Eigenschaft s `ProtectSection(provider)` und `UnprotectSection` Methoden.
 
 Die `ProtectSection(provider)` Methode akzeptiert als Eingabe eine Zeichenfolge, die den Namen des Anbieters geschützte Konfiguration beim Verschlüsseln zu verwendende angibt. In der `EncryptConnString` Schaltfläche s-Ereignishandler DataProtectionConfigurationProvider in übergeben die `ProtectSection(provider)` Methode, damit der DPAPI-Anbieter verwendet wird. Die `UnprotectSection` -Methode kann den Anbieter, der wurde verwendet, um den Konfigurationsabschnitt zu verschlüsseln und daher nicht erfordert einen Eingabeparameter ermitteln.
 
-Nach dem Aufruf der `ProtectSection(provider)` oder `UnprotectSection` -Methode, die Sie aufrufen müssen die `Configuration` s-Objekt [ `Save` Methode](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.save.aspx) damit die Änderungen beibehalten. Sobald die Konfigurationsinformationen verschlüsselt oder entschlüsselt wurde und die Änderungen gespeichert, wir nennen `DisplayWebConfig` beim Laden der aktualisierten `Web.config` Inhalt in das Textfeld-Steuerelement.
+Nach dem Aufruf der `ProtectSection(provider)` oder `UnprotectSection` -Methode, die Sie aufrufen müssen die `Configuration` s-Objekt [ `Save` Methode](https://msdn.microsoft.com/library/system.configuration.configuration.save.aspx) damit die Änderungen beibehalten. Sobald die Konfigurationsinformationen verschlüsselt oder entschlüsselt wurde und die Änderungen gespeichert, wir nennen `DisplayWebConfig` beim Laden der aktualisierten `Web.config` Inhalt in das Textfeld-Steuerelement.
 
 Wenn Sie den oben aufgeführten Code eingegeben haben, testen Sie sie durch Aufrufen der `EncryptingConfigSections.aspx` Seite über einen Browser. Daraufhin sollte zunächst eine Seite, die den Inhalt der listet `Web.config` mit der `<connectionStrings>` Abschnitt im nur-Text angezeigt (siehe Abbildung 3).
 
@@ -155,7 +155,7 @@ Zurücksetzen der `<connectionStrings>` Abschnitt zurück in die nur-Text-Darste
 
 ## <a name="step-3-encrypting-configuration-sections-usingaspnetregiisexe"></a>Schritt 3: Verschlüsseln von Konfigurationsabschnitten mit`aspnet_regiis.exe`
 
-.NET Framework enthält eine Reihe von Befehlszeilentools in den `$WINDOWS$\Microsoft.NET\Framework\version\` Ordner. In der [mithilfe von SQL-Cache-Abhängigkeiten](../caching-data/using-sql-cache-dependencies-vb.md) Lernprogramm, z. B. erläutert, mit der `aspnet_regsql.exe` -Befehlszeilentool, um die Infrastruktur für die SQL-Cache-Abhängigkeiten hinzuzufügen. Ein anderes nützlich Befehlszeilentool in diesem Ordner wird die [ASP.NET IIS Registration-Tool (`aspnet_regiis.exe`)](https://msdn.microsoft.com/en-us/library/k6h9cz8h(VS.80).aspx). Wie der Name schon sagt, wird das ASP.NET IIS-Registrierungstool wird hauptsächlich verwendet, um eine ASP.NET 2.0-Anwendung mit Microsoft s professionelle Webserver IIS zu registrieren. Zusätzlich zu seiner IIS-bezogene Features, das ASP.NET IIS-Registrierungstool kann eingesetzt werden zum Verschlüsseln oder entschlüsseln angegebenen Konfigurationsabschnitten in `Web.config`.
+.NET Framework enthält eine Reihe von Befehlszeilentools in den `$WINDOWS$\Microsoft.NET\Framework\version\` Ordner. In der [mithilfe von SQL-Cache-Abhängigkeiten](../caching-data/using-sql-cache-dependencies-vb.md) Lernprogramm, z. B. erläutert, mit der `aspnet_regsql.exe` -Befehlszeilentool, um die Infrastruktur für die SQL-Cache-Abhängigkeiten hinzuzufügen. Ein anderes nützlich Befehlszeilentool in diesem Ordner wird die [ASP.NET IIS Registration-Tool (`aspnet_regiis.exe`)](https://msdn.microsoft.com/library/k6h9cz8h(VS.80).aspx). Wie der Name schon sagt, wird das ASP.NET IIS-Registrierungstool wird hauptsächlich verwendet, um eine ASP.NET 2.0-Anwendung mit Microsoft s professionelle Webserver IIS zu registrieren. Zusätzlich zu seiner IIS-bezogene Features, das ASP.NET IIS-Registrierungstool kann eingesetzt werden zum Verschlüsseln oder entschlüsseln angegebenen Konfigurationsabschnitten in `Web.config`.
 
 Die folgende Anweisung zeigt die allgemeine Syntax zum Verschlüsseln von eines Konfigurationsabschnitts, mit der `aspnet_regiis.exe` -Befehlszeilentool:
 
@@ -203,7 +203,7 @@ Das folgende Beispiel zeigt eine Verbindungszeichenfolge, die SQL-Authentifizier
 Stellen Sie sich vor, dass ein Angreifer Ihre Anwendung s anzeigen kann `Web.config` Datei. Wenn Sie SQL-Authentifizierung verwenden, um mit einer Datenbank herzustellen, die über das Internet zugänglich ist, kann der Angreifer diese Verbindungszeichenfolge verwenden, um mit Ihrer Datenbank über SQL Management Studio oder von ASP.NET-Seiten auf eigene Website herstellen. Um diese Bedrohung zu verringern, verschlüsseln Sie die Verbindungszeichenfolgeninformationen in `Web.config` mit der geschützten Konfiguration.
 
 > [!NOTE]
-> Weitere Informationen über die verschiedenen Arten der Authentifizierung in SQL Server verfügbaren finden Sie unter [Building Secure ASP.NET Applications: Authentifizierung, Autorisierung und sichere Kommunikation](https://msdn.microsoft.com/en-us/library/aa302392.aspx). Weitere Beispiele für Verbindungszeichenfolgen zur Veranschaulichung der Unterschiede zwischen Windows- und SQL-Authentifizierung-Syntax, finden Sie unter [ConnectionStrings.com](http://www.connectionstrings.com/).
+> Weitere Informationen über die verschiedenen Arten der Authentifizierung in SQL Server verfügbaren finden Sie unter [Building Secure ASP.NET Applications: Authentifizierung, Autorisierung und sichere Kommunikation](https://msdn.microsoft.com/library/aa302392.aspx). Weitere Beispiele für Verbindungszeichenfolgen zur Veranschaulichung der Unterschiede zwischen Windows- und SQL-Authentifizierung-Syntax, finden Sie unter [ConnectionStrings.com](http://www.connectionstrings.com/).
 
 
 ## <a name="summary"></a>Zusammenfassung
@@ -218,13 +218,13 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Erstellen von sicheren ASP.NET-Anwendung: Authentifizierung, Autorisierung und sichere Kommunikation](https://msdn.microsoft.com/en-us/library/aa302392.aspx)
+- [Erstellen von sicheren ASP.NET-Anwendung: Authentifizierung, Autorisierung und sichere Kommunikation](https://msdn.microsoft.com/library/aa302392.aspx)
 - [Verschlüsseln von Konfigurationsinformationen in ASP.NET 2.0 Anwendungen](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
 - [Verschlüsseln von `Web.config` Werte in ASP.NET 2.0](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
-- [Gewusst wie: Verschlüsseln von Konfigurationsabschnitten in ASP.NET 2.0 mit DPAPI](https://msdn.microsoft.com/en-us/library/ms998280.aspx)
-- [Gewusst wie: Verschlüsseln von Konfigurationsabschnitten in ASP.NET 2.0 mit RSA](https://msdn.microsoft.com/en-us/library/ms998283.aspx)
+- [Gewusst wie: Verschlüsseln von Konfigurationsabschnitten in ASP.NET 2.0 mit DPAPI](https://msdn.microsoft.com/library/ms998280.aspx)
+- [Gewusst wie: Verschlüsseln von Konfigurationsabschnitten in ASP.NET 2.0 mit RSA](https://msdn.microsoft.com/library/ms998283.aspx)
 - [Der Konfigurations-API in .NET 2.0](http://www.odetocode.com/Articles/418.aspx)
-- [Windows-Datenschutz](https://msdn.microsoft.com/en-us/library/ms995355.aspx)
+- [Windows Data Protection](https://msdn.microsoft.com/library/ms995355.aspx)
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 

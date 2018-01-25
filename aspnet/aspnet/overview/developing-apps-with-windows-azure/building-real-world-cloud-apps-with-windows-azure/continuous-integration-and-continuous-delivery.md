@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0af5f7e841bb43fa41fa0daa4ad8d59ee0596404
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Fortlaufende Integration und kontinuierlichen Bereitstellung (Building Real-World Cloud Apps with Azure)
 ====================
@@ -37,7 +37,7 @@ Im Allgemeinen wird empfohlen, dass Sie die dauerhafte Bereitstellung in der Ent
 
 Im folgenden Diagramm aus [ein Microsoft Patterns and Practices e-Book zu kontinuierlichen Bereitstellung](http://aka.ms/ReleasePipeline) veranschaulicht einen typischen Workflow. Klicken Sie auf das Bild zur Anzeige voller Größe in seinem ursprünglichen Kontext.
 
-[![Workflow für fortlaufende Übermittlung](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/en-us/library/dn449955.aspx)
+[![Workflow für fortlaufende Übermittlung](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Wie die Cloud kostengünstige CI und CD ermöglicht
 
@@ -65,13 +65,13 @@ Die ersten drei Cloud Entwicklungsmustern wurden Informationen zum Implementiere
 
 ## <a name="resources"></a>Ressourcen
 
-Weitere Informationen finden Sie unter [bereitstellen eine Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Weitere Informationen finden Sie unter [bereitstellen eine Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
 Siehe auch die folgenden Ressourcen:
 
 - [Erstellen einer Releasepipeline mit Team Foundation Server 2012](http://aka.ms/ReleasePipeline). E-Book herunterladen, praktische Übungseinheiten und Beispielcode von Microsoft Patterns and Practices, bietet eine ausführliche Einführung in fortlaufende Übermittlung. Deckt die Verwendung von Visual Studio Lab Management und Visual Studio Release Management.
 - [Hinweise und ALM Rangers DevOps-Tools](https://aka.ms/vsarsolutions/). ALM Rangers eingeführt, die DevOps-Workbench Companion Beispielprojektmappe und praktische Hinweise in Zusammenarbeit mit den Mustern &amp; Praktiken-Buchs *Erstellen einer Releasepipeline mit TFS 2012*, als eine hervorragende Möglichkeit zum Starten lernen die Konzepte von DevOps &amp; Release Management für TFS 2012 und um die Ringe zu starten. Die Anleitung zeigt, wie einmal erstellen und in mehreren Umgebungen bereitstellen.
-- [Tests für fortlaufende Übermittlung mit Visual Studio 2012](https://msdn.microsoft.com/en-us/library/jj159345.aspx). E-Book vom Microsoft Patterns and Practices erläutert, wie automatisierte Tests mit kontinuierlichen Bereitstellung integrieren.
+- [Tests für fortlaufende Übermittlung mit Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). E-Book vom Microsoft Patterns and Practices erläutert, wie automatisierte Tests mit kontinuierlichen Bereitstellung integrieren.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Der Quellcode für ein Tool zum Erfassen eines Builds in TFS (basierend auf einer Bezeichnung), erstellen Sie sie verpacken, können eine Person in der Rolle "DevOps" So konfigurieren Sie bestimmte Aspekte des Zertifikats und schieben Sie ihn in Azure. Das Tool verfolgt den Bereitstellungsprozess damit möglichen Vorgänge "auf eine zuvor bereitgestellte Version Rollback". Das Tool weist keine externen Abhängigkeiten und eigenständige mit TFS-APIs und das Azure SDK kann eingesetzt werden.
 - [Continuous Delivery: Zuverlässige Software frei über Build-, Test- und Bereitstellungsautomatisierung](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Buch von Jez Humble.
 - [Geben Sie es aus! Entwerfen und Bereitstellen von Software produktionsbereite](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Buch von Michael T. Nygard.

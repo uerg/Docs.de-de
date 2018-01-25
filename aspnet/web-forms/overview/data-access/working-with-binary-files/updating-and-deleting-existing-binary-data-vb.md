@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e14b19f99e9f41c5a296d73ba689095a686794db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Aktualisieren und Löschen von vorhandenen Binärdaten (VB)
 ====================
@@ -150,7 +150,7 @@ Während der Delete-Workflow entfernte der Testkategorie-Eintrag aus der `Catego
 
 Eine die Nachteile der binären Daten außerhalb der Datenbank gespeichert ist, dass zusätzliche Schritte ausgeführt werden müssen, um diese Dateien bereinigt, wenn die zugeordnete Datenbankdatensatz gelöscht wird. Geben Sie die GridView und ObjectDataSource Ereignisse, die ausgelöst werden, bevor und nachdem die Delete-Befehl ausgeführt wurde. Wir müssen tatsächlich Ereignishandler für die Ereignisse vor und nach Abschluss der Aktion zu erstellen. Vor der `Categories` Datensatz gelöscht müssen wir die PDF-Datei "s" Pfad zu ermitteln, aber wir Verschlüsselungskennwort, die PDF-Datei zu löschen, bevor die Kategorie gelöscht wird, falls eine Ausnahme aufgetreten ist und die Kategorie ist nicht gelöscht werden soll, t.
 
-Die GridView-s [ `RowDeleting` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) ausgelöst wird, bevor das ObjectDataSource-s-Delete-Befehl aufgerufen wurde, während er sich seine [ `RowDeleted` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) nach ausgelöst wird. Erstellen von Ereignishandlern für diese beiden Ereignisse mit dem folgenden Code:
+Die GridView-s [ `RowDeleting` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) ausgelöst wird, bevor das ObjectDataSource-s-Delete-Befehl aufgerufen wurde, während er sich seine [ `RowDeleted` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) nach ausgelöst wird. Erstellen von Ereignishandlern für diese beiden Ereignisse mit dem folgenden Code:
 
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]
@@ -369,4 +369,4 @@ Viel Spaß beim Programmieren!
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](including-a-file-upload-option-when-adding-a-new-record-vb.md)
+[Vorherige](including-a-file-upload-option-when-adding-a-new-record-vb.md)

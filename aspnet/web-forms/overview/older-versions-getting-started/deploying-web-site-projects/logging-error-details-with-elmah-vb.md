@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7082808d4aeb21767524c1e687dd688324d4d46
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 41e1f8673b42571a9dcbdae668a30426fe90f42f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-elmah-vb"></a>ELMAH (VB) protokollieren Fehlerdetails
 ====================
@@ -254,7 +254,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [ELMAH-Projektseite](https://code.google.com/p/elmah/) (source Code, Beispiele, Wiki)
 - [Unter Verwendung der ELMAH in einer Webanwendung auf nicht behandelte Ausnahmen abfangen](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
 - [Fehler beim Sperren von Sicherheitsseiten](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [Mithilfe von HTTP-Module und Handler austauschbare ASP.NET Komponenten erstellen](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [Mithilfe von HTTP-Module und Handler austauschbare ASP.NET Komponenten erstellen](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Lernprogramme für Website-Sicherheit](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

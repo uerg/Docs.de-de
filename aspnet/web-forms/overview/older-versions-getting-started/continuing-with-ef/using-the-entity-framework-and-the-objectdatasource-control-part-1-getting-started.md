@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 6f93d6033b68773507d624125936f0a69777e2b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 1: Erste Schritte
 ====================
@@ -30,7 +30,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Zuerst Datenbank
 > 
-> Es gibt drei Möglichkeiten, die Sie mit Daten im Entity Framework arbeiten können: *Database First*, *Model First*, und *Code First*. Dieses Lernprogramm ist für Database First. Informationen zu den Unterschieden zwischen den Workflows und einer Anleitung zum Auswählen der besten für Ihr Szenario finden Sie unter [Entity Framework-Entwicklungsworkflows](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Es gibt drei Möglichkeiten, die Sie mit Daten im Entity Framework arbeiten können: *Database First*, *Model First*, und *Code First*. Dieses Lernprogramm ist für Database First. Informationen zu den Unterschieden zwischen den Workflows und einer Anleitung zum Auswählen der besten für Ihr Szenario finden Sie unter [Entity Framework-Entwicklungsworkflows](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Forms
 > 
@@ -47,7 +47,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Fragen
 > 
-> Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx), [Entity Framework und LINQ to Entities-Forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), oder [ StackOverflow.com](http://stackoverflow.com/).
+> Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx), [Entity Framework und LINQ to Entities-Forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), oder [ StackOverflow.com](http://stackoverflow.com/).
 
 
 Die `EntityDataSource` Steuerelement können Sie eine Anwendung sehr schnell zu erstellen, aber in der Regel müssen Sie eine beträchtliche Menge an von Geschäftslogik und Datenzugriffslogik in behalten Ihre *aspx* Seiten. Wenn Sie erwarten, die Anwendung dass an Komplexität zunehmen und laufende Wartung erforderlich ist, können Sie weitere Entwicklungszeit vorab investieren, um das Erstellen einer *n-Tier-* oder *überlappende* Anwendungsstruktur Das ist sind besser verwaltbar. Um diese Architektur zu implementieren, trennen Sie die Darstellungsschicht von Logik der Geschäftsebene (BLL) und die Datenzugriffsebene (DAL). Eine Möglichkeit, implementieren diese Struktur ist die Verwendung der `ObjectDataSource` anstelle von steuern die `EntityDataSource` Steuerelement. Bei Verwendung der `ObjectDataSource` -Steuerelement, implementieren Sie einen eigene Datenzugriffs-Code und anschließend in Aufrufen *aspx* Seiten, die ein Steuerelement, das viele der gleichen wurde mit Funktionen wie bei anderen Datenquellen-Steuerelementen. Dadurch können Sie die Vorteile einer n-Tier-Ansatz mit den Vorteilen der Verwendung einer Web Forms-Steuerelement für den Datenzugriff zu kombinieren.
@@ -60,7 +60,7 @@ Ein `ObjectDataSource` -Steuerelement funktioniert durch den Aufruf einer Klasse
 
 Neben grundlegende CRUD-Vorgänge, die Klasse, die Sie erstellen, für die Verwendung mit der `ObjectDataSource` Steuerelement zum Ausführen der Geschäftslogik müssen möglicherweise bei der `ObjectDataSource` liest Daten oder darin aktualisiert. Wenn Sie eine Abteilung aktualisieren, müssen Sie überprüfen, dass keine anderen Abteilungen derselben Administrator verfügen, da eine Person Administrator der mehr als eine Abteilung sein darf.
 
-In einigen `ObjectDataSource` Dokumentation, z. B. die [ObjectDataSource-Klassenübersicht](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.aspx), ruft das Steuerelement eine Klasse, die als bezeichnet eine *Geschäftsobjekt* , Geschäftslogik und Datenzugriffslogik enthält . In diesem Lernprogramm erstellen Sie separate Klassen für Geschäftslogik und Datenzugriffslogik. Die Klasse, die Datenzugriffslogik kapselt heißt ein *Repository*. Die Business Logic-Klasse enthält Methoden Geschäftslogik und Datenzugriff Methoden, aber die Datenzugriffs-Methoden aufrufen, das Repository, sodass die Datenzugriffs-Aufgaben ausführen.
+In einigen `ObjectDataSource` Dokumentation, z. B. die [ObjectDataSource-Klassenübersicht](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx), ruft das Steuerelement eine Klasse, die als bezeichnet eine *Geschäftsobjekt* , Geschäftslogik und Datenzugriffslogik enthält . In diesem Lernprogramm erstellen Sie separate Klassen für Geschäftslogik und Datenzugriffslogik. Die Klasse, die Datenzugriffslogik kapselt heißt ein *Repository*. Die Business Logic-Klasse enthält Methoden Geschäftslogik und Datenzugriff Methoden, aber die Datenzugriffs-Methoden aufrufen, das Repository, sodass die Datenzugriffs-Aufgaben ausführen.
 
 Erstellen Sie auch eine Abstraktionsebene zwischen Ihrem BLL und der DAL, die die automatisierte Komponententests erleichtert die BLL testen. Diese Abstraktionsebene wird durch Erstellen einer Schnittstelle und die Benutzeroberfläche verwenden, wenn Sie das Repository in der Geschäftslogik Klasse instanziieren implementiert. Dies ermöglicht es Ihnen, die Geschäftslogik Klasse mit einem Verweis auf ein Objekt zu senden, der Repository-Schnittstelle implementiert. Für den normalen Betrieb Geben Sie ein Repository-Objekt, das mit dem Entity Framework zusammenarbeitet. Zum Testen, geben Sie ein Repository-Objekt, das zusammen mit den Daten gespeichert, mit denen Sie problemlos ändern können, z. B. Klassenvariablen als Sammlungen definiert.
 

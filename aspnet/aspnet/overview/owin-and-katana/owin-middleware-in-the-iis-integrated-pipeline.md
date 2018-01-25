@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>OWIN-Middleware in der integrierten IIS-pipeline
 ====================
@@ -36,9 +36,9 @@ Dies bedeutet, dass alle Anwendungsframeworks, auch solche, die noch nicht auße
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>Wie der OWIN-Middleware in der integrierten IIS-Pipeline ausgeführt wird
 
-Für die OWIN-konsolenanwendungen, mit der Pipeline der Anwendung erstellt die [Startkonfiguration](owin-startup-class-detection.md) wird festgelegt, indem die Reihenfolge der Komponenten hinzugefügt werden, mit der `IAppBuilder.Use` Methode. D. h. die OWIN-Pipeline in der [Katana](an-overview-of-project-katana.md) Laufzeit verarbeitet OMCs in der Reihenfolge, die sie registriert wurden, mithilfe von `IAppBuilder.Use`. In der integrierten IIS-Pipeline besteht die Anforderungspipeline [HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx) wie z. B. auf einen vordefinierten Satz von der Pipelineereignisse abonniert [BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx)usw.
+Für die OWIN-konsolenanwendungen, mit der Pipeline der Anwendung erstellt die [Startkonfiguration](owin-startup-class-detection.md) wird festgelegt, indem die Reihenfolge der Komponenten hinzugefügt werden, mit der `IAppBuilder.Use` Methode. D. h. die OWIN-Pipeline in der [Katana](an-overview-of-project-katana.md) Laufzeit verarbeitet OMCs in der Reihenfolge, die sie registriert wurden, mithilfe von `IAppBuilder.Use`. In der integrierten IIS-Pipeline besteht die Anforderungspipeline [HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx) wie z. B. auf einen vordefinierten Satz von der Pipelineereignisse abonniert [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)usw.
 
-Wenn wir eine OMC mit Vergleichen einer [HttpModule](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx) in der Welt ASP.NET muss ein OMC an das richtige vordefinierten Pipeline-Ereignis registriert werden. Beispielsweise HttpModule `MyModule` wird abrufen aufgerufen, wenn eine Anforderung, um eingeht die [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) Stufe der Pipeline:
+Wenn wir eine OMC mit Vergleichen einer [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx) in der Welt ASP.NET muss ein OMC an das richtige vordefinierten Pipeline-Ereignis registriert werden. Beispielsweise HttpModule `MyModule` wird abrufen aufgerufen, wenn eine Anforderung, um eingeht die [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) Stufe der Pipeline:
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ Die Konfiguration für den Dienststart richtet eine Pipeline mit drei middleware
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Die Katana-Laufzeit zugeordnet aller der OWIN-Middleware zu Komponenten [PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) standardmäßig entspricht der IIS-Ereignis-Pipeline [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
+Die Katana-Laufzeit zugeordnet aller der OWIN-Middleware zu Komponenten [PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) standardmäßig entspricht der IIS-Ereignis-Pipeline [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
 
 ## <a name="stage-markers"></a>Phase-Marker
 
@@ -65,7 +65,7 @@ Können Sie kennzeichnen, OMCs auszuführende in bestimmten Phasen der Pipeline 
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-Die `app.UseStageMarker(PipelineStage.Authenticate)` Aufruf so konfiguriert, dass alle zuvor registrierten Middleware-Komponenten (in diesem Fall unsere zwei diagnostischen Komponenten) auf die Authentifizierungsphase der Pipeline ausgeführt werden. Die letzte middlewarekomponente (der Diagnose angezeigt und auf Anforderungen antwortet) wird ausgeführt, auf die `ResolveCache` Stufe (der [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx) Ereignis).
+Die `app.UseStageMarker(PipelineStage.Authenticate)` Aufruf so konfiguriert, dass alle zuvor registrierten Middleware-Komponenten (in diesem Fall unsere zwei diagnostischen Komponenten) auf die Authentifizierungsphase der Pipeline ausgeführt werden. Die letzte middlewarekomponente (der Diagnose angezeigt und auf Anforderungen antwortet) wird ausgeführt, auf die `ResolveCache` Stufe (der [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx) Ereignis).
 
 Drücken Sie F5, um die app auszuführen. Das Fenster "Ausgabe" zeigt Folgendes:
 

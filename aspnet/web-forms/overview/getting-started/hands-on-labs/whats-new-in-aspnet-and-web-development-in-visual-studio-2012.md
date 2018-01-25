@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: e57f1200aaa207c9109f2832cbf88629ed385bb5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Was ist neu in ASP.NET und Webentwicklung in Visual Studio 2012
 ====================
@@ -54,7 +54,7 @@ In dieser praktische Übungseinheiten, erfahren Sie, wie Sie:
 
 - [Microsoft Visual Studio Express 2012 für das Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) oder sogar eine höhere (Lesen [Anhang A](#AppendixA) Anleitungen zur Installation).
 - [Windows PowerShell](https://support.microsoft.com/kb/968930/) (für Setupskripts - bereits installiert unter Windows 8 und Windows Server 2008 R2)
-- [Internet Explorer 10](https://windows.microsoft.com/en-US/internet-explorer/products/ie/home) - oder einem kompatiblen HTML5-Browser
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) - oder einem kompatiblen HTML5-Browser
 
 <a id="Exercises"></a>
 
@@ -787,7 +787,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Windows Azure websites.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image70.png "der Website herunterladen eines Veröffentlichungsprofils")
 

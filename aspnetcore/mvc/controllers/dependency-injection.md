@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 21cffcd285879fdca81cb7d92d0f079d4bf7756c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 946d695c572379c3ebc2eda1569f186f25ab9bfc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Abhängigkeitsinjektion in Controllern
 
@@ -87,7 +87,7 @@ In einigen Fällen benötigen Sie keinen Dienst für mehr als eine Aktion innerh
 
 ## <a name="accessing-settings-from-a-controller"></a>Zugreifen auf Einstellungen von einem Controller
 
-Zugriff auf Anwendungs- oder Einstellungen innerhalb eines Controllers ist ein allgemeines Muster. Dieser Zugriff sollte die in beschriebenen Optionen-Muster verwenden [Konfiguration](xref:fundamentals/configuration/index). Sie sollten im Allgemeinen Einstellungen nicht direkt aus Ihrem Controller mithilfe der Abhängigkeitsinjektion anfordern. Ein besserer Ansatz besteht darin Anforderung eine `IOptions<T>` Instanz, in denen `T` ist die Konfigurationsklasse, die Sie benötigen.
+Zugriff auf Anwendungs- oder Einstellungen innerhalb eines Controllers ist ein allgemeines Muster. Dieser Zugriff sollte die in beschriebenen Optionen-Muster verwenden [Konfiguration](xref:fundamentals/configuration/index). Sie sollte nicht direkt aus Ihrem Controller mithilfe der Abhängigkeitsinjektion im Allgemeinen Einstellungen anfordern. Ein besserer Ansatz besteht darin Anforderung eine `IOptions<T>` Instanz, in denen `T` ist die Konfigurationsklasse, die Sie benötigen.
 
 Um mit dem Muster Optionen zu arbeiten, müssen Sie eine Klasse erstellen, die Optionen, wie diese darstellt:
 

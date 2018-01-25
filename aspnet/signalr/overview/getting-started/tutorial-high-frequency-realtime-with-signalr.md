@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5af7289392c18d58de11249c75e539c9e08954be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ab051b2ab85d1aac1e7179f342f22f470b1d1cc7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Lernprogramm: Hochfrequente Realtime mit SignalR 2
 ====================
@@ -107,7 +107,7 @@ Die folgenden Schritte verwenden Visual Studio 2013 erstellen eine leere ASP.NET
     > [!NOTE]
     > Sie können auch SignalR zu einem Projekt hinzufügen, indem Sie auf **Tools | Bibliothek-Paket-Manager | Paket-Manager-Konsole** und einen Befehl ausführen:
 
-    `install-package Microsoft.AspNet.SignalR`. 
+    `install-package Microsoft.AspNet.SignalR` 
 
     Wenn Sie die Konsole verwenden, um SignalR hinzuzufügen, erstellen Sie die SignalR-Hub-Klasse als separater Schritt nach dem Hinzufügen von SignalR.
 4. Klicken Sie auf **Tools | Bibliothek-Paket-Manager | Paket-Manager-Konsole**. Führen Sie in der Paket-Manager-Fenster den folgenden Befehl ein:
@@ -224,6 +224,6 @@ Besuchen Sie die folgenden Websites für SignalR-Quellcode und Ressourcen, um we
 
 - [SignalR-Projekt](http://signalr.net)
 - [SignalR Github und Beispiele](https://github.com/SignalR/SignalR)
-- [SignalR-Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-Eine exemplarische Vorgehensweise zum Bereitstellen einer SignalR-Anwendung in Azure finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Eine exemplarische Vorgehensweise zum Bereitstellen einer SignalR-Anwendung in Azure finden Sie unter [SignalR mit Web-Apps in Azure App Service mithilfe von](../deployment/using-signalr-with-azure-web-sites.md). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [erstellen eine ASP.NET Web-app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

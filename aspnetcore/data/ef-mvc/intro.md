@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c30556368ba24fb38cf3347dd49f171b5246514c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio (1 von 10)
 
@@ -27,7 +27,7 @@ Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. E
 
 [Herunterladen oder Anzeigen der fertigen Anwendung.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-EF Core 2.0 ist die neueste Version von EF aber noch keinen alle Funktionen von EF 6.x. Informationen zur Wahl zwischen EF 6.x und EF-Kern, finden Sie unter [EF Core Vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Bei Auswahl von EF 6.x ausführen, finden Sie unter [die vorherige Version dieser Reihe von Lernprogrammen](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+EF Core 2.0 ist die neueste Version von EF jedoch alle Funktionen von EF noch keine 6.x. Informationen zur Wahl zwischen EF 6.x und EF-Kern, finden Sie unter [EF Core Vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Bei Auswahl von EF 6.x ausführen, finden Sie unter [die vorherige Version dieser Reihe von Lernprogrammen](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > * Die Version 1.1 von ASP.NET Core dieses Lernprogramms finden Sie unter der [VS 2017 Update 2 Version dieses Lernprogramms im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
@@ -74,7 +74,7 @@ Den Stil der Benutzeroberfläche von diesem Standort wurde in der Nähe was von 
 
 * Wählen Sie **ASP.NET Core 2.0** und **Webanwendung (Model-View-Controller)** Vorlage.
 
-  **Hinweis:** dieses Lernprogramm erfordert ASP.NET Core 2.0 und EF Core 2.0 oder höher--stellen sicher, dass **ASP.NET Core 1.1** nicht ausgewählt ist.
+  **Hinweis:** dieses Lernprogramm erfordert ASP.NET Core 2.0 und EF Core 2.0 oder höher--stellen sicher, dass **ASP.NET Core 1.1** ist nicht aktiviert.
 
 * Stellen Sie sicher, dass **Authentifizierung** festgelegt ist, um **keine Authentifizierung**.
 
@@ -204,7 +204,7 @@ Hinzufügen `using` -Anweisungen für `ContosoUniversity.Data` und `Microsoft.En
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Die Verbindungszeichenfolge gibt eine SQL Server LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Anwendungsentwicklung, nicht für Produktionszwecke vorgesehen. LocalDB wird bedarfsgesteuert gestartet und im Benutzermodus ausgeführt, sodass keine komplexe Konfiguration anfällt. Erstellt standardmäßig LocalDB *mdf* -Datenbankdateien, die in der `C:/Users/<user>` Verzeichnis.
+Die Verbindungszeichenfolge gibt eine SQL Server LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Anwendungsentwicklung, nicht für Produktionszwecke vorgesehen. LocalDB bedarfsgesteuert gestartet und im Benutzermodus ausgeführt wird, d. h., es ist keine komplexe Konfiguration. Erstellt standardmäßig LocalDB *mdf* -Datenbankdateien, die in der `C:/Users/<user>` Verzeichnis.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Fügen Sie Code zum Initialisieren der Datenbank mit Testdaten
 
@@ -351,7 +351,7 @@ Im folgenden Code wird die `async` -Schlüsselwort, `Task<T>` Rückgabewert, `aw
 
 Einige Dinge zu beachten, wenn Sie asynchronen Code schreiben, der das Entity Framework verwendet werden:
 
-* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, z. B. `ToListAsync`, `SingleOrDefaultAsync`, und `SaveChangesAsync`. Es umfasst nicht, z. B. Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, z. B. `ToListAsync`, `SingleOrDefaultAsync`, und `SaveChangesAsync`. Dieser umfasst jedoch nicht, z. B. Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Ein EF-Kontext ist nicht threadsicher: nicht Versuch, das mehrere Vorgänge parallel auszuführen. Wenn Sie jede asynchrone EF-Methode aufrufen, verwenden Sie immer die `await` Schlüsselwort.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1d94045236cc8e1b12839ced4de1258466a626e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>Zwischenspeichern von Daten in der Architektur (VB)
 ====================
@@ -62,7 +62,7 @@ Die Funktion untersucht in dem vorherigen Lernprogramm intern Zwischenspeichern 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-Die [ `Cache` Klasse](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.aspx) s [ `Insert` Methode](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.insert.aspx) bietet eine Reihe von Überladungen. `Cache("key") = value`und `Cache.Insert(key, value)` sind Synonyme und sowohl der Cache mit dem angegebenen Schlüssel ohne einen definierten Ablauf ein Element hinzuzufügen. In der Regel möchten wir eine Ablaufzeit an, beim Hinzufügen eines Elements zum Cache muss entweder als eine Abhängigkeit, die eine zeitbasierte Ablauf oder beides. Verwenden Sie eine der anderen `Insert` s methodenüberladungen, Abhängigkeit oder zeitbasierte Ablaufinformationen bereitzustellen.
+Die [ `Cache` Klasse](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` Methode](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) bietet eine Reihe von Überladungen. `Cache("key") = value`und `Cache.Insert(key, value)` sind Synonyme und sowohl der Cache mit dem angegebenen Schlüssel ohne einen definierten Ablauf ein Element hinzuzufügen. In der Regel möchten wir eine Ablaufzeit an, beim Hinzufügen eines Elements zum Cache muss entweder als eine Abhängigkeit, die eine zeitbasierte Ablauf oder beides. Verwenden Sie eine der anderen `Insert` s methodenüberladungen, Abhängigkeit oder zeitbasierte Ablaufinformationen bereitzustellen.
 
 Die Caching-Ebene, die s-Methoden müssen zuerst zu überprüfen, wenn die angeforderten Daten im Cache befindet, und wenn dies der Fall ist, wird es von dort aus zurück. Wenn die angeforderten Daten nicht im Cache vorhanden ist, muss die entsprechende BLL-Methode aufgerufen werden. Der Rückgabewert sollte zwischengespeichert und dann zurückgegeben, wie das folgende Sequenzdiagramm zeigt.
 
@@ -90,7 +90,7 @@ Der Unterschied in diesem zweiten, falsche Codeausschnitt ist, statt einen Verwe
 > Der Datencache ist threadsicher, daher brauchen Sie einfache Lese- oder Schreibvorgänge Threadzugriff synchronisieren. Jedoch, wenn Sie mehrere Vorgänge für Daten im Cache, der atomarisch sein müssen, sind Sie verantwortlich für die Implementierung einer Sperre oder eines anderen Mechanismus, um Threadsicherheit zu gewährleisten. Finden Sie unter [synchronisiert den Zugriff auf die ASP.NET-Cache](http://www.ddj.com/184406369) für Weitere Informationen.
 
 
-Ein Element kann programmgesteuert entfernt werden, aus dem Cache mithilfe der [ `Remove` Methode](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.remove.aspx) wie folgt:
+Ein Element kann programmgesteuert entfernt werden, aus dem Cache mithilfe der [ `Remove` Methode](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) wie folgt:
 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample4.vb)]
@@ -115,10 +115,10 @@ Die `GetCacheItem(key)` und `AddCacheItem(key, value)` Methoden Schnittstelle mi
 
 `GetCacheItem(key)`verwendet keinen *Schlüssel* Wert wie angegeben, sondern ruft die `GetCacheKey(key)` Methode, die zurückgibt der *Schlüssel* ProductsCache - vorangestellt. Die `MasterCacheKeyArray`, das die Zeichenfolge ProductsCache, hält dient auch durch die `AddCacheItem(key, value)` -Methode, vorübergehend eingehendem.
 
-Von einer ASP.NET Seite "s" Code-Behind-Klasse, kann der Datencache mit zugegriffen werden die `Page` Klasse s [ `Cache` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.page.cache.aspx), und ermöglicht eine Syntax wie `Cache("key") = value`, wie in Schritt2 beschrieben. Von einer Klasse in der Architektur der Datencache möglich, die entweder `HttpRuntime.Cache` oder `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)des Blogeintrag [HttpRuntime.Cache Vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) notes geringfügigen Leistungsvorteil in mit `HttpRuntime` anstelle von `HttpContext.Current`; folglich `ProductsCL` verwendet `HttpRuntime`.
+Von einer ASP.NET Seite "s" Code-Behind-Klasse, kann der Datencache mit zugegriffen werden die `Page` Klasse s [ `Cache` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx), und ermöglicht eine Syntax wie `Cache("key") = value`, wie in Schritt2 beschrieben. Von einer Klasse in der Architektur der Datencache möglich, die entweder `HttpRuntime.Cache` oder `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)des Blogeintrag [HttpRuntime.Cache Vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) notes geringfügigen Leistungsvorteil in mit `HttpRuntime` anstelle von `HttpContext.Current`; folglich `ProductsCL` verwendet `HttpRuntime`.
 
 > [!NOTE]
-> Wenn Ihre Architektur wird mithilfe von Klassenbibliotheksprojekte implementiert, dann Sie einen Verweis hinzufügen müssen der `System.Web` Assembly um verwenden die [ `HttpRuntime` ](https://msdn.microsoft.com/en-us/library/system.web.httpruntime.aspx) und [ `HttpContext` ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) Klassen.
+> Wenn Ihre Architektur wird mithilfe von Klassenbibliotheksprojekte implementiert, dann Sie einen Verweis hinzufügen müssen der `System.Web` Assembly um verwenden die [ `HttpRuntime` ](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) und [ `HttpContext` ](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) Klassen.
 
 
 Wenn das Element nicht im Cache gefunden wurde die `ProductsCL` Klassenmethoden s rufen Sie die Daten aus der BLL und hinzuzufügen, den Cache mithilfe der `AddCacheItem(key, value)` Methode. Hinzuzufügende *Wert* in den Cache können wir den folgenden Code, der ein Ablaufdatum 60 Sekunden Zeit verwendet:
@@ -126,7 +126,7 @@ Wenn das Element nicht im Cache gefunden wurde die `ProductsCL` Klassenmethoden 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`Gibt die Ablaufzeit zeitbasierte 60 Sekunden in der Zukunft While [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) gibt es s keine Ablaufzeit an. Obwohl dies `Insert` methodenüberladung Eingabeparameter aufweisen, die für beide Absolute und gleitende Ablaufzeit, können Sie nur einen der beiden. Wenn Sie versuchen, geben Sie einen absoluten Zeitpunkt und eine Zeitspanne, die `Insert` Methode löst eine `ArgumentException` Ausnahme.
+`DateTime.Now.AddSeconds(CacheDuration)`Gibt die Ablaufzeit zeitbasierte 60 Sekunden in der Zukunft While [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) gibt es s keine Ablaufzeit an. Obwohl dies `Insert` methodenüberladung Eingabeparameter aufweisen, die für beide Absolute und gleitende Ablaufzeit, können Sie nur einen der beiden. Wenn Sie versuchen, geben Sie einen absoluten Zeitpunkt und eine Zeitspanne, die `Insert` Methode löst eine `ArgumentException` Ausnahme.
 
 > [!NOTE]
 > Diese Implementierung der `AddCacheItem(key, value)` Methode hat derzeit einige Nachteile. Wir behandeln und beheben diese Probleme in Schritt 4.
@@ -150,7 +150,7 @@ Let-s-Update die `AddCacheItem(key, value)` Methode, damit jedes Element dem Cac
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`ist ein Array von Zeichenfolgen, die einen einzelnen Wert, ProductsCache enthält. Zuerst wird ein Cacheelement, das dem Cache hinzugefügt und zugewiesen, das aktuelle Datum und die Uhrzeit. Wenn das Cacheelement, das bereits vorhanden ist, wird er aktualisiert. Als Nächstes wird eine Cacheabhängigkeit erstellt. Die [ `CacheDependency` Klasse](https://msdn.microsoft.com/en-US/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor verfügt über mehrere Überladungen, jedoch wird hier verwendet erwartet zwei `String` array Eingaben. Die erste Vorlage gibt den Satz von Dateien als Abhängigkeit verwendet werden soll. Da wir Verschlüsselungskennwort t dateibasierten Abhängigkeiten, den Wert verwenden möchten `Nothing` wird für den ersten Eingabeparameter verwendet. Der zweite Eingabeparameter gibt die Menge der Cacheschlüssel, der als Abhängigkeit verwendet. Hier geben wir unsere einzige Abhängigkeit `MasterCacheKeyArray`. Die `CacheDependency` wird dann in übergeben der `Insert` Methode.
+`MasterCacheKeyArray`ist ein Array von Zeichenfolgen, die einen einzelnen Wert, ProductsCache enthält. Zuerst wird ein Cacheelement, das dem Cache hinzugefügt und zugewiesen, das aktuelle Datum und die Uhrzeit. Wenn das Cacheelement, das bereits vorhanden ist, wird er aktualisiert. Als Nächstes wird eine Cacheabhängigkeit erstellt. Die [ `CacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor verfügt über mehrere Überladungen, jedoch wird hier verwendet erwartet zwei `String` array Eingaben. Die erste Vorlage gibt den Satz von Dateien als Abhängigkeit verwendet werden soll. Da wir Verschlüsselungskennwort t dateibasierten Abhängigkeiten, den Wert verwenden möchten `Nothing` wird für den ersten Eingabeparameter verwendet. Der zweite Eingabeparameter gibt die Menge der Cacheschlüssel, der als Abhängigkeit verwendet. Hier geben wir unsere einzige Abhängigkeit `MasterCacheKeyArray`. Die `CacheDependency` wird dann in übergeben der `Insert` Methode.
 
 Dank dieser Änderung auf `AddCacheItem(key, value)`, invaliding der Cache ist so einfach wie das Entfernen der Abhängigkeitsverhältnis.
 

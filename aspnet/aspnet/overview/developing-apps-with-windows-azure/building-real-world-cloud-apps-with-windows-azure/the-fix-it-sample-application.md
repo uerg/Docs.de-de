@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Anhang: Die Korrektur es Beispielanwendung (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -62,10 +62,10 @@ Ein Administrator sollte den Besitz auf vorhandene Tasks ändern können. Der Er
 
 Warteschlange der Nachrichtenverarbeitung in der app zu beheben wurde entwickelt, einfach gehalten, um veranschaulichen des Musters Warteschlange anwendungsorientierte Arbeit mit einem Minimum von Code verwendet werden. Diese einfachen Code würde nicht dessen Fähigkeitsgrad für eine tatsächliche produktionsanwendung.
 
-- Der Code kann nicht garantiert werden, dass jede warteschlangennachricht höchstens einmal verarbeitet werden. Wenn Sie aus der Warteschlange eine Nachricht erhalten, wird ein Zeitlimit, während derer die Nachricht für andere warteschlangenlistenern nicht sichtbar ist. Wenn das Timeout abläuft, bevor die Nachricht gelöscht wird, wird die Nachricht erneut angezeigt. Aus diesem Grund ist eine workerrolleninstanz Verarbeiten einer Nachricht viel Zeit benötigt, es theoretisch möglich, dass dieselbe Nachricht zweimal verarbeitet werden führt eine doppelte Aufgabe in der Datenbank. Weitere Informationen zu diesem Problem finden Sie unter [mithilfe von Azure-Speicher-Warteschlangen](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).
-- Die Warteschlange Abruflogik kostengünstiger, möglicherweise durch Batchverarbeitung beim Abruf der Nachricht. Jedes Mal, wenn Sie rufen [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), Transaktion Kosten. Rufen Sie stattdessen [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (Beachten Sie den Plural "), die mehrere Nachrichten in einer einzelnen Transaktion ruft. Die Transaktionskosten für Azure-Speicherwarteschlangen sehr gering sind, damit die Auswirkungen auf Kosten nicht erhebliche in den meisten Szenarien ist.
+- Der Code kann nicht garantiert werden, dass jede warteschlangennachricht höchstens einmal verarbeitet werden. Wenn Sie aus der Warteschlange eine Nachricht erhalten, wird ein Zeitlimit, während derer die Nachricht für andere warteschlangenlistenern nicht sichtbar ist. Wenn das Timeout abläuft, bevor die Nachricht gelöscht wird, wird die Nachricht erneut angezeigt. Aus diesem Grund ist eine workerrolleninstanz Verarbeiten einer Nachricht viel Zeit benötigt, es theoretisch möglich, dass dieselbe Nachricht zweimal verarbeitet werden führt eine doppelte Aufgabe in der Datenbank. Weitere Informationen zu diesem Problem finden Sie unter [mithilfe von Azure-Speicher-Warteschlangen](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- Die Warteschlange Abruflogik kostengünstiger, möglicherweise durch Batchverarbeitung beim Abruf der Nachricht. Jedes Mal, wenn Sie rufen [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), Transaktion Kosten. Rufen Sie stattdessen [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (Beachten Sie den Plural "), die mehrere Nachrichten in einer einzelnen Transaktion ruft. Die Transaktionskosten für Azure-Speicherwarteschlangen sehr gering sind, damit die Auswirkungen auf Kosten nicht erhebliche in den meisten Szenarien ist.
 - Die enge Schleife in der Warteschlange Nachrichtenverarbeitung Code bewirkt, dass CPU-Affinität, die nicht mit mehreren Kernen VMs effizient verwenden wird. Aufgabenparallelität verwenden ein besserer Entwurf mehrere asynchrone Aufgaben parallel ausgeführt werden.
-- Queue-Nachrichtenverarbeitung hat nur rudimentäre Ausnahmebehandlung. Der Code keine verarbeitet, z. B. [nicht verarbeitbare Nachrichten](https://msdn.microsoft.com/en-us/library/ms789028.aspx). (Bei der Verarbeitung von Nachrichten eine Ausnahme auslöst, müssen Sie den Fehler protokollieren und die Nachricht zu löschen oder die workerrolle nach Möglichkeit keine erneute Verarbeitung und unbegrenzt die Schleife fortgesetzt.)
+- Queue-Nachrichtenverarbeitung hat nur rudimentäre Ausnahmebehandlung. Der Code keine verarbeitet, z. B. [nicht verarbeitbare Nachrichten](https://msdn.microsoft.com/library/ms789028.aspx). (Bei der Verarbeitung von Nachrichten eine Ausnahme auslöst, müssen Sie den Fehler protokollieren und die Nachricht zu löschen oder die workerrolle nach Möglichkeit keine erneute Verarbeitung und unbegrenzt die Schleife fortgesetzt.)
 
 ### <a name="sql-queries-are-unbounded"></a>SQL-Abfragen sind nicht gebunden
 
@@ -85,7 +85,7 @@ Beispiel-PowerShell-Automatisierungsskripts geschrieben wurden nur für die Basi
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>Besondere Behandlung für HTML-Codes in Benutzereingaben
 
-ASP.NET wird automatisch verhindert, dass viele Möglichkeiten, die in denen böswillige Benutzer Angriffe Cross-Site scripting versuchen möglicherweise, durch Eingabe von Skript in Benutzer Eingabetext Felder. Und MVC `DisplayFor` zur Anzeige von Task-Hilfsobjekt titles und Anmerkungen zu dieser automatisch HTML-codiert-Werte, die an den Browser gesendet. Aber in einer Produktions-app möchten Sie möglicherweise zusätzliche Maßnahmen ergreifen. Weitere Informationen finden Sie unter [anfordern Validierung in ASP.NET](https://msdn.microsoft.com/en-us/library/hh882339.aspx).
+ASP.NET wird automatisch verhindert, dass viele Möglichkeiten, die in denen böswillige Benutzer Angriffe Cross-Site scripting versuchen möglicherweise, durch Eingabe von Skript in Benutzer Eingabetext Felder. Und MVC `DisplayFor` zur Anzeige von Task-Hilfsobjekt titles und Anmerkungen zu dieser automatisch HTML-codiert-Werte, die an den Browser gesendet. Aber in einer Produktions-app möchten Sie möglicherweise zusätzliche Maßnahmen ergreifen. Weitere Informationen finden Sie unter [anfordern Validierung in ASP.NET](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Bewährte Methoden
@@ -146,13 +146,13 @@ Um einfacher Code anzuzeigen, die ursprüngliche Version der app korrigieren Lä
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Private Member als schreibgeschützt markiert wird, wenn diese zu erwarten sind nicht so ändern Sie
 
-Beispielsweise ist in der `DashboardController` eine Instanz der Klasse `FixItTaskRepository` wird erstellt und ist nicht dazu gedacht, zu ändern, damit wir es als definiert [Readonly](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx).
+Beispielsweise ist in der `DashboardController` eine Instanz der Klasse `FixItTaskRepository` wird erstellt und ist nicht dazu gedacht, zu ändern, damit wir es als definiert [Readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx).
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>Verwenden Sie die Liste. Any() anstelle der Liste. Count() &gt; 0
 
-Verwenden, wenn Sie Sie von Interesse ist, gibt an, ob ein oder mehrere Elemente in einer Liste den angegebenen Kriterien entsprechen, die [alle](https://msdn.microsoft.com/en-us/library/bb534972.aspx) -Methode, weil sie zurückgibt, als ein Element, das die Kriterien einpassen gefunden wird, während die `Count` Methode hat immer durchlaufen über jedes Element. Das Dashboard *Index.cshtml* Datei hatte ursprünglich den folgenden Code:
+Verwenden, wenn Sie Sie von Interesse ist, gibt an, ob ein oder mehrere Elemente in einer Liste den angegebenen Kriterien entsprechen, die [alle](https://msdn.microsoft.com/library/bb534972.aspx) -Methode, weil sie zurückgibt, als ein Element, das die Kriterien einpassen gefunden wird, während die `Count` Methode hat immer durchlaufen über jedes Element. Das Dashboard *Index.cshtml* Datei hatte ursprünglich den folgenden Code:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ Für die **erstellen Sie ein Update er** Schaltfläche auf der Startseite, beheb
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Für Sicht/Aktionslinks sieht es ist besser, verwenden Sie die [Url.Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx) HTML-Hilfsobjekt, beispielsweise:
+Für Sicht/Aktionslinks sieht es ist besser, verwenden Sie die [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) HTML-Hilfsobjekt, beispielsweise:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Verwenden von Task.Delay anstelle Thread.Sleep Worker-Rolle
 
-Legt die neue Projektvorlage `Thread.Sleep` im Beispiel für den Code für eine workerrolle, aber den Thread, in den Energiesparmodus verursacht kann dazu führen, dass den Threadpool weitere unnötige Threads zu starten. Sie können vermeiden, die mit [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx) stattdessen.
+Legt die neue Projektvorlage `Thread.Sleep` im Beispiel für den Code für eine workerrolle, aber den Thread, in den Energiesparmodus verursacht kann dazu führen, dass den Threadpool weitere unnötige Threads zu starten. Sie können vermeiden, die mit [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) stattdessen.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ Dieses Beispiel stammt aus dem `FixItQueueManager` Klasse:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Verwenden Sie `async void` nur für den Ereignishandler der obersten Ebene. Wenn Sie eine Methode als definieren `async void`, kann der Aufrufer nicht **"await"** die Methode oder die Methode löst Ausnahmen abfangen. Weitere Informationen finden Sie unter [Best Practices bei der asynchronen Programmierung](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx). 
+Verwenden Sie `async void` nur für den Ereignishandler der obersten Ebene. Wenn Sie eine Methode als definieren `async void`, kann der Aufrufer nicht **"await"** die Methode oder die Methode löst Ausnahmen abfangen. Weitere Informationen finden Sie unter [Best Practices bei der asynchronen Programmierung](https://msdn.microsoft.com/magazine/jj991977.aspx). 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Verwenden Sie ein Abbruchtoken, das von Worker-Rolle Schleife unterbrechen
 
-In der Regel die **ausführen** Methode für eine workerrolle enthält eine Endlosschleife. Wenn die Worker-Rolle beendet wird, die [RoleEntryPoint.OnStop](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) -Methode aufgerufen wird. Sollten Sie diese Methode verwenden, um die Arbeit abzubrechen, die in erfolgt die **ausführen** -Methode, und beenden ordnungsgemäß. Andernfalls kann der Prozess gerade ein Vorgang beendet werden.
+In der Regel die **ausführen** Methode für eine workerrolle enthält eine Endlosschleife. Wenn die Worker-Rolle beendet wird, die [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) -Methode aufgerufen wird. Sollten Sie diese Methode verwenden, um die Arbeit abzubrechen, die in erfolgt die **ausführen** -Methode, und beenden ordnungsgemäß. Andernfalls kann der Prozess gerade ein Vorgang beendet werden.
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Ablehnen der automatischen MIME-Sniffing-Prozedur
 
@@ -219,7 +219,7 @@ Es gibt zwei Möglichkeiten zum Ausführen der app zu beheben:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Führen Sie die Basis-Anwendung
 
-1. Installieren Sie [Visual Studio 2013 oder Visual Studio 2013 Express für Web](https://www.visualstudio.com/en-us/downloads).
+1. Installieren Sie [Visual Studio 2013 oder Visual Studio 2013 Express für Web](https://www.visualstudio.com/downloads).
 2. Installieren der [Azure SDK für .NET für Visual Studio 2013.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. Laden Sie die ZIP-Datei aus der [MSDN Code Gallery](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. Mit der rechten Maustaste in der ZIP-Datei im Datei-Explorer klicken Sie auf Eigenschaften, und klicken Sie im Eigenschaftenfenster auf zulassen.
@@ -228,7 +228,7 @@ Es gibt zwei Möglichkeiten zum Ausführen der app zu beheben:
 7. Klicken Sie im Menü Extras auf Bibliothekspaket-Manager, und klicken Sie dann auf Paket-Manager-Konsole.
 8. Klicken Sie in der Paket-Manager-Konsole (PMC) auf wiederherstellen.
 9. Beenden Sie Visual Studio.
-10. Starten Sie die [Azure-Speicheremulator](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx).
+10. Starten Sie die [Azure-Speicheremulator](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
 11. Visual Studio neu starten, öffnen die Projektmappendatei Sie im vorherigen Schritt geschlossen.
 12. Stellen Sie sicher, dass das FixIt-Projekt als Startprojekt festgelegt ist, und drücken Sie dann STRG + F5, um das Projekt auszuführen.
 
@@ -240,7 +240,7 @@ Es gibt zwei Möglichkeiten zum Ausführen der app zu beheben:
 3. In der Anwendung *"Web.config"* in der Datei die *MyFixIt* Projekt (das Webprojekt), ändern Sie den Wert des `appSettings/UseQueues` auf "True": 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Wenn die [Azure-Speicheremulator](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx) ist nicht immer noch ausgeführt, starten Sie ihn erneut.
+4. Wenn die [Azure-Speicheremulator](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) ist nicht immer noch ausgeführt, starten Sie ihn erneut.
 5. Das Webprojekt FixIt und das Projekt MyFixItCloudService gleichzeitig ausgeführt.
 
     Verwenden von Visual Studio 2013:
@@ -397,7 +397,7 @@ Ersetzen Sie im MyFixItCloudService\ServiceConfiguration.Cloud.cscfg die gleiche
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-Jetzt sind Sie bereit für die Bereitstellung von Cloud-Dienst. Klicken Sie im Projektmappen-Explorer, mit der rechten Maustaste des MyFixItCloudService-Projekts, und wählen **veröffentlichen**. Weitere Informationen finden Sie unter "[Bereitstellen der Anwendung in Azure](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", also in Teil 2 von [dieses Lernprogramms](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+Jetzt sind Sie bereit für die Bereitstellung von Cloud-Dienst. Klicken Sie im Projektmappen-Explorer, mit der rechten Maustaste des MyFixItCloudService-Projekts, und wählen **veröffentlichen**. Weitere Informationen finden Sie unter "[Bereitstellen der Anwendung in Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", also in Teil 2 von [dieses Lernprogramms](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
 >[!div class="step-by-step"]
-[Zurück](more-patterns-and-guidance.md)
+[Vorherige](more-patterns-and-guidance.md)

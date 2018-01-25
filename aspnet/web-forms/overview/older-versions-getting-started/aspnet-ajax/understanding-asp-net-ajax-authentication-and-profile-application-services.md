@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 7e0ddc15fac9af40a0a20a99979a80517eb1b6a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Grundlegendes zu ASP.NET AJAX-Authentifizierung und-Profilanwendungsdienste
 ====================
@@ -43,7 +43,7 @@ Der Authentifizierungsdienst kann Benutzer Anmeldeinformationen angeben, um ein 
 
 Die Profil-Dienst ermöglicht die automatische Integration und Speicherung von Benutzerdaten auf der Grundlage der Mitgliedschaft der Authentifizierungsdienst bereitgestellt. Die gespeicherten Daten werden von der Datei "Web.config" angegeben, und die verschiedenen profilerstellungs-Anbieter behandeln die datenverwaltung. Wie bei der Authentifizierungsdienst ist Profildienst AJAX kompatibel mit der standardmäßigen ASP.NET-Profildienst, sodass Seiten, die derzeit spezifische Funktionen von ASP.NET Profildienst nicht beeinträchtigt werden sollten, indem ein einschließlich AJAX-Unterstützung.
 
-Die ASP.NET-Authentifizierung und Profilerstellung Dienste selbst in eine Anwendung integrieren ist außerhalb des Bereichs dieses Whitepaper verfasst. Weitere Informationen zu diesem Thema finden Sie in der MSDN Library verweisen auf Artikel Verwalten von Benutzern durch Mitgliedschaft an [https://msdn.microsoft.com/en-us/library/tw292whz.aspx](https://msdn.microsoft.com/en-us/library/tw292whz.aspx). ASP.NET enthält auch ein Hilfsprogramm automatisch Mitgliedschaft mit einem SQL-Server einrichten, das der Dienstanbieter für Standard-Authentifizierung für die ASP.NET-Mitgliedschaft ist. Weitere Informationen finden Sie im Artikel ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe) am [https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx).
+Die ASP.NET-Authentifizierung und Profilerstellung Dienste selbst in eine Anwendung integrieren ist außerhalb des Bereichs dieses Whitepaper verfasst. Weitere Informationen zu diesem Thema finden Sie in der MSDN Library verweisen auf Artikel Verwalten von Benutzern durch Mitgliedschaft an [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET enthält auch ein Hilfsprogramm automatisch Mitgliedschaft mit einem SQL-Server einrichten, das der Dienstanbieter für Standard-Authentifizierung für die ASP.NET-Mitgliedschaft ist. Weitere Informationen finden Sie im Artikel ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe) am [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*Mithilfe den ASP.NET AJAX-Authentifizierungsdienst*
 
@@ -68,7 +68,7 @@ Die login() Methode startet eine Anforderung an die Anmeldeinformationen des Ben
 | userName | Erforderlich. Die zu authentifizierende Benutzername. |
 | Kennwort | Optional (Standardwert null). Das Kennwort des Benutzers. |
 | isPersistent | Optional (Standardwert "false"). Gibt an, ob der Benutzer Authentifizierungscookie sitzungsübergreifend beibehalten werden sollen. Wenn "false" wird den Benutzer abzumelden, wenn der Browser geschlossen ist oder die Sitzung abläuft. |
-| umleitungs-URL | Optional (Standardwert null). Die URL, an den Browser nach erfolgreicher Authentifizierung umgeleitet werden soll. Wenn dieser Parameter Null oder eine leere Zeichenfolge ist, tritt keine Umleitung. |
+| redirectUrl | Optional (Standardwert null). Die URL, an den Browser nach erfolgreicher Authentifizierung umgeleitet werden soll. Wenn dieser Parameter Null oder eine leere Zeichenfolge ist, tritt keine Umleitung. |
 | customInfo | Optional (Standardwert null). Dieser Parameter wird derzeit nicht verwendet und ist für die zukünftige Verwendung reserviert. |
 | loginCompletedCallback | Optional (Standardwert null). Die Funktion, die aufgerufen wird, wenn die Anmeldung erfolgreich abgeschlossen wurde. Wenn angegeben, überschreibt dieser Parameter die DefaultLoginCompleted-Eigenschaft. |
 | failedCallback | Optional (Standardwert null). Die Funktion aufrufen, wenn die Anmeldung fehlgeschlagen ist. Wenn angegeben, überschreibt dieser Parameter die DefaultFailedCallback-Eigenschaft. |
@@ -90,7 +90,7 @@ Die logout()-Methode entfernt die Anmeldeinformationen Cookie und meldet den akt
 
 | **Parametername** | **Bedeutung** |
 | --- | --- |
-| umleitungs-URL | Optional (Standardwert null). Die URL, an den Browser nach erfolgreicher Authentifizierung umgeleitet werden soll. Wenn dieser Parameter Null oder eine leere Zeichenfolge ist, tritt keine Umleitung. |
+| redirectUrl | Optional (Standardwert null). Die URL, an den Browser nach erfolgreicher Authentifizierung umgeleitet werden soll. Wenn dieser Parameter Null oder eine leere Zeichenfolge ist, tritt keine Umleitung. |
 | logoutCompletedCallback | Optional (Standardwert null). Die Funktion, die aufgerufen wird, wenn die Abmeldung erfolgreich abgeschlossen wurde. Wenn angegeben, überschreibt dieser Parameter die DefaultLogoutCompleted-Eigenschaft. |
 | failedCallback | Optional (Standardwert null). Die Funktion aufrufen, wenn die Anmeldung fehlgeschlagen ist. Wenn angegeben, überschreibt dieser Parameter die DefaultFailedCallback-Eigenschaft. |
 | userContext | Optional (Standardwert null). Benutzerdefinierte Kontextdaten, die an die Rückruffunktionen übergeben werden sollen. |
@@ -341,7 +341,7 @@ ASP.NET-Dienste - speziell die profilerstellung, Mitgliedschaft und Authentifizi
 
 Darüber hinaus können Entwickler durch vereinfachte Web Service Implementierungen mit entsprechenden Methodensignaturen erstellen, CustomScript-Anbieter für diese systeminternen ASP.NET-Dienste erstellen. Unterstützung für diese Techniken vereinfacht die Entwicklung rich Client-Anwendungen beim bietet Entwicklern einer breiten Palette von Flexibilität, bestimmte Anforderungen erfüllen.
 
-## <a name="bio"></a>*Lebenslauf*
+## <a name="bio"></a>*Bio*
 
 Scott Cate arbeitet mit Microsoft-Web-Technologien seit 1997 und Präsidenten des myKB.com ist ([www.myKB.com](http://www.myKB.com)), in dem er zum Schreiben von ASP.NET spezialisiert-basierten Anwendungen, die Wissensdatenbank softwarelösungen konzentriert. Scott hergestellt werden kann, per e-Mail an [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) oder seinen Blog unter [ScottCate.com](http://ScottCate.com)
 

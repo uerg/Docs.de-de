@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Auswählen des richtigen Ansatzes zur Webbereitstellung
 ====================
@@ -69,7 +69,7 @@ Tatsächliche tatsächlich kann die Web Deploy ausführbare Datei die Endpunktad
 
 
 > [!NOTE]
-> Weitere Informationen zu Web Deploy Befehlszeilensyntax und *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Weitere Informationen zu Web Deploy Befehlszeilensyntax und *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Der remote-Agent bietet eine einfache Methode zum Bereitstellen von Inhalt von einem Remotestandort aus, und dieser Ansatz kann umgesetzt, problemlos mit nur einem Klick oder automatisierte Bereitstellung. Allerdings muss der Benutzer, der Bereitstellungsbefehl ausführt, auch ein Domänenadministrator oder ein Mitglied der lokalen Administratorgruppe auf dem Zielserver. Darüber hinaus unterstützt der remote-Agenten Standardauthentifizierung nicht damit alternative Anmeldeinformationen in der Befehlszeile übergeben werden kann.
@@ -94,7 +94,7 @@ Wenn Sie die temp-Agent-anbietereinstellung verwenden, fügen Sie möchten die *
 
 Der Vorteil dieses Ansatzes ist, dass Sie keine Installationen von Web Deploy auf Ihrem Zielserver verwalten müssen. Darüber hinaus müssen Sie sicherstellen, dass die Quell- und Ziel-Computer die gleiche Version von Web Deploy ausgeführt werden. Allerdings noch dadurch erschwert dieser Ansatz principal dieselben Einschränkungen wie bei der remote-Agent-Ansatz, nämlich, dass Sie ein lokaler Administrator auf dem Zielserver sein müssen, um Inhalte bereitstellen, und nur die NTLM-Authentifizierung wird unterstützt. Die temp-Agent-Ansatz erfordert auch viel mehr Erstkonfiguration der zielumgebung verbunden.
 
-Weitere Informationen zur Verwendung des temp-Agents finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx) und [Web Deploy bei Bedarf](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Weitere Informationen zur Verwendung des temp-Agents finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx) und [Web Deploy bei Bedarf](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 ## <a name="using-the-web-deploy-handler"></a>Verwenden von der Web Deploy-Handler
 
@@ -125,7 +125,7 @@ Angenommen Sie, dass ein Buildprozess konfiguriert ist, um automatisch eine Weba
 
 
 > [!NOTE]
-> Weitere Informationen zu Befehlszeilenoperationen Web Deploy und deren Syntax finden Sie unter [bereitstellen Befehlszeile Webverweis](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Weitere Informationen zur Verwendung der *. deploy.cmd* finden Sie unter [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Weitere Informationen zu Befehlszeilenoperationen Web Deploy und deren Syntax finden Sie unter [bereitstellen Befehlszeile Webverweis](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Weitere Informationen zur Verwendung der *. deploy.cmd* finden Sie unter [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Der Web-bereitstellen-Handler stellt hilfreich bei der Bereitstellung in den staging-Umgebungen, gehostete Umgebungen und intranetbasierte produktionsumgebungen, in denen Remotezugriff auf dem Server verfügbar ist jedoch die Anmeldeinformationen des Administrators sind.
@@ -146,9 +146,9 @@ Eine End-to-End-Beispiel für ein Szenario, bei dem die von offline-Bereitstellu
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu Befehlszeilenoperationen Web Deploy und deren Syntax finden Sie unter [bereitstellen Befehlszeile Webverweis](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Weitere Informationen zur Verwendung der *. deploy.cmd* finden Sie unter [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Weitere Informationen zu Befehlszeilenoperationen Web Deploy und deren Syntax finden Sie unter [bereitstellen Befehlszeile Webverweis](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Weitere Informationen zur Verwendung der *. deploy.cmd* finden Sie unter [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
-Allgemeineren Leitfaden für die verschiedenen Möglichkeiten, in dem Sie Webpaketen von einem Remotecomputer bereitstellen können, finden Sie unter [mithilfe von Web Deploy über eine Remoteverbindung](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx). Weitere Informationen zur Verwendung von Web Deploy bei Bedarf finden Sie unter [Web Deploy bei Bedarf](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Allgemeineren Leitfaden für die verschiedenen Möglichkeiten, in dem Sie Webpaketen von einem Remotecomputer bereitstellen können, finden Sie unter [mithilfe von Web Deploy über eine Remoteverbindung](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Weitere Informationen zur Verwendung von Web Deploy bei Bedarf finden Sie unter [Web Deploy bei Bedarf](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 >[!div class="step-by-step"]
 [Zurück](configuring-server-environments-for-web-deployment.md)

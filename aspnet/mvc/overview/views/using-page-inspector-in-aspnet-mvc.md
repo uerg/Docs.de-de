@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 6aa9f16f166ecf5529ae33a17951eb5ea425e7af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Verwenden der Seitenprüfung in ASP.NET MVC
 ====================
@@ -46,7 +46,7 @@ von Tim Ammann
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) oder [Visual Studio Express 2012 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) oder [Visual Studio Express 2012 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Verwenden Sie zum Abrufen der neuesten Version des Page Inspector [Webplattform-Installer](https://go.microsoft.com/fwlink/?LinkId=255386) Windows Azure SDK für .NET 2.0 installieren.
@@ -84,9 +84,9 @@ In **Projektmappen-Explorer**, erweitern Sie die **Ansichten** Ordner und dann d
 
 ![Index.cshtml in Seitenprüfung anzeigen](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Standardmäßig ist die Seitenprüfung als Fenster auf der linken Seite der Visual Studio-Umgebung angedockt. Falls gewünscht, können Sie an anderer Stelle andocken, oder die Verankerung aufheben, des Fensters. Finden Sie unter [Vorgehensweise: anordnen und Andocken von Fenstern](https://msdn.microsoft.com/en-us/library/z4y0hsax.aspx).
+Standardmäßig ist die Seitenprüfung als Fenster auf der linken Seite der Visual Studio-Umgebung angedockt. Falls gewünscht, können Sie an anderer Stelle andocken, oder die Verankerung aufheben, des Fensters. Finden Sie unter [Vorgehensweise: anordnen und Andocken von Fenstern](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
-Im obere Bereich des Fensters Page Inspector zeigt die aktuelle Seite in einem Browserfenster angezeigt. Unteren Bereich zeigt die Seite im HTML-Markup, zusammen mit einigen Registerkarten, mit denen Sie verschiedene Aspekte der Seite zu überprüfen. Der untere Bereich ist ähnlich wie die [F12 Entwicklertools](https://msdn.microsoft.com/en-us/ie/aa740478) in Internet Explorer.
+Im obere Bereich des Fensters Page Inspector zeigt die aktuelle Seite in einem Browserfenster angezeigt. Unteren Bereich zeigt die Seite im HTML-Markup, zusammen mit einigen Registerkarten, mit denen Sie verschiedene Aspekte der Seite zu überprüfen. Der untere Bereich ist ähnlich wie die [F12 Entwicklertools](https://msdn.microsoft.com/ie/aa740478) in Internet Explorer.
 
 ![ASP.NET MVC-Anwendung in der Seitenprüfung](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 

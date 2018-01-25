@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f84558bcc59068f2c6cab390c303ebd97953aaa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa4afbf2200e1167c9f66aeaddb4273e710394b4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>Programmgesteuertes Festlegen von Parameterwerten "das ObjectDataSource" (VB)
 ====================
@@ -33,7 +33,7 @@ Wie wir gesehen, in haben der [vorherigen Lernprogramm](declarative-parameters-v
 
 Möglicherweise gibt es Zeiten, jedoch, wenn der Wert des Parameters aus einer Quelle, die noch nicht berücksichtigt, von einem der integrierten Datenquelle stammen `Parameter` Objekte. Wenn unsere Website Benutzerkonten unterstützt, sollten wir die Parameter basierend auf den aktuell angemeldeten Besucher des Benutzer-ID festgelegt Oder es müssen möglicherweise den Parameterwert anpassen, vor dem Senden an zugrunde liegende Objekt das ObjectDataSource-Methode.
 
-Wenn das ObjectDataSource `Select` Methode wird aufgerufen, löst das ObjectDataSource zunächst seine [Ereignis auswählen](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). Zugrunde liegende Objekt das ObjectDataSource-Methode wird aufgerufen. Sobald das ObjectDataSource ist abgeschlossen [ausgewählte Ereignis](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) ausgelöst wird (Abbildung 1 zeigt diese Abfolge von Ereignissen). Die zugrunde liegende Objekt das ObjectDataSource-Methode übergebenen Parameterwerte festgelegt oder in einem Ereignishandler für angepasst werden können die `Selecting` Ereignis.
+Wenn das ObjectDataSource `Select` Methode wird aufgerufen, löst das ObjectDataSource zunächst seine [Ereignis auswählen](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). Zugrunde liegende Objekt das ObjectDataSource-Methode wird aufgerufen. Sobald das ObjectDataSource ist abgeschlossen [ausgewählte Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) ausgelöst wird (Abbildung 1 zeigt diese Abfolge von Ereignissen). Die zugrunde liegende Objekt das ObjectDataSource-Methode übergebenen Parameterwerte festgelegt oder in einem Ereignishandler für angepasst werden können die `Selecting` Ereignis.
 
 
 [![Das ObjectDataSource ausgewählte und Auswählen von Ereignisse auslösen vor und nach einem zugrunde liegenden Objekts-Methode wird aufgerufen](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
@@ -55,7 +55,7 @@ In unserem ersten Beispiel wir müssen eine Möglichkeit, diejenigen Mitarbeiter
 **Abbildung 2**: Hinzufügen einer neuen Abfrage den `EmployeesTableAdapter` ([klicken Sie hier, um das Bild in voller Größe angezeigt](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image6.png))
 
 
-Wählen Sie eine SQL-Anweisung hinzufügen, die Zeilen zurückgibt. Sie beim Erreichen der angeben einer `SELECT` Anweisung Bildschirm standardmäßig `SELECT` -Anweisung für die `EmployeesTableAdapter` bereits geladen werden. Fügen Sie einfach die `WHERE` -Klausel: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/en-us/library/ms174420.aspx) wird eine T-SQL-Funktion, die einen bestimmtes Datumsteil gibt eine `datetime` Adresstyp ";" in diesem Fall verwenden wir die `DATEPART` den Monat des zurückzugebenden der `HireDate` Spalte.
+Wählen Sie eine SQL-Anweisung hinzufügen, die Zeilen zurückgibt. Sie beim Erreichen der angeben einer `SELECT` Anweisung Bildschirm standardmäßig `SELECT` -Anweisung für die `EmployeesTableAdapter` bereits geladen werden. Fügen Sie einfach die `WHERE` -Klausel: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) wird eine T-SQL-Funktion, die einen bestimmtes Datumsteil gibt eine `datetime` Adresstyp ";" in diesem Fall verwenden wir die `DATEPART` den Monat des zurückzugebenden der `HireDate` Spalte.
 
 
 [![Nur die Zeilen, in denen das HireDate-Spalte "Return" ist kleiner als oder gleich der @HiredBeforeDate Parameter](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image7.png)
@@ -154,4 +154,4 @@ Viel Spaß beim Programmieren!
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](declarative-parameters-vb.md)
+[Vorherige](declarative-parameters-vb.md)

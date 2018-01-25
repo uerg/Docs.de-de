@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Teil 2: Erstellen der Domänenmodelle
 ====================
@@ -32,9 +32,9 @@ Es gibt drei Möglichkeiten, Ansatz Entity Framework:
 - Model First: Sie beginnen mit einem visual Modell und Entity Framework generiert, die Datenbank und den Code.
 - Code First: beginnen Sie mit Code und Entity Framework generiert die Datenbank.
 
-Verwenden wir den Code First-Ansatz, damit wir beginnen mit unserer Domänenobjekte als POCOs (Plain-Old CLR Objects) definieren. Mit dem Code First-Ansatz benötigen Domänenobjekte nicht keinen zusätzlichen Code für die Datenbankebene, z. B. Transaktionen oder Persistenz unterstützen. (Insbesondere benötigen keinen zu Vererben der [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) Klasse.) Datenanmerkungen können weiterhin steuern, wie Entity Framework für das Datenbankschema erstellt werden.
+Verwenden wir den Code First-Ansatz, damit wir beginnen mit unserer Domänenobjekte als POCOs (Plain-Old CLR Objects) definieren. Mit dem Code First-Ansatz benötigen Domänenobjekte nicht keinen zusätzlichen Code für die Datenbankebene, z. B. Transaktionen oder Persistenz unterstützen. (Insbesondere benötigen keinen zu Vererben der [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) Klasse.) Datenanmerkungen können weiterhin steuern, wie Entity Framework für das Datenbankschema erstellt werden.
 
-Da POCOs keine zusätzlichen Eigenschaften enthalten, die beschreiben, [Datenbankstatus](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), sie können problemlos in JSON oder XML serialisiert werden. Allerdings bedeutet dies nicht immer die Entity Framework-Modelle direkt an Clients sollten verfügbar machen, wie wir später in diesem Lernprogramm sehen werden.
+Da POCOs keine zusätzlichen Eigenschaften enthalten, die beschreiben, [Datenbankstatus](https://msdn.microsoft.com/library/system.data.entitystate.aspx), sie können problemlos in JSON oder XML serialisiert werden. Allerdings bedeutet dies nicht immer die Entity Framework-Modelle direkt an Clients sollten verfügbar machen, wie wir später in diesem Lernprogramm sehen werden.
 
 Wir werden die folgenden POCOs erstellen:
 

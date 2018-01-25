@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>Arbeiten mit dem Anwendungsmodell
 
@@ -35,7 +35,7 @@ Das Anwendungsmodell für ASP.NET Core MVC weist die folgende Struktur:
 Jede Ebene des Modells hat Zugriff auf eine gemeinsame `Properties` Auflistung und die niedrigeren Ebenen zugreifen und überschreiben Eigenschaftswerte, die von höheren Ebenen in der Hierarchie festlegen können. Die Eigenschaften werden beibehalten, um die `ActionDescriptor.Properties` wenn Aktionen erstellt werden. Klicken Sie dann, wenn eine Anforderung behandelt wird, alle Eigenschaften eine Konvention hinzugefügt oder geändert durch zugegriffen werden kann `ActionContext.ActionDescriptor.Properties`. Verwenden von Eigenschaften ist eine hervorragende Möglichkeit, Filter, Modellbinder usw. für pro-Aktion zu konfigurieren.
 
 > [!NOTE]
-> Die `ActionDescriptor.Properties` Auflistung ist nicht threadsicher (für Schreibvorgänge), sobald die app-Starts abgeschlossen ist. Konventionen sind die beste Möglichkeit, Daten, die dieser Sammlung hinzufügen.
+> Die `ActionDescriptor.Properties` Auflistung ist nicht threadsicher (für Schreibvorgänge) aus, nach der app-Starts abgeschlossen ist. Konventionen sind die beste Möglichkeit, Daten, die dieser Sammlung hinzufügen.
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
@@ -53,7 +53,7 @@ Klicken Sie dann (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> Die Reihenfolge, in welche zwei Anbieter mit dem gleichen Wert für `Order` heißen ist nicht definiert, und daher nicht werden Sicherheitsmerkmal.
+> Die Reihenfolge, in welche zwei Anbieter mit dem gleichen Wert für `Order` heißen ist nicht definiert, und daher sollte nicht zuverlässig.
 
 > [!NOTE]
 > `IApplicationModelProvider`ist ein erweiterter Ansatz für Frameworkautoren von erweitern. Im Allgemeinen apps sollten Konventionen verwenden und Frameworks sollten Anbieter verwenden. Der Hauptunterschied besteht darin, dass der Anbieter immer vor dem Konventionen ausgeführt.
@@ -185,7 +185,7 @@ Die Konventionen der Shim gebotenen werden nur auf Teile der app angewendet, die
 
 ### <a name="action-conventions"></a>Aktion-Konventionen
 
-Die `UseWebApiActionConventionsAttribute` wird verwendet, um die HTTP-Methode Aktionen basierend auf deren Namen zugeordnet (z. B. `Get` zuordnen würden `HttpGet`). Dies gilt nur für Aktionen, die keine routing-Attribut verwenden.
+Die `UseWebApiActionConventionsAttribute` wird verwendet, um die HTTP-Methode Aktionen basierend auf deren Namen zugeordnet (z. B. `Get` zuordnen würden `HttpGet`). Dies gilt nur für Aktionen, die routing-Attribut nicht verwenden.
 
 ### <a name="overloading"></a>Überladen
 

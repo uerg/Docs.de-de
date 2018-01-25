@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: a40a3779ddc416e141dd27b665f43830a43590b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web Development Best Practices (Building Real-World Cloud Apps with Azure)
 ====================
@@ -142,20 +142,20 @@ Weitere Informationen finden Sie unter den folgenden Ressourcen.
 
 Statuslose Webserver:
 
-- [Microsoft Patterns and Practices - Leitfaden für automatische Skalierung](https://msdn.microsoft.com/en-us/library/dn589774.aspx).
+- [Microsoft Patterns and Practices - Leitfaden für automatische Skalierung](https://msdn.microsoft.com/library/dn589774.aspx).
 - [Deaktivieren von ARR-Instanz Affinität im Windows Azure-Websites](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Blogbeitrag von Erez Benari, erläutert die sitzungsaffinität in Windows Azure-Websites.
 
 CDN:
 
 - [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Videoreihe Marc Mercuri, Ulrich Homann und Mark Simms neun Teil. Finden Sie in der Folge 3 starten, um 1:34:00 Uhr CDN.
-- [Microsoft Patterns und Practices statischen Inhalt hosten (Muster)](https://msdn.microsoft.com/en-us/library/dn589776.aspx)
+- [Microsoft Patterns und Practices statischen Inhalt hosten (Muster)](https://msdn.microsoft.com/library/dn589776.aspx)
 - [CDN Reviews](http://www.cdnreviews.com/). Übersicht über viele CDNs.
 
 Asynchrone Programmierung:
 
 - [Verwenden von asynchronen Methoden in ASP.NET MVC 4](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Lernprogramm von Rick Anderson.
-- [Asynchrone Programmierung mit Async und Await (C#- und Visual Basic)](https://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx). MSDN-Whitepaper, aus der hervorgeht, Begründung für die asynchrone Programmierung, Funktionsweise in ASP.NET 4.5 und das Schreiben von Code, um es zu implementieren.
-- [Entity Framework Async Abfrage- und speichern](https://msdn.microsoft.com/en-us/data/jj819165)
+- [Asynchrone Programmierung mit Async und Await (C#- und Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). MSDN-Whitepaper, aus der hervorgeht, Begründung für die asynchrone Programmierung, Funktionsweise in ASP.NET 4.5 und das Schreiben von Code, um es zu implementieren.
+- [Entity Framework Async Abfrage- und speichern](https://msdn.microsoft.com/data/jj819165)
 - [Gewusst wie: Verwenden von Async ASP.NET-Webanwendungen erstellen](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Videopräsentation von Rowan Miller. Enthält eine grafische Demonstration der Funktionsweise der asynchronen Programmierung deutlichen Anstieg der Durchsatz des Webservers hoher Last zu vereinfachen können.
 - [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Videoreihe Marc Mercuri, Ulrich Homann und Mark Simms neun Teil. Diskussionen zu den Auswirkungen der asynchronen Programmierung auf Skalierbarkeit finden Sie in der Folge 4 und Episode 8.
 - [Das Geheimnis der Verwendung von asynchronen Methoden in ASP.NET 4.5 plus eine wichtige Problem](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Blogbeitrag von Scott Hanselman, in erster Linie zur Verwendung von asynchronen in ASP.NET Web Forms-Anwendungen.

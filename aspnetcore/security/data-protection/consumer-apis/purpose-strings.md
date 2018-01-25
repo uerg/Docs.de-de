@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 181d2ae85f38051ea12c7b7ac79198ec05f36bec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="purpose-strings"></a>Zweck Zeichenfolgen
 
@@ -34,12 +34,12 @@ Die Zweck Zeichenfolge keine geheim sein. Dies sollte einfach insofern eindeutig
 >
 >Eine Contoso autorisierten-Komponente, die für das trägertoken minting zuständig ist möglicherweise Contoso.Security.BearerToken als seine Zweck Zeichenfolge verwenden. Oder es möglicherweise - sogar - Contoso.Security.BearerToken.v1 als seine Zweck Zeichenfolge verwenden. Ermöglicht das Anfügen der Versionsnummer einer zukünftigen Version Contoso.Security.BearerToken.v2 als ihren Zweck zu verwenden, und die verschiedenen Versionen wäre vollständig voneinander isoliert, soweit Nutzlasten wechseln.
 
-Seit dem Zwecke Parameter `CreateProtector` ist ein Array von Zeichenfolgen, die oben genannten konnte stattdessen angegeben wurden als `[ "Contoso.Security.BearerToken", "v1" ]`. Dies ermöglicht das Erstellen einer Hierarchie von Zwecken und mehrinstanzenfähigkeit Szenarios mit dem Data Protection System öffnet.
+Seit dem Zwecke Parameter `CreateProtector` ist ein Array von Zeichenfolgen, die oben genannten konnte haben stattdessen als angegeben `[ "Contoso.Security.BearerToken", "v1" ]`. Dies ermöglicht das Erstellen einer Hierarchie von Zwecken und mehrinstanzenfähigkeit Szenarios mit dem Data Protection System öffnet.
 
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> Nicht vertrauenswürdige Benutzereingaben als alleinige Quelle der Eingabe für die Zwecke Kette möglich Komponenten nicht.
+> Komponenten sollten nicht als alleinige Quelle der Eingabe für die Zwecke-Kette nicht vertrauenswürdigen Benutzereingaben zulassen.
 >
 >Betrachten Sie beispielsweise eine Komponente Contoso.Messaging.SecureMessage, die zum Speichern von sicheren Nachrichten zuständig ist. Wären die sichere Messagingkomponente Aufrufen `CreateProtector([ username ])`, wird ein böswilliger Benutzer ein Konto mit dem Benutzernamen "Contoso.Security.BearerToken" in beim Abrufen der Komponente aufrufen, erstellt möglicherweise `CreateProtector([ "Contoso.Security.BearerToken" ])`, versehentlich wodurch sicheres messaging System MinZ Nutzlasten, die als Authentifizierungstoken wahrgenommen werden konnte.
 >
@@ -58,4 +58,4 @@ Die Isolierung durch und das Verhalten des `IDataProtectionProvider`, `IDataProt
 * Für einen bestimmten `IDataProtector` -Objekt, einen Aufruf von `Unprotect(protectedData)` zurück, wird der ursprüngliche `unprotectedData` nur, wenn `protectedData := Protect(unprotectedData)` ein entsprechendes `IDataProtector` Objekt.
 
 > [!NOTE]
-> Wir sind nicht die Groß-/Kleinschreibung in Erwägung ziehen, in denen eine Komponente absichtlich eine Zeichenfolge Zweck wählt was einen Konflikt mit einer anderen Komponente bezeichnet wird. Eine solche Komponente im Wesentlichen betrachtet werden böswillige, und dieses System ist nicht vorgesehen, Sicherheitsgarantien angeben, dass bösartiger Code innerhalb der Arbeitsprozess bereits ausgeführt wird.
+> Wir sind nicht die Groß-/Kleinschreibung in Erwägung ziehen, in denen eine Komponente absichtlich eine Zeichenfolge Zweck wählt was einen Konflikt mit einer anderen Komponente bezeichnet wird. Dieses System ist nicht vorgesehen, Sicherheitsgarantien angeben, dass bösartiger Code innerhalb der Arbeitsprozess bereits ausgeführt wird, und eine solche Komponente ist im Wesentlichen böswillige berücksichtigt werden.

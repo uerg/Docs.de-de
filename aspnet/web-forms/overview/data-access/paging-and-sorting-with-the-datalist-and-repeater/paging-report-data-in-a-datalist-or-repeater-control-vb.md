@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5cb469252dc36ced98357dd984d36668af1c430b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 66f1065c41352f355dd5f1be43443165df909b93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Paging von Berichtsdaten in einem DataList oder Wiederholungsmodul-Steuerelement (VB)
 ====================
@@ -80,7 +80,7 @@ Da die Standardnavigation erneut alle Datensätze für jede Seite anfordert, ist
 
 *Benutzerdefiniertes Paging* löst die Leistung Bedenken hinsichtlich der Standardnavigation grabbing nur die präzise Teilmenge von Datensätzen auf die angeforderte Seite angezeigt werden sollen. Wenn benutzerdefiniertes Paging zu implementieren, müssen wir die SQL-Abfrage schreiben, die effizient einfach der richtigen Gruppe von Datensätzen zurückgibt. Wurde erläutert, wie zum Erstellen einer Abfrage, die von mit der neuen SQL Server 2005 s [ `ROW_NUMBER()` Schlüsselwort](http://www.4guysfromrolla.com/webtech/010406-1.shtml) zurück in die [effizient Paging durch große Mengen von Daten](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) Lernprogramm.
 
-Um Standardnavigation in den Steuerelementen DataList oder Repeater zu implementieren, können wir die [ `PagedDataSource` Klasse](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx) als Wrapper um die `ProductsDataTable` , deren Inhalt werden ausgelagert wird. Die `PagedDataSource` -Klasse verfügt über eine `DataSource` -Eigenschaft, die auf ein beliebiges aufzählbare Objekt zugewiesen werden kann und [ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) und [ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) Eigenschaften, die angeben, wie viele Datensätze pro Seite und den Index der aktuellen Seite anzeigen. Sobald diese Eigenschaften festgelegt wurden, die `PagedDataSource` als die Quelle der Daten-Websteuerelement verwendet werden können. Die `PagedDataSource`, wenn aufgelistet, wird nur Rückgabewert der entsprechenden Teilmenge der Datensätze, die die inneren `DataSource` basierend auf den `PageSize` und `CurrentPageIndex` Eigenschaften. Abbildung 4 zeigt die Funktionalität der `PagedDataSource` Klasse.
+Um Standardnavigation in den Steuerelementen DataList oder Repeater zu implementieren, können wir die [ `PagedDataSource` Klasse](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) als Wrapper um die `ProductsDataTable` , deren Inhalt werden ausgelagert wird. Die `PagedDataSource` -Klasse verfügt über eine `DataSource` -Eigenschaft, die auf ein beliebiges aufzählbare Objekt zugewiesen werden kann und [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) und [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) Eigenschaften, die angeben, wie viele Datensätze pro Seite und den Index der aktuellen Seite anzeigen. Sobald diese Eigenschaften festgelegt wurden, die `PagedDataSource` als die Quelle der Daten-Websteuerelement verwendet werden können. Die `PagedDataSource`, wenn aufgelistet, wird nur Rückgabewert der entsprechenden Teilmenge der Datensätze, die die inneren `DataSource` basierend auf den `PageSize` und `CurrentPageIndex` Eigenschaften. Abbildung 4 zeigt die Funktionalität der `PagedDataSource` Klasse.
 
 
 ![Die PagedDataSource umschließt ein aufzählbares Objekt mit einer auslagerbaren-Schnittstelle](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
@@ -204,7 +204,7 @@ Zusätzlich zu `TotalRowCount`, nehmen Sie sich zum Erstellen von nur-Lese Seite
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Bestimmen die Gesamtzahl der Datensätze, die ausgelagerte über
 
-Die `PagedDataSource` Objekt zurückgegeben, von der ObjectDataSource s `Select()` Methode hat darin *alle* der Datensätze, obwohl nur eine Teilmenge davon in DataList angezeigt werden. Die `PagedDataSource` s [ `Count` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx) gibt nur die Anzahl der Elemente, die in der DataList; angezeigt werden die [ `DataSourceCount` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) gibt die Gesamtanzahl der Elemente in der `PagedDataSource`. Aus diesem Grund müssen wir die Seite "s" ASP.NET zuweisen `TotalRowCount` Eigenschaft den Wert von der `PagedDataSource` s `DataSourceCount` Eigenschaft.
+Die `PagedDataSource` Objekt zurückgegeben, von der ObjectDataSource s `Select()` Methode hat darin *alle* der Datensätze, obwohl nur eine Teilmenge davon in DataList angezeigt werden. Die `PagedDataSource` s [ `Count` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) gibt nur die Anzahl der Elemente, die in der DataList; angezeigt werden die [ `DataSourceCount` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) gibt die Gesamtanzahl der Elemente in der `PagedDataSource`. Aus diesem Grund müssen wir die Seite "s" ASP.NET zuweisen `TotalRowCount` Eigenschaft den Wert von der `PagedDataSource` s `DataSourceCount` Eigenschaft.
 
 Um dies zu erreichen, erstellen Sie einen Ereignishandler für das ObjectDataSource-s `Selected` Ereignis. In der `Selected` Ereignishandler, die wir haben Zugriff auf den Rückgabewert der ObjectDataSource s `Select()` Methode in diesem Fall die `PagedDataSource`.
 
@@ -224,7 +224,7 @@ Mit der `Click` Ereignishandler abgeschlossen ist, die Datensätze DataList s ü
 
 ## <a name="disabling-paging-interface-controls"></a>Durch Deaktivieren des Paging von Benutzeroberflächen-Steuerelemente
 
-Derzeit sind alle vier Schaltflächen unabhängig von der angezeigten Seite aktiviert. Wir möchten jedoch die Schaltflächen "First" und "zurück" zu deaktivieren, wenn die erste Seite der Daten und die Schaltflächen Weiter und letzten anzeigen, wenn die letzte Seite angezeigt. Die `PagedDataSource` das ObjectDataSource-s zurückgegebenes Objekt `Select()` Methode verfügt über Eigenschaften [ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) und [ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , die kann untersucht werden, um festzustellen, ob wir anzeigen die ersten oder letzten Seite der Daten.
+Derzeit sind alle vier Schaltflächen unabhängig von der angezeigten Seite aktiviert. Wir möchten jedoch die Schaltflächen "First" und "zurück" zu deaktivieren, wenn die erste Seite der Daten und die Schaltflächen Weiter und letzten anzeigen, wenn die letzte Seite angezeigt. Die `PagedDataSource` das ObjectDataSource-s zurückgegebenes Objekt `Select()` Methode verfügt über Eigenschaften [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) und [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , die kann untersucht werden, um festzustellen, ob wir anzeigen die ersten oder letzten Seite der Daten.
 
 Fügen Sie die folgenden, mit dem ObjectDataSource s `Selected` Ereignishandler:
 

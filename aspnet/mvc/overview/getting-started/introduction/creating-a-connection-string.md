@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: 41f1f30d86406580ab9fc7278a94d9c291913f9a
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 25d1c1c9954baaca9ef91eff3dd3c853930a5893
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Erstellen einer Verbindungszeichenfolge und Arbeiten mit SQL Server LocalDB
 ====================
@@ -36,7 +36,7 @@ SQL Server Express wird nicht für die Verwendung in Web Produktionsanwendungen 
 
 In Visual Studio 2017 ist LocalDB, die standardmäßig mit Visual Studio installiert.
 
-Standardmäßig sucht die Entity Framework für eine Verbindungszeichenfolge, die den gleichen Namen wie die Kontext-Objektklasse (`MovieDBContext` für dieses Projekt). Weitere Informationen finden Sie unter [SQL Server-Verbindungszeichenfolgen für ASP.NET-Webanwendungen](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Standardmäßig sucht die Entity Framework für eine Verbindungszeichenfolge, die den gleichen Namen wie die Kontext-Objektklasse (`MovieDBContext` für dieses Projekt). Weitere Informationen finden Sie unter [SQL Server-Verbindungszeichenfolgen für ASP.NET-Webanwendungen](https://msdn.microsoft.com/library/jj653752.aspx).
 
 Öffnen Sie das Stammverzeichnis der Anwendung *"Web.config"* unten dargestellten Datei. (Nicht die *"Web.config"* in der Datei die *Ansichten* Ordner.)
 
@@ -56,11 +56,11 @@ Das folgende Beispiel zeigt einen Teil der *"Web.config"* Datei mit der neuen Ve
 
 Die zwei Verbindungszeichenfolgen sind sehr ähnlich. Die erste Verbindungszeichenfolge lautet `DefaultConnection` dient für die Mitgliedschaftsdatenbank steuern, wer die Anwendung zugreifen kann. Die Verbindungszeichenfolge, die Sie hinzugefügt haben, gibt eine LocalDB-Datenbank mit dem Namen *Movie.mdf* befindet sich in der *App\_Daten* Ordner. Es wird nicht die Mitgliedschaftsdatenbank in diesem Lernprogramm für Weitere Informationen zur Mitgliedschaft, Authentifizierung und Sicherheit, finden Sie unter meinem Lernprogramm [eine ASP.NET MVC-app mit Authentifizierung und SQL-Datenbank erstellen und Bereitstellen von Azure App Service](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-Der Name der Verbindungszeichenfolge muss den Namen des entsprechen den [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx) Klasse.
+Der Name der Verbindungszeichenfolge muss den Namen des entsprechen den [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) Klasse.
 
 [!code-csharp[Main](creating-a-connection-string/samples/sample3.cs?highlight=15)]
 
-Sie müssen nicht tatsächlich Hinzufügen der `MovieDBContext` Verbindungszeichenfolge. Wenn Sie eine Verbindungszeichenfolge angeben, erstellen Entity Framework eine LocalDB-Datenbank im Benutzerverzeichnis mit dem vollqualifizierten Namen der die [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx) Klasse (in diesem Fall `MvcMovie.Models.MovieDBContext`). Sie können die Datenbank einen beliebigen Namen gewünscht, solange er hat die *. MDF* Suffix. Wir nennen z. B. die Datenbank *MyFilms.mdf*.
+Sie müssen nicht tatsächlich Hinzufügen der `MovieDBContext` Verbindungszeichenfolge. Wenn Sie eine Verbindungszeichenfolge angeben, erstellen Entity Framework eine LocalDB-Datenbank im Benutzerverzeichnis mit dem vollqualifizierten Namen der die [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) Klasse (in diesem Fall `MvcMovie.Models.MovieDBContext`). Sie können die Datenbank einen beliebigen Namen gewünscht, solange er hat die *. MDF* Suffix. Wir nennen z. B. die Datenbank *MyFilms.mdf*.
 
 Als Nächstes müssen Sie ein neues erstellen `MoviesController` -Klasse, die Sie verwenden können, an die Filmdaten angezeigt und ermöglichen Benutzern die neuen Film-Angebote erstellen.
 

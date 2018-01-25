@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: bea3b12ebe476c4b59abe117393b0ec8bb7f0306
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Erste Schritte mit Razor-Seiten und Entity Framework Core mithilfe von Visual Studio (1 von 8)
 
@@ -179,7 +179,7 @@ Verwendet die vorherigen Verbindungszeichenfolge `ConnectRetryCount=0` verhinder
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Die Verbindungszeichenfolge gibt eine SQL Server-LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Entwicklung von Apps, nicht für Produktionszwecke vorgesehen. LocalDB wird bedarfsgesteuert gestartet und im Benutzermodus ausgeführt, sodass keine komplexe Konfiguration anfällt. Erstellt standardmäßig LocalDB *mdf* DB Dateien in den `C:/Users/<user>` Verzeichnis.
+Die Verbindungszeichenfolge gibt eine SQL Server-LocalDB-Datenbank. LocalDB ist eine vereinfachte Version von SQL Server Express-Datenbankmoduls und ist für die Entwicklung von Apps, nicht für Produktionszwecke vorgesehen. LocalDB bedarfsgesteuert gestartet und im Benutzermodus ausgeführt wird, d. h., es ist keine komplexe Konfiguration. Erstellt standardmäßig LocalDB *mdf* DB Dateien in den `C:/Users/<user>` Verzeichnis.
 
 ## <a name="add-code-to-initialize-the-db-with-test-data"></a>Fügen Sie Code zum Initialisieren der Datenbank mit der Testdaten
 
@@ -271,7 +271,7 @@ Erstellen Sie das Projekt. Der Build generiert Fehler wie folgt:
  <a name="test"></a>
 ### <a name="test-the-app"></a>Testen der App
 
-Führen Sie die app, und wählen Sie die **Studenten** Link. Abhängig von der Breite des Browserfensters die **Studenten** Link am oberen Rand der Seite angezeigt wird. Wenn die **Studenten** Link ist nicht sichtbar, klicken Sie auf das Symbol "Navigation" in der oberen rechten Ecke.
+Führen Sie die app, und wählen Sie die **Studenten** Link. Abhängig von der Breite des Browserfensters die **Studenten** Link am oberen Rand der Seite angezeigt wird. Wenn die **Studenten** Link nicht sichtbar ist, klicken Sie auf das Symbol "Navigation" in der oberen rechten Ecke.
 
 ![Contoso University-Startseite schmalen](intro/_static/home-page-narrow.png)
 
@@ -337,9 +337,9 @@ Im folgenden Code wird die `async` -Schlüsselwort, `Task<T>` Rückgabewert, `aw
 
 Einige Aspekte, die beim asynchronen Code schreiben, die mithilfe von EF Core geachtet werden:
 
-* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, `ToListAsync`, `SingleOrDefaultAsync`, `FirstOrDefaultAsync`, und `SaveChangesAsync`. Es enthält keine Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Nur die Anweisungen, die dazu führen, dass Abfragen oder Befehle an die Datenbank gesendet werden, werden asynchron ausgeführt. Umfasst, `ToListAsync`, `SingleOrDefaultAsync`, `FirstOrDefaultAsync`, und `SaveChangesAsync`. Dieser umfasst jedoch nicht Anweisungen auszuführen, ändern nur, eine `IQueryable`, wie z. B. `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
-* Ein EF-Core-Kontext ist nicht sicher threaded: nicht Versuch, das mehrere Vorgänge parallel auszuführen. 
+* Ein Kontext EF Core ist nicht threadsicher: nicht Versuch, das mehrere Vorgänge parallel auszuführen. 
 
 * Um die Leistungsvorteile von asynchronem Code nutzen zu können, stellen Sie sicher, dass die Bibliothek Pakete (z. B. Paging) Async verwenden, wenn sie EF-Core-Methoden aufrufen, die Abfragen mit der Datenbank zu senden.
 

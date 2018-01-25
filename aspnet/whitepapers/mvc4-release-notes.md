@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
     - [Datenbank-Migrationen](#_Toc303253818)
     - [Leere Projektvorlage](#_Toc303253819)
     - [Hinzufügen eines Controllers, einem Projektordner](#_Toc303253820)
-    - [Bundling und Minimierung](#_Toc303253821)
+    - [Bündelung und Minimierung](#_Toc303253821)
     - [Anmeldungen von Facebook und andere Standorte mithilfe von OAuth und OpenID aktivieren](#_Toc303253822)
 - [Aktualisieren eines ASP.NET MVC 3-Projekts zu ASP.NET MVC 4](#_Toc303253806)
 - [Änderungen von ASP.NET MVC 4 Release Candidate](#_Toc303253817)
@@ -61,7 +61,7 @@ ASP.NET MVC 4 können installiert und zur Seite-an-Seite mit ASP.NET MVC 3 sein.
 
 Dokumentation für ASP.NET MVC ist auf der MSDN-Website unter folgender URL verfügbar:
 
-[https://go.Microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Lernprogramme und Weitere Informationen zu ASP.NET MVC sind auf die MVC 4-Seite der ASP.NET-Website verfügbar ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -271,7 +271,7 @@ Die wichtigsten Änderungen von ASP.NET MVC 4 Release Candidate in dieser Versio
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Die NuGet-Paket-Manager nicht installiert werden, beim Versuch, die ASP.NET MVC 4 für parallele Installationen von Visual Studio 2010 und Visual Web Developer 2010 installieren.** Zum Ausführen von Visual Studio 2010 und Visual Web Developer 2010 parallel zu ASP.NET MVC 4 müssen Sie ASP.NET MVC 4 installieren, nachdem beide Versionen von Visual Studio bereits installiert wurden.
 - **Deinstallieren von ASP.NET MVC 4 fehlschlägt, wenn die erforderlichen Komponenten bereits deinstalliert wurden.** Um ASP.NET MVC ordnungsgemäß deinstalliert muss 4you ASP.NET MVC 4 Deinstallieren Sie vor dem Deinstallieren von Visual Studio.
-- **ASP.NET MVC 4 installieren, wird ASP.NET MVC 3 RTM Anwendungen unterbrochen.** Freigeben von ASP.NET MVC 3-Anwendungen, die mit der RTM-Version erstellt wurden (nicht mit der [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/en-us/download/details.aspx?id=1491) freigeben) benötigen Sie die folgenden Änderungen, um die Seite-an-Seite mit ASP.NET MVC 4 arbeiten. Beim Erstellen des Projekts ohne diese Updates Ergebnisse in Kompilierungsfehler auftreten. 
+- **ASP.NET MVC 4 installieren, wird ASP.NET MVC 3 RTM Anwendungen unterbrochen.** Freigeben von ASP.NET MVC 3-Anwendungen, die mit der RTM-Version erstellt wurden (nicht mit der [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491) freigeben) benötigen Sie die folgenden Änderungen, um die Seite-an-Seite mit ASP.NET MVC 4 arbeiten. Beim Erstellen des Projekts ohne diese Updates Ergebnisse in Kompilierungsfehler auftreten. 
 
     **Erforderliche updates**
 

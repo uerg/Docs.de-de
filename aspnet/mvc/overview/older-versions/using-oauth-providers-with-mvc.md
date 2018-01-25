@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Verwenden von OAuth-Anbieter mit MVC 4
 ====================
@@ -148,7 +148,7 @@ Wenn Sie externe Authentifizierung aktivieren möchten, ist der Vorgang abgeschl
 
 Wie Sie in den vorherigen Abschnitten bemerkt haben, müssen Sie nicht abgerufen werden zusätzlichen Informationen für die Registrierung integriertes Konto arbeiten. Die meisten externen Anbieter übergeben jedoch wieder zusätzliche Informationen über den Benutzer. Die folgenden Abschnitte zeigen, wie diese Informationen beibehalten, und speichern Sie sie in einer Datenbank. Insbesondere sind behalten Sie Werte für den Benutzer vollständigen Namen, den URI des Benutzers persönliche Webseite und einen Wert, der angibt, ob Facebook das Konto überprüft wurde.
 
-Verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/en-us/data/jj591621) zum Hinzufügen einer Tabelle zum Speichern von zusätzliche Benutzerinformationen. Sie werden in der Tabelle zu einer vorhandenen Datenbank hinzugefügt, daher Sie zunächst eine Momentaufnahme der aktuellen Datenbank zu erstellen müssen. Erstellen Sie eine Momentaufnahme der aktuellen Datenbank, können Sie später eine Migration erstellen, die nur für die neue Tabelle enthält. So erstellen Sie eine Momentaufnahme der aktuellen Datenbank
+Verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) zum Hinzufügen einer Tabelle zum Speichern von zusätzliche Benutzerinformationen. Sie werden in der Tabelle zu einer vorhandenen Datenbank hinzugefügt, daher Sie zunächst eine Momentaufnahme der aktuellen Datenbank zu erstellen müssen. Erstellen Sie eine Momentaufnahme der aktuellen Datenbank, können Sie später eine Migration erstellen, die nur für die neue Tabelle enthält. So erstellen Sie eine Momentaufnahme der aktuellen Datenbank
 
 1. Öffnen der **Paket-Manager-Konsole**
 2. Führen Sie den Befehl **Enable-Migrationen**
@@ -188,7 +188,7 @@ Zusätzliche Benutzerdaten werden übergeben, wieder in die **ExtraData** Eigens
 
 - ID
 - Name
-- link
+- aus
 - Geschlecht
 - accesstoken
 
@@ -264,7 +264,7 @@ Sie müssen erneut löschen Sie die Datensätze in der Datenbank für den Benutz
 
 Führen Sie die Anwendung, und registrieren Sie den neuen Benutzer. Betrachten Sie die **ExtraUserInformation** Tabelle, um den Wert für die Eigenschaft überprüft anzuzeigen.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm erstellt Sie eine Website, die für die Benutzerauthentifizierung und Registrierungsdaten mit Facebook integriert ist. Sie haben gelernt, über das Standardverhalten, das für MVC 4-Webanwendung sowie zum Anpassen dieses Standardverhalten eingerichtet ist.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 83d1593d46761b1c00aa431cfdcde59cb3b28b65
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-multiple-environments"></a>Arbeiten mit mehreren Umgebungen
 
@@ -46,7 +46,7 @@ Hinweis: Auf Windows- und Mac OS sind Umgebungsvariablen und die Werte nicht Gro
 
 ### <a name="development"></a>Entwicklung
 
-Die Entwicklungsumgebung kann Funktionen aktivieren, die in der Produktion nicht verfügbar gemacht werden soll. Z. B. die Vorlagen für ASP.NET Core aktivieren die [Developer Ausnahmeseite](xref:fundamentals/error-handling#the-developer-exception-page) in der Entwicklungsumgebung.
+Die Entwicklungsumgebung kann Funktionen aktivieren, die in der Produktion verfügbar gemacht werden sollten nicht. Z. B. die Vorlagen für ASP.NET Core aktivieren die [Developer Ausnahmeseite](xref:fundamentals/error-handling#the-developer-exception-page) in der Entwicklungsumgebung.
 
 Die Umgebung für die Entwicklung des lokalen Computers kann festgelegt werden, der *Properties\launchSettings.json* -Datei des Projekts. Umgebungswerte festgelegt *launchSettings.json* in die Umgebung für die festgelegte Werte zu überschreiben.
 
@@ -83,7 +83,7 @@ Visual Studio **Debuggen** Registerkarte finden Sie eine GUI so bearbeiten Sie d
 Änderungen an Projekt Profile können erst nach dem Neustart des Servers wirksam. Kestrel muss neu gestartet werden, bevor es an ihre Umgebung vorgenommenen Änderungen erkannt werden.
 
 >[!WARNING]
-> *launchSettings.json* geheimen Schlüssel sollten nicht speichern. Die [Secret-Manager-Tool](xref:security/app-secrets) Speichern von geheimen Schlüsseln für die lokale Entwicklung verwendet werden können.
+> *launchSettings.json* geheime Schlüssel darf nicht speichern. Die [Secret-Manager-Tool](xref:security/app-secrets) Speichern von geheimen Schlüsseln für die lokale Entwicklung verwendet werden können.
 
 ### <a name="production"></a>Produktion
 

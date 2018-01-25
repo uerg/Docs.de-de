@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: dfcddb4373fbf17ca29c5ab94c6ab3387ed6b526
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Code bearbeiten ASP.NET-Web Forms in Visual Studio 2013
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 In vielen ASP.NET Web Forms-Seiten schreiben Sie Code in Visual Basic, c# oder einer anderen Sprache. Code-Editor in Visual Studio können Sie Code schnell zu schreiben, während gleichzeitig Fehler zu vermeiden. Darüber hinaus bietet der Editor zum Erstellen von wiederverwendbaren Codes Möglichkeiten, um den Arbeitsaufwand zu reduzieren, die Sie ausführen müssen.
 
@@ -38,7 +38,7 @@ Bei dieser exemplarischen Vorgehensweise lernen Sie Folgendes:
 
 Für die Durchführung dieser exemplarischen Vorgehensweise benötigen Sie Folgendes:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework wird automatisch installiert. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework wird automatisch installiert. 
 
     > [!NOTE] 
     > 
@@ -132,8 +132,8 @@ In diesem Teil der exemplarischen Vorgehensweise müssen Sie einfachen Code schr
 ### <a name="to-extract-a-method-in-a-c-page"></a>Um eine Methode in einer C#-Seite zu extrahieren.
 
 1. Wechseln Sie zur **Entwurf** anzeigen.
-2. In der **Toolbox**, aus der **Standard** Registerkarte, ziehen Sie eine [Schaltfläche](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.aspx) -Steuerelement auf die Seite.
-3. Doppelklicken Sie auf die **Schaltfläche** Steuerelement erstellt, einen Handler für dessen [klicken Sie auf](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.click.aspx) Ereignis, und fügen Sie den folgenden hervorgehobenen Code hinzu:
+2. In der **Toolbox**, aus der **Standard** Registerkarte, ziehen Sie eine [Schaltfläche](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) -Steuerelement auf die Seite.
+3. Doppelklicken Sie auf die **Schaltfläche** Steuerelement erstellt, einen Handler für dessen [klicken Sie auf](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) Ereignis, und fügen Sie den folgenden hervorgehobenen Code hinzu:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
@@ -185,13 +185,13 @@ Bei der Arbeit mit Variablen sowie Objekte empfiehlt es sich, sie umbenennen, na
 
 Kommen viele Programmieraufgaben, die Web Forms-Entwickler häufig ausführen müssen, stellt der Code-Editor eine Bibliothek von Codeausschnitten oder vordefinierte Codeblöcke bereit. Sie können diese Codeausschnitte in Ihre Seite einfügen.
 
-Jede Sprache, die Sie in Visual Studio verwenden, hat geringfügige Unterschiede bei der Datenerfassung Einfügen von Codeausschnitten. Informationen zum Einfügen von Ausschnitten finden Sie unter [Visual Basic IntelliSense-Codeausschnitte](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx). Informationen zum Einfügen von Ausschnitten in Visual c# finden Sie unter [Visual C#-Codeausschnitte](https://msdn.microsoft.com/en-us/library/z41h7fat.aspx).
+Jede Sprache, die Sie in Visual Studio verwenden, hat geringfügige Unterschiede bei der Datenerfassung Einfügen von Codeausschnitten. Informationen zum Einfügen von Ausschnitten finden Sie unter [Visual Basic IntelliSense-Codeausschnitte](https://msdn.microsoft.com/library/18yz4be4.aspx). Informationen zum Einfügen von Ausschnitten in Visual c# finden Sie unter [Visual C#-Codeausschnitte](https://msdn.microsoft.com/library/z41h7fat.aspx).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 In dieser exemplarischen Vorgehensweise wurden die grundlegenden Funktionen im Code-Editor von Visual Studio 2010 für Korrigieren von Fehlern in Ihren Code Umgestalten von Code, Umbenennen von Variablen und Einfügen von Codeausschnitten in Ihrem Code veranschaulicht. Zusätzliche Features im Editor können Anwendungsentwicklung schneller und einfacher machen. Auf diese Weise können Sie z. B. folgende Vorgänge durchführen:
 
-- Weitere Informationen über die Funktionen von IntelliSense, z. B. IntelliSense-Optionen ändern und Verwalten von Codeausschnitten für Codeausschnitte online suchen. Weitere Informationen finden Sie unter [Verwenden von IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx).
-- Erfahren Sie, wie Sie eigene Codeausschnitte erstellen. Weitere Informationen finden Sie unter [erstellen und Verwenden von IntelliSense-Codeausschnitte](https://msdn.microsoft.com/en-us/library/ms165392.aspx)
-- Erfahren Sie mehr über die Visual Basic-spezifisches Features von IntelliSense-Codeausschnitte, z. B. Anpassen der Ausschnitte und Problembehandlung. Weitere Informationen finden Sie unter [Visual Basic IntelliSense-Codeausschnitte](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)
-- Erfahren Sie mehr über die c#-spezifische Funktionen von IntelliSense, z. B. Umgestaltung und Codeausschnitte. Weitere Informationen finden Sie unter [Visual c# IntelliSense](https://msdn.microsoft.com/en-us/library/43f44291.aspx).
+- Weitere Informationen über die Funktionen von IntelliSense, z. B. IntelliSense-Optionen ändern und Verwalten von Codeausschnitten für Codeausschnitte online suchen. Weitere Informationen finden Sie unter [Verwenden von IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
+- Erfahren Sie, wie Sie eigene Codeausschnitte erstellen. Weitere Informationen finden Sie unter [erstellen und Verwenden von IntelliSense-Codeausschnitte](https://msdn.microsoft.com/library/ms165392.aspx)
+- Erfahren Sie mehr über die Visual Basic-spezifisches Features von IntelliSense-Codeausschnitte, z. B. Anpassen der Ausschnitte und Problembehandlung. Weitere Informationen finden Sie unter [Visual Basic IntelliSense-Codeausschnitte](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- Erfahren Sie mehr über die c#-spezifische Funktionen von IntelliSense, z. B. Umgestaltung und Codeausschnitte. Weitere Informationen finden Sie unter [Visual c# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).

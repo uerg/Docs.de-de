@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Bereitstellen von Webpaketen
 ====================
@@ -63,20 +63,20 @@ Geben Sie einen **/t** Flag oder ein **/y** Flag, um anzugeben, ob Sie eine Test
 
 | Flag | Beschreibung |
 | --- | --- |
-| **/ T** | Ruft MSDeploy.exe mit der **"-WhatIf"** Flag, das einer Testversion ausführen angibt. Anstelle der Bereitstellung des Pakets, erstellt es einen Bericht von Was geschieht, wenn das Paket bereitgestellt werden konnten. |
-| **/ Y** | Ruft die MSDeploy.exe ohne die **"-WhatIf"** Flag. Dadurch wird das Paket auf dem lokalen Computer oder der angegebene Zielserver bereitgestellt. |
-| **/ M** | Gibt den Zielserver name oder die Dienst-URL. Weitere Informationen zu den Werten, die Sie hier angeben können, finden Sie unter der **Endpunkt Überlegungen** Abschnitt dieses Themas. Wenn Sie weglassen der **/m** Flag, das Paket wird auf dem lokalen Computer bereitgestellt werden. |
-| **/ A** | Gibt den Authentifizierungstyp, den MSDeploy.exe verwenden sollten, um die Bereitstellung auszuführen. Mögliche Werte sind **NTLM** und **grundlegende**. Wenn Sie weglassen der **/a** Flag der Authentifizierungstyp standardmäßig **NTLM** für die Bereitstellung auf dem Web bereitstellen Remote-Agent-Dienst und **grundlegende** für die Bereitstellung in der Web Deploy Handler. |
-| **/ U** | Gibt den Benutzernamen an. Dies gilt nur, wenn Sie Standardauthentifizierung verwenden. |
-| **/ P** | Gibt das Kennwort an. Dies gilt nur, wenn Sie Standardauthentifizierung verwenden. |
-| **/ L** | Gibt an, dass das Paket mit der lokalen IIS Express-Instanz bereitgestellt werden soll. |
-| **/ G** | Gibt an, dass das Paket bereitgestellt wird, mithilfe der [TempAgent anbietereinstellung](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx). Wenn Sie weglassen der **/g** -Flag wird als Standardwert **"false"**. |
+| **/T** | Ruft MSDeploy.exe mit der **"-WhatIf"** Flag, das einer Testversion ausführen angibt. Anstelle der Bereitstellung des Pakets, erstellt es einen Bericht von Was geschieht, wenn das Paket bereitgestellt werden konnten. |
+| **/Y** | Ruft die MSDeploy.exe ohne die **"-WhatIf"** Flag. Dadurch wird das Paket auf dem lokalen Computer oder der angegebene Zielserver bereitgestellt. |
+| **/M** | Gibt den Zielserver name oder die Dienst-URL. Weitere Informationen zu den Werten, die Sie hier angeben können, finden Sie unter der **Endpunkt Überlegungen** Abschnitt dieses Themas. Wenn Sie weglassen der **/m** Flag, das Paket wird auf dem lokalen Computer bereitgestellt werden. |
+| **/A** | Gibt den Authentifizierungstyp, den MSDeploy.exe verwenden sollten, um die Bereitstellung auszuführen. Mögliche Werte sind **NTLM** und **grundlegende**. Wenn Sie weglassen der **/a** Flag der Authentifizierungstyp standardmäßig **NTLM** für die Bereitstellung auf dem Web bereitstellen Remote-Agent-Dienst und **grundlegende** für die Bereitstellung in der Web Deploy Handler. |
+| **/U** | Gibt den Benutzernamen an. Dies gilt nur, wenn Sie Standardauthentifizierung verwenden. |
+| **/P** | Gibt das Kennwort an. Dies gilt nur, wenn Sie Standardauthentifizierung verwenden. |
+| **/L** | Gibt an, dass das Paket mit der lokalen IIS Express-Instanz bereitgestellt werden soll. |
+| **/G** | Gibt an, dass das Paket bereitgestellt wird, mithilfe der [TempAgent anbietereinstellung](https://technet.microsoft.com/library/ee517345(WS.10).aspx). Wenn Sie weglassen der **/g** -Flag wird als Standardwert **"false"**. |
 
 > [!NOTE]
 > Jedes Mal, wenn während des Erstellungsprozesses ein Webpaket erstellt, erstellt er auch eine Datei namens *[Projektname] ".deploy"-"Readme.txt"* , die diese Bereitstellungsoptionen erläutert.
 
 
-Zusätzlich zu diesen Flags können Sie Einstellungen für Web Deploy Vorgang als zusätzliche angeben *. deploy.cmd* Parameter. Alle zusätzlichen Einstellungen, die Sie angeben, werden einfach an den zugrunde liegenden MSDeploy.exe-Befehl durch übergeben. Weitere Informationen zu diesen Einstellungen finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+Zusätzlich zu diesen Flags können Sie Einstellungen für Web Deploy Vorgang als zusätzliche angeben *. deploy.cmd* Parameter. Alle zusätzlichen Einstellungen, die Sie angeben, werden einfach an den zugrunde liegenden MSDeploy.exe-Befehl durch übergeben. Weitere Informationen zu diesen Einstellungen finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 Angenommen, Sie möchten das Webanwendungsprojekt ContactManager.Mvc in einer testumgebung bereitstellen, durch Ausführen der *. deploy.cmd* Datei. Die testumgebung zur Verwendung des Diensts Web Deploy Remote-Agents konfiguriert ist, wie in beschrieben [konfigurieren Sie einen Webserver für bereitstellen Webveröffentlichung (Remote-Agent)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Um die Webanwendung bereitzustellen, müssen Sie die nächsten Schritte ausführen.
 
@@ -101,7 +101,7 @@ Zur Veranschaulichung Verwendung der *. deploy.cmd* Datei vereinfacht die Bereit
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Weitere Informationen zur Verwendung der *. deploy.cmd* Datei zum Bereitstellen einer Web-Paket finden [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Weitere Informationen zur Verwendung der *. deploy.cmd* Datei zum Bereitstellen einer Web-Paket finden [wie: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 ## <a name="using-msdeployexe"></a>Verwenden von MSDeploy.exe
 
@@ -115,21 +115,21 @@ Wenn Sie auf "MSDeploy.exe" verwenden, müssen Sie drei wichtige Arten von Infor
 
 - Ein **– Quelle** Parameter, der angibt, in dem die Daten stammen.
 - Ein **– Dest** Parameter, der angibt, wo die Daten an.
-- Ein **– Verb** Parameter, der angibt der [Vorgang](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx) Sie ausführen möchten.
+- Ein **– Verb** Parameter, der angibt der [Vorgang](https://technet.microsoft.com/library/dd568989(WS.10).aspx) Sie ausführen möchten.
 
-Verwendet MSDeploy.exe [Web Deploy-Anbieter](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx) Quell- und Zielserver um Daten zu verarbeiten. Web Deploy umfasst zahlreiche von Anbietern, die den Bereich von Anwendungen und Datenquellen, funktioniert er mit & #x 2014 darstellen; es gibt z. B.-Anbieter für SQL Server-Datenbanken, IIS-Webservern, Zertifikate, global Assembly Cache (GAC)-Assemblys, verschiedene verschiedene Konfigurationsdateien und viele andere Typen von Daten. Sowohl die **– Quelle** Parameter und die **– Dest** Parameter muss einen Anbieter angeben, in der Form **– Quelle**: [*ProviderName*] = [*Speicherort*]. Wenn Sie eine Web-Paket auf einer IIS-Website bereitstellen, sollten Sie diese Werte verwenden:
+Verwendet MSDeploy.exe [Web Deploy-Anbieter](https://technet.microsoft.com/library/dd569040(WS.10).aspx) Quell- und Zielserver um Daten zu verarbeiten. Web Deploy umfasst zahlreiche von Anbietern, die den Bereich von Anwendungen und Datenquellen, funktioniert er mit & #x 2014 darstellen; es gibt z. B.-Anbieter für SQL Server-Datenbanken, IIS-Webservern, Zertifikate, global Assembly Cache (GAC)-Assemblys, verschiedene verschiedene Konfigurationsdateien und viele andere Typen von Daten. Sowohl die **– Quelle** Parameter und die **– Dest** Parameter muss einen Anbieter angeben, in der Form **– Quelle**: [*ProviderName*] = [*Speicherort*]. Wenn Sie eine Web-Paket auf einer IIS-Website bereitstellen, sollten Sie diese Werte verwenden:
 
-- Die **– Quelle** Anbieter befindet sich immer [Paket](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx). Zum Beispiel:
+- Die **– Quelle** Anbieter befindet sich immer [Paket](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Zum Beispiel:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- Die **– Dest** Anbieter befindet sich immer [Auto](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx). Zum Beispiel:
+- Die **– Dest** Anbieter befindet sich immer [Auto](https://technet.microsoft.com/library/dd569016(WS.10).aspx). Zum Beispiel:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - Die **– Verb** ist immer **Sync**.
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Darüber hinaus, benötigen Sie an verschiedene andere [anbieterspezifische Einstellungen](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx) und allgemeine [Vorgang Einstellungen](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Nehmen Sie z. B. an, dass die ContactManager.Mvc-Webanwendung in einer Stagingumgebung bereitgestellt werden soll. Die Bereitstellung wird als Ziel der Web-Handler bereitstellen und Standardauthentifizierung verwenden. Um die Webanwendung bereitzustellen, müssen Sie die nächsten Schritte ausführen.
+Darüber hinaus, benötigen Sie an verschiedene andere [anbieterspezifische Einstellungen](https://technet.microsoft.com/library/dd569001(WS.10).aspx) und allgemeine [Vorgang Einstellungen](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Nehmen Sie z. B. an, dass die ContactManager.Mvc-Webanwendung in einer Stagingumgebung bereitgestellt werden soll. Die Bereitstellung wird als Ziel der Web-Handler bereitstellen und Standardauthentifizierung verwenden. Um die Webanwendung bereitzustellen, müssen Sie die nächsten Schritte ausführen.
 
 **Bereitstellen eine Webanwendung mit MSDeploy.exe**
 
@@ -145,7 +145,7 @@ In diesem Beispiel:
 - Die **– Quelle** Parameter gibt die **Paket** Anbieter und gibt den Speicherort des Webpakets.
 - Die **– Dest** Parameter gibt die **Auto** Anbieter. Die **ComputerName** Einstellung bietet die Dienst-URL der Web-Handler bereitstellen, auf dem Zielserver. Die **Authtype** Einstellung gibt an, dass Sie die Standardauthentifizierung verwenden möchten, und daher Sie angeben müssen einer **Benutzername** und ein **Kennwort**. Schließlich die **IncludeAcls = "False"** Einstellung gibt an, dass Sie nicht die Zugriffssteuerungslisten (ACLs) der Dateien in der Source-Webanwendung auf den Zielserver kopieren möchten.
 - Die **– Verb: Sync** Argument gibt an, dass den Quellinhalt auf dem Zielserver repliziert werden sollen.
-- Die **– DisableLink** Argumente anzugeben, dass Anwendungspools, Konfiguration des virtuellen Verzeichnisses oder Secure Sockets Layer (SSL) Zertifikate auf dem Zielserver repliziert werden soll. Weitere Informationen finden Sie unter [Web bereitstellen Linkerweiterungen](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx).
+- Die **– DisableLink** Argumente anzugeben, dass Anwendungspools, Konfiguration des virtuellen Verzeichnisses oder Secure Sockets Layer (SSL) Zertifikate auf dem Zielserver repliziert werden soll. Weitere Informationen finden Sie unter [Web bereitstellen Linkerweiterungen](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
 - Die **– SetParamFile** Parameter gibt die Position eines der *SetParameters.xml* Datei.
 - Die **-AllowUntrusted** gibt an, dass Web Deploy-SSL-Zertifikate akzeptiert werden sollen, die nicht von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt wurden. Wenn Sie an den Handler für die Web-Bereitstellung bereitstellen, und Sie ein selbst signiertes Zertifikat verwendet haben, um die Dienst-URL zu sichern, müssen Sie diesen Schalter.
 
@@ -205,7 +205,7 @@ Unabhängig davon, ob Sie Ihre Webpaket bereitgestellt werden durch Ausführen d
 - Wenn Sie an den Handler für die Web-Bereitstellung bereitstellen, können Sie entweder NTLM oder die Standardauthentifizierung verwenden. Die Standardeinstellung ist die Standardauthentifizierung. Zwar Standardauthentifizierung Benutzernamen und Kennwörter im nur-Text übertragen werden benötigt, werden Ihre Anmeldeinformationen geschützt, da der Handler für die Web-Bereitstellung immer SSL-Verschlüsselung verwendet.
 - Wenn Ihre Web-Paket eine Datenbank enthält und den Webserver und Datenbankserver separate Computer sind, kann nicht zum Bereitstellen der Datenbank mithilfe von NTLM-Authentifizierung aufgrund der [NTLM "Doppel-Hop"-Einschränkung](https://go.microsoft.com/?linkid=9805120). Sie müssen entweder SQL Server-Anmeldeinformationen verwenden, in der Verbindungszeichenfolge für die Bereitstellung oder Anmeldeinformationen für Standardauthentifizierung für Web Deploy. Dieses Problem wird ausführlich in [Mitgliedschaft-Datenbanken bereitstellen, um Unternehmensumgebungen](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben, wie Sie eine Web-Paket entweder durch Ausführen von bereitstellen können die *. deploy.cmd* Datei oder direkt mit MSDeploy.exe. Diese erläutert, wenn jeder Ansatz kann angemessen sein, und es beschrieben, wie Sie parametrisieren und führen Sie einen Bereitstellungsbefehl als Teil eines größeren einstufiger oder automatisierten Build-Prozesses.
 

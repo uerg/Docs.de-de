@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: e594dd1ea4ae027cf0b82574fc5a3eb061b1f2e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 96155b1c648e5f6092b3ba67a560197f86a593b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>ASP.NET SignalR-Hubs-API-Handbuch - Server (SignalR 1.x)
 ====================
@@ -77,13 +77,13 @@ Dokumentation zum Programm Clients finden Sie in den folgenden Ressourcen:
 - [SignalR-Hubs-API-Handbuch - JavaScript-Client](index.md)
 - [SignalR-Hubs-API-Leitfaden – .NET Client](index.md)
 
-Links zu API-Referenzthemen sind auf die .NET 4.5-Version der API. Wenn Sie .NET 4 verwenden, finden Sie unter [.NET 4-Version der API-Themen](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+Links zu API-Referenzthemen sind auf die .NET 4.5-Version der API. Wenn Sie .NET 4 verwenden, finden Sie unter [.NET 4-Version der API-Themen](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="route"></a>
 
 ## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>Die SignalR-Route zu registrieren und Konfigurieren von SignalR-Optionen
 
-Aufrufen, um die Route definieren, die Clients zur Verbindung mit Ihren Hubs verwendet wird, die [MapHubs](https://msdn.microsoft.com/en-us/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) Methode, wenn die Anwendung gestartet wird. `MapHubs`ist ein [Erweiterungsmethode](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx) für die `System.Web.Routing.RouteCollection` Klasse. Im folgende Beispiel wird gezeigt, wie die SignalR-Hubs Route im Definieren der *"Global.asax"* Datei.
+Aufrufen, um die Route definieren, die Clients zur Verbindung mit Ihren Hubs verwendet wird, die [MapHubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) Methode, wenn die Anwendung gestartet wird. `MapHubs`ist ein [Erweiterungsmethode](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) für die `System.Web.Routing.RouteCollection` Klasse. Im folgende Beispiel wird gezeigt, wie die SignalR-Hubs Route im Definieren der *"Global.asax"* Datei.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample1.cs)]
 
@@ -139,7 +139,7 @@ Im folgende Beispiel wird gezeigt, wie der SignalR-Verbindungs-URL und an diese 
 
 ## <a name="how-to-create-and-use-hub-classes"></a>Das Erstellen und Verwenden der Hub-Klassen
 
-Um einen Hub zu erstellen, erstellen Sie eine Klasse, die abgeleitet [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Das folgende Beispiel zeigt eine einfache hubklasse für eine Chat-Anwendung.
+Um einen Hub zu erstellen, erstellen Sie eine Klasse, die abgeleitet [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Das folgende Beispiel zeigt eine einfache hubklasse für eine Chat-Anwendung.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample8.cs)]
 
@@ -238,13 +238,13 @@ Wenn Sie für Clients verwenden, fügen Sie einen anderen Namen geben möchten d
 
 ### <a name="when-to-execute-asynchronously"></a>Beim asynchron ausführen.
 
-Wenn die Methode wird werden lang andauernde oder muss funktionieren würde, die warten, z. B. einer Datenbanksuche oder einem Webdienstaufruf umfassen, stellen Sie die Hub-Methode asynchrone, wird durch Zurückgeben einer [Aufgabe](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) (anstelle von `void` zurückgeben) oder [ Aufgabe&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx) Objekt (anstelle von `T` Rückgabetyp). Wenn Sie zurückkehren, eine `Task` Objekt aus der SignalR-Methode wartet der `Task` abgeschlossen ist, und sendet es die entpackte Ergebnis zurück an den Client, damit kein Unterschied besteht in wie der Aufruf der Methode im Client code.
+Wenn die Methode wird werden lang andauernde oder muss funktionieren würde, die warten, z. B. einer Datenbanksuche oder einem Webdienstaufruf umfassen, stellen Sie die Hub-Methode asynchrone, wird durch Zurückgeben einer [Aufgabe](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (anstelle von `void` zurückgeben) oder [ Aufgabe&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) Objekt (anstelle von `T` Rückgabetyp). Wenn Sie zurückkehren, eine `Task` Objekt aus der SignalR-Methode wartet der `Task` abgeschlossen ist, und sendet es die entpackte Ergebnis zurück an den Client, damit kein Unterschied besteht in wie der Aufruf der Methode im Client code.
 
 Erstellen einer Hub-Methode wird vermieden, asynchrone die Verbindung blockiert, wenn die WebSocket-Transport verwendet. Wenn eine hubmethode synchron wird und WebSocket als Transport verwendet wird, werden nachfolgende Aufrufe von Methoden auf dem Hub vom gleichen Client blockiert, bis zum Abschluss der Hub-Methode.
 
 Das folgende Beispiel zeigt die gleiche Methode codiert, um eine synchrone Ausführung oder asynchron ausgeführt wird, gefolgt von JavaScript-Clientcode, der zum Aufrufen von entweder Version funktioniert.
 
-**Synchrone**
+**Synchronous**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample19.cs)]
 
@@ -298,7 +298,7 @@ Sie können komplexe Typen und -Arrays für die Parameter angeben. Im folgende B
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>Auswählen von welchen Clients erhalten die RPC
 
-Gibt die Clients-Eigenschaft einer [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) -Objekt, das bietet mehrere Optionen zum angeben, welche Clients die RPC empfangen werden:
+Gibt die Clients-Eigenschaft einer [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) -Objekt, das bietet mehrere Optionen zum angeben, welche Clients die RPC empfangen werden:
 
 - Alle verbundenen Clients.
 
@@ -357,7 +357,7 @@ Bei Verwendung von `await` oder `ContinueWith` warten, bis eine Clientmethode ab
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Verwenden Sie eine Zeichenfolgenvariable als Name der Methode
 
-Wenn Sie eine Clientmethode aufrufen, indem Sie eine Zeichenfolgenvariable verwenden, als der Methodenname, wandeln Sie möchten `Clients.All` (oder `Clients.Others`, `Clients.Caller`usw.) zu `IClientProxy` und rufen Sie anschließend [Invoke (MethodName, Args...) ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Wenn Sie eine Clientmethode aufrufen, indem Sie eine Zeichenfolgenvariable verwenden, als der Methodenname, wandeln Sie möchten `Clients.All` (oder `Clients.Others`, `Clients.Caller`usw.) zu `IClientProxy` und rufen Sie anschließend [Invoke (MethodName, Args...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample37.cs)]
 
@@ -367,7 +367,7 @@ Wenn Sie eine Clientmethode aufrufen, indem Sie eine Zeichenfolgenvariable verwe
 
 Gruppen in SignalR bieten eine Methode zum Übertragen von Nachrichten an den angegebenen Teilmengen von verbundenen Clients. Eine Gruppe kann eine beliebige Anzahl von Clients umfassen, und ein Client kann Mitglied einer beliebigen Anzahl von Gruppen sein.
 
-Verwenden Sie zum Verwalten der Gruppenmitgliedschaft die [hinzufügen](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) und [entfernen](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) bereitgestellten Methoden die `Groups` Eigenschaft der Hub-Klasse. Das folgende Beispiel zeigt die `Groups.Add` und `Groups.Remove` Methoden, die in hubmethoden, die vom Client-Code aufgerufen werden, gefolgt von JavaScript-Clientcode, der sie aufruft.
+Verwenden Sie zum Verwalten der Gruppenmitgliedschaft die [hinzufügen](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) und [entfernen](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) bereitgestellten Methoden die `Groups` Eigenschaft der Hub-Klasse. Das folgende Beispiel zeigt die `Groups.Add` und `Groups.Remove` Methoden, die in hubmethoden, die vom Client-Code aufgerufen werden, gefolgt von JavaScript-Clientcode, der sie aufruft.
 
 **Server**
 
@@ -452,7 +452,7 @@ Die Verbindung für die Lebensdauer Ereignishandlermethoden heißen vom Server, 
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Gewusst wie: Abrufen von Informationen über den Client aus der Kontexteigenschaft
 
-Verwenden Sie zum Abrufen von Informationen über den Client die `Context` Eigenschaft der Hub-Klasse. Die `Context` Eigenschaft gibt eine [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx) Objekt, das Zugriff auf die folgenden Informationen:
+Verwenden Sie zum Abrufen von Informationen über den Client die `Context` Eigenschaft der Hub-Klasse. Die `Context` Eigenschaft gibt eine [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) Objekt, das Zugriff auf die folgenden Informationen:
 
 - Der Verbindungs-ID des aufrufenden Clients.
 
@@ -526,7 +526,7 @@ In der Hub-Klasse, erreichen Sie, diese Daten in der `Clients.Caller` Eigenschaf
 Verwenden Sie zum Behandeln von Fehlern, die in Ihrer Klasse hubmethoden auftreten, eine oder beide der folgenden Methoden:
 
 - Umschließen Sie Ihrem Code im Try / Catch-Blocks, und melden Sie das Ausnahmeobjekt. Zu Debugzwecken können Sie die Ausnahme an den Client senden, aber aus Sicherheitsgründen Gründe, senden detaillierte Informationen für Clients in der Produktion nicht empfohlen.
-- Erstellen Sie ein Hubs Pipeline-Modul, das verarbeitet die [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) Methode. Das folgende Beispiel zeigt eine Pipeline-Modul, das protokolliert Fehler, gefolgt vom Code in "Global.asax", in den das Modul in die Pipeline Hubs injiziert.
+- Erstellen Sie ein Hubs Pipeline-Modul, das verarbeitet die [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) Methode. Das folgende Beispiel zeigt eine Pipeline-Modul, das protokolliert Fehler, gefolgt vom Code in "Global.asax", in den das Modul in die Pipeline Hubs injiziert.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample55.cs)]
 
@@ -607,4 +607,4 @@ Der folgende code in der *"Global.asax"* Datei registriert das Modul, in der Hub
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample68.cs?highlight=3)]
 
-Es gibt viele verschiedene Methoden, die Sie überschreiben können. Eine vollständige Liste finden Sie unter [HubPipelineModule Methoden](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx).
+Es gibt viele verschiedene Methoden, die Sie überschreiben können. Eine vollständige Liste finden Sie unter [HubPipelineModule Methoden](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Verbindungsresilienz und Abfangen der Befehl mit dem Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
@@ -49,14 +49,14 @@ Das verbindungsstabilitätsfeature muss für eine bestimmte Datenbank-Dienst ord
 
 Sie können konfigurieren, dass diese Einstellungen manuell für jede datenbankumgebung, die von einem Anbieter für Entity Framework unterstützt, aber die Standardwerte aufgeführt, die in der Regel für eine Anwendung online arbeiten, die Windows Azure SQL-Datenbank verwendet wurden, bereits konfiguriert und Dies sind die Einstellungen, die Sie für die Contoso-University Anwendung implementieren.
 
-Müssen Sie lediglich ausführen, um resilienz von Verbindungen zu aktivieren ist eine Klasse erstellen, in der Assembly, die von abgeleitet ist die [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx) Klasse, und legen Sie die SQL-Datenbank in dieser Klasse *Ausführungsstrategie*, also in EF eine andere Bezeichnung für *wiederholungsrichtlinie*.
+Müssen Sie lediglich ausführen, um resilienz von Verbindungen zu aktivieren ist eine Klasse erstellen, in der Assembly, die von abgeleitet ist die [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) Klasse, und legen Sie die SQL-Datenbank in dieser Klasse *Ausführungsstrategie*, also in EF eine andere Bezeichnung für *wiederholungsrichtlinie*.
 
 1. Fügen Sie eine Klassendatei mit dem Namen im Ordner "DAL" *SchoolConfiguration.cs*.
 2. Ersetzen Sie den Vorlagencode, durch den folgenden Code:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Das Entity Framework automatisch ausgeführt wird, den Code in einer Klasse, die abgeleitet werden gefundenen `DbConfiguration`. Können Sie die `DbConfiguration` Klasse Konfigurationsaufgaben in Code ausführen, die Sie andernfalls würde in die *"Web.config"* Datei. Weitere Informationen finden Sie unter [EntityFramework codebasierte Konfiguration](https://msdn.microsoft.com/en-us/data/jj680699).
+    Das Entity Framework automatisch ausgeführt wird, den Code in einer Klasse, die abgeleitet werden gefundenen `DbConfiguration`. Können Sie die `DbConfiguration` Klasse Konfigurationsaufgaben in Code ausführen, die Sie andernfalls würde in die *"Web.config"* Datei. Weitere Informationen finden Sie unter [EntityFramework codebasierte Konfiguration](https://msdn.microsoft.com/data/jj680699).
 3. In *StudentController.cs*, Hinzufügen einer `using` -Anweisung für `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ Müssen Sie lediglich ausführen, um resilienz von Verbindungen zu aktivieren is
 
     Verwenden Sie `DataException` zu dem Versuch, den Fehler zu identifizieren, die möglicherweise vorübergehender damit Geben Sie eine Meldung aus "Wiederholen". Aber jetzt, dass Sie eine wiederholungsrichtlinie aktiviert haben, wird die eigentliche Ausnahme zurückgegebene umschlossen werden nur vorübergehend aufzutreten wahrscheinlich nur Fehler werden bereits ausprobiert und wurden Fehler mehrere Male und die `RetryLimitExceededException` Ausnahme.
 
-Weitere Informationen finden Sie unter [Entity Framework Connection Resiliency / Wiederholungslogik](https://msdn.microsoft.com/en-us/data/dn456835).
+Weitere Informationen finden Sie unter [Entity Framework Connection Resiliency / Wiederholungslogik](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="enable-command-interception"></a>Befehl abfangen aktivieren
 
 Nun, dass Sie eine wiederholungsrichtlinie aktiviert haben, führen Sie wie Sie testen, stellen Sie sicher, dass er wie erwartet funktioniert? Es ist nicht so einfach um einen vorübergehenden Fehler auftreten, insbesondere wenn Sie lokal ausführen und es wäre besonders schwierig zum Integrieren von tatsächlichen vorübergehende Fehler in eine automatisierte Komponententests zu erzwingen. Um das verbindungsstabilitätsfeature zu testen, benötigen Sie eine Möglichkeit zum Abfangen von Abfragen, die Entity Framework mit SQL Server sendet, und Ersetzen Sie die SQL Server-Antwort durch einen Ausnahmetyp aus, der in der Regel flüchtig ist.
 
-Sie können auch Abfangen der Abfrage verwenden, um eine bewährte Methode für Cloudanwendungen zu implementieren: [melden Sie sich die Latenz und Erfolg oder Fehler aller Aufrufe externer Dienste](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) z. B. Datenbankdienste. EF6 bietet eine [dedizierte Protokollierung API](https://msdn.microsoft.com/en-us/data/dn469464) , können erleichtern soll, Protokollierung, aber in diesem Abschnitt des Lernprogramms erfahren Sie, wie das Entity Framework verwendet [abfangen Funktion](https://msdn.microsoft.com/en-us/data/dn469464) direkt, sowohl für Protokollierung und zum Simulieren von vorübergehender Fehlern.
+Sie können auch Abfangen der Abfrage verwenden, um eine bewährte Methode für Cloudanwendungen zu implementieren: [melden Sie sich die Latenz und Erfolg oder Fehler aller Aufrufe externer Dienste](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) z. B. Datenbankdienste. EF6 bietet eine [dedizierte Protokollierung API](https://msdn.microsoft.com/data/dn469464) , können erleichtern soll, Protokollierung, aber in diesem Abschnitt des Lernprogramms erfahren Sie, wie das Entity Framework verwendet [abfangen Funktion](https://msdn.microsoft.com/data/dn469464) direkt, sowohl für Protokollierung und zum Simulieren von vorübergehender Fehlern.
 
 ### <a name="create-a-logging-interface-and-class"></a>Erstellen eines protokollierungsschnittstelle und -Klasse
 

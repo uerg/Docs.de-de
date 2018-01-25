@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6931f9d14461456cc8461b0a6b194079b7654c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28f4c95e1578c5c91cfa1a21af2b4720ba7b286c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Anzeigen einer Fehlerseite (VB)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Idealerweise wäre keine Fehler zur Laufzeit. Programmierer Schreiben von Code mit nary einen Fehler, und mit stabile Validierung von Benutzereingaben, und externe Ressourcen wie Datenbankserver und e-Mail-Server würden nie offline geschaltet. In Wirklichkeit sind natürlich Fehler unvermeidlich. Die Klassen in .NET Framework einen Fehler durch Auslösen einer Ausnahme zu signalisieren. Z. B. richtet eine SqlConnection Aufrufen des Objekts Open-Methode eine Verbindung mit der Datenbank, die durch eine Verbindungszeichenfolge angegeben. Wenn die Datenbank nicht ausgeführt wird oder wenn die Anmeldeinformationen in der Verbindungszeichenfolge ungültig sind. Klicken Sie dann die Open-Methode löst jedoch eine `SqlException`. Ausnahmen können behandelt werden, durch die Verwendung von `Try/Catch/Finally` blockiert. Wenn code in einem `Try` Block eine Ausnahme auslöst, wird die Steuerung an den entsprechenden Catch-Block kann der Entwickler Versuch, die Verarbeitung fortzusetzen. Wenn kein übereinstimmenden CatchBlock vorhanden ist oder wenn der Code, der die Ausnahme ausgelöst hat, nicht in einem Try-Block ist, wird die Ausnahme der Aufrufliste search von percolates `Try/Catch/Finally` blockiert.
 
-Wenn ganz bis zu die ASP.NET-Laufzeit die Ausnahme ausgelöst, ohne verarbeitet wird, die [ `HttpApplication` Klasse](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)des [ `Error` Ereignis](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) wird ausgelöst, und die konfigurierte *Fehler (Seite)*  wird angezeigt. Standardmäßig zeigt ASP.NET eine Fehlerseite, die als affectionately bezeichnet wird, die [gelben Bildschirm Tod](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Es gibt zwei Versionen der YSOD: eine zeigt die Details der Ausnahme, die eine stapelüberwachung und andere Informationen für Entwickler, die die Anwendung Debuggen hilfreich (finden Sie unter **Abbildung 1**); die andere einfach gibt an, dass ein Laufzeitfehler ist (siehe aufgetreten **Abbildung 2**).
+Wenn ganz bis zu die ASP.NET-Laufzeit die Ausnahme ausgelöst, ohne verarbeitet wird, die [ `HttpApplication` Klasse](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)des [ `Error` Ereignis](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) wird ausgelöst, und die konfigurierte *Fehler (Seite)*  wird angezeigt. Standardmäßig zeigt ASP.NET eine Fehlerseite, die als affectionately bezeichnet wird, die [gelben Bildschirm Tod](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Es gibt zwei Versionen der YSOD: eine zeigt die Details der Ausnahme, die eine stapelüberwachung und andere Informationen für Entwickler, die die Anwendung Debuggen hilfreich (finden Sie unter **Abbildung 1**); die andere einfach gibt an, dass ein Laufzeitfehler ist (siehe aufgetreten **Abbildung 2**).
 
 Die Ausnahmedetails YSOD ist sehr hilfreich für Entwickler, die die Anwendung debuggen, aber klebrig und unprofessionell ist eine YSOD für Endbenutzer angezeigt. Stattdessen müssen Endbenutzer eine Fehlerseite angezeigt. ergriffen werden, die den Standort Aussehen und Verhalten mit benutzerfreundlicheren Programmierkontext, beschreibt die Situation verwaltet. Die gute Nachricht ist, erstellen eine solche benutzerdefinierte Fehlerseite lässt sich ganz einfach. In diesem Lernprogramm wird mit einem Blick auf ASP gestartet. NET Seiten, die ein anderer Fehler. Es wird dargestellt, wie die Webanwendung, um Benutzern eine benutzerdefinierte Fehlerseite bei Fehler anzuzeigen, konfigurieren.
 
@@ -87,7 +87,7 @@ Die drei möglichen Fehlern Seiten angezeigt wird, basiert auf zwei Variablen:
 - Die Konfigurationsinformationen in der `<customErrors>` Abschnitt, und
 - Gibt an, ob der Benutzer die Website lokal oder Remote besucht wird.
 
-Die [ `<customErrors>` Abschnitt](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx) in `Web.config` verfügt über zwei Attribute, die beeinflussen, welche Seite "Fehler" angezeigt wird: `defaultRedirect` und `mode`. Das `defaultRedirect`-Attribut ist optional. Wenn angegeben, gibt die URL für die benutzerdefinierte Fehlerseite an und gibt an, dass die benutzerdefinierte Fehlerseite soll, anstatt die Common Language Runtime-Fehler YSOD angezeigt werden. Die `mode` Attribut ist erforderlich und akzeptiert einen von drei Werten: `On`, `Off`, oder `RemoteOnly`. Diese Werte weisen folgendes Verhalten auf:
+Die [ `<customErrors>` Abschnitt](https://msdn.microsoft.com/library/h0hfz6fc.aspx) in `Web.config` verfügt über zwei Attribute, die beeinflussen, welche Seite "Fehler" angezeigt wird: `defaultRedirect` und `mode`. Das `defaultRedirect`-Attribut ist optional. Wenn angegeben, gibt die URL für die benutzerdefinierte Fehlerseite an und gibt an, dass die benutzerdefinierte Fehlerseite soll, anstatt die Common Language Runtime-Fehler YSOD angezeigt werden. Die `mode` Attribut ist erforderlich und akzeptiert einen von drei Werten: `On`, `Off`, oder `RemoteOnly`. Diese Werte weisen folgendes Verhalten auf:
 
 - `On`-Gibt an, dass die benutzerdefinierte Fehlerseite oder YSOD der Common Language Runtime-Fehler, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
 - `Off`-Gibt an, dass die Ausnahme Details YSOD, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
@@ -167,9 +167,9 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Fehlerseiten, noch einmal](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
-- [Entwurfsrichtlinien für Ausnahmen](https://msdn.microsoft.com/en-us/library/ms229014.aspx)
+- [Entwurfsrichtlinien für Ausnahmen](https://msdn.microsoft.com/library/ms229014.aspx)
 - [Benutzerfreundliche Fehlerseiten](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [Behandeln und Auslösen von Ausnahmen](https://msdn.microsoft.com/en-us/library/5b2yeyab.aspx)
+- [Behandeln und Auslösen von Ausnahmen](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Verwenden benutzerdefinierte Fehlerseiten ordnungsgemäß in ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 >[!div class="step-by-step"]

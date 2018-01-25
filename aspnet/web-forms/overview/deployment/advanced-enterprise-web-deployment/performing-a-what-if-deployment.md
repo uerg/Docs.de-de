@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62be7c9636fb74c40bec812e9ac76b360995da50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Ausführen einer "Was-wäre-wenn" Bereitstellung
 ====================
@@ -52,7 +52,7 @@ Wenn Sie MSDeploy.exe direkt verwenden, können Sie eine "Was-wäre-wenn" Bereit
 Wenn Sie mit den Ergebnissen der Bereitstellung "Was-wäre-wenn" zufrieden sind, können Sie entfernen die **"-WhatIf"** Flag eine aktive Bereitstellung ausführen.
 
 > [!NOTE]
-> Weitere Informationen zu Befehlszeilenoptionen für MSDeploy.exe, finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+> Weitere Informationen zu Befehlszeilenoptionen für MSDeploy.exe, finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 
 Bei Verwendung der *. deploy.cmd* -Datei können Sie eine "Was-wäre-wenn" Bereitstellung ausführen, indem Sie z. B. die **/t** flag (Testmodus)-Flag anstelle von der **/y** Flag ("yes" oder Aktualisierungsmodus) in der Befehl. Beispielsweise, um auszuwerten, was passieren würde, wenn Sie durch Ausführen des Pakets ContactManager.Mvc.zip bereitgestellt der *. deploy.cmd* -Datei der Befehl sollte diesem ähneln:
@@ -68,7 +68,7 @@ Sie mit den Ergebnissen der Bereitstellungskonfiguration "Testmodus" zufrieden s
 
 
 > [!NOTE]
-> Weitere Informationen zu Befehlszeilenoptionen für *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Wenn das Ausführen der *. deploy.cmd* Datei ohne Angabe von Flags, die Befehlszeile wird eine Liste der verfügbaren Flags angezeigt.
+> Weitere Informationen zu Befehlszeilenoptionen für *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Wenn das Ausführen der *. deploy.cmd* Datei ohne Angabe von Flags, die Befehlszeile wird eine Liste der verfügbaren Flags angezeigt.
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>Ausführen einer "Was-wäre-wenn" Bereitstellung für Datenbanken
@@ -136,13 +136,13 @@ Sie können den gleichen Ansatz verwenden, parametrisieren Sie die entsprechende
 
 Auf diese Weise können Sie eine "Was-wäre-wenn" Bereitstellung für alle Projektkomponenten in einem einzigen Schritt ausführen.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Dieses Thema beschreibt, wie Sie "Was-wäre-wenn-Bereitstellungen mithilfe von Web Deploy, VSDBCMD und MSBuild ausgeführt wird. Eine "Was-wäre-wenn" Bereitstellung können Sie das Auswerten der Auswirkungen einer vorgeschlagenen Bereitstellung aus, bevor Sie Änderungen in der zielumgebung tatsächlich vornehmen.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu Web Deploy-Befehlszeilensyntax, finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Um Hilfe bei der Befehlszeilenoptionen, die bei der Verwendung der *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Anleitungen zu VSDBCMD-Befehlszeilensyntax, finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+Weitere Informationen zu Web Deploy-Befehlszeilensyntax, finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Um Hilfe bei der Befehlszeilenoptionen, die bei der Verwendung der *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Anleitungen zu VSDBCMD-Befehlszeilensyntax, finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](advanced-enterprise-web-deployment.md)

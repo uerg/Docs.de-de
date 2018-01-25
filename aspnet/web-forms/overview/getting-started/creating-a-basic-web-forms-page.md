@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 20e920ff63444c0d69cecb972619b07fe6d23097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Erstellen einer einfachen ASP.NET Forms 4.5 Web Seite in Visual Studio 2013
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
-In dieser exemplarischen Vorgehensweise bietet Ihnen eine Einführung in die Web-Entwicklungsumgebung in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) und [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). Diese exemplarische Vorgehensweise führt Sie durch Erstellen einer einfachen ASP.NET Web Forms-Seite und veranschaulicht die grundlegenden Techniken zum Erstellen einer neuen Seite, Hinzufügen von Steuerelementen und Code schreiben.
+In dieser exemplarischen Vorgehensweise bietet Ihnen eine Einführung in die Web-Entwicklungsumgebung in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) und [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). Diese exemplarische Vorgehensweise führt Sie durch Erstellen einer einfachen ASP.NET Web Forms-Seite und veranschaulicht die grundlegenden Techniken zum Erstellen einer neuen Seite, Hinzufügen von Steuerelementen und Code schreiben.
 
 In dieser exemplarischen Vorgehensweise werden u. a. folgende Aufgaben veranschaulicht:
 
@@ -38,7 +38,7 @@ In dieser exemplarischen Vorgehensweise werden u. a. folgende Aufgaben veranscha
 
 Für die Durchführung dieser exemplarischen Vorgehensweise benötigen Sie Folgendes:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework wird automatisch installiert. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) oder [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework wird automatisch installiert. 
 
     > [!NOTE] 
     > 
@@ -95,7 +95,7 @@ Bevor Sie fortfahren, indem Sie die Seite ändern, ist es hilfreich, sich mit de
 - **Eigenschaften** Fenster. Können Sie Einstellungen für die Seite, HTML-Elemente, Steuerelemente und andere Objekte zu ändern.
 - Anzeigen von Registerkarten. Stellen Sie mit anderen Ansichten des gleichen Dokuments. **Entwurf** Ansicht ist eine WYSIWYG Bearbeitungsoberfläche. **Quelle** ist der HTML-Editor für die Seite. **Split** zeigt sowohl den **Entwurf** anzeigen und die **Quelle** Ansicht für das Dokument. Arbeiten Sie mit der **Entwurf** und **Quelle** Ansichten weiter unten in dieser exemplarischen Vorgehensweise. Wenn Sie es vorziehen, Öffnen von Webseiten in **Entwurf** anzuzeigen, die **Tools** im Menü klicken Sie auf **Optionen**, wählen die **HTML-Designer** Knoten, und Ändern der **Seiten starten In** Option.
 - **ToolBox**. Stellt Steuerelemente und HTML-Elemente, die Sie auf der Seite ziehen können. **Toolbox** durch common-Funktion die Elemente gruppiert sind.
-- S **Erver Explorer**. Zeigt die Verbindungen mit der Datenbank. Wenn Server-Explorer nicht sichtbar ist, klicken Sie im Menü Ansicht auf Server-Explorer.
+- S **erver Explorer**. Zeigt die Verbindungen mit der Datenbank. Wenn Server-Explorer nicht sichtbar ist, klicken Sie im Menü Ansicht auf Server-Explorer.
 
 
 ### <a name="creating-a-new-aspnet-web-forms-page"></a>Erstellen einer neuen ASP.NET Web Forms-Seite

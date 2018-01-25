@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 4af2df61ab4507b1f100d6bb75777da1168c5a75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -60,7 +60,7 @@ ASP.NET MVC 4 installiert werden kann und Seite-an-Seite ausführen können mit 
 
 Dokumentation für ASP.NET MVC ist auf der MSDN-Website unter folgender URL verfügbar:
 
-[https://go.Microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Lernprogramme und Weitere Informationen zu ASP.NET MVC sind auf die MVC 4-Seite der ASP.NET-Website verfügbar ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -98,10 +98,10 @@ Um eine vorhandene ASP.NET MVC 3-Anwendung auf Version 4 manuell zu aktualisiere
     1. Löschen Sie im Projektmappen-Explorer die Verweise auf die folgenden Assemblys: 
 
         - *System.Web.Mvc*(v3.0.0.0)
-        - *System.Web.WebPages*(v. 1.0.0.0)
-        - *System.Web.Razor*(v. 1.0.0.0)
-        - *System.Web.WebPages.Deployment*(v. 1.0.0.0)
-        - *System.Web.WebPages.Razor*(v. 1.0.0.0)
+        - *System.Web.WebPages*(v1.0.0.0)
+        - *System.Web.Razor*(v1.0.0.0)
+        - *System.Web.WebPages.Deployment*(v1.0.0.0)
+        - *System.Web.WebPages.Razor*(v1.0.0.0)
     2. Fügen Sie ein Verweise auf die folgenden Assemblys hinzu: 
 
         - *System.Web.Mvc*(v4.0.0.0)
@@ -245,7 +245,7 @@ Das neue Feature für die Rezepte kann Visual Studio generieren lösungsspezifis
 
 Sie können jetzt schreiben asynchrone Aktionsmethoden als einzelne Methoden, die ein Objekt des Typs zurückgeben *Aufgabe* oder *Aufgabe&lt;ActionResult&gt;*.
 
-Z. B. bei Verwendung von Visual C#-5 (oder über die [Async CTP](https://msdn.microsoft.com/en-us/vstudio/async.aspx)), können Sie eine asynchrone Aktionsmethode, die wie folgt aussieht:
+Z. B. bei Verwendung von Visual C#-5 (oder über die [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)), können Sie eine asynchrone Aktionsmethode, die wie folgt aussieht:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Erstellen ein Modell mit komplexen Daten - EF-Core mit Razor-Seiten Lernprogramm (5 von 8)
 
@@ -49,9 +49,9 @@ Die [DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataa
 * Die `mailto:` Link wird automatisch erstellt, für die `DataType.EmailAddress`.
 * Die Auswahl von Datum dient zur `DataType.Date` in den meisten Browsern.
 
-Die `DataType` Attribut ausgibt HTML 5 `data-` (ausgesprochen als Daten Dash) Attribute, die HTML 5-Browser zu nutzen. Die `DataType` Attribute bieten keine Validierung.
+Die `DataType` Attribut ausgibt HTML 5 `data-` (ausgesprochen als Daten Dash) Attribute, die HTML 5-Browser zu nutzen. Die `DataType` Attribute stellen keine Validierung.
 
-`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird die Date-Felds gemäß der Standardformate basierend auf dem Server angezeigt [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date`das Format des Datums, das angezeigt wird, nicht angegeben werden. Standardmäßig wird die Date-Felds gemäß der Standardformate basierend auf dem Server angezeigt [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 
@@ -59,7 +59,7 @@ Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-Die `ApplyFormatInEditMode` Einstellung gibt an, dass die Formatierung auf die Bearbeitungsoberfläche auch angewendet werden soll. Einige Felder nicht verwenden sollten `ApplyFormatInEditMode`. Beispielsweise sollte das Währungssymbol im Allgemeinen nicht in einem Text-Bearbeitungsfeld angezeigt werden.
+Die `ApplyFormatInEditMode` Einstellung gibt an, dass die Formatierung auf die Bearbeitungsoberfläche auch angewendet werden soll. Einige Felder verwenden keine `ApplyFormatInEditMode`. Beispielsweise sollte das Währungssymbol im Allgemeinen nicht in einem Text-Bearbeitungsfeld angezeigt werden.
 
 Die `DisplayFormat` -Attribut allein verwendet werden kann. Es wird im Allgemeinen empfiehlt sich, verwenden Sie die `DataType` -Attribut mit dem `DisplayFormat` Attribut. Die `DataType` Attribut übermittelt, die die Semantik der Daten im Gegensatz zu wie auf dem Bildschirm gerendert werden soll. Die `DataType` Attribut bietet die folgenden Vorteile, die in nicht verfügbar sind `DisplayFormat`:
 
@@ -373,10 +373,10 @@ public ICollection<Course> Courses { get; set; }
 
 Hinweis: EF Core können gemäß der Konvention kaskadierendes Delete für NULL--FKS. und für viele-zu-viele-Beziehungen. Löschweitergabe kann zirkuläre Cascade Delete Regeln führen. Zirkuläre kaskadierte Löschung Regeln verursacht eine Ausnahme, wenn eine Migration hinzugefügt wird.
 
-Beispielsweise, wenn die `Department.InstructorID` -Eigenschaft wurde nicht als auf NULL festlegbar definiert:
+Beispielsweise, wenn die `Department.InstructorID` Eigenschaft wurde nicht als auf NULL festlegbar definiert:
 
 * EF Core konfiguriert eine Cascade Delete-Regel klicken, um den Dozenten zu löschen, wenn die Abteilung gelöscht wird.
-* Den Dozenten löschen, wenn die Abteilung gelöscht wird, ist nicht das beabsichtigte Verhalten.
+* Den Dozenten löschen, wenn die Abteilung gelöscht wird, ist das beabsichtigte Verhalten nicht.
 
 Bei Bedarf von Geschäftsregeln die `InstructorID` Eigenschaft werden keine NULL-Werte zulässt, verwenden Sie die folgenden fluent-API-Anweisung:
 
@@ -431,7 +431,7 @@ Wenn die `Enrollment` Tabelle haben nicht Grade Informationen enthalten, er dür
 
 Die `Instructor` und `Course` Entitäten verfügen über eine m: n-Beziehung mit einer reinen Jointabelle.
 
-Hinweis: EF 6.x unterstützt die implizite Verknüpfung von Tabellen für m: n-Beziehungen, aber EF Core nicht. Weitere Informationen finden Sie unter [m: n-Beziehungen in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
+Hinweis: EF 6.x unterstützt keine implizite Verknüpfung von Tabellen für m: n-Beziehungen, aber EF Core. Weitere Informationen finden Sie unter [m: n-Beziehungen in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
 
 ## <a name="the-courseassignment-entity"></a>Die CourseAssignment-Entität
 
@@ -638,7 +638,7 @@ Mit den vorhergehenden Änderungen, die vorhandenen `Course` Zeilen werden im Zu
 Eine produktionsanwendung würde:
 
 * Einschließen von Code oder Skripts hinzufügen `Department` Zeilen und verwandte `Course` Zeilen mit dem neuen `Department` Zeilen.
-* Verwendet nicht die Abteilung "Temp" oder den Standardwert für `Course.DepartmentID `.
+* Verwenden Sie nicht die Abteilung "Temp" oder der Standardwert für `Course.DepartmentID`.
 
 Das nächste Lernprogramm behandelt die verknüpfte Daten.
 

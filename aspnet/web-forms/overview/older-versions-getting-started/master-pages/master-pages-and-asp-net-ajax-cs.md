@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Masterseiten und ASP.NET AJAX (c#)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 In den vergangenen Jahren hat mehr Entwickler erstellen wurden [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-Webanwendungen. Eine AJAX-aktivierten Website verwendet eine Reihe von verwandten webtechnologien, um eine Reaktionsgeschwindigkeit benutzererfahrung zu ermöglichen. Erstellen von ASP.NET AJAX-aktivierten Anwendungen ist erstaunlich einfach Dank Microsofts [ASP.NET AJAX-Framework](../../../../ajax/index.md). ASP.NET AJAX wird in ASP.NET 3.5 und Visual Studio 2008 erstellt. Es ist auch als separater Download für ASP.NET 2.0-Anwendungen verfügbar.
 
-Wenn AJAX-fähige Webseiten mit ASP.NET AJAX-Framework zu erstellen, müssen Sie genau eine hinzufügen [ScriptManager-Steuerelement](https://msdn.microsoft.com/en-us/library/bb398863.aspx) zu jeder Seite, die das Framework verwendet. Wie der Name schon sagt, verwaltet das ScriptManager die Skriptdatei auf Clientseite in AJAX-fähige Webseiten verwendet. Mindestens ausgibt ScriptManager HTML, der anweist, den Browser anzuweisen, den JavaScript-Dateien, Zusammensetzung der ASP.NET AJAX-Clientbibliothek herunterladen. Auch kann verwendet werden, um benutzerdefinierte JavaScript-Dateien, die Skript-aktivierten Webdiensten und Dienstfunktionalität benutzerdefinierte Anwendung zu registrieren.
+Wenn AJAX-fähige Webseiten mit ASP.NET AJAX-Framework zu erstellen, müssen Sie genau eine hinzufügen [ScriptManager-Steuerelement](https://msdn.microsoft.com/library/bb398863.aspx) zu jeder Seite, die das Framework verwendet. Wie der Name schon sagt, verwaltet das ScriptManager die Skriptdatei auf Clientseite in AJAX-fähige Webseiten verwendet. Mindestens ausgibt ScriptManager HTML, der anweist, den Browser anzuweisen, den JavaScript-Dateien, Zusammensetzung der ASP.NET AJAX-Clientbibliothek herunterladen. Auch kann verwendet werden, um benutzerdefinierte JavaScript-Dateien, die Skript-aktivierten Webdiensten und Dienstfunktionalität benutzerdefinierte Anwendung zu registrieren.
 
 Wenn Ihre Website verwendet Masterseiten (wie es sollten) müssen nicht unbedingt Sie jeder einzelnen Inhaltsseite ein ScriptManager-Steuerelement hinzu; Stattdessen können Sie die Gestaltungsvorlage ein ScriptManager-Steuerelement hinzufügen. Dieses Lernprogramm zeigt, wie die Gestaltungsvorlage ScriptManager-Steuerelement hinzu. Es sucht auch an, wie das ScriptManagerProxy-Steuerelement verwenden, um benutzerdefinierte Skripts und Skriptdienste in einer bestimmten Inhaltsseite zu registrieren.
 
@@ -117,7 +117,7 @@ Konfigurieren Sie die SqlDataSource-Steuerelement für die Verbindung zur Northw
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-Die `TOP 1` -Schlüsselwort in der `SELECT` -Klausel gibt nur den ersten Datensatz von der Abfrage zurückgegebenen zurück. Die [ `NEWID()` Funktion](https://msdn.microsoft.com/en-us/library/ms190348.aspx) generiert einen neuen [Wert globally unique Identifier (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) und kann verwendet werden, eine `ORDER BY` -Klausel, um die Tabelle Datensätze in zufälliger Reihenfolge zurück.
+Die `TOP 1` -Schlüsselwort in der `SELECT` -Klausel gibt nur den ersten Datensatz von der Abfrage zurückgegebenen zurück. Die [ `NEWID()` Funktion](https://msdn.microsoft.com/library/ms190348.aspx) generiert einen neuen [Wert globally unique Identifier (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) und kann verwendet werden, eine `ORDER BY` -Klausel, um die Tabelle Datensätze in zufälliger Reihenfolge zurück.
 
 
 [![Konfigurieren Sie die SqlDataSource um einen einzelnen, zufällig ausgewählten Datensatz zurückgeben](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
@@ -255,7 +255,7 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [ASP.NET AJAX-Framework](../../../../ajax/index.md)
+- [ASP.NET AJAX Framework](../../../../ajax/index.md)
 - [ASP.NET AJAX-Lernprogramme](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
 - [ASP.NET AJAX-Videos](../../../videos/aspnet-ajax/index.md)
 - [Erstellen von interaktiven Benutzeroberfläche mit Microsoft ASP.NET AJAX](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)

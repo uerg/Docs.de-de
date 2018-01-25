@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5fad4b659dafe5470aeb84d320ff711b8840d1e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>WebMatrix und ASP.NET Web Pages (Razor) Beta 3-Version-Infodatei
 ====================
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/10/2017
 > Installieren Sie auf einer unterstützten Plattform, darunter:
 > 
 > - Windows 7
-> - Windows Server 2008
+> - Windows Server 2008
 > - Windows Server 2008 R2
 > - Windows Vista SP1 oder höher
 > - Windows XP SP3
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 > Die verwalteten Assemblys für SQL Server Compact 4.0 werden nicht im globalen Assemblycache (GAC) abgelegt, wenn Sie SQL Server Compact 4.0 auf einem 64-Bit-Computer installieren, und der Computer nur .NET Framework 3.5 SP1-Client Profile installiert verfügt. Sind die verwalteten Assemblys, die nicht im GAC installiert werden:
 > 
 > - *"System.Data.SqlServerCe.dll"* (ADO.NET-Anbieter)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Dieses Problem zu umgehen**  
 > Deinstallieren von SQLServer Compact 4.0. Herunterladen Sie und installieren Sie die Vollversion von .NET Framework 3.5 SP1 vom folgenden Speicherort:  
@@ -162,9 +162,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > Beachten Sie, dass die `@{ }` Zeichen um den ursprünglichen Code in das Hilfsprogramm wird nicht mehr verwendet. Dies ist, da der Inhalt der Hilfsprogramme standardmäßig als Codeblock behandelt werden. Das Hilfsobjekt rendert Markup, der mit dem öffnenden beginnt `<a>` Tag. Wenn das Hilfsprogramm gerendert werden muss, nur-Text oder Tags, die kein schließendes Tag (z. B. `<meta>` Tags), muss der zu rendernden Inhalt `<text></text>` Tags.
 
 
-#### <a name="change-webpagecontexthttpcontext-removed"></a>Änderung: "WebPageContext.HttpContext" entfernt
+#### <a name="change-webpagecontexthttpcontext-removed"></a>Change: "WebPageContext.HttpContext" removed
 
-> Die `WebPageContext.HttpContext` Eigenschaft entfernt wurde. Verwenden Sie stattdessen `HttpContext.Current` . (Die `WebPageContext.HttpContext` -Eigenschaft umschlossen dies einfach.)
+> Die `WebPageContext.HttpContext` Eigenschaft entfernt wurde. Verwenden Sie stattdessen `HttpContext.Current`. (Die `WebPageContext.HttpContext` -Eigenschaft umschlossen dies einfach.)
 
 
 #### <a name="change-facebook-helper-moved-to-new-package"></a>Änderung: "Facebook"-Hilfsprogramm zum neuen Paket verschoben
@@ -265,7 +265,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> Weitere Informationen zum Konfigurieren eines Proxyservers finden Sie unter [ &lt;Proxy&gt; -Element (Netzwerkeinstellungen)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) auf der MSDN-Website.
+> Weitere Informationen zum Konfigurieren eines Proxyservers finden Sie unter [ &lt;Proxy&gt; -Element (Netzwerkeinstellungen)](https://msdn.microsoft.com/library/sa91de1e.aspx) auf der MSDN-Website.
 
 
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Problem: "Die Microsoft.Web.Infrastructure.dll kann nicht geladen werden" angezeigt
@@ -340,9 +340,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > 
 > 1. Kopieren Sie die Datenbank-Engine-Assemblys, die *"bin"* Ordner (und Unterordner) der Anwendung auf dem Zielcomputer: 
 > 
->     - Kopie *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **auf** *\Bin*
->     - Kopie *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **auf** *\Bin\x86*
->     - Kopie *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **auf** *\Bin\amd64*
+>     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **to** *\Bin*
+>     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **to** *\Bin\x86*
+>     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
 > 2. Klicken Sie im Stammordner der Website, erstellen oder öffnen Sie eine *"Web.config"* Datei. (In WebMatrix Beta 3 dieser Dateityp ist verfügbar, wenn Sie auf **alle** in der **wählen Sie einen Dateityp** (Dialogfeld).)
 > 3. Fügen Sie das folgende Element als untergeordnetes Element von der  **&lt;Konfiguration&gt;**  Element (befindet sich nicht in der  **&lt;system.web&gt;**  Element):
 > 
@@ -549,8 +549,8 @@ Weitere Informationen zu WebMatrix Beta 3 finden Sie unter den folgenden Website
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
 * * *
 
-© 2010 Microsoft Corporation. Alle Rechte vorbehalten. [Nutzungsbedingungen](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2010 Microsoft Corporation. Alle Rechte vorbehalten. [Nutzungsbedingungen](https://msdn.microsoft.cos/cc300389.aspx).

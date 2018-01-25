@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4332dce4c341cb8e5c241a67547048301ae9a8b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap
 
@@ -214,8 +214,8 @@ Breadcrumbs sind eine allgemeine Benutzeroberflächenkomponente verwendet, um ei
 
 ## <a name="javascript-support"></a>JavaScript-Unterstützung
 
-Bootstrap JavaScript-Bibliothek enthält die API-Unterstützung für die enthalten Komponenten, die Sie zum Steuern des Verhaltens programmgesteuert innerhalb der Anwendung. Darüber hinaus *bootstrap.js* enthält mehr als einem Dutzend benutzerdefinierte jQuery-Plug-Ins, zusätzliche Funktionen wie Übergänge, modale Dialogfelder, führen Sie einen Bildlauf Erkennung (Aktualisieren von Formatvorlagen basierend auf, in dem vom Benutzer in das Dokument verwendete hat), Reduzieren Verhalten Laufbänder und Anfügen von Menüs zu dem Fenster, sodass kein Bildlauf außerhalb des Bildschirms ausgeführt. Es ist nicht ausreichend Speicherplatz vorhanden ist, behandelt die JavaScript-Add-Ons Bootstrap – erfahren Sie mehr besuchen integriert [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Bootstrap JavaScript-Bibliothek enthält die API-Unterstützung für die enthalten Komponenten, die Sie zum Steuern des Verhaltens programmgesteuert innerhalb der Anwendung. Darüber hinaus *bootstrap.js* enthält mehr als einem Dutzend benutzerdefinierte jQuery-Plug-Ins, zusätzliche Funktionen wie Übergänge, modale Dialogfelder, führen Sie einen Bildlauf Erkennung (Aktualisieren von Formatvorlagen basierend auf, in dem vom Benutzer in das Dokument verwendete hat), Reduzieren Verhalten Laufbänder und Menüs zu dem Fenster, sodass sie außerhalb des Bildschirms einen Bildlauf nicht anfügen. Es ist nicht ausreichend Speicherplatz vorhanden ist, behandelt die JavaScript-Add-Ons Bootstrap – erfahren Sie mehr besuchen integriert [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Zusammenfassung
 
-Bootstrap bietet ein Web-Framework, die schnell und produktiver gestalten und Formatieren einer Vielzahl von Websites und Anwendungen verwendet werden kann. Seine grundlegenden Typografie und Formatvorlagen bieten ein angenehmeren Aussehen und Verhalten, die einfach durch die Unterstützung für benutzerdefiniertes Design, bearbeitet werden kann, die manuell erstellte oder im Handel erworben werden können. Unterstützt eine Vielzahl von Webkomponenten, die in der Vergangenheit teure Drittanbieter-Steuerelemente zu erreichen und moderne und offene Webstandards unterstützen, verfügen über erforderliche würde.
+Bootstrap bietet ein Web-Framework, die schnell und produktiver gestalten und Formatieren einer Vielzahl von Websites und Anwendungen verwendet werden kann. Seine grundlegenden Typografie und Formatvorlagen bieten ein angenehmeren Aussehen und Verhalten, die einfach durch die Unterstützung für benutzerdefiniertes Design, bearbeitet werden kann, die manuell erstellte oder im Handel erworben werden können. Unterstützt eine Vielzahl von Webkomponenten, die in der Vergangenheit teure Drittanbieter-Steuerelemente und unterstützen moderne und offene Webstandards zu erreichen, würde angefordert haben.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing und Aktionsauswahl in ASP.NET Web-API
 ====================
@@ -80,13 +80,13 @@ Ein Standardwert kann den speziellen Wert ist **RouteParameter.Optional**. Wenn 
 Für den URI-Pfad "-api/Products" enthält des Routenwörterbuchs:
 
 - Controller: "Products"
-- Kategorie: "alle"
+- category: "all"
 
 Für "api/Produkte/Toys/123" wird die Routenwörterbuchs enthalten:
 
 - Controller: "Products"
 - Kategorie: "Toys"
-- ID: "123"
+- id: "123"
 
 Die Standardwerte können auch einen Wert, der nicht, eine beliebige Stelle angezeigt wird in der routenvorlage einschließen. Wenn die Route übereinstimmt, wird dieser Wert im Wörterbuch gespeichert. Zum Beispiel:
 
@@ -95,7 +95,7 @@ Die Standardwerte können auch einen Wert, der nicht, eine beliebige Stelle ange
 Wenn der URI-Pfad "Root/api/8" ist, wird das Wörterbuch zwei Werte enthalten:
 
 - Controller: "Customers"
-- ID: "8"
+- id: "8"
 
 ## <a name="selecting-a-controller"></a>Auswählen eines Controllers
 
@@ -121,7 +121,7 @@ Die standardmäßige Implementierung erfolgt durch die **ApiControllerActionSele
 
 Vor dem ansehen des Auswahl-Algorithmus, müssen wir einige Dinge Controlleraktionen zu verstehen.
 
-**Welche Methoden auf dem Controller "Aktionen" berücksichtigt werden?** Wenn Sie eine Aktion auswählen, prüft das Framework nur öffentliche Instanzmethoden auf dem Controller. Darüber hinaus schließt er ["spezielle Name"](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname) Methoden (Konstruktoren, Ereignisse, operatorüberladungen usw.) und von geerbten Methoden der **ApiController** Klasse.
+**Welche Methoden auf dem Controller "Aktionen" berücksichtigt werden?** Wenn Sie eine Aktion auswählen, prüft das Framework nur öffentliche Instanzmethoden auf dem Controller. Darüber hinaus schließt er ["spezielle Name"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) Methoden (Konstruktoren, Ereignisse, operatorüberladungen usw.) und von geerbten Methoden der **ApiController** Klasse.
 
 **HTTP-Methoden.** Das Framework entscheidet sich nur auf Aktionen, die entsprechen die HTTP-Methode der Anforderung, wie folgt bestimmt:
 
@@ -134,7 +134,7 @@ Vor dem ansehen des Auswahl-Algorithmus, müssen wir einige Dinge Controllerakti
 - Einfache Typen stammen aus dem URI.
 - Komplexe Typen stammen aus dem Anforderungstext.
 
-Zu einfachen Typen gehören alle von der [.NET Framework-primitive Typen](https://msdn.microsoft.com/en-us/library/system.type.isprimitive), plus **"DateTime"**, **Decimal**, **Guid**, **Zeichenfolge** , und **TimeSpan**. Für jede Aktion kann höchstens einen Parameter Anforderungstext lesen.
+Zu einfachen Typen gehören alle von der [.NET Framework-primitive Typen](https://msdn.microsoft.com/library/system.type.isprimitive), plus **"DateTime"**, **Decimal**, **Guid**, **Zeichenfolge** , und **TimeSpan**. Für jede Aktion kann höchstens einen Parameter Anforderungstext lesen.
 
 > [!NOTE]
 > Es ist möglich, die Standardregeln für die Bindung zu überschreiben. Finden Sie unter [WebAPI parameterbindung hinter den Kulissen](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
@@ -192,7 +192,7 @@ HTTP-Anforderung:
 Der URI mit der Route, die mit dem Namen "DefaultApi" übereinstimmt. Die Route-Wörterbuch enthält die folgenden Einträge:
 
 - Controller: "Products"
-- ID: "1"
+- id: "1"
 
 Des Routenwörterbuchs enthält nicht den Abfragezeichenfolgen-Parametern, "Version" und "Details", aber diese werden weiterhin während Aktionsauswahl berücksichtigt werden.
 
@@ -209,7 +209,7 @@ Als Nächstes verwenden wir Parameternamen für die Aktionen entsprechend betrac
 | Aktion | Parameter zur Übereinstimmung |
 | --- | --- |
 | `GetAll` | Keine |
-| `GetById` | "Id" |
+| `GetById` | "id" |
 | `FindProductsByName` | "Name" |
 
 Beachten Sie, dass die *Version* Parameter `GetById` nicht berücksichtigt, da es sich um einen optionalen Parameter handelt.
@@ -218,7 +218,7 @@ Die `GetAll` Methode entspricht im Grunde. Die `GetById` Methode auch entspricht
 
 Die `GetById` wins-Methode, da es sich um einen Parameter, und keine Parameter für entspricht `GetAll`. Die Methode wird mit den folgenden Parameterwerte aufgerufen:
 
-- *ID* = 1
+- *id* = 1
 - *Version* = 1.5
 
 Beachten Sie, dass, obwohl *Version* nicht verwendet wurde, in der Auswahl-Algorithmus stammt der Wert des Parameters aus der URI-Abfragezeichenfolge.
@@ -227,7 +227,7 @@ Beachten Sie, dass, obwohl *Version* nicht verwendet wurde, in der Auswahl-Algor
 
 Web-API stellt Erweiterungspunkte bereit, für einige Teile der routing-Prozess.
 
-| Schnittstelle | Beschreibung |
+| Interface | Beschreibung |
 | --- | --- |
 | **IHttpControllerSelector** | Wählt den Controller. |
 | **IHttpControllerTypeResolver** | Ruft die Liste der Controllertypen ab. Die **DefaultHttpControllerSelector** wählt den Controllertyp aus dieser Liste. |

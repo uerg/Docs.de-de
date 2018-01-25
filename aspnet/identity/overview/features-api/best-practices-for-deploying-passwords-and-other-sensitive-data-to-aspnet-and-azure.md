@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure App Service
 ====================
@@ -54,7 +54,7 @@ Das Markup in der externen Datei (*AppSettingsSecrets.config* in diesem Beispiel
 Die ASP.NET-Laufzeit führt den Inhalt der externen Datei mit dem Markup im &lt;"appSettings"&gt; Element. Die Common Language Runtime ignoriert das Dateiattribut ", wenn die angegebene Datei nicht gefunden werden kann.
 
 > [!WARNING]
-> Sicherheit – fügen Sie keine Ihrer *geheime Schlüssel config* -Datei in Ihrem Projekt, oder checken Sie es in die quellcodeverwaltung. Standardmäßig legt Visual Studio die `Build Action` zu `Content`, was bedeutet, dass die Datei bereitgestellt wird. Weitere Informationen finden Sie unter [Warum nicht alle Dateien im Projekt-Ordner bereitgestellt?](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Obwohl Sie können eine beliebige Erweiterung für die *geheime Schlüssel config* Datei, es wird empfohlen, ihn zu *config*, wie die Konfigurationsdateien von IIS nicht verarbeitet werden. Beachten Sie auch, dass die *AppSettingsSecrets.config* Datei ist zwei Directory Ebenen oberhalb von der *"Web.config"* Datei, damit es vollständig außerhalb des dem Projektmappenverzeichnis liegt. Durch Verschieben der Datei aus dem Projektmappenverzeichnis &quot;Git hinzufügen \* &quot; wird nicht an Ihr Repository hinzufügen.
+> Sicherheit – fügen Sie keine Ihrer *geheime Schlüssel config* -Datei in Ihrem Projekt, oder checken Sie es in die quellcodeverwaltung. Standardmäßig legt Visual Studio die `Build Action` zu `Content`, was bedeutet, dass die Datei bereitgestellt wird. Weitere Informationen finden Sie unter [Warum nicht alle Dateien im Projekt-Ordner bereitgestellt?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Obwohl Sie können eine beliebige Erweiterung für die *geheime Schlüssel config* Datei, es wird empfohlen, ihn zu *config*, wie die Konfigurationsdateien von IIS nicht verarbeitet werden. Beachten Sie auch, dass die *AppSettingsSecrets.config* Datei ist zwei Directory Ebenen oberhalb von der *"Web.config"* Datei, damit es vollständig außerhalb des dem Projektmappenverzeichnis liegt. Durch Verschieben der Datei aus dem Projektmappenverzeichnis &quot;Git hinzufügen \* &quot; wird nicht an Ihr Repository hinzufügen.
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Wenn Sie Ihre Web-app in Azure, Bereitstellen der *AppSettingsSecrets.config* (d
 
 Der **Anwendungseinstellungen** und **Verbindungszeichenfolge** Werte überschreiben die gleichen Einstellungen in der *"Web.config"* Datei. In unserem Beispiel wir nicht diese Einstellungen in Azure bereitstellen, aber das wäre, wenn diese Schlüssel der *"Web.config"* Datei, die die Einstellungen im Portal angezeigt würde haben Vorrang vor.
 
-Eine bewährte Methode besteht darin, befolgen eine [DevOps-Workflow](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) und [Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (oder einem anderen Framework, z. B. [Chef](http://www.opscode.com/chef/) oder [Puppet](http://puppetlabs.com/puppet/what-is-puppet)), diese Einstellungswerte in Azure zu automatisieren. Das folgende PowerShell-Skript verwendet [Export CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) So exportieren Sie die verschlüsselten geheimen Schlüssel auf den Datenträger:
+Eine bewährte Methode besteht darin, befolgen eine [DevOps-Workflow](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) und [Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (oder einem anderen Framework, z. B. [Chef](http://www.opscode.com/chef/) oder [Puppet](http://puppetlabs.com/puppet/what-is-puppet)), diese Einstellungswerte in Azure zu automatisieren. Das folgende PowerShell-Skript verwendet [Export CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) So exportieren Sie die verschlüsselten geheimen Schlüssel auf den Datenträger:
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ In das obige Skript ist "Name" der Name des geheimen Schlüssels, z. B. "&quot;F
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> Sicherheit – keine Kennwörter oder andere geheime Schlüssel in das PowerShell-Skript, das auf diese Weise entspricht dies der Fall ist der Zweck der Verwendung von PowerShell-Skript zum Bereitstellen von sensiblen Daten enthalten. Die [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx) Cmdlet bietet einen sicheren Mechanismus zum Abrufen eines Kennworts. Eine UI-Eingabe kann zu verhindern, dass ein Kennwort zu gelangen.
+> Sicherheit – keine Kennwörter oder andere geheime Schlüssel in das PowerShell-Skript, das auf diese Weise entspricht dies der Fall ist der Zweck der Verwendung von PowerShell-Skript zum Bereitstellen von sensiblen Daten enthalten. Die [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) Cmdlet bietet einen sicheren Mechanismus zum Abrufen eines Kennworts. Eine UI-Eingabe kann zu verhindern, dass ein Kennwort zu gelangen.
 
 
 ### <a name="deploying-db-connection-strings"></a>Bereitstellen von DB-Verbindungszeichenfolgen
@@ -119,7 +119,7 @@ Seit der Schlüssel-/ Wertpaare für beide **Anwendungseinstellungen** und **Ver
 
 ## <a name="notes-for-on-premises-servers"></a>Anmerkungen zu dieser lokalen Server
 
-Wenn Sie zu einer lokalen Webservern bereitstellen, helfen Sie sichere Kennwörter durch [Verschlüsseln der Konfigurationsabschnitte Konfigurationsdateien](https://msdn.microsoft.com/en-us/library/ff647398.aspx). Als Alternative können Sie den gleichen Ansatz für Azure-Websites empfohlen: Beibehalten der entwicklungseinstellungen in Konfigurationsdateien und verwendet Sie Werte für Umgebungsvariablen für die Produktion. In diesem Fall jedoch, Sie schreiben müssen, Anwendungscode für die Funktionalität, die in Azure-Websites automatisch ausgeführt wird: Abrufen von Einstellungen aus der Umgebungsvariablen und anhand dieser Werte anstelle Dienstkonfigurations-dateieinstellungen bzw. Dienstkonfigurations-dateieinstellungen bei Umgebungsvariablen werden nicht gefunden.
+Wenn Sie zu einer lokalen Webservern bereitstellen, helfen Sie sichere Kennwörter durch [Verschlüsseln der Konfigurationsabschnitte Konfigurationsdateien](https://msdn.microsoft.com/library/ff647398.aspx). Als Alternative können Sie den gleichen Ansatz für Azure-Websites empfohlen: Beibehalten der entwicklungseinstellungen in Konfigurationsdateien und verwendet Sie Werte für Umgebungsvariablen für die Produktion. In diesem Fall jedoch, Sie schreiben müssen, Anwendungscode für die Funktionalität, die in Azure-Websites automatisch ausgeführt wird: Abrufen von Einstellungen aus der Umgebungsvariablen und anhand dieser Werte anstelle Dienstkonfigurations-dateieinstellungen bzw. Dienstkonfigurations-dateieinstellungen bei Umgebungsvariablen werden nicht gefunden.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a2720c8dbd1b0fb12d4000ac5e309e203128604
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interaktion mit der Seite Inhalt aus der Gestaltungsvorlage (VB)
 ====================
@@ -158,7 +158,7 @@ Eine Klasse abonniert ein Ereignis durch das Erstellen einer *Ereignishandler*, 
 Der zweite Parameter, die an einen Ereignishandler übergeben kann zusätzliche Informationen zum Ereignis enthalten. Während die Base `EventArgs` Klasse übergibt nicht auf alle Informationen, die .NET Framework enthält eine Reihe von Klassen, mit denen erweitert `EventArgs` und umfasst zusätzliche Eigenschaften. Z. B. eine `CommandEventArgs` Instanz an, auf die reagiert Ereignishandler übergeben wird die `Command` Ereignis, und enthält zwei informative Eigenschaften: `CommandArgument` und `CommandName`.
 
 > [!NOTE]
-> Weitere Informationen zum Erstellen, durch das Auslösen und Behandeln von Ereignissen finden Sie unter [Ereignissen und Delegaten](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx) und [Ereignisdelegaten in einfachen englische](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Weitere Informationen zum Erstellen, durch das Auslösen und Behandeln von Ereignissen finden Sie unter [Ereignissen und Delegaten](https://msdn.microsoft.com/library/17sde2xt.aspx) und [Ereignisdelegaten in einfachen englische](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 
 Zum definieren ein Ereignisses, verwenden die folgende Syntax:
@@ -251,7 +251,7 @@ Viel Spaß beim Programmieren!
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
 - [Zugreifen auf und Aktualisieren von Daten in ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Ereignisse und Delegaten](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)
+- [Ereignisse und Delegaten](https://msdn.microsoft.com/library/17sde2xt.aspx)
 - [Übergeben von Informationen zwischen dem Inhalt und Masterseiten](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Arbeiten mit Daten in ASP.NET-Lernprogramme](../../data-access/index.md)
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Aktualisieren von verknüpften Daten - EF Core Razor-Seiten (7 von 8)
 
@@ -91,7 +91,7 @@ Update *Pages/Courses/Edit.cshtml* durch Folgendes Markup:
 
 Das vorhergehende Markup nimmt folgende Änderungen:
 
-* Zeigt die Kurs-ID an. Der primäre Schlüssel (PK) einer Entität wird im Allgemeinen nicht angezeigt. PKs sind in der Regel für Benutzer ohne Bedeutung. In diesem Fall ist der Primärschlüssel der Kurs Anzahl.
+* Zeigt die Kurs-ID an. Der primäre Schlüssel (PK) einer Entität werden im Allgemeinen nicht angezeigt. PKs sind in der Regel für Benutzer ohne Bedeutung. In diesem Fall ist der Primärschlüssel der Kurs Anzahl.
 * Ändert die Beschriftung von **"DepartmentID"** auf **Abteilung**.
 * Ersetzt `"ViewBag.DepartmentID"` mit `DepartmentNameSL` (von der Basisklasse).
 * Fügt die Option "Select-Abteilung". Diese Änderung wird anstelle der ersten Abteilung "Select-Abteilung" gerendert.
@@ -164,7 +164,7 @@ Lehrkräfte können eine beliebige Anzahl von Kurse werden folgende Themen behan
 Kontrollkästchen aktivieren, Änderungen an der Kurse, denen ein Kursleiter zugewiesen ist. Ein Kontrollkästchen wird für jede Vorgehensweise in der Datenbank angezeigt. Kurse, denen der Dozenten zugewiesen ist, werden überprüft. Der Benutzer kann aktivieren oder deaktivieren Kontrollkästchen, um den Kurs Zuweisungen zu ändern. Wenn die Anzahl der Kurse viel größer sind:
 
 * Wahrscheinlich verwenden Sie eine andere Benutzeroberfläche, um die Kurse anzuzeigen.
-* Die Methode zum Bearbeiten einer Joinentität zum Erstellen oder Löschen von Beziehungen werden nicht geändert.
+* Die Methode zum Bearbeiten einer Joinentität zum Erstellen oder Löschen von Beziehungen würde nicht ändern.
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Hinzufügen von Klassen zur Unterstützung Instructor-Seiten erstellen und bearbeiten
 

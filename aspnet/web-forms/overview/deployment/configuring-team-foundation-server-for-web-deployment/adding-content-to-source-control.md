@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>Hinzufügen von Inhalt zur Quellcodeverwaltung
 ====================
@@ -90,7 +90,7 @@ Um Projekte und Projektmappen zur quellcodeverwaltung hinzufügen, müssen Sie s
 1. Verschieben Sie auf der Arbeitsstation Developer die Projekte und Projektmappen auf einen geeigneten Speicherort innerhalb der Struktur zugeordneten Ordner für das Teamprojekt aus.
 
     > [!NOTE]
-    > Viele Organisationen haben einen bevorzugten Ansatz, wie Projekte und Projektmappen in der quellcodeverwaltung strukturiert sein sollte. Anleitungen zum Struktur Ordnern finden Sie unter [How To: Struktur des Steuerelements Quellordnern in Team Foundation Server](https://msdn.microsoft.com/en-us/library/bb668992.aspx).
+    > Viele Organisationen haben einen bevorzugten Ansatz, wie Projekte und Projektmappen in der quellcodeverwaltung strukturiert sein sollte. Anleitungen zum Struktur Ordnern finden Sie unter [How To: Struktur des Steuerelements Quellordnern in Team Foundation Server](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Öffnen Sie die Projektmappe in Visual Studio 2010.
 3. In der **Projektmappen-Explorer** rechten Maustaste auf die Projektmappe, und klicken Sie dann auf **Projektmappe zur Quellcodeverwaltung hinzufügen**.
 
@@ -147,15 +147,15 @@ Die Ordnerstruktur für die Projektmappe Contact Manager enthält beispielsweise
 
 An diesem Punkt haben Sie die externen Abhängigkeiten für Ihre Projektmappe zur quellcodeverwaltung hinzugefügt.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
-In diesem Thema beschrieben, wie eine Verbindung mit einem Teamprojekt herstellen, ordnen Sie eine Ordnerstruktur und Inhalte zur quellcodeverwaltung hinzufügen. Weitere Informationen zum Arbeiten mit Elementen in der quellcodeverwaltung finden Sie unter [verwenden der Versionskontrolle](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+In diesem Thema beschrieben, wie eine Verbindung mit einem Teamprojekt herstellen, ordnen Sie eine Ordnerstruktur und Inhalte zur quellcodeverwaltung hinzufügen. Weitere Informationen zum Arbeiten mit Elementen in der quellcodeverwaltung finden Sie unter [verwenden der Versionskontrolle](https://msdn.microsoft.com/library/ms181368.aspx).
 
 Im nächsten Thema [eine TFS-Build-Server für die Bereitstellung konfigurieren](configuring-a-tfs-build-server-for-web-deployment.md), enthält Informationen zum Vorbereiten eines TFS Team Build-Servers zum Erstellen und Bereitstellen der Projektmappe.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Umfassendere Informationen zum Arbeiten mit Datenquellen-Steuerelements in TFS finden Sie unter [verwenden der Versionskontrolle](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Umfassendere Informationen zum Arbeiten mit Datenquellen-Steuerelements in TFS finden Sie unter [verwenden der Versionskontrolle](https://msdn.microsoft.com/library/ms181368.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](creating-a-team-project-in-tfs.md)

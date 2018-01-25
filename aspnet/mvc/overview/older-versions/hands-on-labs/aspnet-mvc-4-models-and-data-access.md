@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: bf4bb5c6f9ad8339c3597b0d6666c7077ac476e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4-Modellen und Datenzugriff
 ====================
@@ -27,7 +27,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 In **ASP.NET MVC-Grundlagen** praktische Übungseinheit, Sie haben wurde übergeben hartcodierte Daten durch den Controller, um die Vorlagen anzeigen. Allerdings um eine echte Webanwendung zu erstellen, sollten Sie eine echte Datenbank verwendet.
@@ -235,7 +235,7 @@ In dieser Aufgabe aktualisieren Sie die StoreController-Klasse, anstatt Sie hart
     > [!NOTE]
     > Verwenden Sie eine Funktion von .NET aufgerufen **LINQ** (Language-integrated Query), stark typisierte Abfrageausdrücke anhand dieser Sammlungen - schreiben Code für die Datenbank ausgeführt und zurückgegeben-Objekten, die Sie programmieren können vor.
     > 
-    > Weitere Informationen über LINQ finden Sie auf der [Msdn-Website](https://msdn.microsoft.com/en-us/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+    > Weitere Informationen über LINQ finden Sie auf der [Msdn-Website](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
 3. Update **Index** Aktionsmethode, um alle Genres abzurufen.
 
     (Codeausschnitt - *Modelle und Datenzugriff - Ex1 Columnstore-Index*)
@@ -351,7 +351,7 @@ Nun, dass Sie die Verbindung mit der Datenbank bereits konfiguriert haben, verkn
     > [!NOTE]
     > Zum Arbeiten mit Code First-Konventionen benötigen die Klasse "Genre" eine Primärschlüsseleigenschaft, die automatisch erkannt wird.
     > 
-    > Erfahren Sie mehr über Code First-Konventionen in diesem [Msdn-Artikel](https://msdn.microsoft.com/en-us/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+    > Erfahren Sie mehr über Code First-Konventionen in diesem [Msdn-Artikel](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
 2. Öffnen Sie das Modell POCO-Klasse jetzt **Album** aus **Modelle** Projektordner und die Fremdschlüssel enthalten, Erstellen von Eigenschaften mit den Namen **GenreId** und  **ArtistId**. Diese Klasse bereits haben die **GenreId** für den Primärschlüssel.
 
     (Codeausschnitt - *Modelle und Datenzugriff - Ex2 Code erste Album*)
@@ -385,7 +385,7 @@ Nun, dass Sie die Verbindung mit der Datenbank bereits konfiguriert haben, verkn
     [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
     > [!NOTE]
-    > Mit Entity Framework **DbContext** und **DBSet** werden POCO-Klasse "Genre" Abfragen. Durch die Erweiterung **OnModelCreating** -Methode, geben Sie der **Code** wie "Genre" in einer Datenbanktabelle zugeordnet werden. Weitere Informationen zu ' DbContext ' und ' DbSet ' finden Sie in diesem Msdn-Artikel: [Link](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)
+    > Mit Entity Framework **DbContext** und **DBSet** werden POCO-Klasse "Genre" Abfragen. Durch die Erweiterung **OnModelCreating** -Methode, geben Sie der **Code** wie "Genre" in einer Datenbanktabelle zugeordnet werden. Weitere Informationen zu ' DbContext ' und ' DbSet ' finden Sie in diesem Msdn-Artikel: [Link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -416,7 +416,7 @@ In dieser Aufgabe aktualisieren Sie die StoreController-Klasse so, dass anstelle
     > [!NOTE]
     > Verwenden Sie eine Funktion von .NET aufgerufen **LINQ** (Language-integrated Query), stark typisierte Abfrageausdrücke anhand dieser Sammlungen - schreiben Code für die Datenbank ausgeführt und zurückgegeben-Objekten, die Sie programmieren können vor.
     > 
-    > Weitere Informationen über LINQ finden Sie auf der [Msdn-Website](https://msdn.microsoft.com/en-us/library/bb397926(v=vs.110).aspx).
+    > Weitere Informationen über LINQ finden Sie auf der [Msdn-Website](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
 3. Update **Index** Aktionsmethode, um alle Genres abzurufen.
 
     (Codeausschnitt - *Modelle und Datenzugriff - Ex2 Columnstore-Index*)
@@ -457,7 +457,7 @@ In dieser Aufgabe überprüfen Sie, dass die Columnstore-Index-Seite die in der 
 In dieser Übung erfahren Sie, zum Abfragen der Datenbank mithilfe von Parametern und Gewusst wie: Verwenden Sie die Abfrage Ergebnis strukturiert werden, eine Funktion, die die Zahl Datenbank reduziert Abrufen von Daten in eine effizientere Methode zugreift.
 
 > [!NOTE]
-> Weitere Informationen zu Abfrage Ergebnis strukturiert werden, finden Sie auf der folgenden [Msdn-Artikel](https://msdn.microsoft.com/en-us/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
+> Weitere Informationen zu Abfrage Ergebnis strukturiert werden, finden Sie auf der folgenden [Msdn-Artikel](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
 
 
 <a id="Ex3Task1"></a>
@@ -531,7 +531,7 @@ In dieser Aufgabe wird die Anwendung in einem Webbrowser ausführen und erhalten
 
     ![Durchsuchen von Details](aspnet-mvc-4-models-and-data-access/_static/image25.png "Details durchsuchen")
 
-    */Store/Details/51 durchsuchen*
+    *Browsing /Store/Details/51*
 
 > [!NOTE]
 > Darüber hinaus können Sie die Bereitstellung dieser Anwendung, die Windows Azure-Websites folgenden [Anhang B: Veröffentlichen einer ASP.NET MVC 4-Anwendung mithilfe von Web Deploy](#AppendixB).
@@ -639,7 +639,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Windows Azure websites.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](aspnet-mvc-4-models-and-data-access/_static/image37.png "der Website herunterladen eines Veröffentlichungsprofils")
 

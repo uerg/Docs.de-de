@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e1e77dde4602350b18508bf5d71dbcd953f8961c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-vb"></a>Batch eingefügt (VB)
 ====================
@@ -96,7 +96,7 @@ Beginnen Sie, indem Sie ziehen ein Panel aus der Toolbox in den Designer, und pl
 Als Nächstes müssen wir die einfügende Schnittstelle erstellen, die wieder in Abbildung 1 dargestellt wurde. Diese Schnittstelle kann über eine Reihe von HTML-Techniken erstellt werden, jedoch verwenden wir eine recht einfach: eine vierspaltige, sieben-Zeile-Tabelle.
 
 > [!NOTE]
-> Wenn Sie für HTML-Markup eingeben `<table>` Elemente, ich möchte die Quellansicht verwenden. Während der Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente mithilfe des Designers, der Designer scheint alle zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich erstellt habe haben die `<table>` Markup ich in der Regel zurückgeben in den Designer der Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich möchte mit statischem HTML-Code statt über das [Tabelle Websteuerelement](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) da alle Websteuerelemente in einer Tabelle Websteuerelement platziert nur zugegriffen werden können, mithilfe der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch Größe von Tabellen (von denen auf einige Datenbank oder die benutzerspezifische Kriterien, deren Zeilen oder Spalten basieren), seit der Tabelle Web, das Steuerelement programmgesteuert erstellt werden kann.
+> Wenn Sie für HTML-Markup eingeben `<table>` Elemente, ich möchte die Quellansicht verwenden. Während der Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente mithilfe des Designers, der Designer scheint alle zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich erstellt habe haben die `<table>` Markup ich in der Regel zurückgeben in den Designer der Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich möchte mit statischem HTML-Code statt über das [Tabelle Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) da alle Websteuerelemente in einer Tabelle Websteuerelement platziert nur zugegriffen werden können, mithilfe der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch Größe von Tabellen (von denen auf einige Datenbank oder die benutzerspezifische Kriterien, deren Zeilen oder Spalten basieren), seit der Tabelle Web, das Steuerelement programmgesteuert erstellt werden kann.
 
 
 Geben Sie das folgende Markup innerhalb der `<asp:Panel>` des Tags der `InsertingInterface` Bereich:
@@ -276,4 +276,4 @@ Viel Spaß beim Programmieren!
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Führen Sie Prüfer für dieses Lernprogramm Hilton Giesenow und S Ren Jacob Lauritsen wurden. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Zurück](batch-deleting-vb.md)
+[Vorherige](batch-deleting-vb.md)

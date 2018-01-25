@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ced68b633eb34d1ea75671ac4ffe7f512e911a0d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3bfaa0e14e3e04a7faae1a78b566d7c2067785a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Benutzer und Rollen in der Produktionswebsite (VB)
 ====================
@@ -37,7 +37,7 @@ Eine allgemeine Herausforderung für Entwickler unter Verwendung des Diensts Mit
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>Verwenden die ASP.NET Webseite-Administrationstool
 
-ASP.NET umfasst einen [Websiteverwaltungs-Tool](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) (WSAT) können sie leicht erstellen und Verwalten von Benutzerkonten und Rollen und Benutzer und rollenbasierte Autorisierungsregeln an. Um die WSAT zu verwenden, klicken Sie auf das Symbol "ASP.NET-Konfiguration" im Projektmappen-Explorer oder wechseln Sie zu der Website oder ein Projekt im Menü, und wählen Sie die Konfigurationsoption für ASP.NET. Beide Vorgehensweisen startet einen Webbrowser und zeigt sie auf die WSAT an einer Adresse wie:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET umfasst einen [Websiteverwaltungs-Tool](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) können sie leicht erstellen und Verwalten von Benutzerkonten und Rollen und Benutzer und rollenbasierte Autorisierungsregeln an. Um die WSAT zu verwenden, klicken Sie auf das Symbol "ASP.NET-Konfiguration" im Projektmappen-Explorer oder wechseln Sie zu der Website oder ein Projekt im Menü, und wählen Sie die Konfigurationsoption für ASP.NET. Beide Vorgehensweisen startet einen Webbrowser und zeigt sie auf die WSAT an einer Adresse wie:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 Die WSAT ist in drei Abschnitte unterteilt:
 
@@ -116,8 +116,8 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 - [ASP wird untersucht. NET Mitgliedschaft, Rollen und Profile](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Paralleles eigene Websiteverwaltungs-Tool](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Website-Tool (Übersicht)](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [Website-Tool (Übersicht)](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Lernprogramme für Website-Sicherheit](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]
-[Zurück](precompiling-your-website-vb.md)
+[Vorherige](precompiling-your-website-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: "Web.config" Dateitransformationen - 3 von 12
 ====================
@@ -37,7 +37,7 @@ Hinweis: Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, we
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>"Web.config" Transformationen im Vergleich zu Web bereitstellen, Parameter
 
-Es gibt zwei Möglichkeiten zum Automatisieren von veränderlichen *"Web.config"* Settings-Datei: ["Web.config" Transformationen](https://msdn.microsoft.com/en-us/library/dd465326.aspx) und [Web Deploy-Parameter](https://msdn.microsoft.com/en-us/library/ff398068.aspx). Ein *"Web.config"* Transformationsdatei enthält XML-Markup, der angibt, wie Sie ändern die *"Web.config"* Datei bei der Bereitstellung. Sie können die verschiedene Änderungen für bestimmte Buildkonfigurationen und für bestimmte Veröffentlichungsprofile angeben. Die standardmäßige Buildkonfigurationen werden Debug- und, und Sie können benutzerdefinierte Buildkonfigurationen erstellen. Ein Veröffentlichungsprofil entspricht in der Regel eine zielumgebung. (Erfahren Sie mehr über Veröffentlichungsprofile in der [Bereitstellung in IIS als Testumgebung](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) Lernprogramm.)
+Es gibt zwei Möglichkeiten zum Automatisieren von veränderlichen *"Web.config"* Settings-Datei: ["Web.config" Transformationen](https://msdn.microsoft.com/library/dd465326.aspx) und [Web Deploy-Parameter](https://msdn.microsoft.com/library/ff398068.aspx). Ein *"Web.config"* Transformationsdatei enthält XML-Markup, der angibt, wie Sie ändern die *"Web.config"* Datei bei der Bereitstellung. Sie können die verschiedene Änderungen für bestimmte Buildkonfigurationen und für bestimmte Veröffentlichungsprofile angeben. Die standardmäßige Buildkonfigurationen werden Debug- und, und Sie können benutzerdefinierte Buildkonfigurationen erstellen. Ein Veröffentlichungsprofil entspricht in der Regel eine zielumgebung. (Erfahren Sie mehr über Veröffentlichungsprofile in der [Bereitstellung in IIS als Testumgebung](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) Lernprogramm.)
 
 Web Deploy-Parameter können verwendet werden, können viele verschiedene Arten von Einstellungen angeben, die konfiguriert werden müssen, während der Bereitstellung, einschließlich der Einstellungen, die im gefunden *"Web.config"* Dateien. Wenn zur Angabe *"Web.config"* Datei ändert, Web Deploy-Parameter sind komplexer eingerichtet, aber sie sind hilfreich, wenn Sie den Wert festgelegt werden, bevor Sie bereitstellen, nicht kennen. Z. B. in einer unternehmensumgebung möglicherweise erstellen Sie eine *Bereitstellungspaket* und weisen Sie ihm eine Person in der IT-Abteilung in einer produktionsumgebung installieren und diese Person hat in der Lage, geben Verbindungszeichenfolgen oder Kennwörter, die Sie nicht kennen.
 
@@ -146,7 +146,7 @@ Sie haben jetzt alle angegeben die *"Web.config"* Transformationen, die Sie ben�
 
 ## <a name="more-information"></a>Weitere Informationen
 
-Weitere Informationen zu den von diesem Lernprogramm behandelten Themen finden Sie unter "Web.config" Transformation für Szenario in [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Weitere Informationen zu den von diesem Lernprogramm behandelten Themen finden Sie unter "Web.config" Transformation für Szenario in [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx).
 
 >[!div class="step-by-step"]
 [Zurück](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
