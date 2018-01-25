@@ -2,20 +2,18 @@
 title: ASP.NET Core-Web-API-Hilfeseiten mit Swagger
 author: spboyer
 description: "Dieses Tutorial enthält eine exemplarische Vorgehensweise für das Hinzufügen von Swagger, um Dokumentationen und Hilfeseiten für eine Web-API-Anwendung zu generieren."
-keywords: ASP.NET Core, Swagger, Swashbuckle, Hilfeseiten, Web-API
 ms.author: spboyer
 manager: wpickett
 ms.date: 09/01/2017
 ms.topic: article
-ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 630378510f4182034735cb4c306dfc5a761543ab
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: d044c820057dba762d3a0f621855a8f4e298ab23
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-web-api-help-pages-using-swagger"></a>ASP.NET Core-Web-API-Hilfeseiten mit Swagger
 
@@ -227,6 +225,8 @@ Fügen Sie den folgenden Codeausschnitt manuell zu der *CSPROJ*-Datei hinzu:
 Zeigen Sie Visual Studio Code an.
 
 ---
+
+Das Aktivieren von XML-Kommentaren stellt Debuginformationen zu nicht-dokumentierten öffentlichen Typen und Members bereit. Nicht-dokumentierte Typen und Members werden durch die Warnmeldung *Fehlender XML-Kommentar für öffentlich sichtbaren Typ oder Element* angegeben.
 
 Konfigurieren Sie Swagger, um die generierte XML-Datei verwenden. Bei Linux oder anderen Betriebssystemen als Windows kann bei Dateinamen und -pfaden die Groß- und Kleinschreibung berücksichtigt werden. Die Datei *ToDoApi.XML* könnte beispielsweise unter Windows gefunden werden, nicht aber unter CentOS.
 
