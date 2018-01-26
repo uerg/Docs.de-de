@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 008b9cd081152e6a378d0fa2e08497a6771fd9b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Szenario: Konfigurieren einer Testumgebung für die Bereitstellung
 ====================
@@ -49,7 +49,7 @@ Die testumgebung einstufiger unterstützen muss, oder automatisierte Bereitstell
 - Konfigurieren Sie den Test-Webserver für die Bereitstellung der Web Deploy-Handler zu unterstützen.
 
 > [!NOTE]
-> Sie können auch [Web Deploy bei Bedarf](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx) ("temp Agent"). Dies ähnelt der remote-Agent-Ansatz hinsichtlich der Anforderungen und Einschränkungen.
+> Sie können auch [Web Deploy bei Bedarf](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("temp Agent"). Dies ähnelt der remote-Agent-Ansatz hinsichtlich der Anforderungen und Einschränkungen.
 
 
 In diesem Fall müssen die Entwickler verfügen über Administratorrechte auf dem Zielserver, und die testumgebung unterliegt nicht der strenge sicherheitseinschränkungen, daher ist die erste Wahl so konfigurieren Sie die Test-Web-Server zur Unterstützung einer Bereitstellung mit dem remote-Agent. Dies ist weniger komplex und erfordert weniger Erstkonfiguration als beim Bereitstellen von Web-Handler-Ansatz. Sie müssen auch Ihr Datenbankserver zur Unterstützung von Remotezugriff und die Bereitstellung konfigurieren.

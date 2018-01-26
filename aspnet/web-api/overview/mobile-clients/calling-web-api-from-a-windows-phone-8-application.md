@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1637af40613f1384bd4adec707a5b1a8a07c704b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e5a936decb27fd2e3b8cdcea44db8db822c98eb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Aufrufen von Web-API aus einer Windows Phone 8-Anwendung (c#)
 ====================
@@ -37,7 +37,7 @@ In diesem End-to-End-Lernprogramm erfahren Sie, wie Web-API verwenden, um die fo
 
 - Visual Studio 2013 mit den Windows Phone 8-SDK installiert
 - Windows 8 oder höher auf einem 64-Bit-System mit Hyper-V installiert
-- Eine Liste der zusätzlichen Anforderungen, finden Sie unter der *Systemanforderungen* Abschnitt der [Windows Phone SDK 8.0](https://www.microsoft.com/en-us/download/details.aspx?id=35471) Downloadseite.
+- Eine Liste der zusätzlichen Anforderungen, finden Sie unter der *Systemanforderungen* Abschnitt der [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471) Downloadseite.
 
 > [!NOTE]
 > Wenn Sie die Konnektivität zwischen Web-API und Windows Phone 8-Projekte auf dem lokalen System testen möchten, müssen Sie Befolgen der Anweisungen in der  *[Web-API-Anwendungen auf einem lokalen mit dem Windows Phone 8 Emulator Computer](https://go.microsoft.com/fwlink/?LinkId=324014)*  Artikel zum Einrichten Ihrer Umgebung testen.

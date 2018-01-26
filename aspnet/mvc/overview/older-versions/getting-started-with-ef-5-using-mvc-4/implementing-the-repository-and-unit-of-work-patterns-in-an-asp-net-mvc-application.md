@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementieren das Repository und die Einheit der Arbeit Muster in einer ASP.NET MVC-Anwendung (9 von 10)
 ====================
@@ -45,15 +45,15 @@ Die folgende Abbildung zeigt eine Möglichkeit, die Beziehungen zwischen dem Con
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-Sie wird nicht in diesem Lernprogramm Reihe Komponententests erstellen. Eine Einführung in die testgesteuerte Entwicklung mit einer MVC-Anwendung, des Repositorymusters verwendet, werden soll, finden Sie unter [Exemplarische Vorgehensweise: Verwenden von TDD mit ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ff847525.aspx). Weitere Informationen über das Repositorymuster finden Sie unter den folgenden Ressourcen:
+Sie wird nicht in diesem Lernprogramm Reihe Komponententests erstellen. Eine Einführung in die testgesteuerte Entwicklung mit einer MVC-Anwendung, des Repositorymusters verwendet, werden soll, finden Sie unter [Exemplarische Vorgehensweise: Verwenden von TDD mit ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Weitere Informationen über das Repositorymuster finden Sie unter den folgenden Ressourcen:
 
-- [Das Repositorymuster](https://msdn.microsoft.com/en-us/library/ff649690.aspx) auf MSDN.
+- [Das Repositorymuster](https://msdn.microsoft.com/library/ff649690.aspx) auf MSDN.
 - [Entity Framework 4.0-Repository und Unit of Work Muster mit](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) im Entity Framework-Team-Blog.
 - [Agile Entity Framework 4-Repository](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) Reihe von Beiträge zu Julie Lerman Blog.
 - [Erstellen das Konto auf einen Blick HTML5/jQuery-Anwendung](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) Dan Wahlin Blog.
 
 > [!NOTE]
-> Es gibt viele Möglichkeiten, das Repository und die Einheit der Arbeit Muster zu implementieren. Sie können Repositoryklassen mit oder ohne eine Einheit der Arbeit-Klasse. Sie können ein einzelnes Repository für alle Entitätstypen oder one für jeden Typ implementieren. Wenn Sie einen für jeden Typ implementieren, können Sie separate Klassen, eine generische Basisklasse und abgeleiteten Klassen oder einer abstrakten Klasse und abgeleitete Klassen. Sie Geschäftslogik in Ihrem Repository ein- bzw. um Datenzugriffslogik zu beschränken. Sie können auch eine Abstraktionsebene in Ihrer Datenbank Context-Klasse erstellen, mit [IDbSet](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx) es anstelle von Schnittstellen [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) -Typen für Ihre Entitätenmengen. Der Ansatz für die Implementierung einer Abstraktionsebene, die in diesem Lernprogramm gezeigt ist eine Option, die Sie berücksichtigen müssen, nicht auf eine Empfehlung für alle Szenarien und Umgebungen.
+> Es gibt viele Möglichkeiten, das Repository und die Einheit der Arbeit Muster zu implementieren. Sie können Repositoryklassen mit oder ohne eine Einheit der Arbeit-Klasse. Sie können ein einzelnes Repository für alle Entitätstypen oder one für jeden Typ implementieren. Wenn Sie einen für jeden Typ implementieren, können Sie separate Klassen, eine generische Basisklasse und abgeleiteten Klassen oder einer abstrakten Klasse und abgeleitete Klassen. Sie Geschäftslogik in Ihrem Repository ein- bzw. um Datenzugriffslogik zu beschränken. Sie können auch eine Abstraktionsebene in Ihrer Datenbank Context-Klasse erstellen, mit [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) es anstelle von Schnittstellen [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) -Typen für Ihre Entitätenmengen. Der Ansatz für die Implementierung einer Abstraktionsebene, die in diesem Lernprogramm gezeigt ist eine Option, die Sie berücksichtigen müssen, nicht auf eine Empfehlung für alle Szenarien und Umgebungen.
 
 
 ## <a name="creating-the-student-repository-class"></a>Erstellen der Student-Repository-Klasse
@@ -74,7 +74,7 @@ Der Datenbankkontext in einer Klassenvariablen definiert ist und der Konstruktor
 
 Instanziieren Sie einen neuen Kontext in das Repository, aber dann, wenn Sie mehrere Repositorys in einen Controller verwendet, jede würde am Ende mit einem separaten Kontext. Später verwenden Sie mehrere Repositorys in den `Course` Controller, und Sie sehen wie eine Einheit der Arbeit Klasse sicherstellen kann, dass alle Repositorys, die denselben Kontext verwenden.
 
-Implementiert das Repository [IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx) und verwirft den Datenbankkontext aus, wie Sie gesehen, weiter oben in der Controller haben und deren CRUD-Methoden Aufrufe an den Datenbankkontext auf die gleiche Weise, den Sie zuvor gesehen haben.
+Implementiert das Repository [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) und verwirft den Datenbankkontext aus, wie Sie gesehen, weiter oben in der Controller haben und deren CRUD-Methoden Aufrufe an den Datenbankkontext auf die gleiche Weise, den Sie zuvor gesehen haben.
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>Ändern Sie den Student-Controller, um das Repository
 
@@ -245,7 +245,7 @@ Die Seite sieht und funktioniert genauso wie Ihre Änderungen gewohnt und die an
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben nun das Repository und die Einheit der Arbeit Muster implementiert. Sie haben die Lambda-Ausdrücke als Parameter im Repository generischen Methode verwendet. Weitere Informationen zur Verwendung von diesen Ausdrücken mit einem `IQueryable` Objekt, finden Sie unter [IQueryable(T)-Schnittstelle ("System.Linq")](https://msdn.microsoft.com/en-us/library/bb351562.aspx) in der MSDN Library. In den nächsten erweiterte Lernprogramm erfahren Sie, wie einige behandelt datentransformationsschritte Szenarien.
+Sie haben nun das Repository und die Einheit der Arbeit Muster implementiert. Sie haben die Lambda-Ausdrücke als Parameter im Repository generischen Methode verwendet. Weitere Informationen zur Verwendung von diesen Ausdrücken mit einem `IQueryable` Objekt, finden Sie unter [IQueryable(T)-Schnittstelle ("System.Linq")](https://msdn.microsoft.com/library/bb351562.aspx) in der MSDN Library. In den nächsten erweiterte Lernprogramm erfahren Sie, wie einige behandelt datentransformationsschritte Szenarien.
 
 Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccf22f9e72777242ca0239aee69045ab03d56960
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>Zwischenspeichern von Daten beim Start der Anwendung (c#)
 ====================
@@ -36,7 +36,7 @@ Zwischenspeichern von Daten in der Präsentations- und Zwischenspeichern von Ebe
 Eine andere Art von proaktives laden und der Typ, den wir in diesem Lernprogramm untersuchen müssen wird Daten in den Cache beim Anwendungsstart geladen werden. Dieser Ansatz eignet sich besonders zum Zwischenspeichern von statischer Daten, z. B. die Datensätze in Datenbanktabellen für die Suche.
 
 > [!NOTE]
-> Eine eingehendere Betrachtung der Unterschiede zwischen proaktive und reaktive laden als auch Listen mit vor- und Nachteile Implementierung Empfehlungen finden Sie in der [Verwalten des Inhalts eines Caches](https://msdn.microsoft.com/en-us/library/ms978503.aspx) Teil der [ Handbuch zur Referenzarchitektur für .NET Framework-Anwendungen Caching](https://msdn.microsoft.com/en-us/library/ms978498.aspx).
+> Eine eingehendere Betrachtung der Unterschiede zwischen proaktive und reaktive laden als auch Listen mit vor- und Nachteile Implementierung Empfehlungen finden Sie in der [Verwalten des Inhalts eines Caches](https://msdn.microsoft.com/library/ms978503.aspx) Teil der [ Handbuch zur Referenzarchitektur für .NET Framework-Anwendungen Caching](https://msdn.microsoft.com/library/ms978498.aspx).
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>Schritt 1: Bestimmen, welche Daten zum Cache beim Anwendungsstart
@@ -68,7 +68,7 @@ Bei der Arbeit mit einer Klasse muss in der Regel zunächst die Klasse instanzii
 
 Bevor wir aufrufen können *SomeMethod* oder funktionieren mit *SomeProperty*, wir müssen zunächst erstellen Sie eine Instanz der Klasse unter Verwendung der `new` Schlüsselwort. *SomeMethod* und *SomeProperty* mit einer bestimmten Instanz verknüpft sind. Die Lebensdauer dieser Member wird mit der Lebensdauer der ihr zugeordnete-Objekt gebunden. *Statische Member*, andererseits, sind Variablen, Eigenschaften und Methoden, die gemeinsame *alle* Instanzen der Klasse und folglich über eine Lebensdauer, solange die Klasse. Statische Member sind gekennzeichnet durch das Schlüsselwort `static`.
 
-Zusätzlich zum statischen Elementen können Daten mithilfe von Anwendungsstatus zwischengespeichert werden. Jede ASP.NET-Anwendung verwaltet einer Auflistung von Name-Wert, s, die alle Benutzer und die Seiten der Anwendung gemeinsam. Diese Auflistung kann zugegriffen werden, mithilfe der [ `HttpContext` Klasse](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) s [ `Application` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx), und von einer ASP.NET Seite "s" Code-Behind-Klasse verwendet wie folgt:
+Zusätzlich zum statischen Elementen können Daten mithilfe von Anwendungsstatus zwischengespeichert werden. Jede ASP.NET-Anwendung verwaltet einer Auflistung von Name-Wert, s, die alle Benutzer und die Seiten der Anwendung gemeinsam. Diese Auflistung kann zugegriffen werden, mithilfe der [ `HttpContext` Klasse](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` Eigenschaft](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx), und von einer ASP.NET Seite "s" Code-Behind-Klasse verwendet wie folgt:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
@@ -135,7 +135,7 @@ Die Standardeinstellung `Global.asax` Vorlage enthält fünf Methoden in einer s
 - **`Session_Start`**wird ausgeführt, wenn eine neue Sitzung erstellt wird
 - **`Session_End`**wird ausgeführt, wenn eine Sitzung abgelaufen ist oder abgebrochen wird
 
-Die `Application_Start` Ereignishandler wird nur einmal während des Lebenszyklus einer Anwendung s aufgerufen. Starten der Anwendung zum erste Mal eine ASP.NET-Ressource aus der Anwendung angefordert wird und weiterhin ausgeführt, bis die Anwendung neu gestartet wird, dies geschehen kann, durch Ändern des Inhalts der `/Bin` Ordner ändern `Global.asax`, Ändern der den Inhalt der `App_Code` Ordner, oder ändern Sie die `Web.config` -Datei zwischen hat andere Ursachen. Verweisen auf [Übersicht über ASP.NET den Lebenszyklus](https://msdn.microsoft.com/en-us/library/ms178473.aspx) für eine ausführlichere Erläuterung im Lebenszyklus Anwendung.
+Die `Application_Start` Ereignishandler wird nur einmal während des Lebenszyklus einer Anwendung s aufgerufen. Starten der Anwendung zum erste Mal eine ASP.NET-Ressource aus der Anwendung angefordert wird und weiterhin ausgeführt, bis die Anwendung neu gestartet wird, dies geschehen kann, durch Ändern des Inhalts der `/Bin` Ordner ändern `Global.asax`, Ändern der den Inhalt der `App_Code` Ordner, oder ändern Sie die `Web.config` -Datei zwischen hat andere Ursachen. Verweisen auf [Übersicht über ASP.NET den Lebenszyklus](https://msdn.microsoft.com/library/ms178473.aspx) für eine ausführlichere Erläuterung im Lebenszyklus Anwendung.
 
 Für diese Lernprogramme müssen wir nur zum Hinzufügen von Code die `Application_Start` Methode, die so gerne So entfernen Sie die anderen. In `Application_Start`, rufen Sie einfach die `StaticCache` Klasse s `LoadStaticCache()` -Methode, die geladen und der Lieferanteninformationen zwischenzuspeichern:
 

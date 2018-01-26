@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 137ac45166be03ae3c4864f41666d2acd1a37dc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Authentifizierung und Autorisierung in ASP.NET Web-API
 ====================
@@ -37,7 +37,7 @@ Der erste Artikel in der Reihe bietet einen allgemeinen Überblick über die Aut
 
 Web-API wird davon ausgegangen, dass die Authentifizierung auf dem Host erfolgt. Für das Webhosting ist der Host IIS, die HTTP-Module für die Authentifizierung verwendet. Sie können Ihr Projekt verwendet die Authentifizierungsmodule, die in IIS oder ASP.NET integriert konfigurieren, oder Sie können eigene HTTP-Modul für die benutzerdefinierte Authentifizierung schreiben.
 
-Wenn der Host den Benutzer authentifiziert hat, erstellt er eine *principal*, also ein [IPrincipal](https://msdn.microsoft.com/en-us/library/System.Security.Principal.IPrincipal.aspx) -Objekt, das den Sicherheitskontext darstellt, in dem Code ausgeführt wird. Der Host den Prinzipal für den aktuellen Thread festlegen anfügt **Thread.CurrentPrincipal**. Der Prinzipal enthält eine zugeordnete **Identität** Objekt, das Informationen über den Benutzer enthält. Wenn der Benutzer authentifiziert ist, die **Identity.IsAuthenticated** -Eigenschaft gibt **"true"**. Für anonyme Anforderungen **IsAuthenticated** gibt **"false"**. Weitere Informationen zu Prinzipalen finden Sie unter [rollenbasierte Sicherheit](https://msdn.microsoft.com/en-us/library/shz8h065.aspx).
+Wenn der Host den Benutzer authentifiziert hat, erstellt er eine *principal*, also ein [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) -Objekt, das den Sicherheitskontext darstellt, in dem Code ausgeführt wird. Der Host den Prinzipal für den aktuellen Thread festlegen anfügt **Thread.CurrentPrincipal**. Der Prinzipal enthält eine zugeordnete **Identität** Objekt, das Informationen über den Benutzer enthält. Wenn der Benutzer authentifiziert ist, die **Identity.IsAuthenticated** -Eigenschaft gibt **"true"**. Für anonyme Anforderungen **IsAuthenticated** gibt **"false"**. Weitere Informationen zu Prinzipalen finden Sie unter [rollenbasierte Sicherheit](https://msdn.microsoft.com/library/shz8h065.aspx).
 
 ### <a name="http-message-handlers-for-authentication"></a>HTTP-Meldungshandler für die Authentifizierung
 
@@ -78,7 +78,7 @@ Autorisierung weiter unten in der Pipeline näher an den Controller. Mit der Sie
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Mit dem [autorisieren]-Attribut
 
-Web-API bietet eine integrierte Autorisierungsfilter [AuthorizeAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.authorizeattribute.aspx). Dieser Filter überprüft, ob der Benutzer authentifiziert ist. Wenn dies nicht der Fall ist, wird die HTTP-Statuscode 401 (nicht autorisiert), ohne Aufrufen der Aktion zurückgegeben.
+Web-API bietet eine integrierte Autorisierungsfilter [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Dieser Filter überprüft, ob der Benutzer authentifiziert ist. Wenn dies nicht der Fall ist, wird die HTTP-Statuscode 401 (nicht autorisiert), ohne Aufrufen der Aktion zurückgegeben.
 
 Sie können den Filter, die Global auf Controllerebene, oder klicken Sie auf der Ebene der Inidivual Aktionen anwenden.
 
