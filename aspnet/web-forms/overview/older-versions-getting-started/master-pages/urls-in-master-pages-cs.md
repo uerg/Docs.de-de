@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 243bd8a30a84d3a57d418da7b2b55cfe132bf0e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b01f0ac780121c4e0941df6016220a1cb1ed2d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-c"></a>URLs in Masterseiten (c#)
 ====================
@@ -108,7 +108,7 @@ Die gute Nachricht ist, dass ASP.NET, eine Methode bietet für eine gültige rel
 
 Stattdessen als eine absolute URL hartcodieren, ASP.NET erlaubt Seite verwenden, die Tilde (`~`) an, dass der Stamm der Webanwendung. Zum Beispiel weiter oben in diesem Lernprogramm verwendet die Notation `~/Admin/Default.aspx` in den Text zum Verweisen auf die `Default.aspx` auf der Seite der `Admin` Ordner. Die `~` gibt an, dass die `Admin` Ordner ist ein Unterordner des Stamms der Webanwendung.
 
-Die `Control` Klasse [ `ResolveClientUrl` Methode](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx) eine URL verwendet, und ändert sie eine relative URL für die Webseite, auf dem sich das Steuerelement befindet. Beispielsweise Aufrufen `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` aus `About.aspx` gibt `Images/PoweredByASPNET.gif`. Aufrufen von `~/Admin/Default.aspx`, dagegen `./Images/PoweredByASPNET.gif`.
+Die `Control` Klasse [ `ResolveClientUrl` Methode](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) eine URL verwendet, und ändert sie eine relative URL für die Webseite, auf dem sich das Steuerelement befindet. Beispielsweise Aufrufen `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` aus `About.aspx` gibt `Images/PoweredByASPNET.gif`. Aufrufen von `~/Admin/Default.aspx`, dagegen `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
 > Da alle ASP.NET-Serversteuerelemente Ableiten der `Control` -Klasse, die alle Serversteuerelemente haben Zugriff auf die `ResolveClientUrl` Methode. Auch das `Page` Klasse leitet sich von der `Control` -Klasse, was bedeutet, dass Sie diese Methode, direkt aus Ihrem ASP.NET-Seiten Code-Behind-Klassen verwenden können.
@@ -159,7 +159,7 @@ In der [ *erstellen eine standortweite Layout mithilfe von Master Pages* ](creat
 
 Während der `<link>` des Elements `href` Attribut relativ ist, wird automatisch auf einen geeigneten Pfad zur Laufzeit konvertiert. Wie in erläutert die [ *Titel, Meta-Tags und andere HTML-Header in die Masterseite angeben* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) Lernprogramm die `<head>` Region ist tatsächlich eine serverseitige-Steuerelement, das dadurch so ändern Sie die Inhalt der entsprechenden innere Steuerelemente, wenn er gerendert wird.
 
-Um dies zu überprüfen, rufen Sie erneut die `~/Admin/Default.aspx` Seite, und zeigen Sie die HTML-Quelle, die an den Browser gesendet. Wie der folgende Codeausschnitt veranschaulicht, die `<link>` des Elements `href` Attribut automatisch so geändert wurde, einen geeigneten relative URL `./Styles.css`.
+Um dies zu überprüfen, rufen Sie erneut die `~/Admin/Default.aspx` Seite, und zeigen Sie die HTML-Quelle, die an den Browser gesendet. Wie der folgende Codeausschnitt veranschaulicht, die `<link>` des Elements `href` Attribut automatisch so geändert wurde, einen geeigneten relative URL `../Styles.css`.
 
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample10.html)]
