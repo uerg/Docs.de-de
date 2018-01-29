@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 4ee12cae0220825c81bd8b178dea3ac777f97bb6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b1d1cb8710595acd72bd5a0786bf1b1fed8b1d79
+ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Weiterführende Themen - EF-Core mit ASP.NET Core MVC-Lernprogramm (10 von 10)
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core Source Code und Pläne
 
-Die Entity Framework Core-Quelle ist am [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF-Kern-Repository enthält über Nacht erstellte Builds, Problem nachverfolgen, Feature Spezifikationen, Besprechungsnotizen, Entwurf und die [der Roadmap für künftige Entwicklungen](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Sie können die Datei oder Fehler gefunden und beitragen.
+Die Entity Framework Core-Quelle ist am [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF-Kern-Repository enthält über Nacht erstellte Builds, Problem nachverfolgen, Feature Spezifikationen, Besprechungsnotizen, Entwurf und [der Roadmap für künftige Entwicklungen](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Sie können die Datei oder Fehler gefunden und beitragen.
 
 Obwohl der Quellcode geöffnet ist, wird die Entity Framework Core als ein Produkt von Microsoft vollständig unterstützt. Das Microsoft Entity Framework-Team verfolgt die Kontrolle über die Beiträge akzeptiert werden und testet alle Änderungen am Code zum Gewährleisten der Qualität von jeder Version.
 

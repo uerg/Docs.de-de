@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/index
-ms.openlocfilehash: 6ce77922dd8a0fcb81ea6a72f9179c9c81105dda
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4681316a2ab90c83f3e62e16f02566092d72f356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosten und Bereitstellen von ASP.NET Core
 
@@ -32,7 +32,7 @@ Der CLI-Befehl [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) komp
 
 Der Ordner *publish* enthält *EXE*- und *DLL*-Dateien für die App, ihre Abhängigkeiten und optional die .NET-Runtime.
 
-Eine .NET Core-App kann *eigenständig* oder *Framework-abhängig* veröffentlicht werden. Wenn die App eigenständig ist, sind die *DLL*-Dateien, die die .NET-Runtime enthalten, im Ordner *publish* enthalten. Wenn die App Framework-abhängig ist, sind die Dateien für die .NET-Runtime nicht enthalten, da die App über einen Verweis auf eine auf dem Server installierte Version von .NET verfügt. Das Standardmodell für die Bereitstellung ist Framework-abhängig. Weitere Informationen finden Sie unter [.NET Core application deployment (.NET Core-Anwendungsbereitstellung)](/dotnet/articles/core/deploying/index).
+Eine .NET Core-App kann *eigenständig* oder *Framework-abhängig* veröffentlicht werden. Wenn die App eigenständig ist, sind die *DLL*-Dateien, die die .NET-Runtime enthalten, im Ordner *publish* enthalten. Wenn die App frameworkabhängig ist, sind die Dateien für die .NET-Runtime nicht enthalten, da die App über einen Verweis auf eine auf dem Server installierte .NET-Version verfügt. Das Standardmodell für die Bereitstellung ist Framework-abhängig. Weitere Informationen finden Sie unter [.NET Core application deployment (.NET Core-Anwendungsbereitstellung)](/dotnet/articles/core/deploying/index).
 
 Zusätzlich zu den *EXE*- und *DLL*-Dateien enthält der Ordner *publish* für eine ASP.NET Core-App üblicherweise noch Konfigurationsdateien, statische Objekte und MVC-Ansichten. Weitere Informationen finden Sie unter [Directory structure (Verzeichnisstruktur)](xref:host-and-deploy/directory-structure).
 

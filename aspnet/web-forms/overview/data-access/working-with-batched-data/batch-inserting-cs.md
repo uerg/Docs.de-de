@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9eb65b99a955770c72b28713d8daa66bcd1d5344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-c"></a>Batch eingefügt (c#)
 ====================
@@ -33,7 +33,7 @@ In der [BatchUpdates](batch-updating-cs.md) Lernprogramm erläutert, Anpassen de
 
 Dieses Konzept kann auch angewendet werden, wenn Sie Datensätze hinzufügen. Stellen Sie sich vor, die hier bei Northwind Traders wir häufig erhalten Lieferungen von Lieferanten, die eine Anzahl von Produkten für eine bestimmte Kategorie enthalten. Beispielsweise können wir eine Lieferung von sechs verschiedenen Tee und Kaffee Produkte aus Tokio Traders erhalten. Wenn der Benutzer die sechs Produkte eine jeweils über ein DetailsView-Steuerelement ein, haben Sie viele der gleichen Werte immer wieder auswählen: müssen die gleiche Kategorie (Getränke), die demselben Lieferanten (Tokyo Traders) auswählen, den gleichen Wert (nicht mehr unterstützt "False"), und den gleichen Einheiten auf Reihenfolgenwert (0). Dieser Eintrag repetitiven Daten ist nicht nur zeitaufwändig jedoch fehleranfällig ist.
 
-Mit ein wenig Aufwand kann erstellt werden, einen Batch, die Schnittstelle, die mit der Benutzer wählen die Supplier "und" Kategorie einmal, geben Sie eine Reihe von Produktnamen und einem Stückpreis, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen neuer Produkte in der Datenbank einfügen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder ein eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus den DropDownLists auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, die hartcodierte Werte des `false` und 0 (null) bzw.
+Mit ein wenig Aufwand kann erstellt werden, einen Batch, die Schnittstelle, die mit der Benutzer wählen die Supplier "und" Kategorie einmal, geben Sie eine Reihe von Produktnamen und einem Stückpreis, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen neuer Produkte in der Datenbank einfügen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder ein eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus den DropDownLists auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, die hartcodierte Werte des `false` und 0 (null) bzw..
 
 
 [![Die Batch-einfügen-Schnittstelle](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
@@ -96,7 +96,7 @@ Beginnen Sie, indem Sie ziehen ein Panel aus der Toolbox in den Designer, und pl
 Als Nächstes müssen wir die einfügende Schnittstelle erstellen, die wieder in Abbildung 1 dargestellt wurde. Diese Schnittstelle kann über eine Reihe von HTML-Techniken erstellt werden, jedoch verwenden wir eine recht einfach: eine vierspaltige, sieben-Zeile-Tabelle.
 
 > [!NOTE]
-> Wenn Sie für HTML-Markup eingeben `<table>` Elemente, ich möchte die Quellansicht verwenden. Während der Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente mithilfe des Designers, der Designer scheint alle zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich erstellt habe haben die `<table>` Markup ich in der Regel zurückgeben in den Designer der Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich möchte mit statischem HTML-Code statt über das [Tabelle Websteuerelement](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) da alle Websteuerelemente in einer Tabelle Websteuerelement platziert nur zugegriffen werden können, mithilfe der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch Größe von Tabellen (von denen auf einige Datenbank oder die benutzerspezifische Kriterien, deren Zeilen oder Spalten basieren), seit der Tabelle Web, das Steuerelement programmgesteuert erstellt werden kann.
+> Wenn Sie für HTML-Markup eingeben `<table>` Elemente, ich möchte die Quellansicht verwenden. Während der Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente mithilfe des Designers, der Designer scheint alle zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich erstellt habe haben die `<table>` Markup ich in der Regel zurückgeben in den Designer der Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich möchte mit statischem HTML-Code statt über das [Tabelle Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) da alle Websteuerelemente in einer Tabelle Websteuerelement platziert nur zugegriffen werden können, mithilfe der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch Größe von Tabellen (von denen auf einige Datenbank oder die benutzerspezifische Kriterien, deren Zeilen oder Spalten basieren), seit der Tabelle Web, das Steuerelement programmgesteuert erstellt werden kann.
 
 
 Geben Sie das folgende Markup innerhalb der `<asp:Panel>` des Tags der `InsertingInterface` Bereich:
@@ -229,7 +229,7 @@ Der Ereignishandler gestartet wird, indem sichergestellt wird, die die `Page.IsV
 
 Anschließend wird eine neue `ProductsDataTable` Instanz erstellt wird (`products`). Ein `for` Schleife wird verwendet, um den Namen und die Einheit Produktpreis Textfelder durchlaufen und die `Text` Eigenschaften werden in der lokalen Variablen gelesen `productName` und `unitPrice`. Wenn der Benutzer einen Wert für den Einzelpreis jedoch nicht für den Namen des entsprechenden Produkts eingegeben hat die `StatusLabel` zeigt die Meldung, wenn Sie eine Einheit Preis können Sie angeben, auch muss den Namen des Produkts enthalten, und der Ereignishandler beendet wird.
 
-Wenn ein Produktname, ein neues angegeben wurde `ProductsRow` Instanz wird erstellt, mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` Eigenschaftensatz für das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften der DropDownLists im einfügende Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben hat, ihm zugewiesenen der `ProductsRow` s-Instanz `UnitPrice` Eigenschafts-hingegen die Eigenschaft ist nicht zugewiesen, links, der verursacht eine `NULL` Wert für `UnitPrice` in der Datenbank. Schließlich die `Discontinued` und `UnitsOnOrder` zugewiesenen Eigenschaften werden die hartcodierten Werte `false` und 0 (null) bzw.
+Wenn ein Produktname, ein neues angegeben wurde `ProductsRow` Instanz wird erstellt, mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` Eigenschaftensatz für das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften der DropDownLists im einfügende Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben hat, ihm zugewiesenen der `ProductsRow` s-Instanz `UnitPrice` Eigenschafts-hingegen die Eigenschaft ist nicht zugewiesen, links, der verursacht eine `NULL` Wert für `UnitPrice` in der Datenbank. Schließlich die `Discontinued` und `UnitsOnOrder` zugewiesenen Eigenschaften werden die hartcodierten Werte `false` und 0 (null) bzw..
 
 Nachdem Sie die Eigenschaften zugewiesen wurden die `ProductsRow` Instanz es hinzugefügt wird die `ProductsDataTable`.
 

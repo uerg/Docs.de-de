@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69f73085198c79c01988aab9e63f3ce9e7647034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Erstellen eines standortweite Layouts mit Masterseiten (VB)
 ====================
@@ -60,7 +60,7 @@ Erstellen einer Website mit einem konsistenten standortweite Seitenlayout erford
 
 Es gibt eine Vielzahl von Techniken für die Erstellung von Webseiten mit ein einheitliches Erscheinungsbild. Ein naive-Ansatz ist, kopieren Sie einfach, und fügen das allgemeine Layout Markup in alle Webseiten, aber dieser Ansatz bietet eine Reihe von Nachteile. Zunächst jedes Mal, wenn eine neue Seite erstellt wird, müssen Sie daran denken, kopieren und fügen den freigegebenen Inhalt in die Seite. Solche kopieren und Einfügen sind reif für Fehler, wie Sie nur eine Teilmenge der freigegebenen Markup in einer neuen Seite versehentlich kopieren können. Und um es top deaktivieren, dieser Ansatz stellt ersetzen die vorhandene standortweite Darstellung mit einer neuen ein echten umfangreichen, da jede einzelne Seite in der Website bearbeitet werden muss, um das neue Aussehen und Verhalten zu verwenden.
 
-Vor dem ASP.NET, Version 2.0, Seite Entwickler häufig platziert allgemeine Markup in [Benutzersteuerelemente](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx) und dann diese Benutzersteuerelemente auf jeder Seite hinzugefügt. Dieser Ansatz erforderlich, dass der Entwickler der Seite Denken Sie daran, jede neue Seite manuell die Benutzersteuerelemente hinzufügen, jedoch für einfacher standortweite Änderungen zulässig, da bei der Aktualisierung der allgemeinen Markup benötigt nur die Benutzersteuerelemente geändert werden. Leider verwendet Visual Studio .NET 2002 und 2003 – die Versionen von Visual Studio zum Erstellen von ASP.NET 1.x Anwendungen - Benutzersteuerelemente in der Entwurfsansicht als graue Felder dargestellt. Seitenentwickler, die bei diesem Ansatz daher keine WYSIWYG-Entwurfszeit Umgebung nutzen.
+Vor dem ASP.NET, Version 2.0, Seite Entwickler häufig platziert allgemeine Markup in [Benutzersteuerelemente](https://msdn.microsoft.com/library/y6wb1a0e.aspx) und dann diese Benutzersteuerelemente auf jeder Seite hinzugefügt. Dieser Ansatz erforderlich, dass der Entwickler der Seite Denken Sie daran, jede neue Seite manuell die Benutzersteuerelemente hinzufügen, jedoch für einfacher standortweite Änderungen zulässig, da bei der Aktualisierung der allgemeinen Markup benötigt nur die Benutzersteuerelemente geändert werden. Leider verwendet Visual Studio .NET 2002 und 2003 – die Versionen von Visual Studio zum Erstellen von ASP.NET 1.x Anwendungen - Benutzersteuerelemente in der Entwurfsansicht als graue Felder dargestellt. Seitenentwickler, die bei diesem Ansatz daher keine WYSIWYG-Entwurfszeit Umgebung nutzen.
 
 Die Nachteile der Verwendung von Benutzersteuerelementen wurden in ASP.NET Version 2.0 und Visual Studio 2005 behandelt, durch die Einführung des *Masterseiten*. Eine Masterseite ist eine besondere Art von ASP.NET-Seite, das das standortweite-Markup definiert und die *Regionen* bei verknüpften *Inhaltsseiten* definieren Sie ihre benutzerdefinierte Markup. Da wir in Schritt 1 angezeigt wird, werden diese Bereiche von ContentPlaceHolder-Steuerelementen definiert. Das Steuerelement ContentPlaceHolder bezeichnet einfach eine Position in der Masterseite Hierarchie, in dem benutzerdefinierter Inhalt von einer Inhaltsseite eingefügt werden kann.
 
@@ -95,7 +95,7 @@ Nun, da wir haben erläutert, wie von Masterseiten, werfen wir einen Blick auf d
 Bevor wir das Erstellen und Verwenden von Master- und Inhaltsseiten untersuchen können, benötigen wir zunächst eine ASP.NET-Website. Durch das Erstellen einer neuen systembasierten ASP.NET-Website starten. Um dies zu erreichen, starten Sie Visual Web Developer wechseln Sie zum Menü Datei und klicken Sie neue Website, die das Dialogfeld "neue Website" angezeigt (siehe Abbildung 4). Wählen Sie die Vorlage ASP.NET-Website, legen Sie die Dropdown-Liste im Dateisystem, wählen Sie einen Ordner auf der Website platzieren und Festlegen der Sprache Visual Basic. Dies erstellt eine neue Website mit einem `Default.aspx` ASP.NET-Seite ein `App_Data` Ordner, und ein `Web.config` Datei.
 
 > [!NOTE]
-> Visual Studio unterstützt zwei Bereitstellungsmodi Projektmanagement: Websiteprojekte und Webanwendungsprojekte. Websiteprojekte fehlender eine Projektdatei aus, wohingegen Webanwendungsprojekte der Projektarchitektur in Visual Studio .NET 2002/2003 imitieren – sie enthalten eine Projektdatei, und Kompilieren von Quellcode des Projekts in einer einzelnen Assembly in der befindet der `/bin` Ordner. Visual Studio 2005-Projekte anfangs nur unterstützte Website, obwohl das Webanwendungsprojekt-Modell mit Service Pack 1 wieder hinzugefügt wurde; Visual Studio 2008 bietet beider Projektmodelle. Visual Web Developer 2005 und 2008-Editionen unterstützen allerdings nur Websiteprojekte. Ich verwende das Websiteprojekt-Modell für meine Demos in diesem Lernprogramm Reihe. Wenn Sie eine nicht-Express Edition verwenden und, verwenden Sie möchten die [Webanwendungsprojekt Modell](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx) stattdessen können Sie dies tun, aber beachten Sie, dass es möglicherweise einige Diskrepanzen zwischen Sie, auf dem Bildschirm und die Schritte, die Sie ergreifen müssen sehen, im Vergleich zu der Screenshots dargestellt und Anweisungen, die in diesen Lernprogrammen.
+> Visual Studio unterstützt zwei Bereitstellungsmodi Projektmanagement: Websiteprojekte und Webanwendungsprojekte. Websiteprojekte fehlender eine Projektdatei aus, wohingegen Webanwendungsprojekte der Projektarchitektur in Visual Studio .NET 2002/2003 imitieren – sie enthalten eine Projektdatei, und Kompilieren von Quellcode des Projekts in einer einzelnen Assembly in der befindet der `/bin` Ordner. Visual Studio 2005-Projekte anfangs nur unterstützte Website, obwohl das Webanwendungsprojekt-Modell mit Service Pack 1 wieder hinzugefügt wurde; Visual Studio 2008 bietet beider Projektmodelle. Visual Web Developer 2005 und 2008-Editionen unterstützen allerdings nur Websiteprojekte. Ich verwende das Websiteprojekt-Modell für meine Demos in diesem Lernprogramm Reihe. Wenn Sie eine nicht-Express Edition verwenden und, verwenden Sie möchten die [Webanwendungsprojekt Modell](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) stattdessen können Sie dies tun, aber beachten Sie, dass es möglicherweise einige Diskrepanzen zwischen Sie, auf dem Bildschirm und die Schritte, die Sie ergreifen müssen sehen, im Vergleich zu der Screenshots dargestellt und Anweisungen, die in diesen Lernprogrammen.
 
 
 [![Erstellen Sie eine neue Website von Datei-basierten System](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
@@ -115,7 +115,7 @@ Hinzufügen einer neuen Masterseitendatei über Visual Web Developer erstellt ei
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-Die erste Zeile im deklarativen Markup ist die [ `@Master` Richtlinie](https://msdn.microsoft.com/en-us/library/ms228176.aspx). Die `@Master` Richtlinie ähnelt der [ `@Page` Richtlinie](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx) , in ASP.NET-Seiten angezeigt wird. Definiert die serverseitige-Sprache (VB) und Informationen über den Speicherort und die Vererbung von der Masterseite Code-Behind-Klasse.
+Die erste Zeile im deklarativen Markup ist die [ `@Master` Richtlinie](https://msdn.microsoft.com/library/ms228176.aspx). Die `@Master` Richtlinie ähnelt der [ `@Page` Richtlinie](https://msdn.microsoft.com/library/ydy4x04a.aspx) , in ASP.NET-Seiten angezeigt wird. Definiert die serverseitige-Sprache (VB) und Informationen über den Speicherort und die Vererbung von der Masterseite Code-Behind-Klasse.
 
 Die `DOCTYPE` und deklaratives Markup der Seite wird angezeigt, darunter die `@Master` Richtlinie. Die Seite enthält statische HTML zusammen mit vier serverseitige Steuerelemente:
 
@@ -163,7 +163,7 @@ Im Laufe der Jahre habe ich eine Anzahl von ASP.NET-Webanwendungen für kleine-m
 Glücklicherweise stehen innumerous Websites mit freien HTML Entwurfsvorlagen - Google mehr als sechs Millionen Ergebnisse zurückgegeben, für den Suchbegriff "freien Websitevorlagen." Eine der besten aufgelistet ist [OpenDesigns.org](http://opendesigns.org/). Sobald Sie eine Vorlage für die Website, die Ihnen gefällt gefunden, fügen Sie die CSS-Dateien und Images dem Websiteprojekt hinzu und integrieren Sie die Vorlage HTML in der Masterseite.
 
 > [!NOTE]
-> Microsoft bietet auch eine Reihe von [Freigeben von Vorlagen für ASP.NET Entwurf Start Kit](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx) , die in das Dialogfeld "neue Website" in Visual Studio integrieren.
+> Microsoft bietet auch eine Reihe von [Freigeben von Vorlagen für ASP.NET Entwurf Start Kit](https://msdn.microsoft.com/asp.net/aa336613.aspx) , die in das Dialogfeld "neue Website" in Visual Studio integrieren.
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>Schritt 2: Erstellen verbundenen Inhaltsseiten
@@ -272,8 +272,8 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [ASP.NET für den Designer: Entwurfsvorlagen und Anleitungen zum Erstellen von ASP.NET-Websites mit Webstandards frei](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [Übersicht über ASP.NET Master-Seiten](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET für den Designer: Entwurfsvorlagen und Anleitungen zum Erstellen von ASP.NET-Websites mit Webstandards frei](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [Übersicht über ASP.NET Master-Seiten](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Lernprogramme für Cascading Stylesheets (CSS)](http://www.w3schools.com/css/default.asp)
 - [Titel der Seite festlegen dynamisch](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [Masterseiten in ASP.NET](http://www.odetocode.com/articles/419.aspx)

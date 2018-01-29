@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 059dc3a163c646877da40a73bcc9a75eb38fb345
-ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor-Seiten in ASP.NET Core
 
@@ -348,7 +348,7 @@ Die folgende Seite generiert mit dem `asp-page-handler`-Taghilfsprogramm Markup 
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
 
-<!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there is no `asp-` attribute   -->
+<!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there's no `asp-` attribute   -->
 
 Das Formular im vorherigen Beispiel hat zwei Sendeschaltflächen, und jede verwendet `FormActionTagHelper`, um an eine andere URL zu übermitteln. Das `asp-page-handler`-Attribut ist eine Ergänzung für `asp-page`. `asp-page-handler` generiert URLs, die als Übermittlungsziel jeweils die durch eine Seite festgelegte Handlermethode verwenden. `asp-page` wird nicht angegeben, weil das Beispiel mit der aktuellen Seite verknüpft.
 
@@ -370,7 +370,7 @@ Wenn Sie nicht möchten, dass die Abfragezeichenfolge `?handler=JoinList` in der
 
 Die vorherige Route platziert den Handlernamen im URL-Pfad statt in die Abfragezeichenfolge. Das `?` nach `handler` bedeutet, dass der Routenparameter optional ist.
 
-Sie können einer Seitenroute mit `@page` weitere Segmente und Parameter hinzufügen. Alles, was hier angegeben wird, wird der Standardroute der Seite **angefügt**. Die Verwendung eines absoluten oder des virtuellen Pfads, um die Seitenroute (z.B. `"~/Some/Other/Path"`) zu ändern, wird nicht unterstützt.
+Sie können einer Seitenroute mit `@page` weitere Segmente und Parameter hinzufügen. Alles, was hier angegeben wird, wird der Standardroute der Seite **angefügt**. Die Verwendung eines absoluten oder virtuellen Pfads, um die Seitenroute (z.B. `"~/Some/Other/Path"`) zu ändern, wird nicht unterstützt.
 
 ## <a name="configuration-and-settings"></a>Konfiguration und Einstellungen
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 387d19af9165d4b54ce3cb1a9b04412271da6fb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: af8364c584b686fd5c0fe30a89e241d9d08a30c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Einführung in die Protokollierung in ASP.NET Core
 
@@ -159,7 +159,7 @@ ASP.NET Core definiert die folgenden [Protokolliergrade](https://docs.microsoft.
 
 * Warning = 3
 
-  Für ungewöhnliche oder unerwartete Ereignisse im Anwendungsverlauf. Dazu können Fehler oder andere Bedingungen gehören, die zwar nicht zum Beenden der Anwendung führen, aber untersucht werden müssen. Behandelte Ausnahmen sind eine typische Verwendung für den Protokolliergrad `Warning`. Ein Beispiel: `FileNotFoundException for file quotes.txt.`
+  Für ungewöhnliche oder unerwartete Ereignisse im Anwendungsverlauf. Dazu können Fehler oder andere Bedingungen gehören, die zwar nicht zum Beenden der Anwendung führen, aber eventuell untersucht werden müssen. Behandelte Ausnahmen sind eine typische Verwendung für den Protokolliergrad `Warning`. Ein Beispiel: `FileNotFoundException for file quotes.txt.`
 
 * Error = 4
 
@@ -325,7 +325,7 @@ Wenn Sie mit `ILogger` Protokolle für die Kategorie „Microsoft.AspNetCore.Mvc
 
 **Anbieteraliase**
 
-Sie können den Typnamen verwenden, um einen Anbieter in der Konfiguration anzugeben, aber jeder Anbieter definiert einen kürzeren *Alias*, der einfacher zu verwenden ist. Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
+Sie können den Typnamen für die Angabe eines Anbieters in der Konfiguration verwenden, aber jeder Anbieter definiert einen kürzeren *Alias*, der einfacher zu verwenden ist. Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
 
 - Konsole
 - Debug
@@ -364,13 +364,13 @@ Sie können Filterregeln für alle bei einer `ILoggerFactory`-Instanz registrier
 
 Wenn Sie die Filterung verwenden, um zu verhindern, dass alle Protokolle für eine bestimmte Kategorie geschrieben werden, können Sie `LogLevel.None` als Mindestprotokolliergrad für diese Kategorie angeben. Der ganzzahlige Wert von `LogLevel.None` lautet 6 und liegt über `LogLevel.Critical` (5).
 
-Die Erweiterungsmethode `WithFilter` wird vom NuGet-Paket [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) bereitgestellt. Die Methode gibt eine neue `ILoggerFactory`-Instanz zurück, die Protokollmeldungen für alle bei ihr registrierten Protokollierungsanbieter filtert. Weitere `ILoggerFactory`-Instanzen, die ursprüngliche `ILoggerFactory`-Instanz eingeschlossen, sind nicht betroffen.
+Die Erweiterungsmethode `WithFilter` wird vom NuGet-Paket [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) bereitgestellt. Die Methode gibt eine neue `ILoggerFactory`-Instanz zurück, die Protokollmeldungen für alle bei ihr registrierten Protokollierungsanbieter filtert. Andere `ILoggerFactory`-Instanzen, die ursprüngliche `ILoggerFactory`-Instanz eingeschlossen, sind nicht betroffen.
 
 ---
 
 ## <a name="log-scopes"></a>Protokollbereiche
 
-Sie können einen Satz an logischen Operationen in einem *Bereich* gruppieren, um an jedes der für diesen Satz erstellten Protokolle dieselben Daten anzuhängen. Beispielsweise kann es sinnvoll sein, dass jedes im Rahmen der Verarbeitung einer Transaktion erstellte Protokoll die Transaktions-ID enthält.
+Sie können eine Gruppe von logischen Operationen in einem *Bereich* gruppieren, um an jedes der für diese Gruppe erstellten Protokolle dieselben Daten anzuhängen. Beispielsweise kann es sinnvoll sein, dass jedes im Rahmen der Verarbeitung einer Transaktion erstellte Protokoll die Transaktions-ID enthält.
 
 Ein Bereich ist ein `IDisposable`-Typ, der von der `ILogger.BeginScope<TState>`-Methode zurückgegeben und so lange beibehalten wird, bis er verworfen wird. Sie verwenden einen Bereich, indem Sie Ihre Protokollierungsaufrufe mit einem `using`-Block umschließen, wie hier gezeigt:
 
@@ -610,7 +610,7 @@ Wenn Sie eine Bereitstellung in einer App Service-App durchführen, berücksicht
 
 Der Standardspeicherort für Protokolldateien ist der Ordner *D:\\home\\LogFiles\\Application*, und der standardmäßige Dateiname lautet *diagnostics-yyyymmdd.txt*. Die Dateigröße ist standardmäßig auf 10 MB beschränkt, und die maximal zulässige Anzahl beibehaltener Dateien lautet 2. Der Standardblobname lautet *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Weitere Informationen zum Standardverhalten finden Sie unter [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
 
-Der Anbieter funktioniert nur, wenn Ihr Projekt in der Azure-Umgebung ausgeführt wird. Bei einer lokalen Ausführung zeigt er keine Wirkung – es werden keine Protokolle in lokale Dateien oder lokalen Entwicklungsspeicher für Blobs geschrieben.
+Der Anbieter funktioniert nur, wenn Ihr Projekt in der Azure-Umgebung ausgeführt wird. Bei einer lokalen Ausführung von &mdash; zeigt er keine Auswirkungen – es werden keine Protokolle in lokale Dateien oder lokalen Entwicklungsspeicher für Blobs geschrieben.
 
 ## <a name="third-party-logging-providers"></a>Protokollierungsanbieter von Drittanbietern
 
