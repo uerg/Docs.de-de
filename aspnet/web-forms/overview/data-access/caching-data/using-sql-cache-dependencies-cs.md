@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6089b847dfd662e9b32128036170322823aac97
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a29c77688b0179730ccb1b48e62ae28a0148f94d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-sql-cache-dependencies-c"></a>Mithilfe von SQL-Cache-Abhängigkeiten (c#)
 ====================
@@ -33,7 +33,7 @@ Das zwischenspeichernden Techniken in untersucht die [Zwischenspeichern von Date
 
 Beim Zwischenspeichern von Datenbankdaten eine zeitbasierte Ablauf häufig der einfachen Verwendung ausgewählt ist, jedoch ist häufig eine Lösung für unzureichend. Im Idealfall würden Daten in der Datenbank zwischengespeicherte bleiben, bis die zugrunde liegenden Daten in der Datenbank geändert wurde; nur dann würde der Cache entfernt werden. Dieser Ansatz maximiert die Leistungsvorteile von caching und die Dauer der veraltete Daten minimiert. Allerdings müssen um es diese Vorteile einige System vorhanden sein, die bekannt, wenn Daten in der zugrunde liegenden Datenbank geändert wurde, und die entsprechenden Elemente aus dem Cache entfernt. Vor dem ASP.NET 2.0 wurden Entwickler von Seiten für die Implementierung dieses Systems verantwortlich.
 
-ASP.NET 2.0 verfügt über eine [ `SqlCacheDependency` Klasse](https://msdn.microsoft.com/en-us/library/system.web.caching.sqlcachedependency.aspx) und die erforderliche Infrastruktur, um zu bestimmen, wenn eine Änderung in der Datenbank aufgetreten ist, damit die entsprechenden Elemente zwischengespeichert werden, kann entfernt werden. Es gibt zwei Techniken, um zu bestimmen, wenn die zugrunde liegenden Daten geändert haben: Benachrichtigung und abrufen. Nach der Abstimmung der Unterschiede zwischen Benachrichtigung und Abruf, wir erstellen die Infrastruktur zum Abruf unterstützen und untersuchen Sie zum Verwenden der `SqlCacheDependency` Klasse in deklarativen und programmgesteuert Szenarien.
+ASP.NET 2.0 verfügt über eine [ `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) und die erforderliche Infrastruktur, um zu bestimmen, wenn eine Änderung in der Datenbank aufgetreten ist, damit die entsprechenden Elemente zwischengespeichert werden, kann entfernt werden. Es gibt zwei Techniken, um zu bestimmen, wenn die zugrunde liegenden Daten geändert haben: Benachrichtigung und abrufen. Nach der Abstimmung der Unterschiede zwischen Benachrichtigung und Abruf, wir erstellen die Infrastruktur zum Abruf unterstützen und untersuchen Sie zum Verwenden der `SqlCacheDependency` Klasse in deklarativen und programmgesteuert Szenarien.
 
 ## <a name="understanding-notification-and-polling"></a>Grundlegendes zur Benachrichtigung und Abrufen
 
@@ -55,7 +55,7 @@ Die Datenbank muss mit dem Ansatz der Abruf die Infrastruktur, die oben beschrie
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample1.cmd)]
 
 > [!NOTE]
-> Diese Befehle ausführen, der angegebenen Datenbank-Benutzername in muss, der [ `db_securityadmin` ](https://msdn.microsoft.com/en-us/library/ms188685.aspx) und [ `db_ddladmin` ](https://msdn.microsoft.com/en-us/library/ms190667.aspx) Rollen. Die T-SQL-gesendet, um die Datenbank durch Untersuchen der `aspnet_regsql.exe` command-Line-Programm, beziehen sich auf [Blogeintrag](http://scottonwriting.net/sowblog/posts/10709.aspx).
+> Diese Befehle ausführen, der angegebenen Datenbank-Benutzername in muss, der [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) und [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) Rollen. Die T-SQL-gesendet, um die Datenbank durch Untersuchen der `aspnet_regsql.exe` command-Line-Programm, beziehen sich auf [Blogeintrag](http://scottonwriting.net/sowblog/posts/10709.aspx).
 
 
 Z. B. zum Hinzufügen der Infrastruktur für den Abruf mit einer Microsoft SQL Server-Datenbank mit dem Namen `pubs` auf einem Datenbankserver mit dem Namen `ScottsServer` mithilfe der Windows-Authentifizierung, navigieren Sie in das entsprechende Verzeichnis und, über die Befehlszeile eingeben:
@@ -77,7 +77,7 @@ Für dieses Lernprogramm fügen Sie den Trigger, um die `Products`, `Categories`
 
 ## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>Schritt 2: Verweisen auf in einer Microsoft SQL Server 2005 Express Edition-Datenbank`App_Data`
 
-Die `aspnet_regsql.exe` Befehlszeilenprogramm muss die Datenbank und den Servernamen zum Hinzufügen der erforderlichen Abruf-Infrastruktur. Neuerungen der Datenbank und den Servernamen für eine Microsoft SQL Server 2005 Express-Datenbank, in dem sich befindet, aber die `App_Data` Ordner? Ermitteln, welche die Namen der Datenbank und Server sind, anstatt ich Ve wurde erkannt, dass die einfachste Methode zum Anfügen der Datenbank, die `localhost\SQLExpress` -Datenbankinstanz und benennen Sie die Daten mit [SQL Server Management Studio](https://msdn.microsoft.com/en-us/library/ms174173.aspx). Wenn Sie eine Vollversion von SQL Server 2005 auf Ihrem Computer installiert haben, müssen Sie wahrscheinlich bereits SQL Server Management Studio auf Ihrem Computer installiert. Wenn Sie nur die Express Edition verfügen, können Sie die kostenlose Herunterladen [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
+Die `aspnet_regsql.exe` Befehlszeilenprogramm muss die Datenbank und den Servernamen zum Hinzufügen der erforderlichen Abruf-Infrastruktur. Neuerungen der Datenbank und den Servernamen für eine Microsoft SQL Server 2005 Express-Datenbank, in dem sich befindet, aber die `App_Data` Ordner? Ermitteln, welche die Namen der Datenbank und Server sind, anstatt ich Ve wurde erkannt, dass die einfachste Methode zum Anfügen der Datenbank, die `localhost\SQLExpress` -Datenbankinstanz und benennen Sie die Daten mit [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Wenn Sie eine Vollversion von SQL Server 2005 auf Ihrem Computer installiert haben, müssen Sie wahrscheinlich bereits SQL Server Management Studio auf Ihrem Computer installiert. Wenn Sie nur die Express Edition verfügen, können Sie die kostenlose Herunterladen [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
 
 Starten Sie Visual Studio schließen. Als Nächstes öffnen Sie SQL Server Management Studio, und wählen Sie für die Verbindung der `localhost\SQLExpress` Server mithilfe der Windows-Authentifizierung.
 
@@ -186,7 +186,7 @@ Besuchen Sie diese Seite über einen Browser. Seit wir sollte Ve noch zu impleme
 **Abbildung 8**: das ObjectDataSource s `Selecting` ausgelöst wird jede Ereigniszeit GridView ausgelagert wird, bearbeitet oder Sorted ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-cs/_static/image10.png))
 
 
-Wie wir gesehen, in haben der [Zwischenspeichern von Daten mit der ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) Lernprogramm Festlegen der `EnableCaching` Eigenschaft `true` bewirkt, dass das ObjectDataSource zum Zwischenspeichern der Daten für die Dauer von angegebenen seine `CacheDuration` Eigenschaft. Das ObjectDataSource verfügt auch über eine [ `SqlCacheDependency` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), die eine oder mehrere Abhängigkeiten von SQL-Cache auf die zwischengespeicherten Daten unter Verwendung des Musters hinzufügt:
+Wie wir gesehen, in haben der [Zwischenspeichern von Daten mit der ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) Lernprogramm Festlegen der `EnableCaching` Eigenschaft `true` bewirkt, dass das ObjectDataSource zum Zwischenspeichern der Daten für die Dauer von angegebenen seine `CacheDuration` Eigenschaft. Das ObjectDataSource verfügt auch über eine [ `SqlCacheDependency` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), die eine oder mehrere Abhängigkeiten von SQL-Cache auf die zwischengespeicherten Daten unter Verwendung des Musters hinzufügt:
 
 
 [!code-css[Main](using-sql-cache-dependencies-cs/samples/sample9.css)]
@@ -282,7 +282,7 @@ Bedenken Sie, dass die `MasterCacheKeyArray` Cacheabhängigkeit wird verwendet, 
 
 Bei der Arbeit mit SQL-Cache-Abhängigkeiten müssen wir darüber hinaus Verknüpfen mehrerer Datenbanktabellen als Abhängigkeiten. Z. B. die `ProductsDataTable` zwischengespeicherte in der `ProductsCL` Klasse enthält die Kategorie und Lieferanten Namen für jedes Produkt, aber die `AddCacheItem` Methode verwendet nur eine Abhängigkeit auf `Products`. In diesem Fall, wenn der Benutzer den Namen einer Kategorie oder Lieferanten, aktualisiert die zwischengespeicherten Produktdaten bleibt im Cache und veraltet sein. Wir möchten daher den zwischengespeicherten Produktdaten abhängig machen nicht nur die `Products` -Tabelle jedoch in der `Categories` und `Suppliers` sowie Tabellen.
 
-Die [ `AggregateCacheDependency` Klasse](https://msdn.microsoft.com/en-us/library/system.web.caching.aggregatecachedependency.aspx) bietet eine Möglichkeit für ein Element im Cache mehrere Abhängigkeiten zuordnen. Erstellen Sie zunächst eine `AggregateCacheDependency` Instanz. Als Nächstes fügen Sie die Gruppe der Abhängigkeiten, die mithilfe der `AggregateCacheDependency` s `Add` Methode. Wenn Sie das Element anschließend in der Datencache einfügen, übergeben die `AggregateCacheDependency` Instanz. Wenn *alle* von der `AggregateCacheDependency` Abhängigkeiten s-Instanz zu ändern, wird das zwischengespeicherte Element entfernt werden.
+Die [ `AggregateCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) bietet eine Möglichkeit für ein Element im Cache mehrere Abhängigkeiten zuordnen. Erstellen Sie zunächst eine `AggregateCacheDependency` Instanz. Als Nächstes fügen Sie die Gruppe der Abhängigkeiten, die mithilfe der `AggregateCacheDependency` s `Add` Methode. Wenn Sie das Element anschließend in der Datencache einfügen, übergeben die `AggregateCacheDependency` Instanz. Wenn *alle* von der `AggregateCacheDependency` Abhängigkeiten s-Instanz zu ändern, wird das zwischengespeicherte Element entfernt werden.
 
 Nachstehend sehen Sie den aktualisierten Code für die `ProductsCL` Klasse s `AddCacheItem` Methode. Erstellt die Methode die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit zusammen mit `SqlCacheDependency` von Objekten für die `Products`, `Categories`, und `Suppliers` Tabellen. Diese werden alle in einem kombiniert `AggregateCacheDependency` Objekt mit dem Namen `aggregateDependencies`, der übergeben wird dann in der `Insert` Methode.
 
@@ -292,7 +292,7 @@ Nachstehend sehen Sie den aktualisierten Code für die `ProductsCL` Klasse s `Ad
 Diese neuen Code zu testen. Nun Änderungen an der `Products`, `Categories`, oder `Suppliers` Tabellen bewirken, dass die zwischengespeicherten Daten entfernt werden. Darüber hinaus die `ProductsCL` Klasse s `UpdateProduct` -Methode, die aufgerufen wird, wenn ein Produkt nicht über die GridView zu bearbeiten, entfernt die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit, wodurch die zwischengespeicherten `ProductsDataTable` zur Entfernung und die Daten erneut auf das nächste abgerufen werden sollen Anforderung.
 
 > [!NOTE]
-> SQL-Cache-Abhängigkeiten können auch verwendet werden, mit [ausgabezwischenspeicherung](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Eine Demonstration der dieser Funktionalität, finden Sie unter: [mithilfe von ASP.NET Zwischenspeichern der Ausgabe mit SQL Server](https://msdn.microsoft.com/en-us/library/e3w8402y(VS.80).aspx).
+> SQL-Cache-Abhängigkeiten können auch verwendet werden, mit [ausgabezwischenspeicherung](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Eine Demonstration der dieser Funktionalität, finden Sie unter: [mithilfe von ASP.NET Zwischenspeichern der Ausgabe mit SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
 
 
 ## <a name="summary"></a>Zusammenfassung
@@ -305,10 +305,10 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Verwenden von Abfragebenachrichtigungen in Microsoft SQL Server 2005](https://msdn.microsoft.com/en-us/library/ms175110.aspx)
-- [Erstellen einer Abfragebenachrichtigung](https://msdn.microsoft.com/en-us/library/ms188669.aspx)
-- [Caching in ASP.NET mit der `SqlCacheDependency` Klasse](https://msdn.microsoft.com/en-us/library/ms178604(VS.80).aspx)
-- [Registrierungstool für ASP.NET SQL-Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx)
+- [Verwenden von Abfragebenachrichtigungen in Microsoft SQL Server 2005](https://msdn.microsoft.com/library/ms175110.aspx)
+- [Erstellen einer Abfragebenachrichtigung](https://msdn.microsoft.com/library/ms188669.aspx)
+- [Caching in ASP.NET mit der `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [Registrierungstool für ASP.NET SQL-Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
 - [Übersicht über`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Informationen zum Autor

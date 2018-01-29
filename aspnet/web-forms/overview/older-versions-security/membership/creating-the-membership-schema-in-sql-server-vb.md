@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 181741dc7e0fb7e1073f3783d96f59ac905f5e63
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2dadf091c6ae77fdfaf76f4e1bda92fd3e949678
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Erstellen das Schema für die Mitgliedschaft in SQLServer (VB)
 ====================
@@ -33,7 +33,7 @@ In den vorherigen zwei Lernprogrammen verwenden der Formularauthentifizierung zu
 
 Vor dem ASP.NET 2.0 wurden Entwickler auf die Hookfunktion für diese Benutzer kontobezogene Aufgaben zu implementieren. Glücklicherweise das ASP.NET-Team dieser Schwierigkeit erkannt und die Mitgliedschaft-Framework mit ASP.NET 2.0 eingeführt. Das Framework Mitgliedschaft ist eine Reihe von Klassen in .NET Framework, die eine programmgesteuerte Schnittstelle für die Erledigung Core Benutzeraufgaben kontobezogene bereitstellen. Dieses Framework wird erstellt, über die [Anbietermodell](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), dem können Entwickler benutzerdefinierte Implementierung in eine standardisierte API eingebunden.
 
-Entsprechend der Anleitung unter dem <a id="Tutorial1"> </a> [ *Sicherheitsgrundlagen und die ASP.NET-Unterstützung* ](../introduction/security-basics-and-asp-net-support-vb.md) Lernprogramm .NET Framework enthält zwei integrierte Mitgliedschaftsanbieter: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) und [ `SqlMembershipProvider` ](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx). Wie der Name schon sagt, den `SqlMembershipProvider` verwendet eine Microsoft SQL Server-Datenbank als Speicher des Benutzers. Um diesen Anbieter in einer Anwendung verwenden zu können, müssen wir dem Anbieter mitteilen, welche Datenbank als Speicher zu verwenden ist. Man kann, die `SqlMembershipProvider` erwartet, dass die Benutzer-Speicherdatenbank auf bestimmte Tabellen, Sichten und gespeicherte Prozeduren haben. Wir müssen diese erwartete Schema mit der ausgewählten Datenbank hinzufügen.
+Entsprechend der Anleitung unter dem <a id="Tutorial1"> </a> [ *Sicherheitsgrundlagen und die ASP.NET-Unterstützung* ](../introduction/security-basics-and-asp-net-support-vb.md) Lernprogramm .NET Framework enthält zwei integrierte Mitgliedschaftsanbieter: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) und [ `SqlMembershipProvider` ](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx). Wie der Name schon sagt, den `SqlMembershipProvider` verwendet eine Microsoft SQL Server-Datenbank als Speicher des Benutzers. Um diesen Anbieter in einer Anwendung verwenden zu können, müssen wir dem Anbieter mitteilen, welche Datenbank als Speicher zu verwenden ist. Man kann, die `SqlMembershipProvider` erwartet, dass die Benutzer-Speicherdatenbank auf bestimmte Tabellen, Sichten und gespeicherte Prozeduren haben. Wir müssen diese erwartete Schema mit der ausgewählten Datenbank hinzufügen.
 
 In diesem Lernprogramm beginnt mit dem Untersuchen von Techniken für das erforderliche Schema der Datenbank hinzufügen, um verwenden die `SqlMembershipProvider`. Nach, die wir untersuchen Sie die wichtigsten Tabellen im Schema und erläutert deren Zweck und Wichtigkeit. In diesem Lernprogramm endet mit einem Betrachtung der Verwendung einer ASP.NET-Anwendung mitteilen, welcher Anbieter ist die Mitgliedschaft-Framework verwendet werden soll.
 
@@ -55,7 +55,7 @@ Trennen die Benutzerdaten speichern und die Anwendung in separaten Datenbanken i
 Die Anwendung, die wir erstellen müssen, da das zweite Lernprogramm eine Datenbank noch nicht benötigt hat. Wir benötigen ein jetzt jedoch für den Speicher des Benutzers. Wir erstellen eine und hinzufügen, das erforderliche Schema der `SqlMembershipProvider` Anbieter (Siehe Schritt2).
 
 > [!NOTE]
-> In diesem Lernprogramm Reihe wir verwenden eine [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/en-us/sql/Aa336346.aspx) Datenbank zum Speichern von unseren Anwendungstabellen und `SqlMembershipProvider` Schema. Diese Entscheidung wurde getroffen haben, zwei Gründen: zuerst, aufgrund dessen Kosten - frei - Express Edition ist die am häufigsten readably zugänglich Version von SQL Server 2005; Zweitens können SQL Server 2005 Express Edition-Datenbanken platziert werden, direkt in der Webanwendung `App_Data` Ordner, sodass ein Kinderspiel verpacken die Datenbank und-Webanwendung zusammen in einer ZIP-Datei und ihn ohne besonderen Setup-Anweisungen neu bereitstellen oder Konfigurationsoptionen. Wenn Sie lieber mit einer nicht - Express Edition-Version von SQL Server nachvollziehen möchten, können Sie hierher. Die Schritte sind nahezu identisch. Die `SqlMembershipProvider` Schema wird mit einer Version von Microsoft SQL Server 2000 arbeiten und einrichten.
+> In diesem Lernprogramm Reihe wir verwenden eine [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) Datenbank zum Speichern von unseren Anwendungstabellen und `SqlMembershipProvider` Schema. Diese Entscheidung wurde getroffen haben, zwei Gründen: zuerst, aufgrund dessen Kosten - frei - Express Edition ist die am häufigsten readably zugänglich Version von SQL Server 2005; Zweitens können SQL Server 2005 Express Edition-Datenbanken platziert werden, direkt in der Webanwendung `App_Data` Ordner, sodass ein Kinderspiel verpacken die Datenbank und-Webanwendung zusammen in einer ZIP-Datei und ihn ohne besonderen Setup-Anweisungen neu bereitstellen oder Konfigurationsoptionen. Wenn Sie lieber mit einer nicht - Express Edition-Version von SQL Server nachvollziehen möchten, können Sie hierher. Die Schritte sind nahezu identisch. Die `SqlMembershipProvider` Schema wird mit einer Version von Microsoft SQL Server 2000 arbeiten und einrichten.
 
 Projektmappen-Explorer mit der Maustaste auf die `App_Data` Ordner, und wählen Sie auf Neues Element hinzufügen. (Wenn Sie nicht sehen ein `App_Data` Ordner des Projekts mit der rechten Maustaste auf das Projekt im Projektmappen-Explorer, wählen Sie ASP.NET-Ordner hinzufügen, und wählen Sie `App_Data`.) Wählen Sie im Dialogfeld "Neues Element hinzufügen" zum Hinzufügen einer neuen SQL-Datenbank mit dem Namen `SecurityTutorials.mdf`. In diesem Lernprogramm fügen wir der `SqlMembershipProvider` Schema in dieser Datenbank; in den nachfolgenden Lernprogrammen, die wir zusätzliche erstellen Tabellen erfassen unsere Anwendungsdaten verwendet werden.
 
@@ -75,7 +75,7 @@ Hinzufügen einer Datenbank, die `App_Data` Ordner enthält es automatisch in de
 
 ## <a name="step-2-adding-thesqlmembershipproviderschema-to-the-database"></a>Schritt 2: Hinzufügen der`SqlMembershipProvider`Schema in der Datenbank
 
-Die `SqlMembershipProvider` erfordert einen bestimmten Satz von Tabellen, Sichten und gespeicherten Prozeduren in der Benutzerdatenbank-Store installiert werden. Diese erforderlichen Datenbankobjekte können hinzugefügt werden, mithilfe der [ `aspnet_regsql.exe` Tool](https://msdn.microsoft.com/en-us/library/ms229862.aspx). Diese Datei befindet sich der `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\` Ordner.
+Die `SqlMembershipProvider` erfordert einen bestimmten Satz von Tabellen, Sichten und gespeicherten Prozeduren in der Benutzerdatenbank-Store installiert werden. Diese erforderlichen Datenbankobjekte können hinzugefügt werden, mithilfe der [ `aspnet_regsql.exe` Tool](https://msdn.microsoft.com/library/ms229862.aspx). Diese Datei befindet sich der `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\` Ordner.
 
 > [!NOTE]
 > Die `aspnet_regsql.exe` Tool bietet Funktionen über die Befehlszeile und eine grafische Benutzeroberfläche. Die grafische Benutzeroberfläche Benutzerfreundlicher ist und was wir in diesem Lernprogramm untersucht wird. Die Befehlszeilenschnittstelle ist hilfreich, wenn das Hinzufügen der `SqlMembershipProvider` Schema automatisiert werden muss, z. B. in Build Skripts oder Testszenarien automatisiert.
@@ -155,7 +155,7 @@ Der zweite Schritt im Assistenten werden wir gefragt, gibt an, ob wir die Anwend
 
 Der dritte Schritt aufgefordert, die Datenbankinformationen: den Namen des Servers, Informationen zur Benutzerauthentifizierung und den Datenbanknamen. Wenn Sie dieses Tutorial folgen wurde haben und hinzugefügt haben, die `SecurityTutorials.mdf` Datenbank `App_Data`, angefügt, `localhost\InstanceName`, und umbenannt `SecurityTutorialsDatabase`, verwenden Sie die folgenden Werte:
 
-- Server:`localhost\InstanceName`
+- Server: `localhost\InstanceName`
 - Windows-Authentifizierung
 - Datenbank:`SecurityTutorialsDatabase`
 
@@ -199,7 +199,7 @@ Die Mitgliedschaft und Rollen Frameworks sind so konzipiert, dass ein einzelnen 
 **Abbildung 11**: Konten möglicherweise werden partitioniert über mehrere Benutzeranwendungen ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-the-membership-schema-in-sql-server-vb/_static/image33.png))
 
 
-Die `aspnet_Applications` Tabelle wird diese Partitionen definiert. Jede Anwendung, die die Datenbank zum Speichern von Informationen für das Benutzerkonto verwendet, wird durch eine Zeile in dieser Tabelle dargestellt. Die `aspnet_Applications` -Tabelle enthält vier Spalten: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, und `Description`.`ApplicationId` ist vom Typ [ `uniqueidentifier` ](https://msdn.microsoft.com/en-us/library/ms187942.aspx) und ist der Primärschlüssel der Tabelle; `ApplicationName` einen eindeutigen Human benutzerfreundliche Namen für jede Anwendung enthält.
+Die `aspnet_Applications` Tabelle wird diese Partitionen definiert. Jede Anwendung, die die Datenbank zum Speichern von Informationen für das Benutzerkonto verwendet, wird durch eine Zeile in dieser Tabelle dargestellt. Die `aspnet_Applications` -Tabelle enthält vier Spalten: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, und `Description`.`ApplicationId` ist vom Typ [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) und ist der Primärschlüssel der Tabelle; `ApplicationName` einen eindeutigen Human benutzerfreundliche Namen für jede Anwendung enthält.
 
 Die anderen Mitgliedschaft und rollenbezogenen Tabellen verknüpfen, an die `ApplicationId` Feld `aspnet_Applications`. Z. B. die `aspnet_Users` Tabelle, die einen Datensatz für jedes Benutzerkonto enthält, hat ein `ApplicationId` foreign Key-Feld; Ditto für die `aspnet_Roles` Tabelle. Die `ApplicationId` Feld in diesen Tabellen der Anwendungspartition gibt das Benutzerkonto oder die Rolle angehört.
 
@@ -211,7 +211,7 @@ Benutzerkontoinformationen wird in zwei Tabellen untergebrachte: `aspnet_Users` 
 - `UserName`
 - `ApplicationId`
 
-`UserId`ist der Primärschlüssel (vom Typ `uniqueidentifier`). `UserName`ist vom Typ `nvarchar(256)` und sowie das Kennwort, bildet die Anmeldeinformationen des Benutzers. (Das Kennwort eines Benutzers befindet sich in der `aspnet_Membership` Tabelle.) `ApplicationId` verknüpft das Benutzerkonto, das auf eine bestimmte Anwendung in `aspnet_Applications`. Es ist ein zusammengesetzter [ `UNIQUE` Einschränkung](https://msdn.microsoft.com/en-us/library/ms191166.aspx) auf die `UserName` und `ApplicationId` Spalten. Dadurch wird sichergestellt, dass in einer bestimmten Anwendung jeder Benutzername eindeutig ist, noch für dieselbe können `UserName` in verschiedenen Anwendungen verwendet werden.
+`UserId`ist der Primärschlüssel (vom Typ `uniqueidentifier`). `UserName`ist vom Typ `nvarchar(256)` und sowie das Kennwort, bildet die Anmeldeinformationen des Benutzers. (Das Kennwort eines Benutzers befindet sich in der `aspnet_Membership` Tabelle.) `ApplicationId` verknüpft das Benutzerkonto, das auf eine bestimmte Anwendung in `aspnet_Applications`. Es ist ein zusammengesetzter [ `UNIQUE` Einschränkung](https://msdn.microsoft.com/library/ms191166.aspx) auf die `UserName` und `ApplicationId` Spalten. Dadurch wird sichergestellt, dass in einer bestimmten Anwendung jeder Benutzername eindeutig ist, noch für dieselbe können `UserName` in verschiedenen Anwendungen verwendet werden.
 
 Die `aspnet_Membership` Tabelle enthält zusätzliche Benutzerkontoinformationen, z. B. das Kennwort des Benutzers, e-Mail-Adresse, der letzten Anmeldung Datum und Uhrzeit, und So weiter. Besteht eine 1: 1-Entsprechung zwischen Datensätzen in der `aspnet_Users` und `aspnet_Membership` Tabellen. Diese Beziehung wird sichergestellt, indem Sie die `UserId` Feld `aspnet_Membership`, die als Primärschlüssel der Tabelle dient. Wie die `aspnet_Users` Tabelle `aspnet_Membership` enthält ein `ApplicationId` Feld, das diese Informationen zu einer bestimmten Anwendungspartition verknüpft.
 
@@ -227,13 +227,13 @@ Verwendete Kennwort Speicher Technik richtet sich nach der `SqlMembershipProvide
 
 Die Spalten, die verantwortlich für das Speichern des Kennworts sind `Password`, `PasswordFormat`, und `PasswordSalt`. `PasswordFormat`ist ein Feld vom Typ `int` , deren Wert angibt, das Verfahren zum Speichern des Kennworts verwendet: 0 für deaktiviert; 1 für Hashed; 2 für verschlüsselt. `PasswordSalt`wird eine zufällig generierte Zeichenfolge unabhängig von der verwendete Technik Speicher Kennwort zugewiesen. der Wert des `PasswordSalt` wird nur verwendet werden, wenn der Hash des Kennworts zu berechnen. Schließlich die `Password` Spalte enthält die tatsächlichen Kennwortdaten, z. B. auf das nur-Text-Kennwort, den Hash des Kennworts oder das verschlüsselte Kennwort.
 
-Tabelle 1 wird veranschaulicht, wie diese drei Spalten für die verschiedenen Speicher Techniken aussehen könnte beim Speichern des Kennworts MySecret! .
+Tabelle 1 wird veranschaulicht, wie diese drei Spalten für die verschiedenen Speicher Techniken aussehen könnte beim Speichern des Kennworts MySecret! sein.
 
 | **Speicher-Technik&lt;\_o3a\_p /&gt;** | **Kennwort&lt;\_o3a\_p /&gt;** | **PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
 | --- | --- | --- | --- |
-| Clear | MySecret! | 0 | tTnkPlesqissc2y2SMEygA == |
-| Ein Hashwert erstellt | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1 | wFgjUfhdUFOCKQiI61vtiQ == |
-| Verschlüsselt | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/OqAXGLHJNBw == |
+| Clear | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
+| Ein Hashwert erstellt | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
+| Verschlüsselt | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **Tabelle 1**: Beispielwerte für die Kennwort-bezogene Felder beim Speichern der Kennwort MySecret!
 
@@ -256,13 +256,13 @@ Die `aspnet_UsersInRoles` Tabelle dient als eine Zuordnung zwischen Benutzern un
 
 Alle Frameworks, die das Anbietermodell – z. B. die Mitgliedschaft und Rollen Frameworks - unterstützen fehlender Implementierungsdetails selbst und stattdessen diese Aufgabe delegieren, auf eine Anbieterklasse. Im Fall von der Mitgliedschaft-Framework die `Membership` Klasse definiert die API zum Verwalten von Benutzerkonten, aber es gibt keine Interaktion zwischen direkt mit beliebigen Benutzer speichern. Vielmehr die `Membership` -Klasse Methoden übergeben Sie die Anforderung an den konfigurierten Anbieter – wir verwenden die `SqlMembershipProvider`. Wenn wir Aufrufen einer der Methoden in der `Membership` -Klasse, wie das Framework Mitgliedschaft kennt den Aufruf zum Delegieren der `SqlMembershipProvider`?
 
-Die `Membership` -Klasse verfügt über eine [ `Providers` Eigenschaft](https://msdn.microsoft.com/en-us/library/system.web.security.membership.providers.aspx) , einen Verweis auf alle registrierten Anbieterklassen für die Verwendung durch das Framework für die Mitgliedschaft enthält. Jeder registrierte Anbieter verfügt über einen zugehörigen Namen und Typ. Der Name bietet Human benutzerfreundliche Möglichkeit, einen bestimmten Anbieter in verweisen die `Providers` Sammlung, während Sie den Typ der Anbieterklasse identifiziert. Darüber hinaus kann jede registrierte Anbieter Konfigurationseinstellungen enthalten. Konfigurationseinstellungen für die Mitgliedschaft Framework zählen `PasswordFormat` und `requiresUniqueEmail`, u. a. viele. Siehe Tabelle 2 für eine vollständige Liste der von verwendeten Konfigurationseinstellungen die `SqlMembershipProvider`.
+Die `Membership` -Klasse verfügt über eine [ `Providers` Eigenschaft](https://msdn.microsoft.com/library/system.web.security.membership.providers.aspx) , einen Verweis auf alle registrierten Anbieterklassen für die Verwendung durch das Framework für die Mitgliedschaft enthält. Jeder registrierte Anbieter verfügt über einen zugehörigen Namen und Typ. Der Name bietet Human benutzerfreundliche Möglichkeit, einen bestimmten Anbieter in verweisen die `Providers` Sammlung, während Sie den Typ der Anbieterklasse identifiziert. Darüber hinaus kann jede registrierte Anbieter Konfigurationseinstellungen enthalten. Konfigurationseinstellungen für die Mitgliedschaft Framework zählen `PasswordFormat` und `requiresUniqueEmail`, u. a. viele. Siehe Tabelle 2 für eine vollständige Liste der von verwendeten Konfigurationseinstellungen die `SqlMembershipProvider`.
 
 Die `Providers` Inhalt-Eigenschaft des über die Konfigurationseinstellungen für die Webanwendung angegeben werden. Standardmäßig verfügen alle Webanwendungen über einen Anbieter namens `AspNetSqlMembershipProvider` vom Typ `SqlMembershipProvider`. In diesem Standardmitgliedschaftsanbieter registriert ist `machine.config` (am `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`):
 
 [!code-xml[Main](creating-the-membership-schema-in-sql-server-vb/samples/sample1.xml)]
 
-Als Markup oben dargestellt die [ `<membership>` Element](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) definiert die Konfigurationseinstellungen für die Mitgliedschaft Framework während der [ `<providers>` untergeordnetes Element](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx) gibt den registrierten Anbieter. Anbieter hinzugefügt werden, oder mit entfernt die [ `<add>` ](https://msdn.microsoft.com/en-us/library/whae3t94.aspx) oder [ `<remove>` ](https://msdn.microsoft.com/en-us/library/aykw9a6d.aspx) Elemente; verwenden Sie die [ `<clear>` ](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx) Element alle derzeit entfernen registrierten Anbieter. Als Markup oben dargestellt `machine.config` Fügt einen Anbieter mit dem Namen `AspNetSqlMembershipProvider` vom Typ `SqlMembershipProvider`.
+Als Markup oben dargestellt die [ `<membership>` Element](https://msdn.microsoft.com/library/1b9hw62f.aspx) definiert die Konfigurationseinstellungen für die Mitgliedschaft Framework während der [ `<providers>` untergeordnetes Element](https://msdn.microsoft.com/library/6d4936ht.aspx) gibt den registrierten Anbieter. Anbieter hinzugefügt werden, oder mit entfernt die [ `<add>` ](https://msdn.microsoft.com/library/whae3t94.aspx) oder [ `<remove>` ](https://msdn.microsoft.com/library/aykw9a6d.aspx) Elemente; verwenden Sie die [ `<clear>` ](https://msdn.microsoft.com/library/t062y6yc.aspx) Element alle derzeit entfernen registrierten Anbieter. Als Markup oben dargestellt `machine.config` Fügt einen Anbieter mit dem Namen `AspNetSqlMembershipProvider` vom Typ `SqlMembershipProvider`.
 
 Zusätzlich zu den `name` und `type` Attribute, die `<add>` Element enthält Attribute, die die Werte für verschiedene Konfigurieren von Einstellungen definieren. Tabelle 2 werden die verfügbaren `SqlMembershipProvider`-bestimmte Konfigurationseinstellungen festgelegt werden, zusammen mit einer Beschreibung der einzelnen.
 
@@ -321,7 +321,7 @@ Fügen Sie das folgende Mitgliedschaft Konfiguration Markup zum Rendern der `Web
 
 Zusätzlich zum Registrieren der `SecurityTutorialsSqlMembershipProvider` Anbieter, die oben genannten Markup definiert die `SecurityTutorialsSqlMembershipProvider` als Standardanbieter (über die `defaultProvider` Attribut in der `<membership>` Element). Beachten Sie, dass das Framework Mitgliedschaft mehrere registrierte Anbieter haben kann. Da `AspNetSqlMembershipProvider` registriert ist, als der erste Anbieter in `machine.config`, es dient als Standardanbieter, es sei denn, es anders angegeben.
 
-Gegenwärtig kann die Anwendung zwei registrierten Anbieter: `AspNetSqlMembershipProvider` und `SecurityTutorialsSqlMembershipProvider`. Jedoch vor der Registrierung der `SecurityTutorialsSqlMembershipProvider` Anbieter, die wir, alle zuvor verhinderten konnte registrierten Anbieter durch Hinzufügen einer [ `<clear />` Element](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx) unmittelbar vor unserer `<add>` Element. Dies würde löschen, die `AspNetSqlMembershipProvider` aus der Liste der registrierten Anbieter, was bedeutet, dass die `SecurityTutorialsSqlMembershipProvider` wäre die nur registrierte Mitgliedschaftsanbieter. Wenn wir diesen Ansatz verwendet, müssen wir nicht markieren der `SecurityTutorialsSqlMembershipProvider` als Standardanbieter, da es wäre die nur registrierten Mitgliedschaftsanbieter. Weitere Informationen zur Verwendung von `<clear />`, finden Sie unter [Using `<clear />` beim Hinzufügen von Anbietern](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx).
+Gegenwärtig kann die Anwendung zwei registrierten Anbieter: `AspNetSqlMembershipProvider` und `SecurityTutorialsSqlMembershipProvider`. Jedoch vor der Registrierung der `SecurityTutorialsSqlMembershipProvider` Anbieter, die wir, alle zuvor verhinderten konnte registrierten Anbieter durch Hinzufügen einer [ `<clear />` Element](https://msdn.microsoft.com/library/t062y6yc.aspx) unmittelbar vor unserer `<add>` Element. Dies würde löschen, die `AspNetSqlMembershipProvider` aus der Liste der registrierten Anbieter, was bedeutet, dass die `SecurityTutorialsSqlMembershipProvider` wäre die nur registrierte Mitgliedschaftsanbieter. Wenn wir diesen Ansatz verwendet, müssen wir nicht markieren der `SecurityTutorialsSqlMembershipProvider` als Standardanbieter, da es wäre die nur registrierten Mitgliedschaftsanbieter. Weitere Informationen zur Verwendung von `<clear />`, finden Sie unter [Using `<clear />` beim Hinzufügen von Anbietern](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx).
 
 Beachten Sie, dass die `SecurityTutorialsSqlMembershipProvider`des `connectionStringName` Festlegen von Verweisen den gerade hinzugefügten `SecurityTutorialsConnectionString` Verbindungszeichenfolgenname und dass seine `applicationName` Einstellung auf einen Wert von SecurityTutorials festgelegt wurde. Darüber hinaus die `requiresUniqueEmail` Einstellung vorsieht `true`. Alle anderen Konfigurationsoptionen sind identisch mit den Werten in `AspNetSqlMembershipProvider`. Können Sie hier keine konfigurationsänderungen vornehmen, wenn Sie möchten. Sie konnten z. B. der Kennwortstärke dazu müssen zwei nicht-alphanumerische Zeichen anstelle eines, oder erhöhen die Länge des Kennworts auf acht Zeichen anstelle von sieben erhöhen.
 
@@ -344,17 +344,17 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Konfigurieren von ASP.NET 2.0-Dienstanwendung mit SQLServer 2000 oder SQLServer 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)
 - [Herunterladen von SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 - [Untersuchen ASP.NET 2.0 s Mitgliedschaft, Rollen und Profile](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Die `<add>` -Element für Anbieter für Mitgliedschaft](https://msdn.microsoft.com/en-us/library/whae3t94.aspx)
-- [Die `<membership>` Element](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx)
-- [Die `<providers>` -Element für Mitgliedschaft](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx)
+- [Die `<add>` -Element für Anbieter für Mitgliedschaft](https://msdn.microsoft.com/library/whae3t94.aspx)
+- [Die `<membership>` Element](https://msdn.microsoft.com/library/1b9hw62f.aspx)
+- [Die `<providers>` -Element für Mitgliedschaft](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Mithilfe von `<clear />` beim Hinzufügen von Anbietern](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
 - [Direktes Arbeiten mit der`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Lehrvideos auf die Themen in diesem Lernprogramm
 
-- [Grundlegendes zu ASP.NET Mitgliedschaften](../../../videos/authentication/understanding-aspnet-memberships.md)
-- [Konfigurieren von SQL für die Arbeit mit Mitgliedschaft Schemas](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
-- [Ändern der Einstellungen für die Mitgliedschaft in das Standardschema der Mitgliedschaft](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
+- [Grundlegendes zu ASP.NET-Mitgliedschaften](../../../videos/authentication/understanding-aspnet-memberships.md)
+- [Konfigurieren von SQL für die Arbeit mit Mitgliedschaftsschemas](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
+- [Ändern der Mitgliedschaftseinstellungen im Mitgliedschaftsschema](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 

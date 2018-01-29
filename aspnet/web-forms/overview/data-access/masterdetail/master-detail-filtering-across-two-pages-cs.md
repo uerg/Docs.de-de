@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ddce74be81cb3ea33df9f7a6b91eae604b83025
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411272896dee0da4d5f89aa2bdda0999d660423
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Master/Detail-Filterung über zwei Seiten (c#)
 ====================
@@ -71,7 +71,7 @@ Mit der `SupplierListMaster.aspx` und `ProductsForSupplierDetails.aspx` Seiten e
 
 Wir müssen einen Link zum mit dem Titel anzeigen Produkte in jeder Zeile GridView, die beim Klicken auf wird der Benutzer auf `ProductsForSupplierDetails.aspx` übergeben, die in der ausgewählten Zeile `SupplierID` Wert über die Abfragezeichenfolge. Angenommen, klickt der Benutzer auf den Link Produkte anzeigen, für den Lieferanten Tokyo Traders (verfügt über eine `SupplierID` Wert 4), sie gesendet werden soll, um `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
-Um dies zu erreichen, fügen einen [HyperLinkField](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx) an die GridView, die einen Link auf jede Zeile GridView hinzufügt. Starten Sie, indem Sie auf den Link "Spalten bearbeiten" aus der GridView Smarttag. Als nächstes wählen Sie die HyperLinkField aus der Liste in der oberen linken Ecke, und klicken Sie auf Hinzufügen, um die GridView-Feldliste die HyperLinkField einschließt.
+Um dies zu erreichen, fügen einen [HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) an die GridView, die einen Link auf jede Zeile GridView hinzufügt. Starten Sie, indem Sie auf den Link "Spalten bearbeiten" aus der GridView Smarttag. Als nächstes wählen Sie die HyperLinkField aus der Liste in der oberen linken Ecke, und klicken Sie auf Hinzufügen, um die GridView-Feldliste die HyperLinkField einschließt.
 
 
 [![Hinzufügen einer HyperLinkField an die GridView](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
