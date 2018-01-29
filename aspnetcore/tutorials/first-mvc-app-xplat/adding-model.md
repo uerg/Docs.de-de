@@ -9,11 +9,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 manager: wpickett
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 4c09225c925c326da7e815b39f176325a04fc17b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32677b8232e907e8431e05a3727fe7a2e5717ec4
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 [!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
@@ -57,11 +57,7 @@ Erstellen Sie die App, um sicherzustellen, dass keine Fehler auftreten und Sie e
 dotnet restore
 dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries 
 ```
-
-> [!NOTE]
-> Wenn Sie eine Fehlermeldung erhalten, wenn der Gerüstbau-Befehl ausgeführt wird, finden Sie unter [issue 444 in the scaffolding repository](https://github.com/aspnet/scaffolding/issues/444) (Problem 444 im Gerüstbau-Repository) eine Möglichkeit zur Umgehung des Problems.
-
-Das Gerüstbau-Modul erstellt folgende Dinge:
+Das Gerüstbaumodul erstellt Folgendes:
 
 * Einen Filmcontroller (*Controllers/MoviesController.cs*)
 * Razor-Ansichtsdateien für Seiten der Typen „Erstellen“, „Löschen“, „Details“ und „Index“ (*Views/Movies/\*.cshtml*)
