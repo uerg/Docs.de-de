@@ -12,105 +12,105 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 064f2d6eca087fae8c796d1dde78d5079d3803ca
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db459de687db862be00a9b59ff5b1b238fa75061
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
-<a name="part-7-membership-and-authorization"></a><span data-ttu-id="14d9e-104">Teil 7: Mitgliedschaft und Autorisierung</span><span class="sxs-lookup"><span data-stu-id="14d9e-104">Part 7: Membership and Authorization</span></span>
+<a name="part-7-membership-and-authorization"></a><span data-ttu-id="7997d-104">Teil 7: Mitgliedschaft und Autorisierung</span><span class="sxs-lookup"><span data-stu-id="7997d-104">Part 7: Membership and Authorization</span></span>
 ====================
-<span data-ttu-id="14d9e-105">durch [Jon Galloway](https://github.com/jongalloway)</span><span class="sxs-lookup"><span data-stu-id="14d9e-105">by [Jon Galloway](https://github.com/jongalloway)</span></span>
+<span data-ttu-id="7997d-105">durch [Jon Galloway](https://github.com/jongalloway)</span><span class="sxs-lookup"><span data-stu-id="7997d-105">by [Jon Galloway](https://github.com/jongalloway)</span></span>
 
-> <span data-ttu-id="14d9e-106">Das MVC-Music Store ist eine lernprogrammanwendung, die führt und erklärt schrittweise, wie mithilfe von ASP.NET MVC und Visual Studio für die Webentwicklung.</span><span class="sxs-lookup"><span data-stu-id="14d9e-106">The MVC Music Store is a tutorial application that introduces and explains step-by-step how to use ASP.NET MVC and Visual Studio for web development.</span></span>  
+> <span data-ttu-id="7997d-106">Das MVC-Music Store ist eine lernprogrammanwendung, die führt und erklärt schrittweise, wie mithilfe von ASP.NET MVC und Visual Studio für die Webentwicklung.</span><span class="sxs-lookup"><span data-stu-id="7997d-106">The MVC Music Store is a tutorial application that introduces and explains step-by-step how to use ASP.NET MVC and Visual Studio for web development.</span></span>  
 >   
-> <span data-ttu-id="14d9e-107">Das MVC-Music Store handelt es sich um einfache Beispiel Store Implementierung, die online Musikalben verkauft und implementiert grundlegende standortverwaltung Benutzer anmelden und shopping Cart-Funktionalität.</span><span class="sxs-lookup"><span data-stu-id="14d9e-107">The MVC Music Store is a lightweight sample store implementation which sells music albums online, and implements basic site administration, user sign-in, and shopping cart functionality.</span></span>  
+> <span data-ttu-id="7997d-107">Das MVC-Music Store handelt es sich um einfache Beispiel Store Implementierung, die online Musikalben verkauft und implementiert grundlegende standortverwaltung Benutzer anmelden und shopping Cart-Funktionalität.</span><span class="sxs-lookup"><span data-stu-id="7997d-107">The MVC Music Store is a lightweight sample store implementation which sells music albums online, and implements basic site administration, user sign-in, and shopping cart functionality.</span></span>  
 >   
-> <span data-ttu-id="14d9e-108">Diese Reihe von Lernprogrammen details aller die Schritte zum Erstellen von ASP.NET MVC-Music Store-beispielanwendung.</span><span class="sxs-lookup"><span data-stu-id="14d9e-108">This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application.</span></span> <span data-ttu-id="14d9e-109">Teil 7 deckt Mitgliedschaft und Autorisierung.</span><span class="sxs-lookup"><span data-stu-id="14d9e-109">Part 7 covers Membership and Authorization.</span></span>
+> <span data-ttu-id="7997d-108">Diese Reihe von Lernprogrammen details aller die Schritte zum Erstellen von ASP.NET MVC-Music Store-beispielanwendung.</span><span class="sxs-lookup"><span data-stu-id="7997d-108">This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application.</span></span> <span data-ttu-id="7997d-109">Teil 7 deckt Mitgliedschaft und Autorisierung.</span><span class="sxs-lookup"><span data-stu-id="7997d-109">Part 7 covers Membership and Authorization.</span></span>
 
 
-<span data-ttu-id="14d9e-110">Unsere Speicher-Manager-Controller ist aktuell für Personen, die Zugriff auf unserer Website zugegriffen werden kann.</span><span class="sxs-lookup"><span data-stu-id="14d9e-110">Our Store Manager controller is currently accessible to anyone visiting our site.</span></span> <span data-ttu-id="14d9e-111">Ändern Sie diese Option, um die Berechtigungen für Administratoren einschränken.</span><span class="sxs-lookup"><span data-stu-id="14d9e-111">Let's change this to restrict permission to site administrators.</span></span>
+<span data-ttu-id="7997d-110">Unsere Speicher-Manager-Controller ist aktuell für Personen, die Zugriff auf unserer Website zugegriffen werden kann.</span><span class="sxs-lookup"><span data-stu-id="7997d-110">Our Store Manager controller is currently accessible to anyone visiting our site.</span></span> <span data-ttu-id="7997d-111">Ändern Sie diese Option, um die Berechtigungen für Administratoren einschränken.</span><span class="sxs-lookup"><span data-stu-id="7997d-111">Let's change this to restrict permission to site administrators.</span></span>
 
-## <a name="adding-the-accountcontroller-and-views"></a><span data-ttu-id="14d9e-112">Hinzufügen von AccountController und Ansichten</span><span class="sxs-lookup"><span data-stu-id="14d9e-112">Adding the AccountController and Views</span></span>
+## <a name="adding-the-accountcontroller-and-views"></a><span data-ttu-id="7997d-112">Hinzufügen von AccountController und Ansichten</span><span class="sxs-lookup"><span data-stu-id="7997d-112">Adding the AccountController and Views</span></span>
 
-<span data-ttu-id="14d9e-113">Ein Unterschied zwischen der vollständige ASP.NET MVC 3 Web Application-Vorlage und der ASP.NET MVC 3 leere Web Application-Vorlage ist, dass die leere Vorlage eine Konto-Controller enthält.</span><span class="sxs-lookup"><span data-stu-id="14d9e-113">One difference between the full ASP.NET MVC 3 Web Application template and the ASP.NET MVC 3 Empty Web Application template is that the empty template doesn't include an Account Controller.</span></span> <span data-ttu-id="14d9e-114">Wir werden eine Konto-Controller hinzufügen, durch Kopieren einiger Dateien aus einer ASP.NET MVC-Anwendung mithilfe der vollständige ASP.NET MVC 3 Web Application-Vorlage erstellt.</span><span class="sxs-lookup"><span data-stu-id="14d9e-114">We'll add an Account Controller by copying a few files from a new ASP.NET MVC application created from the full ASP.NET MVC 3 Web Application template.</span></span>
+<span data-ttu-id="7997d-113">Ein Unterschied zwischen der vollständige ASP.NET MVC 3 Web Application-Vorlage und der ASP.NET MVC 3 leere Web Application-Vorlage ist, dass die leere Vorlage eine Konto-Controller enthält.</span><span class="sxs-lookup"><span data-stu-id="7997d-113">One difference between the full ASP.NET MVC 3 Web Application template and the ASP.NET MVC 3 Empty Web Application template is that the empty template doesn't include an Account Controller.</span></span> <span data-ttu-id="7997d-114">Wir werden eine Konto-Controller hinzufügen, durch Kopieren einiger Dateien aus einer ASP.NET MVC-Anwendung mithilfe der vollständige ASP.NET MVC 3 Web Application-Vorlage erstellt.</span><span class="sxs-lookup"><span data-stu-id="7997d-114">We'll add an Account Controller by copying a few files from a new ASP.NET MVC application created from the full ASP.NET MVC 3 Web Application template.</span></span>
 
-<span data-ttu-id="14d9e-115">Erstellen einer neuen ASP.NET MVC-Anwendung mithilfe der vollständige ASP.NET MVC 3 Web Application-Vorlage, und kopieren Sie die folgenden Dateien in denselben Verzeichnissen im Projekt:</span><span class="sxs-lookup"><span data-stu-id="14d9e-115">Create a new ASP.NET MVC application using the full ASP.NET MVC 3 Web Application template and copy the following files into the same directories in our project:</span></span>
+<span data-ttu-id="7997d-115">Erstellen einer neuen ASP.NET MVC-Anwendung mithilfe der vollständige ASP.NET MVC 3 Web Application-Vorlage, und kopieren Sie die folgenden Dateien in denselben Verzeichnissen im Projekt:</span><span class="sxs-lookup"><span data-stu-id="7997d-115">Create a new ASP.NET MVC application using the full ASP.NET MVC 3 Web Application template and copy the following files into the same directories in our project:</span></span>
 
-1. <span data-ttu-id="14d9e-116">Kopieren Sie im Verzeichnis Controller AccountController.cs</span><span class="sxs-lookup"><span data-stu-id="14d9e-116">Copy AccountController.cs in the Controllers directory</span></span>
-2. <span data-ttu-id="14d9e-117">Kopieren Sie im Verzeichnis Modelle AccountModels</span><span class="sxs-lookup"><span data-stu-id="14d9e-117">Copy AccountModels in the Models directory</span></span>
-3. <span data-ttu-id="14d9e-118">Erstellen Sie ein Konto Verzeichnis in das Verzeichnis "Views", und kopieren Sie alle vier Ansichten</span><span class="sxs-lookup"><span data-stu-id="14d9e-118">Create an Account directory inside the Views directory and copy all four views in</span></span>
+1. <span data-ttu-id="7997d-116">Kopieren Sie im Verzeichnis Controller AccountController.cs</span><span class="sxs-lookup"><span data-stu-id="7997d-116">Copy AccountController.cs in the Controllers directory</span></span>
+2. <span data-ttu-id="7997d-117">Kopieren Sie im Verzeichnis Modelle AccountModels</span><span class="sxs-lookup"><span data-stu-id="7997d-117">Copy AccountModels in the Models directory</span></span>
+3. <span data-ttu-id="7997d-118">Erstellen Sie ein Konto Verzeichnis in das Verzeichnis "Views", und kopieren Sie alle vier Ansichten</span><span class="sxs-lookup"><span data-stu-id="7997d-118">Create an Account directory inside the Views directory and copy all four views in</span></span>
 
-<span data-ttu-id="14d9e-119">Ändern Sie den Namespace für die Klassen für Controller und das Modell aus, damit sie mit MvcMusicStore beginnen.</span><span class="sxs-lookup"><span data-stu-id="14d9e-119">Change the namespace for the Controller and Model classes so they begin with MvcMusicStore.</span></span> <span data-ttu-id="14d9e-120">Die AccountController-Klasse sollten den MvcMusicStore.Controllers-Namespace verwenden, und die AccountModels-Klasse sollte den MvcMusicStore.Models-Namespace verwenden.</span><span class="sxs-lookup"><span data-stu-id="14d9e-120">The AccountController class should use the MvcMusicStore.Controllers namespace, and the AccountModels class should use the MvcMusicStore.Models namespace.</span></span>
+<span data-ttu-id="7997d-119">Ändern Sie den Namespace für die Klassen für Controller und das Modell aus, damit sie mit MvcMusicStore beginnen.</span><span class="sxs-lookup"><span data-stu-id="7997d-119">Change the namespace for the Controller and Model classes so they begin with MvcMusicStore.</span></span> <span data-ttu-id="7997d-120">Die AccountController-Klasse sollten den MvcMusicStore.Controllers-Namespace verwenden, und die AccountModels-Klasse sollte den MvcMusicStore.Models-Namespace verwenden.</span><span class="sxs-lookup"><span data-stu-id="7997d-120">The AccountController class should use the MvcMusicStore.Controllers namespace, and the AccountModels class should use the MvcMusicStore.Models namespace.</span></span>
 
-<span data-ttu-id="14d9e-121">*Hinweis: Diese Dateien sind auch verfügbar im MvcMusicStore Assets.zip Download aus dem wir unsere Website Design-Dateien am Anfang des Lernprogramms kopiert. Die Mitgliedschaft-Dateien befinden sich im Verzeichnis Code.*</span><span class="sxs-lookup"><span data-stu-id="14d9e-121">*Note: These files are also available in the MvcMusicStore-Assets.zip download from which we copied our site design files at the beginning of the tutorial. The Membership files are located in the Code directory.*</span></span>
+<span data-ttu-id="7997d-121">*Hinweis: Diese Dateien sind auch verfügbar im MvcMusicStore Assets.zip Download aus dem wir unsere Website Design-Dateien am Anfang des Lernprogramms kopiert. Die Mitgliedschaft-Dateien befinden sich im Verzeichnis Code.*</span><span class="sxs-lookup"><span data-stu-id="7997d-121">*Note: These files are also available in the MvcMusicStore-Assets.zip download from which we copied our site design files at the beginning of the tutorial. The Membership files are located in the Code directory.*</span></span>
 
-<span data-ttu-id="14d9e-122">Die aktualisierte Lösung sollte wie folgt aussehen:</span><span class="sxs-lookup"><span data-stu-id="14d9e-122">The updated solution should look like the following:</span></span>
+<span data-ttu-id="7997d-122">Die aktualisierte Lösung sollte wie folgt aussehen:</span><span class="sxs-lookup"><span data-stu-id="7997d-122">The updated solution should look like the following:</span></span>
 
 ![](mvc-music-store-part-7/_static/image1.png)
 
-## <a name="adding-an-administrative-user-with-the-aspnet-configuration-site"></a><span data-ttu-id="14d9e-123">Hinzufügen von einem Administrator mit dem Standort der ASP.NET-Konfiguration</span><span class="sxs-lookup"><span data-stu-id="14d9e-123">Adding an Administrative User with the ASP.NET Configuration site</span></span>
+## <a name="adding-an-administrative-user-with-the-aspnet-configuration-site"></a><span data-ttu-id="7997d-123">Hinzufügen von einem Administrator mit dem Standort der ASP.NET-Konfiguration</span><span class="sxs-lookup"><span data-stu-id="7997d-123">Adding an Administrative User with the ASP.NET Configuration site</span></span>
 
-<span data-ttu-id="14d9e-124">Bevor wir in unserer Website Autorisierung erfordern, müssen wir einen Benutzer mit Zugriff erstellen.</span><span class="sxs-lookup"><span data-stu-id="14d9e-124">Before we require Authorization in our website, we'll need to create a user with access.</span></span> <span data-ttu-id="14d9e-125">Die einfachste Möglichkeit zum Erstellen eines Benutzers ist die Verwendung die integrierten ASP.NET-Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="14d9e-125">The easiest way to create a user is to use the built-in ASP.NET Configuration website.</span></span>
+<span data-ttu-id="7997d-124">Bevor wir in unserer Website Autorisierung erfordern, müssen wir einen Benutzer mit Zugriff erstellen.</span><span class="sxs-lookup"><span data-stu-id="7997d-124">Before we require Authorization in our website, we'll need to create a user with access.</span></span> <span data-ttu-id="7997d-125">Die einfachste Möglichkeit zum Erstellen eines Benutzers ist die Verwendung die integrierten ASP.NET-Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="7997d-125">The easiest way to create a user is to use the built-in ASP.NET Configuration website.</span></span>
 
-<span data-ttu-id="14d9e-126">Starten Sie durch Klicken auf das Symbol "im Projektmappen-Explorer nach der ASP.NET-Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="14d9e-126">Launch the ASP.NET Configuration website by clicking following the icon in the Solution Explorer.</span></span>
+<span data-ttu-id="7997d-126">Starten Sie durch Klicken auf das Symbol "im Projektmappen-Explorer nach der ASP.NET-Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="7997d-126">Launch the ASP.NET Configuration website by clicking following the icon in the Solution Explorer.</span></span>
 
 ![](mvc-music-store-part-7/_static/image2.png)
 
-<span data-ttu-id="14d9e-127">Dadurch wird eine Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="14d9e-127">This launches a configuration website.</span></span> <span data-ttu-id="14d9e-128">Klicken Sie auf der Registerkarte "Sicherheit" auf dem Startbildschirm aus, und klicken Sie auf den Link "Rollen aktivieren" in der Mitte des Bildschirms.</span><span class="sxs-lookup"><span data-stu-id="14d9e-128">Click on the Security tab on the home screen, then click the "Enable roles" link in the center of the screen.</span></span>
+<span data-ttu-id="7997d-127">Dadurch wird eine Konfiguration-Website.</span><span class="sxs-lookup"><span data-stu-id="7997d-127">This launches a configuration website.</span></span> <span data-ttu-id="7997d-128">Klicken Sie auf der Registerkarte "Sicherheit" auf dem Startbildschirm aus, und klicken Sie auf den Link "Rollen aktivieren" in der Mitte des Bildschirms.</span><span class="sxs-lookup"><span data-stu-id="7997d-128">Click on the Security tab on the home screen, then click the "Enable roles" link in the center of the screen.</span></span>
 
 ![](mvc-music-store-part-7/_static/image3.png)
 
-<span data-ttu-id="14d9e-129">Klicken Sie auf den Link "Rollen erstellen oder verwalten".</span><span class="sxs-lookup"><span data-stu-id="14d9e-129">Click the "Create or Manage roles" link.</span></span>
+<span data-ttu-id="7997d-129">Klicken Sie auf den Link "Rollen erstellen oder verwalten".</span><span class="sxs-lookup"><span data-stu-id="7997d-129">Click the "Create or Manage roles" link.</span></span>
 
 ![](mvc-music-store-part-7/_static/image4.png)
 
-<span data-ttu-id="14d9e-130">Geben Sie den Namen der Rolle "Administrator", und klicken Sie auf die Schaltfläche Rolle hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="14d9e-130">Enter "Administrator" as the role name and press the Add Role button.</span></span>
+<span data-ttu-id="7997d-130">Geben Sie den Namen der Rolle "Administrator", und klicken Sie auf die Schaltfläche Rolle hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="7997d-130">Enter "Administrator" as the role name and press the Add Role button.</span></span>
 
 ![](mvc-music-store-part-7/_static/image5.png)
 
-<span data-ttu-id="14d9e-131">Klicken Sie auf die Schaltfläche "zurück", und klicken Sie auf den Benutzer zum Erstellen eines Links auf der linken Seite.</span><span class="sxs-lookup"><span data-stu-id="14d9e-131">Click the Back button, then click on the Create user link on the left side.</span></span>
+<span data-ttu-id="7997d-131">Klicken Sie auf die Schaltfläche "zurück", und klicken Sie auf den Benutzer zum Erstellen eines Links auf der linken Seite.</span><span class="sxs-lookup"><span data-stu-id="7997d-131">Click the Back button, then click on the Create user link on the left side.</span></span>
 
 ![](mvc-music-store-part-7/_static/image6.png)
 
-<span data-ttu-id="14d9e-132">Füllen Sie die Felder für die Benutzerinformationen auf der linken Seite mit den folgenden Informationen ein:</span><span class="sxs-lookup"><span data-stu-id="14d9e-132">Fill in the user information fields on the left using the following information:</span></span>
+<span data-ttu-id="7997d-132">Füllen Sie die Felder für die Benutzerinformationen auf der linken Seite mit den folgenden Informationen ein:</span><span class="sxs-lookup"><span data-stu-id="7997d-132">Fill in the user information fields on the left using the following information:</span></span>
 
-| <span data-ttu-id="14d9e-133">**Feld**</span><span class="sxs-lookup"><span data-stu-id="14d9e-133">**Field**</span></span> | <span data-ttu-id="14d9e-134">**Wert**</span><span class="sxs-lookup"><span data-stu-id="14d9e-134">**Value**</span></span> |
+| <span data-ttu-id="7997d-133">**Feld**</span><span class="sxs-lookup"><span data-stu-id="7997d-133">**Field**</span></span> | <span data-ttu-id="7997d-134">**Wert**</span><span class="sxs-lookup"><span data-stu-id="7997d-134">**Value**</span></span> |
 | --- | --- |
-| <span data-ttu-id="14d9e-135">**Benutzername**</span><span class="sxs-lookup"><span data-stu-id="14d9e-135">**User Name**</span></span> | <span data-ttu-id="14d9e-136">Administrator</span><span class="sxs-lookup"><span data-stu-id="14d9e-136">Administrator</span></span> |
-| <span data-ttu-id="14d9e-137">**Kennwort**</span><span class="sxs-lookup"><span data-stu-id="14d9e-137">**Password**</span></span> | <span data-ttu-id="14d9e-138">password123!</span><span class="sxs-lookup"><span data-stu-id="14d9e-138">password123!</span></span> |
-| <span data-ttu-id="14d9e-139">**Kennwort bestätigen**</span><span class="sxs-lookup"><span data-stu-id="14d9e-139">**Confirm Password**</span></span> | <span data-ttu-id="14d9e-140">password123!</span><span class="sxs-lookup"><span data-stu-id="14d9e-140">password123!</span></span> |
-| <span data-ttu-id="14d9e-141">**E-Mail**</span><span class="sxs-lookup"><span data-stu-id="14d9e-141">**E-mail**</span></span> | <span data-ttu-id="14d9e-142">(eine beliebige e-Mail-Adresse funktioniert)</span><span class="sxs-lookup"><span data-stu-id="14d9e-142">(any e-mail address will work)</span></span> |
-| <span data-ttu-id="14d9e-143">**Sicherheitsfrage**</span><span class="sxs-lookup"><span data-stu-id="14d9e-143">**Security Question**</span></span> | <span data-ttu-id="14d9e-144">(beliebig)</span><span class="sxs-lookup"><span data-stu-id="14d9e-144">(whatever you like)</span></span> |
-| <span data-ttu-id="14d9e-145">**Sicherheitsantwort**</span><span class="sxs-lookup"><span data-stu-id="14d9e-145">**Security Answer**</span></span> | <span data-ttu-id="14d9e-146">(beliebig)</span><span class="sxs-lookup"><span data-stu-id="14d9e-146">(whatever you like)</span></span> |
+| <span data-ttu-id="7997d-135">**Benutzername**</span><span class="sxs-lookup"><span data-stu-id="7997d-135">**User Name**</span></span> | <span data-ttu-id="7997d-136">Administrator</span><span class="sxs-lookup"><span data-stu-id="7997d-136">Administrator</span></span> |
+| <span data-ttu-id="7997d-137">**Kennwort**</span><span class="sxs-lookup"><span data-stu-id="7997d-137">**Password**</span></span> | <span data-ttu-id="7997d-138">password123!</span><span class="sxs-lookup"><span data-stu-id="7997d-138">password123!</span></span> |
+| <span data-ttu-id="7997d-139">**Kennwort bestätigen**</span><span class="sxs-lookup"><span data-stu-id="7997d-139">**Confirm Password**</span></span> | <span data-ttu-id="7997d-140">password123!</span><span class="sxs-lookup"><span data-stu-id="7997d-140">password123!</span></span> |
+| <span data-ttu-id="7997d-141">**E-Mail**</span><span class="sxs-lookup"><span data-stu-id="7997d-141">**E-mail**</span></span> | <span data-ttu-id="7997d-142">(eine beliebige e-Mail-Adresse funktioniert)</span><span class="sxs-lookup"><span data-stu-id="7997d-142">(any email address will work)</span></span> |
+| <span data-ttu-id="7997d-143">**Sicherheitsfrage**</span><span class="sxs-lookup"><span data-stu-id="7997d-143">**Security Question**</span></span> | <span data-ttu-id="7997d-144">(beliebig)</span><span class="sxs-lookup"><span data-stu-id="7997d-144">(whatever you like)</span></span> |
+| <span data-ttu-id="7997d-145">**Sicherheitsantwort**</span><span class="sxs-lookup"><span data-stu-id="7997d-145">**Security Answer**</span></span> | <span data-ttu-id="7997d-146">(beliebig)</span><span class="sxs-lookup"><span data-stu-id="7997d-146">(whatever you like)</span></span> |
 
-<span data-ttu-id="14d9e-147">*Hinweis: Sie können natürlich alle Kennwort verwenden, Sie möchten. Die standardsicherheitseinstellungen für die ein Kennwort erfordern ein Kennwort, 7 Zeichen lang ist und ein nicht alphanumerisches Zeichen enthält.*</span><span class="sxs-lookup"><span data-stu-id="14d9e-147">*Note: You can of course use any password you'd like. The default password security settings require a password that is 7 characters long and contains one non-alphanumeric character.*</span></span>
+<span data-ttu-id="7997d-147">*Hinweis: Sie können natürlich alle Kennwort verwenden, Sie möchten. Die standardsicherheitseinstellungen für die ein Kennwort erfordern ein Kennwort, 7 Zeichen lang ist und ein nicht alphanumerisches Zeichen enthält.*</span><span class="sxs-lookup"><span data-stu-id="7997d-147">*Note: You can of course use any password you'd like. The default password security settings require a password that is 7 characters long and contains one non-alphanumeric character.*</span></span>
 
-<span data-ttu-id="14d9e-148">Wählen Sie die Rolle "Administrator" für diesen Benutzer aus, und klicken Sie auf die Schaltfläche "Create User".</span><span class="sxs-lookup"><span data-stu-id="14d9e-148">Select the Administrator role for this user, and click the Create User button.</span></span>
+<span data-ttu-id="7997d-148">Wählen Sie die Rolle "Administrator" für diesen Benutzer aus, und klicken Sie auf die Schaltfläche "Create User".</span><span class="sxs-lookup"><span data-stu-id="7997d-148">Select the Administrator role for this user, and click the Create User button.</span></span>
 
 ![](mvc-music-store-part-7/_static/image7.png)
 
-<span data-ttu-id="14d9e-149">Nun sehen Sie eine Meldung, dass der Benutzer erfolgreich erstellt wurde.</span><span class="sxs-lookup"><span data-stu-id="14d9e-149">At this point, you should see a message indicating that the user was created successfully.</span></span>
+<span data-ttu-id="7997d-149">Nun sehen Sie eine Meldung, dass der Benutzer erfolgreich erstellt wurde.</span><span class="sxs-lookup"><span data-stu-id="7997d-149">At this point, you should see a message indicating that the user was created successfully.</span></span>
 
 ![](mvc-music-store-part-7/_static/image8.png)
 
-<span data-ttu-id="14d9e-150">Sie können jetzt das Browserfenster schließen.</span><span class="sxs-lookup"><span data-stu-id="14d9e-150">You can now close the browser window.</span></span>
+<span data-ttu-id="7997d-150">Sie können jetzt das Browserfenster schließen.</span><span class="sxs-lookup"><span data-stu-id="7997d-150">You can now close the browser window.</span></span>
 
-## <a name="role-based-authorization"></a><span data-ttu-id="14d9e-151">Rollenbasierte Autorisierung</span><span class="sxs-lookup"><span data-stu-id="14d9e-151">Role-based Authorization</span></span>
+## <a name="role-based-authorization"></a><span data-ttu-id="7997d-151">Rollenbasierte Autorisierung</span><span class="sxs-lookup"><span data-stu-id="7997d-151">Role-based Authorization</span></span>
 
-<span data-ttu-id="14d9e-152">Jetzt können wir Beschränken des Zugriffs auf die StoreManagerController mit dem Attribut [Authorize] Gibt an, dass der Benutzer der Rolle Administrator eingreifen Controller in der Klasse den Zugriff auf sein muss.</span><span class="sxs-lookup"><span data-stu-id="14d9e-152">Now we can restrict access to the StoreManagerController using the [Authorize] attribute, specifying that the user must be in the Administrator role to access any controller action in the class.</span></span>
+<span data-ttu-id="7997d-152">Jetzt können wir Beschränken des Zugriffs auf die StoreManagerController mit dem Attribut [Authorize] Gibt an, dass der Benutzer der Rolle Administrator eingreifen Controller in der Klasse den Zugriff auf sein muss.</span><span class="sxs-lookup"><span data-stu-id="7997d-152">Now we can restrict access to the StoreManagerController using the [Authorize] attribute, specifying that the user must be in the Administrator role to access any controller action in the class.</span></span>
 
 [!code-csharp[Main](mvc-music-store-part-7/samples/sample1.cs)]
 
-<span data-ttu-id="14d9e-153">*Hinweis: Das Attribut [Authorize] kann für bestimmte Aktionsmethoden sowie auf Klassenebene Controller platziert werden.*</span><span class="sxs-lookup"><span data-stu-id="14d9e-153">*Note: The [Authorize] attribute can be placed on specific action methods as well as at the Controller class level.*</span></span>
+<span data-ttu-id="7997d-153">*Hinweis: Das Attribut [Authorize] kann für bestimmte Aktionsmethoden sowie auf Klassenebene Controller platziert werden.*</span><span class="sxs-lookup"><span data-stu-id="7997d-153">*Note: The [Authorize] attribute can be placed on specific action methods as well as at the Controller class level.*</span></span>
 
-<span data-ttu-id="14d9e-154">Jetzt das Navigieren zu /StoreManager wird ein Dialogfeld "Anmelden" geöffnet:</span><span class="sxs-lookup"><span data-stu-id="14d9e-154">Now browsing to /StoreManager brings up a Log On dialog:</span></span>
+<span data-ttu-id="7997d-154">Jetzt das Navigieren zu /StoreManager wird ein Dialogfeld "Anmelden" geöffnet:</span><span class="sxs-lookup"><span data-stu-id="7997d-154">Now browsing to /StoreManager brings up a Log On dialog:</span></span>
 
 ![](mvc-music-store-part-7/_static/image9.png)
 
-<span data-ttu-id="14d9e-155">Nach der Anmeldung mit unserem neuen Administratorkonto können wir fahren Sie mit dem Album bearbeiten-Bildschirm als vor.</span><span class="sxs-lookup"><span data-stu-id="14d9e-155">After logging on with our new Administrator account, we're able to go to the Album Edit screen as before.</span></span>
+<span data-ttu-id="7997d-155">Nach der Anmeldung mit unserem neuen Administratorkonto können wir fahren Sie mit dem Album bearbeiten-Bildschirm als vor.</span><span class="sxs-lookup"><span data-stu-id="7997d-155">After logging on with our new Administrator account, we're able to go to the Album Edit screen as before.</span></span>
 
 >[!div class="step-by-step"]
-<span data-ttu-id="14d9e-156">[Zurück](mvc-music-store-part-6.md)
-[Weiter](mvc-music-store-part-8.md)</span><span class="sxs-lookup"><span data-stu-id="14d9e-156">[Previous](mvc-music-store-part-6.md)
+<span data-ttu-id="7997d-156">[Zurück](mvc-music-store-part-6.md)
+[Weiter](mvc-music-store-part-8.md)</span><span class="sxs-lookup"><span data-stu-id="7997d-156">[Previous](mvc-music-store-part-6.md)
 [Next](mvc-music-store-part-8.md)</span></span>
