@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: ee9bdc66d0bfa6433736fbc55126bdd37ba9d080
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8847a70b24a2f25ff2e73a5cb2244d62c4f4c29
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurieren einer ASP.NET Core-App
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27) und [Luke Latham](https://github.com/guardrex)
 
-Mithilfe der Konfigurations-API kann eine ASP.NET Core-Web-App basierend auf einer Liste von Name/Wert-Paaren konfiguriert werden. Die Konfiguration wird zur Runtime aus verschiedenen Quellen gelesen. Sie können diese Name/Wert-Paare in einer Hierarchie mit mehreren Ebenen gruppieren.
+Mithilfe der Konfigurations-API kann eine ASP.NET Core-Web-App basierend auf einer Liste von Name/Wert-Paaren konfiguriert werden. Die Konfiguration wird zur Runtime aus verschiedenen Quellen gelesen. Name-Wert-Paare können in eine Hierarchie mit mehreren Ebenen gruppiert werden.
 
 Für Folgendes stehen Konfigurationsanbieter zur Verfügung:
 
@@ -59,7 +59,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 // Output: Gandalf
 ```
 
-Name/Wert-Paare, die in die integrierten [Konfigurationsanbieter](/dotnet/api/microsoft.extensions.configuration) geschrieben werden, werden **nicht** beibehalten. Allerdings können Sie einen benutzerdefinierten Anbieter erstellen, der Werte speichert. Weitere Informationen finden Sie im Artikel zum [benutzerdefinierten Konfigurationsanbieter](xref:fundamentals/configuration/index#custom-config-providers).
+Name/Wert-Paare, die in die integrierten [Konfigurationsanbieter](/dotnet/api/microsoft.extensions.configuration) geschrieben werden, werden **nicht** beibehalten. Allerdings kann ein benutzerdefinierter Anbieter erstellt werden, der Werte speichert. Weitere Informationen finden Sie im Artikel zum [benutzerdefinierten Konfigurationsanbieter](xref:fundamentals/configuration/index#custom-config-providers).
 
 Im vorhergehenden Beispiel wird der Konfigurationsindexer zum Lesen von Werten verwendet. Um außerhalb von `Startup` auf die Konfiguration zuzugreifen, verwenden Sie das *Optionsmuster*. Weitere Informationen finden Sie im Thema [Optionen](xref:fundamentals/configuration/options).
 
@@ -93,8 +93,8 @@ Die Umgebung ist in der Regel auf `Development`, `Staging` oder `Production` fes
 
 * `IOptionsSnapshot` kann Konfigurationsdaten erneut laden, wenn sich diese ändern. Weitere Informationen finden Sie unter [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).
 * Bei Konfigurationsschlüsseln wird die Groß-/Kleinschreibung **nicht** beachtet.
-* Speichern Sie **niemals** Kennwörter oder andere sensible Daten im Konfigurationsanbietercode oder in Nur-Text-Konfigurationsdateien. Verwenden Sie keine Produktionsgeheimnisse in Ihren Entwicklungs- oder Testumgebungen. Geben Sie Geheimnisse außerhalb des Projekts an, damit sie nicht versehentlich in Ihr Repository übernommen werden können. Erfahren Sie mehr zum [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments) und einer [sicheren Speicherung von App-Geheimnissen während der Entwicklung](xref:security/app-secrets).
-* Wenn in Umgebungsvariablen in Ihrem System kein Doppelpunkt (`:`) verwendet werden kann, ersetzen Sie den Doppelpunkt (`:`) durch zwei Unterstriche (`__`).
+* Speichern Sie **niemals** Kennwörter oder andere sensible Daten im Konfigurationsanbietercode oder in Nur-Text-Konfigurationsdateien. Verwenden Sie keine Produktionsgeheimnisse in Entwicklungs- oder Testumgebungen. Geben Sie Geheimnisse außerhalb des Projekts an, damit sie nicht versehentlich in ein Quellcoderepository übernommen werden können. Erfahren Sie mehr zum [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments) und einer [sicheren Speicherung von App-Geheimnissen während der Entwicklung](xref:security/app-secrets).
+* Wenn in Umgebungsvariablen in einem System kein Doppelpunkt (`:`) verwendet werden kann, ersetzen Sie den Doppelpunkt (`:`) durch zwei Unterstriche (`__`).
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>In-Memory-Anbieter und Bindung an eine POCO-Klasse
 
@@ -102,7 +102,7 @@ Im folgenden Beispiel wird gezeigt, wie der In-Memory-Anbieter verwendet und an 
 
 [!code-csharp[Main](index/sample/InMemory/Program.cs)]
 
-Konfigurationswerte werden als Zeichenfolgen zurückgegeben, durch eine Bindung wird jedoch die Erstellung von Objekten ermöglicht. Durch eine Bindung können Sie POCO-Objekte oder sogar ganze Objektdiagramme abrufen.
+Konfigurationswerte werden als Zeichenfolgen zurückgegeben, durch eine Bindung wird jedoch die Erstellung von Objekten ermöglicht. Durch eine Bindung können POCO-Objekte oder sogar ganze Objektdiagramme abgerufen werden.
 
 ### <a name="getvalue"></a>GetValue
 
@@ -110,11 +110,11 @@ Im folgenden Beispiel wird die Erweiterungsmethode [GetValue&lt;T&gt;](/dotnet/a
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
-Durch die `GetValue<T>`-Methode von ConfigurationBinder können Sie einen Standardwert (hier 80) angeben. `GetValue<T>` ist für einfache Szenarien vorgesehen und kann nicht an gesamte Abschnitte gebunden werden. `GetValue<T>` ruft skalare Werte von `GetSection(key).Value` – konvertiert in einen bestimmten Typ – ab.
+Durch die `GetValue<T>`-Methode von ConfigurationBinder kann ein Standardwert (hier 80) angegeben werden. `GetValue<T>` ist für einfache Szenarien vorgesehen und kann nicht an gesamte Abschnitte gebunden werden. `GetValue<T>` ruft skalare Werte von `GetSection(key).Value` ab, die in einen bestimmten Typ konvertiert wurden.
 
 ## <a name="bind-to-an-object-graph"></a>Binden an ein Objektdiagramm
 
-Sie können für jedes Objekt in einer Klasse eine rekursive Bindung vornehmen. Betrachten wir einmal die folgende `AppSettings`-Klasse:
+Jedes Objekt in einer Klasse kann rekursiv gebunden werden. Betrachten wir einmal die folgende `AppSettings`-Klasse:
 
 [!code-csharp[Main](index/sample/ObjectGraph/AppSettings.cs)]
 
@@ -185,7 +185,7 @@ Erstellen Sie den benutzerdefinierten Konfigurationsanbieter durch Vererbung von
 
 Bei Ausführung des Beispiels werden die hervorgehobenen Werte von der Datenbank („value_from_ef_1“ und „value_from_ef_2“) angezeigt.
 
-Sie können zum Hinzufügen der Konfigurationsquelle eine `EFConfigSource`-Erweiterungsmethode hinzufügen:
+Eine `EFConfigSource`-Erweiterungsmethode zum Hinzufügen der Konfigurationsquelle kann verwendet werden:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
@@ -331,7 +331,7 @@ Wenn Schlüssel doppelt angegeben werden, wird das letzte Schlüssel/Wert-Paar v
 
 ### <a name="switch-mappings"></a>Switchmappings
 
-Bei der manuellen Erstellung von Konfigurationen mit `ConfigurationBuilder` können Sie optional ein Switchmappingwörterbuch für die `AddCommandLine`-Methode angeben. Mit Switchmappings können Sie eine Logik zum Ersetzen von Schlüsselnamen angeben.
+Bei der manuellen Erstellung von Konfigurationen mit `ConfigurationBuilder` kann ein Switchmappingswörterbuch der `AddCommandLine`-Methode hinzugefügt werden. Switchmappings erlauben das Angeben einer Logik zum Ersetzen von Schlüsselnamen.
 
 Wenn das Switchmappingwörterbuch verwendet wird, wird das Wörterbuch für Schlüssel, die dem von einem Befehlszeilenargument angegebenen Schlüssel entsprechen, überprüft. Wenn der Befehlszeilenschlüssel im Wörterbuch gefunden wird, wird der Wörterbuchwert (der Schlüsselersatz) zur Festlegung der Konfiguration zurückgegeben. Ein Switchmapping ist für jeden Befehlszeilenschlüssel erforderlich, dem ein einzelner Gedankenstrich (`-`) vorangestellt ist.
 
@@ -394,6 +394,10 @@ Left: 1988
 
 Eine Datei namens *Web.config* ist erforderlich, wenn Sie die App in IIS oder IIS Express hosten. Die Einstellungen in der Datei *Web.config* aktivieren das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module), um die App zu starten und andere IIS-Einstellungen und -Module zu konfigurieren. Wenn die Datei *Web.config* nicht vorhanden ist und die Projektdatei `<Project Sdk="Microsoft.NET.Sdk.Web">` enthält, wird bei der Veröffentlichung des Projekts eine Datei namens *Web.config* in der veröffentlichten Ausgabe (dem Ordner *publish*) erstellt. Weitere Informationen finden Sie unter [Hosten von ASP.NET Core unter Windows mit IIS](xref:host-and-deploy/iis/index#webconfig).
 
+## <a name="accessing-configuration-during-startup"></a>Zugriff auf die Konfiguration während des Starts
+
+Beispiele für den Zugriff auf die Konfigurationen in `ConfigureServices` oder `Configure` während des Starts finden Sie im Artikel zum [Start der Anwendung](xref:fundamentals/startup).
+
 ## <a name="additional-notes"></a>Zusätzliche Hinweise
 
 * Die Abhängigkeitsinjektion (Dependency Injection, DI) wird erst nach Aufrufen von `ConfigureServices` eingerichtet.
@@ -401,7 +405,7 @@ Eine Datei namens *Web.config* ist erforderlich, wenn Sie die App in IIS oder II
 * `IConfiguration` weist zwei Spezialisierungen auf:
   * `IConfigurationRoot` Wird für den Stammknoten verwendet. Kann einen erneuten Ladevorgang auslösen.
   * `IConfigurationSection` Stellt einen Abschnitt der Konfigurationswerte dar. Die Methoden `GetSection` und `GetChildren` geben `IConfigurationSection` zurück.
-  * Verwenden Sie [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot), wenn Sie Konfigurationen neu laden müssen oder Zugriff auf jeden Provider benötigen. Keine dieser Situationen tritt häufig auf.
+  * Verwenden Sie [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot), wenn Sie Konfigurationen neu laden oder auf jeden Anbieter zugreifen möchten. Keine dieser Situationen tritt häufig auf.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
