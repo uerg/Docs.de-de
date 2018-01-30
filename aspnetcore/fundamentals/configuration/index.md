@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f8847a70b24a2f25ff2e73a5cb2244d62c4f4c29
-ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
+ms.openlocfilehash: 20c75d202d67a491890d87cebf549585e0313da0
+ms.sourcegitcommit: 18ff1fdaa3e1ae204ed6a2ba9351ce8cf1371c85
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurieren einer ASP.NET Core-App
 
@@ -217,7 +217,7 @@ Der [CommandLine-Konfigurationsanbieter](/aspnet/core/api/microsoft.extensions.c
 
 # <a name="basic-configurationtabbasicconfiguration"></a>[Standardkonfiguration](#tab/basicconfiguration)
 
-Um die Befehlszeilenkonfiguration zu aktivieren, rufen Sie die `AddCommandLine`-Erweiterungsmethode für eine [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder)-Instanz ab:
+Um die Befehlszeilenkonfiguration zu aktivieren, rufen Sie die `AddCommandLine`-Erweiterungsmethode für eine [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder)-Instanz ab:
 
 [!code-csharp[Main](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
 
@@ -261,7 +261,7 @@ Für *appsettings*-Dateien, bei denen:
 
 Wenn alle oben genannten Bedingungen erfüllt sind, werden die Befehlszeilenargumente überschrieben.
 
-Die ASP.NET Core 2.x-App kann „WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)“ anstatt „CreateDefaultBuilder`. When using `WebHostBuilder“ verwenden und die Konfiguration manuell mit [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) festlegen. Weitere Informationen finden Sie auf der Registerkarte zu ASP.NET Core 1.x.
+Die ASP.NET Core 2.x-App kann [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) statt `CreateDefaultBuilder` verwenden. Wenn Sie `WebHostBuilder` verwenden, legen Sie die Konfiguration manuell mit [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) fest. Weitere Informationen finden Sie auf der Registerkarte zu ASP.NET Core 1.x.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
