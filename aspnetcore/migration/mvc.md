@@ -1,19 +1,19 @@
 ---
 title: Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 author: ardalis
-description: 
-ms.author: riande
+description: Informationen Sie zum Migrieren eines ASP.NET MVC-Projekts zu ASP.NET Core MVC beginnen.
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 
@@ -94,7 +94,7 @@ Führen Sie die App aus.
 
 ![Öffnen Sie in Microsoft Edge-Webanwendung](mvc/_static/hello-world.png)
 
-Finden Sie unter [Controller](../mvc/controllers/index.md) und [Ansichten](../mvc/views/index.md) für Weitere Informationen.
+Finden Sie unter [Controller](xref:mvc/controllers/actions) und [Ansichten](xref:mvc/views/overview) für Weitere Informationen.
 
 Nun, da wir ein minimales funktionierenden ASP.NET Core-Projekt haben, beginnen wir Migrieren von Funktionen von ASP.NET MVC-Projekt. Wir müssen die folgenden verschieben:
 
@@ -156,7 +156,7 @@ Finden Sie unter [Client-Side-Pakete verwalten, mit Bower](../client-side/bower.
 
 * Erstellen einer *Ansichten/freigegeben* Ordner.
 
-* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner, in des ASP.NET Core Projekts *Ansichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei bietet Namespaces für alle Dateien anzeigen und bringt in [Tag Hilfsprogramme](../mvc/views/tag-helpers/index.md). Tag-Hilfsmethoden werden in das Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
+* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner, in des ASP.NET Core Projekts *Ansichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei bietet Namespaces für alle Dateien anzeigen und bringt in [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro). Tag-Hilfsmethoden werden in das Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
 
 * Kopieren der *_Layout.cshtml* Datei aus des alten ASP.NET MVC-Projekts *Ansichten/freigegeben* Ordner, in des ASP.NET Core Projekts *Ansichten/freigegeben* Ordner.
 
@@ -191,9 +191,9 @@ Die aktualisierte *_Layout.cshtml* Datei wird unten gezeigt:
 
 Zeigen Sie die Website im Browser. Es sollte jetzt ordnungsgemäß mit den erwarteten Formatvorlagen direktes Laden.
 
-* *Optional:* möglicherweise möchten Sie versuchen, mithilfe der neuen Layoutdatei. Für dieses Projekt kopieren Sie die Layoutdatei aus der *FullAspNetCore* Projekt. Verwendet die Neue Layoutdatei [Tag Hilfsprogramme](../mvc/views/tag-helpers/index.md) und hat den weiteren Verbesserungen.
+* *Optional:* möglicherweise möchten Sie versuchen, mithilfe der neuen Layoutdatei. Für dieses Projekt kopieren Sie die Layoutdatei aus der *FullAspNetCore* Projekt. Verwendet die Neue Layoutdatei [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro) und hat den weiteren Verbesserungen.
 
-## <a name="configure-bundling--minification"></a>Konfigurieren der Bündelung & Minimierung
+## <a name="configure-bundling-and-minification"></a>Konfigurieren von Bündelung und Minimierung
 
 Informationen zum Konfigurieren von Bündelung und Minimierung finden Sie unter [Bündelung und Minimierung](../client-side/bundling-and-minification.md).
 
@@ -224,6 +224,5 @@ Finden Sie unter **Developer Ausnahme auf der Dienstkontoseite** in [Fehlerbehan
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Clientbasierte Entwicklung](../client-side/index.md)
-
-* [Taghilfsprogramme](../mvc/views/tag-helpers/index.md)
+* [Clientbasierte Entwicklung](xref:client-side/index)
+* [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)

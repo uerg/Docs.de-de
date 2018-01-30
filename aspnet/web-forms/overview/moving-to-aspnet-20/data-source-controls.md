@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: f40189796d3e25e9c337768cf04fdbfa293cdc2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1ac7fb62767d61c97fe00338bc0f5087f4863b5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="data-source-controls"></a>Datenquellen-Steuerelementen
 ====================
@@ -143,7 +143,7 @@ Ruft ab oder legt den Namen der Parameter einer gespeicherten Prozedur, der beim
 
 Eine durch Semikolons getrennte Zeichenfolge, die die Datenbanken und Tabellen in einer SQL Server-Cacheabhängigkeit verwendeten angibt. (SQL-Cache-Abhängigkeiten werden in einem Modul weiter unten erläutert.)
 
-### <a name="updatecommand"></a>updateCommand
+### <a name="updatecommand"></a>UpdateCommand
 
 Legt fest oder ruft die SQL-Zeichenfolge, die beim Aktualisieren von Daten in der Datenbank verwendet wird. Dies kann entweder eine SQL-Abfrage oder den Namen einer gespeicherten Prozedur sein.
 

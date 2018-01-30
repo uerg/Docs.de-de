@@ -2,19 +2,19 @@
 title: Verwenden von Gulp in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zum Verwenden von Gulp in ASP.NET Core.
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Einführung in das Verwenden von Gulp in ASP.NET Core 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 Der obige Code gibt an, welche Knoten Module erforderlich sind. Die `require` Funktion jedes Modul importiert, sodass ihre Features der abhängigen Aufgaben genutzt werden können. Aller importierten Module wird einer Variablen zugewiesen. Die Module können entweder nach Name oder Pfad befinden. In diesem Beispiel wird die Module mit dem Namen `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, und `gulp-uglify` anhand des Namens abgerufen werden. Darüber hinaus eine Reihe von Pfaden werden erstellt, damit die Speicherorte der CSS- und JavaScript-Dateien verwiesen wird, die Aufgaben innerhalb und wiederverwendet werden können. Die folgende Tabelle enthält Beschreibungen der Module, die in enthaltenen *gulpfile.js*.
 
-|Modulname|Beschreibung|
-|---|---|
-|gulp|Gulp streaming Buildsystems. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp).|
-|rimraf|Ein Modul, Knoten löschen. Weitere Informationen finden Sie unter [Rimraf](https://www.npmjs.com/package/rimraf).|
-|Gulp concat|Ein Modul, das verkettet Dateien auf Grundlage des Betriebssystems Zeilenendemarke enthält. Weitere Informationen finden Sie unter [Gulp Concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp-cssmin|Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin).|
-|Gulp uglify|Ein Modul, das verkleinert *js* Dateien. Weitere Informationen finden Sie unter [Gulp uglify](https://www.npmjs.com/package/gulp-uglify).|
+| Modulname | Beschreibung |
+| ----------- | ----------- |
+| gulp        | Gulp streaming Buildsystems. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp). |
+| rimraf      | Ein Modul, Knoten löschen. Weitere Informationen finden Sie unter [Rimraf](https://www.npmjs.com/package/rimraf). |
+| Gulp concat | Ein Modul, das verkettet Dateien auf Grundlage des Betriebssystems Zeilenendemarke enthält. Weitere Informationen finden Sie unter [Gulp Concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp-cssmin | Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| Gulp uglify | Ein Modul, das verkleinert *js* Dateien. Weitere Informationen finden Sie unter [Gulp uglify](https://www.npmjs.com/package/gulp-uglify). |
 
 Nachdem die erforderlichen Module importiert wurden, können die Aufgaben angegeben werden. Hier sind sechs Aufgaben registriert haben, durch den folgenden Code dargestellt:
 

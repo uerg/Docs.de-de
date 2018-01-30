@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2fcaa615415b6f61e96e12dc77866d00110a33e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8d68dedfc1f606cc6f0381bcbdb3f65c1ea3b2e5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="displaying-a-custom-error-page-c"></a>Anzeigen einer Fehlerseite (c#)
 ====================
@@ -29,7 +29,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Einführung
 
-Idealerweise wäre keine Fehler zur Laufzeit. Programmierer Schreiben von Code mit nary einen Fehler, und mit stabile Validierung von Benutzereingaben, und externe Ressourcen wie Datenbankserver und e-Mail-Server würden nie offline geschaltet. In Wirklichkeit sind natürlich Fehler unvermeidlich. Die Klassen in .NET Framework einen Fehler durch Auslösen einer Ausnahme zu signalisieren. Z. B. richtet eine SqlConnection Aufrufen des Objekts Open-Methode eine Verbindung mit der Datenbank, die durch eine Verbindungszeichenfolge angegeben. Wenn die Datenbank nicht ausgeführt wird oder wenn die Anmeldeinformationen in der Verbindungszeichenfolge ungültig sind. Klicken Sie dann die Open-Methode löst jedoch eine `SqlException`. Ausnahmen können behandelt werden, durch die Verwendung von `try/catch/finally` blockiert. Wenn code in einem `try` Block eine Ausnahme auslöst, wird die Steuerung an den entsprechenden Catch-Block kann der Entwickler Versuch, die Verarbeitung fortzusetzen. Wenn kein übereinstimmenden CatchBlock vorhanden ist oder wenn der Code, der die Ausnahme ausgelöst hat, nicht in einem Try-Block ist, wird die Ausnahme der Aufrufliste search von percolates `try/catch/finally` blockiert.
+Idealerweise wäre keine Fehler zur Laufzeit. Programmierer Schreiben von Code mit nary einen Fehler, und mit stabile Validierung von Benutzereingaben, und externe Ressourcen wie e-Mail-Servern und -Datenbankservern würden nie offline geschaltet. In Wirklichkeit sind natürlich Fehler unvermeidlich. Die Klassen in .NET Framework einen Fehler durch Auslösen einer Ausnahme zu signalisieren. Z. B. richtet eine SqlConnection Aufrufen des Objekts Open-Methode eine Verbindung mit der Datenbank, die durch eine Verbindungszeichenfolge angegeben. Wenn die Datenbank nicht ausgeführt wird oder wenn die Anmeldeinformationen in der Verbindungszeichenfolge ungültig sind. Klicken Sie dann die Open-Methode löst jedoch eine `SqlException`. Ausnahmen können behandelt werden, durch die Verwendung von `try/catch/finally` blockiert. Wenn code in einem `try` Block eine Ausnahme auslöst, wird die Steuerung an den entsprechenden Catch-Block kann der Entwickler Versuch, die Verarbeitung fortzusetzen. Wenn kein übereinstimmenden CatchBlock vorhanden ist oder wenn der Code, der die Ausnahme ausgelöst hat, nicht in einem Try-Block ist, wird die Ausnahme der Aufrufliste search von percolates `try/catch/finally` blockiert.
 
 Wenn ganz bis zu die ASP.NET-Laufzeit die Ausnahme ausgelöst, ohne verarbeitet wird, die [ `HttpApplication` Klasse](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)des [ `Error` Ereignis](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) wird ausgelöst, und die konfigurierte *Fehler (Seite)*  wird angezeigt. Standardmäßig zeigt ASP.NET eine Fehlerseite, die als affectionately bezeichnet wird, die [gelben Bildschirm Tod](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Es gibt zwei Versionen der YSOD: eine zeigt die Details der Ausnahme, die eine stapelüberwachung und andere Informationen für Entwickler, die die Anwendung Debuggen hilfreich (finden Sie unter **Abbildung 1**); die andere einfach gibt an, dass ein Laufzeitfehler ist (siehe aufgetreten **Abbildung 2**).
 

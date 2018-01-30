@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>Mitgliedschaft
 ====================
@@ -38,7 +38,7 @@ Mitgliedschaft wird implementiert, indem Sie die folgenden vier Schritte. Bedenk
 3. Bestimmen Sie den Typ des Speichers von Mitgliedschaft, die Sie verwenden möchten. Optionen sind verfügbar: 
 
     - Microsoft SQL Server (Version 7.0 oder höher)
-    - Active Directory-Speicher
+    - Active Directory Store
     - Benutzerdefinierter Mitgliedschaftsanbieter
 4. Konfigurieren Sie die Anwendung für die Formularauthentifizierung mit ASP.NET. Noch einmal: Mitgliedschaft Formularauthentifizierung nutzen ausgelegt ist, aber unter Verwendung der Formularauthentifizierung ist nicht erforderlich.
 5. Definieren Sie Benutzerkonten für die Mitgliedschaft und konfigurieren Sie Rollen, falls gewünscht.
@@ -120,7 +120,7 @@ LoginView-Steuerelement ist ein Steuerelement mit Vorlagen, das standardmäßig 
 
 ## <a name="passwordrecovery-control"></a>PasswordRecovery-Steuerelement
 
-Das Steuerelement PasswordRecovery kann Benutzer erhalten eine E-mail mit ihrer aktuellen Kennwörter oder Zurücksetzen ihres Kennworts. Klartext und verschlüsselte Kennwörter können wiederhergestellt und per e-Mail an Benutzer gesendet werden. Wenn das Kennwort ein Hashwert erstellt wird, kann nicht wiederhergestellt werden. Stattdessen kann der Benutzer für das Zurücksetzen eines Kennwortes erforderlich sein.
+Das Steuerelement PasswordRecovery kann Benutzer erhält eine e-Mail mit ihrer aktuellen Kennwörter oder Zurücksetzen ihres Kennworts. Klartext und verschlüsselte Kennwörter können wiederhergestellt werden und per e-Mail an Benutzer gesendet werden. Wenn das Kennwort ein Hashwert erstellt wird, kann nicht wiederhergestellt werden. Stattdessen kann der Benutzer für das Zurücksetzen eines Kennwortes erforderlich sein.
 
 ## <a name="loginstatus-control"></a>LoginStatus-Steuerelement
 
@@ -132,7 +132,7 @@ Wenn ein Benutzer über das Steuerelement LoginStatus abmeldet, er wird mit der 
 
 Die LoginName-Steuerelement zeigt den Benutzernamen des Benutzers, der die Website derzeit angemeldet sind.
 
-## <a name="createuserwizard-control"></a>CreateUserWizard-Steuerelement
+## <a name="createuserwizard-control"></a>CreateUserWizard Control
 
 Das Steuerelement CreateUserWizard bietet Benutzern eine einfache Möglichkeit, die für Ihr Mitgliedschaftssystem zu registrieren. Sie können über die Schnittstelle, die nachfolgend aufgeführten Schritte (implementiert als eine Auflistung von WizardSteps) hinzufügen.
 
@@ -152,7 +152,7 @@ Die CreateUserWizard ist ein Steuerelement mit Vorlagen, das die Assistenten-Kla
 
 Darüber hinaus wird die ASP.NET für die einzelnen Schritte, mit denen Sie den Assistenten hinzugefügt, eine benutzerdefinierte Vorlage erstellen, die eine ContentTemplate und eine CustomNavigationTemplate für diesen Schritt enthält. Ausführliche Informationen zum Anpassen der CreateUserWizard finden Sie in der VS-2005-Dokumentation:
 
-## <a name="changepassword-control"></a>ChangePassword-Steuerelement
+## <a name="changepassword-control"></a>ChangePassword Control
 
 Das Steuerelement ChangePassword kann Benutzer sein Kennwort ändern. Wenn die DisplayUserName-Eigenschaft ist true (es ist standardmäßig "false"), kann der Benutzer sein eigenes Kennwort ändern, wenn sie nicht angemeldet sind. Wenn der Benutzer *ist* bereits angemeldet und die DisplayUserName-Eigenschaft ist "true", der Benutzer wird in der Lage, das Kennwort eines anderen Benutzers zu ändern, die nicht protokolliert werden, sie wissen, dass die Benutzer-ID des Benutzers bereitzustellen.
 
@@ -242,7 +242,7 @@ Sie müssen die folgenden außer Kraft setzen:
 
 - Parameter "ApplicationName"-Eigenschaft
 - ChangePassword-Funktion
-- ChangePasswordQuestionAndAnswer-Funktion
+- ChangePasswordQuestionAndAnswer function
 - CreateUser-Funktion
 - "DeleteUser"-Funktion
 - EnablePasswordReset-Eigenschaft
@@ -250,17 +250,17 @@ Sie müssen die folgenden außer Kraft setzen:
 - FindUsersByEmail-Funktion
 - FindUsersByName-Funktion
 - GetAllUsers-Funktion
-- GetNumberOfUsersOnline-Funktion
+- GetNumberOfUsersOnline function
 - GetPassword-Funktion
 - GetUser-Funktion
-- GetUserNameByEmail-Funktion
+- GetUserNameByEmail function
 - MaxInvalidPasswordAttempts-Eigenschaft
 - MinRequiredNonAlphanumericCharacters-Eigenschaft
 - MinRequiredPasswordLength-Eigenschaft
 - PasswordAttemptWindow-Eigenschaft
 - PasswordFormat-Eigenschaft
 - PasswordStrengthRegularExpression-Eigenschaft
-- RequiresQuestionAndAnswer-Eigenschaft
+- RequiresQuestionAndAnswer property
 - RequiresUniqueEmail-Eigenschaft
 - Accounts-Funktion
 - Unlock Benutzerfunktion

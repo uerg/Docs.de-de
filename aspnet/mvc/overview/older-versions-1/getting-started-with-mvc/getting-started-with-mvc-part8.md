@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4fc144dcbed8ad14411332df7acccc032ddf46
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Hinzufügen einer Spalte mit dem Modell
 ====================
@@ -79,9 +79,9 @@ Dieses Lernprogramm wurde Ihnen den Einstieg, Controller, Ansichten zuordnen, un
 
 Jetzt sollten Sie auf unser Tutorial aus, der Intermediate-Stufe zu verschieben, auf "[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" sowie den zahlreichen Videos und Ressourcen zur [https://asp.net/mvc](https://asp.net/mvc) , sogar noch stärker ASP.NET MVC vertraut zu machen!
 
-Viel Spaß!
+Viel Erfolg!
 
 - Scott Hanselman - [http://hanselman.com](http://hanselman.com) und [ @shanselman ](http://twitter.com/shanselman) auf Twitter.
 
 >[!div class="step-by-step"]
-[Zurück](getting-started-with-mvc-part7.md)
+[Vorherige](getting-started-with-mvc-part7.md)

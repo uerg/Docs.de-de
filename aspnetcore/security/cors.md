@@ -2,18 +2,18 @@
 title: Aktivieren von Cross-Origin-Anforderungen (CORS)
 author: rick-anderson
 description: "Dieses Dokument wird als Standard für das zulassen oder ablehnen von Cross-Origin-Anforderungen in einer ASP.NET Core app CORS eingeführt."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 05/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Aktivieren von Cross-Origin-Anforderungen (CORS)
 
@@ -209,7 +209,7 @@ Die HTTP-Antwort enthalten nun einen Access-Control-Allow-Credentials-Header, de
 
 Wenn der Browser Anmeldeinformationen sendet, aber die Antwort keinen gültigen Access-Control-Allow-Credentials-Header, der Browser wird nicht die Antwort an die Anwendung verfügbar machen, und die AJAX-Anforderung ein Fehler auftritt.
 
-Cross-Origin-Anmeldeinformationen, sodass nur mit großer Vorsicht sein, da es bedeutet, dass eine Website finden Sie unter einer anderen Domäne Anmeldeinformationen eines angemeldeten Benutzers an die app im Auftrag des Benutzers, ohne dass der Benutzer die Erkennung senden kann. Die CORS-Spezifikation auch Status dieser Einstellung Ursprünge zu "*" (alle Ursprünge) ist ungültig, wenn der Access-Control-Allow-Credentials-Header vorhanden ist.
+Seien Sie vorsichtig bei Cross-Origin-Anmeldeinformationen zulassen. Eine Website finden Sie unter einer anderen Domäne kann Anmeldeinformationen eines angemeldeten Benutzers an die app im Auftrag des Benutzers, ohne Wissen des Benutzers gesendet. CORS-Spezifikation besagt ebenfalls diese Einstellung Ursprünge auf "*" (alle Ursprünge) ist ungültig. wenn die `Access-Control-Allow-Credentials` Header vorhanden ist.
 
 ### <a name="set-the-preflight-expiration-time"></a>Legen Sie die Preflight-Ablaufzeit
 
@@ -221,11 +221,11 @@ Der Access-Control-Max-Age-Header gibt an, wie lange die Antwort auf die preflig
 
 ## <a name="how-cors-works"></a>Funktionsweise von CORS
 
-In diesem Abschnitt wird beschrieben, was geschieht, in einer CORS-Anforderung auf der Ebene der HTTP-Nachrichten. Es ist wichtig zu verstehen, wie die CORS funktioniert, damit Sie ordnungsgemäß CORS-Richtlinie konfigurieren können, und beheben, wenn Elemente nicht wie erwartet funktionieren.
+In diesem Abschnitt wird beschrieben, was geschieht, in einer CORS-Anforderung auf der Ebene der HTTP-Nachrichten. Es ist wichtig zu verstehen, wie die CORS zusammen, sodass die CORS-Richtlinie ordnungsgemäß konfiguriert werden kann und eine beim zu unerwarteten Ergebnissen führen.
 
-CORS-Spezifikation führt mehrere neue HTTP-Header, die Cross-Origin-Anforderungen zu ermöglichen. Wenn ein Browser CORS unterstützt, wird diese Header automatisch für Cross-Origin-Anfragen; Sie müssen besondere im JavaScript-Code keine Wirkung.
+CORS-Spezifikation führt mehrere neue HTTP-Header, die Cross-Origin-Anforderungen zu ermöglichen. Wenn ein Browser CORS unterstützt, wird diese Header automatisch für Cross-Origin-Anforderungen festgelegt. Benutzerdefinierte JavaScript-Code ist nicht erforderlich, um CORS zu aktivieren.
 
-Hier ist ein Beispiel einer Cross-Origin-Anforderung. Der Header "Origin" bietet die Domäne des Standorts, der die Anforderung gesendet wird:
+Hier ist ein Beispiel einer Cross-Origin-Anforderung. Die `Origin` Header bietet die Domäne des Standorts, der die Anforderung gesendet wird:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: 1a733accabcd10409f5611c31001397e97533fb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf81d351aef45af3640f5d113eb3619911e03606
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Zugriff auf das Modell Daten aus einem Controller
 ====================
@@ -49,7 +49,7 @@ Klicken Sie auf Hinzufügen, und das System generiert automatisch den Code für 
 
 Führen Sie die Anwendung, und besuchen Sie /Movies in der Adressleiste. Jetzt haben wir werden Daten aus der Datenbank mithilfe einer einfachen Abfrage innerhalb der Controller abgefragt und die Daten an eine Ansicht, die über Filme weiß zurückgegeben. Diese Sicht wird dann durch die Liste von Filmen stößt und eine Tabelle mit Daten für uns erstellt.
 
-[![Film List – Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 Es wird nicht implementieren bearbeiten "," Details "und" Delete-Funktionalität mit dieser Anwendung - daher die Standardlinks brauchen wir, die die Vorlage Gerüst für uns erstellt. Öffnen Sie die /Movies/Index.aspx-Datei, und entfernen Sie sie.
 
@@ -59,7 +59,7 @@ Hier ist der Quellcode für wie unsere aktualisierte Ansichtenvorlage aussehen s
 
 Es wird Links, die wir nicht brauchen, erstellen, sodass wir in diesem Beispiel gelöscht werden. Wir behält unsere Link neu erstellen, weiter darin! Hier sieht unsere app mit dieser Spalte entfernt.
 
-[![Film List – Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Wir haben jetzt eine einfache Liste von unseren Filmdaten. Jedoch wenn wir den Link "Neu erstellen" klicken, wird einen Fehler erhalten, da er nicht verknüpft ist! Wir implementieren Sie eine Create Action-Methode, und ermöglichen einem Benutzer, geben neue Kinofilmen in die Datenbank.
 

@@ -4,15 +4,15 @@ author: rick-anderson
 description: "In diesem Lernprogramm fügen Sie sortieren, Filtern und paging Funktionen zur Seite mit ASP.NET Core und Entity Framework Core."
 ms.author: riande
 ms.date: 10/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortieren, filtern, paging und Gruppierung - EF-Core mit Razor-Seiten (3 von 8)
 
@@ -107,7 +107,7 @@ Durchlaufen Sie den Debugger.
 So fügen Sie Filter auf die Indexseite Studenten hinzu
 
 * Ein Textfeld und eine Schaltfläche "Absenden" wird auf der Seite "Razor" hinzugefügt. Das Textfeld liefert eine Suchzeichenfolge ein, auf dem ersten oder letzten.
-* Die Code-Behind-Datei wird aktualisiert, und der Wert des Textfelds verwenden.
+* Das Seitenmodell wird aktualisiert, und der Wert des Textfelds verwenden.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Hinzufügen von Filterfunktionen zur Verfügung, die Index-Methode
 
@@ -245,7 +245,7 @@ Durchlaufen Sie den Debugger.
 In diesem Schritt *Pages/About.cshtml* wird aktualisiert, um anzuzeigen, wie viele Studenten für jedes Registrierungsdatum registriert haben. Das Update Gruppierung verwendet, und umfasst die folgenden Schritte aus:
 
 * Erstellen Sie eine Modellklasse Ansicht für die Daten, die verwendet werden, indem Sie die **zu** Seite.
-* Ändern Sie die Razor-Seite und Code-Behind-Datei.
+* Ändern Sie das Modell für Razor-Seite und die Seite.
 
 ### <a name="create-the-view-model"></a>Erstellen des Modells anzeigen
 
@@ -255,7 +255,7 @@ In der *SchoolViewModels* Ordner Hinzufügen einer *EnrollmentDateGroup.cs* durc
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-code-behind-page"></a>Info-Code-Behind-Seite "Aktualisieren"
+### <a name="update-the-about-page-model"></a>Aktualisieren Sie das Modell der Info-Seite
 
 Update der *Pages/About.cshtml.cs* Datei durch den folgenden Code:
 

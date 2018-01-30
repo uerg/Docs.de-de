@@ -2,19 +2,19 @@
 title: "Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core"
 author: guardrex
 description: "Erfahren Sie, wie Komponententests und die Integration von Tests für Razor-Seiten-apps erstellen."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core
 
@@ -40,7 +40,7 @@ Das Beispielprojekt besteht aus zwei Web-apps:
 
 | App         | Projektordner                        | Beschreibung |
 | ----------- | ------------------------------------- | ----------- |
-| Nachrichten-app | *Src/RazorPagesTestingSample*         | Ermöglicht es einem Benutzer hinzufügen, löschen Sie eine, löschen Sie alle und Analysieren von Nachrichten. |
+| Nachrichten-app | *src/RazorPagesTestingSample*         | Ermöglicht es einem Benutzer hinzufügen, löschen Sie eine, löschen Sie alle und Analysieren von Nachrichten. |
 | Test-app    | *tests/RazorPagesTestingSample.Tests* | So testen Sie die Nachrichten-app verwendet.<ul><li>Komponententests: Datenzugriffsebene (DAL), Index-Seitenmodell</li><li>Integrationstests: Seite "Index"</li></ul> |
 
 Die Tests können ausgeführt werden, mithilfe der integrierten Testfunktionen von einer IDE wie [Visual Studio](https://www.visualstudio.com/vs/). Wenn [Visual Studio Code](https://code.visualstudio.com/) oder der Befehlszeile, und führen Sie den folgenden Befehl an einer Eingabeaufforderung in das *tests/RazorPagesTestingSample.Tests* Ordner:

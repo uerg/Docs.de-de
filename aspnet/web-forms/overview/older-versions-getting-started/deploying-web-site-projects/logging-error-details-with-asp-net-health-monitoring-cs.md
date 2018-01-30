@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5bbba0e4e8660dbc60b9f9ad220c923274144b89
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Fehlerdetails protokollieren ASP.NET-Systemüberwachung (c#)
 ====================
@@ -39,7 +39,7 @@ Das Überwachungssystem wurde in ASP.NET 2.0 eingeführt und dient zum Überwach
 
 Wenn eine Überwachung Ereignis ausgelöst wird, Integrität können sie auf eine beliebige Anzahl von protokolliert angegebenen *protokollieren Quellen*. Das Überwachungssystem Lieferumfang Protokollquellen, die mit einer Microsoft SQL Server-Datenbank, in das Windows-Ereignisprotokoll oder über eine e-Mail-Nachricht, u. a. Web-Ereignisse zu protokollieren. Sie können auch eigene Protokollquellen erstellen.
 
-Die Ereignisse, die das Überwachungssystem protokolliert werden, zusammen mit den Protokollquellen verwendet, sind in definierten `Web.config`. Mit wenigen Skriptzeilen Markup Konfiguration können Sie für die Systemüberwachung überwachen, um alle nicht behandelten Ausnahmen in einer Datenbank protokollieren und der Ausnahme per E-mail benachrichtigt.
+Die Ereignisse, die das Überwachungssystem protokolliert werden, zusammen mit den Protokollquellen verwendet, sind in definierten `Web.config`. Mit wenigen Skriptzeilen Markup Konfiguration können Sie für die Systemüberwachung überwachen, um alle nicht behandelten Ausnahmen in einer Datenbank protokollieren und der Ausnahme per e-Mail benachrichtigt.
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Untersuchen die Konfiguration des Systems für die Systemüberwachung
 
@@ -104,17 +104,17 @@ Wenn Sie eine solche Seite erstellen, stellen Sie sicher, dass Sie die Schritte,
 > Das nachfolgende Lernprogramm wird eine alternative Fehler protokollieren und ein Benachrichtigungssystem mit dem Namen ELMAH erklärt. ELMAH enthält einen integrierten Mechanismus zum Anzeigen des Fehlerprotokolls von beiden einer Webseite und als RSS-feed.
 
 
-## <a name="logging-events-to-e-mail"></a>Protokollierung von Ereignissen, E-Mail
+## <a name="logging-events-to-email"></a>Protokollierung von Ereignissen, E-Mail
 
 Das Überwachungssystem enthält, ein Protokollanbieters für die Quelle, die von einer e-Mail-Nachricht "ein Ereignis protokolliert". Die Protokollquelle enthält dieselbe Informationen, die an die Datenbank in den Nachrichtentext der e-Mail-Nachricht protokolliert wird. Diese Protokollquelle können Sie um einen Entwickler zu benachrichtigen, wenn die Integrität überwachen Auftreten bestimmter Ereignisse.
 
-Wir aktualisieren das Buch Reviews Websitekonfiguration tritt auf, sodass wir eine E-mail, wenn eine Ausnahme empfangen. Um dies zu erreichen, müssen wir drei Aufgaben ausführen:
+Wir aktualisieren das Buch Reviews Websitekonfiguration tritt auf, sodass wir eine e-Mail, wenn eine Ausnahme empfangen. Um dies zu erreichen, müssen wir drei Aufgaben ausführen:
 
-1. Konfigurieren Sie die ASP.NET-Webanwendung zum Senden von E-mail. Dies wird erreicht, indem Sie angeben, wie e-Mail-Nachrichten gesendet werden, über die `<system.net>` Konfigurationselement. Nachrichten in einer ASP.NET-Anwendung finden Sie weitere Informationen zum Senden von e-Mails in [Senden von E-Mails in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) und [System.Net.Mail FAQ](http://systemnetmail.com/).
-2. Registrieren Sie die e-Mail-Quelle Protokollanbieter in der `<providers>` -Element, und
+1. Konfigurieren Sie die ASP.NET-Webanwendung das Senden von e-Mails an. Dies wird erreicht, indem Sie angeben, wie e-Mail-Nachrichten gesendet werden, über die `<system.net>` Konfigurationselement. Nachrichten in einer ASP.NET-Anwendung finden Sie weitere Informationen zum Senden von e-Mail in [Senden von E-Mails in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) und [System.Net.Mail FAQ](http://systemnetmail.com/).
+2. Registrieren Sie den e-Mail-Quelle Protokollanbieter in der `<providers>` -Element, und
 3. Fügen Sie einen Eintrag, um die `<rules>` -Element, das Ereignis "Alle Fehler" in der Quelle Protokollanbieter hinzugefügt, die in Schritt (2) zugeordnet.
 
-Das Überwachungssystem umfasst zwei e-Mail-Protokoll-Quelle-Anbieterklassen: `SimpleMailWebEventProvider` und `TemplatedMailWebEventProvider`. Die [ `SimpleMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) sendet eine nur-Text-e-Mail-Nachricht, die das Ereignis enthält details und wenig Anpassung von e-Mail-Nachrichtentext enthält. Mit der [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Angabe eine ASP.NET-Seite, deren gerenderten Markups als Text der e-Mail-Nachricht verwendet wird. Die [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) bietet viel größere Kontrolle über den Inhalt und Format der e-Mail-Nachricht jedoch erfordert mehr Vorarbeiten, da Sie sich auf die ASP.NET-Seite zu erstellen, der Text der e-Mail-Nachricht generiert. Dieses Lernprogramm konzentriert sich auf die Verwendung der `SimpleMailWebEventProvider` Klasse.
+Das Überwachungssystem umfasst zwei e-Mail-Protokoll-Quelle-Anbieterklassen: `SimpleMailWebEventProvider` und `TemplatedMailWebEventProvider`. Die [ `SimpleMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) sendet eine nur-Text-e-Mail-Nachricht, die das Ereignis enthält details und wenig Anpassung von e-Mail-Text enthält. Mit der [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Angabe eine ASP.NET-Seite, deren gerenderten Markups als Nachrichtentext der e-Mail-Nachricht dient. Die [ `TemplatedMailWebEventProvider` Klasse](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) bietet viel größere Kontrolle über den Inhalt und Format der e-Mail-Nachricht jedoch erfordert mehr Vorarbeiten, da Sie sich auf die ASP.NET-Seite zu erstellen, der Text der e-Mail-Nachricht generiert. Dieses Lernprogramm konzentriert sich auf die Verwendung der `SimpleMailWebEventProvider` Klasse.
 
 Aktualisieren des Systems für die Systemüberwachung `<providers>` Element in der `Web.config` Datei einzufügenden eine Protokollquelle für die `SimpleMailWebEventProvider` Klasse:
 
@@ -126,13 +126,13 @@ Mit der Quelle von e-Mail-Protokoll definiert übrig bleibt das System, um zu di
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample4.xml)]
 
-Die `<rules>` Abschnitt enthält jetzt zwei Regeln. Der ersten Abfrage, die mit dem Namen "Alle Fehler, e-Mail-Nachrichten", werden alle nicht behandelte Ausnahmen an die Protokollquelle "EmailWebEventProvider" gesendet. Mit dieser Regel wirkt sich die Details zu Fehlern auf der Website zu senden, in der angegebenen Adresse. Die Regel "Alle Fehler für Datenbank" protokolliert die Fehlerdetails in die Datenbank des Standorts an. Folglich eintreten eine nicht behandelte Ausnahme auf dem Standort die Details sind sowohl in der Datenbank protokolliert und an die angegebene e-Mail-Adresse gesendet.
+Die `<rules>` Abschnitt enthält jetzt zwei Regeln. Der ersten Abfrage, die mit dem Namen "Alle Fehler an Email", werden alle nicht behandelte Ausnahmen an die Protokollquelle "EmailWebEventProvider" gesendet. Mit dieser Regel wirkt sich die Details zu Fehlern auf der Website zu senden, in der angegebenen Adresse. Die Regel "Alle Fehler für Datenbank" protokolliert die Fehlerdetails in die Datenbank des Standorts an. Folglich eintreten eine nicht behandelte Ausnahme auf dem Standort die Details sind sowohl in der Datenbank protokolliert und an die angegebene e-Mail-Adresse gesendet.
 
-**Abbildung 2** wird die E-mail von generiert die `SimpleMailWebEventProvider` -Klasse beim Zugriff auf `Genre.aspx?ID=foo`.
+**Abbildung 2** zeigt die e-Mail-Adresse von generiert die `SimpleMailWebEventProvider` -Klasse beim Zugriff auf `Genre.aspx?ID=foo`.
 
 [![](logging-error-details-with-asp-net-health-monitoring-cs/_static/image5.png)](logging-error-details-with-asp-net-health-monitoring-cs/_static/image4.png)
 
-**Abbildung 2**: der Fehlerdetails in einer e-Mail-Nachricht gesendet werden  
+**Abbildung 2**: die Fehlerdetails per e-Mail gesendet werden  
 ([Klicken Sie hier, um das Bild in voller Größe angezeigt](logging-error-details-with-asp-net-health-monitoring-cs/_static/image6.png))
 
 ## <a name="summary"></a>Zusammenfassung

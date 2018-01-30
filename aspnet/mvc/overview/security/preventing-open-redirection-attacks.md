@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 97e0aacbf21914bf95f01019cf4dcc9e7ca1c4be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Verhindern von Angriffen von Open Umleitung (c#)
 ====================
@@ -47,7 +47,7 @@ Open Umleitung Angriffe sind besonders riskant, daran, dass ein Angreifer bekann
 
 Zuerst sendet ein Angreifer uns einen Link zur Anmeldeseite auf NerdDinner, die eine Umleitung an ihrer gefälschten Seite enthält:
 
-[http://NerdDinner.com/Account/Logon?returnUrl=http://nerddiner.com/Account/Logon](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
+[http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
 
 Beachten Sie, dass die Rückgabe-URL verweist auf nerddiner.com, der eine "n" fehlt in der Word-Dinner. In diesem Beispiel ist dies eine Domäne, die der Angreifer steuert. Wenn wir den oben aufgeführten Link zugreifen, haben wir der legitime NerdDinner.com Anmeldeseite übernommen.
 
@@ -107,7 +107,7 @@ Nun, dass die Methode IsLocalUrl() vorhanden ist, können wir über unser Anmeld
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Wir können jetzt Angriff öffnen Umleitung testen, indem versucht wird, melden Sie sich mit einem externen Rückgabe-URL. Ermöglicht die Verwendung/Account/anmelden? ReturnUrl = Sie http://www.bing.com/ erneut aus.
+Wir können jetzt Angriff öffnen Umleitung testen, indem versucht wird, melden Sie sich mit einem externen Rückgabe-URL. Let's use /Account/LogOn?ReturnUrl=http://www.bing.com/ again.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

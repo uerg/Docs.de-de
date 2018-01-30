@@ -2,22 +2,25 @@
 title: Zwischenspeichern von Antworten in ASP.NET Core
 author: rick-anderson
 description: "Informationen Sie zum Verwenden von caching zu niedrigeren bandbreitenanforderungen Antwort und erhöhen Sie der Leistung von ASP.NET Core-apps."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
 Durch [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), und [Luke Latham](https://github.com/guardrex)
 
+> [!NOTE]
+> Zwischenspeichern von Antworten [wird nicht unterstützt in Razor-Seiten mit ASP.NET Core 2.0](https://github.com/aspnet/Mvc/issues/6437). Diese Funktion wird in unterstützt die [Version 2.1 von ASP.NET Core](https://github.com/aspnet/Home/wiki/Roadmap).
+  
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Zwischenspeichern von Antworten verringert die Anzahl der Anforderungen, die ein Client oder Proxy auf einem Webserver vornimmt. Zwischenspeichern von Antworten auch reduziert die Menge der Arbeit der Webserver durchführt, um eine Antwort zu generieren. Zwischenspeichern von Antworten wird durch Header gesteuert, die angeben, wie der Client und Proxy-Middleware zum Zwischenspeichern von Antworten soll.

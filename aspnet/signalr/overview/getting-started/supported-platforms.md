@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 7f41017a2a8c058c01fe6f89a2503eb5fa77048e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="supported-platforms"></a>Unterstützte Plattformen
 ====================
@@ -41,6 +41,7 @@ In den folgenden Server oder Client-Betriebssystemen kann die SignalR-Serverkomp
 
 - Windows Server 2012
 - Windows Server 2008 r2
+- Windows 10
 - Windows 8
 - Windows 7
 - Windows Azure
@@ -87,10 +88,10 @@ Zusätzlich zu, die bestimmte Browsern erfordern, haben die verschiedene Transpo
 
 | Transport | Internet Explorer | Chrome (Windows oder iOS) | Firefox | Safari (OSX oder iOS) | Android |
 | --- | --- | --- | --- | --- | --- |
-| WebSockets | 10+ | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | Nicht zutreffend |
-| Vom Server gesendeten Ereignisse | Nicht zutreffend | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | Nicht zutreffend |
+| WebSockets | 10+ | current - 1 | current - 1 | current - 1 | Nicht zutreffend |
+| Vom Server gesendeten Ereignisse | Nicht zutreffend | current - 1 | current - 1 | current - 1 | Nicht zutreffend |
 | ForeverFrame | 8+ | Nicht zutreffend | Nicht zutreffend | Nicht zutreffend | 4.1 |
-| Langen Abruftransports | 8+ | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | 4.1 |
+| Langen Abruftransports | 8+ | current - 1 | current - 1 | current - 1 | 4.1 |
 
 \*: 6 und höher für die vollständige Funktionalität erforderlich sind.
 
@@ -113,8 +114,8 @@ Zusätzlich zu Betriebssystem und .NET Framework-Anforderungen gelten die Transp
 | --- | --- | --- |
 | WebSockets | Windows 8 und höher und .NET 4.5 + | Nicht zutreffend |
 | Forever Frame | Nicht zutreffend | Nicht zutreffend |
-| Vom Server gesendeten Ereignisse | .NET 4 + | 5+ |
-| Langen Abruftransports | .NET 4 + | 5+ |
+| Vom Server gesendeten Ereignisse | .NET 4+ | 5+ |
+| Langen Abruftransports | .NET 4+ | 5+ |
 
 <a id="android"></a>
 
@@ -124,12 +125,12 @@ SignalR kann in Windows Store- und Windows Phone 8-Anwendungen verwendet werden.
 
 **Windows Store und Windows Phone-Transport-Anforderungen**
 
-| Transport | Windows Store / .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / .NET |
+| Transport | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone/ IE | Windows Phone/ .NET |
 | --- | --- | --- | --- | --- |
-| WebSockets | Nicht zutreffend | Windows 8 + | 8+ | Nicht zutreffend |
-| Forever Frame | Nicht zutreffend | Windows 8 + | 7.5+ | Nicht zutreffend |
-| Vom Server gesendeten Ereignisse | Windows 8 + | Nicht zutreffend | Nicht zutreffend | 8+ |
-| Langen Abruftransports | Windows 8 + | Windows 8 + | 7.5+ | 8+ |
+| WebSockets | Nicht zutreffend | Win8+ | 8+ | Nicht zutreffend |
+| Forever Frame | Nicht zutreffend | Win8+ | 7.5+ | Nicht zutreffend |
+| Vom Server gesendeten Ereignisse | Win8+ | Nicht zutreffend | Nicht zutreffend | 8+ |
+| Langen Abruftransports | Win8+ | Win8+ | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

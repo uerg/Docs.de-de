@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 61a96b75fdc29bdd1510ed689ee0356ef30e03fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="request-validation---preventing-script-attacks"></a>Anforderungsvalidierung - Script-Angriffe zu verhindern
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 Anforderungsüberprüfung, eine Funktion von ASP.NET seit Version 1.1, wird verhindert, dass den Server akzeptiert Inhalts enthaltendes uncodierten HTML. Dieses Feature wurde entwickelt, um zu verhindern einige Script-Injection-Angriffen, bei dem Client-Skriptcode oder HTML kann werden unbewusst mit einem Server übermittelt, gespeichert und dann an andere Benutzer angezeigt. Es wird weiterhin dringend empfohlen, Sie überprüfen, dass alle Eingabedaten und die HTML-Codierung, ihn gegebenenfalls.
 
-Beispielsweise erstellen Sie eine Webseite, die e-Mail-Adresse eines Benutzers anfordert und speichert dann die e-Mail-Adresse in einer Datenbank. Wenn der Benutzer eingibt, &lt;Skript&gt;Warnung ("Hello aus dem Skript")&lt;/SCRIPT&gt; anstelle einer gültigen e-Mail-Adresse, wenn diese Daten dargestellt werden, dieses Skript kann ausgeführt werden, wenn der Inhalt nicht ordnungsgemäß codiert wurde. Die Anforderung Überprüfungsfunktion von ASP.NET wird dies verhindert.
+Beispielsweise erstellen Sie eine Webseite, die anfordert, die e-Mail-Adresse eines Benutzers und speichert dann, die e-Mail-Adresse in einer Datenbank. Wenn der Benutzer eingibt, &lt;Skript&gt;Warnung ("Hello aus dem Skript")&lt;/SCRIPT&gt; anstatt eine gültige e-Mail-Adresse, wenn diese Daten dargestellt werden, dieses Skript kann ausgeführt werden, wenn der Inhalt nicht ordnungsgemäß codiert wurde. Die Anforderung Überprüfungsfunktion von ASP.NET wird dies verhindert.
 
 ## <a name="why-this-feature-is-useful"></a>Warum diese Funktion hilfreich ist.
 

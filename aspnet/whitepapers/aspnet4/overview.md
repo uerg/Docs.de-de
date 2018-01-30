@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 und Visual Studio 2010 Web Development (Übersicht)
 ====================
@@ -1218,7 +1218,7 @@ Die neue Entitätsvorlagen werden auf einer Seite angezeigt, mit dem neuen *erze
 
 <a id="0.2__Toc224729045"></a><a id="0.2__Toc253429282"></a><a id="0.2__Toc243304653"></a>
 
-### <a name="new-field-templates-for-urls-and-e-mail-addresses"></a>Neues Feldvorlagen für URLs und e-Mail-Adressen
+### <a name="new-field-templates-for-urls-and-email-addresses"></a>Neues Feldvorlagen für URLs und e-Mail-Adressen
 
 ASP.NET 4 enthält zwei neue integrierte Feldvorlagen `EmailAddress.ascx` und `Url.ascx`. Diese Vorlagen werden als markierten Felder zum *EmailAddress* oder *Url* mit der *DataType* Attribut. Für *EmailAddress* -Objekten, das Feld wird angezeigt, wie ein Link, der erstellt wird die *Mailto:* Protokoll. Wenn Benutzer auf den Link klicken, öffnet der Benutzer-e-Mail-Client und erstellt eine Skelette-Nachricht. Als typisierte Objekte *Url* werden als gewöhnliche Links angezeigt.
 
@@ -1382,7 +1382,7 @@ Die Benutzer/innen sind verpflichtet, sich an alle anwendbaren Urheberrechtsgese
 
 Microsoft Corporation kann Inhaber von Patenten oder Patentanträgen, Marken, Urheberrechten oder anderem geistigen Eigentum sein, die den Inhalt dieses Dokuments betreffen. Die Bereitstellung dieses Dokuments gewährt keinerlei Lizenzrechte an diesen Patenten, Marken, Urheberrechten oder anderem geistigen Eigentum, es sei denn, dies wurde ausdrücklich durch einen schriftlichen Lizenzvertrag mit der Microsoft Corporation vereinbart.
 
-Die in den Beispielen verwendeten Firmen, Organisationen, Produkte, Domänennamen, E-Mail-Adressen, Logos, Personen, Orte und Ereignisse sind frei erfunden, soweit nichts anderes angegeben ist. Jede Ähnlichkeit mit bestehenden Firmen, Organisationen, Produkten, Domänennamen, E-Mail-Adressen, Logos, Personen, Orten oder Ereignissen ist rein zufällig.
+Sofern nicht anders angegeben, einer der Firmen, Organisationen, Produkte, Domänennamen, e-Mail-Adressen, Logos, Personen, Orte und Ereignisse in diesem Dokument dargestellten sind frei erfunden und keine Zuordnung zu echten Unternehmen, Organisation, Produkt, Domänennamen, e-Mail Adresse Logo "," Person "," Ort "oder" Ereignis dient, noch ableitbar.
 
 © 2009 Microsoft Corporation. Alle Rechte vorbehalten.
 

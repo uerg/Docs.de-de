@@ -1,19 +1,19 @@
 ---
 title: "Verhindern von Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Core"
 author: steve-smith
-ms.author: riande
 description: "Verhindern von Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Core"
 manager: wpickett
+ms.author: riande
 ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Verhindern von Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Core
 
@@ -43,7 +43,7 @@ Ein Beispiel von CSRF-Angriffen:
 Beachten Sie, dass die formaktion an den Standort anfällig für nicht auf die bösartige Website sendet. Dies ist der "Cross-Site" Teil CSRF.
 
 4. Der Benutzer klickt auf die Schaltfläche "Absenden". Der Browser schließt automatisch das Authentifizierungscookie für die angeforderte Domäne (in diesem Fall die anfällig für Standort) mit der Anforderung.
-5. Die Anforderung auf dem Server mit dem Kontext des Benutzers Authentifizierung ausgeführt und Aktionen möglich, die ein authentifizierter Benutzer tun darf.
+5. Die Anforderung auf dem Server mit dem Kontext des Benutzers Authentifizierung ausgeführt und kann Ausführen aller Aktionen, die ein authentifizierter Benutzer tun darf.
 
 In diesem Beispiel wird der Benutzer auf die Schaltfläche klicken muss. Böswillige Seite konnte:
 
@@ -353,12 +353,11 @@ Wenn ein Benutzer mit einem System angemeldet ist, wird eine Sitzung des Benutze
 
 ### <a name="user-tokens"></a>Benutzertoken
 
-Token-basierte Authentifizierung speichern keine Sitzung auf dem Server. Wenn ein Benutzer angemeldet ist können sie stattdessen ein Token (nicht antiforgery Token) ausgestellt. Dieses Token enthält alle Daten, die erforderlich ist, um das Token zu überprüfen. Es enthält auch Benutzerinformationen in Form von [Ansprüche](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Wenn ein Benutzer möchte den Zugriff auf eine Serverressource, die eine Authentifizierung erforderlich ist, wird das Token mit einer zusätzlichen Authorization-Header in Form von Träger {Token} an den Server gesendet. Dadurch wird die Anwendung zustandslose, da das Token in jede nachfolgende Anforderung für die serverseitige Validierung in der Anforderung übergeben wird. Dieses Token wird nicht *verschlüsselte*; es *codiert*. Auf der Serverseite kann das Token für den Zugriff auf die unformatierten Informationen innerhalb der Token decodiert werden. Um das Token in nachfolgenden Anforderungen zu senden, können Sie entweder es im lokalen Speicher des Browsers oder in einem Cookie speichern. Sie müssen nicht kümmern XSRF Sicherheitsrisiko, wenn das Token im lokalen Speicher gespeichert ist, aber es ist ein Problem auf, wenn das Token in einem Cookie gespeichert ist.
+Token-basierte Authentifizierung speichern keine Sitzung auf dem Server. Wenn ein Benutzer angemeldet ist, sind sie ein Token (nicht antiforgery Token) ausgegeben. Dieses Token enthält die Daten, die erforderlich ist, um das Token zu überprüfen. Es enthält auch Benutzerinformationen in Form von [Ansprüche](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Wenn ein Benutzer möchte den Zugriff auf eine Serverressource, die eine Authentifizierung erforderlich ist, wird das Token mit einer zusätzlichen Authorization-Header in Form von Träger {Token} an den Server gesendet. Dadurch wird die Anwendung zustandslose, da das Token in jede nachfolgende Anforderung für die serverseitige Validierung in der Anforderung übergeben wird. Dieses Token wird nicht *verschlüsselte*; es *codiert*. Auf der Serverseite kann das Token für den Zugriff auf die unformatierten Informationen innerhalb der Token decodiert werden. Um das Token in nachfolgenden Anforderungen zu senden, muss entweder dieses im lokalen Speicher für den Browser oder in einem Cookie. Keine Gedanken Sie über XSRF Sicherheitsrisiko, wenn das Token im lokalen Speicher gespeichert ist, aber es ist ein Problem auf, wenn das Token in einem Cookie gespeichert ist.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Mehrere Anwendungen werden in einer Domäne gehostet werden.
 
-Obwohl `example1.cloudapp.net` und `example2.cloudapp.net` sind verschiedene Hosts besteht ein implizites Vertrauensverhältnis zwischen allen Hosts unter der `*.cloudapp.net` Domäne. Diese implizite Vertrauensstellung kann potenziell nicht vertrauenswürdige Hosts Cookies gegenseitig beeinträchtigen (die gleichen-Origin-Richtlinien, die zum Steuern der AJAX-Anforderungen sind nicht unbedingt auf HTTP-Cookies anwendbar). Die ASP.NET Core-Laufzeit bietet einige Verringerung, der Benutzernamen in das Feldtoken eingebettet ist, selbst wenn eine böswillige Unterdomäne einen Sitzungstoken überschreiben kann zum Generieren eines gültigen Felds Tokens für den Benutzer werden. Allerdings können nicht beim Hosten in einer derartigen Umgebung die integrierte Anti-XSRF-Routinen weiterhin Sitzungsübernahme oder Anmeldung CSRF Verteidigung gegen Angriffe. Freigegebene Hostingumgebungen sind Vunerable Sitzungsübernahme CSRF-Anmeldung und andere Angriffe.
-
+Obwohl `example1.cloudapp.net` und `example2.cloudapp.net` sind verschiedene Hosts besteht ein implizites Vertrauensverhältnis zwischen Hosts unter der `*.cloudapp.net` Domäne. Diese implizite Vertrauensstellung kann potenziell nicht vertrauenswürdige Hosts Cookies gegenseitig beeinträchtigen (die gleichen-Origin-Richtlinien, die zum Steuern der AJAX-Anforderungen sind nicht unbedingt auf HTTP-Cookies anwendbar). Die ASP.NET Core-Laufzeit bietet einige Entschärfung, insofern, dass der Benutzername in das Feldtoken eingebettet ist. Auch wenn eine böswillige Unterdomäne einen Sitzungstoken überschrieben werden kann, kann nicht er ein gültiger Token für den Benutzer generieren. Wenn in einer derartigen Umgebung gehostet wird, können nicht die integrierte Anti-XSRF-Routinen weiterhin Sitzungsübernahme oder Anmeldung CSRF Verteidigung gegen Angriffe. Freigegebene Hostingumgebungen sind Vunerable Sitzungsübernahme CSRF-Anmeldung und andere Angriffe.
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 

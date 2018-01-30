@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>OWIN-Middleware in der integrierten IIS-pipeline
 ====================
@@ -78,7 +78,7 @@ Owin-Middleware-Komponenten (OMC) können zum Ausführen von auf owin-Pipeline-P
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
 1. Standardmäßig OMCs, führen Sie an das letzte Ereignis (`PreHandlerExecute`). Deshalb ist unsere erste Beispielcode angezeigt "PreExecuteRequestHandler".
-2. Können Sie die einer `pp.UseStageMarker` Methode, um eine OMC früher in keiner Phase der OWIN-Pipeline ausgeführt registrieren aufgeführt, der `PipelineStage` Enum.
+2. Können Sie die einer `app.UseStageMarker` Methode, um eine OMC früher in keiner Phase der OWIN-Pipeline ausgeführt registrieren aufgeführt, der `PipelineStage` Enum.
 3. Die OWIN-Pipeline und die IIS-Pipeline ist sortiert, daher Aufrufe `app.UseStageMarker` muss in der Reihenfolge. Den Ereignishandler kann nicht festgelegt werden, um ein Ereignis, das vor dem letzten Ereignis registriert mit `app.UseStageMarker`. Beispielsweise *nach* aufrufen:
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]

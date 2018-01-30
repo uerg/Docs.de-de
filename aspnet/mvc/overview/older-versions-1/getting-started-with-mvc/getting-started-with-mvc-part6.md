@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 4792689087ab85be25fe186b2ec97915af448ef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Hinzufügen einer Create-Methode und die Ansicht erstellen
 ====================
@@ -61,7 +61,7 @@ Sehen wir uns die zweite Erstellungsmethode aus unserem MoviesController erneut.
 
 Dieses Movie-Objekt klicken Sie dann auf die Version [HttpPost] unsere erstellen Aktionsmethode übergeben wurde, und wir es in der Datenbank gespeichert und anschließend den Benutzer umgeleitet, an die Aktionsmethode Index(), die das gespeicherte Ergebnis in der Filmliste angezeigt:
 
-[![Film List – Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 Wir werden nicht überprüft, ob unsere Filme richtig angegeben, obwohl sind und die Datenbank wird nicht es uns ermöglichen, einen Film mit ohne Titel zu speichern. Es wäre schön, wenn wir den Benutzer informieren könnte, der vor der Datenbank einen Fehler ausgelöst hat. Wir müssen dies als Nächstes durchführen, indem validierungsunterstützung unsere Anwendung hinzufügen.
 

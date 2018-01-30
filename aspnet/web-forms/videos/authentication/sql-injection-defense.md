@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/sql-injection-defense
 msc.type: video
-ms.openlocfilehash: 7d64cfbdc9c82e989403b0688bc14f240b9f7b6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db667d57b1cc3e2e5c78d93fe1dcee37dc5f0f1e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="sql-injection-defense"></a>SQL-Injection-Schutz
 ====================
@@ -27,4 +27,4 @@ Eine Schwachstelle SQL Injection in Ihrer Anwendung kann den ganzen Tag beschäd
 [&#9654; Sehen Sie sich an (25 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
 
 >[!div class="step-by-step"]
-[Zurück](creating-inactive-users.md)
+[Vorherige](creating-inactive-users.md)

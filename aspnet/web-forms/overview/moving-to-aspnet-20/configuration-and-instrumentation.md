@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>Konfiguration und -Instrumentation
 ====================
@@ -134,11 +134,11 @@ Protokollierung erfolgt durch Definieren einer Regel, die ein Anbieter Ereigniss
 | **WebRequestEvent** | Die Basisklasse für alle Anforderungsereignisse nur zu Informationszwecken. |
 | **WebBaseErrorEvent** | Die Basisklasse für alle Ereignisse angezeigt, die möglichen Fehlerzustände. |
 
-Die Typen der verfügbaren Anbieter können Sie Ereignis-Ausgabe-Ereignisanzeige, SQL Server, Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) und E-mail senden. Die vorkonfiguriert, dass Anbieter und die Ereignis-Zuordnungen verringern die notwendigen Ereignis Ausgabe protokolliert zu arbeiten.
+Die Typen der verfügbaren Anbieter können Sie Ereignis-Ausgabe an Ereignisanzeige, SQL Server, Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) und e-Mails senden. Die vorkonfiguriert, dass Anbieter und die Ereignis-Zuordnungen verringern die notwendigen Ereignis Ausgabe protokolliert zu arbeiten.
 
 ASP.NET 2.0 verwendet das Ereignisprotokoll Anbieter Out-of-the-Box, um Ereignisse basierend auf Anwendungsdomänen starten und beenden, sowie-Protokollierung nicht behandelten Ausnahmen zu protokollieren. Dadurch wird bei einigen der grundlegenden Szenarien abzudecken. Nehmen wir beispielsweise an, dass die Anwendung löst eine Ausnahme aus, aber der Benutzer den Fehler nicht speichern, und Sie können es nicht reproduzierbar. Mit der Standardregel Ereignisprotokoll würden Sie möglicherweise benötigen Sie die Ausnahme und zum Stack Informationen zum Abrufen von besseren verstehen, welche Art von Fehler aufgetreten ist. Ein weiteres Beispiel gilt, wenn Ihre Anwendung Sitzungszustand verlieren. In diesem Fall können Sie in das Ereignisprotokoll, um zu bestimmen, ob die Anwendungsdomäne wiederverwendet wird, und warum die Anwendungsdomäne ursprünglich beendet sehen.
 
-Das System für die Systemüberwachung ist außerdem erweiterbar. Sie können z. B. benutzerdefinierte Webereignisse definieren, innerhalb der Anwendung ausgelöst werden und definieren Sie eine Regel klicken, um die Ereignisinformationen zu einem Anbieter z. B. Ihre e-Mail-Adresse senden. Dadurch können Sie einfach die Instrumentation der Anbieter für die Systemüberwachung gebunden. Ein weiteres Beispiel konnte Sie ein Ereignis bei jedem Auslösen eine Bestellung verarbeitet und richten Sie eine Regel, die jedes Ereignis mit der SQL Server-Datenbank sendet. Sie können auch auslösen, ein Ereignis, wenn ein Benutzer ein Fehler auftritt, melden Sie sich auf mehrere Male in einer Zeile, und richten Sie das Ereignis an die e-Mail-basierten Anbieter verwenden.
+Das System für die Systemüberwachung ist außerdem erweiterbar. Sie können z. B. benutzerdefinierte Webereignisse definieren, innerhalb der Anwendung ausgelöst werden und definieren Sie eine Regel klicken, um die Ereignisinformationen zu einem Anbieter z. B. Ihre e-Mail-Adresse senden. Dadurch können Sie einfach die Instrumentation der Anbieter für die Systemüberwachung gebunden. Ein weiteres Beispiel konnte Sie ein Ereignis bei jedem Auslösen eine Bestellung verarbeitet und richten Sie eine Regel, die jedes Ereignis mit der SQL Server-Datenbank sendet. Sie können auch auslösen, ein Ereignis, wenn ein Benutzer ein Fehler auftritt, melden Sie sich auf mehrere Male in einer Zeile, und richten Sie das Ereignis an die e-Mail-basierte Anbieter verwenden.
 
 Die Konfiguration für die standardmäßige Anbieter und der Ereignisse wird in der globalen Datei "Web.config" gespeichert. Die globale Datei "Web.config" speichert alle Web-based Einstellungen, die in der Datei "Machine.config" in ASP.NET 1 gespeichert waren X. Die globale Datei "Web.config" befindet sich im folgenden Verzeichnis:
 
@@ -150,7 +150,7 @@ Die &lt;HealthMonitoring&gt; Teil der globalen Datei "Web.config" enthält die f
 
 | **providers** | Enthält die Anbieter für die Ereignisanzeige, WMI und SQL Server eingerichtet. |
 | --- | --- |
-| **eventMappings** | Enthält Zuordnungen für die verschiedenen WebBase-Klassen. Sie können diese Liste erweitern, wenn Sie eine eigene Ereignisklasse generieren. Generieren eine eigene Klasse des Ereignisses erhalten Sie eine geringere Granularität auf die Anbieter, die, denen Sie Informationen zu senden. Beispielsweise konnte nicht behandelte Ausnahmen an SQL-Server gesendet werden, während des Sendens von Ihren eigenen benutzerdefinierten Ereignissen, um e-Mail-konfiguriert werden. |
+| **eventMappings** | Enthält Zuordnungen für die verschiedenen WebBase-Klassen. Sie können diese Liste erweitern, wenn Sie eine eigene Ereignisklasse generieren. Generieren eine eigene Klasse des Ereignisses erhalten Sie eine geringere Granularität auf die Anbieter, die, denen Sie Informationen zu senden. Beispielsweise können Sie nicht behandelte Ausnahmen an SQL-Server gesendet werden, während des Sendens von eigenen benutzerdefinierten Ereignisse auf e-Mail konfigurieren. |
 | **rules** | Links EventMappings an den Anbieter. |
 | **buffering** | Mit SQL Server und e-Mail-Anbieter verwendet, um zu bestimmen, wie oft die Ereignisse an den Anbieter zu leeren. |
 
@@ -196,19 +196,19 @@ Sie müssen eine Regel klicken, um eine "EventMapping" mit dem Anbieter und auch
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>Weiterleiten von Ereignissen von per e-mail
+## <a name="how-to-forward-events-to-email"></a>Weiterleiten von Ereignissen auf e-Mails
 
-Sie können auch e-Mail-Ereignisse weiterleiten. Seien Sie vorsichtig, über welche Ereignisregeln, die Sie an Ihre e-Mail-Anbieter ordnen, wie Sie unbeabsichtigt selbst einer Vielzahl von Informationen, die senden können möglicherweise besser geeignet für SQL Server oder im Ereignisprotokoll. Es gibt zwei e-Mail-Anbieter. SimpleMailWebEventProvider und TemplatedMailWebEventProvider. Jede verfügt über die gleiche Konfigurationsattribute mit Ausnahme von den Attributen "Template" und "DetailedTemplateErrors", die beide nur auf die TemplatedMailWebEventProvider verfügbar sind.
+Sie können auch Ereignisse auf e-Mail weiterleiten. Seien Sie vorsichtig, über welche Ereignisregeln, die Sie an Ihre e-Mail-Anbieter ordnen, wie Sie unbeabsichtigt selbst einer Vielzahl von Informationen, die senden können möglicherweise besser geeignet für SQL Server oder im Ereignisprotokoll. Es gibt zwei e-Mail-Anbieter. SimpleMailWebEventProvider und TemplatedMailWebEventProvider. Jede verfügt über die gleiche Konfigurationsattribute mit Ausnahme von den Attributen "Template" und "DetailedTemplateErrors", die beide nur auf die TemplatedMailWebEventProvider verfügbar sind.
 
 > [!NOTE]
 > Keines dieser e-Mail-Anbieter ist für Sie konfiguriert. Sie müssen sie die Datei "Web.config" hinzugefügt.
 
 
-Der Hauptunterschied zwischen diesen beiden e-Mail-Anbieter ist, dass SimpleMailWebEventProvider-e-Mails in eine generische Vorlage sendet, die nicht geändert werden kann. Die Beispieldatei für die Datei "Web.config" hinzugefügt der Liste der konfigurierten Anbieter die folgende Regel mit dieser e-Mail-Anbieter:
+Der Hauptunterschied zwischen diesen zwei e-Mail-Anbieter ist, dass SimpleMailWebEventProvider-e-Mails in eine generische Vorlage sendet, die nicht geändert werden kann. Die Beispieldatei für die Datei "Web.config" hinzugefügt der Liste der konfigurierten Anbieter die folgende Regel mit dieser e-Mail-Anbieter:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample11.xml)]
 
-Die folgende Regel wird ebenfalls hinzugefügt, auf die e-Mail-Anbieter zum Binden der **alle Ereignisse** ereigniszuordnung:
+Die folgende Regel wird ebenfalls hinzugefügt, um den e-Mail-Anbieter zum Binden der **alle Ereignisse** ereigniszuordnung:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample12.xml)]
 

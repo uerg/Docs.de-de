@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41e1f8673b42571a9dcbdae668a30426fe90f42f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b4bba02449debff17422f6b7008247fdf61856c8
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-elmah-vb"></a>ELMAH (VB) protokollieren Fehlerdetails
 ====================
@@ -29,7 +29,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Einführung
 
-Die [vorherigen Lernprogramm](logging-error-details-with-asp-net-health-monitoring-vb.md) ASP untersucht. NET Überwachungssystem, die eine Out-of der Feld-Bibliothek zum Aufzeichnen von vielen verschiedenen Webereignisse bietet. Viele Entwickler verwenden zum Protokollieren und e-mail die Details der nicht behandelten Ausnahmen für die Systemüberwachung. Es gibt jedoch einige Problembereiche mit diesem System. Zunächst ist das fehlen jegliche Art von Benutzeroberfläche zum Anzeigen von Informationen zu den protokollierten Ereignissen. Wenn Sie möchten finden eine Zusammenfassung der letzten 10 Fehler, oder zeigen Sie die Details eines Fehlers, die letzte Woche aufgetreten sind, müssen Sie entweder Poke über die Datenbank, Durchsuchen Sie Ihre e-Mail-Posteingang oder erstellen Sie eine Webseite, die Anzeige von Informationen aus der `aspnet_WebEvent_Events` Tabelle.
+Die [vorherigen Lernprogramm](logging-error-details-with-asp-net-health-monitoring-vb.md) ASP untersucht. NET Überwachungssystem, die eine Out-of der Feld-Bibliothek zum Aufzeichnen von vielen verschiedenen Webereignisse bietet. Viele Entwickler verwenden zum Protokollieren und per e-Mail die Details der nicht behandelten Ausnahmen für die Systemüberwachung. Es gibt jedoch einige Problembereiche mit diesem System. Zunächst ist das fehlen jegliche Art von Benutzeroberfläche zum Anzeigen von Informationen zu den protokollierten Ereignissen. Wenn Sie möchten finden eine Zusammenfassung der letzten 10 Fehler, oder zeigen Sie die Details eines Fehlers, die letzte Woche aufgetreten sind, müssen Sie entweder Poke über die Datenbank, Durchsuchen Sie Ihre e-Mail-Posteingang oder erstellen Sie eine Webseite, die Anzeige von Informationen aus der `aspnet_WebEvent_Events` Tabelle.
 
 Eine andere Schwachstelle dreht sich alles um Komplexität Health überwacht. Da Systemüberwachung verwendet werden kann eine Vielzahl von verschiedenen Ereignissen aufgezeichnet, und es gibt eine Vielzahl von Optionen angewiesen wird, wie und wann Ereignisse protokolliert werden, kann die ordnungsgemäße Konfiguration System für die Systemüberwachung einen Task sehr aufwändig sein. Schließlich sind Kompatibilitätsprobleme. Da Systemüberwachung zuerst .NET Framework Version 2.0 hinzugefügt wurde, ist es nicht verfügbar für ältere Webanwendungen mit ASP.NET-Version erstellte 1.x. Darüber hinaus die `SqlWebEventProvider` Klasse, die wir im vorherigen Lernprogramm Protokolle Fehlerdetails in einer Datenbank verwendet, funktioniert nur mit Microsoft SQL Server-Datenbanken. Sie benötigen, um ein benutzerdefiniertes Protokoll Anbieterklasse zu erstellen, sollten Sie zum Protokollieren von Fehlern an einen alternativen Datenspeicher, z. B. eine XML-Datei oder einer Oracle-Datenbank durchführen müssen.
 
@@ -199,23 +199,23 @@ Das Fehlerprotokoll in der produktionsumgebung kann jetzt von Remotebenutzern an
 
 ELMAH des `ErrorLogModule` HTTP-Modul protokolliert automatisch nicht behandelte Ausnahmen in der Quelle angegebenen Protokoll. Alternativ können Sie einen Fehler protokollieren, ohne eine nicht behandelte Ausnahme mithilfe Auslösen der `ErrorSignal` Klasse und ihre `Raise` Methode. Die `Raise` -Methode übergeben ein `Exception` Objekt, und es protokolliert, als ob diese Ausnahme ausgelöst wurde, und hat die ASP.NET-Laufzeit erreicht, ohne verarbeitet wird. Der Unterschied ist jedoch, dass die Anforderung fortgesetzt, normalerweise nach dem Ausführen der `Raise` -Methode aufgerufen wurde, während eine ausgelöst wird, eine nicht behandelte Ausnahme unterbricht der normalen Ausführung der Anforderung und führt dazu, dass die ASP.NET-Laufzeit die konfigurierte angezeigt Fehler (Seite).
 
-Die `ErrorSignal` Klasse ist hilfreich in Situationen, in denen eine Aktion, die möglicherweise nicht vorhanden ist, aber der Fehler ist nicht schwerwiegenden auf den gesamten Vorgang ausgeführt wird. Beispielsweise darf eine Website ein Formular, das die Eingabe des Benutzers verwendet, speichert es in einer Datenbank und sendet dann die Benutzer per E-mail informiert wird, dass sie Informationen verarbeitet wurde. Was soll passieren, wenn die Informationen in der Datenbank erfolgreich gespeichert ist, aber ein Fehler aufgetreten ist, wenn die e-Mail-Nachricht zu senden? Eine Möglichkeit wäre, lösen eine Ausnahme aus, und den Benutzer auf die Fehlerseite senden. Jedoch kann dies die Benutzer verleitet verwechselt werden, die die eingegebenen Informationen nicht gespeichert wurde. Ein anderer Ansatz wäre, den e-Mail-bezogenen Fehler protokollieren, aber nicht die benutzererfahrung in keiner Weise geändert. Dies ist, wenn die `ErrorSignal` Klasse ist hilfreich.
+Die `ErrorSignal` Klasse ist hilfreich in Situationen, in denen eine Aktion, die möglicherweise nicht vorhanden ist, aber der Fehler ist nicht schwerwiegenden auf den gesamten Vorgang ausgeführt wird. Beispielsweise darf eine Website ein Formular, das die Eingabe des Benutzers verwendet, speichert es in einer Datenbank und sendet dann die Benutzer per e-Mail informiert wird, dass sie Informationen verarbeitet wurde. Was soll passieren, wenn die Informationen in der Datenbank erfolgreich gespeichert ist, aber ein Fehler aufgetreten ist, wenn die e-Mail-Nachricht zu senden? Eine Möglichkeit wäre, lösen eine Ausnahme aus, und den Benutzer auf die Fehlerseite senden. Jedoch kann dies die Benutzer verleitet verwechselt werden, die die eingegebenen Informationen nicht gespeichert wurde. Ein anderer Ansatz wäre, den e-Mail-bezogenen Fehler protokollieren, aber nicht die benutzererfahrung in keiner Weise geändert. Dies ist, wenn die `ErrorSignal` Klasse ist hilfreich.
 
 [!code-vb[Main](logging-error-details-with-elmah-vb/samples/sample6.vb)]
 
-## <a name="error-notification-via-e-mail"></a>Fehlerbenachrichtigung per E-Mail
+## <a name="error-notification-via-email"></a>Fehlerbenachrichtigung per E-Mail
 
-Zusammen mit der Protokollierung von Fehlern in einer Datenbank kann auch ELMAH konfiguriert werden, um Fehlerdetails an einen angegebenen Empfänger per e-mail. Diese Funktionalität wird bereitgestellt, indem Sie die `ErrorMailModule` HTTP-Modul; aus diesem Grund müssen Sie diese HTTP-Modul in registrieren `Web.config` um Fehlerdetails per E-mail zu senden.
+Zusammen mit der Protokollierung von Fehlern in einer Datenbank kann auch ELMAH konfiguriert werden, um die Fehlerdetails per e-Mail an einen angegebenen Empfänger senden. Diese Funktionalität wird bereitgestellt, indem Sie die `ErrorMailModule` HTTP-Modul; aus diesem Grund müssen Sie diese HTTP-Modul in registrieren `Web.config` um Fehlerdetails per e-Mail zu senden.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample7.xml)]
 
-Geben Sie anschließend Informationen zum Fehler E-mail in der `<elmah>` des Elements `<errorMail>` Abschnitt, der angibt, Absender und Empfänger, den Betreff der e-Mail-Nachricht und gibt an, ob die e-Mail-Nachricht asynchron gesendet wird.
+Als Nächstes geben Sie Informationen zu dem Fehler e-Mails in der `<elmah>` des Elements `<errorMail>` Abschnitt, der angibt, die e-Mail Absender und Empfänger, den Betreff und gibt an, ob die e-Mail-Adresse asynchron gesendet wird.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample8.xml)]
 
-Mit den oben genannten Einstellungen vorhanden, wenn ein Laufzeitfehler auftritt ELMAH sendet eine E-mail an support@example.com mit den Fehlerdetails. ELMAH des Fehler-e-Mail enthält die gleiche Informationen wie der Fehler Details Webseite, nämlich die Fehlermeldung, die stapelüberwachung und die Servervariablen (verweisen zurück auf **Abbildungen 4** und **5**). Der Fehler-e-Mail enthält auch den Inhalt der Ausnahme Details gelben Bildschirm der Tod als Anlage (`YSOD.html`).
+Mit den oben genannten Einstellungen vorhanden, wenn ein Laufzeitfehler auftritt ELMAH sendet eine e-Mail an support@example.com mit den Fehlerdetails. ELMAH des Fehler-e-Mail enthält die gleiche Informationen wie der Fehler Details Webseite, nämlich die Fehlermeldung, die stapelüberwachung und die Servervariablen (verweisen zurück auf **Abbildungen 4** und **5**). Der Fehler-e-Mail enthält auch den Inhalt der Ausnahme Details gelben Bildschirm der Tod als Anlage (`YSOD.html`).
 
-**Abbildung 8** wird ELMAHs Fehler E-mail von Besuchen generierten `Genre.aspx?ID=foo`. Während **Abbildung 8** zeigt nur der Fehler und die stapelüberwachung Ablaufverfolgung, die Servervariablen gehören weiter nach unten im Text der e-Mail-Nachricht.
+**Abbildung 8** zeigt ELMAHs Fehler-e-Mail von Besuchen generierten `Genre.aspx?ID=foo`. Während **Abbildung 8** zeigt nur der Fehler und die stapelüberwachung Ablaufverfolgung, die Servervariablen sind weitere enthalten nach unten in der e-Mail-Text.
 
 [![](logging-error-details-with-elmah-vb/_static/image21.png)](logging-error-details-with-elmah-vb/_static/image20.png)
 
@@ -240,7 +240,7 @@ Weitere Informationen zu Filterfunktionen ELMAHs-Fehler finden Sie in der [Absch
 
 ## <a name="summary"></a>Zusammenfassung
 
-ELMAH bietet einen einfache, aber leistungsstarken Mechanismus zum Protokollieren von Fehlern in einer ASP.NET Web-Anwendung. Wie Microsoft Health-Überwachungssystem ELMAH kann Fehler in einer Datenbank protokollieren und den Fehlerdetails an ein Entwickler per E-mail senden. Im Gegensatz zu das Überwachungssystem ELMAH enthält, aus der Box-Unterstützung für eine größere Anzahl von Fehler Protokoll Datenspeichern, einschließlich: Microsoft SQL Server, Microsoft Access, Oracle, XML-Dateien und einigen weiteren Bildschirmen. Darüber hinaus bietet ELMAH einen eingebauten Mechanismus für die Anzeige im Fehlerprotokoll und die Details zu einem bestimmten Fehler von einer Webseite `elmah.axd`. Die `elmah.axd` Seite kann auch Rendern Fehlerinformationen als RSS-feed oder als eine durch Trennzeichen getrennte Datei (CSV), die mit Microsoft Excel gelesen werden können. Sie können auch ELMAH filtern Sie Fehler anweisen, aus dem Protokoll, verwenden deklarative oder programmgesteuerte Assertionen. Und ELMAH mit Version 1.x von ASP.NET-Anwendungen verwendet werden kann.
+ELMAH bietet einen einfache, aber leistungsstarken Mechanismus zum Protokollieren von Fehlern in einer ASP.NET Web-Anwendung. Wie Microsoft Health-Überwachungssystem ELMAH kann Fehler in einer Datenbank protokollieren und den Fehlerdetails an ein Entwickler per e-Mail senden. Im Gegensatz zu das Überwachungssystem ELMAH enthält, aus der Box-Unterstützung für eine größere Anzahl von Fehler Protokoll Datenspeichern, einschließlich: Microsoft SQL Server, Microsoft Access, Oracle, XML-Dateien und einigen weiteren Bildschirmen. Darüber hinaus bietet ELMAH einen eingebauten Mechanismus für die Anzeige im Fehlerprotokoll und die Details zu einem bestimmten Fehler von einer Webseite `elmah.axd`. Die `elmah.axd` Seite kann auch Rendern Fehlerinformationen als RSS-feed oder als eine durch Trennzeichen getrennte Datei (CSV), die mit Microsoft Excel gelesen werden können. Sie können auch ELMAH filtern Sie Fehler anweisen, aus dem Protokoll, verwenden deklarative oder programmgesteuerte Assertionen. Und ELMAH mit Version 1.x von ASP.NET-Anwendungen verwendet werden kann.
 
 Jede bereitgestellte Anwendung sollte einen Mechanismus für die automatische Anmeldung nicht behandelte Ausnahmen und Senden der Benachrichtigung an das Entwicklungsteam verfügen. Gibt an, ob dies erreicht wird, mithilfe von Systemüberwachung oder ELMAH ist sekundären. In anderen Worten, ist es unerheblich, viel gibt an, ob Sie Systemüberwachung oder ELMAH verwenden; Auswerten von beiden Systemen, und wählen Sie dann das Projekt, das Ihren Anforderungen am besten entspricht. Im Grunde wichtig ist, dass ein Mechanismus bereit, um zu melden Sie sich nicht behandelte Ausnahmen in der produktionsumgebung eingefügt werden.
 

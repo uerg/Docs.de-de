@@ -2,18 +2,18 @@
 title: Razor-Seiten mit EF-Kern - CRUD - 2-8
 author: rick-anderson
 description: "Zeigt, wie erstellen, lesen, aktualisieren und Löschen mit EF Core"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Erstellen Sie, lesen Sie, aktualisieren Sie und löschen Sie-EF-Core mit Razor-Seiten (2 von 8)
 
@@ -23,7 +23,7 @@ Durch [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.
 
 In diesem Lernprogramm die scaffolded CRUD-Vorgänge (erstellen, lesen, aktualisieren und löschen) Code überprüft und angepasst wird.
 
-Hinweis: Zur Minimierung des Komplexität, und behalten Sie diese Lernprogramme EF Core konzentriert, EF Kerncode in den Code-Behind-Dateien von Razor-Seiten dient. Einige Entwickler mithilfe einer Ebene oder im Repository-Musters in eine Abstraktionsebene zwischen der Benutzeroberfläche (Razor-Seiten) und die Datenzugriffsebene zu erstellen.
+Hinweis: Zur Minimierung des Komplexität, und behalten Sie diese Lernprogramme EF Core konzentriert, ist EF Kerncode in den Razor-Seiten-Seite-Modellen verwendet. Einige Entwickler mithilfe einer Ebene oder im Repository-Musters in eine Abstraktionsebene zwischen der Benutzeroberfläche (Razor-Seiten) und die Datenzugriffsebene zu erstellen.
 
 In diesem Lernprogramm, erstellen, bearbeiten, löschen und Details Razor-Seiten in der *Student* Ordner geändert werden.
 
@@ -147,7 +147,7 @@ Der Wert "OverPost" erfolgreich, um hinzugefügt wurde die `Secret` Eigenschaft 
 <a name="vm"></a>
 ### <a name="view-model"></a>ViewModel-Element
 
-Einem Ansichtsmodell enthält in der Regel eine Teilmenge der Eigenschaften in das von der Anwendung verwendete Modell enthalten. Das Anwendungsmodell wird häufig die Domänenmodell bezeichnet. Das Domänenmodell enthält in der Regel alle Eigenschaften, die durch die entsprechende Entität in der Datenbank erforderlich. Das Ansichtsmodell enthält nur die Eigenschaften, die für die Benutzeroberflächenebene (z. B. die Seite "erstellen") erforderlich sind. Zusätzlich zu den Ansichtsmodell verwenden einige apps ein Bindungsmodell oder Eingabe zum Übergeben von Daten zwischen der Razor-Seiten Code-Behind-Klasse und den Browser. Beachten Sie Folgendes `Student` Ansichtsmodell:
+Einem Ansichtsmodell enthält in der Regel eine Teilmenge der Eigenschaften in das von der Anwendung verwendete Modell enthalten. Das Anwendungsmodell wird häufig die Domänenmodell bezeichnet. Das Domänenmodell enthält in der Regel alle Eigenschaften, die durch die entsprechende Entität in der Datenbank erforderlich. Das Ansichtsmodell enthält nur die Eigenschaften, die für die Benutzeroberflächenebene (z. B. die Seite "erstellen") erforderlich sind. Zusätzlich zu den Ansichtsmodell einige apps verwenden ein Bindungsmodell oder Eingabe zum Übergeben von Daten zwischen der Seitenklasse Modell Razor-Seiten und den Browser. Beachten Sie Folgendes `Student` Ansichtsmodell:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ In Razor-Seiten die `PageModel` abgeleiteten Klasse wird das Modell anzeigen.
 
 ## <a name="update-the-edit-page"></a>Aktualisieren Sie die Seite "Bearbeiten"
 
-Aktualisieren Sie die Auslagerungsdatei des Code-Behind bearbeiten:
+Aktualisieren Sie das Modell für das Bearbeiten (Seite):
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 

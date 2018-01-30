@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 509dd301eef7c00431eae194a0df69d70e6d80f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -83,7 +83,7 @@ Jetzt sehen wir ändern Sie den Titel der Indexseite.
 
 Ausführen der app, und besuchen Sie /Movies. Beachten Sie, dass der Titel des Browsers, die Überschrift der primären und sekundären Überschriften geändert haben. Es ist einfach, Ihrer Ansicht big Änderungen in Ihrer app mit kleinere Änderungen vornehmen.
 
-[![Film List – Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 Unsere wenig "Daten" (in diesem Fall die "Hello World!" Nachricht) war schwierig zwar codiert. Wir haben V (Views), und wir haben C (Domänencontroller), aber noch keine M (Modell). Wir werden in Kürze exemplarisch erklärt, wie eine Datenbank erstellen und das Modelldaten daraus abrufen.
 

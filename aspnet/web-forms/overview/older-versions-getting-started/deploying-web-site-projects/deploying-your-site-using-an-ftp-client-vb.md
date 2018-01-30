@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7792891aed6f0c5e952018dacb36a1d267cb6ae0
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>Bereitstellen Ihrer Website mithilfe eines FTP-Clients (VB)
 ====================
@@ -48,7 +48,7 @@ Beachten Sie, dass es zwei Versionen der Webanwendung Book-Überprüfung gibt: e
 
 Starten Sie das Projekt BookReviewsWAP durch Navigieren zu den `BookReviewsWAP` Ordner und doppelklicken Sie auf die `BookReviewsWAP.sln` Datei. Vor der Bereitstellung des Projekts ist es wichtig, zu erstellen, um sicherzustellen, dass alle Änderungen an den Quellcode in der kompilierten Assembly enthalten sind. Zum Erstellen des Projekts im Menü erstellen werden, und wählen Sie die Menüoption BookReviewsWAP erstellen. Dies kompiliert den Quellcode in das Projekt in einer einzelnen Assembly `BookReviewsWAP.dll`, die befindet sich der `Bin` Ordner.
 
-Wir können jetzt die notwendigen Dateien bereitstellen. Starten Sie Ihre FTP-Client, und Herstellen einer Verbindung mit dem Webserver mit Ihrem Webhostinganbieter. (Wenn Sie sich mit einem Webhostinganbieter registrieren werden sie Informationen zum Verbinden mit dem FTP-Server e-mail; Dies schließt die Adresse für den FTP-Server als auch einen Benutzernamen und ein Kennwort).
+Wir können jetzt die notwendigen Dateien bereitstellen. Starten Sie Ihre FTP-Client, und Herstellen einer Verbindung mit dem Webserver mit Ihrem Webhostinganbieter. (Wenn Sie sich mit einem Webhostinganbieter registrieren sie werden eine e-Mail an Sie Informationen zum Herstellen einer Verbindung mit dem FTP-Server; Dies schließt die Adresse für den FTP-Server als auch einen Benutzernamen und ein Kennwort).
 
 Kopieren Sie die folgenden Dateien von Ihrem Desktop in den Stammordner der Website an Ihre Webhostinganbieter. Wenn Sie FTP in den Webserver an die Web-Anbieter gehostet werden Sie wahrscheinlich im Stammverzeichnis der Website. Allerdings müssen einige Web Hosten von Anbietern einen Unterordner mit dem Namen `www` oder `wwwroot` , die als Stammordner für Ihre Websitedateien dient. Schließlich bei FTPing die Dateien müssen Sie möglicherweise beim Erstellen der entsprechenden Ordnerstruktur in der produktionsumgebung - der `Bin` Ordner, der `Fiction` Ordner, der `Images` Ordner und So weiter.
 

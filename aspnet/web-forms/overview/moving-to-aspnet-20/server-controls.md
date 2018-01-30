@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>Serversteuerelemente
 ====================
@@ -166,7 +166,7 @@ Die ImageMap-Steuerelement können Sie Hotspots zu einem Bild hinzufügen, die e
 **Abbildung 1**: HotSpot-Auflistungs-Editor in Visual Studio
 
 
-## <a name="bulletedlist-control"></a>BulletedList-Steuerelement
+## <a name="bulletedlist-control"></a>BulletedList Control
 
 Der BulletedList-Steuerelement ist eine Aufzählung, die einfach Daten gebunden werden können. Die Liste (nummerierte) sortiert werden kann oder nicht über die BulletStyle-Eigenschaft sortiert. Jedes Element in der Liste wird von einem "ListItem"-Objekt dargestellt.
 
@@ -176,7 +176,7 @@ Der BulletedList-Steuerelement ist eine Aufzählung, die einfach Daten gebunden 
 **Abbildung 2**: BulletedList-Steuerelement in Visual Studio
 
 
-## <a name="hiddenfield-control"></a>HiddenField-Steuerelement
+## <a name="hiddenfield-control"></a>HiddenField Control
 
 HiddenField-Steuerelement wird ein ausgeblendetes Formularfeld hinzugefügt, auf die Seite, deren, die Wert in serverseitigen Code verfügbar ist. Der Wert, der ein ausgeblendetes Formularfeld muss in der Regel zwischen Postbacks unverändert bleiben. Es ist jedoch möglich, dass ein böswilliger Benutzer so ändern Sie den Wert vor, um zurückgesendet wird. In diesem Fall wird das HiddenField-Steuerelement das ValueChanged-Ereignis ausgelöst. Wenn Sie vertraulichen Informationen in das HiddenField-Steuerelement und sicherzustellen, dass es unverändert bleiben sollen, sollten Sie das ValueChanged-Ereignis im Code behandeln.
 
@@ -224,7 +224,7 @@ Localize-Steuerelement ist ein Literal Steuerelement ähnlich. Allerdings Locali
 | **Modus** | **Erläuterung** |
 | --- | --- |
 | Transformation | Markup wird nach dem Protokoll des Browsers die Anforderung transformiert. |
-| Pass-Through- | Als Markup gerendert-ist. |
+| PassThrough | Als Markup gerendert-ist. |
 | Codieren | Markup, das dem Steuerelement hinzugefügt wird mit HtmlEncode codiert. |
 
 ## <a name="multiview-and-view-controls"></a>MultiView und -Steuerelemente
@@ -271,7 +271,7 @@ XmlDataSource-Steuerelement wird zur Datenbindung an eine XML-Datenquelle verwen
 
 Die Datenbindung für die Website Navigationssteuerelemente basierend auf einer Siteübersicht des SiteMapDataSource gesteuert. Sie wird in einem Modul später ausführlicher besprochen.
 
-## <a name="sitemappath-control"></a>SiteMapPath-Steuerelement
+## <a name="sitemappath-control"></a>SiteMapPath Control
 
 Das SiteMapPath-Steuerelement zeigt eine Reihe von Navigationslinks gemeinhin als Breadcrumbs bezeichnet. Es wird in einem Modul später ausführlicher behandelt.
 
@@ -295,7 +295,7 @@ LoginView-Steuerelement ermöglicht die Anzeige von Vorlagen basierend auf den A
 
 Das PasswordRecovery-Steuerelement ist vergessene Kennwörter abrufen von Benutzern einer ASP.NET-Anwendung verwendet. Es wird in einem Modul später ausführlicher behandelt.
 
-## <a name="loginstatus"></a>loginStatus
+## <a name="loginstatus"></a>LoginStatus
 
 Das LoginStatus-Steuerelement zeigt Anmeldestatus eines Benutzers. Es wird in einem Modul später ausführlicher behandelt.
 
