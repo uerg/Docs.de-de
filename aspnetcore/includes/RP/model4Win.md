@@ -16,8 +16,8 @@ No executable found matching command "dotnet-aspnet-codegenerator"
 
 Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
   ```
-  The process cannot access the file
- 'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll'
+  The process cannot access the file 
+ 'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
   because it is being used by another process.
   ```
 
