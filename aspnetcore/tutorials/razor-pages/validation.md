@@ -2,18 +2,18 @@
 title: "Hinzufügen der Validierung"
 author: rick-anderson
 description: "Erläutert, wie einer Razor-Seite Validierung hinzugefügt wird."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 43d9ecacc479dac3eff35cc745b30d859c5cfd1d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite
 
