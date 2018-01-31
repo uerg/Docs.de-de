@@ -30,7 +30,7 @@ Sie können die `id` auch mithilfe einer Abfragezeichenfolge übergeben:
 
 `http://localhost:1234/movies/details?id=1`
 
-Der `id`-Parameter wird als [nullable-Typ](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) für den Fall definiert, dass ein ID-Wert nicht angegeben wird.
+Der `id`-Parameter wird als [Nullable-Typ](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) für den Fall definiert, dass kein ID-Wert angegeben wird.
 
 Ein [Lambdaausdruck](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) wird an `SingleOrDefaultAsync` übergeben, um Filmentitäten auszuwählen, die mit den Routendaten oder dem Wert der Abfragezeichenfolge übereinstimmen.
 

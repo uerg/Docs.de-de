@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: 1b091cc479accfad5ad570a006d7395ef8d62a08
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 79eb352082da23400403ff8804d724256a2d3f07
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Untersuchen der Methoden „Details“ und „Delete“
 
@@ -27,7 +27,7 @@ Das MVC-Gerüstbaumodul, das diese Aktionsmethode erstellt hat, fügt einen Komm
 
 [!code-csharp[Main](start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
-EF erleichtert das Suchen nach Daten mithilfe der `SingleOrDefaultAsync`-Methode. Ein wichtiges in die Methode integriertes Sicherheitsmerkmal ist, dass der Code überprüft, ob die Suchmethode einen Film gefunden hat, bevor sie versucht, etwas damit zu tun. Ein Hacker kann beispielsweise Fehler in die Website einschleusen, indem die von den Links erstellte URL von `http://localhost:xxxx/Movies/Details/1` in etwas wie `http://localhost:xxxx/Movies/Details/12345` geändert wird (oder einen anderen Wert, der keinen tatsächlichen Film darstellt). Wenn keine Prüfung auf einen NULL-Film erfolgen würde, würde die App eine Ausnahme auslösen.
+EF erleichtert das Suchen nach Daten mithilfe der `SingleOrDefaultAsync`-Methode. Ein wichtiges in die Methode integriertes Sicherheitsmerkmal ist, dass der Code überprüft, ob die Suchmethode einen Film gefunden hat, bevor sie versucht, etwas damit zu tun. Ein Hacker kann beispielsweise Fehler in die Website einschleusen, indem die von den Links erstellte URL von `http://localhost:xxxx/Movies/Details/1` in etwas wie `http://localhost:xxxx/Movies/Details/12345` geändert wird (oder einen anderen Wert, der keinen tatsächlichen Film darstellt). Wenn Sie nicht nach einem NULL-Movie gesucht haben, löst die App keine Ausnahme aus.
 
 Untersuchen Sie die Methoden `Delete` und `DeleteConfirmed`.
 

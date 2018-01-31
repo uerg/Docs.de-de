@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2c7473647f23daf20ce7b204f621fb34f1a528c2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 43d9ecacc479dac3eff35cc745b30d859c5cfd1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite
 
@@ -59,7 +59,7 @@ Wie Sie sehen, hat das Formular in allen Feldern mit einem ungültigen Wert auto
 
 Ein entscheidender Vorteil ist, dass **keine** Codeänderungen auf den Seiten „Erstellen“ oder „Bearbeiten“ erforderlich waren. Nach Anwenden von „DataAnnotations“ auf das Modell wurde die Benutzeroberflächenvalidierung aktiviert. Die in diesem Tutorial erstellten Razor-Seiten haben die Validierungsregeln automatisch übernommen (mithilfe der Validierungsattribute für die Eigenschaften der Modellklasse `Movie`). Testen Sie die Validierung mithilfe der Seite „Bearbeiten“. Es erfolgt dieselbe Validierung.
 
-Die Formulardaten werden erst an den Server zurückgesendet, wenn auf Clientseite keine Validierungsfehler auftreten. Überprüfen Sie, ob Formulardaten nicht zurückgesendet werden, mithilfe einer oder mehrerer der folgenden Vorgehensweisen:
+Die Formulardaten werden erst an den Server zurückgesendet, wenn auf Clientseite keine Validierungsfehler auftreten. Überprüfen Sie mithilfe von mindestens einem der folgenden Ansätze, ob keine Formulardaten bereitgestellt werden:
 
 * Setzen Sie einen Haltepunkt in der `OnPostAsync`-Methode. Senden Sie das Formular (wählen Sie **Erstellen** oder **Speichern**). Der Haltepunkt wird niemals erreicht.
 * Verwenden Sie das [Tool Fiddler](http://www.telerik.com/fiddler).
@@ -112,7 +112,7 @@ Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 public DateTime ReleaseDate { get; set; }
 ```
 
-Die Einstellung `ApplyFormatInEditMode` gibt an, dass die Formatierung angewendet werden soll, wenn der Wert zur Bearbeitung angezeigt wird. Dieses Verhalten ist für einige Felder ggf. nicht wünschenswert. In Währungswerten möchten Sie beispielsweise wahrscheinlich nicht das Währungssymbol auf der Bearbeitungsoberfläche anzeigen.
+Die Einstellung `ApplyFormatInEditMode` gibt an, dass die Formatierung angewendet werden soll, wenn der Wert zur Bearbeitung angezeigt wird. Dieses Verhalten ist für einige Felder ggf. nicht wünschenswert. Beispielsweise sollte bei Währungswerten das Währungssymbol auf der Benutzeroberfläche für die Bearbeitung nicht angezeigt werden.
 
 Das `DisplayFormat`-Attribut kann eigenständig verwendet werden, doch meist empfiehlt es sich, das `DataType`-Attribut zu verwenden. Das `DataType`-Attribut übermittelt die Semantik der Daten im Gegensatz zu deren Rendern auf einem Bildschirm. Es bietet die folgenden Vorteile, die „DisplayFormat“ nicht bietet:
 
@@ -120,7 +120,7 @@ Das `DisplayFormat`-Attribut kann eigenständig verwendet werden, doch meist emp
 * Standardmäßig rendert der Browser Daten mit dem ordnungsgemäßen auf Ihrem Gebietsschema basierenden Format.
 * Das `DataType`-Attribut kann dem ASP.NET Core-Framework ermöglichen, die richtige Feldvorlage zum Rendern der Daten auszuwählen. `DisplayFormat`, falls eigenständig genutzt, verwendet die Zeichenfolgenvorlage.
 
-Hinweis: Die jQuery-Validierung funktioniert nicht mit dem `Range`-Attribut und `DateTime`. Bei folgendem Code wird z.B. stets ein clientseitiger Validierungsfehler angezeigt, auch wenn sich das Datum im angegebenen Bereich befindet:
+Hinweis: Die jQuery-Validierung funktioniert nicht mit den Attributen `Range` und `DateTime`. Bei folgendem Code wird z.B. stets ein clientseitiger Validierungsfehler angezeigt, auch wenn sich das Datum im angegebenen Bereich befindet:
 
 ```csharp
 [Range(typeof(DateTime), "1/1/1966", "1/1/2020")]

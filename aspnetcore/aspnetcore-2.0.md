@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 992afc2766e817ef007e20ade44e3ddd1d404f90
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Neuigkeiten in ASP.NET Core 2.0
 
@@ -44,7 +44,7 @@ Weitere Informationen finden Sie unter [Runtime store (Laufzeitspeicher)](https:
 
 Die ASP.NET Core 2.0-Pakete sind auf .NET Standard 2.0 ausgelegt. Auf die Pakete kann von anderen .NET Standard 2.0-Bibliotheken verwiesen werden. Außerdem können sie unter Implementierungen von .NET ausgeführt werden, die mit .NET Standard 2.0 konform sind, darunter .NET Core 2.0 und .NET Framework 4.6.1. 
 
-Das `Microsoft.AspNetCore.All`-Metapaket ist ausschließlich für .NET Core 2.0 ausgelegt, da es dafür vorgesehen ist, mit dem .NET Core 2.0-Laufzeitspeicher verwendet zu werden.
+Das `Microsoft.AspNetCore.All`-Metapaket ist ausschließlich auf .NET Core 2.0 ausgelegt, da es dafür vorgesehen ist, mit dem .NET Core 2.0-Laufzeitspeicher verwendet zu werden.
 
 ## <a name="configuration-update"></a>Aktualisierung der Konfiguration
 
@@ -108,7 +108,7 @@ return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNo
 
 Die Datei, die an Ihre Besucher zurückgegeben wird, wird mit den entsprechenden HTTP-Headern für die Werte `ETag` und `LastModified` ergänzt.
 
-Wenn ein Besucher der Anwendung Inhalt mit einem Range-Anforderungsheader anfordert, erkennt ASP.NET das und verarbeitet diesen Header. Wenn der angeforderte Inhalt nur teilweise geliefert werden kann, überspringt ASP.NET diese Teile entsprechend und gibt nur den angeforderte Bytesatz zurück.  Sie müssen keine bestimmten Handler in Ihren Methoden schreiben, um diese Funktion anzupassen oder zu verarbeiten, es wird automatisch für Sie erledigt.
+Wenn ein Besucher der Anwendung Inhalt mit einem Range-Anforderungsheader anfordert, erkennt ASP.NET das und verarbeitet diesen Header. Wenn der angeforderte Inhalt nur teilweise geliefert werden kann, überspringt ASP.NET diese Teile entsprechend und gibt nur den angeforderte Bytesatz zurück.  Sie müssen keine bestimmten Handler in Ihren Methoden schreiben, um dieses Feature anzupassen oder zu verarbeiten, da dies automatisch für Sie erledigt wird.
 
 ## <a name="hosting-startup-and-application-insights"></a>Hosting – Start und Application Insights
 
