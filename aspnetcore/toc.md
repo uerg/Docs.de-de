@@ -28,6 +28,21 @@
 ### [Untersuchen der Methoden „Details“ und „Delete“](tutorials/first-mvc-app/details.md)
 
 ## [Plattformübergreifendes Tutorial](xref:tutorials/xplat)
+### [Web-App für Razor-Seiten auf einem Mac](xref:tutorials/razor-pages-mac/index)
+#### [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Hinzufügen eines Modells](xref:tutorials/razor-pages-mac/model)
+#### [Scaffolded Razor Pages (Gerüstbau mit Razor-Seiten)](xref:tutorials/razor-pages-mac/page)
+#### [Arbeiten mit SQLite](xref:tutorials/razor-pages-mac/sql)
+#### [Aktualisieren der Seiten](xref:tutorials/razor-pages-mac/da1)
+#### [Hinzufügen der Suche](xref:tutorials/razor-pages-mac/search)
+
+
+### [Web-App für Razor-Seiten mit VS Code](xref:tutorials/razor-pages-vsc/index)
+#### [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Hinzufügen eines Modells](xref:tutorials/razor-pages-vsc/model)
+#### [Scaffolded Razor Pages (Gerüstbau mit Razor-Seiten)](xref:tutorials/razor-pages-vsc/page)
+#### [Arbeiten mit SQLite](xref:tutorials/razor-pages-vsc/sql)
+#### [Aktualisieren der Seiten](xref:tutorials/razor-pages-vsc/da1)
 
 ### [Web-App mit MVC über Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/index)
 #### [Erste Schritte](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -41,7 +56,7 @@
 #### [Hinzufügen der Validierung](xref:tutorials/first-mvc-app-mac/validation)
 #### [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
 
-### [Web-App mit Visual Studio Code unter Mac oder Linux](xref:tutorials/first-mvc-app-xplat/index)
+### [MVC-Web-App mit Visual Studio Code unter Mac oder Linux](xref:tutorials/first-mvc-app-xplat/index)
 #### [Erste Schritte](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Hinzufügen eines Controllers](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Hinzufügen einer Ansicht](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -52,15 +67,6 @@
 #### [Hinzufügen eines neuen Felds](tutorials/first-mvc-app-xplat/new-field.md)
 #### [Hinzufügen der Validierung](tutorials/first-mvc-app-xplat/validation.md)
 #### [Untersuchen der Methoden „Details“ und „Delete“](tutorials/first-mvc-app/details.md)
-
-
-### [Web-App für Razor-Seiten auf einem Mac](xref:tutorials/razor-pages-mac/index)
-#### [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [Hinzufügen eines Modells](xref:tutorials/razor-pages-mac/model)
-#### [Scaffolded Razor Pages (Gerüstbau mit Razor-Seiten)](xref:tutorials/razor-pages-mac/page)
-### [Web-App für Razor-Seiten mit VS Code](xref:tutorials/razor-pages-vsc/index)
-#### [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [Hinzufügen eines Modells](xref:tutorials/razor-pages-vsc/model)
 
 ### [Web-API mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
 ### [Web-API mit Visual Studio Code](xref:tutorials/web-api-vsc)
@@ -244,6 +250,7 @@
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Integrieren von Azure AD in eine ASP.NET Core-Web-App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 #### [Integration von Azure AD B2C in eine ASP.NET Core-Web-App mit Kundenzugriff](xref:security/authentication/azure-ad-b2c)
+#### [Integrieren von Azure AD B2C in eine ASP.NET Core-Web-API](xref:security/authentication/azure-ad-b2c-webapi)
 #### [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-App mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Aufrufen einer Web-API in einer ASP.NET Core-Web-App mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [Schützen von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io/)
