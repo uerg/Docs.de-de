@@ -1,19 +1,19 @@
 ---
 title: Migration von ASP.NET zu ASP.NET Core 2.0
 author: isaac2004
-description: "Dieses Referenzdokument enthält Anweisungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-Anwendungen zu ASP.NET Core 2.0."
-ms.author: scaddie
+description: Anweisungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-Apps zu ASP.NET Core 2.0.
 manager: wpickett
+ms.author: scaddie
 ms.date: 08/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 2263f8e9936389cf8cf18ff0c6d1d07018650e14
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: d6050c7946aa45b4c1b878b96baa1b082d0c8f71
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migration von ASP.NET zu ASP.NET Core 2.0
 
@@ -148,4 +148,5 @@ Beispielsweise kann ein Browser an einem Speicherort wie `http://<app>/images/<i
 **Hinweis:** Ausführliche Informationen zum Bereitstellen statischer Dateien in ASP.NET Core finden Sie unter [Introduction to working with static files in ASP.NET Core (Einführung in das Arbeiten mit statischen Dateien in ASP.NET Core)](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-* [Portieren auf .NET Core – Bibliotheken](https://docs.microsoft.com/dotnet/core/porting/libraries)
+
+* [Portieren auf .NET Core – Bibliotheken](/dotnet/core/porting/libraries)
