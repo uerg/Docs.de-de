@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrationstests zu legen, die in ASP.NET Core
 
@@ -127,7 +127,7 @@ Dieser Code funktioniert allerdings handelt es sich zurückgelegt wie möchten S
 
 Eine Option zu berücksichtigen ist das Hinzufügen von [MVC](xref:mvc/overview) an der Anwendung und Erstellen eines Domänencontrollers, auf die wesentlichen Überprüfung behandeln. Allerdings muss die vorausgesetzt, dass Sie derzeit keine anderen MVC Funktionalität, einem bit overkill.
 
-Sie können jedoch von ASP.NET Core profitieren [Middleware](xref:fundamentals/middleware), die hilft uns zu kapseln die Primzahlen Logik in eine eigene Klasse wird überprüft und eine bessere Leistung erzielen [Trennung von Anliegen](http://deviq.com/separation-of-concerns/) in der `Configure` Methode.
+Sie können jedoch von ASP.NET Core profitieren [Middleware](xref:fundamentals/middleware/index), die hilft uns zu kapseln die Primzahlen Logik in eine eigene Klasse wird überprüft und eine bessere Leistung erzielen [Trennung von Anliegen](http://deviq.com/separation-of-concerns/) in der `Configure` Methode.
 
 Der Pfad darf die Middleware verwendet als Parameter angegeben werden, damit die Middleware-Klasse erwartet werden sollen eine `RequestDelegate` und eine `PrimeCheckerOptions` Instanz in seinem Konstruktor. Wenn der Pfad der Anforderung nicht übereinstimmt, was diese Middleware ist so konfiguriert, dass Sie davon ausgehen dass, Sie einfach die nächste Middleware in der Kette aufrufen und keine weiteren Aktionen. Der Rest des Codes Implementierung, die im war `Configure` ist jetzt der `Invoke` Methode.
 
@@ -150,5 +150,5 @@ Folgende dieses refactoring sind Sie sicher, dass die Webanwendung weiterhin wie
 ## <a name="resources"></a>Ressourcen
 
 * [Komponententests](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Middleware](xref:fundamentals/middleware)
+* [Middleware](xref:fundamentals/middleware/index)
 * [Testen von Controllern](xref:mvc/controllers/testing)

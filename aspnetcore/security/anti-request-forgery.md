@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Verhindern von Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Core
 
@@ -345,7 +345,7 @@ CSRF-Angriffen basieren auf dem Standardverhalten der Browser Cookies, die mit e
 
 ### <a name="cookie-based-authentication"></a>Cookie-basierte Authentifizierung
 
-Sobald ein Benutzer mithilfe ihres Benutzernamens und Kennworts authentifiziert wurde, können sie ein Token ausgestellt hat, die verwendet werden kann, um sie zu identifizieren und überprüfen, dass sie authentifiziert wurden. Das Token wird als ein Cookie, die mit jeder Anforderung der Client stellt gespeichert. Generieren und überprüfen dieses Cookie wird von der cookieauthentifizierungsmiddleware ausgeführt. ASP.NET Core bietet Cookie [Middleware](../fundamentals/middleware.md) der serialisiert eines Benutzerprinzipals in einem verschlüsselten Cookie, und klicken Sie dann bei nachfolgenden Anforderungen überprüft das Cookie wird den Prinzipal erstellt, und weist sie der `User` Eigenschaft `HttpContext`.
+Sobald ein Benutzer mithilfe ihres Benutzernamens und Kennworts authentifiziert wurde, können sie ein Token ausgestellt hat, die verwendet werden kann, um sie zu identifizieren und überprüfen, dass sie authentifiziert wurden. Das Token wird als ein Cookie, die mit jeder Anforderung der Client stellt gespeichert. Generieren und überprüfen dieses Cookie wird von der cookieauthentifizierungsmiddleware ausgeführt. ASP.NET Core bietet Cookie [Middleware](xref:fundamentals/middleware/index) der serialisiert eines Benutzerprinzipals in einem verschlüsselten Cookie, und klicken Sie dann bei nachfolgenden Anforderungen überprüft das Cookie wird den Prinzipal erstellt, und weist sie der `User` Eigenschaft `HttpContext`.
 
 Wenn ein Cookie verwendet wird, ist das Authentifizierungscookie lediglich als Container für das Formularauthentifizierungsticket. Das Ticket wird als Wert des Formularauthentifizierungscookies mit jeder Anforderung übergeben und dient Formularauthentifizierung auf dem Server beim Identifizieren eines authentifiziertes Benutzers verwendet.
 

@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aac6c649b22dc8f6cfc916aa78d56efad7821a0
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrieren von HTTP-Handler und Module auf ASP.NET Core authentifizierungsmiddleware beziehen. 
 
 Durch [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-In diesem Artikel wird gezeigt, wie zum Migrieren von vorhandenen ASP.NET [HTTP-Module und Ereignishandler in "System.Webserver"](https://docs.microsoft.com/iis/configuration/system.webserver/) zu ASP.NET Core [Middleware](../fundamentals/middleware.md).
+In diesem Artikel wird gezeigt, wie zum Migrieren von vorhandenen ASP.NET [HTTP-Module und Ereignishandler in "System.Webserver"](https://docs.microsoft.com/iis/configuration/system.webserver/) zu ASP.NET Core [Middleware](xref:fundamentals/middleware/index).
 
 ## <a name="modules-and-handlers-revisited"></a>Module und Handler revisited
 
@@ -65,7 +65,7 @@ Zusätzlich zu den Modulen, können Sie Handler für die Lebenszyklusereignisse 
 
    * Middleware konfiguriert sind, mithilfe von Code anstatt in *"Web.config"*
 
-   * [Pipeline Verzweigen](../fundamentals/middleware.md#middleware-run-map-use) können Sie Anforderungen an bestimmten Middleware, die basierend auf nicht nur die URL, sondern auch von der Anforderungsheader, Abfragezeichenfolgen usw. gesendet werden.
+   * [Pipeline Verzweigen](xref:fundamentals/middleware/index#middleware-run-map-use) können Sie Anforderungen an bestimmten Middleware, die basierend auf nicht nur die URL, sondern auch von der Anforderungsheader, Abfragezeichenfolgen usw. gesendet werden.
 
 **Middleware Module sehr ähnlich sind:**
 
@@ -81,7 +81,7 @@ Zusätzlich zu den Modulen, können Sie Handler für die Lebenszyklusereignisse 
 
    * Reihenfolge der Middleware für Antworten ist das Gegenteil aus, die für Anforderungen, während der Reihenfolge von Modulen für Anforderungen und Antworten identisch ist
 
-   * Finden Sie unter [erstellen eine middlewarepipeline mit IApplicationBuilder](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder)
+   * Finden Sie unter [erstellen eine middlewarepipeline mit IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Middleware](http-modules/_static/middleware.png)
 
@@ -93,13 +93,13 @@ Ein vorhandenes HTTP-Modul sieht in etwa wie folgt:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
-Entsprechend der [Middleware](../fundamentals/middleware.md) Seite eine Middleware ASP.NET Core ist eine Klasse, die verfügbar macht eine `Invoke` Methode erstellen eine `HttpContext` und Zurückgeben einer `Task`. Ihre neue Middleware wird wie folgt aussehen:
+Entsprechend der [Middleware](xref:fundamentals/middleware/index) Seite eine Middleware ASP.NET Core ist eine Klasse, die verfügbar macht eine `Invoke` Methode erstellen eine `HttpContext` und Zurückgeben einer `Task`. Ihre neue Middleware wird wie folgt aussehen:
 
 <a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Die oben genannten Middleware Vorlage stammt aus dem Abschnitt auf [schreiben Middleware](../fundamentals/middleware.md#middleware-writing-middleware).
+Die vorangehenden Middleware Vorlage stammt aus dem Abschnitt auf [schreiben Middleware](xref:fundamentals/middleware/index#middleware-writing-middleware).
 
 Die *MyMiddlewareExtensions* Hilfsklasse erleichtert das Konfigurieren Ihrer Middleware in Ihre `Startup` Klasse. Die `UseMyMiddleware` Methode der Anforderungspipeline die Middleware-Klasse hinzugefügt. Von der Middleware erforderliche Dienste abrufen in der Middleware-Konstruktor eingefügt.
 
@@ -121,7 +121,7 @@ HTTP-Module werden in der Regel die Anforderung mithilfe hinzugefügt *"Web.conf
 
 [!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
-Konvertieren von [Hinzufügen Ihrer neuen Middleware](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder) auf der Anforderungspipeline in Ihre `Startup` Klasse:
+Konvertieren von [Hinzufügen Ihrer neuen Middleware](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder) auf der Anforderungspipeline in Ihre `Startup` Klasse:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
@@ -383,4 +383,4 @@ Die `SetCookies` Rückrufmethode würde wie folgt aussehen:
 * [HTTP-Handler und HTTP-Module (Übersicht)](/iis/configuration/system.webserver/)
 * [Konfiguration](xref:fundamentals/configuration/index)
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
-* [Middleware](xref:fundamentals/middleware)
+* [Middleware](xref:fundamentals/middleware/index)
