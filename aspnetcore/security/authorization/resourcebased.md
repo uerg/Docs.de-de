@@ -11,21 +11,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 708f306da740870b106cbeeb96879480f8745439
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 723e371e0d0b4877f96898c68cd59b433fa97dc1
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="resource-based-authorization"></a>Ressourcenbasierte Autorisierung
-
-Von [Scott Addie](https://twitter.com/Scott_Addie)
 
 Autorisierungsstrategie richtet sich nach der Ressource, auf die zugegriffen wird. Betrachten Sie ein Dokument Author-Eigenschaft besitzt. Nur der Ersteller ist zulässig, um das Dokument zu aktualisieren. Daher müssen Sie das Dokument aus dem Datenspeicher abgerufen werden vor der Auswertung der Autorisierung.
 
 Attribut-Auswertung erfolgt, vor dem Datenbindung und vor der Ausführung der Seite "-Ereignishandler oder Aktion, die das Dokument lädt. Aus diesen Gründen deklarative Autorisierung mit einer `[Authorize]` Attribut wird nicht ausreichen. Stattdessen können Sie eine benutzerdefinierten Autorisierungs-Methode aufrufen&mdash;als imperative Autorisierung bezeichnet.
 
 Verwenden der [Beispiel-apps](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample)), die in diesem Thema beschriebenen Funktionen zu untersuchen.
+
+[Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt](xref:security/authorization/secure-data) enthält eine Beispielapp, ressourcenbasierte Autorisierung verwendet.
 
 ## <a name="use-imperative-authorization"></a>Verwenden Sie eine imperative Autorisierung
 
