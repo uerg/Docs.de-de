@@ -36,13 +36,13 @@
 #### [Aktualisieren der Seiten](xref:tutorials/razor-pages-mac/da1)
 #### [Hinzufügen der Suche](xref:tutorials/razor-pages-mac/search)
 
-
 ### [Web-App für Razor-Seiten mit VS Code](xref:tutorials/razor-pages-vsc/index)
 #### [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Hinzufügen eines Modells](xref:tutorials/razor-pages-vsc/model)
 #### [Scaffolded Razor Pages (Gerüstbau mit Razor-Seiten)](xref:tutorials/razor-pages-vsc/page)
 #### [Arbeiten mit SQLite](xref:tutorials/razor-pages-vsc/sql)
 #### [Aktualisieren der Seiten](xref:tutorials/razor-pages-vsc/da1)
+#### [Hinzufügen der Suche](xref:tutorials/razor-pages-vsc/search)
 
 ### [Web-App mit MVC über Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/index)
 #### [Erste Schritte](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -102,7 +102,9 @@
 # [Grundlagen](fundamentals/index.md)
 ## [Starten von Anwendungen](fundamentals/startup.md)
 ## [Abhängigkeitsinjektion (Dienste)](fundamentals/dependency-injection.md)
-## [Middleware](fundamentals/middleware.md)
+## [Middleware](xref:fundamentals/middleware/index)
+### [Middleware](xref:fundamentals/middleware/index)
+### [Factorybezogene Middleware](xref:fundamentals/middleware/extensibility)
 ## [Arbeiten mit statischen Dateien](fundamentals/static-files.md)
 ## [Routing](fundamentals/routing.md)
 ## [URL-Rewrite-Middleware](fundamentals/url-rewriting.md)
