@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/05/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/24/2018
 - [Haftungsausschluss](#0.1__Toc274034231)
 
 <a id="overview"></a>
-## <a name="overview"></a>Übersicht
+## <a name="overview"></a>Überblick
 
 Dieses Dokument beschreibt die Version von ASP.NET MVC 3 RTM für Visual Studio 2010. ASP.NET MVC ist ein Framework zum Entwickeln von Webanwendungen, die die Model-View-Controller (MVC)-Muster verwendet wird. Der ASP.NET MVC 3-Installer umfasst die folgenden Komponenten:
 
@@ -144,7 +144,7 @@ Lernprogramme und Weitere Informationen zu ASP.NET MVC sind auf die MVC-Seite de
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Unterstützung
+## <a name="support"></a>Support
 
 Dies ist eine vollständige Unterstützung geboten. Informationen zur Inanspruchnahme technischer Unterstützung finden Sie unter der [Microsoft Support-Website](https://support.microsoft.com/).
 
@@ -232,7 +232,7 @@ Mit dieser Vorlage können Sie schnell eine funktionierende Dateneingabe Benutze
 
 Für *Datenkontext Klasse*, nehmen Sie diese Auswahlen:
 
-- Wenn Sie möchten Code First verwenden und haben keine vorhandenen Datenkontext Klasse, wählen Sie  *&lt;neuen Datenkontext... &gt;*". Dann wird eine neue Datenkontextklasse für Sie generiert.
+- Wenn Sie möchten Code First verwenden und haben keine vorhandenen Datenkontext Klasse, wählen Sie ** neuen Datenkontext **. Dann wird eine neue Datenkontextklasse für Sie generiert.
 - Wenn Sie Code First verwenden und über eine bestehende Datenkontextklasse verfügen möchten, wählen Sie diese hier an. Es werden aktualisiert werden, um die Modellklasse beizubehalten, die Sie ausgewählt haben.
 - Wenn Sie Database First oder Model First verwenden, wählen Sie hier Ihre Objektkontextklasse aus.
 
@@ -255,7 +255,7 @@ Die Liste Projektvorlage enthält eine neue Vorlage Intranetanwendung. Diese Vor
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Projektvorlagen sind nun HTML5 aktiviert
 
-Des Dialogfelds "Neues Projekt" "enthält jetzt eine Option aus, um die Projektvorlagen von HTML5-spezifische Funktionen hinzuzufügen. Wählen Sie die Option bewirkt, dass Sichten generiert werden, die das neue HTML5 enthalten  *&lt;Header&gt;*,  *&lt;Fußzeile&gt;*, und  *&lt;Navigation&gt;*  Elemente.
+Des Dialogfelds "Neues Projekt" "enthält jetzt eine Option aus, um die Projektvorlagen von HTML5-spezifische Funktionen hinzuzufügen. Wählen Sie die Option bewirkt, dass Sichten generiert werden, die das neue HTML5 enthalten `<header>`, `<footer>`, und `<navigation>` Elemente. Elemente.
 
 Beachten Sie, dass frühere Versionen der Browser keine HTML5-spezifische Tags unterstützen. Zur Überwindung dieser Einschränkung enthalten die HTML5-Projektvorlagen einen Verweis auf die Modernizr-Bibliothek. (Siehe nächsten Abschnitt.)
 
@@ -293,7 +293,7 @@ Wenn Sie ein neues ASP.NET MVC 3-Projekt erstellen, enthält das Projekt die Jav
 
 Beispielsweise wird bei die Häufigkeit neuer jQuery-Versionen, die Version von jQuery in der Projektvorlage enthalten irgendwann veraltet sein. Allerdings da jQuery als ein installiertes NuGet-Paket enthalten ist, werden Sie im Dialogfeld NuGet benachrichtigt, wenn neuere Versionen von jQuery verfügbar sind.
 
-Da jQuery die Versionsnummer im Dateinamen enthält, Aktualisierung von jQuery auf die neueste Version auch erfordert Aktualisieren der  *&lt;Skript&gt;*  Tag, die jQuery-Datei verweist, um den neuen Dateinamen verwenden. Andere enthaltene Skriptbibliotheken enthalten nicht die Versionsnummer im Skriptnamen, damit sie leichter auf die jeweils neuesten Version aktualisiert werden können.
+Da jQuery die Versionsnummer im Dateinamen enthält, Aktualisierung von jQuery auf die neueste Version auch erfordert Aktualisieren der `<script>` Tag, die jQuery-Datei verweist, um den neuen Dateinamen verwenden. Andere enthaltene Skriptbibliotheken enthalten nicht die Versionsnummer im Skriptnamen, damit sie leichter auf die jeweils neuesten Version aktualisiert werden können.
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>Bekannte Probleme
@@ -353,7 +353,7 @@ Umbenennen einer Razor-Datei mit Projektmappen-Explorer aus, während die Datei 
 - IntelliSense für Razor-Syntax funktioniert nicht, wenn ReSharper installiert ist. Wenn Sie ReSharper installiert haben und die Razor IntelliSense-Unterstützung in ASP.NET MVC 3 nutzen möchten, finden Sie im Eintrag [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) hadis-Blog erläutert die Möglichkeiten, diese heute zusammen verwenden.
 - CCSHTML und VBHTML-Ansichten, die mit der Betaversion von ASP.NET MVC 3 erstellt werden, nicht ihre Buildvorgang ordnungsgemäß festgelegt, Typen werden mit dem Ergebnis, das diese anzuzeigen weggelassen, wenn das Projekt veröffentlicht wird. Der Build Action-Wert für diese Dateien sollten auf "Inhalt" festgelegt werden. ASP.NET MVC 3 RTM behebt dieses Problem für neue Dateien, aber nicht beheben Sie die Einstellung für vorhandene Dateien für ein Projekt mit Vorabversionen erstellt.
 - ![](mvc3-release-notes/_static/image3.png)
-- Während der Installation zeigt im Dialogfeld zum Akzeptieren der LIZENZBEDINGUNGEN die Lizenzbedingungen in einem Fenster, die kleiner ist als beabsichtigten. / li&gt;
+- Während der Installation zeigt im Dialogfeld zum Akzeptieren der LIZENZBEDINGUNGEN die Lizenzbedingungen in einem Fenster, die kleiner als vorgesehen ist.
 - Bei der Bearbeitung einer Razor-Ansicht (cshtml-Datei), das Menüelement zu Controller wechseln Sie in Visual Studio ist nicht verfügbar, und es sind keine Codeausschnitte.
 - Wenn Sie ASP.NET MVC 3 für Visual Web Developer Express auf einem Computer installieren, auf dem Visual Studio nicht installiert ist, und klicken Sie dann später Visual Studio installieren, müssen Sie ASP.NET MVC 3 erneut installieren. Visual Studio und Visual Web Developer Express haben die Komponenten, die von ASP.NET MVC 3-Installer aktualisiert werden. Das gleiche Problem gilt, wenn Sie ASP.NET MVC 3 für Visual Studio auf einem Computer installieren, die keine Visual Web Developer Express, und klicken Sie dann später installieren Visual Web Developer Express.
 
@@ -398,7 +398,7 @@ Der Standard bearbeiten und Erstellen von Vorlagen enthalten Verweise auf die jQ
 <a id="_Toc2_4"></a>
 ### <a name="added-htmlraw-method"></a>Hinzugefügte Html.Raw-Methode
 
-Standardmäßig der Razor anzeigen Engine HTML-Codierung aller Werte. Beispielsweise der folgende Codeausschnitt den HTML-Code in die Variable für die Grußformel codiert, damit er auf der Seite als angezeigt wird &amp;Lt; starken&amp;Gt; Hallo Welt! &amp;Lt; / strong&amp;Gt;.
+Standardmäßig der Razor anzeigen Engine HTML-Codierung aller Werte. Beispielsweise der folgende Codeausschnitt den HTML-Code in die Variable für die Grußformel codiert, damit er auf der Seite als angezeigt wird `<strong>Hello World!</strong>`.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
@@ -621,7 +621,7 @@ Alternativ zum Deaktivieren der anforderungsüberprüfung für jede Eigenschaft 
 - Das Installationsprogramm möglicherweise länger dauert als in vorherigen Versionen von ASP.NET MVC abschließen, da es Komponenten von Visual Studio 2010 aktualisiert werden.
 - Das Gerüst Ansicht hinzufügen, wenn Ansicht Gerüste wählen eine "Bearbeitung" stark typisiert werden. schreibgeschützte Eigenschaften. Ebenso werden nur-schreiben Eigenschaften für "Anzeige" Ansichten Gerüstbau.
 - Während der Installation zeigt im Dialogfeld zum Akzeptieren der LIZENZBEDINGUNGEN die Lizenzbedingungen in einem Fenster, die kleiner als vorgesehen ist.
-- Installieren der [Visual Studio Async CTP](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=18712f38-fcd2-4e9f-9028-8373dc5732b2&amp;displaylang=en) verursacht einen Konflikt mit der Razor-Version, die als Teil der ASP.NET MVC 3-Installation Tools enthalten ist. Stellen Sie sicher, dass Sie nicht versucht, die Visual Studio-Async-CTP und der Razor-Version auf demselben Computer installieren.
+- Installieren der Visual Studio Async CTP verursacht einen Konflikt mit der Razor-Version, die als Teil der ASP.NET MVC 3-Installation Tools enthalten ist. Stellen Sie sicher, dass Sie nicht versucht, die Visual Studio-Async-CTP und der Razor-Version auf demselben Computer installieren.
 - Bei der Bearbeitung einer Razor-Ansicht (cshtml-Datei), das Menüelement zu Controller wechseln Sie in Visual Studio ist nicht verfügbar, und es sind keine Codeausschnitte.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
@@ -852,7 +852,7 @@ Bei der Bearbeitung einer Razor-Ansicht (CSHTML-Datei), die <a id="0.1__Toc22472
 
 Bei Verwendung der @model Syntax zum Angeben von einer stark typisierten CSHTML anzeigen, die sprachspezifische Tastenkombinationen für Typen werden nicht erkannt. Beispielsweise @model Int funktioniert nicht, aber @model Int32 funktioniert. Die problemumgehung für diesen Fehler ist die Verwendung von den tatsächlichen Typnamen, bei der Angabe von Typ des Modells.
 
-Bei Verwendung der @model Syntax zum Angeben von einer stark typisierten CSHTML-Ansicht (oder @ModelType an einer stark typisierten Ansicht der VBHTML), auf NULL festlegbare Typen und Arraydeklarationen werden nicht unterstützt. Beispielsweise @model Int? wird nicht unterstützt. Verwenden Sie stattdessen @model Nullable&lt;Int32&gt;. Die Syntax @model String [] ist ebenfalls nicht unterstützt; verwenden Sie stattdessen @model IList&lt;Zeichenfolge&gt;.
+Bei Verwendung der @model Syntax zum Angeben von einer stark typisierten CSHTML-Ansicht (oder @ModelType an einer stark typisierten Ansicht der VBHTML), auf NULL festlegbare Typen und Arraydeklarationen werden nicht unterstützt. Beispielsweise @model Int? wird nicht unterstützt. Verwenden Sie stattdessen `@model Nullable<Int32>`. Die Syntax @model String [] ist ebenfalls nicht unterstützt; verwenden Sie stattdessen `@model IList<string>`.
 
 Beim upgrade eines ASP.NET MVC 2-Projekts auf ASP.NET MVC 3 Stellen Sie sicher, dass im folgenden Abschnitt "appSettings" der Datei "Web.config" hinzugefügt:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: 2c1f9a7291d8eab675bac3e1c37d6922131e3761
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aafc59980e807677d6023110d324365ce92bb5fc
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="improvements-in-visual-studio-2005"></a>Verbesserungen in Visual Studio 2005
 ====================
@@ -79,10 +79,10 @@ Klicken Sie hier, um ein video zur exemplarischen Vorgehensweise erstellen Sie W
 In dem video zur exemplarischen Vorgehensweise haben Sie gesehen, können Sie auswählen, Websites auf dem Dateisystem auf dem lokalen Computer oder an einem Remotestandort über eine Dateifreigabe zu erstellen. Websites, die im Dateisystem erstellt werden, die durchsucht werden und debuggt mithilfe von ASP.NET Development Server.
 
 > [!NOTE]
-> Der ASP.NET Development Server möglicherweise etwas Verwirrung für Kunden. Wenn Sie ein Webprojekt auf dem Dateisystem in IISs Verzeichnisstruktur (d. h. c:\inetpub\wwwroot) erstellt wird, wird der Website weiterhin über den ASP.NET Development Server, wenn Sie in Visual Studio 2005 gestartet durchsucht werden. Aus diesem Grund ist eine IIS-Konfiguration (d. h. Authentifizierungsmethoden) nicht anwendbar.
+> Der ASP.NET Development Server möglicherweise etwas Verwirrung für Kunden. Wenn Sie ein Webprojekt auf dem Dateisystem in IISs Verzeichnisstruktur (d. h. "c:" / Inetpub/Wwwroot) erstellt wird, wird der Website weiterhin über den ASP.NET Development Server, wenn Sie in Visual Studio 2005 gestartet durchsucht werden. Aus diesem Grund ist eine IIS-Konfiguration (d. h. Authentifizierungsmethoden) nicht anwendbar.
 
 
-Das Standard-Web-Projekt entfernt auch viel der Aufwand von enthält nur eine Seite "default.aspx" default.cs-Datei und einer App\_Datenordner. Die Datei "Web.config" und die spezielle Ordner (d. h. app\_Code) hinzugefügt werden, wie sie benötigt werden. Das Webprojekt enthält nur die Dateien und Ordner, die Sie benötigen.
+Das Standard-Web-Projekt entfernt auch viel der Aufwand von enthält nur eine Seite "default.aspx" default.cs-Datei und einen Ordner "App/_Data". Die Datei "Web.config" und die spezielle Ordner (d. h. app/_code) werden hinzugefügt, wie sie benötigt werden. Das Webprojekt enthält nur die Dateien und Ordner, die Sie benötigen.
 
 ### <a name="http-projects"></a>HTTP-Projekte
 
@@ -91,7 +91,7 @@ HTTP-Projekte können entweder Projekte sein, die auf eine lokale IIS-Website od
 Die Option lokale IIS liest die Standortinformationen aus der Metabase auf dem lokalen Computer und Dateien werden mit dem Dateisystem kopiert. Die Remote-Standortsystemserver-Option verwendet die FrontPage-Servererweiterungen und die Standortinformationen und Kennwortdateien über HTTP und FrontPage Server Extensions RPC aufruft.
 
 > [!NOTE]
-> Vs ###\_tmp.htm Datei- und Get\_Aspx\_ver.aspx werden nicht mehr verwendet, um Versionsinformationen zu bestimmen.
+> Vs###/_tmp.htm Datei- und get/_aspx/_ver.aspx werden nicht mehr verwendet, um Versionsinformationen zu bestimmen.
 
 
 Die Standardoption für die HTTP-ist die lokale IIS. Diese Option liest die IIS-Metabasis, um zu bestimmen, welche Websites zur Verfügung stehen und den Speicherort der Inhalte zu erstellen. Sie können einen anderen Ordner oder das virtuelle Verzeichnis auswählen, indem Sie sie in der Strukturansicht auswählen. Sie können auch ein neues virtuelles Verzeichnis erstellen, markieren die Ordner als Anwendungen sowie Löschen vorhandener virtueller Verzeichnisse in diesem Dialogfeld.
@@ -137,7 +137,7 @@ Wenn beim Erstellen einer Anwendung an einem Remotestandort über SSL, das SSL-Z
 Visual Studio 2005 stellt die Option zum Erstellen von Websites über FTP. Wenn Sie diese Option verwenden, wird die IDE die Dateien im temp-Ordner Benutzers lokal erstellt und anschließend FTP verwendet, um die Dateien im FTP-Speicherort zu verschieben.
 
 > [!NOTE]
-> Der Ordner "temp"-Speicherort ist, c:\Documents and Settings\&Lt; Benutzer&gt;\Local Settings\Temp\VWDWebCache\&Lt; Server&gt;\_&lt;Anwendungsname&gt;
+> Speicherort des temporären Ordners ist "c:" / Documents and Settings /&lt;Benutzer&gt;/lokale Einstellungen/Temp/VWDWebCache/&lt;Server&gt;/_&lt;Anwendungsname&gt;
 
 
 Wenn Sie die FTP-Option verwenden zu können, wird ein Dialogfeld Speicherort auswählen angezeigt. Geben Sie die erforderlichen Verbindungsinformationen für den FTP-, in diesem Dialogfeld an, wie unten dargestellt.
@@ -161,7 +161,7 @@ Die folgenden Schritte konfigurieren die FTP-Site so, dass ein Benutzer einen Sp
 
 ### <a name="create-a-new-folder-for-content"></a>Erstellen Sie einen neuen Ordner für Inhalt
 
-1. Erstellen Sie im Windows-Explorer einen Ordner mit dem Namen **"user1"** innerhalb c:\inetpub\wwwroot.
+1. Erstellen Sie im Windows-Explorer einen Ordner mit dem Namen **"user1"** in "c:" / Inetpub/Wwwroot.
 
 #### <a name="configure-folders-and-permissions-on-folders"></a>Konfigurieren Sie die Ordner und Berechtigungen für Ordner.
 
@@ -169,7 +169,7 @@ Die folgenden Schritte konfigurieren die FTP-Site so, dass ein Benutzer einen Sp
 2. Erweitern Sie **FTP-Sites**.
 3. Mit der rechten Maustaste die **Default FTP-Site**Option **neu**, klicken Sie dann **virtuelles Verzeichnis**, klicken Sie dann auf **Weiter**.
 4. Geben Sie **"user1"** für den Namen des virtuellen Verzeichnisses und klicken Sie auf **Weiter**.
-5. Geben Sie **c:\inetpub\wwwroot\User1** für den Pfad und klicken Sie auf **Weiter**.
+5. Geben Sie **"c:" / Inetpub/Wwwroot/User1** für den Pfad und klicken Sie auf **Weiter**.
 6. Klicken Sie auf **Weiter** und dann **Fertig stellen** um den Assistenten abzuschließen.
 7. Mit der rechten Maustaste die **"user1"** virtuelles Verzeichnis unter Default FTP-Site, und wählen **Eigenschaften**.
 8. Überprüfen Sie die **schreiben** Kontrollkästchen und klicken Sie auf **OK** um das Dialogfeld zu schließen.
@@ -185,7 +185,7 @@ Die folgenden Schritte konfigurieren die FTP-Site so, dass ein Benutzer einen Sp
 
 ### <a name="create-web-project"></a>Webprojekt erstellen
 
-1. Öffnen Sie Visual Studio 2005.
+1. Open Visual Studio 2005.
 2. Aus der **Datei** klicken Sie im Menü **neue Website**.
 3. In der **Speicherort** Dropdownliste wählen **FTP**.
 4. Klicken Sie auf **Durchsuchen**.
@@ -200,7 +200,7 @@ Die folgenden Schritte konfigurieren die FTP-Site so, dass ein Benutzer einen Sp
 13. Geben Sie im Dialogfeld "Website-URL ist erforderlich" `http://localhost/user1` für die URL und auf **OK**.
 
 > [!NOTE]
-> Wenn Sie eine Fehlermeldung, der angibt, ein Verbindungsproblem zum Laden des Typs erhalten \_Standard, stellen Sie sicher, dass Sie ASP.NET 2.0 auf Ihrer Website und nicht von einer früheren Version ausgeführt werden. Sie können über die Registerkarte ASP.NET in Internetinformationsdienste (IIS) vornehmen.
+> Wenn Sie einen Fehler, der angibt, eines Fehler beim Laden der Typ /_Default erhalten, stellen Sie sicher, dass Sie ASP.NET 2.0 auf Ihrer Website und nicht von einer früheren Version ausgeführt werden. Sie können über die Registerkarte ASP.NET in Internetinformationsdienste (IIS) vornehmen.
 
 
 ## <a name="opening-web-projects"></a>Webprojekte öffnen
@@ -223,11 +223,11 @@ Wie zuvor in diesem Modul angegeben wird, verwendet Visual Studio nicht mehr ein
 
 Da Visual Studio nur zusätzliche Dateien und Ordner bei Bedarf erstellt, werden keine zusätzlichen Dateien oder Ordner auf den Speicherort hinzugefügt, die Sie öffnen. Ein Nebeneffekt dieser Architektur ist, dass Sie schachteln von Websites auf dem Dateisystem verhindert. Betrachten Sie beispielsweise die folgende Verzeichnisstruktur.
 
-Webprojekt bei C:\MyWebSite
+Webprojekt unter "c:" / MyWebSite
 
-Eine andere Webprojekt bei C:\MyWebSite\Nested
+Eine andere Webprojekt unter "c:" / MyWebSite/Nested
 
-Wenn Sie auf der Website unter c:\MyWebSite öffnen, wird die geschachtelte Ordner als Unterordner der betreffenden Anwendung angezeigt.
+Wenn Sie auf der Website unter "c:" / MyWebSite öffnen, wird die geschachtelte Ordner als Unterordner der betreffenden Anwendung angezeigt.
 
 <a id="_Toc116100246"></a>
 
@@ -249,7 +249,7 @@ Obwohl Visual Studio ein Symbol für Anwendungen angezeigt werden, die unterhalb
 
 Wenn Sie eine Website über FTP öffnen, werden die Dateien alle lokal auf Ihrem Ordner "temp" kopiert. Der vollständige Pfad für den lokalen Speicherort im Bereich "Eigenschaften" für das Projekt angezeigt, und es wird im folgenden Format erstellt.
 
-C:\Documents and Settings\&Lt; Benutzer&gt;\Local Settings\Temp\VWDWebCache\&Lt; Server&gt;\_&lt;Anwendungsname&gt;
+"C:" / Documents and Settings /&lt;Benutzer&gt;/lokale Einstellungen/Temp/VWDWebCache/&lt;Server&gt;/_&lt;Anwendungsname&gt;
 
 Wenn Sie FTP verwenden, müssen Visual Studio die base-URL für Ihr Projekt angeben, sodass Sie sie durchsuchen können, wie unten dargestellt. Wenn Sie eine base-URL nicht angeben, wird Visual Studio Sie dafür erstmalig bitten Sie versuchen, eine Seite in der Website zu durchsuchen.
 
@@ -263,7 +263,7 @@ Wenn Sie FTP verwenden, müssen Visual Studio die base-URL für Ihr Projekt ange
 
 Arbeiten mit Webanwendungen in Visual Studio 2005 ist deutlich schneller als in vorherigen Versionen. Dies ist in keine kleinen Änderungen in der Kompilierung Architektur fällig.
 
-In Visual Studio 2002 und 2003 kompiliert wurden Webanwendungen in eine primäre Assembly, die sich im Ordner "/ bin" befinden. In Visual Studio 2005 eine App\_Codeordner wurde hinzugefügt. Klassen und anderen nicht-UI-Code der App hinzugefügt\_Codeordner. Wenn Visual Studio erstellt das Projekt, alle Dateien in der App\_Codeordner werden in eine einzelne App kompiliert\_Code.dll-Datei. Das Ergebnis dieser Änderung ist, dass nachfolgende Builds viel schneller als in früheren Versionen sind.
+In Visual Studio 2002 und 2003 kompiliert wurden Webanwendungen in eine primäre Assembly, die sich im Ordner "/ bin" befinden. In Visual Studio 2005 wurde ein Ordner "App/_Code" hinzugefügt. Klassen und anderen nicht-UI-Code werden in den Ordner App/_Code hinzugefügt. Wenn Visual Studio das Projekt erstellt wurde, werden alle Dateien im Ordner "App/_Code" in eine einzelne App/_Code.dll-Datei kompiliert. Das Ergebnis dieser Änderung ist, dass nachfolgende Builds viel schneller als in früheren Versionen sind.
 
 > [!NOTE]
 > MSBuild-Befehlszeilen-Hilfsprogramm kann auch zum Erstellen von ASP.NET Web-Anwendungen verwendet werden. Dieses Tool wird im Modul 9 abgedeckt werden.
@@ -307,7 +307,7 @@ Klicken Sie hier, um designerunterstützung für Benutzersteuerelemente eine Vid
 > Wenn ein Benutzersteuerelement aus einer Seite entfernt wird die @Register Richtlinie bleibt im Markup und sollte manuell entfernt werden, um Parserfehler zu vermeiden, wenn das Benutzersteuerelement von der Website gelöscht wird.
 
 
-Eine weitere Verbesserung in das Visual Studio-Kompilierungsmodell ist das Veröffentlichen einer Website-Feature. Da der Veröffentlichungsfunktion kompiliert, die Website vor, können Entwickler die hinzugefügte Leistung bei Bedarf kompilieren ohne nutzen. Es auch alle Quellcode in der App vorkompiliert\_Code Ordner in eine DLL, sodass kein Quellcode bereitgestellt werden muss.
+Eine weitere Verbesserung in das Visual Studio-Kompilierungsmodell ist das Veröffentlichen einer Website-Feature. Da der Veröffentlichungsfunktion kompiliert, die Website vor, können Entwickler die hinzugefügte Leistung bei Bedarf kompilieren ohne nutzen. Auch kompiliert alle Quellcode im Ordner "App/_Code" in eine DLL, damit kein Quellcode bereitgestellt werden kann.
 
 
 ![Das Dialogfeld "Website veröffentlichen"](improvements-in-visual-studio-2005/_static/image7.jpg)
@@ -316,10 +316,10 @@ Eine weitere Verbesserung in das Visual Studio-Kompilierungsmodell ist das Verö
 
 
 > [!NOTE]
-> Das Aspnet\_compile.exe Hilfsprogramm kann auch eine ASP.NET-Webanwendung Vorkompilieren verwendet werden. Dieses Tool wird im Modul 9 abgedeckt werden.
+> Das Hilfsprogramm aspnet/_compile.exe kann auch eine ASP.NET-Webanwendung Vorkompilieren verwendet werden. Dieses Tool wird im Modul 9 abgedeckt werden.
 
 
-Wenn Sie die Veröffentlichen einer Website, die vorkompilierten Dateien im Ordner "Temporary ASP.NET Files" gespeichert werden wie unten dargestellt. Dateien mit einem *Compiled* Dateierweiterung sind XML-Dateien, die Abhängigkeiten für bestimmte DLLs zu definieren. Alle Steuerelemente Webform oder Benutzer in zufälligen DLLs, die mit beginnen kompiliert werden *App\_Web\_*.
+Wenn Sie die Veröffentlichen einer Website, die vorkompilierten Dateien im Ordner "Temporary ASP.NET Files" gespeichert werden wie unten dargestellt. Dateien mit einem *Compiled* Dateierweiterung sind XML-Dateien, die Abhängigkeiten für bestimmte DLLs zu definieren. Alle Steuerelemente Webform oder Benutzer in zufälligen DLLs, die mit beginnen kompiliert werden *App /_Web /_*.
 
 Wenn Sie lassen die *dieser vorkompilierte Website aktualisierbar sein* Kontrollkästchen aktiviert, Markup innerhalb Ihrer Steuerelemente Webforms und Benutzer werden nicht vorkompiliert in eine DLL, sodass Sie nach der Bereitstellung Änderungen vornehmen. Wenn Sie das Markup Sperren lieber, damit Änderungen an der bereitgestellte Inhalt nicht zulässig sind, deaktivieren Sie dieses Kontrollkästchen.
 
@@ -408,7 +408,7 @@ Nachdem Sie die Ports, die für das Debuggen erforderlich "Blockierung aufgehobe
 
 Es ist auch möglich, Remotedebuggen eine Webanwendung über FTP geöffnet. Die Schritte sind identisch mit denen zuvor abgedeckt. Allerdings müssen Sie eine base-URL für das Durchsuchen der FTP-Projekt wie weiter oben in diesem Modul angeben.
 
-## <a name="lab-2"></a>Übungseinheit 2
+## <a name="lab-2"></a>Lab 2
 
 ## <a name="remote-debugging-with-visual-studio-2005"></a>Remotedebuggen mit Visual Studio 2005
 
@@ -432,9 +432,9 @@ Diese Übungseinheit benötigen Sie zwei Computer, einem ausgeführten Visual St
 
 
 1. Suchen Sie aus den Remotewebserver msvsmon.exe, auf dem Entwicklungscomputer über einen UNC-Pfad, und führen Sie es aus.  
- Ist der Standardspeicherort für msvsmon.exe \\Server\c$ \Programme\Microsoft Visual Studio 8\Common7\IDE\Remote Debugger\x86.
+ Der Standardspeicherort für msvsmon.exe ist //server/c$/Program Programme/Microsoft Visual Studio 8/Common7/IDE/Remote Debugger/X86.
 2. Wenn Sie dazu aufgefordert werden, um die Blockierung von Ports für das Remotedebuggen, dazu verwenden.
-3. Aus dem Entwicklungscomputer öffnen Sie den Code-Behind für "default.aspx", und legen Sie einen Haltepunkt auf der Seite\_Load-Methode.
+3. Öffnen Sie aus dem Entwicklungscomputer an den Code-Behind für "default.aspx", und legen Sie einen Haltepunkt in der Seite "/ _Load-Methode.
 4. Starten Sie das Debuggen vom Entwicklungscomputer.
 
 Sie sollten den Haltepunkt wie erwartet.
@@ -445,7 +445,7 @@ Visual Studio 2005 enthaltenen Weve bereits erläutert mit einem Webserver, der 
 
 Der ASP.NET Development Server ist eine eingeschränkte Webserver. Lässt keine Remoteverbindungen, ermöglicht es keine Anforderungen von anderer Benutzer als der Benutzer, die der Web-Server gestartet wurde. Es verfügt auch nicht über die Fähigkeit ASP-Seiten bedient. Nur die Ressourcen für ASP.NET und HTML-Ressourcen (z. B. Bilder, CSS-Dateien usw.) verarbeitet werden.
 
-Durch Ausführen der Datei WebDev.WebServer.exe c:\Windows\Microsoft.NET\Framework\v2.0 wird, kann über die Befehlszeile den ASP.NET Development Server gestartet werden. \*\*\*\*\*. Das folgende Dialogfeld zeigt die Parameter, die verfügbar sind.
+Der ASP.NET Development Server über die Befehlszeile gestartet werden kann, durch Ausführen der Datei WebDev.WebServer.exe c:/Windows/Microsoft.NET/Framework/v2.0./ */*  /  */*/*. Das folgende Dialogfeld zeigt die Parameter, die verfügbar sind.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

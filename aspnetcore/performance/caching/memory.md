@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 8256240b46873d53bf1a6f6616ea5b520cfadf2e
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 7c6d629ea94dd7c79a2f4e24fd4d0ff797f7e516
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>In-Memory-caching in ASP.NET Core
 
@@ -30,7 +30,7 @@ ASP.NET Core unterstützt mehrere unterschiedliche Caches gelten. Die einfachste
 
 Nicht persistente Sitzungen in einer Webfarm erfordert eine [verteilte Caches](distributed.md) Cache Konsistenzprobleme zu vermeiden. Bei einigen apps kann ein verteilter Cache höher Dezentrales Skalieren als ein in-Memory-Cache unterstützen. Mit einem verteilten Cache entlastet den Cachespeicher zu einem externen Prozess. 
 
-Die `IMemoryCache` Cache entfernen Einträge im Cache nicht genügend Arbeitsspeicher vorhanden, es sei denn, die [Zwischenspeichern Priorität](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) festgelegt ist, um `CacheItemPriority.NeverRemove`. Sie können festlegen, die `CacheItemPriority` , passen Sie die Priorität des Caches entfernt Elemente nicht genügend Arbeitsspeicher vorhanden.
+Die `IMemoryCache` Cache entfernen Einträge im Cache nicht genügend Arbeitsspeicher vorhanden, es sei denn, die [Zwischenspeichern Priorität](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) festgelegt ist, um `CacheItemPriority.NeverRemove`. Sie können festlegen, die `CacheItemPriority` , passen Sie die Priorität mit dem Cache Elemente ungenügendem Arbeitsspeicher entfernt.
 
 Die in-Memory-Cache kann jedes Objekt speichern. die Schnittstelle für verteilte Caches ist auf `byte[]`.
 
