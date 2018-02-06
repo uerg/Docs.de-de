@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core-Tutorials
 
@@ -52,9 +52,10 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
 * [Erstellen von Back-End-Webdiensten für native mobile Apps](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Datenzugriff und -speicherung
-* [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
-* [ASP.NET Core mit EF Core – neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [ASP.NET Core mit EF Core – bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Erste Schritte mit Razor-Seiten und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
+* [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
+* [ASP.NET Core MVC mit Entity Framework Core: neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
+* [ASP.NET Core MVC mit Entity Framework Core: bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Authentifizierung und Autorisierung
 * [Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern](../security/authentication/social/index.md)
