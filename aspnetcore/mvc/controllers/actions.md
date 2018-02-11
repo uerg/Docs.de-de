@@ -1,107 +1,107 @@
 ---
-title: Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
+title: Verarbeiten von Anforderungen mit Controllern in ASP.NET Core MVC
 author: ardalis
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Behandlung von Anforderungen mit Controller in ASP.NET Core MVC
+# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Verarbeiten von Anforderungen mit Controllern in ASP.NET Core MVC
 
-Durch [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
+Von [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
 
-Domänencontroller, Aktionen und Aktionsergebnisse sind grundlegender Bestandteil der Entwickler apps mithilfe von ASP.NET Core MVC Aufbau auf.
+Controller, Aktionen und Folgen von Aktionen sind ein wesentlicher Bestandteil der App-Entwicklung mit ASP.NET Core MVC.
 
-## <a name="what-is-a-controller"></a>Was ist ein Domänencontroller?
+## <a name="what-is-a-controller"></a>Was ist ein Controller?
 
-Ein Controller wird verwendet, um zu definieren und eine Reihe von Aktionen zu gruppieren. Eine Aktion (oder *Aktionsmethode*) ist eine Methode auf einem Domänencontroller der Anforderungen verarbeitet. Logische Gruppierung Controller ähnliche Aktionen zusammen. Diese Aggregation von Aktionen kann allgemeine Sätze von Regeln, z. B. routing, Zwischenspeichern und Autorisierung, zusammen angewendet werden. Anforderungen werden über Aktionen zugeordnet [routing](xref:mvc/controllers/routing).
+Ein Controller wird verwendet, um mehrere Aktionen zu definieren und zu gruppieren. Eine Aktion (oder eine *Aktionsmethode*) ist eine Methode in einem Controller, der Abfragen behandelt. Controller gruppieren ähnliche Aktionen auf logische Weise. Diese Aktionsaggregation ermöglicht das Anwenden gemeinsamer Regeln, wie z.B. für das Routing, Caching und die Autorisierung. Anforderungen werden Aktionen über [Routing](xref:mvc/controllers/routing) zugeordnet.
 
-Gemäß der Konvention Controllerklassen:
-* Befinden sich in der Stammebene des Projekts *Controller* Ordner
-* Erben von`Microsoft.AspNetCore.Mvc.Controller`
+Per Konvention trifft Folgendes auf Controllerklassen zu:
+* Sie befinden sich im Ordner *Controllers* auf Stammebene des Projekts.
+* Sie erben von `Microsoft.AspNetCore.Mvc.Controller`.
 
-Ein Controller ist eine instanziierbare Klasse, die in der mindestens eine der folgenden Bedingungen "true" ist:
-* Der Name der Klasse wird mit "Controller" Formatangabe.
-* Die Klasse erbt von einer Klasse, deren Name mit "Controller" Formatangabe ist
-* Die Klasse wird mit ergänzt die `[Controller]` Attribut
+Ein Controller ist eine Klasse, die instanziiert werden kann und auf die mindestens eine der folgenden Bedingungen zutrifft:
+* An den Klassennamen ist „Controller“ angehängt.
+* Die Klasse erbt von einer Klasse, an deren Namen „Controller“ angehängt ist.
+* Die Klasse ist mit dem `[Controller]`-Attribut ausgestattet.
 
-Eine Controllerklasse dürfen keine zugeordnete `[NonController]` Attribut.
+Die Controllerklasse darf kein verknüpftes `[NonController]`-Attribut aufweisen.
 
-Domänencontroller sollten folgen der [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/). Es gibt einige Ansätze für die Implementierung dieses Prinzips. Wenn mehrere Controlleraktionen desselben Diensts benötigen, erwägen Sie [Konstruktoreinfügung](xref:mvc/controllers/dependency-injection#constructor-injection) solcher Abhängigkeiten anfordern. Wenn der Dienst nur einer einzigen Aktion-Methode erforderlich ist, erwägen Sie [Aktion Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) zum Anfordern der Abhängigkeitsverhältnis.
+Controller sollten dem [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/) folgen. Zum Umsetzen dieses Prinzips gibt es mehrere Herangehensweisen. Wenn mehrere Controlleraktionen den gleichen Dienst erfordern, ziehen Sie [Constructor Injection](xref:mvc/controllers/dependency-injection#constructor-injection) zum Anfordern dieser Abhängigkeiten in Erwägung. Wenn der Dienst nur von einer einzigen Aktionsmethode benötigt wird, ist [Action Injection](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) möglicherweise nützlich.
 
-Innerhalb der **M**Odel -**V**vorhandenes -**C**Ontroller-Muster, ein Controller ist verantwortlich für die ersten Verarbeitung der Anforderung und Instanziierung des Modells. Im Allgemeinen sollte die geschäftlichen Entscheidungen innerhalb des Modells ausgeführt werden.
+Im Muster **M**odel-**V**iew-**C**ontroller ist ein Controller für die erste Verarbeitung der Anforderung und die Instanziierung des Modells zuständig. Für gewöhnlich sollten Unternehmensentscheidungen innerhalb des Modell getroffen werden.
 
-Der Controller nutzt das Ergebnis der Verarbeitung des Modells, (sofern vorhanden) und gibt die richtige Ansicht und deren zugeordneten Daten oder das Ergebnis des API-Aufrufs. Weitere Informationen zu [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
+Der Controller nimmt das Ergebnis der Verarbeitung des Modells (falls es ein Ergebnis gibt) an und gibt entweder die geeignete Ansicht mit den verknüpften Ansichtsdaten oder das Ergebnis des API-Aufrufs zurück. In folgenden Artikeln erfahren Sie mehr: [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [Erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
-Der Controller ist ein *-Benutzeroberflächenebene* Abstraktion. Ihren Aufgaben sind, um sicherzustellen, dass Anforderungsdaten gültig ist und auswählen, welche Ansicht (oder das Ergebnis für eine API) zurückgegeben werden sollen. In gut ausgearbeitete apps einschließen nicht direkt Daten zugreifen oder die Geschäftslogik. Stattdessen werden der Controller an Diensten behandeln diese Aufgaben delegiert.
+Der Controller ist eine Abstraktion *auf Ebene der Benutzeroberfläche*. Er ist dafür zuständig, die Gültigkeit von Anfragedaten zu gewährleisten und die zurückzugebende Ansicht auszuwählen. In gut gestalteten Apps schließt er nicht direkt Datenzugriff oder Geschäftslogik ein. Stattdessen delegiert der Controller an Dienste, die an diesen Stellen zuständig sind.
 
 ## <a name="defining-actions"></a>Definieren von Aktionen
 
-Öffentliche Methoden auf einem Domänencontroller, außer denen mit ergänzt die `[NonAction]` -Attribut angegeben wird, werden die Aktionen. Parameter für Aktionen Anfordern von Daten gebunden werden und werden überprüft mithilfe von [modellbindung](xref:mvc/models/model-binding). Eine modellvalidierung erfolgt für alle Elemente, das Modell gebunden ist. Die `ModelState.IsValid` Eigenschaftswert angibt, ob die modellbindung und Überprüfung war erfolgreich.
+Öffentliche Methoden in Controllern sind Aktionen, mit Ausnahme von Methoden mit `[NonAction]`-Attributen. Parameter in Aktionen werden an Anforderungsdaten gebunden und mit [Modellbindungen](xref:mvc/models/model-binding) überprüft. Die Modellüberprüfung erfolgt für alle an Modelle gebundene Elemente. Der `ModelState.IsValid`-Eigenschaftenwert gibt an, ob die Modellbindung und -überprüfung erfolgreich war.
 
-Aktionsmethoden sollte die Logik für die Zuordnung von einer Anforderungs zu Besorgnis Business enthalten. Geschäftsprobleme sollte als Dienste, die der Controller über zugreift i. d. r. dargestellt werden [Abhängigkeitsinjektion](xref:mvc/controllers/dependency-injection). Aktionen werden Anwendungsstatus ist dann das Ergebnis der Aktion Business zuordnen.
+Aktionsmethoden sollten Logik zum Zuordnen einer Anforderung zu einem Unternehmen beinhalten. Unternehmen sollten normalerweise durch einen Dienst dargestellt werden, auf die der Controller über [Dependency Injection](xref:mvc/controllers/dependency-injection) zugreift. Anschließend ordnen Aktionen das Ergebnis der Unternehmensaktion einem Anwendungszustand zu.
 
-Aktionen können nichts zurück, aber häufig zurückgeben eine Instanz von `IActionResult` (oder `Task<IActionResult>` für asynchrone Methoden), die eine Antwort erzeugt. Die Aktionsmethode ist verantwortlich für die Auswahl *welche Art von Antwort*. Das Aktionsergebnis *ist der reagiert*.
+Aktionen können ein beliebiges Element zurückgeben. Häufig geben Sie jedoch eine Instanz von `IActionResult` (oder für async-Methoden eine Instanz von `Task<IActionResult>`) zurück, die eine Antwort erzeugt. Die Aktionsmethode ist dafür zuständig, *die Art der Antwort auszuwählen*. Das Aktionsergebnis *antwortet*.
 
-### <a name="controller-helper-methods"></a>Controller-Hilfsmethoden
+### <a name="controller-helper-methods"></a>Hilfsmethoden von Controllern
 
-Domänencontroller in der Regel erben [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), obwohl dies nicht erforderlich ist. Ableiten von `Controller` ermöglicht den Zugriff auf drei Kategorien von Hilfsmethoden:
+Controller erben üblicherweise von [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), auch wenn dies nicht erforderlich ist. Das Ableiten von `Controller` ermöglicht den Zugriff auf drei verschiedene Arten von Hilfsmethoden:
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Methoden, was zu einer leeren Antworttext
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Methoden, die einen leeren Antworttext zur Folge haben
 
-Nicht `Content-Type` HTTP-Antwortheader enthalten, ist, seit der Antworttext verfügt nicht über die Inhalte zu beschreiben.
+Es ist kein `Content-Type`-HTTP-Antwortheader beinhaltet, da der Antworttext keinen Inhalt aufweist, der beschrieben werden könnte.
 
-Es gibt zwei Typen in dieser Kategorie: Umleitung und HTTP-Statuscode.
+Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: Redirect (Umleiten) oder HTTP-Statuscode.
 
 * **HTTP-Statuscode**
 
-    Dieser Typ gibt einen HTTP-Statuscode zurück. Einige Hilfsmethoden dieses Typs sind `BadRequest`, `NotFound`, und `Ok`. Beispielsweise `return BadRequest();` erzeugt einen Statuscode "400" bei der Ausführung. Bei Methoden, z. B. `BadRequest`, `NotFound`, und `Ok` sind überladen sind, sollten sie nicht mehr gelten als Responder Statuscode "HTTP", da inhaltsaushandlung stattfindet.
+    Dieser Typ gibt einen HTTP-Statuscode zurück. Beispiele für Hilfsmethoden dieses Typs sind `BadRequest`, `NotFound` und `Ok`. `return BadRequest();` erzeugt beispielsweise bei der Ausführung den Statuscode 400. Wenn Methoden wie `BadRequest`, `NotFound` und `Ok` überladen werden, gelten sie nicht länger als HTTP-Statuscode-Antwortdienste, da eine Inhaltsaushandlung stattfindet.
 
 * **Redirect**
 
-    Dieser Typ gibt eine Umleitung an eine Aktion oder ein Ziel zurück (mit `Redirect`, `LocalRedirect`, `RedirectToAction`, oder `RedirectToRoute`). Beispielsweise `return RedirectToAction("Complete", new {id = 123});` leitet an `Complete`, ein anonymes Objekt übergeben.
+    Dieser Typ gibt eine Umleitung an eine Aktion oder ein Ziel zurück (unter Verwendung von `Redirect`, `LocalRedirect`, `RedirectToAction` oder `RedirectToRoute`). `return RedirectToAction("Complete", new {id = 123});` leitet beispielsweise an `Complete` um und übergibt ein anonymes Objekt.
 
-    Der Ergebnistyp für die Umleitung unterscheidet sich von der HTTP-Statuscode-Typ in erster Linie in das Hinzufügen einer `Location` HTTP-Antwortheader.
+    Der Ergebnistyp „Redirect“ unterscheidet sich vom Typ „HTTP-Statuscode“ zunächst dahingehend, dass er über einen `Location`-HTTP-Antwortheader verfügt.
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Methoden, die in einen nicht leeren Antworttext durch einen vordefinierten Inhaltstyp resultierende
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Methoden, die einen nicht leeren Antworttext mit einem vordefinierten Inhaltstyp zur Folge haben
 
-Die meisten Hilfsmethoden in dieser Kategorie gehören eine `ContentType` Eigenschaft, die Sie festlegen, sodass die `Content-Type` Antwortheader zum Beschreiben des Antworttexts.
+Die meisten Hilfsmethoden in dieser Kategorie beinhalten eine `ContentType`-Eigenschaft, mit der Sie den Antwortheader `Content-Type` festlegen können, um den Antworttext zu beschreiben.
 
-Es gibt zwei Typen in dieser Kategorie: [Ansicht](xref:mvc/views/overview) und [Antwort formatiert](xref:mvc/models/formatting).
+Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: [View](xref:mvc/views/overview) (Ansicht) und [Formatted Response](xref:mvc/models/formatting) (Formatierte Antwort).
 
 * **Ansicht**
 
-    Dieser Typ zurückgibt, eine Sicht, die ein Modell verwendet wird, um das Rendering von HTML. Beispielsweise `return View(customer);` übergibt ein Modell zur Ansicht für die Datenbindung.
+    Dieser Typ gibt eine Ansicht zurück, die ein Modell zum Rendern von HTML verwendet. `return View(customer);` übergibt beispielsweise zur Datenbindung ein Modell an die Ansicht.
 
 * **Formatierte Antwort**
 
-    Dieser Typ zurückgibt, JSON oder eine ähnliche Datenaustauschformat, um ein Objekt in einer bestimmten Weise darzustellen. Beispielsweise `return Json(customer);` serialisiert das angegebene Objekt in JSON-Format.
+    Dieser Typ gibt eine Datei im JSON-Format oder in einem ähnlichen Datenaustauschformat zurück, um ein Objekt auf eine bestimmte Weise darzustellen. `return Json(customer);` serialisiert beispielsweise das bereitgestellte Objekt im JSON-Format.
     
-    Dieses Typs andere übliche Methoden umfassen `File`, `PhysicalFile`, und `VirtualFile`. Beispielsweise `return PhysicalFile(customerFilePath, "text/xml");` gibt eine XML-Datei beschrieben durch einen `Content-Type` Wert des Antwortheaders der "Text/Xml".
+    Weitere gängige Methoden dieses Typs sind `File`, `PhysicalFile` und `VirtualFile`. `return PhysicalFile(customerFilePath, "text/xml");` gibt beispielsweise eine XML-Datei zurück, die von dem `Content-Type`-Antwortheaderwert „text/xml“ beschrieben wird.
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Methoden, die in einen nicht leeren Antworttext resultierenden in einen Inhaltstyp, der mit dem Client ausgehandelt formatiert
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Methoden, die einen nicht leeren Antworttext in einem mit dem Client ausgehandelten Inhaltsformat zur Folge haben
 
-Diese Kategorie ist eine bessere Leistung als **Inhaltsaushandlung**. [Inhalts-Aushandlung](xref:mvc/models/formatting#content-negotiation) gilt immer, wenn eine Aktion gibt eine [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) Typ oder einen anderen Wert als eine [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) Implementierung. Eine Aktion, die ein nicht-gibt`IActionResult` Implementierung (z. B. `object`) gibt auch eine Antwort formatiert.
+Diese Kategorie wird auch als **Inhaltsaushandlung** bezeichnet. Die [Inhaltsaushandlung](xref:mvc/models/formatting#content-negotiation) wird dann angewendet, wenn eine Aktion einen [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult)-Typ oder ein anderes Objekt, das keine [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult)-Implementierung ist, zurückgibt. Eine Aktion, die eine Implementierung zurückgibt, die nicht `IActionResult` ist (z.B. `object`), gibt auch eine formatierte Antwort zurück.
 
-Einige Hilfsmethoden dieses Typs enthalten `BadRequest`, `CreatedAtRoute`, und `Ok`. Beispiele für diese Methoden sind `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, und `return Ok(value);`zugeordnet. Beachten Sie, dass `BadRequest` und `Ok` führen Sie die inhaltsaushandlung nur, wenn ein Wert übergeben, ohne einen Wert, sie stattdessen dienen als HTTP-Statuscode: Ergebnistypen. Die `CreatedAtRoute` -Methode, andererseits, immer inhaltsaushandlungen seit seiner Überladungen, die alle erfordern, dass ein Wert übergeben werden.
+Weitere Hilfsmethoden dieses Typs sind `BadRequest`, `CreatedAtRoute` und `Ok`. `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` und `return Ok(value);` sind Beispiele für diese Methoden. Beachten Sie, dass `BadRequest` und `Ok` Inhaltsaushandlungen nur dann durchführen, wenn ein Wert an sie übergeben wird. Wenn kein Wert übergeben wird, fungieren Sie als Ergebnistypen vom Typ HTTP-Statuscode. Andererseits führt die `CreatedAtRoute`-Methode immer Inhaltsaushandlungen durch, da ihre Überladungen alle das Übergeben eines Werts erfordern.
 
-### <a name="cross-cutting-concerns"></a>Querschnittliche Sicherheitsrisiken
+### <a name="cross-cutting-concerns"></a>Übergreifende Belange
 
-Anwendungen gemeinsam in der Regel Teile ihrer Workflows verwenden. Beispiele sind eine app, die eine Authentifizierung auf dem Einkaufswagen erforderlich ist, oder eine app, die Daten auf einige Seiten zwischengespeichert. Um die Logik vor oder nach einer Aktionsmethode ausführen, verwenden Sie eine *Filter*. Mit [Filter](xref:mvc/controllers/filters) querschnittliche Bedenken können Duplikate, die ihnen ermöglicht, führen reduziert den [Don't wiederholen selbst (trocken)-Prinzip](http://deviq.com/don-t-repeat-yourself/).
+Verschiedene Anwendungen haben häufig übereinstimmende Teile in Ihrem Workflow. Beispiel dafür sind Anwendungen, die eine Authentifizierung erfordern, um auf den Einkaufswagen zugreifen zu können, oder Anwendungen, die Daten auf einigen Seiten zwischenspeichern. Verwenden Sie einen *Filter*, um Logik vor oder nach einer Aktionsmethode durchzuführen. Das Verwenden von [Filtern](xref:mvc/controllers/filters) bei übergreifenden Belangen kann Duplikate minimieren, sodass das [DRY-Prinzip (Don‘t Repeat Yourself)](http://deviq.com/don-t-repeat-yourself/) eingehalten wird.
 
-Die meisten Attribute, z. B. filtern `[Authorize]`, auf der Ebene Controller bzw. die Aktionsmethode, die je nach der gewünschten Ebene der Granularität angewendet werden können.
+Die meisten Filterattribute, wie z.B. `[Authorize]`, können auf Ebene des Controllers oder der Aktion mit der gewünschten Detailgenauigkeit angewendet werden.
 
-Fehlerbehandlung und Zwischenspeichern von Antworten sind häufig querschnittliche bedenken:
+Die Fehlerbehandlung und das Zwischenspeichern von Antworten sind häufig übergreifende Belange:
    * [Fehlerbehandlung](xref:mvc/controllers/filters#exception-filters)
    * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 
-Viele Aspekte der querschnittliche können verarbeitet werden, mithilfe von Filtern oder benutzerdefinierte [Middleware](xref:fundamentals/middleware).
+Viele übergreifende Belange können mit Filtern oder mit benutzerdefinierter [Middleware](xref:fundamentals/middleware) behandelt werden.

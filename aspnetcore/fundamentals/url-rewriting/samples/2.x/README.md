@@ -1,43 +1,43 @@
-# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>ASP.NET Core URL umschreiben Beispiel (ASP.NET Core 2.x)
+# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>Beispiel für das Umschreiben der URL in ASP.NET Core (ASP.NET Core 2.x)
 
-Dieses Beispiel veranschaulicht die Verwendung von ASP.NET Core 2.x URL umschreiben Middleware. Die Anwendung zeigt die URL-Umleitung und URL-Optionen umschreiben. Das ASP.NET Core 1.x-Beispiel finden Sie unter [ASP.NET Core URL umschreiben-Beispiel (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).
+Dieses Beispiel veranschaulicht die Verwendung der Middleware für das Umschreiben der URL von ASP.NET Core 2.x. In der Anwendung werden die Optionen zum Umleiten und Umschreiben von URLs veranschaulicht. Informationen zum Beispiel für ASP.NET Core 1.x finden Sie unter [Beispiel zum Umschreiben der URL von ASP.NET Core (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).
 
-Beim Ausführen des Beispiels wird eine Antwort verarbeitet werden, die die umgeschriebene oder umgeleitet erfolgen URL zeigt, wenn eine der Regeln auf eine Anforderungs-URL angewendet wird.
+Beim Ausführen des Beispiels wird eine Antwort mit der umgeschriebenen oder umgeleiteten URL angezeigt, wenn eine der Regeln auf eine Anforderungs-URL angewendet wird.
 
-## <a name="examples-in-this-sample"></a>Die Beispiele in diesem Beispiel
+## <a name="examples-in-this-sample"></a>Beispiele
 
-* `AddRedirect("redirect-rule/(.*)", "$1")`
-  - Erfolgsstatuscode: 302 (gefunden)
-  - Beispiel (Umleitung): **/redirect-rule / {Capture_group}** auf **/redirected/ {Capture_group}**
+* `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
+  - Statuscode für Erfolg: „302 – Gefunden“
+  - Beispiel (Umleitung): **/redirect-rule/{capture_group}** zu **/redirected/{capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
-  - Erfolgsstatuscode: 200 (OK)
-  - Beispiel (Schreiben): **/rewrite-rule / {capture_group_1} / {capture_group_2}** auf **/ umgeschrieben? var1 = {capture_group_1} & var2 = {capture_group_2}**
+  - Statuscode für Erfolg: „200 – OK“
+  - Beispiel (Umschreibung): **/rewrite-rule/{capture_group_1}/{capture_group_2}** in **/rewritten?var1={capture_group_1}&var2={capture_group_2}**
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
-  - Erfolgsstatuscode: 302 (gefunden)
-  - Beispiel (Umleitung): **/apache-mod-rules-redirect / {Capture_group}** auf **/ umgeleitet? Id = {Capture_group}**
+  - Statuscode für Erfolg: „302 – Gefunden“
+  - Beispiel (Umleitung): **/apache-mod-rules-redirect/{capture_group}** zu **/redirected?id={capture_group}**
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
-  - Erfolgsstatuscode: 200 (OK)
-  - Beispiel (Schreiben): **/iis-rules-rewrite / {Capture_group}** auf **/ umgeschrieben? Id = {Capture_group}**
+  - Statuscode für Erfolg: „200 – OK“
+  - Beispiel (Umschreibung): **/iis-rules-rewrite/{capture_group}** in **/rewritten?id={capture_group}**
 * `Add(RedirectXMLRequests)`
-  - Erfolgsstatuscode: 301 (Permanent verschoben)
-  - Beispiel (Umleitung): **/file.xml** auf **/xmlfiles/file.xml**
+  - Statuscode für Erfolg: „301 – Permanent verschoben“
+  - Beispiel (Umleitung): **/file.xml** zu **/xmlfiles/file.xml**
 * `Add(new RedirectPNGRequests(".png", "/png-images")))`<br>`Add(new RedirectPNGRequests(".jpg", "/jpg-images")))`
-  - Erfolgsstatuscode: 301 (Permanent verschoben)
-  - Beispiel (Umleitung): **/image.png** auf **/png-images/image.png**
-  - Beispiel (Umleitung): **/image.jpg** auf **/jpg-images/image.jpg**
+  - Statuscode für Erfolg: „301 – Permanent verschoben“
+  - Beispiel (Umleitung): **/image.png** zu **/png-images/image.png**
+  - Beispiel (Umleitung): **/image.jpg** zu **/jpg-images/image.jpg**
 
-## <a name="using-a-physicalfileprovider"></a>Mit einer`PhysicalFileProvider`
-Erhalten Sie eine `IFileProvider` durch das Erstellen einer `PhysicalFileProvider` übergeben der `AddApacheModRewrite()` und `AddIISUrlRewrite()` Methoden:
+## <a name="using-a-physicalfileprovider"></a>Verwenden eines `PhysicalFileProvider`
+Sie können auch ein `IFileProvider`-Objekt abrufen, indem Sie ein `PhysicalFileProvider`-Objekt erstellen, das an die Methoden `AddApacheModRewrite()` und `AddIISUrlRewrite()` übergeben wird:
 ```csharp
 using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
-## <a name="secure-redirection-extensions"></a>Sichere Umleitung-Erweiterungen
-Dieses Beispiel enthält `WebHostBuilder` Konfiguration für die app-URLs verwenden (**Https://localhost:5001**, **https://localhost**) und ein Testzertifikat (**testCert.pfx**), die helfen, die Sie durchsuchen diese umleiten Methoden. Fügen Sie an der `RewriteOptions()` in **Startup.cs** um ihr Verhalten zu untersuchen.
+## <a name="secure-redirection-extensions"></a>Sichere Umleitungserweiterungen
+Dieses Beispiel enthält eine `WebHostBuilder`-Konfiguration für die App zur Verwendung von URLs (**https://localhost:5001**, **https://localhost**) und ein Testzertifikat (**testCert.pfx**) als Unterstützung beim Erkunden dieser Umleitungsmethoden. Fügen Sie diese zum `RewriteOptions()`-Konstruktor in **Startup.cs** hinzu, um deren Verhalten zu untersuchen.
 
 Methode | Statuscode | Port
 --- | :---: | :---:
-`.AddRedirectToHttpsPermanent()` | 301 | Null (465)
-`.AddRedirectToHttps()` | 302 | Null (465)
-`.AddRedirectToHttps(301)` | 301 | Null (465)
+`.AddRedirectToHttpsPermanent()` | 301 | NULL (465)
+`.AddRedirectToHttps()` | 302 | NULL (465)
+`.AddRedirectToHttps(301)` | 301 | NULL (465)
 `.AddRedirectToHttps(301, 5001)` | 301 | 5001

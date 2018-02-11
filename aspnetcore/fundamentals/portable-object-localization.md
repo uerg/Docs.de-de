@@ -1,40 +1,40 @@
 ---
-title: Konfigurieren Sie portable Objekt Lokalisierung
+title: Konfigurieren der Lokalisierung portabler Objekte
 author: sebastienros
-description: "Dieser Artikel führt Portable Objektdateien und erläutert die Schritte zu ihrer Verwendung in einer ASP.NET Core-Anwendung mit dem Framework Core Orchard."
-ms.author: scaddie
+description: "Dieser Artikel führt portable Objektdateien ein und erläutert die Schritte zu ihrer Verwendung in einer ASP.NET Core-Anwendung mit dem Framework Orchard Core."
 manager: wpickett
+ms.author: scaddie
 ms.date: 09/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: ad68c8a7df5a8ea0f7ef42137c29cd3b37657052
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurieren Sie portable Objekt Lokalisierung Orchard Core
+# <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurieren der Lokalisierung portabler Objekte mit Orchard Core
 
-Durch [Sébastien Ros](https://github.com/sebastienros) und [Scott Addie](https://twitter.com/Scott_Addie)
+Von [Sébastien Ros](https://github.com/sebastienros) und [Scott Addie](https://twitter.com/Scott_Addie)
 
-Dieser Artikel führt Sie durch die Schritte für die Verwendung von portablen Objekt (PO)-Dateien in einer ASP.NET Core-Anwendung mit der [Orchard Core](https://github.com/OrchardCMS/OrchardCore) Framework.
+Dieser Artikel erläutert die Schritte zur Verwendung von portablen Objektdateien (PO) in einer ASP.NET Core-Anwendung mit dem Framework [Orchard Core](https://github.com/OrchardCMS/OrchardCore).
 
-**Hinweis:** Orchard Core wird nicht in ein Microsoft-Produkt. Microsoft bietet daher keine Unterstützung für diese Funktion an.
+**Hinweis:** Orchard Core ist kein Microsoft-Produkt. Microsoft bietet daher keinen Support für dieses Feature an.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-a-po-file"></a>Was ist ein PO-Datei?
+## <a name="what-is-a-po-file"></a>Was ist eine PO-Datei?
 
-PO-Dateien werden als Textdateien, die mit den übersetzten Zeichenfolgen für eine bestimmte Sprache verteilt. Einige Vorteile der PO-Dateien vorzuziehen *resx* Includedateien:
-- PO-Dateien unterstützen Pluralisierung; *resx* Dateien bieten keine Unterstützung Pluralisierung.
-- PO-Dateien werden nicht kompiliert, z. B. *resx* Dateien. Daher sind spezialisierte Tools und die Build-Schritte nicht erforderlich.
-- PO-Dateien funktionieren gut mit collaborative online Bearbeitungstools.
+PO-Dateien werden als Textdateien verteilt, die übersetzte Zeichenfolgen für eine bestimmte Sprache enthalten. Einige Vorteile der Verwendung von PO-Dateien im Vergleich zu *RESX*-Dateien sind:
+- PO-Dateien unterstützen Pluralisierung; *RESX*-Dateien unterstützen sie nicht.
+- PO-Dateien werden nicht wie *RESX*-Dateien kompiliert. Daher sind spezialisierte Tools und die Buildschritte nicht erforderlich.
+- PO-Dateien funktionieren gut mit gemeinsamen Onlinebearbeitungstools.
 
 ### <a name="example"></a>Beispiel
 
-Hier ist eine PO-Beispieldatei, die die Übersetzung für zwei Zeichenfolgen in Französisch, einschließlich eines mit der Pluralform enthält:
+Hier sehen Sie eine PO-Beispieldatei, die die Übersetzung für zwei Zeichenfolgen in Französisch, einschließlich der Pluralform einer der Zeichenfolgen enthält:
 
 *fr.po*
 
@@ -52,69 +52,69 @@ msgstr[1] "Les adresses email sont \"{0}\""
 
 In diesem Beispiel wird die folgende Syntax verwendet:
 
-- `#:`: Ein Kommentar, der angibt, des Kontexts der Zeichenfolge, die übersetzt werden. Die gleiche Zeichenfolge möglicherweise unterschiedlich übersetzt werden, je nachdem, wo sie verwendet wird.
-- `msgid`: Die nicht übersetzten Zeichenfolge.
+- `#:`: Ein Kommentar, der den Kontext der zu übersetzenden Zeichenfolge angibt. Die gleiche Zeichenfolge wird möglicherweise anders übersetzt, je nachdem, wo sie verwendet wird.
+- `msgid`: Die nicht übersetzte Zeichenfolge.
 - `msgstr`: Die übersetzte Zeichenfolge.
 
-Im Fall von Pluralisierung-Unterstützung können mehrere Einträge definiert werden.
+Wenn die Pluralisierung unterstützt wird, können mehrere Einträge definiert werden.
 
-- `msgid_plural`: Die Zeichenfolge, nicht übersetzte im plural.
-- `msgstr[0]`: Die übersetzte Zeichenfolge für die Groß-/Kleinschreibung 0.
-- `msgstr[N]`: Die übersetzte Zeichenfolge für die Groß-/Kleinschreibung N.
+- `msgid_plural`: Die nicht übersetzte Zeichenfolge im Plural.
+- `msgstr[0]`: Die übersetzte Zeichenfolge für den Fall 0.
+- `msgstr[N]`: Die übersetzte Zeichenfolge für den Fall N.
 
-Die PO-Dateispezifikation verwendbaren [hier](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
+Die PO-Dateispezifikation finden Sie [hier](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
 
-## <a name="configuring-po-file-support-in-aspnet-core"></a>Konfigurieren der Unterstützung der Bestellung in ASP.NET Core
+## <a name="configuring-po-file-support-in-aspnet-core"></a>Konfigurieren der PO-Dateiunterstützung in ASP.NET Core
 
-Dieses Beispiel beruht auf einer ASP.NET Core MVC-Anwendung, die aus einer Visual Studio-2017-Projektvorlage generiert.
+Dieses Beispiel beruht auf einer ASP.NET Core MVC-Anwendung, die aus einer Visual Studio 2017-Projektvorlage generiert wurde.
 
 ### <a name="referencing-the-package"></a>Verweisen auf das Paket
 
-Hinzufügen eines Verweises auf die `OrchardCore.Localization.Core` NuGet-Paket. Es steht auf [MyGet](https://www.myget.org/) am folgenden Paketquelle: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
+Fügen Sie einen Verweis auf das NuGet-Paket `OrchardCore.Localization.Core` hinzu. Es ist auf [MyGet](https://www.myget.org/) unter der folgenden Paketquelle verfügbar: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
 
-Die *csproj* Datei enthält nun eine Zeile ähnlich der folgenden (die Versionsnummer kann davon abweichen):
+Die *CSPROJ*-Datei enthält nun eine Zeile, die der folgenden Zeile ähnelt (die Versionsnummer kann davon abweichen):
 
 [!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
-### <a name="registering-the-service"></a>Registrierung des Diensts
+### <a name="registering-the-service"></a>Registrieren des Diensts
 
-Fügen Sie die erforderlichen Dienste, die `ConfigureServices` Methode *Startup.cs*:
+Fügen Sie die erforderlichen Dienste zur `ConfigureServices`-Methode von *Startup.cs* hinzu:
 
 [!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
-Die erforderliche Middleware zum Hinzufügen der `Configure` Methode *Startup.cs*:
+Fügen Sie die erforderliche Middleware zur `Configure`-Methode von *Startup.cs* hinzu:
 
 [!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
-Fügen Sie den folgenden Code, um Ihre Wahl Razor-Ansicht. *About.cshtml* wird in diesem Beispiel verwendet.
+Fügen Sie den folgenden Code zur Razor-Ansicht Ihrer Wahl hinzu. In diesem Beispiel wird *About.cshtml* verwendet.
 
 [!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
-Ein `IViewLocalizer` Instanz eingefügt und zum Übersetzen des Texts "Hello World!" verwendet wird.
+Eine `IViewLocalizer`-Instanz wird eingefügt und zum Übersetzen des Texts „Hello world!“ verwendet.
 
-### <a name="creating-a-po-file"></a>Erstellen einer bestellungsdatei
+### <a name="creating-a-po-file"></a>Erstellen einer PO-Datei
 
-Erstellen Sie eine Datei mit dem Namen  *<culture code>per* Stammordner für Ihre Anwendung. In diesem Beispiel wird der Dateiname ist *fr.po* , weil die französische Sprache verwendet wird:
+Erstellen Sie eine Datei mit dem Namen *<culture code>.po* im Stammordner Ihrer Anwendung. In diesem Beispiel lautet der Dateiname *fr.po*, weil die französische Sprache verwendet wird:
 
 [!code-text[Main](localization/sample/POLocalization/fr.po)]
 
-Diese Datei speichert die Zeichenfolge übersetzen und die Zeichenfolge Französisch übersetzt. Übersetzungen, die für ihre übergeordnete Kultur zurückgesetzt werden, wenn erforderlich. In diesem Beispiel wird die *fr.po* Datei wird verwendet, wenn die angeforderte Kultur ist `fr-FR` oder `fr-CA`.
+Diese Datei speichert die zu übersetzende Zeichenfolge sowie die französische Zeichenfolge. Übersetzungen stellen ihre übergeordnete Kultur wieder her, wenn erforderlich. In diesem Beispiel wird die *fr.po*-Datei verwendet, wenn die angeforderte Kultur `fr-FR` oder `fr-CA` ist.
 
 ### <a name="testing-the-application"></a>Testen der Anwendung
 
-Führen Sie die Anwendung, und navigieren Sie zu der URL `/Home/About`. Der Text **Hello World!** wird angezeigt.
+Führen Sie Ihre Anwendung aus, und navigieren Sie zur URL`/Home/About`. Der Text **Hello world!** wird angezeigt.
 
-Navigieren Sie zu der URL `/Home/About?culture=fr-FR`. Der Text **Bonjour le Monde!** wird angezeigt.
+Navigieren Sie zur URL `/Home/About?culture=fr-FR`. Der Text **Bonjour le Monde!** wird angezeigt.
 
 ## <a name="pluralization"></a>Pluralisierung
 
-PO-Dateien unterstützen Pluralisierung Forms, das ist nützlich, wenn die gleiche Zeichenfolge übersetzt werden Weise basierend auf einer Kardinalität muss. Diese Aufgabe wird durch die Tatsache komplizierter hergestellt, dass jede Sprache benutzerdefinierte Regeln zum Auswählen der definiert zu verwendende Zeichenfolge auf die Kardinalität basieren.
+PO-Dateien unterstützen Pluralformen. Dies ist nützlich, wenn die gleiche Zeichenfolge aufgrund einer Kardinalität unterschiedlich übersetzt werden muss. Diese Aufgabe ist komplizierter, da jede Sprache benutzerdefinierte Regeln festlegt, um auf der Grundlage von Kardinalität auszuwählen, welche Zeichenfolge zu verwenden ist.
 
-Das Paket Orchard Lokalisierung bietet eine API, um diese anderen Pluralform automatisch aufgerufen.
+Das Orchard Localization-Paket stellt eine API zur Verfügung, um diese anderen Pluralformen automatisch aufzurufen.
 
-### <a name="creating-pluralization-po-files"></a>Erstellen Pluralisierung PO-Dateien
+### <a name="creating-pluralization-po-files"></a>Erstellen von PO-Pluraldateien
 
-Fügen Sie den folgenden Inhalt, der zuvor erwähnten *fr.po* Datei:
+Fügen Sie den folgenden Inhalt zur zuvor erwähnten *fr.po*-Datei hinzu:
 
 ```text
 msgid "There is one item."
@@ -123,19 +123,19 @@ msgstr[0] "Il y a un élément."
 msgstr[1] "Il y a {0} éléments."
 ```
 
-Finden Sie unter [was eine PO-Datei ist?](#what-is-a-po-file) eine Erläuterung, was jeder Eintrag in diesem Beispiel dargestellt.
+Unter [Was ist eine PO-Datei?](#what-is-a-po-file) finden Sie eine Erläuterung für das, was jeder Eintrag in diesem Beispiel darstellt.
 
-### <a name="adding-a-language-using-different-pluralization-forms"></a>Hinzufügen einer Sprache mit verschiedenen Pluralisierung forms
+### <a name="adding-a-language-using-different-pluralization-forms"></a>Hinzufügen einer Sprache mit verschiedenen Pluralformen
 
-Englisch und Französisch Zeichenfolgen, die im vorherigen Beispiel verwendet wurden. Englisch und Französisch haben nur zwei Formen der Pluralisierung und teilen die gleichen Regeln für die Form, dass die erste Pluralform eine Kardinalität von eins zugeordnet ist. Alle anderen Kardinalität wird die zweite Pluralform zugeordnet.
+Im vorherigen Beispiel wurden englische und französische Zeichenfolgen verwendet. Englisch und Französisch haben nur zwei Pluralformen und teilen die gleichen Formregeln. Die Kardinalität der einen wird der ersten Pluralform zugeordnet. Alle anderen Kardinalitäten werden der zweiten Pluralform zugeordnet.
 
-Nicht in allen Sprachen gemeinsam die gleichen Regeln. Dies wird mit der Sprache Tschechische veranschaulicht die drei Pluralform hat.
+Nicht alle Sprachen verfügen über die gleichen Regeln. Tschechisch verfügt beispielsweise über drei Pluralformen.
 
-Erstellen der `cs.po` Datei wie folgt und beachten Sie, wie der Pluralisierung drei verschiedene Übersetzungen benötigt:
+Erstellen Sie die `cs.po`-Datei wie folgt, und beachten Sie die drei verschiedenen Übersetzungen der Pluralformen:
 
 [!code-text[Main](localization/sample/POLocalization/cs.po)]
 
-Für die Aufnahme Tschechische lokalisierten Versionen hinzufügen `"cs"` zur Liste der unterstützten Kulturen in die `ConfigureServices` Methode:
+Fügen Sie für die Annahme der tschechischen Lokalisierungen `"cs"` zur Liste der unterstützten Kulturen in der `ConfigureServices`-Methode hinzu:
 
 ```csharp
 var supportedCultures = new List<CultureInfo>
@@ -148,7 +148,7 @@ var supportedCultures = new List<CultureInfo>
 };
 ```
 
-Bearbeiten der *Views/Home/About.cshtml* Datei plural lokalisierte Zeichenfolgen für mehrere Kardinalitäten gerendert:
+Bearbeiten Sie die *Views/Home/About.cshtml*-Datei zum Rendern von lokalisierten Pluralzeichenfolgen für mehrere Kardinalitäten:
 
 ```cshtml
 <p>@Localizer.Plural(1, "There is one item.", "There are {0} items.")</p>
@@ -156,9 +156,9 @@ Bearbeiten der *Views/Home/About.cshtml* Datei plural lokalisierte Zeichenfolgen
 <p>@Localizer.Plural(5, "There is one item.", "There are {0} items.")</p>
 ```
 
-**Hinweis:** In einem realen Szenario, eine Variable wird verwendet, um die Anzahl darstellt. Hier wiederholen wir den gleichen Code mit drei verschiedenen Werten, eine sehr speziellen Fall verfügbar zu machen.
+**Hinweis:** In einem realen Szenario würde eine Variable die Anzahl darstellen. Hier wiederholen wir den gleichen Code mit drei verschiedenen Werten, um einen sehr speziellen Fall verfügbar zu machen.
 
-Beim Wechsel Kulturen, sehen Sie Folgendes:
+Beim Wechsel von Kulturen sehen Sie Folgendes:
 
 Für `/Home/About`:
 
@@ -184,17 +184,17 @@ Existují 2 položky.
 Existuje 5 položek.
 ```
 
-Beachten Sie, dass für die Tschechische Kultur, die drei Übersetzungen unterschiedlich sind. Die Kulturen Französisch und Englisch teilen die gleiche Konstruktion für die beiden letzten übersetzten Zeichenfolgen.
+Beachten Sie, dass die drei Übersetzungen für die tschechische Kultur unterschiedlich sind. Die französische und englische Kultur teilen die gleiche Konstruktion für die beiden letzten übersetzten Zeichenfolgen.
 
-## <a name="advanced-tasks"></a>Erweiterte Aufgaben
+## <a name="advanced-tasks"></a>Aufgaben für Fortgeschrittene
 
-### <a name="contextualizing-strings"></a>Contextualizing Zeichenfolgen
+### <a name="contextualizing-strings"></a>Kontextualisieren von Zeichenfolgen
 
-Anwendungen enthalten häufig die Zeichenfolgen, die an mehreren Stellen übersetzt werden. Dieselbe Zeichenfolge, die möglicherweise einer unterschiedlichen Übersetzung in bestimmte Speicherorte innerhalb einer app (Razor-Ansichten oder Klassendateien). Eine Datei der Bestellung unterstützt das Konzept eines Kontexts Datei, die verwendet werden können, zum Kategorisieren von der Zeichenfolge dargestellt wird. Verwenden einen Kontext, kann eine Zeichenfolge unterschiedlich, je nach Kontext (oder mangelndes ein Kontext) übersetzt werden.
+Anwendungen enthalten die zu übersetzenden Zeichenfolgen häufig an mehreren Stellen. Dieselbe Zeichenfolge kann möglicherweise über unterschiedliche Übersetzungen in bestimmten Speicherorten innerhalb einer Anwendung verfügen (Razor-Ansichten oder Klassendateien). Eine PO-Datei unterstützt das Konzept eines Dateikontexts, der zum Kategorisieren von dargestellten Zeichenfolgen verwendet werden kann. Bei der Verwendung eines Dateikontexts kann eine Zeichenfolge unterschiedlich übersetzt werden. Dies hängt vom Dateikontext (oder einem fehlenden Dateikontext) ab.
 
-Die Bestellung Lokalisierung Dienste verwenden Sie den Namen der vollständigen Klasse oder die Sicht, die verwendet wird, wenn eine Zeichenfolge zu übersetzen. Dies erfolgt durch Festlegen des Werts auf die `msgctxt` Eintrag.
+Die PO-Lokalisierungsdienste verwenden den Namen der vollständigen Klasse oder der Ansicht, die bei der Übersetzung einer Zeichenfolge verwendet wird. Dies wird durch Festlegen des Werts im `msgctxt`-Eintrag erreicht.
 
-Betrachten Sie eine kleinere zusätzlich zu den vorherigen *fr.po* Beispiel. Eine Razor-Ansicht finden Sie unter *Views/Home/About.cshtml* kann als Dateikontext definiert werden, durch Festlegen der reservierten `msgctxt` Wert des Eintrags:
+Ziehen Sie eine geringfügige Hinzufügung zum vorherigen *fr.po*-Beispiel in Erwägung. Eine Razor-Ansicht in *Views/Home/About.cshtml* kann als Dateikontext definiert werden, indem der reservierte `msgctxt`-Eintragswert festgelegt wird:
 
 ```text
 msgctxt "Views.Home.About"
@@ -202,28 +202,28 @@ msgid "Hello world!"
 msgstr "Bonjour le monde!"
 ```
 
-Mit der `msgctxt` textübersetzung als solche festgelegt wurde, tritt auf, wenn Navigieren zur `/Home/About?culture=fr-FR`. Die Übersetzung wird nicht ausgeführt, beim Navigieren zur `/Home/Contact?culture=fr-FR`.
+Wenn `msgctxt` festgelegt ist, wird bei der Navigation zu `/Home/About?culture=fr-FR` eine Textübersetzung ausgeführt. Die Übersetzung wird nicht bei der Navigation zu `/Home/Contact?culture=fr-FR` ausgeführt.
 
-Wenn keine bestimmten Eintrag mit einem bestimmten Dateikontext abgeglichen wird, wird eine entsprechende PO-Datei ohne einen Kontext Orchard-Core-fallback-Mechanismus sucht. Vorausgesetzt, dass keine bestimmte Dateikontext für definiert ist *Views/Home/Contact.cshtml*, navigieren Sie zu `/Home/Contact?culture=fr-FR` lädt Sie z. B. eine bestellungsdatei:
+Wenn kein bestimmter Eintrag mit einem bestimmten Dateikontext abgeglichen wird, sucht der Fallbackmechanismus von Orchard Core nach einer entsprechenden PO-Datei ohne Kontext. Vorausgesetzt, dass kein bestimmter Dateikontext für *Views/Home/Contact.cshtml* definiert ist, lädt eine Navigation zu `/Home/Contact?culture=fr-FR` eine PO-Datei, wie beispielsweise:
 
 [!code-text[Main](localization/sample/POLocalization/fr.po)]
 
-### <a name="changing-the-location-of-po-files"></a>Ändern den Speicherort der PO-Dateien
+### <a name="changing-the-location-of-po-files"></a>Ändern des Speicherorts für PO-Dateien
 
-Der standardmäßige Speicherort der PO-Dateien kann geändert werden, `ConfigureServices`:
+Der Standardspeicherort der PO-Dateien kann in `ConfigureServices` geändert werden:
 
 ```csharp
 services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 ```
 
-In diesem Beispiel die PO-Dateien geladen werden, aus der *Lokalisierung* Ordner.
+In diesem Beispiel werden die PO-Dateien aus dem Ordner *Lokalisierung* geladen.
 
-### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Implementieren einen benutzerdefinierten Logik für die Suche nach Lokalisierungsdateien
+### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Implementieren einer benutzerdefinierten Logik für die Suche nach Lokalisierungsdateien
 
-Wenn komplexer Logik erforderlich ist, um die PO-Dateien, suchen die `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider` Schnittstelle implementiert und als Dienst registriert werden kann. Dies ist nützlich, wenn PO-Dateien an unterschiedlichen Speicherorten gespeichert werden können oder die Dateien müssen innerhalb einer Hierarchie von Ordnern gefunden werden.
+Wenn eine komplexere Logik erforderlich ist, um die PO-Dateien zu finden, kann die `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider`-Schnittstelle implementiert und als Dienst registriert werden. Dies ist nützlich, wenn PO-Dateien an unterschiedlichen Speicherorten gespeichert oder die Dateien innerhalb einer Hierarchie von Ordnern gefunden werden können.
 
-### <a name="using-a-different-default-pluralized-language"></a>Verwenden einer anderen pluralisiert Standardsprache
+### <a name="using-a-different-default-pluralized-language"></a>Verwenden einer anderen Standardpluralsprache
 
-Das Paket enthält eine `Plural` Erweiterungsmethode, die für zwei Pluralform spezifisch ist. Erstellen Sie für Sprachen, die weitere Pluralform erfordern eine Erweiterungsmethode. Mit einer Erweiterungsmethode, müssen Sie keine Lokalisierungsdatei für die Standardsprache angeben &mdash; ursprünglichen Zeichenfolgen bereits direkt im Code verfügbar sind.
+Das Paket enthält eine `Plural`-Erweiterungsmethode, die für zwei Pluralformen spezifisch ist. Erstellen Sie eine Erweiterungsmethode für Sprachen, die weitere Pluralformen erfordern. Mit einer Erweiterungsmethode müssen Sie keine Lokalisierungsdatei für die Standardsprache angeben &mdash; die ursprünglichen Zeichenfolgen sind bereits direkt im Code verfügbar.
 
-Sie können den stärker generische `Plural(int count, string[] pluralForms, params object[] arguments)` Überladung, die ein Array von Zeichenfolgen von Übersetzungen akzeptiert.
+Sie können die generische `Plural(int count, string[] pluralForms, params object[] arguments)`-Überladung verwenden, die ein Zeichenfolgenarray von Übersetzungen akzeptiert.

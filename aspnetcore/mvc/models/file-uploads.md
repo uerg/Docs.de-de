@@ -1,31 +1,31 @@
 ---
 title: Dateiuploads in ASP.NET Core
 author: ardalis
-description: Verwendung von modellbindung und streaming zum Hochladen von Dateien in ASP.NET-MVC der Core.
-ms.author: riande
+description: Verwenden von Modellbindung und Streaming zum Hochladen von Dateien in ASP.NET Core MVC
 manager: wpickett
+ms.author: riande
 ms.date: 07/05/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Dateiuploads in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-ASP.NET MVC-Aktionen unterstützen das Hochladen von einer oder mehreren Dateien, die mit einfachen Modell Bindung für kleinere Dateien oder streaming für größere Dateien.
+ASP.NET MVC-Aktionen unterstützen das Hochladen von mindestens einer kleinen Datei über eine einfache Modellbindung bzw. das Streaming von großen Dateien.
 
-[Anzeigen oder Herunterladen des Beispiels von GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample).
 
-## <a name="uploading-small-files-with-model-binding"></a>Hochladen von kleine Dateien mit modellbindung
+## <a name="uploading-small-files-with-model-binding"></a>Hochladen von kleinen Dateien mittels Modellbindung
 
-Um kleine Dateien hochzuladen, können Sie eine mehrteilige HTML-Formular oder eine POST-Anforderung, die mit JavaScript zu erstellen. Ein Beispiel-Formulars mit Razor, die mehrere hochgeladene Dateien unterstützt, wird unten gezeigt:
+Wenn Sie kleine Dateien hochladen möchten, können Sie ein mehrteiliges HTML-Formular verwenden oder über JavaScript eine POST-Anforderung erstellen. Nachfolgend ist ein Beispielformular dargestellt, das Razor verwendet und das Hochladen von mehreren Dateien unterstützt:
 
 ```html
 <form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
@@ -43,11 +43,11 @@ Um kleine Dateien hochzuladen, können Sie eine mehrteilige HTML-Formular oder e
 </form>
 ```
 
-Damit Dateiuploads unterstützt wird, müssen die HTML-Formularen angeben einer `enctype` von `multipart/form-data`. Die `files` input-Element oben gezeigten unterstützt mehrere Dateien hochladen. Lassen Sie die `multiple` Attribut für dieses Element input, nur eine einzelne Datei hochgeladen werden können. Die oben genannten Markup rendert in einem Browser als:
+HTML-Formulare müssen einen `enctype` von `multipart/form-data` angeben, damit Dateiuploads unterstützt werden. Das oben dargestellte `files`-Eingabeelement unterstützt das Hochladen von mehreren Dateien. Lassen Sie das `multiple`-Attribut bei diesem Eingabeelement aus, wenn nur eine Datei hochgeladen werden soll. Das obenstehende Markup wird im Browser wie folgt gerendert:
 
-![Dateiupload-Formular](file-uploads/_static/upload-form.png)
+![Dateiuploadformular](file-uploads/_static/upload-form.png)
 
-Durch die einzelnen Dateien auf den Server hochgeladen zugegriffen werden können [Modell Bindung](xref:mvc/models/model-binding) mithilfe der [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) Schnittstelle. `IFormFile`weist die folgende Struktur:
+Auf die einzelnen Dateien, die auf den Server geladen werden, kann über eine [Modellbindung](xref:mvc/models/model-binding) mittels einer [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile)-Schnittstelle zugegriffen werden. `IFormFile` weist folgende Struktur auf:
 
 ```csharp
 public interface IFormFile
@@ -65,17 +65,17 @@ public interface IFormFile
 ```
 
 > [!WARNING]
-> Nicht abhängig ist, oder vertrauen der `FileName` Eigenschaft ohne Überprüfung. Die `FileName` Eigenschaft sollte nur zu Anzeigezwecken verwendet werden.
+> Verlassen Sie sich nicht ohne Überprüfung auf die `FileName`-Eigenschaft. Die `FileName`-Eigenschaft sollte nur verwendet werden, um etwas anzuzeigen.
 
-Beim Hochladen von Dateien mit modellbindung und `IFormFile` -Schnittstelle, die Aktionsmethode kann entweder ein einzelnes akzeptieren `IFormFile` oder ein `IEnumerable<IFormFile>` (oder `List<IFormFile>`), die mehrere Dateien darstellt. Das folgende Beispiel durchläuft einen oder mehrere hochgeladene Dateien, speichert sie in das lokale Dateisystem und gibt die Anzahl und Größe der Dateien hochgeladen.
+Wenn Dateien mittels Modellbindung und der `IFormFile`-Schnittstelle hochgeladen werden, kann die Aktionsmethode entweder eine einzelne `IFormFile` oder `IEnumerable<IFormFile>` bzw. `List<IFormFile>` akzeptieren, die für mehrere Dateien stehen. Mithilfe des folgenden Beispiels können Sie eine Schleife durch mindestens eine hochgeladene Datei ausführen, diese im lokalen Dateisystem speichern und die Gesamtanzahl und die Größe der hochgeladen Dateien abfragen.
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Dateien, die hochgeladen wird, mithilfe der `IFormFile` Verfahren werden im Arbeitsspeicher oder auf einem Datenträger, auf dem Webserver vor der Verarbeitung gepuffert. In der Aktionsmethode die `IFormFile` Inhalt als Stream verfügbar sind. Zusätzlich zu den im lokalen Dateisystem Dateien in gestreamt werden [Azure Blob-Speicher](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) oder [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Dateien, die über die `IFormFile`-Technik hochgeladen werden, werden im Arbeitsspeicher oder auf einem Datenträger auf dem Webserver vor der Verarbeitung gepuffert. Innerhalb der Aktionsmethode können Sie über einen Stream auf die `IFormFile`-Inhalte zugreifen. Dateien können nicht nur auf dem lokalen Dateisystem gestreamt werden, sondern auch auf dem [Azure Blob Storage](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) oder dem [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
-Definieren Sie eine Eigenschaft vom Typ zum Speichern von binären Daten in einer Datenbank mithilfe von Entity Framework `byte[]` für die Entität:
+Zum Speichern von Binärdateidaten in einer Datenbank über das Entity Framework müssen Sie eine Eigenschaft des Typs `byte[]` auf der Entität definieren:
 
 ```csharp
 public class ApplicationUser : IdentityUser
@@ -84,7 +84,7 @@ public class ApplicationUser : IdentityUser
 }
 ```
 
-Geben Sie eine Viewmodel-Eigenschaft des Typs `IFormFile`:
+Geben Sie eine Ansichtsmodelleigenschaft vom Typ `IFormFile` an:
 
 ```csharp
 public class RegisterViewModel
@@ -96,9 +96,9 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile`kann direkt als einen Aktionsmethodenparameter oder als Viewmodel-Eigenschaft verwendet werden wie oben gezeigt.
+> `IFormFile` kann wie oben dargestellt direkt als Parameter einer Aktionsmethode oder als Ansichtsmodelleigenschaft verwendet werden.
 
-Kopieren der `IFormFile` in einen Stream und speichern Sie sie auf das Bytearray:
+Kopieren Sie die `IFormFile`-Datei in einen Stream, und speichern Sie sie im Bytearray:
 
 ```csharp
 // POST: /Account/Register
@@ -127,18 +127,18 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 ```
 
 > [!NOTE]
-> Seien Sie beim Speichern von Binärdaten in relationalen Datenbanken, wie sie die Leistung beeinträchtigen kann.
+> Speichern Sie Binärdaten in relationalen Datenbanken mit Bedacht, da sie Auswirkungen auf die Leistung haben können.
 
-## <a name="uploading-large-files-with-streaming"></a>Hochladen großer Dateien beim streaming
+## <a name="uploading-large-files-with-streaming"></a>Hochladen von großen Dateien mittels Streaming
 
-Wenn die Größe oder die Häufigkeit des Dateiuploads Ressourcenproblemen für die app verursacht wird, erwägen Sie streaming Hochladen der Datei, anstatt als Ganzes gepuffert wird, wie in der oben gezeigte Modell Bindung-Ansatz. Bei der Verwendung `IFormFile` und modellbindung ist eine viel einfachere Lösung streaming erfordert eine Reihe von Schritten, um ordnungsgemäß zu implementieren.
+Wenn es zu Ressourcenproblemen mit der App kommt, weil zu viele Dateien hochgeladen werden oder die Dateien zu groß sind, sollten Sie darüber nachdenken, den Dateiupload zu streamen, anstatt ihn wie zuvor erläutert mittels Modellbindung vollständig zu puffern. Die Verwendung von `IFormFile` und die Modellbindung stellen recht einfache Lösung dar. Für das Streaming müssen Sie hingegen eine Reihe verschiedener Schritte ausführen, um eine einwandfreie Implementierung zu garantieren.
 
 > [!NOTE]
-> Jede einzelne gepufferte Datei 64KB überschreiten wird aus dem RAM in eine temporäre Datei auf dem Datenträger auf dem Server verschoben werden. Die vom Dateiuploads verwendeten Ressourcen (Datenträger, RAM) richten sich nach der Anzahl und Größe der gleichzeitigen Dateiuploads. Streaming ist nicht so viel über bezogen, zu skalieren. Wenn Sie versuchen, zu viele Uploads zu Puffern, stürzt der Site genügend Arbeitsspeicher oder Speicherplatz.
+> Jede gepufferte Datei, die größer als 64 KB ist, wird von RAM in eine temporäre Datei auf dem Datenträger auf dem Server verschoben. Welche Ressourcen (Datenträger oder RAM) für den Dateiupload verwendet werden, ist von der Anzahl und der Größe der gleichzeitig hochgeladenen Dateien abhängig. Beim Streaming geht es nicht um Leistung, sondern um die Staffelung der Uploads. Wenn Sie versuchen, zu viele Uploads zu puffern, stürzt Ihre Website ab, wenn der Arbeitsspeicher oder der Speicherplatz auf dem Datenträger ausgelastet ist.
 
-Im folgenden Beispiel wird veranschaulicht, wie mit JavaScript/Angular auf eine Controlleraktion gestreamt wird. Die Datei antiforgery-Token wird generiert, verwenden eines benutzerdefinierten Attributs für den Filter und HTTP-Header anstelle der im Anforderungstext übergeben. Da die Aktionsmethode die hochgeladenen Daten direkt verarbeitet wird, ist von einem anderen Filter wurden die modellbindung deaktiviert. Innerhalb der Aktion werden das Formular Inhalt lesen, verwenden eine `MultipartReader`, die jedes einzelne liest `MultipartSection`, Verarbeiten der Datei oder Speichern des Inhalts nach Bedarf. Sobald alle Abschnitte gelesen wurden, führt die Aktion einen eigenen wurden die modellbindung an.
+Im folgenden Beispiel wird dargestellt, wie Sie JavaScript bzw. Angular verwendet können, um einen Stream auf eine Controlleraktion durchzuführen. Das Antifälschungstoken einer Datei wird mithilfe von Filterattributen generiert und an HTTP-Header anstelle von Anforderungstexten übergeben. Da die Aktionsmethode die hochgeladenen Daten direkt verarbeitet, wird die Modellbindung von einem anderen Filter deaktiviert. Innerhalb der Aktion werden die Inhalte des Formulars über `MultipartReader` gelesen. Dieses Element liest jede einzelne `MultipartSection`-Klasse, wodurch die Datei verarbeitet wird oder die Inhalte angemessen gespeichert werden. Sobald alle Abschnitte gelesen wurden, führt die Aktion ihre eigene Modellbindung aus.
 
-Die erste Aktion wird das Formular geladen und ein antiforgery Token in einem Cookie gespeichert (über die `GenerateAntiforgeryTokenCookieForAjax` Attribut):
+Die erste Aktion lädt das Formular und speichert das Antifälschungstoken (über das `GenerateAntiforgeryTokenCookieForAjax`-Attribut) in einem Cookie:
 
 ```csharp
 [HttpGet]
@@ -149,21 +149,21 @@ public IActionResult Index()
 }
 ```
 
-Das Attribut verwendet, die ASP.NET Core integrierte [Antiforgery](xref:security/anti-request-forgery) Support, um ein Cookie mit einem Anforderungstoken festlegen:
+Das Attribut verwendet die in ASP.NET Core integrierte [Antifälschungsunterstützung](xref:security/anti-request-forgery), um ein Cookie mit einem Anforderungstoken festzulegen:
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
-Angular übergibt eine antiforgery Token automatisch in einen Anforderungsheader und mit dem Namen `X-XSRF-TOKEN`. Die ASP.NET-MVC-Anwendung Core ist so konfiguriert, dass zu diesem Header in der Konfiguration in finden Sie unter *Startup.cs*:
+Angular übergibt automatisch ein Antifälschungstoken an einen Anforderungsheader mit dem Namen `X-XSRF-TOKEN`. Die ASP.NET Core MVC-App wird so konfiguriert, dass sie auf diesen Header in Ihrer Konfiguration in *Startup.cs* verweist:
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
-Die `DisableFormValueModelBinding` Attribut, das weiter unten gezeigte wird verwendet, um die deaktiviert wurden die modellbindung für die `Upload` Aktionsmethode.
+Das nachfolgend dargestellte `DisableFormValueModelBinding`-Attribut wird verwendet, um die Modellbindung für die `Upload`-Aktionsmethode zu deaktivieren.
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
-Da wurden die modellbindung deaktiviert ist, die `Upload` Aktionsmethode keine Parameter annehmen. Es arbeitet direkt mit der `Request` Eigenschaft `ControllerBase`. Ein `MultipartReader` wird verwendet, um jedes Abschnitts lesen. Die Datei wird mit einem GUID-Dateinamen gespeichert und befindet sich die Schlüssel/Wert-Daten in eine `KeyValueAccumulator`. Sobald alle Abschnitte gelesen wurde, den Inhalt der `KeyValueAccumulator` werden verwendet, um die Daten des Formulars an einen Modelltyp binden.
+Da die Modellbindung deaktiviert ist, akzeptiert die `Upload`-Aktionsmethode keine Parameter. Sie funktioniert direkt mit der `Request`-Eigenschaft von `ControllerBase` zusammen. Ein `MultipartReader` wird verwendet, um die verschiedenen Abschnitte zu lesen. Die Datei wird zusammen mit einem GUID-Dateinamen und die Schlüssel- bzw. Wertdaten werden in einem `KeyValueAccumulator` gespeichert. Sobald alle Abschnitte gelesen wurden, werden die Inhalte von `KeyValueAccumulator` verwendet, um die Formulardaten an einen Modelltyp zu binden.
 
-Die vollständige `Upload` Methode wird unten gezeigt:
+Die vollständige `Upload`-Methode wird im Folgenden Beispiel dargestellt:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
@@ -171,18 +171,18 @@ Die vollständige `Upload` Methode wird unten gezeigt:
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Im folgenden finden einige allgemeine Probleme, die beim Arbeiten mit Hochladen von Dateien und deren möglichen Lösungen auftreten.
+Nachfolgend werden einige häufig auftretenden Probleme aufgeführt, die entstehen können, wenn Dateien hochgeladen werden. Außerdem wird erläutert, wie Sie diese Probleme beheben können.
 
-### <a name="unexpected-not-found-error-with-iis"></a>Unerwarteter Fehler bei IIS wurde Nichtgefunden
+### <a name="unexpected-not-found-error-with-iis"></a>Unerwarteter „Nicht gefunden“-Fehler mit IIS
 
-Der folgende Fehler gibt an, das Hochladen der Datei überschreitet den Server konfigurierten `maxAllowedContentLength`:
+Der folgende Fehler wird angezeigt, wenn Ihr Dateiupload die in `maxAllowedContentLength` konfigurierte Größe des Servers überschreitet:
 
 ```
 HTTP 404.13 - Not Found
 The request filtering module is configured to deny a request that exceeds the request content length.
 ```
 
-Die Standardeinstellung ist `30000000`, also ungefähr 28.6 MB. Der Wert kann angepasst werden, indem bearbeiten *"Web.config"*:
+Die Standardeinstellung lautet `30000000`, also in etwa 28,6 MB. Sie können diesen Wert bearbeiten, indem Sie die *web.config*-Datei bearbeiten:
 
 ```xml
 <system.webServer>
@@ -195,8 +195,8 @@ Die Standardeinstellung ist `30000000`, also ungefähr 28.6 MB. Der Wert kann an
 </system.webServer>
 ```
 
-Diese Einstellung gilt nur für IIS. Das Verhalten auftreten nicht standardmäßig, wenn auf Kestrel hosten. Weitere Informationen finden Sie unter [Anforderungslimits \<RequestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+Diese Einstellung gilt nur für IIS. Beim Hosting unter Kestrel gehört dieses Verhalten nicht zum Standard. Weitere Informationen finden Sie unter [Request Limits \<requestLimits\> (Anforderungseinschränkungen)](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
-### <a name="null-reference-exception-with-iformfile"></a>NULL-Verweisausnahme auftreten mit IFormFile
+### <a name="null-reference-exception-with-iformfile"></a>Ausnahme bei möglichem NULL-Verweis mit IFormFile
 
-Wenn Ihr Controller annehmende ist hochgeladenen Dateien mithilfe von `IFormFile` , aber Sie feststellen, dass der Wert immer null ist, vergewissern Sie sich, dass das HTML-Formular angegeben ist ein `enctype` Wert `multipart/form-data`. Wenn dieses Attribut auf festgelegt ist nicht der `<form>` Element, das Hochladen der Datei wird nicht ausgeführt und die Grenze `IFormFile` Argumente werden null sein.
+Wenn Ihr Controller es zulässt, dass Dateien über `IFormFile` hochgeladen werden, Sie allerdings feststellen, dass der Wert immer NULL ist, überprüfen Sie, ob Ihr HTML-Formular einen `enctype`-Wert von `multipart/form-data` angibt. Wenn dieses Attribut für das `<form>`-Element festgelegt ist, können keine Dateien hochgeladen werden, und jedes gebundene `IFormFile`-Argument gibt NULL zurück.

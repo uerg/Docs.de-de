@@ -2,13 +2,13 @@
 
 In diesem Tutorial wird die folgende API erstellt:
 
-|API | Beschreibung | Anforderungstext | Antworttext |
+|API | description | Anforderungstext | Antworttext |
 |--- | ---- | ---- | ---- |
-|GET /api/todo | Alle To-do-Elemente abrufen | Keine | Array von To-do-Elementen|
-|GET /api/todo/{id} | Ein Element nach ID abrufen | Keine | To-do-Element|
+|GET /api/todo | Alle To-do-Elemente abrufen | Keiner | Array von To-do-Elementen|
+|GET /api/todo/{id} | Ein Element nach ID abrufen | Keiner | To-do-Element|
 |POST /api/todo | Neues Element hinzufügen | To-do-Element | To-do-Element |
-|PUT /api/todo/{id} | Vorhandenes Element aktualisieren &nbsp; | To-do-Element | Keine |
-|DELETE /api/todo/{id} &nbsp; &nbsp; | Löschen eines Elements &nbsp; &nbsp; | Keine | Keine|
+|PUT /api/todo/{id} | Vorhandenes Element aktualisieren &nbsp; | To-do-Element | Keiner |
+|DELETE /api/todo/{id} &nbsp; &nbsp; | Löschen eines Elements &nbsp; &nbsp; | Keiner | Keiner|
 
 <br>
 
@@ -22,4 +22,4 @@ Das folgende Diagramm zeigt den Grundentwurf der App.
 
 * Ein *Controller* ist ein Objekt, das HTTP-Anforderungen verarbeitet und die HTTP-Antwort erstellt. Diese App hat einen einzelnen Controller.
 
-* Um das Tutorial einfach zu halten, verwendet die App keine beständige Datenbank. Die Beispiel-App speichert To-do-Elemente in einer In-Memory Database.
+* Die App verwendet keine beständige Datenbank, um das Tutorial einfach zu halten. Die Beispiel-App speichert To-do-Elemente in einer In-Memory Database.

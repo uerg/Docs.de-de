@@ -1,107 +1,107 @@
 ---
-title: Anzeigen von Komponenten
+title: Ansichtskomponenten
 author: rick-anderson
-description: "Anzeigen von Komponenten dienen an einer beliebigen Stelle, dass Sie wiederverwendbare Renderinglogik verfügen."
-ms.author: riande
+description: "Ansichtskomponenten können dort eingesetzt werden, wo Sie über wiederverwendbare Renderinglogik verfügen."
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="view-components"></a>Anzeigen von Komponenten
+# <a name="view-components"></a>Ansichtskomponenten
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Einführung zum Anzeigen von Komponenten
+## <a name="introducing-view-components"></a>Einführung: Ansichtskomponenten
 
-Neue zu ASP.NET Core MVC, ähneln sich Komponenten anzeigen, Teilansichten, aber sie sind deutlich leistungsfähiger. Anzeigen von Komponenten nicht wurden die modellbindung verwenden und nur richten sich nach den Daten, die Sie angeben, wenn er aufgerufen. Eine Komponente anzeigen:
+Ansichtskomponenten sind einer neuer Bestandteil von ASP.NET Core MVC. Sie ähneln Teilansichten, sind aber wesentlich leistungsstärker. Ansichtskomponenten verwenden keine Modellbindungen und sind nur von den Daten abhängig, die bei ihrem Aufruf bereitgestellt werden. Eine Ansichtskomponente:
 
-* Rendert ein Block, statt eine gesamte Antwort
-* Enthält die gleichen Trennung von Anliegen und die Prüfbarkeit Vorteile, die zwischen einem Controller und Ansicht gefunden
-* Parameter und Geschäftslogik können haben
-* Wird normalerweise aus einer Layoutseite aufgerufen.
+* Rendert nur einen Block statt einer gesamten Antwort.
+* Umfasst die gleiche Trennung von Belangen und Vorzüge der Testbarkeit, die auch zwischen einem Controller und einer Ansicht bestehen.
+* Kann Parameter und Geschäftslogik aufweisen.
+* Wird normalerweise von einer Layoutseite aus aufgerufen.
 
-Anzeigen von Komponenten dienen an einer beliebigen Stelle, dass Sie wiederverwendbare Renderinglogik verfügen, z. B. zu komplex für eine Teilansicht ist:
+Ansichtskomponenten wurden für wiederverwendbare Renderinglogik entwickelt, die für eine Teilansicht zu komplex ist. Dazu gehören:
 
 * Dynamische Navigationsmenüs
-* Tagcloud (, in dem sie die Datenbank (Abfragen)
-* Login-Bereich
+* Tag Cloud (dort, wo die Datenbank abgefragt wird)
+* ein Anmeldebereich
 * Einkaufswagen
-* Kürzlich veröffentlichten Artikeln
-* Randleiste Inhalte auf einem typischen blog
-* Ein Anmeldefenster, die auf jeder Seite gerendert und entweder die Links, melden Sie sich ab, oder melden Sie sich, abhängig von das Protokoll in der Status des Benutzers anzeigen
+* vor Kurzem veröffentlichte Artikel
+* Inhalt in einer Seitenleiste auf einem klassischen Blog
+* Ein Anmeldebereich, der auf jeder Seite gerendert wird und der die Links zum Abmelden bzw. Anmelden anzeigt, je nachdem, ob der Benutzer an- oder abgemeldet ist
 
-Eine Ansichtskomponente besteht aus zwei Teilen: der-Klasse (normalerweise abgeleitet aus [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) und das Ergebnis gibt (in der Regel eine Ansicht) zurück. Wie Domänencontroller, eine Ansichtskomponente auf einer POCO werden kann, aber die meisten Entwickler sollten die verfügbaren Methoden und Eigenschaften nutzen durch Ableiten von `ViewComponent`.
+Eine Ansichtskomponenten besteht aus zwei Teilen: der Klasse (normalerweise von [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent) abgeleitet) und dem von dieser Klasse zurückgegebenen Ergebnis (normalerweise eine Ansicht). Eine Ansichtskomponente kann, ähnlich wie Controller, ein POCO sein. Die meisten Entwickler sollten jedoch von den Methoden und Eigenschaften, die von `ViewComponent` abgeleitet werden, Gebrauch machen.
 
-## <a name="creating-a-view-component"></a>Erstellen einer Komponente anzeigen
+## <a name="creating-a-view-component"></a>Erstellen einer Ansichtskomponente
 
-Dieser Abschnitt enthält die allgemeinen Anforderungen zum Erstellen einer Komponente anzeigen. Später in diesem Artikel wir untersuchen Sie jeden Schritt im Detail und erstellen Sie eine Komponente anzeigen.
+In diesem Abschnitt werden die allgemeinen Anforderungen zum Erstellen einer Ansichtskomponente beschrieben. Im Folgenden wird jeder Schritt ausführlich betrachtet, und Sie erstellen im Zuge dessen eine Ansichtskomponente.
 
-### <a name="the-view-component-class"></a>Die Komponente Ansichtsklasse
+### <a name="the-view-component-class"></a>Die Ansichtskomponentenklasse
 
-Eine Komponentenklasse anzeigen kann durch eine der folgenden erstellt werden:
+Eine Ansichtskomponentenklasse kann durch folgende Aktionen erstellt werden:
 
-* Ableiten von *ViewComponent*
-* Indem eine Klasse mit der `[ViewComponent]` Attribut oder das Ableiten einer Klasse mit der `[ViewComponent]` Attribut
-* Erstellen einer Klasse, wenn der Name mit dem Suffix endet *ViewComponent*
+* durch die Ableitung von *ViewComponent*
+* durch Ergänzen der Klasse mit dem Attribut `[ViewComponent]` oder durch das Ableiten von einer Klasse mit dem Attribut `[ViewComponent]`
+* durch das Erstellen einer Klasse, deren Name mit dem Suffix *ViewComponent* endet
 
-Controller Schemas müssen wie ansichtskomponenten öffentliche, nicht geschachtelten und nicht abstrakten Klassen sein. Der Komponentenname Ansicht wird der Klassenname mit dem "ViewComponent" Suffix entfernt. Sie können auch explizit angegeben werden mithilfe der `ViewComponentAttribute.Name` Eigenschaft.
+Ansichtskomponenten müssen, genauso wie Controller, öffentliche, unverschachtelt und nicht abstrakte Klassen sein. Der Ansichtskomponentenname ist der Klassenname ohne den Suffix „ViewComponent“. Er kann zudem explizit mit der Eigenschaft `ViewComponentAttribute.Name` angegeben werden.
 
-Eine Komponentenklasse für die Sicht:
+Eine Ansichtskomponentenklasse:
 
-* Unterstützt uneingeschränkt Konstruktor [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md)
+* Unterstützt [Constructor Dependency Injection](../../fundamentals/dependency-injection.md) vollständig
 
-* Nehmen Sie nicht Teil des Controller-Lebenszyklus, d. h., Sie können keine [Filter](../controllers/filters.md) in einer Ansichtskomponente
+* Ist nicht Bestandteil des Controllerlebenszyklus. Dies bedeutet, dass Sie keine [Filter](../controllers/filters.md) in Ansichtskomponenten verwenden können.
 
-### <a name="view-component-methods"></a>Die Komponentenmethoden anzuzeigen
+### <a name="view-component-methods"></a>Ansichtskomponentenmethoden
 
-Eine Ansichtskomponente definiert ihre Logik in einer `InvokeAsync` Methode, die zurückgibt ein `IViewComponentResult`. Parameter stammen direkt aus dem Aufruf der Komponente anzeigen, nicht von der modellbindung. Eine Ansichtskomponente nie direkt eine Anforderung behandelt. In der Regel eine Ansichtskomponente Initialisiert ein Modell und übergibt sie an einer Ansicht durch Aufrufen der `View` Methode. Zeigen Sie zusammengefasst Komponentenmethoden an:
+Eine Ansichtskomponente definiert Ihre Logik in einer `InvokeAsync`-Methode, die ein `IViewComponentResult`-Objekt zurückgibt. Parameter stammen direkt vom Aufruf der Ansichtskomponente und nicht von der Modellbindung. Eine Ansichtskomponente behandelt nie direkt eine Anfrage. Normalerweise initialisiert eine Ansichtskomponente ein Modell und übergibt dieses an eine Ansicht, indem sie die `View`-Methode aufruft. Zusammengefasst bedeutet dies für Komponentenmethoden Folgendes:
 
-* Definieren einer `InvokeAsync` Methode, die zurückgibt ein`IViewComponentResult`
-* In der Regel ein Modell initialisiert und übergibt sie an einer Ansicht durch Aufrufen der `ViewComponent` `View` Methode
-* Parameter aus der aufrufenden Methode nicht HTTP stammen, es erfolgt keine modellbindung
-* Werden direkt als ein HTTP-Endpunkt nicht erreichbar, sie sind aufgerufen aus dem Code (in der Regel in einer Ansicht). Eine Ansichtskomponente behandelt nie eine Anforderung.
-* Alle Details aus der aktuellen HTTP-Anforderung, anstatt die Signatur sind überladen werden.
+* Sie definieren eine `InvokeAsync`-Methode, die ein `IViewComponentResult`-Objekt zurückgibt.
+* Normalerweise initialisieren sie ein Modell und übergeben dieses an eine Ansicht, indem sie die `ViewComponent` `View`-Methode aufrufen.
+* Parameter stammen vom Methodenaufruf und nicht HTTP. Es gibt keine Modellbindung.
+* Sie können nicht direkt als HTTP-Endpunkt erreicht werden. Stattdessen werden sie über Ihren Code aufgerufen (normalerweise in einer Ansicht). Eine Ansichtskomponente behandelt nie eine Anfrage.
+* Sie werden in der Signatur überladen und nicht in Details der aktuellen HTTP-Anforderung
 
-### <a name="view-search-path"></a>Suchpfad für die Ansicht
+### <a name="view-search-path"></a>Anzeigen des Suchpfads
 
-Die Laufzeit sucht, für die Ansicht in den folgenden Pfaden:
+Die Runtime sucht in den folgenden Pfaden nach der Ansicht:
 
-   * Ansichten /\<Controller_name > /Components/\<View_component_name > /\<View_name >
-   * Ansichten/freigegeben/Components/\<View_component_name > /\<View_name >
+   * Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
+   * Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
 
-Der Standardname für die Sicht für eine Ansichtskomponente ist *Standard*, was bedeutet, dass die Datei wird in der Regel namens *Default.cshtml*. Beim Erstellen der Komponente Ansichtsergebnis oder beim Aufrufen, geben Sie einen Namen für die andere Ansicht kann die `View` Methode.
+Der Standardansichtsname für die Ansichtskomponente ist *Default*. Dies bedeutet, dass Ihre Ansichtsdatei normalerweise *Default.cshtml* heißt. Sie können einen anderen Ansichtsnamen angeben, wenn Sie die Ansichtskomponentenergebnisse erstellen oder die `View`-Methode aufrufen.
 
-Es wird empfohlen, Sie benennen die Ansichtsdatei *Default.cshtml* und Verwenden der *Ansichten/freigegeben/Components/\<View_component_name > /\<View_name >* Pfad. Die `PriorityList` verwendet in diesem Beispiel verwendete Ansichtskomponente *Views/Shared/Components/PriorityList/Default.cshtml* für die Komponentensicht anzeigen.
+Es wird empfohlen, dass Sie die Ansichtsdatei *Default.cshtm* nennen und den Pfad *View/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>* verwenden. Die Ansichtskomponente `PriorityList`, die in diesem Beispiel verwendet wird, verwendet *Views/Shared/Components/PriorityList/Default.cshtml* für die Ansichtskomponentenansicht.
 
-## <a name="invoking-a-view-component"></a>Aufrufen einer Komponente anzeigen
+## <a name="invoking-a-view-component"></a>Aufrufen einer Ansichtskomponente
 
-Rufen Sie zum Verwenden der Ansichtskomponente auf Folgendes in einer Ansicht:
+Rufen Sie Folgendes in der Ansicht auf, wenn Sie die Ansichtskomponente verwenden möchten:
 
 ```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
-Werden die Parameter an übergeben der `InvokeAsync` Methode. Die `PriorityList` Ansichtskomponente entwickelt, in dem Artikel aus aufgerufen wird die *Views/Todo/Index.cshtml* Datei anzeigen. Im folgenden wird die `InvokeAsync` Methode mit zwei Parametern aufgerufen wird:
+Die Parameter werden an die `InvokeAsync`-Methode übergeben. Die Ansichtskomponente `PriorityList`, die im Artikel entwickelt wurde, wird von der Ansichtsdatei *Views/Todo/Index.cshtml* aufgerufen. Im folgenden Code wird die `InvokeAsync`-Methode mit zwei Parametern aufgerufen:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-## <a name="invoking-a-view-component-as-a-tag-helper"></a>Aufrufen einer Ansichtskomponente als ein Tag-Hilfsprogramm
+## <a name="invoking-a-view-component-as-a-tag-helper"></a>Aufrufen einer Ansichtskomponente als Taghilfsprogramm
 
-Für ASP.NET Core 1.1 und höher können Sie eine Ansichtskomponente als Aufrufen einer [Tag Helper](xref:mvc/views/tag-helpers/intro):
+In ASP.NET Core 1.1 und höher können Sie eine Ansichtskomponente als [Taghilfsprogramm](xref:mvc/views/tag-helpers/intro) aufrufen.
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-In Pascal-Schreibweise angegeben Klassen- und Parameter für den Tag-Hilfsprogrammen übersetzt ihre [senken Kebab Groß-/Kleinschreibung](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Der Tag-Hilfskomponente aufzurufenden eine Ansichtskomponente auf die `<vc></vc>` Element. Die Ansichtskomponente wird wie folgt angegeben:
+Namen von Klassen und Methodenparameter für Taghilfsprogramme, die in Pascal-Schreibweise angegeben sind, werden in [Lower Kebab-Schreibweise](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101) übersetzt. Das Taghilfsprogramm zum Aufrufen einer Ansichtskomponente verwendet das `<vc></vc>`-Element. Die Ansichtskomponente wird wie folgt angegeben:
 
 ```cshtml
 <vc:[view-component-name]
@@ -110,115 +110,115 @@ In Pascal-Schreibweise angegeben Klassen- und Parameter für den Tag-Hilfsprogra
 </vc:[view-component-name]>
 ```
 
-Hinweis: Um eine Ansichtskomponente als ein Tag-Hilfsprogramm verwenden, müssen Sie die Assembly registrieren, enthält die Ansicht mit der `@addTagHelper` Richtlinie. Beispielsweise ist die View-Komponente in einer Assembly mit dem Namen "MyWebApp", die folgende Anweisung zum Hinzufügen der `_ViewImports.cshtml` Datei:
+Beachten Sie: Damit Sie eine Ansichtskomponente als Taghilfsprogramm verwenden können, müssen Sie die Assembly, die die Ansichtskomponente enthält, mit der `@addTagHelper`-Anweisung registrieren. Wenn Ihre Ansichtskomponente z.B. eine Assembly mit dem Namen „MeineWebApp“ ist, fügen Sie die folgende Anweisung zu der Datei `_ViewImports.cshtml` hinzu:
 
 ```cshtml
 @addTagHelper *, MyWebApp
 ```
 
-Sie können eine Ansichtskomponente auf als ein Tag Hilfsprogramm auf einer beliebigen Datei registrieren, die die Komponente für die Sicht verweist. Finden Sie unter [verwalten Tag Helper Bereich](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) für Weitere Informationen zum Registrieren von Tag-Hilfsprogramme.
+Sie können eine Ansichtskomponente als Taghilfsprogramm für jede Datei registrieren, die auf die Ansichtskomponente verweist. Weitere Informationen zum Registrieren eines Taghilfsprogramms finden Sie unter [Managing Tag Helper Scope (Verwalten des Bereichs des Taghilfsprogramms)](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope).
 
-Die `InvokeAsync` in diesem Lernprogramm verwendete Methode:
+Die `InvokeAsync`-Methode, die in diesem Tutorial verwendet wird:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-Im Hilfsprogramm-Tag Markup:
+In Taghilfsprogramm-Markup:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Im obigen Beispiel die `PriorityList` Ansichtskomponente wird `priority-list`. Die Parameter der Komponente anzeigen, werden als Attribute in Kleinbuchstaben Kebab übergeben.
+Im Beispiel oben stehenden Beispiel wird die Ansichtskomponente `PriorityList` zu `priority-list`. Die Parameter der Ansichtskomponente werden als Attribute in Lower Kebab-Schreibweise übergeben.
 
-### <a name="invoking-a-view-component-directly-from-a-controller"></a>Aufrufen einer Ansichtskomponente direkt von einem controller
+### <a name="invoking-a-view-component-directly-from-a-controller"></a>Direkter Aufrufe einer Ansichtskomponente von einem Controller
 
-Anzeigen von Komponenten in der Regel aus einer Sicht aufgerufen werden, aber Sie direkt von einem Controllermethode aufrufen. Während ansichtskomponenten Endpunkte wie Domänencontroller nicht definieren, können Sie problemlos eine Controlleraktion, die den Inhalt des zurückgibt implementieren eine `ViewComponentResult`.
+Ansichtskomponenten werden normalerweise von einer Ansicht aus aufgerufen, aber Sie können sie auch direkt von einer Controllermethode aus aufrufen. Obwohl Ansichtskomponenten keine Endpunkte so wie Controller definieren, können Sie trotzdem eine Controlleraktion implementieren, die den Inhalt von `ViewComponentResult` zurückgibt.
 
-In diesem Beispiel wird die Ansichtskomponente direkt auf dem Controller aufgerufen:
+In diesem Beispiel wird die Ansichtskomponente direkt von einem Controller aus aufgerufen:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Exemplarische Vorgehensweise: Erstellen einer einfachen Ansicht
+## <a name="walkthrough-creating-a-simple-view-component"></a>Exemplarische Vorgehensweise: Erstellen einer einfachen Ansichtskomponente
 
-[Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), erstellen und Testen Sie den Startcode. Es ist ein einfaches Projekt mit einem `Todo` Controller, der zeigt eine Liste der *Todo* Elemente.
+[Laden Sie den Startercode herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), und erstellen und testen Sie diesen. Dabei handelt es sich um ein einfaches Projekt mit einem `Todo`-Controller, in dem eine Liste von *ToDo*-Elementen angezeigt wird.
 
-![Liste der ToDos](view-components/_static/2dos.png)
+![Liste mit ToDo-Elementen](view-components/_static/2dos.png)
 
-### <a name="add-a-viewcomponent-class"></a>Fügen Sie eine ViewComponent-Klasse
+### <a name="add-a-viewcomponent-class"></a>Hinzufügen einer ViewComponent-Klasse
 
-Erstellen einer *ViewComponents* Ordner, und fügen Sie die folgenden `PriorityListViewComponent` Klasse:
+Erstellen Sie einen *ViewComponents*-Ordner, und fügen Sie die folgende `PriorityListViewComponent`-Klasse hinzu:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
-Hinweise zum Code:
+Bemerkungen zum Code:
 
-* Komponente Ansichtsklassen in enthalten sein können **alle** Ordner des Projekts.
-* Da der Klassenname PriorityList**ViewComponent** endet mit dem Suffix **ViewComponent**, die Common Language Runtime wird die Zeichenfolge "PriorityList" verwenden, wenn Sie die Klasse, Komponente aus einer Sicht verweisen. Ich werde, die später ausführlicher erläutert.
-* Die `[ViewComponent]` Attribut den Namen verwendet, um eine Ansicht Komponentenverweis ändern. Angenommen, wir konnte haben mit dem Namen der Klasse `XYZ` angewendet, und die `ViewComponent` Attribut:
+* Ansichtskomponentenklassen können sich in **jedem** Ordner im Projekt befinden.
+* Da der Klassenname „PriorityList**ViewComponent** mit dem Suffix **ViewComponent** endet, verwendet die Runtime die Zeichenfolge „PriorityList“, wenn Sie von einer Ansicht aus auf die Klassenkomponente verweist. Dies wird im Folgenden noch ausführlicher erklärt.
+* Das `[ViewComponent]`-Attribut kann den Namen ändern, der zum Verweis auf eine Ansichtskomponente verwendet wird. Wir hätten die Klasse auch `XYZ` nennen und das `ViewComponent`-Attribut anwenden können:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
      public class XYZ : ViewComponent
      ```
 
-* Die `[ViewComponent]` Attribut teilt die Ansichtsauswahl für die Komponente den Namen `PriorityList` bei der Suche nach der Sichten verknüpft sind, mit der Komponente und die Zeichenfolge "PriorityList" verwenden, wenn Sie die Klasse, Komponente aus einer Sicht verweisen. Ich werde, die später ausführlicher erläutert.
-* Die Komponente verwendet [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md) um den Datenkontext verfügbar zu machen.
-* `InvokeAsync`macht dauert eine Methode, die aus einer Sicht aufgerufen werden, kann eine beliebige Anzahl von Argumenten.
-* Die `InvokeAsync` Methode gibt den Satz der `ToDo` Elemente, die erfüllen die `isDone` und `maxPriority` Parameter.
+* Das oben stehende `[ViewComponent]`-Attribut teilt dem Ansichtskomponentenselektor mit, den Namen `PriorityList` zu verwenden, wenn er nach den Ansichten sucht, die mit der Komponente verknüpft sind. Zudem wird er informiert, die Zeichenfolge „“ zu verwenden, wenn er von einer Ansicht aus auf die Klassenkomponente verweist. Dies wird im Folgenden noch ausführlicher erklärt.
+* Die Komponente verwendet [Dependency Injection](../../fundamentals/dependency-injection.md), um den Datenkontext verfügbar zu machen.
+* `InvokeAsync` macht eine Methode verfügbar, die von einer Ansicht aus aufgerufen werden kann, und akzeptiert eine arbiträre Anzahl von Argumenten.
+* Die `InvokeAsync`-Methode gibt mehrere `ToDo`-Elemente zurück, die die Bedingungen der Parameter `isDone` und `maxPriority` erfüllen.
 
-### <a name="create-the-view-component-razor-view"></a>Erstellen Sie die Komponente Razor-Ansicht
+### <a name="create-the-view-component-razor-view"></a>Erstellen der Razor-Ansicht der Ansichtskomponente
 
-* Erstellen der *Ansichten/freigegeben/Komponenten* Ordner. In diesem Ordner **müssen** heißen *Komponenten*.
+* Erstellen Sie den Ordner *Views/Shared/Components*. Diese Ordner **muss** den Namen *Components* besitzen.
 
-* Erstellen der *Ansichten/freigegeben/Components/PriorityList* Ordner. Diese Ordnername muss übereinstimmen, den Namen der Komponente Ansichtsklasse oder den Namen der Klasse ohne das Suffix (wenn es folgt der Konvention und verwendet die *ViewComponent* Suffix im Klassennamen). Bei Verwendung der `ViewComponent` -Attribut, der Klassennamen müsste die Bezeichnung Attribut entsprechen.
+* Erstellen Sie den Ordner *Views/Shared/Components/PriorityList*. Der Ordnername muss mit dem Namen der Ansichtskomponentenklasse oder mit dem Namen der Klasse ohne Suffix (wenn wir uns an die Konvention gehalten und *ViewComponent* als Suffix im Klassennamen verwendet haben) übereinstimmen. Wenn Sie das Attribut `ViewComponent` verwenden, muss der Klassenname mit der Attributbezeichnung übereinstimmen.
 
-* Erstellen einer *Views/Shared/Components/PriorityList/Default.cshtml* Razor-Ansicht:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Erstellen Sie die Razor-Ansicht *Views/Shared/Components/PriorityList/Default.cshtml*: [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
-   Der Razor-Ansicht kann eine Liste von `TodoItem` und zeigt diese an. Wenn die Ansichtskomponente `InvokeAsync` Methode nicht übergeben Sie den Namen der Sicht (wie in diesem Beispiel), *Standard* wird für den Ansichtsnamen gemäß der Konvention verwendet. Später in diesem Lernprogramm zeige ich Ihnen wie der Name der Ansicht zu übergeben. Um das standardmäßige Format für einen bestimmten Controller zu überschreiben, fügen Sie eine Ansicht in den Ansichtordner Controller-spezifische (z. B. *Views/Todo/Components/PriorityList/Default.cshtml)*.
+   Die Razor-Ansicht nimmt eine Liste von `TodoItem` an und zeigt diese an. Wenn die `InvokeAsync`-Methode der Ansichtskomponente nicht den Namen der Ansicht übergibt (wie in unserem Beispiel), wird *Default* per Konvention für den Ansichtsnamen verwendet. Später in diesem Tutorial erfahren Sie, wie Sie den Namen der Ansicht übergeben. Fügen Sie eine Ansicht zu einem controllerspezifischen Ansichtsordner hinzu, um das Standardformat für einen spezifischen Controller zu überschreiben (z.B. *Views/Todo/Components/PriorityList/Default.cshtml*).
     
-    Wenn die Ansichtskomponente Controller spezifisch ist, können Sie es in den Ordner Controller-spezifische hinzufügen (*Views/Todo/Components/PriorityList/Default.cshtml*).
+    Wenn die Ansichtskomponente controllerspezifisch ist, können Sie sie dem controllerspezifischen Ordner hinzufügen (*Views/Todo/Components/PriorityList/Default.cshtml*).
 
-* Hinzufügen einer `div` , die einen Aufruf an das Ende der Priorität List-Komponente enthält die *Views/Todo/index.cshtml* Datei:
+* Fügen Sie ein `div`-Objekt, das einen Aufruf an eine Prioritätslistenkomponente enthält, am Ende der Datei *Views/Todo/index.cshtml* hinzu:
 
     [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-Das Markup `@await Component.InvokeAsync` zeigt die Syntax zum Aufrufen von Komponenten anzeigen. Das erste Argument ist der Name der Komponente, die wir aufrufen oder aufgerufen werden soll. Nachfolgende Parameter werden an die Komponente übergeben. `InvokeAsync`kann eine beliebige Anzahl von Argumenten dauern.
+Das Markup `@await Component.InvokeAsync` zeigt die Syntax für die aufrufenden Ansichtskomponenten an. Das erste Argument ist der Name der aufzurufenden Komponente. Darauffolgende Parameter werden an die Komponente übergeben. `InvokeAsync` kann eine arbiträre Anzahl von Argumenten annehmen.
 
-Testen der app an. Die folgende Abbildung zeigt die TODO-Liste und Elemente mit der Priorität:
+Testen der App In der folgenden Abbildung werden die ToDo-Liste und die Elemente mit Priorität angezeigt:
 
-![TODO-Liste und die Priorität der Elemente](view-components/_static/pi.png)
+![ToDo-Liste und Prioritätselemente](view-components/_static/pi.png)
 
-Sie können auch die Ansichtskomponente direkt auf dem Controller aufrufen:
+Sie können Sie Ansichtskomponente auch direkt vom Controller aus aufrufen:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-![Elemente der Priorität von IndexVC-Aktion](view-components/_static/indexvc.png)
+![Prioritätselemente der IndexVC-Aktion](view-components/_static/indexvc.png)
 
-### <a name="specifying-a-view-name"></a>Einen Ansichtsnamen angeben
+### <a name="specifying-a-view-name"></a>Angeben eines Ansichtsnamens
 
-Eine komplexe Ansichtskomponente müssen möglicherweise eine nicht standardmäßige Ansicht unter bestimmten Umständen angeben. Der folgende Code zeigt, wie die Ansicht "PVC" aus der `InvokeAsync` Methode. Update der `InvokeAsync` Methode in der `PriorityListViewComponent` Klasse.
+Eine komplexe Ansichtskomponente erfordert möglicherweise, dass unter bestimmten Umständen eine Ansicht angegeben wird, die nicht dem Standard entspricht. Der folgende Code zeigt, wie die Ansicht „PVC“ von der `InvokeAsync`-Methode aus angegeben wird. Aktualisieren Sie die `InvokeAsync`-Methode in der `PriorityListViewComponent`-Klasse.
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
-Kopieren der *Views/Shared/Components/PriorityList/Default.cshtml* Datei in eine Ansicht mit dem Namen *Views/Shared/Components/PriorityList/PVC.cshtml*. Fügen Sie eine Überschrift, um anzugeben, dass die Sicht PVC verwendet wird.
+Kopieren Sie die Datei *Views/Shared/Components/PriorityList/Default.cshtml* in eine Ansicht mit dem Namen *Views/Shared/Components/PriorityList/PVC.cshtml*. Fügen Sie eine Überschrift hinzu, um anzugeben, dass die PVC-Ansicht verwendet wird.
 
 [!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
-Update *Views/TodoList/Index.cshtml*:
+Aktualisieren Sie *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-Führen Sie die app, und überprüfen Sie PVC anzeigen.
+Führen Sie die App aus und überprüfen Sie die PVC-Ansicht.
 
-![Priorität Ansichtskomponente](view-components/_static/pvc.png)
+![Ansichtskomponente mit Priorität](view-components/_static/pvc.png)
 
-Wenn die Sicht PVC nicht dargestellt wird, stellen Sie sicher, dass Sie die Ansichtskomponente mit einer Priorität von 4 oder höher aufrufen.
+Wenn die PVC-Ansicht nicht gerendert wird, stellen Sie sicher, dass Sie die Ansichtskomponente mit einer Priorität von 4 oder höher aufrufen.
 
-### <a name="examine-the-view-path"></a>Überprüfen Sie den Pfad anzeigen
+### <a name="examine-the-view-path"></a>Untersuchen des Ansichtspfads
 
-* Ändern Sie den Parameter Priorität auf drei oder weniger ein, damit die Priorität Sicht zurückgegeben wird.
-* Benennen Sie vorübergehend die *Views/Todo/Components/PriorityList/Default.cshtml* auf *1Default.cshtml*.
-* Testen der app, die Sie erhalten die folgende Fehlermeldung:
+* Ändern Sie den Prioritätsparameter in drei oder weniger, damit die Prioritätsansicht nicht zurückgegeben wird.
+* Benennen Sie *Views/Todo/Components/PriorityList/Default.cshtml* vorrübergehend in *1Default.cshtml* um.
+* Wenn Sie die App testen, erhalten Sie die folgende Fehlermeldung:
 
    ```
    An unhandled exception occurred while processing the request.
@@ -228,22 +228,22 @@ Wenn die Sicht PVC nicht dargestellt wird, stellen Sie sicher, dass Sie die Ansi
    EnsureSuccessful
    ```
 
-* Kopie *Views/Todo/Components/PriorityList/1Default.cshtml* auf *Views/Shared/Components/PriorityList/Default.cshtml*.
-* Einige Markup zum Hinzufügen der *Shared* Komponente Todo-Ansicht an, dass die Ansicht ist von der *Shared* Ordner.
-* Testen der **Shared** Komponentensicht.
+* Kopieren Sie *Views/Todo/Components/PriorityList/1Default.cshtml* nach *Views/Shared/Components/PriorityList/Default.cshtml*.
+* Fügen Sie der ToDo-Ansichtskomponentenansicht *Shared* (Freigegeben) Markup hinzu, um anzugeben, dass die Ansicht aus dem Ordner *Shared* stammt.
+* Testen Sie die Komponentenansicht **Shared** (Freigegeben).
 
-![TODO-Ausgabe mit der freigegebenen Komponente anzeigen](view-components/_static/shared.png)
+![ToDo-Ausgabe mit Komponentenansicht „Shared“](view-components/_static/shared.png)
 
-### <a name="avoiding-magic-strings"></a>Vermeiden von Magic-Zeichenfolgen
+### <a name="avoiding-magic-strings"></a>Vermeiden „magischer“ Zeichenfolgen
 
-Wenn Sie die Sicherheit kompilieren möchten, können Sie den Namen der Sicht hartcodierte Komponente mit dem Klassennamen ersetzen. Erstellen Sie die Komponente anzeigen, ohne das Suffix "ViewComponent":
+Wenn Sie Sicherheit zu Kompilierzeit haben möchten, können Sie den hart codierten Komponentennamen durch den Klassennamen ersetzen. Erstellen Sie die Ansichtskomponente ohne den Suffix „ViewComponent“:
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
-Hinzufügen einer `using` Anweisung, um Ihre Razor zeigen Sie an, und verwenden die `nameof` Operator:
+Fügen Sie eine `using`-Anweisung zu Ihrer Razor-Ansichtsdatei hinzu, und verwenden Sie den `nameof`-Operator:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Abhängigkeitsinjektion in Ansichten](dependency-injection.md)
+* [Abhängigkeitsinjektion in Ansichten](xref:mvc/views/dependency-injection)

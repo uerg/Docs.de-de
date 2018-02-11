@@ -1,78 +1,78 @@
 ---
-title: Hohe Leistung Protokollierung mit LoggerMessage in ASP.NET Core
+title: Hochleistungsprotokollierung mit LoggerMessage in ASP.NET Core
 author: guardrex
-description: "Erfahren Sie, wie LoggerMessage Funktionen zum Übertragen von zwischenspeicherbaren Delegaten zu erstellen, die müssen weniger objektzuweisungen als Erweiterungsmethoden für die Protokollierung für Protokollierungsszenarien mit hoher Leistung verwenden."
-ms.author: riande
+description: "Hier erfahren Sie, wie Sie LoggerMessage-Features verwenden, um Delegate zu erstellen, die zwischengespeichert werden können und die weniger Objektzuweisungen als Protokollierungserweiterungsmethoden für Hochleistungsprotokollierungen benötigen."
 manager: wpickett
+ms.author: riande
 ms.date: 11/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: defba75c6c9ea13d24af4cd8515d82d9e7cf9853
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Hohe Leistung Protokollierung mit LoggerMessage in ASP.NET Core
+# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Hochleistungsprotokollierung mit LoggerMessage in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) Funktionen erstellen zwischengespeichert werden Delegaten, in denen weniger objektzuweisungen und rechenleistung erfordern als reduziert [Protokollierung Erweiterungsmethoden](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), wie z. B. `LogInformation`, `LogDebug`, und `LogError`. Verwenden Sie für hohe Leistung Protokollierungsszenarien, die `LoggerMessage` Muster.
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage)-Features erstellen Delegate, die zwischengespeichert werden können und die im Vergleich zu [Protokollierungserweiterungsmethoden](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions) (wie z.B. `LogInformation`, `LogDebug` und `LogError`) weniger Objektzuweisungen benötigen und den Rechenaufwand reduzieren. Verwenden Sie das `LoggerMessage`-Muster für Hochleistungsprotokollierungen.
 
-`LoggerMessage`bietet die folgenden Leistungsvorteile über Erweiterungsmethoden für die Protokollierung:
+`LoggerMessage` hat im Vergleich zu Protokollierungserweiterungsmethoden die folgenden Vorzüge:
 
-* Erweiterungsmethoden für die Protokollierung erfordern "Boxing" (die Konvertierung von) Werttypen, wie z. B. `int`, in `object`. Die `LoggerMessage` Muster vermeidet Boxing mit statischen `Action` Felder und Erweiterungsmethoden, mit stark typisierten Parametern.
-* Erweiterungsmethoden für die Protokollierung müssen die Nachrichtenvorlage (benannte Formatzeichenfolge) analysieren, jedes Mal eine protokollmeldung geschrieben wird. `LoggerMessage`nur erfordert eine Vorlage einmal analysieren, wenn die Nachricht definiert ist.
+* Protokollierungserweiterungsmethoden erfordern das Konvertieren von Werttypen wie `int` in `object` (sogenanntes Boxing). Das `LoggerMessage`-Muster verhindert das Konvertieren mithilfe von statischen `Action`-Feldern und mithilfe von Erweiterungsmethoden mit stark typisierten Parametern.
+* Protokollierungserweiterungsmethoden müssen die Meldungsvorlagen (sogenannte Formatzeichenfolgen) jedes Mal analysieren, wenn eine Protokollmeldung geschrieben wird. `LoggerMessage` erfordert das Analysieren einer Vorlage nur einmal beim Festlegen der Meldung.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-Die Beispiel-app veranschaulicht `LoggerMessage` Funktionen mit einem einfachen Anführungszeichen Überwachungssystem. Die app hinzufügt und löscht Anführungszeichen, die unter Verwendung einer Datenbank im Arbeitsspeicher. Bei diesen Vorgängen auftreten, protokollmeldungen werden generiert, mit der `LoggerMessage` Muster.
+Die Beispiel-App veranschaulicht `LoggerMessage`-Features mit einem einfachen System zur Zitatnachverfolgung. Die App fügt Zitate hinzu und löscht diese mithilfe einer speicherinternen Datenbank. Während dieser Vorgänge werden Protokollmeldungen mit dem `LoggerMessage`-Muster erstellt.
 
 ## <a name="loggermessagedefine"></a>LoggerMessage.Define
 
-[Definieren von (LogLevel, EventId, String)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) erstellt eine `Action` delegate für eine Nachricht protokollieren. `Define`Überladungen ist die Übergabe von bis zu sechs Typparameter auf eine benannte Formatzeichenfolge (Vorlage) zulässig.
+[Define(LogLevel, EventId, String)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) erstellt einen `Action`-Delegaten zum Protokollieren von Meldungen. `Define` überlädt die Zulassung und übergibt bis zu sechs Typparameter an eine benannte Formatzeichenfolge (Vorlage).
 
 ## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
 
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) erstellt eine `Func` delegieren Sie zum Definieren einer [protokollieren Bereich](xref:fundamentals/logging/index#log-scopes). `DefineScope`Überladungen ist die Übergabe von bis zu drei Parameter auf eine benannte Formatzeichenfolge (Vorlage) zulässig.
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) erstellt einen `Func`-Delegaten zum Definieren eines [Protokollbereichs](xref:fundamentals/logging/index#log-scopes). `DefineScope` überlädt die Zulassung und übergibt bis zu drei Typparameter an eine benannte Formatzeichenfolge (Vorlage).
 
-## <a name="message-template-named-format-string"></a>Nachrichtenvorlage (mit dem Namen Formatzeichenfolge)
+## <a name="message-template-named-format-string"></a>Meldungsvorlage (benannte Formatzeichenfolge)
 
-Die Zeichenfolge bereitgestellt, um die `Define` und `DefineScope` Methoden ist eine Vorlage und nicht für eine interpolierte Zeichenfolge. Platzhalter werden in der Reihenfolge gefüllt, dass die Typen angegeben werden. Platzhalternamen in der Vorlage sollte in Vorlagen beschreibende und konsistent sein. Sie dienen als Eigenschaftsnamen in strukturierten Protokolldaten. Wir empfehlen [Pascal Schreibweise](/dotnet/standard/design-guidelines/capitalization-conventions) für Platzhalternamen. Beispielsweise `{Count}`, `{FirstName}`.
+Die für die Methoden `Define` und `DefineScope` bereitgestellte Zeichenfolge ist eine Vorlage und keine interpolierte Zeichenfolge. Platzhalter werden in der Reihenfolge der angegebenen Typen ersetzt. Die Platzhalternamen in den Vorlagen sollten eindeutig und in allen Vorlagen einheitlich sein. Sie fungieren als Eigenschaftennamen in strukturierten Protokolldaten. Es wird empfohlen, für Platzhalternamen die [Pascal-Schreibweise](/dotnet/standard/design-guidelines/capitalization-conventions) zu verwenden. Platzhalter in einer derartigen Schreibweise sind z.B. `{Count}` und `{FirstName}`.
 
 ## <a name="implementing-loggermessagedefine"></a>Implementieren von LoggerMessage.Define
 
-Jede Nachricht Protokoll ist ein `Action` frei, die in einem statischen Feld erstellt, indem `LoggerMessage.Define`. Die Beispiel-app erstellt z. B. ein Feld, um eine protokollmeldung für eine GET-Anforderung für die Indexseite beschreiben (*Internal/LoggerExtensions.cs*):
+Jede Protokollmeldung ist ein `Action`-Objekt, das in einem von `LoggerMessage.Define` erstellten statischen Feld enthalten ist. Beispiel: Die Beispiel-App erstellt ein Feld, das eine Protokollmeldung für eine GET-Anforderung für die Indexseite beschreibt (*Internal/LoggerExtensions.cs*):
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
-Für die `Action`, angeben:
+Geben Sie für das `Action`-Objekt Folgendes an:
 
-* Die Protokollebene.
-* Ein eindeutiger Bezeichner ([EventId](/dotnet/api/microsoft.extensions.logging.eventid)) mit dem Namen der statischen Erweiterungsmethode.
-* Die Message-Vorlage (mit dem Namen Formatzeichenfolge). 
+* die Protokollierungsebene
+* eine eindeutige Ereignis-ID ([EventId](/dotnet/api/microsoft.extensions.logging.eventid)) mit dem Namen der statischen Erweiterungsmethode
+* die Meldungsvorlage (eine benannte Formatzeichenfolge) 
 
-Eine Anforderung für die Indexseite, der im Beispiel-app wird die:
+Eine Anforderung der Indexseite der Beispiel-App legt Folgendes fest:
 
-* Die Protokollebene auf `Information`.
-* Ereignis-Id für `1` durch den Namen der `IndexPageRequested` Methode.
-* Nachrichtenvorlage (mit dem Namen Formatzeichenfolge) in eine Zeichenfolge.
+* Die Protokollierungsebene ist `Information`.
+* Die Ereignis-ID ist `1` mit dem Namen der `IndexPageRequested`-Methode.
+* Die Meldungsvorlage (eine benannte Formatzeichenfolge) ist eine Zeichenfolge.
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
-Speichert strukturierte Protokollierung können den Namen des Ereignisses verwenden, wenn sie mit der Ereignis-Id für die Protokollierung anzureichern bereitgestellt wird. Beispielsweise [Serilog](https://github.com/serilog/serilog-extensions-logging) verwendet den Namen des Ereignisses.
+Strukturierte Protokollspeicher verwenden möglicherweise den Ereignisnamen wenn dieser mit der Ereignis-ID bereitgestellt wird. Dadurch wird die Protokollierung ergänzt. [Serilog](https://github.com/serilog/serilog-extensions-logging) verwendet z.B. den Ereignisnamen.
 
-Die `Action` wird durch eine stark typisierte Erweiterungsmethode aufgerufen. Die `IndexPageRequested` -Methode protokolliert eine Meldung für die GET-Anforderung eine Index-Seite in der Beispiel-app:
+Das `Action`-Objekt wird mit einer stark typisierten Erweiterungsmethode aufgerufen. Die `IndexPageRequested`-Methode protokolliert eine Meldung für eine GET-Anforderung der Indexseite in der Beispiel-App:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
-`IndexPageRequested`wird aufgerufen, für die Protokollierung in die `OnGetAsync` Methode im *Pages/Index.cshtml.cs*:
+`IndexPageRequested` wird in der Protokollierung in der `OnGetAsync`-Methode in *Pages/Index.cshtml.cs* aufgerufen:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
-Überprüfen Sie die app-Konsolenausgabe:
+Sehen Sie sich folgende Konsolenausgabe der App an:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[1]
@@ -80,23 +80,23 @@ info: LoggerMessageSample.Pages.IndexModel[1]
       GET request for Index page
 ```
 
-Zum Übergeben von Parametern zu einer protokollmeldung, können definieren Sie bis zu sechs Typen, wenn das statische Feld zu erstellen. Die Beispiel-app protokolliert eine Zeichenfolge beim Hinzufügen eines Angebots durch Definieren einer `string` Geben Sie für die `Action` Feld:
+Definieren Sie bis zu sechs Typen, wenn Sie das statische Feld erstellen, um Parameter an eine Protokollmeldung zu übergeben. Die Beispiel-App protokolliert eine Zeichenfolge beim Hinzufügen eines Zitats durch die Definition eines `string`-Typs für das `Action`-Feld:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
-Der Delegat Protokoll Nachrichtenvorlage empfängt die Platzhalterwerte von bereitgestellten Typen. Die Beispiel-app definiert einen Delegaten für das Hinzufügen eines Angebots, in dem der Angebots-Parameter ist, ein `string`:
+Die Protokollmeldungsvorlage des Delegaten erhält ihre Platzhalterwerte von den bereitgestellten Typen. Die Beispiel-App definiert einen Delegaten zu Hinzufügen eines Zitats, wo der Zitatparameter ein `string`-Objekt ist:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
-Die statische Erweiterungsmethode zum Hinzufügen eines Angebots `QuoteAdded`, empfängt den Argumentwert Angebot und übergibt es an die `Action` delegieren:
+`QuoteAdded`, die statische Erweiterungsmethode zum Hinzufügen von Zitaten, erhält den Wert des Zitatarguments und übergibt diesen an den `Action`-Delegaten:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
-In der Indexseite Code-Behind-Datei (*Pages/Index.cshtml.cs*), `QuoteAdded` wird aufgerufen, um die Protokollierung der Meldung:
+Im Seitenmodell der Indexseite (*Pages/Index.cshtml.cs*) wird `QuoteAdded` aufgerufen, um die Meldung zu protokollieren:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
-Überprüfen Sie die app-Konsolenausgabe:
+Sehen Sie sich folgende Konsolenausgabe der App an:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[2]
@@ -104,21 +104,21 @@ info: LoggerMessageSample.Pages.IndexModel[2]
       Quote added (Quote = 'You can avoid reality, but you cannot avoid the consequences of avoiding reality. - Ayn Rand')
 ```
 
-Implementiert die Beispiel-app eine `try` &ndash; `catch` Muster zum Angebot löschen. Für eine erfolgreiche Löschvorgang ist eine informative Meldung protokolliert. Für einen Löschvorgang an wird eine Fehlermeldung protokolliert, wenn eine Ausnahme ausgelöst wird. Die protokollmeldung für den fehlgeschlagenen Vorgang löschen enthält die stapelüberwachung der Ausnahme (*Internal/LoggerExtensions.cs*):
+Die Beispiel-App implementiert ein `try`&ndash;`catch`-Muster zum Löschen von Zitaten. Es wird eine Meldung protokolliert, die angibt, dass der Löschvorgang erfolgreich war. Es wird eine Fehlermeldung protokolliert, die angibt, dass bei einem Löschvorgang eine Ausnahme ausgelöst wurde. Die Protokollmeldung für den fehlgeschlagenen Löschvorgang enthält die Ausnahmenprotokollnachverfolgung (*Internal/LoggerExtensions.cs*):
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
-Beachten Sie, wie die Ausnahme übergeben wird, an den Delegaten in `QuoteDeleteFailed`:
+Beachten Sie, wie die Ausnahme an den Delegaten in `QuoteDeleteFailed` übergeben wird:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
-In den Index Seite Code-Behind, Löschvorgang erfolgreich Angebot Ruft die `QuoteDeleted` Methode für die Protokollierung. Wenn ein Angebot zum Löschen, nicht gefunden wird eine `ArgumentNullException` ausgelöst wird. Die Ausnahme abgefangen wird, durch die `try` &ndash; `catch` Anweisung und protokolliert Sie durch Aufrufen der `QuoteDeleteFailed` Methode für die Protokollierung in die `catch` Block (*Pages/Index.cshtml.cs*):
+Im Seitenmodell für die Indexseite ruft ein erfolgreicher Zitatlöschvorgang die `QuoteDeleted`-Methode in der Protokollierung auf: Wenn kein zu löschendes Zitat gefunden wird, wir eine `ArgumentNullException` ausgelöst. Die Ausnahme wird von der `try`&ndash;`catch`-Anweisung aufgefangen und durch einen Aufruf der `QuoteDeleteFailed`-Methode in der Protokollierung im `catch`-Block protokolliert (*Pages/Index.cshtml.cs*).
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
-Wenn ein Angebot wurde erfolgreich gelöscht wird, überprüfen Sie die app-Konsolenausgabe:
+Wenn ein Zitat erfolgreich gelöscht wurde, sehen Sie sich die Konsolenausgabe der App an:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]
@@ -126,7 +126,7 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'You can avoid reality, but you cannot avoid the consequences of avoiding reality. - Ayn Rand' Id = 1)
 ```
 
-Beim Angebot löschen ein Fehler auftritt, überprüfen Sie die app-Konsolenausgabe. Beachten Sie, dass die Ausnahme in der Protokoll-Nachricht enthalten ist:
+Wenn der Zitatlöschvorgang fehlschlägt, sehen Sie sich die Konsolenausgabe der App an. Beachten Sie, dass die Ausnahme in der Protokollmeldung beinhaltet ist:
 
 ```console
 fail: LoggerMessageSample.Pages.IndexModel[5]
@@ -143,35 +143,35 @@ Parameter name: entity
 
 ## <a name="implementing-loggermessagedefinescope"></a>Implementieren von LoggerMessage.DefineScope
 
-Definieren einer [protokollieren Bereich](xref:fundamentals/logging/index#log-scopes) anwenden auf eine Reihe von protokollmeldungen, die mit der [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) Methode.
+Definieren Sie einen [Protokollbereich](xref:fundamentals/logging/index#log-scopes), um mehrere Protokollmeldungen mit der [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope)-Methode anzuwenden.
 
-Die Beispiel-app hat einen **alle löschen** Schaltfläche für alle Anführungszeichen in der Datenbank zu löschen. Die Anführungszeichen werden gelöscht, indem Sie sie entfernen eine zu einem Zeitpunkt. Jedes Mal ein Angebot gelöscht wird, die `QuoteDeleted` Methode für die Protokollierung aufgerufen wird. Diese protokollmeldungen wird ein Protokoll-Bereich hinzugefügt.
+Die Beispiel-App verfügt über die Schaltfläche **Clear all** (Alles löschen) zum Löschen aller Zitate in der Datenbank. Die Zitate werden nacheinander entfernt und gelöscht. Bei jedem Zitatlöschvorgang wird die `QuoteDeleted`-Methode in der Protokollierung aufgerufen. Diesen Protokollmeldung wird ein Protokollbereich hinzugefügt.
 
-Aktivieren Sie `IncludeScopes` in die Konsole Logger-Optionen:
+Aktivieren Sie `IncludeScopes` in den Optionen der Konsolenprotokollierung:
 
 [!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
 
-Festlegen von `IncludeScopes` Protokoll Bereiche Aktivierung in ASP.NET Core 2.0-apps erforderlich ist. Festlegen von `IncludeScopes` über *"appSettings"* Konfigurationsdateien ist ein Feature, das für die Version 2.1 von ASP.NET Core geplant hat.
+In ASP.NET Core 2.0-Apps ist das Festlegen von `IncludeScopes` erforderlich, um Protokollbereich zu ermöglichen. Im Release ASP.NET Core 2.1 soll ein Feature zum Festlegen von `IncludeScopes` über *appsettings*-Konfigurationsdateien beinhaltet sein.
 
-Die Beispiel-app löscht von anderen Anbietern und fügt Filter, um die Protokollausgabe zu reduzieren. Dies erleichtert es, des Beispiels protokollmeldungen, die veranschaulichen, finden Sie unter `LoggerMessage` Funktionen.
+Die Beispiel-App löscht andere Anbieter und fügt Filter zum Minimieren der Protokollausgabe hinzu. So können Sie die Protokollmeldungen der Beispiel-App leichter sehen, die `LoggerMessage`-Features veranschaulichen.
 
-Um einen Bereich des Protokolls zu erstellen, fügen Sie ein Feld zum Speichern einer `Func` für den Bereich zu delegieren. Die Beispiel-app erstellt, ein Feld namens `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
+Fügen Sie zum Erstellen eines Protokollbereichs ein Feld hinzu, dass einen `Func`-Delegaten für den Bereich enthält. Die Beispiel-App erstellt ein Feld mit dem Namen `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
-Verwendung `DefineScope` an den Delegaten zu erstellen. Bis zu drei Typen können angegeben werden für die Verwendung als Vorlagenargumente beim Aufrufen des Delegaten. Die Beispiel-app verwendet eine Nachrichtenvorlage, die die Anzahl der gelöschten Anführungszeichen enthält (eine `int` Typ):
+Verwenden Sie `DefineScope` zum Erstellen eines Delegaten. Sie können bis zu drei Typen als Vorlagenargumente festlegen, die verwendet werden können, wenn der Delegat aufgerufen wird. Die Beispiel-App verwendet eine Meldungsvorlage, die die Anzahl der gelöschten Zitate enthält (ein `int`-Typ):
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
-Geben Sie eine statische Erweiterungsmethode für die protokollmeldung. Schließen Sie Typparameter für den benannten Eigenschaften, die in der Meldungsvorlage ein Die Beispiel-app nimmt eine `count` Anführungszeichen löschen und gibt `_allQuotesDeletedScope`:
+Stellen Sie eine statische Erweiterungsmethode für die Protokollmeldung bereit. Beziehen Sie Typparameter für benannte Eigenschaften mit ein, die in der Meldungsvorlage vorhanden sind. Die Beispiel-App erstellt ein `count` der zu löschenden Zitate und gibt `_allQuotesDeletedScope` zurück:
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
-Der Bereich umschließt, die die Erweiterung für die Protokollierung von in Aufrufen eine `using` blockieren:
+Der Bereich umschließt die Protokollerweiterungsaufrufe in einem `using`-Block:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
-Überprüfen Sie die protokollmeldungen in die app-Konsolenausgabe an. Das folgende Ergebnis zeigt drei Angebote, die mit dem die protokollmeldung zum Bereich enthalten gelöscht:
+Sehen Sie sich die Protokollmeldungen in der Konsolenausgabe der App an. Das folgende Ergebnis zeigt drei gelöschte Zitate sowie die Protokollbereichsmeldung:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]

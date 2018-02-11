@@ -1,61 +1,61 @@
 ---
-title: Bild-Tag-Hilfsprogramm | Microsoft Docs
+title: Image-Taghilfsprogramm in ASP.NET Core
 author: pkellner
-description: Veranschaulicht das Arbeiten mit Images Tag Helper
-ms.author: riande
+description: Veranschaulicht die Arbeit mit dem Image-Taghilfsprogramm
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: d0857e1926c341b2357bc824fa379c4fc30affbc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 75bddd01a95f3ae0b1ea19de0eb64ad3b9066319
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="imagetaghelper"></a>ImageTagHelper
 
 Von [Peter Kellner](http://peterkellner.net) 
 
-Das Image-Tag-Hilfsobjekt verbessert die `img` (`<img>`) Tag. Erfordert eine `src` Tag als auch die `boolean` Attribut `asp-append-version`.
+Das Image-Taghilfsprogramm verbessert den Tag `img` (`<img>`). Es benötigt den Tag `src` und das `boolean`-Attribut `asp-append-version`.
 
-Wenn die Bildquelle (`src`) ist eine statische Datei auf dem Host-Webserver, ein eindeutiger Cache Abwehrprogramm Zeichenfolge als Abfrageparameter an die Bildquelle angefügt ist. Dadurch wird sichergestellt, dass wenn die Datei auf dem Webserver des Hosts geändert wird, eine eindeutige Anforderungs-URL generiert wird, die die aktualisierte Anforderungsparameter enthält. Der Cache Abwehrprogramm Zeichenfolge ist ein eindeutiger Wert, der den Hash der Datei statisches Bild darstellt.
+Wenn die Bildquelle (`src`) eine statische Datei auf dem Hostwebserver ist, wird der Bildquelle eine eindeutige Cache-Busting-Zeichenfolge als Abfrageparameter angefügt. Dadurch wird eine eindeutige Anforderungs-URL erstellt, die den aktualisierten Anforderungsparameter enthält, wenn die Datei auf dem Hostwebserver geändert wird. Die Cache-Busting-Zeichenfolge ist ein eindeutiger Wert, der den Hash der statischen Bilddatei darstellt.
 
-Wenn die Bildquelle (`src`) ist, eine statische Datei (z. B. eine remote-URL oder die Datei existiert nicht auf dem Server), die `<img>` des Tags `src` Attribut ohne Cache Abwehrprogramm Abfragezeichenfolgen-Parameters generiert wird.
+Wenn die Bildquelle (`src`) keine statische Datei ist (z.B. eine Remote-URL oder die Datei ist auf dem Server nicht vorhanden), wird das Attribut `src` des Tags `<img>` ohne einen Cache-Busting-Abfragezeichenfolgenparameter erstellt.
 
-## <a name="image-tag-helper-attributes"></a>Bildattributen Tag-Hilfsprogramm
+## <a name="image-tag-helper-attributes"></a>Attribute von Image-Taghilfsprogrammen
 
 
 ### <a name="asp-append-version"></a>asp-append-version
 
-Wenn zusammen mit angegebenen ein `src` -Attribut, das Image-Tag-Hilfsprogramm wird aufgerufen.
+Wenn das Attribut `src` zusätzlich angegeben wird, wird das Image-Taghilfsprogramm aufgerufen.
 
-Ein Beispiel einer gültigen `img` Tag Helper ist:
+Das folgende Beispiel zeigt ein gültiges `img`-Taghilfsprogramm:
 
 ```cshtml
 <img src="~/images/asplogo.png" 
     asp-append-version="true"  />
 ```
 
-Eine statische Datei im Verzeichnis vorhanden *... wwwroot/Images/asplogo.PNG* die generierte HTML-Code ist ähnlich der folgenden (der Hash wird abweichen):
+Wenn die statische Datei im Verzeichnis *..wwwroot/images/asplogo.png* vorhanden ist, ähnelt der erstellte HTML-Code folgendem (der Hash wird abweichen):
 
 ```html
 <img 
     src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM"/>
 ```
 
-Der Wert, der dem Parameter zugewiesen `v` wird der Hashwert der Datei auf dem Datenträger. Ist der Webserver konnte nicht abgerufen werden Lesezugriff auf die statische Datei auf die verwiesen wird, keine `v` Parameter hinzugefügt wird die `src` Attribut.
+Der Wert, der dem Parameter `v` zugewiesen ist, ist der Hashwert der Datei auf dem Datenträger. Wenn der Webserver den Lesezugriff auf die statische Datei, auf die verwiesen wird, nicht erhalten kann, werden keine `v`-Parameter dem Attribut `src` zugefügt.
 
 - - -
 
 ### <a name="src"></a>src
 
-Um das Image-Tag-Hilfsprogramm zu aktivieren, muss das Src-Attribut auf die `<img>` Element. 
+Das src-Attribut wird auf dem Element `<img>` benötigt, um das Image-Taghilfsprogramm zu aktivieren. 
 
 > [!NOTE]
-> Das Image-Tag-Hilfsprogramm verwendet die `Cache` Anbieter auf dem lokalen Webserver zum Speichern der berechneten `Sha512` einer angegebenen Datei. Wenn die Datei erneut angefordert wird die `Sha512` nicht neu berechnet werden. Der Cache wird durch einen Dateimonitor für die, die an die Datei angehängt ist ungültig Wenn der Datei `Sha512` berechnet wird.
+> Das Image-Taghilfsprogramm verwendet den `Cache`-Anbieter auf dem lokalen Webserver zum Speichern der berechneten `Sha512` einer angegebenen Datei. Wenn die Datei erneut angefordert wird, muss `Sha512` nicht neu berechnet werden. Der Cache wird durch einen Datei-Watcher ungültig gemacht, der an die Datei angefügt wird, wenn `Sha512` der Datei berechnet wird.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

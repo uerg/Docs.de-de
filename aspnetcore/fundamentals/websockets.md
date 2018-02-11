@@ -1,105 +1,105 @@
 ---
 title: "WebSockets-Unterstützung in ASP.NET Core"
 author: tdykstra
-description: Informationen Sie zum Einstieg in ASP.NET Core WebSockets.
-ms.author: tdykstra
+description: Erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen.
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: 6f335376c72cd0c68f4667cf0e661a25bf448980
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 306eca28b9f1f66e1ccaf185ccae87db8dea1b01
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-websockets-in-aspnet-core"></a>Einführung in ASP.NET Core WebSockets
+# <a name="introduction-to-websockets-in-aspnet-core"></a>Einführung in WebSockets in ASP.NET Core
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Andrew Stanton-Versicherungsfachleuten](https://github.com/anurse)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Andrew Stanton-Nurse](https://github.com/anurse)
 
-In diesem Artikel erläutert, wie zum Einstieg in WebSockets in ASP.NET Core. Bei [WebSockets](https://wikipedia.org/wiki/WebSocket) handelt es sich um ein Protokoll, das bidirektionale persistente Kommunikationskanäle über TCP-Verbindungen ermöglicht. Es wird für Anwendungen wie beispielsweise Chat, Börsenticker, Spiele, an einer beliebigen Stelle Funktionen in einer Webanwendung in Echtzeit angezeigt werden sollen.
+In diesem Artikel erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen. Bei [WebSockets](https://wikipedia.org/wiki/WebSocket) handelt es sich um ein Protokoll, das bidirektionale persistente Kommunikationskanäle über TCP-Verbindungen ermöglicht. Es wird in Chat-, Börsenticker- und Spiele-Apps verwendet – überall dort, wo Echtzeitfunktionen in einer Web-App benötigt werden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample)). Finden Sie unter der [Arbeitsschritte](#next-steps) Abschnitt, um weitere Informationen.
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)). Weitere Informationen finden Sie im Abschnitt [Nächste Schritte](#next-steps).
 
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-* ASP.NET Core 1.1 (nicht auf 1.0 ausgeführt)
-* Ein Betriebssystem, das auf ASP.NET Core ausgeführt wird:
+* ASP.NET Core 1.1 (kann nicht in 1.0 ausgeführt werden)
+* Jedes Betriebssystem, unter dem ASP.NET Core ausgeführt wird:
   
-  * Windows 7 / WindowsServer 2008 und höher
+  * Windows 7/Windows Server 2008 und höher
   * Linux
   * macOS
 
-* **Ausnahme**: Wenn Ihre app unter Windows mit IIS ausgeführt wird, oder Sie müssen mit WebListener, verwenden:
+* **Ausnahme:** Wenn Ihre App unter Windows mit IIS oder mit WebListener ausgeführt wird, müssen Sie Folgendes verwenden:
 
-  * Windows 8 / WindowsServer 2012 oder höher
-  * IIS 8 / Express IIS 8
-  * WebSocket muss in IIS aktiviert sein
+  * Windows 8/Windows Server 2012 und höher
+  * IIS 8/IIS 8 Express
+  * WebSocket muss in IIS aktiviert werden.
 
-* Unterstützten Browsern finden Sie unter http://caniuse.com/#feat=websockets.
+* Informationen zu unterstützten Browsern finden Sie unter http://caniuse.com/#feat=websockets.
 
 ## <a name="when-to-use-it"></a>Empfohlene Verwendung
 
-WebSockets zu verwenden, wenn Sie direkt mit einer Socketverbindung arbeiten müssen. Beispielsweise benötigen Sie möglicherweise die bestmögliche Leistung für ein Spiel in Echtzeit.
+Verwenden Sie WebSockets, wenn Sie direkt mit einer Socketverbindung arbeiten müssen. Für ein Echtzeitspiel benötigen Sie z.B. die höchste Leistung.
 
-[ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) bietet eine umfangreichere Anwendungsmodell für Echtzeit-Funktionalität, sondern nur auf ASP.NET, nicht ASP.NET Core ausgeführt wird. Eine Version des SignalR Core ist in der Entwicklung. um den Fortschritt folgen zu können, finden Sie unter der [GitHub-Repository für SignalR Core](https://github.com/aspnet/SignalR).
+[ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) stellt ein erweitertes Anwendungsmodell für Echtzeitfunktionen bereit, aber es kann nur in ASP.NET und nicht in ASP.NET Core ausgeführt werden. Im Moment wird an der Entwicklung einer Core-Version von SignalR gearbeitet. Im [GitHub-Repository für SignalR Core](https://github.com/aspnet/SignalR) können Sie sich den Fortschritt ansehen.
 
-Wenn Sie nicht für SignalR Core warten möchten, können Sie WebSockets direkt jetzt verwenden. Aber möglicherweise müssen Sie Funktionen zu entwickeln, die SignalR, z. B. bieten würden:
+Wenn Sie nicht auf SignalR warten möchten, können Sie jetzt direkt WebSockets verwenden. Möglicherweise müssen Sie jedoch Features entwickeln, die ansonsten von SignalR bereitgestellt würden. Dazu gehören z.B.:
 
-* Unterstützung für eine breitere Palette von Browserversionen Automatisches Fallback auf alternativen Transportmethoden mit.
-* Automatische erneute Verbindung, wenn eine Verbindung gelöscht.
-* Unterstützung für Clients Aufrufen von Methoden, die auf dem Server oder umgekehrt.
-* Unterstützung für die Skalierung auf mehreren Servern.
+* Unterstützung für eine größere Zahl an unterschiedlichen Browserversionen, indem Sie ein automatisches Fallback auf alternative Transportmethoden einsetzen
+* Der automatische Aufbau einer neuen Verbindung, wenn die Verbindung unterbrochen wurde
+* Unterstützung für das Aufrufen von Methoden auf dem Server durch Clients bzw. andersherum
+* Unterstützung für die Skalierung auf mehrere Server
 
 ## <a name="how-to-use-it"></a>Verwendungsweise
 
-* Installieren der [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) Paket.
+* Installieren Sie das Paket [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/).
 * Konfigurieren Sie die Middleware.
-* Akzeptieren Sie WebSocket-Anforderungen.
-* Senden und Empfangen von Nachrichten.
+* Akzeptieren Sie Anforderungen von WebSocket.
+* Senden Sie Nachrichten, und empfangen Sie diese.
 
-### <a name="configure-the-middleware"></a>Konfigurieren Sie die middleware
+### <a name="configure-the-middleware"></a>Konfigurieren der Middleware
 
-Fügen Sie die WebSockets-Middleware in der `Configure` Methode der `Startup` Klasse.
+Fügen Sie die WebSockets-Middleware in der `Configure`-Methode der `Startup`-Klasse hinzu.
 
 [!code-csharp[](websockets/sample/Startup.cs?name=UseWebSockets)]
 
-Die folgenden Einstellungen können konfiguriert werden:
+Sie können die folgenden Einstellungen konfigurieren:
 
-* `KeepAliveInterval`– Wie häufig gesendet "Ping" Frames an den Client, um sicherzustellen, dass Proxys die Verbindung geöffnet lassen.
-* `ReceiveBufferSize`– Die Größe des Puffers zum Empfangen von Daten verwendet werden soll. Nur erfahrene Benutzer müssen für die leistungsoptimierung ändern, basierend auf der Größe ihrer Daten.
+* `KeepAliveInterval`: Legt fest, wie oft „Ping“-Frames an den Client gesendet werden, um sicherzustellen, dass Proxys die Verbindung aufrechterhalten
+* `ReceiveBufferSize`: Legt die Größe des Puffers fest, der zum Empfang von Daten verwendet wird Nur fortgeschrittene Benutzer müssen diese Angaben ändern, um die Leistung auf Grundlage der Größe ihrer Daten anzupassen.
 
 [!code-csharp[](websockets/sample/Startup.cs?name=UseWebSocketsOptions)]
 
-### <a name="accept-websocket-requests"></a>Akzeptieren der WebSocket-Anforderungen
+### <a name="accept-websocket-requests"></a>Akzeptieren der Anforderungen von WebSocket
 
-Einem späteren Zeitpunkt im Lebenszyklus Anforderung (weiter unten in der `Configure` Methode oder in einer MVC-Aktion, z. B.) überprüfen Sie, ob es sich um eine websocketanforderung ist, und akzeptieren die WebSocket-Anforderung.
+Prüfen Sie zu einem späteren Zeitpunkt im Lebenszyklus einer Anforderung (z.B. später in der `Configure`-Methode oder in einer MVC-Aktion), ob es sich um eine WebSocket-Anforderung handelt, und akzeptieren Sie diese.
 
-Dieses Beispiel stammt aus einem späteren Zeitpunkt in der `Configure` Methode.
+Dieses Beispiel ist ein späterer Auszug der `Configure`-Methode.
 
 [!code-csharp[](websockets/sample/Startup.cs?name=AcceptWebSocket&highlight=7)]
 
-Eine websocketanforderung konnte stammen, auf eine beliebige URL, aber in diesem Beispielcode akzeptiert nur Anforderungen für `/ws`.
+WebSocket-Anforderungen können bei jeder URL eingehen. Dieser Beispielcode akzeptiert jedoch nur Anforderungen für `/ws`.
 
 ### <a name="send-and-receive-messages"></a>Senden und Empfangen von Nachrichten
 
-Die `AcceptWebSocketAsync` Methode aktualisiert die TCP-Verbindung, um eine WebSocket-Verbindung, und bietet Ihnen eine [WebSocket](https://docs.microsoft.com/dotnet/core/api/system.net.websockets.websocket) Objekt. Verwenden Sie das WebSocket-Objekt zum Senden und Empfangen von Nachrichten.
+Die `AcceptWebSocketAsync`-Methode ändert die TCP-Verbindung in eine WebSocket-Verbindung, und gibt Ihnen ein [WebSocket](https://docs.microsoft.com/dotnet/core/api/system.net.websockets.websocket)-Objekt. Verwenden Sie das WebSocket-Objekt, um Nachrichten zu senden und zu empfangen.
 
-Übergibt, akzeptiert die WebSocket-Anforderung den zuvor aufgeführten Code die `WebSocket` -Objekt an eine `Echo` Methode; hier ist die `Echo` Methode. Der Code empfängt eine Nachricht und die gleiche Nachricht sofort sendet. Es bleibt in einer Schleife, die auf diese Weise bis der Client die Verbindung geschlossen wird. 
+Der weiter oben gezeigte Code, der WebSocket-Anforderungen akzeptiert, übergibt das `WebSocket`-Objekt an eine `Echo`-Methode. Hier sehen Sie die `Echo`-Methode. Der Code empfängt eine Nachricht und sendet diese umgehend wieder zurück. Diese Schleife bleibt bestehen, bis die Verbindung des Clients unterbrochen wird. 
 
 [!code-csharp[](websockets/sample/Startup.cs?name=Echo)]
 
-Wenn Sie die WebSocket vor Beginn dieser Schleife annehmen, endet die middlewarepipeline.  Beim Schließen des Sockets an, die entlädt der Pipelines aus. D. h. würde der Anforderung beendet wird, die in der Pipeline Hostdaten, wenn Sie annehmen, dass ein WebSocket, genau wie bei eine MVC-Aktion, z. B. erreichen.  Aber wenn Sie diese Schleife beendet, und den Socket schließt, wird die Anforderung sichern Sie die Pipeline fortgesetzt.
+Wenn Sie das Websocket vor Beginn dieser Schleife akzeptieren, endet die Middlewarepipeline.  Wenn Sie das Socket schließen, wird die Pipeline entladen. Das bedeutet, dass die Anforderung die Pipeline nicht weiter durchläuft, wenn Sie ein Websocket akzeptieren, genauso als wenn Sie auf eine MVC-Aktion treffen.  Wenn Sie diese Schleife beenden und das Socket schließen, durchläuft die Anforderung die Pipeline in umgekehrter Reihenfolge.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Die [beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) , die begleitet dieser Artikel ist eine einfache Echo-Anwendung. Es wurde eine Webseite, die WebSocket-Verbindungen herstellt, und der Server sendet nur an den Client alle empfangenen Nachrichten. Führen Sie es über eine Eingabeaufforderung (es hat nicht Einrichten von Visual Studio mit IIS Express ausgeführt), und navigieren Sie zu http://localhost: 5000. Die Webseite zeigt den Verbindungsstatus auf der linken oberen Ecke:
+Die [Beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample), die diesen Artikel begleitet, ist eine einfache Echoanwendung. Sie verfügt über eine Webseite, die WebSocket-Verbindungen herstellt. Der Server schickt alle empfangenen Nachrichten zurück an den Client. Führen Sie sie über eine Eingabeaufforderung aus (es ist nicht darauf ausgelegt, von Visual Studio mit IIS Express ausgeführt zu werden), und navigieren Sie zu https://localhost:5000. Die Webseite zeigt den Verbindungsstatus in der oberen linken Ecke an:
 
-![Anfangszustand der Webseite](websockets/_static/start.png)
+![Erster Zustand der Webseite](websockets/_static/start.png)
 
-Wählen Sie **verbinden** um eine websocketanforderung an die gezeigte URL senden.  Geben Sie eine Testnachricht, und wählen Sie **senden**. Aus und klicken Sie **schließen Socket**. Die **Kommunikation Protokoll** Abschnitt meldet jede öffnen, senden und schließen sie die Aktion durchgeführt.
+Klicken Sie auf **Connect** (Verbinden), um eine WebSocket-Anforderung an die gezeigte URL zu senden.  Geben Sie einen Testtext ein, und klicken Sie auf **Send** (Senden). Wenn dies abgeschlossen ist, klicken Sie auf **Close Socket** (Socket schließen). Der Abschnitt **Kommunikationsprotokoll** meldet jede open-, send- und close-Aktion, wenn diese durchgeführt wird.
 
-![Anfangszustand der Webseite](websockets/_static/end.png)
+![Erster Zustand der Webseite](websockets/_static/end.png)

@@ -1,79 +1,77 @@
 ---
-title: Anfordern von Funktionen in ASP.NET Core
+title: Anforderungsfeatures in ASP.NET Core
 author: ardalis
-description: "Informationen Sie zur Web-Server-Implementierungsdetails, die im Zusammenhang mit HTTP-Anforderungen und Antworten, die in Schnittstellen für ASP.NET Core definiert sind."
-ms.author: riande
+description: Erfahren Sie mehr zur Webserverimplementierung, die mit HTTP-Anforderungen und -antworten in Verbindung stehen, die in Schnittstellen definiert werden.
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: c79ad6001e106a3e3104b0f804a386fe8b0ee30a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="request-features-in-aspnet-core"></a>Anfordern von Funktionen in ASP.NET Core
+# <a name="request-features-in-aspnet-core"></a>Anforderungsfeatures in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-Ausführliche Informationen zur Webserverimplementierung, die mit HTTP-Anforderungen und -antworten in Verbindung stehen, werden in Schnittstellen definiert. Diese Schnittstellen werden von serverimplementierungen und Middleware verwendet, hosting-Pipeline der Anwendung zu erstellen.
+Ausführliche Informationen zur Webserverimplementierung, die mit HTTP-Anforderungen und -antworten in Verbindung stehen, werden in Schnittstellen definiert. Diese Schnittstellen werden von Serverimplementierungen und Middleware verwendet, um die Hostingpipeline der App zu erstellen und anzupassen.
 
-## <a name="feature-interfaces"></a>Feature-Schnittstellen
+## <a name="feature-interfaces"></a>Featureschnittstellen
 
-ASP.NET Core definiert eine Reihe von HTTP-Funktion Schnittstellen in `Microsoft.AspNetCore.Http.Features` der werden von Servern verwendet, um die Funktionen zu identifizieren, sie unterstützen. Die folgenden Feature-Schnittstellen Behandeln von Anforderungen und Antworten zurückgeben:
+ASP.NET Core definiert einige HTTP-Featureschnittstellen in `Microsoft.AspNetCore.Http.Features`, die von Servern verwendet werden, um unterstützte Features zu erkennen. Die folgenden Featureschnittstellen verarbeiten Anforderungen und geben Antworten zurück:
 
-`IHttpRequestFeature`Definiert die Struktur einer HTTP-Anforderung, einschließlich Protokoll, Pfad, einer Abfragezeichenfolge, Header und Text.
+`IHttpRequestFeature` definiert die Struktur einer HTTP-Anforderung, einschließlich Protokoll, Pfad, Abfragezeichenfolge, Header und Text.
 
-`IHttpResponseFeature`Definiert die Struktur einer HTTP-Antwort, einschließlich der Statuscode, Header und Nachrichtentext der Antwort.
+`IHttpResponseFeature` definiert die Struktur einer HTTP-Antwort, einschließlich Statuscode, Header und Antworttext.
 
-`IHttpAuthenticationFeature`Definiert Unterstützung zur Identifizierung von Benutzern, die auf der Grundlage einer `ClaimsPrincipal` und einen authentifizierungshandler angeben.
+`IHttpAuthenticationFeature` definiert die Unterstützung für das Erkennen von Benutzern auf Grundlage eines `ClaimsPrincipal` und für das Festlegen eines Authentifizierungshandlers.
 
-`IHttpUpgradeFeature`Definiert Unterstützung für [HTTP-Upgrades](https://tools.ietf.org/html/rfc2616.html#section-14.42), dem kann auf dem Client, um anzugeben, welche zusätzlichen sie Protokolle verwenden, wenn der Server Protokolle wechseln möchte möchten.
+`IHttpUpgradeFeature` definiert Unterstützung für [HTTP-Upgrades](https://tools.ietf.org/html/rfc2616.html#section-14.42), die es dem Client ermöglichen, festzulegen, welche zusätzlichen Protokolle er verwenden möchte, wenn der Server Protokolle wechseln möchte.
 
-`IHttpBufferingFeature`Definiert Methoden für das Deaktivieren der Pufferung der Anforderungen und/oder Antworten.
+`IHttpBufferingFeature` definiert Methoden zum Deaktivieren des Pufferns von Anforderungen und/oder Antworten.
 
-`IHttpConnectionFeature`Definiert Eigenschaften für lokale und remote-Adressen und Ports.
+`IHttpConnectionFeature` definiert Eigenschaften für lokale und Remote-Adressen und Ports.
 
-`IHttpRequestLifetimeFeature`Definiert die Unterstützung für das Abbrechen von Verbindungen oder erkennen, wenn eine Anforderung vorzeitig, z. B. von einem Client trennen beendet wurde.
+`IHttpRequestLifetimeFeature` definiert Unterstützung für das Abbrechen von Verbindungen oder das Erkennen einer verfrühten Beendung einer Anforderung, z.B. durch eine abgebrochene Verbindung zum Client.
 
-`IHttpSendFileFeature`Definiert eine Methode zum asynchronen Senden von Dateien.
+`IHttpSendFileFeature` definiert eine Methode zum asynchronen Senden von Dateien.
 
-`IHttpWebSocketFeature`Definiert eine API für die Unterstützung von WebSockets.
+`IHttpWebSocketFeature` definiert eine API zur Unterstützung von Websockets.
 
-`IHttpRequestIdentifierFeature`Fügt eine Eigenschaft, die zur eindeutigen Identifizierung von Anforderungen implementiert werden kann.
+`IHttpRequestIdentifierFeature` fügt eine Eigenschaft hinzu, die implementiert werden kann, um eine Anforderung eindeutig identifizieren zu können.
 
-`ISessionFeature`Definiert `ISessionFactory` und `ISession` Abstraktionen für die Unterstützung von benutzersitzungen.
+`ISessionFeature` definiert die Abstraktionen `ISessionFactory` und `ISession` zur Unterstützung von Benutzersitzungen.
 
-`ITlsConnectionFeature`Definiert eine API zum Abrufen von Clientzertifikaten.
+`ITlsConnectionFeature` definiert eine API zum Abrufen von Clientzertifikaten.
 
-`ITlsTokenBindingFeature`Definiert Methoden zum Arbeiten mit TLS-tokenbindung-Parameter.
+`ITlsTokenBindingFeature` definiert Methoden zum Arbeiten mit TLS-Tokenbindungsparametern.
 
 > [!NOTE]
-> `ISessionFeature`eine Serverfunktion nicht, jedoch wird implementiert, indem die `SessionMiddleware` (finden Sie unter [Anwendungszustand verwalten](app-state.md)).
+> `ISessionFeature` ist kein Serverfeature, wird aber von der `SessionMiddleware` implementiert. Weitere Informationen finden Sie im Artikel zur [Verwaltung des Anwendungszustandes](app-state.md).
 
-## <a name="feature-collections"></a>Feature-Auflistungen
+## <a name="feature-collections"></a>Featuresammlung
 
-Die `Features` Eigenschaft `HttpContext` stellt eine Schnittstelle für das Abrufen und Festlegen der verfügbaren HTTP-Features für die aktuelle Anforderung. Da die Auflistung der Funktion selbst innerhalb des Kontexts einer Anforderung änderbar ist, kann Middleware Sammlung ändern und Hinzufügen von Unterstützung für zusätzliche Funktionen verwendet werden.
+Die `Features`-Eigenschaft von `HttpContext` bietet eine Schnittstelle zum Abrufen und Festlegen der verfügbaren HTTP-Features für die aktuelle Anforderung. Da die Featuresammlung auch im Kontext einer Anforderung änderbar ist, kann Middleware verwendet werden, um die Sammlung zu modifizieren und Unterstützung für zusätzliche Features hinzuzufügen.
 
-## <a name="middleware-and-request-features"></a>Middleware und Anforderung-Funktionen
+## <a name="middleware-and-request-features"></a>Middleware- und Anforderungsfeatures
 
-Während der Server für das Erstellen der Funktion Auflistung zuständig sind, kann Middleware sowohl zur Auflistung hinzufügen, und Nutzen von Funktionen aus der Auflistung. Z. B. die `StaticFileMiddleware` greift auf die `IHttpSendFileFeature` Funktion. Wenn die Funktion vorhanden ist, wird es verwendet die angeforderte statische Datei von der physikalische Pfad gesendet. Andernfalls wird eine langsamere alternative Methode zum Senden der Datei verwendet. Sofern verfügbar, die `IHttpSendFileFeature` zum Öffnen der das, und führen eine Kopie des direkten Kernel-Modus für die Netzwerkkarte dem Betriebssystem ermöglicht.
+Obwohl Server für das Erstellen von Featuresammlungen zuständig sind, kann Middleware Features zu dieser hinzufügen und darin befindliche Features nutzen. Die `StaticFileMiddleware` greift z.B. auf das `IHttpSendFileFeature`-Feature zu. Wenn das Feature vorhanden ist, wird es verwendet, um die angeforderte statische Datei von deren physischem Pfad aus zu senden. Andernfalls wird eine alternative, langsamere Methode zum Senden der Datei verwendet. Wenn dies verfügbar ist, ermöglicht das `IHttpSendFileFeature` dem Betriebssystem das Öffnen der Datei und das Erstellen einer direkten Kopie im Kernelmodus auf der Netzwerkkarte.
 
-Darüber hinaus kann die Feature-Auflistung, die vom Server eingerichtet Middleware hinzufügen. Vorhandene Funktionen können auch von Middleware, die die Middleware die Funktionalität des Servers erweitern, sodass ersetzt werden. Funktionen, die der Auflistung hinzugefügt sind sofort für anderer Middleware oder die zugrunde liegenden Anwendung selbst weiter unten in der Anforderungspipeline verfügbar.
+Zusätzlich kann Middleware Features zur Featuresammlung des Servers hinzufügen. Vorhandene Features können von Middleware ersetzt werden, sodass die Middleware die Funktionalität des Servers beeinflussen kann. Features, die der Auflistung hinzugefügt wurden, stehen umgehend auch anderer Middleware oder der zugrunde liegenden Anwendung selbst zu einem späteren Zeitpunkt in der Anforderungspipeline zur Verfügung.
 
-Durch Kombinieren von benutzerdefinierten serverimplementierungen und bestimmten Middleware-Erweiterungen, kann die genaue Satz von Funktionen eine Anwendung benötigten erstellt werden. Dadurch fehlende Funktionen hinzugefügt werden, ohne dass eine Änderung auf Server und wird sichergestellt, dass nur die Mindestanzahl an Funktionen verfügbar, daher beschränken Angriff surface Area und Verbessern der Leistung.
+Anhand der Kombination benutzerdefinierter Serverimplementierungen und spezifischer Middlewareverbesserungen kann der genaue Satz von Features, den eine Anwendung erfordert, erstellt werden. So können fehlende Features hinzugefügt werden, ohne dass der Server verändert werden muss. Zudem wird sichergestellt, dass nur so viele Features wie unbedingt nötig verfügbar gemacht werden, sodass die Angriffsfläche auf einem Minimum gehalten und die Leistung verbessert wird.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Feature-Schnittstellen definieren bestimmte HTTP-Features, die eine bestimmte Anforderung unterstützen kann. Server zu definieren, Sammlungen von Funktionen und den anfänglichen Satz von Funktionen, die von diesem Server unterstützt, aber Middleware kann verwendet werden, um diese Funktionen zu verbessern.
+Featureschnittstellen definieren spezifische HTTP-Features, die von einer angegebenen Anforderung möglicherweise unterstützt werden. Server definieren Featuresammlungen und den ersten Satz von Features, die von diesem Server unterstützt werden. Middleware kann jedoch verwendet werden, um diese Features zu verbessern.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Server](servers/index.md)
-
-* [Middleware](middleware.md)
-
-* [Open Web Interface for .NET (OWIN)](owin.md)
+* [Server](xref:fundamentals/servers/index)
+* [Middleware](xref:fundamentals/middleware/index)
+* [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)

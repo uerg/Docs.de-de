@@ -1,38 +1,38 @@
 ---
-title: WebListener webserverimplementierung in ASP.NET Core
+title: Implementierung des Webservers WebListener in ASP.NET Core
 author: rick-anderson
-description: "Führt ein WebListener, einen Webserver für ASP.NET Core unter Windows. Basiert auf Http.Sys-Kernelmodustreiber und ist WebListener eine Alternative zum Kestrel, die für die direkte Verbindung mit dem Internet ohne IIS verwendet werden kann."
-ms.author: riande
+description: "Einführung in den Webserver WebListener für ASP.NET Core unter Windows. Der WebListener basiert auf dem Http.sys-Kernelmodustreiber, stellt eine Alternative zu Kestrel dar und kann zum Herstellen einer direkten Verbindung mit dem Internet ohne Internetinformationsdienste (IIS) verwendet werden."
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener webserverimplementierung in ASP.NET Core
+# <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementierung des Webservers WebListener in ASP.NET Core
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Chris Ross](https://github.com/Tratcher)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
-> Dieses Thema gilt nur für ASP.NET Core 1.x. In ASP.NET Core 2.0 WebListener heißt [HTTP.sys](httpsys.md).
+> Dieser Artikel bezieht sich nur auf ASP.NET Core 1.x. In ASP.NET Core 2.0 wird WebListener [HTTP.sys](httpsys.md) genannt.
 
-WebListener ist ein [Webserver für ASP.NET Core](index.md) , die nur unter Windows ausgeführt wird. Es basiert auf der [Http.Sys-Kernelmodustreiber](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). WebListener ist eine Alternative zum [Kestrel](kestrel.md) , für die direkte Verbindung mit dem Internet ohne Rückgriff auf IIS als reverse-Proxy-Server verwendet werden kann. In der Tat **WebListener kann nicht mit IIS oder IIS Express verwendet werden, als nicht kompatibel mit ist der [ASP.NET Core-Modul](aspnet-core-module.md).**
+Der WebListener ist ein [Webserver für ASP.NET Core](index.md), der nur unter Windows ausgeführt werden kann. Er basiert auf dem [Http.sys-Kernelmodustreiber](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). Er stellt eine Alternative zu [Kestrel](kestrel.md) dar und kann zum Herstellen einer direkten Verbindung mit dem Internet ohne Internetinformationsdienste (IIS) als Reverseproxyserver verwendet werden. **Der WebListener kann nicht mit IIS oder IIS Express verwendet werden, da er nicht mit dem [ASP.NET Core-Modul kompatibel](aspnet-core-module.md) ist.**
 
-Obwohl WebListener für ASP.NET Core entwickelt wurde, kann es direkt in jeder beliebigen .NET Core oder .NET Framework-Anwendung über verwendet die [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet-Paket.
+Obwohl der WebListener für ASP.NET Core entwickelt wurde, kann er in allen .NET Core oder .NET Framework-Anwendungen über das NuGet-Paket [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) verwendet werden.
 
-WebListener unterstützt die folgenden Funktionen:
+Der WebListener unterstützt die folgenden Features:
 
 - [Windows-Authentifizierung](xref:security/authentication/windowsauth)
-- Anschlussfreigabe
+- Portfreigabe
 - HTTPS mit SNI
 - HTTP/2 über TLS (Windows 10)
-- Direkte Übertragung
+- Direkte Dateiübertragung
 - Zwischenspeichern von Antworten
 - WebSockets (Windows 8)
 
@@ -42,71 +42,71 @@ Unterstützte Windows-Versionen:
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="when-to-use-weblistener"></a>WebListener verwenden
+## <a name="when-to-use-weblistener"></a>Empfohlene Verwendung des WebListeners
 
-WebListener eignet sich für Bereitstellungen, in dem Sie der Server direkt mit dem Internet verfügbar zu machen, ohne mit IIS müssen.
+Der WebListener unterstützt Sie bei Bereitstellungen in Rahmen derer Sie ohne IIS den Server direkt mit dem Internet verbinden müssen.
 
 ![WebListener kommuniziert direkt mit dem Internet](weblistener/_static/weblistener-to-internet.png)
 
-Da er auf Http.Sys basiert, erfordern nicht WebListener einen reverse-Proxy-Server für den Schutz vor Angriffen durch. Http.Sys ist ausgereifte Technologie, die für viele Arten von Angriffen geschützt und die Stabilität, Sicherheit und Skalierbarkeit von einem Webserver mit vollem Funktionsumfang. IIS selbst wird als eine HTTP-Listener auf Http.Sys ausgeführt. 
+Da der WebListener auf HTTP.sys basiert, ist kein Reverseproxyserver für den Schutz gegen Angriffe erforderlich. Bei Http.Sys handelt es sich um eine ausgereifte Technologie, die einen Schutz gegen viele Arten von Angriffen darstellt, und die Stabilität, Sicherheit und Skalierbarkeit eines vollständigen Webservers bereitstellt. IIS wird neben Http.Sys auch als HTTP-Listener ausgeführt. 
 
-WebListener ist auch eine gute Wahl für interne Bereitstellungen, wenn Sie eine der Funktionen benötigen, bietet, dass Sie mithilfe von Kestrel abrufen können.
+Der WebListener bietet außerdem eine gute Möglichkeit zur internen Bereitstellung, wenn Sie eins der im Lieferumfang enthaltenen Features benötigen, die Kestrel nicht anbietet.
 
 ![WebListener kommuniziert direkt mit Ihrem internen Netzwerk](weblistener/_static/weblistener-to-internal.png)
 
-## <a name="how-to-use-weblistener"></a>Gewusst wie: Verwenden von WebListener
+## <a name="how-to-use-weblistener"></a>Verwendung des WebListeners
 
-Hier ist eine Übersicht der Setupaufgaben für das Hostbetriebssystem und ASP.NET Core-Anwendung.
+Im Folgenden erhalten Sie eine Übersicht zum Einrichten von Aufgaben für das Hostbetriebssystem und Ihre ASP.NET Core-Anwendung.
 
-### <a name="configure-windows-server"></a>Konfigurieren von WindowsServer
+### <a name="configure-windows-server"></a>Konfigurieren von Windows Server
 
-* Installieren Sie die Version von .NET, die Ihre Anwendung benötigt werden, z. B. [.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe) oder .NET Framework 4.5.1.
+* Installieren Sie die für Ihre Anwendung erforderliche .NET-Version – z.B. [.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe) oder .NET Framework 4.5.1.
 
-* Zu registrieren Sie URL-Präfixe zum Binden an WebListener und Einrichten von SSL-Zertifikaten
+* Registrieren Sie URL-Präfixe vorab, um sie an den WebListener zu binden, und richten Sie SSL-Zertifikate ein.
 
-   Wenn Sie URL-Präfixe in Windows nicht vorab registrieren, müssen Sie die Anwendung mit Administratorrechten ausgeführt werden. Die einzige Ausnahme ist, wenn Sie auf "localhost", die über HTTP (nicht "HTTPS") mit einer Portnummer, die größer als 1024 binden. In diesem Fall sind keine Administratorrechte erforderlich.
+   Wenn Sie unter Windows vorab keine URL-Präfixe registrieren, müssen Sie Ihre Anwendung mit Administratorberechtigungen ausführen. Die einzige Ausnahme besteht, wenn Sie mithilfe von HTTP (nicht HTTPS) eine Verbindung mit dem Localhost herstellen und die Portnummer größer als 1024 ist. In diesem Fall sind keine Administratorberechtigungen erforderlich.
 
-   Weitere Informationen finden Sie unter [zu Präfixe registrieren und Konfigurieren von SSL](#preregister-url-prefixes-and-configure-ssl) weiter unten in diesem Artikel.
+   Weitere Informationen finden Sie im Abschnitt [Registrieren von URL-Präfixen im Voraus und Konfigurieren von SSL](#preregister-url-prefixes-and-configure-ssl).
 
-* Öffnen Sie die Firewall-Ports zum Zulassen des Datenverkehrs WebListener zu erreichen.
+* Öffnen Sie Firewallports, damit der Datenverkehr den WebListener erreicht.
 
-   Sie können netsh.exe verwenden oder [PowerShell-Cmdlets](https://technet.microsoft.com/library/jj554906).
+   Sie können dafür „netsh.exe“ oder [PowerShell-Cmdlets](https://technet.microsoft.com/library/jj554906) verwenden.
 
-Es gibt auch [Http.Sys-registrierungseinstellungen](https://support.microsoft.com/kb/820129).
+Außerdem gibt es [Einstellungen für die Http.Sys-Registrierung](https://support.microsoft.com/kb/820129).
 
-### <a name="configure-your-aspnet-core-application"></a>Konfigurieren Sie die ASP.NET Core-Anwendung
+### <a name="configure-your-aspnet-core-application"></a>Konfigurieren Ihrer ASP.NET Core-Anwendung
 
-* Installieren Sie das NuGet-Paket [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Dies installiert außerdem [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) als Abhängigkeit.
+* Installieren Sie das NuGet-Paket [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Dadurch wird auch [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) als Abhängigkeit installiert.
 
-* Rufen Sie die `UseWebListener` Erweiterungsmethode auf [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) in Ihrer `Main` Methode, dabei werden alle WebListener [Optionen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) und [Einstellungen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) , die Sie benötigen , wie im folgenden Beispiel gezeigt:
+* Rufen Sie die Erweiterungsmethode `UseWebListener` auf [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) in der Methode `Main` ab, und legen Sie dabei wie im folgenden Beispiel dargestellt alle benötigten WebListener-[Optionen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) und -[Einstellungen](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) fest:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
-* Konfigurieren von URLs und Ports Lauschen an 
+* Konfigurieren von URLs und Ports, die überwacht werden sollen 
 
-  Standardmäßig ASP.NET Core bindet an `http://localhost:5000`. Konfigurieren Sie URL-Präfixe und Ports können Sie die `UseURLs` Erweiterungsmethode, die `urls` Befehlszeilenargument oder das Konfigurationssystem ASP.NET Core. Weitere Informationen finden Sie unter [Hosting](../../fundamentals/hosting.md).
+  Standardmäßig ist ASP.NET Core an `http://localhost:5000` gebunden. Wenn Sie URL-Präfixe und Ports konfigurieren möchten, können Sie die Erweiterungsmethode `UseURLs`, das Befehlszeilenargument `urls` oder das ASP.NET Core-Konfigurationssystem verwenden. Weitere Informationen finden Sie unter [Hosting](../../fundamentals/hosting.md).
 
-  Web-Listener verwendet die [Http.Sys Präfix Zeichenfolgenformate](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Es sind keine formatanforderungen Präfix Zeichenfolge, die für WebListener spezifisch sind.
+  Der WebListener verwendet die [Präfixzeichenfolgenformate von Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Es gibt keine spezifischen Anforderungen an Präfixzeichenfolgenformate für Präfixe für den WebListener.
 
   > [!NOTE]
-  > Stellen Sie sicher, dass Sie angeben, dass die gleichen Präfixzeichenfolgen in `UseUrls` , die Sie auf dem Server zu registrieren. 
+  > Vergewissern Sie sich, dass Sie dieselben Präfixzeichenfolgen in `UseUrls` angeben, die Sie auf dem Server vorab registriert haben. 
 
-* Stellen Sie sicher, dass Ihre Anwendung zum Ausführen von IIS oder IIS Express konfiguriert ist.
+* Vergewissern Sie sich außerdem, dass Ihre Anwendung nicht für IIS oder IIS Express konfiguriert ist.
 
-  Ist in Visual Studio das Standardprofil für den Start für IIS Express.  Zum Ausführen des Projekts als Konsolenanwendung müssen Sie manuell das ausgewählte Profil zu ändern, wie im folgenden Screenshot gezeigt.
+  In Visual Studio ist das Standardstartprofil auf IIS Express ausgerichtet.  Wenn das Projekt als Konsolenanwendung ausgeführt werden soll, müssen Sie wie im folgenden Screenshot dargestellt das ausgewählte Profil manuell ändern.
 
-  ![Wählen Sie die Konsole app-Profil](weblistener/_static/vs-choose-profile.png)
+  ![Auswählen des Profils der App-Konsole](weblistener/_static/vs-choose-profile.png)
 
-## <a name="how-to-use-weblistener-outside-of-aspnet-core"></a>Gewusst wie: Verwenden Sie WebListener außerhalb von ASP.NET Core
+## <a name="how-to-use-weblistener-outside-of-aspnet-core"></a>Verwendung des WebListeners außerhalb von ASP.NET Core
 
-* Installieren der [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet-Paket.
+* Installieren Sie das NuGet-Paket [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/).
 
-* [Zu URL-Präfixe zum Binden an WebListener und Einrichten von SSL-Zertifikaten registrieren](#preregister-url-prefixes-and-configure-ssl) wie bei Verwendung in ASP.NET Core.
+* [Registrieren Sie URL-Präfixe vorab, um sie an den WebListener zu binden, und richten Sie SSL-Zertifikate ein](#preregister-url-prefixes-and-configure-ssl), wie Sie es auch für die Verwendung in ASP.NET Core tun würden.
 
-Es gibt auch [Http.Sys-registrierungseinstellungen](https://support.microsoft.com/kb/820129).
+Außerdem gibt es [Einstellungen für die Http.Sys-Registrierung](https://support.microsoft.com/kb/820129).
 
 
-Hier ist ein Codebeispiel, die WebListener Verwendung außerhalb von ASP.NET Core veranschaulicht:
+Im Folgenden ist ein Codebeispiel dargestellt, in dem Sie die Verwendung des WebListeners außerhalb von ASP.NET Core sehen können:
 
 ```csharp
 var settings = new WebListenerSettings();
@@ -129,51 +129,51 @@ using (WebListener listener = new WebListener(settings))
 }
 ```
 
-## <a name="preregister-url-prefixes-and-configure-ssl"></a>Zu URL-Präfixe registrieren und Konfigurieren von SSL
+## <a name="preregister-url-prefixes-and-configure-ssl"></a>Registrieren von URL-Präfixen im Voraus und Konfigurieren von SSL
 
-Sowohl IIS als auch WebListener basieren auf den zugrunde liegenden Http.Sys-Kernelmodustreiber zum Abhören von Anforderungen und Verarbeitung ursprüngliche. In IIS bietet die Verwaltungsbenutzeroberfläche eine relativ einfache Möglichkeit, alles zu konfigurieren. Allerdings müssen Sie bei Verwendung von WebListener Http.Sys selbst konfigurieren. Die integrierten Tool netsh.exe ist dafür. 
+Sowohl IIS als auch der WebListener sind abhängig von dem zugrunde liegenden Http.Sys-Kernelmodustreiber, der Anforderungen überwacht und Vorverarbeitungen durchführt. In IIS stellt die Benutzeroberfläche für die Verwaltung eine relativ einfache Möglichkeit zum Konfigurieren dar. Wenn Sie hingegen WebListener verwenden, müssen Sie Http.Sys manuell konfigurieren. Dafür ist das Tool „netsh.exe“ in WebListener integriert. 
 
-Am häufigsten auszuführenden Aufgaben, denen Sie für netsh.exe verwenden müssen, sind Reservieren von URL-Präfixe und Zuweisen von SSL-Zertifikate.
+„netsh.exe“ wird vor allem dazu verwendet, URL-Präfixe zu reservieren und SSL-Zertifikate zuzuweisen.
 
-NetSh.exe ist ein benutzerfreundliches Tool für Anfänger verwenden nicht. Das folgende Beispiel zeigt die absolute Mindestanforderungen zum Reservieren von URL-Präfixe für die Ports 80 und 443 erforderlich sind:
+„Netsh.exe“ ist ein benutzerfreundliches Tool, das auch von Anfängern verwendet werden kann. Im folgenden Beispiel wird dargestellt, welche Elemente mindestens benötigt werden, um URL-Präfixe für die Ports 80 und 443 zu reservieren:
 
 ```console
 netsh http add urlacl url=http://+:80/ user=Users
 netsh http add urlacl url=https://+:443/ user=Users
 ```
 
-Im folgende Beispiel wird gezeigt, wie ein SSL-Zertifikat zugewiesen werden:
+Im folgenden Beispiel wird dargestellt, wie Sie ein SSL-Zertifikat zuweisen:
 
 ```console
 netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}".
 ```
 
-So sieht die offizielle Dokumentation:
+Die offizielle Referenzdokumentation finden Sie unter den folgenden Links:
 
-* [Netsh-Befehle für Hypertext Transfer-Protokoll (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-* [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+* [Netsh Commands for Hypertext Transfer Protocol (HTTP) (Netsh-Befehle für Hypertext Transfer-Protokolle (HTTP))](https://technet.microsoft.com/library/cc725882.aspx)
+* [UrlPrefix Strings (UrlPrefix-Zeichenfolgen)](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-Die folgenden Ressourcen bieten detaillierte Anweisungen für verschiedene Szenarien. Artikel, die auf verweisen `HttpListener` gelten gleichermaßen für `WebListener`, wie sowohl auf Http.Sys basieren.
+In den folgenden Ressourcen finden Sie detaillierte Anweisungen zu verschiedenen Szenarios. Artikel, die sich auf `HttpListener` beziehen, beziehen sich auch auf `WebListener`, da beide Tools auf Http.Sys basieren.
 
 * [Vorgehensweise: Konfigurieren eines Ports mit einem SSL-Zertifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
-* [HTTPS-Kommunikation - HttpListener basierend Hosting und Clientzertifizierung](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) dies ein Drittanbieter-Blog und ist ziemlich ALT, aber weiterhin enthält nützliche Informationen.
-* [Gewusst wie: Exemplarische Vorgehensweise mithilfe von HttpListener oder HTTP-Server (C++) Code, wie eine einfache SSL-Server nicht verwaltete](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) Dies ist eine ältere Blog mit nützlichen Informationen.
-* [Wie richte ich ein .NET Core WebListener mit SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
+* [HTTPS Communication – HttpListener based Hosting and Client Certification (HTTPS-Kommunikation: HttpListener basierend auf Hosting- und Clientzertifizierung)](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) Hierbei handelt es sich um einen Blog eines Drittanbieters, der zwar schon recht alt ist, aber trotzdem nützliche Informationen enthält.
+* [How To: Walkthrough Using HttpListener or Http Server unmanaged code (C++) as an SSL Simple Server (Vorgehensweise: Exemplarische Vorgehensweise zum Verwenden von nicht verwaltetem Code (C++) für HttpListener oder Http-Server als einfacher SSL-Server)](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) Hierbei handelt es sich ebenfalls um einen älteren Blog mit nützlichen Informationen.
+* [How Do I Set Up A .NET Core WebListener With SSL? (Einrichten eines .NET Core-WebListeners mit SSL)](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
 
-Hier sind einige Drittanbieter-Tools, die einfacher zu verwenden als das netsh.exe-Befehlszeile werden können. Diese werden nicht von bereitgestellt oder Unterstützung von Microsoft. Die Tools Ausführen als Administrator standardmäßig, da netsh.exe selbst Administratorrechte erforderlich.
+Die Verwendung der folgenden Tools von Drittanbietern ist möglicherweise einfacher als die Verwendung der netsh.exe-Befehlszeile. Diese Tools werden allerdings von Microsoft weder bereitgestellt noch unterstützt. Die Tools werden standardmäßig als Administratoren ausgeführt, da „netsh.exe“ Administratorberechtigungen erfordert.
 
-* [HTTP.sys Manager](http://httpsysmanager.codeplex.com/) bietet eine Benutzeroberfläche Liste und Konfigurieren von SSL-Zertifikate und Optionen, Präfix Reservierungen und Zertifikatsvertrauenslisten. 
-* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) können Sie aus, oder konfigurieren Sie SSL-Zertifikate und URL-Präfixen. Die Benutzeroberfläche als http.sys Manager verfeinerten und stellt einige weitere Konfigurationsoptionen zur Verfügung, jedoch andernfalls er verfügt über ähnliche Funktionen. Eine neue Zertifikatsvertrauensliste (CTL) kann nicht erstellt werden, aber vorhandene zuweisen können.
+* Der [Http.sys-Manager](http://httpsysmanager.codeplex.com/) stellt eine Benutzeroberfläche bereit, die zum Auflisten und Konfigurieren von SSL-Zertifikaten und -Optionen, Präfixreservierungen und Zertifikatsvertrauenslisten verwendet werden kann. 
+* Mithilfe von [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) können Sie SSL-Zertifikate und URL-Präfixe auflisten und konfigurieren. Die Benutzeroberfläche ist besser optimiert als beim Http.sys-Manager und beinhaltet einige zusätzliche Optionen für die Konfiguration. Ansonsten sind die Funktionen allerdings ähnlich. Es können zwar keine neuen Zertifikatsvertrauenslisten erstellt werden, jedoch können bereits vorhandene Listen hinzugefügt werden.
 
-Zum Generieren von selbstsignierten SSL-Zertifikate, bietet Microsoft Befehlszeilenprogramme: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) und das PowerShell-Cmdlet [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate). Es gibt auch Drittanbieter-UI-Tools, die Sie zum Generieren von selbstsignierten SSL-Zertifikate erleichtern:
+Wenn Sie selbstsignierte SSL-Zertifikate generieren möchten, können Sie die Befehlszeilenprogramme [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) und das PowerShell-Cmdlet [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate) von Microsoft verwenden. Es gibt außerdem Benutzeroberflächentools, die Ihnen das Generieren selbstsignierter SSL-Zertifikate erleichtern:
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
-* [MakeCert-Benutzeroberfläche](http://makecertui.codeplex.com/)
+* [Makecert UI](http://makecertui.codeplex.com/)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-* [Beispiel-app für diesen Artikel](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)
-* [WebListener-Quellcode](https://github.com/aspnet/HttpSysServer/)
+* [Beispiel-App zu diesem Artikel](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)
+* [WebListener source code (Quellcode für den WebListener)](https://github.com/aspnet/HttpSysServer/)
 * [Hosting](../hosting.md)

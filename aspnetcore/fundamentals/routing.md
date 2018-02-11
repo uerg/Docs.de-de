@@ -1,68 +1,68 @@
 ---
 title: Routing in ASP.NET Core
 author: ardalis
-description: "Ermitteln Sie, wie ASP.NET Core Routingfunktion für eine eingehende Anforderung an eine Routenhandler Zuordnung zuständig ist."
-ms.author: riande
+description: "In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird."
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
-Durch [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Routingfunktion ist verantwortlich für die Zuordnung einer eingehenden Anforderungs an eine Routenhandler. Routen werden in der ASP.NET app definiert und konfiguriert, wenn die app wird gestartet. Eine Route kann optional Extrahieren von Werten aus der URL, die in der Anforderung enthalten sind, und diese Werte können dann für die anforderungsverarbeitung verwendet werden. Mit Routeninformationen zur aus der ASP.NET app ist die Routingfunktion auch zum Generieren von URLs, die Routenhandler zuordnen können. Aus diesem Grund kann routing eine Routenhandler basierend auf einer URL oder einen bestimmten Routenhandler basierend auf Routeninformationen-Handler entsprechende URL gefunden werden.
+Mithilfe der Routingfunktionalität wird einem Routenhandler eine eingehende Anforderung zugeordnet. Routen werden in der ASP.NET-App definiert und beim Start der App konfiguriert. Eine Route kann optional Werte aus der URL extrahieren, die in der Anforderung enthalten ist. Diese Werte können anschließend für die Verarbeitung der Anforderung verwendet werden. Mit Routeninformationen aus der ASP.NET-App lassen sich über die Routingfunktionalität URLs generieren, die Routenhandlern zugeordnet werden. So kann durch Routing entweder ein Routenhandler auf der Grundlage einer URL ermittelt oder mithilfe von Routenhandlerinformationen eine URL bestimmt werden, die einem bestimmten Routenhandler zugeordnet ist.
 
 >[!IMPORTANT]
-> Dieses Dokument behandelt die low-Level ASP.NET Core routing. ASP.NET Core MVC-routing, finden Sie unter [Routing an Controlleraktionen](../mvc/controllers/routing.md)
+> In diesem Artikel wird das Low-Level-Routing in ASP.NET Core beschrieben. Einen Überblick über MVC-Routing in ASP.NET Core finden Sie unter [Routing to Controller Actions (Routing zu Controlleraktionen)](../mvc/controllers/routing.md)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="routing-basics"></a>Routing-Grundlagen
+## <a name="routing-basics"></a>Routinggrundlagen
 
-Routing verwendet *Routen* (Implementierungen von [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) an:
+Beim Routing werden *Routen* (Implementierungen von [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) für Folgendes verwendet:
 
-* Zuordnen von eingehenden Anforderungen an *Handler weiterleiten*
+* Zuordnen von eingehenden Anforderungen zu *Routenhandlern*
 
-* Generieren von URLs, die in Antworten verwendet werden.
+* Generieren von URLs für Antworten
 
-Im Allgemeinen gibt es eine app eine einzelne Auflistung von Routen. Wenn eine Anforderung eingeht, wird die Auflistung von Routen in der Reihenfolge verarbeitet. Die eingehende Anforderung für eine Route, die durch Aufrufen die Anforderungs-URL entspricht sieht die `RouteAsync` -Methode für jedes verfügbare Route in der Auflistung von Routen. Eine Antwort kann dagegen routing zum Generieren von URLs (z. B. für Umleitung oder Links) basierend auf Routeninformationen verwenden und somit zu vermeiden hartcodierter URLs, was, Verwaltbarkeit hilft.
+Eine App verfügt normalerweise über genau eine Routenauflistung. Sobald eine Anforderung eintrifft, werden die Routen der Auflistung der Reihe nach verarbeitet. Für die eingehende Anforderung wird eine Route gesucht, die der Anforderungs-URL entspricht. Dazu wird die Methode `RouteAsync` für jede verfügbare Route der Routenauflistung aufgerufen. Im Gegensatz hierzu kann bei einer Antwort Routing verwendet werden, um URLs zu generieren (z.B. für Umleitungen oder Links), die auf Routeninformationen basieren. Dadurch wird die Erstellung von einmal festgelegten, unveränderliche URLs verhindert, was wiederrum zur Wartbarkeit beiträgt.
 
-Routing verbunden ist, um die [Middleware](middleware.md) pipeline nach dem `RouterMiddleware` Klasse. [ASP.NET MVC](../mvc/overview.md) routing für die middlewarepipeline als Teil der Konfiguration hinzugefügt. Zur Verwendung als eigenständige Komponente routing finden Sie unter [mithilfe-routing-Middleware](#using-routing-middleware).
+Die Routingfunktionalität wird über die Klasse `RouterMiddleware` mit der [Middlewarepipeline](middleware.md) verbunden. Bei [ASP.NET MVC](../mvc/overview.md) wird im Rahmen der Konfiguration die Routingfunktionalität der Middlewarepipeline hinzugefügt. Informationen darüber, wie Sie Routing als eigenständige Komponente verwenden, finden Sie im Abschnitt [Verwenden von Routingmiddleware](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 
-### <a name="url-matching"></a>URL-Abgleich
+### <a name="url-matching"></a>URL-Zuordnung
 
-Der Prozess, durch welche routing sendet eine eingehende Anforderung zum, Abgleich von URL ist eine *Handler*. Dieser Prozess wird im Allgemeinen basierend auf Daten in der URL-Pfad, aber erweitert werden kann, so, dass alle Daten in der Anforderung. Die Fähigkeit, dispatch-Anforderungen an die Handler zu trennen ist entscheidend skalieren die Größe und Komplexität einer Anwendung.
+Bei einer URL-Zuordnung werden eingehende Anforderungen durch Routing an einen *Handler* gesendet. Für diesen Prozess werden üblicherweise die Daten des URL-Pfads verwendet. Es können jedoch auch alle Daten der Anforderung genutzt werden. Für die Skalierung der Größe und Komplexität einer Anwendung ist das Versenden von Anforderungen an unterschiedliche Handler entscheidend.
 
-Eingehende Anforderungen Geben Sie die `RouterMiddleware`, welche Aufrufe die `RouteAsync` -Methode für jede Route in der Sequenz. Die `IRouter` Instanz auswählt, ob *behandeln* der Anforderung durch Festlegen der `RouteContext.Handler` zu einer nicht-Null `RequestDelegate`. Wenn eine Route einen Handler für die Anforderung festlegt, wird Route, die Verarbeitung beendet und den Ereignishandler zur Verarbeitung der Anforderung aufgerufen. Wenn alle Routen versucht werden soll, und kein Handler, für die Anforderung gefunden wird, die Middleware ruft *Weiter* und die nächste Middleware in der Anforderungspipeline aufgerufen wird.
+Eingehende Anforderungen werden vom `RouterMiddleware`-Objekt bearbeitet, das die Methode `RouteAsync` für alle Routen nacheinander aufruft. In der `IRouter`-Instanz wird entschieden, ob die Anforderung *verarbeitet* wird und dabei für `RouteContext.Handler` ein `RequestDelegate`-Objekt festgelegt wird, das nicht NULL ist. Wenn von einer Route ein Handler für die Anforderung festgelegt wird, endet die Routenverarbeitung und der Handler wird zur Verarbeitung der Anforderung aufgerufen. Wenn alle Routen getestet werden und kein Handler für die Anforderung gefunden werden kann, ruft die Middleware *next* auf, und die nächste Middleware in der Anforderungspipeline wird aufgerufen.
 
-Die primäre Eingabe `RouteAsync` ist die `RouteContext.HttpContext` mit der aktuellen Anforderung verknüpft sind. Die `RouteContext.Handler` und `RouteContext.RouteData` sind Ausgaben, die nach einer Route entspricht festgelegt werden.
+Die primäre Eingabe für `RouteAsync` ist das `RouteContext.HttpContext`-Objekt, das der aktuellen Anforderung zugeordnet ist. `RouteContext.Handler` und `RouteContext.RouteData` sind Ausgaben, die nach der Zuordnung einer Route festgelegt werden.
 
-Eine Übereinstimmung bei `RouteAsync` wird außerdem die Eigenschaften der Festlegen der `RouteContext.RouteData` auf die entsprechenden Werte basierend auf der Verarbeitung der Anforderung bisher. Wenn eine Route einer Anforderung entspricht dem `RouteContext.RouteData` enthält wichtige Informationen zu den *Ergebnis*.
+Durch eine Zuordnung bei `RouteAsync` werden außerdem die Eigenschaften von `RouteContext.RouteData` auf Grundlage der bisher verarbeiteten Anforderungen auf entsprechende Werte festgelegt. Wenn eine Route einer Anforderung zugeordnet wird, erhält `RouteContext.RouteData` wichtige Zustandsinformationen zum *Ergebnis*.
 
-`RouteData.Values`ist ein Wörterbuch von *Routenwerte* nutzen, die aus der Route. Diese Werte werden in der Regel durch versehen die URL bestimmt und können verwendet werden, um Benutzereingaben akzeptieren oder für weiter verteilen Entscheidungen in der Anwendung.
+`RouteData.Values` ist ein Wörterbuch mit *Routenwerten*, das aus der Route erstellt wird. Die Werte werden in der Regel durch die Tokenisierung der URL ermittelt und können so verwendet werden, dass Benutzereingaben akzeptiert oder weitere Entscheidungen in der Anwendung zum Versenden von Anforderungen getroffen werden.
 
-`RouteData.DataTokens`wird ein Eigenschaftenbehälter, der zusätzliche Daten, die im Zusammenhang mit der übereinstimmenden Route an. `DataTokens`Dient zur Zuordnung von Status zu unterstützen, die Daten mit jede Route, damit die Anwendung später basierend Entscheidungen kann auf der route verglichen. Diese Werte sind Entwickler definiert, und führen Sie **nicht** beeinflussen das Verhalten des Routings in keiner Weise. Darüber hinaus können in Datentoken Boyer Werte eines beliebigen Typs, im Gegensatz zu Routenwerte, sein, die problemlos konvertiert in und aus Zeichenfolgen.
+`RouteData.DataTokens` ist eine Eigenschaftensammlung mit zusätzlichen Daten zur zugeordneten Route. `DataTokens` werden bereitgestellt, damit sich jeder Route Zustandsdaten zuordnen lassen, sodass in der Anwendung später Entscheidungen auf Grundlage der zugeordneten Route getroffen werden können. Diese Werte werden vom Entwickler vorgegeben und beeinflussen das Routingverhalten **in keiner Weise**. Im Gegensatz zu Routenwerten, die sich leicht in bzw. aus Zeichenfolgen konvertieren lassen müssen, können Datentokenwerte außerdem einem beliebigen Typ entsprechen.
 
-`RouteData.Routers`ist eine Liste der Routen, die in den Abgleich erfolgreich der Anforderungs Layoutdurchlauf. Routen können in einer anderen geschachtelt sein und die `Routers` -Eigenschaft entspricht den Pfad in der logischen Struktur des Routen, die in einer Übereinstimmung geführt haben. Im Allgemeinen das erste Element im `Routers` wird die Auflistung von Routen sowie für URL-Generierung verwendet werden soll. Das letzte Element im `Routers` der Routenhandler, die abgeglichen wird.
+`RouteData.Routers` ist eine Liste der Routen, die an der Zuordnung der Anforderung beteiligt waren. Routen können ineinander verschachtelt sein. Die `Routers`-Eigenschaft stellt den Pfad durch die logische Struktur der Routen dar, aus der die Zuordnung hervorgegangen ist. Üblicherweise ist das erste Element in `Routers` die Routenauflistung. Diese sollte zur URL-Generierung verwendet werden. Das letzte Element in `Routers` ist der Routenhandler, für den eine Zuordnung vorgenommen wurde.
 
 ### <a name="url-generation"></a>URL-Generierung
 
-URL-Generierung ist der Prozess, durch welche routing einen URL-Pfad basierend auf einem Satz von Routenwerten erstellen können. Dies ermöglicht eine logische Trennung zwischen Ihrer Handler und die URLs, die darauf zugreifen.
+Bei der URL-Generierung wird durch Routing ein URL-Pfad basierend auf mehreren Routenwerten erstellt. Dies ermöglicht eine logische Trennung zwischen den Handlern und den URLs, die auf die Handler zugreifen.
 
-URL-Generierung folgt einen ähnlichen iterativen Prozess, startet aber durch Benutzer oder Framework-Code Aufrufe in die `GetVirtualPath` -Methode der routenauflistung. Jede *Route* dann seine `GetVirtualPath` nacheinander aufgerufen, bis ein Wert ungleich Null `VirtualPathData` zurückgegeben wird.
+Auch für die URL-Generierung wird ein iterativer Prozess verwendet, bei dem allerdings zuerst vom Benutzer- oder Frameworkcode die `GetVirtualPath`-Methode der Routenauflistung aufgerufen wird. Anschließend wird nacheinander für jede *Route* die zugehörige `GetVirtualPath`-Methode aufgerufen, bis ein `VirtualPathData`-Objekt zurückgegeben wird, das nicht NULL ist.
 
-Die primäre Eingaben `GetVirtualPath` sind:
+Die primären Eingaben für `GetVirtualPath` sind:
 
 * `VirtualPathContext.HttpContext`
 
@@ -70,27 +70,27 @@ Die primäre Eingaben `GetVirtualPath` sind:
 
 * `VirtualPathContext.AmbientValues`
 
-Routen werden in erster Linie die Routenwerte gebotenen verwenden die `Values` und `AmbientValues` entscheiden, wo es möglich, eine URL zu generieren ist und welche Werte enthalten. Die `AmbientValues` sind der Satz von Routenwerte, die von einem Abgleich die aktuelle Anforderung mit dem routing System erzeugt wurden. Im Gegensatz dazu `Values` die Routenwerte, die angeben, wie die gewünschte URL für den aktuellen Vorgang generiert werden. Die `HttpContext` wird bereitgestellt, für den Fall, dass eine Route, Dienste oder zusätzliche Daten, die mit dem aktuellen Kontext verknüpft sind abrufen muss.
+Für Routen werden überwiegend die Routenwerte verwendet, die von `Values` und `AmbientValues` bereitgestellt werden. Dadurch wird ermittelt, wo eine URL erstellt werden kann und welche Werte diese enthalten soll. `AmbientValues` sind Routenwerte, die durch die Zuordnung von aktueller Anforderung und Routingsystem erstellt wurden. Im Gegensatz dazu sind `Values` die Routenwerte, die angeben, wie die gewünschte URL für den aktuellen Vorgang generiert werden soll. `HttpContext` wird bereitgestellt, falls für eine Route Dienste oder zusätzliche Daten, die mit dem aktuellen Kontext verknüpft sind, abgerufen werden müssen.
 
-Tipp: Stellen Sie sich `Values` als eine Reihe von Außerkraftsetzungen für die `AmbientValues`. URL-Generierung versucht, die Routenwerte aus der aktuellen Anforderung, die zum Generieren von URLs für Links, die mit dem gleichen Route oder Routenwerte erleichtern wiederverwenden.
+Tipp: Stellen Sie sich `Values` als Außerkraftsetzungen für `AmbientValues` vor. Bei der URL-Generierung wird versucht, Routenwerte der aktuellen Anforderung wiederzuverwenden, um so URLs für Links generieren zu können, die dieselbe Route oder dieselben Routenwerte verwenden.
 
-Die Ausgabe des `GetVirtualPath` ist eine `VirtualPathData`. `VirtualPathData`ist eine parallele Ausführung von `RouteData`; er enthält die `VirtualPath` für die Ausgabe-URL als auch die einige zusätzlichen Eigenschaften, die von der Route festgelegt werden soll.
+Die Ausgabe von `GetVirtualPath` ist ein `VirtualPathData`-Objekt. `VirtualPathData` verhält sich analog zu `RouteData` und enthält das `VirtualPath`-Objekt für die Ausgabe-URL sowie einige zusätzlichen Eigenschaften, die von der Route festgelegt werden sollten.
 
-Die `VirtualPathData.VirtualPath` Eigenschaft enthält die *virtuellen Pfad* erzeugt, die von der Route. Je nach Ihren Anforderungen müssen Sie möglicherweise den Pfad weiter zu verarbeiten. Wenn die generierte URL in HTML gerendert werden sollen müssen Sie z. B. den Basispfad der Anwendung voranstellen.
+Die `VirtualPathData.VirtualPath`-Eigenschaft enthält den *virtuellen Pfad*, der von der Route erstellt wird. Je nach Anforderungen muss der Pfad eventuell noch weiter verarbeitet werden. Wenn beispielsweise die generierte URL in HTML gerendert werden soll, muss der Basispfad der Anwendung vorangestellt werden.
 
-Die `VirtualPathData.Router` ist ein Verweis auf die Route, die die URL wurde erfolgreich generiert.
+`VirtualPathData.Router` ist ein Verweis auf die Route, mit der die URL generiert wurde.
 
-Die `VirtualPathData.DataTokens` Eigenschaften ist ein Wörterbuch von zusätzlichen Daten, die im Zusammenhang mit der Route, die die URL generiert. Dies ist die parallele Ausführung von `RouteData.DataTokens`.
+Die `VirtualPathData.DataTokens`-Eigenschaften stellen ein Wörterbuch mit zusätzlichen Daten zur Route dar, mit der die URL generiert wurde. Dabei handelt es sich um das Gegenstück zu `RouteData.DataTokens`.
 
 ### <a name="creating-routes"></a>Erstellen von Routen
 
-Das Routing bietet die `Route` Klasse als die standardmäßige Implementierung des `IRouter`. `Route`verwendet die *routenvorlage* Syntax, um Muster zu definieren, die für den URL-Pfad entsprechen Wenn `RouteAsync` aufgerufen wird. `Route`die gleichen routenvorlage zum Generieren einer URL verwendet. wenn `GetVirtualPath` aufgerufen wird.
+Für die Routingfunktionalität wird die `Route`-Klasse als Standardimplementierung von `IRouter` zur Verfügung gestellt. `Route` verwendet die Syntax für *Routenvorlagen* und definiert so Muster, die mit dem URL-Pfad abgeglichen werden, wenn `RouteAsync` aufgerufen wird. `Route` nutzt dieselbe Routenvorlage zum Generieren einer URL, wenn `GetVirtualPath` aufgerufen wird.
 
-Die meisten Anwendungen werden durch Aufrufen von Routen erstellen `MapRoute` oder eines der ähnlicher Erweiterungsmethoden, die auf definierten `IRouteBuilder`. Alle diese Methoden erstellt eine Instanz des `Route` und die routenauflistung hinzuzufügen.
+Die meisten Anwendungen erstellen Routen, indem sie `MapRoute` oder eine ähnliche Erweiterungsmethode aufrufen, die in `IRouteBuilder` definiert ist. All diese Methoden erstellen eine Instanz von `Route` und fügen dieser der Routenauflistung hinzu.
 
-Hinweis: `MapRoute` einen Routenparameter Handler - benötigt er fügt nur die Routen, die von verarbeitet werden die `DefaultHandler`. Da der Standardhandler ist ein `IRouter`, er kann entscheiden, nicht zur Verarbeitung der Anforderung. ASP.NET MVC ist beispielsweise in der Regel so konfiguriert, wie ein Standardhandler, der nur verarbeitet, bei denen ein verfügbaren Controller und Aktion anfordert. Weitere Informationen zu MVC-routing finden Sie unter [Routing an Controlleraktionen](../mvc/controllers/routing.md).
+Hinweis: `MapRoute` akzeptiert keinen Routenhandlerparameter und fügt nur Routen hinzu, die von `DefaultHandler` verarbeitet werden. Da der Standardhandler ein `IRouter`-Objekt ist, verarbeitet dieser die Anforderung eventuell nicht. Beispielsweise ist ASP.NET MVC üblicherweise als Standardhandler konfiguriert, der nur Anforderungen verarbeitet, die mit einem verfügbaren Controller und einer Aktion übereinstimmen. Weitere Informationen zum Routing zu MVC finden Sie unter [Routing to Controller Actions (Routing zu Controlleraktionen)](../mvc/controllers/routing.md).
 
-Dies ist ein Beispiel für eine `MapRoute` Aufruf verwendet wird, von einem typischen ASP.NET MVC-Route-Definition:
+Im folgenden Beispiel wird `MapRoute` innerhalb einer typischen ASP.NET MVC-Routendefinition aufgerufen:
 
 ```csharp
 routes.MapRoute(
@@ -98,13 +98,13 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/Details/17` und extrahieren Sie die Routenwerte `{ controller = Products, action = Details, id = 17 }`. Die Routenwerte hängen von der URL-Pfad in Segmente aufteilen und zum Abgleich jedes Segment mit dem *Routenparameter* Name in der routenvorlage. Routenparameter heißen. Sie sind durch Schließen den Namen des Parameters in geschweifte Klammern definiert `{ }`.
+Diese Vorlage gleicht einen URL-Pfad wie `/Products/Details/17` ab und extrahiert die Routenwerte `{ controller = Products, action = Details, id = 17 }`. Diese werden ermittelt, indem der URL-Pfad in Segmente aufgeteilt wird und jedes Segment mit dem Namen des *Routenparameters* in der Routenvorlage abgeglichen wird. Jeder Routenparameter hat einen Namen. Dieser wird von Klammern `{ }` eingeschlossen und dadurch definiert.
 
-Die Vorlage, die oben genannten übereinstimmen könnten auch die URL-Pfad `/` und es wird die Werte `{ controller = Home, action = Index }`. Dies liegt daran, dass die `{controller}` und `{action}` Routenparameter weisen Standardwerte, und die `id` Routenparameter ist optional. Ein Gleichheitszeichen `=` Zeichen gefolgt von einem Wert, nachdem die Namen der Route-Parameter einen Standardwert für den Parameter definiert. Ein Fragezeichen `?` nach der Namen der Route-Parameter den Parameter als optional definiert. Weiterleiten von Parametern mit einem Standardwert *immer* ein routenwert erzeugen, wenn die Route übereinstimmt: optionale Parameter wird kein routenwert erzeugen, wenn es keine entsprechende URL-OData-Pfadsegment wurde.
+Die obige Vorlage würde durch einen Abgleich auch den URL-Pfad `/` finden und daraus die Werte `{ controller = Home, action = Index }` generieren. Dies liegt daran, dass die Routenparameter `{controller}` und `{action}` über Standardwerte verfügen und der Routenparameter `id` optional ist. Hinter dem Namen des Routenparameters steht das Gleichheitszeichen (`=`), auf das der Wert folgt, der als Standardwert für den Parameter definiert wird. Durch ein Fragezeichen (`?`) nach dem Namen des Routenparameters wird der Parameter als optional festgelegt. Durch Routenparameter mit einem Standardwert wird *immer* ein Routenwert erzeugt, wenn die Route übereinstimmt. Bei optionalen Parametern ohne entsprechendes URL-Pfadsegment wird kein Routenwert generiert.
 
-Finden Sie unter [Route-vorlagenreferenz](#route-template-reference) für eine ausführliche Beschreibung der Route Vorlagenfeatures und Syntax.
+Eine ausführliche Beschreibung zu den Features und zur Syntax der Routenvorlage finden Sie unter [Referenz für Routenvorlagen](#route-template-reference).
 
-Dieses Beispiel umfasst ein *weiterleiten Einschränkung*:
+Das folgende Beispiel demonstriert eine *Routeneinschränkung*:
 
 ```csharp
 routes.MapRoute(
@@ -112,11 +112,11 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id:int}");
 ```
 
-Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/Details/17`, aber nicht `/Products/Details/Apples`. Die Route Parameterdefinition `{id:int}` definiert eine *weiterleiten Einschränkung* für die `id` Routenparameter. Implementieren Sie die routeneinschränkungen `IRouteConstraint` , und überprüfen Sie die Routenwerte, um sie zu überprüfen. In diesem Beispiel wird der routenwert `id` müssen in eine ganze Zahl konvertiert werden. Finden Sie unter [Route-Einschränkung-Reference](#route-constraint-reference) für eine ausführlichere Erläuterung der routeneinschränkungen, die vom Framework bereitgestellt werden.
+Durch diese Vorlage wird bei einem Abgleich beispielsweise der URL-Pfad `/Products/Details/17`, aber nicht `/Products/Details/Apples` gefunden. In der Routenparameterdefinition `{id:int}` wird eine *Routeneinschränkung* für den Routenparameter `id` festgelegt. In derartigen Einschränkungen wird `IRouteConstraint` implementiert, und die Routenwerte werden auf Gültigkeit geprüft. Im obigen Beispiel muss sich der Routenwert `id` in einen Integer konvertieren lassen. Eine ausführliche Beschreibung der Routeneinschränkungen, die vom Framework bereitgestellt werden, finden Sie in der [Referenz zu Routeneinschränkungen](#route-constraint-reference).
 
-Zusätzliche Überladungen der `MapRoute` akzeptieren Sie die Werte für `constraints`, `dataTokens`, und `defaults`. Von diesen zusätzlichen Parametern `MapRoute` werden als Datentyp definierte `object`. Die typische Nutzung dieser Parameter ist ein anonym typisiertes Objekt übergeben, in dem die Eigenschaftsnamen des anonymen Typs Übereinstimmung Parameternamen weiterzuleiten.
+Bei zusätzlichen Überladungen von `MapRoute` werden Werte für `constraints`, `dataTokens` und `defaults` akzeptiert. Diese zusätzlichen Parameter von `MapRoute` werden als `object`-Typ definiert. Üblicherweise werden diese Parameter so verwendet, dass ein Objekt eines anonymen Typs übergeben wird, in dem die Eigenschaftsnamen des anonymen Typs mit den Routenparameternamen abgeglichen werden.
 
-Die beiden folgenden Beispiele erstellen Sie entsprechende Routen:
+In den beiden folgenden Beispielen werden identische Routen erstellt:
 
 ```csharp
 routes.MapRoute(
@@ -129,9 +129,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Tipp: Die Inline-Syntax zum Definieren von Einschränkungen und Standardwerte kann für einfache Routen bequemer sein. Es gibt jedoch Funktionen, z. B. Datentoken, die nicht von Inline-Syntax unterstützt werden.
+Tipp: Für einfache Routen ist die Inline-Syntax zum Definieren von Einschränkungen und Standardwerten leichter zu handhaben. Bestimmte Features wie Datentoken werden von dieser allerdings nicht unterstützt.
 
-In diesem Beispiel wird veranschaulicht, ein paar weitere Funktionen:
+Im folgenden Beispiel werden einige weitere Features demonstriert:
 
 ```csharp
 routes.MapRoute(
@@ -140,9 +140,9 @@ routes.MapRoute(
   defaults: new { controller = "Blog", action = "ReadArticle" });
 ```
 
-Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Blog/All-About-Routing/Introduction` und extrahiert die Werte `{ controller = Blog, action = ReadArticle, article = All-About-Routing/Introduction }`. Die Standardroute Werte für `controller` und `action` werden von der Route erstellt, obwohl keine entsprechende Routenparameter in der Vorlage vorhanden sind. Standardwerte können in der routenvorlage angegeben werden. Die `article` Routenparameter ist definiert als eine *sammelfehlermeldung* durch die Darstellung der ein Sternchen `*` vor dem Namen der Route-Parameter. Catchall-Routenparameter erfassen den Rest des URL-Pfads, und können auch die leere Zeichenfolge übereinstimmen.
+Mit dieser Vorlage wird durch einen Abgleich z.B. der URL-Pfad `/Blog/All-About-Routing/Introduction` gefunden, und die Werte `{ controller = Blog, action = ReadArticle, article = All-About-Routing/Introduction }` werden extrahiert. Die Standardroutenwerte für `controller` und `action` werden von der Route generiert, obwohl keine entsprechenden Routenparameter in der Vorlage vorhanden sind. Standardwerte können in der Routenvorlage angegeben werden. Der Routenparameter `article` wird durch ein Sternchen (`*`) vor dem zugehörigen Namen als *Catch-All-Parameter* definiert. So wird der verbleibende Teil des URL-Pfads erfasst, wodurch auch leere Zeichenfolgen gefunden werden können.
 
-In diesem Beispiel wird die Route Einschränkungen und Data-Token:
+Im nächsten Beispiel werden Routeneinschränkungen und Datentoken hinzugefügt:
 
 ```csharp
 routes.MapRoute(
@@ -153,19 +153,19 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Diese Vorlage wird einen URL-Pfad, z. B. entsprechen `/Products/5` und extrahiert die Werte `{ controller = Products, action = Details, id = 5 }` und die Datentoken `{ locale = en-US }`.
+Mit dieser Vorlage wird durch einen Abgleich z.B. der URL-Pfad `/Products/5` gefunden, und die Werte `{ controller = Products, action = Details, id = 5 }` sowie die Datentoken `{ locale = en-US }` werden extrahiert.
 
-![Windows-Token "lokal"](routing/_static/tokens.png)
+![Gebietsschemas, Windows-Tokens](routing/_static/tokens.png)
 
 <a name="id1"></a>
 
 ### <a name="url-generation"></a>URL-Generierung
 
-Die `Route` Klasse kann auch die URL-Generierung durchführen, indem Sie einen Satz von Routenwerten mit seiner routenvorlage kombinieren. Dies ist logisch der umgekehrte Vorgang des URL-Pfad entsprechen.
+Durch die Kombination von mehreren Routenwerten und der zugehörigen Routenvorlage kann die `Route`-Klasse auch URLs generieren. Dieser Prozess verläuft umgekehrt zum Abgleich eines URL-Pfads.
 
-Tipp: Angenommen Sie, um die URL-Generierung besser zu verstehen, welche URL zu generieren und dann überlegen, wie eine routenvorlage für die diese URL übereinstimmt. Welche Werte würde erstellt werden? Dies entspricht dem grobe Funktionsweise der URL-Generierung von der `Route` Klasse.
+Tipp: Wenn Sie die URL-Generierung besser nachvollziehen möchten, sollten Sie sich überlegen, welche URL generiert werden soll und wie diese mithilfe der Routenvorlage abgeglichen wird. Dabei sollten Sie auch darüber nachdenken, welche Werte erstellt werden. Dieser Vorgang entspricht in etwa der URL-Generierung in der `Route`-Klasse.
 
-In diesem Beispiel wird eine grundlegende ASP.NET MVC-Stil Route verwendet:
+Im nächsten Beispiel wird eine einfache ASP.NET MVC-Route verwendet:
 
 ```csharp
 routes.MapRoute(
@@ -173,27 +173,27 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Mit den Routenwerten `{ controller = Products, action = List }`, diese Route wird die URL generiert `/Products/List`. Die Routenwerte werden durch die entsprechenden Routenparameter zu einem URL-Pfad kombiniert ersetzt. Da `id` ist eine optionale Parameter weiterleiten, ist es kein Problem, dass sie nicht über einen Wert verfügt.
+Die Route generiert mithilfe der Routenwerte `{ controller = Products, action = List }` die URL `/Products/List`. Die Routenwerte werden als Ersatz für die entsprechenden Routenparameter verwendet, wodurch ein URL-Pfad erstellt werden kann. Da `id` ein optionaler Parameter ist, muss dieser über keinen Wert verfügen.
 
-Mit den Routenwerten `{ controller = Home, action = Index }`, diese Route wird die URL generiert `/`. Die Routenwerte, die bereitgestellt wurden entsprechen die Standardwerte, damit die Segmente, die für diese Werte problemlos ausgelassen werden können. Beachten Sie, dass beide URLs generiert Round-Trip mit dieser Route-Definition würden und erzeugen die gleichen Routenwerte, die zum Generieren der URL verwendet wurden.
+Die Route generiert mithilfe der Routenwerte `{ controller = Home, action = Index }` die URL `/`. Die bereitgestellten Routenwerte entsprechen den Standardwerten, sodass die Segmente, die mit diesen Werten übereinstimmen, problemlos ausgelassen werden können. Beachten Sie, dass mit beiden generierten URLs und dieser Routendefinition ein Roundtrip ausgeführt würde und dieselben Werte erstellt würden, die zur Generierung der URL verwendet wurden.
 
-Tipp: Die app mithilfe von ASP.NET MVC sollten verwenden `UrlHelper` zum Generieren von URLs statt direkt routing aufzurufen.
+Tipp: Eine auf ASP.NET MVC basierte App sollte zur Generierung von URLs die Routingfunktionalität nicht direkt aufrufen, sondern `UrlHelper` verwenden.
 
-Weitere Informationen zu der URL-Generierungsprozess, finden Sie unter [Url-Generierung-Reference](#url-generation-reference).
+Weitere Informationen zum URL-Generierungsprozess finden Sie unter [Referenz für URL-Generierung](#url-generation-reference).
 
-## <a name="using-routing-middleware"></a>Verwenden von Routing Middleware
+## <a name="using-routing-middleware"></a>Verwenden von Routingmiddleware
 
-Fügen Sie das NuGet-Paket "Microsoft.AspNetCore.Routing" hinzu.
+Fügen Sie zuerst das NuGet-Paket „Microsoft.AspNetCore.Routing“ hinzu.
 
-Fügen Sie dem Dienstcontainer in routing *Startup.cs*:
+Fügen Sie anschließend dem Dienstcontainer in *Startup.cs* die Routingfunktionalität hinzu:
 
 [!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
-Routen müssen konfiguriert werden, der `Configure` Methode in der `Startup` Klasse. Im Beispiel unten verwendet diese APIs:
+Routen müssen in der `Configure`-Methode der `Startup`-Klasse konfiguriert werden. Für das nächste Beispiel werden folgende APIs verwendet:
 
 * `RouteBuilder`
 * `Build`
-* `MapGet`Nur HTTP GET-Anforderungen erfüllt
+* `MapGet` (nur HTTP GET-Anforderungen werden abgeglichen)
 * `UseRouter`
 
 ```csharp
@@ -226,21 +226,21 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 }
 ```
 
-Die folgende Tabelle zeigt die Antworten mit den angegebenen URIs.
+In der folgenden Tabelle werden die Antworten mit den angegebenen URIs aufgelistet:
 
 | URI | Antwort  |
 | ------- | -------- |
-| /package/create/3  | Hallo! Routenwerte: [Vorgang erstellen], [ID: 3] |
-| /package/track/-3  | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3] |
-| /package/track/-3/ | Hallo! Routenwerte: [Vorgang, Nachverfolgen] [-Id,-3]  |
-| /package/track/ | \<Über diesen Bericht keine Übereinstimmung fallen > |
-| /Hello/Joe abrufen | Hallo, Joe! |
-| POST /hello/Joe | \<Fortfahren, nur HTTP GET entspricht > |
-| /Hello/Joe/Smith abrufen | \<Über diesen Bericht keine Übereinstimmung fallen > |
+| /package/create/3  | Hallo! Route values: [operation, create], [id, 3] |
+| /package/track/-3  | Hallo! Route values: [operation, track], [id, -3] |
+| /package/track/-3/ | Hallo! Route values: [operation, track], [id, -3]  |
+| /package/track/ | \<Fall through, no match> (Fehlgeschlagen, keine Übereinstimmung) |
+| GET /hello/Joe | Hi, Joe! |
+| POST /hello/Joe | \<Fall through, matches HTTP GET only> (Fehlgeschlagen, stimmt nur mit HTTP GET überein) |
+| GET /hello/Joe/Smith | \<Fall through, no match> (Fehlgeschlagen, keine Übereinstimmung) |
 
-Wenn Sie eine einzelne Route konfigurieren, rufen Sie `app.UseRouter` übergibt eine `IRouter` Instanz. Sie müssen keine Aufrufen `RouteBuilder`.
+Wenn Sie eine einzelne Route konfigurieren, müssen Sie `app.UseRouter` aufrufen und eine `IRouter`-Instanz übergeben. Ein Aufruf von `RouteBuilder` ist nicht erforderlich.
 
-Das Framework bietet einen Satz von Erweiterungsmethoden für z. B. Erstellen von Routen:
+Das Framework stellt mehrere Erweiterungsmethoden zum Erstellen von Routen zur Verfügung:
 
 * `MapRoute`
 * `MapGet`
@@ -249,130 +249,130 @@ Das Framework bietet einen Satz von Erweiterungsmethoden für z. B. Erstellen vo
 * `MapDelete`
 * `MapVerb`
 
-Einige dieser Methoden wie z. B. `MapGet` erfordern eine `RequestDelegate` bereitgestellt werden. Die `RequestDelegate` verwendet werden, als die *Routenhandler* Wenn die Route entspricht. Andere Methoden in dieser Familie können konfiguriert werden, eine middlewarepipeline, die als den Routenhandler verwendet werden soll. Wenn die *Zuordnung* Methode einen Handler, wie z. B. akzeptiert keine `MapRoute`, verwendet er die `DefaultHandler`.
+Für einige Methoden wie `MapGet` muss ein `RequestDelegate`-Delegat bereitgestellt werden. `RequestDelegate` wird als *Routenhandler* verwendet, wenn der Abgleich für die Route erfolgreich ist. Für andere Erweiterungsmethoden kann eine Middlewarepipeline konfiguriert werden, die als Routenhandler verwendet wird. Wenn die *Map*-Methode einen Handler wie `MapRoute` nicht akzeptiert, verwendet sie `DefaultHandler`.
 
-Die `Map[Verb]` Methoden Einschränkungen verwenden, um die Route, die dem HTTP-Verb im Methodennamen zu beschränken. Beispielsweise finden Sie unter [MapGet](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/RequestDelegateRouteBuilderExtensions.cs#L85-L88) und [MapVerb](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/RequestDelegateRouteBuilderExtensions.cs#L156-L180).
+In den `Map[Verb]`-Methoden werden Einschränkungen verwendet, um die Route auf das HTTP-Verb im Methodennamen zu beschränken. Beispiele dafür sind [MapGet](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/RequestDelegateRouteBuilderExtensions.cs#L85-L88) und [MapVerb](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/RequestDelegateRouteBuilderExtensions.cs#L156-L180).
 
-## <a name="route-template-reference"></a>Route-Vorlagenreferenz
+## <a name="route-template-reference"></a>Referenz für Routenvorlagen
 
-Token in der geschweiften Klammern (`{ }`) definieren *Parameter weiterleiten* gebunden werden wird, wenn die Route verglichen wird. Sie können mehr als ein Routenparameter in einem Segment Route definieren, aber sie müssen durch einen Literalwert getrennt werden. Z. B. `{controller=Home}{action=Index}` wäre eine gültige Route nicht, da es kein Literalwert zwischen ist `{controller}` und `{action}`. Diese Routenparameter müssen einen Namen aufweisen, und haben möglicherweise zusätzliche Attribute angegeben.
+Token in geschweiften Klammern (`{ }`) definieren *Routenparameter*, die beim Abgleich der Route gebunden werden. Sie können in einem Routensegment mehrere Routenparameter definieren, wenn Sie sie durch einen Literalwert trennen. `{controller=Home}{action=Index}` wäre z.B. keine gültige Route, da sich zwischen `{controller}` und `{action}` kein Literalwert befindet. Diese Routenparameter müssen einen Namen besitzen und können zusätzliche Attribute aufweisen.
 
-Literaltext als Routenparameter (z. B. `{id}`) und die Pfadtrennzeichen `/` muss den Text in der URL übereinstimmen. Text Abgleich wird die Groß-/Kleinschreibung und basiert auf die decodierte Darstellung des Pfads URLs. Das literal Route Parameter Trennzeichen entsprechend `{` oder `}`, es durch die Wiederholung des Zeichens mit Escapezeichen versehen (`{{` oder `}}`).
+Eine Literalzeichenfolge, die nicht den Routenparametern entspricht (z.B. `{id}`), muss zusammen mit dem Pfadtrennzeichen `/` mit dem URL-Text übereinstimmen. Beim Abgleich von Text wird nicht zwischen Groß-/Kleinbuchstaben unterschieden, und die Übereinstimmung basiert auf der decodierten Repräsentation des URL-Pfads. Damit das Trennzeichen `{` oder `}` der Routenparameter-Literalzeichenfolge bei einem Abgleich gefunden wird, muss es doppelt vorhanden sein (`{{` oder `}}`), was einem Escapezeichen entspricht.
 
-URL-Muster, die versucht, einen Dateinamen mit der Erweiterung optional aufzuzeichnen haben weitere Aspekte zu berücksichtigen. Beispiel für die Verwendung der Vorlage `files/{filename}.{ext?}` – im Falle beide `filename` und `ext` vorhanden ist, werden beide Werte aufgefüllt werden. Wenn nur `filename` in der URL entspricht der Route vorhanden ist, weil der Punkt `.` ist optional. Die folgenden URLs würden diese Route übereinstimmen:
+Bei einem URL-Muster, durch das ein Dateiname mit einer optionalen Erweiterung erfasst werden soll, sind noch weitere Aspekte zu berücksichtigen. Wenn beispielsweise die Vorlage `files/{filename}.{ext?}` verwendet wird und sowohl `filename` als auch `ext` vorhanden sind, werden für beide Parameter Werte aufgefüllt. Wenn nur `filename` in der URL vorhanden ist, wird für die Route eine Übereinstimmung ermittelt, da der nachstehende Punkt (`.`) optional ist. Die folgenden URLs würden mit der Route übereinstimmen:
 
 * `/files/myFile.txt`
 * `/files/myFile.`
 * `/files/myFile`
 
-Können Sie die `*` -Zeichen als Präfix auf einen Routenparameter zum Binden an den Rest des URI - heißt dies eine *Catchall-* Parameter. Z. B. `blog/{*slug}` entsprechen einen beliebigen URI, die mit gestartet `/blog` ausnahmslos darauf folgende Waren (die zugewiesen werden die `slug` weiterleiten Wert). Catch-All-Parameter können auch mit der leeren Zeichenfolge entsprechen.
+Sie können das `*`-Zeichen als Präfix für einen Routenparameter verwenden, um damit eine Bindung zum verbleibenden Teil des URI herzustellen. Dies wird als *Catch-All*-Parameter bezeichnet. Durch `blog/{*slug}` würde beispielsweise jeder URI ermittelt, der mit `/blog` beginnt und dahinter einen beliebigen Wert aufweist (der dann dem `slug`-Routenwert zugeordnet wird). Durch Catch-All-Parameter können auch leere Zeichenfolgen gefunden werden.
 
-Routenparameter möglicherweise *Standardwerte*, festgelegten durch Angeben der standardmäßigen nach dem Parameternamen, getrennt durch ein `=`. Beispielsweise `{controller=Home}` würden definieren `Home` als Standardwert für `controller`. Der Standardwert wird verwendet, wenn kein Wert für den Parameter in der URL enthalten ist. Zusätzlich zu den Standardwerten, Routenparameter ausgelassen werden können (angegeben durch Anfügen einer `?` bis zum Ende des Parameternamens als in `id?`). Der Unterschied zwischen optional und "verfügt über default" ist, dass ein Routenparameter hat den Standardwert immer einen Wert erzeugt; Ein optionaler Parameter hat einen Wert nur, wenn eine bereitgestellt wird.
+Routenparameter können über mehrere *Standardwerte* verfügen, die nach dem Parameternamen angegeben werden und durch `=` abgetrennt werden. Durch `{controller=Home}` würde beispielsweise `Home` als Standardwert für `controller` festgelegt werden. Der Standardwert wird verwendet, wenn kein Wert in der Parameter-URL vorhanden ist. Routenparameter können nicht nur Standardwerte aufweisen, sondern darüber hinaus auch als optional definiert werden, indem am Ende des Parameternamens `?` hinzugefügt wird. Dies ist beispielsweise bei `id?` der Fall. Der Unterschied zwischen optionalen Parametern und Parametern mit einem Standardwert besteht darin, dass ein Routenparameter mit einem Standardwert immer einen Wert erzeugt. Ein optionaler Parameter verfügt demgegenüber nur dann über einen Wert, wenn ein solcher angegeben wird.
 
-Routenparameter möglicherweise auch Einschränkungen, die den routenwert gebunden wird, von der URL übereinstimmen muss. Hinzufügen eines Doppelpunkts `:` und nach der Namen der Route-Parameter gibt an, auf den Namen der Einschränkung einer *Inlineeinschränkung* auf einen Routenparameter. Wenn die Einschränkung Argumente die bereitgestellt erfordert werden, in Klammern eingeschlossen `( )` nach den Namen der Einschränkung. Mehrere inlineeinschränkungen können angegeben werden, durch Anfügen einer anderen Doppelpunkt `:` und Name der Einschränkung. Der Einschränkungsname wird zum Übergeben der `IInlineConstraintResolver` Dienst zum Erstellen einer Instanz von `IRouteConstraint` in URL-Verarbeitung verwendet. Z. B. die routenvorlage `blog/{article:minlength(10)}` gibt an, die `minlength` Einschränkung mit dem Argument `10`. Weitere Beschreibung routeneinschränkungen, sowie eine Liste der Einschränkungen von Framework bereitgestellt werden, finden Sie unter [Route-Einschränkung-Reference](#route-constraint-reference).
+Routenparameter können des Weiteren Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) angegeben. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt wird. Der Einschränkungsname wird dem `IInlineConstraintResolver`-Dienst übergeben, wodurch eine Instanz von `IRouteConstraint` für die URL-Verarbeitung erstellt werden kann. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` angegeben. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie unter [Referenz für Routeneinschränkungen](#route-constraint-reference).
 
-Die folgende Tabelle enthält einige routenvorlagen und deren Verhalten.
+In der folgenden Tabelle werden mehrere Routenvorlagen und deren Verhalten beschrieben:
 
-| Routenvorlage | Übereinstimmende Beispiel-URL | Hinweise |
+| Routenvorlage | Beispiel-URL für Abgleich | Hinweise |
 | -------- | -------- | ------- |
-| hello  | /hello  | Nur entspricht der einzelnen Pfad`/hello` |
-| {Seite = Home} | / | Entspricht, und legt `Page` an`Home` |
-| {Seite = Home}  | /Contact  | Entspricht, und legt `Page` an`Contact` |
-| {controller}/{action}/{id?} | /Products/List | Ordnet `Products` Controller und `List` Aktion |
-| {controller}/{action}/{id?} | /Products/Details/123  |  Ordnet `Products` Controller und `Details` Aktion.  `id`Legen Sie auf 123 |
-| {Controller = Home} / {Aktion = Index} / {Id}? | /  |  Ordnet `Home` Controller und `Index` -Methode. `id` wird ignoriert. |
+| hello  | /hello  | Nur für den Pfad `/hello` wird eine Übereinstimmung ermittelt. |
+| {Page=Home} | / | Eine Übereinstimmung wird ermittelt, und `Page` wird auf `Home` festgelegt. |
+| {Page=Home}  | /Contact  | Eine Übereinstimmung wird ermittelt, und `Page` wird auf `Contact` festgelegt. |
+| {controller}/{action}/{id?} | /Products/List | `Products` wird „controller“ und `List` „action“ zugeordnet. |
+| {controller}/{action}/{id?} | /Products/Details/123  |  `Products` wird „controller“ und `Details` „action“ zugeordnet.  `id` wird auf 123 festgelegt. |
+| {controller=Home}/{action=Index}/{id?} | /  |  `Home` wird „controller“ und `Index` „action“ zugeordnet. `id` wird ignoriert. |
 
-Mithilfe einer Vorlage wird im Allgemeinen die einfachste Vorgehensweise zum routing. Einschränkungen und Standardwerte können auch außerhalb der routenvorlage angegeben werden.
+Mit Vorlagen lässt sich Routing besonders leicht durchführen. Einschränkungen und Standardwerte können auch außerhalb der Routenvorlage angegeben werden.
 
-Tip: Aktivierung der [Protokollierung](xref:fundamentals/logging/index) angezeigt wie die, wie z. B. in routing Implementierungen `Route`, Anforderungen entsprechen.
+Tipp: Wenn Sie die [Protokollierung](xref:fundamentals/logging/index) aktivieren, erfahren Sie, wie die integrierten Routingimplementierungen (z.B. `Route`) Übereinstimmungen für Anforderungen ermitteln.
 
-## <a name="route-constraint-reference"></a>Route-Einschränkung Verweis
+## <a name="route-constraint-reference"></a>Referenz für Einschränkungen
 
-Routeneinschränkungen ausgeführt, wenn eine `Route` verfügt über die Syntax der eingehenden URL abgeglichen und den URL-Pfad in Routenwerte in Token übersetzt. Routeneinschränkungen ist im Allgemeinen die routenwert verknüpft sind, über die routenvorlage untersuchen, und stellen eine einfache Ja/Nein Entscheidung zu, und zwar unabhängig davon, ob der Wert zulässig ist. Einige routeneinschränkungen verwendet Daten außerhalb der routenwert überlegen, ob die Anforderung weitergeleitet werden kann. Z. B. die `HttpMethodRouteConstraint` annehmen oder Ablehnen einer Anforderung basierend auf der HTTP-Verb können.
+Routeneinschränkungen werden ausgeführt, wenn `Route` die Syntax der eingehenden URL abgeglichen und den URL-Pfad mit einer Tokenisierung in Routenwerte umgewandelt hat. In der Regel wird mit Routeneinschränkungen der Routenwert der zugehörigen Vorlage geprüft. Dabei wird bestimmt, ob der Wert gültig ist. Für einige Routeneinschränkungen werden anstelle des Routenwerts andere Daten verwendet, um zu ermitteln, ob das Routing einer Anforderung möglich ist. `HttpMethodRouteConstraint` kann beispielsweise auf der Grundlage des HTTP-Verbs eine Anforderung entweder annehmen oder ablehnen.
 
 >[!WARNING]
-> Vermeiden Sie die Verwendung von Einschränkungen für **input Validation**, da dies bedeutet, ungültige Eingabe 404 (Nichtgefunden) anstatt mit einer entsprechenden Fehlermeldung 400 Bad Request führt. Routeneinschränkungen muss zur **eindeutig** zwischen ähnlichen Routen, nicht um die Eingaben für eine bestimmte Route zu überprüfen.
+> Bei der **Eingabevalidierung** sollten Sie auf Einschränkungen verzichten, da ungültige Eingaben nicht den Fehler 400 auslösen und keine entsprechende Fehlermeldung ausgeben. Stattdessen hat dies den Fehler „404 – Nicht gefunden“ zur Folge. Routeneinschränkungen sollten nicht verwendet werden, um Eingaben für eine bestimmte Route zu überprüfen, sondern um zwischen ähnlichen Routen **unterscheiden** zu können.
 
-Die folgende Tabelle enthält einige routeneinschränkungen und des erwarteten Verhaltens.
+In der folgenden Tabelle werden mehrere Routeneinschränkungen und deren Verhalten beschrieben:
 
-| Einschränkung | Beispiel | Beispiel für Übereinstimmungen | Hinweise |
+| Einschränkung | Beispiel | Beispiele für Übereinstimmungen | Hinweise |
 | --------   | ------- | ------------- | ----- |
-| `int` | `{id:int}` | `123456789`, `-123456789`  | Eine beliebige ganze Zahl entspricht |
-| `bool`  | `{active:bool}` | `true`, `FALSE` | Übereinstimmungen `true` oder `false` (Groß-/Kleinschreibung) |
-| `datetime` | `{dob:datetime}` | `2016-12-31`, `2016-12-31 7:32pm`  | Ein gültiger entspricht `DateTime` Wert (in der invarianten Kultur - Warnung angezeigt) |
-| `decimal` | `{price:decimal}` | `49.99`, `-1,000.01` | Ein gültiger entspricht `decimal` Wert (in der invarianten Kultur - Warnung angezeigt) |
-| `double`  | `{weight:double}` | `1.234`, `-1,001.01e8` | Ein gültiger entspricht `double` Wert (in der invarianten Kultur - Warnung angezeigt) |
-| `float`  | `{weight:float}` | `1.234`, `-1,001.01e8` | Ein gültiger entspricht `float` Wert (in der invarianten Kultur - Warnung angezeigt) |
-| `guid`  | `{id:guid}` | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Ein gültiger entspricht `Guid` Wert |
-| `long` | `{ticks:long}` | `123456789`, `-123456789` | Ein gültiger entspricht `long` Wert |
-| `minlength(value)` | `{username:minlength(4)}` | `Rick` | Zeichenfolge muss mindestens 4 Zeichen umfassen. |
-| `maxlength(value)` | `{filename:maxlength(8)}` | `Richard` | Zeichenfolge muss nicht mehr als 8 Zeichen lang sein. |
-| `length(length)` | `{filename:length(12)}` | `somefile.txt` | Zeichenfolge muss genau 12 Zeichen lang sein. |
-| `length(min,max)` | `{filename:length(8,16)}` | `somefile.txt` | Zeichenfolge muss mindestens 8 bis maximal 16 Zeichen lang sein. |
-| `min(value)` | `{age:min(18)}` | `19` | Integer-Wert muss mindestens 18 sein. |
-| `max(value)` | `{age:max(120)}` |  `91` | Integer-Wert muss nicht mehr als 120 sein. |
-| `range(min,max)` | `{age:range(18,120)}` | `91` | Integer-Wert muss mindestens 18, aber nicht mehr als 120 sein. |
-| `alpha` | `{name:alpha}` | `Rick` | Zeichenfolge muss mindestens eine alphabetische Zeichen bestehen (`a`-`z`, Groß-/Kleinschreibung) |
-| `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | Zeichenfolge muss den regulären Ausdruck entsprechen (Siehe Tipps zum Definieren eines regulären Ausdrucks) |
-| `required`  | `{name:required}` | `Rick` |  Zum durchsetzen, dass ein Parameterwert während der URL-Generierung vorhanden ist. |
+| `int` | `{id:int}` | `123456789`, `-123456789`  | Für jeden Integer wird eine Übereinstimmung ermittelt. |
+| `bool`  | `{active:bool}` | `true`, `FALSE` | Für `true` oder `false` wird eine Übereinstimmung ermittelt (keine Unterscheidung zwischen Groß-/Kleinbuchstaben). |
+| `datetime` | `{dob:datetime}` | `2016-12-31`, `2016-12-31 7:32pm`  | Für einen gültigen `DateTime`-Wert wird eine Übereinstimmung ermittelt (in der invarianten Kultur; siehe Warnung). |
+| `decimal` | `{price:decimal}` | `49.99`, `-1,000.01` | Für einen gültigen `decimal`-Wert wird eine Übereinstimmung ermittelt (in der invarianten Kultur; siehe Warnung). |
+| `double`  | `{weight:double}` | `1.234`, `-1,001.01e8` | Für einen gültigen `double`-Wert wird eine Übereinstimmung ermittelt (in der invarianten Kultur; siehe Warnung). |
+| `float`  | `{weight:float}` | `1.234`, `-1,001.01e8` | Für einen gültigen `float`-Wert wird eine Übereinstimmung ermittelt (in der invarianten Kultur; siehe Warnung). |
+| `guid`  | `{id:guid}` | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Für einen gültigen `Guid`-Wert wird eine Übereinstimmung ermittelt. |
+| `long` | `{ticks:long}` | `123456789`, `-123456789` | Für einen gültigen `long`-Wert wird eine Übereinstimmung ermittelt. |
+| `minlength(value)` | `{username:minlength(4)}` | `Rick` | Die Zeichenfolge muss mindestens eine Länge von 4 Zeichen aufweisen. |
+| `maxlength(value)` | `{filename:maxlength(8)}` | `Richard` | Die Zeichenfolge darf maximal eine Länge von 8 Zeichen aufweisen. |
+| `length(length)` | `{filename:length(12)}` | `somefile.txt` | Die Zeichenfolge muss genau 12 Zeichen aufweisen. |
+| `length(min,max)` | `{filename:length(8,16)}` | `somefile.txt` | Die Zeichenfolge muss mindestens eine Länge von 8 und darf maximal eine Länge von 16 Zeichen aufweisen. |
+| `min(value)` | `{age:min(18)}` | `19` | Der Integerwert muss mindestens 18 sein. |
+| `max(value)` | `{age:max(120)}` |  `91` | Der Integerwert darf nicht größer als 120 sein. |
+| `range(min,max)` | `{age:range(18,120)}` | `91` | Der Integerwert muss zwischen 18 und 120 liegen. |
+| `alpha` | `{name:alpha}` | `Rick` | Die Zeichenfolge muss aus mindestens einem alphabetische Zeichen bestehen (`a`-`z`, keine Unterscheidung zwischen Groß-/Kleinbuchstaben). |
+| `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | Die Zeichenfolge muss dem regulären Ausdruck entsprechen (siehe Tipp zum Definieren eines regulären Ausdrucks) |
+| `required`  | `{name:required}` | `Rick` |  Hierdurch wird erzwungen, dass ein Wert, der kein Parameter ist, für die URL-Generierung vorhanden sein muss. |
 
 >[!WARNING]
-> Routeneinschränkungen, die die URL überprüfen Sie auf einen CLR-Typ konvertiert werden können (z. B. `int` oder `DateTime`) immer die invariante Kultur verwenden – wird davon ausgegangen, die URL ist nicht lokalisiert. Die routeneinschränkungen Framework bereitgestellten ändern Sie nicht die Werte in Routenwerte gespeichert. Alle Routenwerte analysiert, die von der URL werden als Zeichenfolgen gespeichert werden. Z. B. die ["float" routeneinschränkung](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) wird versucht, den routenwert in einen float-Wert konvertiert, aber der konvertierte Wert dient nur zu überprüfen, ob sie die in einen float-Wert konvertiert werden kann.
+> Für Routeneinschränkungen, mit denen geprüft wird, ob sich die URL in einen CLR-Typ wie `int` oder `DateTime` konvertieren lässt, wird immer die invariante Kultur verwendet. Es wird also davon ausgegangen, dass die URL nicht lokalisiert werden kann. Die vom Framework bereitgestellten Routeneinschränkungen ändern nicht die Werte, die in Routenwerten gespeichert sind. Alle Routenwerte, die aus der URL analysiert wurden, werden als Zeichenfolgen gespeichert. Durch die [Gleitkomma-Routeneinschränkung](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) wird beispielsweise versucht, den Routenwert in einen Gleitkommawert zu konvertieren. Mit dem konvertierten Wert wird allerdings nur überprüft, ob eine Umwandlung überhaupt möglich ist.
 
 ## <a name="regular-expressions"></a>Reguläre Ausdrücke 
 
-Fügt das Framework ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` an den Konstruktor für reguläre Ausdrücke. Finden Sie unter [RegexOptions-Enumeration](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) eine Beschreibung dieser Member.
+Im ASP.NET Core-Framework wird dem Konstruktor für reguläre Ausdrücke `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` hinzugefügt. Informationen zu diesen Membern finden Sie unter [RegexOptions Enumeration (RegexOptions-Enumeration)](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions).
 
-Verwendung von regulären Ausdrücken, Trennzeichen und Token von Routing und die Programmiersprache c# ähnelt. Reguläre Ausdrücke Token müssen mit Escapezeichen versehen werden. Beispielsweise, um den regulären Ausdruck verwenden `^\d{3}-\d{2}-\d{4}$` im Routing, es erfordert das `\` Zeichen eingegeben als `\\` in der C#-Quelldatei als Escapesequenz für die `\` string Escape-Zeichen (außer bei [wörtliche Zeichenfolgenliterale](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Die `{` , `}` , ' [' und ']' Zeichen mit Escapezeichen versehen werden, indem verdoppelt, um die Begrenzungszeichen der Routing-Parameter mit Escapezeichen versehen werden müssen.  Die folgende Tabelle zeigt einen regulären Ausdruck und die mit Escapezeichen versehene Version.
+In regulären Ausdrücken werden Trennzeichen und Token verwendet, die auch beim Routing und in der Programmiersprache C# in ähnlicher Weise verwendet werden. Token, die reguläre Ausdrücke enthalten, müssen mit einem Escapezeichen versehen werden. Wenn Sie beispielsweise den regulären Ausdruck `^\d{3}-\d{2}-\d{4}$` mit der Routingfunktionalität verwenden möchten, muss das Zeichen `\` in der C#-Quelldatei in der Form `\\` eingegeben werden, damit die Funktion des Escapezeichens `\` aufgehoben wird (falls keine [ausführlichen Zeichenfolgenliterale](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string) verwendet werden). Die Zeichen `{`, `}`, „[“ und „]“ müssen durch Verdopplung mit einem Escapezeichen versehen werden. Dadurch werden die Trennzeichen der Routingparameter nicht berücksichtigt.  In der folgenden Tabelle werden reguläre Ausdrücke und Ausdrücke mit den entsprechenden Escapezeichen aufgeführt:
 
 | Ausdruck               | Hinweis |
 | ----------------- | ------------ | 
 | `^\d{3}-\d{2}-\d{4}$` | Regulärer Ausdruck |
-| `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | Escapezeichen  |
+| `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | Mit Escapezeichen versehen  |
 | `^[a-z]{2}$` | Regulärer Ausdruck |
-| `^[[a-z]]{{2}}$` | Escapezeichen  |
+| `^[[a-z]]{{2}}$` | Mit Escapezeichen versehen  |
 
-Reguläre Ausdrücke, die beim routing verwendet häufig beginnt mit der `^` Zeichen (Übereinstimmung, die Anfangsposition der Zeichenfolge) und enden mit der `$` Zeichen (Übereinstimmung Endposition der Zeichenfolge). Die `^` und `$` Zeichen sicher, dass die Übereinstimmung des regulären Ausdrucks den gesamten Übertragungsweg Parameterwert. Ohne die `^` und `$` Zeichen in der reguläre Ausdruck entspricht jeder Teilzeichenfolge innerhalb der Zeichenfolge, die häufig nicht gewünscht ist. In der folgenden Tabelle sind einige Beispiele für und erläutert, warum sie übereinstimmen oder nicht übereinstimmen.
+Für das Routing verwendete reguläre Ausdrücke beginnen häufig mit dem Zeichen `^` (Anfangsposition der abzugleichenden Zeichenfolge) und enden mit dem Zeichen `$` (Endposition der abzugleichenden Zeichenfolge). Mit den Zeichen `^` und `$` wird sichergestellt, dass der reguläre Ausdruck mit dem vollständigen Routenparameterwert übereinstimmt. Ohne die Zeichen `^` und `$` werden mit dem regulären Ausdruck alle Teilzeichenfolgen ermittelt, was häufig nicht gewünscht ist. In der folgenden Tabelle finden Sie mehrere Beispiele für reguläre Ausdrücke. Außerdem wird erklärt, warum ein Abgleich erfolgreich ist oder fehlschlägt.
 
 | Ausdruck               | Zeichenfolge | Match | Kommentar |
 | ----------------- | ------------ |  ------------ |  ------------ | 
-| `[a-z]{2}` | hello | ja | Teilzeichenfolge Übereinstimmungen |
-| `[a-z]{2}` | 123abc456 | ja | Teilzeichenfolge Übereinstimmungen |
-| `[a-z]{2}` | mz | ja | entspricht dem Ausdruck |
-| `[a-z]{2}` | MZ | ja | keine Groß-/Kleinschreibung unterschieden. |
-| `^[a-z]{2}$` |  hello | Nein | finden Sie unter `^` und `$` oben |
-| `^[a-z]{2}$` |  123abc456 | Nein | finden Sie unter `^` und `$` oben |
+| `[a-z]{2}` | hello | ja | Teilzeichenfolge stimmt überein |
+| `[a-z]{2}` | 123abc456 | ja | Teilzeichenfolge stimmt überein |
+| `[a-z]{2}` | mz | ja | Ausdruck stimmt überein |
+| `[a-z]{2}` | MZ | ja | keine Unterscheidung zwischen Groß-/Kleinbuchstaben |
+| `^[a-z]{2}$` |  hello | Nein | siehe Erläuterungen zu `^` und `$` oben |
+| `^[a-z]{2}$` |  123abc456 | Nein | siehe Erläuterungen zu `^` und `$` oben |
 
-Verweisen auf [reguläre Ausdrücke von .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) für Weitere Informationen zu Syntax regulärer Ausdrücke.
+Weitere Informationen zur Syntax von regulären Ausdrücken finden Sie unter [Sprachelemente für reguläre Ausdrücke – Kurzübersicht](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
-Verwenden Sie einen regulären Ausdruck, um einen Parameter mit einem bekannten Satz möglicher Werte zu beschränken. Z. B. `{action:regex(^(list|get|create)$)}` nur entspricht der `action` weiterleiten Wert `list`, `get`, oder `create`. Wenn übergebene Einschränkungen Wörterbuch vorhanden ist, die Zeichenfolge "^ (Liste | Get | erstellen) $" entspräche. Einschränkungen, die im Wörterbuch Einschränkungen (nicht Inline in einer Vorlage) übergeben werden, die eine der bekannten Einschränkungen nicht übereinstimmen, werden ebenfalls als reguläre Ausdrücke behandelt.
+Einen regulären Ausdruck können Sie verwenden, um einen Parameter auf zulässige Werte einzuschränken. Mit `{action:regex(^(list|get|create)$)}` werden beispielsweise für den `action`-Routenwert nur die Werte `list`, `get` oder `create` abgeglichen. Wenn die Zeichenfolge „^(list|get|create)$“ in das Einschränkungswörterbuch eingefügt werden würde, wäre sie mit dem vorherigen Ausdruck identisch. Auch Einschränkungen, die dem zugehörigen Wörterbuch hinzugefügt werden und mit keiner vorgegebenen Einschränkung übereinstimmen , werden als reguläre Ausdrücke behandelt. Dies gilt allerdings nicht für Inline-Einschränkungen in einer Vorlage.
 
-## <a name="url-generation-reference"></a>URL-Generierung-Verweis
+## <a name="url-generation-reference"></a>Referenz für URL-Generierung
 
-Im folgenden Beispiel wird gezeigt, wie auf einen Link zu einer Route, die ein Wörterbuch mit Routenwerten für die angegebene generieren und ein `RouteCollection`.
+Im folgenden Beispiel wird gezeigt, wie Sie einen Link zu einer Route unter Berücksichtigung eines vorhandenen Wörterbuchs mit Routenwerten und einem `RouteCollection`-Objekt erstellen.
 
 [!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
-Die `VirtualPath` wird am Ende des oben genannten Beispiels generiert `/package/create/123`.
+Das `VirtualPath`-Objekt, das im obigen Beispiel im unteren Bereich generiert wird, besitzt den Wert `/package/create/123`.
 
-Der zweite Parameter für die `VirtualPathContext` Konstruktor ist eine Auflistung von *ambient Werte*. Ambient Werte bereitstellen halber Einschränken der Anzahl der Werte, die ein Entwickler in einem bestimmten Anforderungskontext angeben muss. Die aktuelle Routenwerte der aktuellen Anforderung gelten linkgenerierung ambient-Werte. Z. B. in einer ASP.NET MVC-app, wenn Sie sich auf die `About` Aktion der `HomeController`, müssen Sie nicht zum Angeben des Werts des Controller-Route mit Verknüpfen der `Index` Aktion (die ambient-Wert des `Home` verwendet werden).
+Der zweite Parameter für den `VirtualPathContext`-Konstruktor ist eine Auflistung von *Umgebungswerten*. Mit diesen lassen sich leicht die Anzahl der Werte einschränken, die ein Entwickler innerhalb eines bestimmten Anforderungskontexts angeben muss. Die aktuellen Routenwerte der aktuellen Anforderung werden bei der Linkgenerierung als Umgebungswerte behandelt. In einer ASP.NET MVC-App müssen Sie beispielsweise innerhalb der `About`-Aktion von `HomeController` nicht den Controllerroutenwert angeben, um eine Verknüpfung mit der `Index`-Aktion herzustellen, da der Umgebungswert von `Home` verwendet wird.
 
-Ambient Werte, die einen Parameter nicht übereinstimmen, werden ignoriert und die ambient-Werte werden auch ignoriert, wenn ein Wert explizit bereitgestellte, überschreibt den Wechsel von links nach rechts in der URL.
+Umgebungswerte werden ignoriert, wenn sie keinem Parameter entsprechen oder ein explizit bereitgestellter Wert den Parameter überschreibt (innerhalb der URL von links nach rechts).
 
-Die Abfragezeichenfolge werden Werte, die explizit bereitgestellt werden, aber die stimmen nicht überein. nichts, hinzugefügt. Die folgende Tabelle zeigt das Ergebnis aus, wenn die routenvorlage mit `{controller}/{action}/{id?}`.
+Explizit bereitgestellte Werte, für die keine Übereinstimmungen ermittelt werden, werden der Abfragezeichenfolge hinzugefügt. In der folgenden Tabelle werden die Ergebnisse dargestellt, die aus der Verwendung der Routenvorlage `{controller}/{action}/{id?}` hervorgehen:
 
-| Ambient-Werte | Explizite Werte | Ergebnis |
+| Umgebungswerte | Explizite Werte | Ergebnis |
 | -------------   | -------------- | ------ |
-| controller="Home" | Aktion = "Info" | `/Home/About` |
+| controller="Home" | action="About" | `/Home/About` |
 | controller="Home" | controller="Order",action="About" | `/Order/About` |
-| Controller = "Home", Color = "Red" | Aktion = "Info" | `/Home/About` |
-| controller="Home" | Aktion = "About" color = "Red" | `/Home/About?color=Red`
+| controller="Home",color="Red" | action="About" | `/Home/About` |
+| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
 
-Wenn eine Route hat den Standardwert, der einen Parameter entsprechen nicht der Wert explizit angegeben, muss er den Standardwert übereinstimmen. Zum Beispiel:
+Wenn eine Route über einen Standardwert verfügt, der keinem Parameter entspricht, und dieser Wert explizit bereitgestellt wird, muss er dem Standardwert entsprechen. Zum Beispiel:
 
 ```csharp
 routes.MapRoute("blog_route", "blog/{*slug}",
   defaults: new { controller = "Blog", action = "ReadPost" });
 ```
 
-Linkgenerierung würde nur einen Link für diese Route generiert, wenn die entsprechenden Werte für Controller und Aktion bereitgestellt werden.
+Für diese Route würde nur dann ein Link generiert, wenn die übereinstimmenden Werte für „controller“ und „action“ bereitgestellt werden.

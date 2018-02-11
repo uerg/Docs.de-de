@@ -2,18 +2,18 @@
 title: ASP.NET Core auf Nano Server
 author: shirhatti
 description: "Hier erfahren Sie, wie Sie eine bestehende ASP.NET Core-App auf einer Nano Server-Instanz bereitstellen, auf der Internetinformationsdienste (Internet Information Services – IIS) ausgeführt werden."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/04/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: d9b55fb42088b447451326b7ee573d9bfa5f5941
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4fc5f6874f86130da9f66d13778516d984ff8b46
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>ASP.NET Core mit IIS auf Nano Server
 
@@ -31,7 +31,7 @@ Sie verfügen über drei einfache Möglichkeiten, Nano Server zu testen. Wenn Si
 
 2. Sie können die Nano Server-VHD herunterladen.
 
-3. Sie können mit dem Nano Server-Image aus dem Azure-Katalog eine VM in Azure erstellen. Wenn Sie noch über kein Azure-Konto verfügen, können Sie sich für eine kostenlose 30-Tage-Testversion registrieren.
+3. Sie können mit dem Nano Server-Image aus dem Azure-Katalog eine VM in Azure erstellen. Es ist eine kostenlose Azure-Testversion verfügbar.
 
 In diesem Tutorial verwenden wir die zweite Option, die vorgefertigte Nano Server-VHD von Windows Server 2016.
 

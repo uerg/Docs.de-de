@@ -1,35 +1,35 @@
 ---
-title: Umgebung Tag Helper in ASP.NET Core
+title: Umgebungstaghilfsprogramm in ASP.NET Core
 author: pkellner
-description: "ASP.NET Core Umgebung Tag Helper definiert, einschließlich aller Eigenschaften"
-ms.author: riande
+description: "Definition des Umgebungstaghilfsprogramms für ASP.NET Core, einschließlich aller Eigenschaften"
 manager: wpickett
+ms.author: riande
 ms.date: 07/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: 32646f1fdaf840f796da1ec573459157a41a86d1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 7a99ee0e59c7f49a3208d2c86c11cabce4294889
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a>Umgebung Tag Helper in ASP.NET Core
+# <a name="environment-tag-helper-in-aspnet-core"></a>Umgebungstaghilfsprogramm in ASP.NET Core
 
-Durch [Peter Kellner](http://peterkellner.net) und [Hisham "bin" Ateya](https://twitter.com/hishambinateya)
+Von [Peter Kellner](http://peterkellner.net) und [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-Die Umgebung Tags Hilfsprogramm rendert bedingt den eingeschlossenen Inhalt basierend auf der aktuellen hostumgebung. Die einzelnen Attribut `names` ist eine durch Trennzeichen getrennte Liste der Umgebung Namen, wenn eine Übereinstimmung mit der aktuellen Umgebung, löst den eingeschlossenen Inhalt gerendert werden soll.
+Basierend auf der aktuellen Hostingumgebung rendert das Umgebungstaghilfsprogramm den von ihm eingeschlossenen Inhalt unter Vorbehalt. Das Programm besitzt nur das Attribut `names`, das aus einer durch Trennzeichen getrennten Liste mit Umgebungsnamen besteht. Wenn mindestens einer der Namen mit dem Namen der aktuellen Umgebung übereinstimmt, wird der eingeschlossene Inhalt gerendert.
 
-## <a name="environment-tag-helper-attributes"></a>Umgebung Tagattribute-Hilfsprogramm
+## <a name="environment-tag-helper-attributes"></a>Attribute von Umgebungstaghilfsprogrammen
 
 ### <a name="names"></a>Namen
 
-Akzeptiert ein einzelnes hosting Umgebungsname oder eine durch Trennzeichen getrennte Liste hosten Umgebungsnamen, mit die das Rendering des eingeschlossenen Inhalts ausgelöst.
+Akzeptiert den Namen einer einzelnen Hostingumgebung oder eine durch Trennzeichen getrennte Liste mit Namen von Hostingumgebungen, die das Rendering des eingeschlossenen Inhalts auslösen.
 
-Diese Werte werden auf den aktuellen Wert von der statischen ASP.NET Core-Eigenschaft zurückgegebenen verglichen `HostingEnvironment.EnvironmentName`.  Dieser Wert ist eine der folgenden: **Staging**; **Entwicklung** oder **Produktion**. Der Vergleich die Groß-/Kleinschreibung ignoriert.
+Dieser Wert bzw. diese Werte werden mit dem aktuellen Wert verglichen, der von der statischen ASP.NET Core-Eigenschaft `HostingEnvironment.EnvironmentName` zurückgegeben wird.  Folgende Werte können zurückgegeben werden: **Staging**; **Entwicklung** oder **Produktion**. Bei dem Vergleich wird die Groß-/Kleinschreibung ignoriert.
 
-Ein Beispiel einer gültigen `environment` Tag Helper ist:
+Das folgende Beispiel zeigt ein gültiges `environment`-Taghilfsprogramm:
 
 ```cshtml
 <environment names="Staging,Production">
@@ -37,13 +37,13 @@ Ein Beispiel einer gültigen `environment` Tag Helper ist:
 </environment>
 ```
 
-## <a name="include-and-exclude-attributes"></a>einschließen und Ausschließen von Attributen
+## <a name="include-and-exclude-attributes"></a>Die Attribute „include“ und „exclude“
 
-ASP.NET Core 2.x fügt die `include`  &  `exclude` Attribute. Diese Attribute-Steuerelement, das Rendern des eingeschlossenen Inhalts basierend auf den eingeschlossene oder ausgeschlossene hosting Umgebungsnamen.
+ASP.NET Core 2.x fügt die Attribute `include` & `exclude` hinzu. Diese Attribute steuern das Rendern des eingeschlossenen Inhalts anhand der eingeschlossenen bzw. ausgeschlossenen Namen von Hostingumgebungen.
 
-### <a name="include-aspnet-core-20-and-later"></a>ASP.NET Core 2.0 und höher enthalten
+### <a name="include-aspnet-core-20-and-later"></a>Attribut „include“ in ASP.NET Core 2.0 und höher
 
-Die `include` Eigenschaft weist ein ähnliches Verhalten von der `names` -Attribut in ASP.NET Core 1.0.
+Die Eigenschaft `include` weist ein ähnliches Verhalten wie das Attribut `names` in ASP.NET Core 1.0 auf.
 
 ```cshtml
 <environment include="Staging,Production">
@@ -51,9 +51,9 @@ Die `include` Eigenschaft weist ein ähnliches Verhalten von der `names` -Attrib
 </environment>
 ```
 
-### <a name="exclude-aspnet-core-20-and-later"></a>Ausschließen von ASP.NET Core 2.0 und höher
+### <a name="exclude-aspnet-core-20-and-later"></a>Attribut „exclude“ in ASP.NET Core 2.0 und höher
 
-Im Gegensatz dazu die `exclude` Eigenschaft ermöglicht die `EnvironmentTagHelper` Rendern den eingeschlossenen Inhalt für alle hosting Umgebungsnamen mit Ausnahme der Datei, die Sie angegeben haben.
+Im Gegensatz dazu ermöglicht die Eigenschaft `exclude` dem `EnvironmentTagHelper` das Rendern des eingeschlossenen Inhalts für alle Namen von Hostingumgebungen außer dem bzw. den von Ihnen angegebenen Namen.
 
 ```cshtml
 <environment exclude="Development">

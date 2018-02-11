@@ -1,47 +1,47 @@
 ---
 title: Bereiche
 author: rick-anderson
-description: Zeigt, wie mit Bereichen arbeiten.
-ms.author: riande
+description: Veranschaulicht das Arbeiten mit Bereichen.
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: 87bf2eaad1c13d21412051be769992411f685e2e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 1ade49de3f6c58edc4ea7b06bc593b3db797081c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="areas"></a>Bereiche
 
-Durch [Dhananjay Kumar](https://twitter.com/debug_mode) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Dhananjay Kumar](https://twitter.com/debug_mode) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bereiche sind eine ASP.NET MVC-Funktion verwendet, um verwandte Funktionen als separaten Namespace (für das routing) und die Struktur des Veröffentlichungsordners (für Ansichten) in einer Gruppe zu organisieren. Mithilfe von Bereichen erstellt eine Hierarchie für die Weiterleitung und Hinzufügen von einem anderen Routenparameter, `area`in `controller` und `action`.
+Bereiche sind ein Feature von ASP.NET MVC, das für die Organisation von verwandten Funktionalitäten in eine Gruppe als separater Namespace (für Routing) und Ordnerstruktur (für Ansichten) verwendet wird. Mithilfe von Bereichen wird eine Hierarchie erstellt, damit das Routing durch Hinzufügen eines anderen Routenparameters ausgeführt werden kann: `area` zu `controller` und `action`.
 
-Bereiche bieten eine Möglichkeit, eine große ASP.NET Core MVC-Web-app in kleinere funktionale Einheiten zu partitionieren. Ein Bereich ist letztendlich eine MVC-Struktur in einer Anwendung. Klicken Sie in einer MVC-Projekt logische Komponenten wie das Modell, Controller und Ansicht in unterschiedlichen Ordnern beibehalten werden, und MVC verwendet Konventionen zur Namensgebung, um die Beziehung zwischen diesen Komponenten zu erstellen. Für eine große app kann es vorteilhaft sein, die app in separate hohe Ebene Bereiche der Funktionalität partitioniert sein. Z. B. eine e-Commerce-app mit mehreren Geschäftsbereichen, z. B. Auschecken, Abrechnung und Suche usw. Jede dieser Einheiten haben ihre eigenen logischen Komponentenansichten, Controller und Modelle. In diesem Szenario können Sie Bereiche verwenden, um die Geschäftskomponenten im selben Projekt physisch zu partitionieren.
+Bereiche sind eine Möglichkeit, eine große ASP.NET Core MVC-Web-App in kleinere funktionale Gruppierungen aufzuteilen. Ein Bereich ist im Grunde genommen eine MVC-Struktur in einer Anwendung. In einem MVC-Projekt sind logische Komponenten wie Modell, Controller und Ansicht in verschiedenen Ordnern gespeichert. MVC nutzt Namenskonventionen zum Erstellen einer Beziehung zwischen diesen Komponenten. Bei einer großen App kann es von Vorteil sein, die App in mehrere Bereiche auf hoher Funktionalitätsebene zu unterteilen, Dies gilt z.B. für eine E-Commerce-App mit mehreren Geschäftseinheiten, wie Auftragsabschluss, Abrechnung und Suche usw. Jede dieser Einheiten hat ihre eigenen logischen Komponentenansichten, Controller und Modelle. In diesem Szenario können Sie Bereiche verwenden, um die Geschäftskomponenten im selben Projekt physisch zu partitionieren.
 
-Ein Bereich kann als kleinere funktionale Einheiten in einem ASP.NET Core MVC-Projekt mit einer eigenen Gruppe von Controller, Ansichten und Modellen definiert werden.
+Ein Bereich kann als kleinere funktionale Einheiten mit eigenen Controllern, Ansichten und Modellen in einem ASP.NET Core MVC-Projekt definiert werden.
 
-Erwägen Sie Bereiche in einer MVC Projekts, wenn:
+Die Verwendung von Bereichen in einem MVC-Projekt ist erwägenswert, wenn:
 
-* Ihre Anwendung mehrere allgemeine funktionalen Komponenten besteht, die logisch getrennt werden soll
+* Ihre Anwendung aus mehreren funktionalen Komponenten auf hoher Ebene besteht, die logisch getrennt sein sollten
 
-* Sie möchten das MVC-Projekt zu partitionieren, sodass die einzelnen Funktionsbereiche unabhängig voneinander bearbeitet werden können
+* Sie Ihr MVC-Projekt partitionieren möchten, damit jeder funktionale Bereich unabhängig voneinander bearbeitet werden kann
 
-Bereich-Funktionen:
+Features von Bereichen:
 
-* Eine ASP.NET-MVC-Anwendung Core kann beliebig viele Bereiche enthalten.
+* Eine ASP.NET Core MVC-App kann über eine beliebige Anzahl von Bereichen verfügen
 
-* Jeder Bereich verfügt über einen eigenen Domänencontroller, Modelle und Ansichten
+* Jeder Bereich verfügt über seine eigenen Controller, Modelle und Ansichten
 
-* Ermöglicht es Ihnen, große MVC-Projekte in mehrere allgemeine Komponenten zu organisieren, die unabhängig voneinander bearbeitet werden können
+* Ermöglicht Ihnen das Organisieren großer MVC-Projekte in mehrere allgemeine Komponenten, die unabhängig voneinander bearbeitet werden können
 
-* Mehrere Domänencontroller mit dem gleichen Namen - unterstützt, solange sie verschiedene sind *Bereiche*
+* Unterstützt mehrere Controller mit demselben Namen, solange diese über verschiedene *Bereiche* verfügen
 
-Werfen wir einen Blick auf ein Beispiel zur Veranschaulichung, wie Bereiche erstellt und verwendet werden. Angenommen, Sie haben eine Store-app, zwei unterschiedliche Gruppierungen der Controller und Ansichten verfügt: Produkte und Dienste. Ein typische Ordner-Struktur für, dass mithilfe von MVC-Bereichen unten aussieht:
+Im Folgenden finden Sie ein Beispiel, das darstellt, wie Bereiche erstellt und verwendet werden. Angenommen, Sie besitzen eine Store-App mit zwei unterschiedlichen Gruppierungen von Controllern und Ansichten: Produkte und Dienste. Eine übliche Ordnerstruktur hierfür, die MVC-Bereiche verwendet, sieht folgendermaßen aus:
 
 * Projektname
 
@@ -49,7 +49,7 @@ Werfen wir einen Blick auf ein Beispiel zur Veranschaulichung, wie Bereiche erst
 
     * Produkte
 
-      * Domänencontroller
+      * Controller
 
         * HomeController.cs
 
@@ -67,7 +67,7 @@ Werfen wir einen Blick auf ein Beispiel zur Veranschaulichung, wie Bereiche erst
 
     * Dienste
 
-      * Domänencontroller
+      * Controller
 
         * HomeController.cs
 
@@ -77,7 +77,7 @@ Werfen wir einen Blick auf ein Beispiel zur Veranschaulichung, wie Bereiche erst
 
           * Index.cshtml
 
-Wenn MVC versucht, eine Ansicht in einem Bereich in der Standardeinstellung zu rendern, wird versucht, suchen Sie in den folgenden Speicherorten:
+Wenn MVC versucht, eine Ansicht in einem Bereich zu rendern, wird standardgemäß in den folgenden Speicherorten gesucht:
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
@@ -85,9 +85,9 @@ Wenn MVC versucht, eine Ansicht in einem Bereich in der Standardeinstellung zu r
    /Views/Shared/<Action-Name>.cshtml
    ```
 
-Hierbei handelt es sich um die Standardspeicherorte, die über geändert werden, können die `AreaViewLocationFormats` auf die `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.
+Dies sind die Standardspeicherorte, die mithilfe von `AreaViewLocationFormats` unter `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions` geändert werden können.
 
-Beispielsweise ist in den folgenden Code anstatt den Namen des Ordners als "Bereiche", es wurde geändert in "Kategorien".
+Im unten gezeigten Code wurde der Ordner z.B. von „Areas“ in „Categories“ umbenannt.
 
 ```csharp
 services.Configure<RazorViewEngineOptions>(options =>
@@ -99,9 +99,9 @@ services.Configure<RazorViewEngineOptions>(options =>
    });
    ```
 
-Beachten Sie, die die Struktur wird der *Ansichten* Ordner ist die einzige hier wichtig angesehen wird, und wie des Inhalts der Rest der Ordner *Controller* und *Modelle* ist **nicht** von Bedeutung. Angenommen, Sie benötigen eine *Controller* und *Modelle* Ordner überhaupt. Dies funktioniert, da der Inhalt des *Controller* und *Modelle* ist nur Code, der in eine .dll kompiliert wird, wobei als Inhalt der *Ansichten* wird erst eine Anforderung an, die nicht Sicht wurde hergestellt.
+Beachten Sie, dass nur die Struktur des Ordners *Ansichten* in diesem Fall wichtig ist, und dass die Inhalte der restlichen Ordner, wie *Controller* und *Modelle*, **nicht** wichtig sind. Sie benötigen z.B. gar keine Ordner für *Controller* und *Modelle*. Dies funktioniert, weil der Inhalt von *Controller* und *Modelle* nur aus Code besteht, der in eine DLL-Datei kompiliert wird, der Inhalt von *Ansichten* jedoch erst kompiliert wird, wenn die Ansicht angefordert wurde.
 
-Nachdem Sie die Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, dass jedem Controller einen Bereich zugeordnet ist. Nachholen werden, indem den Namen des Controllers, mit der `[Area]` Attribut.
+Sobald Sie eine Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, dass jeder Controller einem Bereich zugeordnet ist. Dazu versehen Sie den Controllernamen mit dem Attribut `[Area]`.
 
 ```csharp
 ...
@@ -125,7 +125,7 @@ Nachdem Sie die Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, das
    }
    ```
 
-Richten Sie eine Routendefinition, die mit der neu erstellten Bereiche arbeitet. Die [Routing an Controlleraktionen](routing.md) Artikel ins Detail, über das Erstellen von Route-Definitionen, einschließlich der Verwendung von herkömmlicher Routen im Vergleich zu attributenrouten wechselt. In diesem Beispiel verwenden wir eine herkömmliche Route. Öffnen Sie hierzu die *Startup.cs* Datei, und ändern Sie ihn durch Hinzufügen der `areaRoute` mit dem Namen Route-Definition, die unten.
+Richten Sie eine Routendefinition ein, die mit Ihren neu erstellten Bereichen funktioniert. Der Artikel [Routing to Controller Actions (Routing zu Controlleraktionen)](routing.md) enthält weitere Details dazu, wie Sie Routendefinitionen erstellen, inklusive der Verwendung konventioneller Routen im Vergleich zu Attributrouten. In diesem Beispiel wird eine konventionelle Route verwendet. Öffnen Sie hierzu die Datei *Startup.cs* und ändern Sie sie, indem Sie die unten genannte Routendefinition `areaRoute` hinzufügen.
 
 ```csharp
 ...
@@ -141,48 +141,48 @@ Richten Sie eine Routendefinition, die mit der neu erstellten Bereiche arbeitet.
    });
    ```
 
-Navigieren zum `http://<yourApp>/products`, die `Index` Aktionsmethode von der `HomeController` in der `Products` Bereich aufgerufen wird.
+Beim Navigieren zu `http://<yourApp>/products` wird die Aktionsmethode `Index` von der `HomeController`-Klasse im Bereich`Products` aufgerufen.
 
-## <a name="link-generation"></a>Linkgenerierung
+## <a name="link-generation"></a>Erstellen von Links
 
-* Generieren von Links von einer Aktion innerhalb eines Bereichs basiert Controller an eine andere Aktion in den gleichen Controller.
+* Erstellen von Links von einer Aktion in einem bereichsbasierten Controller zu einer anderen Aktion im selben Controller
 
-  Nehmen wir an, dass die aktuelle Anforderung Pfad ähnelt`/Products/Home/Create`
+  Angenommen, der Pfad der aktuellen Anforderung ähnelt `/Products/Home/Create`.
 
-  HtmlHelper-Syntax:`@Html.ActionLink("Go to Product's Home Page", "Index")`
+  HtmlHelper-Syntax: `@Html.ActionLink("Go to Product's Home Page", "Index")`
 
-  Taghelpers Syntax:`<a asp-action="Index">Go to Product's Home Page</a>`
+  TagHelper-Syntax: `<a asp-action="Index">Go to Product's Home Page</a>`
 
-  Beachten Sie, dass wir nicht die Werte für "Area" und "Controller" bereitstellen müssen hier, wie sie bereits im Kontext der aktuellen Anforderung verfügbar sind. Diese Art von Werten heißen `ambient` Werte.
+  Beachten Sie, dass die Werte für „area“ und „controller“ hier nicht angegeben sind, weil sie bereits über den Kontext der aktuellen Anforderung verfügbar sind. Diese Werte werden als `ambient`-Werte bezeichnet.
 
-* Generieren von Links von einer Aktion innerhalb eines Bereichs an eine andere Aktion auf einen anderen Controller Controller basierend
+* Erstellen von Links von einer Aktion in einem bereichsbasierten Controller zu einer anderen Aktion auf einem anderen Controller
 
-  Nehmen wir an, dass die aktuelle Anforderung Pfad ähnelt`/Products/Home/Create`
+  Angenommen, der Pfad der aktuellen Anforderung ähnelt `/Products/Home/Create`.
 
-  HtmlHelper-Syntax:`@Html.ActionLink("Go to Manage Products’  Home Page", "Index", "Manage")`
+  HtmlHelper-Syntax: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
 
-  Taghelpers Syntax:`<a asp-controller="Manage" asp-action="Index">Go to Manage Products’  Home Page</a>`
+  TagHelper-Syntax: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
-  Beachten Sie, dass hier der Ambiente-Wert von einem "Bereich" verwendet jedoch der Wert "Controller" oben explizit angegeben wird.
+  Beachten Sie, dass der ambient-Wert für „area“ verwendet wird, der Wert für „controller“ wird jedoch explizit oben angegeben.
 
-* Generieren von Links von einer Aktion innerhalb eines Bereichs basiert Controller an eine andere Aktion auf einen anderen Controller und einem anderen Bereich.
+* Erstellen von Links von einer Aktion in einem bereichsbasierten Controller zu einer anderen Aktion auf einem anderen Controller und einem anderen Bereich
 
-  Nehmen wir an, dass die aktuelle Anforderung Pfad ähnelt`/Products/Home/Create`
+  Angenommen, der Pfad der aktuellen Anforderung ähnelt `/Products/Home/Create`.
 
-  HtmlHelper-Syntax:`@Html.ActionLink("Go to Services’ Home Page", "Index", "Home", new { area = "Services" })`
+  HtmlHelper-Syntax: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
 
-  Taghelpers Syntax:`<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services’ Home Page</a>`
+  TagHelper-Syntax: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
 
   Beachten Sie, dass hier keine ambient-Werte verwendet werden.
 
-* Generieren von Links aus einer Aktion innerhalb eines Controllers Basis an eine andere Aktion auf einen anderen Controller und **nicht** in einem Bereich.
+* Erstellen von Links von einer Aktion in einem bereichsbasierten Controller zu einer anderen Aktion auf einem anderen Controller und **nicht** in einem Bereich.
 
-  HtmlHelper-Syntax:`@Html.ActionLink("Go to Manage Products’  Home Page", "Index", "Home", new { area = "" })`
+  HtmlHelper-Syntax: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
 
-  Taghelpers Syntax:`<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products’  Home Page</a>`
+  TagHelper-Syntax: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
-  Da wir generieren möchten basierend Links zu einem Bereich bei den ambient-Wert für "Area" hier Controlleraktion, es leer.
+  Da Links zu einer nicht bereichsbasierten Controlleraktion erstellt werden sollen, wird der ambient-Wert für „area“ hier entfernt.
 
 ## <a name="publishing-areas"></a>Veröffentlichen von Bereichen
 
-Alle `*.cshtml` und `wwwroot/**` Dateien werden veröffentlicht, wenn die Ausgabe `<Project Sdk="Microsoft.NET.Sdk.Web">` dient in der *csproj* Datei.
+Alle `*.cshtml`- und `wwwroot/**`-Dateien werden für die Ausgabe veröffentlicht, wenn `<Project Sdk="Microsoft.NET.Sdk.Web">` in der *CSPROJ*-Datei enthalten ist.

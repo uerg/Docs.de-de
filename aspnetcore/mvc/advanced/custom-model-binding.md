@@ -1,51 +1,51 @@
 ---
-title: Benutzerdefinierte wurden die Modellbindung
+title: Benutzerdefinierte Modellbindung
 author: ardalis
-description: Anpassen der modellbindung in ASP.NET Core MVC.
-ms.author: riande
+description: Anpassen von Modellbindungen in ASP.NET Core MVC
 manager: wpickett
+ms.author: riande
 ms.date: 04/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 313bc586a1c313f0bf5d8f413a4b082ffc2b7f0c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="custom-model-binding"></a>Benutzerdefinierte wurden die Modellbindung
+# <a name="custom-model-binding"></a>Benutzerdefinierte Modellbindung
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-Wurden die modellbindung ermöglicht Controlleraktionen Modelltypen (in als Methodenargumente übergeben), sondern als HTTP-Anforderungen direkt arbeiten. Zuordnung zwischen der eingehenden Anforderung Daten- und anwendungsanforderungen Modelle wird von Modellbinder behandelt. Entwickler können die integrierten Modell Bindungsfunktionalität erweitern, durch die Implementierung von benutzerdefinierten Modellbinder (Obwohl in der Regel Sie nicht Ihren eigenen Anbieter schreiben müssen).
+Durch die Modellbindung können Controlleraktionen direkt mit Modelltypen (als Methodenargumente übergeben) statt mit HTTP-Anforderungen arbeiten. Das Zuordnen von Anforderungsdaten zu Anwendungsmodellen wird von Modellbindungen durchgeführt. Entwickler können die integrierten Modellbindungsfunktionen erweitern, indem Sie benutzerdefinierte Modellbindungen implementieren (obwohl Sie normalerweise nicht Ihren eigenen Anbieter schreiben müssen).
 
-[Anzeigen oder Herunterladen des Beispiels von GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/).
 
-## <a name="default-model-binder-limitations"></a>Standard-Modell Binder Einschränkungen
+## <a name="default-model-binder-limitations"></a>Standardmodellbindungseinschränkungen
 
-Die Standard-Modellbinder unterstützen die meisten allgemeinen .NET Core-Datentypen und sollte die meisten Entwickler Anforderungen erfüllen. Sie erwarten textbasierten Eingabe aus der Anforderung direkt an Modelltypen zu binden. Möglicherweise müssen Sie die Eingabe vor dem binden es zu transformieren. Wenn müssen Sie beispielsweise einen Schlüssel, der zum Nachschlagen der Modelldaten verwendet werden kann. Sie können einen benutzerdefinierten Modellbinder zum Abrufen von Daten basierend auf den Schlüssel verwenden.
+Die Standardmodellbindungen unterstützen die meisten gängigen .NET Core-Datentypen und erfüllen die Bedürfnisse der meisten Entwickler. Sie erwarten, dass sie textbasierte Eingaben aus der Anforderung direkt an den Modelltyp binden können. Möglicherweise müssen Sie die Eingabe umwandeln, bevor Sie sie binden können. Dies ist z.B. der Fall, wenn Sie über einen Schlüssel verfügen, der zum Suchen von Modelldaten verwendet werden kann. Sie können eine benutzerdefinierte Modellbindung verwenden, um Daten auf Basis des Schlüssel abzurufen.
 
-## <a name="model-binding-review"></a>Modell Bindung überprüfen
+## <a name="model-binding-review"></a>Übersicht: Modellbindung
 
-Wurden die modellbindung verwendet spezifische Definitionen für die Datentypen, denen sie für ausgeführt wird. Ein *einfacher Typ* aus einer einzelnen Zeichenfolge in der Eingabe konvertiert wird. Ein *komplexen Typ* von mehrere Eingabewerte konvertiert werden. Das Framework bestimmt den Unterschied basierend auf dem Vorhandensein von einem `TypeConverter`. Es wird empfohlen, wenn Sie eine einfache haben, erstellen einen Typkonverter `string`  ->  `SomeType` Zuordnung, die keine externen Ressourcen erfordert.
+Die Modellbindung verwendet spezifische Definitionen für die Typen, die sie verwendet. Ein *einfacher Typ* wird aus einer einzigen Zeichenfolge in der Eingabe konvertiert. Ein *komplexer Typ* wird aus mehreren Eingabewerten konvertiert. Das Framework bestimmt den Unterschied auf Grundlage des Vorhandenseins eines `TypeConverter`-Objekts. Es wird empfohlen, dass Sie einen Typkonverter erstellen, wenn Sie über eine einfache `string` -> `SomeType`-Zuordnung verfügen, die keine externen Ressourcen erfordert.
 
-Vor dem Erstellen Ihrer eigenen benutzerdefinierten Modellbinder, ist es, zu überprüfen, wie vorhandene Modell Bindern implementiert werden. Betrachten Sie die [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) die base64-codierte Zeichenfolgen in Bytearrays hinein konvertieren verwendet werden können. Bytearrays werden häufig als Dateien oder Datenbankfeldern-BLOB gespeichert.
+Bevor Sie Ihre eigene benutzerdefinierte Modellbindung erstellen, ist es sinnvoll, sich vor Augen zu führen, wie vorhandene Modellbindungen implementiert werden. Betrachten Sie [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder), das verwendet werden kann, um Base64-codierte Zeichenfolgen in Bytearrays zu konvertieren. Bytearrays werden häufig als Dateien oder Datenbank-BLOB-Felder gespeichert.
 
-### <a name="working-with-the-bytearraymodelbinder"></a>Arbeiten mit der ByteArrayModelBinder
+### <a name="working-with-the-bytearraymodelbinder"></a>Arbeiten mit ByteArrayModelBinder
 
-Base64-codierte Zeichenfolgen können verwendet werden, um binäre Daten darzustellen. Beispielsweise kann die folgende Abbildung als Zeichenfolge codiert werden.
+Base64-codierte Zeichenfolgen können verwendet werden, um Binärdaten darzustellen. Das folgende Bild kann beispielsweise als Zeichenfolge codiert werden:
 
-![dotnet bot](custom-model-binding/images/bot.png "dotnet bot")
+![.NET-Bot](custom-model-binding/images/bot.png "dotnet bot")
 
-Ein kleiner Teil die codierte Zeichenfolge wird in der folgenden Abbildung gezeigt:
+Ein kleiner Anteil der codierten Zeichenfolge wird in der folgenden Abbildung dargestellt:
 
-![codiert ein Dotnet-Bot](custom-model-binding/images/encoded-bot.png "Dotnet Bot codiert")
+![.NET-Bot codiert](custom-model-binding/images/encoded-bot.png "dotnet bot encoded")
 
-Befolgen Sie die Anweisungen in der [des Beispiels Infodatei](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) die base64-codierte Zeichenfolge in eine Datei zu konvertieren.
+Befolgen Sie die Anweisungen in der [README-Datei des Beispiels](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md), um die Base64-codierte Zeichenfolge in eine Datei zu konvertieren.
 
-Core ASP.NET-MVC kann eine base64-codierte Zeichenfolgen und Verwenden einer `ByteArrayModelBinder` in ein Bytearray zu konvertieren. Die [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) implementiert [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) ordnet `byte[]` Argumente `ByteArrayModelBinder`:
+ASP.NET Core MVC kann eine Base64-codierte Zeichenfolge mit `ByteArrayModelBinder` in ein Bytearray konvertieren. [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider), der [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) implementiert, ordnet `byte[]`-Argumente `ByteArrayModelBinder` zu:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -64,75 +64,75 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Wenn Sie Ihre eigenen benutzerdefinierten Modellbinder zu erstellen, Sie können eigenen Dienst implementieren `IModelBinderProvider` geben, oder verwenden Sie die [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Wenn Sie Ihre eigenen benutzerdefinierte Modellbindung erstellen, können Sie Ihren eigenen `IModelBinderProvider`-Typ implementieren oder [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute) verwenden.
 
-Das folgende Beispiel zeigt, wie Sie `ByteArrayModelBinder` konvertieren Sie eine base64-codierte Zeichenfolge in eine `byte[]` und das Ergebnis in einer Datei speichern:
+In folgendem Beispiel wird veranschaulicht, wie Sie mit `ByteArrayModelBinder` eine Base64-codierte Zeichenfolge in `byte[]` konvertieren und in einer Datei speichern können:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
-Können Sie eine base64-codierte Zeichenfolge an diese api-Methode, die mit einem Tool wie POST [Postman](https://www.getpostman.com/):
+Sie können eine Base64-codierte Zeichenfolge in diese API-Methode posten, indem Sie ein Tool wie [Postman](https://www.getpostman.com/) verwenden:
 
-![postman](custom-model-binding/images/postman.png "postman")
+![Postman](custom-model-binding/images/postman.png "postman")
 
-Solange der Binder Anforderungsdaten auf entsprechend benannten Eigenschaften oder Argumente gebunden werden kann, erfolgreich wurden die modellbindung. Das folgende Beispiel zeigt, wie Sie `ByteArrayModelBinder` mit einem Ansichtsmodell:
+Solange die Bindung Anforderungsdaten an entsprechend benannte Eigenschaften oder Argumente binden kann, ist die Modellbindung erfolgreich. Im folgenden Beispiel wird gezeigt, wie `ByteArrayModelBinder` mit einem Ansichtsmodell verwendet wird:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
-## <a name="custom-model-binder-sample"></a>Benutzerdefinierte Binder-modellbeispiels
+## <a name="custom-model-binder-sample"></a>Beispiel für eine benutzerdefinierte Modellbindung
 
-In diesem Abschnitt implementieren wir einen benutzerdefinierten Modellbinder, die:
+In diesem Abschnitt implementieren wir eine benutzerdefinierte Modellbindung, die folgende Aktionen durchführen kann:
 
-- Konvertiert eingehende Anforderungsdaten in stark typisierten Key Argumente an.
-- Ruft mit Entity Framework Core die zugeordnete Entität sollen.
-- Die zugeordnete Entität übergeben als Argument an die Aktionsmethode.
+- Konvertieren eingehender Anforderungsdaten in stark typisierte Schlüsselargumente
+- Abrufen der verknüpften Entität mit Entity Framework Core
+- Übergeben der verknüpften Entität als Argument an die Aktionsmethode
 
-Das folgende Beispiel verwendet die `ModelBinder` -Attribut auf die `Author` Modell:
+In folgendem Beispiel wird das `ModelBinder`-Attribut auf das `Author`-Modell angewendet:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-Im vorangehenden Code der `ModelBinder` Attribut gibt den Typ des `IModelBinder` verwendet werden soll, zum Binden `Author` Action-Parameter. 
+Im oben stehenden Beispiel gibt das `ModelBinder`-Attribut den Typ von `IModelBinder` an, der zur Bindung von `Author`-Aktionsparametern verwendet werden soll. 
 
-Die `AuthorEntityBinder` wird verwendet, um das Binden einer `Author` Parameter durch Abrufen der Entität aus einer Datenquelle, die Verwendung von Entity Framework Core und ein `authorId`:
+`AuthorEntityBinder` wird verwendet, um einen `Author`-Parameter zu binden. Dies geschieht durch Abrufen einer Entität aus der Datenquelle mit Entity Framework Core und einer `authorId`:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
-Der folgende Code zeigt, wie Sie die `AuthorEntityBinder` in einer Aktionsmethode:
+Im folgenden Code wird die Verwendung von `AuthorEntityBinder` in einer Aktionsmethode veranschaulicht:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-Die `ModelBinder` Attribut kann verwendet werden, um gelten die `AuthorEntityBinder` Parametern, die Standardkonventionen nicht verwenden:
+Das `ModelBinder`-Attribut kann verwendet werden, um `AuthorEntityBinder` auf Parameter anzuwenden, die nicht die Standardkonventionen verwenden:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-In diesem Beispiel, da der Name des Arguments nicht die Standardeinstellung ist `authorId`, es wird angegeben, auf den Parameter mit `ModelBinder` Attribut. Beachten Sie, dass der Controller und der Aktionsmethode im Vergleich zum Nachschlagen der Entität in der Aktionsmethode vereinfacht werden. Die Logik zum Abrufen des Verwendung von Entity Framework Core Autors wird in den Modellbinder verschoben. Dies kann beträchtliche Vereinfachung sein, wenn Sie mehrere Methoden verfügen, die dem Autor Modell binden und helfen Ihnen beim befolgen die [TROCKENEN Prinzip](http://deviq.com/don-t-repeat-yourself/).
+Da der Name des Arguments nicht dem Standard (`authorId`) entspricht, wird er in diesem Beispiel im Parameter mit `ModelBinder` angegeben. Beachten Sie, dass sowohl der Controller als auch die Aktionsmethode vereinfacht sind, wenn man sie mit der Suchen nach der Entität in der Aktionsmethode vergleicht. Die Logik zum Abrufen des Autors mit Entity Framework Core wird in die Modellbindung verschoben. Dies kann zu einer deutlichen Vereinfachung führen, wenn Sie über mehrere Methoden verfügen, die eine Bindung an das author-Modell durchführen. Zudem können Sie so leichter das [DRY-Prinzip](http://deviq.com/don-t-repeat-yourself/) einhalten.
 
-Können Sie anwenden der `ModelBinder` -Attribut auf einzelne Modelleigenschaften (z. B. auf einem Viewmodel) oder an die Aktionsmethodenparameter an einen bestimmten Modellbinder oder Modellname für nur den Typ oder die Aktion.
+Sie können das Attribut `ModelBinder` auf einzelne Modelleigenschaften (z.B. ViewModel) oder auf Aktionsmethodenparameter anwenden, um eine bestimmte Modellbindung oder einen bestimmten Modellnamen für genau diesen Typ oder genau diese Aktion anzugeben.
 
-### <a name="implementing-a-modelbinderprovider"></a>Implementieren eine ModelBinderProvider
+### <a name="implementing-a-modelbinderprovider"></a>Implementieren von ModelBinderProvider
 
-Anstatt ein Attribut anwenden, implementieren Sie `IModelBinderProvider`. Dies ist wie die Bindern integriertes Framework implementiert werden. Bei der Angabe des Typs der Binder arbeitet, geben Sie den Typ des Arguments, sie erzeugt **nicht** der Eingabe der Binder akzeptiert. Die folgenden Binder Anbieter arbeitet mit der `AuthorEntityBinder`. Beim MVCs-Auflistung von Anbietern hinzugefügt wird, müssen Sie verwenden die `ModelBinder` -Attribut `Author` oder `Author` typisierte Parameter.
+Statt ein Attribut anzuwenden, können Sie auch `IModelBinderProvider` implementieren. So werden die integrierten Frameworkbindungen implementiert. Wenn Sie den Typ angeben, den Ihre Bindung verwendet, geben Sie gleichzeitig auch den Typ der Argumente an, den sie erzeugt, und **nicht** die Eingabe, die Ihre Bindung akzeptiert. Der folgende Bindungsanbieter funktioniert mit `AuthorEntityBinder`. Wenn er der Anbieterauflistung von MVC hinzugefügt wird, müssen Sie das Attribut `ModelBinder` nicht für `Author` oder Parameter des Typs `Author` verwenden.
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> Hinweis: Der vorangehende Code gibt eine `BinderTypeModelBinder`. `BinderTypeModelBinder`fungiert als Factory für Modellbinder und abhängigkeiteneinschleusung (DI) enthält. Die `AuthorEntityBinder` erfordert DI auf EF Core zugreifen. Verwendung `BinderTypeModelBinder` Wenn Ihre Modellbinder Dienste aus DI erfordert.
+> Beachten Sie: Der oben stehende Code gibt ein `BinderTypeModelBinder`-Objekt zurück. `BinderTypeModelBinder` fungiert als Factory für Modellbindungen und ermöglicht Dependency Injection (DI). `AuthorEntityBinder` erfordert, das DI auf Entity Framework Core zugreifen kann. Verwenden Sie `BinderTypeModelBinder`, wenn Ihre Modellbindung Dienste von DI erfordert.
 
-Um einen benutzerdefinierten modellbinderanbieter zu verwenden, fügen Sie ihn unter `ConfigureServices`:
+Fügen Sie einen benutzerdefinierten Modellbindungsanbieter in `ConfigureServices` hinzu, um ihn verwenden zu können:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
-Beim Auswerten der Modellbinder, wird die Auflistung von Anbietern in Reihenfolge untersucht. Der erste Anbieter, der einen Binder zurückgegeben wird verwendet.
+Beim Überprüfen von Modellbindungen wird die Anbieterauflistung von oben nach unten durchlaufen. Der erste Anbieter, der eine Bindung zurückgibt, wird verwendet.
 
-Die folgende Abbildung zeigt die Modellbinder im Debugger:
+In der folgenden Abbildung werden die Standardmodellbindungen des Debuggers gezeigt:
 
-![Standard Modellbinder](custom-model-binding/images/default-model-binders.png "Modellbinder Standard")
+![Standardmodellbindung](custom-model-binding/images/default-model-binders.png "default model binders")
 
-Hinzufügen von Ihrem Anbieter bis zum Ende der Auflistung möglicherweise eine integrierte Modellbinder aufgerufen werden, bevor Ihre benutzerdefinierten Binder Gelegenheit hat. In diesem Beispiel wird der benutzerdefinierte Anbieter auf den Anfang der Auflistung, um sicherzustellen, dass es dient für hinzugefügt `Author` Aktionsargumenten.
+Wenn Sie Ihren Anbieter am Ende der Auflistung hinzufügen, kann es passieren, dass ein integrierter Modellbindung aufgerufen wird, bevor Ihre benutzerdefinierte Bindung an die Reihe kommt. In diesem Beispiel wird der benutzerdefinierte Anbieter am Anfang der Auflistung hinzugefügt, um sicherzustellen, dass er auch tatsächlich für `Author`-Aktionsargumente verwendet wird.
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 ## <a name="recommendations-and-best-practices"></a>Empfehlungen und bewährte Methoden
 
-Benutzerdefinierte Modellbinder:
-- Sollte nicht versuchen, Statuscodes festlegen oder Zurückgeben von Ergebnissen (zum Beispiel 404 nicht gefunden). Wenn wurden die modellbindung fehlschlägt, eine [Aktionsfilter](xref:mvc/controllers/filters) oder Logik innerhalb der Aktionsmethode selbst den Fehler behandelt werden sollen.
-- Sind besonders hilfreich für die Eliminierung von sich wiederholenden Code und querschnittliche Bedenken bei Aktionsmethoden.
-- In der Regel sollte nicht verwendet werden, zum Konvertieren einer Zeichenfolge in einen benutzerdefinierten Typ, eine [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) ist in der Regel eine bessere Option.
+Benutzerdefinierte Modellbindungen:
+- Sollten nicht versuchen, Statuscodes festzulegen oder Ergebnisse zurückzugeben (z.B. 404 – Nicht gefunden). Wenn die Modellbindung fehlschlägt, sollte ein [Aktionsfilter](xref:mvc/controllers/filters) oder Logik innerhalb der Aktionsmethode selbst den Fehler behandeln.
+- Sind besonders beim Eliminieren von wiederholendem Code und übergreifenden Belangen aus Aktionsmethoden nützlich.
+- Sollten normalerweise nicht dazu verwendet werden, eine Zeichenfolge in einen benutzerdefinierten Typ zu konvertieren. [`TypeConverter`](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) ist oft eine sinnvollere Option.

@@ -1,94 +1,94 @@
 ---
 title: "Übersicht über ASP.NET Core MVC"
 author: ardalis
-description: Erfahren Sie, wie ASP.NET Core MVC ist ein funktionsreiches Framework zum Erstellen von Web-apps und APIs mit Model-View-Controller entwerfen Muster.
-ms.author: riande
+description: Informationen zu ASP.NET Core MVC als umfangreiches Framework zum Erstellen von Web-Apps und APIs mithilfe des Model-View-Controller-Entwurfsmusters
 manager: wpickett
+ms.author: riande
 ms.date: 01/08/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC ist ein funktionsreiches Framework zum Erstellen von Web-apps und APIs mit Model-View-Controller entwerfen Muster.
+ASP.NET Core MVC ist ein umfangreiches Framework zum Erstellen von Web-Apps und APIs mithilfe des Model-View-Controller-Entwurfsmusters.
 
-## <a name="what-is-the-mvc-pattern"></a>Was ist das MVC-Schema?
+## <a name="what-is-the-mvc-pattern"></a>Was ist das MVC-Muster?
 
-Das Architekturschema Model-View-Controller (MVC) trennt eine Anwendung in drei Hauptgruppen von Komponenten: Modelle, Ansichten und Controllern. Das Muster erleichtert erzielen [Trennung von Anliegen](http://deviq.com/separation-of-concerns/). Mit diesem Muster werden benutzeranforderungen an einen Controller weitergeleitet, die für die Arbeit mit dem Modell auf Benutzeraktionen ausführen und/oder das Abrufen von Ergebnissen von Abfragen. Der Controller wählt die Sicht, die dem Benutzer angezeigt, und alle dafür erforderlichen Modelldaten erhalten.
+Das Architekturmuster Model-View-Controller (MVC) unterteilt eine Anwendung in drei Hauptkomponentengruppen: Modelle (Models), Ansichten (Views) und Controller (Controllers). Dieses Muster erleichtert die [Trennung von Belangen](http://deviq.com/separation-of-concerns/). Mit diesem Muster werden Benutzeranforderungen an einen Controller weitergeleitet. Der Controller arbeitet mit dem Modell, um Benutzeraktionen auszuführen und/oder Ergebnisse von Abfragen abzurufen. Der Controller wählt die Ansicht, die dem Benutzer angezeigt wird, und stellt sämtliche erforderliche Modelldaten dafür bereit.
 
-Das folgende Diagramm zeigt die drei wichtigsten Komponenten und welche verweisen auf die anderen:
+Die folgende Abbildung zeigt die drei Hauptkomponenten und deren Beziehungen untereinander:
 
 ![MVC-Muster](overview/_static/mvc.png)
 
-Diese Abgrenzung Aufgaben können Sie die Anwendung im Hinblick auf Komplexität skaliert, da es einfacher ist, code, Debuggen und Testen etwas (Modell, Ansicht und Controller), das einen einzelnen Auftrag hat (und folgt dem [Prinzip einzigen Verantwortung ](http://deviq.com/single-responsibility-principle/)). Es ist schwieriger zu aktualisieren, Test- und Debugcode, der über mindestens zwei dieser drei Bereiche verteilt Abhängigkeiten aufweist. Beispielsweise ist Benutzeroberflächenlogik häufiger als Geschäftslogik zu ändern. Wenn Präsentation Code und Geschäftslogik in einem einzigen Objekt kombiniert werden, müssen Sie zum Ändern eines Objekts, die Geschäftslogik enthält jedes Mal, wenn Sie die Benutzeroberfläche ändern. Dies ist wahrscheinlich, Fehler verursachen und erfordern, die ein erneuter Test alle Geschäftslogik nach jeder minimalen Benutzeroberfläche ändern.
+Diese Abgrenzung der Aufgaben erleichtert die Skalierung Ihrer Anwendung hinsichtlich der Komplexität, da es einfacher ist, ein Element zu codieren, zu debuggen und zu testen (das Modell, die Ansicht oder den Controller), das nur eine einzige Aufgabe besitzt (und das [Prinzip der einzigen Verantwortung](http://deviq.com/single-responsibility-principle/) befolgt). Deutlich schwieriger ist es, Code zu aktualisieren, zu testen und zu debuggen, der Abhängigkeiten in zwei oder drei dieser Bereiche aufweist. Benutzeroberflächenlogik ändert sich beispielsweise häufiger als Geschäftslogik. Werden Präsentationscode und Geschäftslogik in einem einzigen Objekt kombiniert, muss ein Objekt mit Geschäftslogik jedes Mal geändert werden, wenn die Benutzeroberfläche geändert wird. Dies führt häufig zu Fehlermeldungen. Außerdem muss die Geschäftslogik nach jeder kleinen Änderung der Benutzeroberfläche erneut getestet werden.
 
 > [!NOTE]
-> Die Ansicht und Controller richten sich nach dem Modell. Das Modell hängt jedoch weder für die Sicht als auch für den Controller. Dies ist einer der Hauptvorteile der Trennung. Aufgrund dieser Trennung kann das Modell erstellt und getestet werden unabhängig von der die visuelle Darstellung.
+> Sowohl die Ansicht als auch der Controller sind abhängig vom Modell. Das Modell ist jedoch weder von der Ansicht noch vom Controller abhängig. Hierin besteht einer der Hauptvorteile der Trennung. Aufgrund dieser Trennung kann das Modell unabhängig von der visuellen Darstellung erstellt und getestet werden.
 
-### <a name="model-responsibilities"></a>Model Verantwortlichkeiten
+### <a name="model-responsibilities"></a>Aufgaben des Modells
 
-Das Modell in einer MVC-Anwendung stellt den Zustand der Anwendung und alle Geschäftslogiken oder Vorgänge, die von ihm ausgeführt werden soll. Im Modell zusammen mit jeder Implementierungslogik für das Beibehalten des Zustands der Anwendung sollte Geschäftslogik gekapselt werden. Stark typisierte Ansichten verwenden in der Regel ViewModel-Typen entwickelt, um die Daten enthalten, die auf diese Sicht angezeigt. Der Controller erstellt und füllt diese ViewModel-Instanzen aus dem Modell.
-
-> [!NOTE]
-> Es gibt viele Möglichkeiten, das Modell in einer app zu organisieren, die das MVC-Architekturschema verwendet. Erfahren Sie mehr über einige [verschiedene Arten von Modelltypen](http://deviq.com/kinds-of-models/).
-
-### <a name="view-responsibilities"></a>Zuständigkeitsbereiche anzeigen
-
-Ansichten sind für die Darstellung von Inhalten über die Benutzeroberfläche zuständig. Verwenden sie die [Razor-Ansichtsmodul](#razor-view-engine) .NET Code in HTML-Markup eingebettet werden sollen. Minimale Logik in Ansichten muss, und eine Logik in ihnen sollte beziehen Inhalt darstellen. Wenn Sie feststellen, nötig, viel Logik in der Ansicht auszuführen, Dateien, um Daten aus einem komplexen Modell anzuzeigen, können Sie verwenden eine [Ansichtskomponente](views/view-components.md), ViewModel, oder der Vorlage anzeigen, um die Sicht zu vereinfachen.
-
-### <a name="controller-responsibilities"></a>Controller Zuständigkeiten
-
-Controller sind die Komponenten behandeln Benutzerinteraktionen, mit dem Modell arbeiten und letztlich wählen Sie eine Ansicht zu rendern. In einer MVC-Anwendung zeigt die Ansicht nur Informationen; der Controller behandelt und antwortet auf Benutzereingaben und Interaktion. In der MVC-Muster, der Controller ist der anfängliche Einstiegspunkt und ist verantwortlich für die Auswahl, welches Modell zum Arbeiten mit Typen und die zu rendernde Ansicht (daher Sie seinen Namen - Steuerelemente wie die app auf eine bestimmte Anforderung reagiert).
+Das Modell stellt in einer MVC-Anwendung den Status der Anwendung und sämtlicher Vorgänge oder Geschäftslogik dar, die von ihm ausgeführt werden sollen. Im Modell sollte Geschäftslogik zusammen mit der gesamten Implementierungslogik gekapselt werden, um den Status der Anwendung beizubehalten. Stark typisierte Ansichten verwenden in der Regel ViewModel-Typen, die die Daten für diese Ansicht enthalten. Der Controller erstellt und füllt diese ViewModel-Instanzen aus dem Modell.
 
 > [!NOTE]
-> Domänencontroller sollten nicht durch zu viele Aufgaben nicht übermäßig kompliziert sein. Damit Controllerlogik nicht übermäßig kompliziert, verwenden die [Prinzip einzigen Verantwortung](http://deviq.com/single-responsibility-principle/) Push Geschäftslogik aus dem Controller und in das Domänenmodell.
+> Das Modell in einer App, die das MVC-Architekturmuster verwendet, kann auf verschiedene Weise organisiert werden. Informationen zu den [verschiedenen Arten von Modelltypen](http://deviq.com/kinds-of-models/) erhalten Sie hier.
+
+### <a name="view-responsibilities"></a>Aufgaben der Ansicht
+
+Ansichten dienen der Darstellung von Inhalt über die Benutzeroberfläche. Dabei verwenden sie die [Razor-Ansichtsengine](#razor-view-engine), um .NET-Code in HTML-Markup einzubetten. Ansichten sollten so wenig Logik wie möglich enthalten. Die enthaltene Logik sollte sich zudem auf die Darstellung von Inhalt beziehen. Sollten Sie dennoch viel Logik in Ansichtsdateien ausführen müssen, um Daten aus einem komplexen Modell anzuzeigen, ist es sinnvoll, eine [Ansichtskomponente](views/view-components.md), ViewModel oder eine Ansichtsvorlage zu verwenden, um die Ansicht zu vereinfachen.
+
+### <a name="controller-responsibilities"></a>Aufgaben des Controllers
+
+Controller sind Komponenten, die Benutzerinteraktionen verarbeiten, mit dem Modell arbeiten und letztlich eine Ansicht auswählen, die gerendert werden soll. In einer MVC-Anwendung zeigt die Ansicht nur Informationen an. Benutzereingaben und -interaktionen werden vom Controller verarbeitet und beantwortet. Im MVC-Muster stellt der Controller den Einstiegspunkt dar. Er ist verantwortlich für die Auswahl des Modells, mit dem gearbeitet wird, sowie der Ansicht, die gerendert wird (daher kommt auch sein Name: Der Controller kontrolliert, wie die App auf eine bestimmte Anforderung reagiert).
+
+> [!NOTE]
+> Controller sollten nicht durch zu viele Aufgaben übermäßig kompliziert gemacht werden. Verwenden Sie zu diesem Zweck das [Prinzip der einzigen Verantwortung](http://deviq.com/single-responsibility-principle/), um Geschäftslogik aus dem Controller in das Domänenmodell zu verlagern.
 
 >[!TIP]
-> Wenn Sie feststellen, dass Ihre Controlleraktionen häufig die gleichen Arten von Aktionen ausführen, führen Sie Sie der [nicht selbst Prinzip wiederholen](http://deviq.com/don-t-repeat-yourself/) umgezogen diese häufig verwendete Aktionen in [Filter](#filters).
+> Sollten Sie feststellen, dass Ihre Controlleraktionen häufig die gleiche Art von Aktionen ausführen, befolgen Sie das [DRY-Prinzip](http://deviq.com/don-t-repeat-yourself/) (Don‘t Repeat Yourself, Keine Wiederholungen), indem Sie diese häufig ausgeführten Aktionen in [Filter](#filters) verschieben.
 
-## <a name="what-is-aspnet-core-mvc"></a>Was ist der Kern von ASP.NET-MVC
+## <a name="what-is-aspnet-core-mvc"></a>Was ist ASP.NET Core MVC?
 
-Das ASP.NET-MVC-Framework Core ist eine einfache open Source mitgliedschaftsbasierte PresentationFramework für die Verwendung mit ASP.NET Core optimiert.
+Das ASP.NET Core MVC-Framework ist ein einfaches, äußerst testfähiges Open-Source-Präsentationsframework, das für die Verwendung mit ASP.NET Core optimiert wurde.
 
-ASP.NET Core MVC Weise Mustern basierende dynamische Websites erstellen, die eine klare Trennung von Anliegen ermöglicht. Er bietet Ihnen die vollständige Kontrolle über Markup, TDD-freundliche Entwicklung und Verwendungen unterstützt die aktuellsten Webstandards.
+ASP.NET Core MVC stellt eine auf Mustern basierte Methode zum Entwickeln dynamischer Websites dar, die eine saubere Trennung von Belangen ermöglicht. Es ermöglicht Ihnen die vollständige Kontrolle über das Markup, unterstützt eine TDD-freundliche Entwicklung und verwendet die aktuellsten Webstandards.
 
 ## <a name="features"></a>Features
 
-ASP.NET Core MVC umfasst Folgendes:
+Zu ASP.NET Core MVC gehören folgende Elemente:
 
 * [Routing](#routing)
 * [Modellbindung](#model-binding)
 * [Modellvalidierung](#model-validation)
-* [Abhängigkeitsinjektion](../fundamentals/dependency-injection.md)
+* [Dependency Injection](../fundamentals/dependency-injection.md)
 * [Filter](#filters)
 * [Bereiche](#areas)
 * [Web-APIs](#web-apis)
-* [Prüfbarkeit](#testability)
-* [Razor-Ansichtsmodul](#razor-view-engine)
+* [Testfähigkeit](#testability)
+* [Razor-Ansichtsengine](#razor-view-engine)
 * [Stark typisierte Ansichten](#strongly-typed-views)
 * [Taghilfsprogramme](#tag-helpers)
-* [Anzeigen von Komponenten](#view-components)
+* [Ansichtskomponenten](#view-components)
 
 ### <a name="routing"></a>Routing
 
-ASP.NET Core MVC basiert auf der Basis von [ASP.NET Core routing](../fundamentals/routing.md), eine leistungsstarke URL-Zuordnung-Komponente, mit dem Sie Anwendungen mit verständlichen und durchsuchbaren URLs zu erstellen. Dadurch können Sie die URL-Benennungsschemas für Ihre Anwendung zu definieren, die funktionieren gut für Search Engine Optimization (SEO) und für die linkgenerierung ohne Berücksichtigung wie die Dateien auf dem Webserver organisiert sind. Sie können definieren, die Routen, die mit einer geeigneten Route Vorlage, die routeneinschränkungen-Wert, Standardwerte und optionale Werte unterstützt.
+ASP.NET Core MVC baut auf dem [Routing von ASP.NET Core](../fundamentals/routing.md) auf, einer leistungsstarken URL-Zuordnungskomponente, mit der Sie Anwendungen mit verständlichen und suchbaren URLs erstellen können. Damit können Sie die URL-Benennungsmuster für Ihre Anwendung definieren, die sich für die Suchmaschinenoptimierung (SEO) und die Linkgenerierung eignen, ohne dass die Organisation der Dateien auf Ihrem Webserver berücksichtigt werden muss. Sie können die Routen mithilfe einer geeigneten Syntax für Routenvorlagen definieren, die Routenwerteinschränkungen, Standardwerte sowie optionale Werte unterstützt.
 
-*Routing konventionsbasierte* akzeptiert, ermöglicht Sie die URL global definieren Formaten, bei denen die Anwendung, und wie diese jeweils über Formaten ordnet eine bestimmte Aktionsmethode auf angegebene Controller. Wenn eine eingehende Anforderung empfangen wird, wird das Routingmodul analysiert die URL und liegt eine Übereinstimmung mit einer der definierten URL-Formate und ruft dann die zugehörigen Controlleraktionsmethode.
+Mit dem *auf Konventionen basierten Routing* können Sie global definieren, welche URL-Formate Ihre Anwendung akzeptiert, und wie diese Formate einer bestimmten Aktionsmethode auf dem angegebenen Controller zugeordnet werden. Wird eine eingehende Anforderung empfangen, analysiert die Routingengine die URL und vergleicht sie mit einer der definierten URL-Formate. Anschließend wird die zugeordnete Aktionsmethode des Controllers aufgerufen.
 
 ```csharp
 routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-*-Attribut routing* ermöglicht es Ihnen, die Routinginformationen angeben, durch das ergänzen der Controller und Aktionen mit Attributen, die Routen für die Anwendung zu definieren. Dies bedeutet, dass die Routendefinitionen, neben dem Controller und Aktion platziert werden, mit denen sie verknüpft sind.
+*Attributrouting* ermöglicht Ihnen die Angabe von Routinginformationen, indem die Controller und Aktionen mit Attributen versehen werden, die die Routen für Ihre Anwendung definieren. Das bedeutet, dass Ihre Routendefinitionen neben den Controller und die Aktion platziert werden, denen sie zugeordnet sind.
 
 ```csharp
 [Route("api/[controller]")]
@@ -102,9 +102,9 @@ public class ProductsController : Controller
 }
 ```
 
-### <a name="model-binding"></a>Wurden die modellbindung
+### <a name="model-binding"></a>Modellbindung
 
-ASP.NET Core MVC [modellbindung](models/model-binding.md) konvertiert Client-Anforderungsdaten (Formularwerte, Routendaten, Abfragezeichenfolgen-Parameter, HTTP-Header) in Objekte, die der Controller verarbeiten kann. Daher muss nicht mehr der Controllerlogik zu ermitteln, die eingehende Anforderungsdaten auszuführen; Sie enthalten die Daten einfach, als Parameter für die Aktionsmethoden.
+Die [Modellbindung](models/model-binding.md) von ASP.NET Core MVC konvertiert Clientanforderungsdaten (Formularwerte, Routendaten, Abfragezeichenfolgen-Parameter, HTTP-Header) in Objekte, die der Controller verarbeiten kann. Dadurch muss Ihre Controllerlogik nicht mehr die eingehenden Anforderungsdaten ermitteln. Die Daten sind bereits als Parameter für die Aktionsmethoden vorhanden.
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
@@ -112,7 +112,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ### <a name="model-validation"></a>Modellvalidierung
 
-ASP.NET Core MVC unterstützt [Überprüfung](models/validation.md) durch das ergänzen der Model-Objekts mit Daten Anmerkung Validierungsattribute. Die überprüfungsattribute werden auf dem Client überprüft, bevor Werte an den Server zurückgesendet werden, als auch auf dem Server vor der Controlleraktion aufgerufen wird.
+ASP.NET Core MVC unterstützt die [Validierung](models/validation.md), indem das Modellobjekt mit Validierungsattributen für Datenanmerkungen versehen wird. Die Validierungsattribute werden auf der Clientseite überprüft, bevor Werte auf dem Server bereitgestellt werden. Auf der Serverseite werden sie überprüft, bevor die Controlleraktion aufgerufen wird.
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -145,13 +145,13 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 }
 ```
 
-Das Framework verarbeitet Überprüfen von Anforderungsdaten sowohl auf dem Client als auch auf dem Server. Validierungslogik auf Modelltypen angegeben wird, die den gerenderten Ansichten als unaufdringlichen Anmerkungen hinzugefügt und wird im Browser mit erzwungen [jQuery-Validierung](https://jqueryvalidation.org/).
+Das Framework verarbeitet Validierungsanforderungsdaten sowohl auf dem Client als auch auf dem Server. Für Modelltypen angegebene Validierungslogik wird den gerenderten Ansichten als unaufdringliche Anmerkungen hinzugefügt und im Browser mit [jQuery Validation](https://jqueryvalidation.org/) erzwungen.
 
-### <a name="dependency-injection"></a>Abhängigkeitsinjektion
+### <a name="dependency-injection"></a>Dependency Injection
 
-ASP.NET Core verfügt über integrierte Unterstützung für [abhängigkeiteneinschleusung (DI)](../fundamentals/dependency-injection.md). In ASP.NET-MVC Core [Controller](controllers/dependency-injection.md) können Anforderung erforderlichen Dienste über ihre Konstruktoren, die ihnen ermöglicht, befolgen die [expliziten Abhängigkeiten Prinzip](http://deviq.com/explicit-dependencies-principle/).
+ASP.NET Core verfügt über integrierte Unterstützung für [Dependency Injection ( DI)](../fundamentals/dependency-injection.md). In ASP.NET Core MVC können [Controller](controllers/dependency-injection.md) benötigte Dienste über ihre Konstruktoren anfordern. So wird das [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/) befolgt.
 
-Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/dependency-injection.md)unter Verwendung der `@inject` Richtlinie:
+Mit der `@inject`-Anweisung kann Ihre App [Dependency Injection auch in Ansichtsdateien](views/dependency-injection.md) verwenden:
 
 ```cshtml
 @inject SomeService ServiceName
@@ -168,7 +168,7 @@ Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/
 
 ### <a name="filters"></a>Filter
 
-[Filter](controllers/filters.md) ermöglicht es Entwicklern, querschnittliche bedenken, wie Ausnahmebehandlung oder Autorisierung zu kapseln. Filter Ausführen von benutzerdefinierten vorab und nachträglich verarbeiteten Logik für Aktionsmethoden zu aktivieren und zu bestimmten Zeitpunkten in der Ausführungspipeline für eine bestimmte Anforderung Ausführung konfiguriert werden können. Filter können auf Domänencontrollern oder Aktionen, die als Attribute angewendet werden (oder Global ausgeführt werden). Mehrere Filter (z. B. `Authorize`) im Framework enthalten sind.
+Mit [Filtern](controllers/filters.md) können Entwickler übergreifende Belange kapseln, wie etwa die Ausnahmebehandlung oder die Autorisierung. Filter ermöglichen das Ausführen benutzerdefinierter Vor- und Nachverarbeitungslogik für Aktionsmethoden. Sie können so konfiguriert werden, dass sie für eine angegebene Anforderung an bestimmten Stellen in der Ausführungspipeline ausgeführt werden. Filter können als Attribute auf Controller oder Aktionen angewendet werden (oder sie werden global ausgeführt). Das Framework enthält mehrere Filter (wie z.B. `Authorize`).
 
 
 ```csharp
@@ -179,23 +179,23 @@ Ihrer app können Sie auch [Abhängigkeitsinjektion in der Sicht Dateien](views/
 
 ### <a name="areas"></a>Bereiche
 
-[Bereiche](controllers/areas.md) bieten eine Möglichkeit, eine große ASP.NET Core MVC-Web-app in kleinere funktionale Einheiten zu partitionieren. Ein Bereich ist eine MVC-Struktur in einer Anwendung. Klicken Sie in einer MVC-Projekt logische Komponenten wie das Modell, Controller und Ansicht in unterschiedlichen Ordnern beibehalten werden, und MVC verwendet Konventionen zur Namensgebung, um die Beziehung zwischen diesen Komponenten zu erstellen. Für eine große app kann es vorteilhaft sein, die app in separate hohe Ebene Bereiche der Funktionalität partitioniert sein. Z. B. eine e-Commerce-app mit mehreren Geschäftsbereichen, z. B. Auschecken, Abrechnung und Suche usw. Jede dieser Einheiten haben ihre eigenen logischen Komponentenansichten, Controller und Modelle.
+[Bereiche](controllers/areas.md) sind eine Möglichkeit, eine große ASP.NET Core MVC-Web-App in kleinere funktionale Gruppierungen aufzuteilen. Ein Bereich ist eine MVC-Struktur innerhalb einer Anwendung. In einem MVC-Projekt sind logische Komponenten wie Modell, Controller und Ansicht in verschiedenen Ordnern gespeichert. MVC nutzt Namenskonventionen zum Erstellen einer Beziehung zwischen diesen Komponenten. Bei einer großen App kann es von Vorteil sein, die App in mehrere Bereiche mit hoher Funktionalität aufzuteilen. Dies gilt z.B. für eine E-Commerce-App mit mehreren Geschäftseinheiten, wie Auftragsabschluss, Abrechnung und Suche usw. Jede dieser Einheiten hat ihre eigenen logischen Komponentenansichten, Controller und Modelle.
 
 ### <a name="web-apis"></a>Web-APIs
 
-Abgesehen davon, dass eine hervorragende Plattform zum Erstellen von Websites, weist ASP.NET Core MVC bietet umfassende Unterstützung für das Erstellen von Web-APIs. Sie können Dienste erstellen, die eine Breite Palette von Clients einschließlich Browsern und mobilen Geräten erreichen können.
+Als umfangreiche Plattform zum Erstellen von Websites verfügt ASP.NET Core MVC außerdem über umfassende Unterstützung für das Erstellen von Web-APIs. Sie können Dienste für eine breit gefächerte Palette von Clients erstellen, darunter auch Browser und mobile Geräte.
 
-Das Framework bietet Unterstützung für HTTP-Inhalt-Aushandlung mit integrierter Unterstützung für [Formatieren von Daten](models/formatting.md) als JSON oder XML. Schreiben von [benutzerdefinierten Formatierer](advanced/custom-formatters.md) zum Hinzufügen der Unterstützung für Ihre eigenen Formate.
+Das Framework beinhaltet Unterstützung für die Aushandlung von HTTP-Inhalt mit integrierter Unterstützung für das [Formatieren von Daten](models/formatting.md) als JSON oder XML. Sie können [benutzerdefinierte Formatierungsprogramme](advanced/custom-formatters.md) schreiben, um Unterstützung für Ihre eigenen Formate hinzuzufügen.
 
-Verwenden Sie zum Aktivieren der Unterstützung für Hypermedia linkgenerierung. Aktivieren der Unterstützung für einfache [Cross-Origin Resource sharing (CORS)](http://www.w3.org/TR/cors/) , damit Ihre Web-APIs für mehrere Webanwendungen freigegeben sein können.
+Außerdem können Sie mit der Linkgenerierung Unterstützung für Hypermedia aktivieren. Aktivieren Sie auf einfache Weise Unterstützung für die [Ressourcenfreigabe zwischen verschiedenen Ursprüngen (CORS)](http://www.w3.org/TR/cors/), damit Ihre Web-APIs für mehrere Webanwendungen freigegeben werden.
 
-### <a name="testability"></a>Prüfbarkeit
+### <a name="testability"></a>Testfähigkeit
 
-Das Framework Schnittstellen und Abhängigkeitsinjektion nutzen Es eignet sich besonders gut für Komponententests und das Framework enthält Barrierefreiheitsfunktionen (z. B. ein TestHost und InMemory-Anbieter für Entity Framework) [Integrationstests](../testing/integration-testing.md) schnelle und einfache als auch. Erfahren Sie mehr über [testen Controllerlogik](controllers/testing.md).
+Durch die Verwendung von Schnittstellen und Dependency Injection eignet sich das Framework besonders gut für Komponententests. Es enthält Features (wie etwa einen TestHost- und InMemory-Anbieter für Entity Framework), mit denen auch [Integrationstests](../testing/integration-testing.md) schnell und einfach durchgeführt werden können. Informationen zum [Testen von Controllerlogik](controllers/testing.md) finden Sie hier.
 
-### <a name="razor-view-engine"></a>Razor-Ansichtsmodul
+### <a name="razor-view-engine"></a>Razor-Ansichtsengine
 
-[ASP.NET Core MVC-Ansichten](views/overview.md) verwenden die [Razor-Ansichtsmodul](views/razor.md) Ansichten gerendert werden. Razor ist eine kompakte, ausdrucksbasierte und flüssigen Vorlage Markupsprache zum Definieren von Ansichten mit eingebetteten C#-Code. Razor wird verwendet, um Webinhalte auf dem Server dynamisch zu generieren. Sie können den Servercode ordnungsgemäß mit Client-Side-Inhalte und Code kombinieren.
+[ASP.NET Core MVC-Ansichten](views/overview.md) verwenden zum Rendern von Ansichten die [Razor-Ansichtsengine](views/razor.md). Razor ist eine komprimierte, ausdrucksstarke und fließende Vorlagenmarkupsprache zum Definieren von Ansichten mithilfe von eingebettetem C#-Code. Razor wird verwendet, um Webinhalte auf dem Server dynamisch zu generieren. Sie können Servercode sauber mit Inhalt und Code der Clientseite kombinieren.
 
 ```text
 <ul>
@@ -205,13 +205,13 @@ Das Framework Schnittstellen und Abhängigkeitsinjektion nutzen Es eignet sich b
 </ul>
 ```
 
-Mithilfe der Razor-Ansichtsmodul können [Layouts](views/layout.md), [Teilansichten](views/partial.md) und ersetzbaren Abschnitte.
+Mit der Razor-Ansichtsengine können Sie [Layouts](views/layout.md), [Teilansichten](views/partial.md) sowie ersetzbare Bereiche definieren.
 
 ### <a name="strongly-typed-views"></a>Stark typisierte Ansichten
 
-In MVC Razor-Ansichten können stark basierend auf Ihrem Modell eingegeben werden. Domänencontroller können mit Ansichten, die Ihre Ansichten, typüberprüfung und IntelliSense-Unterstützung aktivieren ein stark typisiertes Modell übergeben.
+Je nach Modell können Razor-Ansichten in MVC stark typisiert sein. Controller können ein stark typisiertes Modell an die Ansichten übergeben, um Typüberprüfung und IntelliSense-Unterstützung für Ihre Ansichten zu aktivieren.
 
-Die folgende Ansicht rendert z. B. ein Modell vom Typ `IEnumerable<Product>`:
+Die folgende Ansicht rendert beispielweise ein Modell vom Typ `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>
@@ -223,11 +223,11 @@ Die folgende Ansicht rendert z. B. ein Modell vom Typ `IEnumerable<Product>`:
 </ul>
 ```
 
-### <a name="tag-helpers"></a>Tag-Hilfsprogramme
+### <a name="tag-helpers"></a>Taghilfsprogramme
 
-[Kennzeichnen von Hilfsprogrammen](views/tag-helpers/intro.md) Aktivieren der serverseitigen Code zu erstellen und das rendering von HTML-Elementen in Razor-Dateien teilnehmen. Können Sie benutzerdefinierte Tags definieren Tag Hilfsprogramme (z. B. `<environment>`) oder um das Verhalten der vorhandene Tags ändern (z. B. `<label>`). Tag-Hilfsprogramme, die auf bestimmte Elemente, die basierend auf der Elementname und dessen Attribute gebunden werden. Sie bieten die Vorteile des serverseitigen Renderings gelernter Bearbeitungsart HTML.
+[Taghilfsprogramme](views/tag-helpers/intro.md) ermöglichen serverseitigem Code, am Erstellen und Rendern von HTML-Elementen in Razor-Dateien mitzuwirken. Mit Taghilfsprogrammen können Sie benutzerdefinierte Tags anpassen (z.B. `<environment>`) oder das Verhalten von vorhandenen Tags ändern (z.B. `<label>`). Taghilfsprogramme sind an bestimmte Elemente basierend auf dem Elementnamen und dessen Attributen gebunden. Sie bieten gleichzeitig die Vorteile des serverseitigen Renderns sowie der HTML-Bearbeitungsmöglichkeiten.
 
-Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erstellen von Formularen, Links, Laden von Ressourcen und weitere- und sogar noch stärker verfügbar in öffentlichen GitHub-Repositorys und als NuGet-Pakete. Tag-Hilfsprogramme in c# erstellt wurden, und sie Zielen auf HTML-Elemente, die basierend auf Elementnamen, Attributnamen oder übergeordneten Tags. Z. B. die integrierten LinkTagHelper kann verwendet werden, um einen Link zum Erstellen der `Login` Aktion von der `AccountsController`:
+Für häufige Aufgaben wie das Erstellen von Formularen und Links sowie das Laden von Objekten gibt es zahlreiche integrierte Taghilfsprogramme. Weitere Taghilfsprogramme sind in öffentlichen GitHub-Repositorys und als NuGet-Pakete verfügbar. Taghilfsprogramme werden in C# erstellt und sind für HTML-Elemente basierend auf dem Elementnamen, dem Attributnamen oder dem übergeordneten Tag konzipiert. Der integrierte LinkTagHelper kann z.B. verwendet werden, um einen Link zur `Login`-Aktion des `AccountsController` zu erstellen:
 
 ```cshtml
 <p>
@@ -236,7 +236,7 @@ Es gibt viele integrierte Tag Hilfen für allgemeine Aufgaben – z. B. das Erst
 </p>
 ```
 
-Die `EnvironmentTagHelper` können verwendet werden, um Ihre Ansichten (z. B. unformatierte oder verkleinerte) basierend auf der Common Language Runtime-Umgebung, z. B. Entwicklungs-, Staging- oder Produktionsumgebung anderen Skripts einschließt:
+Mit `EnvironmentTagHelper` können Sie Ihren Ansichten verschiedene Skripts hinzufügen (z.B. minimiert oder RAW), basierend auf der Laufzeitumgebung, wie Entwicklung, Staging oder Produktion:
 
 ```cshtml
 <environment names="Development">
@@ -250,8 +250,8 @@ Die `EnvironmentTagHelper` können verwendet werden, um Ihre Ansichten (z. B. un
 </environment>
 ```
 
-Tag Hilfsvorlagen können eine HTML-freundliche entwicklungserfahrung und eine umfassende IntelliSense-Umgebung zum Erstellen von HTML und Razor-Markup. Die meisten integrierten Tag Hilfsprogramme vorhandenen HTML-Elemente als Ziel und geben Sie serverseitige Attribute für das Element.
+Taghilfsprogramme bieten HTML-freundliche Entwicklungsmöglichkeiten sowie eine umfangreiche IntelliSense-Umgebung zum Erstellen von HTML- und Razor-Markup. Die meisten integrierten Taghilfsprogramme sind für vorhandene HTML-Elemente konzipiert und stellen serverseitige Attribute für die jeweiligen Elemente bereit.
 
-### <a name="view-components"></a>Anzeigen von Komponenten
+### <a name="view-components"></a>Ansichtskomponenten
 
-[Anzeigen von Komponenten](views/view-components.md) ermöglichen es Ihnen, Renderinglogik Verpacken und diesen in der gesamten Anwendung wiederverwenden. Ähnlich [Teilansichten](views/partial.md), aber mit zugeordneten Logik.
+Mit [Ansichtskomponenten](views/view-components.md) können Sie Renderinglogik packen und in der gesamten Anwendung wiederverwenden. Ansichtskomponenten ähneln [Teilansichten](views/partial.md), enthalten jedoch zugeordnete Logik.

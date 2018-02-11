@@ -105,9 +105,9 @@ Das vorangehende Ankerelement ist ein [Tag Helper (Taghilfsprogramm)](xref:mvc/v
 
 Speichern Sie Ihre Änderungen, und testen Sie die App, indem Sie auf den Link **RpMovie** klicken. Weitere Informationen finden Sie in der Datei [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) in GitHub.
 
-### <a name="the-create-code-behind-page"></a>Die CodeBehind-Seite „Create“
+### <a name="the-create-page-model"></a>Das Seitenmodell „Create“
 
-Betrachten Sie die *Pages/Movies/Create.cshtml.cs*-CodeBehind-Datei:
+Überprüfen Sie das Seitenmodell *Pages/Movies/Create.cshtml.cs*:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

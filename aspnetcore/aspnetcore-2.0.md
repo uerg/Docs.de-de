@@ -2,18 +2,18 @@
 title: Neuigkeiten in ASP.NET Core 2.0
 author: rick-anderson
 description: Neuigkeiten in ASP.NET Core 2.0
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Neuigkeiten in ASP.NET Core 2.0
 
@@ -82,7 +82,7 @@ Es sind Projektvorlagen der Einzelseitenanwendung (Single Page Application, SPA)
 
 ## <a name="kestrel-improvements"></a>Kestrel-Verbesserungen
 
-Der Kestrel-Webserver verfügt über neue Funktionen, die ihn geeigneter als mit dem Internet verbundenen Server machen. Wir haben der neuen Eigenschaft `Limits` der `KestrelServerOptions`-Klasse eine Reihe von Optionen für die Servereinschränkungskonfiguration hinzugefügt. Nun können Sie Grenzwerte für Folgendes hinzufügen:
+Der Kestrel-Webserver verfügt über neue Funktionen, die ihn geeigneter als mit dem Internet verbundenen Server machen. Zu der neuen Eigenschaft `Limits` der `KestrelServerOptions`-Klasse wurden eine Reihe von Optionen für die Servereinschränkungskonfiguration hinzugefügt. Fügen Sie Grenzwerte für Folgendes hinzu:
 
 - Maximale Anzahl der Clientverbindungen
 - Maximale Größe des Anforderungstexts
@@ -120,7 +120,7 @@ Weitere Informationen zum Status der geplanten Dokumentation finden Sie unter [G
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Automatische Verwendung von Fälschungssicherheitstoken
 
-ASP.NET Core hat Sie standardmäßig immer bei der HTML-Codierung Ihres Inhalts unterstützt. Mit der neuen Version gehen wir noch einen Schritt weiter, um websiteübergreifende Anforderungsfälschungen (XSRF) zu verhindern. ASP.NET Core gibt nun standardmäßig Fälschungssicherheitstoken aus und validiert diese ohne zusätzliche Konfiguration auf POST-Aktionsformularen und -Seiten.
+ASP.NET Core diente standardmäßig bei der HTML-Codierung von Inhalten immer als Unterstützung. Mit der neuen Version wird jedoch ein weiterer Schritt gemacht, um websiteübergreifende Anforderungsfälschungen (XSRF) zu verhindern. ASP.NET Core gibt nun standardmäßig Fälschungssicherheitstoken aus und validiert diese ohne zusätzliche Konfiguration auf POST-Aktionsformularen und -Seiten.
 
 Weitere Informationen finden Sie unter [Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core (Verhindern von websiteübergreifenden Anforderungsfälschungen (XSRF/CSRF) in ASP.NET Core)](xref:security/anti-request-forgery).
 
@@ -158,4 +158,4 @@ Anleitungen zum Migrieren von ASP.NET Core 1.x-Anwendungen zu ASP.NET Core 2.0 f
 
 Die vollständige Liste aller Änderungen finden Sie unter [ASP.NET Core 2.0 Release Notes (ASP.NET Core 2.0 – Anmerkungen zu dieser Version)](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-Wenn Sie über den Fortschritt und die Pläne des ASP.NET Core-Entwicklungsteams auf dem Laufenden bleiben wollen, sehen Sie sich das wöchentliche [ASP.NET Community Standup](https://live.asp.net/) an.
+Wenn Sie über den Fortschritt und die Pläne des ASP.NET Core-Entwicklungsteams auf dem Laufenden bleiben möchten, sehen Sie sich das wöchentliche [ASP.NET Community Standup](https://live.asp.net/) an.

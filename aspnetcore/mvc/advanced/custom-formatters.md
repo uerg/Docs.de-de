@@ -1,104 +1,104 @@
 ---
-title: Benutzerdefinierten Formatierer in ASP.NET Core MVC-Web-APIs
+title: Benutzerdefinierte Formatierer in Web-APIs im ASP.NET Core MVC
 author: tdykstra
-description: "Informationen Sie zum Erstellen und Verwenden von benutzerdefinierten Formatierer für Web-APIs in ASP.NET Core."
-ms.author: tdykstra
+description: "Informationen zum Erstellen und Verwenden von benutzerdefinierten Formatierern für Web-APIs in ASP.NET Core."
 manager: wpickett
+ms.author: tdykstra
 ms.date: 02/08/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 3a6474fdae29b170978226de74d523b20a16cd0c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 8a42f2d885bd0a0c6d2bd05f9c589def2e15d50a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Benutzerdefinierten Formatierer in ASP.NET Core MVC-Web-APIs
+# <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Benutzerdefinierte Formatierer in Web-APIs im ASP.NET Core MVC
 
-Durch [Tom Dykstra](https://github.com/tdykstra)
+Von [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core MVC verfügt über integrierte Unterstützung für den Datenaustausch im Web-APIs mit JSON, XML oder nur-Text-Formate. In diesem Artikel wird die Unterstützung für zusätzliche Formate hinzufügen, durch das Erstellen von benutzerdefinierten Formatierer veranschaulicht.
+Im ASP.NET Core MVC ist die Unterstützung von Datenaustausch in Web-APIs über JSON, XML oder Nur-Text-Formate integriert. In diesem Artikel wird dargestellt, wie Sie die Unterstützung von zusätzlichen Formaten hinzufügen, indem Sie benutzerdefinierte Formatierer erstellen.
 
-[Anzeigen oder Herunterladen des Beispiels aus GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
+[Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
 
-## <a name="when-to-use-custom-formatters"></a>Verwenden von benutzerdefinierten Formatierer
+## <a name="when-to-use-custom-formatters"></a>Empfohlene Verwendung von benutzerdefinierten Formatierern
 
-Verwenden Sie ein benutzerdefiniertes Formatierungsprogramm aus, wenn Sie möchten die [content-Aushandlung](xref:mvc/models/formatting) Prozess, um einen Inhaltstyp zu unterstützen, die von den integrierten Formatierungsprogrammen (JSON, XML und nur-Text) nicht unterstützt.
+Verwenden Sie einen benutzerdefinierten Formatierer, wenn Sie möchten, dass der [Inhaltaushandlungsvorgang](xref:mvc/models/formatting) einen Inhaltstyp unterstützt, der nicht von den integrierten Formatieren (JSON, XML und Nur-Text) unterstützt wird.
 
-Wenn einige Clients für Ihre Web-API verarbeiten kann z. B. die [Protobuf](https://github.com/google/protobuf) Format, sollten Sie die Protobuf mit diesen Clients zu verwenden, da sie effizienter ist.  Vielleicht möchten Sie Ihre Web-API zum Senden von Kontaktnamen und Adressen in [vCard](https://wikipedia.org/wiki/VCard) Format, eine häufig verwendete Format zum Austauschen von Daten. Die Beispiel-app, die mit diesem Artikel bereitgestellte implementiert einen einfachen vCard-Formatierer.
+Wenn z.B. einige der Clients für Ihre Web-API das [Protobuf](https://github.com/google/protobuf)-Format verarbeiten können, sollten Sie auch Protobuf für diese Clients verwenden, wenn Sie effizient arbeiten möchten.  Möglicherweise möchten Sie aber lieber Ihre Web-API verwenden, um Namen und Adressen von Kontakten im [vCard](https://wikipedia.org/wiki/VCard)-Format zu versenden – ein häufig zum Austauschen von Kontaktdaten verwendetes Format. Die in diesem Artikel enthaltene Beispiel-App implementiert einen einfachen vCard-Formatierer.
 
-## <a name="overview-of-how-to-use-a-custom-formatter"></a>Übersicht darüber, wie ein benutzerdefiniertes Formatierungsprogramm verwenden
+## <a name="overview-of-how-to-use-a-custom-formatter"></a>Übersicht über die Verwendung des Formatierers
 
-Es folgen die Schritte zum Erstellen und verwenden ein benutzerdefiniertes Formatierungsprogramm:
+Im Folgenden werden einige Schritte zum Erstellen und Verwenden eines benutzerdefinierten Formatierers beschrieben:
 
-* Erstellen Sie eine Ausgabe Formatierer-Klasse, wenn Serialisieren von Daten, die an den Client gesendet werden sollen.
-* Erstellen Sie eine Eingabe Formatierungsprogrammklasse, wenn beim Deserialisieren von Daten, die vom Client empfangen werden sollen. 
-* Fügen Sie Instanzen der Formatierer den `InputFormatters` und `OutputFormatters` Auflistungen in [MvcOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.mvcoptions).
+* Erstellen Sie eine Klasse für den Ausgabeformatierer, wenn Sie die Daten serialisieren möchten, um diese an den Client zu senden.
+* Erstellen Sie eine Klasse für den Eingabeformatierer, wenn Sie die Daten deserialisieren möchten, die vom Client gesendet wurden. 
+* Fügen Sie Instanzen Ihrer Formatierer zu den Auflistungen `InputFormatters` und `OutputFormatters` in [MvcOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.mvcoptions) hinzu.
 
-Die folgenden Abschnitte enthalten Anleitungen und Codebeispiele für jede der folgenden Schritte aus.
+In den Folgenden Abschnitten erhalten Sie Anweisungen und Codebeispiele zu diesen Schritten.
 
-## <a name="how-to-create-a-custom-formatter-class"></a>Vorgehensweise: erstellen eine benutzerdefinierten Formatierungsklasse
+## <a name="how-to-create-a-custom-formatter-class"></a>Erstellen einer benutzerdefinierten Formatiererklasse
 
-So erstellen Sie einen Formatierer
+Erstellen eines Formatierers:
 
-* Leiten Sie Klasse aus der entsprechenden Basisklasse.
-* Geben Sie gültige Medientypen und Codierungen im Konstruktor.
-* Überschreiben Sie `CanReadType` / `CanWriteType` Methoden
-* Überschreiben Sie `ReadRequestBodyAsync` / `WriteResponseBodyAsync` Methoden
+* Leiten Sie die Klasse von der entsprechenden Basisklasse ab.
+* Geben Sie gültige Medientypen und Codierungen im Konstruktor an.
+* Überschreiben Sie die Methoden `CanReadType`/`CanWriteType`
+* Überschreiben Sie die Methoden `ReadRequestBodyAsync`/`WriteResponseBodyAsync`
   
-### <a name="derive-from-the-appropriate-base-class"></a>Von der entsprechenden Basisklasse abgeleitet werden
+### <a name="derive-from-the-appropriate-base-class"></a>Ableiten von der entsprechenden Basisklasse
 
-Text-Medientypen (z. B. vCard), leiten Sie von der [TextInputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) oder [TextOutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) Basisklasse.
+Leiten Sie für Textmedientypen wie vCard von den Basisklassen [TextInputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) oder [TextOutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) ab.
 
 [!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-Leiten Sie für binäre Typen aus den [InputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) oder [OutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) Basisklasse.
+Leiten Sie für Binärtypen von den Basisklassen [InputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) oder [OutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) ab.
 
-### <a name="specify-valid-media-types-and-encodings"></a>Geben Sie gültige Medientypen und Codierungen
+### <a name="specify-valid-media-types-and-encodings"></a>Angeben von gültigen Medientypen und Codierungen
 
-Geben Sie im Konstruktor gültige Medientypen und Codierungen durch Hinzufügen der `SupportedMediaTypes` und `SupportedEncodings` Sammlungen.
+Geben Sie im Konstruktor gültige Medientypen und Codierungen an, indem Sie `SupportedMediaTypes`- und `SupportedEncodings`-Sammlungen hinzufügen.
 
 [!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
 > [!NOTE]  
-> Abhängigkeitsinjektion in einer Formatierungsklasse Konstruktor ist nicht möglich. Beispielsweise kann keine Protokollierung durch Hinzufügen eines Parameters für die Protokollierung an den Konstruktor nicht abgerufen werden. Um auf Dienste zuzugreifen, müssen Sie das Context-Objekt verwenden, das in Ihrer Methoden übergeben werden. Ein Codebeispiel hierfür [unten](#read-write) veranschaulicht dies.
+> Sie können in einer Formatiererklasse keine Dependency Injection für den Konstruktor durchführen. Beispielsweise können Sie keine Protokollierung abrufen, indem Sie dem Konstruktor den Protokollparameter hinzufügen. Sie müssen das Kontextobjekt verwenden, das an Ihre Methoden übergeben wird, um auf Dienste zuzugreifen. Im [nachfolgenden](#read-write) Codebeispiel wird deutlich, wie Sie hierzu vorgehen.
 
-### <a name="override-canreadtypecanwritetype"></a>Überschreiben Sie CanReadType/CanWriteType 
+### <a name="override-canreadtypecanwritetype"></a>Überschreiben von „CanReadType/CanWriteType“ 
 
-Geben Sie den können in deserialisiert oder Serialisieren von durch Überschreiben der `CanReadType` oder `CanWriteType` Methoden. Beispielsweise nur möglicherweise können zum Erstellen von vCard Text aus einer `Contact` Typ und umgekehrt.
+Geben Sie den Typ an, den Sie deserialisieren bzw. serialisieren möchten, indem Sie die Methoden `CanReadType` oder `CanWriteType` überschreiben. Es kann z.B. sein, dass Sie nur vCard-Text über einen `Contact`-Typ bzw. umgekehrt erstellen können.
 
 [!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
 #### <a name="the-canwriteresult-method"></a>Die CanWriteResult-Methode
 
-In einigen Szenarien müssen Sie außer Kraft setzen `CanWriteResult` anstelle von `CanWriteType`. Verwendung `CanWriteResult` wenn Folgendes zutrifft:
+Manchmal müssen Sie `CanWriteResult` anstelle von `CanWriteType` überschreiben. Verwenden Sie `CanWriteResult`, wenn alle der folgenden Bedingungen zutreffen:
 
-  * Die Aktionsmethode gibt eine Modellklasse zurück.
-  * Es sind abgeleitete Klassen, die zur Laufzeit zurückgegeben werden können.
-  * Sie müssen wissen zur Laufzeit die abgeleitete Klasse wird von der Aktion zurückgegeben wurde.  
+  * Ihre Aktionsmethode gibt eine Modellklasse zurück.
+  * Es gibt abgeleitete Klassen, die möglicherweise zur Laufzeit zurückgegeben werden.
+  * Sie müssen zur Laufzeit wissen, welche abgeleitete Klasse von der Aktion zurückgegeben wurde.  
 
-Nehmen wir beispielsweise an Ihre Aktion Methodensignatur gibt eine `Person` aufweisen, aber es gelegten eine `Student` oder `Instructor` aus abgeleiteter Typ `Person`. Wenn der Formatierer, nur behandeln soll `Student` Objekte, überprüfen Sie den Typ des [Objekt](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) in das bereitgestellte Kontextobjekt der `CanWriteResult` Methode. Beachten Sie, dass es nicht notwendig, verwenden Sie `CanWriteResult` bei Rückgabe der Aktionsmethode `IActionResult`; in diesem Fall die `CanWriteType` Methode empfängt den Laufzeittyp.
+Nehmen Sie z.B. an, dass die Signatur Ihrer Aktionsmethode einen `Person`-Typ zurückgibt. Sie kann dann aber auch den Typ `Student` oder `Instructor` zurückgeben, der von `Person` abgeleitet wird. Wenn Sie möchten, dass Ihr Formatierer nur `Student`-Objekte verarbeitet, überprüfen Sie den [Objekt](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object)-Typ im Kontextobjekt, das in der `CanWriteResult`-Methode zur Verfügung gestellt wurde. Beachten Sie, dass es nicht nötig ist, `CanWriteResult` zu verwenden, wenn die Aktionsmethode `IActionResult` zurückgibt. In diesem Fall erhält die `CanWriteType`-Methode den Runtimetyp.
 
 <a id="read-write"></a>
-### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Override ReadRequestBodyAsync/WriteResponseBodyAsync 
+### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Überschreiben von „ReadRequestBodyAsync/WriteResponseBodyAsync“ 
 
-Führen Sie den eigentlichen deserialisiert oder Serialisieren `ReadRequestBodyAsync` oder `WriteResponseBodyAsync`.  Die hervorgehobenen Zeilen im folgenden Beispiel werden veranschaulicht Services von der abhängigkeitseinschleusungscontainer abrufen (Sie können nicht aus Konstruktorparameter sie erhalten).
+Sie deserialisieren oder serialisieren manuell in `ReadRequestBodyAsync` oder `WriteResponseBodyAsync`.  Die markierten Zeilen im folgenden Beispiel zeigen, wie Sie Dienste aus dem Dependency Injection-Container abrufen. Sie können diese nicht aus den Konstruktorparametern abrufen.
 
 [!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
-## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>Konfigurieren von MVC, um ein benutzerdefiniertes Formatierungsprogramm verwenden
+## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>Konfigurieren von MVC zum Verwenden eines benutzerdefinierten Formatierers
  
-Um ein benutzerdefiniertes Formatierungsprogramm verwenden, fügen Sie eine Instanz der Klasse Formatierer in die `InputFormatters` oder `OutputFormatters` Auflistung.
+Wenn Sie einen benutzerdefinierten Formatierer verwenden, fügen Sie der `InputFormatters`- oder `OutputFormatters`-Sammlung eine Instanz der Formatiererklasse hinzu.
 
 [!code-csharp[Main](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
 
-Formatierungsprogramme werden ausgewertet, in der Reihenfolge an, dass Sie sie einfügen. Die erste Vorlage hat Vorrang vor. 
+Formatierer werden in der Reihenfolge überprüft, in der Sie sie einfügen. Der erste hat Vorrang. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Finden Sie unter der [beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), implementiert einfache vCard Eingabe und Ausgabe-Formatierer.  Die Anwendung liest und schreibt vCards, die wie im folgenden Beispiel aussehen:
+Überprüfen Sie die [Beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), die einfache Eingabe- und Ausgabeformatierer für vCard implementiert.  Die Anwendung liest und schreibt vCards, die dem folgenden Beispiel ähneln:
 
 ```
 BEGIN:VCARD
@@ -109,6 +109,6 @@ UID:20293482-9240-4d68-b475-325df4a83728
 END:VCARD
 ```
 
-Sehen vCard auszugeben, führen Sie die Anwendung und senden eine Get-Anforderung mit Accept-Header "Text/Vcard" `http://localhost:63313/api/contacts/` (Wenn in Visual Studio ausgeführt wird) oder `http://localhost:5000/api/contacts/` (wenn von der Befehlszeile aus ausgeführt wird).
+Wenn Sie die vCard-Ausgabe anzeigen wollen, führen Sie die Anwendung aus, und senden Sie eine Get-Anforderung mit dem Accept-Header „text/vcard“ an `http://localhost:63313/api/contacts/` (wenn Sie über Visual Studio arbeiten) oder `http://localhost:5000/api/contacts/` (wenn Sie über die Befehlszeile arbeiten).
 
-Um die in-Memory-Sammlung von Kontakten vCard hinzugefügt haben, senden Sie eine Post-Anforderung zur gleichen URL, mit der Content-Type-Header "Text/Vcard" und vCard Text im Hauptteil, wie im Beispiel oben formatiert.
+Wenn Sie eine vCard einer speicherinterne Sammlung von Kontakten hinzufügen möchten, senden Sie eine Post-Anforderung an dieselbe URL mit dem Content-Type-Header „text/vcard“ und einem vCard-Text, der wie im obenstehenden Beispiel formatiert ist.
