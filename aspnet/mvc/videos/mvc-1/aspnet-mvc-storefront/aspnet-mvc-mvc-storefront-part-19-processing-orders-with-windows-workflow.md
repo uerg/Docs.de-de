@@ -13,20 +13,20 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow
 msc.type: video
 ms.openlocfilehash: 56d2802b571561cb31f45bc7ed118eb33a4641bb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
-<a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a><span data-ttu-id="08411-103">ASP.NET MVC-MVC Storefront Teil 19: Verarbeiten von Aufträgen mit Windows-Workflow</span><span class="sxs-lookup"><span data-stu-id="08411-103">ASP.NET MVC MVC Storefront Part 19: Processing Orders With Windows Workflow</span></span>
+<a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a><span data-ttu-id="63843-103">ASP.NET MVC-MVC Storefront Teil 19: Verarbeiten von Aufträgen mit Windows-Workflow</span><span class="sxs-lookup"><span data-stu-id="63843-103">ASP.NET MVC MVC Storefront Part 19: Processing Orders With Windows Workflow</span></span>
 ====================
-<span data-ttu-id="08411-104">durch [stehlen Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="08411-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="63843-104">durch [stehlen Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="63843-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="08411-105">In dieser Folge ich Windows Workflow einführen und Spitze, um festzustellen, wie gut für verschiedene Prozesse am Standort geeignet sind.</span><span class="sxs-lookup"><span data-stu-id="08411-105">In this episode I introduce Windows Workflow and spike it to see how well it will work for various processes in the site.</span></span>
+<span data-ttu-id="63843-105">In dieser Folge ich Windows Workflow einführen und Spitze, um festzustellen, wie gut für verschiedene Prozesse am Standort geeignet sind.</span><span class="sxs-lookup"><span data-stu-id="63843-105">In this episode I introduce Windows Workflow and spike it to see how well it will work for various processes in the site.</span></span>
 
-[<span data-ttu-id="08411-106">&#9654; Sehen Sie sich an (43 Minuten)</span><span class="sxs-lookup"><span data-stu-id="08411-106">&#9654; Watch video (43 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow)
+[<span data-ttu-id="63843-106">&#9654; Sehen Sie sich an (43 Minuten)</span><span class="sxs-lookup"><span data-stu-id="63843-106">&#9654; Watch video (43 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow)
 
 >[!div class="step-by-step"]
-<span data-ttu-id="08411-107">[Zurück](aspnet-mvc-storefront-part-18-creating-an-experience.md)
-[Weiter](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)</span><span class="sxs-lookup"><span data-stu-id="08411-107">[Previous](aspnet-mvc-storefront-part-18-creating-an-experience.md)
+<span data-ttu-id="63843-107">[Zurück](aspnet-mvc-storefront-part-18-creating-an-experience.md)
+[Weiter](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)</span><span class="sxs-lookup"><span data-stu-id="63843-107">[Previous](aspnet-mvc-storefront-part-18-creating-an-experience.md)
 [Next](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)</span></span>
