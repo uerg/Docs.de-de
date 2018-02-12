@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>Einführung in SignalR
 ====================
@@ -35,7 +35,7 @@ ASP.NET SignalR ist eine Bibliothek für ASP.NET-Entwickler,, die den Prozess de
 
 SignalR kann verwendet werden, Ihre ASP.NET-Anwendung jegliche Art von "in Echtzeit"-Webfunktionen hinzu. Während der Chat häufig als Beispiel verwendet wird, können Sie viel mehr tun. Jedes Mal ein Benutzer aktualisiert eine Webseite, um neue Daten anzuzeigen, oder die Seite implementiert [lange](http://en.wikipedia.org/wiki/Push_technology#Long_polling) um neue Daten abzurufen, ist es ein Kandidat für die Verwendung von SignalR. Beispiele für Dashboards und Überwachen von Anwendungen, die Anwendungen (z. B. die gleichzeitige Bearbeitung von Dokumenten), für die Zusammenarbeit Auftrag Statusupdates und Formulare in Echtzeit.
 
-SignalR ermöglicht auch völlig neue Arten von Webanwendungen, die sehr häufig Updates vom Server, erfordern z. B. Echtzeit spielen. Ein hervorragendes Beispiel hierfür finden Sie unter der [ShootR Spiel.](http://shootr.signalr.net/)
+SignalR ermöglicht auch völlig neue Arten von Webanwendungen, die sehr häufig Updates vom Server, erfordern z. B. Echtzeit spielen.
 
 SignalR stellt eine einfache API zum Erstellen von Server-zu-Client von Remoteprozeduraufrufen (RPC), die JavaScript-Funktionen im Client Browsern (und andere Clientplattformen) vom serverseitigen .NET Code aufrufen. SignalR enthält außerdem eine API für die verbindungsverwaltung (z. B. eine Verbindung herstellen, und Ereignisse zum Trennen), und Gruppieren von Verbindungen.
 

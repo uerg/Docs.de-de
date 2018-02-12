@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
 
@@ -77,7 +77,7 @@ Beim Ausführen der app zeigt eine Webseite für den geheimen geladenen Werte:
 `AddAzureKeyVault`bietet außerdem eine Überladung, die eine Implementierung der akzeptiert `IKeyVaultSecretManager`, womit Sie steuern, wie Key Vault-Schlüssel in Konfigurationsschlüssel konvertiert werden. Beispielsweise können Sie die Schnittstelle, um geheime Werte basierend auf einem Präfixwert, die, den Sie beim Starten der app bereitstellen, laden implementieren. Dadurch können Sie z. B. um Geheimnisse anhand der Version der app geladen werden.
 
 > [!WARNING]
-> Verwenden Sie keine Präfixe auf schlüsseltresor geheime Schlüssel zum Ablegen geheime Schlüssel für mehrere apps im selben schlüsseltresor wird oder dass environmental geheime Schlüssel (z. B. *Entwicklung* Verus *Produktion* geheime Schlüssel) in der gleichen Tresor. Es wird empfohlen, dass anderer apps und Entwicklung/produktionsumgebungen verwenden Sie separate Schlüssel Tresore zum Isolieren von app-Umgebungen für das höchste Maß an Sicherheit.
+> Verwenden Sie keine Präfixe auf schlüsseltresor geheime Schlüssel zum Ablegen geheime Schlüssel für mehrere apps im selben schlüsseltresor wird oder dass environmental geheime Schlüssel (z. B. *Entwicklung* im Vergleich zu *Produktion* geheime Schlüssel) in der gleichen Tresor. Es wird empfohlen, dass anderer apps und Entwicklung/produktionsumgebungen verwenden Sie separate Schlüssel Tresore zum Isolieren von app-Umgebungen für das höchste Maß an Sicherheit.
 
 Verwenden das zweite Beispiel-app, einen geheimen Schlüssel im schlüsseltresor für erstellen `5000-AppSecret` (Punkte sind nicht zulässig, in der für den geheimen schlüsseltresornamen), ein app-Geheimnis für app-Version 5.0.0.0 darstellt. Für eine andere Version, 5.1.0.0, erstellen Sie einen geheimen Schlüssel für `5100-AppSecret`. Jede Version der app lädt einen eigenen geheimen Wert in seine Konfiguration als `AppSecret`, Ausblasegerät die Version, die den geheimen Schlüssel geladen. Das Beispiel für die Implementierung wird unten gezeigt:
 

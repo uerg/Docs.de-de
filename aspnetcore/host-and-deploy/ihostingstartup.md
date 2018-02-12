@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/ihostingstartup
-ms.openlocfilehash: bd2446d6133e0c06dc14509271c2d17be4c95b63
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e4b6293aff9fa39b70af40507a2cf5b7efcb295b
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="add-app-features-from-an-external-assembly-using-ihostingstartup-in-aspnet-core"></a>Hinzufügen von app-Funktionen aus einer externen Assembly IHostingStartup in ASP.NET Core
 
@@ -28,7 +28,7 @@ Ein [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) 
 
 Um zu ermitteln, ob von der app oder von Bibliotheken hosting Startassemblys geladen werden, aktivieren Sie die Protokollierung, und überprüfen Sie die Anwendungsprotokolle. Fehler beim Laden von Assemblys werden protokolliert. Geladene hosting Autostart-Assemblys werden auf der Debug-Ebene protokolliert, und alle Fehler werden protokolliert.
 
-Die Beispiel-app lautet der der [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) in einer `string` array erstellt und das Ergebnis wird in der app-Indexseite angezeigt:
+Die Beispiel-app lautet der [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) in einem `string` array erstellt und das Ergebnis wird in der app-Indexseite angezeigt:
 
 [!code-csharp[Main](ihostingstartup/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
 

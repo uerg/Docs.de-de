@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f469894022e39048154ec1915237e448104b4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="understanding-action-filters-c"></a>Grundlegendes zu Aktionsfiltern (c#)
 ====================
@@ -82,7 +82,7 @@ Ausnahmefilter sind der letzte Filter ausgeführt. Einen Ausnahmefilter können 
 
 Jeder andere Typ des Filters wird in einer bestimmten Reihenfolge ausgeführt. Wenn zur Steuerung der Reihenfolge, in der Filter desselben Typs ausgeführt werden, soll, können Sie einen Filter Order-Eigenschaft festlegen.
 
-Ist die Basisklasse für alle Aktionsfilter der `System.Web.Mvc.FilterAttribute` Klasse. Wenn Sie eine bestimmte Art von Filter implementieren möchten, müssen Sie eine Klasse erstellen, die von der Basisklasse Filter erbt und implementiert eine oder mehrere der der `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, oder `ExceptionFilter` Schnittstellen.
+Ist die Basisklasse für alle Aktionsfilter der `System.Web.Mvc.FilterAttribute` Klasse. Wenn Sie eine bestimmte Art von Filter implementieren möchten, müssen Sie eine Klasse erstellen, die von der Basisklasse Filter erbt und implementiert eine oder mehrere der der `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, oder `IExceptionFilter` Schnittstellen.
 
 ### <a name="the-base-actionfilterattribute-class"></a>Die Basisklasse von ActionFilterAttribute ab
 

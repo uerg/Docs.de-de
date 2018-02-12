@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0c094c4d4c99702a5b513717126872a254ca3e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Das Movie-Modell und die Tabelle hinzugefügt ein neues Feld
 ====================
@@ -81,7 +81,7 @@ In der **Package Manager Console** Fenster, geben Sie den Befehl "hinzufügen Mi
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Code First-Migrationen erstellt einen anderen Klassendatei in der *Migrationen* Ordner (mit dem Namen *{Datumsstempel}\_Initial.cs* ), und diese Klasse enthält Code, der das Schema der Datenbank erstellt. Der Dateiname für die Migration ist bereits mit einem Zeitstempel fest, um mit der Reihenfolge zu. Überprüfen Sie die *{Datumsstempel}\_Initial.cs* Datei, er enthält eine Anleitung zum Erstellen der Filme-Tabelle für die Film-DB. Beim Aktualisieren der Datenbank in den Anweisungen unten, dies *{Datumsstempel}\_Initial.cs* Datei ausgeführt wird, und erstellen Sie die DB-Schema. Die **Ausgangswert** Methode zum Auffüllen der Datenbank mit Testdaten ausgeführt wird.
+Code First-Migrationen erstellt einen anderen Klassendatei in der *Migrationen* Ordner (mit dem Namen *{Datumsstempel}\_Initial.cs* ), und diese Klasse enthält Code, der das Schema der Datenbank erstellt. Der Dateiname für die Migration ist bereits mit einem Zeitstempel fest, um mit der Reihenfolge zu. Überprüfen Sie die *{Datumsstempel}\_Initial.cs* Datei, er enthält eine Anleitung zum Erstellen der Filme-Tabelle für die Film-DB. Beim Aktualisieren der Datenbank in den Anweisungen unten, dies *{Datumsstempel}\_Initial.cs* Datei ausgeführt wird und der DB-Schema erstellen. Die **Ausgangswert** Methode zum Auffüllen der Datenbank mit Testdaten ausgeführt wird.
 
 In der **Package Manager Console**, geben Sie den Befehl "Update-Database" zum Erstellen der Datenbank, und führen Sie die **Ausgangswert** Methode.
 

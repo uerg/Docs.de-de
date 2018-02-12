@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -68,7 +68,7 @@ Weitere Informationen finden Sie unter [Einführung in die im Arbeitsspeicher Zw
 
 ### <a name="distributed-cache"></a>Verteilter Cache
 
-Verwenden Sie einen verteilten Cache zum Speichern von Daten im Arbeitsspeicher, wenn die app in einer Cloud oder Server-Farm gehostet wird. Der Cache wird auf den Servern gemeinsam genutzt, die Anforderungen zu verarbeiten. Ein Client kann senden, dass eine Anforderung, die von einem beliebigen Server in der Gruppe behandelt und zwischengespeicherte Daten für den Client verfügbar ist. ASP.NET Core bietet SQL Server und verteilt Redis-Caches.
+Verwenden Sie einen verteilten Cache zum Speichern von Daten im Arbeitsspeicher, wenn die app in einer Cloud oder Server-Farm gehostet wird. Der Cache wird auf den Servern gemeinsam genutzt, die Anforderungen zu verarbeiten. Ein Client kann eine Anforderung übermitteln, die von einem beliebigen Server in der Gruppe "behandelt wird, wenn zwischengespeicherte Daten für den Client verfügbar sind. ASP.NET Core bietet SQL Server und verteilt Redis-Caches.
 
 Weitere Informationen finden Sie unter [arbeiten mit einem verteilten Cache](xref:performance/caching/distributed).
 
@@ -78,7 +78,7 @@ Den Inhalt aus einer MVC-Ansicht oder Razor-Seite können mit dem Tag-Helfer Cac
 
 Weitere Informationen finden Sie unter [Cache Tag Helper in ASP.NET Core MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-### <a name="distributed-cache-tag-helper"></a>Verteilter Cache-Tag-Hilfsprogramm
+### <a name="distributed-cache-tag-helper"></a>Taghilfsprogramm für verteilten Cache
 
 Den Inhalt aus einer MVC-Ansicht oder Razor-Seite in verteilten Cloud oder Webfarm-Szenarien können mit verteilten Cache-Tag-Hilfsprogramm zwischengespeichert werden. Das verteilte Cache-Tag-Hilfsobjekt verwendet SQL Server oder Redis zum Speichern von Daten an.
 
@@ -86,12 +86,14 @@ Weitere Informationen finden Sie unter [verteilten Cache Tag Helper](xref:mvc/vi
 
 ## <a name="responsecache-attribute"></a>ResponseCache-Attribut
 
-Die `ResponseCacheAttribute` gibt die Parameter zum Festlegen der entsprechenden Header in Zwischenspeichern von Antworten erforderlich sind. Finden Sie unter [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) eine Beschreibung der Parameter.
+Die [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) gibt die Parameter zum Festlegen der entsprechenden Header in Zwischenspeichern von Antworten erforderlich sind.
 
 > [!WARNING]
 > Deaktivieren Sie das Zwischenspeichern für Inhalte, die Informationen für authentifizierte Clients enthält. Zwischenspeichern sollten nur aktiviert werden, für Inhalte, die nicht ändern, die auf Grundlage eines Benutzers Identität oder gibt an, ob ein Benutzer angemeldet ist.
 
-`VaryByQueryKeys string[]`(erfordert ASP.NET Core 1.1 und höher): Wenn festgelegt ist, die Antwort zwischenspeichern Middleware gespeicherte Antwort durch die Werte der angegebenen Liste der Abfrageschlüssel variiert. Die Antwort zwischenspeichern Middleware muss aktiviert sein, zum Festlegen der `VaryByQueryKeys` Eigenschaft; andernfalls wird eine Laufzeitausnahme ausgelöst. Es ist keine entsprechende HTTP-Header für die `VaryByQueryKeys` Eigenschaft. Diese Eigenschaft ist eine HTTP-Funktion, die von der Antwort zwischenspeichern Middleware verarbeitet. Für die Middleware, die eine zwischengespeicherte Antwort dient müssen der Abfragezeichenfolge und der Wert der Abfragezeichenfolge eine frühere Anforderung wieder übereinstimmen. Betrachten Sie beispielsweise die Sequenz von Anforderungen und Ergebnissen, die in der folgenden Tabelle gezeigt.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) gespeicherten Antwort von den Werten der angegebenen Liste der Abfrageschlüssel variiert. Wenn ein einzelner Wert `*` angegeben wird, hängt von die Middleware Antworten von allen anfordern Abfragezeichenfolgen-Parameter. `VaryByQueryKeys`erfordert ASP.NET Core 1.1 oder höher.
+
+Die Antwort zwischenspeichern Middleware muss aktiviert sein, zum Festlegen der `VaryByQueryKeys` Eigenschaft; andernfalls wird eine Laufzeitausnahme ausgelöst. Es gibt kein entsprechenden HTTP-Header für die `VaryByQueryKeys` Eigenschaft. Die Eigenschaft ist eine HTTP-Funktion, die von der Antwort zwischenspeichern Middleware verarbeitet. Für die Middleware, die eine zwischengespeicherte Antwort dient müssen der Abfragezeichenfolge und der Wert der Abfragezeichenfolge eine frühere Anforderung wieder übereinstimmen. Betrachten Sie beispielsweise die Sequenz von Anforderungen und Ergebnissen, die in der folgenden Tabelle gezeigt.
 
 | Anforderung                          | Ergebnis                   |
 | -------------------------------- | ------------------------ |
@@ -101,7 +103,7 @@ Die `ResponseCacheAttribute` gibt die Parameter zum Festlegen der entsprechenden
 
 Die erste Anforderung wird vom Server zurückgegebenen und Middleware zwischengespeichert. Die zweite Anforderung wird von Middleware zurückgegeben, weil die Abfragezeichenfolge die vorhergehenden Anforderung übereinstimmt. Die dritte Anforderung ist nicht im Cache Middleware, da der Wert der Abfragezeichenfolge nicht mit eine frühere Anforderung übereinstimmt. 
 
-Die `ResponseCacheAttribute` dient zum Erstellen und konfigurieren Sie (über `IFilterFactory`) eine `ResponseCacheFilter`. Die `ResponseCacheFilter` führt die Arbeit aktualisieren die entsprechenden HTTP-Header und die Funktionen der Antwort. Der Filter:
+Die `ResponseCacheAttribute` dient zum Erstellen und konfigurieren Sie (über `IFilterFactory`) eine [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter). Die `ResponseCacheFilter` führt die Arbeit aktualisieren die entsprechenden HTTP-Header und die Funktionen der Antwort. Der Filter:
 
 * Entfernt alle vorhandenen Header für `Vary`, `Cache-Control`, und `Pragma`. 
 * Schreibt die entsprechenden Header auf Grundlage der Eigenschaften legen Sie in der `ResponseCacheAttribute`. 
