@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: b59965b2fab00cb64db06574d5ca3c6388daa7c8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8d768727772738264d088315e605cca72db8de0a
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation"></a>Hinzufügen der Validierung
 ====================
@@ -24,7 +24,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
-In diesem in diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und Sie stellen sicher, dass jederzeit die Validierungsregeln, wenn ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mithilfe der Anwendung.
+In diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und Sie stellen sicher, dass jederzeit die Validierungsregeln, wenn ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mithilfe der Anwendung.
 
 ## <a name="keeping-things-dry"></a>Halten Dinge TROCKENEN
 

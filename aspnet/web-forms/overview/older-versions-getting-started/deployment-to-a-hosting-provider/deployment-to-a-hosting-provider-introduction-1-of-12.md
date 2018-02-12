@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12
 ====================
@@ -137,7 +137,7 @@ Auswirkungen auf die folgenden Funktionen der Anwendung, zur Bereitstellung oder
 - Die Anwendung verwendet die Entity Framework 5.0 Zugriff auf Daten in der Anwendungsdatenbank. Die Assembly mit Entity Framework 5.0 muss mit der Anwendung bereitgestellt werden.
 - Die Anwendung verwendet einen Drittanbieter-Fehler, Protokollierung und-berichterstellung Hilfsprogramm. Dieses Dienstprogramm wird in einer Assembly bereitgestellt, das mit der Anwendung bereitgestellt werden müssen.
 - Das Dienstprogramm zum Protokollieren der Fehler Schreibt Fehlerinformationen in XML-Dateien in einem Dateiordner. Sie müssen sicherstellen, dass das Konto, das unter ASP.NET ausgeführt, in der bereitgestellten Website wird ist die Schreibberechtigung für diesen Ordner, und Sie diesen Ordner aus der Bereitstellung ausgeschlossen. (Andernfalls Fehler Protokolldaten aus der testumgebung möglicherweise bis hin zur Produktion bereitgestellt werden und/oder Produktion Fehlerprotokolldateien möglicherweise gelöscht.)
-- Die Anwendung enthält einige Einstellungen, die geändert werden müssen, in der bereitgestellten *"Web.config"* Datei abhängig von der zielumgebung (Test oder Produktion) und andere Einstellungen, die abhängig von der Build geändert werden müssen Konfiguration (Debug oder Release).
+- Die Anwendung enthält einige Einstellungen, die geändert werden müssen, die in der bereitgestellten *"Web.config"* Datei abhängig von der zielumgebung (Test oder Produktion) und andere Einstellungen, die abhängig von der Build geändert werden müssen Konfiguration (Debug oder Release).
 - Visual Studio-Projektmappe enthält ein Klassenbibliotheksprojekt. Nur die Assembly, die diesem Projekt generierten bereitgestellt werden soll, nicht auf das Projekt selbst.
 
 In diesem ersten Lernprogramm in der Reihe haben Sie das Beispielprojekt für Visual Studio heruntergeladen und überprüft Websitefunktionen, die beeinflussen, wie Sie die Anwendung bereitstellen. In den folgenden Lernprogrammen vorbereiten Sie für die Bereitstellung durch das einrichten, dass einige der folgenden Schritte automatisch behandelt werden. Andere kümmern Sie manuell.

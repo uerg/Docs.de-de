@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Externen Authentifizierungsdienste mit ASP.NET Web-API (c#)
 ====================
@@ -243,8 +243,8 @@ Sobald Ihre consumerschlüssel und dem geheimen consumerschlüssel abgerufen wur
 
 Weitere Informationen zum Erstellen von Anwendungen, die OAuth- und OpenID verwenden, finden Sie unter den folgenden URLs:
 
-- [https://go.Microsoft.com/fwlink/?LinkId=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
-- [https://go.Microsoft.com/fwlink/?LinkId=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
+- [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
+- [https://go.microsoft.com/fwlink/?LinkID=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
 
 <a id="COMBINE"></a>
 ### <a name="combining-external-authentication-services"></a>Kombinieren von externen Authentifizierungsdienste
@@ -263,7 +263,7 @@ Einige externe Authentifizierungsanbieter unterstützen keine Testen Ihrer Anwen
     1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows.
     2. Geben Sie folgenden Befehl ein:
 
-        <kbd>Editor-%WinDir%\system32\drivers\etc\hosts</kbd>
+        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
     3. Fügen Sie einen Eintrag wie folgt zur Hostdatei hinzu:
 
         <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -278,10 +278,10 @@ Einige externe Authentifizierungsanbieter unterstützen keine Testen Ihrer Anwen
     1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows.
     2. Geben Sie den folgenden Befehl in Ihrem Ordner "IIS Express" ändern:
 
-        <kbd>CD/d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
+        <kbd>cd /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. Geben Sie den folgenden Befehl aus, um den FQDN für Ihre Anwendung hinzufügen an:
 
-        <kbd>Appcmd.exe set Config-section:system.applicationHost/sites / +&quot;[Name = "WebApplication1"] .bindings. [ Protokoll = "http", BindingInformation = "*:80:www.wingtiptoys.com"]&quot; /commit:apphost</kbd>
+        <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
  Wobei **WebApplication1** ist der Name des Projekts und **BindingInformation** enthält die Portnummer und den vollqualifizierten Domänennamen, die Sie für die Tests verwenden möchten.
 
@@ -303,7 +303,7 @@ Verknüpfen eine Anwendung für Windows Live für Microsoft Authentication ist e
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Optional: Lokale Registrierung deaktivieren
 
-Die aktuelle lokale Registrierung-Funktionalität von ASP.NET wird nicht verhindert, dass automatisierte Programme (Bots) Erstellen von Elementeigenschaften Konten; Mithilfe von Bot Prevention und Validierung-Technologie wie z. B. [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Aus diesem Grund sollten Sie die lokale Anmeldung Formular und die Registrierung der Link auf der Anmeldeseite entfernen. Öffnen Sie hierzu die  *\_Login.cshtml* Seite in Ihrem Projekt, und klicken Sie dann die Zeilen für den Bereich für die lokale Anmeldung und den Link auskommentieren. Ergebnisseite sollte wie im folgenden Codebeispiel wird wie folgt:
+Die aktuelle lokale Registrierung-Funktionalität von ASP.NET wird nicht verhindert, dass automatisierte Programme (Bots) Erstellen von Elementeigenschaften Konten; Mithilfe von Bot Prevention und Validierung-Technologie wie z. B. [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Aus diesem Grund sollten Sie die lokale Anmeldung Formular und die Registrierung der Link auf der Anmeldeseite entfernen. Öffnen Sie hierzu die  *\_Login.cshtml* Seite in Ihrem Projekt, und klicken Sie dann die Zeilen für den Bereich für die lokale Anmeldung und den Link auskommentieren. Ergebnisseite sollte wie im folgenden Codebeispiel aussehen:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

@@ -10,17 +10,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a63bfc26bb6b0f5ea1c64641d6f57a3555d7f401
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C
 
 Von [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloud Identity Management-Lösung für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung bei apps, die in der Cloud und lokal gehostet. Mögliche Authentifizierungstypen gehören einzelkonten, soziale Netzwerke-Konten und verbundene Unternehmen-Konten. Darüber hinaus können Azure AD B2C Multi-Factor Authentication mit minimaler Konfiguration bereitstellen.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloud Identity Management-Lösung für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung bei apps, die in der Cloud und lokal gehostet. Authentifizierungstypen einzelkonten, soziale Netzwerke-Konten gehören und verbundene Unternehmen-Konten. Darüber hinaus können Azure AD B2C Multi-Factor Authentication mit minimaler Konfiguration bereitstellen.
 
 > [!TIP]
 > Azure Active Directory (Azure AD) Azure AD B2C sind separate Produktangeboten. Azure AD-Mandanten repräsentiert eine Organisation ein Azure AD B2C-Mandanten eine Auflistung von Identitäten, die mit den Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).

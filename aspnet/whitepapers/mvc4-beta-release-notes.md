@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -295,7 +295,7 @@ ASP.NET MVC 4 Beta unterstützt die September 2011 1.5-Version des Windows Azure
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **Wenn WebMatrix.WebData.dll im Verzeichnis "/ bin" von einer ASP.NET MVC 4-apps in enthalten ist, hat er die URL für die Formularauthentifizierung.** Der Anwendung (z. B. durch "ASP.NET Web Pages mit Razor-Syntax" auswählen, wenn Sie das Dialogfeld "bereitstellbare Abhängigkeiten hinzufügen" verwenden) die WebMatrix.WebData.dll-Assembly hinzufügen, wird die Authentifizierung Anmeldung Umleitung für die Anmeldung/Account/überschrieben statt / Konto/Anmeldenamens, wie erwartet das ASP.NET MVC-Controllers ein Konto in der Standardeinstellung verwendet wird. Um zu verhindern, dass dieses Verhalten, und verwenden Sie die URL, die bereits im Abschnitt "Authentifizierung" der Datei "Web.config" angegeben, können Sie Hinzufügen einer AppSetting PreserveLoginUrl aufgerufen und auf "true" festgelegt haben: 
+- **Wenn WebMatrix.WebData.dll in das Verzeichnis "/ bin" von einer ASP.NET MVC 4-apps enthalten ist, hat er die URL für die Formularauthentifizierung.** Der Anwendung (z. B. durch "ASP.NET Web Pages mit Razor-Syntax" auswählen, wenn Sie das Dialogfeld "bereitstellbare Abhängigkeiten hinzufügen" verwenden) die WebMatrix.WebData.dll-Assembly hinzufügen, wird die Authentifizierung Anmeldung Umleitung für die Anmeldung/Account/überschrieben statt / Konto/Anmeldenamens, wie erwartet das ASP.NET MVC-Controllers ein Konto in der Standardeinstellung verwendet wird. Um zu verhindern, dass dieses Verhalten, und verwenden Sie die URL, die bereits im Abschnitt "Authentifizierung" der Datei "Web.config" angegeben, können Sie Hinzufügen einer AppSetting PreserveLoginUrl aufgerufen und auf "true" festgelegt haben: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
 - **Die NuGet-Paket-Manager nicht installiert werden, beim Versuch, die ASP.NET MVC 4 für parallele Installationen von Visual Studio 2010 und Visual Web Developer 2010 installieren.** Zum Ausführen von Visual Studio 2010 und Visual Web Developer 2010 parallel zu ASP.NET MVC 4 müssen Sie ASP.NET MVC 4 installieren, nachdem beide Versionen von Visual Studio bereits installiert wurden.

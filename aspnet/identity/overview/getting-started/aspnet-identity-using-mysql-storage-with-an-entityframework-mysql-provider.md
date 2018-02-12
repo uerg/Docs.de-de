@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: ac254abcb756d048d159a9b67967a581f35ac871
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: Verwenden von MySQL-Speicher mit EntityFramework MySQL-Anbieter (c#)
 ====================
@@ -65,7 +65,7 @@ Am Ende dieses Lernprogramms müssen Sie eine MVC-Anwendung mit dem ASP.NET Iden
 
 Um die Schritte in diesem Abschnitt des Lernprogramms abgeschlossen haben, müssen Sie zuerst installieren [Visual Studio Express 2013 für Web](https://go.microsoft.com/fwlink/?LinkId=299058) oder [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Nachdem Visual Studio installiert wurde, verwenden Sie die folgenden Schritte aus, um ein neues MVC-Anwendungsprojekt erstellen:
 
-1. Öffnen Sie Visual Studio 2103.
+1. Open Visual Studio 2103.
 2. Klicken Sie auf **neues Projekt** aus der **starten** Seite, oder Sie klicken Sie auf die **Datei** Menü und dann **neues Projekt**:  
   
  [Klicken Sie auf das folgende Bild aus, um ihn zu erweitern. ]  
@@ -83,7 +83,7 @@ Um die Schritte in diesem Abschnitt des Lernprogramms abgeschlossen haben, müss
 
 ### <a name="update-the-entity-framework-assembly-for-your-project"></a>Aktualisieren Sie die Entity Framework-Assembly für das Projekt
 
-Die MVC-Anwendung, die aus der Visual Studio 2013-Vorlage erstellt wurde, enthält einen Verweis auf die [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework) Verpacken, aber es wurden Updates auf diese Assembly seit seiner Veröffentlichung die enthalten wichtige wurde leistungsverbesserungen. Um diese neueste Updates in Ihrer Anwendung verwenden möchten, verwenden Sie die folgenden Schritte aus.
+Die MVC-Anwendung, die aus der Visual Studio 2013-Vorlage erstellt wurde, enthält einen Verweis auf die [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework) Verpacken, aber es wurden Updates, die auf diese Assembly seit der Version enthalten wichtige wurde leistungsverbesserungen. Um diese neueste Updates in Ihrer Anwendung verwenden möchten, verwenden Sie die folgenden Schritte aus.
 
 1. Öffnen Sie das MVC-Projekt in Visual Studio 2013.
 2. Klicken Sie auf **TOOLS**, klicken Sie dann auf **Bibliothekspaket-Manager**, und klicken Sie dann auf **Package Manager Console**:  
@@ -139,7 +139,7 @@ Entity Framework Code First verwendet eine **MigrationHistory** Tabelle zum Nach
 
 ### <a name="creating-a-custom-entityframework-initializer-for-applicationdbcontext"></a>Erstellen einen benutzerdefinierten EntityFramework Initialisierer für ApplicationDbContext
 
-Der MySQL-Anbieter, der in diesem Lernprogramm Funktionsumfang ist unterstützt derzeit Entity Framework keine Migrationen, daher Sie die Modell-Initialisierer verwenden, um eine Verbindung mit der Datenbank herzustellen müssen. Da in diesem Lernprogramm eine MySQL-Instanz in Azure verwendet wird, werden müssen Sie einen benutzerdefinierten Initialisierer für Entity Framework zu erstellen.
+Der MySQL-Anbieter, der in diesem Lernprogramm Funktionsumfang ist unterstützt derzeit Entity Framework keine Migrationen, daher Sie die Modell-Initialisierer verwenden, um eine Verbindung mit der Datenbank herzustellen müssen. Da in diesem Lernprogramm eine MySQL-Instanz in Azure verwendet wird, müssen Sie einen benutzerdefinierten Initialisierer für Entity Framework zu erstellen.
 
 > [!NOTE]
 > Dieser Schritt ist nicht erforderlich, wenn Sie eine Verbindung zu SQL Server-Instanz in Azure oder bei Verwendung eine Datenbank, die lokal gehostet wird.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8a3df94c91d2fac79006916375764c2b90dc85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: abfde7edec85812de3560f4edefb110c3e374580
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Simulieren von Entity Framework bei Komponententests für ASP.NET Web API 2
 ====================
@@ -149,7 +149,7 @@ Mit der rechten Maustaste des StoreApp.Tests-Projekts, und wählen Sie **NuGet-P
 
 ![Verwalten von Paketen](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
 
-Suchen Sie von Online-Paketen und installieren Sie das EntityFramework-Paket (Version 6.0 oder höher). Wenn es angezeigt wird, dass das Paket EntityFramework bereits installiert ist, haben Sie möglicherweise ausgewählt des Projekts StoreApp anstelle von dem das StoreApp.Tests-Projekt.
+Suchen Sie von Online-Paketen und installieren Sie das EntityFramework-Paket (Version 6.0 oder höher). Wenn es angezeigt wird, dass das Paket EntityFramework bereits installiert ist, haben Sie möglicherweise das StoreApp Projekt statt auf das Projekt StoreApp.Tests ausgewählt.
 
 ![Hinzufügen von Entity Framework](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
 

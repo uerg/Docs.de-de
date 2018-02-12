@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8f28116f88f3cf5143d3d5c9821519d62c4e5452
-ms.sourcegitcommit: 6541c8b11001dd617adf5eb04c814cda165070b9
+ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="an-overview-of-project-katana"></a>Eine Übersicht über Project Katana
 ====================
@@ -29,7 +29,7 @@ durch [Howard Dierking](https://github.com/howarddierking)
 
  Unabhängig davon, ob eine ein Developer-Framework oder Endbenutzer Produkt erörtert wird, es ist wichtig zu verstehen, die zugrunde liegenden Motivation für die Erstellung enthält die Product-als auch Teil, zu wissen, wer für das Produkt erstellt wurde. ASP.NET wurde mit zwei Kunden Bedenken ursprünglich erstellt.   
   
-**Die erste Gruppe von Kunden wurde klassische ASP-Entwickler.** Zum Zeitpunkt war ASP mit einer der primären Technologien für dynamische, datengesteuerte Websites und Anwendungen von interweaving Markup und serverseitige Skripts erstellen. Die ASP-Laufzeit bereitgestellt: serverseitige Skripts mit einem Satz von Objekten, die Hauptaspekte des zugrunde liegenden HTTP-Protokoll und Webserver abstrahiert und bereitgestellten Zugriff auf zusätzliche solche Zustandsverwaltung Sitzung und die Anwendung Dienste cache usw. an. Zwar leistungsstark, wurde um klassische ASP-Anwendungen schwierig zu verwalten, wie sie in der Größe und Komplexität vergrößert wurde. Dies war aufgrund der Mangel an der Struktur in skriptumgebungen gekoppelt mit der Duplizierung des Codes, die aufgrund der Überlappung der Code- und Markupdateien finden. Um die Vorteile von klassischem ASP profitieren beim Adressieren einige der Vorteile, nutzte ASP.NET der Code Organisation von der objektorientierten Sprachen von .NET Framework bereitgestellt wird, Beibehaltung auch das serverseitige-Programmiermodell auf welche klassischem ASP wuchs Entwicklern vertraut.
+**Die erste Gruppe von Kunden wurde klassische ASP-Entwickler.** Zum Zeitpunkt war ASP mit einer der primären Technologien für dynamische, datengesteuerte Websites und Anwendungen von interweaving Markup und serverseitige Skripts erstellen. Die ASP-Laufzeit bereitgestellt: serverseitige Skripts mit einem Satz von Objekten, die Hauptaspekte des zugrunde liegenden HTTP-Protokoll und Webserver abstrahiert und bereitgestellten Zugriff auf zusätzliche solche Zustandsverwaltung Sitzung und die Anwendung Dienste cache usw. an. Zwar leistungsstark, wurde um klassische ASP-Anwendungen schwierig zu verwalten, wie sie in der Größe und Komplexität vergrößert wurde. Dies war aufgrund der Mangel an in skriptumgebungen gekoppelt mit der Duplizierung des Codes, die aufgrund der Überlappung der Code- und Markupdateien gefundenen Struktur. Um die Vorteile von klassischem ASP profitieren beim Adressieren einige der Vorteile, nutzte ASP.NET der Code Organisation von der objektorientierten Sprachen von .NET Framework bereitgestellt wird, Beibehaltung auch das serverseitige-Programmiermodell auf welche klassischem ASP wuchs Entwicklern vertraut.
 
 **Die zweite Gruppe von Zielkunden für ASP.NET wurde Windows Business-Anwendungsentwickler.** Im Gegensatz zum klassischen ASP-Entwickler, die beim Schreiben von HTML-Markup und den Code mehr HTML-Markup generieren würden, WinForms-Entwickler (z. B. die VB6 Entwickler vorgestellten) wurden mit einer entwurfszeitumgebung, das einen Zeichenbereich und einen umfangreichen Satz an Benutzer aufgenommen vertraut Benutzeroberflächen-Steuerelemente. Die erste Version von ASP.NET – bereitgestellt, auch bekannt als "Web Forms" eine ähnliche Erfahrung zur Entwurfszeit zusammen mit einem serverseitigen Ereignismodell für Benutzeroberflächenkomponenten und einen Satz von Infrastrukturfunktionen (z. B. "ViewState" Speichern) um eine nahtlose entwicklererfahrung erstellen zwischen Client und Server-Side-Programmierung. WebForms hid effektiv zustandsfrei sind im Web, unter einer statusbehafteten Ereignismodell, das WinForms-Entwicklern vertraut wurde.
 
@@ -214,7 +214,7 @@ Die-Hostinfrastruktur für Katana 2.0 umfasst die SystemWeb und HttpListener-bas
 
 Katana 2.0 sind die Middleware-Komponenten in erster Linie konzentriert sich auf unterschiedliche Weise der Authentifizierung. Eine zusätzliche middlewarekomponente für die Diagnose wird bereitgestellt, wodurch Unterstützung für eine Seite starten und den Fehler. Mit steigender OWIN in die de facto hosting Abstraktion vergrößert das Ökosystem der Middleware-Komponenten, beide entwickelt von Microsoft und Drittanbietern, die ebenfalls in Anzahl.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
  Von Anfang wurde das Katana-Projekt-Ziel nicht zum Erstellen und dadurch erzwingen Entwickler noch einem anderen Webframework erfahren Sie. Stattdessen wurde das Ziel eine Abstraktion so erteilen Sie .NET Web-Anwendungsentwickler mehr Auswahl wurde zuvor möglich erstellen. Durch die Aufteilung der logischen Ebenen eines typischen Web Application Stack in einen Satz von austauschbaren Komponenten, ermöglicht das Katana-Projekt Komponenten im ganzen Stapel an die Rate sinnvoll ist für diese Komponenten verbessern. Erstellen Sie zunächst alle Komponenten, um die einfache OWIN-Abstraktion, ermöglicht Katana-Frameworks und die Anwendung baut auf den sie über eine Vielzahl von unterschiedlichen Servern und Hosts portabel sein. Verlegen des Entwicklers Kontrolle über den Stapel Katana wird sichergestellt, dass die endgültige Auswahl zu wie einfache werden vom Entwickler durchgeführt oder wie funktionsreiche ihre Web-Stapel werden soll.  
   

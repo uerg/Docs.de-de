@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/05/2018
 - [Haftungsausschluss](#0.1__Toc274034231)
 
 <a id="overview"></a>
-## <a name="overview"></a>Überblick
+## <a name="overview"></a>Übersicht
 
 Dieses Dokument beschreibt die Version von ASP.NET MVC 3 RTM für Visual Studio 2010. ASP.NET MVC ist ein Framework zum Entwickeln von Webanwendungen, die die Model-View-Controller (MVC)-Muster verwendet wird. Der ASP.NET MVC 3-Installer umfasst die folgenden Komponenten:
 
@@ -144,7 +144,7 @@ Lernprogramme und Weitere Informationen zu ASP.NET MVC sind auf die MVC-Seite de
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>Unterstützung
 
 Dies ist eine vollständige Unterstützung geboten. Informationen zur Inanspruchnahme technischer Unterstützung finden Sie unter der [Microsoft Support-Website](https://support.microsoft.com/).
 
@@ -255,7 +255,7 @@ Die Liste Projektvorlage enthält eine neue Vorlage Intranetanwendung. Diese Vor
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Projektvorlagen sind nun HTML5 aktiviert
 
-Des Dialogfelds "Neues Projekt" "enthält jetzt eine Option aus, um die Projektvorlagen von HTML5-spezifische Funktionen hinzuzufügen. Wählen Sie die Option bewirkt, dass Sichten generiert werden, die das neue HTML5 enthalten `<header>`, `<footer>`, und `<navigation>` Elemente. Elemente.
+Des Dialogfelds "Neues Projekt" "enthält jetzt eine Option aus, um die Projektvorlagen von HTML5-spezifische Funktionen hinzuzufügen. Wählen Sie die Option bewirkt, dass Sichten generiert werden, die das neue HTML5 enthalten `<header>`, `<footer>`, und `<navigation>` Elemente.
 
 Beachten Sie, dass frühere Versionen der Browser keine HTML5-spezifische Tags unterstützen. Zur Überwindung dieser Einschränkung enthalten die HTML5-Projektvorlagen einen Verweis auf die Modernizr-Bibliothek. (Siehe nächsten Abschnitt.)
 
@@ -608,7 +608,7 @@ Alternativ zum Deaktivieren der anforderungsüberprüfung für jede Eigenschaft 
 ## <a name="breaking-changes"></a>Die Lauffähigkeit der Anwendung beeinträchtigende Änderungen
 
 - Die Ausführungsreihenfolge für Ausnahmefilter wurde geändert, für die Ausnahmefilter, die dieselbe *Reihenfolge* Wert. In ASP.NET MVC 2 und früheren Ausnahmefilter auf dem Controller an, die die gleiche mussten *Reihenfolge* wie denen auf eine Aktionsmethode vor die Ausnahmefilter auf die Aktionsmethode ausgeführt wurden. Dies würde i. d. r. der Fall sein, wenn Ausnahmefilter angewendet wurden ohne angegebenen *Reihenfolge* Wert. In ASP.NET MVC 3 wurde diese Reihenfolge umgekehrt, damit der spezifischste Ausnahmehandler zuerst ausgeführt wird. Wie in früheren Versionen Wenn die *Reihenfolge* explizit angegeben wird, werden die Filter in der angegebenen Reihenfolge ausgeführt werden.
-- Eine neue Eigenschaft mit dem Namen hinzugefügt *FileExtensions* auf die *VirtualPathProviderViewEngine* Basisklasse. Wenn eine Ansicht anhand des Pfads (und nicht anhand des Namens) nur Ansichten, mit der Erweiterung in enthaltenen Nachschlagen wird durch diese neue Eigenschaft angegebene Liste betrachtet. Dies ist eine wichtige Änderung für diejenigen ein benutzerdefinierten registrieren Anbieters, um eine benutzerdefinierte Erweiterung für Formularansichten Web aktivieren erstellen und und verweisen auf diese Ansichten werden mit einem Namen, statt einen vollständigen Pfad. Die problemumgehung besteht darin, Ändern des Werts der *FileExtensions* Eigenschaft, um die benutzerdefinierte Erweiterung einschließen.
+- Eine neue Eigenschaft mit dem Namen hinzugefügt *FileExtensions* auf die *VirtualPathProviderViewEngine* Basisklasse. Wenn eine Ansicht anhand des Pfads (und nicht anhand des Namens) nur Ansichten, mit der Erweiterung in enthaltenen Nachschlagen wird durch diese neue Eigenschaft angegebene Liste betrachtet. Dies ist eine wichtige Änderung für diejenigen, registrieren einen benutzerdefinierte Buildanbieter um eine benutzerdefinierte Datei-Erweiterung für Formular Webansichten aktivieren und auf diese Ansichten mit einem Namen, statt einen vollständigen Pfad verweisen. Die problemumgehung besteht darin, Ändern des Werts der *FileExtensions* Eigenschaft, um die benutzerdefinierte Erweiterung einschließen.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Bekannte Probleme

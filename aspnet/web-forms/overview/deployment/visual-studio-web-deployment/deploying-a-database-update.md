@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellen eines Datenbankupdates
 ====================
@@ -90,7 +90,7 @@ In diesem Abschnitt fügen Sie eine Birth Date-Spalte zu den `Person` Basisklass
 6. In der **Web eine klicken Sie auf Publish** -Symbolleiste klicken Sie auf die **Produktion** Veröffentlichungsprofil, und klicken Sie dann auf **Web veröffentlichen**.
 7. Führen Sie die **Lehrkräfte** Seite in der Produktion einsetzen, um sicherzustellen, dass das Update erfolgreich bereitgestellt wurde.
 
-    Für eine ein Update der Produktion-Anwendung, die Änderung an einer Datenbank enthält Sie auch in der Regel wäre die Anwendung offline, während der Bereitstellung mithilfe von *app\_offline.htm*, wie Sie im vorherigen Lernprogramm gesehen haben.
+    Für ein Update der Produktion-Anwendung, die Änderung an einer Datenbank enthält nehmen Sie in der Regel auch die Anwendung offline, während der Bereitstellung mithilfe *app\_offline.htm*, wie Sie im vorherigen Lernprogramm gesehen haben.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Bereitstellen einer Datenbankupdate mit dem DbDacFx-Anbieter
 

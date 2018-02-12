@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: d47d8f61dc7af6e1dc5887338be862ea81d7bb17
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4-Funktionen für mobile Geräte
 ====================
@@ -308,7 +308,7 @@ Wie Sie jedes Buchstabens im Suchfeld eingeben, filtert jQuery Mobile die angeze
 
 Wie Sie die Standardeinstellung *Lautsprecher* anzeigen, die *Tags* Ansicht ist lesbar, aber die Links sind, klein und schwer zu tippen Sie auf einem mobilen Gerät auf. In diesem Abschnitt berichtigen Sie die *Tags* korrigierte genauso Anzeigen der *Lautsprecher* anzeigen.
 
-Entfernen Sie die &quot;ausblenden&quot; -Suffix der der *Views\Home\AllTags.Mobile.cshtml.hide* daher ist der Name der Datei *Views\Home\AllTags.Mobile.cshtml*. Öffnen Sie die umbenannte Datei, und entfernen Sie die `<h2>` Element.
+Entfernen Sie die &quot;ausblenden&quot; -Suffix der *Views\Home\AllTags.Mobile.cshtml.hide* daher ist der Name der Datei *Views\Home\AllTags.Mobile.cshtml*. Öffnen Sie die umbenannte Datei, und entfernen Sie die `<h2>` Element.
 
 Hinzufügen der `data-role` und `data-filter` -Attribute verwenden, um die `<ul>` zu kennzeichnen, wie hier gezeigt:
 

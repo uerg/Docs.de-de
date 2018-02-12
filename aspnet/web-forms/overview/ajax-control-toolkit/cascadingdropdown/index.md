@@ -12,22 +12,22 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: 8d0708b03deb54d41c64ed383d319b0b70549e1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================
-> Dieses Lernprogramm zeigt, wie die CascadingDropDown-Steuerelement zum Erstellen von verknüpften Dropdown-Listet das Update aus, wenn Benutzer eine Auswahl treffen.
+> Dieses Lernprogramm zeigt, wie das Steuerelement CascadingDropDown, um verwandte Dropdownlisten zu erstellen, aktualisieren, wenn Benutzer eine Auswahl treffen.
 
 
-- [Füllen eine Liste mit CascadingDropDown (c#)](filling-a-list-using-cascadingdropdown-cs.md)
-- [Verwendung von CascadingDropDown mit einer Datenbank (c#)](using-cascadingdropdown-with-a-database-cs.md)
-- [Vorheriges festlegen Listeneinträge mit CascadingDropDown (c#)](presetting-list-entries-with-cascadingdropdown-cs.md)
-- [Verwenden von Auto-Postback mit CascadingDropDown (c#)](using-auto-postback-with-cascadingdropdown-cs.md)
-- [Füllen eine Liste mit CascadingDropDown (VB)](filling-a-list-using-cascadingdropdown-vb.md)
-- [Verwendung von CascadingDropDown mit einer Datenbank (VB)](using-cascadingdropdown-with-a-database-vb.md)
-- [Vorheriges festlegen Listeneinträge mit CascadingDropDown (VB)](presetting-list-entries-with-cascadingdropdown-vb.md)
-- [Verwenden von Auto-Postback mit CascadingDropDown (VB)](using-auto-postback-with-cascadingdropdown-vb.md)
+- [Ausfüllen einer Liste mit CascadingDropDown (C#)](filling-a-list-using-cascadingdropdown-cs.md)
+- [Verwenden von CascadingDropDown mit einer Datenbank (C#)](using-cascadingdropdown-with-a-database-cs.md)
+- [Vorheriges Festlegen von Listeneinträgen mit CascadingDropDown (C#)](presetting-list-entries-with-cascadingdropdown-cs.md)
+- [Verwenden von automatischem Postback mit CascadingDropDown (C#)](using-auto-postback-with-cascadingdropdown-cs.md)
+- [Ausfüllen einer Liste mit CascadingDropDown (VB)](filling-a-list-using-cascadingdropdown-vb.md)
+- [Verwenden von CascadingDropDown mit einer Datenbank (VB)](using-cascadingdropdown-with-a-database-vb.md)
+- [Vorheriges Festlegen von Listeneinträgen mit CascadingDropDown (VB)](presetting-list-entries-with-cascadingdropdown-vb.md)
+- [Verwenden von automatischem Postback mit CascadingDropDown (VB)](using-auto-postback-with-cascadingdropdown-vb.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity
 ====================
@@ -128,7 +128,7 @@ Die Klasse IdentityUser IUser implementiert und enthält zusätzliche Eigenschaf
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>Passen Sie den Speicher des Benutzers
 
-Sie erstellen außerdem eine UserStore-Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In der UserStore-Klasse, die Sie implementieren die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) und jede der optionalen Schnittstellen. Sie wählen die optionale Schnittstellen implementiert auf Grundlage der Funktionalität, die Sie in der Anwendung bereitstellen möchten.
+Sie erstellen außerdem eine UserStore-Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In der UserStore-Klasse, die Sie implementieren die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) und jede der optionalen Schnittstellen. Sie wählen die optionalen Schnittstellen implementieren basierend auf den Funktionen, die, den Sie in der Anwendung bereitstellen möchten.
 
 Die folgende Abbildung zeigt die UserStore-Klasse, die Sie erstellen müssen und die entsprechenden Schnittstellen.
 

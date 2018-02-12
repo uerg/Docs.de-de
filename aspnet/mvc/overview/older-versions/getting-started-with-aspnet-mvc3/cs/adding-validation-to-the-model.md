@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6bce4a5d889f548cb1faec15842310703d7077b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Hinzufügen einer Validierung für das Modell (c#)
 ====================
@@ -101,7 +101,7 @@ Beachten Sie, wie der Code verwendet eine `Html.EditorFor` Hilfsmethode zum Ausg
 
 Wirklich Nützliches über diesen Ansatz ist, dass der Controller weder die Vorlage zur Erstellung von Ansicht nichts über den tatsächlichen Validierungsregeln erzwungen wird oder über die spezifischen Fehlermeldungen angezeigt weiß. Die Validierungsregeln und Fehlerzeichenfolgen werden nur in der `Movie`-Klasse angegeben.
 
-Wenn Sie die Validierungslogik später ändern möchten, können genau zentral möchten. Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Und bedeutet, dass, die Sie vollständig berücksichtigt das TROCKENE Prinzip.
+Wenn Sie die Validierungslogik später ändern möchten, können genau zentral möchten. Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Und dies bedeutet, dass Sie das DRY-Prinzip vollständig einhalten.
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Hinzufügen von Formatierung zur Film-Modell
 

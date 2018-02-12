@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 9a933324b48d4117d5d4c806920f1691a7ef7849
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25ba5887a9fd179e75a45d4e140592d0ea66184a
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (VB)
 ====================
@@ -57,7 +57,7 @@ Sie können auch die Aktionsmethodenparameter über eine Abfragezeichenfolge üb
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample3.vb)]
 
-Beachten Sie, dass der zweiten `Edit`-Aktionsmethode das `HttpPost`-Attribut vorangestellt ist. Dieses Attribut gibt an, dass die Überladung, die von der `Edit` Methode kann nur für die POST-Anforderungen aufgerufen werden. Sie können Werte anwenden der `HttpGet` Attribut mit dem ersten bearbeiten Methode, aber dies ist nicht erforderlich, da dies die Standardeinstellung ist. (Verweisen wir auf Aktionsmethoden, die implizit zugewiesen sind die `HttpGet` Attribut `HttpGet` Methoden.)
+Beachten Sie, dass der zweiten `Edit`-Aktionsmethode das `HttpPost`-Attribut vorangestellt ist. Dieses Attribut gibt an, diese Überladung von der `Edit` Methode kann nur für die POST-Anforderungen aufgerufen werden. Sie können Werte anwenden der `HttpGet` Attribut mit dem ersten bearbeiten Methode, aber dies ist nicht erforderlich, da dies die Standardeinstellung ist. (Verweisen wir auf Aktionsmethoden, die implizit zugewiesen sind die `HttpGet` Attribut `HttpGet` Methoden.)
 
 Die `HttpGet` `Edit` Methode nimmt die Film-ID-Parameter, mit dem Entity Framework Film sucht `Find` -Methode, und gibt den ausgewählten Film an die Bearbeitungsansicht zurück. Als das Gerüstsystem die Bearbeitungsansicht erstellt hat, wurde die `Movie`-Klasse überprüft und Code zum Rendern der `<label>`- und `<input>`-Elemente für jede Eigenschaft der Klasse erstellt. Das folgende Beispiel zeigt die Bearbeitungsansicht, die generiert wurde:
 

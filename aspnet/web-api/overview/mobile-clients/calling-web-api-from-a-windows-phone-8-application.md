@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6e5a936decb27fd2e3b8cdcea44db8db822c98eb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2025f31f369153b93cd293884880c97635fc8ab8
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Aufrufen von Web-API aus einer Windows Phone 8-Anwendung (c#)
 ====================
@@ -122,14 +122,14 @@ Der nächste Schritt dieses End-to-End-Szenario besteht die kataloganwendung fü
 6. Update der **MainViewModel.cs** Klasse einbeziehen, die Funktionalität für die Kommunikation mit der BookStore-Web-API-Anwendung:
 
     1. Erweitern Sie die **ViewModels** Ordner im Projektmappen-Explorer, und doppelklicken Sie dann auf die **MainViewModel.cs** Datei.
-    2. Wenn die die **MainViewModel.cs** Datei geöffnet wird, ersetzen Sie den Code in der Datei mit den folgenden; Beachten Sie, dass Sie das update benötigen die `apiUrl` -Konstante mit den tatsächlichen URL Ihrer Web-API: 
+    2. Wenn die **MainViewModel.cs** Datei geöffnet wird, ersetzen Sie den Code in der Datei mit den folgenden; Beachten Sie, dass Sie das update benötigen die `apiUrl` -Konstante mit den tatsächlichen URL Ihrer Web-API: 
 
         [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample5.cs)]
     3. Speichern und schließen Sie die **MainViewModel.cs** Datei.
 7. Update der **"MainPage.xaml"** Datei den Namen der Anwendung anpassen:
 
     1. Doppelklicken Sie auf die **"MainPage.xaml"** Datei im Projektmappen-Explorer.
-    2. Wenn die die **"MainPage.xaml"** Datei geöffnet ist, suchen Sie die folgenden Codezeilen: 
+    2. Wenn die **"MainPage.xaml"** Datei geöffnet ist, suchen Sie die folgenden Codezeilen: 
 
         [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample6.xml)]
     3. Ersetzen Sie diese Zeilen durch Folgendes: 
@@ -139,7 +139,7 @@ Der nächste Schritt dieses End-to-End-Szenario besteht die kataloganwendung fü
 8. Update der **DetailsPage.xaml** Datei, um die angezeigten Elemente anzupassen:
 
     1. Doppelklicken Sie auf die **DetailsPage.xaml** Datei im Projektmappen-Explorer.
-    2. Wenn die die **DetailsPage.xaml** Datei geöffnet ist, suchen Sie die folgenden Codezeilen: 
+    2. Wenn die **DetailsPage.xaml** Datei geöffnet ist, suchen Sie die folgenden Codezeilen: 
 
         [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample8.xml)]
     3. Ersetzen Sie diese Zeilen durch Folgendes: 

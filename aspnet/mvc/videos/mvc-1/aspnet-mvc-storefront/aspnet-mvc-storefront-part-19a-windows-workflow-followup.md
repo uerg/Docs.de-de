@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
 msc.type: video
-ms.openlocfilehash: fa214164d1b00310376c44401bc09dc985ab326a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d72f4af5ac0a55c43ccd6bfb7741484ee861fa53
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a>Storefront ASP.NET-MVC-Teil 19a: Windows Workflow nachverfolgung kommentieren
 ====================
@@ -27,5 +27,5 @@ In dieser Folge ich nachverfolgung kommentieren mit weiteren Informationen zur V
 [&#9654; Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
 
 >[!div class="step-by-step"]
-[Zurück](aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+[Zurück](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 [Weiter](aspnet-mvc-storefront-part-20-logging.md)

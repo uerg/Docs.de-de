@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: cb466124aacf6b13c1ade22ad8b865b83e6351e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Erstellen einen OData-v3-Endpunkt mit Web-API 2
 ====================
@@ -33,7 +33,7 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web-API 2
-> - OData-Version 3
+> - OData Version 3
 > - Entity Framework 6
 > - [Fiddler Web Debugging-Proxy (Optional)](http://www.fiddler2.com)
 > 
@@ -95,7 +95,7 @@ Erstellen Sie jetzt das Projekt. Im nächsten Schritt verwenden wir einige Visua
 
 Ein *Controller* ist eine Klasse, die HTTP-Anforderungen verarbeitet. Sie definieren einen separaten Controller für jede Entität in Sie OData-Dienst festlegen. In diesem Lernprogramm erstellen wir einen einzelnen Controller.
 
-Maustaste im Projektmappen-Explorer den Ordner. Wählen Sie **hinzufügen** und wählen Sie dann **Controller**.
+Im Projektmappen-Explorer mit der rechten Maustaste des Ordners Controllers. Wählen Sie **hinzufügen** und wählen Sie dann **Controller**.
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 

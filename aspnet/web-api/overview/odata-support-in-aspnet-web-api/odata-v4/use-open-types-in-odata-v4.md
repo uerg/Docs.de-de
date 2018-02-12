@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: c2d7454534ff0e9e0a80365793800ab7c45d3b6e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe67b9a11a82b55d5f3e0e5f1b0cee10a58833d2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>Öffnen Sie die Typen in OData v4 mit ASP.NET Web-API
 ====================
@@ -100,11 +100,11 @@ Aus dem Metadatendokument sehen Sie, die Folgendes:
 
 - Für die `Book` und `Press` Typen wird der Wert, der die `OpenType` Attribut ist "true". Die `Customer` und `Address` Typen nicht über dieses Attribut verfügen.
 - Die `Book` Entitätstyp verfügt über drei deklarierten Eigenschaften: ISBN, Titel, und drücken Sie. Die OData-Metadaten umfasst nicht die `Book.Properties` Eigenschaft von der CLR-Klasse.
-- Auf ähnliche Weise die `Press` komplexer Typ hat nur zwei deklarierte Eigenschaften: Name und Kategorie. Die Metadaten umfasst keine nicht die `Press.DynamicProperties` Eigenschaft von der CLR-Klasse.
+- Auf ähnliche Weise die `Press` komplexer Typ hat nur zwei deklarierte Eigenschaften: Name und Kategorie. Die Metadaten enthält keinen der `Press.DynamicProperties` Eigenschaft von der CLR-Klasse.
 
 ## <a name="query-an-entity"></a>Die Abfrage eine Entität
 
-Um das Adressbuch mit ISBN gleich "978-0-7356-7942-9" erhalten, senden senden eine GET-Anforderung `~/Books('978-0-7356-7942-9')`. Der Antworttext sollte etwa wie folgt aussehen. (Eingerückt, um sie besser lesbar zu machen.)
+Um das Adressbuch mit ISBN gleich "978-0-7356-7942-9" erhalten, senden Sie eine GET-Anforderung `~/Books('978-0-7356-7942-9')`. Der Antworttext sollte etwa wie folgt aussehen. (Eingerückt, um sie besser lesbar zu machen.)
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 

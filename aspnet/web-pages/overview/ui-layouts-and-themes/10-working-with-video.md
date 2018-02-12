@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4e7dc50fb60546d1e1f10a16ed863c0b812ec82b
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Anzeigen von Video an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -82,7 +82,7 @@ Die `MediaPlayer` Player, der die `Video` -Hilfsobjekt ermöglicht Ihnen die Wie
 - Das Video werden beim Laden der Seite automatisch wiedergegeben.
 - Das Video einmal wiedergegeben werden (es keine Schleife).
 - Der Spieler zeigt den vollständigen Satz von Steuerelementen in der Benutzeroberfläche.
-- Das Video spielt bei der in einem Fenster.
+- Das Video in einem Fenster wiedergegeben wird.
 
 ### <a name="the-silverlight-player"></a>Die Silverlight-Players
 

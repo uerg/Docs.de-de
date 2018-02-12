@@ -9,17 +9,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 4815155ad238c31316e00471cf87beb3dd262613
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Cloud-Authentifizierung mit Azure Active Directory B2C
 
 Von [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloud Identity Management-Lösung für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung bei apps, die in der Cloud und lokal gehostet. Mögliche Authentifizierungstypen gehören einzelkonten, soziale Netzwerke-Konten und verbundene Unternehmen-Konten. Darüber hinaus können Azure AD B2C Multi-Factor Authentication mit minimaler Konfiguration bereitstellen.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloud Identity Management-Lösung für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung bei apps, die in der Cloud und lokal gehostet. Authentifizierungstypen einzelkonten, soziale Netzwerke-Konten gehören und verbundene Unternehmen-Konten. Darüber hinaus können Azure AD B2C Multi-Factor Authentication mit minimaler Konfiguration bereitstellen.
 
 > [!TIP]
 > Azure Active Directory (Azure AD) Azure AD B2C sind separate Produktangeboten. Azure AD-Mandanten repräsentiert eine Organisation ein Azure AD B2C-Mandanten eine Auflistung von Identitäten, die mit den Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).

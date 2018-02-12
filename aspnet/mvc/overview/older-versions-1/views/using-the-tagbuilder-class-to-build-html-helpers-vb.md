@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8d0b3665e9bac6856a3fe1b50b05215f2747e354
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Verwenden die TagBuilder-Klasse zum Erstellen von HTML-Hilfsmethoden (VB)
 ====================
@@ -59,7 +59,7 @@ Auflisten von 1 enthält z. B. ein Bild HTML-Hilfsobjekt. Das Image-Hilfsprogram
 
 Das Modul im Codebeispiel 1 enthält zwei überladene Methoden, die mit dem Namen Image(). Wenn Sie die Image()-Methode aufrufen, können Sie ein Objekt übergeben, die einen Satz von HTML-Attribute oder nicht darstellt.
 
-Beachten Sie, wie die TagBuilder.MergeAttribute()-Methode verwendet wird, die TagBuilder einzelner Attribute wie z. B. das Src-Attribut hinzu. Beachten Sie außerdem, wie die TagBuilder.MergeAttributes()-Methode verwendet wird, um eine Auflistung von Attributen der TagBuilder hinzufügen. Die Methode MergeAttributes() akzeptiert ein Wörterbuch&lt;string, object&gt; Parameter. Die Klasse der RouteValueDictionary wird das Objekt, das die Auflistung von Attributen in einem Wörterbuch darstellt konvertiert&lt;string, object&gt;.
+Beachten Sie, wie die TagBuilder.MergeAttribute()-Methode verwendet wird, die TagBuilder einzelner Attribute wie z. B. das Src-Attribut hinzu. Beachten Sie außerdem, wie die TagBuilder.MergeAttributes()-Methode verwendet wird, um eine Auflistung von Attributen der TagBuilder hinzufügen. Die Methode MergeAttributes() akzeptiert ein Wörterbuch&lt;string, object&gt; Parameter. Die RouteValueDictionary-Klasse wird verwendet, um das Objekt, das die Auflistung von Attributen in einem Wörterbuch darstellt zu konvertieren&lt;string, object&gt;.
 
 Nachdem das Image-Hilfsobjekt erstellt wurde, können Sie das Hilfsprogramm in Ihre ASP.NET MVC-Ansichten genau wie die standardmäßigen HTML-Hilfsmethoden verwenden. Die Ansicht im Codebeispiel 2 verwendet das Image-Hilfsobjekt dasselbe Bild von einer Xbox zweimal angezeigt (siehe Abbildung 1). Das Hilfsobjekt Image() wird mit und ohne eine HTML-attributauflistung aufgerufen.
 

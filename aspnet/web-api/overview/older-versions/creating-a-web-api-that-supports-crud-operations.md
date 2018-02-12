@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: a91bf065c9ce0fc5bd9b7115340edabea975a7e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Aktivieren von CRUD-Vorgänge in ASP.NET Web-API 1
 ====================
@@ -41,12 +41,12 @@ Die API-Produkte werden folgende Methoden verfügbar machen.
 
 | Aktion | HTTP-Methode | Relativer URI |
 | --- | --- | --- |
-| Abrufen einer Liste aller Produkte | GET | / api /-Produkte |
-| Abrufen eines Produkts nach ID | GET | /API/Produkte/*Id* |
-| Abrufen eines Produkts nach Kategorie | GET | Produkte/api /? Kategorie =*Kategorie* |
-| Erstellen eines neuen Produkts | BEREITSTELLEN | / api /-Produkte |
-| Aktualisieren eines Produkts | PUT | /API/Produkte/*Id* |
-| Löschen eines Produkts | DELETE | /API/Produkte/*Id* |
+| Abrufen einer Liste aller Produkte | GET | /api/products |
+| Abrufen eines Produkts nach ID | GET | /api/products/*id* |
+| Abrufen eines Produkts nach Kategorie | GET | /api/products?category=*category* |
+| Erstellen eines neuen Produkts | BEREITSTELLEN | /api/products |
+| Aktualisieren eines Produkts | PUT | /api/products/*id* |
+| Löschen eines Produkts | DELETE | /api/products/*id* |
 
 Beachten Sie, dass einige der URIs die Produkt-ID im Pfad enthalten. Um das Produkt zu erhalten, deren ID 28 ist, beispielsweise sendet der Client eine GET-Anforderung für `http://hostname/api/products/28`.
 
@@ -56,8 +56,8 @@ Die Produkte API definiert URIs für zwei Ressourcentypen zur Verfügung:
 
 | Ressource | URI |
 | --- | --- |
-| Die Liste aller Produkte. | / api /-Produkte |
-| Ein einzelnes Produkt. | /API/Produkte/*Id* |
+| Die Liste aller Produkte. | /api/products |
+| Ein einzelnes Produkt. | /api/products/*id* |
 
 ### <a name="methods"></a>Methoden
 
@@ -127,7 +127,7 @@ Wenn Sie mit ASP.NET MVC gearbeitet haben, sind Sie bereits vertraut mit Domäne
 
 Fahren Sie fort, und Löschen von ValuesController, indem Sie die Datei im Projektmappen-Explorer mit der rechten Maustaste und auswählen **löschen.** Nun fügen Sie einen neuen Domänencontroller wie folgt:
 
-In **Projektmappen-Explorer**, mit der rechten Maustaste den Ordner. Wählen Sie **hinzufügen** und wählen Sie dann **Controller**.
+In **Projektmappen-Explorer**, mit der rechten Maustaste in des Ordners Controllers. Wählen Sie **hinzufügen** und wählen Sie dann **Controller**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
@@ -157,9 +157,9 @@ Die ProductStore-API macht mehrere &quot;lesen&quot; Aktionen als HTTP GET-Metho
 
 | Aktion | HTTP-Methode | Relativer URI |
 | --- | --- | --- |
-| Abrufen einer Liste aller Produkte | GET | / api /-Produkte |
-| Abrufen eines Produkts nach ID | GET | /API/Produkte/*Id* |
-| Abrufen eines Produkts nach Kategorie | GET | Produkte/api /? Kategorie =*Kategorie* |
+| Abrufen einer Liste aller Produkte | GET | /api/products |
+| Abrufen eines Produkts nach ID | GET | /api/products/*id* |
+| Abrufen eines Produkts nach Kategorie | GET | /api/products?category=*category* |
 
 Um die Liste aller Produkte abzurufen, fügen Sie diese Methode, um die `ProductsController` Klasse:
 

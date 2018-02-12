@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69066edc18b58cc3148a738fe8dd48cb92a84f11
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 495a3917ca5fa28bc833ccc666b1a5e6db7bf7f2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Verwenden von DynamicPopulate mit einem Benutzersteuerelement und JavaScript (VB)
 ====================
@@ -67,7 +67,7 @@ Fügen Sie schließlich das Benutzersteuerelement zur Seite. Nur festgelegt werd
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample8.aspx)]
 
-Und das ist schon alles! Die Seite verhält sich wie erwartet: ein Benutzer klickt auf auf der die Optionsfelder, die das Steuerelement im Toolkit den Webdienst aufruft, und das aktuelle Datum in das gewünschte Format angezeigt.
+Und das ist schon alles! Die Seite verhält sich wie erwartet: ein Benutzer auf eines der Optionsfelder klickt, das Steuerelement im Toolkit den Webdienst aufruft, und das aktuelle Datum in das gewünschte Format angezeigt.
 
 
 [![Die Optionsfelder befinden sich in einem Benutzersteuerelement](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
@@ -75,4 +75,4 @@ Und das ist schon alles! Die Seite verhält sich wie erwartet: ein Benutzer klic
 Die Optionsfelder in einem Benutzersteuerelement befinden ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image3.png))
 
 >[!div class="step-by-step"]
-[Zurück](dynamically-populating-a-control-using-javascript-code-vb.md)
+[Vorherige](dynamically-populating-a-control-using-javascript-code-vb.md)

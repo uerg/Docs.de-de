@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: af08039de2d810948b9ab64974111b0346c7fa0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Teil 10: Letzten Updates der Navigation und Standortentwurfs, Zusammenfassung
 ====================
@@ -133,10 +133,10 @@ Wenn wir die Anwendung ausführen, wird wir nun unsere aktualisierten Startseite
 
 ![](mvc-music-store-part-10/_static/image1.jpg)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
-Wir haben gesehen, dass diese ASP.NET-MVC erleichtert usw. eine anspruchsvolle Website mit Datenbankzugriff, AJAX-Mitgliedschaft zu erstellen. ziemlich schnell. Hoffentlich hat in diesem Lernprogramm Ihnen die Tools gegeben, die Sie beginnen damit, eigene ASP.NET-MVC Anwendungen erstellen müssen!
+Wir haben gesehen, dass ASP.NET MVC erleichtert usw. eine anspruchsvolle Website mit Datenbankzugriff, AJAX-Mitgliedschaft zu erstellen. ziemlich schnell. Hoffentlich hat in diesem Lernprogramm Ihnen die Tools gegeben, die Sie beginnen damit, eigene ASP.NET-MVC Anwendungen erstellen müssen!
 
 
 >[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-9.md)
+[Vorherige](mvc-music-store-part-9.md)

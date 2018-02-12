@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6de7d279677c7bbf220b956767a97aaaff8da9a1
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model"></a>Hinzufügen einer Validierung zum Modell
 ====================
@@ -26,7 +26,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
 > > Eine aktualisierte Version dieses Lernprogramms steht [hier](../../getting-started/introduction/getting-started.md) , ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher, führen und weitere Funktionen veranschaulicht.
 
 
-In diesem in diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und Sie stellen sicher, dass jederzeit die Validierungsregeln, wenn ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mithilfe der Anwendung.
+In diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und Sie stellen sicher, dass jederzeit die Validierungsregeln, wenn ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mithilfe der Anwendung.
 
 ## <a name="keeping-things-dry"></a>Halten Dinge TROCKENEN
 
@@ -133,7 +133,7 @@ Beachten Sie, wie der Code verwendet eine `Html.EditorFor` Hilfsmethode zum Ausg
 
 Wirklich Nützliches über diesen Ansatz ist, dass der Controller weder die Vorlage zur Erstellung von Ansicht nichts über den tatsächlichen Validierungsregeln erzwungen wird oder über die spezifischen Fehlermeldungen angezeigt weiß. Die Validierungsregeln und Fehlerzeichenfolgen werden nur in der `Movie`-Klasse angegeben. Diese gleichen Validierungsregeln werden automatisch angewendet, die Bearbeitungsansicht und alle anderen Sichten Vorlagen, die Sie erstellen können, die das Modell zu bearbeiten.
 
-Falls Sie die Validierungslogik später ändern möchten, Sie können dazu genau zentral durch Hinzufügen von Validierungsattributen für das Modell (in diesem Beispiel wird die `movie` Klasse). Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Und bedeutet, dass, die Sie vollständig berücksichtigt das TROCKENE Prinzip.
+Falls Sie die Validierungslogik später ändern möchten, Sie können dazu genau zentral durch Hinzufügen von Validierungsattributen für das Modell (in diesem Beispiel wird die `movie` Klasse). Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Und dies bedeutet, dass Sie das DRY-Prinzip vollständig einhalten.
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Hinzufügen von Formatierung zur Film-Modell
 

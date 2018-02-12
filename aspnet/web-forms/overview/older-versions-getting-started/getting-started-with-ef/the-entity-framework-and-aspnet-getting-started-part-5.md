@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7200899d54585cd09e0a648e3aaaf839db2649e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 5
 ====================
@@ -77,7 +77,7 @@ Führen Sie die *Courses.aspx* Seite, und wählen Sie derselben Abteilung, um de
 
 ## <a name="working-with-many-to-many-relationships"></a>Arbeiten mit m: N-Beziehungen
 
-Die Beziehung zwischen der `Courses` Entitätenmenge und `People` Entitätenmenge ist eine m: n-Beziehung. Ein `Course` Entität verfügt über eine Navigationseigenschaft, die mit dem Namen `People` , kann 0 (null), ein oder mehrere der im Zusammenhang enthalten `Person` Entitäten (Lehrkräfte zugewiesen, zu diesem Kurs zu schulen darstellt). Und ein `Person` Entität verfügt über eine Navigationseigenschaft, die mit dem Namen `Courses` , kann 0 (null), ein oder mehrere der im Zusammenhang enthalten `Course` Entitäten (Kurse, die diese Dozenten zugewiesen wird, zu schulen darstellt). Einen Kursleiter möglicherweise mehrere Kurse werden folgende Themen behandelt, und ein Kurs kann durch mehrere Lehrkräfte behandelt werden. In diesem Abschnitt der exemplarischen Vorgehensweise müssen Sie hinzufügen und Entfernen von Beziehungen zwischen `Person` und `Course` Entitäten, indem Sie die Navigationseigenschaften von verknüpften Entitäten aktualisieren.
+Die Beziehung zwischen der `Courses` Entitätenmenge und `People` Entitätenmenge ist eine m: n-Beziehung. Ein `Course` Entität verfügt über eine Navigationseigenschaft, die mit dem Namen `People` , kann 0 (null), ein oder mehrere der im Zusammenhang enthalten `Person` Entitäten (Lehrkräfte zugewiesen, zu diesem Kurs zu schulen darstellt). Und ein `Person` Entität verfügt über eine Navigationseigenschaft, die mit dem Namen `Courses` , kann 0 (null), ein oder mehrere der im Zusammenhang enthalten `Course` Entitäten (Kurse darstellt, Dozenten zugewiesen werden folgende Themen behandelt). Einen Kursleiter möglicherweise mehrere Kurse werden folgende Themen behandelt, und ein Kurs kann durch mehrere Lehrkräfte behandelt werden. In diesem Abschnitt der exemplarischen Vorgehensweise müssen Sie hinzufügen und Entfernen von Beziehungen zwischen `Person` und `Course` Entitäten, indem Sie die Navigationseigenschaften von verknüpften Entitäten aktualisieren.
 
 Erstellen Sie eine neue Webseite mit dem Namen *InstructorsCourses.aspx* , verwendet der *Site.Master* Masterseite, und fügen Sie das folgende Markup zum Rendern der `Content` Steuerelement namens `Content2`:
 
@@ -123,7 +123,7 @@ Führen Sie die Seite.
 
 [![Image01 abgerufen wird](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Wählen Sie einen Kursleiter. Die **weisen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten zu vermitteln, nicht, und die **entfernen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten bereits zugewiesen ist. In der **weisen einen Kurs** Abschnitt, wählen Sie einen Kurs aus, und klicken Sie dann auf **zuweisen**. Verschiebt der Kurs der **entfernen einen Kurs** Dropdown-Liste. Wählen Sie einen Kurs in der **entfernen einen Kurs** Abschnitt, und klicken Sie auf **entfernen***.* Verschiebt der Kurs der **weisen einen Kurs** Dropdown-Liste.
+Wählen Sie einen Kursleiter. Die **weisen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten zu vermitteln, nicht, und die **entfernen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten bereits zugewiesen ist. In der **weisen einen Kurs** Abschnitt, wählen Sie einen Kurs aus, und klicken Sie dann auf **zuweisen**. Verschiebt der Kurs der **entfernen einen Kurs** Dropdown-Liste. Wählen Sie einen Kurs in der **entfernen einen Kurs** Abschnitt, und klicken Sie auf ***** entfernen.* Verschiebt der Kurs der **weisen einen Kurs** Dropdown-Liste.
 
 Sie haben jetzt einige weitere Verfahren zum Arbeiten mit verknüpften Daten angezeigt. Im folgenden Lernprogramm erfahren Sie, wie Vererbung in das Datenmodell zu verwenden, um die Verwaltbarkeit Ihrer Anwendung zu verbessern.
 

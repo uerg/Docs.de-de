@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 63aa9dce45ce7ac3e33f542f549b2ec620191d50
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 38dfdab395b6b3559d293c5b1488ede2e88bfe91
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="storing-additional-user-information-c"></a>Das Speichern von zusätzliche Benutzerinformationen (c#)
 ====================
@@ -353,7 +353,7 @@ Ich sah mithilfe des folgenden `LayoutTemplate`, `ItemTemplate`, und `ItemSepara
 
 Die `LayoutTemplate` definiert das Markup dagegen vom Steuerelement ausgegeben, die `ItemTemplate` rendert jedes Element der SqlDataSource zurückgegebenes. Die `ItemTemplate`des resultierenden Markup befindet sich der `LayoutTemplate`des `itemPlaceholder` Steuerelement. Zusätzlich zu den `itemPlaceholder`, die `LayoutTemplate` enthält ein DataPager-Steuerelement, das ListView mit 10 Gästebuchkommentaren pro Seite (Standard) beschränkt und rendert eine Auslagerungsdatei-Schnittstelle.
 
-Meine `ItemTemplate` zeigt jeder Gästebuch Kommentar Betreff in ein `<h4>` Element mit dem Text unterhalb der Antragsteller. Beachten Sie, dass diese Syntax für das Anzeigen von Text verwendet die zurückgegebene Daten akzeptiert die `Eval("Body")` Databinding-Anweisung in eine Zeichenfolge konvertiert und Zeilenumbrüche mit ersetzt die `<br />` Element. Diese Konvertierung ist erforderlich, um die Zeilenumbrüche eingegeben, wenn den Kommentar zu senden, da Leerzeichen von HTML ignoriert wird angezeigt. Der Benutzer-Signatur wird unterhalb der Text kursiv, gefolgt von der Startseite des Benutzers Örtlichkeit, die einen Link zu seiner Startseite, das Datum und Uhrzeit der Kommentar erstellt wurde und der Benutzername der Person, die den Kommentar links angezeigt.
+Meine `ItemTemplate` zeigt jeder Gästebuch Kommentar Betreff in ein `<h4>` Element mit dem Text unterhalb der Antragsteller. Beachten Sie, dass die Syntax für das Anzeigen von Text verwendet die zurückgegebene Daten akzeptiert die `Eval("Body")` Databinding-Anweisung in eine Zeichenfolge konvertiert und Zeilenumbrüche mit ersetzt die `<br />` Element. Diese Konvertierung ist erforderlich, um die Zeilenumbrüche eingegeben, wenn den Kommentar zu senden, da Leerzeichen von HTML ignoriert wird angezeigt. Der Benutzer-Signatur wird unterhalb der Text kursiv, gefolgt von der Startseite des Benutzers Örtlichkeit, die einen Link zu seiner Startseite, das Datum und Uhrzeit der Kommentar erstellt wurde und der Benutzername der Person, die den Kommentar links angezeigt.
 
 Nehmen Sie einen Moment Zeit, um die Seite über einen Browser anzuzeigen. Die Kommentare, die Sie in Schritt 5, die hier angezeigten angezeigten hinzugefügt haben, sollte angezeigt werden.
 

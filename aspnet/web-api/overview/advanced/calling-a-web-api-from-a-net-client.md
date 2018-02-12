@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Rufen Sie eine Web-API aus einem .NET-Client (c#)
 ====================
@@ -116,7 +116,7 @@ Die **GetAsync** Methode sendet die HTTP-GET-Anforderung. Wenn die Methode abges
 
 Wenn **ReadAsAsync** wird aufgerufen, ohne Parameter verwendet eine Reihe von *medienformatierer* zum Lesen des Antworttexts. Die Standard-Formatierer unterstützt JSON und XML-Formular-Url-codierte Daten.
 
-Anstatt die Standard-Formatierer verwenden, können Sie eine Liste der Formatierer zum Bereitstellen der **ReadAsAsync** Methode.  Mit einem eine Liste der Formatierer ist nützlich, wenn Sie eine benutzerdefinierte medientypformatierer haben:
+Anstatt die Standard-Formatierer verwenden, können Sie eine Liste der Formatierer zum Bereitstellen der **ReadAsAsync** Methode.  Verwenden eine Liste der Formatierer ist hilfreich, wenn Sie eine benutzerdefinierte medientypformatierer haben:
 
 ```csharp
 var formatters = new List<MediaTypeFormatter>() {

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 73e46134cfafb9edc4c1888211eab44b8f2bf828
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Verwenden von asynchronen Methoden in ASP.NET 4.5
 ====================
@@ -123,7 +123,7 @@ Die asynchrone Version:
 - Die `RegisterAsyncTask` Methode wird zum Registrieren einer asynchronen Aufgabe, die den Code, der asynchron ausgeführt wird.
 - Die neue `GetGizmosSvcAsync` Methode mit gekennzeichnet ist der [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) Schlüsselwort, das der Compiler, um Rückrufe für Teile des Texts zu generieren und zum automatischen Erstellen von gibt eine `Task` zurückgegeben wird.
 - &quot;Asynchrone&quot; auf den Namen der asynchronen Methode angefügt wurde. Anfügen von "Async" ist nicht erforderlich, jedoch wird die Konvention beim asynchronen Methoden zu schreiben.
-- Der Rückgabetyp des neuen neue `GetGizmosSvcAsync` Methode ist `Task`. Der Rückgabetyp der `Task` stellt derzeit ausgeführte Arbeit dar und stellt Aufrufern der Methode mit einem Handle über den Abschluss des asynchronen Vorgangs gewartet werden soll.
+- Der Rückgabetyp des neuen `GetGizmosSvcAsync` Methode ist `Task`. Der Rückgabetyp der `Task` stellt derzeit ausgeführte Arbeit dar und stellt Aufrufern der Methode mit einem Handle über den Abschluss des asynchronen Vorgangs gewartet werden soll.
 - Die ["await"](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) -Schlüsselwort auf den Aufruf des Webdiensts angewendet wurde.
 - Die asynchrone Webdienst-API aufgerufen wurde (`GetGizmosAsync`).
 

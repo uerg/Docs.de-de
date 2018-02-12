@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 0dd1717ff1051f18a78fe77402c7603008b9b486
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Teil 8: Endgültige Seiten, Ausnahmebehandlung und Abschluss
 ====================
@@ -31,7 +31,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 Erstellen Sie eine neue Seite mit dem Namen ContactUs.aspx
 
-Mithilfe des Designers, erstellen Sie das folgende Format, die spezielle notieren, die ToolkitScriptManager und die Editor-Steuerelement aus der AjaxdControlToolkit aufgenommen werden sollen. .
+Mithilfe des Designers, erstellen Sie das folgende Format, die spezielle notieren, die ToolkitScriptManager und die Editor-Steuerelement aus der AjaxdControlToolkit aufgenommen werden sollen. sein.
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 
@@ -77,9 +77,9 @@ Jetzt auf der Seite\_Ereignishandler extrahieren die Fehlermeldungen aus dem Req
 
 ## <a id="_Toc260221683"></a>Schlussfolgerung
 
-Wir haben gesehen, dass diese ASP.NET Web Forms erleichtert usw. eine anspruchsvolle Website mit Datenbankzugriff, AJAX-Mitgliedschaft zu erstellen. ziemlich schnell.
+Wir haben gesehen, dass es sich bei ASP.NET WebForms erleichtert usw. eine anspruchsvolle Website mit Datenbankzugriff, AJAX-Mitgliedschaft zu erstellen. ziemlich schnell.
 
 Hoffentlich hat in diesem Lernprogramm Ihnen die Tools gegeben, die Sie beginnen damit, eigene ASP.NET WebForms-Anwendungen erstellen müssen!
 
 >[!div class="step-by-step"]
-[Zurück](tailspin-spyworks-part-7.md)
+[Vorherige](tailspin-spyworks-part-7.md)
