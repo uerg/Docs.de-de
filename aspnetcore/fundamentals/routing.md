@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -36,7 +36,7 @@ Beim Routing werden *Routen* (Implementierungen von [IRouter](https://docs.micro
 
 Eine App verfügt normalerweise über genau eine Routenauflistung. Sobald eine Anforderung eintrifft, werden die Routen der Auflistung der Reihe nach verarbeitet. Für die eingehende Anforderung wird eine Route gesucht, die der Anforderungs-URL entspricht. Dazu wird die Methode `RouteAsync` für jede verfügbare Route der Routenauflistung aufgerufen. Im Gegensatz hierzu kann bei einer Antwort Routing verwendet werden, um URLs zu generieren (z.B. für Umleitungen oder Links), die auf Routeninformationen basieren. Dadurch wird die Erstellung von einmal festgelegten, unveränderliche URLs verhindert, was wiederrum zur Wartbarkeit beiträgt.
 
-Die Routingfunktionalität wird über die Klasse `RouterMiddleware` mit der [Middlewarepipeline](middleware.md) verbunden. Bei [ASP.NET MVC](../mvc/overview.md) wird im Rahmen der Konfiguration die Routingfunktionalität der Middlewarepipeline hinzugefügt. Informationen darüber, wie Sie Routing als eigenständige Komponente verwenden, finden Sie im Abschnitt [Verwenden von Routingmiddleware](#using-routing-middleware).
+Die Routingfunktionalität wird über die Klasse `RouterMiddleware` mit der [Middlewarepipeline](xref:fundamentals/middleware/index) verbunden. Bei [ASP.NET Core MVC](xref:mvc/overview) wird im Rahmen der Konfiguration die Routingfunktionalität der Middlewarepipeline hinzugefügt. Informationen darüber, wie Sie Routing als eigenständige Komponente verwenden, finden Sie im Abschnitt [Verwenden von Routingmiddleware](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 

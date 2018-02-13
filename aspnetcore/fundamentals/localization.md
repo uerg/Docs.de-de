@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 766cec5dd00b7b464eef31a3bc1721f522697608
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -198,7 +198,7 @@ Die Lokalisierung wird über die Methode `ConfigureServices` konfiguriert:
 
 ### <a name="localization-middleware"></a>Lokalisierungsmiddleware
 
-Die aktuell angefragte Kultur wird in der [Middleware](middleware.md) für die Lokalisierung festgelegt. Die Lokalisierungsmiddleware wird über die Methode `Configure` der Datei *Program.cs* aktiviert. Beachten Sie, dass die Lokalisierungsmiddleware vor Middleware konfiguriert werden muss, die möglicherweise die Anforderungskultur prüft (z.B. `app.UseMvcWithDefaultRoute()`).
+Die aktuell angefragte Kultur wird in der [Middleware](xref:fundamentals/middleware/index) für die Lokalisierung festgelegt. Die Middleware für die Lokalisierung wird in der `Configure`-Methode aktiviert. Die Lokalisierungsmiddleware muss vor Middleware konfiguriert werden, die möglicherweise die Anforderungskultur prüft (z.B. `app.UseMvcWithDefaultRoute()`).
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 

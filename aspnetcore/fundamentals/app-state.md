@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Einführung zum Sitzungs- und Anwendungszustand in ASP.NET Core
 
@@ -84,7 +84,7 @@ Der folgende `Startup`-Klassencode konfiguriert den sitzungsbasierten TempData-A
 
 ---
 
-Die Reihenfolge, in der Middlewarekomponenten angeordnet werden, ist wichtig. Im vorherigen Beispiel kommt es zu einer Ausnahme für den `InvalidOperationException`-Typ, wenn `UseSession` nach `UseMvcWithDefaultRoute` aufgerufen wird. Weitere Informationen finden Sie unter [Middleware Ordering (Festlegen einer Reihenfolge für Middleware)](xref:fundamentals/middleware#ordering).
+Die Reihenfolge, in der Middlewarekomponenten angeordnet werden, ist wichtig. Im vorherigen Beispiel kommt es zu einer Ausnahme für den `InvalidOperationException`-Typ, wenn `UseSession` nach `UseMvcWithDefaultRoute` aufgerufen wird. Weitere Informationen finden Sie unter [Middleware Ordering (Festlegen einer Reihenfolge für Middleware)](xref:fundamentals/middleware/index#ordering).
 
 > [!IMPORTANT]
 > Wenn Sie für .NET Framework entwickeln und den sitzungsbasierten Anbieter verwenden, fügen Sie das NuGet-Paket [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) zu Ihrem Projekt hinzu.
@@ -189,7 +189,7 @@ Im folgenden Beispiel wird dargestellt, wie Sie serialisierbare Objekte festlege
 
 Die `HttpContext`-Abstraktion stellt die Unterstützung für eine Wörterbuchauflistung des Typs `IDictionary<object, object>` namens `Items` bereit. Die Auflistung ist ab dem Start des *HttpRequest* verfügbar und wird am Ende einer Anforderung verworfen. Sie können darauf zugreifen, indem Sie einen Wert einem Eintrag mit einem Schlüssel zuweisen oder den Wert für einen bestimmten Schlüssel anfordern.
 
-Im nachfolgenden Beispiel fügt die [Middleware](middleware.md) der `Items`-Auflistung `isVerified` hinzu.
+Im folgenden Beispiel wird per [Middleware](xref:fundamentals/middleware/index) `isVerified` zur Sammlung `Items` hinzugefügt.
 
 ```csharp
 app.Use(async (context, next) =>
