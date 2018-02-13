@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be3e3d61a6567da3c2cd696c01661146f2da7131
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Erstellen gespeicherter Prozeduren und benutzerdefinierte Funktionen mit verwaltetem Code (c#)
 ====================
@@ -420,7 +420,7 @@ Der Code beginnt mit dem Erstellen einer `SqlMoney` Instanz mit dem Namen `inven
 
 ## <a name="step-11-deploying-the-managed-udf"></a>Schritt 11: Bereitstellen von verwalteten UDF
 
-Nun, dass die verwaltete benutzerdefinierte Funktion erstellt wurde, werden sie in der Northwind-Datenbank bereitstellen. Wie in Schritt 4 wurde erläutert, werden die verwalteten Objekte in einer SQL Server-Projekt bereitgestellt, indem Sie mit der rechten Maustaste auf den Projektnamen im Projektmappen-Explorer und im Kontextmenü die Option bereitstellen auswählen.
+Nachdem die verwaltete benutzerdefinierte Funktion erstellt wurde, können wir für die Northwind-Datenbank bereitstellen. Wie in Schritt 4 wurde erläutert, werden die verwalteten Objekte in einer SQL Server-Projekt bereitgestellt, indem Sie mit der rechten Maustaste auf den Projektnamen im Projektmappen-Explorer und im Kontextmenü die Option bereitstellen auswählen.
 
 Nachdem Sie das Projekt bereitgestellt haben, zurück zu SQL Server Management Studio, und aktualisieren Sie den Ordner Skalarwertfunktionen. Nun sollten zwei Einträge angezeigt werden:
 
