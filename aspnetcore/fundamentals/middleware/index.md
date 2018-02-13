@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 887ba1a4742821226a7ebecfd238c97627d6c5f7
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -25,10 +25,10 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Steve Smith](https://a
 
 Middleware ist Software, die zu einer Anwendungspipeline zusammengesetzt wird, um Anforderungen und Antworten zu verarbeiten. Jede Komponente kann Folgendes ausführen:
 
-* Entscheiden, ob die Anforderung an die nächste Komponente in der Pipeline übergeben werden soll
-* Arbeiten, bevor oder nachdem die nächste Komponente in der Pipeline aufgerufen wird 
+* Entscheiden, ob die Anforderung an die nächste Komponente in der Pipeline übergeben werden soll.
+* Arbeiten, bevor oder nachdem die nächste Komponente in der Pipeline aufgerufen wird. 
 
-Anforderungsdelegaten werden verwendet, um die Anforderungspipeline zu erstellen. Anforderungsdelegaten behandeln jede HTTP-Anforderung.
+Anforderungsdelegaten werden verwendet, um die Anforderungspipeline zu erstellen. Die Anforderungsdelegaten behandeln jede HTTP-Anforderung.
 
 Sie werden mit [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions)-, [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions)- und [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions)-Erweiterungsmethoden konfiguriert. Ein einzelner Anforderungsdelegat kann inline als anonyme Methode angegeben werden (sogenannte Inline-Middleware), oder er kann in einer wiederverwendbaren Klasse definiert werden. Diese wiederverwendbaren Klassen und anonymen Inline-Methoden sind *Middleware* oder *Middlewarekomponenten*. Jede Middlewarekomponente in der Anforderungspipeline ist für das Aufrufen der jeweils nächsten Komponente in der Pipeline oder für das Kurzschließen der Kette, wenn nötig, zuständig.
 
@@ -36,13 +36,13 @@ Unter [Migrating HTTP Modules to Middleware (Migrieren von HTTP-Modulen zu Middl
 
 ## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Erstellen einer Middlewarepipeline mit IApplicationBuilder
 
-Die ASP.NET Core-Anforderungspipeline besteht, wie in folgender Abbildung veranschaulicht, aus einer Sequenz von Anforderungsdelegaten, die nacheinander aufgerufen werden (der Ausführungsthread wird durch die schwarzen Pfeile dargestellt):
+Die ASP.NET Core-Anforderungspipeline besteht, wie in folgendem Diagramm veranschaulicht, aus einer Sequenz von Anforderungsdelegaten, die nacheinander aufgerufen werden (der Ausführungsthread wird durch die schwarzen Pfeile dargestellt):
 
-![Anforderungsverarbeitungsmuster mit eingehender Anforderung, deren Verarbeitung von drei Middlewares und mit ausgehender Antwort. Jede Middleware führt ihre Logik aus und übergibt die Anforderung an die nächste Middleware an der next()-Anweisung. Nachdem die Anforderung von der dritten Middleware verarbeitet wurde, wird sie wieder an die vorherigen Middlewares in umgekehrter Reihenfolge übergeben, nachdem die next()-Anweisungen erreicht wurden. Dann verlässt sie die Anwendung als Antwort an den Client.](index/_static/request-delegate-pipeline.png)
+![Anforderungsverarbeitungsmuster mit eingehender Anforderung, deren Verarbeitung von drei Middlewares und die ausgehende Antwort der Anwendung. Jede Middleware führt ihre Logik aus und übergibt die Anforderung an die nächste Middleware an der next()-Anweisung. Nachdem die Anforderung von der dritten Middleware verarbeitet wurde, wird sie wieder an die vorherigen Middlewares in umgekehrter Reihenfolge übergeben, nachdem die next()-Anweisungen erreicht wurden. Dann verlässt sie die Anwendung als Antwort an den Client.](index/_static/request-delegate-pipeline.png)
 
-Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat kann sich auch dazu entscheiden, eine Anforderung nicht an den nächsten Delegaten zu übergeben. Dies wird als Kurzschluss einer Anforderungspipeline bezeichnet. Das Kurzschließen ist oft sinnvoll, da es unnötige Arbeit verhindert. Die Middleware für statische Dateien kann z.B. eine Anforderung einer statischen Datei zurückgeben und den Rest der Pipeline kurzschließen. Die Ausnahmebehandlungsdelegaten müssen am Anfang der Pipeline aufgerufen werden, sodass sie Ausnahmen abfangen können, die zu einem späteren Zeitpunkt in der Pipeline ausgelöst werden.
+Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat kann sich auch dagegen entscheiden, eine Anforderung an den nächsten Delegaten zu übergeben. Dies wird als Kurzschluss einer Anforderungspipeline bezeichnet. Das Kurzschließen ist oft sinnvoll, da es unnötige Arbeit verhindert. Die Middleware für statische Dateien kann z.B. eine Anforderung einer statischen Datei zurückgeben und den Rest der Pipeline kurzschließen. Die Ausnahmebehandlungsdelegaten müssen am Anfang der Pipeline aufgerufen werden, sodass sie Ausnahmen abfangen können, die zu einem späteren Zeitpunkt in der Pipeline ausgelöst werden.
 
-Die einfachste mögliche ASP.NET Core-App enthält einen einzigen Anforderungsdelegaten, der alle Anforderungen behandelt. In diesem Fall ist keine Anforderungspipeline vorhanden. Stattdessen wird eine einzelne anonyme Funktion als Antwort auf jede HTTP-Anforderung aufgerufen.
+Die einfachste mögliche ASP.NET Core-App enthält einen einzigen Anforderungsdelegaten, der alle Anforderungen verarbeitet. In diesem Fall ist keine tatsächliche Anforderungspipeline vorhanden. Stattdessen wird eine einzelne anonyme Funktion als Antwort auf jede HTTP-Anforderung aufgerufen.
 
 [!code-csharp[Main](index/sample/Middleware/Startup.cs)]
 
@@ -53,20 +53,20 @@ Mit [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.bu
 [!code-csharp[Main](index/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
-> Rufen Sie `next.Invoke` nicht auf, nachdem die Antwort an den Client gesendet wurde. Änderungen an `HttpResponse` lösen nach dem Start der Antwort eine Ausnahme aus. Zu derartigen Änderungen gehören das Festlegen von Headern oder Statuscode usw. Wenn Sie nach dem Aufruf von `next` in den Antworttext schreiben, kann dies:
-> - einen Protokollverstoß verursachen, wenn Sie z.B. mehr als das festgelegte `content-length`-Objekt schreiben
-> - Fehler im Textformat auslösen, wenn Sie z.B. eine HTML-Fußzeile in eine CSS-Datei schreiben
+> Rufen Sie `next.Invoke` nicht auf, nachdem die Antwort an den Client gesendet wurde. An `HttpResponse` vorgenommene Änderungen lösen nach dem Start der Antwort eine Ausnahme aus. Änderungen wie das Festlegen von Headern oder Statuscode usw. lösen beispielsweise eine Ausnahme aus. Wenn Sie nach dem Aufruf von `next` in den Antworttext schreiben, kann dies:
+> - einen Protokollverstoß verursachen, wenn Sie z.B. mehr als das genannte `content-length`-Objekt schreiben.
+> - Fehler im Textformat auslösen, wenn Sie z.B. eine HTML-Fußzeile in eine CSS-Datei schreiben.
 >
-> [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) ist ein nützlicher Hinweis, der angibt, ob Header gesendet wurden oder ob in den Text geschrieben wurde.
+> [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) ist ein nützlicher Hinweis, der angibt, ob Header gesendet wurden und/oder ob in den Text geschrieben wurde.
 
 ## <a name="ordering"></a>Sortieren
 
-Die Reihenfolge, in der Middlewarekomponenten in der `Configure`-Methode hinzugefügt werden, legt die Reihenfolge fest, in der Sie bei Anforderungen aufgerufen werden. Dies ist gleichzeitig die umgekehrte Reihenfolge für die Antwort. Diese Reihenfolge trägt wesentlich zur Sicherheit, Leistung und Funktionalität bei.
+Die Reihenfolge, in der Middlewarekomponenten in der `Configure`-Methode hinzugefügt werden, legt die Reihenfolge fest, in der sie bei Anforderungen aufgerufen werden. Bei Antworten gilt die umgekehrte Reihenfolge. Diese Reihenfolge trägt wesentlich zur Sicherheit, Leistung und Funktionalität bei.
 
 Die Methode „Configure“ (siehe unten) fügt die folgenden Middlewarekomponenten hinzu:
 
-1. Ausnahmen-/Fehlerbehandlung
-2. Server für statische Dateien
+1. Ausnahme-/Fehlerbehandlung
+2. Statischer Dateiserver
 3. Authentifizierung
 4. MVC
 
@@ -107,22 +107,22 @@ public void Configure(IApplicationBuilder app)
 
 -----------
 
-Im oben stehenden Code ist `UseExceptionHandler` die erste der Pipeline hinzugefügte Middlewarekomponente. Deshalb fängt sie alle Ausnahmen ab, die in späteren Aufrufen ausgelöst werden.
+Im obenstehenden Code ist `UseExceptionHandler` die erste zur Pipeline hinzugefügte Middlewarekomponente. Deshalb fängt sie alle Ausnahmen ab, die in späteren Aufrufen ausgelöst werden.
 
-Die Middeware für statische Dateien wird am Anfang der Pipeline aufgerufen, damit sie Anforderungen und Kurzschlüsse behandeln kann, ohne dass die verbleibenden Komponenten durchlaufen werden müssen. Die Middleware für statische Dateien stellt **keine** Autorisierungsüberprüfungen bereit. Alle Dateien, die von ihr bearbeitet werden, Dateien unter *wwwroot* inbegriffen, sind öffentlich verfügbar. Unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files) erfahren Sie, wie Sie statische Dateien sichern können.
+Die Middeware für statische Dateien wird am Anfang der Pipeline aufgerufen, damit sie Anforderungen und Kurzschlüsse verarbeiten kann, ohne dass die verbleibenden Komponenten durchlaufen werden müssen. Die Middleware für statische Dateien stellt **keine** Autorisierungsüberprüfungen bereit. Alle Dateien, die von ihr bearbeitet werden, Dateien unter *wwwroot* inbegriffen, sind öffentlich verfügbar. Unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files) erfahren Sie, wie Sie statische Dateien sichern können.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, wird sie an die Identity-Middleware (`app.UseAuthentication`) übergeben, die die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn MVC eine spezifische Razor-Seite oder einen Controller und eine Aktion ausgewählt hat.
+Wenn die Anforderung nicht von der Middleware für statische Dateien verarbeitet wird, wird sie an die Identity-Middleware (`app.UseAuthentication`) übergeben, welche die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn MVC eine spezifische Razor-Seite oder einen Controller und eine Aktion ausgewählt hat.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wenn die Anforderung nicht von der Middleware für statische Dateien behandelt wird, wird sie an die Identity-Middleware (`app.UseIdentity`) übergeben, die die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn MVC eine spezifischen Controller und eine Aktion ausgewählt hat.
+Wenn die Anforderung nicht von der Middleware für statische Dateien verarbeitet wird, wird sie an die Identity-Middleware (`app.UseIdentity`) übergeben, welche die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn  MVC einen spezifischen Controller und eine Aktion ausgewählt hat.
 
 -----------
 
-Im folgenden Beispiel wird eine Middlewarereihenfolge veranschaulicht, bei der Anforderungen für statische Dateien von der Middleware für statische Dateien vor der Middleware für die Antwortkomprimierung behandelt werden. Statische Dateien werden durch diese Middlewarereihenfolge nicht komprimiert. Die MVC-Antworten von [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) können komprimiert werden.
+Im folgenden Beispiel wird eine Middlewarereihenfolge veranschaulicht, bei der Anforderungen für statische Dateien von der Middleware für statische Dateien vor der Middleware für die Antwortkomprimierung verarbeitet werden. Statische Dateien werden durch diese Middlewarereihenfolge nicht komprimiert. Die MVC-Antworten von [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) können komprimiert werden.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -153,9 +153,9 @@ In der folgenden Tabelle sind die Anforderungen und Antworten von `http://localh
 | localhost:1234/map2 | Map Test 2 |
 | localhost:1234/map3 | Hello from non-Map delegate.  |
 
-Wenn `Map` verwendet wird, werden die übereinstimmenden Pfadsegmente oder das übereinstimmende Pfadsegment aus `HttpRequest.Path` entfernt und für jede Anforderung an `HttpRequest.PathBase` angehängt.
+Wenn `Map` verwendet wird, werden die übereinstimmenden Pfadsegmente bzw. das übereinstimmende Pfadsegment aus `HttpRequest.Path` entfernt und für jede Anforderung an `HttpRequest.PathBase` angehängt.
 
-[MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) brancht die Anforderungspipeline auf Grundlage des Ergebnisses des angegebenen Prädikats. Jedes Prädikat des Typs `Func<HttpContext, bool>` kann verwendet werden, um Anforderungen einem neuen Branch der Pipeline zuzuordnen. Im folgenden Beispiel wird ein Prädikat verwendet, um das Vorhandensein der Abfragezeichenfolgenvariablen `branch` zu erkennen:
+[MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) brancht die Anforderungspipeline auf Grundlage des Ergebnisses des angegebenen Prädikats. Jedes Prädikat vom Typ `Func<HttpContext, bool>` kann verwendet werden, um Anforderungen einem neuen Branch der Pipeline zuzuordnen. Im folgenden Beispiel wird ein Prädikat verwendet, um das Vorhandensein der Abfragezeichenfolgenvariablen `branch` zu ermitteln:
 
 [!code-csharp[Main](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
@@ -189,32 +189,32 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Integrierte Middleware
 
-ASP.NET Core wird mit den folgenden Middlewarekomponenten ausgeliefert. Diese Tabelle enthält auch die Reihenfolge, in der diese hinzugefügt werden müssen:
+ASP.NET Core wird mit den folgenden Middlewarekomponenten ausgeliefert. Diese Tabelle enthält auch die Reihenfolge, in der diese hinzugefügt werden sollten:
 
-| Middleware | Beschreibung | Reihenfolge |
+| Middleware | description | Reihenfolge |
 | ---------- | ----------- | ----- |
-| [Authentifizierung](xref:security/authentication/identity) | Unterstützung mehrerer Authentifizierungen | Bevor `HttpContext.User` erforderlich ist Als Letztes für OAuth-Rückrufe |
-| [CORS](xref:security/cors) | Konfiguriert die Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS) | Vor Komponenten, die CORS verwenden |
-| [Diagnose](xref:fundamentals/error-handling) | Konfiguriert Diagnosen | Vor Komponenten, die Fehler erzeugen |
-| [Umgeleitete Header/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Leitet Proxyheader an die aktuelle Anforderung weiter | Vor Komponenten, die die aktualisierten Felder verwenden (z.B. Scheme, Host, ClientIP, Method) |
-| [Zwischenspeichern von Antworten](xref:performance/caching/middleware) | Unterstützung für das Zwischenspeichern von Antworten | Vor Komponenten, die das Zwischenspeichern erfordern |
-| [Antwortkompression](xref:performance/response-compression) | Unterstützung für das Zwischenspeichern von Antworten | Vor Komponenten, die das Komprimieren erfordern |
-| [Anforderungslokalisierung](xref:fundamentals/localization) | Unterstützung für die Lokalisierung | Vor Komponenten, die möglicherweise lokalisiert werden |
-| [Routing](xref:fundamentals/routing) | Definiert Anforderungsrouten und schränkt diese ein | Als Letztes für das Übereinstimmen von Routen |
-| [Sitzung](xref:fundamentals/app-state) | Unterstützung für das Verwalten von Benutzersitzungen | Vor Komponenten, die Sitzungen erfordern |
-| [Statische Dateien](xref:fundamentals/static-files) | Unterstützung für das Verarbeiten statischer Dateien und das Durchsuchen des Verzeichnisses | Als Letztes, wenn eine Anforderungen Dateien übereinstimmt |
-| [URL-Umschreibung](xref:fundamentals/url-rewriting) | Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen | Vor Komponenten, die die URL nutzen |
-| [WebSockets](xref:fundamentals/websockets) | Aktiviert das WebSockets-Protokoll | Vor Komponenten, die WebSocket-Anforderungen annehmen müssen |
+| [Authentifizierung](xref:security/authentication/identity) | Bietet Unterstützung für Authentifizierungen. | Bevor `HttpContext.User` erforderlich ist. Terminal für OAuth-Rückrufe. |
+| [CORS](xref:security/cors) | Konfiguriert die Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS). | Vor Komponenten, die CORS verwenden. |
+| [Diagnose](xref:fundamentals/error-handling) | Konfiguriert Diagnosen. | Vor Komponenten, die Fehler erzeugen. |
+| [Umgeleitete Header/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Leitet Proxyheader an die aktuelle Anforderung weiter. | Vor Komponenten, welche die aktualisierten Felder verwenden (z.B. Scheme, Host, ClientIP, Method). |
+| [Zwischenspeichern von Antworten](xref:performance/caching/middleware) | Bietet Unterstützung für das Zwischenspeichern von Antworten. | Vor Komponenten, für die das Zwischenspeichern erforderlich ist. |
+| [Antwortkomprimierung](xref:performance/response-compression) | Bietet Unterstützung für das Komprimieren von Antworten. | Vor Komponenten, für die das Komprimieren erforderlich ist. |
+| [Anforderungslokalisierung](xref:fundamentals/localization) | Bietet Unterstützung für die Lokalisierung. | Vor der Lokalisierung vertraulicher Komponenten. |
+| [Routing](xref:fundamentals/routing) | Definiert Anforderungsrouten und schränkt diese ein. | Terminal für entsprechende Routen. |
+| [Sitzung](xref:fundamentals/app-state) | Bietet Unterstützung für das Verwalten von Benutzersitzungen. | Vor Komponenten, für die Sitzungen erforderlich sind. |
+| [Statische Dateien](xref:fundamentals/static-files) | Bietet Unterstützung für das Verarbeiten statischer Dateien und das Durchsuchen des Verzeichnisses. | Terminal, wenn eine Anforderung mit den Dateien übereinstimmt. |
+| [URL-Umschreibung](xref:fundamentals/url-rewriting) | Bietet Unterstützung für das Umschreiben von URLs und das Umleiten von Anforderungen. | Vor Komponenten, die die URL nutzen. |
+| [WebSockets](xref:fundamentals/websockets) | Aktiviert das WebSockets-Protokoll. | Vor Komponenten, die WebSocket-Anforderungen annehmen müssen. |
 
 <a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>Schreiben von Middleware
 
-Für gewöhnlich ist Middleware in einer Klasse gekapselt und wird mit einer Erweiterungsmethode verfügbar gemacht. Sehen Sie sich folgende Middleware an, die die Kultur der aktuellen Anforderungen über die Abfragenzeichenfolge festlegt:
+Für gewöhnlich ist Middleware in einer Klasse gekapselt und wird mit einer Erweiterungsmethode verfügbar gemacht. Sehen Sie sich folgende Middleware an, die die Kultur der aktuellen Anforderung über die Abfragezeichenfolge festlegt:
 
 [!code-csharp[Main](index/sample/Culture/StartupCulture.cs?name=snippet1)]
 
-Hinweis: Der oben stehende Beispielcode veranschaulicht das Erstellen einer Middlewarekomponente. Lesen Sie den Artikel zu [Globalisierung und Lokalisierung in ASP.NET Core](xref:fundamentals/localization), um mehr über die integrierte Lokalisierungsunterstützung zu erfahren.
+Hinweis: Der oben stehende Beispielcode veranschaulicht die Erstellung einer Middlewarekomponente. Lesen Sie den Artikel zu [Globalisierung und Lokalisierung in ASP.NET Core](xref:fundamentals/localization), um mehr über die integrierte Lokalisierungsunterstützung zu erfahren.
 
 Sie können die Middleware testen, indem Sie die Kultur übergeben (z.B. `http://localhost:7997/?culture=no`).
 
@@ -222,7 +222,7 @@ Im folgenden Code wird der Middlewaredelegat in eine Klasse verschoben:
 
 [!code-csharp[Main](index/sample/Culture/RequestCultureMiddleware.cs)]
 
-Die folgende Erweiterungsmethode macht die Middleware durch [IAppllicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) verfügbar:
+Die folgende Erweiterungsmethode macht die Middleware über [IAppllicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) verfügbar:
 
 [!code-csharp[Main](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
@@ -232,11 +232,11 @@ Der folgende Code ruft die Methode von `Configure` auf:
 
 Middleware sollte das [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/) befolgen, indem sie ihre Abhängigkeiten in ihrem Konstruktor verfügbar macht. Middleware wird einmal während der *Anwendungslebensdauer* erstellt. Lesen Sie den folgenden Abschnitt zu *anforderungsbasierten Abhängigkeiten*, wenn Sie Dienste für Middleware innerhalb einer Anforderung gemeinsam verwenden müssen.
 
-Middlewarekomponenten können Ihre Abhängigkeiten von Dependency Injection mit Konstruktorparametern auflösen. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) kann auch direkt zusätzliche Parameter annehmen.
+Middlewarekomponenten können Ihre Abhängigkeiten über Dependency Injection mit Konstruktorparametern auflösen. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) kann auch direkt zusätzliche Parameter annehmen.
 
-### <a name="per-request-dependencies"></a>Anforderungsbasierte Abhängigkeiten
+### <a name="per-request-dependencies"></a>Voranforderungsbasierte Abhängigkeiten
 
-Weil Middleware zum Zeitpunkt des Anwendungsstarts erstellt wird (und nicht anforderungsbasiert), werden *bereichsbezogene* Lebensdauerdienste von Middlewarekonstruktoren nicht gemeinsam mit anderen Typen mit Dependency Injection während jeder Anforderung verwendet. Wenn Sie einen *bereichsbezogenen* Dienst sowohl in Ihrer Middleware als auch in anderen Typen verwenden müssen, fügen Sie diesen Dienst der Signatur der `Invoke`-Methode hinzu. Die `Invoke`-Methode kann zusätzliche Parameter akzeptieren, die durch Dependency Injection aufgefüllt werden. Zum Beispiel:
+Weil Middleware zum Zeitpunkt des Anwendungsstarts erstellt wird (und nicht voranforderungsbasiert), werden *bereichsbezogene* Lebensdauerdienste von Middlewarekonstruktoren in den einzelnen Anforderungen nicht gemeinsam mit anderen Typen mit Dependency Injection verwendet. Wenn Sie einen *bereichsbezogenen* Dienst sowohl in Ihrer Middleware als auch in anderen Typen verwenden müssen, fügen Sie diese Dienste zur Signatur der `Invoke`-Methode hinzu. Die `Invoke`-Methode kann zusätzliche Parameter akzeptieren, die durch Dependency Injection aufgefüllt werden. Zum Beispiel:
 
 ```c#
 public class MyMiddleware
@@ -262,3 +262,4 @@ public class MyMiddleware
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Erforderliche Funktionen](xref:fundamentals/request-features)
 * [Factorybezogene Middlewareaktivierung](xref:fundamentals/middleware/extensibility)
+* [Factorybezogene Middlewareaktivierung mit einem Drittanbietercontainer](xref:fundamentals/middleware/extensibility-third-party-container)
