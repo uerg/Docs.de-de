@@ -1,12 +1,12 @@
-# <a name="aspnet-core-model-providers-sample"></a>ASP.NET Core-Modellbeispiels-Anbieter
+# <a name="aspnet-core-model-providers-sample"></a>Beispiel für ASP.NET Core-Modellanbieter
 
-Dieses Beispiel veranschaulicht die Verwendung von Razor-Seiten benutzerdefinierte-Modell Route und die Seite Anbieter. In diesem Beispiel wird veranschaulicht, die in beschriebenen Funktionen der [Razor-Seiten Route und app-Konvention-Features](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features) Thema.
+In diesem Beispiel wird die Verwendung von benutzerdefinierten Routen- und Seitenmodellanbietern für Razor-Seiten dargestellt. Dieses Beispiel stellt alle Features dar, die im Artikel [Razor-Seiten: Routen- und App-Konventionsfeatures in ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features) beschrieben werden.
 
-## <a name="examples-in-this-sample"></a>Die Beispiele in diesem Beispiel
+## <a name="examples-in-this-sample"></a>Beispiele
 
-| Features | Beispiel-demo |
+| Features | Beispieldemo |
 | -------- | ----------- |
-| [Hinzufügen der Route und der app Model-Konventionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | Routenattribut und Header für die app Seiten hinzufügen. |
-| [Verwenden Sie zum Hinzufügen einer Route Seite AddPageRoute](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Fügt die angegebene Route der Seite auf die angegebene Seite hinzu. |
-| [Seite Modell Aktion Konventionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Seiten in einem Ordner, einen Header hinzufügen Hinzufügen eines Headers zu einer einzigen Seite aus, und konfigurieren Sie eine Filter-Factory, um die app Seiten einen Header hinzuzufügen. |
-| [Ersetzen Sie den Standardanbieter für Seite-app](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Ändern Sie die Konventionen für die Benennung von Handler. |
+| [Hinzufügen von Routen- und App-Modellkonventionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | Fügen ein Routenattribut und einen Header zu den Seiten der App hinzu. |
+| [Verwenden von „AddPageRoute“ zum Hinzufügen einer Seitenroute](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Fügt die angegebene Route der angegebenen Seite hinzu. |
+| [Konventionen für Seitenmodellaktionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Fügen einen Header zu Seiten in einem Ordner bzw. einen Header zu einer Einzelseite hinzu und konfigurieren eine Filterzuordnungsinstanz, um einen Header zu den Seiten einer App hinzuzufügen. |
+| [Ersetzen der Standardanbieter für Modelle für Seitenanwendungen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Ändern die Konventionen für die Benennung von Handlern. |

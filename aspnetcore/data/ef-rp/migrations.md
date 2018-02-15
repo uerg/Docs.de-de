@@ -1,7 +1,7 @@
 ---
-title: Razor-Seiten mit EF-Kern - Migrationen - 4 von 8
+title: 'Razor-Seiten mit EF Core: Migrationen (4 von 8)'
 author: rick-anderson
-description: "In diesem Lernprogramm beginnen Sie mit der EF-Core-Migrationen-Funktion für die Verwaltung von datenmodelländerungen in einer ASP.NET-MVC-Anwendung Core."
+description: "In diesem Tutorial verwenden Sie zunächst das EF Core-Migrationsfeature für die Verwaltung von Datenmodelländerungen in einer ASP.NET Core MVC-App."
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -10,73 +10,73 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
 ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrationen - EF-Core mit Razor-Seiten Lernprogramm (4 von 8)
+# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrationen: Tutorial zu EF-Core mit Razor-Seiten (4 von 8)
 
-Durch [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.com/thereformedprog) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
 
-In diesem Lernprogramm wird das EF Hauptfeature-Migrationen für die Verwaltung von datenmodelländerungen verwendet.
+In diesem Tutorial wird das EF Core-Migrationsfeature zur Verwaltung von Datenmodelländerungen verwendet.
 
-Wenn Probleme können nicht zu lösen auftreten, laden Sie die [abgeschlossene Anwendung für diese Stufe](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendung für diese Phase](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations) herunter.
 
-Wenn eine neue app entwickelt wird, werden Änderungen in die Daten häufig modellieren. Jedes Mal Ruft das Modell ändert, das Modell nicht synchron mit der Datenbank. Dieses Lernprogramm gestartet, indem Sie die Konfiguration des Entity Framework zum Erstellen der Datenbank, wenn er nicht vorhanden ist. Jedes Mal, die das Datenmodell ändert:
+Wenn eine neue App entwickelt wird, ändert sich das Datenmodell häufig. Nach jeder Modelländerung ist das Modell nicht mehr synchron mit der Datenbank. In diesem Tutorial wurde zunächst Entity Framework für die Erstellung der Datenbank konfiguriert, falls diese nicht vorhanden ist. Bei jeder Datenmodelländerung:
 
-* Die Datenbank wird gelöscht.
-* EF erstellt ein neues Konto, das das Modell entspricht.
-* Die app startet die Datenbank mit der Testdaten.
+* Wird die Datenbank gelöscht.
+* Erstellt EF eine neue, dem Modell entsprechende Datenbank.
+* Füllt die App die Datenbank mit Testdaten auf.
 
-Dieser Ansatz zum Synchronisieren der Datenbank mit dem Datenmodell funktioniert gut, bis Sie die app in die Produktion bereitstellen. Wenn die app in der produktionsumgebung ausgeführt wird, wird es in der Regel Daten speichern, die beibehalten werden muss. Die app kann nicht in einem DB-Test starten jedes Mal eine Änderung vorgenommen wird, (z. B. das Hinzufügen einer neuen Spalte). Das Feature EF Core Migrationen löst dieses Problem durch Aktivieren von EF Core zum Aktualisieren des Schemas DB, anstatt eine neue Datenbank erstellen.
+Dieser Ansatz, bei dem die Datenbank mit dem Datenmodell synchron gehalten wird, funktioniert so lange, bis Sie die App für die Produktion bereitstellen. Wenn die App in der Produktionsumgebung ausgeführt wird, speichert sie in der Regel Daten, die verwaltet werden müssen. Jedes Mal, wenn eine Änderung vorgenommen wird (z.B. wenn eine neue Spalte hinzugefügt wird), kann die App nicht mit einer Testdatenbank starten. Mit der EF Core-Migrationsfeature wird dieses Problem gelöst, indem EF Core das Datenbankschema aktualisiert, anstatt eine neue Datenbank zu erstellen.
 
-Anstatt löschen und Neuerstellen der Datenbank, wenn das Datenmodell ändert, werden Migrationen aktualisiert das Schema und behält die vorhandene Daten.
+Statt die Datenbank bei den Datenmodelländerungen zu löschen und neu zu erstellen, wird bei der Migration eine Aktualisierung des Schemas und eine Beibehaltung vorhandener Daten angestrebt.
 
 ## <a name="entity-framework-core-nuget-packages-for-migrations"></a>NuGet-Pakete für Migrationen in Entity Framework Core
 
-Verwenden Sie zum Arbeiten mit Migrationen der **Package Manager Console** (PMC) oder die Befehlszeilenschnittstelle (CLI). Diese Lernprogramme veranschaulichen, wie CLI-Befehlen. Informationen zu der Systemmonitor ist am [Ende dieses Lernprogramms](#pmc).
+Verwenden Sie für die Arbeit mit Migrationen die **Paket-Manager-Konsole** (Package Manager Console, PMC) oder die Befehlszeilenschnittstelle (Command-Line Interface, CLI). In diesen Tutorials wird die Verwendungsweise von CLI-Befehlen erläutert. Informationen zur PMC finden Sie am [Ende dieses Tutorials](#pmc).
 
-Der EF-Core-Tools für die Befehlszeilenschnittstelle (CLI) finden Sie unter [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Um dieses Paket zu installieren, fügen sie der `DotNetCliToolReference` Sammlung in der *csproj* Datei wie gezeigt. **Hinweis:** dieses Paket muss installiert werden, indem Sie bearbeiten die *csproj* Datei. Die`install-package` Befehl oder die Paket-Manager-GUI nicht zum Installieren dieses Pakets verwendet werden. Bearbeiten der *csproj* Datei mit der rechten Maustaste auf den Projektnamen im **Projektmappen-Explorer** auswählen und **ContosoUniversity.csproj bearbeiten**.
+Die EF Core-Tools für die Befehlszeilenschnittstelle (Command-Line Interface, CLI) werden unter [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) bereitgestellt. Fügen Sie das Paket zum Installieren wie dargestellt zu der `DotNetCliToolReference`-Auflistung in der *.csproj*-Datei hinzu. **Hinweis:** Dieses Paket muss durch Bearbeitung der *.csproj*-Datei installiert werden. Dieses Paket kann nicht mit dem Befehl `install-package` oder über die grafische Benutzeroberfläche des Paket-Managers installiert werden. Bearbeiten Sie die *.csproj*-Datei, indem Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf den Projektnamen klicken und **Edit ContosoUniversity.csproj** („ContosoUniversity.csproj“ bearbeiten) auswählen.
 
-Das folgende Markup zeigt die aktualisierte *csproj* Datei mit hervorgehobenen EF Core CLI-Tools:
+Das folgende Markup zeigt die aktualisierte *.csproj*-Datei mit hervorgehobenen EF Core-CLI-Tools an:
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?highlight=12)]
   
-Die Versionsnummern im vorherigen Beispiel wurden beim Erstellen des Lernprogramms geschrieben wurde. Verwenden Sie die gleiche Version, für die EF Core CLI-Tools, die in die anderen Pakete gefunden.
+Die Versionsnummern im vorgehenden Beispiel waren zum Zeitpunkt der Verfassung des Tutorials aktuell. Verwenden Sie die gleiche Version für die EF Core-CLI-Tools, die auch in den anderen Paketen gefunden wurde.
 
 ## <a name="change-the-connection-string"></a>Ändern der Verbindungszeichenfolge
 
-In der *appsettings.json* Datei, ändern Sie den Namen der Datenbank in der Verbindungszeichenfolge auf ContosoUniversity2.
+Ändern Sie in der Datei *appsettings.json* den Namen der Datenbank in der Verbindungszeichenfolge in „ContosoUniversity2“.
 
 [!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Ändern der DB-Name in der Verbindungszeichenfolge bewirkt, dass die erste Migration zu eine neue Datenbank zu erstellen. Eine neue Datenbank wird erstellt, da eine mit diesem Namen vorhanden ist. Die Verbindungszeichenfolge ändern, ist nicht erforderlich für erste Schritte mit Migrationen.
+Durch das Ändern des Datenbanknamens in der Verbindungszeichenfolge wird bei der ersten Migration eine neue Datenbank erstellt. Es wird eine neue Datenbank erstellt, da keine Datenbank mit diesem Namen vorhanden ist. Die Verbindungszeichenfolge muss für die ersten Schritte mit Migrationen nicht geändert werden.
 
-Eine Alternative zum Ändern der DB-Name ist die Datenbank gelöscht. Verwendung **Objekt-Explorer von SQL Server** (SSOX) oder die `database drop` CLI-Befehl:
+Alternativ zum Ändern des Datenbanknamens kann die Datenbank auch gelöscht werden. Verwenden Sie den **SQL Server-Objekt-Explorer** (SSOX) oder den CLI-Befehl `database drop`:
 
  ```console
  dotnet ef database drop
  ```
 
-Im folgende Abschnitt wird erläutert, wie CLI-Befehle ausgeführt werden.
+Im folgenden Abschnitt wird erläutert, wie CLI-Befehle ausgeführt werden.
 
-## <a name="create-an-initial-migration"></a>Erstellen einer anfänglichen Migrations
+## <a name="create-an-initial-migration"></a>Erstellen einer ursprünglichen Migration
 
 Erstellen Sie das Projekt.
 
-Öffnen Sie ein Befehlsfenster, und navigieren Sie zum Projektordner. Enthält der Projektordner der *Startup.cs* Datei.
+Öffnen Sie ein Befehlsfenster, und navigieren Sie zu dem Projektordner. Der Projektordner enthält die Datei *Startup.cs*.
 
-Geben Sie im Fenster Eingabeaufforderung Folgendes ein:
+Geben Sie im Befehlsfenster Folgendes ein:
 
 ```console
 dotnet ef migrations add InitialCreate
 ```
 
-Das Befehlsfenster werden Informationen, die etwa wie folgt angezeigt:
+Im Befehlsfenster werden Informationen angezeigt, die in etwa wie folgt aussehen:
 
 ```console
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -86,53 +86,53 @@ info: Microsoft.EntityFrameworkCore.Infrastructure[100403]
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-Bei einem mit der Meldung Migrationsfehler "*... die Datei kann nicht zugegriffen werden. ContosoUniversity.dll, da sie von einem anderen Prozess verwendet wird.* " wird angezeigt:
+Wenn die Migration fehlschlägt und die Nachricht „*Auf die Datei „ContosoUniversity.dll“ kann nicht zugegriffen werden, da sie von einem anderen Prozess verwendet wird.*“ angezeigt wird:
 
-* Beenden von IIS Express.
+* Beenden Sie IIS Express.
 
-   * Beenden und starten Sie Visual Studio oder
-   * Suchen Sie das Symbol "IIS Express" in der Windows-Taskleiste.
-   * Maustaste auf das Symbol "IIS Express", und klicken Sie dann auf **ContosoUniversity > Standort beenden**.
+   * Beenden Sie Visual Studio, und führen Sie einen Neustart durch, oder
+   * Suchen Sie in der Windows-Taskleiste nach dem Symbol „IIS Express“.
+   * Klicken Sie mit der rechten Maustaste auf das Symbol „IIS Express“, und klicken Sie anschließend auf **ContosoUniversity > Website beenden**.
 
-Wenn die Fehlermeldung "Fehler beim Erstellen des." wird angezeigt, führen den Befehl erneut aus. Wenn Sie diesen Fehler erhalten, lassen Sie sich am Ende dieses Lernprogramms.
+Wenn die Fehlermeldung „Fehler beim Buildvorgang.“ angezeigt wird, führen Sie den Befehl erneut aus. Hinterlassen Sie am Ende dieses Tutorials eine Notiz, wenn Ihnen diese Fehlermeldung angezeigt wird.
 
-### <a name="examine-the-up-and-down-methods"></a>Überprüfen Sie die nach-oben und nach-unten Sie-Methoden
+### <a name="examine-the-up-and-down-methods"></a>Überprüfen der Methoden „Up“ und „Down“
 
-Der EF-Core-Befehl `migrations add` generiert Code zum Erstellen der Datenbank aus. Dieser Code Migrationen befindet sich in der *Migrationen\<Zeitstempel > _InitialCreate.cs* Datei. Die `Up` Methode der `InitialCreate` Klasse erstellt, die DB-Tabellen, die die Daten Modell Entitätenmengen entsprechen. Die `Down` Methode löscht, wie im folgenden Beispiel gezeigt:
+Der EF Core-Befehl `migrations add` hat Code generiert, aus dem die Datenbank erstellt werden soll. Dieser Migrationscode ist in der Datei *Migrations\<timestamp>_InitialCreate.cs* enthalten. Die Methode `Up` der Klasse `InitialCreate` erstellt die Datenbanktabellen, die den Datenmodellentitätenmengen entsprechen. Die Methode `Down` löscht diese, wie im folgenden Beispiel dargestellt:
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
-Migrationen Aufrufe der `Up` Methode für die Implementierung des Datenmodells für eine Migration. Bei der Eingabe eines Befehls ein Rollback der Updates, die Migrationen Aufrufe der `Down` Methode.
+Die Migrationsfunktion ruft die Methode `Up` auf, um die Datenmodelländerungen für eine Migration zu implementieren. Wenn Sie einen Befehl eingeben, um ein Rollback für das Update auszuführen, ruft die Migrationsfunktion die Methode `Down` auf.
 
-Der vorhergehende Code ist der anfänglichen Migration. Dieser Code wurde erstellt, wenn die `migrations add InitialCreate` -Befehl ausgeführt wurde. Der Namensparameter der Migration (im Beispiel "InitialCreate") wird für den Dateinamen verwendet. Der migrationsname kann einen beliebigen gültigen Dateinamen. Es wird empfohlen, wählen ein Wort oder Ausdruck, die zusammengefasst, was bei der Migration durchgeführt wird. Beispielsweise könnte eine Migration, die Department-Tabelle hinzugefügt "AddDepartmentTable." aufgerufen werden
+Der vorangehende Code ist für die ursprüngliche Migration bestimmt. Dieser Code wurde bei der Ausführung des Befehls `migrations add InitialCreate` erstellt. Der Parameter für den Migrationsnamen (in dem Beispiel „InitialCreate“) wird für den Dateinamen verwendet. Der Migrationsname kann ein beliebiger gültiger Dateiname sein. Es wird empfohlen, ein Wort oder einen Ausdruck auszuwählen, durch das bzw. den der Hintergrund der Migration widergespiegelt wird. Eine Migration, bei der eine Tabelle mit Fachbereichen hinzugefügt wurde, könnte beispielsweise als „AddDepartmentTable“ bezeichnet werden.
 
-Wenn die anfängliche Migration erstellt wird und die Datenbank beendet wird:
+Wenn die ursprüngliche Migration erstellt wird und die Datenbank beendet wird:
 
-* Der DB-Erstellung-Code wird generiert.
-* Der DB-Erstellung Code muss nicht ausgeführt werden, da die Datenbank bereits das Datenmodell übereinstimmt. Wenn der DB-Erstellung Code ausgeführt wird, nicht der Änderungen vorgenommen werden, da die Datenbank bereits das Datenmodell übereinstimmt.
+* Wird der Code für die Datenbankerstellung generiert.
+* Muss der Code für die Datenbankerstellung nicht ausgeführt werden, da die Datenbank bereits mit dem Datenmodell übereinstimmt. Wenn der Code für die Datenbankerstellung ausgeführt wird, werden keine Änderungen vorgenommen, da die Datenbank bereits mit dem Datenmodell übereinstimmt.
 
-Wenn die app zu einer neuen Umgebung bereitgestellt wird, muss die DB-Erstellung Code ausgeführt werden, um die Datenbank zu erstellen.
+Wenn die App in einer neuen Umgebung bereitgestellt wird, muss der Code für die Datenbankerstellung ausgeführt werden, damit die Datenbank erstellt wird.
 
-Zuvor wurde die Verbindungszeichenfolge geändert, um einen neuen Namen für die Datenbank zu verwenden. Die angegebene Datenbank ist nicht vorhanden, damit Migrationen erstellt die Datenbank.
+Zuvor wurde die Verbindungszeichenfolge geändert, damit ein neuer Name für die Datenbank verwendet werden kann. Die angegebene Datenbank ist nicht vorhanden, daher wird die Datenbank bei der Migration erstellt.
 
-### <a name="examine-the-data-model-snapshot"></a>Überprüfen Sie die datenmomentaufnahme für das Modell
+### <a name="examine-the-data-model-snapshot"></a>Momentaufnahme: Überprüfen des Datenmodells
 
-Migrationen erstellt eine *Momentaufnahme* des aktuellen DB-Schemas in *Migrations/SchoolContextModelSnapshot.cs*:
+Bei der Migration wird in *Migrations/SchoolContextModelSnapshot.cs* eine *Momentaufnahme* des aktuellen Datenbankschemas erstellt:
 
 [!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
-Da das Schema der aktuellen im Code dargestellt wird, verwendet nicht EF Kern, für die Interaktion mit der Datenbank, um Migrationen zu erstellen. Wenn Sie eine Migration hinzufügen, bestimmt EF Core Änderungen durch das Datenmodell auf der Snapshot-Datei vergleichen. EF Core interagiert mit der Datenbank, nur bei die Datenbank zu aktualisieren.
+Da das aktuelle Datenbankschema in Code dargestellt wird, muss EF Core zur Erstellung von Migrationen nicht mit der Datenbank interagieren. Wenn Sie eine Migration hinzufügen, bestimmt EF Core die vorgenommenen Änderungen, indem es das Datenmodell mit der Momentaufnahmedatei vergleicht. EF Core interagiert nur dann mit der Datenbank, wenn diese aktualisiert werden muss.
 
-Der Datenbankmomentaufnahme-Datei muss mit die Migrationen synchron sein, der Sie erstellt. Eine Migration kann nicht entfernt werden, durch Löschen der Datei mit dem Namen  *\<Zeitstempel > _\<Migrationname > .cs*. Wenn diese Datei gelöscht wird, werden die übrigen Migrationen werden nicht synchron mit der Snapshot-Datenbankdatei. Verwenden Sie zum Löschen der letzten Migrations hinzugefügt der [Dotnet Ef Migrationen entfernen](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) Befehl.
+Die Momentaufnahmedatei muss mit den Migrationen synchron sein, über die diese erstellt wurde. Eine Migration kann nicht durch Löschen der Datei *\<timestamp>_\<migrationname>.cs* entfernt werden. Wenn diese Datei gelöscht wird, sind die übrigen Migrationen mit der Momentaufnahmedatei der Datenbank nicht synchron. Verwenden Sie den Befehl [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove), um die letzte hinzugefügte Migration zu löschen.
 
-## <a name="remove-ensurecreated"></a>EnsureCreated entfernen
+## <a name="remove-ensurecreated"></a>Entfernen von EnsureCreated
 
-Bei frühen-Bereitstellung müssen die `EnsureCreated` -Befehl wurde verwendet. In diesem Lernprogramm wird die Migrationen verwendet. `EnsureCreated`verfügt über die folgenden Einschränkungen:
+Zu einem frühen Entwicklungszeitpunkt wurde der Befehl `EnsureCreated` verwendet. In diesem Tutorial werden Migrationen verwendet. Der Befehl `EnsureCreated` weist folgende Einschränkungen auf:
 
-* Migrationen umgangen wird und die DB- und das Schema erstellt.
-* Eine Tabelle Migrationen nicht erstellt werden.
-* Können *nicht* mit Migrationen verwendet werden.
-* Dient zum Testen oder schnellen Prototyping, in dem die Datenbank gelöscht und neu erstellt häufig.
+* Er umgeht Migrationen und erstellt die Datenbank und das Schema.
+* Er erstellt keine Migrationstabelle.
+* Er kann *nicht* mit Migrationen verwendet werden.
+* Er dient zum Testen oder schnellen Erstellen von Prototypen an Positionen, an denen die Datenbank häufig gelöscht und neu erstellt wird.
 
 Entfernen Sie die folgende Zeile aus `DbInitializer`:
 
@@ -140,21 +140,21 @@ Entfernen Sie die folgende Zeile aus `DbInitializer`:
 context.Database.EnsureCreated();
 ```
 
-## <a name="apply-the-migration-to-the-db-in-development"></a>Übernehmen Sie die Migration mit der Datenbank in der Entwicklung
+## <a name="apply-the-migration-to-the-db-in-development"></a>Anwenden der Migration auf die Datenbank in der Entwicklung
 
-Geben Sie Folgendes ein, um die DB- und Tabellen zu erstellen, in das Befehlsfenster.
+Geben Sie im Befehlsfenster Folgendes ein, um die Datenbank und Tabellen zu erstellen.
 
 ```console
 dotnet ef database update
 ```
 
-Hinweis: Wenn die `update` Befehl gibt dem Fehler "Fehler beim Buildvorgang.":
+Hinweis: Wenn der Befehl `update` den Fehler „Fehler beim Buildvorgang.“ zurückgibt:
 
 * Führen Sie den Befehl erneut aus.
-* Wenn es wieder fehlschlägt, beenden Sie Visual Studio, und führen Sie dann die `update` Befehl.
-* Lassen Sie eine Nachricht am unteren Rand der Seite.
+* Schlägt er erneut fehl, beenden Sie Visual Studio, und führen Sie anschließend den Befehl `update` aus.
+* Hinterlassen Sie unten auf der Seite eine Nachricht.
 
-Die Ausgabe des Befehls ähnelt der `migrations add` Befehl Ausgabe. In den vorherigen Befehl werden die Protokolle für die SQL-Befehle, mit dem die Datenbank eingerichtet angezeigt. Die meisten Protokolle werden in der folgenden Beispielausgabe ausgelassen:
+Die Ausgabe des Befehls ähnelt der des Befehls `migrations add`. Im vorangehenden Befehl werden Protokolle für die SQL-Befehle angezeigt, mit denen die Datenbank eingerichtet wurde. In der folgenden Beispielausgabe werden die meisten Protokolle ausgelassen:
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -181,47 +181,47 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Zum Reduzieren der Detailebene in Protokollnachrichten enthalten, kann die Protokollierungsstufen im Ändern der *"appSettings". Development.JSON* Datei. Weitere Informationen finden Sie unter [Einführung in die Protokollierung](xref:fundamentals/logging/index).
+Wenn diese Detailebene in Protokollnachrichten nicht angezeigt werden soll, können Sie die Protokollebene in der Datei *appsettings.Development.json* ändern. Weitere Informationen finden Sie unter [Einführung in die Protokollierung](xref:fundamentals/logging/index).
 
-Verwendung **Objekt-Explorer von SQL Server** , die Datenbank zu überprüfen. Beachten Sie das Hinzufügen einer `__EFMigrationsHistory` Tabelle. Die `__EFMigrationsHistory` Tabelle der nachverfolgt welche Migrationen auf die Datenbank angewendet wurden. Zeigen Sie die Daten in der `__EFMigrationsHistory` Tabelle wird eine Zeile für die erste Migration gezeigt. Das letzte Protokoll im vorherigen Beispiel der CLI-Ausgabe zeigt die INSERT-Anweisung, die diese Zeile erstellt.
+Verwenden Sie den **SQL Server-Objekt-Explorer** zur Untersuchung der Datenbank. Beachten Sie die zusätzliche Tabelle`__EFMigrationsHistory`. In der Tabelle `__EFMigrationsHistory` wird nachverfolgt, welche Migrationen auf die Datenbank angewendet wurden. Wenn Sie die Daten in der Tabelle `__EFMigrationsHistory` anzeigen, wird eine Zeile für die erste Migration angezeigt. Im letzten Protokoll im vorherigen Beispiel der CLI-Ausgabe wird die INSERT-Anweisung angezeigt, mit der diese Zeile erstellt wird.
 
-Führen Sie die app, und stellen Sie sicher, dass alles funktioniert.
+Führen Sie die App aus, und überprüfen Sie, ob alles funktioniert.
 
-## <a name="appling-migrations-in-production"></a>Appling Migrationen in der Produktion
+## <a name="appling-migrations-in-production"></a>Anwenden von Migrationen in der Produktionsumgebung
 
-Es wird empfohlen, sollte der Produktion apps **nicht** Aufrufen [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart. `Migrate`darf nicht von einer app in der Serverfarm aufgerufen werden. Beispielsweise, wenn die app wurde Cloud mit horizontaler Skalierung (mehrere Instanzen der app ausgeführt werden) bereitgestellt.
+Es wird empfohlen, dass Produktions-Apps [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart **nicht** aufrufen. `Migrate` sollte in der Serverfarm nicht über eine App aufgerufen werden. Beispielsweise wenn die App über eine Cloud mit horizontaler Skalierung bereitgestellt wurde (mehrere Instanzen der App werden ausgeführt).
 
-Datenbankmigration sollte im Rahmen der Bereitstellung, und klicken Sie auf kontrollierte Weise erfolgen. Produktion Datenbank Migrationsansätze gehören:
+Die Datenbankmigration sollte im Rahmen der Bereitstellung und auf kontrollierte Weise erfolgen. Zu den Ansätzen für die Migration von Produktionsdatenbanken zählen die folgenden:
 
-* Migrationen zum SQL-Skripts erstellen und verwenden die SQL-Skripts in der Bereitstellung.
-* Ausführen `dotnet ef database update` aus einer kontrollierten Umgebung.
+* Verwendung von Migrationen zur Erstellung von SQL-Skripts und Verwendung der SQL-Skripts bei der Bereitstellung.
+* Ausführen von `dotnet ef database update` über eine kontrollierte Umgebung.
 
-EF Kern verwendet die `__MigrationsHistory` Tabelle, um festzustellen, ob alle Migrationen ausführen müssen. Wenn die Datenbank auf dem neuesten Stand ist, wird keine Migration ausgeführt.
+EF Core kann über die Tabelle `__MigrationsHistory` sehen, ob Migrationen ausgeführt werden müssen. Wenn die Datenbank auf dem neuesten Stand ist, wird keine Migration ausgeführt.
 
 <a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>Im Vergleich zur Befehlszeilenschnittstelle (CLI) Paket-Manager-Konsole (PMC)
+## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>Die Befehlszeilenschnittstelle (Command-line Interface, CLI) im Vergleich mit der Paket-Manager-Konsole (Package Manager Console, PMC) im Vergleich
 
-Die Tools zum Verwalten von Migrationen EF Core steht aus:
+Die EF Core-Tools für die Verwaltung von Migrationen sind verfügbar über:
 
-* .NET Core-CLI-Befehlen.
-* Die PowerShell-Cmdlets in der Visual Studio **Package Manager Console** (PMC) Fenster.
+* .NET Core-CLI-Befehle.
+* Die PowerShell-Cmdlets im Visual Studio-Fenster **Paket-Manager-Konsole** (Package Manager Console, PMC).
 
-Dieses Lernprogramm zeigt, wie die CLI, einige Entwickler bevorzugen, mit der Systemmonitor.
+In diesem Tutorial wird die Verwendungsweise der CLI erläutert. Einige Entwickler bevorzugen die Verwendung der PMC.
 
-Die EF Kernbefehle für die PMC befinden sich in der [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) Paket. Dieses Paket ist in enthalten die [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) Metapackage, daher ist es nicht, es zu installieren.
+Die EF Core-Befehle für die PMC sind im Paket [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) enthalten. Dieses Paket ist im Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten. Eine Installation ist daher nicht erforderlich.
 
-**Wichtig:** dieses Element wird nicht das gleiche Paket mit dem Sie für die CLI, indem Sie die Bearbeitung Installieren der *csproj* Datei. Der Name dieser endet `Tools`, im Gegensatz zu den CLI-Paketnamen die endet in `Tools.DotNet`.
+**Wichtig:** Dieses Paket ist nicht mit dem Paket identisch, das Sie für die CLI durch Bearbeitung der Datei *.csproj* installiert haben. Der Name dieses Pakets endet mit `Tools`, im Gegensatz zum Namen des CLI-Pakets, der mit `Tools.DotNet` endet.
 
-Weitere Informationen zu CLI-Befehlen finden Sie unter [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
+Weitere Informationen zu CLI-Befehlen finden Sie unter [.NET Core-CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
 
-Weitere Informationen zu den PMC-Befehlen finden Sie unter [Package Manager Console (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
+Weitere Informationen zu den PMC-Befehlen finden Sie unter [Paket-Manager-Konsole (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Herunterladen der [abgeschlossene Anwendung für diese Stufe](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+Laden Sie die [abgeschlossene App für diese Phase](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations) herunter.
 
-Die app wird die folgende Ausnahme generiert:
+Die App generiert folgende Ausnahme:
 
 ```text
 `SqlException: Cannot open database "ContosoUniversity" requested by the login.
@@ -229,12 +229,12 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Lösung: Ausführen`dotnet ef database update`
+Lösung: Führen Sie `dotnet ef database update` aus.
 
-Wenn die `update` Befehl gibt dem Fehler "Fehler beim Buildvorgang.":
+Wenn der Befehl `update` den Fehler „Fehler beim Buildvorgang“ zurückgibt:
 
 * Führen Sie den Befehl erneut aus.
-* Lassen Sie eine Nachricht am unteren Rand der Seite.
+* Hinterlassen Sie unten auf der Seite eine Nachricht.
 
 >[!div class="step-by-step"]
 [Zurück](xref:data/ef-rp/sort-filter-page)

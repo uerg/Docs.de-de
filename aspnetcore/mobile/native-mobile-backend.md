@@ -1,5 +1,5 @@
 ---
-title: "Erstellen von Back-End-Diensten für systemeigene Mobile Anwendungen"
+title: "Erstellen von Back-End-Diensten für native mobile Anwendungen"
 author: ardalis
 description: 
 manager: wpickett
@@ -10,40 +10,40 @@ ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
 ms.openlocfilehash: ff09f331cff5cca7b42fa89bff55c0ed5c7d82f4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="creating-backend-services-for-native-mobile-applications"></a>Erstellen von Back-End-Diensten für systemeigene Mobile Anwendungen
+# <a name="creating-backend-services-for-native-mobile-applications"></a>Erstellen von Back-End-Diensten für native mobile Anwendungen
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-Mobile apps können problemlos mit ASP.NET Core Back-End-Diensten kommunizieren.
+Mobile Apps können problemlos mit Back-End-Diensten von ASP.NET Core kommunizieren.
 
 [Anzeigen oder Herunterladen von Beispielcode für Back-End-Dienste](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
-## <a name="the-sample-native-mobile-app"></a>Die systemeigene Mobile Beispiel-App
+## <a name="the-sample-native-mobile-app"></a>Die native mobile Beispiel-App
 
-Dieses Lernprogramm veranschaulicht das Erstellen von Back-End-Diensten mithilfe von ASP.NET Core MVC zur Unterstützung systemeigener mobiler apps. Er verwendet die [Xamarin Forms ToDoRest app](https://developer.xamarin.com/guides/xamarin-forms/web-services/consuming/rest/) als seine native Client umfasst die separaten native Clients für Android, iOS, Windows Universal und Windows Phone-Geräte. Sie können führen Sie die verknüpften Tutorial aus, um die systemeigene app zu erstellen (und die erforderlichen freien Xamarin-Tools zu installieren), sowie der Xamarin-beispiellösung herunterladen. Die Xamarin-Beispiel enthält ein ASP.NET Web API 2-Services-Projekt, der diesem Artikel ASP.NET Core app (mit keine Änderungen, die vom Client benötigte) ersetzt.
+In diesem Tutorial wird veranschaulicht, wie Back-End-Dienste mit ASP.NET Core MVC zur Unterstützung nativer mobiler Apps erstellt werden. Darin wird die [Xamarin.Forms-App ToDoRest](https://developer.xamarin.com/guides/xamarin-forms/web-services/consuming/rest/) als nativer Client verwendet, die separate native Clients für Android-, iOS-, Windows Universal- und Windows Phone-Geräte umfasst. Sie können das verlinkten Tutorial befolgen, um die native App zu erstellen (und die erforderlichen kostenfreien Xamarin-Tools zu installieren) und um die Xamarin-Beispielprojektmappe herunterzuladen. Das Xamarin-Beispiel umfasst ein Dienstprojekt der ASP.NET-Web-API 2, das die ASP.NET Core-App aus diesem Artikel ersetzt (dabei sind keine Änderungen durch den Client erforderlich).
 
-![Führen Sie Rest-Anwendung auf einem Android-Smartphone ausgeführt wird](native-mobile-backend/_static/todo-android.png)
+![Ausführen der ToDoRest-App auf einem Android-Smartphone](native-mobile-backend/_static/todo-android.png)
 
 ### <a name="features"></a>Features
 
-Die app ToDoRest unterstützt auflisten, hinzufügen, löschen und Aktualisieren von Aufgaben. Jedes Element verfügt über eine ID, einen Namen, Hinweise und eine Eigenschaft, die angibt, ob er noch abgeschlossen ist.
+Die ToDoRest-App unterstützt das Auflisten, Hinzufügen, Löschen und Aktualisieren von To-Do-Elementen. Jedes Element verfügt über eine ID, einen Namen, Hinweise und über eine Eigenschaft, die angibt, ob ein Element abgeschlossen ist.
 
-Die Hauptansicht der Elemente, wie oben gezeigt Listet jedes Element Namen an und gibt an, ob es mit einem Häkchen erfolgt.
+In der Hauptansicht der Elemente werden, wie oben dargestellt, die Namen der einzelnen Elemente aufgeführt. Sie sind mit einem Häkchen versehen, wenn sie abgeschlossen sind.
 
-Tippen Sie auf die `+` Symbol wird ein Element "hinzufügen" geöffnet:
+Durch Tippen auf das Symbol `+` wird ein Dialogfeld zum Hinzufügen eines Elements geöffnet:
 
-![Dialogfeld "hinzufügen"](native-mobile-backend/_static/todo-android-new-item.png)
+![Dialogfeld „Element hinzufügen“](native-mobile-backend/_static/todo-android-new-item.png)
 
-Tippen Sie auf ein Element auf dem Bildschirm Hauptliste öffnet ein Dialogfeld "Bearbeiten", in dem des Elements, Hinweise, und "Fertig" ändert Einstellungen geändert werden können oder das Element gelöscht werden kann:
+Durch Tippen auf ein Element auf dem Bildschirm mit der Hauptliste wird ein Dialogfeld zur Bearbeitung geöffnet, in dem die Einstellungen „Name“, „Hinweise“, und „Fertig“ für das Element geändert oder das Element gelöscht werden kann:
 
-![Element-Dialogfeld "Bearbeiten"](native-mobile-backend/_static/todo-android-edit-item.png)
+![Dialogfeld „Element bearbeiten“](native-mobile-backend/_static/todo-android-edit-item.png)
 
-In diesem Beispiel wird standardmäßig am developer.xamarin.com, gehostete Back-End-Dienste verwendet wird, die nur-Lese Vorgänge können konfiguriert. Um es für die ASP.NET Core-app, die im nächsten Abschnitt auf Ihrem Computer erstellt, selbst zu testen, müssen Sie der app aktualisieren `RestUrl` konstant. Navigieren Sie zu der `ToDoREST` Projekt, und öffnen Sie die *Constants.cs* Datei. Ersetzen Sie die `RestUrl` mit einer URL, die dem Computer-IP-Adresse (nicht "localhost" oder 127.0.0.1, da diese Adresse aus dem Geräteemulator, nicht von Ihrem Computer verwendet wird). Schließen Sie die Port-Nummer (5000). Um zu testen, dass Ihre Dienste mit einem Gerät arbeiten, müssen sicherstellen Sie, dass Sie nicht über eine aktive Firewall blockiert den Zugriff auf diesen Port verfügen.
+Dieses Beispiel ist standardmäßig für die Verwendung von Back-End-Diensten konfiguriert, die unter developer.xamarin.com gehostet werden, und in denen schreibgeschützte Vorgänge zugelassen sind. Wenn Sie dies selbst bei der im nächsten Abschnitt erstellten ASP.NET Core-App testen möchten, die auf Ihrem Computer ausgeführt wird, müssen Sie die `RestUrl`-Konstante der App aktualisieren. Navigieren Sie zu dem Projekt `ToDoREST`, und öffnen Sie die Datei *Constants.cs*. Ersetzen Sie die `RestUrl` durch eine URL, die die IP-Adresse Ihres Computers enthält (nicht „localhost“ oder „127.0.0.1“, da diese Adresse vom Geräteemulator und nicht von Ihrem Computer verwendet wird). Schließen Sie auch die Portnummer (5000) ein. Stellen Sie sicher, dass keine aktive Firewall den Zugriff auf diesen Port blockiert, wenn Sie testen möchten, ob Ihre Dienste auf einem Gerät funktionieren.
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)
@@ -53,28 +53,28 @@ In diesem Beispiel wird standardmäßig am developer.xamarin.com, gehostete Back
 public static string RestUrl = "http://192.168.1.207:5000/api/todoitems/{0}";
 ```
 
-## <a name="creating-the-aspnet-core-project"></a>Erstellen des Projekts ASP.NET Core
+## <a name="creating-the-aspnet-core-project"></a>Erstellen des ASP.NET Core-Projekts
 
-Erstellen Sie eine neue ASP.NET Core-Webanwendung in Visual Studio. Wählen Sie die Vorlage für die Web-API und keine Authentifizierung. Nennen Sie das Projekt *ToDoApi*.
+Erstellen Sie in Visual Studio eine neue ASP.NET Core-Webanwendung. Wählen Sie die Web-API-Vorlage und „Keine Authentifizierung“ aus. Geben Sie dem Projekt den Namen *ToDoApi*.
 
-![Dialogfeld "neues ASP.NET Web Application" mit Web-API-Projektvorlage ausgewählt](native-mobile-backend/_static/web-api-template.png)
+![Dialogfeld „Neue ASP.NET-Webanwendung“ mit ausgewählter Web-API-Projektvorlage](native-mobile-backend/_static/web-api-template.png)
 
-Die Anwendung, die auf alle Anforderungen an Port 5000 reagieren soll. Update *"Program.cs"* einschließen `.UseUrls("http://*:5000")` um dies zu erreichen:
+Die Anwendung sollte auf alle an Port 5000 gestellten Anforderungen reagieren. Aktualisieren Sie *Program.cs*, und schließen Sie `.UseUrls("http://*:5000")` ein, um Folgendes zu erreichen:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
-> Stellen Sie sicher, dass Sie die Anwendung ausführen, sondern direkt hinter der IIS Express, die nicht lokalen Anforderungen standardmäßig ignoriert. Führen Sie `dotnet run` von einer Befehlszeile aus, oder wählen Sie den Namen des Anwendungsprofils aus dem Dropdownmenü Debugziel in der Symbolleiste von Visual Studio.
+> Stellen Sie sicher, dass Sie die Anwendung direkt ausführen und nicht nach IIS Express, da dieser Dienst die nicht lokalen Anforderungen standardmäßig ignoriert. Führen Sie `dotnet run` über eine Eingabeaufforderung aus, oder wählen Sie aus der Dropdownliste „Debugziel“ in der Symbolleiste von Visual Studio das Profil des Anwendungsnamens aus.
 
-Fügen Sie eine Modellklasse aus, um die to-do-Elemente darstellen. Markierung erforderliche Felder, die mithilfe der `[Required]` Attribut:
+Fügen Sie eine Modellklasse hinzu, in der die To-Do-Elemente dargestellt werden sollen. Markieren Sie erforderliche Felder mit dem Attribut `[Required]`:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
-Die API-Methoden erfordern in irgendeiner Weise mit Daten arbeiten. Verwenden Sie den gleichen `IToDoRepository` Schnittstelle das ursprüngliche Xamarin-Beispiel verwendet:
+Die API-Methoden müssen mit Daten arbeiten können. Verwenden Sie die gleiche `IToDoRepository`-Schnittstelle, die im ursprünglichen Xamarin-Beispiel verwendet wird:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
-Für dieses Beispiel verwendet die Implementierung nur eine private Auflistung von Elementen:
+In diesem Beispiel verwendet die Implementierung nur eine private Sammlung von Elementen:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
@@ -82,75 +82,75 @@ Konfigurieren Sie die Implementierung in *Startup.cs*:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
-An diesem Punkt sind Sie bereit für die Erstellung der *ToDoItemsController*.
+An diesem Punkt sind Sie bereit für die Erstellung von *ToDoItemsController*.
 
 > [!TIP]
-> Erfahren Sie mehr über das Erstellen von web-APIs in [Erstellen Ihrer ersten Web-API mit ASP.NET Core MVC und Visual Studio](../tutorials/first-web-api.md).
+> Weitere Informationen zur Erstellung von Web-APIs finden Sie unter [Building Your First Web API with ASP.NET Core MVC and Visual Studio (Erstellen Ihrer ersten Web-API mit ASP.NET Core MVC und Visual Studio)](../tutorials/first-web-api.md).
 
 ## <a name="creating-the-controller"></a>Erstellen des Controllers
 
-Fügen Sie dem Projekt einen neuen Domänencontroller *ToDoItemsController*. Es sollte von Microsoft.AspNetCore.Mvc.Controller erben. Hinzufügen einer `Route` Attribut, um anzugeben, dass der Controller behandelt Anforderungen für Pfade ab `api/todoitems`. Die `[controller]` Token in der Route wird durch den Namen des Controllers ersetzt (Auslassen der `Controller` Suffix), und ist besonders nützlich für globale Routen. Erfahren Sie mehr über [routing](../fundamentals/routing.md).
+Fügen Sie einen neuen Controller, *ToDoItemsController*, zu dem Projekt hinzu. Dieser sollte von „Microsoft.AspNetCore.Mvc.Controller“ erben. Fügen Sie das Attribut `Route` hinzu, um anzugeben, dass der Controller Anforderungen für Pfade bearbeitet, die mit `api/todoitems` beginnen. Das Token `[controller]` in der Route wird durch den Namen des Controllers ersetzt (dabei wird das Suffix `Controller` ausgelassen) und ist für globale Routen besonders nützlich. Weitere Informationen zu [Routing](../fundamentals/routing.md).
 
-Der Controller benötigt eine `IToDoRepository` zu funktionieren, fordern Sie eine Instanz dieses Typs über den Controller-Konstruktor. Zur Laufzeit wird diese Instanz mit der Framework-Unterstützung für bereitgestellt werden [Abhängigkeitsinjektion](../fundamentals/dependency-injection.md).
+Damit der Controller funktioniert, ist eine `IToDoRepository`-Schnittstelle erforderlich. Fordern Sie über den Konstruktor des Controllers eine Instanz dieses Typs an. Zur Laufzeit wird diese Instanz über die Frameworkunterstützung für [Dependency Injection](../fundamentals/dependency-injection.md) bereitgestellt.
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
-Diese API unterstützt vier verschiedene HTTP-Verben zum Ausführen von Vorgängen von CRUD (Create, Read, Update, Delete) für die Datenquelle. Die einfachste davon ist der Lesevorgang, die eine HTTP-GET-Anforderung entspricht.
+Diese API unterstützt vier verschiedene HTTP-Verben zur Durchführung von CRUD-Vorgängen für die Datenquelle (CRUD = Create, Read, Update, Delete; Erstellen, Lesen, Aktualisieren, Löschen). Am einfachsten ist der Lesevorgang, der einer HTTP GET-Anforderung entspricht.
 
 ### <a name="reading-items"></a>Lesen von Elementen
 
-Eine Liste der Elemente anfordern erfolgt mit einer GET-Anforderung an die `List` Methode. Die `[HttpGet]` -Attribut auf die `List` Methode gibt an, dass diese Aktion nur GET-Anforderungen verarbeiten soll. Die Route für diese Aktion wird die Route auf dem Controller angegeben. Sie müssen nicht unbedingt der Aktionsname im Rahmen der Route verwenden zu können. Sie müssen nur sicherstellen, dass jede Aktion eine Route eindeutigen verfügt. Routing Attribute können auf dem Controller und Methodenebene bestimmte Routen erstellen angewendet werden.
+Die Anforderung einer Liste mit Elementen erfolgt über eine GET-Anforderung an die Methode `List`. Das Attribut `[HttpGet]` in der Methode `List` gibt an, dass diese Aktion nur GET-Anforderungen verarbeiten soll. Die Route für diese Aktion ist die auf dem Controller angegebene Route. Sie müssen den Aktionsnamen nicht unbedingt als Teil der Route verwenden. Sie müssen nur sicherstellen, dass die einzelnen Aktionen über eine eindeutige Route verfügen. Routingattribute können auf Controller- und auf Methodenebene für die Erstellung bestimmter Routen angewendet werden.
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
-Die `List` Methodenrückgabe eine 200 OK-Antwort-Code und alle der ToDo-Elemente, die als JSON serialisiert.
+Die Methode `List` gibt den Antwortcode „200 OK“ und alle als JSON serialisierten To-Do-Elemente zurück.
 
-Sie können testen, die neue API-Methode, die eine Vielzahl von Tools, z. B. mit [Postman](https://www.getpostman.com/docs/), hier dargestellt:
+Sie können Ihre neue API-Methode mit einer Vielzahl von Tools testen, z.B. wie im Folgenden dargestellt mit [Postman](https://www.getpostman.com/docs/):
 
-![Postman-Konsole, die mit einer GET-Anforderung für Todoitems und der Antworttext die JSON für drei zurückgegebenen Elementen anzeigen](native-mobile-backend/_static/postman-get.png)
+![Postman-Konsole mit einer GET-Anforderung für To-Do-Elemente und dem Antworttext, in dem die JSON für drei zurückgegebene Elemente angezeigt wird](native-mobile-backend/_static/postman-get.png)
 
 ### <a name="creating-items"></a>Erstellen von Elementen
 
-Gemäß der Konvention wird erstellen neue Datenelemente, die dem HTTP-POST-Verb zugeordnet. Die `Create` Methode verfügt über eine `[HttpPost]` Attribut angewendet wird, und akzeptiert eine `ToDoItem` Instanz. Da die `item` übergebene Argument im Text des BEITRAGS, dieser Parameter wird mit ergänzt die `[FromBody]` Attribut.
+Gemäß der Konvention wird die Erstellung neuer Datenelemente dem HTTP POST-Verb zugeordnet. Auf die Methode `Create` wird das Attribut `[HttpPost]` angewendet, und sie akzeptiert eine `ToDoItem`-Instanz. Da das Argument `item` im POST-Text übergeben wird, wird dieser Parameter mit dem Attribut `[FromBody]` versehen.
 
-Innerhalb der Methode das Element wird auf Gültigkeit und vorherigen Vorhandensein im Datenspeicher überprüft, und wenn keine Probleme auftreten, wird er hinzugefügt, mit dem Repository. Überprüfung `ModelState.IsValid` führt [modellüberprüfung](../mvc/models/validation.md), und in jede API-Methode, das Benutzereingaben akzeptiert, ausgeführt werden soll.
+Innerhalb der Methode wird überprüft, ob das Element gültig ist und ob es bereits im Datenspeicher vorhanden ist. Wenn keine Probleme auftreten, wird es über das Repository hinzugefügt. Bei der Überprüfung von `ModelState.IsValid` wird eine [Modellvalidierung](../mvc/models/validation.md) durchgeführt. Dies sollte bei jeder API-Methode geschehen, die Benutzereingaben akzeptiert.
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
-Das Beispiel verwendet eine Enumeration mit Fehlercodes, die an dem mobilen Client übergeben werden:
+Im Beispiel wird eine Enumeration mit Fehlercodes verwendet, die an den mobilen Client übergeben werden:
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
-Testen Sie das Hinzufügen von neuen Elementen, die mithilfe von Postman durch Auswählen der POST-Verb, das das neue Objekt im JSON-Format im Text der Anforderung bereitstellt. Sie sollten auch hinzufügen, eine Anforderung Header angeben einer `Content-Type` von `application/json`.
+Testen Sie das Hinzufügen neuer Elemente mithilfe von Postman, indem Sie das POST-Verb auswählen und im Anforderungstext das neue Objekt im JSON-Format angeben. Sie sollten auch einen Anforderungsheader hinzufügen, in dem ein `Content-Type` von `application/json` angegeben wird.
 
-![Postman-Konsole, die mit einer POST- und Antwort](native-mobile-backend/_static/postman-post.png)
+![Postman-Konsole mit einem POST-Verb und einer Antwort](native-mobile-backend/_static/postman-post.png)
 
-Die Methode gibt das neu erstellte Element in der Antwort.
+Die Methode gibt das neu erstellte Element in der Antwort zurück.
 
 ### <a name="updating-items"></a>Aktualisieren von Elementen
 
-Zeichnet die Änderung erfolgt mithilfe von HTTP PUT-Anforderungen. Abgesehen von dieser Änderung der `Edit` Methode entspricht weitgehend dem `Create`. Beachten Sie, dass, wenn der Datensatz nicht gefunden wird, wird die `Edit` Aktion zurückgegeben wird ein `NotFound` Antwort (404).
+Datensätze werden mithilfe von HTTP PUT-Anforderungen geändert. Abgesehen von dieser Änderung ist die Methode `Edit` mit der Methode `Create` weitgehend identisch. Beachten Sie, dass die Aktion `Edit` die Antwort „`NotFound` (404)“ zurückgibt, wenn der Datensatz nicht gefunden werden kann.
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
-Informationen zum Postman testen, ändern Sie das Verb PUT-Befehl. Geben Sie die Daten des aktualisierten Objekts im Text der Anforderung.
+Ändern Sie zum Testen mit Postman das Verb in PUT. Geben Sie die aktualisierten Objektdaten in den Anforderungstext ein.
 
-![Postman-Konsole, die mit einer PUT und-Antwort](native-mobile-backend/_static/postman-put.png)
+![Postman-Konsole mit einem PUT-Verb und einer Antwort](native-mobile-backend/_static/postman-put.png)
 
-Diese Methode gibt ein `NoContent` (204) Antwort bei erfolgreicher Ausführung aus Gründen der Konsistenz mit der bereits vorhandenen-API.
+Diese Methode gibt bei erfolgreicher Ausführung die Antwort „`NoContent` (204)“ für die Konsistenz mit der bereits vorhandenen API zurück.
 
 ### <a name="deleting-items"></a>Löschen von Elementen
 
-Löschen von Datensätzen erfolgt durch, die DELETE-Anforderungen an den Dienst, und übergeben Sie die ID des Elements gelöscht werden soll. Mit Updates, erhalten diese Anforderungen für Elemente, die nicht vorhandene `NotFound` Antworten. Eine erfolgreiche Anforderung erhalten, andernfalls ein `NoContent` (204) Antwort.
+Datensätze werden gelöscht, indem DELETE-Anforderungen an den Dienst gestellt werden und die ID des zu löschenden Elements übergeben wird. Wie bei Updates erhalten Anforderungen bei nicht vorhandenen Elementen die Antwort `NotFound`. Bei erfolgreicher Ausführung einer Anforderung hingegen wird die Antwort „`NoContent` (204)“ angezeigt.
 
 [!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
-Beachten Sie, dass nichts beim Testen der Delete-Funktionen im Text der Anforderung erforderlich ist.
+Beachten Sie, dass beim Testen der DELETE-Funktion im Anforderungstext nichts erforderlich ist.
 
-![Postman-Konsole, die mit einer DELETE- und Antwort](native-mobile-backend/_static/postman-delete.png)
+![Postman-Konsole mit einer DELETE-Funktion und einer Antwort](native-mobile-backend/_static/postman-delete.png)
 
-## <a name="common-web-api-conventions"></a>Allgemeine Konventionen für Web-API
+## <a name="common-web-api-conventions"></a>Allgemeine Konventionen für die Web-API
 
-Wie Sie die Back-End-Dienste für Ihre app entwickeln, sollten Sie mit einem konsistenten Satz von Konventionen oder Richtlinien für die Behandlung von querschnittliche Bedenken aufgerufen werden. Beispielsweise im oben gezeigten Dienst Anforderungen für bestimmte Datensätze, die gefunden wurden empfangen einer `NotFound` Antwort, anstelle eines `BadRequest` Antwort. Auf ähnliche Weise Befehle, die versucht, diesen Dienst, der gebunden Modelltypen immer überprüft übergeben `ModelState.IsValid` Komponentenmetadatenobjekts durch eine `BadRequest` für ungültige Modelltypen.
+Da Sie die Back-End-Dienste für Ihre App entwickeln, sollten Sie sich auch eine Reihe von konsistenten Konventionen oder Richtlinien für den Umgang mit bereichsübergreifenden Anliegen überlegen. Im oben dargestellten Dienst haben Anforderungen für bestimmte Datensätze, die nicht gefunden werden konnten, beispielsweise die Antwort `NotFound` statt der Antwort `BadRequest` erhalten. Gleichermaßen haben für diesen Dienst durchgeführte Befehle, die gebundene Modelltypen übergeben haben, immer `ModelState.IsValid` überprüft und bei ungültigen Modelltypen eine `BadRequest` zurückgegeben.
 
-Nachdem Sie eine allgemeine Richtlinie für Ihre APIs identifiziert haben, können in der Regel gekapselt werden in einem [Filter](../mvc/controllers/filters.md). Erfahren Sie mehr über [zum Kapseln von allgemeinen API-Richtlinien in ASP.NET Core MVC-Anwendungen wie](https://msdn.microsoft.com/magazine/mt767699.aspx).
+Sobald Sie eine gängige Richtlinie für Ihre APIs ermittelt haben, können Sie diese in der Regel in einen [Filter](../mvc/controllers/filters.md) einschließen. Weitere Informationen zum [Einschließen gängiger API-Richtlinien in ASP.NET Core MVC-Anwendungen](https://msdn.microsoft.com/magazine/mt767699.aspx).

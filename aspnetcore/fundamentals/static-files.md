@@ -1,7 +1,7 @@
 ---
-title: Arbeiten Sie mit statischen Dateien in ASP.NET Core
+title: Arbeit mit statischen Dateien in ASP.NET Core
 author: rick-anderson
-description: Erfahren Sie, wie dienen, statische Dateien gesichert werden, und konfigurieren statischen Datei hosting Middleware-Verhalten in einer ASP.NET Core-Web-app.
+description: Hier erfahren Sie, wie statische Dateien bereitgestellt und gesichert werden und wie das Verhalten von Middleware beim Hosting statischer Dateien in einer ASP.NET Core-Web-App konfiguriert wird.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -11,74 +11,74 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 60b205bf0a45e2965f9dab46f46956947ae513fd
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="work-with-static-files-in-aspnet-core"></a>Arbeiten Sie mit statischen Dateien in ASP.NET Core
+# <a name="work-with-static-files-in-aspnet-core"></a>Arbeit mit statischen Dateien in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Addie](https://twitter.com/Scott_Addie)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Addie](https://twitter.com/Scott_Addie)
 
-Statische Dateien, z. B. HTML, CSS, Bilder und JavaScript, sind Objekte, die eine ASP.NET Core app direkt an Clients dient. Einige Konfigurationen ist erforderlich, um die Bereitstellung dieser Dateien ausgeführt werden kann.
+Bei statischen Dateien wie HTML, CSS, Images und JavaScript handelt es sich um Objekte, die Clients von einer ASP.NET Core-App direkt bereitgestellt werden. Damit diese Dateien bereitgestellt werden können, sind einige Konfigurationsschritte erforderlich.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="serve-static-files"></a>Statischen Dateien
+## <a name="serve-static-files"></a>Bereitstellen statischer Dateien
 
-Statische Dateien sind im Web-Stammverzeichnis des Projekts gespeichert. Das Standardverzeichnis ist  *\<Content_root > / "Wwwroot"*, aber sie kann geändert werden, über die [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) Methode. Finden Sie unter [Content Stamm](xref:fundamentals/index#content-root) und [Stammweb](xref:fundamentals/index#web-root) für Weitere Informationen.
+Statische Dateien werden im Webstammverzeichnis Ihres Projekts gespeichert. Das Standardverzeichnis lautet *\<content_root>/wwwroot*, es kann jedoch mit der Methode [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) geändert werden. Weitere Informationen finden Sie unter [Inhaltsstammverzeichnis](xref:fundamentals/index#content-root) und [Webstammverzeichnis](xref:fundamentals/index#web-root).
 
-Webhost, der die app muss für das Stammverzeichnis der Inhalte zur Kenntnis.
+Der Web-Host der App muss über das Inhaltsstammverzeichnis informiert werden.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Die `WebHost.CreateDefaultBuilder` Methode legt die Inhalten-Stamm im aktuellen Verzeichnis:
+Die Methode `WebHost.CreateDefaultBuilder` legt das Inhaltsstammverzeichnis auf das aktuelle Verzeichnis fest:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Legen Sie die Inhalten-Stamm auf das aktuelle Verzeichnis durch den Aufruf [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) innerhalb eines `Program.Main`:
+Legen Sie das Inhaltsstammverzeichnis auf das aktuelle Verzeichnis fest, indem Sie [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) innerhalb von `Program.Main` aufrufen:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
 ---
 
-Statische Dateien werden über einen Pfad relativ zum Webstamm zugegriffen. Z. B. die **Webanwendung** -Projektvorlage enthält mehrere Ordner innerhalb der *"Wwwroot"* Ordner:
+Auf statische Dateien kann über einen Pfad relativ zum Webstammverzeichnis zugegriffen werden. Die Projektvorlage der **Webanwendung** verfügt beispielsweise über mehrere Ordner innerhalb des Ordners *wwwroot*:
 
 * **wwwroot**
   * **css**
   * **images**
   * **js**
 
-URI-Format, um den Zugriff auf eine Datei in die *Bilder* Unterordner *http://\<einfügen >/Images /\<Bilddateiname >*. Beispielsweise *http://localhost:9189/images/banner3.svg*.
+Das URI-Format für den Zugriff auf eine Datei im Unterordner *Images* lautet *http://\<server_address>/images/\<image_file_name>*. Beispiel: *http://localhost:9189/images/banner3.svg*.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Wenn .NET Framework abzielen, fügen Sie der [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) Paket Ihrem Projekt. Wenn Sie .NET Core als Ziel der [Microsoft.AspNetCore.All Metapackage](xref:fundamentals/metapackage) dieses Paket enthält.
+Wenn .NET Framework die Zielkomponente ist, fügen Sie das Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) zu Ihrem Projekt hinzu. Wenn .NET Core die Zielkomponente ist, ist dieses Paket im Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Hinzufügen der [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) Paket Ihrem Projekt.
+Fügen Sie das Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) zu Ihrem Projekt hinzu.
 
 ---
 
-Konfigurieren der [Middleware](xref:fundamentals/middleware) können die Bereitstellung statischer Dateien.
+Konfigurieren Sie die [Middleware](xref:fundamentals/middleware/index), über die Sie statische Dateien bereitstellen können.
 
-### <a name="serve-files-inside-of-web-root"></a>Dateien Sie in der Webstamm
+### <a name="serve-files-inside-of-web-root"></a>Bereitstellen von Dateien innerhalb des Webstammverzeichnisses
 
-Aufrufen der [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) Methode innerhalb `Startup.Configure`:
+Rufen Sie die Methode [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in `Startup.Configure` auf:
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-Die parameterlose `UseStaticFiles` -methodenüberladung, die Dateien im Webstammverzeichnis als servable markiert. Die folgenden Markup Verweise *wwwroot/images/banner1.svg*:
+Die parameterlose Überladung der Methode `UseStaticFiles` markiert die Dateien im Webstammverzeichnis als bereitstellbar. Folgendes Markup verweist auf *wwwroot/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-### <a name="serve-files-outside-of-web-root"></a>Bereitstellen von Dateien außerhalb der Webstamm
+### <a name="serve-files-outside-of-web-root"></a>Bereitstellen von Dateien außerhalb des Webstammverzeichnisses
 
-Beachten Sie, eine Verzeichnishierarchie, in der statischen Dateien verarbeitet werden außerhalb der Webstamm befinden:
+Ziehen Sie eine Verzeichnishierarchie in Betracht, bei der sich die bereitzustellenden statischen Dateien außerhalb des Webstammverzeichnisses befinden:
 
 * **wwwroot**
   * **css**
@@ -88,96 +88,96 @@ Beachten Sie, eine Verzeichnishierarchie, in der statischen Dateien verarbeitet 
   * **images**
       * *banner1.svg*
 
-Eine Anforderung erreichen der *banner1.svg* Datei durch die Middleware für statische Dateien wie folgt konfigurieren:
+Über eine Anforderung kann auf die Datei *banner1.svg* zugegriffen werden, indem die Middleware für statische Dateien wie folgt konfiguriert wird:
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
-Im vorangehenden Code der *MyStaticFiles* Verzeichnishierarchie wird öffentlich verfügbar gemacht über die *StaticFiles* URI-Segment. Eine Anforderung zum *http://\<einfügen > /StaticFiles/images/banner1.svg* dient der *banner1.svg* Datei.
+Im vorangehenden Code wird die *MyStaticFiles*-Verzeichnishierarchie öffentlich über das URI-Segment *StaticFiles* verfügbar gemacht. Über eine Anforderung an *http://\<server_address>/StaticFiles/images/banner1.svg* wird die Datei *banner1.svg* bereitgestellt.
 
-Die folgenden Markup Verweise *MyStaticFiles/images/banner1.svg*:
+Folgendes Markup verweist auf *MyStaticFiles/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_outside)]
 
-### <a name="set-http-response-headers"></a>HTTP-Antwortheader festlegen
+### <a name="set-http-response-headers"></a>Festlegen von HTTP-Antwortheadern
 
-Ein [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) Objekt kann verwendet werden, um HTTP-Antwortheader festlegen. Zusätzlich zum Konfigurieren von statischen dateibereitstellung über das Stammverzeichnis, den folgenden code wird die `Cache-Control` Header:
+Mit einem [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions)-Objekt können HTTP-Antwortheader festgelegt werden. Neben der Konfiguration statischer, über das Webstammverzeichnis bereitgestellter Dateien wird mit dem folgenden Code der Header `Cache-Control` festgelegt:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
-Die [HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) Methode vorhanden ist, der [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) Paket.
+Die Methode [HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) ist im Paket [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) enthalten.
 
-Die Dateien wurden für 10 Minuten (600 Sekunden) öffentlich zwischenspeicherbaren vorgenommen:
+Die Dateien wurden 10 Minuten lang (600 Sekunden) öffentlich zwischenspeicherbar gemacht:
 
-![Antwort-Header, die mit der Cache-Control-Header wurde hinzugefügt](static-files/_static/add-header.png)
+![Antwortheader mit dem Cache-Control-Header wurden hinzugefügt](static-files/_static/add-header.png)
 
-## <a name="static-file-authorization"></a>Statische Autorisierung
+## <a name="static-file-authorization"></a>Autorisierung statischer Dateien
 
-Die Middleware für statische Dateien stellt keine autorisierungsprüfungen bereit. Alle Dateien von bedient, u. a. die *"Wwwroot"*, öffentlich zugänglich sind. Um Dateien anhand der Autorisierung zu dienen:
+Die Middleware für statische Dateien bietet keine Autorisierungsüberprüfungen. Alle über die Middleware bereitgestellten Dateien, Dateien unter *wwwroot* inbegriffen, sind öffentlich zugänglich. So stellen Sie Dateien basierend auf der Autorisierung bereit:
 
-* Speichern Sie sie außerhalb von *"Wwwroot"* und einem beliebigen Verzeichnis zugegriffen werden kann, um die Middleware für statische Dateien **und**
-* Verarbeiten Sie sie über eine Aktionsmethode, die auf die Autorisierung angewendet wird. Zurückgeben einer [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult) Objekt:
+* Speichern Sie sie außerhalb von *wwwroot* sowie außerhalb sämtlicher Verzeichnisse, auf welche die Middleware für statische Dateien zugreifen kann, **und**
+* Stellen Sie sie über eine Aktionsmethode bereit, für die die Autorisierung gilt. Geben Sie ein [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult)-Objekt zurück:
 
 [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
-## <a name="enable-directory-browsing"></a>Aktiviert die Verzeichnissuche
+## <a name="enable-directory-browsing"></a>Aktivieren der Verzeichnissuche
 
-Verzeichnissuche kann Benutzer Ihre Web-app finden in einer Verzeichnisliste und Dateien in einem angegebenen Verzeichnis. Verzeichnissuche ist aus Sicherheitsgründen standardmäßig deaktiviert (siehe [Überlegungen](#considerations)). Aktiviert Verzeichnissuche durch Aufrufen der [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) Methode in `Startup.Configure`:
+Über die Verzeichnissuche können Benutzer Ihrer Web-App eine Verzeichnisliste und Dateien innerhalb eines angegebenen Verzeichnisses anzeigen. Die Verzeichnissuche ist aus Sicherheitsgründen standardmäßig deaktiviert (siehe [Überlegungen](#considerations)). Aktivieren Sie die Verzeichnissuche, indem Sie die Methode [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) in `Startup.Configure` aufrufen:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=12-17)]
 
-Fügen Sie die erforderlichen Dienste durch Aufrufen der [AddDirectoryBrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_) Methode `Startup.ConfigureServices`:
+Fügen Sie erforderliche Dienste hinzu, indem Sie die Methode [AddDirectoryBrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_) von `Startup.ConfigureServices` aufrufen:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureServicesMethod&highlight=3)]
 
-Der vorangehende Code ermöglicht es, Verzeichnissuche, der die *"Wwwroot" / Bilder* Ordner mit der URL *http://\<einfügen > / MyImages*, mit Links zu einzelnen Dateien und Ordner:
+Der vorangehende Code ermöglicht die Verzeichnissuche im Ordner *wwwroot/images* über die URL *http://\<server_address>/MyImages* mit Links zu den einzelnen Dateien und Ordnern:
 
 ![Verzeichnissuche](static-files/_static/dir-browse.png)
 
-Finden Sie unter [Überlegungen](#considerations) auf die Sicherheitsrisiken beim Durchsuchen aktivieren.
+Weitere Informationen zu den Sicherheitsrisiken bei der Aktivierung der Suche finden Sie unter [Überlegungen](#considerations).
 
-Beachten Sie die beiden `UseStaticFiles` im folgenden Beispiel aufruft. Der erste Aufruf ermöglicht die Bereitstellung statischer Dateien in der *"Wwwroot"* Ordner. Der zweite Aufruf aktiviert die Verzeichnissuche, der die *"Wwwroot" / Bilder* Ordner mit der URL *http://\<einfügen > / MyImages*:
+Beachten Sie die beiden `UseStaticFiles`-Aufrufe im folgenden Beispiel. Durch den ersten Aufruf wird die Bereitstellung statischer Dateien im Ordner *wwwroot* aktiviert. Durch den zweiten Aufruf wird die Verzeichnissuche im Ordner *wwwroot/images* über die URL *http://\<server_address>/MyImages* aktiviert:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=3,5)]
 
-## <a name="serve-a-default-document"></a>Ein Standarddokument dienen
+## <a name="serve-a-default-document"></a>Bereitstellen eines Standarddokuments
 
-Festlegen einer Standard-Startseite bietet Besucher einen logischen Ausgangspunkt aus, wenn Ihre Site besuchen. Aufrufen, ohne dass der Benutzer, die vollständig qualifizieren den URI eine Standardseite helfen, die [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) Methode `Startup.Configure`:
+Durch das Festlegen einer Standardstartseite wird Besuchern Ihrer Website ein logischer Ausgangspunkt geboten. Rufen Sie die Methode [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) über `Startup.Configure` auf, um eine Standardseite bereitzustellen, ohne dass der Benutzer den URI vollständig qualifizieren muss:
 
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles`muss aufgerufen werden, bevor `UseStaticFiles` Standarddatei dienen. `UseDefaultFiles`ist eine URL-Rewrite-Modul, das tatsächlich die Datei dienen nicht. Aktivieren Sie die Middleware für statische Dateien über `UseStaticFiles` auf die Datei bereitzustellen.
+> `UseDefaultFiles` muss vor `UseStaticFiles` aufgerufen werden, damit die Standarddatei bereitgestellt wird. `UseDefaultFiles` ist ein URL-Rewriter, der die Datei nicht verarbeiten kann. Aktivieren Sie die Middleware für statische Dateien über `UseStaticFiles`, um die Datei bereitzustellen.
 
-Mit `UseDefaultFiles`, Anforderungen an einen Ordner suchen nach:
+Bei `UseDefaultFiles` werden bei Anforderungen an einen Ordner folgende Dateien durchsucht:
 
 * *default.htm*
 * *default.html*
 * *index.htm*
 * *index.html*
 
-Die erste Datei, die aus der Liste gefunden wird verarbeitet, als würde sich die Anforderung den voll gekennzeichneten URI. Die Browser-URL wird entsprechend der angeforderten URI fortgesetzt.
+Die erste in der Liste gefundene Datei wird bereitgestellt, als wäre die Anforderung der vollständig qualifizierte URI. Die Browser-URL spiegelt weiterhin den angeforderten URI wider.
 
-Der folgende Code ändert den Standardnamen für die Datei in *mydefault.html*:
+Mit dem folgenden Code wird der Standarddateiname in *mydefault.html* geändert:
 
 [!code-csharp[](static-files/samples/1x/StartupDefault.cs?name=snippet_ConfigureMethod)]
 
 ## <a name="usefileserver"></a>UseFileServer
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) kombiniert die Funktionalität der `UseStaticFiles`, `UseDefaultFiles`, und `UseDirectoryBrowser`.
+In [UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) werden die Funktionen von `UseStaticFiles`, `UseDefaultFiles` und `UseDirectoryBrowser` miteinander kombiniert.
 
-Der folgende Code ermöglicht die Bereitstellung statischer Dateien und die Standarddatei. Verzeichnissuche ist nicht aktiviert.
+Mit dem folgenden Code wird die Bereitstellung statischer Dateien und der Standarddatei aktiviert. Die Verzeichnissuche ist nicht aktiviert.
 
 ```csharp
 app.UseFileServer();
 ```
 
-Der folgende Code baut auf die parameterlose Überladung und Verzeichnissuche aktivieren:
+Der folgende Code baut auf der parameterlosen Überladung auf, indem die Verzeichnissuche aktiviert wird:
 
 ```csharp
 app.UseFileServer(enableDirectoryBrowsing: true);
 ```
 
-Betrachten Sie die folgenden Verzeichnishierarchie aus:
+Betrachten Sie die folgende Verzeichnishierarchie:
 
 * **wwwroot**
   * **css**
@@ -188,70 +188,69 @@ Betrachten Sie die folgenden Verzeichnishierarchie aus:
       * *banner1.svg*
   * *default.html*
 
-Der folgende Code zu ermöglichen, statische Dateien und Standarddateien und Verzeichnissuche von `MyStaticFiles`:
+Mit dem folgenden Code werden statische Dateien, Standarddateien und die Verzeichnissuche von `MyStaticFiles` aktiviert:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser`muss aufgerufen werden, wenn die `EnableDirectoryBrowsing` Eigenschaftswert ist `true`:
+`AddDirectoryBrowser` muss aufgerufen werden, wenn der `EnableDirectoryBrowsing`-Eigenschaftswert `true` lautet:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
-Mithilfe der Dateihierarchie und vorangehenden Codes, beheben URLs wie folgt:
+Unter Verwendung der Dateihierarchie und des vorangehenden Codes werden URLs wie folgt aufgelöst:
 
 | URI            |                             Antwort  |
 | ------- | ------|
 | *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address>/StaticFiles*             |     MyStaticFiles/default.html |
 
-Wenn keine Datei mit dem Namen standardmäßig in existiert die *MyStaticFiles* Verzeichnis *http://\<einfügen > / StaticFiles* gibt die Verzeichnisliste mit klickbaren Links:
+Wenn im Verzeichnis *MyStaticFiles* keine Datei mit Standardnamen vorhanden ist, gibt *http://\<server_address>/StaticFiles* die Verzeichnisliste mit klickbaren Links zurück:
 
 ![Liste der statischen Dateien](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles`und `UseDirectoryBrowser` verwenden Sie die URL *http://\<einfügen > / StaticFiles* ohne dem nachgestellten Schrägstrich auslösen eine clientseitige Umleitung zu *http://\<einfügen > / StaticFiles /*. Beachten Sie die nachstehenden Schrägstrich. Relativer URLs in den Dokumenten gelten ohne einen nachstehenden Schrägstrich ungültig.
+> `UseDefaultFiles` und `UseDirectoryBrowser` verwenden die URL *http://\<server_address>/StaticFiles* ohne den nachstehenden Schrägstrich, um eine clientseitige Umleitung zu *http://\<server_address>/StaticFiles/* auszulösen. Beachten Sie den hinzugefügten nachstehenden Schrägstrich. Relative URLs innerhalb der Dokumente gelten ohne einen nachstehenden Schrägstrich als ungültig.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
-Die [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) Klasse enthält eine `Mappings` Eigenschaft dient als eine Zuordnung von Dateierweiterungen, MIME-Inhaltstypen. Im folgenden Beispiel werden mehrere Dateierweiterungen bekannten MIME-Typen registriert. Die *.rtf* Erweiterung wird ersetzt, und *MP4* wird entfernt.
+Die Klasse [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) enthält eine `Mappings`-Eigenschaft, die als Zuordnung von Dateierweiterungen zu MIME-Inhaltstypen dient. Im folgenden Beispiel werden mehrere Dateierweiterungen bei bekannten MIME-Typen registriert. Die Erweiterung *.rtf* wird ersetzt, und *.mp4* wird entfernt.
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Finden Sie unter [MIME-Inhaltstypen](http://www.iana.org/assignments/media-types/media-types.xhtml).
+Weitere Informationen finden Sie unter [MIME-Inhaltstypen](http://www.iana.org/assignments/media-types/media-types.xhtml).
 
-## <a name="non-standard-content-types"></a>Nicht standardmäßige Inhaltstypen
+## <a name="non-standard-content-types"></a>Inhaltstypen, die vom Standard abweichen
 
-Die Middleware für statische Dateien erkennt fast 400 bekannten Dateiinhaltstypen. Wenn der Benutzer eine Datei mit einer unbekannten Dateityp anfordert, gibt die Middleware für statische Dateien Antworten HTTP 404 (Nichtgefunden) zurück. Wenn die Verzeichnissuche aktiviert ist, wird ein Link zur Datei angezeigt. Der URI zurückgegeben ein HTTP 404-Fehler.
+Die Middleware für statische Dateien erkennt fast 400 bekannte Dateiinhaltstypen. Wenn der Benutzer eine Datei mit einem unbekannten Dateityp anfordert, gibt die Middleware für statische Dateien die HTTP-Antwort „404 – Nicht gefunden“ zurück. Wenn die Verzeichnissuche aktiviert ist, wird ein Link zur Datei angezeigt. Der URI gibt den HTTP-Fehler 404 zurück.
 
-Der folgende Code ermöglicht, dienen die unbekannte Typen und rendert die unbekannte Datei als Bild:
+Mit dem folgenden Code wird die Bereitstellung unbekannter Typen aktiviert und die unbekannte Datei als Image gerendert:
 
 [!code-csharp[](static-files/samples/1x/StartupServeUnknownFileTypes.cs?name=snippet_ConfigureMethod)]
 
-Das vorhergehende Codebeispiel wird eine Anforderung für eine Datei mit einem unbekannten Inhaltstyp als Bild zurückgegeben.
+Mit dem vorangehenden Code wird eine Anforderung für eine Datei mit unbekanntem Inhaltstyp als Image zurückgegeben.
 
 > [!WARNING]
-> Aktivieren der [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) stellt ein Sicherheitsrisiko dar. Es ist standardmäßig deaktiviert, und seine Verwendung wird abgeraten. [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) provides a safer alternative to serving files with non-standard extensions.
+> Die Aktivierung von [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) stellt ein Sicherheitsrisiko dar. Diese Eigenschaft ist standardmäßig deaktiviert, von einer Verwendung wird abgeraten. [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) bietet eine sicherere Alternative für die Bereitstellung von Dateien mit vom Standard abweichenden Erweiterungen.
 
 ### <a name="considerations"></a>Weitere Überlegungen
 
 > [!WARNING]
-> `UseDirectoryBrowser`und `UseStaticFiles` kann Offenlegung von geheimen Schlüsseln. Deaktivieren von Verzeichnissuche in der Produktion wird dringend empfohlen. Überprüfen Sie sorgfältig, welche Verzeichnisse aktiviert sind, über `UseStaticFiles` oder `UseDirectoryBrowser`. Das gesamte Verzeichnis und seinen Unterverzeichnissen werden öffentlich zugegriffen werden kann. Store-Dateien für die Bereitstellung für die Öffentlichkeit geeignet ist in einem dedizierten Verzeichnis, z. B.  *\<Content_root > / "Wwwroot"*. Trennen Sie diese Dateien von MVC-Ansichten mit Razor-Seiten (nur 2.x), Konfigurationsdateien usw. ein.
+> `UseDirectoryBrowser` und `UseStaticFiles` können Geheimnisse aufdecken. Eine Deaktivierung der Verzeichnissuche in der Produktionsumgebung wird dringend empfohlen. Überprüfen Sie sorgfältig, welche Verzeichnisse über `UseStaticFiles` oder `UseDirectoryBrowser` aktiviert wurden. Das gesamte Verzeichnis und die zugehörigen Unterverzeichnisse werden öffentlich zugänglich gemacht. Speichern Sie Dateien, die für eine Bereitstellung in der Öffentlichkeit geeignet sind, in einem dafür vorgesehenen Verzeichnis wie z.B. *\<content_root>/wwwroot*. Trennen Sie diese Dateien von MVC-Ansichten, Razor-Seiten (nur 2.x), Konfigurationsdateien usw.
 
-* Die URLs für Inhalte, die verfügbar gemacht, mit `UseDirectoryBrowser` und `UseStaticFiles` unterliegen die Groß-/Kleinschreibung und zeichenbeschränkungen des zugrunde liegenden Dateisystems. Windows ist z. B. Groß-/Kleinschreibung beachten&mdash;Mac und Linux nicht.
+* Die URLs für Inhalte, die mit `UseDirectoryBrowser` und `UseStaticFiles` verfügbar gemacht wurden, unterliegen der Groß-/Kleinschreibung und den Zeichenbeschränkungen des zugrunde liegenden Dateisystems. Bei Windows wird die Groß-/Kleinschreibung beispielsweise beachtet, bei Mac und Linux hingegen nicht.
 
-* ASP.NET Core apps gehostet wird, verwendet IIS die [ASP.NET Core Modul (ANCM)](xref:fundamentals/servers/aspnet-core-module) alle Anforderungen an die app, einschließlich statische dateianforderungen weitergeleitet. Die IIS-Handler für statische Dateien wird nicht verwendet. Er verfügt über keine Möglichkeit zum Verarbeiten von Anforderungen, bevor sie von der ANCM behandelt werden.
+* In IIS gehostete ASP.NET Core-Apps leiten über das [ASP.NET Core-Modul (ANCM)](xref:fundamentals/servers/aspnet-core-module) alle Anforderungen, einschließlich der Anforderungen nach statischen Dateien, an die App weiter. Der statische IIS-Dateihandler wird nicht verwendet. Er kann Anforderungen erst dann verarbeiten, nachdem sie vom ANCM verarbeitet wurden.
 
-* Führen Sie die folgenden Schritte im IIS-Manager, um IIS-Handler für statische Dateien auf den Server oder die Website-Ebene zu entfernen:
-    1. Navigieren Sie zu der **Module** Funktion.
-    1. Wählen Sie **StaticFileModule** in der Liste.
-    1. Klicken Sie auf **entfernen** in der **Aktionen** Randleiste.
+* Führen Sie im IIS-Manager die folgenden Schritte aus, um den statischen IIS-Dateihandler auf Server- oder Website-Ebene zu entfernen:
+    1. Navigieren Sie zum Feature **Module**.
+    1. Wählen Sie **StaticFileModule** aus der Liste aus.
+    1. Klicken Sie in der Randleiste **Aktionen** auf **Entfernen**.
 
 > [!WARNING]
-> Wenn die IIS-Handler für statische Dateien aktiviert ist **und** der ANCM ist falsch konfiguriert, um statische Dateien verarbeitet werden. Dies geschieht beispielsweise, wenn die *"Web.config"* Datei wird nicht bereitgestellt.
+> Wenn der statische IIS-Dateihandler aktiviert ist **und** ANCM falsch konfiguriert wurde, werden statische Dateien bereitgestellt. Dies geschieht beispielsweise, wenn die Datei *web.config* nicht bereitgestellt worden ist.
 
-* Platzieren Sie die Codedateien (einschließlich *cs* und *cshtml*) außerhalb der Web-Stamm des app-Projekts. Eine logische Trennung wird zwischen der app die clientseitige Inhalt und serverbasierten Code aus diesem Grund erstellt. Dadurch wird verhindert, dass serverseitiger Code zugreifen.
+* Platzieren Sie Codedateien (einschließlich *.cs* und *.cshtml*) außerhalb des Webstammverzeichnisses des App-Projekts. Aus diesem Grund wird eine logische Trennung zwischen den clientseitigen Inhalten der App und dem serverbasierten Code erschaffen. Dadurch wird verhindert, dass serverseitiger Code aufgedeckt wird.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Middleware](xref:fundamentals/middleware)
-
+* [Middleware](xref:fundamentals/middleware/index)
 * [Einführung in ASP.NET Core](xref:index)

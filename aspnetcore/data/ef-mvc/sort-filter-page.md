@@ -1,7 +1,7 @@
 ---
-title: ASP.NET Core MVC mit EF-Kern - Sortierung, Filter, Paging - 3 von 10
+title: 'ASP.NET Core MVC mit EF Core: Sortieren, Filtern, Paging (3 von 10)'
 author: tdykstra
-description: "In diesem Lernprogramm fügen Sie sortieren, Filtern und paging Funktionen zur Seite mit ASP.NET Core und Entity Framework Core."
+description: "In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu."
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
@@ -9,126 +9,126 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
 ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortieren, filtern, paging und Gruppierung - EF-Core mit ASP.NET Core MVC-Lernprogramm (3 von 10)
+# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortieren, Filtern, Paging und Gruppieren: Tutorial für EF Core mit ASP.NET Core MVC (3 von 10)
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen, die mit Entity Framework Core und Visual Studio. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](intro.md).
+Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen mit Entity Framework Core und Visual Studio erstellt werden. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](intro.md).
 
-Im vorherigen Lernprogramm implementiert Sie eine Reihe von Webseiten für grundlegende CRUD-Vorgänge für Student-Entitäten. In diesem Lernprogramm fügen Sie sortieren, Filtern und Pagingfunktionalität zur Seite Studenten Index. Erstellen Sie auch eine Seite, die einfache Gruppierung ausführt.
+Im vorherigen Tutorial haben Sie eine Reihe von Webseiten für grundlegende CRUD-Vorgänge für Studentenentitäten implementiert. In diesem Tutorial fügen Sie die Funktionen zum Sortieren, Filtern und Paging zur Studentenindexseite hinzu. Sie werden auch eine Seite erstellen, auf der einfache Gruppierungsvorgänge ausgeführt werden.
 
-Die folgende Abbildung zeigt, wie die Seite aussehen wird, wenn Sie fertig sind. Die Spaltenüberschriften sind Links, die der Benutzer klicken kann, um nach dieser Spalte zu sortieren. Auf eine Spaltenüberschrift wiederholt Schaltet zwischen aufsteigender und absteigender Sortierreihenfolge.
+Die folgende Abbildung zeigt, wie die Seite am Ende aussehen wird. Die Spaltenüberschriften sind Links, auf die der Benutzer klicken kann, um die Spalte zu sortieren. Wiederholtes Klicken auf eine Spaltenüberschrift schaltet zwischen aufsteigender und absteigender Sortierreihenfolge um.
 
-![Indexseite für Studenten](sort-filter-page/_static/paging.png)
+![Indexseite „Studenten“](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Den Studenten Indexseite Spalte sortieren Links hinzufügen
+## <a name="add-column-sort-links-to-the-students-index-page"></a>Hinzufügen von Spaltensortierungslinks zur Studentenindexseite
 
-Um die Sortierung für die Student Indexseite hinzufügen, ändern Sie die `Index` -Methode des Controllers Studenten und fügen Sie Code hinzu, um die Student Indexansicht.
+Ändern Sie die `Index`-Methode des Studentencontrollers, und fügen Sie Code zur Studentenindexansicht hinzu, um der Indexseite die Sortierfunktion hinzuzufügen.
 
-### <a name="add-sorting-functionality-to-the-index-method"></a>Fügen Sie die Sortierfunktionen für die Index-Methode
+### <a name="add-sorting-functionality-to-the-index-method"></a>Hinzufügen der Sortierfunktion zur Indexmethode
 
-In *StudentsController.cs*, ersetzen Sie die `Index` -Methode durch folgenden Code:
+Ersetzen Sie in *StudentsController.cs* die `Index`-Methode durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
-Dieser Code empfängt eine `sortOrder` Parameter aus der Abfragezeichenfolge in der URL. Der Wert der Abfragezeichenfolge wird als Parameter an die Aktionsmethode durch ASP.NET Core MVC bereitgestellt. Der Parameter wird eine Zeichenfolge sein, der entweder "Name" oder "Date", optional gefolgt von einem Unterstrich und die Zeichenfolge "Desc" in absteigender Reihenfolge anzugeben. Standardmäßig wird eine aufsteigende Sortierreihenfolge verwendet.
+Dieser Code empfängt einen `sortOrder`-Parameter aus der Abfragezeichenfolge in der URL. Der Wert der Abfragezeichenfolge wird von ASP.NET Core MVC als Parameter an die Aktionsmethode übergeben. Der Parameter ist eine Zeichenfolge, entweder „Name“ oder „Date“, optional gefolgt von einem Unterstrich und der Zeichenfolge „desc“, die die absteigende Reihenfolge angibt. Standardmäßig wird eine aufsteigende Sortierreihenfolge verwendet.
 
-Die Indexseite angefordert wird, das zum ersten Mal ist keine Abfragezeichenfolge vorhanden. Den Studenten werden in aufsteigender Reihenfolge angezeigt, nach dem Nachnamen, die standardmäßig aktiviert ist, wie in der Fall fallen über die `switch` Anweisung. Wenn der Benutzer einen Spaltenüberschrift Hyperlink der entsprechenden klickt `sortOrder` Wert in der Abfragezeichenfolge angegeben ist.
+Bei der ersten Anforderung der Indexseite gibt es keine Abfragezeichenfolge. Die Studenten werden nach Nachnamen in aufsteigender Reihenfolge angezeigt. Dies ist durch den Fall-Through-Fall in der `switch`-Anweisung standardmäßig festgelegt. Wenn der Benutzer auf den Link einer Spaltenüberschrift klickt, wird der entsprechende `sortOrder`-Wert in der Abfragezeichenfolge bereitgestellt.
 
-Die beiden `ViewData` Elemente (NameSortParm und DateSortParm) werden von der Sicht verwendet, so konfigurieren Sie die Spaltenüberschrift Hyperlinks mit den entsprechenden Abfragezeichenfolgen-Werte.
+Die beiden `ViewData`-Elemente (NameSortParm und DateSortParm) werden von der Ansicht verwendet, um die Links der Spaltenüberschriften mit den entsprechenden Abfragezeichenfolgenwerten zu konfigurieren.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Hierbei handelt es sich um ternäre-Anweisungen. Das erste Schema gibt an, dass bei der `sortOrder` -Parameter ist null oder leer ist, NameSortParm sollte auf "Name_desc" festgelegt werden; andernfalls eine leere Zeichenfolge festgelegt werden sollte. Diese beiden Anweisungen aktivieren die Sicht die Spalte Überschrift Hyperlinks wie folgt festgelegt:
+Hierbei handelt es sich um ternäre Anweisungen. Die erste gibt an, dass wenn der `sortOrder`-Parameter gleich 0 (null) oder leer ist, „NameSortParm“ auf „name_desc“ festgelegt werden soll. Andernfalls soll er auf eine leere Zeichenfolge festgelegt werden. Diese beiden Anweisungen ermöglichen der Ansicht das Festlegen der Links für Spaltenüberschriften wie folgt:
 
-|  Aktuelle Sortierreihenfolge  | Letzte Name Hyperlink | Datum-Link |
+|  Aktuelle Sortierreihenfolge  | Link Nachname | Link Datum |
 |:--------------------:|:-------------------:|:--------------:|
-| Letzte aufsteigend  | descending          | ascending      |
-| Letzte Name absteigend | ascending           | ascending      |
-| Datum aufsteigend       | ascending           | descending     |
-| Absteigend nach Datum      | ascending           | ascending      |
+| Nachname: Aufsteigend  | descending          | ascending      |
+| Nachname: Absteigend | ascending           | ascending      |
+| Datum: Aufsteigend       | ascending           | descending     |
+| Datum: Absteigend      | ascending           | ascending      |
 
-Die Methode verwendet LINQ to Entities an die Spalte zu sortieren. Der Code erstellt ein `IQueryable` Variable vor der Switch-Anweisung ändert sie in der Switch-Anweisung und die Aufrufe der `ToListAsync` Methode nach der `switch` Anweisung. Beim Erstellen und ändern Sie `IQueryable` Variablen, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird nicht ausgeführt, bis Sie konvertieren die `IQueryable` Objekt in eine Auflistung durch Aufrufen einer Methode wie z. B. `ToListAsync`. Aus diesem Grund dieser Code führt zu einer einzelnen Abfrage, die nicht, bis ausgeführt wird die `return View` Anweisung.
+Die Methode verwendet LINQ to Entities, um die Spalte anzugeben, nach der sortiert werden soll. Der Code erstellt vor der Switch-Anweisung eine `IQueryable`-Variable, ändert sie in der Switch-Anweisung und ruft die `ToListAsync`-Methode nach der `switch`-Anweisung auf. Es wir keine Abfrage an die Datenbank gesendet, wenn Sie die `IQueryable`-Variablen erstellen und ändern. Die Abfrage wird nicht ausgeführt, bis Sie das `IQueryable`-Objekt in eine Sammlung konvertieren, indem Sie eine Methode aufrufen, z.B. die `ToListAsync`-Methode. Aus diesem Grund führt dieser Code zu einer einzelnen Abfrage, die bis zur `return View`-Anweisung nicht ausgeführt wird.
 
-Dieser Code konnte ausführliche mit einer großen Anzahl von Spalten abgerufen werden. [Im letzten Lernprogramm dieser Reihe](advanced.md#dynamic-linq) wird gezeigt, wie Sie Code schreiben, mit dem Sie den Namen eines übergeben der `OrderBy` Spalte in einer Zeichenfolgenvariablen.
+Dieser Code könnte mit einer großen Anzahl von Spalten ausführlich werden. [Das letzte Tutorial dieser Reihe](advanced.md#dynamic-linq) zeigt, wie Sie Code schreiben, mit dem Sie den Namen der `OrderBy`-Spalte an eine Zeichenfolgenvariablen übergeben können.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Die Indexansicht Student Spaltenüberschrift Links hinzufügen
+### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Hinzufügen von Spaltenüberschriftenlinks zur Studentenindexansicht
 
-Ersetzen Sie den Code in *Views/Students/Index.cshtml*, durch den folgenden Code Spaltenüberschrift Hyperlinks hinzufügen. Die geänderten Zeilen werden hervorgehoben.
+Ersetzen Sie den Code in *Views/Students/Index.cshtml* durch den folgenden Code, um Spaltenüberschriftenlinks hinzuzufügen. Die geänderten Zeilen werden hervorgehoben.
 
 [!code-html[](intro/samples/cu/Views/Students/Index2.cshtml?highlight=16,22)]
 
-Dieser Code verwendet die Informationen in `ViewData` Eigenschaften zum Einrichten von Hyperlinks mit der entsprechenden Abfrage Zeichenfolgenwerte.
+Dieser Code verwendet die Informationen in den `ViewData`-Eigenschaften zum Einrichten von Links mit den entsprechenden Abfragezeichenfolgenwerten.
 
-Die app auszuführen, wählen Sie die **Studenten** Registerkarte, und klicken Sie auf die **Nachname** und **Registrierungsdatum** funktioniert Spaltenüberschriften, um diese Sortierung zu überprüfen.
+Führen Sie die Anwendung aus, wählen Sie die Registerkarte **Students** (Studenten) aus, klicken Sie auf die Spaltenüberschriften **Last Name** (Nachname) und **Enrollment Date** (Anmeldedatum), um diese Sortierung zu überprüfen.
 
-![Studenten Indexseite im Namensreihenfolge](sort-filter-page/_static/name-order.png)
+![Indexseite „Studenten“ in Reihenfolge der Namen](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Den Studenten Indexseite ein Suchfeld hinzufügen
+## <a name="add-a-search-box-to-the-students-index-page"></a>Hinzufügen eines Suchfelds zur Studentenindexseite
 
-Zum Hinzufügen der Studenten Indexseite filtern, Sie fügen einem Textfeld und einer Schaltfläche "Absenden" zur Ansicht und entsprechende Änderungen an der `Index` Methode. Das Textfeld können Sie geben eine Zeichenfolge, die in den Vornamen und den letzten Namensfelder gesucht werden soll.
+Wenn Sie eine Filterfunktion zur Studentenindexseite hinzufügen möchten, dann fügen Sie ein Textfeld und die Schaltfläche „Senden“ zur Ansicht hinzu, und führen Sie die entsprechenden Änderungen in der `Index`-Methode aus. Sie können eine Zeichenfolge in das Textfeld für Vor- und Nachnamen eingeben, um eine Suche zu starten.
 
-### <a name="add-filtering-functionality-to-the-index-method"></a>Hinzufügen von Filterfunktionen zur Verfügung, die Index-Methode
+### <a name="add-filtering-functionality-to-the-index-method"></a>Hinzufügen der Filterfunktion zur Indexmethode
 
-In *StudentsController.cs*, ersetzen Sie die `Index` -Methode durch folgenden Code (die Änderungen werden hervorgehoben).
+Ersetzen Sie in *StudentsController.cs* die `Index`-Methode durch den folgenden Code (die Änderungen sind hervorgehoben).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
-Sie hinzugefügt haben eine `searchString` Parameter an die `Index` Methode. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, die Sie die Indexansicht hinzufügen. Sie haben ebenfalls hinzugefügt, die LINQ-Anweisung eine Where-Klausel, die nur Studenten auswählt, deren vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Die Anweisung, die fügt die Where-Klausel ist nur dann, wenn es ein Wert für die Suche wird ausgeführt.
+Sie haben einen `searchString`-Parameter zur `Index`-Methode hinzugefügt. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, das Sie zur Indexansicht hinzufügen. Sie haben ebenfalls eine Where-Klausel zur LINQ-Anweisung hinzugefügt, die nur Studenten auswählt, deren Vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Die Anweisung, die die Where-Klausel hinzufügt, wird nur ausgeführt, wenn nach einem Wert gesucht wird.
 
 > [!NOTE]
-> Sie werden hier Aufrufen der `Where` Methode auf eine `IQueryable` Objekt und der Filter wird auf dem Server verarbeitet werden. In einigen Szenarien Sie aufgerufen werden möglicherweise die `Where` -Methode eine Erweiterungsmethode für eine in-Memory-Auflistung. (Z. B. Angenommen, Sie ändern, dass den Verweis auf `_context.Students` also, sondern von einer EF `DbSet` er verweist auf eine Repository-Methode, die zurückgibt eine `IEnumerable` Auflistung.) Das Ergebnis wäre normalerweise identisch, aber in einigen Fällen unterscheiden.
+> Wenn Sie die `Where`-Methode auf einem `IQueryable`-Objekt aufrufen, wird der Filter auf dem Server verarbeitet. In einigen Szenarios rufen Sie möglicherweise die `Where`-Methode als Erweiterungsmethode für eine speicherinterne Sammlung auf. (Angenommen, Sie ändern den Verweis auf `_context.Students`. Dann wird nicht mehr auf ein `DbSet`-EF, sondern auf eine Repository-Methode verwiesen, die eine `IEnumerable`-Sammlung zurückgibt.) Das Ergebnis wäre normalerweise identisch, aber in einigen Fällen kann es unterschiedlich ausfallen.
 >
->Angenommen, die .NET Framework-Implementierung von der `Contains` -Methode führt einen Vergleich Groß-/Kleinschreibung standardmäßig, jedoch in SQL Server wird dies durch die sortierungseinstellung der SQL Server-Instanz bestimmt. Diese Einstellung wird standardmäßig auf Groß-/Kleinschreibung. Rufen Sie die `ToUpper` Methode zum Erstellen von Tests explizit Groß-/Kleinschreibung: *, in denen (s = > s.LastName.ToUpper(). Contains(searchString.ToUpper())*. Würde sicherzustellen, dass Ergebnisse gleich bleiben, wenn Sie ändern den Code weiter unten, um ein Repository verwenden die zurückgibt, eine `IEnumerable` Auflistung anstelle von einer `IQueryable` Objekt. (Beim Aufrufen der `Contains` Methode auf eine `IEnumerable` -Auflistung, erhalten Sie die .NET Framework-Implementierung; Wenn Sie es auf Aufrufen einer `IQueryable` -Objekt erhalten Sie die Implementierung des Anbieters.) Es ist jedoch eine Leistungseinbuße für diese Lösung. Die `ToUpper` Code eine Funktion in der WHERE-Klausel der t-SQL SELECT-Anweisung setzen würden. Die würde verhindern, dass den Optimierer einen Index verwenden. Davon ausgehend, dass SQL hauptsächlich als Groß-/Kleinschreibung installiert ist, es wird empfohlen, vermeiden Sie die `ToUpper` code, bis die Migration zu einem Datenspeicher für die Groß-/Kleinschreibung beachtet.
+>Die .NET Framework-Implementierung der `Contains`-Methode führt beispielsweise standardmäßig einen Vergleich unter Beachtung der Groß-/Kleinschreibung durch. Aber in SQL Server wird dies durch die Sortierungseinstellung der SQL Server-Instanz bestimmt. Diese Einstellung berücksichtigt die Groß-/Kleinschreibung standardmäßig nicht. Sie können die `ToUpper`-Methode aufrufen, damit der Test die Groß-/Kleinschreibung explizit nicht berücksichtigt: *Where(s => s.LastName.ToUpper(). Contains(searchString.ToUpper())*. Das würde sicherstellen, dass die Ergebnisse gleich bleiben, wenn Sie den Code später ändern, um ein Repository zu verwenden, das eine `IEnumerable`-Sammlung anstelle eines `IQueryable`-Objekts zurückgibt. (Beim Aufrufen der `Contains`-Methode einer `IEnumerable`-Sammlung erhalten Sie die .NET Framework-Implementierung. Wenn Sie sie auf einem `IQueryable`-Objekt aufrufen, erhalten Sie die Implementierung des Datenanbieters.) Es gibt jedoch eine Leistungseinbuße für diese Lösung. Der `ToUpper`-Code würde eine Funktion in die WHERE-Klausel der TSQL SELECT-Anweisung setzen. Die würde verhindern, dass der Optimierer einen Index verwendet. Da SQL die Groß-/Kleinschreibung hauptsächlich nicht berücksichtigt, wird empfohlen, den `ToUpper`-Code zu vermeiden, bis die Migration zu einem Datenspeicher erfolgt ist, der die Groß-/Kleinschreibung beachtet.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Fügen Sie ein Suchfeld auf die Indexansicht Student
+### <a name="add-a-search-box-to-the-student-index-view"></a>Hinzufügen eines Suchfelds zur Studentenindexansicht
 
-In *Views/Student/Index.cshtml*, fügen Sie der hervorgehobene Code hinzu, unmittelbar bevor das öffnende Tag um erstellen eine Beschriftung, ein Textfeld, Tabelle und eine **Suche** Schaltfläche.
+Fügen Sie in *Views/Student/Index.cshtml* den hervorgehobenen Code unmittelbar vor dem Tag „Tabelle öffnen“ hinzu, um eine Beschriftung, ein Textfeld und eine **Suche**-Schaltfläche zu erstellen.
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Dieser Code verwendet die `<form>` [tag Helper](xref:mvc/views/tag-helpers/intro) Suchtextfeld und Schaltfläche hinzufügen. Wird standardmäßig der `<form>` Tag Hilfsprogramm sendet Formulardaten mit einer POST, was bedeutet, dass der Parameter als Abfragezeichenfolgen in den Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET die Formulardaten übergeben die URL als Abfragezeichenfolgen, dadurch können sich Benutzer auf die URL von Lesezeichen. Das W3C Richtlinien wird empfohlen, das zu verwendende erhalten, wenn das Aktionsergebnis ein Update nicht.
+Dieser Code verwendet das [Taghilfsprogramm](xref:mvc/views/tag-helpers/intro) `<form>`, um das Suchtextfeld und die Schaltfläche hinzuzufügen. Das Taghilfsprogramm `<form>` sendet standardmäßig Formulardaten mit einem POST, was bedeutet, dass Parameter als Abfragezeichenfolgen im Hauptteil der HTTP-Nachricht und nicht in der URL übergeben werden. Bei der Angabe von HTTP GET werden die Formulardaten als Abfragezeichenfolgen an die URL übergeben. Dadurch können Benutzer ein Lesezeichen für die URL erstellen. Die W3C-Richtlinien empfehlen die Verwendung eines GET-Vorgangs, wenn die Aktion nicht zu einem Update führt.
 
-Die app auszuführen, wählen Sie die **Studenten** Registerkarte, geben Sie eine Suchzeichenfolge ein, und klicken Sie auf Suchen, um sicherzustellen, dass die Filterung arbeitet.
+Führen Sie die Anwendung aus, wählen Sie die Registerkarte **Studenten**, geben Sie eine Suchzeichenfolge ein, und klicken Sie auf „Suchen“, um die Funktionsweise des Filters zu überprüfen.
 
-![Studenten Indexseite mit Filtern](sort-filter-page/_static/filtering.png)
+![Indexseite Studenten mit Filtern](sort-filter-page/_static/filtering.png)
 
-Beachten Sie, dass die URL der zu suchende Zeichenfolge enthält.
+Beachten Sie, dass die URL die Suchzeichenfolge enthält.
 
 ```html
 http://localhost:5813/Students?SearchString=an
 ```
 
-Wenn Sie diese Seite Lesezeichen, erhalten Sie die gefilterte Liste, bei der Verwendung von Lesezeichen. Hinzufügen von `method="get"` auf die `form` Tag ist die Ursache der Abfragezeichenfolge an, die generiert werden.
+Wenn Sie diese Seite kennzeichnen, erhalten Sie die gefilterte Liste bei der Verwendung von Lesezeichen. Wird `method="get"` zum `form`-Tag hinzugefügt, wird die Abfragezeichenfolge generiert.
 
-In dieser Phase, wenn Sie einen Spaltenüberschrift sortieren Link klicken Sie verlieren die Filterwert, der im eingegebenen der **Suche** Feld. Sie beheben, die im nächsten Abschnitt.
+Wenn Sie in dieser Phase auf einen Sortierlink in einer Spaltenüberschrift klicken, verlieren Sie den Filterwert, den Sie im Feld neben **Suchen** eingegeben haben. Dies soll im nächsten Abschnitt behoben werden.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Den Studenten Indexseite Pagingfunktionen hinzufügen
+## <a name="add-paging-functionality-to-the-students-index-page"></a>Hinzufügen von Pagingfunktionen der Studentenindexseite
 
-Um die Studenten Indexseite Paging hinzugefügt haben, erstellen Sie eine `PaginatedList` -Klasse, verwendet `Skip` und `Take` Anweisungen zum Filtern von Daten auf dem Server statt immer alle Zeilen der Tabelle abzurufen. Dann Sie zusätzliche Änderungen in machen der `Index` Methode und Pagingschaltflächen zum Hinzufügen der `Index` anzeigen. Die folgende Abbildung zeigt die Pagingschaltflächen.
+Um die Pagingfunktionen zur Studentenindexseite hinzuzufügen, erstellen Sie eine `PaginatedList`-Klasse, die `Skip`- und `Take`-Anweisungen zum Filtern von Daten auf dem Server verwendet, anstatt immer alle Zeilen der Tabelle abzurufen. Dann nehmen Sie zusätzliche Änderungen der `Index`-Methode vor, und fügen Pagingschaltflächen zur `Index`-Ansicht hinzu. Die folgende Abbildung zeigt die Pagingschaltflächen.
 
-![Studenten Indexseite mit Paginierungslinks](sort-filter-page/_static/paging.png)
+![Indexseite „Studenten“ mit Paginglinks](sort-filter-page/_static/paging.png)
 
-Erstellen Sie in den Projektordner `PaginatedList.cs`, und Ersetzen Sie den Code durch den folgenden Code.
+Erstellen Sie `PaginatedList.cs` im Projektordner. Ersetzen Sie den Vorlagencode dann durch den folgenden Code.
 
 [!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
-Die `CreateAsync` Methode in diesem Code akzeptiert Seitengröße und die Seitenzahl und wendet die entsprechenden `Skip` und `Take` Anweisungen, die die `IQueryable`. Wenn `ToListAsync` aufgerufen wird, auf die `IQueryable`, wird eine Liste mit nur die angeforderte Seite zurückgegeben. Die Eigenschaften `HasPreviousPage` und `HasNextPage` dienen zum Aktivieren oder deaktivieren Sie **vorherige** und **Weiter** paging Schaltflächen.
+Die `CreateAsync`-Methode in diesem Code akzeptiert die Seitengröße und die Seitenzahl und wendet die entsprechenden `Skip`- und `Take`-Anweisungen auf `IQueryable` an. Wenn `ToListAsync` auf `IQueryable` aufgerufen wird, wird eine Liste zurückgegeben, die nur die angeforderte Seite enthält. Die Eigenschaften `HasPreviousPage` und `HasNextPage` dienen zum Aktivieren oder Deaktivieren der Pagingschaltflächen **Zurück** und **Weiter**.
 
-Ein `CreateAsync` Methode wird verwendet, statt einen Konstruktor zum Erstellen der `PaginatedList<T>` Objekt, da der Konstruktoren asynchronen Code ausgeführt werden können.
+Ein `CreateAsync`-Methode wird anstelle eines Konstruktors verwendet, um das `PaginatedList<T>`-Objekt zu erstellen, da die Konstruktoren keinen asynchronen Code ausführen können.
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Fügen Sie Pagingfunktionen zur Index-Methode
+## <a name="add-paging-functionality-to-the-index-method"></a>Fügen Sie Pagingfunktionen zur Indexmethode hinzu
 
-In *StudentsController.cs*, ersetzen Sie die `Index` -Methode durch folgenden Code.
+Ersetzen Sie in *StudentsController.cs* die `Index`-Methode mit dem folgenden Code.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
-Dieser Code Fügt eine Seite-Number-Parameter, eine aktuelle sortieren Reihenfolge Parameter- und eine aktuelle Filter-Parameter auf die Methodensignatur an.
+Dieser Code fügt ein Parameter für die Seitenanzahl, die aktuelle Sortierreihenfolge und den aktuellen Filter zur Methodensignatur hinzu.
 
 ```csharp
 public async Task<IActionResult> Index(
@@ -138,13 +138,13 @@ public async Task<IActionResult> Index(
     int? page)
 ```
 
-Ersten Mal die Seite wird angezeigt, oder wenn der Benutzer eine Auslagerung oder Sortierung von Link geklickt hat noch nicht, werden alle Parameter null sein.  Wenn ein Auslagerung Link geklickt wird, enthält die Seitenvariable die Seitenzahl angezeigt.
+Wenn die Seite zum ersten Mal angezeigt wird oder wenn der Benutzer nicht auf einen Paging- oder Sortierlink geklickt hat, werden alle Parameter gleich 0 (null) sein.  Wenn auf ein Paginglink geklickt wird, enthält die Seitenvariable die anzuzeigende Seitenzahl.
 
-Die `ViewData` Element mit dem Namen CurrentSort erhält die Ansicht mit der aktuellen Sortierung aus, da dies in die Auslagerungsdatei Links enthalten sein muss, um der Sortierreihenfolge beim Paging identisch zu halten.
+Das `ViewData`-Element „CurrentSort“ stellt die aktuelle Sortierreihenfolge für die Ansicht bereit. Diese Sortierreihenfolge muss in den Paginglinks enthalten sein, damit sie beim Pagingvorgang identisch bleibt.
 
-Die `ViewData` Element mit dem Namen "aktuelle Filter" enthält die Ansicht mit der aktuellen Filterzeichenfolge. Dieser Wert muss in die Auslagerungsdatei Links enthalten sein, um die filtereinstellungen während der Auslagerung zu gewährleisten, und es muss in das Textfeld wiederhergestellt werden, wenn die Seite erneut angezeigt wird.
+Das `ViewData`-Element „CurrentFilter“ stellt der Ansicht die aktuelle Filterzeichenfolge zur Verfügung. Dieser Wert muss in den Paginglinks enthalten sein, damit die Filtereinstellungen während des Pagingvorgangs beibehalten werden, und er muss im Textfeld wiederhergestellt werden, wenn die Seite erneut angezeigt wird.
 
-Wenn die Suchzeichenfolge während Paging geändert wird, verfügt über die Seite auf 1 zurückgesetzt werden sollen, der neue Filter kann in verschiedenen anzuzeigenden ergeben. Die Suchzeichenfolge wird geändert, wenn ein Wert in das Textfeld eingegeben wird und die Schaltfläche "Absenden" gedrückt wird. In diesem Fall die `searchString` Parameter nicht null ist.
+Wenn die Suchzeichenfolge während des Pagingvorgangs geändert wird, muss die Seite auf 1 zurückgesetzt werden, da der neue Filter andere Daten anzeigen kann. Die Suchzeichenfolge wird geändert, wenn ein Wert in das Textfeld eingegeben und auf die Schaltfläche „Senden“ geklickt wird. In diesem Fall ist der `searchString`-Parameter nicht gleich 0 (null).
 
 ```csharp
 if (searchString != null)
@@ -157,29 +157,29 @@ else
 }
 ```
 
-Am Ende der `Index` -Methode, die `PaginatedList.CreateAsync` Methode konvertiert die Student-Abfrage in einer einzelnen Seite der Schüler in einen Auflistungstyp, die Paging unterstützt. Diese einzelnen Studenten-Seite wird dann an die Ansicht übergeben.
+Am Ende der `Index`-Methode konvertiert die `PaginatedList.CreateAsync`-Methode die Abfrage der Studentendaten in eine einzelne Seite in einem Sammlungstyp, der Pagingvorgänge unterstützt. Diese einzelnen Seite mit Studentendaten wird dann an die Ansicht übergeben.
 
 ```csharp
 return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
 ```
 
-Die `PaginatedList.CreateAsync` Methode nimmt eine Seitenzahl an. Die zwei Fragezeichen darstellen, die Null-Sammeloperator. Der Null-Sammeloperator definiert einen Standardwert für einen NULL-Werte zulässt. der Ausdruck `(page ?? 1)` bedeutet, dass der Rückgabewert von `page` , wenn es einen Wert, oder 1 zurück, wenn `page` ist null.
+Die `PaginatedList.CreateAsync`-Methode nimmt eine Seitenanzahl. Die zwei Fragezeichen stellen den Nullzusammensetzungsoperator dar. Der Nullzusammensetzungsoperator definiert einen Standardwert für einen Nullable-Typ. Der `(page ?? 1)`-Ausdruck bedeutet, dass `page` zurückgegeben wird, wenn dies über einen Wert verfügt, oder 1, wenn `page` gleich 0 (null) ist.
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Können die Indexansicht Student Paginierungslinks hinzufügen
+## <a name="add-paging-links-to-the-student-index-view"></a>Hinzufügen eines Paginglinks zur Studentenindexansicht
 
-In *Views/Students/Index.cshtml*, ersetzen Sie den vorhandenen Code durch den folgenden Code. Die Änderungen werden hervorgehoben.
+Ersetzen Sie in *Views/Students/Index.cshtml* den vorhandenen Code durch den folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-html[](intro/samples/cu/Views/Students/Index.cshtml?highlight=1,27,30,33,61-79)]
 
-Die `@model` Anweisung am oberen Rand der Seite "gibt an, dass die Sicht nun Ruft eine `PaginatedList<T>` -Objekt anstelle einer `List<T>` Objekt.
+Die `@model`-Anweisung am oberen Rand der Seite gibt an, dass die Ansicht nun ein `PaginatedList<T>`-Objekt anstelle eines `List<T>`-Objekts aufruft.
 
-Die Spalte Header Links verwenden die Abfragezeichenfolge an die aktuelle Suchzeichenfolge an den Controller übergeben, damit der Benutzer in Filterergebnisse sortieren kann:
+Die Spaltenüberschriftenlinks verwenden die Abfragezeichenfolge, um die aktuelle Suchzeichenfolge an den Controller zu übergeben, damit Benutzer Filterergebnisse sortieren können:
 
 ```html
 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter ="@ViewData["CurrentFilter"]">Enrollment Date</a>
 ```
 
-Tag-Hilfsprogramme sind die Auslagerung Schaltflächen angezeigt:
+Die Pagingschaltflächen werden durch Taghilfsprogramme angezeigt:
 
 ```html
 <a asp-action="Index"
@@ -191,37 +191,37 @@ Tag-Hilfsprogramme sind die Auslagerung Schaltflächen angezeigt:
 </a>
 ```
 
-Führen Sie die app, und wechseln Sie zu der Seite "Students".
+Führen Sie die Anwendung aus. Wechseln Sie zur Studentenseite.
 
-![Studenten Indexseite mit Paginierungslinks](sort-filter-page/_static/paging.png)
+![Indexseite „Studenten“ mit Paginglinks](sort-filter-page/_static/paging.png)
 
-Klicken Sie auf die Auslagerung Links in verschiedenen Sortierreihenfolgen, stellen Sie sicher, dass Paging funktioniert. Klicken Sie dann geben Sie eine Suchzeichenfolge ein, und versuchen Sie es erneut aus, um sicherzustellen, dass Paging auch ordnungsgemäß mit Sortier- und Filtervorgänge Paging.
+Klicken Sie auf die Paginglinks in verschiedenen Sortierreihenfolgen, um sicherzustellen, dass die Paging funktioniert. Geben Sie dann eine Suchzeichenfolge ein. Probieren Sie Paging erneut aus, um sicherzustellen, dass sie auch mit Sortier- und Filtervorgängen ordnungsgemäß funktioniert.
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Erstellen Sie eine Informationsseite, die Student Statistiken
+## <a name="create-an-about-page-that-shows-student-statistics"></a>Erstellen einer Informationsseite, die Statistiken der Studentendaten anzeigt
 
-Für der Contoso-University Website **zu** Seite müssen Sie anzeigen, wie viele Studenten für jedes Registrierungsdatum registriert haben. Dazu gruppieren und einfache Berechnungen für Gruppen. Um dies zu erreichen, müssen Sie Folgendes ausführen:
+Auf der **Infoseite** der Contoso University wird angezeigt, wie viele Studenten sich an welchem Datum angemeldet haben. Das erfordert Gruppieren und einfache Berechnungen dieser Gruppen. Um dies zu erreichen, ist Folgendes erforderlich:
 
-* Erstellen Sie eine Modellklasse Ansicht für die Daten, die an die Ansicht ьbergeben werden sollen.
+* Erstellen Sie eine Ansichtsmodellklasse für die Daten, die Sie an die Ansicht übergeben müssen.
 
-* Ändern Sie die Info-Methode im Home-Controller.
+* Ändern Sie die Infomethode im Home-Controller.
 
-* Ändern Sie die Info-Sicht.
+* Ändern Sie die Infoansicht.
 
-### <a name="create-the-view-model"></a>Erstellen des Modells anzeigen
+### <a name="create-the-view-model"></a>Erstellen des Ansichtsmodells
 
-Erstellen einer *SchoolViewModels* Ordner in der *Modelle* Ordner.
+Erstellen Sie im Ordner *Models* (Modelle) den Ordner *SchoolViewModels*.
 
-Fügen Sie eine Klassendatei in den neuen Ordner *EnrollmentDateGroup.cs* , und Ersetzen Sie den Code durch den folgenden Code:
+Fügen Sie im neuen Ordner die Klassendatei *EnrollmentDateGroup.cs* hinzu. Ersetzen Sie den Vorlagencode durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="modify-the-home-controller"></a>Ändern Sie den Home-Controller
+### <a name="modify-the-home-controller"></a>Ändern des Home-Controllers
 
-In *HomeController.cs*, fügen Sie die folgenden using-Anweisungen am Anfang der Datei:
+Fügen Sie in *HomeController.cs* am Anfang der Datei die folgenden Anweisungen hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
-Fügen Sie eine Klassenvariable für den Datenbankkontext unmittelbar nach der öffnenden geschweiften Klammer für die Klasse, und rufen Sie eine Instanz des Kontexts von ASP.NET Core DI:
+Fügen Sie eine Klassenvariable für den Datenbankkontext hinzu, unmittelbar nachdem Sie die geschweifte Klammer für die Klasse geöffnet haben. Rufen Sie eine Instanz des Kontexts von ASP.NET Core DI auf:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
@@ -229,23 +229,23 @@ Ersetzen Sie die `About`-Methode durch folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
-Registrierungsdatum Student-Entität gruppiert, berechnet die Anzahl der Entitäten in jeder Gruppe und speichert die Ergebnisse in einer Auflistung von LINQ-Anweisung `EnrollmentDateGroup` Model-Objekte anzeigen.
+Die LINQ-Anweisung gruppiert die Studentenentitäten nach Anmeldedatum, berechnet die Anzahl der Entitäten in jeder Gruppe und speichert die Ergebnisse in einer Sammlung von `EnrollmentDateGroup`-Ansichtsmodellobjekten.
 > [!NOTE] 
-> Klicken Sie in der Version 1.0 von Entity Framework Core das gesamte Resultset an den Client zurückgegeben wird, und Gruppierung erfolgt auf dem Client. In einigen Szenarien konnte das Leistungsproblemen erstellt werden. Achten Sie darauf, dass zum Testen der Leistung mit Produktion Datenmengen und bei Bedarf unformatierten SQL verwenden, um die Gruppierung auf dem Server ausführen. Informationen zur Verwendung von unformatierten SQL finden Sie unter [im letzten Lernprogramm dieser Reihe](advanced.md).
+> In der Version 1.0 von Entity Framework Core wird das gesamte Ergebnis an den Client zurückgegeben, und die Gruppierung erfolgt auf dem Client. In einigen Szenarios könnte das Leistungsprobleme hervorrufen. Achten Sie darauf, dass Sie die Leistung mit Produktionsdatenmengen überprüfen. Verwenden Sie bei Bedarf unformatiertes SQL, um die Gruppierung auf dem Server auszuführen. Weitere Informationen zur Verwendung von unformatiertem SQL finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
 
-### <a name="modify-the-about-view"></a>Ändern Sie die Informationen zur Ansicht
+### <a name="modify-the-about-view"></a>Ändern der Infoansicht
 
-Ersetzen Sie den Code in der *Views/Home/About.cshtml* Datei durch den folgenden Code:
+Ersetzen Sie den Code in der *Views/Home/About.cshtml*-Datei durch den folgenden Code:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Führen Sie die app, und wechseln Sie zu der Seite "Info". Die Anzahl der Schüler für jedes Registrierungsdatum wird in einer Tabelle angezeigt.
+Führen Sie die Anwendung aus, und wechseln Sie zur Infoseite. Die Anzahl der Studenten für jedes Anmeldedatum wird in einer Tabelle angezeigt.
 
-![Zu den Seiten](sort-filter-page/_static/about.png)
+![Infoseite](sort-filter-page/_static/about.png)
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm haben Sie gesehen, wie sortieren, filtern, Paging und gruppieren ausführen. In den nächsten Lernprogrammen erfahren Sie, wie datenmodelländerungen zu behandeln, indem Sie Migrationen.
+In diesem Tutorial haben Sie das Sortieren, Filtern, Paging und Gruppieren gelernt. Im nächsten Tutorial lernen Sie, wie Sie mithilfe von Migrationen Datenmodelländerungen verarbeiten.
 
 >[!div class="step-by-step"]
 [Zurück](crud.md)

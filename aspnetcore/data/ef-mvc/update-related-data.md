@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC mit EF-Kern - Update bezogene Daten per Push – 7 von 10"
+title: 'ASP.NET Core MVC mit EF Core: Lesen verwandter Daten (7 von 10)'
 author: tdykstra
-description: "In diesem Lernprogramm werden Sie verknüpfte Daten aktualisieren, durch die Aktualisierung von foreign Key-Felder und Navigationseigenschaften."
+description: "Mithilfe dieses Tutorials führen Sie Updates für verwandte Daten aus, indem Sie Felder mit Fremdschlüsseln sowie Navigationseigenschaften aktualisieren."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,30 +10,30 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
 ms.openlocfilehash: 4085ca9340291f6ab594285360f3b65738699098
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualisieren von verknüpften Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (7 von 10)
+# <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Lesen verwandter Daten: EF Core mit ASP.NET Core MVC-Tutorial (7 von 10)
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen, die mit Entity Framework Core und Visual Studio. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](intro.md).
+Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen mit Entity Framework Core und Visual Studio erstellt werden. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](intro.md).
 
-Im vorherigen Lernprogramm angezeigten Sie verwandte Daten; In diesem Lernprogramm werden Sie verknüpfte Daten aktualisieren, durch die Aktualisierung von foreign Key-Felder und Navigationseigenschaften.
+Mithilfe des letzten Tutorials haben Sie zugehörige Daten abgerufen. Mithilfe dieses Tutorials führen Sie hingegen Updates für verwandte Daten aus, indem Sie Felder mit Fremdschlüsseln sowie Navigationseigenschaften aktualisieren.
 
-Die folgenden Abbildungen zeigen einige Seiten, denen Sie verwenden müssen.
+In den folgenden Abbildungen werden die Seiten dargestellt, mit denen Sie arbeiten werden.
 
-![Kurs bearbeiten (Seite)](update-related-data/_static/course-edit.png)
+![Bearbeitungsseite „Kurs“](update-related-data/_static/course-edit.png)
 
-![Instructor bearbeiten (Seite)](update-related-data/_static/instructor-edit-courses.png)
+![Bearbeitungsseite „Dozent“](update-related-data/_static/instructor-edit-courses.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Das Erstellen und von Bearbeitungsseiten für Kurse anpassen
+## <a name="customize-the-create-and-edit-pages-for-courses"></a>Anpassen der Seiten „Erstellen“ und „Bearbeiten“ für Kurse
 
-Wenn eine neue Kurs-Entität erstellt wird, muss sie eine Beziehung zu einer vorhandenen Abteilung verfügen. Um dies zu ermöglichen, enthält der scaffolded Code Controllermethoden und erstellen und Bearbeiten von Ansichten, die eine Dropdown-Liste für die Auswahl der Abteilung enthalten. Im Dropdown-Liste wird die `Course.DepartmentID` Fremdschlüsseleigenschaft, und das ist alles Entity Framework zu benötigt, um das Laden der `Department` Navigationseigenschaft mit der entsprechenden Abteilung-Entität. Sie müssen den scaffolded Code, aber ändern, damit Sie etwas hinzufügen Fehlerbehandlung und sortieren Sie die Dropdown-Liste.
+Wenn eine neue Kursentität erstellt wird, muss diese in Beziehung zu einer vorhandenen Abteilung stehen. Um dies zu vereinfachen, enthält der Gerüstcode Controllermethoden und Ansichten zum „Erstellen“ und „Bearbeiten“, die eine Dropdownliste enthalten, aus denen der Fachbereich ausgewählt werden kann. Die Dropdownliste legt die `Course.DepartmentID`-Fremdschlüsseleigenschaft fest. Mehr benötigt Entity Framework nicht, um die `Department`-Navigationseigenschaft mit der passenden Department-Entität zu laden. Verwenden Sie den Gerüstcode, aber nehmen Sie kleine Änderungen vor, um die Fehlerbehandlung hinzuzufügen und die Dropdownliste zu sortieren.
 
-In *CoursesController.cs*, löschen Sie die vier erstellen und Bearbeiten von Methoden, und Ersetzen Sie sie durch den folgenden Code:
+Löschen Sie aus der *CoursesController.cs*-Datei die vier Methoden zum „Erstellen“ und „Bearbeiten“, und ersetzen Sie diese durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
 
@@ -43,91 +43,91 @@ In *CoursesController.cs*, löschen Sie die vier erstellen und Bearbeiten von Me
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
 
-Nach der `Edit` HttpPost-Methode erstellen Sie eine neue Methode, die Abteilung Informationen für die Dropdown-Liste geladen.
+Erstellen Sie nach der HttpPost-Methode `Edit` eine neue Methode, die für die Dropdownliste Informationen zum Fachbereich lädt.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
 
-Die `PopulateDepartmentsDropDownList` Methode ruft eine Liste aller Abteilungen, sortiert nach dem Namen ab, erstellt eine `SelectList` Auflistung eine Dropdown-Liste, und übergibt die Auflistung an der Sicht `ViewBag`. Akzeptiert die Methode den optionalen `selectedDepartment` Parameter, der den Aufrufcode das Element an, die beim Rendern der Dropdown Liste ausgewählt werden kann. Die Ansicht übergeben den Namen "DepartmentID" die `<select>` Tag-Hilfsobjekt und das Hilfsprogramm zum Suchen in weiß der `ViewBag` -Objekt für eine `SelectList` mit dem Namen "DepartmentID".
+Die `PopulateDepartmentsDropDownList`-Methode ruft eine nach Namen sortierte Liste aller Abteilungen ab, erstellt eine `SelectList`-Auflistung für die Dropdownliste und übergibt diese Auflistung an die Ansicht in `ViewBag`. Die Methode akzeptiert den optionalen `selectedDepartment`-Parameter, über den der Code das Element angeben kann, das ausgewählt wird, wenn die Dropdownliste gerendert wird. Die Ansicht übergibt den Namen „DepartmentID“ an das Taghilfsprogramm `<select>`. Dann weiß das Hilfsprogramm, dass es nach einem `ViewBag`-Objekt für eine `SelectList` mit dem Namen „DepartmentID“ suchen soll.
 
-Die HttpGet `Create` Methodenaufrufe der `PopulateDepartmentsDropDownList` Methode ohne das ausgewählte Element festlegen, da für einen neuen Kurs noch die Abteilung eingerichtet ist nicht:
+Die HttpGet-Methode `Create` ruft die `PopulateDepartmentsDropDownList`-Methode auf, ohne das ausgewählte Element festzulegen, da der Fachbereich für einen neuen Code noch nicht festgelegt wurde:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
-Die HttpGet `Edit` -Methode legt das ausgewählte Element, das anhand der ID der Abteilung, die den zu bearbeitenden Kurs bereits zugewiesen ist:
+Die HttpGet-Methode `Edit` legt anhand der ID des Fachbereichs, die bereits dem Kurs zugewiesen wurde, der bearbeitet wird, das ausgewählte Element fest:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
 
-Für beide Methoden HttpPost `Create` und `Edit` auch Code enthalten, der das ausgewählte Element festgelegt werden soll, wenn sie die Seite nach einem Fehler erneut. Dadurch wird sichergestellt, dass wenn die Seite erneut angezeigt wird, um die Fehlermeldung anzuzeigen, die Abteilung ausgewählt wurde ausgewählten bleibt.
+Die HttpPost-Methoden für `Create` und `Edit` enthalten außerdem Code, der das ausgewählte Element festlegt, wenn die Seite nach einem Fehler erneut angezeigt wird. Dadurch wird gewährleistet, dass der Fachbereich nicht geändert wird, wenn eine Seite erneut angezeigt wird, um die Fehlermeldung anzuzeigen.
 
-### <a name="add-asnotracking-to-details-and-delete-methods"></a>Fügen Sie hinzu. AsNoTracking zu den Details und Löschmethoden
+### <a name="add-asnotracking-to-details-and-delete-methods"></a>Hinzufügen von „.AsNoTracking“ zu den Methoden „Details“ und „Delete“
 
-Zum Optimieren der Leistung der Kursdetails und Delete-Seiten hinzufügen `AsNoTracking` ruft in der `Details` und HttpGet `Delete` Methoden.
+Fügen Sie `AsNoTracking`-Aufrufe in die `Details` und zu den HttpGet-Methoden `Delete` hinzu, um die Leistung der Kursdetails und Seiten zum „Löschen“ zu optimieren.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
 
-### <a name="modify-the-course-views"></a>Ändern Sie die Kurs-Ansichten
+### <a name="modify-the-course-views"></a>Ändern der Kursansichten
 
-In *Views/Courses/Create.cshtml*, fügen Sie eine Option "Select-Abteilung", um die **Abteilung** Dropdown-Liste, ändern Sie die Beschriftung von **"DepartmentID"** auf  **Abteilung**, und fügen Sie eine validierungsmeldung angezeigt.
+Fügen Sie in der *Views/Courses/Create.cshtml*-Datei die Option „Select Department“ (Fachbereich auswählen) zu der Dropdownliste **Department** (Fachbereich) hinzu, ändern Sie den Titel von **DepartmentID** in **Department**, und fügen Sie eine Validierungsmeldung hinzu.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
-In *Views/Courses/Edit.cshtml*, stellen Sie die gleiche Änderung für das Feld für die Abteilung, die Sie soeben in *Create.cshtml*.
+Nehmen Sie in der Datei *Views/Courses/Edit.cshtml* dieselben Änderungen für das Feld „Department“ (Fachbereich) vor wie in der Datei *Create.cshtml*.
 
-Ebenfalls im *Views/Courses/Edit.cshtml*, ein Zahlenfeld "Kurs" vor dem Hinzufügen der **Titel** Feld. Da die Kurs-Anzahl der Primärschlüssel ist, wird angezeigt, jedoch nicht geändert werden kann.
+Fügen Sie in der *Views/Courses/Edit.cshtml*-Datei außerdem vor dem Feld **Titel** ein Feld für die Kursnummer hinzu. Da es sich bei der Kursnummer um einen Primärschlüssel handelt, wird dieser zwar angezeigt, kann aber nicht geändert werden.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
 
-Es ist bereits ein ausgeblendetes Feld (`<input type="hidden">`) für die Kursnummer in der Bearbeitungsansicht. Hinzufügen einer `<label>` Tag Hilfsprogramm nicht entfällt der Bedarf für das ausgeblendete Feld, da sie nicht dazu, dass die Anzahl der Kurs in die bereitgestellten Daten aufgenommen werden, wenn der Benutzer klickt **speichern** auf die **bearbeiten** Seite.
+In der Ansicht „Bearbeiten“ ist bereits eine ausgeblendetes Feld (`<input type="hidden">`) für die Kursnummer vorhanden. Wenn Sie ein `<label>`-Taghilfsprogramm hinzufügen, wird trotzdem ein ausgeblendetes Feld benötigt, da dieses nicht dazu beiträgt, dass die Kursnummer in den bereitgestellten Daten vorhanden ist, wenn der Benutzer auf der Seite **Bearbeiten** auf **Speichern** klickt.
 
-In *Views/Courses/Delete.cshtml*, fügen Sie oben ein Zahlenfeld Kurs hinzu und Department ID, Name der Abteilung zu ändern.
+Fügen Sie oben in der *Views/Courses/Delete.cshtml*-Datei ein Feld für die Kursnummer hinzu, und ändern Sie „Department ID“ (Fachbereichs-ID) in „Department Name“ (Fachbereichsname).
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
 
-In *Views/Courses/Details.cshtml*, stellen Sie die gleiche Änderung, die Sie soeben für *Delete.cshtml*.
+Nehmen Sie in der *Views/Courses/Details.cshtml*-Datei dieselben Änderungen wie in der *Delete.cshtml*-Datei vor.
 
-### <a name="test-the-course-pages"></a>Testen Sie die Kurs-Seiten
+### <a name="test-the-course-pages"></a>Testen der Kursseiten
 
-Die app auszuführen, wählen Sie die **Kurse** auf **neu erstellen**, und geben Sie Daten für einen neuen Kurs:
+Führen Sie die App aus, wählen Sie die Registerkarte **Courses** (Kurse) aus, klicken Sie auf **Neu erstellen**, und geben Sie die Daten für einen neuen Kurs ein:
 
-![Seite "Kurs erstellen"](update-related-data/_static/course-create.png)
+![Seite „Kurs erstellen“](update-related-data/_static/course-create.png)
 
-Klicken Sie auf **Erstellen**. Die Kurse Indexseite wird mit den neuen Kurs zur Liste hinzugefügt angezeigt. Der Abteilungsname in der Liste der Index-Seite stammt die Navigationseigenschaft, die anzeigt, dass die Beziehung ordnungsgemäß eingerichtet wurde.
+Klicken Sie auf **Erstellen**. Die Indexseite des Kurses wird mit dem Kurs angezeigt, der neu zu der Liste hinzugefügt wurde. Der Fachbereichsname in der Indexseitenliste wurde der Navigationseigenschaft entnommen und deutet darauf hin, dass die Beziehung ordnungsgemäß festgelegt wurde.
 
-Klicken Sie auf **bearbeiten** für eine Vorgehensweise in der Courses-Indexseite.
+Klicken Sie auf der Indexseite eines Kurses auf **Bearbeiten**.
 
-![Kurs bearbeiten (Seite)](update-related-data/_static/course-edit.png)
+![Bearbeitungsseite „Kurs“](update-related-data/_static/course-edit.png)
 
-Ändern von Daten auf der Seite, und klicken Sie auf **speichern**. Die Kurse Indexseite wird mit den aktualisierten Kursdaten angezeigt.
+Ändern Sie die Daten auf der Seite, und klicken Sie auf **Speichern**. Die Indexseite des Kurses wird mit den aktualisierten Kursdaten angezeigt.
 
-## <a name="add-an-edit-page-for-instructors"></a>Fügen Sie eine Bearbeitungsseite für Dozenten
+## <a name="add-an-edit-page-for-instructors"></a>Hinzufügen einer Seite zum „Bearbeiten“ für Dozenten
 
-Beim Bearbeiten eines Instructor-Datensatzes möchten Sie den Dozenten bürozuweisung aktualisieren können. Die Instructor-Entität verfügt über eine auf 0 (null) oder eine 1-Beziehung mit der Entität OfficeAssignment, was, dass der Code hat bedeutet, behandeln die folgenden Situationen:
+Bei der Bearbeitung eines Dozentendatensatzes sollten Sie auch die Bürozuweisung des Dozenten aktualisieren. Die Entität „Instructor“ verfügt über eine 1:0..1-Beziehung mit der Entität „OfficeAssignment“. Das bedeutet, dass Ihr Code den folgenden Situationen standhalten muss:
 
-* Wenn der Benutzer die Office-Zuweisung löscht, und er ursprünglich einen Wert hatte, löschen Sie die OfficeAssignment-Entität.
+* Wenn der Benutzer die Bürozuweisung löscht, es für diese aber zuvor einen Wert gab, löschen Sie die Entität „OfficeAssignment“.
 
-* Erstellen Sie eine neue OfficeAssignment Entität aus, wenn der Benutzer eine Office-Zuweisungswert gibt und er ursprünglich leer war.
+* Wenn der Benutzer eine Bürozuweisung eingibt, diese aber zuvor leer war, erstellen Sie eine neue OfficeAssignment-Entität.
 
-* Wenn der Benutzer den Wert einer Zuweisung von Office ändert, ändern Sie den Wert in einer vorhandenen OfficeAssignment-Entität.
+* Wenn der Benutzer den Wert einer Bürozuweisung verändert, ändern Sie den Wert in eine bereits vorhandene OfficeAssignment-Entität.
 
-### <a name="update-the-instructors-controller"></a>Aktualisieren Sie den Controller für Dozenten
+### <a name="update-the-instructors-controller"></a>Aktualisieren des Controllers des Dozenten
 
-In *InstructorsController.cs*, ändern Sie den Code in die HttpGet `Edit` Methode, sodass die It der Instructor-Entität lädt `OfficeAssignment` Navigationseigenschaft und Aufrufe `AsNoTracking`:
+Ändern Sie in der *InstructorsController.cs*-Datei den Code in der HttpGet-Methode `Edit`, sodass diese die `OfficeAssignment`-Eigenschaft der Instructor-Entität lädt und `AsNoTracking` aufruft:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
 
-Ersetzen Sie die HttpPost `Edit` Methode durch den folgenden Code aus, um Updates für Office-Zuweisung zu behandeln:
+Ersetzen Sie die HttpPost-Methode `Edit` durch den folgenden Code, damit diese Updates für die Bürozuweisungen verarbeiten kann:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
 
 Der Code führt Folgendes aus:
 
--  Ändert den Namen der Methode, um `EditPost` , da die Signatur jetzt die HttpGet ist `Edit` Methode (die `ActionName` Attribut gibt an, dass die `/Edit/` URL wird weiterhin verwendet).
+-  Er ändert den Methodennamen auf `EditPost`, da die Signatur jetzt der Signatur der HttpGet-Methode `Edit` entspricht. Das `ActionName`-Attribut gibt an, dass die `/Edit/`-URL immer noch verwendet wird.
 
--  Ruft die aktuelle Instructor-Entität aus der Datenbank-eager loading für die `OfficeAssignment` Navigationseigenschaft. Dies ist identisch mit was Sie in der HttpGet haben `Edit` Methode.
+-  Ruft für die Navigationseigenschaft `OfficeAssignment` die aktuelle Dozentenentität von der Datenbank über Eager Loading ab. Dies entspricht dem Vorgang in der HttpGet-Methode `Edit`.
 
--  Die abgerufene Instructor-Entität aktualisiert mit Werten aus den Modellbinder. Die `TryUpdateModel` Überladung können Sie auf die weiße Liste die Eigenschaften, die Sie einschließen möchten. Dies verhindert die übermäßige Buchung wie beschrieben in der [zweite Lernprogramm](crud.md).
+-  Führt ein Update für die abgerufene Dozentenentität mit Werten aus der Modellbindung aus. Mithilfe der `TryUpdateModel`-Überladung können Sie die Eigenschaften auf die Whitelist setzen, die Sie hinzufügen möchten. Dadurch wird, wie im [zweiten Tutorial](crud.md) beschrieben, vermieden, dass zu viele Angaben gemacht werden.
 
     <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -138,7 +138,7 @@ Der Code führt Folgendes aus:
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
     
--   Wenn der Niederlassung leer ist, legt die Instructor.OfficeAssignment-Eigenschaft auf null fest, damit die zugehörige Zeile in der Tabelle OfficeAssignment gelöscht werden.
+-   Wenn kein Standort für das Büro angegeben wird, wird die Instructor.OfficeAssignment-Eigenschaft auf NULL festgelegt, damit die zugehörige Zeile aus der OfficeAssignment-Tabelle gelöscht wird.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
@@ -149,120 +149,120 @@ Der Code führt Folgendes aus:
     }
     ```
 
-- Speichert die Änderungen in der Datenbank an.
+- Speichert die Änderungen in der Datenbank.
 
-### <a name="update-the-instructor-edit-view"></a>Aktualisieren Sie die Ansicht Dozenten bearbeiten
+### <a name="update-the-instructor-edit-view"></a>Aktualisieren der Dozentenansicht „Bearbeiten“
 
-In *Views/Instructors/Edit.cshtml*, Hinzufügen eines neuen Felds für die Bearbeitung der Bürostandort am Ende vor der **speichern** Schaltfläche:
+Fügen Sie am Ende vor der Schaltfläche **Speichern** in der *Views/Instructors/Edit.cshtml*-Datei ein neues Feld hinzu, um den Standort des Büros zu bearbeiten:
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
-Die app auszuführen, wählen Sie die **Lehrkräfte** Registerkarte, und klicken Sie dann auf **bearbeiten** auf einen Kursleiter. Ändern der **Filiale** , und klicken Sie auf **speichern**.
+Führen Sie die App aus, klicken Sie erst auf die Registerkarte **Dozenten** und dann für einen Dozenten auf **Bearbeiten**. Ändern Sie den **Standort des Büros**, und klicken Sie auf **Speichern**.
 
-![Instructor bearbeiten (Seite)](update-related-data/_static/instructor-edit-office.png)
+![Bearbeitungsseite „Dozent“](update-related-data/_static/instructor-edit-office.png)
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Hinzufügen von Kurs Zuweisungen auf der Seite "Dozenten bearbeiten"
+## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Hinzufügen von Kurszuweisungen zur Dozentenseite „Bearbeiten“
 
-Lehrkräfte können eine beliebige Anzahl von Kurse werden folgende Themen behandelt. Jetzt müssen Sie die Seite Dozenten bearbeiten verbessern, durch Hinzufügen der Funktion zum Ändern der Kurs-Zuordnung, die eine Gruppe von Kontrollkästchen, wie im folgenden Screenshot gezeigt:
+Dozenten können eine beliebige Anzahl von Kursen unterrichten. Jetzt soll die Dozentenseite „Bearbeiten“ verbessert werden, indem es ermöglicht wird, Kurszuweisungen über eine Reihe von Kontrollkästchen zu verändern. Dies wird im folgenden Screenshot dargestellt:
 
-![Instructor-Bearbeitungsseite mit Kurse](update-related-data/_static/instructor-edit-courses.png)
+![Dozentenseite „Bearbeiten“ mit Kursen](update-related-data/_static/instructor-edit-courses.png)
 
-Die Beziehung zwischen den Entitäten Kurs und Dozenten ist m: n. Zum Hinzufügen und Entfernen von Beziehungen, hinzufügen und Entfernen von Entitäten in und aus der CourseAssignments Join-Entitätenmenge.
+Zwischen den Entitäten „Course“ und „Instructor“ besteht eine m:n-Beziehung. Wenn Sie Beziehungen hinzufügen und entfernen möchten, können Sie Entitäten aus der verknüpften CourseAssignments-Entitätenmenge hinzufügen und entfernen.
 
-Die Benutzeroberfläche, die Sie ändern, welche Kurse ermöglicht ein Kursleiter ist ist zugewiesen eine Gruppe von Kontrollkästchen. Ein Kontrollkästchen für jede Vorgehensweise in der Datenbank angezeigt wird, und diejenigen Argumente, die der Dozenten derzeit zugewiesen ist, werden ausgewählt. Der Benutzer kann aktivieren oder deaktivieren Kontrollkästchen, um den Kurs Zuweisungen zu ändern. Wenn die Anzahl der Kurse viel größer sind, Sie möchten wahrscheinlich verwenden Sie eine andere Methode zur Darstellung der Daten in der Ansicht von, aber verwenden Sie die gleiche Methode zum Bearbeiten einer Joinentität erstellen oder Löschen von Beziehungen.
+Die Benutzeroberfläche, über die Sie ändern können, welchen Kursen ein Dozent zugewiesen ist, besteht aus einer Reihe von Kontrollkästchen. Für jeden Kurs in der Datenbank wird ein Kontrollkästchen angezeigt. Die Kontrollkästchen, denen der Dozent zu diesem Zeitpunkt zugewiesen ist, sind aktiviert. Der Benutzer kann Kontrollkästchen aktivieren oder deaktivieren, um Kurszuweisungen zu ändern. Bei einer deutlich höheren Anzahl von Kursen sollten Sie besser eine andere Methode verwenden, um Daten in der Ansicht darzustellen. Sie sollten aber auch in diesem Fall dieselbe Bearbeitungsmethode verwenden, um eine verknüpfte Entität zum Erstellen und Löschen von Beziehungen zu verwenden.
 
-### <a name="update-the-instructors-controller"></a>Aktualisieren Sie den Controller für Dozenten
+### <a name="update-the-instructors-controller"></a>Aktualisieren des Controllers des Dozenten
 
-Um Daten zur Ansicht für die Liste von Kontrollkästchen bereitzustellen, verwenden Sie eine Modellklasse anzeigen.
+Verwenden Sie eine Ansichtsmodellklasse, um Daten für die Ansicht bereitzustellen, um eine Liste mit Kontrollkästchen zu erstellen.
 
-Erstellen Sie *AssignedCourseData.cs* in der *SchoolViewModels* Ordner und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+Erstellen Sie im Ordner *SchoolViewModels* die Datei *AssignedCourseData.cs*, und ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
-In *InstructorsController.cs*, ersetzen Sie die HttpGet `Edit` -Methode durch folgenden Code. Die Änderungen werden hervorgehoben.
+Ersetzen Sie in der Datei *InstructorsController.cs* die HttpGet-Methode `Edit` durch den folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
 
-Der Code fügt unverzüglichem Laden für die `Courses` Navigationseigenschaft und ruft die neue `PopulateAssignedCourseData` -Methode zum Bereitstellen von Informationen für das Kontrollkästchen Array mithilfe der `AssignedCourseData` Modellklasse anzeigen.
+Über den Code wird für die `Courses`-Navigationseigenschaft Eager Loading hinzugefügt und die neue `PopulateAssignedCourseData`-Methode aufgerufen, um über die Ansichtsmodellklasse `AssignedCourseData` Informationen für das Kontrollkästchenarray zur Verfügung zu stellen.
 
-Der Code in der `PopulateAssignedCourseData` Methode liest über alle Kurs Entitäten auf, um eine Liste der Kurse mit Ansichtsklasse Modell zu laden. Für jeden Kurs im Code wird überprüft, ob der Kurs in des Dozenten befindet `Courses` Navigationseigenschaft. Um effiziente Suche nach erstellen, bei der Überprüfung, ob ein Kurs zu den Dozenten zugewiesen wird, den Dozenten zugewiesene Kurse abgelegt sind eine `HashSet` Auflistung. Die `Assigned` -Eigenschaftensatz auf "true" für Kurse Kursleiter zugewiesen ist. Die Ansicht wird diese Eigenschaft verwenden, um zu bestimmen, welche Felder als angezeigt werden, müssen aktiviert. Schließlich wird die Liste auf die Ansicht übergeben `ViewData`.
+Der Code in der `PopulateAssignedCourseData`-Methode liest alle Course-Entitäten, um mithilfe der Ansichtsmodellklasse eine Liste von Kursen zu laden. Für jeden Kurs überprüft der Code, ob dieser in der `Courses`-Navigationseigenschaft des Dozenten vorhanden ist. Die Kurse, die dem Dozenten zugewiesen werden, werden in einer `HashSet`-Auflistung dargestellt, um die Suche effizienter zu machen, wenn Sie überprüfen, ob ein Kurs dem Dozenten zugewiesen ist. Die `Assigned`-Eigenschaft ist für Kurse, denen der Dozent zugewiesen ist, auf TRUE festgelegt. Die Ansicht verwendet diese Eigenschaft, um zu bestimmen, welche Kontrollkästchen als aktiviert angezeigt werden sollen. Zuletzt wird die Liste in `ViewData` an die Ansicht übergeben.
 
-Als Nächstes fügen Sie den Code, der ausgeführt wird, wenn der Benutzer klickt **speichern**. Ersetzen Sie die `EditPost` -Methode durch folgenden code, und fügen Sie eine neue Methode, die aktualisiert die `Courses` Navigationseigenschaft die Instructor-Entität.
+Fügen Sie als nächstes den Code hinzu, der ausgeführt wird, wenn der Benutzer auf **Speichern** klickt. Ersetzen Sie die `EditPost`-Methode durch den folgenden Code, und fügen Sie eine neue Methode hinzu, die ein Update für `Courses`-Navigationseigenschaft der Instructor-Entität ausführt.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
 
-Die Methodensignatur unterscheidet sich jetzt von der HttpGet `Edit` Methode, sodass der Name der Methode von ändert `EditPost` an `Edit`.
+Die Methodensignatur unterscheidet sich jetzt von der HttpGet-Methode `Edit`, wodurch der Methodenname von `EditPost` auf `Edit` geändert wird.
 
-Da die Sicht eine Auflistung von Entitäten Kurs besitzt, kann nicht automatisch der Modellbinder aktualisiert die `CourseAssignments` Navigationseigenschaft. Verwenden Sie statt des Modellbinders zum Aktualisieren der `CourseAssignments` Navigationseigenschaft, Sie dies vornehmen, in der neuen `UpdateInstructorCourses` Methode. Daher müssen Sie zum Ausschließen der `CourseAssignments` Eigenschaft von der modellbindung. Dies erfordert jede Änderung an der aufrufende Code `TryUpdateModel` , da Sie die Überladung Whitelisting verwenden und `CourseAssignments` befindet sich nicht in der Include-Liste.
+Da es in der Ansicht keine Auflistung der Course-Entitäten gibt, kann durch die Modellbindung kein automatisches Update für die `CourseAssignments`-Navigationseigenschaft ausgeführt werden. Verwenden Sie dafür die neue `CourseAssignments`-Methode anstatt die Modellbindung zu verwenden, um ein Update für die `UpdateInstructorCourses`-Navigationseigenschaft auszuführen. Aus diesem Grund müssen Sie die `CourseAssignments`-Eigenschaft von der Modellbindung ausschließen. Dafür muss der Code, der `TryUpdateModel` aufruft, nicht verändert werden, da Sie die Whitelist-Überladung verwenden und `CourseAssignments` nicht in der Liste enthalten ist.
 
-Wenn keine Überprüfung aktiviert wurden, den Code in `UpdateInstructorCourses` initialisiert die `CourseAssignments` Navigationseigenschaft mit eine leere Auflistung und gibt:
+Wenn keins der Kontrollkästchen aktiviert ist, initialisiert der Code in `UpdateInstructorCourses` die `CourseAssignments`-Navigationseigenschaft mit einer leeren Auflistung und gibt Folgendes zurück:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
 
-Der Code durchläuft alle Kurse in der Datenbank und jeder Kurs gegen diejenigen zugewiesener den Dozenten im Vergleich zu den Vorgängen, die in der Ansicht ausgewählt wurden überprüft. Um effiziente Suchvorgänge zu erleichtern, werden die letzten beiden Auflistungen in gespeichert `HashSet` Objekte.
+Der Code führt dann eine Schleife durch alle Kurse in der Datenbank aus und überprüft jeden Kurs im Hinblick auf die Kurse, die zu diesem Zeitpunkt dem Dozenten zugewiesen sind, und denen, die in der Ansicht aktiviert wurden. Die beiden letzten Auflistungen werden in `HashSet`-Objekten gespeichert, um Suchvorgänge effizienter zu gestalten.
 
-Wenn das Kontrollkästchen für einen Kurs ausgewählt wurde, aber der Kurs befindet sich nicht in der `Instructor.CourseAssignments` Navigationseigenschaft, die Auflistung in der Navigationseigenschaft des Betriebs hinzugefügt wird.
+Wenn das Kontrollkästchen für einen Kurs aktiviert ist, dieser Kurs jedoch nicht in der `Instructor.CourseAssignments`-Navigationseigenschaft vorhanden ist, wird dieser der Auflistung in der Navigationseigenschaft hinzugefügt.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
 
-Wenn das Kontrollkästchen für einen Kurs wurde nicht aktiviert, aber die Vorgehensweise in ist der `Instructor.CourseAssignments` Navigationseigenschaft, des Betriebs aus der Navigationseigenschaft entfernt wird.
+Wenn das Kontrollkästchen für einen Kurs aktiviert ist, dieser Kurs jedoch nicht in der `Instructor.CourseAssignments`-Navigationseigenschaft vorhanden ist, wird dieser aus der Auflistung in der Navigationseigenschaft gelöscht.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
 
-### <a name="update-the-instructor-views"></a>Aktualisieren Sie die Instructor-Ansichten
+### <a name="update-the-instructor-views"></a>Ausführen eines Updates für die Dozentenseiten
 
-In *Views/Instructors/Edit.cshtml*, Hinzufügen einer **Kurse** Feld mit einem Array von Kontrollkästchen durch das Hinzufügen der folgenden code unmittelbar nach der `div` Elemente für die **Office**  Feld und vor der `div` -Element für die **speichern** Schaltfläche.
+Fügen Sie in der *Views/Instructors/Edit.cshtml*-Datei ein **Kurse**-Feld mit einem Array mit Kontrollkästchen hinzu, indem Sie den folgenden Code direkt nach den `div`-Elementen für das **Büro**-Feld und vor dem `div`-Element für die Schaltfläche **Speichern** einfügen.
 
 <a id="notepad"></a>
 > [!NOTE] 
-> Wenn Sie den Code in Visual Studio einfügen, werden Zeilenumbrüche auf eine Weise geändert werden, die der Code unterbrochen wird.  Drücken Sie einmal STRG + Z, um die automatische Formatierung rückgängig zu machen.  Die Zeilenumbrüche wird korrigiert werden, damit sie sehen, wie Sie hier sehen. Der Einzug keinen perfekt, aber die `@</tr><tr>`, `@:<td>`, `@:</td>`, und `@:</tr>` Zeilen müssen jeweils in einer einzelnen Zeile dargestellten oder erhalten Sie einen Laufzeitfehler. Drücken Sie mit dem Block von neuem Code ausgewählt ist Tab dreimal an den neuen Code mit dem vorhandenen Code. Sie können den Status des Problems überprüfen [hier](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Wenn Sie den Code in Visual Studio einfügen, werden Zeilenumbrüche so geändert, dass der Code unterbrochen wird.  Drücken Sie einmal Strg+Z, um die automatische Formatierung rückgängig zu machen.  Damit werden die Zeilenumbrüche korrigiert, damit sie dem entsprechen, was Sie hier sehen. Der Einzug muss nicht perfekt sein, die Zeilen `@</tr><tr>`, `@:<td>`, `@:</td>` und `@:</tr>` müssen jedoch, wie dargestellt, jeweils in einer einzelnen Zeile stehen. Ansonsten wird ein Laufzeitfehler ausgelöst. Drücken Sie, nachdem Sie den Block mit dem neuen Code ausgewählt haben, dreimal auf die TAB-Taste, um den neuen Code am vorhandenen Code auszurichten. Sie können [hier](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html) den Status für dieses Problem überprüfen.
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
-Dieser Code erstellt eine HTML-Tabelle, die drei Spalten aufweist. In jeder Spalte wird ein Kontrollkästchen, gefolgt von einem Titel, der den Titel und Kursnummer besteht. Die Kontrollkästchen, die alle haben den gleichen Namen ("SelectedCourses"), der dem Modellbinder darüber informiert, dass sie sind als eine Gruppe behandelt werden soll. Das Value-Attribut der einzelnen Kontrollkästchen wird festgelegt, auf den Wert des `CourseID`. Wenn die Seite zurückgesendet wird, übergibt der Modellbinder ein Array mit dem Controller an, aus denen besteht die `CourseID` Werte für nur die Kontrollkästchen ausgewählt sind.
+Dieser Code erstellt eine HTML-Tabelle mit drei Spalten. Jede Spalte enthält ein Kontrollkästchen gefolgt von einem Titel, der aus der Kursnummer und dem Kurstitel besteht. Die Kontrollkästchen haben denselben Namen („selectedCourses“), was bei der Modellbindung deutlich macht, dass diese als Gruppe behandelt werden sollen. Das Wertattribut der einzelnen Kontrollkästchen ist auf den Wert von `CourseID` festgelegt. Wenn die Seite zurückgesendet wird, übergibt die Modellbindung ein Array an den Controller, das lediglich die `CourseID`-Werte der aktivierten Kontrollkästchen enthält.
 
-Die Kontrollkästchen gerendert werden, können solche, die für Kurse zu den Dozenten zugewiesen werden Attribute, die ausgewählt werden (angezeigt werden, wenn sie aktiviert), überprüft.
+Wenn die Kontrollkästchen zu Beginn gerendert werden, verfügen die Kästchen, die für Kurse stehen, die dem Dozenten zugewiesen sind, über aktivierte Attribute, die diese aktivieren (also als aktiviert anzeigen).
 
-Die app auszuführen, wählen Sie die **Lehrkräfte** Registerkarte, und klicken Sie auf **bearbeiten** auf einen Kursleiter finden Sie unter der **bearbeiten** Seite.
+Führen Sie die App aus, klicken Sie erst auf die Registerkarte **Dozenten** und dann für einen Dozenten auf **Bearbeiten**, um die Seite **Bearbeiten** anzuzeigen.
 
-![Instructor-Bearbeitungsseite mit Kurse](update-related-data/_static/instructor-edit-courses.png)
+![Dozentenseite „Bearbeiten“ mit Kursen](update-related-data/_static/instructor-edit-courses.png)
 
-Ändern Sie einige Kurs Zuweisungen, und klicken Sie auf Speichern. Die Änderungen, die Sie vornehmen, werden auf der Seite "Index" angezeigt.
+Ändern Sie einige Kurszuweisungen, und klicken Sie auf „Speichern“. Die Änderungen werden auf der Indexseite angezeigt.
 
 > [!NOTE] 
-> Der Ansatz hier Dozenten Kurs Data funktioniert gut, wenn eine begrenzte Anzahl von Kurse zu bearbeiten. Bei Auflistungen, die viel größer sind, wäre eine andere Benutzeroberfläche und eine andere Methode für die Aktualisierung erforderlich.
+> Der hier gewählte Ansatz für die Bearbeitung der Kursdaten von Dozenten wird empfohlen, wenn eine begrenzte Anzahl von Kursen verwendet wird. Bei umfangreicheren Auflistungen wären eine andere Benutzeroberfläche und eine andere Aktualisierungsmethode erforderlich.
 
-## <a name="update-the-delete-page"></a>Aktualisieren Sie die Seite "löschen"
+## <a name="update-the-delete-page"></a>Aktualisieren der Seite „Delete“ (Löschen)
 
-In *InstructorsController.cs*, löschen Sie die `DeleteConfirmed` -Methode und einfügen, die im folgenden an seiner Stelle Codebeispiel.
+Löschen Sie aus der Datei *InstructorsController.cs* die `DeleteConfirmed`-Methode, und fügen Sie stattdessen den folgenden Code ein.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
 
-Dieser Code macht die folgenden Änderungen:
+Durch diesen Code werden folgende Änderungen vorgenommen:
 
-* Tut Eager loading für die `CourseAssignments` Navigationseigenschaft.  Sie dazu gehören oder EF erfahren Sie nicht zu verwandten `CourseAssignment` Entitäten und wird nicht gelöscht werden.  Um zu vermeiden, diese zu lesen konnte hier kaskadierte Löschung in der Datenbank konfiguriert werden.
+* Er verwendet Eager Loading für die Navigationseigenschaft `CourseAssignments`.  Sie müssen diese Eigenschaft hinzufügen. Ansonsten weiß EF nicht, dass es zugehörige `CourseAssignment`-Entitäten gibt und löscht diese nicht.  Wenn Sie vermeiden möchten, diese lesen zu müssen, können Sie in der Datenbank eine Löschweitergabe konfigurieren.
 
-* Die Instructor gelöscht werden soll als Administrator, der alle Abteilungen zugewiesen wird, entfernt die Instructor-Zuweisung von die Abteilungen.
+* Wenn der zu löschende Dozent als Administrator einer beliebigen Abteilung zugewiesen ist, wird die Dozentenzuweisung aus diesen Abteilungen entfernt.
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>Hinzufügen von Office-Speicherort und Kurse auf der Seite "erstellen"
+## <a name="add-office-location-and-courses-to-the-create-page"></a>Hinzufügen von einem Bürostandort und von Kursen zu der Seite „Erstellen“
 
-In *InstructorsController.cs*, löschen Sie die HttpGet und HttpPost `Create` Methoden, und fügen Sie dann den folgenden Code an ihrer Stelle:
+Löschen Sie in der *InstructorsController.cs*-Datei die Methoden HttpGet und HttpPost-`Create`, und fügen Sie anschließend stattdessen den folgenden Code ein:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
 
-Dieser Code ähnelt der für gesehen haben die `Edit` Methoden außer, dass zunächst keine Kurse ausgewählt sind. Die HttpGet `Create` Methodenaufrufe der `PopulateAssignedCourseData` Methode nicht, da aber in ausgewählte Kurse möglicherweise sortieren, geben Sie eine leere Auflistung für die `foreach` Schleife in der Ansicht (andernfalls den Code anzeigen Auslösung ausgeben würde ein null-Verweis).
+Dieser Code ähnelt dem Code, der für die `Edit`-Methode verwendet wurde. Allerdings sind nicht von Beginn an Kurse ausgewählt. Die HttpGet-Methode `Create` ruft die `PopulateAssignedCourseData`-Methode nicht auf, weil möglicherweise Kurse ausgewählt sind, sondern um eine leere Auflistung für die `foreach`-Schleife in der Ansicht bereitzustellen. Andernfalls gibt der Ansichtscode eine NULL-Verweisausnahme zurück.
 
-Die HttpPost `Create` Methode fügt jeder ausgewählten Kurs zu den `CourseAssignments` Navigationseigenschaft, die vor dem Fehler bei der Validierung überprüft und der Datenbank den neuen Kursleiter hinzugefügt. Kurse werden hinzugefügt, auch wenn Modellfehler, damit beim Modellfehler (beispielsweise ein Benutzer ein ungültiges Datum sortiert) vorliegen, und die Seite wird mit einer Fehlermeldung erneut, Kurs Angaben, die vorgenommen wurden automatisch wiederhergestellt werden.
+Die HttpPost-Methode `Create` fügt jeden der ausgewählten Kurse zu der `CourseAssignments`-Navigationseigenschaft hinzu, bevor sie nach Validierungsfehlern sucht und den neuen Dozenten zu der Datenbank hinzufügt. Kurse werden auch hinzugefügt, wenn es Modellfehler gibt, sodass alle zuvor ausgewählten Kurse automatisch wieder ausgewählt werden, wenn es zu Modellfehlern kommt (weil z.B. der Benutzer ein ungültiges Datum verschlüsselt hat) und die Seite mit Fehlermeldungen erneut dargestellt wird.
 
-Beachten Sie, dass damit Kurse zum Hinzufügen der `CourseAssignments` Navigationseigenschaft Sie die Eigenschaft als eine leere Auflistung zu initialisieren müssen:
+Beachten Sie, dass Sie die `CourseAssignments`-Navigationseigenschaft als leere Auflistung initialisieren müssen, wenn Sie dieser Kurse hinzufügen möchten:
 
 ```csharp
 instructor.CourseAssignments = new List<CourseAssignment>();
 ```
 
-Als Alternative zur controllercode Dadurch konnte Sie dazu im Modell Dozenten ändern den Eigenschaftengetter, um automatisch den Sammlungssatz zu erstellen, wenn er nicht vorhanden ist, wie im folgenden Beispiel gezeigt:
+Wenn Sie dies nicht im Controllercode durchführen möchten, können Sie dies auch im Dozentenmodell tun, indem Sie den Eigenschaftengetter ändern, um falls nötig automatisch die Auflistung zu erstellen. Dies wird im folgenden Code dargestellt:
 
 ```csharp
 private ICollection<CourseAssignment> _courseAssignments;
@@ -279,21 +279,21 @@ public ICollection<CourseAssignment> CourseAssignments
 }
 ```
 
-Wenn Sie ändern die `CourseAssignments` Eigenschaft auf diese Weise können Sie explizite Eigenschaft Initialisierungscode im Controller entfernen.
+Wenn Sie die `CourseAssignments`-Eigenschaft auf diese Weise ändern, können Sie den expliziten Code zum Initialisieren der Eigenschaft aus dem Controller entfernen.
 
-In *Views/Instructor/Create.cshtml*, fügen Sie ein Office-Speicherort-Textfeld hinzu und überprüfen Sie die Kontrollkästchen für Kurse, bevor Sie die Schaltfläche "Absenden". Im Fall der bearbeiten (Seite), [zu beheben, die Formatierung, wenn Visual Studio den Code neu formatiert, wenn Sie es einfügen](#notepad).
+Fügen die in der *Views/Instructor/Create.cshtml*-Datei ein Textfeld für den Bürostandort hinzu, und aktivieren Sie Felder für Kurse, bevor Sie auf die Schaltfläche „Übermitteln“ klicken. [Wenn Visual Studio den Code neu formatiert, wenn Sie diesen einfügen, beheben Sie die Formatierung](#notepad) auf dieselbe Weise wie auf der Seite „Bearbeiten“.
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Durch Ausführen der app, und erstellen einen Kursleiter testen. 
+Führen Sie einen Test durch, indem Sie die App ausführen und einen Dozenten erstellen. 
 
-## <a name="handling-transactions"></a>Behandeln von Transaktionen
+## <a name="handling-transactions"></a>Verarbeiten von Transaktionen
 
-Wie in beschrieben die [CRUD-Lernprogramm](crud.md), das Entity Framework implizit Transaktionen implementiert. Für Szenarien, in denen mehr, – beispielsweise gesteuert müssen wenn Vorgängen, die außerhalb von Entity Framework in einer Transaktion--enthalten sein sollen, finden Sie unter [Transaktionen](https://docs.microsoft.com/ef/core/saving/transactions).
+Wie bereits im [CRUD-Tutorial](crud.md) erläutert, implementiert Entity Framework implizit Transaktionen. Informationen zu Szenarios, die Sie genauer kontrollieren müssen (z.B. wenn Sie Vorgänge einfügen möchten, die außerhalb von Entity Framework in einer Transaktion ausgeführt werden), finden Sie unter [Transaktionen](https://docs.microsoft.com/ef/core/saving/transactions).
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben jetzt die Einführung in die Arbeit mit verknüpften Daten abgeschlossen. In den nächsten Lernprogrammen sehen Sie, wie Parallelitätskonflikte behandelt werden.
+Damit ist sind die ersten Schritte zum Arbeiten mit zugehörigen Daten abgeschlossen. Im nächsten Tutorial wird erläutert, wie Nebenläufigkeitskonflikte verarbeitet werden.
 
 >[!div class="step-by-step"]
 [Zurück](read-related-data.md)

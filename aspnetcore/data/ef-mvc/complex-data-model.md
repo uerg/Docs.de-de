@@ -1,7 +1,7 @@
 ---
-title: ASP.NET Core MVC mit EF-Kern - Datenmodell - 5, 10
+title: 'ASP.NET Core MVC mit Entity Framework Core: Datenmodell (5 von 10)'
 author: tdykstra
-description: "In diesem Lernprogramm fügen Sie weitere Entitäten und Beziehungen und das Datenmodell anpassen, indem Sie Formatierung, Überprüfung und Zuordnungsregeln für die Datenbank angeben."
+description: "In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hinzu und passen das Datenmodell an, indem Sie die Regeln zur Formatierung, Validierung und Datenbankzuordnung angeben."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,38 +10,38 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
 ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Erstellen ein Modell mit komplexen Daten - EF-Core mit ASP.NET Core MVC-Lernprogramm (5 10)
+# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Erstellen eines komplexen Datenmodells: Tutorial für Entity Framework Core mit ASP.NET Core MVC (5 von 10)
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen, die mit Entity Framework Core und Visual Studio. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](intro.md).
+Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen mit Entity Framework Core und Visual Studio erstellt werden. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](intro.md).
 
-In den vorherigen Lernprogrammen, die Sie mit der ein einfaches Datenmodell, das aus drei Entitäten zusammengesetzt wurde gearbeitet haben. In diesem Lernprogramm fügen Sie weitere Entitäten und Beziehungen, und Sie müssen das Datenmodell anpassen, indem Sie Formatierung, Überprüfung und Zuordnungsregeln für die Datenbank angeben.
+In den vorherigen Tutorials haben Sie mit einem einfachen Datenmodell gearbeitet, das aus drei Entitäten bestand. In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hinzu und passen das Datenmodell an, indem Sie die Regeln zur Formatierung, Validierung und Datenbankzuordnung angeben.
 
-Wenn Sie fertig sind, werden die Entitätsklassen abgeschlossenen Datenmodell bilden, die in der folgenden Abbildung gezeigt wird:
+Wenn Sie dies erledigt haben, bilden die Entitätsklassen ein vollständiges Datenmodell, das in der folgenden Abbildung dargestellt wird:
 
 ![Entitätsdiagramm](complex-data-model/_static/diagram.png)
 
 ## <a name="customize-the-data-model-by-using-attributes"></a>Anpassen des Datenmodells mithilfe von Attributen
 
-In diesem Abschnitt sehen Sie zum Anpassen des Datenmodells mithilfe von Attributen, die die Formatierung, Überprüfung und Zuordnungsregeln für die Datenbank angeben. Klicken Sie dann Attribute in mehreren der folgenden Abschnitte erstellen Sie nun das vollständige Modell "School" Daten durch Hinzufügen von den Klassen Sie bereits erstellt haben, und erstellen neue Klassen für die verbleibenden Entitätstypen im Modell.
+In diesem Abschnitt wird das Anpassen des Datenmodells mithilfe von Attributen erläutert, die Regeln zur Formatierung, Validierung und Datenbankzuordnung angeben. In den folgenden Abschnitten erstellen Sie dann das vollständige Datenmodell „School“, indem Sie Attribute zu den bereits erstellten Klassen hinzufügen und neue Klassen für die verbleibenden Entitätstypen im Modell erstellen.
 
 ### <a name="the-datatype-attribute"></a>Das DataType-Attribut
 
-Für Student Registrierung Datumsangaben Anzeigen aller Web Pages derzeit der Zeit zusammen mit dem Datum, obwohl alle, können Sie für dieses Feld ist das Datum. Mit Datenattributen für die Anmerkung, stellen Sie eine codeänderung, die das Anzeigeformat in jeder Ansicht behoben werden, die Daten anzeigt. Sehen Sie ein Beispiel dazu, dass Sie ein Attribut zum Hinzufügen der `EnrollmentDate` Eigenschaft in der `Student` Klasse.
+Für die Anmeldedaten von Studenten zeigen alle Webseiten derzeit die Zeit und das Datum an, obwohl für dieses Feld nur das Datum relevant ist. Indem Sie Attribute für die Datenanmerkung verwenden, können Sie eine Codeänderungen vornehmen, durch die das Anzeigeformat in jeder Ansicht korrigiert wird, in der die Daten angezeigt werden. Sie können dies beispielhaft testen, indem Sie ein Attribut zur `EnrollmentDate`-Eigenschaft der `Student`-Klasse hinzufügen.
 
-In *Models/Student.cs*, Hinzufügen einer `using` -Anweisung für die `System.ComponentModel.DataAnnotations` Namespace und fügen `DataType` und `DisplayFormat` -Attribute verwenden, um die `EnrollmentDate` -Eigenschaft verwenden, wie im folgenden Beispiel gezeigt:
+Fügen Sie in *Models/Student.cs* eine `using`-Anweisung für den `System.ComponentModel.DataAnnotations`-Namespace hinzu, und fügen Sie wie im folgenden Beispiel dargestellt die Attribute `DataType` und `DisplayFormat` zur `EnrollmentDate`-Eigenschaft hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-Die `DataType` Attribut wird verwendet, um einen Datentyp angeben, die als Datenbank systeminternen Typ genauer bestimmt ist. In diesem Fall möchten wir nur zum Nachverfolgen der Datum nicht das Datum und die Uhrzeit. Die `DataType` Enumeration stellt für viele Datentypen, wie Datum, Uhrzeit, Währung, PhoneNumber, EmailAddress und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Beispielsweise kann ein `mailto:`-Link für `DataType.EmailAddress` erstellt werden, und eine Datumsauswahl kann in Browsern mit Unterstützung für HTML5 für `DataType.Date` bereitgestellt werden. Die `DataType` Attribut ausgibt HTML 5 `data-` (ausgesprochen als Daten Dash) Attribute, die HTML 5-Browser zu bringen. Die `DataType` Attribute stellen keine Validierung.
+Das `DataType`-Attribut wird verwendet, um einen Datentyp anzugeben, der spezifischer als der datenbankinterne Typ ist. In diesem Fall soll nur das Datum verfolgt werden, nicht das Datum und die Zeit. Die `DataType`-Enumeration stellt viele Datentypen bereit, z.B. „Date“, „Time“, „PhoneNumber“, „Currency“, „EmailAddress“ usw. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Beispielsweise kann ein `mailto:`-Link für `DataType.EmailAddress` erstellt werden, und eine Datumsauswahl kann in Browsern mit Unterstützung für HTML5 für `DataType.Date` bereitgestellt werden. Das `DataType`-Attribut gibt `data-`-Attribute (ausgesprochen „Datadash“) von HTML5 aus, die von HTML5-Browsern genutzt werden können. Die `DataType`-Attribute bieten keine Validierung.
 
-`DataType.Date`das Format des Datums, das angezeigt wird, nicht angegeben werden. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server CultureInfo angezeigt.
+`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Datenfeld gemäß den Standardformaten basierend auf der CultureInfo-Klasse des Servers angezeigt.
 
 Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 
@@ -49,39 +49,39 @@ Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-Die Einstellung `ApplyFormatInEditMode` gibt an, dass die Formatierung auch angewendet werden soll, wenn der Wert in einem Textfeld zur Bearbeitung angezeigt wird. (Sie möchten nicht, dass für einige Felder – z. B. für Währungsangaben, nicht das Währungssymbol in das Textfeld für die Bearbeitung empfehlenswert.)
+Die Einstellung `ApplyFormatInEditMode` gibt an, dass die Formatierung auch angewendet werden soll, wenn der Wert in einem Textfeld zur Bearbeitung angezeigt wird. (Dies könnte für einige Felder nützlich sein, z.B. soll für Währungsangaben das Währungssymbol nicht im Textfeld für die Bearbeitung enthalten sein.)
 
-Können Sie die `DisplayFormat` Attribut von selbst, aber es ist im Allgemeinen empfiehlt sich, verwenden Sie die `DataType` auch Attribut. Die `DataType` Attribut übermittelt, die die Semantik der Daten im Gegensatz zu wie auf dem Bildschirm gerendert werden soll, und bietet die folgenden Vorteile, die Sie nicht mit erhalten `DisplayFormat`:
+Sie können das `DisplayFormat`-Attribut eigenständig verwenden, meistens empfiehlt es sich jedoch, ebenfalls das `DataType`-Attribut zu verwenden. Das `DataType`-Attribut übermittelt die Semantik der Daten im Gegensatz zu deren Rendern auf einem Bildschirm. Es bietet folgende Vorteile, die `DisplayFormat` nicht bietet:
 
-* Der Browser HTML5-Funktionen aktivieren kann (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail einige clientseitige Eingabe Validierung usw.).
+* Der Browser kann HTML5-Features aktivieren (z.B. zum Anzeigen eines Kalendersteuerelements, des dem Gebietsschema entsprechenden Währungssymbols, von E-Mail-Links, einigen clientseitigen Eingabevalidierungen usw.).
 
 * Standardmäßig rendert der Browser Daten mit dem ordnungsgemäßen auf Ihrem Gebietsschema basierenden Format.
 
-Weitere Informationen finden Sie unter der [ \<input >-Tag Helper Dokumentation](../../mvc/views/working-with-forms.md#the-input-tag-helper).
+Weitere Informationen finden Sie in der [Dokumentation zum \<input>-Taghilfsprogramm](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
-Führen Sie die app aus, wechseln Sie zu der Studenten Indexseite, und beachten Sie, dass die Zeiten für die Datumsangaben für die Registrierung nicht mehr angezeigt werden. "True" für jede Ansicht wird übereinstimmen, die der Student-Objektmodell verwendet.
+Führen Sie die App aus, und wechseln Sie zur Indexseite „Studenten“, um festzustellen, dass beim Registrierungsdatum nicht mehr die Uhrzeit angezeigt wird. Dies gilt für jede Ansicht, die das Modell „Student“ verwendet.
 
-![Studenten Indexseite mit Datumsangaben ohne Zeiten](complex-data-model/_static/dates-no-times.png)
+![Indexseite „Studenten“, die Datumsangaben ohne Uhrzeit anzeigt](complex-data-model/_static/dates-no-times.png)
 
 ### <a name="the-stringlength-attribute"></a>Das StringLength-Attribut
 
-Sie können auch Regeln für die Überprüfung von Daten und Verwenden von Attributen Überprüfungsfehlermeldungen angeben. Die `StringLength` Attribut definiert die maximale Länge in der Datenbank und bietet clientseitige und serverseitige Validierung für ASP.NET MVC. Sie können auch die minimale Zeichenfolgenlänge in diesem Attribut angeben, aber der minimale Wert hat keine Auswirkungen auf das Datenbankschema.
+Sie können ebenfalls Regeln für die Datenvalidierung und Meldungen für Validierungsfehler mithilfe von Attributen angeben. Das `StringLength`-Attribut legt die maximale Länge in der Datenbank fest und stellt die clientseitige und serverseitige Validierung für ASP.NET MVC bereit. Sie können ebenfalls die mindestens erforderliche Zeichenfolgenlänge in diesem Attribut angeben, dieser Wert hat jedoch keine Auswirkung auf das Datenbankschema.
 
-Angenommen, Sie möchten sicherstellen, dass Benutzer nicht mehr als 50 Zeichen für einen Namen eingeben. Um diese Einschränkung hinzuzufügen, fügen Sie `StringLength` -Attribute verwenden, um die `LastName` und `FirstMidName` Eigenschaften, wie im folgenden Beispiel gezeigt:
+Angenommen, Sie möchten sicherstellen, dass Benutzer nicht mehr als 50 Zeichen für einen Namen eingeben. Fügen Sie zum Hinzufügen dieser Einschränkung wie im folgenden Beispiel dargestellt `StringLength`-Attribute zu den `LastName`- und `FirstMidName`-Eigenschaften hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Die `StringLength` Attribut wird nicht verhindern, dass einen Benutzer Leerzeichen für einen Namen eingeben. Sie können die `RegularExpression` Attribut Einschränkungen auf die Eingabe anwenden. Beispielsweise erfordert, dass der folgende Code das erste Zeichen Großbuchstaben bestehen muss und die übrigen Zeichen ein Buchstabe sein:
+Das `StringLength`-Attribut verhindert nicht, dass ein Benutzer einen Leerraum als Namen eingibt. Sie können das `RegularExpression`-Attribut verwenden, um Beschränkungen auf die Eingabe anzuwenden. Folgender Code erfordert beispielsweise, dass das erste Zeichen ein Großbuchstabe sein muss und die restlichen Zeichen alphabetisch sein müssen:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-Die `MaxLength` Attribut bietet ähnliche Funktionen der `StringLength` -Attribut aber nicht den clientseitigen Validierung.
+Das `MaxLength`-Attribut stellt ähnliche Funktionalitäten wie das `StringLength`-Attribut bereit, ermöglicht jedoch keine clientseitige Validierung.
 
-Das Datenbankmodell hat jetzt so geändert, die eine Änderung im Datenbankschema erfordert. Verwenden Sie Migrationen, um das Schema aktualisieren, ohne Verlust von Daten, die Sie möglicherweise mit der Datenbank hinzugefügt haben, mithilfe der Benutzeroberfläche der Anwendung.
+Das Datenbankmodell hat sich nun auf eine Weise geändert, die eine Änderung des Datenbankschemas erfordert. Verwenden Sie Migrationen, um das Schema ohne Verlust der Daten zu aktualisieren, die Sie mithilfe der Benutzeroberfläche der Anwendung zur Datenbank hinzugefügt haben.
 
-Speichern Sie die Änderungen zu, und erstellen Sie das Projekt. Klicken Sie dann öffnen Sie das Befehlsfenster zu, in den Projektordner, und geben Sie die folgenden Befehle:
+Speichern Sie Ihre Änderungen, und erstellen Sie das Projekt. Öffnen Sie anschließend das Befehlsfenster im Projektordner, und geben Sie folgenden Befehl ein:
 
 ```console
 dotnet ef migrations add MaxLengthOnNames
@@ -91,27 +91,27 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-Die `migrations add` Befehl gibt eine Warnung aus, dass Daten verloren gehen können, da die Änderung die maximale Länge für zwei Spalten kürzer ist.  Migrationen erstellt eine Datei namens  *\<Zeitstempel > _MaxLengthOnNames.cs*. Diese Datei enthält Code, in der `Up` -Methode, die die Datenbank entsprechend der aktuellen Datenmodell aktualisiert wird. Die `database update` -Befehl ausgeführt haben, diesen Code.
+Der `migrations add`-Befehl gibt eine Warnung aus, dass es zu Datenverlust kommen kann, da die maximale Länge durch die Änderung um zwei Spalten verkürzt wurde.  Durch Migrationen wird eine Datei namens *\<Zeitstempel>_MaxLengthOnNames.cs* erstellt. Diese Datei enthält Code in der `Up`-Methode, durch den die Datenbank dem aktuellen Datenmodell entsprechend aktualisiert wird. Der Code wurde durch den `database update`-Befehl ausgeführt.
 
-Der Zeitstempel, der den Dateinamen Migrationen vorangestellt wird vom Entity Framework verwendet, um die Migrationen zu bestellen. Sie können mehrere livemigrationen erstellen, vor dem Ausführen des Update-Database-Befehls, und klicken Sie dann alle die Migrationen in der Reihenfolge, in der sie erstellt wurden, angewendet werden.
+Der Zeitstempel, der dem Namen der Migrationsdatei vorangestellt ist, wird von Entity Framework verwendet, um die Migrationen zu sortieren. Sie können mehrere Migrationen erstellen, bevor Sie den Befehl „update-database“ ausführen. Anschließend werden alle Migrationen in der Reihenfolge angewendet, in der Sie erstellt wurden.
 
-Die app auszuführen, wählen Sie die **Studenten** auf **neu erstellen**, und geben Sie entweder mehr als 50 Zeichen ein. Beim Klicken auf **erstellen**, clientseitige Validierung zeigt eine Fehlermeldung angezeigt.
+Führen Sie die App aus, klicken Sie auf die Registerkarte **Studenten** und dann auf **Neu erstellen**, und geben Sie einen beliebigen Namen ein, der länger als 50 Zeichen ist. Wenn Sie auf **Erstellen** klicken, zeigt die clientseitige Validierung eine Fehlermeldung an.
 
-![Studenten Indexseite mit Zeichenfolge LÄNGENFEHLER](complex-data-model/_static/string-length-errors.png)
+![Indexseite „Studenten“, die Fehler für die Zeichenfolgenlänge anzeigt](complex-data-model/_static/string-length-errors.png)
 
-### <a name="the-column-attribute"></a>Das Spaltenattribut
+### <a name="the-column-attribute"></a>Das Column-Attribut
 
-Attribute können auch steuern, wie die Klassen und Eigenschaften in der Datenbank zugeordnet werden. Angenommen, Sie den Namen verwendet haben `FirstMidName` für den Vornamen-Feld verwendet wird, weil das Feld kann auch ein zweiter Vorname enthalten. Die Datenbankspalte benannt werden, möchten jedoch `FirstName`, da der Benutzer, die Ad-hoc-Abfragen für die Datenbank geschrieben werden auf diesen Namen daran gewöhnt sind. Um diese Zuordnung vornehmen, können Sie die `Column` Attribut.
+Sie können ebenfalls Attribute verwenden, um zu steuern, wie Ihre Klassen und Eigenschaften der Datenbank zugeordnet werden. Angenommen, Sie haben den Namen `FirstMidName` für das Feld „first-name“ verwendet, da das Feld ebenfalls einen Zweitnamen enthalten kann. Sie möchten jedoch, dass die Datenbankspalte in `FirstName` umbenannt wird, damit Benutzer, die Ad-hob-Abfragen für die Datenbank schreiben, an diesen Namen gewöhnt sind. Sie können das `Column`-Attribut verwenden, um diese Zuordnung durchzuführen.
 
-Die `Column` Attribut gibt an, wenn die Datenbank erstellt wurde, ist die Spalte von der `Student` Tabelle, zugeordnet der `FirstMidName` Eigenschaft den Namen `FirstName`. Das heißt, wenn Ihr Code bezieht sich auf `Student.FirstMidName`, die Daten aus stammen oder aktualisiert werden, der `FirstName` Spalte die `Student` Tabelle. Wenn Sie keinen Spaltennamen angeben, erhalten sie den gleichen Namen wie den Namen der Eigenschaft.
+Das `Column`-Attribut gibt an, dass bei der Erstellung der Datenbank die Spalte des `Student`-Elements, die der `FirstMidName`-Eigenschaft zugeordnet ist, den Namen `FirstName` erhält. Wenn Ihr Code also auf `Student.FirstMidName` verweist, stammen die Daten aus der `FirstName`-Spalte der `Student`-Tabelle oder werden in dieser aktualisiert. Wenn Sie keine Spaltennamen angeben, erhalten diese den gleichen Namen wie die Eigenschaft.
 
-In der *Student.cs* hinzufügen. eine `using` -Anweisung für `System.ComponentModel.DataAnnotations.Schema` und Hinzufügen der Spalte Name-Attribut, das `FirstMidName` Eigenschaft, die in den folgenden hervorgehobenen Code dargestellt:
+Fügen Sie in der Datei *Student.cs* eine `using`-Anweisung für `System.ComponentModel.DataAnnotations.Schema` hinzu, und fügen Sie wie im folgenden hervorgehobenen Code dargestellt das Attribut für den Spaltennamen zur `FirstMidName`-Eigenschaft hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
-Das Hinzufügen der `Column` Attribut ändert die Sicherung des Modells die `SchoolContext`, sodass die Datenbank keine Übereinstimmung wird nicht.
+Durch das Hinzufügen des `Column`-Attributs wird das Modell geändert, das `SchoolContext` unterstützt, sodass keine Übereinstimmung mit der Datenbank vorliegt.
 
-Speichern Sie die Änderungen zu, und erstellen Sie das Projekt. Klicken Sie dann öffnen Sie das Befehlsfenster zu, in den Projektordner, und geben Sie die folgenden Befehle zum Erstellen von einem anderen Migration:
+Speichern Sie Ihre Änderungen, und erstellen Sie das Projekt. Öffnen Sie anschließend das Befehlsfenster im Projektordner, und geben Sie folgenden Befehl ein, um eine weitere Migration zu erstellen:
 
 ```console
 dotnet ef migrations add ColumnFirstName
@@ -121,28 +121,28 @@ dotnet ef migrations add ColumnFirstName
 dotnet ef database update
 ```
 
-In **Objekt-Explorer von SQL Server**, öffnen Sie die Student-Tabellen-Designer durch Doppelklicken auf die **Student** Tabelle.
+Öffnen Sie im **SQL Server-Objekt-Explorer** den Tabellen-Designer „Student“, indem Sie auf die Tabelle **Student** doppelklicken.
 
-![Students-Tabelle in SSOX nach der Migration](complex-data-model/_static/ssox-after-migration.png)
+![Tabelle „Students“ im SSOX nach der Migration](complex-data-model/_static/ssox-after-migration.png)
 
-Bevor Sie die ersten beiden Migrationen angewendet, wurden die Namensspalten von Typ nvarchar(MAX). Sie sind jetzt nvarchar(50) und der Spaltenname wurde von FirstMidName in FirstName geändert.
+Bevor Sie die ersten beiden Migrationen angewendet haben, wiesen die Namensspalten den Typ „nvarchar(MAX)“ auf. Diese besitzen nun den Typ „nvarchar(50)“, und der Spaltenname hat sich von „FirstMidName“ in „FirstName“ geändert.
 
 > [!Note]
-> Wenn Sie versuchen, die kompiliert werden, bevor Sie alle der Entitätsklassen in den folgenden Abschnitten erstellt haben, erhalten Sie möglicherweise Compilerfehler angezeigt.
+> Wenn Sie vor dem Erstellen aller Entitätsklassen in den folgenden Abschnitten versuchen, zu kompilieren, werden möglicherweise Compilerfehler angezeigt.
 
-## <a name="final-changes-to-the-student-entity"></a>Letzte Änderungen an der Student-Entität
+## <a name="final-changes-to-the-student-entity"></a>Letzte Änderungen an der Entität „Student“
 
-![Student-Entität](complex-data-model/_static/student-entity.png)
+![Entität „Student“](complex-data-model/_static/student-entity.png)
 
-In *Models/Student.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgenden Code ersetzen. Die Änderungen werden hervorgehoben.
+Ersetzen Sie in *Models/Student.cs* den Code, den Sie zuvor hinzugefügt haben, durch folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
-### <a name="the-required-attribute"></a>Das erforderliche Attribut
+### <a name="the-required-attribute"></a>Das Attribut „Required“
 
-Die `Required` Attribut macht die erforderlichen Felder des Name-Eigenschaften. Die `Required` Attribut ist nicht erforderlich, für NULL-Typen wie Werttypen ("DateTime", "Int", double, float usw.). Typen, die nicht null sein können, werden automatisch als Pflichtfelder behandelt.
+Durch das `Required`-Attribut werden die Name-Eigenschaften zu Pflichtfeldern. Das `Required`-Attribut ist für nicht auf NULL festlegbare Typen wie Werttypen (DateTime, int, double, float usw.) nicht erforderlich. Typen, die nicht auf NULL festgelegt werden können, werden automatisch als Pflichtfelder behandelt.
 
-Könnten Sie entfernen die `Required` Attribut, und Ersetzen Sie ihn durch einen Parameter Mindestlänge für die `StringLength` Attribut:
+Sie können das `Required`-Attribut entfernen und durch einen Parameter mit der mindestens erforderlichen Länge für das `StringLength`-Attribut ersetzen:
 
 ```csharp
 [Display(Name = "Last Name")]
@@ -150,92 +150,92 @@ Könnten Sie entfernen die `Required` Attribut, und Ersetzen Sie ihn durch einen
 public string LastName { get; set; }
 ```
 
-### <a name="the-display-attribute"></a>Das Attribut anzeigen
+### <a name="the-display-attribute"></a>Das Display-Attribut
 
-Die `Display` Attribut gibt an, dass die Beschriftung für die Textfelder "Vorname", "Last Name", "Full Name" und "Registrierungsdatum" anstelle des Namens der Eigenschaft in jeder Instanz werden soll (der kein Leerzeichen, die die Wörter geteilt besitzt).
+Das `Display`-Attribut gibt an, dass die Beschriftung der Textfelder in jeder Instanz „First Name“, „Last Name“, „Full Name“ und „Enrollment Date“ lauten soll, statt dem Eigenschaftsnamen zu entsprechen (bei dem die Wörter nicht durch Leerräume getrennt werden).
 
 ### <a name="the-fullname-calculated-property"></a>Die berechnete FullName-Eigenschaft
 
-`FullName`ist eine berechnete Eigenschaft, die einen Wert zurückgibt, der durch Verketten von zwei weitere Eigenschaften erstellt wird. Daher verfügt über einen Get-Accessor und keine `FullName` Spalte in der Datenbank generiert werden.
+Bei `FullName` handelt es sich um eine berechnete Eigenschaft, die einen Wert zurückgibt, der durch das Verketten von zwei weiteren Eigenschaften erstellt wird. Daher verfügt diese nur über einen get-Accessor, und keine `FullName`-Spalte wird in der Datenbank generiert.
 
-## <a name="create-the-instructor-entity"></a>Die Instructor-Entität erstellen
+## <a name="create-the-instructor-entity"></a>Erstellen der Entität „Instructor“
 
-![Instructor-Entität](complex-data-model/_static/instructor-entity.png)
+![Entität „Instructor“](complex-data-model/_static/instructor-entity.png)
 
-Erstellen Sie *Models/Instructor.cs*, ersetzen den Code durch den folgenden Code:
+Erstellen Sie *Models/Instructor.cs*, indem Sie den Vorlagencode durch folgenden Code ersetzen:
 
 [!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
-Beachten Sie, dass mehrere Eigenschaften in den Entitäten Student "und" Dozenten identisch sind. In der [Implementieren von Vererbung](inheritance.md) weiter unten in diesem Lernprogramm müssen Sie diesen Code aus, um die Redundanz auszuschließen Umgestalten.
+Beachten Sie, dass einige Eigenschaften in den Entitäten „Student“ und „Instructor“ identisch sind. Im folgenden Tutorial [Implementing Inheritance (Implementierung von Vererbung)](inheritance.md) gestalten Sie diesen Code um, um die Redundanzen zu entfernen.
 
-Sie können mehrere Attribute in einer Zeile einfügen, deshalb können Sie auch schreiben konnte die `HireDate` Attribute wie folgt:
+Sie können mehrere Attribute in einer Zeile einfügen, also können Sie das `HireDate`-Attribut folgendermaßen schreiben:
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Die Navigationseigenschaften CourseAssignments und OfficeAssignment
+### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Die Navigationseigenschaften „CourseAssignments“ und „OfficeAssignment“
 
-Die `CourseAssignments` und `OfficeAssignment` Eigenschaften sind Navigationseigenschaften.
+Bei den Eigenschaften `CourseAssignments` und `OfficeAssignment` handelt es sich um Navigationseigenschaften.
 
-Ein Kursleiter kann eine beliebige Anzahl von Kurse werden folgende Themen behandelt, sodass `CourseAssignments` als eine Auflistung definiert ist.
+Da ein Dozent eine beliebige Anzahl von Kursen geben kann, wird `CourseAssignments` als Auflistung definiert.
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Wenn eine Navigationseigenschaft über mehrere Entitäten enthalten kann, muss der Typ in der Einträge hinzugefügt, gelöscht und aktualisiert werden können, eine Liste.  Sie können angeben, `ICollection<T>` oder ein Typ sein wie z. B. `List<T>` oder `HashSet<T>`. Bei Angabe von `ICollection<T>`, EF erstellt eine `HashSet<T>` Auflistung standardmäßig.
+Wenn eine Navigationseigenschaft mehrere Entitäten enthalten kann, muss deren Typ aus einer Liste bestehen, in der Einträge hinzugefügt, gelöscht und aktualisiert werden können.  Sie können `ICollection<T>` oder einen Typ wie `List<T>` oder `HashSet<T>` angeben. Wenn Sie `ICollection<T>` angeben, erstellt Entity Framework standardmäßig eine `HashSet<T>`-Auflistung.
 
-Der Grund, warum dies sind `CourseAssignment` Entitäten wird unten im Abschnitt über viele-zu-viele-Beziehungen erläutert.
+Warum es sich dabei um `CourseAssignment`-Entitäten handelt, wird im Folgenden im Abschnitt zu m:n-Beziehungen erläutert.
 
-Contoso University Geschäftsregeln der Status, der ein Kursleiter nur höchstens eine Niederlassung haben, kann daher die `OfficeAssignment` Eigenschaft enthält eine einzelne OfficeAssignment-Entität (die möglicherweise null, wenn keine Office zugewiesen ist).
+Die Geschäftsregeln der Contoso University besagen, dass ein Dozent maximal ein Büro besitzen kann. Die `OfficeAssignment`-Eigenschaft enthält also eine einzige OfficeAssignment-Entität (diese kann NULL sein, wenn kein Büro zugewiesen ist).
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a>Erstellen Sie die Entität OfficeAssignment
+## <a name="create-the-officeassignment-entity"></a>Erstellen der Entität „OfficeAssignment“
 
-![OfficeAssignment-Entität](complex-data-model/_static/officeassignment-entity.png)
+![Entität „OfficeAssignment“](complex-data-model/_static/officeassignment-entity.png)
 
-Erstellen Sie *Models/OfficeAssignment.cs* durch den folgenden Code:
+Erstellen Sie *Models/OfficeAssignment.cs* mit folgendem Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Das Key-Attribut
 
-Es ist eine auf 0 (null) oder eine 1-Beziehung zwischen den Dozenten und den OfficeAssignment Entitäten. Eine bürozuweisung existiert nur in Bezug auf den Dozenten, dem sie zugewiesen ist, und primäre Schlüssel ist daher auch die Fremdschlüssel für die Instructor-Entität. Aber das Entity Framework nicht InstructorID automatisch als primären Schlüssel für diese Entität erkannt werden, da der Name der ID oder ClassnameID-Benennungskonvention folgen, nicht. Aus diesem Grund die `Key` Attribut wird verwendet, um sie als Schlüssel zu identifizieren:
+Es gibt eine 1:0..1-Beziehung zwischen den Entitäten „Instructor“ und „OfficeAssignment“. Eine Bürozuweisung ist nur in Beziehung zu dem Dozenten vorhanden, dem sie zugewiesen ist. Daher ist deren Primärschlüssel auch der Fremdschlüssel für die Entität „Instructor“. Entity Framework erkennt „InstructorID“ jedoch nicht automatisch als Primärschlüssel dieser Entität an, da dessen Name nicht der Namenskonvention „ID“ oder „classnameID“ folgt. Deshalb wird das `Key`-Attribut verwendet, um „InstructorID“ als Schlüssel zu erkennen:
 
 ```csharp
 [Key]
 public int InstructorID { get; set; }
 ```
 
-Sie können auch die `Key` Attribut, wenn die Entität verfügt über einen eigenen Primärschlüssel, aber die Eigenschaft als ClassnameID oder ID etwas benennen möchten
+Sie können ebenfalls das `Key`-Attribut verwenden, wenn die Entität einen eigenen primären Schlüssel besitzt, Sie der Eigenschaft jedoch einen anderen Namen als „classnameID“ oder „ID“ geben möchten.
 
-Standardmäßig behandelt EF des Schlüssels als nicht-datenbankgeneriert, da die Spalte für eine identifizierende Beziehung ist.
+Standardmäßig behandelt Entity Framework den Schlüssel nicht als datenbankgeneriert, da die Spalte für eine identifizierende Beziehung vorgesehen ist.
 
-### <a name="the-instructor-navigation-property"></a>Die Navigationseigenschaft für Dozenten
+### <a name="the-instructor-navigation-property"></a>Die Navigationseigenschaft „Instructor“
 
-Die Instructor-Entität verfügt über einen `OfficeAssignment` Navigationseigenschaft (da eine bürozuweisung möglicherweise nicht über ein Kursleiter verfügen), und die Entität "OfficeAssignment" hat eine NULL- `Instructor` Navigationseigenschaft (da eine bürozuweisung kann nicht ohne einen Kursleiter--vorhanden `InstructorID` ist NULL-Werte zulässt). Wenn eine Instructor-Entität eine verknüpfte OfficeAssignment Entität verfügen, wird jede Entität einen Verweis auf die andere in die Navigationseigenschaft verfügen.
+Die Entität „Instructor“ verfügt über eine auf NULL festlegbare `OfficeAssignment`-Navigationseigenschaft (da einem Dozenten möglicherweise kein Büro zugewiesen ist). Die OfficeAssignment-Entität verfügt über eine nicht auf NULL festlegbare `Instructor`-Navigationseigenschaft (da eine Bürozuweisung nicht ohne einen Dozenten vorhanden sein kann – `InstructorID` ist nicht auf NULL festlegbar). Wenn die Entität „Instructor“ mit der Entität „OfficeAssignment“ verknüpft ist, besitzt jede Entität in den Navigationseigenschaften einen Verweis auf die andere.
 
-Sie setzen konnte eine `[Required]` Attribut für die Instructor-Navigationseigenschaft, um anzugeben, dass eine verwandte Dozenten muss, aber Sie nicht verfügen, da dies der `InstructorID` Fremdschlüssel (also auch die Taste, um diese Tabelle) ist NULL-Werte zulässt.
+Sie können ein `[Required]`-Attribut zur Navigationseigenschaft „Instructor“ hinzufügen, um anzugeben, dass ein zugehöriger Dozent vorhanden sein muss. Dies ist jedoch nicht notwendig, da der Fremdschlüssel `InstructorID` (bei dem es sich ebenfalls um den Schlüssel für diese Tabelle handelt) nicht auf NULL festlegbar ist.
 
-## <a name="modify-the-course-entity"></a>Ändern Sie die Kurs-Entität
+## <a name="modify-the-course-entity"></a>Ändern der Entität „Course“
 
-![Kurs-Entität](complex-data-model/_static/course-entity.png)
+![Entität „Course“](complex-data-model/_static/course-entity.png)
 
-In *Models/Course.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgenden Code ersetzen. Die Änderungen werden hervorgehoben.
+Ersetzen Sie in *Models/Course.cs* den Code, den Sie zuvor hinzugefügt haben, durch folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-Die Kurs-Entität verfügt über eine Fremdschlüsseleigenschaft `DepartmentID` hat das auf die verknüpfte Entität Department und zeigt eine `Department` Navigationseigenschaft.
+Die Entität „Course“ besitzt die Fremdschlüsseleigenschaft `DepartmentID`, die auf die zugehörige Entität „Department“ zeigt und die Navigationseigenschaft `Department` besitzt.
 
-Das Entity Framework erfordern nicht, dass Sie eine foreign Key-Eigenschaft mit dem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für einer verknüpften Entität sind.  EF automatisch Fremdschlüssel in der Datenbank erstellt werden, wo sie benötigt werden, und erstellt [Shadowing von Eigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für sie. Jedoch müssen die Fremdschlüssel im Datenmodell kann Updates vornehmen, einfacher und effizienter. Z. B. Wenn Sie eine Entität Kurs bearbeiten abzurufen, die Entität Department ist null, wenn Sie es nicht geladen werden, also bei der Aktualisierung von der Entität Kurs Sie müssten zuerst die Entität Department abzurufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` enthalten ist in das Datenmodell, müssen Sie die Entität Department zu abzurufen, bevor Sie aktualisieren.
+Entity Framework erfordert nicht, dass Sie eine Fremdschlüsseleigenschaft zu Ihrem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für eine verknüpfte Entität vorhanden ist.  Entity Framework erstellt an den erforderlichen Stellen automatisch Fremdschlüssel in der Datenbank und erstellt [Schatteneigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für diese. Durch Fremdschlüssel im Datenmodell können Updates einfacher und effizienter durchgeführt werden. Wenn Sie beispielsweise die Entität „Course“ zum Bearbeiten abrufen, ist die Entität „Department“ NULL, wenn Sie diese nicht laden. Wenn Sie die Entität „Course“ also aktualisieren, müssen Sie ebenfalls die Entität „Department“ abrufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` im Datenmodell vorhanden ist, müssen Sie die Entität „Department“ vor dem Update nicht abrufen.
 
-### <a name="the-databasegenerated-attribute"></a>Das DatabaseGenerated-Attribut
+### <a name="the-databasegenerated-attribute"></a>Das Attribut „DatabaseGenerated“
 
-Die `DatabaseGenerated` -Attribut mit dem `None` Parameter auf die `CourseID` Eigenschaft gibt an, dass Primärschlüsselwerte sind vom Benutzer bereitgestellte anstatt von der Datenbank generiert.
+Das `DatabaseGenerated`-Attribut mit dem `None`-Parameter der `CourseID`-Eigenschaft gibt an, dass Primärschlüsselwerte vom Benutzer bereitgestellt und nicht von der Datenbank generiert werden.
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -243,72 +243,72 @@ Die `DatabaseGenerated` -Attribut mit dem `None` Parameter auf die `CourseID` Ei
 public int CourseID { get; set; }
 ```
 
-Entity Framework geht standardmäßig davon aus, dass Primärschlüssel von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Allerdings für die Kurs-Entitäten, Sie verwenden eine benutzerdefinierte Kurs Zahl wie z. B. eine Reihe von 1000 für eine Abteilung, eine Reihe 2000 für eine andere Abteilung und usw.
+Standardmäßig geht Entity Framework davon aus, dass Primärschlüsselwerte von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Für Course-Entitäten verwenden Sie jedoch eine benutzerdefinierte Kursnummer, z.B. eine 1000er-Reihe für eine Abteilung, eine 2000er-Reihe für eine andere usw.
 
-Die `DatabaseGenerated` Attribut kann auch verwendet werden, um Default-Werte zu generieren, wie im Fall von Datenbankspalten verwendet, um das Datum aufzuzeichnen eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Eigenschaften generiert](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+Das `DatabaseGenerated`-Attribut kann ebenfalls verwendet werden, um Standardwerte zu generieren. Im Fall von Datenbankspalten wird es verwendet, um das Datum zu erfassen, an dem eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Generated Properties (Generierte Eigenschaften)](https://docs.microsoft.com/ef/core/modeling/generated-properties).
 
-### <a name="foreign-key-and-navigation-properties"></a>Foreign Key- und Navigation-Eigenschaften
+### <a name="foreign-key-and-navigation-properties"></a>Fremdschlüssel- und Navigationseigenschaften
 
-Die Fremdschlüsseleigenschaften und Navigationseigenschaften der Entität Kurs reflektieren die folgenden Beziehungen:
+Die Fremdschlüssel- und Navigationseigenschaften in der Entität „Course“ stellen folgende Beziehungen dar:
 
-Ein Kurs wird an eine Abteilung zugewiesen, daher besteht eine `DepartmentID` Fremdschlüssel und einem `Department` Navigationseigenschaft für die oben genannten Gründe.
+Ein Kurs ist einer Abteilung zugeordnet, sodass es aus den oben genannten Gründen eine `DepartmentID`-Fremdschlüsseleigenschaft und eine `Department`-Navigationseigenschaft gibt.
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-Ein Kurs kann eine beliebige Anzahl von Lernende, haben also die `Enrollments` Navigationseigenschaft ist eine Sammlung:
+In einem Kurs können beliebig viele Studenten angemeldet sein, darum stellt die `Enrollments`-Navigationseigenschaft eine Auflistung dar:
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
 ```
 
-Ein Kurs kann von mehreren Lehrkräfte vermittelten werden daher die `CourseAssignments` Navigationseigenschaft ist eine Auflistung (den Typ `CourseAssignment` wird erläutert [später](#many-to-many-relationships)):
+Ein Kurs kann von mehreren Dozenten unterrichtet werden, darum stellt die `CourseAssignments`-Navigationseigenschaft eine Auflistung dar (der Typ `CourseAssignment` wird [später](#many-to-many-relationships) erklärt):
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Erstellen Sie die Entität Department
+## <a name="create-the-department-entity"></a>Erstellen der Entität „Department“
 
-![Entität Department](complex-data-model/_static/department-entity.png)
+![Entität „Department“](complex-data-model/_static/department-entity.png)
 
 
-Erstellen Sie *Models/Department.cs* durch den folgenden Code:
+Erstellen Sie *Models/Department.cs* mit folgendem Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
-### <a name="the-column-attribute"></a>Das Spaltenattribut
+### <a name="the-column-attribute"></a>Das Column-Attribut
 
-Zuvor Sie verwendet die `Column` Attribut, um die Zuordnung für die Namen von Spalten zu ändern. Im Code für die Entität Department der `Column` Attribut wird verwendet, um das Ändern der SQL datentypzuordnung so, dass die Spalte mit den SQL Server-Money-Datentyp in der Datenbank definiert werden:
+Zuvor haben Sie das `Column`-Attribut verwendet, um die Zuordnung des Spaltennamens zu ändern. Im Code für die Entität „Department“ wird das `Column`-Attribut verwendet, um die SQL-Datentypzuordnung zu ändern, sodass die Spalte mithilfe des SQL Server-Typs „money“ in der Datenbank definiert wird:
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-Die Zuordnung ist im Allgemeinen nicht erforderlich, da das Entity Framework wählt die entsprechenden SQL Server-Datentyp, der basierend auf dem CLR-Typ, den Sie für die Eigenschaft zu definieren. Die CLR `decimal` wird zugeordnet zu SQL Server `decimal` Typ. In diesem Fall wissen, dass die Spalte wird Währungsbeträge belegen, und der Money-Datentyp eignet sich besser für die aber.
+Die Spaltenzuordnung ist im Allgemeinen nicht erforderlich, da Entity Framework den geeigneten SQL Server-Datentyp auf dem CLR-Typ basierend auswählt, den Sie für die Eigenschaft definieren. Der CLR-Typ `decimal` wird dem SQL Server-Typ `decimal` zugeordnet. In diesem Fall wissen Sie jedoch, dass die Spalte Währungsbeträge enthält. Hierfür ist der Datentyp „money“ besser geeignet.
 
-### <a name="foreign-key-and-navigation-properties"></a>Foreign Key- und Navigation-Eigenschaften
+### <a name="foreign-key-and-navigation-properties"></a>Fremdschlüssel- und Navigationseigenschaften
 
-Die folgenden Beziehungen entsprechen den foreign key- und Navigation-Eigenschaften:
+Die Fremdschlüssel- und Navigationseigenschaften stellen folgende Beziehungen dar:
 
-Eine Abteilung kann oder besitzen möglicherweise nicht von einem Administrator und ein Administrator ist immer einen Kursleiter. Aus diesem Grund die `InstructorID` Eigenschaft ist als der Fremdschlüssel für die Instructor-Entität enthalten, und ein Fragezeichen wird hinzugefügt, nachdem die `int` Geben Sie die Bezeichnung, markieren Sie die Eigenschaft als NULL-Werte zulässt. Die Navigationseigenschaft heißt `Administrator` jedoch eine Instructor-Entität enthält:
+Eine Abteilung kann einen Administrator besitzen oder nicht, und bei einem Administrator handelt es sich immer um einen Dozenten. Deshalb wird die `InstructorID`-Eigenschaft als Fremdschlüssel zur Entität „Instructor“ hinzugefügt, und ein Fragezeichen wird nach der Typbezeichnung `int` hinzugefügt, um die Eigenschaft als auf NULL festlegbar zu markieren. Die Navigationseigenschaft heißt `Administrator`, enthält jedoch eine Instructor-Entität:
 
 ```csharp
 public int? InstructorID { get; set; }
 public Instructor Administrator { get; set; }
 ```
 
-Eine Abteilung möglicherweise viele Kurse, daher eine Navigationseigenschaft Kurse besteht:
+Eine Abteilung kann viele Kurse aufweisen, darum gibt es die Navigationseigenschaft „Courses“:
 
 ```csharp
 public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Gemäß der Konvention ermöglicht das Entity Framework kaskadierendes Delete für die NULL-Fremdschlüssel und für viele-zu-viele-Beziehungen. Dies kann zu zirkuläre Cascade Delete Regeln führen, der eine Ausnahme verursacht wird, wenn Sie versuchen, eine Migration hinzuzufügen. Beispielsweise wenn Sie die Eigenschaft Department.InstructorID als auf NULL festlegbar definiert haben, würden EF konfigurieren eine Cascade Delete-Regel klicken, um den Dozenten zu löschen, wenn Sie die Abteilung, die nicht ist löschen, was passieren soll. Bei Bedarf Ihre Geschäftsregeln der `InstructorID` Eigenschaft nicht NULL-Werte zulässt, müssten Sie die folgende fluent-API-Anweisung verwenden, um kaskadierte Löschung auf der Beziehung zu deaktivieren:
+> Gemäß der Konvention aktiviert Entity Framework das kaskadierende Delete für nicht auf NULL festlegbare Fremdschlüssel und für m:n-Beziehungen. Dies kann zu zirkulären Regeln für kaskadierende Deletes führen, wodurch eine Ausnahme ausgelöst wird, wenn Sie versuchen, eine Migration hinzuzufügen. Wenn Sie die Eigenschaft „Department.InstructorID“ nicht als auf NULL festlegbar definiert haben, würde Entity Framework eine Regel für kaskadierende Deletes konfigurieren, damit der Dozent gelöscht wird, wenn Sie die Abteilung löschen. Dies ist jedoch nicht erwünscht. Wenn Ihre Geschäftsregeln erfordern, dass die `InstructorID`-Eigenschaft nicht auf NULL festlegbar ist, müssen Sie folgende Fluent-API-Anweisung verwenden, um kaskadierende Deletes für die Eigenschaft zu deaktivieren:
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -316,26 +316,26 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Ändern Sie die Registrierung-Entität
+## <a name="modify-the-enrollment-entity"></a>Ändern der Entität „Enrollment“
 
-![Registrierung-Entität](complex-data-model/_static/enrollment-entity.png)
+![Entität „Enrollment“](complex-data-model/_static/enrollment-entity.png)
 
-In *Models/Enrollment.cs*, die von Ihnen hinzugefügte Code zuvor durch den folgenden Code ersetzen:
+Ersetzen Sie in *Models/Enrollment.cs* den Code, den Sie zuvor hinzugefügt haben, durch folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
-### <a name="foreign-key-and-navigation-properties"></a>Foreign Key- und Navigation-Eigenschaften
+### <a name="foreign-key-and-navigation-properties"></a>Fremdschlüssel- und Navigationseigenschaften
 
-Die foreign Key-Eigenschaften und Navigationseigenschaften reflektieren die folgenden Beziehungen:
+Die Fremdschlüssel- und Navigationseigenschaften stellen folgende Beziehungen dar:
 
-Ein Anmeldungsdatensatz ist für eine einzelnes Kurs, es ist also eine `CourseID` foreign Key-Eigenschaft und eine `Course` Navigationseigenschaft:
+Ein Anmeldungsdatensatz gilt für einen einzelnen Kurs, sodass es eine `CourseID`-Fremdschlüsseleigenschaft und eine `Course`-Navigationseigenschaft gibt:
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-Ein Anmeldungsdatensatz ist für einen einzelnen Studenten, es ist also eine `StudentID` foreign Key-Eigenschaft und eine `Student` Navigationseigenschaft:
+Ein Anmeldungsdatensatz gilt für einen einzelnen Studenten, sodass es eine `StudentID`-Fremdschlüsseleigenschaft und eine `Student`-Navigationseigenschaft gibt:
 
 ```csharp
 public int StudentID { get; set; }
@@ -344,47 +344,47 @@ public Student Student { get; set; }
 
 ## <a name="many-to-many-relationships"></a>n:n-Beziehungen
 
-Besteht eine m: n-Beziehung zwischen den Entitäten Student "und" Kurs und die Registrierung Entität fungiert als Jointabelle m: n- *mit Nutzlast* in der Datenbank. "Mit der Nutzlast" bedeutet, dass die Enrollment-Tabelle zusätzliche Daten als Fremdschlüssel für den verknüpften Tabellen (in diesem Fall eine primary key- und eine Eigenschaft Grade) enthält.
+Es besteht eine m:n-Beziehung zwischen den Entitäten „Student“ und „Course“, und die Entitätsfunktionen „Enrollment“ liegen als m:n-Jointabelle *mit Nutzlast* in der Datenbank vor. „Mit Nutzlast“ bedeutet, dass die Tabelle „Enrollment“ außer den Fremdschlüsseln für die verknüpften Tabellen (in diesem Fall ein Primärschlüssel und eine Grade-Eigenschaft) zusätzliche Daten enthält.
 
-Die folgende Abbildung zeigt, wie diese Beziehungen in einem Entitätsdiagramm aussieht. (Dieses Diagramm generiert wurde, verwenden die Entity Framework-Powertools für EF 6.x, erstellen das Diagramm ist nicht Teil des Lernprogramms wird gerade verwendet wird hier als veranschaulicht.)
+Die folgende Abbildung stellt dar, wie diese Beziehungen in einem Entitätsdiagramm aussehen. (Dieses Diagramm wurde mithilfe der Entity Framework Power Tools für Entity Framework 6.x erstellt. Das Erstellen des Diagramms ist nicht Teil des Tutorials, sondern wird hier nur zur Veranschaulichung verwendet.)
 
-![Student-Kurs m: n-Beziehung](complex-data-model/_static/student-course.png)
+![m:n-Beziehung zwischen „Student“ und „Course“](complex-data-model/_static/student-course.png)
 
-Jede Beziehungslinie hat eine 1 an einem Ende und ein Sternchen (*) am anderen Eintrag, der angibt, einer 1: n-Beziehung.
+Jede Beziehung weist an einem Ende „1“ und am anderen Ende „*“ auf, wodurch eine 1:n-Beziehung dargestellt wird.
 
-Wenn die Enrollment-Tabelle Grade Informationen nicht enthalten waren, müssten sie nur die zwei Fremdschlüssel CourseID und StudentID enthalten. In diesem Fall wäre es eine m: n-Jointabelle ohne Nutzlast (oder eine reine Jointabelle) in der Datenbank. Die Instructor und Kurs Entitäten sein, diese Art von m: n-Beziehung, und der nächste Schritt ist die Erstellung eine Entitätsklasse zur als eine Jointabelle ohne Nutzlast fungieren.
+Wenn in der Tabelle „Enrollment“ nicht die Information „Grade“ enthalten wäre, müsste diese nur die beiden Fremdschlüssel „CourseID“ und „StudentID“ enthalten. In diesem Fall würde es sich um eine m:n-Jointabelle ohne Nutzlast (oder um eine reine Jointabelle) in der Datenbank handeln. Die Entitäten „Instructor“ und „Course“ weisen diese Art von m:n-Beziehung auf. Als Nächstes sollten Sie also eine Entitätsklasse erstellen, die als Jointabelle ohne Nutzlast fungiert.
 
-(EF 6.x unterstützt, die nicht von implizitem Join von Tabellen für m: n-Beziehungen, aber EF Core. Weitere Informationen finden Sie unter der [Diskussion in der EF-Core-GitHub-Repository](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(Entity Framework 6.x unterstützt implizite Jointabellen für m:n-Beziehungen, Entity Framework Core jedoch nicht. Weitere Informationen finden Sie in der [Diskussion im GitHub-Repository für Entity Framework Core](https://github.com/aspnet/EntityFramework/issues/1368).) 
 
-## <a name="the-courseassignment-entity"></a>Die CourseAssignment-Entität
+## <a name="the-courseassignment-entity"></a>Die Entität „CourseAssignment“
 
-![CourseAssignment-Entität](complex-data-model/_static/courseassignment-entity.png)
+![Entität „CourseAssignment“](complex-data-model/_static/courseassignment-entity.png)
 
-Erstellen Sie *Models/CourseAssignment.cs* durch den folgenden Code:
+Erstellen Sie *Models/CourseAssignment.cs* mit folgendem Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
 
-### <a name="join-entity-names"></a>Entitätsnamen verknüpfen
+### <a name="join-entity-names"></a>Namen von Joinentitäten
 
-Eine Jointabelle in der Datenbank für die Instructor-Kurse-viele-zu-viele-Beziehung erforderlich ist, und er muss über eine Entitätenmenge dargestellt werden. Es ist üblich, benennen Sie eine Joinentität `EntityName1EntityName2`, die in diesem Fall wäre `CourseInstructor`. Allerdings wird empfohlen, dass Sie einen Namen auswählen, der die Beziehung beschreibt. Datenmodelle fangen einfache und hinausgeht, mit ohne-Nutzlast Joins häufig Nutzlasten später abrufen. Wenn Sie mit einem aussagekräftigen Entitätsname beginnen, müssen Sie den Namen später ändern. Im Idealfall würden die Joinentität einen eigene natürlichen (möglicherweise einzelne Wort)-Namen in der Business-Domäne haben. Beispielsweise konnte Büchern und Kunden über Bewertungen verknüpft werden. Für diese Beziehung `CourseAssignment` ist besser geeignet als `CourseInstructor`.
+Eine Jointabelle ist in der Datenbank für die m:n-Beziehung zwischen „Instructor“ und „Course“ erforderlich. Diese muss über eine Entitätenmenge dargestellt werden. Es ist üblich, eine Joinentität `EntityName1EntityName2` zu benennen, was in diesem Fall `CourseInstructor` entsprechen würde. Es wird jedoch empfohlen, einen Namen auszuwählen, der die Beziehung beschreibt. Datenmodelle fangen einfach an und werden dann größer. Mit der Zeit werden Joins ohne Nutzlast Nutzlasten hinzugefügt. Wenn Sie mit einem aussagekräftigen Entitätsnamen beginnen, müssen Sie diesen später nicht ändern. Im Idealfall verfügt die Joinentität über einen eigenen, nachvollziehbaren Namen (der möglicherweise aus nur einem Wort besteht) in der Geschäftsdomäne. „Books“ und „Customers“ könnten beispielsweise über „Ratings“ verknüpft werden. Für diese Beziehung ist `CourseAssignment` besser als `CourseInstructor` geeignet.
 
-### <a name="composite-key"></a>Zusammengesetzter Schlüssel
+### <a name="composite-key"></a>Zusammengesetzte Schlüssel
 
-Da der Fremdschlüssel keine NULL-Werte zulässt und zusammen eindeutig sind jede Zeile der Tabelle zu identifizieren, besteht keine Notwendigkeit für eine separate Primärschlüssel. Die *InstructorID* und *CourseID* Eigenschaften als einen zusammengesetzten Primärschlüssel fungieren soll. Die einzige Möglichkeit zum Identifizieren von zusammengesetzten Primärschlüssel zur EF ist die Verwendung der *fluent-API* (kann nicht mithilfe von Attributen ausgeführt werden). Gewusst wie: Konfigurieren von zusammengesetzten Primärschlüssel im nächsten Abschnitt angezeigt.
+Da die Fremdschlüssel nicht auf NULL festlegbar sind und zusammen jede Zeile der Tabelle eindeutig identifizieren, ist kein separater Primärschlüssel erforderlich. Die Eigenschaften *InstructorID* und *CourseID* fungieren als zusammengesetzter Primärschlüssel. Die einzige Möglichkeit zum Identifizieren von zusammengesetzten Primärschlüsseln für Entity Framework besteht in der Verwendung der *Fluent-API*. Dies kann nicht mithilfe von Attributen durchgeführt werden. Weitere Informationen zum Konfigurieren von zusammengesetzten Primärschlüsseln finden Sie im nächsten Abschnitt.
 
-Des zusammengesetzten Schlüssels wird sichergestellt, dass während Sie über mehrere Zeilen für einen Kurs und mehrere Zeilen für einen Kursleiter verfügen können, Sie mehrere Zeilen für die gleiche Kursleiter und Kurs nicht zulässig. Die `Enrollment` Joinentität definiert einen eigenen Primärschlüssel aus, damit Duplikate dieser Art möglich sind. Um zu verhindern, dass solche Duplikate, konnte Sie einen eindeutigen Index für die foreign Key-Felder hinzufügen oder konfigurieren `Enrollment` mit einem zusammengesetzten Primärschlüssel ähnelt `CourseAssignment`. Weitere Informationen finden Sie unter [Indizes](https://docs.microsoft.com/ef/core/modeling/indexes).
+Durch den zusammengesetzten Schlüssel wird sichergestellt, dass nicht mehrere Zeilen für denselben Dozenten und Kurs vorhanden sein können, obwohl es mehrere Zeilen für einen Kurs und mehrere Zeilen für einen Dozenten gibt. Die Joinentität `Enrollment` definiert ihren eigenen Primärschlüssel, dadurch sind Duplikate dieser Art möglich. Sie können einen eindeutigen Index zu den Feldern mit Fremdschlüsseln hinzufügen, um solche Duplikate zu verhindern, oder `Enrollment` mit einem zusammengesetzten Primärschlüssel konfigurieren, der `CourseAssignment` ähnelt. Weitere Informationen finden Sie unter [Indizes](https://docs.microsoft.com/ef/core/modeling/indexes).
 
-## <a name="update-the-database-context"></a>Aktualisieren Sie den Datenbankkontext
+## <a name="update-the-database-context"></a>Aktualisieren des Datenbankkontexts
 
-Fügen Sie den folgenden hervorgehobenen Code in die *Data/SchoolContext.cs* Datei:
+Fügen Sie folgenden hervorgehobenen Code zur Datei *Data/SchoolContext.cs* hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
-Dieser Code fügt das neuen Entitäten und konfiguriert die CourseAssignment Entität zusammengesetzten Primärschlüssel.
+Durch diesen Code werden neue Entitäten hinzugefügt, und der zusammengesetzte Primärschlüssel der Entität „CourseAssignment“ wird konfiguriert.
 
-## <a name="fluent-api-alternative-to-attributes"></a>Fluent-API-Alternative zu Attributen
+## <a name="fluent-api-alternative-to-attributes"></a>Fluent-API-Alternativen für Attribute
 
-Der Code in der `OnModelCreating` Methode der `DbContext` -Klasse verwendet die *fluent-API* EF Verhalten konfigurieren. Die API wird "fluent" bezeichnet, da es häufig von einer Reihe von Methodenaufrufen, die zusammen in einer einzigen Anweisung, wie in diesem Beispiel aus Vermittlungsstellen verwendet die [EF Basisdokumentation](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Der Code in der `OnModelCreating`-Methode der `DbContext`-Klasse verwendet die *Fluent-API* zum Konfigurieren des Verhaltens von Entity Framework. Die API wird als „Fluent“ bezeichnet, da sie häufig durch das Verketten mehrerer Methodenaufrufe zu einer einzigen Anweisung verwendet wird. Ein Beispiel hierfür finden Sie in der [EF Core documentation (Dokumentation zu Entity Framework)](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -395,68 +395,68 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-In diesem Lernprogramm verwenden Sie die fluent-API nur für datenbankzuordnung, die Sie mit Attributen können nicht. Allerdings auch können die fluent-API Sie die meisten Formatierung, Überprüfung und Zuordnungsregeln an, denen Sie durchführen können, mithilfe von Attributen angeben. Einige Attribute wie z. B. `MinimumLength` kann nicht mit der fluent-API angewendet werden. Wie bereits erwähnt, `MinimumLength` ändert nicht das Schema gilt nur für eine Validierungsregel Client und Server-Seite.
+In diesem Tutorial verwendet Sie die Fluent-API nur für Datenbankzuordnungen, die nicht mithilfe von Attributen durchgeführt werden können. Sie können die Fluent-API jedoch ebenfalls verwenden, um den Großteil der Regeln für die Formatierung, Validierung und Zuordnung anzugeben, die Sie mithilfe von Attributen festlegen können. Manche Attribute, z.B. `MinimumLength`, können nicht mit der Fluent-API angewendet werden. Wie bereits erwähnt, ändert `MinimumLength` das Schema nicht, sondern wendet lediglich eine client- und serverseitige Validierungsregel an.
 
-Einige Entwickler bevorzugen die fluent-API ausschließlich, damit sie ihre Entitätsklassen "bereinigen" bleibt Sie können Attribute und fluent-API kombinieren, wenn werden sollen, und es gibt einige Anpassungen, die nur mithilfe der fluent-API ausgeführt werden können, aber im Allgemeinen wird empfohlen, wählen eine dieser beiden Ansätze und konsistent, so weit wie möglich verwenden. Wenn Sie beides verwenden, beachten Sie, dass immer ein Konflikt vorliegt, Fluent-API für Attribute überschreibt.
+Einige Entwickler bevorzugen die exklusive Verwendung der Fluent-API, um ihre Entitätsklassen „rein“ zu halten. Sie können Attribute und die Fluent-API verwenden, wenn Sie möchten. Einige Anpassungen können nur mithilfe der Fluent-API vorgenommen werden. Im Allgemeinen wird jedoch empfohlen, einen der beiden Ansätze auszuwählen und diesen so konsistent wie möglich zu verwenden. Wenn Sie beide verwenden, beachten Sie, dass Attribute durch die Fluent-API überschrieben werden, wenn ein Konflikt vorliegt.
 
-Weitere Informationen zu Attributen im Vergleich zu fluent-API finden Sie unter [Methoden der Konfiguration](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Weitere Informationen zu Attributen und Fluent-API im Vergleich finden Sie unter [Methods of configuration (Konfigurationsmethoden)](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
 
-## <a name="entity-diagram-showing-relationships"></a>Anzeigen von Entitätsbeziehungen-Diagramm
+## <a name="entity-diagram-showing-relationships"></a>Entitätsdiagramm mit angezeigten Beziehungen
 
-Die folgende Abbildung zeigt das Diagramm, das den Entity Framework-Power-Tools für das abgeschlossene Modell "School" zu erstellen.
+Die folgende Abbildung stellt das Diagramm dar, das von Entity Framework Power Tools für das vollständige Modell „School“ erstellt wird.
 
 ![Entitätsdiagramm](complex-data-model/_static/diagram.png)
 
-Neben den Zeilen 1: n-Beziehung (1 bis \*), sehen Sie hier zu 0 (null) oder eins eine Beziehungslinie (1 zu 0. 1) zwischen den Entitäten Dozenten und OfficeAssignment und 0 (null)-oder-1-n-Beziehung (0. 1 auf *) zwischen den Instructor "und" Department-Entitäten.
+Neben den Linien für 1:n-Beziehungen (1:\*) werden die Linien für „Eins-bis-Null-oder Eins“-Beziehungen (1:0..1) zwischen den Entitäten „Instructor“ und „OfficeAssignment“ und die Linien für 0..1:n-Beziehungen (0..1:*) zwischen den Entitäten „Instructor“ und „Department“ dargestellt.
 
-## <a name="seed-the-database-with-test-data"></a>Ausgangswert für die Datenbank mit Testdaten
+## <a name="seed-the-database-with-test-data"></a>Ausführen eines Seedings für die Datenbank mit Testdaten
 
-Ersetzen Sie den Code in der *Data/DbInitializer.cs* Datei durch den folgenden Code um Seed-Daten für die neuen Entitäten zu gewährleisten Sie erstellt haben.
+Ersetzen Sie den Code in der Datei *Data/DbInitializer.cs* durch folgenden Code, um Startwertdaten für die neu erstellten Entitäten bereitzustellen.
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
-Im ersten Lernprogramm haben Sie gesehen, wird die meisten dieser Code einfach neue Entitätsobjekte erstellt und lädt Beispieldaten in die Eigenschaften nach Bedarf zu Testzwecken. Beachten Sie, wie die m: n-Beziehungen behandelt werden: der Code erstellt Beziehungen durch das Erstellen von Entitäten in der `Enrollments` und `CourseAssignment` Entitätenmengen verknüpfen.
+Wie im ersten Tutorial dargestellt werden durch diesen Code überwiegend neue Entitätsobjekte dargestellt und für die Tests erforderliche Beispieldaten in Eigenschaften geladen. Achten Sie darauf, wie die m:n-Beziehungen verarbeitet werden: Der Code erstellt Beziehungen, indem Entitäten in den Joinentitätenmengen `Enrollments` und `CourseAssignment` erstellt werden.
 
-## <a name="add-a-migration"></a>Fügen Sie eine migration
+## <a name="add-a-migration"></a>Hinzufügen einer Migration
 
-Speichern Sie die Änderungen zu, und erstellen Sie das Projekt. Klicken Sie dann das Befehlsfenster zu öffnen, in den Projektordner, und geben Sie die `migrations add` Befehl (nicht ausführen den Update-Database-Befehl noch):
+Speichern Sie Ihre Änderungen, und erstellen Sie das Projekt. Öffnen Sie dann das Befehlsfenster im Projektordner, und geben Sie den Befehl `migrations add` ein (verwenden Sie den Befehl „update-database“ noch nicht):
 
 ```console
 dotnet ef migrations add ComplexDataModel
 ```
 
-Sie erhalten eine Warnung bezüglich eines möglichen Datenverlusts.
+Sie erhalten eine Warnung über möglichen Datenverlust.
 
 ```text
 An operation was scaffolded that may result in the loss of data. Please review the migration for accuracy.
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-Falls Sie versucht haben, führen Sie die `database update` an diesem Punkt Befehl (nicht gerade noch), erhalten Sie die folgende Fehlermeldung:
+Wenn Sie versucht haben, den Befehl `database update` zu diesem Zeitpunkt auszuführen (führen Sie diesen noch nicht aus), erhalten Sie folgende Fehlermeldung:
 
-> Die ALTER TABLE-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschränkung "FK_dbo. Course_dbo. Department_DepartmentID". Der Konflikt trat in der Datenbank "ContosoUniversity", Tabelle "Dbo. Abteilung", Spalte"DepartmentID".
+> Die ALTER TABLE-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschränkung „FK_dbo.Course_dbo.Department_DepartmentID“. Der Konflikt trat in der „ContosoUniversity“-Datenbank, Tabelle „dbo.Department“, Spalte „DepartmentID“ auf.
 
-In einigen Fällen, wenn Sie Migrationen mit vorhandenen Daten ausführen, müssen Sie zum Einfügen von Stubdaten in die Datenbank foreign Key-Einschränkungen nicht erfüllen. Der generierte Code in der `Up` -Methode die Course-Tabelle NULL-Fremdschlüssel "DepartmentID" hinzugefügt. Wenn Zeilen vorhanden bereits in die Course-Tabelle beim Ausführen des Codes sind die `AddColumn` Vorgang schlägt fehl, da SQL Server nicht weiß, welcher Wert in die Spalte einfügen, die darf nicht null sein. In diesem Lernprogramm führen Sie die Migration auf eine neue Datenbank, jedoch in einer produktionsanwendung müssten Sie stellen die Migration vorhandene Daten verarbeiten, daher die folgenden Anweisungen ein Beispiel hierzu anzeigen.
+In einigen Fällen müssen Sie beim Ausführen von Migrationen mit vorhandenen Daten Stub-Daten in die Datenbank einfügen, um die Fremdschlüsseleinschränkungen zu erfüllen. Der generierte Code in der `Up`-Methode fügt den nicht auf NULL festlegbaren Fremdschlüssel „DepartmentID“ zur Tabelle „Course“ hinzu. Wenn beim Ausführen des Codes bereits Zeilen in der Tabelle „Course“ vorhanden sind, schlägt der `AddColumn`-Vorgang fehl, da SQL Server keinen Wert in eine Spalte einfügen kann, die nicht NULL sein darf. In diesem Tutorial führen Sie die Migration auf eine neue Datenbank durch. In einer Produktionsanwendung müssten Sie jedoch dafür sorgen, dass die Migration vorhandene Daten verarbeiten kann. Ein Beispiel hierfür finden Sie in den folgenden Anweisungen.
 
-Stellen diese Migration arbeiten mit vorhandenen Daten, die Sie so ändern Sie den Code so erteilen Sie der neuen Spalte einen Standardwert verfügen, und erstellen Sie eine Abteilung ein Stub mit dem Namen "Temp" als Standard-Abteilung zu agieren. Folglich vorhandenen Kurs Zeilen werden alle werden im Zusammenhang mit der Abteilung "Temp" nach der `Up` Methode ausgeführt wird.
+Damit diese Migration mit vorhandenen Daten funktioniert, müssen Sie den Code ändern, damit dieser der neuen Spalte einen Standardwert zuweist, und eine Stub-Abteilung namens „Temp“ erstellen, die als Standardabteilung fungiert. Folglich sind alle vorhandenen Course-Zeilen mit der Abteilung „Temp“ verknüpft, nachdem die Methode `Up` ausgeführt wurde.
 
-* Öffnen der *{timestamp}_ComplexDataModel.cs* Datei. 
+* Öffnen Sie die Datei *{timestamp}_ComplexDataModel.cs*. 
 
-* Kommentieren Sie die Codezeile, die die Course-Tabelle die Spalte "DepartmentID" hinzufügt.
+* Kommentieren Sie die Codezeile aus, die die Spalte „DepartmentID“ zur Tabelle „Course“ hinzufügt.
 
   [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-* Fügen Sie nach dem Code, der die Department-Tabelle erstellt die folgenden hervorgehobenen Code hinzu:
+* Fügen Sie folgenden hervorgehobenen Code nach dem Code hinzu, der die Tabelle „Department“ erstellt:
 
   [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-In einer produktionsanwendung würde Sie schreiben Code oder Skripts für die Abteilung Zeilen hinzuzufügen, und die neuen Zeilen der Abteilung Kurs Zeilen beziehen. Die Abteilung "Temp" oder den Standardwert für die Spalte Course.DepartmentID würden Sie dann nicht mehr benötigen.
+In einer Produktionsanwendung würden Sie Code oder Skripts schreiben, um Department-Zeilen hinzuzufügen und die Course-Zeilen mit den neuen Department-Zeilen zu verknüpfen. Danach benötigen Sie die Abteilung „Temp“ und den Standardwert für die Spalte „Course.DepartmentID“ nicht mehr.
 
-Speichern Sie die Änderungen zu, und erstellen Sie das Projekt.
+Speichern Sie Ihre Änderungen, und erstellen Sie das Projekt.
 
-## <a name="change-the-connection-string-and-update-the-database"></a>Ändern Sie die Verbindungszeichenfolge und aktualisieren die Datenbank
+## <a name="change-the-connection-string-and-update-the-database"></a>Ändern der Verbindungszeichenfolge und Aktualisieren der Datenbank
 
-Sie haben jetzt die neuen Code, der `DbInitializer` -Klasse, die mit einer leeren Datenbank Ausgangswert Daten für die neue Entitäten hinzugefügt. Um EF erstellen Sie eine neue leere Datenbank zu machen, ändern Sie den Namen der Datenbank in der Verbindungszeichenfolge in *appsettings.json* ContosoUniversity3 oder einen anderen Namen, die Sie verwenden, die Sie nicht auf dem Computer verwendet haben.
+Sie haben nun neuen Code zur `DbInitializer`-Klasse hinzugefügt, der Startwertdaten für neue Entitäten zu einer leeren Datenbank hinzufügt. Ändern Sie den Namen der Datenbank in der Verbindungszeichenfolge in *appsetting.json* in „ContosoUniversity3“ oder in einen anderen Namen, der auf Ihrem Computer bisher nicht verwendet wird, damit Entity Framework eine neue, leere Datenbank erstellt.
 
 ```json
 {
@@ -465,35 +465,35 @@ Sie haben jetzt die neuen Code, der `DbInitializer` -Klasse, die mit einer leere
   },
 ```
 
-Speichern Sie die Änderung zu *appsettings.json*.
+Speichern Sie Ihre Änderungen an *appsettings.json*.
 
 > [!NOTE]
-> Als Alternative zum Ändern des Datenbanknamens können Sie die Datenbank löschen. Verwendung **Objekt-Explorer von SQL Server** (SSOX) oder die `database drop` CLI-Befehl:
+> Alternativ zum Ändern des Datenbanknamens können Sie die Datenbank auch löschen. Verwenden Sie den **SQL Server-Objekt-Explorer** (SSOX) oder den CLI-Befehl `database drop`:
 > ```console
 > dotnet ef database drop
 > ```
 
-Nachdem Sie den Datenbanknamen geändert oder die Datenbank gelöscht haben, führen Sie die `database update` im Befehlsfenster die Migrationen auszuführende Befehl.
+Nachdem Sie den Datenbanknamen geändert oder die Datenbank gelöscht haben, führen Sie den Befehl `database update` im Befehlsfenster aus, um die Migrationen auszuführen.
 
 ```console
 dotnet ef database update
 ```
 
-Ausführen die app, die dazu führen, dass die `DbInitializer.Initialize` Methode zum Ausführen und die neue Datenbank aufgefüllt.
+Führen Sie die App aus, damit die `DbInitializer.Initialize`-Methode ausgeführt wird und die neue Datenbank auffüllt.
 
-Öffnen Sie die Datenbank im SSOX, wie zuvor, und erweitern Sie die **Tabellen** Knoten, um anzuzeigen, dass alle Tabellen erstellt wurden. (Wenn Sie aus der früheren Zeitpunkt öffnen SSOX weiterhin bestehen, klicken Sie auf die **aktualisieren** Schaltfläche.)
+Öffnen Sie die Datenbank wie zuvor im SSOX, und erweitern Sie den Knoten **Tabellen**, um festzustellen, dass alle Tabellen erstellt wurden. (Wenn Sie SSOX immer noch geöffnet haben, klicken Sie auf die Schaltfläche **Aktualisieren**.)
 
-![Tabellen in SSOX](complex-data-model/_static/ssox-tables.png)
+![Tabellen im SSOX](complex-data-model/_static/ssox-tables.png)
 
-Führen Sie die app, um den Initialisierer Code auslösen, der die Datenbank startet.
+Führen Sie die App aus, um den Initialisierungscode auszulösen, der das Seeding für die Datenbank ausführt.
 
-Mit der rechten Maustaste die **CourseAssignment** Tabelle, und wählen Sie **Ansichtsdaten** um sicherzustellen, dass es Daten enthält.
+Klicken Sie mit der rechten Maustaste auf die Tabelle **CourseAssignment**, und klicken Sie auf **Daten anzeigen**, um zu überprüfen, dass diese Daten enthält.
 
-![CourseAssignment Daten in SSOX](complex-data-model/_static/ssox-ci-data.png)
+![CourseAssignment-Daten im SSOX](complex-data-model/_static/ssox-ci-data.png)
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben jetzt eine komplexere Datenmodell und die entsprechende Datenbank. Im folgenden Lernprogramm erfahren Sie mehr über Zugriff auf zugehörige Daten.
+Sie besitzen nun ein komplexeres Datenmodell und eine zugehörige Datenbank. Im folgenden Tutorial erfahren Sie mehr über das Zugreifen auf zugehörige Daten.
 
 >[!div class="step-by-step"]
 [Zurück](migrations.md)

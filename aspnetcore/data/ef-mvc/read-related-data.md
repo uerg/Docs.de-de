@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC mit EF-Core - lesen verknüpften Daten - 6 von 10"
+title: "ASP.NET Core MVC mit EF Core – Lesen verwandter Daten (6 von 10)"
 author: tdykstra
-description: "In diesem Lernprogramm Sie lesen und Anzeigen von verknüpften Daten – d. h. die Daten, die das Entity Framework in Navigationseigenschaften lädt."
+description: "In diesem Tutorial lesen Sie verwandte Daten und zeigen sie an – d.h., die Daten, die Entity Framework in Navigationseigenschaften lädt."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,142 +10,142 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
 ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lesen-bezogene Daten – EF-Core mit ASP.NET Core MVC-Lernprogramm (6 von 10)
+# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lesen verwandter Daten – EF Core mit ASP.NET Core MVC-Tutorial (6 von 10)
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen, die mit Entity Framework Core und Visual Studio. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](intro.md).
+Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen mit Entity Framework Core und Visual Studio erstellt werden. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](intro.md).
 
-Im vorherigen Lernprogramm abgeschlossen Sie das Datenmodell "School". In diesem Lernprogramm Sie lesen und Anzeigen von verknüpften Daten – d. h. die Daten, die das Entity Framework in Navigationseigenschaften lädt.
+Im vorherigen Tutorial haben Sie das Schuldatenmodell abgeschlossen. In diesem Tutorial lesen Sie verwandte Daten und zeigen sie an – d.h., die Daten, die Entity Framework in Navigationseigenschaften lädt.
 
-Die folgenden Abbildungen zeigen den Seiten, arbeiten Sie mit.
+Die folgenden Abbildungen zeigen die Seiten, mit den Sie arbeiten werden.
 
-![Kurse Indexseite](read-related-data/_static/courses-index.png)
+![Indexseite „Kurse“](read-related-data/_static/courses-index.png)
 
-![Indexseite für Dozenten](read-related-data/_static/instructors-index.png)
+![Indexseite „Dozenten“](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Eager, explizite und lazy Loading-verknüpfter Daten
+## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Explizites, Eager und Lazy Loading verwandter Daten
 
-Es gibt mehrere Möglichkeiten, objektrelationales Mapping (ORM)-Software, z. B. Entity Framework in die Navigationseigenschaften einer Entität verknüpfte Daten geladen werden können:
+Es gibt mehrere Möglichkeiten, mit denen Software für objektrelationales Mapping (ORM), z.B. Entity Framework, verwandte Daten in die Navigationseigenschaften einer Entität laden kann:
 
-* Unverzüglichem Laden. Wenn die Entität gelesen wird, werden darin verknüpfte Daten abgerufen. Dies führt normalerweise zu einer einzelnen Join-Abfrage, die alle Daten abruft, die erforderlich ist. Sie geben unverzüglichem Laden in Entity Framework Core mit der `Include` und `ThenInclude` Methoden.
+* Eager Loading (vorzeitiges Laden). Wenn die Entität gelesen wird, werden ihre verwandten Daten mit ihr abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. Sie geben Eager Loading in Entity Framework Core mit den `Include`- und `ThenInclude`-Methoden an.
 
-  ![Beispiel mit unverzüglichem Laden](read-related-data/_static/eager-loading.png)
+  ![Beispiel für Eager Loading](read-related-data/_static/eager-loading.png)
 
-  Sie können einige der Daten in eine eigene Abfrage abrufen und EF "behoben von" die Navigationseigenschaften.  D. h. fügt EF automatisch separat abgerufenen Entitäten, auf dem sie gehören, in den Navigationseigenschaften der zuvor abgerufenen Entitäten hinzu. Für die Abfrage, die verknüpfte Daten abruft, können Sie die `Load` Methode anstelle einer Methode, die eine Liste oder ein Objekt, z. B. zurückgibt `ToList` oder `Single`.
+  Sie können einige der Daten in separaten Abfragen abrufen und EF „korrigiert“ die Navigationseigenschaften.  D.h., dass EF automatisch die separat abgerufenen Entitäten in die Navigationseigenschaften der zuvor abgerufenen Entitäten hinzufügt. Für die Abfrage, die verwandte Daten abruft, können Sie die `Load`-Methode verwenden, anstelle einer Methode, die eine Liste oder ein Objekt wie `ToList` oder `Single` zurückgibt.
 
-  ![Beispiel für eine eigene Abfrage](read-related-data/_static/separate-queries.png)
+  ![Beispiel für separate Abfragen](read-related-data/_static/separate-queries.png)
 
-* Explizites Laden. Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Schreiben Sie Code, der die verwandten Daten abruft, wenn es benötigt wird. Wie im Fall von Eager loading mit separaten Abfragen an die Datenbank gesendet explizite das Laden der Ergebnisse in mehreren Abfragen. Der Unterschied besteht darin, dass der Code mit expliziten Laden die Navigationseigenschaften zu ladenden gibt an. In Entity Framework Core 1.1 können Sie die `Load` Methode, um das explizite laden auszuführen. Zum Beispiel:
+* Explizites Laden. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Sie schreiben Code, der die verwandten Daten abruft, wenn erforderlich. So wie im Fall von Eager Loading mit separaten Abfragen führt explizites Laden zu mehreren Abfragen, die an die Datenbank gesendet werden. Der Unterschied liegt darin, dass beim expliziten Laden der Code die zu ladenden Navigationseigenschaften angibt. In Entity Framework Core 1.1 können Sie die `Load`-Methode verwenden, um das explizite Laden auszuführen. Zum Beispiel:
 
-  ![Explizites Laden-Beispiel](read-related-data/_static/explicit-loading.png)
+  ![Beispiel für explizites Laden](read-related-data/_static/explicit-loading.png)
 
-* Verzögertes Laden. Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Allerdings werden beim ersten Versuch, auf eine Navigationseigenschaft, für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Eine Abfrage wird jedes Mal an die Datenbank gesendet Sie zum Abrufen von Daten von einer Navigationseigenschaft zum ersten Mal versuchen. Entity Framework Core 1.0 unterstützt nicht das verzögertes Laden.
+* Lazy Loading (verzögertes Laden). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Jedes Mal, wenn Sie zum ersten mal versuchen, Daten von einer Navigationseigenschaft abzurufen, wird eine Anfrage an die Datenbank gesendet. Entity Framework Core 1.0 unterstützt das Lazy Loading nicht.
 
 ### <a name="performance-considerations"></a>Überlegungen zur Leistung
 
-Wenn Sie, die Sie für jede Entität abgerufen verknüpfte Daten benötigen wissen, bietet eager loading, häufig die beste Leistung, da eine einzelne Abfrage, die an die Datenbank gesendet, in der Regel effizienter als separate Abfragen für jede Entität abgerufen wird. Nehmen wir beispielsweise an, dass jede Abteilung zehn Verwandte Kurse gelten. Unverzüglichem Laden von alle verknüpften Daten führt in einer einzelnen (Join)-Abfrage und einem einzelnen Roundtrip-mit der Datenbank. Für Kurse für jede Abteilung eine eigene Abfrage führt zu elf Roundtrips zur Datenbank. Zusätzliche Roundtrips zur Datenbank sind vor allem auf die Leistung beeinträchtigen, wenn Latenz hoch ist.
+Wenn Sie wissen, dass Sie für jede abgerufene Entität verwandte Daten benötigen, bietet Eager Loading häufig die beste Leistung, da eine einzelne Abfrage, die an die Datenbank gesendet wird, in der Regel effizienter ist als separate Abfragen für jede abgerufene Entität. Nehmen wir beispielsweise an, dass jede Abteilung zehn verwandte Kurse hat. Eager Loading aller verwandter Daten würde zu nur einer einzelnen (Join)-Abfrage und einem einzelnen Roundtrip zur Datenbank führen. Eine separate Abfrage für Kurse jeder Abteilung würde zu elf Roundtrips zur Datenbank führen. Die zusätzlichen Roundtrips zur Datenbank beeinträchtigen die Leistung besonders bei hoher Latenz.
 
-Andererseits, in einigen Szenarien eine eigene Abfrage ist jedoch effizienter. Unverzüglichem Laden von alle verknüpften Daten in einer Abfrage könnte eine sehr komplexe Verknüpfung generiert werden, verursachen, die SQL Server nicht effizient verarbeiten kann. Oder Sie müssen eine Entität Navigationseigenschaften nur für einen Teil einer Reihe von Entitäten zugreifen, die Sie verarbeiten, kann eine eigene Abfrage möglicherweise besser ausgeführt werden, da unverzüglichem Laden aller Elemente im Vorfeld mehr Daten als benötigt abrufen würde. Wenn die Leistung kritisch ist, empfiehlt es sich zum Testen von Leistung beides Möglichkeiten, um die beste Wahl vornehmen zu können.
+Andererseits sind separate Abfragen in einigen Szenarios jedoch effizienter. Eager Loading aller verwandter Daten in einer Abfrage könnte eine sehr komplexe Verknüpfung generieren, die der SQL Server nicht effizient verarbeiten kann. Oder angenommen, Sie benötigen nur Zugriff auf Navigationseigenschaften einer Entität, um auf eine Teilmenge der Reihe von Entitäten, die Sie verarbeiten, zuzugreifen. In diesem Fall können separate Abfragen möglicherweise besser ausgeführt werden, da Eager Loading aller Elemente im Vorfeld mehr Daten als benötigt abrufen würde. Wenn die Leistung wichtig ist, empfiehlt es sich, die Leistung mit beiden Möglichkeiten zu testen, um die beste Wahl treffen zu können.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen Sie eine Kurse-Seite, die Name der Abteilung anzeigt
+## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen einer Kursseite, die Abteilungsnamen anzeigt
 
-Die Kurs-Entität enthält, eine Navigationseigenschaft, die die Entität "Department" der Abteilung enthält, die der Kurs zugewiesen ist. Um den Namen der zugewiesenen Abteilung in einer Liste von Kurse anzuzeigen, müssen Sie die Name-Eigenschaft die Entität Department nicht entnommen werden, die in der `Course.Department` Navigationseigenschaft.
+Die Kursentität enthält eine Navigationseigenschaft, die die Abteilungsentität der Abteilung enthält, der der Kurs zugewiesen ist. Sie benötigen die Namenseigenschaft der Abteilungsentität in der `Course.Department`-Navigationseigenschaft, um den Namen der zugewiesenen Abteilung in einer Kursliste anzuzeigen.
 
-Erstellen Sie einen Controller mit dem Namen CoursesController für den Kurs Entitätstyp, die mit denselben Optionen für die **MVC-Controller mit Ansichten unter Verwendung von Entity Framework** Scaffolder, die Sie zuvor für den Controller Studenten wie gezeigt in der folgende Abbildung:
+Erstellen Sie einen Controller mit dem Namen CoursesController für den Kursentitätstyp. Verwenden Sie dieselben Optionen für den  **MVC-Controller mit Ansichten unter Verwendung des Entity Framework**-Gerüstbauers, die Sie zuvor für den Studentencontroller verwendet haben, wie in der folgenden Abbildung gezeigt:
 
-![Hinzufügen eines Controllers Kurse](read-related-data/_static/add-courses-controller.png)
+![Hinzufügen eines Kursecontrollers](read-related-data/_static/add-courses-controller.png)
 
-Open *CoursesController.cs* und untersuchen Sie die `Index` Methode. Der automatische Gerüstbau angegeben unverzüglichem Laden für die `Department` Navigationseigenschaft mithilfe der `Include` Methode.
+Öffnen Sie *CoursesController.cs*, und untersuchen Sie die `Index`-Methode. Der automatische Gerüstbau hat mithilfe der `Include`-Methode ein Eager Loading für die `Department`-Navigationseigenschaft angegeben.
 
-Ersetzen Sie die `Index` Methode durch den folgenden Code, der einen geeigneteren Namen für die `IQueryable` Kurs Entitäten zurückgibt (`courses` anstelle von `schoolContext`):
+Ersetzen Sie die `Index`-Methode durch den folgenden Code, der einen geeigneteren Namen für `IQueryable` verwendet, der Kursentitäten (`courses` anstelle von `schoolContext`) zurückgibt:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
-Open *Views/Courses/Index.cshtml* , und Ersetzen Sie den Code durch den folgenden Code. Die Änderungen werden hervorgehoben:
+Öffnen Sie *Views/Courses/Index.cshtml*. Ersetzen Sie den Vorlagencode durch den folgenden Code. Die Änderungen werden hervorgehoben:
 
 [!code-html[](intro/samples/cu/Views/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
-Sie haben die folgenden Änderungen an der scaffolded Code vorgenommen:
+Sie haben die folgenden Änderungen am eingerüsteten Code vorgenommen:
 
-* Die Überschrift von Index in Courses geändert.
+* Die Überschrift wurde von „Index“ in „Kurse“ geändert.
 
-* Hinzugefügt eine **Anzahl** Spalte, die zeigt die `CourseID` Eigenschaftswert. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise ohne Bedeutung für Endbenutzer sind. Allerdings in diesem Fall der Primärschlüssel sinnvoll ist und Sie sie anzeigen möchten.
+* Die Spalte **Anzahl** wurde hinzugefügt. Sie zeigt den `CourseID`-Eigenschaftswert an. Primärschlüssel werden nicht standardmäßig eingerüstet, da sie normalerweise ohne Bedeutung für Endbenutzer sind. Allerdings ist in diesem Fall der Primärschlüssel sinnvoll, und Sie möchten ihn anzeigen.
 
-* Geändert die **Abteilung** Spalte der Abteilungsname angezeigt. Der Code zeigt die `Name` -Eigenschaft der Abteilung-Entität, die in geladen ist die `Department` Navigationseigenschaft:
+* Die Spalte **Abteilung** wurde geändert, sodass sie jetzt den Namen der Abteilung anzeigt. Der Code zeigt die `Name`-Eigenschaft der Abteilungsentität an, die in die `Department`-Navigationseigenschaft geladen wird:
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Führen Sie die app, und wählen Sie die **Kurse** Registerkarte ", um die Liste mit den Abteilungsnamen anzuzeigen.
+Führen Sie die Anwendung aus, und wählen Sie die Registerkarte **Kurse** aus, um die Liste mit den Abteilungsnamen anzuzeigen.
 
-![Kurse Indexseite](read-related-data/_static/courses-index.png)
+![Indexseite „Kurse“](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Erstellen Sie eine Lehrkräfte-Seite, in der Kurse und Registrierung angezeigt.
+## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Erstellen einer Dozentenseite, die Kurse und Registrierungen anzeigt
 
-In diesem Abschnitt müssen Sie einem Controller und Ansicht für die Instructor-Entität erstellen, um die Seite Lehrkräfte anzuzeigen:
+In diesem Abschnitt müssen Sie einen Controller und eine Ansicht für die Instructor-Entität erstellen, um die Dozentenseite anzuzeigen:
 
-![Indexseite für Dozenten](read-related-data/_static/instructors-index.png)
+![Indexseite „Dozenten“](read-related-data/_static/instructors-index.png)
 
-Auf dieser Seite liest und zeigt verknüpfte Daten auf folgende Weise:
+Auf dieser Seite werden verwandte Daten auf folgende Weise gelesen und angezeigt:
 
-* Die Liste der Lehrkräfte zeigt aufeinander bezogene Daten in die OfficeAssignment-Entität. Die Instructor und OfficeAssignment Entitäten sind in einer 1: 0 (null)-oder-1-Beziehung. Verwenden Sie für die Entitäten OfficeAssignment unverzüglichem Laden. Wie zuvor erläutert, ist die unverzüglichem Laden in der Regel effizienter, wenn Sie die verknüpften Daten für alle abgerufenen Zeilen von der primären Tabelle benötigen. In diesem Fall möchten Sie Office-Zuweisungen für alle angezeigten Lehrkräfte anzuzeigen.
+* Die Liste der Dozenten zeigt verwandte Daten aus der OfficeAssignment-Entität. Die Instructor- und OfficeAssignment-Entitäten sind in einer 1:0..1-Beziehung. Sie werden Eager Loading für die OfficeAssignment-Entitäten verwenden. Wie zuvor erläutert, ist Eager Loading in der Regel effizienter, wenn Sie die verwandten Daten für alle abgerufenen Zeilen der primären Tabelle benötigen. In diesem Fall sollten Sie die Office-Anweisungen für alle angezeigten Dozenten anzeigen.
 
-* Wenn der Benutzer einen Kursleiter auswählt, werden verknüpfte Kurs Entitäten angezeigt. Die Entitäten Kursleiter und Kurs befinden sich in einer m: n-Beziehung. Verwenden Sie für die Kurs-Entitäten und ihre zugehörigen Entitäten der Abteilung unverzüglichem Laden. In diesem Fall können eine eigene Abfrage effizienter sein, da Sie nur für den ausgewählten Dozenten Kurse benötigen. Dieses Beispiel zeigt jedoch mit unverzüglichem Laden für Navigationseigenschaften innerhalb von Entitäten, die selbst in den Navigationseigenschaften werden.
+* Wenn der Benutzer einen Dozenten auswählt, werden verwandte Course-Entitäten angezeigt. Die Instructor- und Course-Entitäten stehen in einer m:n-Beziehung zueinander. Sie werden Eager Loading für die Kursentitäten und ihre zugehörigen Abteilungsentitäten verwenden. In diesem Fall können separate Abfrage effizienter sein, da nur Kurse für den ausgewählten Dozenten benötigt werden. Dieses Beispiel zeigt jedoch, wie Eager Loading für Navigationseigenschaften in Entitäten in den Navigationseigenschaften verwendet wird.
 
-* Wenn der Benutzer einen Kurs auswählt, werden verknüpfte Daten aus der Entitätssammlung Registrierung angezeigt. Die Entitäten Kurs und Registrierung sind in einer 1: n-Beziehung. Sie müssen eine eigene Abfrage für Registrierung Entitäten und ihre verknüpften Student-Entitäten verwenden.
+* Wenn der Benutzer einen Kurs auswählt, werden verwandte Daten aus der Registrierungsentität angezeigt. Die Kurs- und Registrierungsentitäten sind in einer 1:n-Beziehung. Sie werden separate Abfragen für Registrierungsentitäten und ihre verwandten Studentenentitäten verwenden.
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a>Erstellen Sie ein Ansichtsmodell für die Indexansicht Dozenten
+### <a name="create-a-view-model-for-the-instructor-index-view"></a>Erstellen eines Ansichtsmodells für die Indexansicht „Dozenten“
 
-Die Seite "Lehrkräfte" zeigt Daten aus drei verschiedenen Tabellen. Aus diesem Grund erstellen Sie ein Ansichtsmodell, das drei Eigenschaften enthält jede mit den Daten für eine der Tabellen.
+Die Dozentenseite zeigt Daten aus drei verschiedenen Tabellen. Aus diesem Grund erstellen Sie ein Ansichtsmodell, das drei Eigenschaften enthält. Jede enthält Daten für eine der Tabellen.
 
-In der *SchoolViewModels* Ordner erstellen *InstructorIndexData.cs* und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+Erstellen Sie im Ordner *SchoolViewModels* *InstructorIndexData.cs*, und ersetzen Sie den bestehenden Code durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
-### <a name="create-the-instructor-controller-and-views"></a>Erstellen Sie die Instructor-Controller und Ansichten
+### <a name="create-the-instructor-controller-and-views"></a>Erstellen der Dozentencontroller und -ansichten
 
-Erstellen Sie einen Kursleiter-Controller mit EF Lese-/schreibaktionen wie in der folgenden Abbildung gezeigt:
+Erstellen Sie einen Dozentencontroller mit EF-Lese-/Schreibaktionen, wie in der folgenden Abbildung gezeigt:
 
-![Hinzufügen eines Controllers Dozenten](read-related-data/_static/add-instructors-controller.png)
+![Hinzufügen von Dozentencontrollern](read-related-data/_static/add-instructors-controller.png)
 
-Open *InstructorsController.cs* und fügen Sie eine using-Anweisung für den Namespace ViewModels:
+Öffnen Sie *InstructorsController.cs*. Fügen Sie eine Using-Anweisung für den Namespace ViewModels hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
-Ersetzen Sie die Index-Methode, durch den folgenden Code zum unverzüglichem Laden von verknüpften Daten und fügen Sie ihn in das Modell anzeigen.
+Ersetzen Sie die Indexmethode durch den folgenden Code, um Eager Loading verwandter Daten durchzuführen und ihn in das Ansichtsmodell einzufügen.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
-Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolgenparameter (`courseID`), die die ID-Werte der ausgewählten Kursleiter und ausgewählten Kurs bereitstellen. Die Parameter bereitgestellt werden, indem die **wählen** links auf der Seite.
+Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolgenparameter (`courseID`), die die ID-Werte des ausgewählten Dozenten und Kurses bereitstellen. Die Parameter werden durch die **Auswählen**-Links auf der Seite bereitgestellt.
 
-Der Code wird zuerst Erstellen einer Instanz des Modells anzeigen und darin die Liste der Lehrkräfte einfügen. Der Code gibt unverzüglichem Laden für die `Instructor.OfficeAssignment` und `Instructor.CourseAssignments` Navigationseigenschaften. Innerhalb der `CourseAssignments` -Eigenschaft, die `Course` -Eigenschaft ist geladen, und innerhalb der, die `Enrollments` und `Department` Eigenschaften werden geladen, und in jedem `Enrollment` Entität die `Student` Eigenschaft geladen wird.
+Der Code erstellt zuerst eine Instanz des Ansichtsmodells und fügt die Dozentenliste ein. Der Code gibt Eager Loading für die `Instructor.OfficeAssignment`- und `Instructor.CourseAssignments`-Navigationseigenschaften an. Innerhalb der `CourseAssignments`-Eigenschaft wird die `Course`-Eigenschaft geladen, und innerhalb dieser werden die `Enrollments`- und `Department`-Eigenschaften geladen, und innerhalb jeder `Enrollment`-Entität wird die `Student`-Eigenschaft geladen.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
-Da die Sicht immer die OfficeAssignment Entität erfordert, ist es effizienter, die in derselben Abfrage abgerufen. Kurs Entitäten sind erforderlich, wenn auf der Webseite ein Kursleiter ausgewählt ist, damit eine einzelne Abfrage ist besser als mehrere Abfragen nur, wenn die Seite mit einem Kurs ausgewählt als ohne häufiger angezeigt wird.
+Da die Ansicht immer die OfficeAssignment-Entität erfordert, ist es effizienter, sie in derselben Abfrage abzurufen. Kursentitäten sind erforderlich, wenn auf der Webseite ein Dozent ausgewählt ist. Somit ist eine einzelne Abfrage nur besser als mehrere Abfragen, wenn die Seite häufiger mit einem ausgewählten Kurs als ohne angezeigt wird.
 
-Der Code wird wiederholt `CourseAssignments` und `Course` da Sie zwei Eigenschaften von benötigen `Course`. Die erste Zeichenfolge von `ThenInclude` ruft ruft `CourseAssignment.Course`, `Course.Enrollments`, und `Enrollment.Student`.
+Der Code wiederholt `CourseAssignments` und `Course`, da Sie zwei Eigenschaften aus `Course` benötigen. Die erste Zeichenfolge der `ThenInclude`-Abrufe erhält `CourseAssignment.Course`, `Course.Enrollments` und `Enrollment.Student`.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
-An diesem Punkt im Code eine andere `ThenInclude` wäre für Navigationseigenschaften des `Student`, die Sie nicht benötigen. Aber aufrufenden `Include` beginnt über mit `Instructor` Eigenschaften, daher Sie die Kette erneut, diesen Zeitangaben durchlaufen müssen `Course.Department` anstelle von `Course.Enrollments`.
+An diesem Punkt im Code wäre eine andere `ThenInclude` für Navigationseigenschaften von `Student`, die Sie nicht benötigen. Aber ein Aufruf von `Include` beginnt mit `Instructor`-Eigenschaften neu. Daher müssen Sie den Vorgang erneut durchlaufen und `Course.Department` anstelle von `Course.Enrollments` angeben.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
-Der folgende Code ausgeführt wird, wenn ein Kursleiter ausgewählt wurde. Die ausgewählte Kursleiter wird aus der Liste der Kursleiter das Ansichtsmodell abgerufen. Des Ansichtsmodells `Courses` Eigenschaft wird dann mit den Kurs Entitäten aus dieser Dozenten geladen `CourseAssignments` Navigationseigenschaft.
+Der folgende Code wird ausgeführt, wenn ein Dozent ausgewählt wurde. Der ausgewählte Dozent wird aus der Liste der Dozenten im Ansichtsmodell abgerufen. Die `Courses`-Eigenschaft des Ansichtsmodells wird dann mit den Kursentitäten aus der `CourseAssignments`-Navigationseigenschaft dieses Dozenten geladen.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
-Die `Where` -Methode gibt eine Auflistung, aber in diesem Fall die Kriterien, nur einen einzigen Instructor-Entität zurückgegeben wird die Methode zu übergeben. Die `Single` -Methode konvertiert die Auflistung in eine einzelne Instructor-Entität, die Sie Zugriff auf diese Entität gewährt `CourseAssignments` Eigenschaft. Die `CourseAssignments` Eigenschaft enthält `CourseAssignment` , nur die verknüpften sollen Entitäten `Course` Entitäten.
+Die `Where`-Methode gibt eine Sammlung zurück. Aber in diesem Fall resultieren die an diese Methode übergebenen Kriterien nur in einer einzigen zurückgegebenen Instructor-Entität. Die `Single`-Methode konvertiert die Sammlung in eine einzelne Instructor-Entität, die Ihnen Zugriff auf die `CourseAssignments`-Eigenschaft dieser Entität gibt. Die `CourseAssignments`-Eigenschaft enthält `CourseAssignment`-Entitäten, aus der Sie nur die verwandten `Course`-Entitäten benötigen.
 
-Verwenden Sie die `Single` Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die einzige Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative `SingleOrDefault`, womit einen Default-Wert (in diesem Fall null), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einem `Courses` Eigenschaft auf einen null-Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, Sie können auch übergeben in der Where Bedingung statt der `Where` Methode getrennt:
+Verwenden Sie die `Single`-Methode für eine Sammlung, wenn Sie wissen, dass die Sammlung nur über ein Element verfügt. Die Single-Methode löst eine Ausnahme aus, wenn die Sammlung, an die übergeben wurde, leer ist, oder wenn mehr als ein Element vorhanden ist. Eine Alternative ist `SingleOrDefault`, womit ein Standardwert (in diesem Fall null) zurückgegeben wird, wenn die Sammlung leer ist. In diesem Fall würde jedoch trotzdem eine Ausnahme ausgelöst werden (da versucht wird, eine `Courses`-Eigenschaft auf einem Null-Verweis zu finden). Die Ausnahmemeldung würde die Ursache des Problems weniger deutlich angeben. Wenn Sie die `Single`-Methode aufrufen, können Sie auch in die Where-Bedingung übergehen, anstatt die `Where`-Methode separat aufzurufen:
 
 ```csharp
 .Single(i => i.ID == id.Value)
@@ -157,23 +157,23 @@ anstelle von:
 .Where(I => i.ID == id.Value).Single()
 ```
 
-Als Nächstes wird ein Kurs ausgewählt wurde, der ausgewählte Kurs aus der Liste der Kurse in das Ansichtsmodell abgerufen. Klicken Sie dann die des Ansichtsmodells `Enrollments` Eigenschaft wird geladen, mit der Registrierung Entitäten aus dieser Kurs `Enrollments` Navigationseigenschaft.
+Wenn ein Kurs ausgewählt wurde, wird der ausgewählte Kurs aus der Kursliste im Ansichtsmodell abgerufen. Die `Enrollments`-Eigenschaft des Ansichtsmodells wird dann mit den Registrierungsentitäten aus der `Enrollments`-Navigationseigenschaft dieses Kurses geladen.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
-### <a name="modify-the-instructor-index-view"></a>Ändern Sie die Sicht Instructor-Index
+### <a name="modify-the-instructor-index-view"></a>Ändern der Dozentenindexansicht
 
-In *Views/Instructors/Index.cshtml*, den Code durch den folgenden Code ersetzen. Die Änderungen werden hervorgehoben.
+Ersetzen Sie in *Views/Instructors/Index.cshtml* den Vorlagencode durch den folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
-Sie haben die folgenden Änderungen an den vorhandenen Code vorgenommen:
+Sie haben die folgenden Änderungen am bestehenden Code vorgenommen:
 
-* Die Modellklasse, um geändert `InstructorIndexData`.
+* Die Modellklasse wurde zu `InstructorIndexData` geändert.
 
-* Der Seitenname von geändert **Index** auf **Lehrkräfte**.
+* Der Seitenname wurde von **Index** in **Dozenten** geändert.
 
-* Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise nicht verknüpfte Entität OfficeAssignment.)
+* Es wurde eine **Office**-Spalte hinzugefügt, die `item.OfficeAssignment.Location` nur anzeigt, wenn `item.OfficeAssignment` nicht gleich null ist. (Da dies eine 1:0..1-Beziehung ist, gibt es möglicherweise keine verwandte OfficeAssignment-Entität.)
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -182,9 +182,9 @@ Sie haben die folgenden Änderungen an den vorhandenen Code vorgenommen:
   }
   ```
 
-* Hinzugefügt eine **Kurse** Spalte Kurse vermittelten jedes Kursleiter. Finden Sie unter [explizite Zeile Übergang mit `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) Weitere Informationen über diese Razor-Syntax.
+* Es wurde eine **Kurse**-Spalte hinzugefügt, die die Kurse eines jeden Dozenten anzeigt. Weitere Informationen über diese Razor-Syntax finden Sie unter [Explizite Zeilenübergänge mit `@:`](xref:mvc/views/razor#explicit-line-transition-with-).
 
-* Code hinzugefügt, der dynamisch hinzugefügt `class="success"` auf die `tr` Element des ausgewählten Kursleiter. Hiermit wird eine Hintergrundfarbe für die ausgewählte Zeile mit einem Bootstrap-Klasse.
+* Es wurde Code hinzugefügt, der `class="success"` dynamisch zum `tr`-Element des ausgewählten Dozenten hinzufügt. Hiermit wird mit einer Bootstrapklasse eine Hintergrundfarbe für die ausgewählte Zeile hinzugefügt.
 
   ```html
   string selectedRow = "";
@@ -195,51 +195,51 @@ Sie haben die folgenden Änderungen an den vorhandenen Code vorgenommen:
   <tr class="@selectedRow">
   ```
 
-* Einen neuen Link mit der Bezeichnung hinzugefügt **wählen** unmittelbar vor der Links von anderen in jeder Zeile, die der ausgewählten Instructor-ID zu sendende verursacht die `Index` Methode.
+* Es wurde ein neuer Link mit der Bezeichnung **Auswählen** unmittelbar vor den anderen Links in jeder Zeile hinzugefügt. Dies führt dazu, dass die ID des ausgewählten Dozenten an die `Index`-Methode gesendet wird.
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Führen Sie die app, und wählen Sie die **Lehrkräfte** Registerkarte. Die Seite zeigt die Location-Eigenschaft der verknüpften OfficeAssignment Entitäten und eine leere Zelle, wenn keine verknüpften OfficeAssignment Entität vorhanden ist.
+Führen Sie die Anwendung aus. Klicken Sie auf die Registerkarte **Dozenten**. Die Seite zeigt die Eigenschaft für den Standort verwandter OfficeAssignment-Entitäten und eine leere Zelle an, wenn keine verwandte OfficeAssignment-Entität vorhanden ist.
 
-![Lehrkräfte Indexseite, der keine Auswahl](read-related-data/_static/instructors-index-no-selection.png)
+![Indexseite „Dozenten“, nichts ausgewählt](read-related-data/_static/instructors-index-no-selection.png)
 
-In der *Views/Instructors/Index.cshtml* Datei, nach die schließenden Tabelle Element (am Ende der Datei), fügen Sie folgenden Code. Dieser Code zeigt eine Liste der Kurse, die im Zusammenhang mit einen Kursleiter beim ein Kursleiter ausgewählt ist.
+Fügen Sie in der Datei *Views/Instructors/Index.cshtml* nach dem Schließen des Tabellenelements (am Ende der Datei) den folgenden Code hinzu. Dieser Code zeigt eine Liste der Kurse an, die im Zusammenhang mit einem Dozenten stehen, wenn ein Dozent ausgewählt wird.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=66-101)]
 
-Dieser Code liest die `Courses` Eigenschaft des Modells anzeigen, das eine Liste der Kurse anzeigen. Sie bietet außerdem eine **wählen** Link, der die ID der ausgewählten Kurs, sendet der `Index` Aktionsmethode.
+Dieser Code liest die `Courses`-Eigenschaft des Ansichtsmodells, um eine Kursliste anzuzeigen. Er bietet außerdem einen **Auswählen**-Link, der die ID des ausgewählten Kurses an die `Index`-Aktionsmethode sendet.
 
-Aktualisieren Sie die Seite, und wählen Sie einen Kursleiter. Jetzt sehen Sie ein Raster mit den für den ausgewählten Kursleiter zugewiesene Kurse zeigt an, und jeder Kurs Sie finden Sie unter den Namen der zugewiesenen Abteilung.
+Aktualisieren Sie die Seite. Wählen Sie einen Dozenten aus. Jetzt sehen Sie ein Raster, das die dem Dozenten zugewiesenen Kurse anzeigt. Sie sehen auch den Namen der zugewiesenen Abteilung für jeden Kurs.
 
-![Lehrkräfte Index Seite Dozenten ausgewählt](read-related-data/_static/instructors-index-instructor-selected.png)
+![Indexseite „Dozenten“, Dozent ausgewählt](read-related-data/_static/instructors-index-instructor-selected.png)
 
-Fügen Sie nachdem der Codeblock, den Sie gerade hinzugefügt haben den folgenden Code ein. Dadurch wird eine Liste der Studenten, die registriert werden in einen Kurs, wenn dieser Kurs ausgewählt ist.
+Fügen Sie den folgenden Code hinzu, nachdem Sie den Codeblock hinzugefügt haben. Dies zeigt eine Liste der Studenten an, die im Kurs registriert sind, wenn dieser Kurs ausgewählt ist.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=103-125)]
 
-Dieser Code liest die Registrierung-Eigenschaft des Modells anzeigen, um eine Liste der Schüler in diesem Kurs registriert anzuzeigen.
+Dieser Code liest die Registrierungseigenschaft des Ansichtsmodells, um eine Liste der in diesem Kurs registrierten Studenten anzuzeigen.
 
-Aktualisieren Sie die Seite erneut, und wählen Sie einen Kursleiter. Wählen Sie dann einen Kurs, finden in der Liste der registrierten Studenten und deren Qualitäten.
+Aktualisieren Sie die Seite erneut. Wählen Sie einen Dozenten aus. Wählen Sie dann einen Kurs aus, um die Liste der registrierten Studenten und deren Noten einzusehen.
 
-![Lehrkräfte Index Seite Kursleiter und Kurs ausgewählt](read-related-data/_static/instructors-index.png)
+![Indexseite „Dozenten“, Dozent und Kurs ausgewählt](read-related-data/_static/instructors-index.png)
 
 ## <a name="explicit-loading"></a>Explizites Laden
 
-Wenn Sie die Liste der Kursleiter abgerufen *InstructorsController.cs*, unverzüglichem Laden für die Angabe der `CourseAssignments` Navigationseigenschaft.
+Wenn Sie die Liste der Dozenten aus *InstructorsController.cs* abrufen, haben Sie Eager Loading für die `CourseAssignments`-Navigationseigenschaft angegeben.
 
-Angenommen Sie, Sie erwartet, dass Benutzer nur selten Bereitstellungen in einem ausgewählten Kursleiter und Kurs angezeigt werden soll. In diesem Fall möchten Sie die Registrierung Daten zu laden, nur, wenn diese angefordert wird. Um ein Beispiel dazu explizites Laden anzuzeigen, ersetzen die `Index` -Methode durch folgenden Code wird die unverzüglichem Laden für Bereitstellungen entfernt und lädt diese Eigenschaft explizit. Die codeänderungen werden hervorgehoben.
+Angenommen, Sie haben erwartet, dass Benutzer nur selten Registrierungen für einen ausgewählten Dozenten und Kurs angezeigt haben möchten. In diesem Fall möchten Sie die Registrierungsdaten möglicherweise nur laden, wenn diese angefordert werden. Ersetzen Sie die `Index`-Methode durch folgenden Code, um ein Beispiel für Eager Loading zu sehen. Dieser Code entfernt das Eager Loading für Registrierungen und lädt diese Eigenschaft explizit. Die Codeänderungen werden hervorgehoben.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
-Der neue Code löscht die *ThenInclude* Methodenaufrufe für Enrollment Daten aus dem Code, die Instructor-Entitäten abruft. Wenn eine Lehrkraft- und Kurs ausgewählt sind, ruft der hervorgehobene Code Registrierung Entitäten für den ausgewählten Kurs und Student-Entitäten für jede Anmeldung ab.
+Der neue Code löscht die *ThenInclude*-Methodenaufrufe für Registrierungsdaten aus dem Code, der Instructor-Entitäten abruft. Wenn ein Dozent und Kurs ausgewählt werden, ruft der hervorgehobene Code Registrierungsentitäten für den ausgewählten Kurs und Studentenentitäten für jede Registrierung ab.
 
-Ausführen die app, wechseln Sie zu den Dozenten Indexseite jetzt und Sie keinen Unterschied in der Anzeige auf der Seite angezeigt werden, obwohl Sie geändert haben, wie die Daten abgerufen werden.
+Führen Sie die Anwendung aus, navigieren Sie zur Dozentenindexseite, und Sie werden keinen Unterschied in der Anzeige auf der Seite bemerken, obwohl Sie die Abrufart für Daten geändert haben.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben jetzt unverzüglichem Laden mit einer Abfrage und mehrere Abfragen verwendet, um verwandte Daten in den Navigationseigenschaften gelesen. In den nächsten Lernprogrammen erfahren Sie, wie verknüpfte Daten aktualisiert werden.
+Sie haben Eager Loading jetzt mit einer und mehreren Abfragen verwendet, um verwandte Daten in die Navigationseigenschaften zu lesen. Das nächste Tutorial zeigt die Aktualisierung verwandter Daten.
 
 >[!div class="step-by-step"]
 >[Zurück](complex-data-model.md)

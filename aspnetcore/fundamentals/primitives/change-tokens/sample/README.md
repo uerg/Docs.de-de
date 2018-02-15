@@ -1,5 +1,5 @@
-# <a name="aspnet-core-change-token-sample"></a>ASP.NET Core Change-Token-Beispiel
+# <a name="aspnet-core-change-token-sample"></a>Beispiel: ASP.NET Core-Änderungstoken
 
-Dieses Beispiel veranschaulicht die Verwendung der [' changeToken '](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken). In diesem Beispiel wird veranschaulicht, die in beschriebenen Funktionen der [Änderungen mit Token Änderung erkennen](https://docs.microsoft.com/aspnet/core/fundamentals/primitives/change-tokens) Thema.
+Dieses Beispiel veranschaulicht die Verwendung des [Änderungstoken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken). Dieses Beispiel veranschaulicht die im Artikel [Detect changes with Change Tokens (Erkennen von Änderungen mithilfe von Änderungstoken)](https://docs.microsoft.com/aspnet/core/fundamentals/primitives/change-tokens) beschriebenen Features.
 
-Führen Sie das Beispiel, und befolgen Sie die Anweisungen auf der Seite "Index".
+Führen Sie das Beispiel aus, und befolgen Sie die Anweisungen auf der Indexseite.

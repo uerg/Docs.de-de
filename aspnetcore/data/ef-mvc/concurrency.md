@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC mit EF-Kern - Parallelität - 8 von 10"
+title: "ASP.NET Core MVC mit EF Core – Parallelität (8 von 10)"
 author: tdykstra
-description: "Dieses Lernprogramm zeigt, wie Konflikte zu behandeln, wenn mehrere Benutzer gleichzeitig derselben Entität aktualisieren."
+description: "In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,99 +10,99 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
 ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Parallelitätskonflikte - EF-Core mit ASP.NET Core MVC-Lernprogramm (8 10)
+# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Behandeln von Nebenläufigkeitskonflikten – Tutorial zu EF Core mit ASP.NET Core MVC (8 von 10)
 
-Durch [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen, die mit Entity Framework Core und Visual Studio. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](intro.md).
+Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MVC-Webanwendungen mit Entity Framework Core und Visual Studio erstellt werden. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](intro.md).
 
-In früheren Lernprogrammen haben Sie gelernt, Daten zu aktualisieren. Dieses Lernprogramm zeigt, wie Konflikte zu behandeln, wenn mehrere Benutzer gleichzeitig derselben Entität aktualisieren.
+In den vorherigen Tutorials haben Sie gelernt, wie Sie Daten aktualisieren. In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren.
 
-Erstellen Sie Webseiten, die die Entität Department arbeiten und Behandeln von Parallelitätsfehlern. Die folgenden Abbildungen zeigen die Seiten bearbeiten und löschen, z. B. einige Nachrichten, die angezeigt werden, wenn einem Parallelitätskonflikt.
+Sie erstellen Webseiten, die mit der Fachbereichsentität arbeiten und behandeln Parallelitätsfehler. In der nachfolgenden Abbildung sehen Sie die Seiten „Bearbeiten“ und „Löschen“, einschließlich einiger Meldungen, die angezeigt werden, wenn ein Parallelitätskonflikt auftritt.
 
-![Abteilung bearbeiten (Seite)](concurrency/_static/edit-error.png)
+![Seite „Fachbereich bearbeiten“](concurrency/_static/edit-error.png)
 
-![Seite "Abteilung löschen"](concurrency/_static/delete-error.png)
+![Seite „Fachbereich löschen“](concurrency/_static/delete-error.png)
 
-## <a name="concurrency-conflicts"></a>Parallelitätskonflikte
+## <a name="concurrency-conflicts"></a>Nebenläufigkeitskonflikte
 
-Parallelitätskonflikt tritt auf, wenn ein Benutzer eine Entität Daten angezeigt, um ihn zu bearbeiten und ein anderer Benutzer aktualisiert dann die gleiche Entität Daten, bevor die erste Änderung des Benutzers in die Datenbank geschrieben wird. Wenn Sie die Erkennung von Konflikte dieser Art nicht aktivieren, muss jede Person zur Aktualisierung der Datenbank zuletzt des anderen Benutzers werden Änderungen überschrieben. In vielen Anwendungen dieses Risiko ist akzeptabel: Wenn nur wenige Benutzer oder einige Updates vorhanden sind oder nicht wirklich wichtig, wenn einige Änderungen überschrieben werden, kann die Kosten für die Programmierung für die Parallelität die Vorteile überwiegen. In diesem Fall müssen Sie die Anwendung zur Handhabung von Parallelitätskonflikten zu konfigurieren.
+Ein Parallelitätskonflikt tritt auf, wenn ein Benutzer die Daten einer Entität anzeigt, um diese zu bearbeiten, und ein anderer Benutzer eben diese Entitätsdaten aktualisiert, bevor die Änderungen des ersten Benutzers in die Datenbank geschrieben wurden. Wenn Sie die Erkennung solcher Konflikte nicht aktivieren, überschreibt das letzte Update der Datenbank die Änderungen des anderen Benutzers. In vielen Anwendungen ist dieses Risiko akzeptabel: Wenn es nur wenige Benutzer bzw. wenige Updates gibt, oder wenn es nicht schlimm ist, dass Änderungen überschrieben werden können, ist es den Aufwand, für die Parallelität zu programmieren, möglicherweise nicht wert. In diesem Fall müssen Sie für die Anwendung keine Behandlung von Nebenläufigkeitskonflikten konfigurieren.
 
-### <a name="pessimistic-concurrency-locking"></a>Die eingeschränkte Parallelität (Sperren)
+### <a name="pessimistic-concurrency-locking"></a>Pessimistische Parallelität (Sperren)
 
-Wenn Ihre Anwendung muss in parallelitätsszenarios versehentliche Datenverluste zu verhindern, ist eine Möglichkeit dazu Datenbanksperren verwenden. Dies ist die eingeschränkte Parallelität bezeichnet. Bevor Sie eine Zeile aus einer Datenbank lesen, Sie anfordern, z. B. eine Sperre für nur-Lese oder Aktualisierungszugriff. Wenn Sie eine Zeile für Aktualisierungszugriff sperren, dürfen keine anderen Benutzer der Zeile, die entweder für Sperren nur-Lese oder Aktualisierungszugriff, da erhalten sie eine Kopie der Daten, die nicht gerade geändert wird. Wenn Sie eine Zeile für schreibgeschützten Zugriff gesperrt werden, können andere auch für schreibgeschützten Zugriff jedoch nicht für Update gesperrt.
+Wenn Ihre Anwendung versehentliche Datenverluste in Parallelitätsszenarios verhindern muss, ist die Verwendung von Datenbanksperren eine Möglichkeit. Man bezeichnet dies als pessimistische Parallelität. Bevor Sie zum Beispiel eine Zeile aus einer Datenbank lesen, fordern Sie eine Sperre für den schreibgeschützten Zugriff oder den Aktualisierungszugriff an. Wenn Sie eine Zeile für den Aktualisierungszugriff sperren, kann kein anderer Benutzer diese Zeile für den schreibgeschützten Zugriff oder den Aktualisierungszugriff sperren, da er eine Kopie der Daten erhalten würde, die gerade geändert werden. Wenn Sie eine Zeile für den schreibgeschützten Zugriff sperren, können andere diese Zeile ebenfalls für den schreibgeschützten Zugriff sperren, aber nicht für den Aktualisierungszugriff.
 
-Verwalten von Sperren hat Nachteile. Es kann zum Programm komplex sein. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht. Aus diesen Gründen unterstützen nicht alle Datenbank-Managementsystemen eingeschränkte Parallelität. Entity Framework Core bietet keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
+Das Verwalten von Sperren hat Nachteile. Es kann komplex sein, sie zu programmieren. Dies erfordert erhebliche Datenbankverwaltungsressourcen und kann mit steigender Anzahl der Benutzer einer Anwendung zu Leistungsproblemen führen. Aus diesen Gründen unterstützen nicht alle Datenbankverwaltungssysteme die pessimistische Parallelität. Entity Framework Core enthält keine integrierte Unterstützung, und in diesem Tutorial wird nicht gezeigt, wie Sie sie implementieren.
 
 ### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
-Die Alternative für die eingeschränkte Parallelität ist die vollständige Parallelität. Vollständige Parallelität bedeutet ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann entsprechend reagieren, wenn dies der Fall. Z. B. Andrea besucht die Seite Abteilung bearbeiten und dabei ändert sich der Betrag für die englischen Abteilung $350,000.00 auf $0,00.
+Die optimistische Parallelität ist die Alternative zur pessimistischen Parallelität. Die Verwendung der optimistischen Parallelität bedeutet, Nebenläufigkeitskonflikte zu erlauben und entsprechend zu reagieren, wenn diese auftreten. Benutzer1 besucht z.B. die Seite „Abteilung bearbeiten“ und ändert das Budget für die englische Abteilung von $350.000,00 in $0,00.
 
-![Ändern Sie das Budget auf 0](concurrency/_static/change-budget.png)
+![Ändern des Budgets in 0 (null)](concurrency/_static/change-budget.png)
 
-Bevor Andrea klickt **speichern**, John derselben Seite besuchen, und ändert sich der Start Date-Felds von 9/1/2007, 9/1/2013.
+Bevor Benutzer1 auf **Speichern** klickt, besucht Benutzer2 dieselbe Seite und ändert das Feld „Startdatum“ von 9.1.2007 in 9.1.2013.
 
-![Ändern von Startdatum in 2013](concurrency/_static/change-date.png)
+![Ändern des Startdatums in 2013](concurrency/_static/change-date.png)
 
-Andrea klickt **speichern** erste und sieht ihr ändern, wenn der Browser an die Indexseite zurückgibt.
+Benutzer1 klickt zuerst auf **Speichern** und sieht die Änderungen, wenn der Browser die Indexseite anzeigt.
 
-![Budget in NULL geändert](concurrency/_static/budget-zero.png)
+![Budget in 0 (null) geändert](concurrency/_static/budget-zero.png)
 
-Dann John klickt **speichern** auf eine Bearbeitungsseite, die ein Budget von $350,000.00 weiterhin angezeigt. Was daraufhin geschieht richtet sich nach der Behandlung von Parallelitätskonflikten.
+Dann klickt Benutzer2 auf einer Bearbeitungsseite, die weiterhin ein Budget von $350.000,00 angibt, auf **Speichern**. Was daraufhin geschieht, ist abhängig davon, wie Sie Nebenläufigkeitskonflikte behandeln.
 
-Einige der Optionen umfassen Folgendes:
+Einige der Optionen schließen Folgendes ein:
 
-* Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren.
+* Sie können nachverfolgen, welche Eigenschaft ein Benutzer geändert hat und nur die entsprechenden Spalten in der Datenbank aktualisieren.
 
-     In diesem Beispielszenario würde keine Daten verloren, weil Sie unterschiedliche Eigenschaften von zwei Benutzer aktualisiert wurden. Sie können das nächste Mal, das eine Person die englische Abteilung durchsucht, Janes und Peters Änderungen--von 9/1/2013 ein Startdatum und ein Budget Null Dollar sehen. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können, aber es kann nicht Datenverluste vermeiden, wenn die gleiche Eigenschaft einer Entität konkurrierende geändert werden. Ob das Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Update Code implementieren. Es ist häufig nicht praktikabel ist, in einer Web-Anwendung, da erforderlich, große Mengen des Zustands zu verwalten, um nachzuverfolgen, um alle ursprünglichen Eigenschaftswerte für eine Entität sowie die neuen Werte. Verwalten von großen Datenmengen Zustand kann Leistung der Anwendung beeinträchtigen, da es Serverressourcen erfordert oder auf der Webseite selbst (z. B. in ausgeblendeten Feldern) enthalten sein muss oder in einem Cookie.
+     Im Beispielszenario würden keine Daten verloren gehen, da verschiedene Eigenschaften von zwei Benutzern aktualisiert wurden. Das nächste Mal, wenn eine Person den englischen Fachbereich durchsucht, wird sie die Änderungen von Benutzer1 und Benutzer2 sehen – das Startdatum 1.9.2013 und ein Budget von 0 Dollar. Diese Methode der Aktualisierung kann die Anzahl von Konflikten reduzieren, die zu Datenverlusten führen können. Sie kann Datenverluste jedoch nicht verhindern, wenn konkurrierende Änderungen an der gleichen Eigenschaft einer Entität vorgenommen werden. Ob Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Sie Ihren Aktualisierungscode implementieren. Oft ist dies in Webanwendungen nicht praktikabel, da es erforderlich sein kann, viele Zustände zu verwalten, um alle ursprünglichen Eigenschaftswerte einer Entität und die neuen Werte im Auge zu behalten. Das Verwalten vieler Zuständen kann sich auf die Leistung der Anwendung auswirken, da es entweder Serverressourcen beansprucht oder in der Webseite selbst (z.B. in ausgeblendeten Feldern) oder in einem Cookie enthalten sein muss.
 
-* Sie können Peters Änderung Janes Änderung überschreiben lassen.
+* Sie können zulassen, dass die Änderungen von Benutzer2 die Änderungen von Benutzer1 überschreiben.
 
-     Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie, 9/1/2013 und die wiederhergestellten $350,000.00-Wert. Hierbei spricht einen *Client gewinnt* oder *Last in Wins* Szenario. (Alle Werte aus dem Client haben Vorrang vor was im Datenspeicher ist.) Wie in der Einführung zu diesem Abschnitt erwähnt, wenn Sie die Codierung für Parallelitätsbehandlung nicht tun, erfolgt dies automatisch.
+     Das nächste Mal, wenn jemand den englischen Fachbereich durchsucht, wird das Datum 1.9.2013 und der wiederhergestellte Wert $350.000,00 angezeigt. Das ist entweder ein *Client gewinnt*- oder ein *Letzter Schreiber gewinnt*-Szenario. (Alle Werte des Clients haben Vorrang vor dem Datenspeicher.) Wie in der Einführung dieses Abschnitts beschrieben, geschieht dies automatisch, wenn Sie für die Behandlung der Parallelität keinen Code schreiben.
 
-* Sie können verhindern, dass Peters Änderung in der Datenbank aktualisiert wird.
+* Sie können verhindern, dass die Änderungen von Benutzer2 in die Datenbank aufgenommen werden.
 
-     In der Regel würden Sie zeigt eine Fehlermeldung an, zeigen ihm den aktuellen Zustand der Daten und ermöglichen ihm seine Änderungen erneut angewendet, wenn er noch machen möchte. Hierbei spricht einen *Store Wins* Szenario. (Der Datenspeicher Werte haben Vorrang vor den Werten, die vom Client gesendet.) In diesem Lernprogramm implementieren Sie die Wins-Store-Szenario. Diese Methode wird sichergestellt, dass keine Änderungen, ohne dass ein Benutzer wird gewarnt überschrieben werden, was geschieht.
+     In der Regel würden Sie eine Fehlermeldung ausgeben, ihm den aktuellen Zustand der Daten anzeigen und ihm erlauben, seine Änderungen erneut anzuwenden, sofern er dies immer noch machen möchte. Dieses Szenario wird *Speicher gewinnt* genannt. (Die Werte des Datenspeichers haben Vorrang vor den Werten, die vom Client gesendet werden.) In diesem Tutorial implementieren Sie das Szenario „Speicher gewinnt“. Diese Methode stellt sicher, dass keine Änderung überschrieben wird, ohne dass ein Benutzer darüber benachrichtigt wird.
 
-### <a name="detecting-concurrency-conflicts"></a>Erkennen von Konflikten bei der Parallelität
+### <a name="detecting-concurrency-conflicts"></a>Erkennen von Nebenläufigkeitskonflikten
 
-Lösen von Konflikten durch behandeln `DbConcurrencyException` Ausnahmen, die das Entity Framework löst. Damit Sie wissen, wann diese Ausnahmen ausgelöst werden soll, muss das Entity Framework zum Erkennen von Konflikten können. Aus diesem Grund müssen Sie die Datenbank und des Datenmodells entsprechend konfigurieren. Einige Optionen zum Aktivieren der konflikterkennung umfassen Folgendes:
+Sie können Konflikte auflösen, indem Sie die `DbConcurrencyException`-Ausnahmen behandeln, die vom Entity Framework ausgelöst werden. Entity Framework muss dazu in der Lage sein, Konflikte zu erkennen, damit es weiß, wann diese Ausnahmen ausgelöst werden sollen. Aus diesem Grund müssen Sie die Datenbank und das Datenmodell entsprechend konfigurieren. Einige der Optionen für das Aktivieren der Konflikterkennung schließen Folgendes ein:
 
-* Enthalten Sie in der Datenbanktabelle eine Überwachung-Spalte, die verwendet werden kann, um zu bestimmen, wenn eine Zeile geändert wurde. Anschließend konfigurieren Sie das Entity Framework Einbeziehung dieser Spalte in der Where-Klausel der SQL-Update oder Delete-Befehle.
+* Fügen Sie eine Änderungsverfolgungsspalte in die Datenbanktabelle ein, die verwendet werden kann, um zu bestimmen, wenn eine Änderung an einer Zeile vorgenommen wurde. Anschließend können Sie Entity Framework so konfigurieren, dass die Spalte in der Where-Klausel eines SQL-Updates oder eines Delete-Befehls enthalten ist.
 
-     Der Datentyp der Spalte Überwachung ist in der Regel `rowversion`. Die `rowversion` Wert ist eine sequenzielle Zahl, die jedes Mal erhöht ist die Zeile aktualisiert wird. In einem Update- oder Delete-Befehl der Where-Klausel enthält den ursprünglichen Wert des Nachverfolgungsspalte (die ursprüngliche Zeilenversion). Wenn Sie die aktualisierte Zeile bereits durch den Wert in einen anderen Benutzer geändert wurde die `rowversion` Spalte unterscheidet sich von den ursprünglichen Wert werden, damit die Update- oder Delete-Anweisung die Zeile beim Aktualisieren aufgrund der Where findet Klausel. Wenn der Befehl die Entity Framework-feststellt, dass durch die Update- oder Delete keine Zeilen aktualisiert wurden (d. h., wenn die Anzahl der betroffenen Zeilen auf 0 (null) ist) interpretiert, die als Parallelitätskonflikt.
+     In der Regel ist `rowversion` der Datentyp der Änderungsverfolgungsspalte. Der Wert `rowversion` ist eine sequenzielle Zahl, die jedes Mal erhöht wird, wenn die Zeile aktualisiert wird. In einem Update- oder Delete-Befehl enthält die Where-Klausel den ursprünglichen Wert der Änderungsverfolgungsspalte (die ursprüngliche Zeilenversion). Wenn die Zeile, die aktualisiert wird, durch einen anderen Benutzer geändert wurde, unterscheidet sich der Wert in der Spalte `rowversion` vom ursprünglichen Wert, sodass die Anweisungen „Update“ oder „Delete“ die Zeile, die aktualisiert werden soll, aufgrund der Where-Klausel nicht finden können. Wenn Entity Framework feststellt, dass das Update oder der Delete-Befehl keine Zeilen aktualisiert hat (d.h., wenn die Anzahl der betroffenen Zeilen 0 (null) ist), wird dies als Parallelitätskonflikt interpretiert.
 
-* Konfigurieren Sie das Entity Framework Einbeziehung von den ursprünglichen Werten der jede Spalte in der Tabelle in der Where-Klausel der Update und Delete-Befehle.
+* Konfigurieren Sie Entity Framework so, dass die ursprünglichen Werte jeder Spalte in der Tabelle in den Where-Klauseln der Update- und Delete-Befehle enthalten sind.
 
-     Wie die erste Option, wenn alle Elemente in der Zeile geändert wurde, seit die Zeile zuerst gelesen wurde in der Where Klausel keine Zeile zu aktualisieren, der das Entity Framework als Parallelitätskonflikt interpretiert zurückgegeben. Für Datenbanktabellen, die viele Spalten aufweisen, dieser Ansatz kann dazu führen, sehr große Where-Klausel und kann festlegen, dass Sie große Mengen an Zustand beibehalten. Wie bereits erwähnt, kann das Verwalten von großen Datenmengen Zustand Leistung der Anwendung beeinträchtigen. Aus diesem Grund diese Vorgehensweise wird im Allgemeinen nicht empfohlen, und dies nicht der Fall in diesem Lernprogramm verwendete Methode.
+     Wie in der ersten Option gibt die Where-Klausel keine Zeile zum Aktualisieren zurück, wenn etwas in der Zeile geändert wurde, da die Zeile zuerst gelesen wurde, was vom Entity Framework als Parallelitätskonflikt interpretiert wird. Bei Datenbanktabellen mit vielen Spalten kann dieser Ansatz zu sehr großen Where-Klauseln führen, was wiederum dazu führen kann, dass Sie eine große Anzahl von Zuständen verwalten müssen. Wie bereits erwähnt, kann das Verwalten großer Mengen von Zuständen die Anwendungsleistung beeinträchtigen. Deshalb wird dieser Ansatz in der Regel nicht empfohlen, und ist nicht die Methode, die in diesem Tutorial verwendet wird.
 
-     Wenn Sie diesen Ansatz zur Parallelität implementieren möchten, müssen Sie alle nicht primären Schlüssel-Eigenschaften in der Entität kennzeichnen Sie durch Hinzufügen von Parallelität für nachverfolgen möchten die `ConcurrencyCheck` -Attribut auf diese. Diese Änderung ermöglicht das Entity Framework auf alle Spalten in der SQL-Where-Klausel der Update und Delete-Anweisungen enthalten.
+     Wenn Sie diesen Ansatz für die Parallelität implementieren wollen, müssen Sie alle nicht primären Schlüsseleigenschaften in der Entität markieren, für die Sie die Parallelität nachverfolgen wollen, indem Sie ihnen das Attribut `ConcurrencyCheck` hinzufügen. Diese Änderung ermöglicht dem Entity Framework, alle Spalten in der SQL-Where-Klausel der Update- und Delete-Anweisungen einzubeziehen.
 
-Im weiteren Verlauf dieses Lernprogramms fügen Sie eine `rowversion` tracking-Eigenschaft auf die Entität Department, erstellen Sie einen Controller und Ansichten, und testen, um sicherzustellen, dass alles ordnungsgemäß funktioniert.
+Im weiteren Verlauf dieses Tutorials fügen Sie der Fachbereichsentität die Änderungsverfolgungseigenschaft `rowversion` hinzu, erstellen einen Controller und Ansichten und überprüfen, ob alles ordnungsgemäß funktioniert.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Hinzufügen einer Überwachung-Eigenschaft auf die Entität Department
+## <a name="add-a-tracking-property-to-the-department-entity"></a>Hinzufügen einer Nachverfolgungseigenschaft zur Entität „Department“
 
-In *Models/Department.cs*, Hinzufügen einer Überwachung-Eigenschaft, die mit dem Namen RowVersion:
+Fügen Sie der Datei *Models/Department.cs* eine Nachverfolgungseigenschaft namens „RowVersion“ hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-Die `Timestamp` Attribut gibt an, dass diese Spalte eingeschlossen werden in der Where-Klausel der Update und Delete-Befehle an die Datenbank gesendet. Das Attribut heißt `Timestamp` da frühere Versionen von SQL Server eine SQL verwendet `timestamp` -Datentyp, bevor SQL `rowversion` ersetzt. Der Typ .NET für `rowversion` ist ein Bytearray.
+Das Attribut `Timestamp` gibt an, dass diese Spalte in die Where-Klausel der Befehle „Update“ und „Delete“ einbezogen wird, die an die Datenbank gesendet werden. Das Attribut wird `Timestamp` genannt, weil vorherige Versionen von SQL Server einen SQL-`timestamp`-Datentyp verwendet haben, bevor er durch SQL-`rowversion` ersetzt wurde. Der .NET-Typ für `rowversion` ist ein Bytearray.
 
-Wenn Sie die fluent-API verwenden möchten, können Sie mithilfe der `IsConcurrencyToken` -Methode (in *Data/SchoolContext.cs*) die Tracking-Eigenschaft angeben, wie im folgenden Beispiel gezeigt:
+Wenn Sie die Verwendung der Fluent-API bevorzugen, können Sie die Methode `IsConcurrencyToken` (in *Data/SchoolContext.cs*) verwenden, um die Änderungsverfolgungseigenschaft anzugeben, wie im folgenden Beispiel dargestellt wird:
 
 ```csharp
 modelBuilder.Entity<Department>()
     .Property(p => p.RowVersion).IsConcurrencyToken();
 ```
 
-Durch Hinzufügen einer Eigenschaft wird das Datenbankmodell geändert, daher Sie einen anderen Migration ausführen müssen.
+Durch das Hinzufügen einer Eigenschaft ändern Sie das Datenbankmodell, daher müssen Sie eine weitere Migration durchführen.
 
-Speichern Sie die Änderungen zu und erstellen Sie das Projekt, und geben Sie dann die folgenden Befehle im Befehlsfenster:
+Speichern Sie ihre Änderungen, erstellen Sie das Projekt, und geben Sie dann die folgenden Befehle in das Befehlsfenster ein:
 
 ```console
 dotnet ef migrations add RowVersion
@@ -112,172 +112,172 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Erstellen Sie einen Abteilungen Controller und Ansichten
+## <a name="create-a-departments-controller-and-views"></a>Erstellen von Abteilungscontrollern und -ansichten
 
-Erstellen Sie einen Abteilungen Controller und Ansichten aus, wie zuvor für Studenten, Bildungseinrichtungen Kurse und Lehrkräfte.
+Erstellen Sie einen Abteilungscontroller und Ansichten, wie Sie es vorher bereits für Studenten, Kurse und Dozenten getan haben.
 
-![Gerüst Abteilung](concurrency/_static/add-departments-controller.png)
+![Erstellen des Fachbereichs](concurrency/_static/add-departments-controller.png)
 
-In der *DepartmentsController.cs* Datei, ändern Sie alle vier Vorkommen von "FirstMidName" in "FullName", sodass die Abteilung Administrator Dropdown-Listen der vollständige Name der Kursleiter anstatt nur der letzte Name enthält.
+Ändern Sie in der Datei *DepartmentsController.cs* „FirstMidName“ an jeder Stelle in „FullName“, damit die Dropdownliste für Abteilungsadministratoren den vollen Namen des Dozenten enthält und nicht nur den Nachnamen.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Aktualisieren Sie die Indexansicht Abteilungen
+## <a name="update-the-departments-index-view"></a>Aktualisieren der Indexansicht für Abteilungen
 
-Das Modul Gerüstbau RowVersion-Spalte in die Indexansicht erstellt, aber dieses Feld darf nicht angezeigt werden.
+Die Engine für den Gerüstbau hat eine RowVersion-Spalte in der Indexansicht erstellt, dieses Feld soll jedoch nicht angezeigt werden.
 
-Ersetzen Sie den Code in *Views/Departments/Index.cshtml* durch den folgenden Code.
+Ersetzen Sie den Code in der Datei *Views/Departments/Index.cshtml* durch folgenden Code:
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
-Dies ändert den Spaltenüberschrift, um "Abteilung", löscht der RowVersion-Spalte und zeigt zuerst anstelle des vollständigen Namens für den Administrator.
+Damit wird die Überschrift in „Abteilungen“ geändert, die Spalte „RowVersion“ gelöscht und der vollständige Name des Administrators wird anstelle des Vornamens angezeigt.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Aktualisierungsmethoden Sie "Bearbeiten" im Controller Abteilungen
+## <a name="update-the-edit-methods-in-the-departments-controller"></a>Aktualisieren der Edit-Methoden im Abteilungscontroller
 
-In beiden die HttpGet `Edit` Methode und die `Details` -Methode hinzufügen `AsNoTracking`. In der HttpGet `Edit` Methode unverzüglichem Laden für den Administrator hinzuzufügen.
+Fügen Sie in den HttpGet-Methoden `Edit` und `Details` `AsNoTracking` hinzu. Fügen Sie in der HttpGet-Methode `Edit` für den Administrator Eager Loading hinzu.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
-Ersetzen Sie den vorhandenen Code für die HttpPost `Edit` -Methode durch folgenden Code:
+Ersetzen Sie den vorhandenen Code für die HttpPost-Methode `Edit` durch folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-Der Code wird zuerst beim Lesen der Abteilung aktualisiert werden. Wenn die `SingleOrDefaultAsync` Methode gibt null zurück, die Abteilung wurde von einem anderen Benutzer gelöscht. In diesem Fall verwendet der Code die übermittelte Formularwerte, um eine Abteilung-Entität erstellen, sodass die bearbeiten (Seite) mit einer Fehlermeldung angezeigt werden kann. Als Alternative wäre nicht stehen Ihnen die Entität Department neu zu erstellen, wenn Sie nur eine Fehlermeldung angezeigt, ohne erneute Anzeigen der Abteilung Felder.
+Der Code versucht zunächst die Abteilung zu lesen, die aktualisiert werden soll. Wenn die Methode `SingleOrDefaultAsync` NULL zurückgibt, wurde die Abteilung von einem anderen Benutzer gelöscht. In diesem Fall verwendet der Code die bereitgestellten Formularwerte zum Erstellen einer Abteilungsentität, damit die Seite „Bearbeiten“ mit einer Fehlermeldung erneut angezeigt werden kann. Alternativ müssen Sie die Abteilungsentität nicht erneut erstellen, wenn Sie nur eine Fehlermeldung anzeigen, ohne die Abteilungsfelder erneut anzuzeigen.
 
-Die Sicht speichert die ursprüngliche `RowVersion` Wert in ein verborgenes Feld, und diese Methode empfängt, diesen Wert in der `rowVersion` Parameter. Vor dem Aufruf `SaveChanges`, müssen Sie, die ursprüngliche put `RowVersion` Eigenschaftswert in der `OriginalValues` Auflistung für die Entität.
+Die Ansicht speichert den ursprünglichen Wert von `RowVersion` in einem ausgeblendeten Feld, und diese Methode erhält diesen Wert über den Parameter `rowVersion`. Bevor Sie `SaveChanges` aufrufen, müssen Sie diesen ursprünglichen Eigenschaftswert von `RowVersion` in die Auflistung `OriginalValues` für die Entität einfügen.
 
 ```csharp
 _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVersion;
 ```
 
-Und wenn Entity Framework einen UPDATE für SQL-Befehl erstellt, dieser Befehl eine WHERE-Klausel enthalten, die sucht nach einer Zeile, die die ursprüngliche `RowVersion` Wert. Wenn keine Zeilen, durch den Befehl UPDATE betroffen sind (keine Zeilen vorhanden sind, die ursprüngliche `RowVersion` Wert), das Entity Framework löst eine `DbUpdateConcurrencyException` Ausnahme.
+Wenn Entity Framework dann den SQL-Befehl „Update“ erstellt, enthält dieser Befehl eine Where-Klausel, die nach einer Zeile mit dem ursprünglichen Wert `RowVersion` sucht. Wenn keine Zeile durch den Befehl „Update“ betroffen ist (keine Zeile enthält den ursprünglichen Wert `RowVersion`), löst Entity Framework die Ausnahme `DbUpdateConcurrencyException` aus.
 
-Der Code im Catch-Block für diese Ausnahme ruft die betroffene Abteilung-Entität mit den aktualisierten Werten aus der `Entries` -Eigenschaft für das Ausnahmeobjekt.
+Der Code im Catch-Block für diese Ausnahme ruft die betroffene Abteilungsentität ab, die die aktualisierten Werte der Eigenschaft `Entries` auf dem Ausnahmeobjekt enthält.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
-Die `Entries` Auflistung hat nur einen `EntityEntry` Objekt.  Dieses Objekt können Sie um die neuen Werte, die vom Benutzer eingegeben werden und die aktuellen Datenbankwerte zu erhalten.
+Die Auflistung `Entries` hat nur ein `EntityEntry`-Objekt.  Sie können dieses Objekt verwenden, um die aktuellen Datenbankwerte und die neuen Werte abzurufen, die von dem Benutzer eingegeben wurden.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
-Der Code Fügt eine benutzerdefinierte Fehlermeldung für jede Spalte, die verschiedene Datenbankwerten hat Seite aus, was der Benutzer die Eingabe in der Bearbeitung (nur ein Feld wird hier dargestellt aus Gründen der Übersichtlichkeit).
+Der Code fügt eine benutzerdefinierte Fehlermeldung für jede Spalte mit Datenbankwerten hinzu, die von den Werten abweichen, die der Benutzer auf der Seite „Bearbeiten“ eingegeben hat (zugunsten der Übersichtlichkeit wird hier nur ein Feld angezeigt).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
-Schließlich der Code legt die `RowVersion` Wert, der die `departmentToUpdate` auf den neuen Wert aus der Datenbank abgerufen. Diese neue `RowVersion` Wert wird in das ausgeblendete Feld gespeichert werden, wenn die Seite wird erneut bearbeiten und das nächste die benutzeraufrufen Mal **speichern**, nur Parallelitätsfehlern, die auftreten, da es sich bei der erneuten Anzeige Bearbeitungsseite abgefangen wird.
+Schließlich legt der Code den Wert `RowVersion` von `departmentToUpdate` auf den neuen Wert fest, der aus der Datenbank abgerufen wurde. Dieser neue `RowVersion`-Wert wird in dem ausgeblendeten Feld gespeichert, wenn die Seite „Bearbeiten“ erneut angezeigt wird. Das nächste Mal, wenn der Benutzer auf **Speichern** klickt, werden nur Parallelitätsfehler abgefangen, die nach dem erneuten Anzeigen der Seite „Bearbeiten“ aufgetreten sind.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
-Die `ModelState.Remove` Anweisung ist erforderlich, da `ModelState` hat die alte `RowVersion` Wert. In der Ansicht der `ModelState` Wert für ein Feld Vorrang vor den Modell-Eigenschaftswerte hat, wenn beide vorhanden sind.
+Die Anweisung `ModelState.Remove` ist erforderlich, da `ModelState` über den alten `RowVersion`-Wert verfügt. In der Ansicht hat der Wert `ModelState` Vorrang vor den Modelleigenschaftswerten, wenn beide vorhanden sind.
 
-## <a name="update-the-department-edit-view"></a>Aktualisieren Sie die Ansicht Abteilung bearbeiten
+## <a name="update-the-department-edit-view"></a>Aktualisieren der Ansicht „Abteilung bearbeiten“
 
-In *Views/Departments/Edit.cshtml*, nehmen Sie die folgenden Änderungen:
+Nehmen Sie folgende Änderungen in der Datei *Views/Departments/Edit.cshtml* vor:
 
-* Fügen Sie ein ausgeblendetes Feld zum Speichern der `RowVersion` Eigenschaftswert, der unmittelbar hinter das ausgeblendete Feld für die `DepartmentID` Eigenschaft.
+* Fügen Sie ein ausgeblendetes Feld zum Speichern des Eigenschaftswerts `RowVersion`, direkt nach dem ausgeblendeten Feld für die Eigenschaft `DepartmentID` hinzu.
 
-* Fügen Sie eine Option "Administrator aktivieren" auf die Dropdown-Liste hinzu.
+* Fügen Sie der Dropdownliste die Option „Select Administrator“ hinzu.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Testen von Parallelitätskonflikten in bearbeiten (Seite)
+## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Überprüfen von Nebenläufigkeitskonflikten in der Seite „Bearbeiten“
 
-Führen Sie die app, und navigieren Sie auf der Abteilungen Index. Mit der rechten Maustaste die **bearbeiten** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie dann auf die **bearbeiten** Link für die englischen Abteilung. Die zwei browserregisterkarten wird jetzt die gleiche Informationen angezeigt.
+Führen Sie die App aus, und navigieren Sie zur Indexseite „Abteilungen“. Klicken Sie mit der rechten Maustaste auf den Link **Bearbeiten** für die englische Abteilung und wählen **In neuer Registerkarte öffnen** aus, klicken Sie dann auf den Link **Bearbeiten** für die englische Abteilung. Beide Registerkarten zeigen nun die gleichen Informationen im Browser an.
 
-Ändern eines Felds in der ersten Registerkarte ' Browser ', und klicken Sie auf **speichern**.
+Ändern Sie ein Feld in der ersten Registerkarte, und klicken Sie auf **Speichern**.
 
-![Abteilung bearbeiten Seite 1 nach der Änderung](concurrency/_static/edit-after-change-1.png)
+![Seite 1 „Abteilung bearbeiten“ nach der Änderung](concurrency/_static/edit-after-change-1.png)
 
-Der Browser zeigt die Indexseite mit den geänderten Wert an.
+Der Browser zeigt die Indexseite mit dem geänderten Wert an.
 
 Ändern Sie ein Feld in der zweiten Registerkarte.
 
-![Abteilung bearbeiten Seite 2 nach der Änderung](concurrency/_static/edit-after-change-2.png)
+![Seite 2 „Abteilung bearbeiten“ nach der Änderung](concurrency/_static/edit-after-change-2.png)
 
-Klicken Sie auf **Speichern**. Sie sehen eine Fehlermeldung angezeigt:
+Klicken Sie auf **Speichern**. Folgende Fehlermeldung wird angezeigt:
 
-![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/edit-error.png)
+![Fehlermeldung auf der Seite „Abteilung bearbeiten“](concurrency/_static/edit-error.png)
 
-Klicken Sie auf **speichern** erneut aus. Der Wert in der zweiten Registerkarte eingegebene wird gespeichert. Die gespeicherten Werte wird angezeigt, wenn die Indexseite angezeigt wird.
+Klicken Sie erneut auf **Speichern**. Der Wert, den Sie auf der zweiten Registerkarte eingegeben haben, wird gespeichert. Die gespeicherten Werte werden Ihnen auf der Indexseite angezeigt.
 
-## <a name="update-the-delete-page"></a>Aktualisieren Sie die Seite "löschen"
+## <a name="update-the-delete-page"></a>Aktualisieren der Seite „Delete“ (Löschen)
 
-Für die Seite "löschen" erkennt das Entity Framework Parallelitätskonflikte zurückzuführen, dass jemand die ansonsten die Abteilung auf ähnliche Weise bearbeiten. Wenn die HttpGet `Delete` Methode zeigt, die Bestätigung an, die Ansicht enthält die ursprüngliche `RowVersion` Wert in ein ausgeblendetes Feld. Dieser Wert dann zur Verfügung HttpPost wird `Delete` Methode, die aufgerufen wird, wenn der Benutzer den Löschvorgang bestätigt. Wenn Entity Framework die SQL-Befehl DELETE erstellt, enthält Sie eine WHERE-Klausel mit der ursprünglichen `RowVersion` Wert. Wenn die Ergebnisse von Befehlen in 0 Zeilen betroffen (d. h. die Zeile geändert wurde, nach die Bestätigungsseite löschen angezeigt wurde), wird eine Parallelitätsausnahme ausgelöst, und die HttpGet `Delete` -Methode aufgerufen wird und ein Fehler Flag festgelegt auf "true", um erneut anzeigen der Bestätigungsseite mit einer Fehlermeldung. Es ist auch möglich, dass 0 Zeilen betroffen sind, da die Zeile von einem anderen Benutzer gelöscht wurde, damit in diesem Fall wird keine Fehlermeldung angezeigt wird.
+Bei der Seite „Löschen“ entdeckt Entity Framework Nebenläufigkeitskonflikte, die durch die Bearbeitung einer Abteilung ausgelöst wurden, auf ähnliche Weise. Wenn die HttpGet-Methode `Delete` die Bestätigungsansicht anzeigt, enthält diese Ansicht den ursprünglichen Wert von `RowVersion` in einem ausgeblendeten Feld. Dieser Wert steht dann der HttpPost-Methode `Delete` zur Verfügung, die aufgerufen wird, wenn der Benutzer das Löschen bestätigt. Wenn Entity Framework den SQL-Befehl „Delete“ erstellt, enthält dieser Befehl eine Where-Klausel mit dem ursprünglichen Wert `RowVersion`. Wenn der Befehl in 0 (null) betroffenen Zeilen resultiert (d.h. die Zeile wurde geändert, nachdem die Bestätigungsseite „Löschen“ angezeigt wurde), wird eine Parallelitätsausnahme ausgelöst, und die HttpGet-Methode `Delete` wird mit einem auf TRUE festgelegten Fehlerflag aufgerufen, um die Bestätigungsseite erneut mit einer Fehlermeldung anzuzeigen. Es ist auch möglich, dass 0 (null) Zeilen betroffen sind, weil die Zeile von einem anderen Benutzer gelöscht wurde. In diesem Fall wird keine Fehlermeldung angezeigt.
 
-### <a name="update-the-delete-methods-in-the-departments-controller"></a>Aktualisieren Sie die Delete-Methoden in den Abteilungen-controller
+### <a name="update-the-delete-methods-in-the-departments-controller"></a>Aktualisieren der Delete-Methoden im Abteilungscontroller
 
-In *DepartmentsController.cs*, ersetzen Sie die HttpGet `Delete` -Methode durch folgenden Code:
+Ersetzen Sie in der Datei *DepartmentsController.cs* die HttpGet-Methode `Delete` durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
-Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler wird erneut angezeigt wird. Wenn dieses Flag "true ist", und die Abteilung nicht mehr vorhanden ist, wurde er von einem anderen Benutzer gelöscht. In diesem Fall leitet der Code auf der Seite "Index".  Wenn dieses Flag "true ist", und die Abteilung ist vorhanden, wurde er von einem anderen Benutzer geändert. In diesem Fall sendet der Code eine Fehlermeldung an die Ansicht mit `ViewData`.  
+Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler erneut angezeigt wird. Wenn dieses Flag auf TRUE festgelegt ist, und die angegebene Abteilung nicht mehr vorhanden ist, wurde sie von einem anderen Benutzer gelöscht. In diesem Fall leitet der Code an eine Indexseite weiter.  Wenn dieses Flag auf TRUE festgelegt ist, und die Abteilung vorhanden ist, wurde sie von einem anderen Benutzer geändert. In diesem Fall sendet der Code mithilfe von `ViewData` eine Fehlermeldung an die Ansicht.  
 
-Ersetzen Sie den Code in die HttpPost `Delete` Methode (mit dem Namen `DeleteConfirmed`) durch den folgenden Code:
+Ersetzen Sie den Code in der HttpPost-Methode `Delete` (namens `DeleteConfirmed`) durch den folgenden Code:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
-In den scaffolded Code, den Sie soeben ersetzt, akzeptiert diese Methode nur eine Datensatz-ID:
+In dem eingerüsteten Code, den Sie soeben ersetzt haben, akzeptiert diese Methode nur eine Datensatz-ID:
 
 
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
 
-Sie haben dieser Parameter auf eine Abteilung Entitätsinstanz erstellt, indem die Modellbinder geändert. So erhält EF Zugriff auf den Wert der RowVersion-Eigenschaft zusätzlich zu dem Datensatzschlüssel.
+Diesen Parameter haben Sie in eine Abteilungsentitätsinstanz geändert, die durch die Modellbindung erstellt wurde. Dadurch erhält Entity Framework neben dem Datensatzschlüssel auch Zugriff auf den Eigenschaftswert „RowVersion“.
 
 ```csharp
 public async Task<IActionResult> Delete(Department department)
 ```
 
-Sie haben auch den Methodennamen Aktion von geändert `DeleteConfirmed` auf `Delete`. Der scaffolded Code verwendet den Namen `DeleteConfirmed` so erteilen Sie der Methode HttpPost eine eindeutige Signatur. (Die CLR erfordert überladene Methoden zum anderen Methodenparameter angegeben haben.) Nun, dass die Signaturen eindeutig sind, können die MVC-Konvention aufgeben und denselben Namen für die HttpPost und HttpGet Delete-Methoden verwenden.
+Ebenfalls haben Sie den Namen der Aktionsmethode `DeleteConfirmed` auf `Delete` geändert. Der eingerüstete Code verwendet den Namen `DeleteConfirmed`, um der HttpPost-Methode eine eindeutige Signatur zuzuweisen. (Die CLR erfordert überladene Methoden, um verschiedene Methodenparameter zu enthalten.) Da die Signaturen nun eindeutig sind, können Sie weiterhin die MVC-Konventionen verwenden, und den gleichen Namen für die HttpPost- und HttpGet-Delete-Methoden verwenden.
 
-Wenn die Abteilung bereits gelöscht wird, die `AnyAsync` Methode "false" zurückgegeben, und die Anwendung nur wechselt wieder an die Index-Methode.
+Wenn die Abteilung bereits gelöscht ist, gibt die Methode `AnyAsync` FALSE zurück, und die Anwendung kehrt zu der Indexmethode zurück.
 
-Wenn ein Parallelitätsfehler abgefangen wird, wird der Code erneut an die Bestätigungsseite löschen und bietet ein Flag, das darauf eine Fehlermeldung Parallelität angezeigt werden soll.
+Wenn ein Parallelitätsfehler abgefangen wird, zeigt der Code erneut die Bestätigungsseite „Löschen“ an, und stellt ein Flag bereit, das angibt, dass eine Fehlermeldung für die Parallelität angezeigt werden soll.
 
-### <a name="update-the-delete-view"></a>Aktualisieren der Ansicht löschen
+### <a name="update-the-delete-view"></a>Aktualisieren der Ansicht „Löschen“
 
-In *Views/Departments/Delete.cshtml*, ersetzen Sie den scaffolded Code durch den folgenden Code, der ein Fehler Nachrichtenfeld und ausgeblendete Felder für die Eigenschaften "DepartmentID" und RowVersion hinzufügt. Die Änderungen werden hervorgehoben.
+Ersetzen Sie den eingerüsteten Code in der Datei *Views/Departments/Delete.cshtml* durch den folgenden Code, der ein Feld für die Fehlermeldung und ausgeblendete Felder für die Eigenschaften „DepartmentID“ und „RowVersion“ hinzufügt. Die Änderungen werden hervorgehoben.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
-Dadurch werden die folgenden Änderungen:
+Dadurch werden folgende Änderungen vorgenommen:
 
-* Fügt eine Fehlermeldung zwischen den `h2` und `h3` Überschriften.
+* Fügt eine Fehlermeldung zwischen den Überschriften `h2` und `h3` hinzu.
 
-* Ersetzt FirstMidName mit FullName in den **Administrator** Feld.
+* Ersetzt „FirstMidName“ durch „FullName“ im Feld **Administrator**.
 
-* Entfernt das RowVersion-Feld.
+* Entfernt das Feld „RowVersion“.
 
-* Fügt ein ausgeblendetes Feld für die `RowVersion` Eigenschaft.
+* Fügt der Eigenschaft `RowVersion` ein ausgeblendetes Feld zu.
 
-Führen Sie die app, und navigieren Sie auf der Abteilungen Index. Mit der rechten Maustaste die **löschen** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**, klicken Sie in der ersten Registerkarte der **bearbeiten** Link für die englischen Abteilung.
+Führen Sie die App aus, und navigieren Sie zur Indexseite „Abteilungen“. Klicken Sie mit der rechten Maustaste auf den Link **Löschen** für die englische Abteilung, und wählen Sie **In neuer Registerkarte öffnen** aus. Klicken Sie in der ersten Registerkarte dann auf den Link **Bearbeiten** für die englische Abteilung.
 
-Im ersten Fenster ändern Sie einen der Werte, und klicken Sie auf **speichern**:
+Ändern Sie im ersten Fenster einen der Werte, und klicken Sie auf **Speichern**:
 
-![Abteilung bearbeiten (Seite) nach der Änderung vor dem Löschen](concurrency/_static/edit-after-change-for-delete.png)
+![Die Seite „Abteilung bearbeiten“ nach der Änderung vor dem Löschen](concurrency/_static/edit-after-change-for-delete.png)
 
-Klicken Sie in der zweiten Registerkarte auf **löschen**. Die Parallelität Fehlermeldung angezeigt, und die Department-Werte werden aktualisiert, was derzeit in der Datenbank ist.
+Klicken Sie in der zweiten Registerkarte auf **Löschen**. Ihnen wird eine Fehlermeldung zur Parallelität angezeigt, und die Abteilungswerte werden mit den aktuellen Werten der Datenbank aktualisiert.
 
-![Abteilung Delete Bestätigungsseite mit Parallelitätsfehler](concurrency/_static/delete-error.png)
+![Die Bestätigungsseite „Abteilung löschen“ mit Parallelitätsfehler](concurrency/_static/delete-error.png)
 
-Wenn Sie auf **löschen** erneut, sind Sie auf die Indexseite, der anzeigt, dass die Abteilung gelöscht wurde umgeleitet.
+Wenn Sie erneut auf **Löschen** klicken, werden Sie auf die Indexseite weitergeleitet, die anzeigt, dass die Abteilung gelöscht wurde.
 
-## <a name="update-details-and-create-views"></a>Updatedetails und Erstellen von Sichten
+## <a name="update-details-and-create-views"></a>Aktualisieren der Ansichten „Details“ und „Erstellen“
 
-Optional können Sie Ansichten erstellen und Bereinigen des migrationsgerüst Code in den Details.
+Optional können Sie den eingerüsteten Code in den Ansichten „Details“ und „Erstellen“ bereinigen.
 
-Ersetzen Sie den Code in *Views/Departments/Details.cshtml* zum Löschen der RowVersion-Spalte und zeigt den vollständigen Namen des Administrators.
+Ersetzen Sie den Code in der Datei *Views/Departments/Details.cshtml*, um die Spalte „RowVersion“ zu löschen und den vollständigen Namen des Administrators anzuzeigen.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
-Ersetzen Sie den Code in *Views/Departments/Create.cshtml* der Dropdown Liste einer Select-Option hinzu.
+Ersetzen Sie den Code in der Datei *Views/Departments/Create.cshtml*, um der Dropdownliste eine Select-Option hinzuzufügen.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Zusammenfassung
 
-Dies schließt die Einführung in die Behandlung von Parallelitätskonflikten. Weitere Informationen zum Behandeln von Parallelität in EF Core finden Sie unter [Parallelitätskonflikte](https://docs.microsoft.com/ef/core/saving/concurrency). Der nächste Lernprogrammen wird gezeigt, wie Tabelle pro Hierarchie Vererbung für den Dozenten und Student Entitäten implementiert wird.
+Damit ist die Einführung in die Behandlung von Nebenläufigkeitskonflikten abgeschlossen. Weitere Informationen zum Behandeln der Parallelität in EF Core finden Sie unter [Concurrency conflicts (Nebenläufigkeitskonflikte)](https://docs.microsoft.com/ef/core/saving/concurrency). Das nächste Tutorial zeigt Ihnen, wie Sie die „Tabelle pro Hierarchie“-Vererbung für die Entitäten Instructor und Student implementieren.
 
 >[!div class="step-by-step"]
 [Zurück](update-related-data.md)

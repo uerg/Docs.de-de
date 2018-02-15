@@ -1,5 +1,5 @@
-Die endgültige Version... / Cu und... /cuFinal enthalten mehr abgeschlossenen-Code.
+Die endgültigen Versionen „../cu“ und „../cuFinal“ enthalten mehr vollständigen Code.
 
-Kopieren Sie "Wwwroot" aus... /CU/ oder an einem neuen Razor-Seiten-Projekt.
+Kopieren Sie „wwwroot“ aus „../cu/“ oder einem neuen Razor-Seiten-Projekt.
 
 Ausführen von `dotnet ef database update`

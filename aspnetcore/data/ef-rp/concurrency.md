@@ -1,7 +1,7 @@
 ---
-title: "Razor-Seiten mit EF - Parallelität - 8 von 8-Kern"
+title: "Razor-Seiten mit EF Core: Parallelität (8 von 8)"
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie Konflikte zu behandeln, wenn mehrere Benutzer gleichzeitig derselben Entität aktualisieren."
+description: "In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren."
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -10,106 +10,106 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
 ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-En-us /
+en-US/
 
-# <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>Parallelitätskonflikte - EF-Core mit Razor-Seiten (8 von 8)
+# <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>Umgang mit Nebenläufigkeitskonflikten: EF Core mit Razor-Seiten (8 von 8)
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), und [Jon P Smith](https://twitter.com/thereformedprog)
+Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) und [Jon P Smith](https://twitter.com/thereformedprog)
 
 [!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
 
-Dieses Lernprogramm veranschaulicht, wie Konflikte behandelt wird, wenn mehrere Benutzer gleichzeitig (gleichzeitig) eine Entität aktualisieren. Wenn Probleme können nicht zu lösen auftreten, laden Sie die [abgeschlossene Anwendung für diese Stufe](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8).
+Dieses Tutorial zeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren. Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendung für diese Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8) herunter.
 
-## <a name="concurrency-conflicts"></a>Parallelitätskonflikte
+## <a name="concurrency-conflicts"></a>Nebenläufigkeitskonflikte
 
-Parallelitätskonflikt tritt auf, wenn:
+Ein Nebenläufigkeitskonflikt tritt auf, wenn:
 
-* Ein Benutzer navigiert zu der Seite "Bearbeiten" für eine Entität.
-* Ein anderer Benutzer aktualisiert dieselbe Entität, bevor die erste Änderung des Benutzers mit der Datenbank geschrieben werden.
+* Ein Benutzer zur Bearbeitungsseite für eine Entität navigiert.
+* Ein anderer Benutzer dieselbe Entität aktualisiert, bevor die Änderung des ersten Benutzers in die Datenbank geschrieben wird.
 
-Wenn Parallelität Erkennung, aktiviert ist wenn gleichzeitige Updates auftreten:
+Wenn die Parallelitätserkennung nicht aktiviert ist, während gleichzeitige Updates ausgeführt werden, geschieht Folgendes:
 
-* Das letzte Update gewinnt. D. h. werden die letzten Aktualisieren von Werten mit der Datenbank gespeichert.
-* Die erste von der aktuellen Updates verloren.
+* Das letzte Update gilt. Das bedeutet, dass die neuesten zu aktualisierenden Werte in der Datenbank gespeichert werden.
+* Das erste der aktuellen Updates geht verloren.
 
 ### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
-Vollständige Parallelität ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann reagiert entsprechend Wenn sie verwenden. Z. B. Andrea besucht die Abteilung bearbeiten (Seite) und ändert sich das Budget für die englischen Abteilung von $350,000.00 in 0,00.
+Optimistische Nebenläufigkeit lässt Nebenläufigkeitskonflikte zu und reagiert entsprechend, wenn diese auftreten. Beispielsweise besucht Benutzer1 die Bearbeitungsseite des Fachbereichs und ändert das Budget für den englischen Fachbereich von 350.000 $ in 0 $.
 
-![Ändern Sie das Budget auf 0](concurrency/_static/change-budget.png)
+![Ändern des Budgets in 0 (null)](concurrency/_static/change-budget.png)
 
-Bevor Andrea klickt **speichern**, John derselben Seite besuchen, und ändert sich der Start Date-Felds von 9/1/2007, 9/1/2013.
+Bevor Benutzer1 auf **Speichern** klickt, besucht Benutzer2 dieselbe Seite und ändert das Feld „Startdatum“ von 9.1.2007 in 9.1.2013.
 
-![Ändern von Startdatum in 2013](concurrency/_static/change-date.png)
+![Ändern des Startdatums in 2013](concurrency/_static/change-date.png)
 
-Andrea klickt **speichern** erste und sieht ihr ändern, wenn der Browser die Indexseite anzeigt.
+Benutzer1 klickt zuerst auf **Speichern** und sieht die Änderungen, wenn im Browser die Indexseite angezeigt wird.
 
-![Budget in NULL geändert](concurrency/_static/budget-zero.png)
+![Budget in 0 (null) geändert](concurrency/_static/budget-zero.png)
 
-John klickt **speichern** auf eine Bearbeitungsseite, die ein Budget von $350,000.00 weiterhin angezeigt. Was daraufhin geschieht richtet sich nach der Behandlung von Parallelitätskonflikten.
+Benutzer2 klickt auf einer Bearbeitungsseite auf **Speichern**, die weiterhin ein Budget von 350.000 $ anzeigt. Was daraufhin geschieht ist abhängig davon, wie Sie Nebenläufigkeitskonflikte handhaben.
 
-Vollständige Parallelität umfasst die folgenden Optionen:
+Die optimistische Nebenläufigkeit umfasst die folgenden Optionen:
 
-* Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren.
+* Sie können Nachverfolgen, welche Eigenschaft ein Benutzer geändert hat, und nur die entsprechenden Spalten in der Datenbank aktualisieren.
 
- In diesem Szenario würden keine Daten verloren. Unterschiedliche Eigenschaften wurden durch die beiden Benutzer aktualisiert. Sie können das nächste Mal, das eine Person die englische Abteilung durchsucht, Janes und Peters Änderungen sehen. Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können. Dieser Ansatz: * Datenverlust nicht vermieden werden, wenn die gleiche Eigenschaft konkurrierende geändert werden.
-        * Wird im Allgemeinen nicht besonders praktisch in einer Web-app. Sie erfordert erhebliche Zustand beibehalten, um nachzuverfolgen, um alle abgerufenen Werte und neue Werte. Verwalten von großen Datenmengen Zustand kann die app-Leistung beeinträchtigen.
-        * Können app-Komplexität, die im Vergleich zur Erkennung der Parallelität für eine Entität zu erhöhen.
+ In diesem Szenario sollten keine Daten verloren gehen. Von den beiden Benutzern wurden unterschiedliche Eigenschaften aktualisiert. Das nächste Mal, wenn eine Person den englischen Fachbereich durchsucht, sieht diese die Änderungen von Benutzer1 und Benutzer2. Diese Methode der Aktualisierung kann die Anzahl von Konflikten reduzieren, die zu Datenverlust führen können. Dieser Ansatz: * Kann den Datenverlust nicht vermeiden, wenn konkurrierende Änderungen an der gleichen Eigenschaft vollzogen werden.
+        * Ist im Allgemeinen in einer Web-App nicht besonders praktisch. Erfordert, dass der maßgebliche Zustand beibehalten wird, um alle abgerufenen Werte und neuen Werte nachzuverfolgen. Das Verwalten von großen Datenmengen kann den Zustand der App-Leistung beeinträchtigen.
+        * Kann die Anwendungskomplexität erhöhen, im Vergleich zur Parallelitätsermittlung für eine Entität.
 
-* Sie können Peters Änderung Janes Änderung überschreiben lassen.
+* Sie können zulassen, dass die Änderungen von Benutzer2 die Änderungen von Benutzer1 überschreiben.
 
- Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie, 9/1/2013 und die abgerufenen $350,000.00-Wert. Dieser Ansatz nennt man eine *Client gewinnt* oder *Last in Wins* Szenario. (Alle Werte aus dem Client haben Vorrang vor was im Datenspeicher ist.) Wenn Sie die Codierung für Parallelitätsbehandlung nicht tun, Wins-Client wird automatisch durchgeführt.
+ Das nächste Mal, wenn jemand den englischen Fachbereich durchsucht, wird das Datum 9.1.2013 und der wiederhergestellte Wert von 350.000 $ angezeigt. Dieses Ansatz wird *Client gewinnt*- oder *Last in Wins*-Szenario (Letzter gewinnt) genannt. (Alle Werte des Clients haben Vorrang vor dem Datenspeicher.) Wenn Sie keine Codierung für die Parallelitätsbehandlung durchführen, wird automatisch das „Client gewinnt“-Szenario ausgeführt.
 
-* Sie können verhindern, dass Peters Änderung in der Datenbank aktualisiert. Die app in der Regel würden: * Zeigt eine Fehlermeldung an.
-        * Zeigen Sie den aktuellen Zustand der Daten.
-        * Ermöglicht dem Benutzer, die Änderungen erneut anzuwenden.
+* Sie können verhindern, dass die Änderungen von Benutzer2 in die Datenbank aufgenommen werden. In der Regel würde die App: * Eine Fehlermeldung anzeigen.
+        * Den aktuellen Status der Daten anzeigen.
+        * Dem Benutzer ermöglichen, die Änderungen erneut anzuwenden.
 
- Hierbei spricht einen *Store Wins* Szenario. (Der Datenspeicher Werte haben Vorrang vor den Werten, die vom Client gesendet.) In diesem Lernprogramm implementieren Sie die Wins-Store-Szenario. Diese Methode wird sichergestellt, dass keine Änderungen überschrieben werden, ohne dass ein Benutzer wird benachrichtigt.
+ Dieses Szenario wird *Store Wins* (Speicher gewinnt) genannt. (Die Werte des Datenspeichers haben Vorrang gegenüber den Werten, die vom Client gesendet werden). In diesem Tutorial implementieren Sie das Szenario „Store Wins“ (Speicher gewinnt). Diese Methode stellt sicher, dass keine Änderungen überschrieben werden, ohne dass ein Benutzer darüber benachrichtigt wird.
 
-## <a name="handling-concurrency"></a>Behandeln von Parallelität 
+## <a name="handling-concurrency"></a>Behandlung von Parallelität 
 
-Wenn eine Eigenschaft konfiguriert ist, als ein [parallelitätstoken](https://docs.microsoft.com/ef/core/modeling/concurrency):
+Wenn eine Eigenschaft als ein [Parallelitätstoken](https://docs.microsoft.com/ef/core/modeling/concurrency) konfiguriert ist:
 
-* EF Core stellt sicher, dass die Eigenschaft nicht geändert wurde, nachdem es abgerufen wurde. Die Überprüfung tritt auf, wenn [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) oder [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) aufgerufen wird.
-* Wenn die Eigenschaft geändert wurde, nachdem es abgerufen wurde, eine [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) ausgelöst wird. 
+* Stellt EF Core sicher, dass die Eigenschaft nicht geändert wurde, nachdem sie abgerufen wurde. Die Überprüfung findet statt, wenn [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) oder [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) aufgerufen wird.
+* Wenn die Eigenschaft geändert wurde, nachdem sie abgerufen wurde, wird eine [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) ausgelöst. 
 
-Die DB- und Datenmodell must be configured auslösen unterstützen `DbUpdateConcurrencyException`.
+Das Datenbank- und Datenmodell müssen konfiguriert sein, um das Auslösen von `DbUpdateConcurrencyException` zu unterstützen.
 
-### <a name="detecting-concurrency-conflicts-on-a-property"></a>Erkennen von Konflikten bei der Parallelität für eine Eigenschaft
+### <a name="detecting-concurrency-conflicts-on-a-property"></a>Erkennen von Nebenläufigkeitskonflikten mit Eigenschaften
 
-Parallelitätskonflikte erkannt werden können, auf der Eigenschaftenebene mit der [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) Attribut. Das Attribut kann mehreren Eigenschaften für das Modell angewendet werden. Weitere Informationen finden Sie unter [Daten Anmerkungen-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
+Nebenläufigkeitskonflikte können auf der Eigenschaftenebene über das [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0)-Attribut erkannt werden. Das Attribut kann auf mehrere Eigenschaften für das Modell angewendet werden. Weitere Informationen finden Sie unter [Datenanmerkungen-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
-Die `[ConcurrencyCheck]` Attribut wird nicht in diesem Lernprogramm verwendet.
+Das Attribut `[ConcurrencyCheck]` wird in diesem Tutorial nicht verwendet.
 
-### <a name="detecting-concurrency-conflicts-on-a-row"></a>Erkennen von Konflikten bei der Parallelität in einer Zeile
+### <a name="detecting-concurrency-conflicts-on-a-row"></a>Erkennen von Nebenläufigkeitskonflikten mit einer Zeile
 
-Erkennen der Parallelitätskonflikte, eine [Rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) nachverfolgung Spalte mit dem Modell hinzugefügt wird.  `rowversion` :
+Um Nebenläufigkeitskonflikte zu erkennen, wird dem Modell eine [Rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql)-Nachverfolgungsspalte (Zeilenversion) hinzugefügt.  `rowversion` :
 
-* SQL Server bezieht. Andere Datenbanken bietet eine ähnliche Funktion möglicherweise nicht.
-* Wird verwendet, um zu bestimmen, dass eine Entität nicht geändert wurde, seit dem Abruf aus der Datenbank. 
+* Ist SQL Server-spezifisch. Andere Datenbanken enthalten möglicherweise keine ähnlichen Features.
+* Wird verwendet, um zu bestimmen, dass eine Entität, seit dem Abruf aus der Datenbank, nicht geändert wurde. 
 
-Die Datenbank generiert einen sequenziellen `rowversion` Anzahl, die jede Zeile erhöht wurde aktualisiert. In einer `Update` oder `Delete` Befehl, der `Where` -Klausel enthält den abgerufenen Wert des `rowversion`. Wenn die Zeile aktualisiert wird, hat sich geändert:
+Die Datenbank generiert eine sequenzielle Anzahl von `rowversion`, die jedes Mal erhöht wird, wenn die Zeile aktualisiert wird. In einem `Update`- oder `Delete`-Befehl enthält die `Where`-Klausel den abgerufenen Wert von `rowversion`. Wenn sich die aktualisierte Zeile geändert hat, geschieht Folgendes:
 
- * `rowversion`entspricht nicht den abgerufenen Wert.
- * Die `Update` oder `Delete` Befehle eine Zeile nicht finden kann, da die `Where` -Klausel enthält das abgerufene `rowversion`.
- * Ein `DbUpdateConcurrencyException` ausgelöst wird.
+ * `rowversion` entspricht nicht dem abgerufenen Wert.
+ * Die Befehle `Update` oder `Delete` finden keine Zeile, da die `Where`-Klausel die abgerufene `rowversion` enthält.
+ * Es wird eine `DbUpdateConcurrencyException` ausgelöst.
 
-In EF Kern ausgeführt, wenn keine Zeilen durch aktualisiert wurden eine `Update` oder `Delete` Befehls, eine Parallelitätsausnahme ausgelöst wird.
+In EF Core wird eine Parallelitätsausnahme ausgelöst, wenn keine Zeilen durch einen `Update`- oder `Delete`-Befehl aktualisiert werden.
 
-### <a name="add-a-tracking-property-to-the-department-entity"></a>Hinzufügen einer Überwachung-Eigenschaft auf die Entität Department
+### <a name="add-a-tracking-property-to-the-department-entity"></a>Hinzufügen einer Nachverfolgungseigenschaft zur Entität „Department“
 
-In *Models/Department.cs*, Hinzufügen einer Überwachung-Eigenschaft, die mit dem Namen RowVersion:
+Fügen Sie der Datei *Models/Department.cs* eine Nachverfolgungseigenschaft namens „RowVersion“ hinzu:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-Die [Zeitstempel](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) Attribut gibt an, dass diese Spalte, in enthalten ist der `Where` -Klausel der `Update` und `Delete` Befehle. Das Attribut heißt `Timestamp` da frühere Versionen von SQL Server eine SQL verwendet `timestamp` -Datentyp, bevor SQL `rowversion` Typ ersetzt.
+Das [Timestamp](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute)-Attribut gibt an, dass diese Spalte in der `Where`-Klausel der Befehle `Update` und `Delete` enthalten ist. Das Attribut wird `Timestamp` genannt, weil vorherige Versionen von SQL Server einen SQL-`timestamp`-Datentyp verwendet haben, bevor dieser durch SQL-`rowversion` ersetzt wurde.
 
-Die fluent-API kann auch die Tracking-Eigenschaft angeben:
+Die Fluent-API kann auch die Nachverfolgungseigenschaft angeben:
 
 ```csharp
 modelBuilder.Entity<Department>()
@@ -117,42 +117,42 @@ modelBuilder.Entity<Department>()
   .IsRowVersion();
 ```
 
-Der folgende Code zeigt einen Teil der T-SQL-von EF Core generiert, wenn der Name der Abteilung aktualisiert wird:
+Der folgende Code zeigt einen Teil von dem T-SQL an, das EF Core generiert, wenn der Name des Fachbereichs aktualisiert wird:
 
 [!code-sql[](intro/samples/sql.txt?highlight=2-3)]
 
-Das vorherige Codebeispiel markiert die `WHERE` Klausel mit `RowVersion`. Wenn der DB `RowVersion` entspricht nicht der `RowVersion` Parameter (`@p2`), keine Zeilen aktualisiert werden.
+Das vorherige markierte Codebeispiel zeigt die `WHERE`-Klausel mit `RowVersion` an. Wenn die Datenbank `RowVersion` nicht dem `RowVersion`-Parameter (`@p2`) entspricht, werden keine Zeilen aktualisiert.
 
-Die folgende hervorgehobene Code zeigt das T-SQL, die überprüft, dass genau eine Zeile aktualisiert wurde:
+Der folgende hervorgehobene Code stellt das T-SQL dar, das genau überprüft, ob eine Zeile aktualisiert wurde:
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) gibt die Anzahl der von der letzten Anweisung betroffenen Zeilen zurück. In keine Zeilen aktualisiert werden, EF Core löst eine `DbUpdateConcurrencyException`.
+[@@ROWCOUNT](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) gibt die Anzahl der von der letzten Anweisung betroffenen Zeilen zurück. Wenn keine Zeilen aktualisiert werden, löst EF Core eine `DbUpdateConcurrencyException` aus.
 
-Sie können sehen, dass die T-SQL EF Core im Ausgabefenster von Visual Studio generiert.
+Sie können das von EF Core generierte T-SQL im Ausgabefenster von Visual Studio sehen.
 
 ### <a name="update-the-db"></a>Aktualisieren der Datenbank
 
-Hinzufügen der `RowVersion` Eigenschaft ändert das DB-Modell, die eine Migration erforderlich ist.
+Das Hinzufügen der `RowVersion`-Eigenschaft ändert das Datenbankmodell, das eine Migration erfordert.
 
-Erstellen Sie das Projekt. Geben Sie Folgendes in einem Befehlsfenster aus:
+Erstellen Sie das Projekt. Geben Sie Folgendes in ein Befehlsfenster ein:
 
 ```console
 dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-Die vorherigen Befehle:
+Die obenstehenden Befehle haben folgende Konsequenzen:
 
-* Fügt der *Migrationen / {Time stamp}_RowVersion.cs* Migrationsdatei.
-* Updates der *Migrations/SchoolContextModelSnapshot.cs* Datei. Das Update fügt die folgenden hervorgehobenen Code in die `BuildModel` Methode:
+* Die Migrationsdatei *Migrations/{Zeitstempel}_RowVersion.cs* wird hinzugefügt.
+* Es wird ein Update für die Datei *Migrations/SchoolContextModelSnapshot.cs* ausgeführt. Über dieses Update wird der `BuildModel`-Methode der folgende hervorgehobene Code hinzugefügt:
 
 [!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
-* Führt Migrationen, um die Datenbank zu aktualisieren.
+* Migrationen werden durchgeführt, um die Datenbank zu aktualisieren.
 
 <a name="scaffold"></a>
-## <a name="scaffold-the-departments-model"></a>Das Gerüst für die Abteilungen-Modell erstellen
+## <a name="scaffold-the-departments-model"></a>Erstellen des Gerüsts für das Abteilungsmodell
 
 * Beenden Sie Visual Studio.
 * Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
@@ -162,151 +162,151 @@ Die vorherigen Befehle:
 dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
  ```
 
-Die vorherigen Befehl Gerüste der `Department` Modell. Öffnen Sie das Projekt in Visual Studio.
+Der vorherige Befehl erstellt ein Gerüst für das `Department`-Modell. Öffnen Sie das Projekt in Visual Studio.
 
-Erstellen Sie das Projekt. Der Build generiert Fehler wie folgt:
+Erstellen Sie das Projekt. Der Build generiert z.B. die folgenden Fehler:
 
 `1>Pages/Departments/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
  contain a definition for 'Department' and no extension method 'Department' accepting a first
  argument of type 'SchoolContext' could be found (are you missing a using directive or
  an assembly reference?)`
 
- Globales ändern `_context.Department` auf `_context.Departments` (d. h. hinzufügen ein "s" `Department`). 7 Vorkommen gefunden und aktualisiert.
+ Ändern Sie `_context.Department` allgemein in `_context.Departments` (d.h., fügen Sie ein „s“ zu `Department` hinzu). Der Begriff wurde siebenmal gefunden und aktualisiert.
 
-### <a name="update-the-departments-index-page"></a>Aktualisieren Sie die Abteilungen Indexseite
+### <a name="update-the-departments-index-page"></a>Aktualisieren der Indexseite für Abteilungen
 
-Das Gerüst Modul erstellt eine `RowVersion` Spalte für die Seite "Index", aber dieses Feld darf nicht angezeigt werden. In diesem Lernprogramm, das letzte Byte der `RowVersion` wird angezeigt, um die Parallelität zu verstehen. Das letzte Byte ist nicht unbedingt eindeutig. Eine wirkliche app wäre nicht anzeigen `RowVersion` oder das letzte Byte der `RowVersion`.
+Die Gerüstbauengine hat eine `RowVersion`-Spalte auf der Indexseite erstellt, jedoch sollte dieses Feld nicht angezeigt werden. In diesem Tutorial wird das letzte Byte der `RowVersion` angezeigt, damit Sie ein besseres Verständnis über die Parallelität erlangen. Das letzte Byte ist nicht zwingend eindeutig. Eine echte App würde `RowVersion` oder das letzte Byte von `RowVersion` nicht anzeigen.
 
-Aktualisieren Sie die Seite "Index":
+Aktualisieren der Indexseite:
 
-* Abteilungen Index ersetzt.
-* Ersetzen Sie das Markup mit `RowVersion` mit das letzte Byte der `RowVersion`.
-* FullName FirstMidName ersetzt.
+* Ersetzen Sie „Index“ durch „Abteilungen“.
+* Ersetzen Sie das Markup mit `RowVersion` durch das letzten Byte von `RowVersion`.
+* Ersetzen Sie „FirstMidName“durch „FullName“.
 
-Das folgende Markup zeigt aktualisierte Seite:
+Das folgende Markup zeigt die aktualisierte Seite an:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Index.cshtml?highlight=5,8,29,47,50)]
 
-### <a name="update-the-edit-page-model"></a>Aktualisieren Sie das Modell bearbeiten
+### <a name="update-the-edit-page-model"></a>Aktualisieren des Seitenbearbeitungsmodells
 
-Update *pages\departments\edit.cshtml.cs* durch den folgenden Code:
+Aktualisieren Sie die *pages\departments\edit.cshtml.cs*-Datei mithilfe des folgenden Codes:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Um ein Problem Parallelität erkennen die [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) wird aktualisiert und enthält die `rowVersion` Wert aus der Entität, die es abgerufen wurde. EF Core generiert einen SQL-Befehl UPDATE mit einer WHERE-Klausel mit der ursprünglichen `RowVersion` Wert. Wenn keine Zeilen, durch den Befehl UPDATE betroffen sind (keine Zeilen vorhanden sind, die ursprüngliche `RowVersion` Wert), wird eine `DbUpdateConcurrencyException` Ausnahme wird ausgelöst.
+Um ein Nebenläufigkeitsproblem zu erkennen, wird die [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue)-Eigenschaft mit dem `rowVersion`-Wert aus der Entität aktualisiert, aus der dieser abgerufen wurde. EF Core generiert einen SQL UPDATE-Befehl mit einer WHERE-Klausel mit dem ursprünglichen `RowVersion`-Wert. Wenn keine Zeilen durch den UPDATE-Befehl betroffen sind (keine Zeile enthält den ursprünglichen `RowVersion`-Wert), wird eine `DbUpdateConcurrencyException`-Ausnahme ausgelöst.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
 
-Im vorangehenden Code `Department.RowVersion` ist der Wert die Entität abgerufen wurde. `OriginalValue`ist der Wert in der DB bei `FirstOrDefaultAsync` in diese Methode aufgerufen wurde.
+Im obenstehenden Code wird der Wert `Department.RowVersion` zurückgegeben, sobald die Entität abgerufen wurde. `OriginalValue` ist der Wert in der Datenbank, wenn `FirstOrDefaultAsync` in dieser Methode aufgerufen wurde.
 
-Der folgende Code Ruft die Client-Werte (die Werte für diese Methode bereitgestellten) und die DB-Werte:
+Der folgende Code ruft die Clientwerte (die für diese Methode bereitgestellten Werte) und die Datenbankwerte ab:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_try&highlight=9,18)]
 
-Der folgende Code Fügt eine benutzerdefinierte Fehlermeldung für jede Spalte, die DB wurde unterscheiden, was Werte zu anweisungsbereitstellung `OnPostAsync`:
+Der folgende Code fügt eine benutzerdefinierte Fehlermeldung für jede Spalte ein, deren Datenbankwerte sich von jenen unterscheiden, die auf `OnPostAsync` bereitgestellt wurden:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_err)]
 
-Die folgenden hervorgehobenen Code legt die `RowVersion` Wert in den neuen Wert aus der Datenbank abgerufen. Das nächste Mal, die der Benutzer klickt auf **speichern**, nur Parallelitätsfehlern, die auftreten, seit die letzten Anzeige Bearbeitungsseite abgefangen wird.
+Der folgende hervorgehobene Code legt den `RowVersion`-Wert auf den neuen Wert fest, der aus der Datenbank abgerufen wurde. Das nächste Mal, wenn der Benutzer auf **Speichern** klickt, werden nur Parallelitätsfehler abgefangen, die seit der letzten Anzeige der Bearbeitungsseite aufgetreten sind.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_try&highlight=23)]
 
-Die `ModelState.Remove` Anweisung ist erforderlich, da `ModelState` hat die alte `RowVersion` Wert. Der Razor-Seite der `ModelState` Wert für ein Feld Vorrang vor den Modell-Eigenschaftswerte hat, wenn beide vorhanden sind.
+Die Anweisung `ModelState.Remove` ist erforderlich, da `ModelState` über den alten `RowVersion`-Wert verfügt. Auf der Razor-Seite hat der `ModelState`-Wert eines Felds Vorrang gegenüber den Modelleigenschaftswerten, wenn beide vorhanden sind.
 
-## <a name="update-the-edit-page"></a>Aktualisieren Sie die Seite "Bearbeiten"
+## <a name="update-the-edit-page"></a>Aktualisieren der Seite „Bearbeiten“
 
-Update *Pages/Departments/Edit.cshtml* durch Folgendes Markup:
+Aktualisieren Sie *Pages/Courses/Edit.cshtml* mithilfe des folgenden Markups:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Edit.cshtml?highlight=1,14,16-17,37-39)]
 
-Die vorangehenden Markup:
+Das obenstehende Markup:
 
-* Updates der `page` -Direktive aus `@page` auf `@page "{id:int}"`.
-* Fügt eine ausgeblendete Zeilenversion. `RowVersion`muss hinzugefügt werden, damit Postback den Wert gebunden wird.
-* Zeigt das letzte Byte der `RowVersion` zu Debugzwecken.
-* Ersetzt `ViewData` mit starker Typisierung `InstructorNameSL`.
+* Aktualisiert die `page`-Anweisung von `@page` auf `@page "{id:int}"`.
+* Fügt eine ausgeblendete Zeilenversion hinzu. `RowVersion` muss hinzugefügt werden, damit über ein Postback-Ereignis der Wert gebunden werden kann.
+* Zeigt das letzte Byte von `RowVersion` zu Debugzwecken an.
+* Ersetzt `ViewData` durch den stark typisierten `InstructorNameSL`.
 
-## <a name="test-concurrency-conflicts-with-the-edit-page"></a>Testen von Parallelitätskonflikten der Seite "Bearbeiten"
+## <a name="test-concurrency-conflicts-with-the-edit-page"></a>Testen von Nebenläufigkeitskonflikten mit der Seite „Bearbeiten“
 
-Öffnen Sie zwei Instanzen von Browsern Bearbeitung auf Englisch-Abteilung:
+Öffnen Sie für den englischen Fachbereich zwei Browserinstanzen der Seite „Bearbeiten“:
 
-* Führen Sie die app, und wählen Sie Abteilungen.
-* Mit der rechten Maustaste die **bearbeiten** Link für die englischen Abteilung, und wählen **in neuer Registerkarte öffnen**.
-* Klicken Sie in der ersten Registerkarte auf die **bearbeiten** Link für die englischen Abteilung.
+* Führen Sie die Anwendung aus, und wählen Sie „Abteilungen“ aus.
+* Klicken Sie mit der rechten Maustaste auf den Link **Bearbeiten** für den englischen Fachbereich, und klicken Sie auf **In neuer Registerkarte öffnen**.
+* Klicken Sie in der ersten Registerkarte auf den **Bearbeiten**-Link für den englischen Fachbereich.
 
-Die zwei browserregisterkarten werden dieselben Informationen angezeigt.
+Beide Registerkarten zeigen die gleichen Informationen an.
 
-Ändern Sie den Namen in der ersten Registerkarte ' Browser ', und klicken Sie auf **speichern**.
+Ändern Sie den Namen in der ersten Registerkarte, und klicken Sie auf **Speichern**.
 
-![Abteilung bearbeiten Seite 1 nach der Änderung](concurrency/_static/edit-after-change-1.png)
+![Seite 1 „Abteilung bearbeiten“ nach der Änderung](concurrency/_static/edit-after-change-1.png)
 
-Der Browser zeigt die Indexseite mit den geänderten Wert und die aktualisierte RowVersion-Indikator. Beachten Sie die aktualisierte RowVersion-Indikator, wird er auf das zweite Postback auf der anderen Registerkarte angezeigt.
+Der Browser zeigt die Indexseite mit dem geänderten Wert und dem aktualisierten RowVersion-Indikator an. Beachten Sie, dass der aktualisierte RowVersion-Indikator beim zweiten Postback-Ereignis auf der anderen Registerkarte angezeigt wird.
 
 Ändern Sie ein anderes Feld in der zweiten Registerkarte.
 
-![Abteilung bearbeiten Seite 2 nach der Änderung](concurrency/_static/edit-after-change-2.png)
+![Seite 2 „Abteilung bearbeiten“ nach der Änderung](concurrency/_static/edit-after-change-2.png)
 
-Klicken Sie auf **Speichern**. Fehlermeldungen für alle Felder, die die DB-Werte nicht übereinstimmen:
+Klicken Sie auf **Speichern**. Es werden Fehlermeldungen für alle Felder angezeigt, die nicht mit den Datenbankwerten übereinstimmen:
 
-![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/edit-error.png)
+![Fehlermeldung auf der Seite „Abteilung bearbeiten“](concurrency/_static/edit-error.png)
 
-Dieses Browserfenster möchten nicht das Namensfeld ändern. Kopieren Sie den aktuellen Wert (Sprachen) in das Feld "Name". Registerkarte "aus. Die clientseitige Validierung entfernt die Fehlermeldung angezeigt.
+In diesem Browserfenster sollte nicht das Namensfeld geändert werden. Kopieren Sie den aktuellen Wert (Sprachen), und fügen Sie ihn in das Namensfeld ein. Wechseln Sie durch Drücken der TAB-Taste zum nächsten Feld. Im Rahmen der clientseitigen Überprüfung wird die Fehlermeldung entfernt.
 
-![Abteilung bearbeiten Seite Fehlermeldung](concurrency/_static/cv.png)
+![Fehlermeldung auf der Seite „Abteilung bearbeiten“](concurrency/_static/cv.png)
 
-Klicken Sie auf **speichern** erneut aus. Der Wert in der zweiten Registerkarte eingegebene wird gespeichert. Daraufhin werden die gespeicherten Werte in der Indexseite.
+Klicken Sie erneut auf **Speichern**. Der Wert, den Sie auf der zweiten Registerkarte eingegeben haben, wird gespeichert. Die gespeicherten Werte werden auf der Indexseite angezeigt.
 
-## <a name="update-the-delete-page"></a>Aktualisieren Sie die Seite "löschen"
+## <a name="update-the-delete-page"></a>Aktualisieren der Seite „Delete“ (Löschen)
 
-Aktualisieren Sie das Modell löschen, durch den folgenden Code:
+Aktualisieren Sie das Seitenmodell „Löschen“ mit dem folgenden Code:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Delete.cshtml.cs)]
 
-Die Seite "löschen" erkennt Parallelitätskonflikte, wenn die Entität geändert wurde, nachdem es abgerufen wurde. `Department.RowVersion`ist die Zeilenversion an, wenn es sich bei die Entität abgerufen wurde. Wenn EF Kern den SQL-DELETE-Befehl erstellt, enthält Sie eine WHERE-Klausel mit `RowVersion`. Wenn wirkt sich die Ergebnisse der SQL-DELETE-Befehl in 0 (null) Zeilen:
+Die Seite „Löschen“ erkennt Nebenläufigkeitskonflikte, wenn die Entität geändert wurde, nachdem sie abgerufen wurde. Bei `Department.RowVersion` handelt es sich um die Zeilenversion, nachdem die Entität abgerufen wurde. Wenn EF Core den SQL-DELETE-Befehl erstellt, umfasst dieser eine WHERE-Klausel mit `RowVersion`. Wenn die Ergebnisse des SQL-DELETE-Befehls 0 (null) betroffene Zeilen ergeben:
 
-* Die `RowVersion` in den SQL Delete-passt nicht Befehl `RowVersion` in der Datenbank.
-* Eine DbUpdateConcurrencyException Ausnahme wird ausgelöst.
-* `OnGetAsync`wird aufgerufen, mit der `concurrencyError`.
+* Stimmt die `RowVersion` im SQL-DELETE-Befehl nicht mit `RowVersion` in der Datenbank überein.
+* Wird eine DbUpdateConcurrencyException-Ausnahme ausgelöst.
+* Wird `OnGetAsync` mit `concurrencyError` aufgerufen.
 
-### <a name="update-the-delete-page"></a>Aktualisieren Sie die Seite "löschen"
+### <a name="update-the-delete-page"></a>Aktualisieren der Seite „Delete“ (Löschen)
 
-Update *Pages/Departments/Delete.cshtml* durch den folgenden Code:
+Aktualisieren Sie die *Pages\Departments\Delete.cshtml*-Datei mithilfe des folgenden Codes:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,36,51)]
 
 
-Das vorhergehende Markup nimmt folgende Änderungen:
+Das oben stehende Markup führt die folgenden Änderungen durch:
 
-* Updates der `page` -Direktive aus `@page` auf `@page "{id:int}"`.
-* Fügt eine Fehlermeldung an.
-* Ersetzt FirstMidName mit FullName in den **Administrator** Feld.
-* Änderungen `RowVersion` das letzte Byte an.
-* Fügt eine ausgeblendete Zeilenversion. `RowVersion`muss hinzugefügt werden, damit Postback den Wert gebunden wird.
+* Aktualisiert die `page`-Anweisung von `@page` auf `@page "{id:int}"`.
+* Eine Fehlermeldung wird hinzugefügt.
+* „FirstMidName“ wird durch „FullName“ im Feld **Administrator** ersetzt.
+* `RowVersion` wird geändert, um das letzte Byte anzuzeigen.
+* Fügt eine ausgeblendete Zeilenversion hinzu. `RowVersion` muss hinzugefügt werden, damit über ein Postback-Ereignis der Wert gebunden werden kann.
 
-### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Testen von Parallelitätskonflikten der Seite "löschen"
+### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Überprüfen von Nebenläufigkeitskonflikten mit der Seite „Löschen“
 
-Erstellen Sie eine Test-Abteilung.
+Erstellen Sie einen Fachbereich zum Testen.
 
-Öffnen Sie zwei Instanzen von Browsern von Delete für die Test-Abteilung:
+Öffnen Sie im Testfachbereich zwei Browserinstanzen zum „Löschen“:
 
-* Führen Sie die app, und wählen Sie Abteilungen.
-* Mit der rechten Maustaste die **löschen** Link für den Test-Abteilung, und wählen **in neuer Registerkarte öffnen**.
-* Klicken Sie auf die **bearbeiten** Link für die Test-Abteilung.
+* Führen Sie die Anwendung aus, und wählen Sie „Abteilungen“ aus.
+* Klicken Sie mit der rechten Maustaste auf den Link **Löschen** für den Testfachbereich, und klicken Sie auf**In neuer Registerkarte öffnen**.
+* Klicken Sie auf den Link **Bearbeiten** für den Testfachbereich.
 
-Die zwei browserregisterkarten werden dieselben Informationen angezeigt.
+Beide Registerkarten zeigen die gleichen Informationen an.
 
-Ändern Sie das Budget in der ersten Registerkarte ' Browser ', und klicken Sie auf **speichern**.
+Ändern Sie das Budget in der ersten Registerkarte, und klicken Sie auf **Speichern**.
 
-Der Browser zeigt die Indexseite mit den geänderten Wert und die aktualisierte RowVersion-Indikator. Beachten Sie die aktualisierte RowVersion-Indikator, wird er auf das zweite Postback auf der anderen Registerkarte angezeigt.
+Der Browser zeigt die Indexseite mit dem geänderten Wert und dem aktualisierten RowVersion-Indikator an. Beachten Sie, dass der aktualisierte RowVersion-Indikator beim zweiten Postback-Ereignis auf der anderen Registerkarte angezeigt wird.
 
-Löschen Sie die Test-Abteilung, auf der zweiten Registerkarte. Ein Parallelitätsfehler ist, werden mit den aktuellen Werten aus der Datenbank angezeigt. Auf **löschen** wird die Entität gelöscht, es sei denn, `RowVersion` updated.department wurde gelöscht wurde.
+Löschen Sie den Testfachbereich aus der zweiten Registerkarte. Ein Parallelitätsfehler wird mit den aktuellen Werten aus der Datenbank angezeigt. Klicken Sie auf **Löschen**, wird die Entität gelöscht, es sei denn, `RowVersion` wurde aktualisiert und der Fachbereich wurde gelöscht.
 
-Finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance) zum erben von einem Datenmodell.
+Informationen zum Vererben eines Datenmodells finden Sie unter [Vererbung](xref:data/ef-mvc/inheritance).
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Parallelitätstoken in EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
-* [Behandeln von Parallelität in EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
+* [Concurrency Tokens in EF Core (Parallelitätstoken in EF Core)](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [Handling concurrency in EF Core (Handhabung von Parallelität in EF Core)](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Vorherige](xref:data/ef-rp/update-related-data)

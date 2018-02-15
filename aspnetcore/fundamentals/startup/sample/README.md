@@ -1,3 +1,3 @@
-# <a name="aspnet-core-startup-filter-sample"></a>ASP.NET Core Start Filter-Beispiel
+# <a name="aspnet-core-startup-filter-sample"></a>Filterbeispiel zum Start von ASP.NET Core
 
-Dieses Beispiel veranschaulicht die Verwendung der [IStartupFilter](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter). In diesem Beispiel wird veranschaulicht, die in beschriebenen Funktionen [Anwendungsstart: Startfilter](https://docs.microsoft.com/aspnet/core/fundamentals/startup#startup-filters).
+Dieses Beispiel veranschaulicht die Verwendung von [IStartupFilter](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter). Dieses Beispiel veranschaulicht die in [Anwendungsstart: Startfilter](https://docs.microsoft.com/aspnet/core/fundamentals/startup#startup-filters) beschriebenen Features.
