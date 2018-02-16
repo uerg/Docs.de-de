@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core
 
@@ -71,7 +71,7 @@ Die Test-app ist eine Konsolen-app innerhalb der *tests/RazorPagesTestingSample.
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs* enthält die Integrationstests für die Indexseite.</li><li>*TestFixture.cs* Testhost zum Testen der Nachrichten-app erstellt.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* der Komponententests enthält, damit die DAL.</li><li>*IndexPageTest.cs* Komponententests für das Modell Index enthält.</li></ul> |
-| *Hilfsprogramme*        | *Utilities.cs* enthält die:<ul><li>`TestingDbContextOptions`die Methode verwendet, um die neue Datenbank Kontextoptionen für die einzelnen DAL-Komponententests erstellen, sodass die Datenbank auf die Baseline-Bedingung für jeden Test zurückgesetzt wird.</li><li>`GetRequestContentAsync`Methode zum Vorbereiten der `HttpClient` sowie Inhalte für Anforderungen, die beim Testen der Integration der Nachrichten-App gesendet werden.</li></ul>
+| Hilfsprogramme        | *Utilities.cs* enthält die:<ul><li>`TestingDbContextOptions` die Methode verwendet, um die neue Datenbank Kontextoptionen für die einzelnen DAL-Komponententests erstellen, sodass die Datenbank auf die Baseline-Bedingung für jeden Test zurückgesetzt wird.</li><li>`GetRequestContentAsync` Methode zum Vorbereiten der `HttpClient` sowie Inhalte für Anforderungen, die beim Testen der Integration der Nachrichten-App gesendet werden.</li></ul>
 
 Das Testframework ist [xUnit](https://xunit.github.io/). Das Objekt, das imitieren Framework ist [Moq](https://github.com/moq/moq4). Integrationstests erfolgreich durchgeführt werden, mithilfe der [ASP.NET Core Testhost](xref:testing/integration-testing#the-test-host).
 
@@ -102,7 +102,7 @@ Das Problem bei diesem Ansatz ist, dass jeder Test die Datenbank im unabhängig 
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-Mithilfe der `DbContextOptions` in der DAL-Einheit-Tests können Tests mit atomar ausgeführt ein eine neue Datenbankinstanz:
+Mithilfe der `DbContextOptions` in der DAL-Einheit Tests jeder Test automatisch mit einer neuen Datenbank-Instanz ausführen können:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ Komponententest Act Schritt (*tests/RazorPagesTestingSample.Tests/UnitTests/Inde
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`Seite "-Modell `OnGetAsync` Methode (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
+`IndexPage` Seite "-Modell `OnGetAsync` Methode (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
@@ -212,7 +212,7 @@ Die `Post_AddMessageHandler_ReturnsRedirectToRoot` -Methode testen:
 * Stellt eine POST-Anforderung an die app an.
 * Überprüft, dass die Antwort eine Umleitung zurück an die Indexseite ist.
 
-`Post_AddMessageHandler_ReturnsRedirectToRoot `Methode (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
+`Post_AddMessageHandler_ReturnsRedirectToRoot ` Methode (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
