@@ -19,21 +19,21 @@ ms.lasthandoff: 01/30/2018
 
 Von [Steve Smith](https://ardalis.com/)
 
-Ansichten haben oft visuelle und programmatische Elemente gemeinsam. In diesem Artikel lernen Sie, wie Sie gemeinsam verwendet Layouts und Anweisungen verwenden und gemeinsam verwendeten Code ausführen, bevor Sie Ansichten in Ihrer ASP.NET-App rendern.
+Ansichten beinhalten häufig sowohl visuelle als auch programmgesteuerte Elemente. In diesem Artikel erfahren Sie, wie man gängige Layouts verwendet, Anweisungen von mehreren Ansichten gemeinsam nutzen lässt und man Programmcode vor dem Rendern der Ansichten in der ASP.NET-App ausführt.
 
 ## <a name="what-is-a-layout"></a>Was ist ein Layout?
 
-Die meisten Web-Apps haben ein einheitliches Layout, sodass der Benutzer beim Navigieren zwischen den Seiten immer die gleichen Elemente wiedererkennt. Das Layout enthält normalerweise gängige Benutzeroberflächenelemente wie einen App-Header, Navigations- oder Menüelemente und Fußzeilen.
+Die meisten Web-Apps haben ein gebräuchliches Layout, das dem Benutzer beim Navigieren auf den Seiten ein konsistentes Verhalten bietet. Das Layout enthält normalerweise allgemeine Benutzeroberflächenelemente wie App-Header, Navigations- oder Menüelemente sowie eine Fußzeile.
 
 ![Beispiel für ein Seitenlayout](layout/_static/page-layout.png)
 
 Gängige HTML-Strukturen wie Skripts und Stylesheets werden häufig von vielen Seiten in einer App verwendet. Alle diese gemeinsamen Elemente werden in einer *Layoutdatei* definiert, auf die dann von jeder Ansicht einer App verwiesen werden kann. Layouts minimieren Codeduplikate in Ansichten, sodass das [DRY-Prinzip (Don‘t Repeat Yourself)](http://deviq.com/don-t-repeat-yourself/) eingehalten wird.
 
-Per Konvention heißt das Standardlayout einer ASP.NET-App `_Layout.cshtml`. In der Projektvorlage von Visual Studio ASP.NET Core MVC befindet sich diese Layoutdatei im `Views/Shared`-Ordner:
+Gemäß Konvention ist `_Layout.cshtml` das Standardlayout für eine ASP.NET-App. Die Visual Studio ASP.NET Core MVC-Projektvorlage enthält diese Layoutdatei im Ordner `Views/Shared`:
 
 ![Ordner „Views“ (Ansichten) im Projektmappen-Explorer](layout/_static/web-project-views.png)
 
-Dieses Layout definiert eine allgemeine Vorlage für Ansichten in der App. Apps erfordern kein Layout, und sie können mehr als ein Layout definieren, wobei unterschiedliche Ansichten unterschiedliche Layouts festlegen.
+Dieses Layout definiert eine übergeordnete Vorlage für die Ansichten einer App. Apps erfordern nicht zwingend ein Layout, können aber auch mehrere Layouts definieren. Die Ansichten der App können dann unterschiedliche Layouts nutzen.
 
 Ein Beispiel-`_Layout.cshtml`:
 
@@ -41,13 +41,13 @@ Ein Beispiel-`_Layout.cshtml`:
 
 ## <a name="specifying-a-layout"></a>Festlegen eines Layouts
 
-Razor-Ansichten verfügen über die Eigenschaft `Layout`. Mit dieser Eigenschaft können einzelne Ansichten Layouts festlegen:
+Razor-Ansichten verfügen über eine `Layout` -Eigenschaft. Durch Festlegen dieser Eigenschaft wird das Layout der jeweiligen Ansicht bestimmt:
 
 [!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Das angegebene Layout kann einen vollständigen Pfad (z.B. `/Views/Shared/_Layout.cshtml`) oder einen Teilnamen (z.B. `_Layout`) verwenden. Wenn ein Teilname angegeben wird, sucht die Razor-Ansichtsengine anhand ihres normalen Erkennungsprozesses nach der Layoutdatei. Der Ordner, der mit einem Controller verknüpft ist, wird als Erstes durchsucht. Anschließend wird der Ordner `Shared` durchsucht. Dieser Erkennungsprozess stimmt mit dem zum Erkennen von [Teilansichten](partial.md) überein.
+Das Layout kann mit seinem vollständigen Pfad (Beispiel: `/Views/Shared/_Layout.cshtml`) oder über einen Teil seines Namens angegeben werden (Beispiel: `_Layout`). Wird ein Teil des Namens angegeben, dann durchsucht die Razor-Ansichts-Engine die Layoutdatei unter Verwendung des standardmäßigen Ermittlungsprozesses. Zuerst wird der dem Controller zugeordnete Ordner durchsucht, gefolgt vom Ordner `Shared`. Dieser Ermittlungsprozess ist identisch mit dem Prozess zum Auffinden von [Teilansichten](partial.md).
 
-Standardmäßig muss jedes Layout `RenderBody` aufrufen. An der Stelle des Aufrufs von `RenderBody` wird der Inhalt der Ansicht gerendert.
+Standardmäßig muss jedes Layout `RenderBody` aufrufen. Wo immer der Aufruf von `RenderBody` platziert ist, wird der Inhalt der Ansicht gerendert.
 
 <a name="layout-sections-label"></a>
 
