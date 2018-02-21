@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -41,7 +41,7 @@ ASP.NET Core-Modul wird über eine Site oder Anwendung konfiguriert *"Web.config
 </configuration>
 ```
 
-Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) auf die [Azure App Service](https://azure.microsoft.com/services/app-service/). Weitere Informationen finden Sie unter [Host unter Windows mit IIS](xref:host-and-deploy/iis/index). Finden Sie unter [Konfiguration des untergeordneten Anwendungen](xref:host-and-deploy/iis/index#configuration-of-sub-applications) für ein wichtiger Hinweis bezieht sich auf die Konfiguration des *"Web.config"* Dateien im Unterordner Anwendungen.
+Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) auf die [Azure App Service](https://azure.microsoft.com/services/app-service/). Weitere Informationen finden Sie unter [Host unter Windows mit IIS](xref:host-and-deploy/iis/index). Finden Sie unter [Konfiguration des untergeordneten Anwendungen](xref:host-and-deploy/iis/index#sub-application-configuration) für ein wichtiger Hinweis bezieht sich auf die Konfiguration des *"Web.config"* Dateien im Unterordner Anwendungen.
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereits
 
 ASP.NET Core-Modul können Sie angeben, dass die Umgebungsvariablen für den Prozess, der im angegebenen der `processPath` Attribut durch Angabe in einer oder mehreren `environmentVariable` untergeordneten Elemente des ein `environmentVariables` Auflistungselement unter der `aspNetCore` Element. In diesem Abschnitt festgelegten Umgebungsvariablen haben Vorrang gegenüber System Umgebungsvariablen für den Prozess.
 
-Im folgenden Beispiel werden zwei Umgebungsvariablen festgelegt. `ASPNETCORE_ENVIRONMENT`Konfigurieren der Umgebung der Anwendung zu `Development`. Ein Entwickler möglicherweise vorübergehend legen Sie diesen Wert der *"Web.config"* Datei, um zu erzwingen der [Developer Ausnahmeseite](xref:fundamentals/error-handling) laden, wenn eine Ausnahme für die app zu debuggen. `CONFIG_DIR`ist ein Beispiel für eine benutzerdefinierte Umgebungsvariable, in denen der Entwickler Code geschrieben hat, die den Wert beim Start zu einen Pfad kombiniert, um die app-Konfigurationsdatei zu laden gelesen wird.
+Im folgenden Beispiel werden zwei Umgebungsvariablen festgelegt. `ASPNETCORE_ENVIRONMENT` Konfigurieren der Umgebung der Anwendung zu `Development`. Ein Entwickler möglicherweise vorübergehend legen Sie diesen Wert der *"Web.config"* Datei, um zu erzwingen der [Developer Ausnahmeseite](xref:fundamentals/error-handling) laden, wenn eine Ausnahme für die app zu debuggen. `CONFIG_DIR` ist ein Beispiel für eine benutzerdefinierte Umgebungsvariable, in denen der Entwickler Code geschrieben hat, die den Wert beim Start zu einen Pfad kombiniert, um die app-Konfigurationsdatei zu laden gelesen wird.
 
 ```xml
 <aspNetCore processPath="dotnet"

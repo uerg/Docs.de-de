@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 144af8e93bb935d07fd064d5f45b40faea4a2664
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Problembehandlung bei ASP.NET Core in Azure App Service
 
@@ -37,6 +37,14 @@ Die *502.5 Prozessfehler* Fehlerseite wird zurückgegeben, wenn eine falsch konf
 Die app gestartet wurde, aber ein Fehler wird verhindert, dass es sich bei den Server die Anforderung.
 
 Dieser Fehler tritt auf, in der app-Code während des Starts oder beim Erstellen einer Antwort. Enthält die Antwort möglicherweise keinen Inhalt, oder die Antwort möglicherweise angezeigt, wie eine *500 Internal Server Error* im Browser. Ereignisprotokoll der Anwendung gibt normalerweise an, dass die Anwendung normal gestartet. Aus Sicht des Servers ist richtig. Der Anwendungsstart, aber es kann keine gültige Antwort generiert. [Führen Sie die app in der Konsole Kudu](#run-the-app-in-the-kudu-console) oder [aktivieren Sie das ASP.NET Core-Modul "stdout" Protokoll](#aspnet-core-module-stdout-log) um das Problem zu beheben.
+
+**Zurücksetzen der Verbindung**
+
+Wenn ein Fehler auftritt, nachdem die Header gesendet werden, ist es zu spät für den Server zum Senden einer **500 Internal Server Error** Wenn ein Fehler auftritt. Dies erfolgt häufig auf, wenn ein Fehler, während der Serialisierung von komplexen Objekten auf eine Antwort auftritt. Diese Art von Fehler angezeigt wird, als ein *Zurücksetzen der Verbindung* Fehler auf dem Client. [Anwendungsprotokollierung](xref:fundamentals/logging/index) hilft diese Fehlertypen zu beheben.
+
+## <a name="default-startup-limits"></a>Starten von standardeinschränkungen
+
+ASP.NET Core-Modul konfiguriert ist, hat den Standardwert *StartupTimeLimit* von 120 Sekunden. Wenn auf den Standardwert belassen, kann eine app dauern, bis zu zwei Minuten starten, bevor das Modul einen Prozessfehler protokolliert. Informationen zum Konfigurieren des Moduls finden Sie unter [Attribute des-Elements AspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Fehlerbehebung bei der app-Start
 
@@ -65,10 +73,9 @@ Viele Startfehlern erzeugen keine nützlichen Informationen in das Anwendungsere
 1. Wählen Sie die **erweiterte Tools** Blatt in der **ENTWICKLUNGSTOOLS** Bereich. Wählen Sie die **Go&rarr;**  Schaltfläche. Kudu-Konsole wird in einer neuen Browserregisterkarte oder Fenster geöffnet.
 1. Öffnen Sie die Navigationsleiste am oberen Rand der Seite mit **Debug-Konsole** , und wählen Sie **CMD**.
 1. Öffnen Sie die Ordner aus, den Pfad **Website** > **"Wwwroot"**.
-1. Führen Sie die app in der Verwaltungskonsole durch Ausführen der app-Assembly mit *dotnet.exe*. Ersetzen Sie in den folgenden Befehl ein, den Namen der app-Assembly für `<assembly_name>`:
-   ```console
-   dotnet .\<assembly_name>.dll
-   ```
+1. Führen Sie die app durch Ausführen der app-Assembly, in der Konsole.
+   * Wenn die app ist eine [Framework abhängiges Bereitstellung](/dotnet/core/deploying/#framework-dependent-deployments-fdd), führen Sie die app-Assembly mit *dotnet.exe*. Ersetzen Sie in den folgenden Befehl ein, den Namen der app-Assembly für `<assembly_name>`: `dotnet .\<assembly_name>.dll`
+   * Wenn die app ist eine [eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd)führen die app der ausführbaren Datei. Ersetzen Sie in den folgenden Befehl ein, den Namen der app-Assembly für `<assembly_name>`: `<assembly_name>.exe`
 1. Die Konsolenausgabe aus der app, Anzeigen von Fehlern ist an die Kudu-Konsole weitergeleitet.
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core-Modul "stdout" Protokoll
@@ -104,13 +111,16 @@ Die ASP.NET Core-Modul "stdout" Protokolldatensätze häufig nützlich, Fehlerme
 
 Finden Sie unter der [ASP.NET Core allgemeine Fehler Begriff](xref:host-and-deploy/azure-iis-errors-reference). Die meisten der am häufigsten Probleme, die app-Start zu verhindern, werden in der Referenz im Abschnitt behandelt.
 
-## <a name="process-dump-for-a-slow-or-hanging-app"></a>Speicherabbild für den Prozess für eine langsame oder hängenden-app
+## <a name="slow-or-hanging-app"></a>Langsame oder hängenden-app
 
 Wenn eine Anwendung langsam reagiert, oder auf eine Anforderung hängt, finden Sie unter [Leistungsprobleme der Behandlung von Problemen bei langsamen Web app in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation) zum Debuggen von Anweisungen.
 
 ## <a name="remote-debugging"></a>Remotedebuggen
 
-Finden Sie unter [Web-apps-Bereich der Behandlung von Problemen bei einer Web-app in Azure App Service mithilfe von Visual Studio Remotedebuggen](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) in der Azure-Dokumentation.
+Informationen hierzu finden Sie in den folgenden Themen:
+
+* [Web-apps-Bereich der Behandlung von Problemen bei einer Web-app in Azure App Service mithilfe von Visual Studio für das Remotedebuggen](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) (Azure-Dokumentation)
+* [Remote Debug ASP.NET Core unter IIS in Azure in Visual Studio 2017](/visualstudio/debugger/remote-debugging-azure) (Visual Studio-Dokumentation)
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -166,10 +176,10 @@ Weitere Informationen finden Sie unter [Aktivieren der diagnoseprotokollierung f
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Einführung in die Error Handling in ASP.NET Core](xref:fundamentals/error-handling)
+* [Einführung in die Fehlerbehandlung in ASP.NET Core](xref:fundamentals/error-handling)
 * [Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
 * [Problembehandlung bei HTTP-Fehler "502 Ungültiger Gateway" und "503 Dienst nicht verfügbar" in Ihren Azure-Web-apps](/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Problembehandlung bei langsamen Web-app-Leistungsprobleme in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Leistung der Anwendung häufig gestellte Fragen für Web Apps in Azure](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
-* [Azure Freitag: Azure App Service-Diagnose und Problembehandlung Erfahrung (12-Minuten-Video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience (Azure Friday: Azure App Service-Diagnose und -Fehlerbehebung; zwölfminütiges Video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)

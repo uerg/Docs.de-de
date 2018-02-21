@@ -1,7 +1,7 @@
 ---
 title: "IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core"
 author: shirhatti
-description: "Erhalten Sie Unterstützung für das Debuggen von ASP.NET Core-Anwendungen, wenn sie hinter IIS unter Windows Server ausgeführt werden."
+description: "Ermitteln Sie die Unterstützung für das Debuggen von ASP.NET Core-apps, wenn IIS unter Windows Server zurückliegt."
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 
 Von [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-Dieser Artikel beschreibt die Unterstützung für [Visual Studio](https://www.visualstudio.com/vs/) für das Debuggen von ASP.NET Core-Anwendungen, die hinter IIS unter Windows Server ausgeführt werden. Dieses Thema führt Sie durch die Aktivierung dieser Funktion und Einrichten eines Projekts.
+Dieser Artikel beschreibt [Visual Studio](https://www.visualstudio.com/vs/) Unterstützung für das Debuggen von ASP.NET Core-apps, die hinter IIS unter Windows Server ausgeführt. Dieses Thema führt Sie durch die Aktivierung dieser Funktion und Einrichten eines Projekts.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -33,11 +33,11 @@ Aktivieren Sie IIS. Navigieren Sie zu **Systemsteuerung** > **Programme** > **Pr
 
 ![Windows-Features, die das aktivierte Kontrollkästchen der Internetinformationsdienste als schwarzes Quadrat anzeigt (nicht mit einem Häkchen), was angibt, dass einige der IIS-Features aktiviert sind](development-time-iis-support/_static/enable_iis.png)
 
-Wenn die IIS-Installation einen Neustart erforderlich ist, starten Sie das System neu.
+Wenn die IIS-Installation ein Neustart erforderlich ist, starten Sie das System neu.
 
 ## <a name="enable-development-time-iis-support"></a>Aktivieren der Entwicklungszeit-IIS-Unterstützung
 
-Starten Sie Visual Studio-Installer, um die vorhandene Visual Studio-Installation zu ändern, nach der Installation von IIS. Wählen Sie im Installer die Komponente **Entwicklungszeit-IIS-Unterstützung** aus. Die Komponente ist als optionale Komponente im Bereich **Zusammenfassung** für die Workload **ASP.NET und Webentwicklung** aufgeführt. Dadurch wird das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) installiert, was ein natives IIS-Modul ist, das zur Ausführung von ASP.NET Core-Anwendungen erforderlich ist.
+Starten Sie Visual Studio-Installer. Wählen Sie die **Entwicklungszeit IIS unterstützen** Komponente. Die Komponente aufgelistet, als optional in der **Zusammenfassung** Bereich für die **ASP.NET und zur Webentwicklung** arbeitsauslastung. Hiermit werden installiert, die [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module), ein systemeigenes IIS-Modul, das zum Ausführen von ASP.NET Core apps erforderlich ist.
 
 ![Ändern von Visual Studio-Features: Die Registerkarte „Workloads“ ist ausgewählt. Im Bereich „Web und Cloud“ ist der Bereich „ASP.NET und Webentwicklung“ ausgewählt. Auf rechts im Bereich "Optional" der Bereiche "Zusammenfassung" befindet sich ein Kontrollkästchen für die Entwicklungszeit, IIS zu unterstützen.](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ Auch manuell hinzufügen ein Profils starten, das die [launchSettings.json](http
 ```
 
 Visual Studio möglicherweise einen Neustart aufgefordert, wenn Sie nicht als Administrator ausführen. Wenn Sie dazu aufgefordert werden, starten Sie Visual Studio neu.
-
-Herzlichen Glückwunsch! An diesem Punkt ist das Projekt für IIS Entwicklungszeit Unterstützung konfiguriert. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
