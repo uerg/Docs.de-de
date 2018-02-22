@@ -22,13 +22,13 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 Dieses Dokument zeigt, wie Sie:
 
 - HTTPS für alle Anforderungen erforderlich.
-- Umleiten Sie alle HTTP-Anforderungen an HTTPS.
+- Alle HTTP-Anforderungen auf HTTPS umleiten.
 
 > [!WARNING]
-> Führen Sie **nicht** verwenden `RequireHttpsAttribute` auf Web-APIs, die vertraulichen Informationen zu erhalten. `RequireHttpsAttribute`verwendet HTTP-Statuscodes Browsern von HTTP an HTTPS umgeleitet. API-Clients möglicherweise nicht verstehen oder Umleitung von HTTP in HTTPS unterliegen. Diese Clients möglicherweise Informationen über HTTP gesendet werden. Web-APIs sollten entweder:
+> Verwenden Sie **nicht** `RequireHttpsAttribute` auf Web-APIs, an welche Sie vertraulichen Informationen senden. `RequireHttpsAttribute`verwendet HTTP-Statuscodes um Browser von HTTP an HTTPS umzuleiten. API-Clients verstehen diese möglicherweise nicht oder führen keine Umleitung von HTTP auf HTTPS durch. Dies kann dazu führen, dass solche Clients Daten unverschlüsselt mittels HTTP versenden. Web-APIs sollten daher entweder:
 >
->* Nicht auf HTTP überwacht.
->* Schließen Sie die Verbindung mit dem Statuscode 400 (Ungültige Anforderung), und verarbeiten Sie die Anforderung nicht.
+>* Nicht auf das HTTP-Protokoll eingehen.
+>* Die Verbindung mit dem Statuscode 400 (Ungültige Anforderung) schließen, und die Anforderung nicht verarbeiten.
 
 ## <a name="require-https"></a>HTTPS erforderlich
 
@@ -42,4 +42,4 @@ Die vorherige hervorgehobene Code erfordert, verwenden alle Anforderungen `HTTPS
 
 Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting).
 
-Verwendung von HTTPS Global (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Anwenden der `[RequireHttps]` Attribut für alle Controller/Razor-Seiten wird nicht so sicher wie die Verwendung von HTTPS global betrachtet. Sie können nicht gewährleisten die `[RequireHttps]` -Attribut angewendet wird, wenn neue Domänencontroller und Razor-Seiten hinzugefügt werden.
+Verwendung von HTTPS Global (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Anwenden der `[RequireHttps]` Attribut für alle Controller/Razor-Seiten wird nicht so sicher wie die Verwendung von HTTPS global betrachtet. Sie können nicht gewährleisten die `[RequireHttps]` -Attribut angewendet wird, wenn neue Domänencontroller und Razor-Seiten hinzugefügt werden
