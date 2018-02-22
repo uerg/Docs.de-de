@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: a6bd81a4e5796c1d0a0033c2b8d5a6ba9282564c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="introduction"></a>Einführung
 
@@ -25,8 +25,10 @@ Autorisierung ist orthogonale und unabhängig von der Authentifizierung, dabei d
 
 ## <a name="authorization-types"></a>Autorisierungstypen
 
-ASP.NET Core Autorisierung bietet eine einfache deklarative [Rolle](roles.md) und ein [umfangreiche richtlinienbasierten](policies.md) Modell. Autorisierung ist in Anforderungen ausgedrückt und Handler auswerten ein Benutzer Ansprüche für Anforderungen. Imperative Überprüfungen können basieren auf einfachen oder Richtlinien für die Bewerten der Benutzeridentität und die Eigenschaften der Ressource, die der Benutzer zugreifen möchte.
+ASP.NET Core Autorisierung bietet ein einfaches, deklaratives [Rolle](roles.md) und eine umfangreiche [richtlinienbasierten](policies.md) Modell. Autorisierung ist in Anforderungen ausgedrückt und Handler auswerten ein Benutzer Ansprüche für Anforderungen. Imperative Überprüfungen können basieren auf einfachen oder Richtlinien für die Bewerten der Benutzeridentität und die Eigenschaften der Ressource, die der Benutzer zugreifen möchte.
 
 ## <a name="namespaces"></a>Namespaces
 
-Autorisierungskomponenten, einschließlich der `AuthorizeAttribute` und `AllowAnonymousAttribute` Attribute befinden sich in der `Microsoft.AspNetCore.Authorization` Namespace.
+Autorisierungskomponenten, einschließlich der `AuthorizeAttribute` und `AllowAnonymousAttribute` Attribute, befinden sich in der `Microsoft.AspNetCore.Authorization` Namespace.
+
+In der Dokumentation auf [einfache Autorisierung](xref:security/authorization/simple).
