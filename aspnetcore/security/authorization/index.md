@@ -1,38 +1,41 @@
 ---
 title: Autorisierung in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen in Bezug auf die ASP.NET-Autorisierung."
+description: "Entdecken Sie Themen zur Autorisierung in ASP.NET Core, in denen erklärt wird, wie Zugriffsrechte und Berechtigungen App-Benutzern zur Verfügung gestellt werden."
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 02/19/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: ee408afab55a80d28291a3a44e0fd1513ff34e45
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
-# <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>Autorisierung in ASP.NET Core: einfach, rollen-, anspruchsbasiert und benutzerdefiniert
+# <a name="authorization-in-aspnet-core"></a>Autorisierung in ASP.NET Core
 
-* [Introduction (Einführung)](introduction.md)
+* [Introduction (Einführung)](xref:security/authorization/introduction)
+
+* [Erstellen einer App mit Benutzerdaten, die durch Autorisierung geschützt sind](xref:security/authorization/secure-data)
 
 * [Autorisierung von Razor-Seiten](xref:security/authorization/razor-pages-authorization)
 
-* [Einfache Autorisierung](simple.md)
+* [Einfache Autorisierung](xref:security/authorization/simple)
 
-* [Rollenbasierte Autorisierung](roles.md)
+* [Rollenbasierte Autorisierung](xref:security/authorization/roles)
 
-* [Anspruchsbasierte Autorisierung](claims.md)
+* [Anspruchsbasierte Autorisierung](xref:security/authorization/claims)
 
-* [Richtlinienbasierte Autorisierung](policies.md)
+* [Richtlinienbasierte Autorisierung](xref:security/authorization/policies)
 
-* [Abhängigkeitsinjektion in Anforderungshandlern](dependencyinjection.md)
+* [Abhängigkeitsinjektion in Anforderungshandlern](xref:security/authorization/dependencyinjection)
 
-* [Ressourcenbasierte Autorisierung](resourcebased.md)
+* [Ressourcenbasierte Autorisierung](xref:security/authorization/resourcebased)
 
-* [Ansichtsbasierte Autorisierung](views.md)
+* [Ansichtsbasierte Autorisierung](xref:security/authorization/views)
 
-* [Einschränken der Identität nach Schema](limitingidentitybyscheme.md)
+* [Authorize with a specific scheme (Autorisieren mit einem bestimmten Schema)](xref:security/authorization/limitingidentitybyscheme)
