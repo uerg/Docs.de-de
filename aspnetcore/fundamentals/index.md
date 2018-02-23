@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 85d3eaf033eafbd24c71110ccd7f21ffcc8b0c82
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -103,13 +103,13 @@ ASP.NET Core enthält standardmäßig zahlreiche Middlewareanwendungen:
 
 Jede auf [OWIN](http://owin.org) basierende Middleware steht für ASP.NET Core zur Verfügung. Darüber hinaus können Sie auch Ihre eigene benutzerdefinierte Middleware erstellen.
 
-Weitere Informationen finden Sie unter [Middleware](xref:fundamentals/middleware/index) und [Introduction to Open Web Interface for .NET (OWIN) (Einführung in Open Web Interface for .NET (OWIN))](xref:fundamentals/owin).
+Weitere Informationen finden Sie unter [Middleware](xref:fundamentals/middleware/index) und [Einführung in Open Web Interface for .NET (OWIN)](xref:fundamentals/owin).
 
 ## <a name="environments"></a>Umgebungen
 
 Umgebungen wie „Entwicklung“ und „Produktion“ sind in ASP.NET Core von besonderer Bedeutung und können über Umgebungsvariablen festgelegt werden.
 
-Weitere Informationen finden Sie unter [Working with Multiple Environments (Verwenden von mehreren Umgebungen)](xref:fundamentals/environments).
+Weitere Informationen finden Sie unter [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments).
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -121,7 +121,7 @@ Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configu
 
 ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiedenen Protokollanbietern funktioniert. Integrierte Anbieter unterstützen das Senden von Protokollen an mindestens einen Zielanbieter. Protokollierungsframeworks von Drittanbietern sind ebenso zulässig.
 
-[Logging (Protokollierung)](xref:fundamentals/logging/index)
+[Protokollierung](xref:fundamentals/logging/index)
 
 ## <a name="error-handling"></a>Fehlerbehandlung
 
@@ -157,7 +157,7 @@ Weitere Informationen finden Sie unter [Hosting](xref:fundamentals/hosting).
 
 Sitzungszustand ist ein Feature in ASP.NET Core, das Sie verwenden können, um Benutzerdaten zu speichern, während der Benutzer Ihre Web-App durchsucht.
 
-Weitere Informationen finden Sie unter [Session and application state (Sitzungs- und Anwendungszustand)](xref:fundamentals/app-state).
+Weitere Informationen finden Sie unter [Sitzungs- und Anwendungszustand](xref:fundamentals/app-state).
 
 ## <a name="servers"></a>Server
 
@@ -179,7 +179,13 @@ Weitere Informationen finden Sie unter [Globalisierung und Lokalisierung](xref:f
 
 Ausführliche Informationen zur Webserverimplementierung, die mit HTTP-Anforderungen und -antworten in Verbindung stehen, werden in Schnittstellen definiert. Diese Schnittstellen werden von Serverimplementierungen und Middleware verwendet, um die Hostingpipeline der App zu erstellen und anzupassen.
 
-Weitere Informationen finden Sie unter [Request Features (Anforderungsfeatures)](xref:fundamentals/request-features).
+Weitere Informationen finden Sie unter [Anforderungsfeatures](xref:fundamentals/request-features).
+
+## <a name="background-tasks"></a>Hintergrundaufgaben
+
+Hintergrundaufgaben werden als *gehostete Dienste* implementiert. Ein gehosteter Dienst ist eine Klasse mit Logik für Hintergrundaufgaben, die die Schnittstelle [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) implementiert.
+
+Weitere Informationen finden Sie unter [Hintergrundaufgaben mit gehosteten Diensten](xref:fundamentals/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 

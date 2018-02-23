@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 43c937ff9631be3edc1f95b3689650e4574abfbd
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -28,7 +28,7 @@ ASP.NET Core wurde von Grund auf für die Unterstützung und Nutzung von Depende
 
 ## <a name="what-is-dependency-injection"></a>Was ist Dependency Injection?
 
-Bei Dependency Injection handelt es sich um eine Technik, bei der eine lose Kopplung zwischen Objekten und ihren benötigten Ressourcen  bzw. Abhängigkeiten erzielt wird. Anstelle einer direkten Instanziierung von erforderlichen Objekten oder der Verwendung statischer Referenzen werden die Objekte, die eine Klasse für die Durchführung ihrer Aktionen benötigt, in gewisser Weise für die Klasse bereitgestellt. In den meisten Fällen deklarieren Klassen ihre Abhängigkeiten über ihren Konstruktor, wodurch sie dem [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/) folgen können. Dieser Ansatz wird als „Constructor Injection“ bezeichnet.
+Bei Dependency Injection handelt es sich um eine Technik, bei der eine lose Kopplung zwischen Objekten und ihren benötigten Ressourcen bzw. Abhängigkeiten erzielt wird. Anstelle einer direkten Instanziierung erforderlicher Objekte oder der Verwendung statischer Referenzen werden die Objekte, die eine Klasse für die Durchführung ihrer Aktionen benötigt, auf gewisse Weise für die Klasse bereitgestellt. In den meisten Fällen deklarieren Klassen ihre Abhängigkeiten über ihren Konstruktor, wodurch sie dem [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/) folgen können. Dieser Ansatz wird als „Constructor Injection“ bezeichnet.
 
 Wenn Klassen vor dem Hintergrund von Dependency Injection entworfen werden, sind sie loser gekoppelt, da sie über keine direkten, hartcodierten Abhängigkeiten für ihre benötigten Ressourcen verfügen. Dies ergibt sich aus dem [Prinzip der Abhängigkeitsinversion](http://deviq.com/dependency-inversion-principle/), das Folgendes besagt: *„Module der oberen Ebene sollten nicht von Modulen der niedrigen Ebene abhängen; beide sollten von Abstraktionen abhängen.“* Statt auf bestimmte Implementierungen zu verweisen, fordern Klassen Abstraktionen an (in der Regel `interfaces`), die bei der Erstellung der Klassen für sie bereitgestellt werden. Das Extrahieren von Abhängigkeiten in Schnittstellen und das Bereitstellen von Implementierungen dieser Schnittstellen als Parameter stellen ein weiteres Beispiel für das [Strategieentwurfsmuster](http://deviq.com/strategy-design-pattern/) dar.
 
@@ -316,6 +316,7 @@ Beachten Sie, dass es sich bei Dependency Injection um eine *Alternative* zu sta
 
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Testen](xref:testing/index)
+* [Factorybezogene Middlewareaktivierung](xref:fundamentals/middleware/extensibility)
 * [Schreiben von sauberem Code in ASP.NET Core über Dependency Injection (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Entwurf einer mit Containern verwalteten Anwendung, Einleitung: Welche Zugehörigkeit hat der Container?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/)

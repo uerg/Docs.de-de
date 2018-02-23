@@ -5,16 +5,16 @@ description: Erfahren Sie, wie ASP.NET Core-Apps in Windows Server Internet Info
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2017
+ms.date: 02/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1df438af2394f41b686413cd1ce5ad73a9416ec5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 620bfefa625f4b39cb2731b4f553caaa4526c71b
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -24,51 +24,16 @@ Von [Luke Latham](https://github.com/guardrex) und [Rick Anderson](https://twitt
 
 Die folgenden Betriebssysteme werden unterstützt:
 
-* Windows 7 und höher
-* Windows Server 2008 R2 und höher&#8224;
+* Windows 7 oder höher
+* Windows Server 2008 R2 oder höher&#8224;
 
-&#8224;Vom Konzept her gilt die in diesem Dokument beschriebene IIS-Konfiguration auch für das Hosten von ASP.NET Core-Apps mit IIS unter Nano Server, die genauen Anweisungen finden Sie jedoch unter [ASP.NET Core mit IIS unter Nano Server](xref:tutorials/nano-server).
+&#8224;Vom Konzept her gilt die in diesem Dokument beschriebene IIS-Konfiguration auch für das Hosten von ASP.NET Core-Apps mit IIS unter Nano Server. Die Anweisungen für Nano Server finden Sie im Tutorial [ASP.NET Core mit IIS auf Nano Server](xref:tutorials/nano-server).
 
 Der [HTTP.SYS-Server](xref:fundamentals/servers/httpsys) (zuvor [WebListener](xref:fundamentals/servers/weblistener) genannt) funktioniert nicht in einer Reverseproxykonfiguration mit IIS. Verwenden Sie den [Kestrel-Server](xref:fundamentals/servers/kestrel).
 
-## <a name="iis-configuration"></a>IIS-Konfiguration
-
-Aktivieren Sie die Rolle **Webserver (IIS)**, und richten Sie Rollendienste ein.
-
-### <a name="windows-desktop-operating-systems"></a>Windows-Desktopbetriebssysteme
-
-Navigieren Sie zu **Systemsteuerung** > **Programme** > **Programme und Features** > **Windows-Features aktivieren oder deaktivieren** (links auf dem Bildschirm). Öffnen Sie die Gruppe für **Internetinformationsdienste** und **Webverwaltungstools**. Aktivieren Sie das Kontrollkästchen für **IIS-Verwaltungskonsole**. Aktivieren Sie das Kontrollkästchen für **WWW-Dienste**. Akzeptieren Sie die Standardfeatures für **WWW-Dienste**, oder passen Sie die IIS-Features an.
-
-![Die IIS-Verwaltungskonsole und WWW-Dienste werden in Windows-Features ausgewählt.](index/_static/windows-features-win10.png)
-
-### <a name="windows-server-operating-systems"></a>Windows Server-Betriebssysteme
-
-Verwenden Sie für Serverbetriebssysteme den Assistenten **Rollen und Features hinzufügen** im Menü **Verwalten** oder den Link in **Server-Manager**. Aktivieren Sie im Schritt **Serverrollen** das Kontrollkästchen für **Webserver (IIS)**.
-
-![Die Rolle „Webserver (IIS)“ wird im Schritt „Serverrollen auswählen“ ausgewählt.](index/_static/server-roles-ws2016.png)
-
-Wählen Sie im Schritt **Rollendienste** die gewünschten IIS-Rollendienste aus, oder übernehmen Sie die bereitgestellten Standardrollendienste.
-
-![Die Standardrollendienste werden im Schritt „Rollendienste auswählen“ ausgewählt.](index/_static/role-services-ws2016.png)
-
-Fahren Sie mit dem Schritt **Bestätigung** fort, um die Webserverrolle und die Dienste zu installieren. Ein Server-/IIS-Neustart ist nach der Installation der Rolle „Webserver (IIS)“ nicht erforderlich.
-
-## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installieren des Pakets „.NET Core Windows Server Hosting“
-
-1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://aka.ms/dotnetcore-2-windowshosting) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
-
-2. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus, um eine Änderung am Systempfad zu übernehmen.
-
-> [!NOTE]
-> Informationen zur Verwendung einer IIS-Freigabekonfiguration finden Sie unter [ASP.NET Core-Modul mit IIS-Freigabekonfiguration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
-
-## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Installieren von Web Deploy beim Veröffentlichen mit Visual Studio
-
-Wenn Sie Apps auf Servern mit [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) bereitstellen, installieren Sie die neueste Version von Web Deploy auf dem Server. Um Web Deploy zu installieren, verwenden Sie den [Webplattform-Installer (Web PI)](https://www.microsoft.com/web/downloads/platform.aspx) oder rufen einen Installer direkt aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=43717) ab. Die bevorzugte Methode ist die Verwendung von WebPI. WebPI bietet ein eigenständiges Setup und eine Konfiguration für Hostinganbieter.
-
 ## <a name="application-configuration"></a>Anwendungskonfiguration
 
-### <a name="enabling-the-iisintegration-components"></a>Aktivieren der IISIntegration-Komponenten
+### <a name="enable-the-iisintegration-components"></a>Aktivieren der IISIntegration-Komponenten
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -82,7 +47,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Nehmen Sie eine Abhängigkeit vom Paket [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) in die App-Abhängigkeiten auf. Binden Sie Middleware für die Integration von IIS in die App ein, indem Sie die Erweiterungsmethode *UseIISIntegration* zu *WebHostBuilder* hinzufügen:
+Nehmen Sie eine Abhängigkeit vom Paket [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) in die App-Abhängigkeiten auf. Verwenden Sie Middleware für die Integration von IIS, indem Sie die Erweiterungsmethode [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) zu [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) hinzufügen:
 
 ```csharp
 var host = new WebHostBuilder()
@@ -91,7 +56,7 @@ var host = new WebHostBuilder()
     ...
 ```
 
-Es sind jeweils `UseKestrel` und `UseIISIntegration` erforderlich. Ein Code, der `UseIISIntegration` aufruft, hat keinen Einfluss auf die Codeportabilität. Wenn Die App nicht hinter IIS ausgeführt wird (die App wird z.B. direkt auf Kestrel ausgeführt), hat `UseIISIntegration` keine Funktion.
+Sowohl [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) als auch [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) sind erforderlich. Ein Code, der `UseIISIntegration` aufruft, hat keinen Einfluss auf die Codeportabilität. Wenn die App nicht hinter IIS ausgeführt wird (die App wird z.B. direkt auf Kestrel ausgeführt), hat `UseIISIntegration` keine Funktion.
 
 ---
 
@@ -99,24 +64,36 @@ Weitere Informationen zum Hosten finden Sie unter [Hosting in ASP.NET Core (Host
 
 ### <a name="iis-options"></a>IIS-Optionen
 
-Schließen Sie zur Konfiguration von IIS-Optionen eine Dienstkonfiguration für `IISOptions` in `ConfigureServices` ein:
+Um IIS-Optionen zu konfigurieren, beziehen Sie eine Dienstkonfiguration für [IISOptions](/dotnet/api/microsoft.aspnetcore.builder.iisoptions) in [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices) ein. Im folgenden Beispiel ist das Weiterleiten von Clientzertifikaten an die App zum Auffüllen von `HttpContext.Connection.ClientCertificate` deaktiviert:
 
 ```csharp
 services.Configure<IISOptions>(options => 
 {
-    ...
+    options.ForwardClientCertificate = false;
 });
 ```
 
 | Option                         | Standard | Einstellung |
-| ------------------------------ | ------- | ------- |
-| `AutomaticAuthentication`      | `true`  | Wenn `true`, dann legt die Authentifizierungsmiddleware `HttpContext.User` fest und reagiert auf generische Herausforderungen. Wenn `false`, dann stellt die Authentifizierungsmiddleware nur eine Identität bereit (`HttpContext.User`) und reagiert nur dann auf Herausforderungen, wenn sie dazu explizit von `AuthenticationScheme` angewiesen wird. Die Windows-Authentifizierung muss in IIS aktiviert sein, damit `AutomaticAuthentication` funktioniert. |
-| `AuthenticationDisplayName`    | `null`  | Legt den Anzeigename fest, der Benutzern auf Anmeldungsseiten angezeigt wird |
+| ------------------------------ | :-----: | ------- |
+| `AutomaticAuthentication`      | `true`  | Bei Festlegung auf `true` legt die Middleware für die IIS-Integration den per [Windows-Authentifizierung](xref:security/authentication/windowsauth) authentifizierten `HttpContext.User` fest. Bei Festlegung auf `false` stellt die Middleware nur eine Identität für `HttpContext.User` bereit und antwortet auf explizite Anforderungen durch `AuthenticationScheme`. Die Windows-Authentifizierung muss in IIS aktiviert sein, damit `AutomaticAuthentication` funktioniert. Weitere Informationen finden Sie im Thema [Windows-Authentifizierung](xref:security/authentication/windowsauth). |
+| `AuthenticationDisplayName`    | `null`  | Legt den Anzeigename fest, der Benutzern auf Anmeldeseiten angezeigt wird. |
 | `ForwardClientCertificate`     | `true`  | Wenn diese Option `true` ist und der Anforderungsheader `MS-ASPNETCORE-CLIENTCERT` vorhanden ist, wird das `HttpContext.Connection.ClientCertificate` aufgefüllt. |
 
-### <a name="webconfig"></a>web.config
+### <a name="webconfig-file"></a>Datei „web.config“
 
-Die Datei *Web.config* dient in erster Linie der Konfiguration des [ASP.NET Core-Moduls](xref:fundamentals/servers/aspnet-core-module). Sie kann optional zusätzliche IIS-Konfigurationseinstellungen bereitstellen. Das Erstellen, das Transformieren und die Veröffentlichung von *web.config* erfolgt durch das .NET Core Web SDK (`Microsoft.NET.Sdk.Web`). Das SDK wird am Anfang der Projektdatei (`<Project Sdk="Microsoft.NET.Sdk.Web">`) festgelegt. Um zu verhindern, dass das SDK die Datei *web.config* transformiert, fügen Sie der Projektdatei die Eigenschaft **\<IsTransformWebConfigDisabled** mit der Einstellung `true` hinzu:
+Mit der Datei *web.config* wird das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) konfiguriert. Das Erstellen, das Transformieren und die Veröffentlichung von *web.config* erfolgt durch das .NET Core Web SDK (`Microsoft.NET.Sdk.Web`). Das SDK wird am Anfang der Projektdatei festgelegt:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+```
+
+Wenn in der Projektdatei keine Datei namens *web.config* vorhanden ist, wird sie zur Konfiguration des [ASP.NET Core-Moduls](xref:fundamentals/servers/aspnet-core-module) mit dem richtigen *processPath*- und *arguments*-Attribut erstellt und in die [veröffentlichte Ausgabe](xref:host-and-deploy/directory-structure) verschoben.
+
+Ist eine Datei namens *web.config* im Projekt vorhanden, wird sie zur Konfiguration des ASP.NET Core-Moduls mit dem richtigen *processPath*- und *arguments*-Attribut transformiert und in die veröffentlichte Ausgabe verschoben. Die Transformation ändert die IIS-Konfigurationseinstellungen in der Datei nicht.
+
+Die Datei *web.config* kann zusätzliche IIS-Konfigurationseinstellungen zum Steuern der aktiven IIS-Module bereitstellen. Informationen zu IIS-Modulen, die Anforderungen mit ASP.NET Core-Apps verarbeiten können, finden Sie im Thema [Verwenden von IIS-Modulen](xref:host-and-deploy/iis/modules).
+
+Um zu verhindern, dass das Web-SDK die Datei *web.config* transformiert, verwenden Sie die Eigenschaft **\<IsTransformWebConfigDisabled>** in der Projektdatei:
 
 ```xml
 <PropertyGroup>
@@ -124,55 +101,140 @@ Die Datei *Web.config* dient in erster Linie der Konfiguration des [ASP.NET Core
 </PropertyGroup>
 ```
 
-Wenn eine Datei namens *Web.config* im Projekt vorhanden ist, wird sie zur Konfiguration des [ASP.NET Core-Moduls](xref:fundamentals/servers/aspnet-core-module) mit dem richtigen *processPath*- und *arguments*-Attribut transformiert und in die [veröffentlichte Ausgabe](xref:host-and-deploy/directory-structure) verschoben. Die Transformation ändert die IIS-Konfigurationseinstellungen in der Datei nicht.
+Wenn die Transformation der Datei durch das Web-SDK deaktiviert wird, müssen die Attribute *processPath* und *arguments* manuell durch den Entwickler festgelegt werden. Weitere Informationen finden Sie unter [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module).
 
-### <a name="webconfig-location"></a>Speicherort der Datei „Web.config“
+### <a name="webconfig-file-location"></a>Speicherort der Datei „web.config“
 
-.NET Core-Apps werden über einen Reverseproxy zwischen IIS und dem Kestrel-Server gehostet. Zum Erstellen des Reverseproxys muss die Datei *Web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *Web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
+.NET Core-Apps werden in einem Reverseproxy zwischen IIS und dem Kestrel-Server gehostet. Zum Erstellen des Reverseproxys muss die Datei *web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
 
-Im physischen Pfad und den Unterordnern der App sind vertrauliche Dateien vorhanden, wie z.B. *\<assembly_name>.runtimeconfig.json*, *\<assembly_name>.xml* (XML-Dokumentationskommentare) und *\<assembly_name>.deps.json*. Wenn die Datei *Web.config* vorhanden ist und die Website konfiguriert, verhindert IIS, dass diese vertraulichen Dateien verarbeitet werden. **Daher ist es wichtig, dass die Datei *web.config* nicht versehentlich umbenannt oder aus der Bereitstellung entfernt wird.**
+Im physischen Pfad der App sind vertrauliche Dateien vorhanden, wie z.B. *\<assembly_name>.runtimeconfig.json*, *\<assembly_name>.xml* (XML-Dokumentationskommentare) und *\<assembly_name>.deps.json*. Wenn die Datei *web.config* vorhanden ist und die Website normal startet, werden diese vertraulichen Dateien von IIS bei Anforderung nicht offengelegt. Wenn die Datei *web.config* fehlt, falsch benannt wurde oder die Website nicht für den normalen Start konfigurieren kann, macht IIS vertrauliche Dateien möglicherweise öffentlich verfügbar.
 
-## <a name="create-the-iis-website"></a>Erstellen der IIS-Website
+**Die Datei *web.config* muss immer in der Bereitstellung vorhanden, richtig benannt und in der Lage sein, die Website für einen normalen Start zu konfigurieren. Entfernen Sie die Datei *web.config* niemals aus einer Produktionsbereitstellung.**
 
-1. Erstellen Sie im IIS-Zielsystem einen Ordner für die veröffentlichten Ordner und Dateien der App, die in [Verzeichnisstruktur](xref:host-and-deploy/directory-structure) beschrieben sind.
+## <a name="iis-configuration"></a>IIS-Konfiguration
 
-2. Erstellen Sie im Ordner einen Ordner *Protokolle*, um darin StdOut-Protokolle zu speichern, wenn die StdOut-Protokollierung aktiviert ist. Wenn die App mit einem Ordner *Protokolle* in der Payload bereitgestellt wird, können Sie diesen Schritt überspringen. Im Artikel zur *Verzeichnisstruktur* wird erläutert, wie Sie MSBuild dazu veranlassen, den Ordner [Protokolle](xref:host-and-deploy/directory-structure) zu erstellen.
+**Windows Server-Betriebssysteme**
 
-3. Erstellen Sie im **IIS-Manager** eine neue Website. Geben Sie einen **Websitenamen** an, und legen Sie den **physischen Pfad** auf den Bereitstellungsordner der App fest. Geben Sie die Konfiguration unter **Bindung** an, und erstellen Sie die Website.
+Aktivieren Sie die Serverrolle **Webserver (IIS)**, und richten Sie Rollendienste ein.
 
-4. Legen Sie den Anwendungspool auf **Kein verwalteter Code** fest. ASP.NET Core wird in einem separaten Prozess ausgeführt und verwaltet die Runtime.
+1. Verwenden Sie den Assistenten **Rollen und Features hinzufügen** im Menü **Verwalten** oder den Link in **Server-Manager**. Aktivieren Sie im Schritt **Serverrollen** das Kontrollkästchen für **Webserver (IIS)**.
 
-5. Öffnen Sie das Fenster **Website hinzufügen**.
+   ![Die Rolle „Webserver (IIS)“ wird im Schritt „Serverrollen auswählen“ ausgewählt.](index/_static/server-roles-ws2016.png)
 
-   ![Klicken Sie im Kontextmenü „Websites“ auf „Website hinzufügen“.](index/_static/add-website-context-menu-ws2016.png)
+1. Nach dem Schritt **Features** wird der Schritt **Rollendienste** für Webserver (IIS) geladen. Wählen Sie die gewünschten IIS-Rollendienste aus, oder übernehmen Sie die bereitgestellten Standardrollendienste.
 
-6. Konfigurieren Sie die Website.
+   ![Die Standardrollendienste werden im Schritt „Rollendienste auswählen“ ausgewählt.](index/_static/role-services-ws2016.png)
+
+   **Windows-Authentifizierung (optional)**  
+   Um die Windows-Authentifizierung zu aktivieren, erweitern Sie die folgenden Knoten: **Webserver** > **Sicherheit**. Wählen Sie das Feature **Windows-Authentifizierung** aus. Weitere Informationen finden Sie unter [Windows-Authentifizierung \<windowsAuthentication>](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) und [Konfigurieren der Windows-Authentifizierung](xref:security/authentication/windowsauth).
+
+   **WebSockets (optional)**  
+   WebSockets wird mit ASP.NET Core 1.1 oder höher unterstützt. Um WebSockets zu aktivieren, erweitern Sie die folgenden Knoten: **Webserver** > **Anwendungsentwicklung**. Wählen Sie das Feature **WebSocket-Protokoll** aus. Weitere Informationen finden Sie unter [WebSockets](xref:fundamentals/websockets).
+
+1. Fahren Sie mit dem Schritt **Bestätigung** fort, um die Webserverrolle und die Dienste zu installieren. Ein Server-/IIS-Neustart ist nach der Installation der Rolle **Webserver (IIS)** nicht erforderlich.
+
+**Windows-Desktopbetriebssysteme**
+
+Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
+
+1. Navigieren Sie zu **Systemsteuerung** > **Programme** > **Programme und Features** > **Windows-Features aktivieren oder deaktivieren** (links auf dem Bildschirm).
+
+1. Öffnen Sie den Knoten **Internetinformationsdienste**. Öffnen Sie den Knoten **Webverwaltungstools**.
+
+1. Aktivieren Sie das Kontrollkästchen für **IIS-Verwaltungskonsole**.
+
+1. Aktivieren Sie das Kontrollkästchen für **WWW-Dienste**.
+
+1. Akzeptieren Sie die Standardfeatures für **WWW-Dienste**, oder passen Sie die IIS-Features an.
+
+   **Windows-Authentifizierung (optional)**  
+   Um die Windows-Authentifizierung zu aktivieren, erweitern Sie die folgenden Knoten: **WWW-Dienste** > **Sicherheit**. Wählen Sie das Feature **Windows-Authentifizierung** aus. Weitere Informationen finden Sie unter [Windows-Authentifizierung \<windowsAuthentication>](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) und [Konfigurieren der Windows-Authentifizierung](xref:security/authentication/windowsauth).
+
+   **WebSockets (optional)**  
+   WebSockets wird mit ASP.NET Core 1.1 oder höher unterstützt. Um WebSockets zu aktivieren, erweitern Sie die folgenden Knoten: **WWW-Dienste** > **Anwendungsentwicklungsfeatures**. Wählen Sie das Feature **WebSocket-Protokoll** aus. Weitere Informationen finden Sie unter [WebSockets](xref:fundamentals/websockets).
+
+1. Wenn die IIS-Installation einen Neustart erfordert, starten Sie das System neu.
+
+![Die IIS-Verwaltungskonsole und WWW-Dienste werden in Windows-Features ausgewählt.](index/_static/windows-features-win10.png)
+
+---
+
+## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installieren des Pakets „.NET Core Windows Server Hosting“
+
+1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://aka.ms/dotnetcore-2-windowshosting) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
+
+   **Wichtig** Wenn das Hostingpaket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut das Hostingpaket aus.
+
+1. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus. Durch den Neustart von IIS wird eine Änderung an der PATH-Systemeinstellung durch den Installer vorgenommen.
+
+> [!NOTE]
+> Informationen zur Verwendung einer IIS-Freigabekonfiguration finden Sie unter [ASP.NET Core-Modul mit IIS-Freigabekonfiguration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
+
+## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Installieren von Web Deploy beim Veröffentlichen mit Visual Studio
+
+Wenn Sie Apps auf Servern mit [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) bereitstellen, installieren Sie die neueste Version von Web Deploy auf dem Server. Um Web Deploy zu installieren, verwenden Sie den [Webplattform-Installer (Web PI)](https://www.microsoft.com/web/downloads/platform.aspx) oder rufen einen Installer direkt aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=43717) ab. Die bevorzugte Methode ist die Verwendung von WebPI. WebPI bietet ein eigenständiges Setup und eine Konfiguration für Hostinganbieter.
+
+## <a name="create-the-iis-site"></a>Erstellen der IIS-Website
+
+1. Erstellen Sie auf dem Hostingsystem einen Ordner zum Speichern der veröffentlichten Ordner und Dateien der App. Das Layout der App-Bereitstellung wird im Thema [Verzeichnisstruktur](xref:host-and-deploy/directory-structure) beschrieben.
+
+1. Erstellen Sie innerhalb des neuen Ordners einen Ordner *Protokolle*, um darin stdout-Protokolle von ASP.NET Core zu speichern, wenn die stdout-Protokollierung aktiviert ist. Wenn die App mit einem Ordner *Protokolle* in der Payload bereitgestellt wird, können Sie diesen Schritt überspringen. Anweisungen zum Aktivieren von MSBuild zum automatischen Erstellen des Ordners *Protokolle* bei der Erstellung des lokalen Projekts finden Sie im Thema zur [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
+
+   **Wichtig** Verwenden Sie das stdout-Protokoll, um Probleme beim App-Start zu behandeln. Verwenden Sie die stdout-Protokollierung nicht für die routinemäßige App-Protokollierung. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt. Weitere Informationen zum stdout-Protokoll finden Sie im Thema zur [Protokollerstellung und Umleitung](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Informationen zur Protokollierung in einer ASP.NET Core-App finden Sie im Thema [Protokollierung](xref:fundamentals/logging/index).
+
+1. Öffnen Sie im **IIS-Manager** den Serverknoten im Bereich **Verbindungen**. Klicken Sie mit der rechten Maustaste auf den Ordner **Websites**. Klicken Sie im Kontextmenü auf **Website hinzufügen**.
+
+1. Geben Sie einen **Websitenamen** an, und legen Sie den **physischen Pfad** auf den Bereitstellungsordner der App fest. Geben Sie die Konfiguration unter **Bindung** an, und erstellen Sie die Website, indem Sie auf **OK** klicken:
 
    ![Geben Sie den Websitenamen, den physischen Pfad und den Hostnamen im Schritt „Website hinzufügen“ an.](index/_static/add-website-ws2016.png)
 
-7. Öffnen Sie im Bereich **Anwendungspools** das Fenster **Anwendungspool bearbeiten**, indem Sie mit der rechten Maustaste auf den Anwendungspool der Website klicken und im Popupmenü **Grundeinstellungen** auswählen.
+1. Wählen Sie unter dem Serverknoten **Anwendungspools** aus.
 
-   ![Wählen Sie „Grundeinstellungen“ aus dem Kontextmenü des Anwendungspools aus.](index/_static/apppools-basic-settings-ws2016.png)
+1. Klicken Sie mit der rechten Maustaste auf den App-Pool der Website, und wählen Sie im Kontextmenü **Grundeinstellungen** aus.
 
-8. Legen Sie die **.NET CLR-Version** auf **Kein verwalteter Code** fest.
+1. Legen Sie im Fenster **Anwendungspool bearbeiten** die **.NET CLR-Version** auf **Kein verwalteter Code** fest:
 
    ![Legen Sie „Kein verwalteter Code“ für die .NET CLR-Version fest.](index/_static/edit-apppool-ws2016.png)
-     
-    Hinweis: Das Festlegen der **.NET CLR-Version** auf **Kein verwalteter Code** ist optional. Für ASP.NET Core ist das Laden der Desktop-CLR nicht erforderlich.
 
-9. Vergewissern Sie sich, dass die Prozessmodellidentität über die richtigen Berechtigungen verfügt.
+    ASP.NET Core wird in einem separaten Prozess ausgeführt und verwaltet die Runtime. Für ASP.NET Core ist das Laden der Desktop-CLR nicht erforderlich. Das Festlegen der **.NET CLR-Version** auf **Kein verwalteter Code** ist optional.
 
-   Wenn die Standardidentität des App-Pools (**Prozessmodell** > **Identität**) von **ApplicationPoolIdentity** in eine andere Identität geändert wird, stellen Sie sicher, dass die neue Identität über die erforderlichen Berechtigungen zum Zugriff auf den Ordner, die Datenbank und andere erforderliche Ressourcen der App verfügt.
-   
+1. Vergewissern Sie sich, dass die Prozessmodellidentität über die richtigen Berechtigungen verfügt.
+
+   Wenn die Standardidentität des App-Pools (**Prozessmodell** > **Identität**) von **ApplicationPoolIdentity** in eine andere Identität geändert wird, stellen Sie sicher, dass die neue Identität über die erforderlichen Berechtigungen zum Zugriff auf den Ordner, die Datenbank und andere erforderliche Ressourcen der App verfügt. Der App-Pool benötigt beispielsweise Lese- und Schreibzugriff für Ordner, in denen die App Lese- und Schreibvorgänge für Dateien ausführt.
+
+**Konfigurieren der Windows-Authentifizierung (optional)**  
+Weitere Informationen finden Sie unter [Konfigurieren der Windows-Authentifizierung](xref:security/authentication/windowsauth).
+
 ## <a name="deploy-the-app"></a>Bereitstellen der App
 
-Stellen Sie die App in dem Ordner bereit, den Sie im IIS-Zielsystem erstellt haben. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) ist die empfohlene Methode zur Bereitstellung.
+Stellen Sie die App in dem Ordner bereit, den Sie im Hostingsystem erstellt haben. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) ist die empfohlene Methode zur Bereitstellung.
 
-Stellen Sie sicher, dass die zur Bereitstellung veröffentlichte App nicht ausgeführt wird. Die Dateien im Ordner *publish* sind gesperrt, wenn die App ausgeführt wird. Gesperrte Dateien können nicht überschrieben werden. Um gesperrte Dateien in einer Bereitstellung freizugeben, beenden Sie den App-Pool mit einer der folgenden Methoden:
+### <a name="web-deploy-with-visual-studio"></a>Web Deploy mit Visual Studio
 
-* Durch manuelles Beenden im IIS-Manager auf dem Server.
-* Durch Verwenden von Web Deploy und Verweisen auf `Microsoft.NET.Sdk.Web` in der Projektdatei. Eine Datei namens *app_offline.htm* befindet sich im Stammverzeichnis des Web-App-Verzeichnisses. Wenn die Datei vorhanden ist, fährt das ASP.NET Core Module die App ordnungsgemäß herunter und verarbeitet die Datei *app_offline.htm* während der Bereitstellung. Weitere Informationen finden Sie unter [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module#appofflinehtm).
+Informationen zum Erstellen eines Veröffentlichungsprofils zur Verwendung mit Web Deploy finden Sie im Thema [Visual Studio publish profiles for ASP.NET Core app deployment (Visual Studio-Veröffentlichungsprofile zum Bereitstellen von ASP.NET Core-Apps)](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles). Wenn der Hostinganbieter ein Veröffentlichungsprofil oder Unterstützung für das Erstellen eines solchen Profils bereitstellt, laden Sie dessen Profil herunter, und importieren Sie es mithilfe des Visual Studio-Dialogfelds **Veröffentlichen**.
+
+![Dialogfeld „Veröffentlichen“](index/_static/pub-dialog.png)
+
+### <a name="web-deploy-outside-of-visual-studio"></a>Web Deploy außerhalb von Visual Studio
+
+[Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) kann über die Befehlszeile auch außerhalb von Visual Studio verwendet werden. Weitere Informationen finden Sie unter [Web Deployment Tool](/iis/publish/using-web-deploy/use-the-web-deployment-tool) (Webbereitstellungstool).
+
+### <a name="alternatives-to-web-deploy"></a>Alternativen zu Web Deploy
+
+Verwenden Sie eine der folgenden Methoden, um die App zum Hostingsystem zu migrieren: manuelles Kopieren, XCopy, Robocopy oder PowerShell.
+
+## <a name="browse-the-website"></a>Navigieren auf der Website
+
+![Der Microsoft Edge-Browser hat die IIS-Startseite geladen.](index/_static/browsewebsite.png)
+
+## <a name="locked-deployment-files"></a>Gesperrte Bereitstellungsdateien
+
+Die Dateien im Bereitstellungsordner werden gesperrt, wenn die App ausgeführt wird. Gesperrte Dateien können während der Bereitstellung nicht überschrieben werden. Um gesperrte Dateien in einer Bereitstellung freizugeben, beenden Sie den App-Pool mit **einer** der folgenden Methoden:
+
+* Verwenden Sie Web Deploy, und verweisen Sie auf `Microsoft.NET.Sdk.Web` in der Projektdatei. Eine Datei namens *app_offline.htm* befindet sich im Stammverzeichnis des Web-App-Verzeichnisses. Wenn die Datei vorhanden ist, fährt das ASP.NET Core Module die App ordnungsgemäß herunter und verarbeitet die Datei *app_offline.htm* während der Bereitstellung. Weitere Informationen finden Sie unter [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module#appofflinehtm).
+* Beenden Sie den App-Pool im IIS-Manager auf dem Server manuell.
 * Verwenden Sie PowerShell, um den App-Pool zu beenden und neu zu starten (erfordert PowerShell 5 oder höher):
+
   ```PowerShell
   $webAppPoolName = 'APP_POOL_NAME'
 
@@ -197,64 +259,48 @@ Stellen Sie sicher, dass die zur Bereitstellung veröffentlichte App nicht ausge
   }
   ```
 
-### <a name="web-deploy-with-visual-studio"></a>Web Deploy mit Visual Studio
-
-Informationen zum Erstellen eines Veröffentlichungsprofils zur Verwendung mit Web Deploy finden Sie im Thema [Visual Studio publish profiles for ASP.NET Core app deployment (Visual Studio-Veröffentlichungsprofile zum Bereitstellen von ASP.NET Core-Apps)](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles). Wenn der Hostinganbieter ein Veröffentlichungsprofil oder Unterstützung für das Erstellen eines solchen Profils bereitstellt, laden Sie dessen Profil herunter, und importieren Sie es mithilfe des Visual Studio-Dialogfelds **Veröffentlichen**.
-
-![Dialogfeld „Veröffentlichen“](index/_static/pub-dialog.png)
-
-### <a name="web-deploy-outside-of-visual-studio"></a>Web Deploy außerhalb von Visual Studio
-
-[Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) kann über die Befehlszeile auch außerhalb von Visual Studio verwendet werden. Weitere Informationen finden Sie unter [Web Deployment Tool](/iis/publish/using-web-deploy/use-the-web-deployment-tool) (Webbereitstellungstool).
-
-### <a name="alternatives-to-web-deploy"></a>Alternativen zu Web Deploy
-
-Verwenden Sie eine der folgenden Methoden, um die App zum Hostingsystem zu migrieren, z.B. XCopy, Robocopy oder PowerShell. Visual Studio-Benutzer können die [Veröffentlichungsbeispiele](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md) verwenden.
-
-## <a name="browse-the-website"></a>Navigieren auf der Website
-
-![Der Microsoft Edge-Browser hat die IIS-Startseite geladen.](index/_static/browsewebsite.png)
-
 ## <a name="data-protection"></a>Schutz von Daten
 
-Der Schutz von Daten wird von mehreren ASP.NET-Middlewarefunktionen genutzt, einschließlich der Middleware, die bei der Authentifizierung verwendet wird. Selbst wenn die Datenschutz-APIs nicht aus dem Code des Benutzers aufgerufen werden, sollte der Schutz von Daten für die Erstellung eines beständigen Schlüsselspeichers mit einem Bereitstellungsskript oder im Benutzercode konfiguriert werden. Wenn der Schutz von Daten nicht konfiguriert ist, werden die Schlüssel beim Neustarten der App im Arbeitsspeicher gespeichert und verworfen.
+Der [ASP.NET Core-Stapel zum Schutz von Daten](xref:security/data-protection/index) wird von mehreren ASP.NET-[Middlewarekomponenten](xref:fundamentals/middleware/index) genutzt, darunter auch von Middleware, die bei der Authentifizierung verwendet wird. Selbst wenn die APIs zum Schutz von Daten nicht aus dem Benutzercode aufgerufen werden, sollte der Schutz von Daten mit einem Bereitstellungsskript oder im Benutzercode konfiguriert werden, um einen persistenten kryptografischen [Schlüsselspeicher](xref:security/data-protection/implementation/key-management) zu erstellen. Wenn der Schutz von Daten nicht konfiguriert ist, werden die Schlüssel beim Neustarten der App im Arbeitsspeicher gespeichert und verworfen.
 
-Falls der Schlüsselbund im Arbeitsspeicher gespeichert wird, wenn die App neu gestartet wird:
+Falls der Schlüsselbund im Arbeitsspeicher gespeichert wird, wenn die App neu gestartet wird, gilt Folgendes:
 
-* Werden alle Formularauthentifizierungstoken als ungültig ausgewiesen. 
+* Alle cookiebasierten Authentifizierungstoken für ungültig erklärt. 
 * Benutzer müssen sich bei ihrer nächsten Anforderung erneut anmelden. 
-* Alle mit dem Schlüsselbund geschützte Daten können nicht mehr entschlüsselt werden.
+* Alle mit dem Schlüsselbund geschützte Daten können nicht mehr entschlüsselt werden. Dies kann [CSRF-Token](xref:security/anti-request-forgery#how-does-aspnet-core-mvc-address-csrf) und [ASP.NET Core-MVC-tempdata-Cookies](xref:fundamentals/app-state#tempdata) einschließen.
 
-Zum Konfigurieren des Schutzes von Daten unter IIS verwenden Sie **einen** der folgenden Ansätze:
+Zum Konfigurieren des Schutzes von Daten unter IIS mithilfe des persistenten Schlüsselbunds verwenden Sie **einen** der folgenden Ansätze:
 
-### <a name="create-a-data-protection-registry-hive"></a>Erstellen einer Registrierungsstruktur für den Schutz von Daten
+* **Erstellen einer Registrierungsstruktur für den Schutz von Daten**
 
-Schlüssel für den Schutz von Daten, die von ASP.NET-Apps verwendet werden, werden in Registrierungsstrukturen außerhalb der Apps gespeichert. Um die Schlüssel für eine bestimmte App beizubehalten, müssen Sie eine Registrierungsstruktur für den App-Pool erstellen.
+  Schlüssel für den Schutz von Daten, die von ASP.NET Core-Apps verwendet werden, werden in der Registrierung außerhalb der Apps gespeichert. Um die Schlüssel für eine bestimmte App zu dauerhaft zu speichern, müssen Sie Registrierungsschlüssel für den App-Pool erstellen.
 
-Bei eigenständigen IIS-Installationen, die ohne Webfarm vorgesehen sind, kann das [PowerShell-Skript „Provision-AutoGenKeys.ps1“ für den Schutz von Daten](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) für jeden App-Pool genutzt werden, das mit einer ASP.NET Core-App verwendet wird. Dieses Skript erstellt einen besonderen Registrierungsschlüssel in der HKLM-Registrierung, der nur in der ACL des Workerprozesskontos bereitgestellt wird. Schlüssel werden in ruhendem Zustand mit DPAPI mit einem computerweiten Schlüssel verschlüsselt.
+  Bei eigenständigen IIS-Installationen, die ohne Webfarm vorgesehen sind, kann das [PowerShell-Skript „Provision-AutoGenKeys.ps1“ für den Schutz von Daten](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) für jeden App-Pool genutzt werden, das mit einer ASP.NET Core-App verwendet wird. Dieses Skript erstellt einen Registrierungsschlüssel in der HKLM-Registrierung, der nur für das Workerprozesskonto des App-Pools der App zugänglich ist. Schlüssel werden in ruhendem Zustand mit DPAPI mit einem computerweiten Schlüssel verschlüsselt.
 
-In Webfarmszenarios kann eine App so konfiguriert werden, dass sie einen UNC-Pfad verwendet, um den Schlüsselbund für den Schutz von Daten zu speichern. Standardmäßig werden die Schlüssel für den Schutz von Daten nicht verschlüsselt. Stellen Sie sicher, dass die Dateiberechtigungen für eine solche Freigabe auf das Windows-Konto beschränkt sind, mit dem die App ausgeführt wird. Darüber hinaus kann ein X.509-Zertifikat zum Schützen von Schlüsseln im ruhenden Zustand verwendet werden. Ziehen Sie einen Mechanismus in Erwägung, um es Benutzern zu ermöglichen, Zertifikate hochzuladen: Platzieren Sie Zertifikate im Zertifikatspeicher des Benutzers für vertrauenswürdige Anbieter, und stellen Sie sicher, dass sie auf allen Computern verfügbar sind, auf denen die App des Benutzers ausgeführt wird. Details finden Sie unter [Konfigurieren des Schutzes von Daten](xref:security/data-protection/configuration/overview).
+  In Webfarmszenarios kann eine App so konfiguriert werden, dass sie einen UNC-Pfad verwendet, um den Schlüsselbund für den Schutz von Daten zu speichern. Standardmäßig werden die Schlüssel für den Schutz von Daten nicht verschlüsselt. Stellen Sie sicher, dass die Dateiberechtigungen für die Netzwerkfreigabe auf das Windows-Konto beschränkt sind, mit dem die App ausgeführt wird. Ein X.509-Zertifikat kann zum Schutz von Schlüsseln im ruhenden Zustand verwendet werden. Ziehen Sie einen Mechanismus in Erwägung, um es Benutzern zu ermöglichen, Zertifikate hochzuladen: Platzieren Sie Zertifikate im Zertifikatspeicher des Benutzers für vertrauenswürdige Anbieter, und stellen Sie sicher, dass sie auf allen Computern verfügbar sind, auf denen die App des Benutzers ausgeführt wird. Details finden Sie unter [Konfigurieren des Schutzes von Daten](xref:security/data-protection/configuration/overview).
 
-### <a name="configure-the-iis-application-pool-to-load-the-user-profile"></a>Konfigurieren des IIS-Anwendungspools zum Laden des Benutzerprofils
+* **Konfigurieren des IIS-Anwendungspools zum Laden des Benutzerprofils**
 
-Diese Einstellung befindet sich im Abschnitt **Prozessmodell** unter **Erweiterte Einstellungen** für den App-Pool. Legen Sie „Benutzerprofil laden“ auf `True` fest. Dadurch werden Schlüssel im Benutzerprofilverzeichnis gespeichert und mit DPAPI mit einem Schlüssel geschützt, der nur für das Benutzerkonto gilt, das für den App-Pool verwendet wird.
+  Diese Einstellung befindet sich im Abschnitt **Prozessmodell** unter **Erweiterte Einstellungen** für den App-Pool. Legen Sie „Benutzerprofil laden“ auf `True` fest. Dadurch werden Schlüssel im Benutzerprofilverzeichnis gespeichert und mit DPAPI mit einem Schlüssel geschützt, der nur für das Benutzerkonto gilt, das vom App-Pool verwendet wird.
 
-### <a name="use-the-file-system-as-a-key-ring-store"></a>Verwenden des Dateisystems als Schlüsselbundspeicher
+* **Verwenden des Dateisystems als Schlüsselbundspeicher**
 
-Passen Sie den App-Code so an, dass er [das Dateisystem als Schlüsselbundspeicher verwendet](xref:security/data-protection/configuration/overview). Verwenden Sie ein X.509-Zertifikat, um den Schlüsselbund zu schützen, und stellen Sie sicher, dass es sich bei dem Zertifikat um ein vertrauenswürdiges Zertifikat handelt. Ein selbstsigniertes Zertifikat müssen Sie im vertrauenswürdigen Stammspeicher platzieren.
+  Passen Sie den App-Code so an, dass er [das Dateisystem als Schlüsselbundspeicher verwendet](xref:security/data-protection/configuration/overview). Verwenden Sie ein X.509-Zertifikat, um den Schlüsselbund zu schützen, und stellen Sie sicher, dass es sich bei dem Zertifikat um ein vertrauenswürdiges Zertifikat handelt. Wenn es sich um ein selbstsigniertes Zertifikat handelt, müssen Sie es im vertrauenswürdigen Stammspeicher platzieren.
 
-Wenn IIS in einer Webfarm verwendet wird:
+  Wenn IIS in einer Webfarm verwendet wird:
 
-* Verwenden Sie eine Dateifreigabe, auf die alle Computer zugreifen können.
-* Stellen Sie ein X509-Zertifikat auf jedem Computer bereit. Konfigurieren Sie den [Schutz von Daten im Code](xref:security/data-protection/configuration/overview).
+  * Verwenden Sie eine Dateifreigabe, auf die alle Computer zugreifen können.
+  * Stellen Sie ein X509-Zertifikat auf jedem Computer bereit. Konfigurieren Sie den [Schutz von Daten im Code](xref:security/data-protection/configuration/overview).
 
-### <a name="set-a-machine-wide-policy-for-data-protection"></a>Festlegen einer computerweiten Richtlinie für den Schutz von Daten
+* **Festlegen einer computerweiten Richtlinie für den Schutz von Daten**
 
-Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy) für alle Apps, die die Datenschutz-APIs nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
+  Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy) für alle Apps, die die APIs zum Schutz von Daten nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
 
-## <a name="configuration-of-sub-applications"></a>Konfiguration von untergeordneten Anwendungen
+## <a name="sub-application-configuration"></a>Konfiguration von untergeordneten Anwendungen
 
-Untergeordnete Apps, die unter der Stamm-App hinzugefügt werden, sollten kein ASP.NET Core-Modul als Handler enthalten. Wenn das Modul als Handler in einer Datei namens *Web.config* einer untergeordneten App hinzugefügt wird, erhalten Sie bei dem Versuch zum Navigieren in der untergeordneten App den Code 500.19 (interner Serverfehler), der auf die fehlerhafte Konfigurationsdatei verweist. Das folgende Beispiel zeigt den Inhalt einer veröffentlichten *web.config*-Datei für eine untergeordnete ASP.NET Core-App:
+Untergeordnete Apps, die unterhalb der Stamm-App hinzugefügt werden, sollten kein ASP.NET Core-Modul als Handler enthalten. Wenn das Modul als Handler in einer *web.config* einer untergeordneten App hinzugefügt wird, erhalten Sie beim Versuch, zur untergeordneten App zu navigieren, den Fehler *500.19: Interner Serverfehler*. Dieser verweist auf die fehlerhafte Konfigurationsdatei.
+
+Das folgende Beispiel zeigt den Inhalt einer veröffentlichten Datei *web.config* für eine untergeordnete ASP.NET Core-App:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,14 +314,14 @@ Untergeordnete Apps, die unter der Stamm-App hinzugefügt werden, sollten kein A
 </configuration>
 ```
 
-Wenn Sie eine untergeordnete App ohne ASP.NET Core unterhalb einer ASP.NET Core-App hosten, entfernen Sie den geerbten Handler ausdrücklich aus der Datei *Web.config* der untergeordneten App:
+Wenn Sie eine untergeordnete App ohne ASP.NET Core unterhalb einer ASP.NET Core-App hosten, entfernen Sie den geerbten Handler ausdrücklich aus der Datei *web.config* der untergeordneten App:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
     <handlers>
-      <remove name="aspNetCore"/>
+      <remove name="aspNetCore" />
     </handlers>
     <aspNetCore processPath="dotnet" 
       arguments=".\<assembly_name>.dll" 
@@ -289,11 +335,13 @@ Weitere Informationen zum Konfigurieren des ASP.NET Core-Moduls finden Sie im Th
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguration von IIS mit der Datei „web.config“
 
-Die IIS-Konfiguration wird im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt **\<system.webServer>** der Datei *Web.config* beeinflusst. Wenn IIS auf Systemebene für die Verwendung der dynamischen Komprimierung konfiguriert ist, kann diese Einstellung für eine App mit dem Element **\<urlCompression>** in der Datei *Web.config* der App deaktiviert werden. Weitere Informationen finden Sie in der [Konfigurationsreferenz für \<system.webServer>](https://docs.microsoft.com/iis/configuration/system.webServer/), der [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module) und unter [Verwenden von IIS-Modulen mit ASP.NET Core](xref:host-and-deploy/iis/modules). Wenn Umgebungsvariablen für einzelne Apps festgelegt werden müssen, die in isolierten App-Pools ausgeführt werden (unterstützt für IIS 10.0 und höher), lesen Sie den Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \<EnvironmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
+Die IIS-Konfiguration wird im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt **\<system.webServer>** der Datei *web.config* beeinflusst. Wenn IIS auf Systemebene für die Verwendung der dynamischen Komprimierung konfiguriert ist, kann diese Einstellung mit dem Element **\<urlCompression>** in der Datei *web.config* der App deaktiviert werden.
+
+Weitere Informationen finden Sie in der [Konfigurationsreferenz für \<system.webServer>](/iis/configuration/system.webServer/), der [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module) und unter [Verwenden von IIS-Modulen mit ASP.NET Core](xref:host-and-deploy/iis/modules). Um Umgebungsvariablen für einzelne Apps festzulegen, die in isolierten App-Pools ausgeführt werden (unterstützt für IIS 10.0 oder höher), lesen Sie den Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
 
 ## <a name="configuration-sections-of-webconfig"></a>Konfigurationsabschnitte von „web.config“
 
-Konfigurationsabschnitte von ASP.NET Framework-Apps in der Datei *Web.config* werden nicht von ASP.NET Core-Apps für die Konfiguration verwendet:
+Konfigurationsabschnitte von ASP.NET 4.x-Apps in der Datei *web.config* werden von ASP.NET Core-Apps nicht zur Konfiguration verwendet:
 
 * **\<system.web>**
 * **\<appSettings>**
@@ -304,39 +352,43 @@ ASP.NET Core-Apps werden mit anderen Konfigurationsanbietern konfiguriert. Weite
 
 ## <a name="application-pools"></a>Anwendungspools
 
-Wenn Sie mehrere Websites in einem einzigen System hosten, isolieren Sie die Apps voneinander, indem Sie jede App in ihrem eigenen App-Pool ausführen. Im IIS-Dialogfeld **Website hinzufügen** wird standardmäßig diese Konfiguration eingesetzt. Wenn ein **Websitename** angegeben ist, wird der Text automatisch in das Textfeld **Anwendungspool** übertragen. Ein neuer App-Pool wird mit dem Namen der Website erstellt, wenn die Website hinzugefügt wird.
+Wenn Sie mehrere Websites auf einem Server hosten, isolieren Sie die Apps voneinander, indem Sie jede App in ihrem eigenen App-Pool ausführen. Im IIS-Dialogfeld **Website hinzufügen** wird standardmäßig diese Konfiguration eingesetzt. Wenn ein **Websitename** angegeben ist, wird der Text automatisch in das Textfeld **Anwendungspool** übertragen. Ein neuer App-Pool mit dem Namen der Website wird erstellt, wenn die Website hinzugefügt wird.
 
 ## <a name="application-pool-identity"></a>Identität des Anwendungspools
 
-Mit einem Konto für die Identität des App-Pools können Sie eine App unter einem eindeutigen Konto ausführen, ohne Domänen oder lokale Konten erstellen und verwalten zu müssen. Mit IIS 8.0 und höher erstellt der IIS-Administratorworkerprozess (WAS) ein virtuelles Konto mit dem Namen des neuen App-Pools und führt die Workerprozesse des App-Pools standardmäßig unter diesem Konto aus. Stellen Sie sicher, dass in der IIS-Verwaltungskonsole unter **Erweiterte Einstellungen** für den App-Pool die **Identität** auf **ApplicationPoolIdentity** festgelegt ist:
+Mit einem Konto für die Identität des App-Pools können Sie eine App unter einem eindeutigen Konto ausführen, ohne Domänen oder lokale Konten erstellen und verwalten zu müssen. Unter IIS 8.0 oder höher erstellt der IIS-Administratorworkerprozess (WAS) ein virtuelles Konto mit dem Namen des neuen App-Pools und führt die Workerprozesse des App-Pools standardmäßig unter diesem Konto aus. Stellen Sie sicher, dass in der IIS-Verwaltungskonsole unter **Erweiterte Einstellungen** für den App-Pool die **Identität** auf **ApplicationPoolIdentity** festgelegt ist:
 
 ![Dialogfeld „Erweiterte Einstellungen“ für den Anwendungspool](index/_static/apppool-identity.png)
 
-Der IIS-Verwaltungsprozess erstellt im Windows-Sicherheitssystem einen sicheren Bezeichner mit dem Namen des App-Pools. Ressourcen können unter Verwendung dieser Identität gesichert werden. Allerdings ist diese Identität kein echtes Benutzerkonto und wird in der Windows-Benutzerverwaltungskonsole nicht angezeigt.
+Der IIS-Verwaltungsprozess erstellt im Windows-Sicherheitssystem einen sicheren Bezeichner mit dem Namen des App-Pools. Ressourcen können mithilfe dieser Identität geschützt werden. Allerdings ist diese Identität kein echtes Benutzerkonto und wird in der Windows-Benutzerverwaltungskonsole nicht angezeigt.
 
 Wenn der IIS-Workerprozess erhöhte Rechte für den Zugriff auf Ihre Anwendung erfordert, ändern Sie die Zugriffssteuerungsliste (ACL) für das Verzeichnis mit der App:
 
 1. Öffnen Sie Windows Explorer, und navigieren Sie zum Verzeichnis.
 
-2. Klicken Sie mit der rechten Maustaste auf das Verzeichnis, und klicken Sie auf **Eigenschaften**.
+1. Klicken Sie mit der rechten Maustaste auf das Verzeichnis, und klicken Sie auf **Eigenschaften**.
 
-3. Klicken Sie auf der Registerkarte **Sicherheit** auf die Schaltfläche **Bearbeiten** und dann auf die Schaltfläche **Hinzufügen**.
+1. Klicken Sie auf der Registerkarte **Sicherheit** auf die Schaltfläche **Bearbeiten** und dann auf die Schaltfläche **Hinzufügen**.
 
-4. Wählen Sie die Schaltfläche **Speicherorte** aus, und stellen Sie sicher, dass das System ausgewählt ist.
+1. Wählen Sie die Schaltfläche **Speicherorte** aus, und stellen Sie sicher, dass das System ausgewählt ist.
 
-5. Geben Sie in das Textfeld **Geben Sie die zu verwendenden Objektnamen ein** den Text **IIS AppPool\DefaultAppPool** ein.
+1. Geben Sie im Bereich **Geben Sie die Namen der auszuwählenden Objekte ein** den Wert **IIS AppPool\\<Name_des_AppPools>** ein. Klicken Sie auf die Schaltfläche **Namen überprüfen**. Überprüfen Sie für *DefaultAppPool* die Namen mit **IIS AppPool\DefaultAppPool**. Bei Auswahl der Schaltfläche **Namen überprüfen** wird im Bereich für Objektnamen der Wert **DefaultAppPool** angegeben. Es ist nicht möglich, den Namen des App-Pools direkt in den Bereich für Objektnamen einzugeben. Verwenden Sie das Format **IIS AppPool\\<Name_des_AppPools>**, wenn Sie die Objektnamen überprüfen.
 
-   ![Dialogfeld „Benutzer oder Gruppen auswählen“ für den App-Ordner](index/_static/select-users-or-groups-1.png)
+   ![Auswahl des Dialogfelds für Benutzer oder Gruppen für den App-Ordner: Der Name des App-Pools „DefaultAppPool“ wird an „IIS AppPool\"“ im Bereich der Objektnamen angehängt, bevor „Namen überprüfen“ ausgewählt wird.](index/_static/select-users-or-groups-1.png)
 
-6. Klicken Sie auf die Schaltfläche **Namen überprüfen**. Klicken Sie auf **OK**.
+1. Klicken Sie auf **OK**.
 
-   ![Dialogfeld „Benutzer oder Gruppen auswählen“ für den App-Ordner](index/_static/select-users-or-groups-2.png)
+   ![Auswahl des Dialogfelds für Benutzer oder Gruppen für den App-Ordner: Nach der Auswahl von „Namen überprüfen“ wird der Objektname „DefaultAppPool“ im Bereich der Objektnamen angezeigt.](index/_static/select-users-or-groups-2.png)
 
-Dies kann auch über eine Eingabeaufforderung mit dem Tool **ICACLS** erreicht werden:
+1. Standardmäßig sollten Lese- und Schreibberechtigungen gewährt werden. Erteilen Sie weitere Berechtigungen, sofern erforderlich.
+
+Zugriff kann auch über eine Eingabeaufforderung mit dem Tool **ICACLS** gewährt werden. Im folgenden Befehl wird als Beispiel *DefaultAppPool* verwendet:
 
 ```console
 ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 ```
+
+Weitere Informationen finden Sie im Thema [icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
@@ -347,4 +399,4 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 * [Verwenden von IIS-Modulen mit ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Einführung in ASP.NET Core](../index.md)
 * [Die offizielle Microsoft IIS-Website](https://www.iis.net/)
-* [Microsoft TechNet-Bibliothek: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
+* [Microsoft TechNet-Bibliothek: Windows Server](/windows-server/windows-server-versions)
