@@ -1,30 +1,32 @@
 ---
 title: ASP.NET Core-Modul Konfigurationsverweis
 author: guardrex
-description: Wie Sie die ASP.NET Core-Modul zum Hosten von ASP.NET Core-Anwendungen zu konfigurieren.
+description: Erfahren Sie, wie die ASP.NET Core-Modul zum Hosten von ASP.NET Core apps konfigurieren.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/07/2017
+ms.date: 02/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
 Durch [Luke Latham](https://github.com/guardrex), [Rick Anderson](https://twitter.com/RickAndMSFT), und [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-Dieses Dokument enthält ausführliche Informationen zum Konfigurieren der ASP.NET Core-Modul zum Hosten von ASP.NET Core-Anwendungen. Eine Einführung in die ASP.NET Core-Modul und installationsanweisungen, finden Sie unter der [ASP.NET Core Modulübersicht](xref:fundamentals/servers/aspnet-core-module).
+Dieses Dokument enthält Anweisungen zum Konfigurieren der ASP.NET Core-Modul zum Hosten von ASP.NET Core-apps. Eine Einführung in die ASP.NET Core-Modul und installationsanweisungen, finden Sie unter der [ASP.NET Core Modulübersicht](xref:fundamentals/servers/aspnet-core-module).
 
-## <a name="configuration-via-webconfig"></a>Konfiguration haben Sie über die Datei "Web.config"
+## <a name="configuration-with-webconfig"></a>Mit der Datei "Web.config"
 
-ASP.NET Core-Modul wird über eine Site oder Anwendung konfiguriert *"Web.config"* Datei und verfügt über eine eigene `aspNetCore` Konfigurationsabschnitt innerhalb `system.webServer`. Hier ist ein Beispiel *"Web.config"* -Datei mit der `Microsoft.NET.Sdk.Web` SDK werden bereitstellen, sobald der Veröffentlichung des Projekts für eine [Framework abhängiges Bereitstellung](https://docs.microsoft.com/dotnet/articles/core/deploying/#framework-dependent-deployments-fdd) mit Platzhaltern für die `processPath` und `arguments`:
+ASP.NET Core-Modul ist konfiguriert, mit der `aspNetCore` Teil der `system.webServer` Knoten am Standort *"Web.config"* Datei.
+
+Die folgenden *"Web.config"* Datei veröffentlicht wird, für eine [Framework abhängiges Bereitstellung](/dotnet/articles/core/deploying/#framework-dependent-deployments-fdd) und konfiguriert den ASP.NET Core-Modul um Website-Anforderungen zu verarbeiten:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,49 +35,54 @@ ASP.NET Core-Modul wird über eine Site oder Anwendung konfiguriert *"Web.config
     <handlers>
       <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
     </handlers>
-    <aspNetCore processPath="%LAUNCHER_PATH%" 
-        arguments="%LAUNCHER_ARGS%" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
+    <aspNetCore processPath="dotnet" 
+                arguments=".\MyApp.dll" 
+                stdoutLogEnabled="false" 
+                stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
 
-Die *"Web.config"* unten gezeigte Beispiel ist für eine [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) auf die [Azure App Service](https://azure.microsoft.com/services/app-service/). Weitere Informationen finden Sie unter [Host unter Windows mit IIS](xref:host-and-deploy/iis/index). Finden Sie unter [Konfiguration des untergeordneten Anwendungen](xref:host-and-deploy/iis/index#sub-application-configuration) für ein wichtiger Hinweis bezieht sich auf die Konfiguration des *"Web.config"* Dateien im Unterordner Anwendungen.
+Die folgenden *"Web.config"* netzwerkschutzentwurf für eine [eigenständige Bereitstellung](/dotnet/articles/core/deploying/#self-contained-deployments-scd):
 
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
     <handlers>
       <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
     </handlers>
     <aspNetCore processPath=".\MyApp.exe" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile="\\?\%home%\LogFiles\stdout" />
+                stdoutLogEnabled="false" 
+                stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
 
+Wenn eine app bereitgestellt wird, um [Azure App Service](https://azure.microsoft.com/services/app-service/), `stdoutLogFile` -Pfad folgendermaßen festgelegt `\\?\%home%\LogFiles\stdout`. Der Pfad speichert "stdout" die Protokolle, um die *LogFiles* Ordner, einen Speicherort automatisch vom Dienst erstellt.
+
+Finden Sie unter [untergeordnete Anwendung Konfiguration](xref:host-and-deploy/iis/index#sub-application-configuration) für ein wichtiger Hinweis bezieht sich auf die Konfiguration des *"Web.config"* Dateien im Unterordner apps.
+
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attribute des-Elements aspNetCore
 
-| Attribut | Beschreibung |
-| --- | --- |
-| processPath | <p>Erforderliches Zeichenfolgenattribut.</p><p>Pfad zur ausführbaren Datei, die einen HTTP-Anforderungen Lauschen Prozess gestartet wird. Relative Pfade werden unterstützt. Wenn der Pfad mit beginnt '.', gilt der Pfad relativ zum Stammverzeichnis Website sein.</p><p>Es ist kein Standardwert vorhanden.</p> |
-| Argumente | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p><p>Der Standardwert ist eine leere Zeichenfolge.</p> |
-| startupTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul für die ausführbare Datei Starten eines Prozesses, der Port überwacht gewartet wird. Wenn dieses Zeitlimit überschritten wird, wird das Modul den Prozess zu beenden. Das Modul versucht, den Prozess erneut zu starten, wenn er eine neue Anforderung empfangen und versucht weiterhin wird, den Prozess auf nachfolgende eingehende Anforderungen neu zu starten, wenn die Anwendung kann nicht gestartet **RapidFailsPerMinute** Anzahl innerhalb der letzten parallelen Minute wiederholt.</p><p>Der Standardwert ist 120.</p> |
-| shutdownTimeLimit | <p>Optionales Ganzzahlattribut.</p><p>Die Dauer in Sekunden, die auf die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet bei der *app_offline.htm* Datei erkannt wird.</p><p>Der Standardwert ist 10.</p> |
-| rapidFailsPerMinute | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, hält das Modul die Starten des Prozesses für den Rest der Minute an.</p><p>Der Standardwert ist 10.</p> |
-| requestTimeout | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul für eine Antwort des Prozesses "% ASPNETCORE_PORT" lauscht gewartet wird.</p><p>Der Standardwert ist "00:02:00".</p><p>Die `requestTimeout` muss angegeben werden in ganzen Minuten nur, andernfalls wird standardmäßig auf 2 Minuten.</p> |
-| stdoutLogEnabled | <p>Optionales boolesches Attribut.</p><p>Bei "true", **"stdout"** und **"stderr"** für den Prozess, der im angegebenen **ProcessPath** werden an die angegebene Datei umgeleitet **"stdoutlogfile"**.</p><p>Der Standardwert ist false.</p> |
-| stdoutLogFile | <p>Optionales Zeichenfolgeattribut.</p><p>Gibt an, der relative oder absolute Pfad für die **"stdout"** und **"stderr"** aus dem Prozess, der im angegebenen **ProcessPath** protokolliert werden. Relative Pfade sind relativ zum Stamm des Standorts. Jeder Pfad beginnend mit '.' relativ zum Stammverzeichnis Website, und alle anderen Pfade als absolute Pfade behandelt werden. Alle Ordner im Pfad angegeben, müssen in der Reihenfolge für das Modul zum Erstellen der Protokolldatei vorhanden sein. Die Prozess-ID, Zeitstempel (*YyyyMdhms*), und die Dateierweiterung (*.log*) mit einem Unterstrich Trennzeichen werden hinzugefügt, bis zum letzten Segment der **"stdoutlogfile"** bereitgestellt.</p><p>Der Standardwert ist `aspnetcore-stdout`.</p> |
-| forwardWindowsAuthToken | True oder False.</p><p>Bei "true", wird das Token an den untergeordneten Prozess gelauscht. "% ASPNETCORE_PORT" als Header "MS-ASPNETCORE-WINAUTHTOKEN" pro Anforderung weitergeleitet werden. Es liegt die Verantwortung des entsprechenden Prozesses CloseHandle dieses Token pro Anforderung aufgerufen werden.</p><p>Der Standardwert ist true.</p> |
-| disableStartUpErrorPage | True oder False.</p><p>Bei "true", die **502.5 - Prozessfehler** Seite wird unterdrückt werden, und die Status 502-Codepage in konfiguriert Ihre *"Web.config"* Vorrang.</p><p>Der Standardwert ist false.</p> |
+| Attribut | Beschreibung | Standard |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p>| |
+| `disableStartUpErrorPage` | True oder False.</p><p>Bei "true", die **502.5 - Prozessfehler** Seite unterdrückt wird, und die Status 502-Codepage konfiguriert wird, der *"Web.config"* hat Vorrang vor.</p> | `false` |
+| `forwardWindowsAuthToken` | True oder False.</p><p>Bei "true", wird das Token an den untergeordneten Prozess gelauscht. "% ASPNETCORE_PORT" als Header "MS-ASPNETCORE-WINAUTHTOKEN" pro Anforderung weitergeleitet. Es liegt die Verantwortung des entsprechenden Prozesses CloseHandle dieses Token pro Anforderung aufgerufen werden.</p> | `true` |
+| `processPath` | <p>Erforderliches Zeichenfolgenattribut.</p><p>Pfad zur ausführbaren Datei, die einen HTTP-Anforderungen Lauschen Prozess startet. Relative Pfade werden unterstützt. Wenn der Pfad mit beginnt `.`, gilt der Pfad relativ zum Stammverzeichnis Website sein.</p> | |
+| `rapidFailsPerMinute` | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, beendet das Modul mit dem Starten des Prozesses für den Rest der Minute.</p> | `10` |
+| `requestTimeout` | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul auf eine Antwort vom Prozess "% ASPNETCORE_PORT" lauscht wartet.</p><p>Die `requestTimeout` muss angegeben werden in ganzen Minuten nur, andernfalls wird standardmäßig auf 2 Minuten.</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden, die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet, wenn die *app_offline.htm* Datei erkannt wird.</p> | `10` |
+| `startupTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul wartet, bis die ausführbare Datei Starten eines Prozesses, der Port überwacht. Wenn dieses Zeitlimit überschritten wird, beendet das Modul den Prozess an. Das Modul versucht, den Prozess neu starten, wenn eine neue Anforderung erhält und versucht weiterhin, den Prozess bei nachfolgenden eingehenden Anforderungen neu starten, es sei denn, die app nicht gestartet **RapidFailsPerMinute** -Mal in den letzten Paralleles Minute an.</p> | `120` |
+| `stdoutLogEnabled` | <p>Optionales boolesches Attribut.</p><p>Bei "true", **"stdout"** und **"stderr"** für den Prozess, der im angegebenen **ProcessPath** an die angegebene Datei umgeleitet werden **"stdoutlogfile"**.</p> | `false` |
+| `stdoutLogFile` | <p>Optionales Zeichenfolgeattribut.</p><p>Gibt an, der relative oder absolute Pfad für die **"stdout"** und **"stderr"** aus dem Prozess, der im angegebenen **ProcessPath** werden protokolliert. Relative Pfade sind relativ zum Stamm des Standorts. Jeder Pfad beginnend mit `.` sind relativ zur Website Stamm und alle anderen Pfade als absolute Pfade behandelt werden. Alle Ordner im Pfad angegeben, müssen in der Reihenfolge für das Modul zum Erstellen der Protokolldatei vorhanden sein. Mithilfe des Unterstrich Trennzeichen, Timestamp, Prozess-ID, und die Erweiterung (*.log*) hinzukommen bis zum letzten Segment der **"stdoutlogfile"** Pfad. Wenn `.\logs\stdout` angegeben wird als ein Wert wird als ein Beispiel für "stdout" Protokoll gespeichert *stdout_20180205194132_1934.log* in der *Protokolle* Ordner, wenn auf 2/5/2018 um 19:41:32 mit 1934 Prozess-ID gespeichert.</p> | `aspnetcore-stdout` |
 
 ### <a name="setting-environment-variables"></a>Festlegen von Umgebungsvariablen
 
-ASP.NET Core-Modul können Sie angeben, dass die Umgebungsvariablen für den Prozess, der im angegebenen der `processPath` Attribut durch Angabe in einer oder mehreren `environmentVariable` untergeordneten Elemente des ein `environmentVariables` Auflistungselement unter der `aspNetCore` Element. In diesem Abschnitt festgelegten Umgebungsvariablen haben Vorrang gegenüber System Umgebungsvariablen für den Prozess.
+Umgebungsvariablen können angegeben werden, für den Prozess in den `processPath` Attribut. Geben Sie eine Umgebungsvariable mit dem `environmentVariable` untergeordnetes Element von einer `environmentVariables` Elements der Auflistung. In diesem Abschnitt festgelegten Umgebungsvariablen haben Vorrang gegenüber System Umgebungsvariablen.
 
-Im folgenden Beispiel werden zwei Umgebungsvariablen festgelegt. `ASPNETCORE_ENVIRONMENT` Konfigurieren der Umgebung der Anwendung zu `Development`. Ein Entwickler möglicherweise vorübergehend legen Sie diesen Wert der *"Web.config"* Datei, um zu erzwingen der [Developer Ausnahmeseite](xref:fundamentals/error-handling) laden, wenn eine Ausnahme für die app zu debuggen. `CONFIG_DIR` ist ein Beispiel für eine benutzerdefinierte Umgebungsvariable, in denen der Entwickler Code geschrieben hat, die den Wert beim Start zu einen Pfad kombiniert, um die app-Konfigurationsdatei zu laden gelesen wird.
+Im folgenden Beispiel wird zwei Umgebungsvariablen. `ASPNETCORE_ENVIRONMENT` konfiguriert die app-Umgebung zu `Development`. Ein Entwickler möglicherweise vorübergehend legen Sie diesen Wert der *"Web.config"* Datei, um zu erzwingen der [Developer Ausnahmeseite](xref:fundamentals/error-handling) laden, wenn eine Ausnahme für die app zu debuggen. `CONFIG_DIR` ist ein Beispiel für eine benutzerdefinierte Umgebungsvariable, in dem der Entwickler Code, der den Wert beim Start geschrieben hat, um zu bilden, einen Pfad für das Laden der app-Konfigurationsdatei liest.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -89,25 +96,28 @@ Im folgenden Beispiel werden zwei Umgebungsvariablen festgelegt. `ASPNETCORE_ENV
 </aspNetCore>
 ```
 
+> [!WARNING]
+> Legen Sie nur die `ASPNETCORE_ENVIRONMENT` Envirnonment-Variable, die `Development` für staging und Testen von Servern, die für nicht vertrauenswürdige Netzwerke wie z. B. das Internet zugänglich sind.
+
 ## <a name="appofflinehtm"></a>app_offline.htm
 
-Wenn Sie eine Datei mit dem Namen einfügen *app_offline.htm* im Stammverzeichnis eines Verzeichnisses Web Application ASP.NET Core-Modul versuchen zum ordnungsgemäßen Herunterfahren die app, und beendet die Verarbeitung eingehender Anforderungen. Wenn die Anwendung weiterhin, nach dem ausgeführt wird `shutdownTimeLimit` Anzahl von Sekunden, wird ASP.NET Core-Modul brechen Sie den laufenden Prozess.
+Wenn eine Datei mit dem Namen *app_offline.htm* wird erkannt, im Stammverzeichnis einer App ASP.NET Core-Modul versucht, ordnungsgemäß heruntergefahren, die app und die Verarbeitung von eingehender Anforderungen beenden. Wenn nach der Anzahl von Sekunden, die in definierten Anwendung ausgeführter `shutdownTimeLimit`, die ASP.NET Core-Modul beendet den laufenden Prozess.
 
-Während der *app_offline.htm* Datei vorhanden ist, das ASP.NET Core-Modul wird auf Anforderungen reagiert durch Senden von den Inhalt der *app_offline.htm* Datei. Sobald die *app_offline.htm* Datei wird entfernt, die nächste Anforderung lädt die Anwendung, die Sie dann auf Anforderungen reagiert.
+Während der *app_offline.htm* Datei ist vorhanden, die ASP.NET Core-Modul-reagiert auf Anforderungen durch Zurücksenden der Inhalt des der *app_offline.htm* Datei. Wenn die *app_offline.htm* Datei wird entfernt, die nächste Anforderung wird die Anwendung gestartet.
 
 ## <a name="start-up-error-page"></a>Start-Fehler (Seite)
 
-Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess oder dem Back-End-Prozess gestartet wird, aber ein Fehler auftritt, am konfigurierten Port lauschen, sehen Sie eine 502.5 http-Status-Codepage. Verwenden Sie zum Unterdrücken der auf dieser Seite, und stellen Sie die Standardcodepage für IIS 502 Status wieder her, die `disableStartUpErrorPage` Attribut. Weitere Informationen zum Konfigurieren von benutzerdefinierten Fehlermeldungen finden Sie unter [HTTP-Fehler `<httpErrors>` ](https://docs.microsoft.com/iis/configuration/system.webServer/httpErrors/).
+Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess oder dem Back-End-Prozess gestartet wird, aber ein Fehler auftritt, an den konfigurierten Port Lauschen eine *502.5 Prozessfehler* Code Statusseite wird angezeigt. Verwenden Sie zum Unterdrücken der auf dieser Seite, und stellen Sie die Standardcodepage für IIS 502 Status wieder her, die `disableStartUpErrorPage` Attribut. Weitere Informationen zum Konfigurieren von benutzerdefinierten Fehlermeldungen finden Sie unter [HTTP-Fehler `<httpErrors>` ](/iis/configuration/system.webServer/httpErrors/).
 
-![502-Statusseite](aspnet-core-module/_static/ANCM-502_5.png)
+![502.5 Codepage Status "Fehler"-Prozess](aspnet-core-module/_static/ANCM-502_5.png)
 
 ## <a name="log-creation-and-redirection"></a>Umleitung und protokollerstellung
 
-ASP.NET Core-Modul leitet `stdout` und `stderr` Protokolle auf den Datenträger, wenn Sie festlegen, die `stdoutLogEnabled` und `stdoutLogFile` Attribute der `aspNetCore` Element. Alle Ordner in der `stdoutLogFile` Pfad muss vorhanden sein, in der Reihenfolge für das Modul zum Erstellen der Protokolldatei. Eine Timestamp-Werte und Datei-Erweiterung wird automatisch hinzugefügt werden, wenn die Protokolldatei erstellt wird. Protokolle werden nicht gedreht, es sei denn, der Prozess wiederverwendet/Neustart stattfindet. Es ist die Zuständigkeit für den Hoster den Speicherplatz zu begrenzen, die, den die Protokolle zu nutzen. Mithilfe der `stdout` Protokoll wird nur empfohlen, für die Fehlerbehebung bei Startproblemen Anwendung und nicht für allgemeine Anwendung Protokollieren von Zwecken.
+ASP.NET Core-Modul leitet `stdout` und `stderr` Protokolle, wenn auf den Datenträger der `stdoutLogEnabled` und `stdoutLogFile` Attribute der `aspNetCore` Element festgelegt werden. Alle Ordner in der `stdoutLogFile` Pfad muss vorhanden sein, in der Reihenfolge für das Modul zum Erstellen der Protokolldatei. Sinnvolles Zeitstempel und der Datei werden automatisch hinzugefügt, wenn die Protokolldatei erstellt wird. Protokolle werden nicht gedreht werden, es sei denn, der Prozess wiederverwendet/Neustart stattfindet. Es ist die Zuständigkeit für den Hoster den Speicherplatz zu begrenzen, die, den die Protokolle zu nutzen. Mithilfe der `stdout` Protokoll wird nur für die Fehlerbehebung bei Startproblemen app empfohlen. Verwenden Sie das Protokoll "stdout" nicht zur Protokollierung allgemeiner app. Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
 
-Name der Protokolldatei besteht durch die Prozess-ID (PID), Zeitstempel anfügen (*YyyyMdhms*), und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout"* ) getrennt durch Unterstriche enthalten. Z. B. wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokolls für eine Anwendung mit einem PID des 10652 am 8/10/2017 um 12:05:02 erstellt wurde, wurde der Dateiname *stdout_10652_20178101252.log*.
+Besteht aus der Protokolldateinamen durch Anhängen der Zeitstempel, die Prozess-ID und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout"*) getrennt durch Unterstriche enthalten. Wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokoll für eine app mit einem PID des 1934 auf 2/5/2018 erstellt werden, um 19:42:32 wurde der Dateiname *stdout_20180205194132_1934.log*.
 
-Hier ist ein Beispiel für `aspNetCore` Element, konfiguriert `stdout` Protokollierung. Die `stdoutLogFile` Pfad angezeigt, die im Beispiel eignet sich für die Azure App Service. Ein lokaler Pfad oder Netzwerkfreigabepfad ist akzeptabel, für die lokale Anmeldung. Vergewissern Sie sich, dass die Identität des AppPool-Benutzers über die Berechtigung zum Schreiben in den angegebenen Pfad verfügt.
+Im folgenden Beispiel `aspNetCore` Element konfiguriert `stdout` Protokollierung für eine app in Azure App Service gehostet. Ein lokaler Pfad oder Netzwerkfreigabepfad ist akzeptabel, für die lokale Anmeldung. Vergewissern Sie sich, dass die Identität des AppPool-Benutzers über die Berechtigung zum Schreiben in den angegebenen Pfad verfügt.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -116,13 +126,28 @@ Hier ist ein Beispiel für `aspNetCore` Element, konfiguriert `stdout` Protokoll
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
-Finden Sie unter [Konfiguration haben Sie über die Datei "Web.config"](#configuration-via-webconfig) ein Beispiel für die `aspNetCore` Element in der *"Web.config"* Datei.
+
+Finden Sie unter [mit der Datei "Web.config"](#configuration-with-webconfig) ein Beispiel für die `aspNetCore` Element in der *"Web.config"* Datei.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET Core-Modul mit einer IIS freigegebene Konfiguration
 
-Das Installationsprogramm von ASP.NET Core ausgeführt wird, mit den Berechtigungen des der **SYSTEM** Konto. Da das lokale Systemkonto keine Berechtigung zum Ändern für den Pfad der Bibliotheksfreigabe der von der IIS-Freigabekonfiguration verwendet wird, wird das Installationsprogramm "Zugriff verweigert" Fehler beim Konfigurieren der moduleinstellungen in erreicht  *Datei "applicationHost.config"* auf die Freigabe.
+Das Installationsprogramm von ASP.NET Core ausgeführt wird, mit den Berechtigungen des der **SYSTEM** Konto. Da das lokale Systemkonto keine Berechtigung zum Ändern für den Pfad der Bibliotheksfreigabe, in der IIS-Freigabekonfiguration, trifft der Installer "Zugriff verweigert" Fehler beim Konfigurieren der moduleinstellungen in *"applicationHost.config"* auf die Freigabe. Wenn Sie eine IIS-Freigabekonfiguration verwenden zu können, gehen Sie folgendermaßen vor:
 
-Nicht unterstützte behelfslösung ist das IIS-Freigabekonfiguration deaktivieren, führen Sie das Installationsprogramm, exportieren Sie die aktualisierte *"applicationHost.config"* auf die Freigabe der Datei und die IIS-Freigabekonfiguration erneut zu aktivieren.
+1. Deaktivieren Sie die IIS-Freigabekonfiguration.
+1. Führen Sie den Installer aus.
+1. Exportieren Sie die aktualisierte *"applicationHost.config"* Datei auf die Freigabe.
+1. Reaktivieren Sie den IIS-Freigabekonfiguration.
+
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>Version des Moduls und Hosten von Paket-Installer-Protokolle
+
+Die Version des installierten ASP.NET Core Moduls zu ermitteln:
+
+1. Navigieren Sie auf dem Hostsystem zu *%windir%\System32\inetsrv*.
+1. Suchen Sie die *aspnetcore.dll* Datei.
+1. Mit der rechten Maustaste in der das, und wählen Sie **Eigenschaften** aus dem Kontextmenü.
+1. Wählen Sie die **Details** Registerkarte. Die **Dateiversion** und **Produktversion** die installierte Version des Moduls darstellen.
+
+Das Hosting mit Windows Server Paket-Installer-Protokolle für das Modul finden Sie unter *"c:"\\Benutzer\\%UserName%\\AppData\\lokale\\Temp*. Die Datei heißt *Dd_DotNetCoreWinSvrHosting__\<Zeitstempel > _000_AspNetCoreModule_x64.log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Dateispeicherorte für Module, Schema und Konfiguration
 
@@ -160,4 +185,4 @@ Nicht unterstützte behelfslösung ist das IIS-Freigabekonfiguration deaktiviere
 
    * .vs\config\applicationHost.config
 
-Sie können nach suchen *aspnetcore.dll* in der *"applicationHost.config"* Datei. Für IIS Express die *"applicationHost.config"* Datei wird nicht standardmäßig vorhanden. Die Datei wird erstellt am *{Anwendungsstamm}\.Vs\config* beim Starten alle Webanwendungsprojekt in Visual Studio-Projektmappe.
+Die Basisdateien befinden durch Suchen nach *aspnetcore.dll* in der *"applicationHost.config"* Datei. Für IIS Express die *"applicationHost.config"* Datei wird nicht standardmäßig vorhanden. Die Datei wird erstellt am  *\<Application_root >\\VS\\Config* beim Starten alle Web-app-Projekt in Visual Studio-Projektmappe.

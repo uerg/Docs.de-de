@@ -1,26 +1,26 @@
 ---
 title: Verwenden Sie die Projektvorlage reagieren
 author: SteveSandersonMS
-description: "Informationen Sie zum Einstieg in ASP.NET Core Einzelseiten-Anwendung (SPA) Release Candidate-Projektvorlage für reagieren und erstellen-reagieren-app."
+description: "Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren und erstellen-reagieren-app."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-project-template-release-candidate"></a>Verwenden Sie die Projektvorlage reagieren (RC)
+# <a name="use-the-react-project-template"></a>Verwenden Sie die Projektvorlage reagieren
 
 > [!NOTE]
-> Diese Dokumentation ist nicht zur endgültigen reagieren-Projektvorlage. **Diese Dokumentation ist über dem Release Candidate von der Vorlage reagieren.** Wir hoffen, dass die endgültige Produktversion in frühen 2018 ausgeliefert werden.
+> Diese Dokumentation ist nicht zur reagieren-Projektvorlage in ASP.NET Core 2.0 enthalten. Es geht die neuere reagieren-Vorlage, die Sie manuell aktualisieren können. Die Vorlage wird standardmäßig in ASP.NET Core 2.1 enthalten.
 
 Die aktualisierte reagieren-Projektvorlage stellt einen nützlichen Startpunkt für ASP.NET Core-apps mit reagieren und [erstellen-reagieren-app](https://github.com/facebookincubator/create-react-app) Konventionen (CRA), um eine umfassende, clientseitige Benutzeroberfläche (UI) zu implementieren.
 
@@ -28,7 +28,7 @@ Die Vorlage ist äquivalent zu erstellen, sowohl ein ASP.NET Core-Projekt fungie
 
 ## <a name="create-a-new-app"></a>Eine neue app erstellen
 
-Um zu beginnen, stellen Sie sicher haben Sie [installiert die aktualisierte reagieren-Projektvorlage](xref:spa/index#installation). Diese Anweisungen nicht gelten, für die vorherigen reagieren-Projektvorlage, die in der .NET Core enthalten 2.0.x SDK.
+Wenn ASP.NET Core 2.0 verwenden, stellen Sie sicher, Sie haben [installiert die aktualisierte reagieren-Projektvorlage](xref:spa/index#installation). Wenn Sie ASP.NET Core 2.1 installiert ist, besteht keine Notwendigkeit, es zu installieren.
 
 Erstellen eines neuen Projekts von einer Eingabeaufforderung mit dem Befehl `dotnet new react` in ein leeres Verzeichnis. Die folgenden Befehle erstellen z. B. die app in eine *Meine-neuen-app* Verzeichnis und wechseln Sie in diesem Verzeichnis:
 

@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Konfigurieren der Windows-Authentifizierung in einer ASP.NET Core-app
 
-Durch [Steve Smith](https://ardalis.com) und [Scott Addie](https://twitter.com/Scott_Addie)
+Von [Steve Smith](https://ardalis.com) und [Scott Addie](https://twitter.com/Scott_Addie)
 
 Windows-Authentifizierung konfiguriert werden kann, für ASP.NET Core-apps, die mit IIS gehostet [HTTP.sys](xref:fundamentals/servers/httpsys), oder [WebListener](xref:fundamentals/servers/weblistener).
 
@@ -111,6 +111,9 @@ Wenn Windows-Authentifizierung aktiviert ist und der anonyme Zugriff deaktiviert
 Wenn Windows-Authentifizierung und anonymem Zugriff aktiviert sind, verwenden die `[Authorize]` und `[AllowAnonymous]` Attribute. Die `[Authorize]` Attribut können Sie Teile der app zu sichern die Windows-Authentifizierung tatsächlich benötigen. Die `[AllowAnonymous]` -Attribut überschreibt `[Authorize]` -Attribut Auslastung in apps, die anonymen Zugriff zu ermöglichen. Finden Sie unter [einfache Autorisierung](xref:security/authorization/simple) für Nutzungsdetails Attribut.
 
 In ASP.NET Core 2.x, die `[Authorize]` Attribut erfordert zusätzliche Konfigurationsschritte in *Startup.cs* , fordern Sie anonyme Anforderungen für die Windows-Authentifizierung. Die empfohlene Konfiguration variiert leicht basierend auf dem Webserver verwendet wird.
+
+> [!NOTE]
+> Standardmäßig werden Benutzer, die Autorisierung zum Zugriff auf einer Seite fehlt ein leeres Dokument angezeigt. Die [StatusCodePages Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) kann konfiguriert werden, um Benutzern eine Vereinfachung der Nutzung von "Zugriff verweigert" bereitstellen.
 
 #### <a name="iis"></a>IIS
 

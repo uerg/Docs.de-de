@@ -1,34 +1,34 @@
 ---
 title: Verwenden Sie die Angular-Projektvorlage
 author: SteveSandersonMS
-description: "Informationen Sie zum Einstieg in ASP.NET Core Einzelseiten-Anwendung (SPA) Release Candidate-Projektvorlage für Angular und Angular CLI."
+description: "Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für Angular und Angular CLI."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Verwenden Sie die Angular-Projektvorlage (RC)
+# <a name="use-the-angular-project-template"></a>Verwenden Sie die Angular-Projektvorlage
 
 > [!NOTE]
-> Diese Dokumentation ist nicht zur endgültigen Angular-Projektvorlage. **Diese Dokumentation ist über dem Release Candidate von Angular-Vorlage.** Wir hoffen, dass die endgültige Produktversion in frühen 2018 ausgeliefert werden.
+> Diese Dokumentation ist nicht zur Angular-Projektvorlage in ASP.NET Core 2.0 enthalten. Es geht die neuere Angular-Vorlage, die auf die Sie manuell aktualisieren können. Die Vorlage wird standardmäßig in ASP.NET Core 2.1 enthalten.
 
-Die aktualisierte Angular-Projektvorlage stellt einen nützlichen Startpunkt für ASP.NET Core-apps mit Angular 5 und die Angular CLI eine reichhaltige, clientseitige Benutzeroberfläche (UI) zu implementieren.
+Die aktualisierte Angular-Projektvorlage stellt einen nützlichen Startpunkt für ASP.NET Core-apps mit Angular und Angular CLI eine reichhaltige, clientseitige Benutzeroberfläche (UI) zu implementieren.
 
 Die Vorlage entspricht dem Erstellen eines ASP.NET Core-Projekts zu fungieren als ein API-Back-End- und ein Angular CLI-Projekt fungiert als eine Benutzeroberfläche zur Verfügung. Die Vorlage bietet die Vorteile des Hostens beide Projekttypen in einem einzelnen app-Projekt. Folglich kann das app-Projekt erstellt und als einzelne Einheit veröffentlicht werden.
 
 ## <a name="create-a-new-app"></a>Eine neue app erstellen
 
-Um zu beginnen, stellen Sie sicher haben Sie [installiert die aktualisierte Angular-Projektvorlage](xref:spa/index#installation). Diese Anweisungen nicht gelten, für die vorherigen Angular-Projektvorlage, die in der .NET Core enthalten 2.0.x SDK.
+Wenn ASP.NET Core 2.0 verwenden, stellen Sie sicher, Sie haben [installiert die aktualisierte Angular-Projektvorlage](xref:spa/index#installation). Wenn Sie ASP.NET Core 2.1 installiert ist, besteht keine Notwendigkeit, es zu installieren.
 
 Erstellen eines neuen Projekts von einer Eingabeaufforderung mit dem Befehl `dotnet new angular` in ein leeres Verzeichnis. Die folgenden Befehle erstellen z. B. die app in eine *Meine-neuen-app* Verzeichnis und wechseln Sie in diesem Verzeichnis:
 
