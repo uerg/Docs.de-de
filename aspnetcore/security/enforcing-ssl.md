@@ -25,10 +25,10 @@ Dieses Dokument zeigt, wie Sie:
 - Alle HTTP-Anforderungen auf HTTPS umleiten.
 
 > [!WARNING]
-> Verwenden Sie **nicht** `RequireHttpsAttribute` auf Web-APIs, an welche Sie vertraulichen Informationen senden. `RequireHttpsAttribute`verwendet HTTP-Statuscodes um Browser von HTTP an HTTPS umzuleiten. API-Clients verstehen diese möglicherweise nicht oder führen keine Umleitung von HTTP auf HTTPS durch. Dies kann dazu führen, dass solche Clients Daten unverschlüsselt mittels HTTP versenden. Web-APIs sollten daher entweder:
+> Verwenden Sie `RequireHttpsAttribute` **nicht** bei Web-APIs, die vertrauliche Informationen entgegennehmen. `RequireHttpsAttribute` leitet Browsers per HTTP-Statuscode von HTTP an HTTPS weiter. API-Clients verstehen diese Codes möglicherweise nicht, oder Sie führen keine Weiterleitung von HTTP an HTTPS durch. Dies kann dazu führen, dass solche Clients Daten unverschlüsselt mittels HTTP versenden. Web-APIs sollten daher entweder:
 >
->* Nicht auf das HTTP-Protokoll eingehen.
->* Die Verbindung mit dem Statuscode 400 (Ungültige Anforderung) schließen, und die Anforderung nicht verarbeiten.
+>* nicht auf HTTP lauschen oder
+>* die Verbindung mit dem Statuscode 400 („Ungültige Anforderung“) schließen und die Anforderung nicht verarbeiten.
 
 ## <a name="require-https"></a>HTTPS erforderlich
 
@@ -42,4 +42,4 @@ Die vorherige hervorgehobene Code erfordert, verwenden alle Anforderungen `HTTPS
 
 Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting).
 
-Verwendung von HTTPS Global (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Anwenden der `[RequireHttps]` Attribut für alle Controller/Razor-Seiten wird nicht so sicher wie die Verwendung von HTTPS global betrachtet. Sie können nicht gewährleisten die `[RequireHttps]` -Attribut angewendet wird, wenn neue Domänencontroller und Razor-Seiten hinzugefügt werden
+Das globale Erzwingen der Verwendung von HTTPS (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Dieser Ansatz gilt im Vergleich zur Anwendung des `[RequireHttps]`-Attributs auf alle Controller und Razor Pages als sicherer, denn Sie können nicht gewährleisten, dass das `[RequireHttps]`-Attribut angewendet wird, wenn neue Controller oder Razor Pages hinzugefügt werden.
