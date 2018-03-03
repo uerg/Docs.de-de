@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="adding-a-new-field"></a>Hinzufügen eines neuen Felds
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
@@ -76,7 +76,7 @@ Auf diese Weise fügt die folgende Anweisung:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> Mit diesem Code wird davon ausgegangen, dass Titiles eindeutig sind. Wenn Sie einen doppelten Titel manuell hinzufügen, erhalten Sie die folgende Ausnahme das nächste Mal, die Sie eine Migration ausführen.   
+> Mit diesem Code wird davon ausgegangen, dass der Titel eindeutig sind. Wenn Sie einen doppelten Titel manuell hinzufügen, erhalten Sie die folgende Ausnahme das nächste Mal, die Sie eine Migration ausführen.   
 >   
 >  *Die Sequenz enthält mehr als ein element*  
 >   
@@ -144,7 +144,7 @@ Dieser Fehler gemeldet wird, da die aktualisierte `Movie` Modellklasse in der An
 
 Es gibt mehrere Vorgehensweisen zum Beheben des Fehlers:
 
-1. Lassen Sie die Datenbank von Entity Framework automatisch löschen und basierend auf dem neuen Modellklassenschema neu erstellen. Dieser Ansatz ist früh im Entwicklungszyklus sehr praktisch, wenn die aktive Entwicklung in einer Testdatenbank erfolgt. Er ermöglicht Ihnen, das Modell und das Datenbankschema schnell weiterzuentwickeln. Der Nachteil ist jedoch, dass Sie in der Datenbank vorhandene Daten verloren gehen – damit Sie *nicht* dieser Ansatz in einer Produktionsdatenbank verwendet werden soll. Automatisch Ausgangswert für eine Datenbank mit Testdaten mit einem Initialisierer ist häufig eine produktive Weg zur Entwicklung einer Anwendung. Weitere Informationen zu Entity Framework Database Initialisierer, finden Sie unter [ASP.NET MVC/Entity Framework-Lernprogramm](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+1. Lassen Sie die Datenbank von Entity Framework automatisch löschen und basierend auf dem neuen Modellklassenschema neu erstellen. Dieser Ansatz ist früh im Entwicklungszyklus sehr praktisch, wenn die aktive Entwicklung in einer Testdatenbank erfolgt. Er ermöglicht Ihnen, das Modell und das Datenbankschema schnell weiterzuentwickeln. Der Nachteil ist jedoch, dass Sie in der Datenbank vorhandene Daten verloren gehen – damit Sie *nicht* dieser Ansatz in einer Produktionsdatenbank verwendet werden soll. Das Verwenden eines Initialisierers zum automatischen Ausführen eines Seedings für eine Datenbank mit Testdaten ist häufig eine produktive Möglichkeit zum Entwickeln einer Anwendung. Weitere Informationen zu Entity Framework Database Initialisierer, finden Sie unter [ASP.NET MVC/Entity Framework-Lernprogramm](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 2. Ändern Sie das Schema der vorhandenen Datenbank explizit so, dass es mit den Modellklassen übereinstimmt. Der Vorteil dieses Ansatzes ist, dass Sie Ihre Daten behalten. Sie können diese Änderung entweder manuell oder durch Erstellen eines Änderungsskripts für die Datenbank vornehmen.
 3. Verwenden Sie Code First-Migrationen, um das Datenbankschema zu aktualisieren.
 

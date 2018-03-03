@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 5032c9f07af4f9291b44538cecbc310bfabc8e02
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Verwenden IIS-Module mit ASP.NET Core
 
@@ -31,28 +31,28 @@ ASP.NET Core-apps werden in einer reverse-Proxy-Konfiguration von IIS gehostet. 
 | **Client-Zertifizierung Clientzertifikatzuordnung-Authentifizierung**<br>`CertificateMappingAuthenticationModule` | Ja | |
 | **CGI**<br>`CgiModule` | Nein | |
 | **Überprüfung der Konfiguration**<br>`ConfigurationValidationModule` | Ja | |
-| HTTP-Fehler<br>`CustomErrorModule` | Nein | [Status Code Seiten Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **HTTP-Fehler**<br>`CustomErrorModule` | Nein | [Status Code Seiten Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) |
 | **Benutzerdefinierte Protokollierung**<br>`CustomLoggingModule` | Ja | |
-| Standarddokument<br>`DefaultDocumentModule` | Nein | [Standardmäßig Dateien Middleware](xref:fundamentals/static-files#serve-a-default-document) |
+| **Standarddokument**<br>`DefaultDocumentModule` | Nein | [Standardmäßig Dateien Middleware](xref:fundamentals/static-files#serve-a-default-document) |
 | **Die Digest-Authentifizierung**<br>`DigestAuthenticationModule` | Ja | |
-| Verzeichnissuche<br>`DirectoryListingModule` | Nein | [Verzeichnis durchsuchen Middleware](xref:fundamentals/static-files#enable-directory-browsing) |
+| **Verzeichnissuche**<br>`DirectoryListingModule` | Nein | [Verzeichnis durchsuchen Middleware](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Die dynamische Komprimierung**<br>`DynamicCompressionModule` | Ja | [Antworten komprimierende Middleware](xref:performance/response-compression) |
 | **Ablaufverfolgung**<br>`FailedRequestsTracingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index#the-tracesource-provider) |
 | **Zwischenspeicherung von Dateien**<br>`FileCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
 | **HTTP-Caching**<br>`HttpCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
-| HTTP-Protokollierung<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+| **HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 | **HTTP-Umleitung**<br>`HttpRedirectionModule` | Ja | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
 | **IIS-Clientzertifikatzuordnung-Authentifizierung**<br>`IISCertificateMappingAuthenticationModule` | Ja | |
 | **IP- und Domäneneinschränkungen**<br>`IpRestrictionModule` | Ja | |
 | **ISAPI-Filter**<br>`IsapiFilterModule` | Ja | [Middleware](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule` | Ja | [Middleware](xref:fundamentals/middleware/index) |
 | **Protokollunterstützung**<br>`ProtocolSupportModule` | Ja | |
-| Anforderungsfilterung<br>`RequestFilteringModule` | Ja | [URL umschreiben Middleware `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
-| Anforderungsüberwachung<br>`RequestMonitorModule` | Ja | |
+| **Anforderungsfilterung**<br>`RequestFilteringModule` | Ja | [URL umschreiben Middleware `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Anforderungsüberwachung**<br>`RequestMonitorModule` | Ja | |
 | **URLs**<br>`RewriteModule` | Ja &#8224; | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
 | **Serverseitige Include-Dateien**<br>`ServerSideIncludeModule` | Nein | |
 | **Komprimierung statischer**<br>`StaticCompressionModule` | Nein | [Antworten komprimierende Middleware](xref:performance/response-compression) |
-| Statischer Inhalt<br>`StaticFileModule` | Nein | [Middleware für statische Dateien](xref:fundamentals/static-files) |
+| **Statischer Inhalt**<br>`StaticFileModule` | Nein | [Middleware für statische Dateien](xref:fundamentals/static-files) |
 | **Das Zwischenspeichern von Token**<br>`TokenCacheModule` | Ja | |
 | **URI-Cache**<br>`UriCacheModule` | Ja | |
 | **URL-Autorisierung**<br>`UrlAuthorizationModule` | Ja | [ASP.NET Core Identität](xref:security/authentication/identity) |
@@ -159,6 +159,7 @@ Nur Module zum Ausführen einer app ASP.NET Core erforderlich sind, die anonyme 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Hosten unter Windows mit IIS](xref:host-and-deploy/iis/index)
-* [Übersicht über die IIS-Module](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Einführung in IIS-Architekturen: Module in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [Übersicht über die IIS-Module](/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Anpassen von IIS 7.0-Rollen und Module](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)

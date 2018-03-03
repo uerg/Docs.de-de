@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9d7cbb9505afb6461ba4c2087d57e9ea0da38ede
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Authentifizierung und Autorisierung in ASP.NET Web-API
 ====================
@@ -80,7 +80,7 @@ Autorisierung weiter unten in der Pipeline näher an den Controller. Mit der Sie
 
 Web-API bietet eine integrierte Autorisierungsfilter [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Dieser Filter überprüft, ob der Benutzer authentifiziert ist. Wenn dies nicht der Fall ist, wird die HTTP-Statuscode 401 (nicht autorisiert), ohne Aufrufen der Aktion zurückgegeben.
 
-Sie können den Filter, die Global auf Controllerebene, oder klicken Sie auf der Ebene der Inidivual Aktionen anwenden.
+Sie können den Filter, die Global auf Controllerebene, oder klicken Sie auf der Ebene der einzelnen Aktionen anwenden.
 
 **Global**: zum Einschränken des Zugriffs für alle Web-API-Controller Hinzufügen der **AuthorizeAttribute** Filter zur globalen Filterliste:
 

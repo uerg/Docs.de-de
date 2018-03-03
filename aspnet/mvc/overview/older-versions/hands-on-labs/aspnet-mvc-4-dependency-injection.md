@@ -12,21 +12,22 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c735bbdafe4b8f0423abb6bacd076f173a1be9d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4-Abhängigkeitsinjektion
-====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4-Abhängigkeitsinjektion
+
+Durch [Web Lager Team](https://twitter.com/webcamps)
+
+[Herunterladen von Web-Lager Training Kit](https://aka.ms/webcamps-training-kit)
+
+Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC** und **ASP.NET MVC 4 filtert**. Wenn Sie nicht verwendet haben **ASP.NET MVC 4 filtert** vorher, empfehlen wir Ihnen, durchlaufen **Aktionsfilter in ASP.NET MVC benutzerdefinierte** praktische Übungseinheit.
 
 > [!NOTE]
-> Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC** und **ASP.NET MVC 4 filtert**. Wenn Sie nicht verwendet haben **ASP.NET MVC 4 filtert** vorher, empfehlen wir Ihnen, durchlaufen **Aktionsfilter in ASP.NET MVC benutzerdefinierte** praktische Übungseinheit.
-> 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit zur Nächten enthalten [Versionen von Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für diese Übung finden Sie unter [Abhängigkeitsinjektion in ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection).
 
 In **Objekt Oriented Programming** Paradigma Objekten arbeiten zusammen in einem Modell Zusammenarbeit "Mitwirkende" und Consumer vorliegen. Natürlich generiert diese Kommunikationsmodell Abhängigkeiten zwischen Objekten und Komponenten, die schwer zu verwalten, wenn die Komplexität erhöht wird.
 

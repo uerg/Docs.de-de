@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-react-project-template"></a>Verwenden Sie die Projektvorlage reagieren
 
@@ -49,9 +49,9 @@ Während des Erstellungsprozesses stellt Npm Abhängigkeiten bei der ersten Ausf
 
 Sicherzustellen, dass Sie über eine Umgebungsvariable namens `ASPNETCORE_Environment` mit dem Wert des `Development`. Führen Sie für Windows (in nicht-PowerShell-Anweisungen), `SET ASPNETCORE_Environment=Development`. Führen Sie unter Linux oder MacOS `export ASPNETCORE_Environment=Development`.
 
-Führen Sie `dotnet build` um zu überprüfen, ob die app ordnungsgemäß erstellt. Bei der ersten Ausführung stellt während des Erstellungsprozesses Npm Abhängigkeiten, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
+Führen Sie [Dotnet Build](/dotnet/core/tools/dotnet-build) um zu überprüfen, ob die app ordnungsgemäß erstellt. Bei der ersten Ausführung stellt während des Erstellungsprozesses Npm Abhängigkeiten, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
 
-Führen Sie `dotnet run` für den Anwendungsstart.
+Führen Sie [Dotnet ausführen](/dotnet/core/tools/dotnet-run) für den Anwendungsstart.
 
 ---
 

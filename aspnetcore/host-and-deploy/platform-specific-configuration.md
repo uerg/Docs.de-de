@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/platform-specific-configuration
-ms.openlocfilehash: 2663cd1e05be9e8695966df959082e6e574d0b4a
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: c36b8acd6f7fcb4e4d11e43013ccaf5ca6d1b0ab
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-app-features-using-a-platform-specific-configuration-in-aspnet-core"></a>Hinzufügen von app-Funktionen, die mit einer Konfiguration, plattformspezifische in ASP.NET Core
 
@@ -30,7 +30,7 @@ Um zu ermitteln, ob von der app oder von Bibliotheken hosting Startassemblys gel
 
 Die Beispiel-app lautet der [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) in einem `string` array erstellt und das Ergebnis wird in der app-Indexseite angezeigt:
 
-[!code-csharp[Main](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
+[!code-csharp[](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
 
 ## <a name="disable-automatic-loading-of-hosting-startup-assemblies"></a>Deaktivieren Sie automatische Laden von hosting Autostart-Assemblys
 
@@ -49,19 +49,19 @@ Deaktivieren hosting Startassemblys, die mit der Einstellung oder Umgebung Hostv
 
 Ein `IHostingStartup` Funktion wird als eine Assembly basierend auf einer Konsolen-app ohne einen Einstiegspunkt bereitgestellt. Die Assemblyverweise der [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/) Paket:
 
-[!code-xml[Main](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
+[!code-xml[](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
 
 Ein [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) Attribut identifiziert eine Klasse als eine Implementierung der `IHostingStartup` für das Laden und ausführen, die beim Erstellen der [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost). Im folgenden Beispiel wird der Namespace `StartupFeature`, und die Klasse ist `StartupFeatureHostingStartup`:
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
 
 Eine Klasse implementiert `IHostingStartup`. Der Klasse [konfigurieren](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) -Methode verwendet ein [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) Funktionen eine app hinzufügen:
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
 
 Beim Erstellen eine `IHostingStartup` -Projekt die Abhängigkeitsdatei (*\*. deps.json*) legt die `runtime` Speicherort der Assembly, die die *"bin"* Ordner:
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
 
 Es wird nur ein Teil der Datei angezeigt. Der Name der Assembly im Beispiel wird `StartupFeature`.
 
@@ -69,7 +69,7 @@ Es wird nur ein Teil der Datei angezeigt. Der Name der Assembly im Beispiel wird
 
 Die Common Language Runtime-Speicherort angegeben, der  *\*. deps.json* Datei. Aktiviert die Funktion der `runtime` Element muss den Speicherort des Features Common Language Runtime-Assembly angeben. Präfix der `runtime` Speicherort mit `lib/netcoreapp2.0/`:
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
 
 In der Beispiel-app, Änderung von der  *\*. deps.json* Datei erfolgt durch eine [PowerShell](/powershell/scripting/powershell-scripting) Skript. Das PowerShell-Skript wird automatisch durch einen Build-Ziel in der Projektdatei ausgelöst.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Einführung in das Verwenden von Gulp in ASP.NET Core 
 
@@ -204,7 +204,7 @@ Die Bindungen Sie einrichten, mit **Taskausführungs-Explorer** befinden sich in
 </Target>
 ```
 
-Nachdem das clean-Aufgabe ausgeführt wird, wenn Sie das Projekt in Visual Studio oder über eine Eingabeaufforderung Ausführen der `dotnet run` Befehl (führen Sie `npm install` erste).
+Nachdem das clean-Aufgabe ausgeführt wird, wenn Sie das Projekt in Visual Studio oder über eine Eingabeaufforderung Ausführen der [Dotnet ausführen](/dotnet/core/tools/dotnet-run) Befehl (führen Sie `npm install` erste).
 
 ## <a name="defining-and-running-a-new-task"></a>Definieren und Ausführen eines neuen Tasks
 

@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -91,7 +91,7 @@ Die [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheA
 > [!WARNING]
 > Deaktivieren Sie das Zwischenspeichern für Inhalte, die Informationen für authentifizierte Clients enthält. Zwischenspeichern sollten nur aktiviert werden, für Inhalte, die nicht ändern, die auf Grundlage eines Benutzers Identität oder gibt an, ob ein Benutzer angemeldet ist.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) gespeicherten Antwort von den Werten der angegebenen Liste der Abfrageschlüssel variiert. Wenn ein einzelner Wert `*` angegeben wird, hängt von die Middleware Antworten von allen anfordern Abfragezeichenfolgen-Parameter. `VaryByQueryKeys`erfordert ASP.NET Core 1.1 oder höher.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) gespeicherten Antwort von den Werten der angegebenen Liste der Abfrageschlüssel variiert. Wenn ein einzelner Wert `*` angegeben wird, hängt von die Middleware Antworten von allen anfordern Abfragezeichenfolgen-Parameter. `VaryByQueryKeys` erfordert ASP.NET Core 1.1 oder höher.
 
 Die Antwort zwischenspeichern Middleware muss aktiviert sein, zum Festlegen der `VaryByQueryKeys` Eigenschaft; andernfalls wird eine Laufzeitausnahme ausgelöst. Es gibt kein entsprechenden HTTP-Header für die `VaryByQueryKeys` Eigenschaft. Die Eigenschaft ist eine HTTP-Funktion, die von der Antwort zwischenspeichern Middleware verarbeitet. Für die Middleware, die eine zwischengespeicherte Antwort dient müssen der Abfragezeichenfolge und der Wert der Abfragezeichenfolge eine frühere Anforderung wieder übereinstimmen. Betrachten Sie beispielsweise die Sequenz von Anforderungen und Ergebnissen, die in der folgenden Tabelle gezeigt.
 
@@ -113,7 +113,7 @@ Die `ResponseCacheAttribute` dient zum Erstellen und konfigurieren Sie (über `I
 
 Dieser Header wird nur geschrieben, wenn die `VaryByHeader` festgelegt wird. Es wird festgelegt, um die `Vary` den Wert der Eigenschaft. Das folgende Beispiel verwendet die `VaryByHeader` Eigenschaft:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 Sie können die Antwortheadern mit Ihrem Browser Netzwerktools anzeigen. Die folgende Abbildung zeigt die Ausgabe auf Edge F12 der **Netzwerk** Registerkarte, wenn die `About2` Aktionsmethode aktualisiert wird:
 
@@ -121,7 +121,7 @@ Sie können die Antwortheadern mit Ihrem Browser Netzwerktools anzeigen. Die fol
 
 ### <a name="nostore-and-locationnone"></a>NoStore und Location.None
 
-`NoStore`überschreibt die meisten anderen Eigenschaften. Wenn diese Eigenschaft festgelegt wird, um `true`, `Cache-Control` Header wird festgelegt, um `no-store`. Wenn `Location` festgelegt ist, um `None`:
+`NoStore` überschreibt die meisten anderen Eigenschaften. Wenn diese Eigenschaft festgelegt wird, um `true`, `Cache-Control` Header wird festgelegt, um `no-store`. Wenn `Location` festgelegt ist, um `None`:
 
 * Für `Cache-Control` ist `no-store,no-cache` festgelegt.
 * Für `Pragma` ist `no-cache` festgelegt.
@@ -130,7 +130,7 @@ Wenn `NoStore` ist `false` und `Location` ist `None`, `Cache-Control` und `Pragm
 
 Legen Sie Sie in der Regel `NoStore` auf `true` auf Fehlerseiten. Zum Beispiel:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Daraus ergibt sich die folgenden Header:
 
@@ -148,7 +148,7 @@ So aktivieren Sie das Zwischenspeichern, `Duration` muss auf einen positiven Wer
 
 Im folgenden ein Beispiel für die Header erstellt wird, durch Festlegen von `Duration` und lassen die Standardeinstellung `Location` Wert:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Dies erzeugt die folgende Kopfzeile:
 
@@ -162,11 +162,11 @@ Anstelle von duplizieren `ResponseCache` Einstellungen auf viele Aktion Attribut
 
 Einrichten von ein Cacheprofil:
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 Verweisen auf ein Cacheprofil aus:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 Die `ResponseCache` Attribut kann auf Aktionen (Methoden) und auf Domänencontrollern (Klassen) angewendet werden. Methodenebene Attribute überschreiben die Attribute auf Klassenebene festgelegten Einstellungen.
 

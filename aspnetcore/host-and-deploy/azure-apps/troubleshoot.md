@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Problembehandlung bei ASP.NET Core in Azure App Service
 
 Von [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Dieser Artikel enthält Anweisungen für eine ASP.NET Core Diagnostizieren von app-Start-Problem mit Azure App Service-Diagnosetools. Weitere Hinweise zur Fehlerbehebung, finden Sie unter [Übersicht über die Azure App Service](/azure/app-service/app-service-diagnostics) und [Vorgehensweise: Überwachen von Apps in Azure App Service](/azure/app-service/web-sites-monitor) in der Azure-Dokumentation.
 
@@ -96,14 +98,14 @@ Die ASP.NET Core-Modul "stdout" Protokolldatensätze häufig nützlich, Fehlerme
 1. Überprüfen Sie die **"geändert"** Spalte, und wählen Sie das Stiftsymbol so bearbeiten Sie die "stdout" Melden Sie sich mit dem Datum der letzten Änderung.
 1. Wenn die Protokolldatei geöffnet wird, wird der Fehler angezeigt.
 
-**Wichtig!** Deaktivieren Sie "stdout" protokollieren, wenn die Problembehandlung abgeschlossen ist.
+**Wichtig** Deaktivieren Sie "stdout" protokollieren, wenn die Problembehandlung abgeschlossen ist.
 
 1. In der Kudu **Diagnostics-Konsole**, kehren Sie zurück auf den Pfad **Website** > **"Wwwroot"** offengelegt der *"Web.config"* Datei. Öffnen der **"Web.config"** Datei erneut, indem Sie das Stiftsymbol auswählen.
 1. Legen Sie **StdoutLogEnabled** auf `false`.
 1. Wählen Sie **speichern** zum Speichern der Datei.
 
 > [!WARNING]
-> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Es ist, gilt keine Beschränkung für die Protokolldateigröße oder die Anzahl der erstellten Protokolldateien.
+> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt.
 >
 > Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
 
@@ -158,7 +160,7 @@ Fahren Sie mit der diagnoseprotokollierung zu aktivieren:
 1. Stellen Sie eine Anforderung an die app an.
 1. In den Protokolldaten Stream wird die Ursache des Fehlers angegeben.
 
-**Wichtig!** Achten Sie darauf, deaktivieren Sie die Protokollierung "stdout", wenn die Problembehandlung abgeschlossen ist. Lesen Sie die Anweisungen in der [ASP.NET Core-Modul "stdout" Log](#aspnet-core-module-stdout-log) Abschnitt.
+**Wichtig** Achten Sie darauf, deaktivieren Sie die Protokollierung "stdout", wenn die Problembehandlung abgeschlossen ist. Lesen Sie die Anweisungen in der [ASP.NET Core-Modul "stdout" Log](#aspnet-core-module-stdout-log) Abschnitt.
 
 So zeigen Sie die Ablaufverfolgungsprotokolle für Anforderungsfehler (FREB-Protokolle) an:
 
@@ -170,7 +172,7 @@ Finden Sie unter [Fehler Anforderung verfolgt die aktivieren diagnoseprotokollie
 Weitere Informationen finden Sie unter [Aktivieren der diagnoseprotokollierung für webapps in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log).
 
 > [!WARNING]
-> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Es ist, gilt keine Beschränkung für die Protokolldateigröße oder die Anzahl der erstellten Protokolldateien.
+> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt.
 >
 > Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 584dbb545c15add4401086b9160d4bf30caf41b5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37332dda794f898fb866424b38394f5d4441e166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Aufheben des Schutzes Nutzlasten, deren Schlüssel gesperrt wurden.
 
@@ -30,7 +30,7 @@ Um das Szenario ermöglicht die Nutzlasten als auch bei widerrufenen Schlüssel 
 > [!NOTE]
 > Nicht alle `IDataProtector` Instanzen umgewandelt werden können, um `IPersistedDataProtector`. Entwickler sollten verwenden C#-als-Operator oder ähnliche Laufzeitausnahmen vermieden, die durch ungültige Umwandlungen verursacht, und sie sollten darauf vorbereitet, die Groß-/Kleinschreibung Fehler entsprechend behandelt.
 
-`IPersistedDataProtector`macht die folgenden API-Oberfläche:
+`IPersistedDataProtector` macht die folgenden API-Oberfläche:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
@@ -46,4 +46,4 @@ Diese API nimmt die geschützte Nutzlast (als Bytearray) und gibt die ungeschüt
 >[!WARNING]
 > Führen Sie äußersten vorsichtig vor, bei der Übergabe von `ignoreRevocationErrors: true` auf die `DangerousUnprotect` Methode. Wenn Sie nach einer beim Aufrufen dieser Methode die `wasRevoked` Wert "true" ist der Schlüssel zum Schützen dieser Nutzlast wurde gesperrt und die Nutzlast Authentizität als fehlerverdächtig behandelt werden soll. In diesem Fall den Vorgang nur fortsetzen Sie für die Nutzlast der ungeschützt ausgeführt wird, haben einige separate Gewissheit, dass es z. B. authentisch ist, ist, dass es aus, die von einer nicht vertrauenswürdigen WebClient gesendet werden, anstatt einer geschützten Datenbank stammt.
 
-[!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]
+[!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

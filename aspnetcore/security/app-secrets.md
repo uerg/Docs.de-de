@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
 
@@ -45,11 +45,11 @@ Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklung
 
 Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **bearbeiten \<Project_name\>csproj** aus dem Kontextmenü. Fügen Sie die hervorgehobene Zeile auf die *csproj* Datei, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Mit der rechten Maustaste erneut auf des Projekts im Projektmappen-Explorer, und wählen Sie **verwalten Benutzer geheime Schlüssel** aus dem Kontextmenü. Diese Bewegung wird ein neues `UserSecretsId` Knoten innerhalb einer `PropertyGroup` von der *csproj* Datei, wie im folgenden Beispiel verdeutlicht:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Speichern der geänderten *csproj* Datei auch öffnet eine `secrets.json` Datei im Text-Editor. Ersetzen Sie den Inhalt von der `secrets.json` Datei durch den folgenden Code:
 
@@ -61,9 +61,9 @@ Speichern der geänderten *csproj* Datei auch öffnet eine `secrets.json` Datei 
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie `dotnet restore`. Die gleichen Schritte können Sie um das für die Befehlszeile mit Schlüssel-Manager-Tool zu installieren.
+Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie [Dotnet Wiederherstellung](/dotnet/core/tools/dotnet-restore). Die gleichen Schritte können Sie um das für die Befehlszeile mit Schlüssel-Manager-Tool zu installieren.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Testen Sie das Schlüssel-Manager-Tool, indem Sie den folgenden Befehl ausführen:
 
@@ -80,7 +80,7 @@ Das Schlüssel-Manager-Tool verarbeitet projektspezifische Konfigurationseinstel
 
 Hinzufügen einer `UserSecretsId` für das Projekt in der *csproj* Datei:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Verwenden Sie den geheimen Schlüssel-Manager, um einen geheimen Schlüssel festzulegen. Geben Sie in einem Befehlsfenster aus dem Projektverzeichnis beispielsweise Folgendes ein:
 
@@ -100,15 +100,15 @@ Sie können auch das Tool Secret-Manager angezeigt wird, entfernen und app-Kennw
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Zugreifen auf vertrauliche Benutzerdaten über die Konfiguration
 
-Sie können die geheimen Schlüssel-Manager über das Konfigurationssystem zugreifen. Hinzufügen der `Microsoft.Extensions.Configuration.UserSecrets` Verpacken und ausführen `dotnet restore`.
+Sie können die geheimen Schlüssel-Manager über das Konfigurationssystem zugreifen. Hinzufügen der `Microsoft.Extensions.Configuration.UserSecrets` Verpacken und ausführen [Dotnet Wiederherstellung](/dotnet/core/tools/dotnet-restore).
 
 Hinzufügen der Benutzer geheime Schlüssel Konfigurationsquelle angibt, die `Startup` Methode:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 Sie können Benutzer geheime Schlüssel über den Konfigurations-API zugreifen:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>Wie funktioniert das Schlüssel-Manager-tool
 

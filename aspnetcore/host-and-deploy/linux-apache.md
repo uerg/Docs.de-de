@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 61827f456ba01ffa726f3446401156409b29111d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosten von ASP.NET Core unter Linux mit Apache
 
@@ -232,7 +232,7 @@ sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-
 
 ### <a name="configure-firewall"></a>Konfigurieren der Firewall
 
-*Firewalld* ist eine dynamische Daemon zum Verwalten der Firewall mit Unterstützung für Netzwerkzonen. Ports und paketfilterung können immer noch mit Iptables verwaltet werden. *Firewalld* sollte standardmäßig installiert werden. `yum`kann verwendet werden, um das Paket zu installieren, oder stellen Sie sicher, dass es installiert ist.
+*Firewalld* ist eine dynamische Daemon zum Verwalten der Firewall mit Unterstützung für Netzwerkzonen. Ports und paketfilterung können immer noch mit Iptables verwaltet werden. *Firewalld* sollte standardmäßig installiert werden. `yum` kann verwendet werden, um das Paket zu installieren, oder stellen Sie sicher, dass es installiert ist.
 
 ```bash
 sudo yum install firewalld -y
@@ -339,7 +339,7 @@ Fügen Sie die Zeile `Header append X-FRAME-OPTIONS "SAMEORIGIN"`. Speichern Sie
 
 #### <a name="mime-type-sniffing"></a>MIME-Typermittlung
 
-Die `X-Content-Type-Options` Header wird verhindert, dass Internet Explorer aus *MIME-Ermittlung* (einer Datei feststellen `Content-Type` vom Inhalt der Datei). Wenn der Server bestimmt die `Content-Type` Header `text/html` mit der `nosniff` -Option festgelegt, Internet Explorer rendert den Inhalt als `text/html` unabhängig vom Inhalt der Datei.
+Die `X-Content-Type-Options` Header wird verhindert, dass Internet Explorer aus *MIME-Ermittlung* (einer Datei ermitteln `Content-Type` vom Inhalt der Datei). Wenn der Server bestimmt die `Content-Type` Header `text/html` mit der `nosniff` -Option festgelegt, Internet Explorer rendert den Inhalt als `text/html` unabhängig vom Inhalt der Datei.
 
 Bearbeiten der *httpd.conf* Datei:
 
@@ -351,7 +351,7 @@ Fügen Sie die Zeile `Header set X-Content-Type-Options "nosniff"`. Speichern Si
 
 ### <a name="load-balancing"></a>Lastenausgleich 
 
-Dieses Beispiel veranschaulicht das Einrichten und Konfigurieren von Apache unter CentOS 7 und Kestrel auf demselben Instanzcomputer. Damit keine einzelne Fehlerquelle; mit *Mod_proxy_balancer* und Ändern der **VirtualHost** entschied sich für mehrere Instanzen von webapps hinter dem Proxyserver Apache verwalten.
+Dieses Beispiel veranschaulicht das Einrichten und Konfigurieren von Apache unter CentOS 7 und Kestrel auf demselben Instanzcomputer. Damit keine einzelne Fehlerquelle; mit *Mod_proxy_balancer* und Ändern der **VirtualHost** entschied sich für die Verwaltung von mehreren Instanzen von webapps hinter dem Proxyserver Apache.
 
 ```bash
 sudo yum install mod_proxy_balancer

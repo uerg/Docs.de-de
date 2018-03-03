@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
@@ -112,7 +112,7 @@ Speichert und abruft, welche Benutzer die Rollen zugewiesen sind. [Beispiel](htt
 
 Geben Sie in der Datenzugriffsklassen Code zum Ausführen von Datenvorgängen für die Dauerhaftigkeit. Beispielsweise in einen benutzerdefinierten Anbieter möglicherweise, müssen Sie den folgenden Code zum Erstellen eines neuen Benutzers in der *speichern* Klasse:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 Die Implementierungslogik zum Erstellen des Benutzers befindet sich in der ``_usersTable.CreateAsync`` unten gezeigte Methode.
 
@@ -133,7 +133,7 @@ Erstellen Sie eine `UserStore` -Klasse, die die Methoden für alle Vorgänge fü
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
 - IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- IUserSecurityStampStore<!-- make these all links and remove / -->
+- IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore
@@ -145,7 +145,7 @@ Die optionale Schnittstellen erben von `IUserStore`. Sehen Sie eine teilweise im
 
 Innerhalb der `UserStore` -Klasse, verwenden Sie die Access-Datenklassen, die Sie erstellt haben, um Vorgänge auszuführen. Diese werden mithilfe der Abhängigkeitsinjektion übergeben. Beispielsweise ist in SQL Server mit Dapper Implementierung der `UserStore` -Klasse verfügt über die `CreateAsync` Methode, die eine Instanz der verwendet `DapperUsersTable` , einen neuen Datensatz einzufügen:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen implementiert werden, wenn Benutzerspeicher anpassen
 
@@ -196,7 +196,7 @@ Beim Implementieren eines Rollenanbieters für den Speicher können Sie eine ben
 
 Im folgenden finden eine Beispiel-rollenklasse:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Anpassen der rollenspeicher
 

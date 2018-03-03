@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -128,6 +128,12 @@ Im folgenden Beispiel `aspNetCore` Element konfiguriert `stdout` Protokollierung
 ```
 
 Finden Sie unter [mit der Datei "Web.config"](#configuration-with-webconfig) ein Beispiel für die `aspNetCore` Element in der *"Web.config"* Datei.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>Die Proxykonfiguration verwendet das HTTP-Protokoll und ein Paarbildungstoken
+
+Der Proxy zwischen dem ASP.NET Core-Modul und Kestrel erstellten verwendet das HTTP-Protokoll. Mithilfe von HTTP ist zur Optimierung der Leistung, abgewickelt der Datenverkehr zwischen dem Modul und Kestrel für einen Loopback-Adresse aus der Netzwerkschnittstelle. Es ist kein Risiko, dass Lauschangriffe des Datenverkehrs zwischen dem Modul und Kestrel von einem anderen Speicherort aus dem Server.
+
+Ein Paarbildungstoken wird verwendet, um sicherzustellen, dass die von Kestrel empfangenen Anfragen von IIS über einen Proxy gesendet wurden und nicht von einer anderen Quelle stammen. Ereignispaarbildung Token erstellt und in einer Umgebungsvariablen festgelegt (`ASPNETCORE_TOKEN`) durch das Modul. Das Paarbildungstoken ist auch bei jeder Proxyanforderung in einem Header (`MSAspNetCoreToken`) festgelegt. IIS-Middleware überprüft jede erhaltene Anforderung, um sicherzustellen, dass der Headerwert des Paarbildungstokens dem Wert der Umgebungsvariablen entspricht. Wenn die Tokenwerte nicht übereinstimmen, wird die Anforderung protokolliert und abgelehnt. Die ereignispaarbildung-token-Umgebungsvariable und den Datenverkehr zwischen dem Modul und Kestrel sind nicht von einem anderen Speicherort aus dem Server zugegriffen werden kann. Wenn ein Angreifer den Wert des Paarbildungstokens nicht kennt, kann er keine Anforderungen einreichen, die die IIS-Middleware-Prüfung umgehen.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET Core-Modul mit einer IIS freigegebene Konfiguration
 

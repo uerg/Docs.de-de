@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 benutzerdefinierten Aktionsfiltern
-====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 benutzerdefinierten Aktionsfiltern
 
-> ASP.NET MVC bietet Aktionsfilter für das Ausführen von Filterlogik entweder vor oder nach eine Aktionsmethode aufgerufen wird. Aktionsfilter sind benutzerdefinierte Attribute, die bereitstellen, deklaratives Mittel für den Controller Aktionsmethoden einfügen vor und nach Abschluss der Aktion Verhalten hinzu.
-> 
-> In dieser praktischen Übungseinheit erstellen Sie eine benutzerdefinierte Aktionsfilterattribut in MvcMusicStore Lösung zum Abfangen von Anforderungen des Controllers und melden Sie sich die Aktivität von einem Standort in einer Datenbanktabelle. Sie werden können den Protokollierungsfilter von Injection Controller bzw. die Aktionsmethode hinzufügen. Schließlich wird die Protokollansicht angezeigt, die die Liste der Besucher anzeigt.
-> 
-> > [!NOTE]
-> > Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC**. Wenn Sie nicht verwendet haben **ASP.NET-MVC** vorher, empfehlen wir Ihnen, durchlaufen **ASP.NET MVC 4-Grundlagen** praktische Übungseinheit.
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
+[Herunterladen von Web-Lager Training Kit](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC bietet Aktionsfilter für das Ausführen von Filterlogik entweder vor oder nach eine Aktionsmethode aufgerufen wird. Aktionsfilter sind benutzerdefinierte Attribute, die bereitstellen, deklaratives Mittel für den Controller Aktionsmethoden einfügen vor und nach Abschluss der Aktion Verhalten hinzu.
+
+In dieser praktischen Übungseinheit erstellen Sie eine benutzerdefinierte Aktionsfilterattribut in MvcMusicStore Lösung zum Abfangen von Anforderungen des Controllers und melden Sie sich die Aktivität von einem Standort in einer Datenbanktabelle. Sie werden können den Protokollierungsfilter von Injection Controller bzw. die Aktionsmethode hinzufügen. Schließlich wird die Protokollansicht angezeigt, die die Liste der Besucher anzeigt.
+
+Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC**. Wenn Sie nicht verwendet haben **ASP.NET-MVC** vorher, empfehlen wir Ihnen, durchlaufen **ASP.NET MVC 4-Grundlagen** praktische Übungseinheit.
+
+> [!NOTE]
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit zur Nächten enthalten [Versionen von Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für diese Übung finden Sie unter [benutzerdefinierte Aktionsfilter von ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Ziele
@@ -332,7 +333,7 @@ In dieser Aufgabe aktualisieren Sie die Lösung, um den neuen Filter zu registri
 1. In **StoreController** -Klasse, entfernen Sie **[MyNewCustomActionFilter]** Attribut und der Order-Eigenschaft von **[CustomActionFilter]**. Es sollte wie folgt aussehen:
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. Open **"Global.asax"** Datei, und suchen Sie die **Anwendung\_starten** Methode. Beachten Sie, dass jede Thime die Anwendung starten wird der globalen Filter registrieren, durch den Aufruf **RegisterGlobalFilters** Methode innerhalb **FilterConfig** Klasse.
+2. Open **"Global.asax"** Datei, und suchen Sie die **Anwendung\_starten** Methode. Beachten Sie, dass bei jedem der Anwendung es Start durch Aufrufen der globalen Filter registrieren **RegisterGlobalFilters** Methode innerhalb **FilterConfig** Klasse.
 
     ![Globale Filter in Global.asax registriert](aspnet-mvc-4-custom-action-filters/_static/image10.png "globale Filter in Global.asax registriert")
 
@@ -484,12 +485,12 @@ Wenn die Anwendung durchführt, verwenden Sie SQL Server Datenbanken Sie einen S
 
     ![Client-IP-Adresse hinzufügen](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *Client-IP-Adresse hinzufügen*
+    Client-IP-Adresse hinzufügen
 3. Einmal die **IP-Clientadresse** wird zu den zulässigen IP-Adressen hinzugefügt Liste, klicken Sie auf **speichern** um die Änderungen zu bestätigen.
 
     ![Bestätigen von Änderungen](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *Bestätigen von Änderungen*
+    Bestätigen von Änderungen
 
 <a id="ApxBTask3"></a>
 

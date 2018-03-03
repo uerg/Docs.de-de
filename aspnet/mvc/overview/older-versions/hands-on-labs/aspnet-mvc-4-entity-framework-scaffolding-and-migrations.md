@@ -12,24 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 15db1589eb90739458b430c35cea38e93e3dec5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework Gerüstbau und Migrationen
-====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework Gerüstbau und Migrationen
 
-> Wenn Sie mit ASP.NET MVC 4-Controllermethoden vertraut sind, oder ein abgeschlossener der &quot;-Hilfsprogrammen, Formulare und Validierung&quot; praktische Übungseinheit, Sie sollten sich bewusst sein, dass der Großteil der Logik zum Erstellen, aktualisieren, auflisten und entfernen alle Datenentität, er wird wiederholt, zwischen der Anwendung. Nicht, um, die verdeutlichen, hat Ihr Modell mehrere Klassen zum Bearbeiten, werden Sie wahrscheinlich eine sehr viel Zeit mit dem Schreiben von Aktionsmethoden POST- und GET für jeden Vorgang Entität sowie einzelnen Ansichten ausgeben.
-> 
-> In dieser Übung erfahren Sie, wie Sie das Gerüst für ASP.NET MVC 4 verwenden, um die Baseline der Ihre Anwendung CRUD (Create, Read, Update und Delete) automatisch zu generieren. Starten eine einfache Modellklasse, und ohne eine einzige Codezeile schreiben zu müssen, erstellen Sie einen Controller, der alle CRUD-Vorgänge sowie die alle erforderlichen Ansichten enthalten soll. Nach dem Erstellen und Ausführen der einfache Lösung, müssen Sie die Anwendungsdatenbank generiert, zusammen mit der MVC-Logik und die Ansichten für die Bearbeitung von Daten.
-> 
-> Darüber hinaus erfahren Sie, wie einfach es ist mit Entity Framework Migrationen modellaktualisierungen in der gesamten Anwendung durchführen. Migrationen von Entity Framework können Sie Ihre Datenbank zu ändern, nachdem das Modell mit einfachen Schritten geändert hat. Mit allen diesen Denken Sie daran werden Sie möglicherweise zum Erstellen und Verwalten von Webanwendungen effizienter nutzen die neuesten Funktionen von ASP.NET MVC 4.
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
+[Herunterladen von Web-Lager Training Kit](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+Wenn Sie mit ASP.NET MVC 4-Controllermethoden vertraut sind, oder ein abgeschlossener der &quot;-Hilfsprogrammen, Formulare und Validierung&quot; praktische Übungseinheit, Sie sollten sich bewusst sein, dass der Großteil der Logik zum Erstellen, aktualisieren, auflisten und entfernen alle Datenentität, er wird wiederholt, zwischen der Anwendung. Nicht, um, die verdeutlichen, hat Ihr Modell mehrere Klassen zum Bearbeiten, werden Sie wahrscheinlich eine sehr viel Zeit mit dem Schreiben von Aktionsmethoden POST- und GET für jeden Vorgang Entität sowie einzelnen Ansichten ausgeben.
+
+In dieser Übung erfahren Sie, wie Sie das Gerüst für ASP.NET MVC 4 verwenden, um die Baseline der Ihre Anwendung CRUD (Create, Read, Update und Delete) automatisch zu generieren. Starten eine einfache Modellklasse, und ohne eine einzige Codezeile schreiben zu müssen, erstellen Sie einen Controller, der alle CRUD-Vorgänge sowie die alle erforderlichen Ansichten enthalten soll. Nach dem Erstellen und Ausführen der einfache Lösung, müssen Sie die Anwendungsdatenbank generiert, zusammen mit der MVC-Logik und die Ansichten für die Bearbeitung von Daten.
+
+Darüber hinaus erfahren Sie, wie einfach es ist mit Entity Framework Migrationen modellaktualisierungen in der gesamten Anwendung durchführen. Migrationen von Entity Framework können Sie Ihre Datenbank zu ändern, nachdem das Modell mit einfachen Schritten geändert hat. Mit allen diesen Denken Sie daran werden Sie möglicherweise zum Erstellen und Verwalten von Webanwendungen effizienter nutzen die neuesten Funktionen von ASP.NET MVC 4.
+
+> [!NOTE]
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit zur Nächten enthalten [Versionen von Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für diese Übung finden Sie unter [Migrationen und ASP.NET MVC 4 Entity Framework Gerüstbau](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Ziele
@@ -291,7 +293,7 @@ Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** o
 
     ![Akzeptieren der Lizenzbedingungen](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    *Akzeptieren der Lizenzbedingungen*
+    Akzeptieren der Lizenzbedingungen
 5. Warten Sie, bis der Prozess herunterladen und die Installation abgeschlossen ist.
 
     ![Installationsstatus](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
@@ -301,13 +303,13 @@ Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** o
 
     ![Installation wurde abgeschlossen](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    *Installation wurde abgeschlossen*
+    Installation wurde abgeschlossen
 7. Klicken Sie auf **beenden** Webplattform-Installer zu schließen.
 8. Um Visual Studio Express für Web zu öffnen, wechseln Sie zu der **starten** Startseite ein, und starten Sie das Schreiben von &quot; **Visual Studio Express**&quot;, klicken Sie dann auf die **Visual Studio Express für Web** Kachel.
 
     ![Visual Studio Express für Web-Kachel](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    *Visual Studio Express für Web-Kachel*
+    Visual Studio Express für Web-Kachel
 
 <a id="AppendixB"></a>
 

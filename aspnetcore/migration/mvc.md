@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 
@@ -48,17 +48,17 @@ Erstellen Sie ein neues *leere* ASP.NET Core Web-app mit dem gleichen Namen wie 
 
 * Installieren der `Microsoft.AspNetCore.Mvc` und `Microsoft.AspNetCore.StaticFiles` NuGet-Pakete.
 
-  `Microsoft.AspNetCore.Mvc`ist das ASP.NET-MVC-Framework Core. `Microsoft.AspNetCore.StaticFiles`ist der Handler für statische Dateien. Die ASP.NET-Laufzeit ist modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen (finden Sie unter [arbeiten mit statischen Dateien](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` ist das ASP.NET-MVC-Framework Core. `Microsoft.AspNetCore.StaticFiles` ist der Handler für statische Dateien. Die ASP.NET-Laufzeit ist modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen (finden Sie unter [arbeiten mit statischen Dateien](../fundamentals/static-files.md)).
 
 * Öffnen der *csproj* Datei (mit der rechten Maustaste des Projekts im **Projektmappen-Explorer** , und wählen Sie **bearbeiten WebApp1.csproj**) und fügen eine `PrepareForPublish` Ziel:
 
-  [!code-xml[Main](mvc/sample/WebApp1.csproj?range=21-23)]
+  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
 
   Die `PrepareForPublish` Ziel für den Erwerb von Client-Side-Bibliotheken über Bower erforderlich ist. Die müssen weiter unten besprochen.
 
 * Öffnen der *Startup.cs* Datei und ändern Sie den Code entsprechend der folgenden:
 
-  [!code-csharp[Main](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
 
   Die `UseStaticFiles` Erweiterungsmethode fügt Handler für statische Dateien. Wie bereits erwähnt, ist die ASP.NET-Laufzeit modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen. Die `UseMvc` Erweiterungsmethode fügt routing. Weitere Informationen finden Sie unter [Anwendungsstart](../fundamentals/startup.md) und [Routing](../fundamentals/routing.md).
 
@@ -114,7 +114,7 @@ Nun, da wir ein minimales funktionierenden ASP.NET Core-Projekt haben, beginnen 
 
 ## <a name="controllers-and-views"></a>Controller und Ansichten
 
-* Kopieren Sie jede der Methoden von ASP.NET MVC `HomeController` mit dem neuen `HomeController`. Beachten Sie, dass in ASP.NET-MVC integrierten Vorlage Controller Aktion Methodenrückgabetyp [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); in ASP.NET Core MVC die Aktionsmethoden return `IActionResult` stattdessen. `ActionResult`implementiert `IActionResult`, daher keine Notwendigkeit besteht, den Rückgabetyp der Aktionsmethoden zu ändern.
+* Kopieren Sie jede der Methoden von ASP.NET MVC `HomeController` mit dem neuen `HomeController`. Beachten Sie, dass in ASP.NET-MVC integrierten Vorlage Controller Aktion Methodenrückgabetyp [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); in ASP.NET Core MVC die Aktionsmethoden return `IActionResult` stattdessen. `ActionResult` implementiert `IActionResult`, daher keine Notwendigkeit besteht, den Rückgabetyp der Aktionsmethoden zu ändern.
 
 * Kopieren der *About.cshtml*, *Contact.cshtml*, und *Index.cshtml* Razor-Ansicht-Dateien aus dem ASP.NET MVC-Projekt dem ASP.NET Core-Projekt.
 
@@ -126,7 +126,7 @@ Nun, da wir ein minimales funktionierenden ASP.NET Core-Projekt haben, beginnen 
 
 ![Seite "Kontakte"](mvc/_static/contact-page.png)
 
-Beachten Sie die fehlende formatieren und Menüelementen aus. Wir beheben, die im nächsten Abschnitt.
+Beachten Sie die fehlende formatieren und Menüelementen aus. Dies soll im nächsten Abschnitt behoben werden.
 
 ## <a name="static-content"></a>Statischer Inhalt
 
@@ -140,7 +140,7 @@ In das neue Projekt, fügen wir Unterstützung für Bootstrap (und andere client
 
 * Hinzufügen einer [Bower](https://bower.io/) Konfigurationsdatei mit dem Namen *"bower.JSON"* in das Projektstammverzeichnis (mit der rechten Maustaste auf das Projekt, und klicken Sie dann **hinzufügen > Neues Element > Bower Konfigurationsdatei**). Hinzufügen [Bootstrap](http://getbootstrap.com/) und [jQuery](https://jquery.com/) in der Datei (siehe die folgenden hervorgehobenen Zeilen).
 
-  [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
+  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
 
 Beim Speichern der Datei herunterladen Bower automatisch die Abhängigkeiten zu den *"Wwwroot" / Lib* Ordner. Sie können die **Projektmappen-Explorer Durchsuchen** Feld, um den Pfad der Anlagen finden:
 
@@ -156,7 +156,7 @@ Finden Sie unter [Client-Side-Pakete verwalten, mit Bower](../client-side/bower.
 
 * Erstellen einer *Ansichten/freigegeben* Ordner.
 
-* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner, in des ASP.NET Core Projekts *Ansichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei bietet Namespaces für alle Dateien anzeigen und bringt in [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro). Tag-Hilfsmethoden werden in das Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
+* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner, in des ASP.NET Core Projekts  *Sichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei bietet Namespaces für alle Dateien anzeigen und bringt in [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro). Tag-Hilfsmethoden werden in das Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
 
 * Kopieren der *_Layout.cshtml* Datei aus des alten ASP.NET MVC-Projekts *Ansichten/freigegeben* Ordner, in des ASP.NET Core Projekts *Ansichten/freigegeben* Ordner.
 
@@ -187,7 +187,7 @@ Die Ersetzung Skripttags:
 
 Die aktualisierte *_Layout.cshtml* Datei wird unten gezeigt:
 
-[!code-html[Main](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
 
 Zeigen Sie die Website im Browser. Es sollte jetzt ordnungsgemäß mit den erwarteten Formatvorlagen direktes Laden.
 

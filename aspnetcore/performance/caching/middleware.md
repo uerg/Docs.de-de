@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -31,11 +31,11 @@ Um die Middleware in einem Projekt einzuschließen, fügen Sie einen Verweis auf
 
 In `ConfigureServices`, die Auflistung die Middleware hinzugefügt.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 Die app so konfigurieren, verwenden Sie die Middleware mit der `UseResponseCaching` Erweiterungsmethode, die die Middleware die Anforderungsverarbeitungspipeline hinzufügt. Die Beispiel-app Fügt eine [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) Header in die Antwort, die zwischengespeichert werden Antworten für bis zu 10 Sekunden zwischengespeichert. Das Beispiel sendet ein [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) Header so konfigurieren Sie die Middleware zum Verarbeiten einer zwischengespeicherten Antwort nur, wenn die [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) -Header der nachfolgenden Anforderungen entspricht, die der ursprünglichen Anforderung.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 Antwort zwischenspeichern Middleware werden lediglich die Reaktionen, die ein Statuscode "200 (OK)" führen. Andere Antworten, einschließlich [Fehlerseiten](xref:fundamentals/error-handling), werden von der Middleware ignoriert.
 
@@ -125,10 +125,10 @@ Beim Testen und Problembehandlung für das Verhalten beim Zwischenspeichern, mö
 * Die Anforderungsmethode muss GET oder HEAD.
 * Terminaldienste-Middleware, z. B. [Middleware für statische Dateien](xref:fundamentals/static-files), muss die Antwort vor der Antwort zwischenspeichern Middleware nicht verarbeiten.
 * Die `Authorization` Header darf nicht vorhanden sein.
-* `Cache-Control`Headerparameter müssen gültig sein, und die Antwort muss markiert sein `public` und nicht gekennzeichnet `private`.
+* `Cache-Control` Headerparameter müssen gültig sein, und die Antwort muss markiert sein `public` und nicht gekennzeichnet `private`.
 * Die `Pragma: no-cache` Header darf nicht vorhanden sein wenn die `Cache-Control` Header nicht vorhanden ist, als die `Cache-Control` Header überschreibt die `Pragma` Header, wenn vorhanden.
 * Die `Set-Cookie` Header darf nicht vorhanden sein.
-* `Vary`Headerparameter müssen gültig und nicht gleich sein `*`.
+* `Vary` Headerparameter müssen gültig und nicht gleich sein `*`.
 * Die `Content-Length` Headerwert (falls festgelegt) müssen die Größe des Antworttexts übereinstimmen.
 * Die [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) wird nicht verwendet.
 * Die Antwort muss entsprechend den Angaben von veralteten der `Expires` Header und die `max-age` und `s-maxage` cache-Anweisungen.

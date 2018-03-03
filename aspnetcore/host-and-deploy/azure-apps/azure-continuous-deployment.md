@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 78f4eed188323f2f43fafbb69d3fca9b59129ad2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Fortlaufende Bereitstellung in Azure für ASP.NET Core Visual Studio mit Git
 
 Von [Erik Reitan](https://github.com/Erikre)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Dieses Lernprogramm zeigt, wie eine ASP.NET Core-Web-app mit Visual Studio erstellen und Bereitstellen von Visual Studio nach Azure App Service mithilfe der kontinuierlichen Bereitstellung.
 

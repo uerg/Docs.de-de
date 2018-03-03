@@ -12,34 +12,32 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4-Hilfsprogrammen, Formulare und Überprüfung
-====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4-Hilfsprogrammen, Formulare und Überprüfung
 
-> In **ASP.NET MVC 4-Modellen und Datenzugriff** praktische Übungseinheit, Sie wurden laden und Anzeigen von Daten aus der Datenbank. In dieser praktischen Übungseinheit, fügen Sie auf der **Music Store** Anwendung die Möglichkeit, diese Daten zu bearbeiten.
-> 
-> Mit diesem Ziel Denken Sie daran erstellen Sie zuerst den Controller, der die Aktionen erstellen, lesen, aktualisieren und löschen (CRUD) von Alben unterstützt. Generieren Sie eine Indexansicht Vorlage nutzen ASP.NETs Gerüstbau-Funktion auf die Alben-Eigenschaften in einer HTML-Tabelle anzuzeigen. Um die Ansicht zu verbessern, fügen Sie einer benutzerdefinierten HTML-Hilfsobjekt, der eine lange Beschreibung abgeschnitten wird.
-> 
-> Danach fügen Sie, dass die bearbeiten und Erstellen von Sichten, mit denen Sie die Alben in der Datenbank mit Hilfe des Form-Elemente wie Dropdownlisten ändern.
-> 
-> Abschließend können Sie Benutzer, der ein Album löschen und auch Sie hindert sie falsche Daten validieren von Eingaben eingeben.
-> 
-> > [!NOTE]
-> > Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC**. Wenn Sie nicht verwendet haben **ASP.NET-MVC** vorher, empfehlen wir Ihnen, durchlaufen **ASP.NET MVC-Grundlagen** praktische Übungseinheit.
-> 
-> 
-> Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
-> 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
+[Herunterladen von Web-Lager Training Kit](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+In **ASP.NET MVC 4-Modellen und Datenzugriff** praktische Übungseinheit, Sie wurden laden und Anzeigen von Daten aus der Datenbank. In dieser praktischen Übungseinheit, fügen Sie auf der **Music Store** Anwendung die Möglichkeit, diese Daten zu bearbeiten.
+
+Mit diesem Ziel Denken Sie daran erstellen Sie zuerst den Controller, der die Aktionen erstellen, lesen, aktualisieren und löschen (CRUD) von Alben unterstützt. Generieren Sie eine Indexansicht Vorlage nutzen ASP.NETs Gerüstbau-Funktion auf die Alben-Eigenschaften in einer HTML-Tabelle anzuzeigen. Um die Ansicht zu verbessern, fügen Sie einer benutzerdefinierten HTML-Hilfsobjekt, der eine lange Beschreibung abgeschnitten wird.
+
+Danach fügen Sie, dass die bearbeiten und Erstellen von Sichten, mit denen Sie die Alben in der Datenbank mit Hilfe des Form-Elemente wie Dropdownlisten ändern.
+
+Abschließend können Sie Benutzer, der ein Album löschen und auch Sie hindert sie falsche Daten validieren von Eingaben eingeben.
+
+Diese praktische Übungseinheit wird vorausgesetzt, dass grundlegende Kenntnisse im **ASP.NET-MVC**. Wenn Sie nicht verwendet haben **ASP.NET-MVC** vorher, empfehlen wir Ihnen, durchlaufen **ASP.NET MVC-Grundlagen** praktische Übungseinheit.
+
+Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
+
+> [!NOTE]
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [Versionen von Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für diese Übung finden Sie unter [ASP.NET MVC 4-Hilfsprogrammen, Formulare und Validierung](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Ziele
@@ -659,7 +657,7 @@ In dieser Aufgabe testen Sie, dass die Seiten erstellen und Bearbeiten von Felde
 
     ![Überprüfte Felder bearbeiten (Seite)](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Überprüfte Felder bearbeiten (Seite)*
+    Überprüfte Felder bearbeiten (Seite)
 
 <a id="Exercise7"></a>
 

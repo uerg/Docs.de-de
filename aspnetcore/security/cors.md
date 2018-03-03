@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Aktivieren von Cross-Origin-Anforderungen (CORS)
 
@@ -35,13 +35,13 @@ Diese beiden URLs haben die gleichen Ursprungs:
 
 Diese URLs haben unterschiedliche Ursprünge als den vorherigen zwei:
 
-* `http://example.net`-Der anderen Domäne
+* `http://example.net` -Der anderen Domäne
 
-* `http://www.example.com/foo.html`-Andere Unterdomäne
+* `http://www.example.com/foo.html` -Andere Unterdomäne
 
-* `https://example.com/foo.html`-Anderes Schema
+* `https://example.com/foo.html` -Anderes Schema
 
-* `http://example.com:9000/foo.html`-Anschluss
+* `http://example.com:9000/foo.html` -Anschluss
 
 > [!NOTE]
 > Internet Explorer berücksichtigen nicht den Port Ursprünge zu vergleichen.
@@ -52,7 +52,7 @@ Richten Sie CORS für Ihre Anwendung hinzufügen der `Microsoft.AspNetCore.Cors`
 
 Fügen Sie die CORS-Dienste im Startup.cs hinzu:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
 ## <a name="enabling-cors-with-middleware"></a>Aktivieren von CORS mit middleware
 
@@ -60,7 +60,7 @@ So aktivieren Sie CORS für die gesamte Anwendung fügen Sie die CORS-Middleware
 
 Sie können eine Cross-Origin-Richtlinie angeben, beim Hinzufügen von den CORS-Middleware mithilfe der `CorsPolicyBuilder` Klasse. Hierfür gibt es zwei Möglichkeiten. Der erste Schritt besteht UseCors mit einem Lambda-Ausdruck aufrufen:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
 **Hinweis:** die URL muss angegeben werden, ohne einen nachstehenden Schrägstrich (`/`). Wenn die URL mit beendet `/`, der Vergleich zurück `false` und keine Header zurückgegeben werden.
 
@@ -68,11 +68,11 @@ Der Lambda-Ausdruck akzeptiert eine `CorsPolicyBuilder` Objekt. Sie finden eine 
 
 Beachten Sie, dass CorsPolicyBuilder eine fluent-API verfügt, damit Sie die Methodenaufrufe verketten können:
 
-[!code-csharp[Main](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
 Der zweite Ansatz ist, definieren ein oder mehrere benannte CORS-Richtlinien, und wählen Sie die Richtlinie anhand des Namens zur Laufzeit.
 
-[!code-csharp[Main](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 In diesem Beispiel wird eine CORS-Richtlinie mit dem Namen "AllowSpecificOrigin". Um die Richtlinie auswählen, übergeben Sie den Namen zu `UseCors`.
 
@@ -84,19 +84,19 @@ Sie können alternativ MVC verwenden, um bestimmte CORS pro Aktion, die pro Cont
 
 Geben Sie eine CORS-Richtlinie für eine bestimmte Aktion hinzufügen der `[EnableCors]` -Attribut auf die Aktion. Geben Sie den Richtliniennamen an.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Pro controller
 
 Geben Sie die CORS-Richtlinie für einen bestimmten Controller Hinzufügen der `[EnableCors]` -Attribut auf die Controllerklasse. Geben Sie den Richtliniennamen an.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>Global
 
 Sie können CORS global für alle Domänencontroller durch Hinzufügen der `CorsAuthorizationFilterFactory` Filter, um die Auflistung der globalen Filter:
 
-[!code-csharp[Main](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
 Die Rangfolge wird: Aktion, Controller, global. Sicherheitsrichtlinien auf Unternehmensebene Aktion haben Vorrang vor Controllerebene Richtlinien sowie Sicherheitsrichtlinien auf Unternehmensebene Controller haben Vorrang vor globalen Richtlinien.
 
@@ -104,7 +104,7 @@ Die Rangfolge wird: Aktion, Controller, global. Sicherheitsrichtlinien auf Unter
 
 Verwenden Sie zum Deaktivieren von CORS für einen Controller oder die Aktion der `[DisableCors]` Attribut.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
 ## <a name="cors-policy-options"></a>Optionen für CORS-Richtlinie
 
@@ -128,11 +128,11 @@ Für einige Optionen kann es hilfreich, zu lesen sein [funktioniert wie CORS](#h
 
 Um eine oder mehrere bestimmte Ursprünge zuzulassen:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
 Alle Ursprünge erlaubt:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
 Sollten Sie sorgfältig überlegen, bevor Anforderungen über einen beliebigen Ursprung zugelassen. Dies bedeutet, dass es sich bei jeder beliebige Website AJAX-Aufrufe auf Ihre API vornehmen kann.
 
@@ -140,7 +140,7 @@ Sollten Sie sorgfältig überlegen, bevor Anforderungen über einen beliebigen U
 
 Um alle HTTP-Methoden zu ermöglichen:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
 Dies wirkt sich auf die Preflight-Anforderungen und Access-Control-Allow-Methods-Header.
 
@@ -150,11 +150,11 @@ Eine CORS-preflight-Anforderung kann einen Access-Control-Request-Headers-Header
 
 Auf bestimmte Header der Positivliste:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
 Damit können erstellen alle Anforderungsheader:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
 Browser sind nicht vollständig in diese Festlegung von Access-Control-Request-Headers konsistent. Wenn der Header zu beliebiegen Dokumentbestandteilen außer festlegen "*", Sie sollten berücksichtigen mindestens "Annehmen", "Content-Type" und "Origin" sowie alle benutzerdefinierten Header, die Sie unterstützen möchten.
 
@@ -176,7 +176,7 @@ Standardmäßig nicht im Browser aller die Antwortheader für die Anwendung verf
 
 Die CORS-Spezifikation ruft diese *einfache Antwortheader*. Um weitere Header für die Anwendung verfügbar zu machen:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>Anmeldeinformationen in Cross-Origin-Anforderungen
 
@@ -203,7 +203,7 @@ $.ajax({
 
 Darüber hinaus muss der Server die Anmeldeinformationen zulassen. Um Cross-Origin-Anmeldeinformationen zu ermöglichen:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
 Die HTTP-Antwort enthalten nun einen Access-Control-Allow-Credentials-Header, der wodurch dem Browser angewiesen wird, dass der Server die Anmeldeinformationen für eine Anforderung Cross-Origin zulässt.
 
@@ -215,7 +215,7 @@ Seien Sie vorsichtig bei Cross-Origin-Anmeldeinformationen zulassen. Eine Websit
 
 Der Access-Control-Max-Age-Header gibt an, wie lange die Antwort auf die preflight-Anforderung zwischengespeichert werden kann. Auf diese Header festgelegt werden:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
 <a name="cors-how-cors-works"></a>
 

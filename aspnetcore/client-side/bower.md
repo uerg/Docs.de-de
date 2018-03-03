@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
 
@@ -67,13 +67,13 @@ Sie können das Suchfeld im Projektmappen-Explorer verwenden, suchen und Anzeige
 
 Öffnen der *Views\Shared\_Layout.cshtml* Datei, und fügen Sie die Schriftart awesome CSS-Datei mit der Umgebung [Tag Helper](xref:mvc/views/tag-helpers/intro) für `Development`. Klicken Sie im Projektmappen-Explorer ziehen, und legen Sie *Schriftart awesome.css* innerhalb der `<environment names="Development">` Element.
 
-[!code-html[Main](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
+[!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 Fügen Sie in einer Produktions-app *Schriftart awesome.min.css* für die Umgebung Tags Hilfe für `Staging,Production`.
 
 Ersetzen Sie den Inhalt von der *Views\Home\About.cshtml* Razor-Datei durch Folgendes Markup:
 
-[!code-html[Main](bower/sample/About.cshtml)]
+[!code-html[](bower/sample/About.cshtml)]
 
 Führen Sie die app, und navigieren Sie zu der Info-Ansicht, um zu überprüfen, ob die Schriftart awesome Paket funktioniert.
 
@@ -96,7 +96,7 @@ Nachdem Sie Pakete in Auflisten der *"bower.JSON"* Visual Studio-Datei laden sie
 
 * Open *"bower.JSON"*, Jquery und fügen auf das Bootstrapping der `dependencies` Abschnitt. Das resultierende *"bower.JSON"* Datei wird im folgenden Beispiel aussehen. Die Versionen mit der Zeit ändert und die folgenden Abbildung möglicherweise nicht überein.
 
-[!code-json[Main](bower/sample/bower.json?highlight=5,6)]
+[!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Speichern Sie die *"bower.JSON"* Datei.
 
@@ -109,7 +109,7 @@ Nachdem Sie Pakete in Auflisten der *"bower.JSON"* Visual Studio-Datei laden sie
 * Hinzufügen der `Microsoft.AspNetCore.StaticFiles` NuGet-Paket zum Projekt.
 * Aktivieren Sie die statische Dateien mit versorgt werden die [Middleware für statische Dateien](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions). Fügen Sie einen Aufruf von [UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions) auf die `Configure` Methode `Startup`.
 
-[!code-csharp[Main](bower/sample/Startup.cs?highlight=9)]
+[!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>Referenzpaketen
 
@@ -119,7 +119,7 @@ In diesem Abschnitt erstellen Sie eine HTML-Seite, um sicherzustellen, dass er d
 
  Ersetzen Sie den Inhalt des *"Index.HTML"* durch Folgendes Markup:
 
-[!code-html[Main](bower/sample/Index.html)]
+[!code-html[](bower/sample/Index.html)]
 
 * Führen Sie die app, und navigieren Sie zu `http://localhost:<port>/Index.html`. Alternativ können Sie mit *"Index.HTML"* geöffnet haben, drücken Sie `Ctrl+Shift+W`. Stellen Sie sicher, dass die Formatvorlage Jumbotron angewendet wird, die jQuery-Code reagiert werden soll, wenn die Schaltfläche geklickt wird, und die Schaltfläche "Bootstrap" Zustand ändert.
 

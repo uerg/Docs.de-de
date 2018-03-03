@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrationstests zu legen, die in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
-Integrationstests wird sichergestellt, dass eine Anwendung Komponenten ordnungsgemäß funktionieren, wenn es sich bei zusammen assembliert. ASP.NET Core unterstützt Integrationstests zu legen, mit der Komponententest-Frameworks und einem integrierten Test Webhost, der verwendet werden kann, um Mehraufwand von Netzwerk-Anforderungen zu verarbeiten.
+Integrationstests wird sichergestellt, dass eine Anwendung Komponenten ordnungsgemäß funktionieren, wenn es sich bei zusammen assembliert. ASP.NET Core unterstützt Integrationstests durch Komponententestframeworks und einen integrierten Testwebhost, der zur Verarbeitung von Anforderungen ohne Netzwerkmehraufwand verwendet werden kann.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
@@ -47,7 +47,7 @@ ASP.NET Core umfasst einen Testhost, der Integration Testprojekte hinzugefügt w
 
 Einmal die `Microsoft.AspNetCore.TestHost` Paket im Projekt enthalten ist, können zum Erstellen und Konfigurieren einer `TestServer` in den Tests. Der folgende Test zeigt, wie sicherzustellen, dass eine Anforderung auf den Stamm eines Standorts "Hello World!" zurückgibt und sollte ausgeführt wurde erfolgreich gegen die Standardeinstellung ASP.NET Core leere Web-Vorlage, die von Visual Studio erstellt haben.
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 Bei diesem Test wird das Anordnen Act Assert-Muster verwendet. Der Diagrammfelder Schritt erfolgt in der Konstruktor, der eine Instanz erstellt `TestServer`. Ein konfiguriertes `WebHostBuilder` verwendet werden, zum Erstellen einer `TestHost`; in diesem Beispiel die `Configure` Methode aus dem System unter dem Test (SUT) `Startup` Klasse wird zum Übergeben der `WebHostBuilder`. Diese Methode wird zum Konfigurieren der Anforderungspipeline, der die `TestServer` identisch mit der Konfiguration des Servers SUT würde.
 
@@ -55,7 +55,7 @@ In der Act-Teil des Tests wird eine Anforderung an die `TestServer` -Instanz fü
 
 Jetzt können Sie einige zusätzliche Integrationstests, um sicherzustellen, dass es sich bei der es sich um Primzahlen Prüfen der Funktionalität über die Webanwendung funktioniert hinzufügen:
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 Beachten Sie, dass Sie nicht wirklich versuchen So testen Sie die Richtigkeit von Primzahl Checker mit diesen Tests jedoch statt Erwartungen die Webanwendung ausführt. Sie haben bereits Coverage für Komponententests, die Ihnen vertrauen, in sofortigen `PrimeService`, wie Sie hier sehen können:
 
@@ -134,13 +134,13 @@ Der Pfad darf die Middleware verwendet als Parameter angegeben werden, damit die
 > [!NOTE]
 > Da die Middleware hängt die `PrimeService` Service, Sie können auch eine Instanz dieses Diensts mit dem Konstruktor anfordern. Das Framework bietet dieser Dienst über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection), sofern es konfiguriert wurde, z. B. in `ConfigureServices`.
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 Da diese Middleware fungiert als Endpunkt in der Anforderung Delegatenkette auf, wenn ihr Pfad übereinstimmt, wird es nicht aufgerufen, `_next.Invoke` Wenn diese Middleware verarbeitet die Anforderung.
 
 Mit diesem Middleware eingesetzt sind und einige nützliche Erweiterungsmethoden erstellt, um die Lesbarkeit zu konfigurieren, die umgestalteten `Configure` -Methode sieht folgendermaßen aus:
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 Folgende dieses refactoring sind Sie sicher, dass die Webanwendung weiterhin wie zuvor funktioniert, da die Integrationstests erfolgreich alle übergeben werden.
 

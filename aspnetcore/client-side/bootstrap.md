@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: dfed5c7a8e103973048295b7607008ecc7e90eeb
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap
 
 <a name="bootstrap-index"></a>
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
 Bootstrap ist derzeit die am häufigsten verwendeten Webframework zum Entwickeln von Webanwendungen reaktionsfähig. Er bietet eine Reihe von Features und Vorteile, die Ihre Benutzer Kenntnisse in Bezug auf Ihre Website verbessern können, ob als am Front-End-Entwurf und Entwicklung oder Experte Anfänger. Bootstrap wird als eine Reihe von CSS und JavaScript-Dateien bereitgestellt und dient zur Skalierung Ihrer Website oder Anwendung effizient Telefone, Tablets auf Desktops schützen.
 
@@ -31,7 +31,7 @@ Es gibt mehrere Möglichkeiten zum Einstieg in Bootstrap. Wenn Sie eine neue Web
 
 Hinzufügen von Bootstrap zu einer ASP.NET Core Projekt ist lediglich hinzugefügt *"bower.JSON"* als Abhängigkeit:
 
-[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 Dies ist die empfohlene Methode zum Bootstrap einem ASP.NET Core-Projekt hinzufügen.
 
@@ -60,7 +60,7 @@ Install-Package bootstrap
 
 Wenn Sie Ihren eigenen lokalen Versionen von Bootstrap verweisen, müssen Sie in alle Seiten, die Sie verweisen, in denen verwendet wird. In einer produktionsumgebung sollten Sie mit einem CDN Bootstrap verweisen. In der Standardeinstellung ASP.NET-Websitevorlage der *_Layout.cshtml* Datei daher wie folgt:
 
-[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > Wenn Sie mit der Bootstrap jQuery-Plug-Ins verwendet werden, müssen Sie auch jQuery verweisen.

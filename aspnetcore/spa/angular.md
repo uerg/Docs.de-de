@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-angular-project-template"></a>Verwenden Sie die Angular-Projektvorlage
 
@@ -49,9 +49,9 @@ Während des Erstellungsprozesses stellt Npm Abhängigkeiten bei der ersten Ausf
 
 Sicherzustellen, dass Sie über eine Umgebungsvariable namens `ASPNETCORE_Environment` mit einem Wert von `Development`. Führen Sie für Windows (in nicht-PowerShell-Anweisungen), `SET ASPNETCORE_Environment=Development`. Führen Sie unter Linux oder MacOS `export ASPNETCORE_Environment=Development`.
 
-Führen Sie `dotnet build` um zu überprüfen, ob die Anwendung richtig erstellt. Bei der ersten Ausführung stellt während des Erstellungsprozesses Npm Abhängigkeiten, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
+Führen Sie [Dotnet Build](/dotnet/core/tools/dotnet-build) um zu überprüfen, ob die Anwendung richtig erstellt. Bei der ersten Ausführung stellt während des Erstellungsprozesses Npm Abhängigkeiten, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
 
-Führen Sie `dotnet run` für den Anwendungsstart. Es wird eine Meldung ähnlich der folgenden protokolliert:
+Führen Sie [Dotnet ausführen](/dotnet/core/tools/dotnet-run) für den Anwendungsstart. Es wird eine Meldung ähnlich der folgenden protokolliert:
 
 ```console
 Now listening on: http://localhost:<port>

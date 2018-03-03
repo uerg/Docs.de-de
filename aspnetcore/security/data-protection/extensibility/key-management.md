@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 68f590dffe8bb98813f974a5ecb9b270a5419ddf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bcc4984efcee9a6ffd0f3b503a38089c78adf5e8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="key-management-extensibility"></a>Schlüsselverwaltungsdienst-Erweiterbarkeit
 
@@ -67,7 +67,7 @@ Die `IKeyManager` Schnittstelle stellt ein Objekt, das verantwortlich für allge
 
 Die `XmlKeyManager` Typ ist die mitgelieferten konkrete Implementierung der `IKeyManager`. Er bietet mehrere nützliche Funktionen, einschließlich schlüsselhinterlegung und Verschlüsselung von Schlüsseln im Ruhezustand. Schlüssel in diesem System werden als XML-Elementen dargestellt (insbesondere ["XElement"](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
 
-`XmlKeyManager`hängt von mehreren anderen Komponenten im Verlauf die Aufgaben erfüllen:
+`XmlKeyManager` hängt von mehreren anderen Komponenten im Verlauf die Aufgaben erfüllen:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -75,17 +75,17 @@ Die `XmlKeyManager` Typ ist die mitgelieferten konkrete Implementierung der `IKe
 
 * `IXmlRepository`, welche steuert, auf dem Schlüssel im Speicher gespeichert werden.
 
-* `IXmlEncryptor`[optional] die ermöglicht das Verschlüsseln der Schlüssel im Ruhezustand.
+* `IXmlEncryptor` [optional] die ermöglicht das Verschlüsseln der Schlüssel im Ruhezustand.
 
-* `IKeyEscrowSink`[optional] stellt schlüsselhinterlegung Dienste.
+* `IKeyEscrowSink` [optional] stellt schlüsselhinterlegung Dienste.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * `IXmlRepository`, welche steuert, auf dem Schlüssel im Speicher gespeichert werden.
 
-* `IXmlEncryptor`[optional] die ermöglicht das Verschlüsseln der Schlüssel im Ruhezustand.
+* `IXmlEncryptor` [optional] die ermöglicht das Verschlüsseln der Schlüssel im Ruhezustand.
 
-* `IKeyEscrowSink`[optional] stellt schlüsselhinterlegung Dienste.
+* `IKeyEscrowSink` [optional] stellt schlüsselhinterlegung Dienste.
 
 ---
 
@@ -121,7 +121,7 @@ In der Implementierung der `CreateNewKey`, `IAuthenticatedEncryptorConfiguration
 
    *Abrufen von Schlüssel / GetAllKeys*
 
-In der Implementierung der `GetAllKeys`, die XML-Dokumente darstellen Schlüssel und Revocations werden gelesen, aus der zugrunde liegenden `IXmlRepository`. Wenn diese Dokumente verschlüsselt sind, wird das System diese automatisch entschlüsselt. `XmlKeyManager`erstellt das entsprechende `IAuthenticatedEncryptorDescriptorDeserializer` -Instanzen, die Dokumente zu deserialisierenden gestaffelte `IAuthenticatedEncryptorDescriptor` -Instanzen, die einzelnen umschlossen werden `IKey` Instanzen. Diese Auflistung von `IKey` Instanzen wird an den Aufrufer zurückgegeben.
+In der Implementierung der `GetAllKeys`, die XML-Dokumente darstellen Schlüssel und Revocations werden gelesen, aus der zugrunde liegenden `IXmlRepository`. Wenn diese Dokumente verschlüsselt sind, wird das System diese automatisch entschlüsselt. `XmlKeyManager` erstellt das entsprechende `IAuthenticatedEncryptorDescriptorDeserializer` -Instanzen, die Dokumente zu deserialisierenden gestaffelte `IAuthenticatedEncryptorDescriptor` -Instanzen, die einzelnen umschlossen werden `IKey` Instanzen. Diese Auflistung von `IKey` Instanzen wird an den Aufrufer zurückgegeben.
 
 Weitere Informationen zu bestimmten XML-Elemente finden Sie der [Schlüsselspeicher Format Dokument](../implementation/key-storage-format.md#data-protection-implementation-key-storage-format).
 
@@ -222,4 +222,4 @@ Der folgende Beispielcode veranschaulicht das Erstellen und registrieren einen `
 > [!NOTE]
 > Um dieses Beispiel ausführen zu können, muss auf eine Domäne eingebundenen Windows 8 / Windows Server 2012-Computer und dem Domänencontroller muss WindowsServer 2012 oder höher sein.
 
-[!code-csharp[Main](key-management/samples/key-management-extensibility.cs)]
+[!code-csharp[](key-management/samples/key-management-extensibility.cs)]

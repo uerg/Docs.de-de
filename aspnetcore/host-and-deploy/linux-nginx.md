@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 1044a87a4dcc7636413078b0fc09ade206c97d0a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosten von ASP.NET Core unter Linux mit Nginx
 
@@ -38,7 +38,7 @@ In diesem Leitfaden:
 
 ## <a name="copy-over-the-app"></a>Kopieren Sie die app
 
-Führen Sie `dotnet publish` in der Bereitstellungsumgebung aus, um eine App in ein eigenständiges Verzeichnis zu verpacken, das auf dem Server ausgeführt werden kann.
+Führen Sie [Dotnet veröffentlichen](/dotnet/core/tools/dotnet-publish) aus der Umgebung Dev auf eine app in eine geschlossene Verzeichnis zu verpacken, die auf dem Server ausgeführt werden kann.
 
 Kopieren Sie die ASP.NET Core-app auf den Server, die mit beliebigen Tool in der Organisation Workflow (z. B. SCP, FTP) integriert wird. Testen Sie die App wie im folgenden Beispiel:
 
@@ -53,7 +53,7 @@ Reverse-Proxy ist ein gemeinsames Setup dynamic Web-apps zu verarbeiten. Reverse
 
 Kestrel eignet sich hervorragend für dynamische Inhalte von ASP.NET Core bedient. Die Web-Funktionen bedient ist jedoch als umfangreichen Features wie z. B. IIS, Apache oder Nginx-Server nicht möglich. Ein reverse-Proxy-Server kann die Arbeit wie statische Inhalte Zwischenspeichern von Anforderungen, Komprimieren von Anforderungen und aus dem HTTP-Server SSL-Tunnelabschluss auslagern. Ein Reverseproxyserver kann sich auf einem dedizierten Computer befinden oder zusammen mit einem HTTP-Server bereitgestellt werden.
 
-Für diesen Leitfaden wird eine einzelne Instanz von Nginx verwendet. Diese wird auf demselben Server ausgeführt, zusammen mit dem HTTP-Server. Basierend auf Anforderungen möglicherweise eine andere Installation ausgewählt.
+Für diesen Leitfaden wird eine einzelne Instanz von Nginx verwendet. Diese wird auf demselben Server ausgeführt, zusammen mit dem HTTP-Server. Eine andere Installation kann basierend auf Anforderungen ausgewählt werden.
 
 Da Anforderungen von Reverseproxy weitergeleitet werden, verwenden Sie die Middleware weitergeleitet Header aus der [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) Paket. Die Middleware Updates der `Request.Scheme`unter Verwendung der `X-Forwarded-Proto` -Header, damit diese umleitungs-URIs und andere Sicherheitsrichtlinien ordnungsgemäß funktioniert.
 
@@ -283,11 +283,11 @@ Erwägen Sie eine Web-app-Firewall wie *ModSecurity* um die app besser zu schüt
 
 Fügen Sie die Konfigurationsdatei */etc/nginx/proxy.conf* hinzu:
 
-[!code-nginx[Main](linux-nginx/proxy.conf)]
+[!code-nginx[](linux-nginx/proxy.conf)]
 
 Bearbeiten Sie die Konfigurationsdatei */etc/nginx/nginx.conf*. Das Beispiel enthält die Abschnitte `http` und `server` in einer Konfigurationsdatei.
 
-[!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
+[!code-nginx[](linux-nginx/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Sichern von Nginx vor Clickjacking
 Clickjacking ist eine böswillige Technik zum Sammeln der Klicks eines infizierten Benutzers. Clickjacking bringt das Opfer (Besucher) dazu, auf eine infizierte Seite zu klicken. Verwendet X-FRAME-OPTIONS zum Sichern der Site.

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Konfigurieren der Windows-Authentifizierung in einer ASP.NET Core-app
 
@@ -56,7 +56,7 @@ Alternativ können diese beiden Eigenschaften konfiguriert werden, der *launchSe
 
 ## <a name="enable-windows-authentication-with-iis"></a>Windows-Authentifizierung in IIS aktivieren
 
-IIS verwendet den [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) (ANCM) zum Hosten von ASP.NET Core-apps. Die ANCM Flüsse Windows-Authentifizierung in IIS standardmäßig. Konfiguration der Windows-Authentifizierung erfolgt innerhalb von IIS nicht auf das Anwendungsprojekt. Die folgenden Abschnitte zeigen, wie IIS-Manager verwenden, um eine ASP.NET Core-Anwendung, um die Windows-Authentifizierung zu konfigurieren.
+IIS verwendet den [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) Host ASP.NET Core-Apps. Das Modul Flüsse Windows-Authentifizierung in IIS standardmäßig. Windows-Authentifizierung ist in IIS nicht auf die app konfiguriert. Die folgenden Abschnitte zeigen, wie IIS-Manager verwenden, um eine ASP.NET Core-Anwendung, um die Windows-Authentifizierung zu konfigurieren.
 
 ### <a name="create-a-new-iis-site"></a>Erstellen einer neuen IIS-Website
 
@@ -113,7 +113,7 @@ Wenn Windows-Authentifizierung und anonymem Zugriff aktiviert sind, verwenden di
 In ASP.NET Core 2.x, die `[Authorize]` Attribut erfordert zusätzliche Konfigurationsschritte in *Startup.cs* , fordern Sie anonyme Anforderungen für die Windows-Authentifizierung. Die empfohlene Konfiguration variiert leicht basierend auf dem Webserver verwendet wird.
 
 > [!NOTE]
-> Standardmäßig werden Benutzer, die Autorisierung zum Zugriff auf einer Seite fehlt ein leeres Dokument angezeigt. Die [StatusCodePages Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) kann konfiguriert werden, um Benutzern eine Vereinfachung der Nutzung von "Zugriff verweigert" bereitstellen.
+> Standardmäßig werden Benutzer Autorisierung zum Zugriff auf einer Seite fehlender mit einer leeren HTTP 403-Antwort angezeigt. Die [StatusCodePages Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) kann konfiguriert werden, um Benutzern eine Vereinfachung der Nutzung von "Zugriff verweigert" bereitstellen.
 
 #### <a name="iis"></a>IIS
 
