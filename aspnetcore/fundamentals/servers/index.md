@@ -1,7 +1,7 @@
 ---
 title: Webserverimplementierungen in ASP.NET Core
 author: tdykstra
-description: "Enthält eine einführende Beschreibung der Webserver Kestrel und WebListener für ASP.NET Core. Enthält Hinweise zur Auswahl eines Webservers und zu dessen Verwendung mit einem Reverseproxyserver."
+description: "Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr zu einem Webserver und dessen Verwendung mit einem Reverseproxyserver."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 08/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: 9e2bea396e50615bd02affad93f0ee55255d299f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b9a7fa4e33c56a5973b4bc35f88ca0ebb3d67101
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 

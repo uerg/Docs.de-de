@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 7d8ba912da4c0e543bd4dd56632cdc41706814d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: baa77eba837ff8b86ad543a74ebeee51ace4c25d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosten und Bereitstellen von ASP.NET Core
 
@@ -26,7 +26,7 @@ Um eine ASP.NET Core-App in einer Hostingumgebung bereitzustellen, müssen Sie a
 
 ## <a name="publish-to-a-folder"></a>Veröffentlichen in einem Ordner 
 
-Der CLI-Befehl [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) kompiliert App-Code und kopiert die Dateien, die zum Ausführen der App benötigt werden, in den Ordner *publish*. Bei der Bereitstellung von Visual Studio erfolgt der `dotnet publish`-Schritt automatisch, bevor die Dateien in das Bereitstellungsziel kopiert werden.
+Der CLI-Befehl [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) kompiliert App-Code und kopiert die Dateien, die zum Ausführen der App benötigt werden, in den Ordner *publish*. Bei der Bereitstellung von Visual Studio erfolgt der Schritt [dotnet publish](/dotnet/core/tools/dotnet-publish) automatisch, bevor die Dateien in das Bereitstellungsziel kopiert werden.
 
 ### <a name="folder-contents"></a>Ordnerinhalte
 
@@ -61,7 +61,7 @@ Wenn die App den [Kestrel](xref:fundamentals/servers/kestrel)-Webserver verwende
 
 ## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Verwenden von Visual Studio und MSBuild zum Automatisieren der Bereitstellung
 
-Die Bereitstellung erfordert neben dem Kopieren der Ausgabe von `dotnet publish` auf einen Server oft zusätzliche Aufgaben. Beispielsweise können zusätzliche Dateien aus dem Ordner *publish* erforderlich oder ausgeschlossen sein. Visual Studio verwendet MSBuild für die Webbereitstellung, und MSBuild kann für die Ausführung vieler weiterer Tasks während der Bereitstellung angepasst werden. Weitere Informationen finden Sie unter [Publish profiles in Visual Studio (Veröffentlichen von Profilen in Visual Studio)](xref:host-and-deploy/visual-studio-publish-profiles) und im Buch [Using MSBuild and Team Foundation Build (Verwenden von MSBuild und Team Foundation Build)](http://msbuildbook.com/).
+Die Bereitstellung erfordert neben dem Kopieren der Ausgabe von [dotnet publish](/dotnet/core/tools/dotnet-publish) auf einen Server oft zusätzliche Aufgaben. Beispielsweise können zusätzliche Dateien aus dem Ordner *publish* erforderlich oder ausgeschlossen sein. Visual Studio verwendet MSBuild für die Webbereitstellung, und MSBuild kann für die Ausführung vieler weiterer Tasks während der Bereitstellung angepasst werden. Weitere Informationen finden Sie unter [Publish profiles in Visual Studio (Veröffentlichen von Profilen in Visual Studio)](xref:host-and-deploy/visual-studio-publish-profiles) und im Buch [Using MSBuild and Team Foundation Build (Verwenden von MSBuild und Team Foundation Build)](http://msbuildbook.com/).
 
 Mithilfe des [Features zum Veröffentlichen einer Web-App](xref:tutorials/publish-to-azure-webapp-using-vs) oder der [integrierten Git-Unterstützung](xref:host-and-deploy/azure-apps/azure-continuous-deployment) können Apps direkt von Visual Studio in Azure App Service bereitgestellt werden. Visual Studio Team Services unterstützt die [continuous deployment to Azure App Service (fortlaufende Bereitstellung in Azure App Service)](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
 

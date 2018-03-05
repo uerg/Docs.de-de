@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 620bfefa625f4b39cb2731b4f553caaa4526c71b
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -45,6 +45,8 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
+Das ASP.NET Core Module generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://locahost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls` oder [Kestrels Listen-API](xref:fundamentals/servers/kestrel#endpoint-configuration). Aus diesem Grund sind Aufrufe von `UseUrls` oder der `Listen`-API von Kestrel nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` oder `Listen` aufgerufen wird, lauscht Kestrel auf den Port, der bei der bei Ausführung der App ohne den IIS angegeben wird.
+
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Nehmen Sie eine Abhängigkeit vom Paket [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) in die App-Abhängigkeiten auf. Verwenden Sie Middleware für die Integration von IIS, indem Sie die Erweiterungsmethode [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) zu [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) hinzufügen:
@@ -57,6 +59,10 @@ var host = new WebHostBuilder()
 ```
 
 Sowohl [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) als auch [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) sind erforderlich. Ein Code, der `UseIISIntegration` aufruft, hat keinen Einfluss auf die Codeportabilität. Wenn die App nicht hinter IIS ausgeführt wird (die App wird z.B. direkt auf Kestrel ausgeführt), hat `UseIISIntegration` keine Funktion.
+
+Das ASP.NET Core-Modul generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://locahost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls`. Deshalb ist ein Aufruf von `UseUrls` nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` aufgerufen wird, lauscht Kestrel auf den Port, der bei der Ausführung der App ohne den IIS angegeben wird.
+
+Wenn `UseUrls` in einer ASP.NET Core 1.0-App aufgerufen wird, rufen Sie es **vor** Aufrufen von `UseIISIntegration` auf, damit der vom Modul konfigurierte Port nicht überschrieben wird. Diese Aufrufreihenfolge ist in ASP.NET Core 1.1 nicht erforderlich, weil die Moduleinstellung `UseUrls` überschreibt.
 
 ---
 
@@ -76,7 +82,7 @@ services.Configure<IISOptions>(options =>
 | Option                         | Standard | Einstellung |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Bei Festlegung auf `true` legt die Middleware für die IIS-Integration den per [Windows-Authentifizierung](xref:security/authentication/windowsauth) authentifizierten `HttpContext.User` fest. Bei Festlegung auf `false` stellt die Middleware nur eine Identität für `HttpContext.User` bereit und antwortet auf explizite Anforderungen durch `AuthenticationScheme`. Die Windows-Authentifizierung muss in IIS aktiviert sein, damit `AutomaticAuthentication` funktioniert. Weitere Informationen finden Sie im Thema [Windows-Authentifizierung](xref:security/authentication/windowsauth). |
-| `AuthenticationDisplayName`    | `null`  | Legt den Anzeigename fest, der Benutzern auf Anmeldeseiten angezeigt wird. |
+| `AuthenticationDisplayName`    | `null`  | Legt den Anzeigename fest, der Benutzern auf Anmeldungsseiten angezeigt wird |
 | `ForwardClientCertificate`     | `true`  | Wenn diese Option `true` ist und der Anforderungsheader `MS-ASPNETCORE-CLIENTCERT` vorhanden ist, wird das `HttpContext.Connection.ClientCertificate` aufgefüllt. |
 
 ### <a name="webconfig-file"></a>Datei „web.config“
@@ -105,7 +111,7 @@ Wenn die Transformation der Datei durch das Web-SDK deaktiviert wird, müssen di
 
 ### <a name="webconfig-file-location"></a>Speicherort der Datei „web.config“
 
-.NET Core-Apps werden in einem Reverseproxy zwischen IIS und dem Kestrel-Server gehostet. Zum Erstellen des Reverseproxys muss die Datei *web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
+.NET Core-Apps werden in einem Reverseproxy zwischen IIS und dem Kestrel-Server gehostet. Zum Erstellen des Reverseproxys muss die Datei *web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *Web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
 
 Im physischen Pfad der App sind vertrauliche Dateien vorhanden, wie z.B. *\<assembly_name>.runtimeconfig.json*, *\<assembly_name>.xml* (XML-Dokumentationskommentare) und *\<assembly_name>.deps.json*. Wenn die Datei *web.config* vorhanden ist und die Website normal startet, werden diese vertraulichen Dateien von IIS bei Anforderung nicht offengelegt. Wenn die Datei *web.config* fehlt, falsch benannt wurde oder die Website nicht für den normalen Start konfigurieren kann, macht IIS vertrauliche Dateien möglicherweise öffentlich verfügbar.
 
@@ -164,6 +170,8 @@ Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
 1. Installieren Sie das [Paket „.NET Core Windows Server Hosting“](https://aka.ms/dotnetcore-2-windowshosting) im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
 
    **Wichtig** Wenn das Hostingpaket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut das Hostingpaket aus.
+   
+   Damit das Installationsprogramm in einem x64-Betriebssystem keine x86-Pakete installiert, führen Sie das Installationsprogramm über eine Administratoreingabeaufforderung mit dem Switch `OPT_NO_X86=1` aus.
 
 1. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus. Durch den Neustart von IIS wird eine Änderung an der PATH-Systemeinstellung durch den Installer vorgenommen.
 
@@ -294,11 +302,11 @@ Zum Konfigurieren des Schutzes von Daten unter IIS mithilfe des persistenten Sch
 
 * **Festlegen einer computerweiten Richtlinie für den Schutz von Daten**
 
-  Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy) für alle Apps, die die APIs zum Schutz von Daten nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
+  Das System zum Schutz von Daten verfügt über eine eingeschränkte Unterstützung zum Festlegen einer [computerweiten Standardrichtlinie](xref:security/data-protection/configuration/machine-wide-policy) für alle Apps, die die Datenschutz-APIs nutzen. Weitere Details finden Sie in der Dokumentation zum [Schutz von Daten](xref:security/data-protection/index).
 
 ## <a name="sub-application-configuration"></a>Konfiguration von untergeordneten Anwendungen
 
-Untergeordnete Apps, die unterhalb der Stamm-App hinzugefügt werden, sollten kein ASP.NET Core-Modul als Handler enthalten. Wenn das Modul als Handler in einer *web.config* einer untergeordneten App hinzugefügt wird, erhalten Sie beim Versuch, zur untergeordneten App zu navigieren, den Fehler *500.19: Interner Serverfehler*. Dieser verweist auf die fehlerhafte Konfigurationsdatei.
+Untergeordnete Apps, die unter der Stamm-App hinzugefügt werden, sollten kein ASP.NET Core-Modul als Handler enthalten. Wenn das Modul als Handler in einer *web.config* einer untergeordneten App hinzugefügt wird, erhalten Sie beim Versuch, zur untergeordneten App zu navigieren, den Fehler *500.19: Interner Serverfehler*. Dieser verweist auf die fehlerhafte Konfigurationsdatei.
 
 Das folgende Beispiel zeigt den Inhalt einer veröffentlichten Datei *web.config* für eine untergeordnete ASP.NET Core-App:
 
@@ -314,7 +322,7 @@ Das folgende Beispiel zeigt den Inhalt einer veröffentlichten Datei *web.config
 </configuration>
 ```
 
-Wenn Sie eine untergeordnete App ohne ASP.NET Core unterhalb einer ASP.NET Core-App hosten, entfernen Sie den geerbten Handler ausdrücklich aus der Datei *web.config* der untergeordneten App:
+Wenn Sie eine untergeordnete App ohne ASP.NET Core unterhalb einer ASP.NET Core-App hosten, entfernen Sie den geerbten Handler ausdrücklich aus der Datei *Web.config* der untergeordneten App:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -335,7 +343,7 @@ Weitere Informationen zum Konfigurieren des ASP.NET Core-Moduls finden Sie im Th
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguration von IIS mit der Datei „web.config“
 
-Die IIS-Konfiguration wird im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt **\<system.webServer>** der Datei *web.config* beeinflusst. Wenn IIS auf Systemebene für die Verwendung der dynamischen Komprimierung konfiguriert ist, kann diese Einstellung mit dem Element **\<urlCompression>** in der Datei *web.config* der App deaktiviert werden.
+Die IIS-Konfiguration wird im Hinblick auf IIS-Features, die für eine Reverseproxykonfiguration gelten, vom Abschnitt **\<system.webServer>** der Datei *Web.config* beeinflusst. Wenn IIS auf Systemebene für die Verwendung der dynamischen Komprimierung konfiguriert ist, kann diese Einstellung mit dem Element **\<urlCompression>** in der Datei *web.config* der App deaktiviert werden.
 
 Weitere Informationen finden Sie in der [Konfigurationsreferenz für \<system.webServer>](/iis/configuration/system.webServer/), der [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module) und unter [Verwenden von IIS-Modulen mit ASP.NET Core](xref:host-and-deploy/iis/modules). Um Umgebungsvariablen für einzelne Apps festzulegen, die in isolierten App-Pools ausgeführt werden (unterstützt für IIS 10.0 oder höher), lesen Sie den Abschnitt zum *Befehl „AppCmd.exe“* im Thema [Umgebungsvariablen \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) in der IIS-Referenzdokumentation.
 
