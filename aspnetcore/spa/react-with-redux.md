@@ -17,11 +17,11 @@ ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>Verwenden Sie die reagieren mit Redux-Projektvorlage
+# <a name="use-the-react-with-redux-project-template"></a>Verwenden der React-with-Redux-Projektvorlage
 
 > [!NOTE]
-> Diese Dokumentation ist nicht zur reagieren mit Redux-Projektvorlage in ASP.NET Core 2.0 enthalten. Es geht die neuere reagieren mit Redux Vorlage, die Sie manuell aktualisieren können. Die Vorlage wird standardmäßig in ASP.NET Core 2.1 enthalten.
+> Diese Dokumentation betrifft nicht die in ASP.NET Core 2.0 enthaltene React-with-Redux-Projektvorlage. Es geht hier um die neuere React-with-Redux-Vorlage, auf die Sie manuell aktualisieren können. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.
 
-Die aktualisierte reagieren mit Redux-Projektvorlage stellt einen nützlichen Startpunkt für ASP.NET Core-apps mit Redux, reagieren und [erstellen-reagieren-app](https://github.com/facebookincubator/create-react-app) Konventionen (CRA), um eine umfassende, clientseitige Benutzeroberfläche (UI) zu implementieren.
+Die aktualisierte React-with-Redux-Projektvorlage stellt einen nützlichen Ausgangspunkt für ASP.NET Core-Apps mit Redux, React und [CRA-Konventionen(https://github.com/facebookincubator/create-react-app)] (Create-React-App) dar, um eine umfassende clientseitige Benutzeroberfläche (UI) zu implementieren.
 
-Mit Ausnahme der Befehl zum Projekt erstellen wird alle Informationen über die reagieren mit Redux Vorlage identisch mit der Vorlage reagieren. Führen Sie zum Erstellen dieser Projekttyp `dotnet new reactredux` anstelle von `dotnet new react`. Weitere Informationen zu den Funktionen für beide reagieren-basierte Vorlagen, finden Sie unter [reagieren Dokumentation Vorlage](xref:spa/react).
+Mit Ausnahme des Befehls zur Projekterstellung sind alle Informationen zur React-with-Redux-Vorlage identisch mit jenen zur React-Vorlage. Führen Sie zum Erstellen dieses Projekttyps `dotnet new reactredux` anstelle von `dotnet new react` aus. Weitere Informationen zu den Funktionen für die beiden React-basierten Vorlagen finden Sie in der [Dokumentation zur React-Vorlage(xref:spa/react)].
