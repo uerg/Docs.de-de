@@ -1,7 +1,7 @@
 ---
-title: 'Razor-Seiten mit Entity Framework Core: Tutorial 1 von 8'
+title: 'Razor Pages mit Entity Framework Core: Tutorial 1 von 8'
 author: rick-anderson
-description: Informationen zum Erstellen einer Razor-Seiten-App mit Entity Framework Core
+description: Informationen zum Erstellen einer Razor Pages-App mit Entity Framework Core
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -15,7 +15,7 @@ ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/31/2018
 ---
-# <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Erste Schritte mit Razor-Seiten und Entity Framework Core unter Verwendung von Visual Studio (1 von 8)
+# <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio (1 von 8)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -29,7 +29,7 @@ Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso Un
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
 
-Kenntnisse über [Razor-Seiten](xref:mvc/razor-pages/index). Anfänger sollten den Artikel [Erste Schritte mit Razor-Seiten in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) lesen, bevor sie mit diesem Tutorial beginnen.
+Kenntnisse über [Razor Pages](xref:mvc/razor-pages/index). Anfänger sollten den Artikel [Erste Schritte mit Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) lesen, bevor sie mit diesem Tutorial beginnen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -48,15 +48,15 @@ Benutzer können Informationen zu den Studenten, Kursen und Dozenten abrufen. Im
 
 ![Bearbeitungsseite für Studenten](intro/_static/student-edit.png)
 
-Der Benutzeroberflächenstil dieser Website ähnelt den durch die integrierten Vorlagen generierten Seiten. In diesem Tutorial wird Entity Framework Core mit Razor-Seiten thematisiert. Die Benutzeroberfläche wird nicht erläutert.
+Der Benutzeroberflächenstil dieser Website ähnelt den durch die integrierten Vorlagen generierten Seiten. In diesem Tutorial wird Entity Framework Core mit Razor Pages thematisiert. Die Benutzeroberfläche wird nicht erläutert.
 
-## <a name="create-a-razor-pages-web-app"></a>Erstellen einer Razor-Seiten-Web-App
+## <a name="create-a-razor-pages-web-app"></a>Erstellen einer Razor Pages-Web-App
 
 * Klicken Sie in Visual Studio im Menü **Datei** auf **Neu** > **Projekt**.
 * Erstellen Sie eine neue ASP.NET Core-Webanwendung. Geben Sie dem Projekt den Namen **ContosoUniversity**. Es ist wichtig, dass Sie dem Projekt exakt diesen Namen geben, sodass die Namespaces übereinstimmen, wenn der Code kopiert und eingefügt wird.
  ![neue ASP.NET Core-Webanwendung](intro/_static/np.png)
 * Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**.
- ![Webanwendung (Razor-Seiten)](../../mvc/razor-pages/index/_static/np2.png)
+ ![Webanwendung (Razor Pages)](../../mvc/razor-pages/index/_static/np2.png)
 
 Drücken Sie **F5**, um die App im Debugmodus auszuführen, oder **STRG+F5** zur Ausführung ohne Anfügen des Debuggers.
 
@@ -159,7 +159,7 @@ Wenn die Datenbank erstellt wird, erstellt Entity Framework Core Tabellen mit Na
 
 ## <a name="register-the-context-with-dependency-injection"></a>Registrieren des Kontexts durch Dependency Injection
 
-[Dependency Injection](xref:fundamentals/dependency-injection) ist in ASP.NET Core enthalten. Dienste (z.B. der Datenbankkontext Entity Framework Core) werden über Dependency Injection beim Anwendungsstart registriert. Komponenten, die diese Dienste erfordern (z.B. Razor-Seiten), werden von diesen Diensten über Konstruktorparameter bereitgestellt. Der Konstruktorcode, der eine Datenbankkontextinstanz abruft, wird später in diesem Tutorial erläutert.
+[Dependency Injection](xref:fundamentals/dependency-injection) ist in ASP.NET Core enthalten. Dienste (z.B. der Datenbankkontext Entity Framework Core) werden über Dependency Injection beim Anwendungsstart registriert. Komponenten, die diese Dienste erfordern (z.B. Razor Pages), werden von diesen Diensten über Konstruktorparameter bereitgestellt. Der Konstruktorcode, der eine Datenbankkontextinstanz abruft, wird später in diesem Tutorial erläutert.
 
 Öffnen Sie die *Startup.cs-Datei*, und fügen Sie der `ConfigureServices`-Methode die hervorgehobenen Zeilen hinzu, um `SchoolContext` als Dienst zu registrieren.
 

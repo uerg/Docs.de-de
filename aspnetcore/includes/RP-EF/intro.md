@@ -1,1 +1,1 @@
-Die Contoso University-Web-App veranschaulicht, wie Razor-Seiten-Webanwendungen mithilfe von EF Core und Visual Studio erstellt werden können. Informationen zu den Tutorials finden Sie im [ersten Tutorial](xref:data/ef-rp/intro).
+Die Contoso University-Web-App veranschaulicht, wie Razor Pages-Webanwendungen mithilfe von EF Core und Visual Studio erstellt werden können. Informationen zu den Tutorials finden Sie im [ersten Tutorial](xref:data/ef-rp/intro).

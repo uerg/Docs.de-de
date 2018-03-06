@@ -19,7 +19,7 @@ ms.lasthandoff: 01/31/2018
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Eine Razor-Seiten-Version dieses Tutorials finden Sie [hier](xref:data/ef-rp/intro). Die Version für Razor-Seiten ist leichter zu verstehen und deckt mehr EF-Features ab. Es wird empfohlen, die [Razor-Seiten-Version dieses Tutorials](xref:data/ef-rp/intro) zu verwenden.
+EineRazor Pages-Version dieses Tutorials finden Sie [hier](xref:data/ef-rp/intro). Die Version für Razor Pages ist leichter zu verstehen und deckt mehr EF-Features ab. Es wird empfohlen, die [Razor Pages-Version dieses Tutorials](xref:data/ef-rp/intro) zu verwenden.
 
 Die Beispielwebanwendung der Contoso University veranschaulicht, wie mit Entity Framework Core 2.0 (EF Core 2.0) und Visual Studio 2017 ASP.NET Core MVC-Webanwendungen erstellt werden.
 
