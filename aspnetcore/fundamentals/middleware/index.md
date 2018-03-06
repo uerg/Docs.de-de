@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5d236c79120d79195c1970cc87d164002b56d0f1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
+ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -114,7 +114,7 @@ Die Middeware für statische Dateien wird am Anfang der Pipeline aufgerufen, dam
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-Wenn die Anforderung nicht von der Middleware für statische Dateien verarbeitet wird, wird sie an die Identity-Middleware (`app.UseAuthentication`) übergeben, welche die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn MVC eine spezifische Razor-Seite oder einen Controller und eine Aktion ausgewählt hat.
+Wenn die Anforderung nicht von der Middleware für statische Dateien verarbeitet wird, wird sie an die Identity-Middleware (`app.UseAuthentication`) übergeben, welche die Authentifizierung durchführt. Identity schließt keine unautorisierten Anforderungen kurz. Auch wenn Identity Anforderungen authentifiziert, erfolgt die Autorisierung (und Ablehnung) erst dann, wenn MVC eine spezifische Razor Page oder einen Controller und eine Aktion ausgewählt hat.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -221,6 +221,9 @@ Sie können die Middleware testen, indem Sie die Kultur übergeben (z.B. `http:/
 Im folgenden Code wird der Middlewaredelegat in eine Klasse verschoben:
 
 [!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
+
+> [!NOTE]
+> Der Name der Middlewaremethode `Task` muss in ASP.NET Core 1.x `Invoke` lauten. In ASP.NET Core 2.0 oder höher kann der Name `Invoke` oder `InvokeAsync` lauten.
 
 Die folgende Erweiterungsmethode macht die Middleware über [IAppllicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) verfügbar:
 
