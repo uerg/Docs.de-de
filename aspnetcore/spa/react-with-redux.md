@@ -1,5 +1,5 @@
 ---
-title: Verwenden Sie die reagieren mit Redux-Projektvorlage
+title: Verwenden der React-with-Redux-Projektvorlage
 author: SteveSandersonMS
 description: "Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren mit Redux und erstellen-reagieren-app."
 manager: wpickett
@@ -22,6 +22,7 @@ ms.lasthandoff: 02/23/2018
 > [!NOTE]
 > Diese Dokumentation betrifft nicht die in ASP.NET Core 2.0 enthaltene React-with-Redux-Projektvorlage. Es geht hier um die neuere React-with-Redux-Vorlage, auf die Sie manuell aktualisieren können. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.
 
-Die aktualisierte React-with-Redux-Projektvorlage stellt einen nützlichen Ausgangspunkt für ASP.NET Core-Apps mit Redux, React und [CRA-Konventionen(https://github.com/facebookincubator/create-react-app)] (Create-React-App) dar, um eine umfassende clientseitige Benutzeroberfläche (UI) zu implementieren.
+Die aktualisierte React-with-Redux-Projektvorlage stellt einen nützlichen Ausgangspunkt für ASP.NET Core-Apps mit Redux, React und [CRA-Konventionen ](https://github.com/facebookincubator/create-react-app) (Create-React-App) dar, um eine umfassende clientseitige Benutzeroberfläche (UI) zu implementieren.
 
-Mit Ausnahme des Befehls zur Projekterstellung sind alle Informationen zur React-with-Redux-Vorlage identisch mit jenen zur React-Vorlage. Führen Sie zum Erstellen dieses Projekttyps `dotnet new reactredux` anstelle von `dotnet new react` aus. Weitere Informationen zu den Funktionen für die beiden React-basierten Vorlagen finden Sie in der [Dokumentation zur React-Vorlage(xref:spa/react)].
+
+Mit Ausnahme des Befehls zur Projekterstellung sind alle Informationen zur React-with-Redux-Vorlage identisch mit jenen zur React-Vorlage. Führen Sie zum Erstellen dieses Projekttyps `dotnet new reactredux` anstelle von `dotnet new react` aus. Weitere Informationen zu den Funktionen für die beiden React-basierten Vorlagen finden Sie in der [Dokumentation zur React-Vorlage(](xref:spa/react).
