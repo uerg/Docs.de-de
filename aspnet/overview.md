@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: 
 msc.type: content
-ms.openlocfilehash: 3d4c34a35e2e34ed78f481c759eda3718edb4da6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0ba7814d4004b17e678eab9a2a41a6d6f34773e1
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-overview"></a>Übersicht über ASP.NET
 
@@ -26,7 +26,7 @@ ASP.NET ist ein kostenloses Webframework zum Erstellen von großen Websites und 
 
 ## <a name="get-started"></a>Erste Schritte
 
-[Herunterladen von Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=826064), eine IDE für ASP.NET unter Windows frei.
+[Visual Studio Community 2017](https://www.visualstudio.com/downloads/), eine IDE für ASP.NET unter Windows frei.
 
 ## <a name="websites-and-web-applications"></a>Websites und Webanwendungen
 

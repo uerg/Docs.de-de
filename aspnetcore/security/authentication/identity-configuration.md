@@ -4,16 +4,16 @@ author: AdrienTorris
 description: "Grundlegendes zu ASP.NET Core Identity-Standardwerten, und erfahren Sie, wie so konfigurieren Sie die Identitätseigenschaften, um benutzerdefinierte Werte verwenden."
 manager: wpickett
 ms.author: scaddie
-ms.date: 02/21/2018
+ms.date: 03/06/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 6aeb85063b4b6f97822062b523a0c1f7ee6b595c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 469068af2fc12627a0a5d1c5623eb60bef51cea0
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-identity"></a>Konfigurieren von Identität
 
@@ -132,7 +132,7 @@ Konfigurieren Sie die app in Cookie `Startup.ConfigureServices`:
 | [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge) | Gilt nur für ASP.NET Core 1.x.<br><br> Bei "true", behandelt die authentifizierungsmiddleware automatische Herausforderungen. Wenn "false", die authentifizierungsmiddleware nur Antworten, wenn dies ausdrücklich angegeben ändert die `AuthenticationScheme`. |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer) | Ruft ab oder legt den Aussteller, die für alle Ansprüche verwendet werden soll, die erstellt werden (geerbt von [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)). |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) | Die Domäne, der das Cookie zugeordnet werden soll. |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | Ruft ab oder legt die Lebensdauer von Cookies. |
+| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | Ruft ab oder legt die Lebensdauer des HTTP-Cookies (nicht das Authentifizierungscookie). Diese Eigenschaft wird überschrieben, indem [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan). Er darf nicht im Kontext des CookieAuthentication verwendet werden. |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) | Gibt an, ob ein Cookie durch clientseitiges Skript zugegriffen werden kann.<br><br>Der Standardwert ist `true`. |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) | Der Name des Cookies.<br><br>Der Standardwert ist `.AspNetCore.Cookies`. |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) | Der Cookiepfad. |
