@@ -10,15 +10,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 590d32342b1724a0cbc937655c35631938eb09b2
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: b2a3c369a22d50fcefdb96914f5bf84bfafab7cb
+ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio-Tools für Docker mit ASP.NET Core
 
-[Visual Studio 2017](https://www.visualstudio.com/) unterstützt das Erstellen, Debuggen und Ausführen von ASP.NET Core-Apps, die für .NET Framework oder .NET Core entwickelt wurden. Sowohl Windows- als auch Linux-Container werden unterstützt.
+[Visual Studio-2017](https://www.visualstudio.com/) erstellen, Debuggen und Ausführen von apps, die .NET Core als Ziel dient für die Datenvolumes ASP.NET Core unterstützt. Sowohl Windows- als auch Linux-Container werden unterstützt.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
