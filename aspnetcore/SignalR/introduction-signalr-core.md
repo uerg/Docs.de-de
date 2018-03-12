@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: 0e26ecf913bbe6d24da96c1ece8b13aa5240818f
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-signalr"></a>Einführung in SignalR
 
@@ -38,7 +38,7 @@ SignalR für ASP.NET Core:
 * Verbindungsverwaltung behandelt automatisch.
 * Ermöglicht das Senden von Nachrichten für alle verbundenen Clients gleichzeitig über. Z. B. einem Chatraum.
 * Ermöglicht das Senden von Nachrichten an bestimmte Clients oder Clientgruppen.
-* Wird auf Open Source [GitHub](https://github.com/aspnet/SignalR).
+* Wird auf Open Source [GitHub](https://github.com/aspnet/signalr).
 * Gut skaliert werden.
 
 Die Verbindung zwischen Client und Server ist persistent, im Gegensatz zu einer HTTP-Verbindung.
@@ -63,4 +63,4 @@ Das folgende Diagramm zeigt die Beziehung zwischen Hubs, Endpunkte und Clients.
 
 ## <a name="related-resources"></a>Weitere Informationen
 
-[Erste Schritte mit SignalR für ASP.NET Core](get-started-signalr-core)
+[Erste Schritte mit SignalR für ASP.NET Core](xref:signalr/get-started-signalr-core)

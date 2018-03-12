@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7be257faa350476bef9f6d372ea4f140fff8d136
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: dda73ca1878396e04b8ff04a255c25bf26ed4eff
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/12/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>Verarbeitung von nicht behandelten Ausnahmen (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_12_CS.zip) oder [PDF herunterladen](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial12_ErrorHandling_cs.pdf)
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs/samples) ([Vorgehensweise zum Herunterladen](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Tritt ein Laufzeitfehler auf eine Webanwendung in der Produktion ist es wichtig, einen Entwickler benachrichtigt, damit den Fehler protokolliert werden, damit er zu einem späteren Zeitpunkt zeitlich diagnostiziert werden kann. Dieses Lernprogramm bietet einen Überblick darüber, wie ASP.NET Laufzeitfehler verarbeitet und untersucht eine Möglichkeit, benutzerdefinierten Code, wenn eine nicht behandelte Ausnahme Blasen bis zu die ASP.NET-Laufzeit ausgeführt haben.
 
@@ -62,7 +62,7 @@ Die `Global.asax` in einem drahtlosen Zugriffspunkt globale anwendungsklassenvor
 
 Die Ereignishandler, die durch Visual Studio Globale Anwendungsklasse Vorlage erstellt wurden, sind nicht vollständig. Sie können einen Ereignishandler hinzufügen, für eine beliebige `HttpApplication` Ereignis durch Benennen des ereignishandlers `Application_EventName`. Beispielsweise können Sie den folgenden Code hinzu Hinzufügen der `Global.asax` Datei so erstellen einen Ereignishandler für das [ `AuthorizeRequest` Ereignis](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
-[!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
+[!code-cs[Main](processing-unhandled-exceptions-cs/samples/sample1.cs)]
 
 Entsprechend können Sie alle Ereignishandler, die durch die Globale Anwendungsklasse-Vorlage erstellt entfernen, die nicht benötigt werden. Für dieses Lernprogramm benötigen wir nur einen Ereignishandler für das `Error` Ereignis; gerne So entfernen Sie die anderen Ereignishandler aus der `Global.asax` Datei.
 
@@ -159,7 +159,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 - [ASP.NET HTTP-Module und HTTP-Handler (Übersicht)](https://support.microsoft.com/kb/307985)
 - [Ordnungsgemäß reagieren auf nicht behandelte Ausnahmen - Verarbeitung von nicht behandelten Ausnahmen](http://aspnet.4guysfromrolla.com/articles/091306-1.aspx)
-- [`HttpApplication`Klasse und das Anwendungsobjekt ASP.NET](http://www.eggheadcafe.com/articles/20030211.asp)
+- [`HttpApplication` Klasse und das Anwendungsobjekt ASP.NET](http://www.eggheadcafe.com/articles/20030211.asp)
 - [HTTP-Handler und HTTP-Module in ASP.NET](http://www.15seconds.com/Issue/020417.htm)
 - [Senden von E-Mail in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Grundlegendes zu den `Global.asax` Datei](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)
