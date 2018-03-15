@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core-Tutorials
 
@@ -21,14 +21,14 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
 
 ## <a name="build-web-apps"></a>Erstellen von Web-Apps
 
-[Razor-Seiten](xref:mvc/razor-pages/index) sind der empfohlene Ansatz für das Erstellen einer neuen Web-UI-App mit ASP.NET Core 2.0.
+[Razor Pages](xref:mvc/razor-pages/index) sind der empfohlene Ansatz für das Erstellen einer neuen Web-UI-App mit ASP.NET Core 2.0.
 
-* [Einführung in Razor-Seiten in ASP.NET Core](xref:mvc/razor-pages/index)
-* Erstellen einer Razor-Seiten-Web-App mit ASP.NET Core
+* [Einführung in Razor Pages in ASP.NET Core](xref:mvc/razor-pages/index)
+* Erstellen einer Razor Pages-Web-App mit ASP.NET Core
 
-   * [Razor-Seiten unter Windows](xref:tutorials/razor-pages/index)
-   * [Razor-Seiten unter Mac](xref:tutorials/razor-pages-mac/index)
-   * [Razor-Seiten mit VS Code](xref:tutorials/razor-pages-vsc/index)  
+   * [Razor Pages unter Windows](xref:tutorials/razor-pages/index)
+   * [Razor Pages unter Mac](xref:tutorials/razor-pages-mac/index)
+   * [Razor Pages mit VS Code](xref:tutorials/razor-pages-vsc/index)  
 
 * Erstellen einer ASP.NET Core-MVC-Web-App
 
@@ -47,12 +47,15 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
   * [Web-API mit Visual Studio für Windows](first-web-api.md)
   * [Web-API mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
   * [Web-API mit Visual Studio Code](web-api-vsc.md)
-  
-* [ASP.NET Core-Web-API-Hilfeseiten mit Swagger](web-api-help-pages-using-swagger.md)
+
+* [ASP.NET Core-Web-API-Hilfeseiten mit Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+  * [Erste Schritte mit NSwag](xref:tutorials/get-started-with-nswag)
+  * [Erste Schritte mit Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
+
 * [Erstellen von Back-End-Webdiensten für native mobile Apps](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Datenzugriff und -speicherung
-* [Erste Schritte mit Razor-Seiten und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
+* [Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
 * [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
 * [ASP.NET Core MVC mit Entity Framework Core: neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core MVC mit Entity Framework Core: bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
