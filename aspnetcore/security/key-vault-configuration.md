@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault-Konfigurationsanbieter
+title: Azure Key Vault Konfigurationsanbieter in ASP.NET Kern
 author: guardrex
 description: Erfahren Sie, wie der Azure Key Vault-Konfigurationsanbieter verwenden Sie zum Konfigurieren einer Anwendung mithilfe von Name / Wert-Paaren, die zur Laufzeit geladen.
 manager: wpickett
@@ -8,29 +8,29 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault-Konfigurationsanbieter
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Konfigurationsanbieter in ASP.NET Kern
 
-Durch [Luke Latham](https://github.com/guardrex) und [Andrew Stanton-Versicherungsfachleuten](https://github.com/anurse)
+Von [Lukas Latham](https://github.com/guardrex) und [Andrew Stanton Krankenschwester](https://github.com/anurse)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Anzeigen oder Herunterladen von Beispielcode für 2.x:
 
-* [Beispiel eines grundlegenden](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))-geheimen Werte in eine app liest.
-* [Schlüsselname Präfix Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample)) – Lesevorgänge geheimen Werte, die mit dem Schlüsselnamen-Präfix, das die Version einer App, die Ihnen ermöglicht darstellt, einen anderen Satz von geheimen Werten für jede app-Version zu laden.
+* [Einfache Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) ([herunterladen](xref:tutorials/index#how-to-download-a-sample)) – liest geheimen Werte in einer Anwendung.
+* [Name des Präfix Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) ([herunterladen](xref:tutorials/index#how-to-download-a-sample)) - Lesevorgänge geheimen Werte mit dem Präfix Schlüsselnamen, der verschiedene geheime Werte für jede Version der Anwendung laden können die Version einer Anwendung darstellt.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Anzeigen oder Herunterladen von Beispielcode für 1.x:
 
-* [Beispiel eines grundlegenden](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))-geheimen Werte in eine app liest.
-* [Schlüsselname Präfix Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample)) – Lesevorgänge geheimen Werte, die mit dem Schlüsselnamen-Präfix, das die Version einer App, die Ihnen ermöglicht darstellt, einen anderen Satz von geheimen Werten für jede app-Version zu laden. 
+* [Einfache Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x) ([herunterladen](xref:tutorials/index#how-to-download-a-sample)) – liest geheimen Werte in einer Anwendung.
+* [Name des Präfix Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([herunterladen](xref:tutorials/index#how-to-download-a-sample)) - Lesevorgänge geheimen Werte mit dem Präfix Schlüsselnamen, der verschiedene geheime Werte für jede Version der Anwendung laden können die Version einer Anwendung darstellt. 
 
 ---
 
@@ -54,7 +54,7 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Schlüsseltresor geheime Schlüssel erstellen und das Laden von Konfigurationswerten (Basic-Beispiel)
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* geheime Schlüssel sind die Zertifikate für die Verwendung durch apps und Dienste, aber werden nicht unterstützt, indem Sie den Konfigurationsanbieter. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
+  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
     * Einfache Kennwörter werden als Name / Wert-Paare erstellt. Azure Key Vault geheime Namen sind nur alphanumerische Zeichen und Bindestriche enthalten.
     * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen in der Stichprobe. Doppelpunkte, die normalerweise, zur Begrenzung von eines Abschnitts über einen Unterschlüssel in verwendet werden [ASP.NET kernkonfiguration](xref:fundamentals/configuration/index), für den geheimen Namen sind nicht zulässig. Aus diesem Grund sind zwei Bindestriche verwendet und für einen Doppelpunkt ausgetauscht werden, wenn der geheime Schlüssel in der app-Konfiguration geladen werden.
     * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren. Der erste geheime Schlüssel ist ein einfacher Name und Wert und der zweiten geheimen Schlüssel erstellt einen geheimen Wert mit einem Abschnitt und der Unterschlüssel im Namen geheimen Schlüssels:
@@ -74,7 +74,7 @@ Beim Ausführen der app zeigt eine Webseite für den geheimen geladenen Werte:
 ![Browserfenster, die mit geheimen Werte, die über den Azure Key Vault Konfigurationsanbieter geladen](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Mit Präfix schlüsseltresor. geheime Schlüssel erstellen und das Laden von Konfigurationswerten (Key-Name-Präfix-Beispiel)
-`AddAzureKeyVault`bietet außerdem eine Überladung, die eine Implementierung der akzeptiert `IKeyVaultSecretManager`, womit Sie steuern, wie Key Vault-Schlüssel in Konfigurationsschlüssel konvertiert werden. Beispielsweise können Sie die Schnittstelle, um geheime Werte basierend auf einem Präfixwert, die, den Sie beim Starten der app bereitstellen, laden implementieren. Dadurch können Sie z. B. um Geheimnisse anhand der Version der app geladen werden.
+`AddAzureKeyVault` bietet außerdem eine Überladung, eine Implementierung von akzeptiert `IKeyVaultSecretManager`, wodurch Sie steuern, wie Vault Geheimnisse Konfigurationsschlüssel umgewandelt werden. Beispielsweise können Sie die Schnittstelle, um geheime Werte basierend auf einem Präfixwert, die, den Sie beim Starten der app bereitstellen, laden implementieren. Dadurch können Sie z. B. um Geheimnisse anhand der Version der app geladen werden.
 
 > [!WARNING]
 > Verwenden Sie keine Präfixe auf schlüsseltresor geheime Schlüssel zum Ablegen geheime Schlüssel für mehrere apps im selben schlüsseltresor wird oder dass environmental geheime Schlüssel (z. B. *Entwicklung* im Vergleich zu *Produktion* geheime Schlüssel) in der gleichen Tresor. Es wird empfohlen, dass anderer apps und Entwicklung/produktionsumgebungen verwenden Sie separate Schlüssel Tresore zum Isolieren von app-Umgebungen für das höchste Maß an Sicherheit.
@@ -97,7 +97,7 @@ Wenn Sie diesen Ansatz zu implementieren:
 > Eigene bieten `KeyVaultClient` Implementierung `AddAzureKeyVault`. Angeben eines benutzerdefinierten Clients, ermöglicht Ihnen, eine einzelne Instanz des Clients zwischen den Konfigurationsanbieter und anderer Teile Ihrer app zu verwenden.
 
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* geheime Schlüssel sind die Zertifikate für die Verwendung durch apps und Dienste, aber werden nicht unterstützt, indem Sie den Konfigurationsanbieter. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
+  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
     * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen.
     * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren:
       * `5000-AppSecret`: `5.0.0.0_secret_value`

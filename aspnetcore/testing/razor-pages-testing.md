@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core
 
@@ -29,8 +29,8 @@ ASP.NET Core unterstützt Einheit und Integrationstests für die Razor-Seiten-Ap
 
 In diesem Thema wird vorausgesetzt, dass Sie ein grundlegendes Verständnis der Razor-Seiten-apps, die Komponententests und die Integration testen. Wenn Sie mit Razor-Seiten-apps oder testen Konzepten nicht vertraut sind, finden Sie unter den folgenden Themen:
 
-* [Introduction to Razor Pages (Einführung in Razor-Seiten)](xref:mvc/razor-pages/index)
-* [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages/razor-pages-start)
+* [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index)
+* [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [UnitTests von c# in .NET Core mit Dotnet Test- und xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Integrationstests](xref:testing/integration-testing)
 
@@ -59,7 +59,7 @@ Die Nachrichten-app ist ein einfaches Razor-Seiten Nachrichtensystem, das mit de
 * Die app enthält einen Datenzugriffsebene (DAL) in seiner Datenbank Context-Klasse `AppDbContext` (*Data/AppDbContext.cs*). Die DAL-Methoden werden markiert `virtual`, dadurch wird die Methoden für die Verwendung in den Tests imitieren.
 * Wenn die Datenbank auf app-Starts leer ist, wird der Nachrichtenspeicher mit drei Nachrichten initialisiert. Diese *Seeding Nachrichten* werden auch in Tests verwendet.
 
-&#8224; Das Thema EF [Testen mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank, die für Tests mit MSTest verwendet. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Testen Konzepte und Test-Implementierungen in anderen Testframeworks sind ähnlich, aber nicht identisch.
+&#8224;Das Thema EF [Testen mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank, die für Tests mit MSTest verwendet. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Testen Konzepte und Test-Implementierungen in anderen Testframeworks sind ähnlich, aber nicht identisch.
 
 Auch wenn die app nicht verwendet die [Repositorymusters](http://martinfowler.com/eaaCatalog/repository.html) ist ein Beispiel für effektive nicht die [Arbeitseinheit (UoW) Muster](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor-Seiten unterstützt diese Muster der Entwicklung. Weitere Informationen finden Sie unter [Entwerfen der Infrastruktur Persistenzebene](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementieren das Repository und die Einheit der Arbeit Muster in einer ASP.NET MVC-Anwendung](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), und [testen Controllerlogik](/aspnet/core/mvc/controllers/testing) (im Beispiel wird das Repositorymuster implementiert).
 

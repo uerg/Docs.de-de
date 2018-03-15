@@ -1,7 +1,7 @@
 ---
-title: Migrieren von ASP.NET Web-API
+title: Migrieren von ASP.NET Web-API zu ASP.NET Core
 author: ardalis
-description: 
+description: Erfahren Sie, wie eine Web-API-Implementierung von ASP.NET Web-API zu ASP.NET Core MVC zu migrieren.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 929fab90aa88745807761e824a2cf614f078ea36
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-from-aspnet-web-api"></a>Migrieren von ASP.NET Web-API
+# <a name="migrating-from-aspnet-web-api-to-aspnet-core"></a>Migrieren von ASP.NET Web-API zu ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.com)
 
@@ -25,7 +25,7 @@ Web-APIs sind HTTP-Diensten, die eine Breite Palette von Clients, einschließlic
 
 ## <a name="review-aspnet-web-api-project"></a>Überprüfen Sie ASP.NET Web-API-Projekt
 
-In diesem Artikel verwendet das Beispielprojekt *ProductsApp*, in dem Artikel erstellte [erste Schritte mit ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) als Ausgangspunkt erforderlich. In diesem Projekt wird ein einfache ASP.NET Web-API-Projekt wie folgt konfiguriert werden.
+In diesem Artikel verwendet das Beispielprojekt *ProductsApp*, in dem Artikel erstellte [erste Schritte mit ASP.NET Web API 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) als Ausgangspunkt erforderlich. In diesem Projekt wird ein einfache ASP.NET Web-API-Projekt wie folgt konfiguriert werden.
 
 In *Global.asax.cs*, erfolgt ein Aufruf zum `WebApiConfig.Register`:
 

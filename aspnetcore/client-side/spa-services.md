@@ -1,5 +1,5 @@
 ---
-title: "Verwenden JavaScriptServices für einseitige Anwendungen erstellen"
+title: Verwenden Sie JavaScriptServices zu Single Page Applications in ASP.NET Kern
 author: scottaddie
 description: Weitere Informationen Sie zu den Vorteilen der Verwendung von JavaScriptServices zum Erstellen von einer einzelnen Seite Anwendung (SPA) durch ASP.NET Core gesichert wird.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c617f1a563b0eeccea0ab313bba8b90a4c947e28
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Verwenden JavaScriptServices für einseitige Anwendungen mit ASP.NET Core erstellen
+# <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Verwenden Sie JavaScriptServices zu Single Page Applications in ASP.NET Kern
 
 Durch [Scott Addie](https://github.com/scottaddie) und [Fiyaz Hasan](http://fiyazhasan.me/)
 

@@ -1,5 +1,5 @@
 ---
-title: Continuous Deployment in Azure mit Visual Studio und Git
+title: Fortlaufende Bereitstellung in Azure mit Visual Studio und Git mit ASP.NET Core
 author: rick-anderson
 description: "Erfahren Sie, wie Sie mit Visual Studio eine ASP.NET Core-Web-App erstellen und sie unter Verwendung von Git für Continuous Deployment in Azure App Service bereitstellen."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Fortlaufende Bereitstellung in Azure für ASP.NET Core Visual Studio mit Git
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Fortlaufende Bereitstellung in Azure mit Visual Studio und Git mit ASP.NET Core
 
 Von [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ In diesem Lernprogramm wird davon ausgegangen, dass die folgende Software instal
 
 1. Wählen Sie im Menü **Datei** den Befehl **Neu** > **Projekt** aus.
 
-1. Wählen Sie die Projektvorlage **ASP.NET Core-Webanwendung** aus. Sie wird unter **Installierte** > **Vorlagen** > **Visual C#** > **.NET Core** angezeigt. Benennen Sie das Projekt mit `SampleWebAppDemo`. Wählen Sie **Neues Git-Repository** aus, und klicken Sie auf **OK**.
+1. Wählen Sie die Projektvorlage **ASP.NET Core-Webanwendung** aus. Sie wird unter **Installierte** > **Vorlagen** > **Visual C#** > **.NET Core** angezeigt. Benennen Sie das Projekt mit `SampleWebAppDemo`. Wählen Sie die **erstellen neue Git-Repository** aus, und klicken Sie auf **OK**.
 
    ![Dialogfeld "Neues Projekt"](azure-continuous-deployment/_static/01-new-project.png)
 

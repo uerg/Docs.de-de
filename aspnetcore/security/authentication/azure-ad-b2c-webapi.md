@@ -1,5 +1,5 @@
 ---
-title: Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C
+title: Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C in ASP.NET Core
 author: camsoper
 description: Erfahren Sie, wie Azure Active Directory B2C-Authentifizierung mit Web-API von ASP.NET Core einrichten. Testen Sie die authentifizierte Web-API mit Postman.
 ms.author: casoper
@@ -10,13 +10,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C
+# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C in ASP.NET Core
 
 Von [Cam Soper](https://twitter.com/camsoper)
 
@@ -120,7 +120,7 @@ Verwenden Sie die folgenden Werte an:
 | **Einschließen von Web-app / web-API** | Ja                              |                                 |
 | **Impliziten Datenfluss zulassen**       | Ja                              |                                 |
 | **Antwort-URL**                 | `https://getpostman.com/postman` |                                 |
-| **App-ID-URI**                | *&lt;leer lassen&gt;*            | Für dieses Lernprogramm erforderlich nicht. |
+| **App-ID-URI**                | *&lt;Leer lassen&gt;*            | Für dieses Lernprogramm erforderlich nicht. |
 | **Native Client enthalten**     | Nein                               |                                 |
 
 Die neu registrierten Web-app benötigt eine Zugriffsberechtigung für die Web-API im Auftrag des Benutzers.  
@@ -177,7 +177,7 @@ Um eine authentifizierte Anforderung an die Web-API vornehmen zu können, ist ei
     | **Rückruf-URL**          | `https://getpostman.com/postman`                                                              |                                                                                            |
     | **Auth-URL**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Ersetzen Sie  *&lt;name_der_mandantendomäne&gt;*  mit dem Mandanten Domänennamen ohne spitzen Klammern. |
     | **Client-ID**             | *&lt;Geben Sie das Postman App- <b>Anwendungs-ID</b>&gt;*                                       |                                                                                            |
-    | **Geheimer Clientschlüssel**         | *&lt;leer lassen&gt;*                                                                         |                                                                                            |
+    | **Geheimer Clientschlüssel**         | *&lt;Leer lassen&gt;*                                                                         |                                                                                            |
     | **Bereich**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Ersetzen Sie  *&lt;name_der_mandantendomäne&gt;*  mit dem Mandanten Domänennamen ohne spitzen Klammern. |
     | **Clientauthentifizierung** | Clientanmeldeinformationen im Text senden                                                               |                                                                                            |
     

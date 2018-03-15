@@ -1,7 +1,7 @@
 ---
 title: "Aktivieren der Generierung von QR-Code für Authentifikator-apps in ASP.NET Core"
 author: rick-anderson
-description: "Aktivieren der Generierung von QR-Code für Authentifikator-apps in ASP.NET Core"
+description: "Ermitteln Sie zum Aktivieren der Generierung von QR-Code für Authentifikator-apps, die mit ASP.NET Core zweistufige Authentifizierung arbeiten."
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Aktivieren der Generierung von QR-Code für Authentifikator-apps in ASP.NET Core
 
@@ -25,7 +25,7 @@ ASP.NET Core Web-app-Vorlagen unterstützen Authentifikatoren, aber stellen kein
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Hinzufügen von QR-Codes auf der Konfigurationsseite 2FA
 
-Verwenden Sie diese Anweisungen *qrcode.js* über https://davidshimjs.github.io/qrcodejs/-Repository.
+Verwenden Sie diese Anweisungen *qrcode.js* aus der https://davidshimjs.github.io/qrcodejs/ Repository.
 
 * Herunterladen der [qrcode.js Javascript-Bibliothek](https://davidshimjs.github.io/qrcodejs/) auf die `wwwroot\lib` Ordner des Projekts.
 
@@ -84,8 +84,8 @@ Sie können den QR-Code-Bibliothek mit Ihrem bevorzugten Bibliothek ersetzen. De
 
 Die korrekt formatierte URL für den QR-Code finden Sie in der:
 
-* `AuthenticatorUri`die Eigenschaft des Modells.
-* `data-url`die Eigenschaft in der `qrCodeData` Element. 
+* `AuthenticatorUri` die Eigenschaft des Modells.
+* `data-url` die Eigenschaft in der `qrCodeData` Element. 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP Client- und Zeitversatz
 

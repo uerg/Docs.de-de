@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Erstellen eine Datenzugriffsschicht (c#)
 ====================
@@ -308,7 +308,7 @@ Beide Data Änderung Muster verwenden des TableAdapter **InsertCommand**, **Upda
 
 [![Der TableAdapter weist InsertCommand, UpdateCommand und DeleteCommand-Eigenschaften](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**Abbildung 23**: hat die TableAdapter **InsertCommand**, **UpdateCommand**, und **DeleteCommand** Eigenschaften ([anzeigen Vollbild](creating-a-data-access-layer-cs/_static/image63.png))
+**Abbildung 23**: hat die TableAdapter **InsertCommand**, **UpdateCommand**, und **DeleteCommand** Eigenschaften ([klicken Sie auf, um in voller Größe anzeigen Bild](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 Um zu überprüfen oder ändern Sie diesen Befehl Datenbankeigenschaften, klicken Sie auf die **CommandText** untergeordnete Eigenschaft, die Abfrage-Generator angezeigt wird.
@@ -316,7 +316,7 @@ Um zu überprüfen oder ändern Sie diesen Befehl Datenbankeigenschaften, klicke
 
 [![Konfigurieren Sie die INSERT-, Update- und DELETE-Anweisungen im Abfrage-Generator](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**Abbildung 24**: Konfigurieren der **einfügen**, **UPDATE**, und **löschen** Anweisungen im Abfrage-Generator ([Bild in voller Größe anzeigen ](creating-a-data-access-layer-cs/_static/image66.png))
+**Abbildung 24**: Konfigurieren der **einfügen**, **UPDATE**, und **löschen** Anweisungen im Abfrage-Generator ([Vollbildanzeigen](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 Im folgenden Codebeispiel wird veranschaulicht, mit der der Batch-updatemuster Doppelklicken den Preis aller Produkte, die nicht eingestellt werden, und deren 25 Einheiten im Lager oder weniger:
@@ -537,7 +537,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 

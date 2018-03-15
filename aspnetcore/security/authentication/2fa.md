@@ -1,7 +1,7 @@
 ---
-title: Zweistufige Authentifizierung mit SMS
+title: Zweistufige Authentifizierung mit SMS in ASP.NET Core
 author: rick-anderson
-description: Zeigt, wie zum Einrichten der zweistufigen Authentifizierung (2FA) mit ASP.NET Core
+description: Informationen Sie zum Einrichten der zweistufigen Authentifizierung (2FA) mit einer app ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 721c4c20234c7232b509a0cff444538c2cfeb166
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c328c6f4b674695dd1f2db8145a7ac1b8f12d36d
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="two-factor-authentication-with-sms"></a>Zweistufige Authentifizierung mit SMS
+# <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Zweistufige Authentifizierung mit SMS in ASP.NET Core
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Schweiz-Entwickler](https://github.com/Swiss-Devs)
 
@@ -142,6 +142,13 @@ Wenn Sie eine Textnachricht nicht erhalten, finden Sie unter Seite für Twilio-P
 
 ## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Kontosperrung zum Schutz vor Brute-Force-Angriffen
 
-Es wird empfohlen, dass Sie kontosperrung mit 2FA verwenden. Sobald ein Benutzer (über ein lokales Konto oder soziale Konto) anmeldet, jedem fehlgeschlagenen Versuch zur 2FA gespeichert ist, und wenn die maximale Versuche (Standard ist 5) wird erreicht, der Benutzer fünf Minuten gesperrt ist (Sie können festlegen, dass die Sperre mit `DefaultAccountLockoutTimeSpan`). Der folgende Code konfiguriert Konto für 10 Minuten nach 10 fehlgeschlagenen Versuchen ausgesperrt werden.
+Kontosperrung wird bei 2FA empfohlen. Sobald ein Benutzer über ein lokales Konto oder soziale Konto anmeldet, wird jedem fehlgeschlagenen Versuch zur 2FA gespeichert. Wenn die maximale zugriffsversuchsfehlern erreicht ist, wird der Benutzer gesperrt (Standardeinstellung: 5-Minuten-Sperre nach 5 Zugriffsversuchen fehlgeschlagen). Eine erfolgreiche Authentifizierung setzt die Anzahl der fehlgeschlagenen Zugriffe Versuche und setzt die Uhr. Die maximale Anzahl fehlgeschlagener Zugriffsversuche und Dauer der Sperrung kann festgelegt werden, mit [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) und [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Der folgende Code konfiguriert die kontosperrung für 10 Minuten nach 10 Zugriffsversuche nicht:
 
-[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
+
+Überprüfen Sie, ob [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) legt `lockoutOnFailure` auf `true`:
+
+```csharp
+var result = await _signInManager.PasswordSignInAsync(
+                 Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+```

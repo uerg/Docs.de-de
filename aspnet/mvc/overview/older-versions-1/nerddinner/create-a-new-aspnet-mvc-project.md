@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
 ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Erstellen eines neuen ASP.NET MVC-Projekts
 ====================
@@ -63,14 +63,14 @@ Wenn Sie eine neue ASP.NET MVC-Anwendung mit Visual Studio erstellen, fügt auto
 
 ASP.NET MVC-Projekte in der Standardeinstellung sind Verzeichnisse vorhanden sechs auf oberster Ebene:
 
-| **Verzeichnis** | **Zweck** |
+| **Verzeichnis** | **Purpose** |
 | --- | --- |
-| **/ Controller** | Wo Sie Controllerklassen platziert, die URL-Anforderungen zu verarbeiten |
-| **/ Modelle** | Legen Sie Sie, in denen Klassen, die darstellen und Bearbeiten von Daten |
-| **/ Ansichten** | In dem Sie Benutzeroberflächen-Vorlagendateien einfügen, die für renderingausgabe zuständig sind |
-| **/ Skripts** | Hier können Sie JavaScript-Bibliothek-Dateien und Skripts (. js) einfügen |
-| **/ Content** | Hier können Sie CSS- und Bilddateien und anderen nicht-dynamische/nicht-JavaScript-Inhalt einfügen |
-| **/ App\_Daten** | Sofern Sie Datendateien gespeichert, Lese-/Schreibzugriff werden soll. |
+| **/Controllers** | Wo Sie Controllerklassen platziert, die URL-Anforderungen zu verarbeiten |
+| **/Models** | Legen Sie Sie, in denen Klassen, die darstellen und Bearbeiten von Daten |
+| **/Views** | In dem Sie Benutzeroberflächen-Vorlagendateien einfügen, die für renderingausgabe zuständig sind |
+| **/Scripts** | Hier können Sie JavaScript-Bibliothek-Dateien und Skripts (. js) einfügen |
+| **/Content** | Hier können Sie CSS- und Bilddateien und anderen nicht-dynamische/nicht-JavaScript-Inhalt einfügen |
+| **/App\_Data** | Sofern Sie Datendateien gespeichert, Lese-/Schreibzugriff werden soll. |
 
 ASP.NET MVC ist diese Struktur nicht erforderlich. In der Tat Entwickler, die auf große Anwendungen arbeiten in der Regel unterteilt die Anwendung oben an verschiedenen Projekten, die es mehr verwaltbar zu machen (z. B.: Modellklassen Daten gehen Sie jedoch oftmals in einem separaten Klassenbibliotheksprojekt aus der Webanwendung). Die Standardprojektstruktur bieten jedoch nice Directory Standardkonvention, mit denen wir unsere anwendungsaspekten sauber zu halten.
 

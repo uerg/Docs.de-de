@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurieren der Produktions-Webanwendung mithilfe die Produktionsdatenbank (c#)
 ====================
@@ -37,16 +37,16 @@ Es ist nicht ungewöhnlich, dass Informationen zu den Entwicklungs- und produkti
 
 ## <a name="examining-the-connection-string-information"></a>Untersuchen die Verbindungszeichenfolgeninformationen
 
-Von der Webanwendung Buch Reviews verwendete Verbindungszeichenfolge befindet sich in der Konfigurationsdatei der Anwendung-s `Web.config`. `Web.config`enthält einen speziellen Bereich für das Speichern von Verbindungszeichenfolgen, geeignet benannt, [ &lt;ConnectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Die `Web.config` -Konfigurationsdatei für das Buch Reviews-Website eine Verbindungszeichenfolge, die in diesem Abschnitt mit dem Namen definiert ist `ReviewsConnectionString`:
+Von der Webanwendung Buch Reviews verwendete Verbindungszeichenfolge befindet sich in der Konfigurationsdatei der Anwendung-s `Web.config`. `Web.config` enthält einen speziellen Bereich für das Speichern von Verbindungszeichenfolgen, geeignet benannt, [ &lt;ConnectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Die `Web.config` -Konfigurationsdatei für das Buch Reviews-Website eine Verbindungszeichenfolge, die in diesem Abschnitt mit dem Namen definiert ist `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
 Die Verbindungszeichenfolge - Datenquelle =. \SQLEXPRESS; AttachDbFilename = | DataDirectory|\Reviews.mdf;Integrated Security = True; User Instance = True - besteht aus einer Reihe von Optionen und Werte, mit Option/Wert-Paaren, die getrennt durch ein Semikolon und jede Option und dem Wert, der durch ein Gleichheitszeichen getrennt. Die vier Optionen in dieser Verbindungszeichenfolge verwendet werden:
 
-- `Data Source`-Gibt den Speicherort des Datenbankservers und der Datenbankserver-Instanzname (falls vorhanden). Der Wert `.\SQLEXPRESS`, ist ein Beispiel, in dem es ist ein Datenbankserver und einen Instanznamen an. Der Punkt gibt an, dass der Datenbankserver auf dem gleichen Computer wie die Anwendung; der Instanzname `SQLEXPRESS`.
-- `AttachDbFilename`-Gibt den Speicherort der Datenbankdatei. Der Wert enthält den Platzhalter `|DataDirectory|`, also in den vollständigen Pfad der Anwendung s aufgelöst `App_Data` Ordner zur Laufzeit.
-- `Integrated Security`– Ein boolescher Wert, der angibt, ob einen angegebene Benutzername/Kennwort verwendet wird, beim Verbinden mit der Datenbank ("false") oder der aktuelle Windows-Anmeldeinformationen ("true").
-- `User Instance`-eine Konfigurationsoption, die spezifisch für die SQL Server Express-Edition, der angibt, ob nicht-Administratoren auf dem lokalen Computer Anfügen und Herstellen einer Verbindung mit einer SQL Server Express Edition-Datenbank erlauben. Finden Sie unter [SQL Server Express-Benutzerinstanzen](https://msdn.microsoft.com/library/ms254504.aspx) für Weitere Informationen zu dieser Einstellung.
+- `Data Source` -Gibt den Speicherort des Datenbankservers und der Datenbankserver-Instanzname (falls vorhanden). Der Wert `.\SQLEXPRESS`, ist ein Beispiel, in dem es ist ein Datenbankserver und einen Instanznamen an. Der Punkt gibt an, dass der Datenbankserver auf dem gleichen Computer wie die Anwendung; der Instanzname `SQLEXPRESS`.
+- `AttachDbFilename` -Gibt den Speicherort der Datenbankdatei. Der Wert enthält den Platzhalter `|DataDirectory|`, also in den vollständigen Pfad der Anwendung s aufgelöst `App_Data` Ordner zur Laufzeit.
+- `Integrated Security` – Ein boolescher Wert, der angibt, ob einen angegebene Benutzername/Kennwort verwendet wird, beim Verbinden mit der Datenbank ("false") oder der aktuelle Windows-Anmeldeinformationen ("true").
+- `User Instance` -eine Konfigurationsoption, die spezifisch für die SQL Server Express-Edition, der angibt, ob nicht-Administratoren auf dem lokalen Computer Anfügen und Herstellen einer Verbindung mit einer SQL Server Express Edition-Datenbank erlauben. Finden Sie unter [SQL Server Express-Benutzerinstanzen](https://msdn.microsoft.com/library/ms254504.aspx) für Weitere Informationen zu dieser Einstellung.
   
 
 Die zulässigen Verbindungszeichenfolgenoptionen hängen davon ab, die Datenbank aus, die Sie Herstellen einer Verbindung mit und die Datenbank verwendeten ADO.NET-Anbieter ab. Z. B. die Verbindungszeichenfolge zum Herstellen einer Verbindung mit einer Microsoft SQL Server Datenbank unterscheidet, die zur Verbindung mit einer Oracle-Datenbank. Ebenso verwendet, Herstellen einer Verbindung mit einer Microsoft SQL Server-Datenbank mit dem SqlClient-Anbieter eine andere Verbindungszeichenfolge als bei Verwendung des OLE DB-Anbieters.
@@ -125,7 +125,7 @@ An diesem Punkt der `ConfigSections` Ordner sollte drei Dateien (siehe Abbildung
 **Abbildung 4**: "configSections" ([klicken Sie hier, um das Bild in voller Größe angezeigt](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image12.jpg))
 
 
-Jetzt müssen wir weisen `Web.config` die databaseConnectionStrings.config-Datei für die Verbindung Zeichenfolgenspeicher zu verwenden. Open `Web.config` und Ersetzen Sie die vorhandene `<connectionStrings>` Element durch Folgendes:
+Jetzt müssen wir weisen `Web.config` die databaseConnectionStrings.config-Datei für die Verbindung Zeichenfolgenspeicher zu verwenden. Öffnen Sie `Web.config`, und ersetzen Sie das vorhandene `<connectionStrings>`-Element mit folgendem:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample4.xml)]
 

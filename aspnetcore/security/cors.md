@@ -1,7 +1,7 @@
 ---
-title: Aktivieren von Cross-Origin-Anforderungen (CORS)
+title: Aktivieren ASP.NET Core-Cross-Origin-Anfragen (CORS)
 author: rick-anderson
-description: "Dieses Dokument wird als Standard für das zulassen oder ablehnen von Cross-Origin-Anforderungen in einer ASP.NET Core app CORS eingeführt."
+description: "Erfahren Sie, wie CORS als Standard für das zulassen oder ablehnen von Cross-Origin-Anforderungen in einer ASP.NET Core-app."
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>Aktivieren von Cross-Origin-Anforderungen (CORS)
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>Aktivieren ASP.NET Core-Cross-Origin-Anfragen (CORS)
 
 Durch [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), und [Tom Dykstra](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ Browser sind nicht vollständig in diese Festlegung von Access-Control-Request-H
 
 ### <a name="set-the-exposed-response-headers"></a>Legen Sie die verfügbar gemachten Antwortheader
 
-Standardmäßig nicht im Browser aller die Antwortheader für die Anwendung verfügbar machen. (Siehe [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Die Antwortheader, die standardmäßig verfügbar sind:
+Standardmäßig nicht im Browser aller die Antwortheader für die Anwendung verfügbar machen. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Die Antwortheader, die standardmäßig verfügbar sind:
 
 * Cache-Control
 

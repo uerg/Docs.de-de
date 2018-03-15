@@ -5,16 +5,16 @@ description: "Beschreibt, wie beim Einrichten des Nginx als Reverseproxy für Ub
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a1de177fcd41c925a85e5aab9a0d236249b7da0b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosten von ASP.NET Core unter Linux mit Nginx
 
@@ -22,7 +22,8 @@ Von [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Dieser Leitfaden erläutert das Einrichten einer produktionsbereiten ASP.NET Core-Umgebungen auf einem Ubuntu 16.04-Server.
 
-**Hinweis:** für Ubuntu 14.04, *Supervisord* wird als Lösung für die Überwachung der Kestrel empfohlen. *Systemd* für Ubuntu 14.04 nicht verfügbar. [Hier finden Sie die vorherige Version dieses Dokuments.](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)
+> [!NOTE]
+> Für Ubuntu 14.04 *Supervisord* wird als Lösung für die Überwachung der Kestrel empfohlen. *Systemd* für Ubuntu 14.04 nicht verfügbar. [Siehe die vorherige Version dieses Dokuments](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
 
 In diesem Leitfaden:
 
@@ -113,23 +114,37 @@ Stellen Sie sicher, dass ein Browser die Standardangebotsseite für Nginx anzeig
 
 ### <a name="configure-nginx"></a>Konfigurieren von Nginx
 
-Ändern Sie zum Konfigurieren von Nginx als umgekehrter Proxy mit Anfragen an unserer app ASP.NET Core weiterleiten `/etc/nginx/sites-available/default`. Öffnen Sie die Datei in einem Text-Editor und ersetzen Sie den Inhalt durch den Folgendes:
+Ändern Sie zum Konfigurieren von Nginx als Reverseproxy für forward-Anforderungen an Ihre app ASP.NET Core */etc/nginx/sites-available/default*. Öffnen Sie die Datei in einem Text-Editor und ersetzen Sie den Inhalt durch den Folgendes:
 
-```
+```nginx
 server {
-    listen 80;
+    listen        80;
+    server_name   example.com *.example.com;
     location / {
-        proxy_pass http://localhost:5000;
+        proxy_pass         http://localhost:5000;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection keep-alive;
-        proxy_set_header Host $http_host;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $http_host;
         proxy_cache_bypass $http_upgrade;
     }
 }
 ```
 
-Diese Nginx-Konfigurationsdatei leitet eingehenden öffentlichen Datenverkehr von Port `80` an Port `5000` weiter.
+Wenn kein `server_name` Übereinstimmungen Nginx verwendet den Standardserver an. Wenn kein Server definiert ist, ist der erste Server in der Konfigurationsdatei den Standardserver an. Fügen Sie als bewährte Methode einen bestimmte Standardserver für der in der Konfigurationsdatei der 444 Statuscode zurückgibt. Ein Standard Server Configuration-Beispiel ist:
+
+```nginx
+server {
+    listen   80 default_server;
+    # listen [::]:80 default_server deferred;
+    return   444;
+}
+```
+
+Mit dem vorherigen und Konfigurationsserver akzeptiert Nginx öffentlichen Datenverkehr über Port 80 mit Hostheader `example.com` oder `*.example.com`. Anforderungen, die nicht mit dem diese Hosts wird nicht an die Kestrel weitergeleitet abrufen. Nginx leitet die entsprechenden Anforderungen an Kestrel am `http://localhost:5000`. Finden Sie unter [wie Nginx eine Anforderung verarbeitet](https://nginx.org/docs/http/request_processing.html) für Weitere Informationen.
+
+> [!WARNING]
+> Fehler beim Geben Sie einer echte [Server_name Richtlinie](https://nginx.org/docs/http/server_names.html) macht Sie Ihre app zu Sicherheitslücken. Unterdomäne Platzhalter Bindung (z. B. `*.example.com`) nicht dieses Sicherheitsrisiko darstellen, wenn Sie steuern, dass die gesamte übergeordnete Domäne (im Gegensatz zu `*.com`, anfällig ist). Finden Sie unter [rfc7230 Abschnitt-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) für Weitere Informationen.
 
 Nachdem die Nginx-Konfiguration eingerichtet ist, führen Sie `sudo nginx -t` überprüfen Sie die Syntax der Konfigurationsdateien. Wenn die Datei Konfigurationstest erfolgreich ist, erzwingen Sie Nginx, durch Ausführen der Änderungen zu übernehmen `sudo nginx -s reload`.
 

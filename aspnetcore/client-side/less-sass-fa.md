@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Einführung in Styling Anwendungen mit einem niedrigeren Sass und Schriftart Awesome in ASP.NET Core
 
-Durch [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/)
 
 Benutzer des Webanwendungen haben zunehmend hohe Anforderungen an, wenn es darum geht, formatieren und allgemeine Erfahrung. Innovative Webanwendungen nutzen häufig umfangreiche Tools und Frameworks zum Definieren und verwalten ihre Aussehen und Verhalten konsistent. Frameworks wie [Bootstrap](http://getbootstrap.com/) verlaufen eine lange gegen einen gemeinsamen Satz von Formatvorlagen und Layoutoptionen für Websites zu definieren. Die meisten nicht-trivialen Standorte jedoch profitieren auch von wird effektiv definieren und Verwalten von Formaten und cascading Stylesheet (CSS)-Dateien können als auch einfachen Zugriff auf nicht-Image-Symbole, mit denen der Standort-Schnittstelle eine intuitivere verfügen. Sind Sprachen und Tools, die Unterstützung von [weniger](http://lesscss.org/) und [Sass](http://sass-lang.com/), und Bibliotheken wie [Schriftart Awesome](http://fontawesome.io/), sind in verschiedenen Größen.
 
@@ -97,9 +97,9 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`die andere @-prefixed Elemente sind Variablen. Jede von ihnen stellt eine Farbe dar. Mit Ausnahme von `@base`, sie sind festgelegt, mit Farbe Funktionen: heller und dunkler zu starten. Heller und dunkler sind größtenteils Erwartungen; Drehfeld passt den Farbton einer Farbe, um eine Anzahl von Grad (in der Nähe der Farbkreis). Der weniger Prozessor ist intelligent genug, um Variablen, die nicht verwendet werden, zu ignorieren, daher zur Veranschaulichung, wie diese Variablen verwendet, sie an einer beliebigen Stelle verwendet müssen. Die Klassen `.baseColor`, usw. wird gezeigt, das die berechneten Werte aller Variablen in der CSS-Datei, das erzeugt wird.
+`@base` die andere @-prefixed Elemente sind Variablen. Jede von ihnen stellt eine Farbe dar. Mit Ausnahme von `@base`, sie sind festgelegt, mit Farbe Funktionen: heller und dunkler zu starten. Heller und dunkler sind größtenteils Erwartungen; Drehfeld passt den Farbton einer Farbe, um eine Anzahl von Grad (in der Nähe der Farbkreis). Der weniger Prozessor ist intelligent genug, um Variablen, die nicht verwendet werden, zu ignorieren, daher zur Veranschaulichung, wie diese Variablen verwendet, sie an einer beliebigen Stelle verwendet müssen. Die Klassen `.baseColor`, usw. wird gezeigt, das die berechneten Werte aller Variablen in der CSS-Datei, das erzeugt wird.
 
-### <a name="getting-started"></a>Erste Schritte
+### <a name="get-started"></a>Erste Schritte
 
 Erstellen einer **Npm-Konfigurationsdatei** (*"Package.JSON"*) in den Projektordner und bearbeiten es verweisen `gulp` und `gulp-less`:
 

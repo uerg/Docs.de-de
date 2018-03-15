@@ -5,16 +5,16 @@ author: spboyer
 manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/19/2016
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 033adddc586b60c9f7453df5434617aa838737f8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosten von ASP.NET Core unter Linux mit Apache
 
@@ -112,27 +112,32 @@ Complete!
 ```
 
 > [!NOTE]
-> In diesem Beispiel gibt die Ausgabe httpd.86_64 wieder, da die Version CentOS 7 64-Bit ist. Um zu prüfen, wo Apache installiert ist, führen Sie an einer Eingabeaufforderung `whereis httpd` aus. 
+> In diesem Beispiel gibt die Ausgabe httpd.86_64 wieder, da die Version CentOS 7 64-Bit ist. Um zu prüfen, wo Apache installiert ist, führen Sie an einer Eingabeaufforderung `whereis httpd` aus.
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Konfigurieren von Apache als Reverseproxy
 
 Konfigurationsdateien für Apache befinden sich im Verzeichnis `/etc/httpd/conf.d/`. Alle Dateien mit der *.conf* Erweiterung wird verarbeitet, in alphabetischer Reihenfolge zusätzlich zu den in der Modul-Konfigurationsdateien `/etc/httpd/conf.modules.d/`, die Konfiguration enthält Dateien erforderlich, um Module zu laden.
 
-Erstellen Sie eine Konfigurationsdatei für die app mit dem Namen `hellomvc.conf`:
+Erstellen Sie eine Konfigurationsdatei mit dem Namen *hellomvc.conf*, für die app:
 
 ```
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-    ErrorLog /var/log/httpd/hellomvc-error.log
-    CustomLog /var/log/httpd/hellomvc-access.log common
+    ServerName www.example.com
+    ServerAlias *.example.com
+    ErrorLog ${APACHE_LOG_DIR}hellomvc-error.log
+    CustomLog ${APACHE_LOG_DIR}hellomvc-access.log common
 </VirtualHost>
 ```
 
-Die **VirtualHost** Knoten kann mehrmals in einer oder mehreren Dateien auf einem Server. **VirtualHost** Abhören der IP-Adressen mit Port 80 festgelegt ist. Die nächsten beiden Zeilen werden an Port 5000 auf Proxyanforderungen auf der Stammebene in 127.0.0.1 auf dem Server festgelegt. Für die bidirektionale Kommunikation *ProxyPass* und *ProxyPassReverse* erforderlich sind.
+Die `VirtualHost` Block kann mehrere Male in eine oder mehrere Dateien auf einem Server angezeigt werden. In der vorangegangenen Konfigurationsdatei akzeptiert Apache öffentlichen Datenverkehr über Port 80. Die Domäne `www.example.com` ist gesendet werden, und die `*.example.com` Alias in der gleichen Website aufgelöst wird. Finden Sie unter [Namen-basierte virtuelle Host Unterstützung](https://httpd.apache.org/docs/current/vhosts/name-based.html) für Weitere Informationen. Anforderungen werden auf der Stammebene an Port 5000 des Servers 127.0.0.1 Proxyanforderungen. Für die bidirektionale Kommunikation `ProxyPass` und `ProxyPassReverse` erforderlich sind.
 
-Protokollierung kann konfiguriert werden, pro **VirtualHost** mit **ErrorLog** und **CustomLog** Direktiven. **ErrorLog** ist der Speicherort, in dem der Server Fehler protokolliert, und **CustomLog** legt den Dateinamen und das Format der Protokolldatei. In diesem Fall ist dies dem Anforderungsinformationen protokolliert wird. Es wird nur eine Zeile für jede Anforderung ein.
+> [!WARNING]
+> Fehler an eine echte [ServerName Richtlinie](https://httpd.apache.org/docs/current/mod/core.html#servername) in der **VirtualHost** Block macht Ihre app zu Sicherheitsrisiken. Unterdomäne Platzhalter Bindung (z. B. `*.example.com`) nicht dieses Sicherheitsrisiko darstellen, wenn Sie steuern, dass die gesamte übergeordnete Domäne (im Gegensatz zu `*.com`, anfällig ist). Finden Sie unter [rfc7230 Abschnitt-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) für Weitere Informationen.
+
+Protokollierung kann konfiguriert werden, pro `VirtualHost` mit `ErrorLog` und `CustomLog` Direktiven. `ErrorLog` ist der Speicherort, in dem der Server Fehler protokolliert, und `CustomLog` legt den Dateinamen und das Format der Protokolldatei. In diesem Fall ist dies dem Anforderungsinformationen protokolliert wird. Es wird nur eine Zeile für jede Anforderung ein.
 
 Speichern Sie die Datei, und Testen der Konfiguration. Wenn alle Anforderungen durchgehen, muss die Antwort `Syntax [OK]` lauten.
 

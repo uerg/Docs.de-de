@@ -1,7 +1,7 @@
 ---
-title: "Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap"
+title: "Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap und ASP.NET Core"
 author: ardalis
-description: 
+description: "Erfahren Sie, wie Bootstrap verwenden, für die Entwicklung von reaktionsfähig Web-apps mit ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap und ASP.NET Core
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ Von [Steve Smith](https://ardalis.com/)
 
 Bootstrap ist derzeit die am häufigsten verwendeten Webframework zum Entwickeln von Webanwendungen reaktionsfähig. Er bietet eine Reihe von Features und Vorteile, die Ihre Benutzer Kenntnisse in Bezug auf Ihre Website verbessern können, ob als am Front-End-Entwurf und Entwicklung oder Experte Anfänger. Bootstrap wird als eine Reihe von CSS und JavaScript-Dateien bereitgestellt und dient zur Skalierung Ihrer Website oder Anwendung effizient Telefone, Tablets auf Desktops schützen.
 
-## <a name="getting-started"></a>Erste Schritte
+## <a name="get-started"></a>Erste Schritte
 
 Es gibt mehrere Möglichkeiten zum Einstieg in Bootstrap. Wenn Sie eine neue Webanwendung in Visual Studio starten, können Sie die Standard-Starter-Vorlage für ASP.NET Core, auswählen, in denen Groß-/Kleinschreibung Bootstrap vorinstallierte stammen:
 
@@ -190,7 +190,7 @@ Wenn Sie das Bootstrap-Design ändern möchten, setzen Sie die *bootstrap.css* D
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-Wenn Sie Ihr eigenes Dashboard erstellen möchten, können Sie starten aus dem verfügbaren freien Beispiel hier: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/).
+Wenn Sie Ihr eigenes Dashboard erstellen möchten, können Sie starten aus dem verfügbaren freien Beispiel hier: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/).
 
 ## <a name="components"></a>Komponenten
 
@@ -214,7 +214,7 @@ Breadcrumbs sind eine allgemeine Benutzeroberflächenkomponente verwendet, um ei
 
 ## <a name="javascript-support"></a>JavaScript-Unterstützung
 
-Bootstrap JavaScript-Bibliothek enthält die API-Unterstützung für die enthalten Komponenten, die Sie zum Steuern des Verhaltens programmgesteuert innerhalb der Anwendung. Darüber hinaus *bootstrap.js* enthält mehr als einem Dutzend benutzerdefinierte jQuery-Plug-Ins, zusätzliche Funktionen wie Übergänge, modale Dialogfelder, führen Sie einen Bildlauf Erkennung (Aktualisieren von Formatvorlagen basierend auf, in dem vom Benutzer in das Dokument verwendete hat), Reduzieren Verhalten Laufbänder und Menüs zu dem Fenster, sodass sie außerhalb des Bildschirms einen Bildlauf nicht anfügen. Es ist nicht ausreichend Speicherplatz vorhanden ist, behandelt die JavaScript-Add-Ons Bootstrap – erfahren Sie mehr besuchen integriert [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Bootstrap JavaScript-Bibliothek enthält die API-Unterstützung für die enthalten Komponenten, die Sie zum Steuern des Verhaltens programmgesteuert innerhalb der Anwendung. Darüber hinaus *bootstrap.js* enthält mehr als einem Dutzend benutzerdefinierte jQuery-Plug-Ins, zusätzliche Funktionen wie Übergänge, modale Dialogfelder, führen Sie einen Bildlauf Erkennung (Aktualisieren von Formatvorlagen basierend auf, in dem vom Benutzer in das Dokument verwendete hat), Reduzieren Verhalten Laufbänder und Menüs zu dem Fenster, sodass sie außerhalb des Bildschirms einen Bildlauf nicht anfügen. Es ist nicht ausreichend Speicherplatz vorhanden ist, behandelt die JavaScript-Add-Ons Bootstrap – erfahren Sie mehr besuchen integriert [ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Zusammenfassung
 
