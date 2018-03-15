@@ -60,7 +60,7 @@
 
 ## [Plattformübergreifendes Tutorial](xref:tutorials/xplat)
 ### [Web-App für Razor Pages auf einem Mac](xref:tutorials/razor-pages-mac/index)
-#### [Getting started with Razor Pages (Erste Schritte mit Razor Pages)](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [Hinzufügen eines Modells](xref:tutorials/razor-pages-mac/model)
 #### [Scaffolded Razor Pages (Gerüstbau mit Razor Pages)](xref:tutorials/razor-pages-mac/page)
 #### [Arbeiten mit SQLite](xref:tutorials/razor-pages-mac/sql)
@@ -68,7 +68,7 @@
 #### [Hinzufügen der Suche](xref:tutorials/razor-pages-mac/search)
 
 ### [Web-App für Razor Pages mit VS Code](xref:tutorials/razor-pages-vsc/index)
-#### [Getting started with Razor Pages (Erste Schritte mit Razor Pages)](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Hinzufügen eines Modells](xref:tutorials/razor-pages-vsc/model)
 #### [Scaffolded Razor Pages (Gerüstbau mit Razor Pages)](xref:tutorials/razor-pages-vsc/page)
 #### [Arbeiten mit SQLite](xref:tutorials/razor-pages-vsc/sql)
@@ -313,7 +313,6 @@
 #### [Schlüsselspeicherformat](xref:security/data-protection/implementation/key-storage-format)
 #### [Kurzlebige Datenschutzanbieter](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [Kompatibilität](xref:security/data-protection/compatibility/index)
-#### [Freigeben von Cookies für mehrere Apps](xref:security/data-protection/compatibility/cookie-sharing)
 #### [Ersetzen von <machineKey> in ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Erzwingen von HTTPS](xref:security/enforcing-ssl)
 ## [Sicheres Speichern geheimer App-Schlüssel während der Entwicklung](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [Verhindern von Angriffen durch offene Umleitungen](xref:security/preventing-open-redirects)
 ## [Verhindern von siteübergreifendem Scripting](xref:security/cross-site-scripting)
 ## [Aktivieren ursprungsübergreifender Anforderungen (CORS)](xref:security/cors)
+## [Freigeben von Cookies für mehrere Apps](xref:security/cookie-sharing)
 
 # [Leistung](xref:performance/index)
 ## [Zwischenspeichern](xref:performance/caching/index)
