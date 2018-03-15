@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Ausschließen von Dateien und Ordner von der Bereitstellung
 ====================
@@ -50,7 +50,7 @@ Bei Auswahl **nur die Ausführung dieser Anwendung erforderliche Dateien**, WPP 
 
 > [!NOTE]
 > In dieser Datei ist die Logik, die bestimmt, welche Dateien sind enthalten:   
-> *%ProgramFiles%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
+> *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
 
 
 ## <a name="excluding-specific-files-and-folders"></a>Ausschließen bestimmter Dateien und Ordner
@@ -95,7 +95,7 @@ Das nächste Verfahren veranschaulicht das Hinzufügen einer *. wpp.targets* Dat
 1. Öffnen Sie die Projektmappe in Visual Studio 2010.
 2. In der **Projektmappen-Explorer** Fenster mit der rechten Maustaste des Projektknoten der Web-Anwendung (z. B. **ContactManager.Mvc**), zeigen Sie auf **hinzufügen**, und klicken Sie dann auf **Neues Element**.
 3. In der **neues Element hinzufügen** wählen Sie im Dialogfeld die **XML-Datei** Vorlage.
-4. In der **Namen** geben *[Projektname]***. wpp.targets** (z. B. **ContactManager.Mvc.wpp.targets**), und klicken Sie dann auf  **Hinzufügen**.
+4. In der **Namen** geben *[Projektname] ***.wpp.targets** (z. B. **ContactManager.Mvc.wpp.targets**), und klicken Sie dann auf **hinzufügen**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
@@ -123,7 +123,7 @@ Das nächste Verfahren veranschaulicht das Hinzufügen einer *. wpp.targets* Dat
 
 Das nächste Mal Sie Builds und des Pakets, das Webanwendungsprojekt, WPP erkennt automatisch die *. wpp.targets* Datei. Alle Dateien und Ordner, die Sie angegeben werden nicht in der Web-Paket enthalten.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Dieses Thema beschreibt, wie Sie bestimmte Dateien und Ordner ausschließen, wenn Sie eine Web-Paket erstellen, durch Erstellen einer benutzerdefinierten *. wpp.targets* Datei im gleichen Ordner wie die Projektdatei der Web-Anwendung.
 

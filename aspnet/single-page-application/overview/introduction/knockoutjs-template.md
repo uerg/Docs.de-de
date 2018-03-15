@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Einseitigen-Anwendung: Die KnockoutJS Vorlage
 ====================
@@ -94,7 +94,7 @@ In Visual Studio-Projekt enthält der Ordner Models die Modelle, die auf dem Ser
 
 **TodoItem, TodoList**
 
-Hierbei handelt es sich um die Datenbank formt für Entity Framework Code First. Beachten Sie, dass diese Modelle Eigenschaften aufweisen, die aufeinander zeigen. `ToDoList`enthält eine Auflistung von ToDoItems, und jedes `ToDoItem` verfügt über einen Verweis zurück zum übergeordneten "Todolist". Diese Eigenschaften sind Navigationseigenschaften aufgerufen, und sie eine to-Do-Liste mit den to-do-Elementen, der 1: n-Beziehung darstellen.
+Hierbei handelt es sich um die Datenbank formt für Entity Framework Code First. Beachten Sie, dass diese Modelle Eigenschaften aufweisen, die aufeinander zeigen. `ToDoList` enthält eine Auflistung von ToDoItems, und jedes `ToDoItem` verfügt über einen Verweis zurück zum übergeordneten "Todolist". Diese Eigenschaften sind Navigationseigenschaften aufgerufen, und sie eine to-Do-Liste mit den to-do-Elementen, der 1: n-Beziehung darstellen.
 
 Die `ToDoItem` -Klasse auch verwendet die **[ForeignKey]** Attribut angeben, dass `ToDoListId` ist ein Fremdschlüssel in der `ToDoList` Tabelle. Dies teilt EF foreign Key-Einschränkung in der Datenbank hinzufügen.
 
@@ -162,7 +162,7 @@ Die `TodoController` Klasse ähnelt `TodoListController`. Der größte Unterschi
 
 ## <a name="mvc-controllers-and-views"></a>MVC-Controller und Ansichten
 
-Das MVC-Controller befinden sich auch im Ordner der Projektmappe. `HomeController`Rendert die HTML-Hauptdatei für die Anwendung an. Die Ansicht für den Home-Controller ist in Views/Home/Index.cshtml definiert. Die Home-Ansicht rendert, unterschiedlichen Inhalt, je nachdem, ob der Benutzer angemeldet ist:
+Das MVC-Controller befinden sich auch im Ordner der Projektmappe. `HomeController` Rendert die HTML-Hauptdatei für die Anwendung an. Die Ansicht für den Home-Controller ist in Views/Home/Index.cshtml definiert. Die Home-Ansicht rendert, unterschiedlichen Inhalt, je nachdem, ob der Benutzer angemeldet ist:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 

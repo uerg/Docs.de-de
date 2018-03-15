@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurieren von Team Foundation Server für die Bereitstellung
 ====================
@@ -32,7 +32,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 > - Wie Sie eine Builddefinition erstellen, die Bereitstellung Logik enthält.
 > - Gewusst wie: Konfigurieren von Berechtigungen für die automatisierte Bereitstellung.
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie TFS 2010 installiert und eine Teamprojektsammlung im Rahmen der Erstkonfiguration erstellt haben. Die [Team Foundation-Installationshandbuch für Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) enthält umfassende Anleitungen zu diesen Aufgaben.

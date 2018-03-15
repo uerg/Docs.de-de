@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
 ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="the-contact-manager-solution"></a>Die Kontakt-Manager-Lösung
 ====================
@@ -61,7 +61,7 @@ Die Kontakt-Manager-Lösung veranschaulicht verschiedene Herausforderung, die zu
 - Die Projekte enthalten einige Dateien und Ordner, die nicht bereitgestellt werden sollen. Sie müssen den Bereitstellungsprozess diese Dateien und Ordner ausschließen.
 - Die Lösung muss automatisierte Bereitstellung aus einem Build-Server mit Team Foundation Server (TFS) zu unterstützen.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema eine allgemeine Übersicht über die Projektmappe Contact Manager bereitgestellt und identifiziert einige der inhärenten Bereitstellung Herausforderungen, die zu einer Vielzahl von Bereitstellungsszenarios gemeinsam verwendet werden. Die übrigen Themen in diesem Lernprogramm werden einige der Methoden, die Sie verwenden können, um diese Auflagen erfüllt werden beschrieben.
 

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
 ms.openlocfilehash: 977077357eb5774193a40c55fabee9733dd5ab2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="troubleshooting-the-packaging-process"></a>Problembehandlung des Verpackungsprozesses
 ====================
@@ -107,7 +107,7 @@ Die Liste der Dateien, die Sie sehen, hängt die Schritte in Ihrem Projekt und B
 
 Wenn der Inhalt des Webpakets nicht Ihren Erwartungen entsprechen, kann überprüfen diese Dateien eine gute Möglichkeit, an welchem Punkt im Prozess Dinge ein aufgetretenes Problem zu identifizieren.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema beschrieben, wie Sie verwenden, können die **EnablePackageProcessLoggingAndAssert** -Eigenschaft in MSBuild des Verpackungsprozesses zu beheben. Es erläutert die verschiedenen Möglichkeiten, in dem Sie den Eigenschaftswert angibt, die während des Erstellungsprozesses angeben können, und es beschrieben die zusätzliche Informationen, die aufgezeichnet werden, wenn Sie die Eigenschaft, um festlegen **"true"**.
 
@@ -116,4 +116,4 @@ In diesem Thema beschrieben, wie Sie verwenden, können die **EnablePackageProce
 Weitere Informationen finden Sie unter benutzerdefinierte MSBuild-Projektdateien um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Weitere Informationen zu den WPP und wie des Verpackungsprozesses verwaltet, finden Sie unter [erstellen und Packen Webanwendungsprojekte](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Anleitung zur Verwendung von Web-Bereitstellungspakete bestimmte Dateien und Ordner ausschließen, finden Sie unter [Ausschließen von Dateien und Ordnern über Bereitstellung](excluding-files-and-folders-from-deployment.md).
 
 >[!div class="step-by-step"]
-[Zurück](running-windows-powershell-scripts-from-msbuild-project-files.md)
+[Vorherige](running-windows-powershell-scripts-from-msbuild-project-files.md)

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurieren von Berechtigungen für Team Build-Bereitstellung
 ====================
@@ -38,7 +38,7 @@ Wenn Sie den Team Foundation Server (TFS) 2010-Builddienst installieren, geben S
 Alle Bereitstellungsaufgaben, die erfordern Windows-Authentifizierung, und Sie mit Team Build, automatisieren möchten werden mit der Dienstidentität Build ausgeführt. Daher müssen Sie der Build-Dienstidentität alle erforderlichen Berechtigungen für Ihre Webserver und Ihrer Datenbankserver aufzurüsten gewähren.
 
 > [!NOTE]
-> Das Netzwerkdienstkonto verwendet das Konto "Machine", um auf anderen Computern zu authentifizieren. Computerkonten haben die Form *[Domänenname]\[Computername]***$**& #x 2014, z. B. **FABRIKAM\TFSBUILD$**. Wenn der Builddienst ausgeführt wird, mit der Identität Network Service, sollten Sie daher alle erforderlichen Berechtigungen für die computerkontoidentität für Ihren Buildserver gewähren.
+> Das Netzwerkdienstkonto verwendet das Konto "Machine", um auf anderen Computern zu authentifizieren. Computerkonten haben die Form * [Domänenname]\[Computername] ***$**& #x 2014, z. B. **FABRIKAM\TFSBUILD$**. Wenn der Builddienst ausgeführt wird, mit der Identität Network Service, sollten Sie daher alle erforderlichen Berechtigungen für die computerkontoidentität für Ihren Buildserver gewähren.
 
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurieren von Webserverberechtigungen
@@ -85,7 +85,7 @@ Sie können mit einer SQL Server-Instanz, die mithilfe von NTLM-Authentifizierun
 
 Schrittweise aufgebaute Details zum Konfigurieren von Berechtigungen für die Bereitstellung finden Sie unter [konfigurieren einen Datenbankserver für die Webveröffentlichung bereitstellen](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 An diesem Punkt sollten Sie verstehen, die Berechtigungen, die erforderlich sein können, zusammen mit der Authentifizierungsoptionen, öffnen Sie bei der Web-Anwendung und Datenbank-Bereitstellungen von Team Build zu automatisieren. Sie sollten auch die erforderlichen Berechtigungen für IIS-Webserver und SQL Server-Datenbankserver implementiert sein.
 
@@ -94,4 +94,4 @@ An diesem Punkt sollten Sie verstehen, die Berechtigungen, die erforderlich sein
 Weitere Informationen zum Konfigurieren von Windows Server-Umgebungen zur Unterstützung der Remotebereitstellung finden Sie unter [Konfigurieren von Server-Umgebungen für die Bereitstellung](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
 >[!div class="step-by-step"]
-[Zurück](deploying-a-specific-build.md)
+[Vorherige](deploying-a-specific-build.md)

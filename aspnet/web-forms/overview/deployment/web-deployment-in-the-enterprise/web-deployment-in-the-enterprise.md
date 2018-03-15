@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Webbereitstellung im Unternehmen
 ====================
@@ -26,7 +26,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 > In diesem Lernprogramm beschreibt, wie viele der Herausforderungen erfüllen, die Sie treffen, wenn Sie die Bereitstellung von Enterprise-Skalierung-Webanwendungen für die Entwicklung, Test, Staging-und produktionsumgebungen verwalten. Das Lernprogramm enthält eine referenzlösung zusammen mit einer Mischung aus konzeptionelle und aufgabenspezifische Inhalt führt Sie durch verschiedene allgemeine Aufgaben und Verfahren.
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="enterprise-deployment-challenges"></a>Enterprise-Herausforderung
@@ -68,18 +68,18 @@ Dieses Lernprogramm enthält Themen, die in vier Hauptbereiche fallen.
 
 Diese Themen stellen Sie vor der referenzlösung & #x 2014; die Kontakt-Manager-Lösung & #x 2014; und beschrieben, wie die Software hier herunterladen und auf dem lokalen Computer zu konfigurieren:
 
-- [Die Kontakt-Manager-Lösung](the-contact-manager-solution.md)
-- [Die Kontakt-Manager-Lösung einrichten](setting-up-the-contact-manager-solution.md)
+- [Contact Manager-Lösung](the-contact-manager-solution.md)
+- [Einrichten der Contact Manager-Lösung](setting-up-the-contact-manager-solution.md)
 
 Diese Themen einführen von MSBuild-Projektdateien, beschreiben, wie Sie erstellen und Verwenden von benutzerdefinierten Projektdateien und führt durch den Bereitstellungsprozess für die Projektmappe Contact Manager:
 
-- [Grundlegendes zu der Projektdatei](understanding-the-project-file.md)
-- [Grundlegendes zu den Buildprozess](understanding-the-build-process.md)
+- [Grundlegendes zur Projektdatei](understanding-the-project-file.md)
+- [Grundlegendes zum Buildprozess](understanding-the-build-process.md)
 
 Die folgenden Themen beschreiben die Bereitstellung von Webanwendungen, einschließlich wie der Build und Verpacken-Prozess, wie während des Erstellungsprozesses in die Publishing Web-Pipeline integriert Bereitstellungsparameter ändern und Bereitstellen von Webpaketen auf Ziel Umgebungen:
 
-- [Erstellen und Verpacken Webanwendungsprojekte](building-and-packaging-web-application-projects.md)
-- [Konfigurieren von Parametern für die Bereitstellung von Paketen](configuring-parameters-for-web-package-deployment.md)
+- [Erstellen von Webanwendungsprojekten und Paketerstellung](building-and-packaging-web-application-projects.md)
+- [Konfigurieren von Parametern für die Bereitstellung von Webpaketen](configuring-parameters-for-web-package-deployment.md)
 - [Bereitstellen von Webpaketen](deploying-web-packages.md)
 
 - [Bereitstellen von Datenbankprojekten](deploying-database-projects.md) beschreibt die verschiedenen Techniken zum Bereitstellen von Visual Studio-Datenbankprojekte, zusammen mit den vor- und Nachteile jeder Vorgehensweise können. [Erstellen und Ausführen einer Befehlsdatei Bereitstellung](creating-and-running-a-deployment-command-file.md) wird beschrieben, wie eine einfache Befehlsdatei zu erstellen, kapselt die Logik für die Bereitstellung und ermöglicht Ihnen das Bereitstellen von komplexer Lösungen als einzelnen Schritten bestehender Prozess.

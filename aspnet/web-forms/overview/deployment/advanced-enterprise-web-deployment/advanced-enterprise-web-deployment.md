@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>Erweiterte Unternehmensbereitstellung für Web
 ====================
@@ -26,7 +26,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 > In diesem Lernprogramm wird gezeigt, wie verschiedene Aufgaben ausführen, die erforderlich oder wünschenswert ist, in eine Vielzahl von Szenarien für Enterprise-Bereitstellung sind.
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 Dies ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Vorgesetzten Kontakts](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) Lösung & #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
@@ -56,7 +56,7 @@ Dieses Lernprogramm konzentriert sich auf wie dieser Produkte und Technologien v
 
 - Visual Studio 2010 und Team Foundation Server (TFS 2010)
 - MSBuild und TFS-Teambuild
-- Internetinformationsdienste (IIS) 7.5
+- Internet Information Services (IIS) 7.5
 - IIS Web Webbereitstellungstool (Web Deploy) 2.1
 - Das bereitstellungshilfsprogramm für VSDBCMD.exe-Datenbank
 

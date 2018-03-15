@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
 ms.openlocfilehash: f27b8376b332ff21185be0fd5c00ced7d40a20bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-deployment-properties-for-a-target-environment"></a>Konfigurieren Bereitstellungseigenschaften für eine Zielumgebung
 ====================
@@ -73,7 +73,7 @@ Diese Tabelle beschreibt den Zweck der einzelnen Eigenschaften in der Projektdat
 | **MSDeployAuth** die Methode für die Web Deploy verwenden soll, um mit dem Remotecomputer zu authentifizieren. | Dies sollte festgelegt werden, um **NTLM** oder **grundlegende**. Verwenden Sie in der Regel **NTLM** , wenn Sie mit dem remote-Agent-Dienst bereitstellen und **grundlegende** , wenn Sie an den Handler für die Web-Bereitstellung bereitstellen. Wenn Sie Standardauthentifizierung verwenden, müssen Sie auch angeben, den Benutzernamen und das Kennwort, das IIS-Webbereitstellungstool (Web Deploy) für den Identitätswechsel sollte zum Ausführen der Bereitstellung. In diesem Beispiel werden diese Werte bereitgestellt, über die **MSDeployUsername** und **MSDeployPassword** Eigenschaften. Wenn Sie die NTLM-Authentifizierung verwenden, können Sie diese Eigenschaften weggelassen, da leer lassen. |
 | **MSDeployUsername** Wenn Sie Standardauthentifizierung verwenden, Web Deploy verwendet dieses Konto auf dem Remotecomputer. | Dies sollte Folgendes Format *Domäne*\*Benutzername * (z. B. **FABRIKAM\matt**). Dieser Wert wird nur verwendet, wenn Sie die Standardauthentifizierung angeben. Wenn Sie die NTLM-Authentifizierung verwenden, kann die Eigenschaft ausgelassen werden. Wenn kein Wert bereitgestellt wird, wird es ignoriert. |
 | **MSDeployPassword** Wenn Sie Standardauthentifizierung verwenden, Web Deploy verwendet dieses Kennwort auf dem Remotecomputer. | Dies ist das Kennwort für das Benutzerkonto, das Sie, in angegeben der **MSDeployUsername** Eigenschaft. Dieser Wert wird nur verwendet, wenn Sie die Standardauthentifizierung angeben. Wenn Sie die NTLM-Authentifizierung verwenden, kann die Eigenschaft ausgelassen werden. Wenn kein Wert bereitgestellt wird, wird es ignoriert. |
-| **ContactManagerIisPath** die IIS-Pfad auf dem die Kontakt-Manager-MVC-Anwendung bereitgestellt werden soll. | Dies sollte der Pfad sein, wie er im IIS-Manager im Formular angezeigt wird [*Name des IIS-Website*] / [*Web**Anwendungsname*]. Denken Sie daran, dass die IIS-Website muss vorhanden sein, bevor Sie die Anwendung bereitstellen. Wenn Sie eine IIS-Website mit dem Namen DemoSite erstellt haben, können Sie z. B. den IIS-Pfad für die MVC-Anwendung als DemoSite/ContactManager angeben. |
+| **ContactManagerIisPath** die IIS-Pfad auf dem die Kontakt-Manager-MVC-Anwendung bereitgestellt werden soll. | Dies sollte der Pfad sein, wie er im IIS-Manager im Formular angezeigt wird [*Name des IIS-Website*] / [*Web ** Anwendungsname*]. Denken Sie daran, dass die IIS-Website muss vorhanden sein, bevor Sie die Anwendung bereitstellen. Wenn Sie eine IIS-Website mit dem Namen DemoSite erstellt haben, können Sie z. B. den IIS-Pfad für die MVC-Anwendung als DemoSite/ContactManager angeben. |
 | **ContactManagerServiceIisPath** die IIS-Pfad auf dem den Kontakt-Manager-WCF-Dienst bereitgestellt werden soll. | Z. B. Wenn Sie eine IIS-Website mit dem Namen DemoSite erstellt haben, geben Sie den IIS-Pfad für den WCF-Dienst als **DemoSite/ContactManagerService**. |
 | **ContactManagerTargetUrl** die URL, an dem der WCF-Dienst erreicht werden kann. | Dieser Vorgang dauert das Formular [*Stamm-URL des IIS-Website*] / [*dienstanwendungsname*] / [*Dienstendpunkt*]. Z. B. Wenn Sie eine IIS-Website auf Port 85 erstellt haben, die URL wäre das Formular `http://localhost:85/ContactManagerService/ContactService.svc`. Denken Sie daran, dass die MVC-Anwendung und den WCF-Dienst auf dem gleichen Server bereitgestellt werden. Diese URL wird daher immer nur auf dem Computer zugegriffen auf dem er installiert ist. Aus diesem Grund ist es besser, "localhost" oder die IP-Adresse, statt den Computernamen oder einen Hostheader in der URL verwendet. Wenn Sie den Computernamen oder einen Hostheader verwenden die [Loopback Kontrollkästchen](https://go.microsoft.com/?linkid=9805131) Sicherheitsfunktion in IIS möglicherweise blockiert die URL und Rückgabewerte ein **HTTP 401.1 - nicht autorisiert** Fehler. |
 | **CmDatabaseConnectionString** die Verbindungszeichenfolge für den Datenbankserver. | Die Verbindungszeichenfolge bestimmt sowohl die Anmeldeinformationen, die VSDBCMD verwendet wird, wenden Sie sich an den Datenbankserver und die Datenbank und die Anmeldeinformationen für der Webanwendungspool für Server, wenden Sie sich an den Datenbankserver und interagieren mit der Datenbank erstellen. Im Wesentlichen haben Sie zwei Optionen hier. Können Sie angeben, **integrierte Sicherheit = "true"**, in diesem Fall die integrierte Windows-Authentifizierung verwendet wird: **Datenquelle = TESTDB1; Integrated Security = "true"** In diesem Fall die Datenbank mithilfe erstellt die Anmeldeinformationen des Benutzers, der die ausführbare VSDBCMD ausgeführt, und die Anwendung werden die Datenbank mit der Identität des Computerkontos der Web-Server zugreifen. Alternativ können Sie den Benutzernamen und das Kennwort eines Kontos für die SQL Server angeben. In diesem Fall werden die SQL Server-Anmeldeinformationen verwendet, VSDBCMD zum Erstellen der Datenbank und den Anwendungspool für die Interaktion mit der Datenbank: **Data Source = TESTDB1; Benutzer-Id = ASqlUser; Kennwort = Pa$ $w0rd** exemplarischen Vorgehensweisen in diesem Thema wird davon ausgegangen, dass Sie integrierte Windows-Authentifizierung verwenden. |
@@ -107,7 +107,7 @@ In diesem Beispiel:
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample2.xml)]
 
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 An diesem Punkt werden die Projektdateien zum Erstellen und Bereitstellen der Kontakt-Manager-Lösungen für eine oder mehrere zielumgebungen vollständig konfiguriert.
 
@@ -119,4 +119,4 @@ Um diese Projektdateien als Teil eines Bereitstellungsprozesses einstufiger, wie
 - Informationen, die benutzerdefinierte Projektdateien aus Team Build auszuführen, finden Sie unter [Erstellen einer Builddefinition, unterstützt die Bereitstellung](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
 >[!div class="step-by-step"]
-[Zurück](creating-a-server-farm-with-the-web-farm-framework.md)
+[Vorherige](creating-a-server-farm-with-the-web-farm-framework.md)

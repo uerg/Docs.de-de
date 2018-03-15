@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Einführung in die Arbeit mit einer Datenbank in der ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -54,9 +54,9 @@ Angenommen Sie, ein typisches Adressbuch. Für jeden Eintrag im Adressbuch (d. h
 
 Eine typische Möglichkeit zum Bilddaten wie folgt ist als eine Tabelle mit Zeilen und Spalten. In der Datenbanksprache wird jede Zeile häufig als Datensatz bezeichnet. Jede Spalte (auch als Felder bezeichnet) enthält einen Wert für jeden Typ von Daten: Vorname, letzte Name und So weiter.
 
-| **ID** | **Vorname** | **Nachname** | **Adresse** | **E-Mail** | **Telefonnummer** |
+| **ID** | **FirstName** | **LastName** | **Adresse** | **E-Mail** | **Telefonnummer** |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Jim | Abrus | 210 100 St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
+| 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Oliver | Adams | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
 
 Für die meisten-Datenbanktabellen enthalten sind muss die Tabelle eine Spalte aufweisen, die einen eindeutigen Bezeichner, z. B. eine Kundennummer, Kontonummer usw. enthält. Dies bezeichnet man der Tabelle *Primärschlüssel*, und Sie verwenden, um jede Zeile in der Tabelle zu identifizieren. Im Beispiel ist die ID-Spalte der Primärschlüssel für das Adressbuch.
@@ -91,7 +91,7 @@ Dieses Verfahren veranschaulicht das Erstellen einer Datenbank mit dem Namen Sma
     Wie der Name bereits vermuten lässt, **Primärschlüssel ist** weist der Datenbank, dafür Primärschlüssel der Tabelle. **Ist Identity** weist die Datenbank aus, um automatisch eine ID-Nummer für jeden neuen Eintrag zu erstellen und sie die nächste laufende Nummer (beginnend mit 1) zugewiesen.
 10. Klicken Sie auf die nächste Zeile. Der Editor startet die Definition einer neuen Spalte.
 11. Geben Sie für den Namenswert &quot;Namen&quot;.
-12. Für **Datentyp**, wählen Sie &quot;Nvarchar&quot; und die Länge auf 50 festgelegt. Die *Var* Teil `nvarchar` weist der Datenbank, dass die Daten für diese Spalte eine Zeichenfolge, deren Größe von Datensatz zu Datensatz variieren. (Die  *n*  Präfix stellt *national*, der angibt, dass das Feld Zeichendaten, die Buchstaben oder dem Schreiben von Systems &#8212;darstellt, d. h. aufnehmen kann, dass das Feld Unicode enthält. Daten)
+12. Für **Datentyp**, wählen Sie &quot;Nvarchar&quot; und die Länge auf 50 festgelegt. Die *Var* Teil `nvarchar` weist der Datenbank, dass die Daten für diese Spalte eine Zeichenfolge, deren Größe von Datensatz zu Datensatz variieren. (Die *n* Präfix stellt *national*, gibt an, dass das Feld Zeichendaten enthalten kann, die alle Alphabet darstellt oder ein Schreibsystem &#8212; , also, dass das Feld Unicode-Daten enthält.)
 13. Legen Sie die **NULL-Werte zulassen** option **keine**. Dadurch wird erzwungen, die die *Namen* Spalte ist nicht leer.
 14. Erstellen Sie mit der gleiche Vorgang, eine Spalte mit dem Namen *Beschreibung*. Legen Sie **Datentyp** "Nvarchar" und 50 für die Länge und **NULL-Werte zulassen** auf "false".
 15. Erstellen Sie eine Spalte mit dem Namen *Preis*. Legen Sie **-Datentyp "Money"** und **NULL-Werte zulassen** auf "false".
@@ -110,7 +110,7 @@ Jetzt können Sie Beispieldaten in der Datenbank hinzufügen, die Sie später in
 2. Mit der rechten Maustaste in der Product-Tabelle, und klicken Sie dann auf **Daten**.
 3. Klicken Sie im Bereich "Bearbeiten" Geben Sie die folgenden Datensätze:
 
-    | **Name** | **Beschreibung** | **Preis** |
+    | **Name** | **Beschreibung** | **Price** |
     | --- | --- | --- |
     | Brot | Integrierte frisch täglich. | 2.99 |
     | Erdbeere Shortcake | In unserem Gartens mit organischem Erdbeeren erstellt wurde. | 9.99 |
@@ -145,7 +145,7 @@ Nachdem Sie eine Datenbank mit Daten darin ist, können Sie die Daten in einer A
 
     [!code-sql[Main](5-working-with-data/samples/sample2.sql)]
 
-    In der Anweisung `Product` identifiziert die Tabelle, Abfrage. Die `*` Zeichen gibt an, dass die Abfrage alle Spalten aus der Tabelle zurückgeben soll. (Sie können auch Spalten einzeln auflisten durch Kommas getrennt werden, wenn Sie nur einige der Spalten finden Sie unter.) Die `Order By` -Klausel zeigt an, wie die Daten sortiert werden soll &#8212; in diesem Fall durch die *Namen* Spalte. Dies bedeutet, dass die Daten in alphabetischer Reihenfolge basierend auf den Wert der sortiert werden die *Namen* Spalte für jede Zeile.
+    In der Anweisung `Product` identifiziert die Tabelle, Abfrage. Die `*` Zeichen gibt an, dass die Abfrage alle Spalten aus der Tabelle zurückgeben soll. (Sie können auch Spalten einzeln auflisten durch Kommas getrennt werden, wenn Sie nur einige der Spalten finden Sie unter.) Die `Order By` -Klausel zeigt an, wie die Daten sortiert werden sollen &#8212; in diesem Fall durch die *Namen* Spalte. Dies bedeutet, dass die Daten in alphabetischer Reihenfolge basierend auf den Wert der sortiert werden die *Namen* Spalte für jede Zeile.
 
     Im Text der Seite erstellt das Markup eine HTML-Tabelle, die zum Anzeigen der Daten verwendet werden. Innerhalb der `<tbody>` Element, Sie verwenden eine `foreach` Schleife einzeln auf jede Datenzeile abgerufen, die von der Abfrage zurückgegeben wird. Für jede Datenzeile, die Sie Erstellen einer HTML-Tabellenzeile (`<tr>` Element). Anschließend Sie HTML-Tabellenzellen erstellen (`<td>` Elemente) für jede Spalte. Bei jedem der Schleife durchlaufen, die nächste verfügbare Zeile aus der Datenbank ist der `row` Variable (diese Einstellung wird der `foreach` Anweisung). Um eine einzelne Spalte aus der Zeile zu erhalten, können Sie `row.Name` oder `row.Description` oder einen beliebigen den Namen der Spalte ist.
 4. Führen Sie die Seite in einem Browser aus. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.) Die Seite zeigt eine Liste wie folgt:
@@ -258,7 +258,7 @@ Nachdem Daten in eine Tabelle eingegeben wurde, müssen Sie möglicherweise zu a
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Beachten Sie, dass die `href` -Attributsatz zur `UpdateProducts/n`, wobei  *n*  ist eine Produkt an. Wenn ein Benutzer einen dieser Links klickt, wird die ausgegebene URL etwa wie folgt aussehen:
+    Beachten Sie, dass die `href` -Attributsatz zur `UpdateProducts/n`, wobei *n* ist eine Produkt an. Wenn ein Benutzer einen dieser Links klickt, wird die ausgegebene URL etwa wie folgt aussehen:
 
     `http://localhost:18816/UpdateProducts/6`
 
@@ -384,7 +384,7 @@ In diesem Abschnitt wird gezeigt, wie können Benutzer löschen Sie ein Produkt 
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Wie bereits erwähnt, die `Database.Open` Methode können Sie einen Datenbanknamen oder eine Verbindungszeichenfolge zu übergeben, und es werden verwendet. Dies ist sehr nützlich, bei der Bereitstellung (Veröffentlichung) Ihrer Website. Können Sie eine *.sdf* in der Datei die *App\_Daten* Ordner, wenn Sie entwickeln und Testen Ihrer Website. Wenn Sie Ihre Website auf einen Produktionsserver verschieben, können Sie eine Verbindungszeichenfolge in verwenden die *"Web.config"* Datei mit dem gleichen Namen wie Ihre *.sdf* Datei jedoch, der auf des Hostinganbieters Datenbank & # verweist 8212; Alle ohne den Code ändern.
+> Wie bereits erwähnt, die `Database.Open` Methode können Sie einen Datenbanknamen oder eine Verbindungszeichenfolge zu übergeben, und es werden verwendet. Dies ist sehr nützlich, bei der Bereitstellung (Veröffentlichung) Ihrer Website. Können Sie eine *.sdf* in der Datei die *App\_Daten* Ordner, wenn Sie entwickeln und Testen Ihrer Website. Wenn Sie Ihre Website auf einen Produktionsserver verschieben, können Sie eine Verbindungszeichenfolge im Verwenden der *"Web.config"* Datei mit dem gleichen Namen wie Ihre *.sdf* Datei, aber verweist auf des Hostinganbieters &#8212;alle ohne den Code ändern.
 > 
 > Abschließend, wenn Sie direkt mit einer Verbindungszeichenfolge arbeiten möchten, können rufen Sie die `Database.OpenConnectionString` Methode und übergeben es die tatsächliche Verbindungszeichenfolge statt nur den Namen eines in der *"Web.config"* Datei. Dies ist möglicherweise hilfreich in Situationen, in denen aus irgendeinem Grund Sie keinen Zugriff auf die Verbindungszeichenfolge haben (oder Werte, z. B. die *.sdf* Dateiname), bis die Seite ausgeführt wird. Allerdings in den meisten Szenarien können Sie `Database.Open` wie in diesem Artikel beschrieben.
 
@@ -393,4 +393,4 @@ In diesem Abschnitt wird gezeigt, wie können Benutzer löschen Sie ein Produkt 
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [Herstellen einer Verbindung mit einer SQL Server- oder MySQL-Datenbank in WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [Validieren von Benutzereingaben in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Überprüfen der Benutzereingabe in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=253002)

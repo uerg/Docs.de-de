@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
 ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Anzeigen von Daten in einem Diagramm mit ASP.NET Web Pages (Razor)
 ====================
@@ -41,7 +41,7 @@ durch [Microsoft](https://github.com/microsoft)
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>Der Diagramm-Hilfsmethode
 
-Wenn Sie Ihre Daten in grafischer Form anzeigen möchten, können Sie `Chart` Helper. Die `Chart` Hilfsprogramm kann ein Bild, das zeigt Daten in einer Vielzahl von Diagrammtypen rendern. Unterstützt viele Optionen für das Formatieren und beschriften. Die `Chart` Hilfsprogramm kann mehr als 30 Arten von Diagrammen, einschließlich aller Typen von Diagrammen, die Sie möglicherweise vertraut sind mit aus Microsoft Excel oder anderen Tools &#8212;Rendern; Flächendiagramme Balkendiagramme Säulendiagramme, Zeile Diagramme und Kreisdiagrammen zusammen mit mehr spezialisierter Diagramme, z. B. Kursdiagramme.
+Wenn Sie Ihre Daten in grafischer Form anzeigen möchten, können Sie `Chart` Helper. Die `Chart` Hilfsprogramm kann ein Bild, das zeigt Daten in einer Vielzahl von Diagrammtypen rendern. Unterstützt viele Optionen für das Formatieren und beschriften. Die `Chart` Hilfsprogramm kann mehr als 30 Arten von Diagrammen, einschließlich aller Typen von Diagrammen, die Sie möglicherweise vertraut sind mit aus Microsoft Excel oder anderen Tools Rendern &#8212; Flächendiagramme, Balken-, Säulendiagramme, Liniendiagramme und Kreisdiagrammen sowie weitere spezialisierter Diagramme, z. B. Kursdiagramme.
 
 | **Flächendiagramm** ![Beschreibung: Bild des flächendiagrammtyps](7-displaying-data-in-a-chart/_static/image1.jpg) | **Balkendiagramm** ![Beschreibung: Bild des balkendiagrammtyps](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
@@ -122,7 +122,7 @@ Die dritte Option für das Diagramm ist die Verwendung eine XML-Datei wie die Da
 
     Der Code erstellt zunächst eine `DataSet` Objekt. Dieses Objekt wird verwendet, um die Daten zu verwalten, die aus der XML-Datei gelesen und Organisieren sie anhand der Informationen in der Schemadatei. (Beachten Sie, dass der Anfang des Codes die Anweisung enthält `using SystemData`. Dies ist erforderlich, damit es zur Bearbeitung kann die `DataSet` Objekt. Weitere Informationen finden Sie unter [ &quot;Using&quot; -Anweisungen und voll qualifizierte Namen](#SB_UsingStatements) weiter unten in diesem Artikel.)
 
-    Als Nächstes erstellt der Code eine `DataView` Objekt auf Grundlage des Datasets. Die Datensicht bietet ein Objekt, das das Diagramm zu binden kann &#8212; d. h. lesen, und zeichnen. Im Diagramm bindet, um die Daten mit der `AddSeries` -Methode, wie Sie weiter oben gesehen haben, wenn die Daten des Arrays, außer dass diesmal Diagramm der `xValue` und `yValues` Parameter werden festgelegt, um die `DataView` Objekt.
+    Als Nächstes erstellt der Code eine `DataView` Objekt auf Grundlage des Datasets. Die Datensicht bietet ein Objekt, das das Diagramm zu binden kann &#8212; d. h. Lesen und dargestellt werden soll. Im Diagramm bindet, um die Daten mit der `AddSeries` -Methode, wie Sie weiter oben gesehen haben, wenn die Daten des Arrays, außer dass diesmal Diagramm der `xValue` und `yValues` Parameter werden festgelegt, um die `DataView` Objekt.
 
     Dieses Beispiel zeigt auch das Angeben eines bestimmten Diagrammtyps. Wenn die Daten hinzugefügt werden, der `AddSeries` -Methode, die `chartType` Parametersatz ist auch ein Kreisdiagramm angezeigt.
 7. Führen Sie die Seite in einem Browser aus. 
@@ -136,7 +136,7 @@ Die dritte Option für das Diagramm ist die Verwendung eine XML-Datei wie die Da
 > 
 > .NET Framework, dem ASP.NET Web Pages mit Razor-Syntax basiert besteht aus Tausenden von Komponenten (Klassen). Um ihn zur Bearbeitung von all diese Klassen verwaltbar zu machen, sind sie in organisiert *Namespaces*, wobei es sich um etwas wie Bibliotheken. Z. B. die `System.Web` -Namespace enthält Klassen, die Browser-/Serverkommunikation unterstützen die `System.Xml` -Namespace enthält Klassen, die zum Erstellen und Lesen von XML-Dateien verwendet werden und die `System.Data` -Namespace enthält Klassen, mit denen Sie arbeiten können mit Daten.
 > 
-> Zum Zugriff auf einer bestimmten Klasse in .NET Framework muss Code kennen, nicht nur der Klassenname, sondern auch den Namespace, dem die Klasse wird. Z. B. zum Verwenden der `Chart` Helper, Code muss finden die `System.Web.Helpers.Chart` -Klasse, die den Namespace kombiniert (`System.Web.Helpers`) mit dem Klassennamen (`Chart`). Dies bezeichnet man der Klasse *vollqualifizierten* Name &#8212; der vollständige, eindeutige Position innerhalb der Umfangs von .NET Framework. Im Code würde dies wie folgt aussehen:
+> Zum Zugriff auf einer bestimmten Klasse in .NET Framework muss Code kennen, nicht nur der Klassenname, sondern auch den Namespace, dem die Klasse wird. Z. B. zum Verwenden der `Chart` Helper, Code muss finden die `System.Web.Helpers.Chart` -Klasse, die den Namespace kombiniert (`System.Web.Helpers`) mit dem Klassennamen (`Chart`). Dies bezeichnet man der Klasse *vollqualifizierten* Namen &#8212; der vollständige, eindeutige Position innerhalb der Umfangs von .NET Framework. Im Code würde dies wie folgt aussehen:
 > 
 > `var myChart = new System.Web.Helpers.Chart(width: 600, height: 400) // etc.`
 > 
@@ -235,11 +235,11 @@ Diagramme, die im Cache gespeichert möglicherweise entfernt werden, wenn der Se
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample13.cshtml)]
 
-    Der Code überprüft zunächst, ob alle Elemente als der Schlüsselwert in der Abfragezeichenfolge übergeben wurde. Wenn also der Code versucht, lesen ein Diagramm aus dem Cache durch Aufrufen der `GetFromCache` -Methode und übergeben sie den Schlüssel. Wenn sich herausstellt, die es "nothing" in den Cache unter diesem Schlüssel wird (geschieht erstmalig, die das Diagramm angefordert wird), erstellt der Code im Diagramm wie gewohnt aus. Wenn das Diagramm abgeschlossen ist, der Code speichert es in den Cache durch Aufrufen von `SaveToCache`. Diese Methode benötigt einen Schlüssel (damit das Diagramm später angefordert werden kann) und die Zeitspanne, die das Diagramm im Cache gespeichert werden soll. (Die genaue Uhrzeit, die Sie einem Diagramm Zwischenspeichern würde hängt wie oft betrachtet werden kann, dass die Daten, die er darstellt geändert werden können.) Die `SaveToCache` Methode erfordert außerdem eine `slidingExpiration` Parameter &#8212; Wenn diese Option festgelegt ist auf "true", das Timeout Indikator wird jedes Mal zurückgesetzt Diagramm zugegriffen wird. In diesem Fall bedeutet dies faktisch Cacheeintrag des Diagramms endet die Gültigkeit 2 Minuten seit der letzten jemand das Diagramm zugreifen. (Die Alternative zur Ablaufzeit ist ein absoluter Ablauf, was bedeutet, dass der Cacheeintrag abläuft würde genau zwei Minuten, nachdem er angehalten wurde, in den Cache, unabhängig davon, wie oft es zugegriffen wurde.)
+    Der Code überprüft zunächst, ob alle Elemente als der Schlüsselwert in der Abfragezeichenfolge übergeben wurde. Wenn also der Code versucht, lesen ein Diagramm aus dem Cache durch Aufrufen der `GetFromCache` -Methode und übergeben sie den Schlüssel. Wenn sich herausstellt, die es "nothing" in den Cache unter diesem Schlüssel wird (geschieht erstmalig, die das Diagramm angefordert wird), erstellt der Code im Diagramm wie gewohnt aus. Wenn das Diagramm abgeschlossen ist, der Code speichert es in den Cache durch Aufrufen von `SaveToCache`. Diese Methode benötigt einen Schlüssel (damit das Diagramm später angefordert werden kann) und die Zeitspanne, die das Diagramm im Cache gespeichert werden soll. (Die genaue Uhrzeit, die Sie einem Diagramm Zwischenspeichern würde hängt wie oft betrachtet werden kann, dass die Daten, die er darstellt geändert werden können.) Die `SaveToCache` Methode erfordert außerdem eine `slidingExpiration` Parameter &#8212; , wenn diese Option festgelegt ist auf "true", das Timeout Indikator wird jedes Mal zurückgesetzt Diagramm zugegriffen wird. In diesem Fall bedeutet dies faktisch Cacheeintrag des Diagramms endet die Gültigkeit 2 Minuten seit der letzten jemand das Diagramm zugreifen. (Die Alternative zur Ablaufzeit ist ein absoluter Ablauf, was bedeutet, dass der Cacheeintrag abläuft würde genau zwei Minuten, nachdem er angehalten wurde, in den Cache, unabhängig davon, wie oft es zugegriffen wurde.)
 
     Schließlich verwendet der Code die `WriteFromCache` Methode zum Abrufen und das Diagramm aus dem Cache zu rendern. Beachten Sie, dass diese Methode außerhalb der `if` Block, der den Cache überprüft werden, da das Diagramm aus dem Cache abgerufen werden sollen, ob das Diagramm es zunächst gab oder mussten generiert und im Cache gespeichert werden.
 
-    Beachten Sie, dass im Beispiel die `AddTitle` Methode enthält einen Zeitstempel. (Fügt das aktuelle Datum und Uhrzeit &#8212; `DateTime.Now` &#8212; um den Titel.)
+    Beachten Sie, dass im Beispiel die `AddTitle` Methode enthält einen Zeitstempel. (sie fügt das aktuelle Datum und die Uhrzeit &#8212; `DateTime.Now` &#8212; für den Titel der.)
 5. Erstellen Sie eine neue Seite mit dem Namen *ClearCache.cshtml* und seinen Inhalt durch Folgendes ersetzen:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]
