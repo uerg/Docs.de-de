@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Einführung in Styling Anwendungen mit einem niedrigeren Sass und Schriftart Awesome in ASP.NET Core
 
@@ -323,7 +323,7 @@ Weniger bietet eine Reihe von zusätzlichen Funktionen, aber dies sollten Sie ei
 
 Sass ähnelt, bietet Unterstützung für viele der gleichen Funktionen, jedoch mit etwas andere Syntax. Er basiert, Ruby, statt JavaScript und besitzt somit unterschiedliche einrichtungsanforderungen auszeichnen. Die Originalsprache Sass geschweiften Klammern oder Semikolons verwendet, aber Bereichen mithilfe von Leerraum und Einzüge und stattdessen definiert wurde. Eine neue Syntax in Version 3 des Sass wurde eingeführt, **SCSS** ("Sassy CSS"). SCSS ähnelt CSS Einzugsebenen und Leerzeichen werden ignoriert, und verwendet stattdessen Semikolons und geschweifte Klammern.
 
-Um Sass zu installieren, in der Regel Sie Erstinstallation Ruby (vorinstalliertem auf Mac), und führen Sie dann:
+Um Sass zu installieren, in der Regel Sie Erstinstallation Ruby (vorinstalliertem auf MacOS), und führen Sie dann:
 
 ```console
 gem install sass
