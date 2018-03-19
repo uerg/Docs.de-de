@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurieren einer ASP.NET Core-App
 
@@ -25,12 +25,12 @@ Mithilfe der Konfigurations-API kann eine ASP.NET Core-Web-App basierend auf ein
 Für Folgendes stehen Konfigurationsanbieter zur Verfügung:
 
 * Dateiformate (INI, JSON und XML)
-* Befehlszeilenargumente
-* Umgebungsvariablen
-* Speicherinterne .NET Objekte
-* Ein verschlüsselter Benutzerspeicher
-* [Azure Key Vault](xref:security/key-vault-configuration)
-* Benutzerdefinierte Anbieter (installiert oder erstellt)
+* Befehlszeilenargumenten
+* Umgebungsvariablen.
+* Speicherinterne .NET-Objekte
+* Der unverschlüsselte Speicher von [Secret Manager](xref:security/app-secrets).
+* Ein unverschlüsselter Benutzerspeicher, z.B. [Azure Key Vault](xref:security/key-vault-configuration).
+* Benutzerdefinierte Anbieter (installiert oder erstellt).
 
 Jeder Konfigurationswert ist einem Zeichenfolgenschlüssel zugeordnet. Für die Deserialisierung von Einstellungen in ein benutzerdefiniertes [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object)-Objekt (eine einfache .NET-Klasse mit Eigenschaften) kann auf eine integrierte Bindungsunterstützung zurückgegriffen werden.
 

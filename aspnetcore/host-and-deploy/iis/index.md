@@ -5,16 +5,16 @@ description: Erfahren Sie, wie ASP.NET Core-Apps in Windows Server Internet Info
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -45,7 +45,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Das ASP.NET Core Module generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://locahost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls` oder [Kestrels Listen-API](xref:fundamentals/servers/kestrel#endpoint-configuration). Aus diesem Grund sind Aufrufe von `UseUrls` oder der `Listen`-API von Kestrel nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` oder `Listen` aufgerufen wird, lauscht Kestrel auf den Port, der bei der bei Ausführung der App ohne den IIS angegeben wird.
+Das ASP.NET Core-Modul generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://locahost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls` oder [Kestrels Listen-API](xref:fundamentals/servers/kestrel#endpoint-configuration). Aus diesem Grund sind Aufrufe von `UseUrls` oder der `Listen`-API von Kestrel nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` oder `Listen` aufgerufen wird, lauscht Kestrel auf den Port, der bei der bei Ausführung der App ohne den IIS angegeben wird.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -195,6 +195,9 @@ Wenn Sie Apps auf Servern mit [Web Deploy](/iis/publish/using-web-deploy/introdu
 1. Geben Sie einen **Websitenamen** an, und legen Sie den **physischen Pfad** auf den Bereitstellungsordner der App fest. Geben Sie die Konfiguration unter **Bindung** an, und erstellen Sie die Website, indem Sie auf **OK** klicken:
 
    ![Geben Sie den Websitenamen, den physischen Pfad und den Hostnamen im Schritt „Website hinzufügen“ an.](index/_static/add-website-ws2016.png)
+
+   > [!WARNING]
+   > Allgemeine Platzhalterbindungen (`http://*:80/` und `http://+:80`) dürfen **nicht** verwendet werden. Platzhalterbindungen auf oberster Ebene gefährden die Sicherheit Ihrer App. Dies gilt für starke und schwache Platzhalter. Verwenden Sie statt Platzhaltern explizite Hostnamen. Platzhalterbindungen in untergeordneten Domänen (z.B. `*.mysub.com`) verursachen kein Sicherheitsrisiko, wenn Sie die gesamte übergeordnete Domäne steuern (im Gegensatz zu `*.com`, das angreifbar ist). Weitere Informationen finden Sie unter [rfc7230 im Abschnitt 5.4](https://tools.ietf.org/html/rfc7230#section-5.4).
 
 1. Wählen Sie unter dem Serverknoten **Anwendungspools** aus.
 

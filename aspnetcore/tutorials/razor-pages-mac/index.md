@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: 98a1ddfaa83a27c497f0b4455c3654ba77b9422e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f6f332a78098074589928a10e8985c176d180905
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a>Erstellen einer Razor Pages-Webanwendung mit ASP.NET Core und Visual Studio für Mac
 
@@ -21,8 +21,8 @@ Diese Tutorialreihe ist noch in Bearbeitung.
 
 In dieser Reihe werden die Grundlagen der Erstellung einer Razor Pages-Webanwendung mit ASP.NET Core unter Mac erläutert.
 
-1. [Getting started with Razor Pages on Mac (Erste Schritte mit Razor Pages unter Mac)](xref:tutorials/razor-pages-mac/razor-pages-start)
-1. [Adding a model to a Razor Pages app (Hinzufügen eines Modells zu einer Razor Pages-Anwendung)](xref:tutorials/razor-pages-mac/model)
+1. [Erste Schritte mit Razor-Seiten unter Mac](xref:tutorials/razor-pages-mac/razor-pages-start)
+1. [Hinzufügen eines Modells zu einer Razor Pages-App](xref:tutorials/razor-pages-mac/model)
 1. [Scaffolded Razor Pages (Gerüstbau mit Razor Pages)](xref:tutorials/razor-pages-mac/page)
 1. [Arbeiten mit SQLite](xref:tutorials/razor-pages-mac/sql)
 1. [Aktualisieren der Seiten](xref:tutorials/razor-pages-mac/da1)
