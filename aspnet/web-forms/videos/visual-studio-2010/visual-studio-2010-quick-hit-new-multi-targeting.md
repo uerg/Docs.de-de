@@ -2,7 +2,7 @@
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-new-multi-targeting
 title: Visual Studio 2010 Quick Treffer - neue Festlegung von Zielversionen | Microsoft Docs
 author: JoeStagner
-description: "In diesem Video lernen Sie, verbesserte mehrere Zielversionen in Visual Studio-Unterstützung verwenden, können Sie verwenden und mehrere Versionen von .NET."
+description: In diesem Video lernen Sie, verbesserte mehrere Zielversionen in Visual Studio-Unterstützung verwenden, können Sie verwenden und mehrere Versionen von .NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2009
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-new-multi-targeting
 msc.type: video
-ms.openlocfilehash: 72268f8ca15a6d12966b6a61c377325909ae9b6f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b7d4b3ddbd19ed35a6037f958d7d3a883efe667
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="visual-studio-2010-quick-hit---new-multi-targeting"></a><span data-ttu-id="970cf-103">Visual Studio 2010 "Schnelle Hit" - neue Festlegung von Zielversionen</span><span class="sxs-lookup"><span data-stu-id="970cf-103">Visual Studio 2010 "Quick Hit" - New Multi-Targeting</span></span>
+<a name="visual-studio-2010-quick-hit---new-multi-targeting"></a><span data-ttu-id="3eca7-103">Visual Studio 2010 "Schnelle Hit" - neue Festlegung von Zielversionen</span><span class="sxs-lookup"><span data-stu-id="3eca7-103">Visual Studio 2010 "Quick Hit" - New Multi-Targeting</span></span>
 ====================
-<span data-ttu-id="970cf-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="970cf-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="3eca7-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3eca7-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="970cf-105">In diesem Video lernen Sie, verbesserte mehrere Zielversionen in Visual Studio-Unterstützung verwenden, können Sie verwenden und mehrere Versionen von .NET.</span><span class="sxs-lookup"><span data-stu-id="970cf-105">In this video you will learn how to use Visual Studio's enhanced multi-targeting support which allows you to use and target multiple versions of .NET.</span></span>
+<span data-ttu-id="3eca7-105">In diesem Video lernen Sie, verbesserte mehrere Zielversionen in Visual Studio-Unterstützung verwenden, können Sie verwenden und mehrere Versionen von .NET.</span><span class="sxs-lookup"><span data-stu-id="3eca7-105">In this video you will learn how to use Visual Studio's enhanced multi-targeting support which allows you to use and target multiple versions of .NET.</span></span>
 
-[<span data-ttu-id="970cf-106">&#9654; Sehen Sie sich an (6 Minuten)</span><span class="sxs-lookup"><span data-stu-id="970cf-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-new-multi-targeting)
+[<span data-ttu-id="3eca7-106">&#9654;Sehen Sie sich an (6 Minuten)</span><span class="sxs-lookup"><span data-stu-id="3eca7-106">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-new-multi-targeting)
 
->[!div class="step-by-step"]
-<span data-ttu-id="970cf-107">[Zurück](visual-studio-2010-quick-hit-new-web-project-template.md)
-[Weiter](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)</span><span class="sxs-lookup"><span data-stu-id="970cf-107">[Previous](visual-studio-2010-quick-hit-new-web-project-template.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="3eca7-107">[Zurück](visual-studio-2010-quick-hit-new-web-project-template.md)
+> [Weiter](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)</span><span class="sxs-lookup"><span data-stu-id="3eca7-107">[Previous](visual-studio-2010-quick-hit-new-web-project-template.md)
 [Next](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)</span></span>

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
-title: "Auswählen einer Animation aus einer (c#) | Microsoft Docs"
+title: Auswählen einer Animation aus einer (c#) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,55 +12,55 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a24c4ffe49df4eb663f833eb1814f7cbcf15e07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d4aac447fcdfbf296560091cfcdf5eb51997a7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="picking-one-animation-out-of-a-list-c"></a><span data-ttu-id="29702-104">Auswählen einer Animation aus einer (c#)</span><span class="sxs-lookup"><span data-stu-id="29702-104">Picking One Animation Out Of a List (C#)</span></span>
+<a name="picking-one-animation-out-of-a-list-c"></a><span data-ttu-id="e05d8-104">Auswählen einer Animation aus einer (c#)</span><span class="sxs-lookup"><span data-stu-id="e05d8-104">Picking One Animation Out Of a List (C#)</span></span>
 ====================
-<span data-ttu-id="29702-105">durch [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="29702-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="e05d8-105">durch [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="e05d8-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="29702-106">[Herunterladen von Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.cs.zip) oder [PDF herunterladen](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="29702-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5CS.pdf)</span></span>
+<span data-ttu-id="e05d8-106">[Herunterladen von Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.cs.zip) oder [PDF herunterladen](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="e05d8-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5CS.pdf)</span></span>
 
-> <span data-ttu-id="29702-107">Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="29702-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="29702-108">Das Framework ermöglicht es auch den Programmierer, die eine Animation aus einer Liste der gültigen Animationen, je nach der Auswertung des JavaScript-Code auswählen.</span><span class="sxs-lookup"><span data-stu-id="29702-108">The framework also allows the programmer to pick one animation out of a list of animations, depending on the evaluation of some JavaScript code.</span></span>
+> <span data-ttu-id="e05d8-107">Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="e05d8-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="e05d8-108">Das Framework ermöglicht es auch den Programmierer, die eine Animation aus einer Liste der gültigen Animationen, je nach der Auswertung des JavaScript-Code auswählen.</span><span class="sxs-lookup"><span data-stu-id="e05d8-108">The framework also allows the programmer to pick one animation out of a list of animations, depending on the evaluation of some JavaScript code.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="29702-109">Übersicht</span><span class="sxs-lookup"><span data-stu-id="29702-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="e05d8-109">Übersicht</span><span class="sxs-lookup"><span data-stu-id="e05d8-109">Overview</span></span>
 
-<span data-ttu-id="29702-110">Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="29702-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="29702-111">Das Framework ermöglicht es auch den Programmierer, die eine Animation aus einer Liste der gültigen Animationen, je nach der Auswertung des JavaScript-Code auswählen.</span><span class="sxs-lookup"><span data-stu-id="29702-111">The framework also allows the programmer to pick one animation out of a list of animations, depending on the evaluation of some JavaScript code.</span></span>
+<span data-ttu-id="e05d8-110">Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen.</span><span class="sxs-lookup"><span data-stu-id="e05d8-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="e05d8-111">Das Framework ermöglicht es auch den Programmierer, die eine Animation aus einer Liste der gültigen Animationen, je nach der Auswertung des JavaScript-Code auswählen.</span><span class="sxs-lookup"><span data-stu-id="e05d8-111">The framework also allows the programmer to pick one animation out of a list of animations, depending on the evaluation of some JavaScript code.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="29702-112">Schritte</span><span class="sxs-lookup"><span data-stu-id="29702-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="e05d8-112">Schritte</span><span class="sxs-lookup"><span data-stu-id="e05d8-112">Steps</span></span>
 
-<span data-ttu-id="29702-113">Erstens sind die `ScriptManager` auf der Seite; klicken Sie dann die ASP.NET AJAX-Bibliothek geladen ist, wodurch das Steuerelement-Toolkit verwenden:</span><span class="sxs-lookup"><span data-stu-id="29702-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
+<span data-ttu-id="e05d8-113">Erstens sind die `ScriptManager` auf der Seite; klicken Sie dann die ASP.NET AJAX-Bibliothek geladen ist, wodurch das Steuerelement-Toolkit verwenden:</span><span class="sxs-lookup"><span data-stu-id="e05d8-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="29702-114">Die Animation wird auf einen Bereich des Texts angewendet werden, die wie folgt aussieht:</span><span class="sxs-lookup"><span data-stu-id="29702-114">The animation will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="e05d8-114">Die Animation wird auf einen Bereich des Texts angewendet werden, die wie folgt aussieht:</span><span class="sxs-lookup"><span data-stu-id="e05d8-114">The animation will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="29702-115">Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hintergrundfarbe und auch festlegen Sie eine feste Breite für den Bereich:</span><span class="sxs-lookup"><span data-stu-id="29702-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
+<span data-ttu-id="e05d8-115">Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hintergrundfarbe und auch festlegen Sie eine feste Breite für den Bereich:</span><span class="sxs-lookup"><span data-stu-id="e05d8-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
 
 [!code-css[Main](picking-one-animation-out-of-a-list-cs/samples/sample3.css)]
 
-<span data-ttu-id="29702-116">Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter`runat="server":`</span><span class="sxs-lookup"><span data-stu-id="29702-116">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server":`</span></span>
+<span data-ttu-id="e05d8-116">Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter `runat="server":`</span><span class="sxs-lookup"><span data-stu-id="e05d8-116">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server":`</span></span>
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample4.aspx)]
 
-<span data-ttu-id="29702-117">Innerhalb der `<Animations>` Knoten verwenden `<OnLoad>` Animationen ausgeführt, nachdem die Seite vollständig geladen wurde.</span><span class="sxs-lookup"><span data-stu-id="29702-117">Within the `<Animations>` node, use `<OnLoad>` to run the animations once the page has been fully loaded.</span></span> <span data-ttu-id="29702-118">Statt in einem regulären Animationen der `<Case>` Element, kommt es zu.</span><span class="sxs-lookup"><span data-stu-id="29702-118">Instead of one of the regular animations, the `<Case>` element comes into play.</span></span> <span data-ttu-id="29702-119">Der Wert des Attributs SelectScript ausgewertet wird. der Rückgabewert muss numerische sein.</span><span class="sxs-lookup"><span data-stu-id="29702-119">The value of its SelectScript attribute is evaluated; the return value must be numerical.</span></span> <span data-ttu-id="29702-120">Je nach dieser Anzahl, eines der Subanimation innerhalb &lt;Fall&gt; ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="29702-120">Depending on this number, one of the subanimations within &lt;Case&gt; is executed.</span></span> <span data-ttu-id="29702-121">Z. B. SelectScript 2 ergibt, führt das Steuerelement-Toolkit dritte Animation in &lt;Fall&gt; (beginnend mit 0).</span><span class="sxs-lookup"><span data-stu-id="29702-121">For instance, if SelectScript evaluates to 2, the Control Toolkit runs the third animation within &lt;Case&gt; (counting starts at 0).</span></span>
+<span data-ttu-id="e05d8-117">Innerhalb der `<Animations>` Knoten verwenden `<OnLoad>` Animationen ausgeführt, nachdem die Seite vollständig geladen wurde.</span><span class="sxs-lookup"><span data-stu-id="e05d8-117">Within the `<Animations>` node, use `<OnLoad>` to run the animations once the page has been fully loaded.</span></span> <span data-ttu-id="e05d8-118">Statt in einem regulären Animationen der `<Case>` Element, kommt es zu.</span><span class="sxs-lookup"><span data-stu-id="e05d8-118">Instead of one of the regular animations, the `<Case>` element comes into play.</span></span> <span data-ttu-id="e05d8-119">Der Wert des Attributs SelectScript ausgewertet wird. der Rückgabewert muss numerische sein.</span><span class="sxs-lookup"><span data-stu-id="e05d8-119">The value of its SelectScript attribute is evaluated; the return value must be numerical.</span></span> <span data-ttu-id="e05d8-120">Je nach dieser Anzahl, eines der Subanimation innerhalb &lt;Fall&gt; ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="e05d8-120">Depending on this number, one of the subanimations within &lt;Case&gt; is executed.</span></span> <span data-ttu-id="e05d8-121">Z. B. SelectScript 2 ergibt, führt das Steuerelement-Toolkit dritte Animation in &lt;Fall&gt; (beginnend mit 0).</span><span class="sxs-lookup"><span data-stu-id="e05d8-121">For instance, if SelectScript evaluates to 2, the Control Toolkit runs the third animation within &lt;Case&gt; (counting starts at 0).</span></span>
 
-<span data-ttu-id="29702-122">Das folgende Markup definiert drei Subanimation: Ändern der Größe der Breite und Ändern der Größe der Höhe ausblenden. Der JavaScript-Code (`Math.floor(3 * Math.random())`) nimmt dann eine Zahl zwischen 0 und 2, sodass einer der drei Animationen ausgeführt wird:</span><span class="sxs-lookup"><span data-stu-id="29702-122">The following markup defines three subanimations: Resizing the width, resizing the height, and fading out. The JavaScript code (`Math.floor(3 * Math.random())`) then picks a number between 0 and 2, so that one of the three animations is run:</span></span>
+<span data-ttu-id="e05d8-122">Das folgende Markup definiert drei Subanimation: Ändern der Größe der Breite und Ändern der Größe der Höhe ausblenden. Der JavaScript-Code (`Math.floor(3 * Math.random())`) nimmt dann eine Zahl zwischen 0 und 2, sodass einer der drei Animationen ausgeführt wird:</span><span class="sxs-lookup"><span data-stu-id="e05d8-122">The following markup defines three subanimations: Resizing the width, resizing the height, and fading out. The JavaScript code (`Math.floor(3 * Math.random())`) then picks a number between 0 and 2, so that one of the three animations is run:</span></span>
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample5.aspx)]
 
 
-<span data-ttu-id="29702-123">[![Einer der drei möglichen Animationen: Bereich ruft breiter](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="29702-123">[![One of the possible three animations: The panel gets wider](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)</span></span>
+<span data-ttu-id="e05d8-123">[![Einer der drei möglichen Animationen: Bereich ruft breiter](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="e05d8-123">[![One of the possible three animations: The panel gets wider](picking-one-animation-out-of-a-list-cs/_static/image2.png)](picking-one-animation-out-of-a-list-cs/_static/image1.png)</span></span>
 
-<span data-ttu-id="29702-124">Einer der drei möglichen Animationen: Bereich ruft breiter ([klicken Sie hier, um das Bild in voller Größe angezeigt](picking-one-animation-out-of-a-list-cs/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="29702-124">One of the possible three animations: The panel gets wider ([Click to view full-size image](picking-one-animation-out-of-a-list-cs/_static/image3.png))</span></span>
+<span data-ttu-id="e05d8-124">Einer der drei möglichen Animationen: Bereich ruft breiter ([klicken Sie hier, um das Bild in voller Größe angezeigt](picking-one-animation-out-of-a-list-cs/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="e05d8-124">One of the possible three animations: The panel gets wider ([Click to view full-size image](picking-one-animation-out-of-a-list-cs/_static/image3.png))</span></span>
 
->[!div class="step-by-step"]
-<span data-ttu-id="29702-125">[Zurück](animation-depending-on-a-condition-cs.md)
-[Weiter](animating-in-response-to-user-interaction-cs.md)</span><span class="sxs-lookup"><span data-stu-id="29702-125">[Previous](animation-depending-on-a-condition-cs.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="e05d8-125">[Zurück](animation-depending-on-a-condition-cs.md)
+> [Weiter](animating-in-response-to-user-interaction-cs.md)</span><span class="sxs-lookup"><span data-stu-id="e05d8-125">[Previous](animation-depending-on-a-condition-cs.md)
 [Next](animating-in-response-to-user-interaction-cs.md)</span></span>

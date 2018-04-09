@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews
-title: "Tailspin Spyworks - Hinzufügen von Benutzer Produktprüfungen | Microsoft Docs"
+title: Tailspin Spyworks - Hinzufügen von Benutzer Produktprüfungen | Microsoft Docs
 author: JoeStagner
-description: "Joe Stagner hinzugefügt Product Details-Seite in der Tailspin Spyworks Web Forms-beispielanwendung Reviews von Kunden."
+description: Joe Stagner hinzugefügt Product Details-Seite in der Tailspin Spyworks Web Forms-beispielanwendung Reviews von Kunden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews
 msc.type: video
-ms.openlocfilehash: 511139fa8351dc75bba2dd60a4dd7aa2dd663930
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b9efe98468ad59266293b13f5a66006219cb525
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="tailspin-spyworks---adding-user-product-reviews"></a><span data-ttu-id="dd364-103">Tailspin Spyworks - Produktprüfungen Benutzer hinzufügen</span><span class="sxs-lookup"><span data-stu-id="dd364-103">Tailspin Spyworks - Adding User Product Reviews</span></span>
+<a name="tailspin-spyworks---adding-user-product-reviews"></a><span data-ttu-id="a7885-103">Tailspin Spyworks - Produktprüfungen Benutzer hinzufügen</span><span class="sxs-lookup"><span data-stu-id="a7885-103">Tailspin Spyworks - Adding User Product Reviews</span></span>
 ====================
-<span data-ttu-id="dd364-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="dd364-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="a7885-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="a7885-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="dd364-105">Joe Stagner hinzugefügt Product Details-Seite in der Tailspin Spyworks Web Forms-beispielanwendung Reviews von Kunden.</span><span class="sxs-lookup"><span data-stu-id="dd364-105">Joe Stagner adds reviews from customers to product details page in the Tailspin Spyworks sample Web Forms application.</span></span>
+<span data-ttu-id="a7885-105">Joe Stagner hinzugefügt Product Details-Seite in der Tailspin Spyworks Web Forms-beispielanwendung Reviews von Kunden.</span><span class="sxs-lookup"><span data-stu-id="a7885-105">Joe Stagner adds reviews from customers to product details page in the Tailspin Spyworks sample Web Forms application.</span></span>
 
-[<span data-ttu-id="dd364-106">&#9654; Sehen Sie sich an (41 Minuten)</span><span class="sxs-lookup"><span data-stu-id="dd364-106">&#9654; Watch video (41 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-adding-user-product-reviews)
+[<span data-ttu-id="a7885-106">&#9654;Sehen Sie sich an (41 Minuten)</span><span class="sxs-lookup"><span data-stu-id="a7885-106">&#9654; Watch video (41 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-adding-user-product-reviews)
 
->[!div class="step-by-step"]
-<span data-ttu-id="dd364-107">[Zurück](tailspin-spyworks-final-check-out.md)
-[Weiter](tailspin-spyworks-displaying-user-reviews.md)</span><span class="sxs-lookup"><span data-stu-id="dd364-107">[Previous](tailspin-spyworks-final-check-out.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="a7885-107">[Zurück](tailspin-spyworks-final-check-out.md)
+> [Weiter](tailspin-spyworks-displaying-user-reviews.md)</span><span class="sxs-lookup"><span data-stu-id="a7885-107">[Previous](tailspin-spyworks-final-check-out.md)
 [Next](tailspin-spyworks-displaying-user-reviews.md)</span></span>

@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/combo-box
 msc.type: video
-ms.openlocfilehash: 3cdc44b854d7641fbb8671f49db8a442df75922e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db96e36208c807e339275ad18a947ad73f901487
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="combo-box"></a><span data-ttu-id="afc06-103">Kombinationsfeld</span><span class="sxs-lookup"><span data-stu-id="afc06-103">Combo Box</span></span>
+<a name="combo-box"></a><span data-ttu-id="3bd13-103">Kombinationsfeld</span><span class="sxs-lookup"><span data-stu-id="3bd13-103">Combo Box</span></span>
 ====================
-<span data-ttu-id="afc06-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="afc06-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="3bd13-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3bd13-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="afc06-105">In diesem Video wird das neue Kombinationsfeld-Steuerelement aus dem Microsoft AJAX-Steuerelement-Toolkit verwenden veranschaulicht.</span><span class="sxs-lookup"><span data-stu-id="afc06-105">This video will demonstrate how to use the new Combo Box control from the Microsoft AJAX Control Toolkit.</span></span>
+<span data-ttu-id="3bd13-105">In diesem Video wird das neue Kombinationsfeld-Steuerelement aus dem Microsoft AJAX-Steuerelement-Toolkit verwenden veranschaulicht.</span><span class="sxs-lookup"><span data-stu-id="3bd13-105">This video will demonstrate how to use the new Combo Box control from the Microsoft AJAX Control Toolkit.</span></span>
 
-[<span data-ttu-id="afc06-106">&#9654; Sehen Sie sich an (9 Minuten)</span><span class="sxs-lookup"><span data-stu-id="afc06-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/combo-box)
+[<span data-ttu-id="3bd13-106">&#9654;Sehen Sie sich an (9 Minuten)</span><span class="sxs-lookup"><span data-stu-id="3bd13-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/combo-box)
 
->[!div class="step-by-step"]
-<span data-ttu-id="afc06-107">[Zurück](color-picker.md)
-[Weiter](editor-control.md)</span><span class="sxs-lookup"><span data-stu-id="afc06-107">[Previous](color-picker.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="3bd13-107">[Zurück](color-picker.md)
+> [Weiter](editor-control.md)</span><span class="sxs-lookup"><span data-stu-id="3bd13-107">[Previous](color-picker.md)
 [Next](editor-control.md)</span></span>

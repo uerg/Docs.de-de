@@ -2,7 +2,7 @@
 uid: web-forms/videos/migrating/interop-between-php-and-the-windows-platform
 title: Interop-zwischen PHP und die Windows-Plattform | Microsoft Docs
 author: microsoft
-description: "In diesem Webcast lernen Sie erstellen und Ausführen von PHP-Anwendungen unter den Betriebssystemen Microsoft Windows Server."
+description: In diesem Webcast lernen Sie erstellen und Ausführen von PHP-Anwendungen unter den Betriebssystemen Microsoft Windows Server.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
@@ -12,19 +12,19 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/interop-between-php-and-the-windows-platform
 msc.type: video
-ms.openlocfilehash: 0cddc4f4bf8a53d249f83e822c405524d5e9ce62
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d1396f97fc3b4f533e6c3bf1e0302ea3a3696f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="interop-between-php-and-the-windows-platform"></a><span data-ttu-id="15da4-103">Interoperabilität zwischen PHP und die Windows-Plattform</span><span class="sxs-lookup"><span data-stu-id="15da4-103">Interop between PHP and the Windows Platform</span></span>
+<a name="interop-between-php-and-the-windows-platform"></a><span data-ttu-id="63ebf-103">Interoperabilität zwischen PHP und die Windows-Plattform</span><span class="sxs-lookup"><span data-stu-id="63ebf-103">Interop between PHP and the Windows Platform</span></span>
 ====================
-<span data-ttu-id="15da4-104">durch [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="15da4-104">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="63ebf-104">durch [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="63ebf-104">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="15da4-105">In diesem Webcast lernen Sie erstellen und Ausführen von PHP-Anwendungen unter den Betriebssystemen Microsoft Windows Server.</span><span class="sxs-lookup"><span data-stu-id="15da4-105">In this webcast, you will learn about building and running PHP applications on the Microsoft Windows Server operating systems.</span></span>
+<span data-ttu-id="63ebf-105">In diesem Webcast lernen Sie erstellen und Ausführen von PHP-Anwendungen unter den Betriebssystemen Microsoft Windows Server.</span><span class="sxs-lookup"><span data-stu-id="63ebf-105">In this webcast, you will learn about building and running PHP applications on the Microsoft Windows Server operating systems.</span></span>
 
-[<span data-ttu-id="15da4-106">&#9654; Sehen Sie sich an (64 Minuten)</span><span class="sxs-lookup"><span data-stu-id="15da4-106">&#9654; Watch video (64 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/interop-between-php-and-the-windows-platform)
+[<span data-ttu-id="63ebf-106">&#9654;Sehen Sie sich an (64 Minuten)</span><span class="sxs-lookup"><span data-stu-id="63ebf-106">&#9654; Watch video (64 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/interop-between-php-and-the-windows-platform)
 
->[!div class="step-by-step"]
-[<span data-ttu-id="15da4-107">Zurück</span><span class="sxs-lookup"><span data-stu-id="15da4-107">Previous</span></span>](introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+> [!div class="step-by-step"]
+> [<span data-ttu-id="63ebf-107">Vorherige</span><span class="sxs-lookup"><span data-stu-id="63ebf-107">Previous</span></span>](introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)

@@ -12,19 +12,19 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: ec18b244afa26d0289a837c455b3fd17e6f741c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e35ab81c61d67b7a42508e61060da52efbd46713
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="how-do-i-get-started-with-aspnet-ajax"></a><span data-ttu-id="50be7-104">[Gewusst wie:] Erste Schritte mit ASP.NET-AJAX?</span><span class="sxs-lookup"><span data-stu-id="50be7-104">[How Do I:] Get Started with ASP.NET AJAX?</span></span>
+<a name="how-do-i-get-started-with-aspnet-ajax"></a><span data-ttu-id="cdedb-104">[Gewusst wie:] Erste Schritte mit ASP.NET-AJAX?</span><span class="sxs-lookup"><span data-stu-id="cdedb-104">[How Do I:] Get Started with ASP.NET AJAX?</span></span>
 ====================
-<span data-ttu-id="50be7-105">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="50be7-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="cdedb-105">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="cdedb-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="50be7-106">Beachten Sie, dass ASP.NET AJAX als Bestandteil von .NET 3.5 verwendet wird, ist damit die Installation Teil dieses Video nur relevant ist, wenn Sie .NET Framework Version 2.0 verwenden.</span><span class="sxs-lookup"><span data-stu-id="50be7-106">Note that ASP.NET AJAX is included as part of .NET 3.5, so the installation part of this video is only relevant if you are using the .NET Framework Version 2.0.</span></span>
+<span data-ttu-id="cdedb-106">Beachten Sie, dass ASP.NET AJAX als Bestandteil von .NET 3.5 verwendet wird, ist damit die Installation Teil dieses Video nur relevant ist, wenn Sie .NET Framework Version 2.0 verwenden.</span><span class="sxs-lookup"><span data-stu-id="cdedb-106">Note that ASP.NET AJAX is included as part of .NET 3.5, so the installation part of this video is only relevant if you are using the .NET Framework Version 2.0.</span></span>
 
-[<span data-ttu-id="50be7-107">&#9654; Sehen Sie sich an (7 Minuten)</span><span class="sxs-lookup"><span data-stu-id="50be7-107">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
+[<span data-ttu-id="cdedb-107">&#9654;Sehen Sie sich an (7 Minuten)</span><span class="sxs-lookup"><span data-stu-id="cdedb-107">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
 
->[!div class="step-by-step"]
-[<span data-ttu-id="50be7-108">Nächste</span><span class="sxs-lookup"><span data-stu-id="50be7-108">Next</span></span>](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)
+> [!div class="step-by-step"]
+> [<span data-ttu-id="cdedb-108">Nächste</span><span class="sxs-lookup"><span data-stu-id="cdedb-108">Next</span></span>](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

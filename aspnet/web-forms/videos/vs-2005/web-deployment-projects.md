@@ -2,7 +2,7 @@
 uid: web-forms/videos/vs-2005/web-deployment-projects
 title: Web-Bereitstellungsprojekte | Microsoft Docs
 author: BradleyBartz
-description: "Bradley Bartz und Richard Ersek zeigen, wie die Web-Bereitstellungsprojekte zusätzliche Funktionalität zum Erstellen von bereitzustellen und Bereitstellen von Website-Anwendungen erstellen..."
+description: Bradley Bartz und Richard Ersek zeigen, wie die Web-Bereitstellungsprojekte zusätzliche Funktionalität zum Erstellen von bereitzustellen und Bereitstellen von Website-Anwendungen erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/21/2006
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/web-deployment-projects
 msc.type: video
-ms.openlocfilehash: 9d9847d51deab579db65fce65e2f07f5faabf780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a5cf69ec45f3bd1b1662a604bf6615feb5a35f0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="web-deployment-projects"></a><span data-ttu-id="08bd9-103">Web-Bereitstellungsprojekte</span><span class="sxs-lookup"><span data-stu-id="08bd9-103">Web Deployment Projects</span></span>
+<a name="web-deployment-projects"></a><span data-ttu-id="874d3-103">Web-Bereitstellungsprojekte</span><span class="sxs-lookup"><span data-stu-id="874d3-103">Web Deployment Projects</span></span>
 ====================
-<span data-ttu-id="08bd9-104">durch [Bradley Bartz](https://github.com/BradleyBartz)</span><span class="sxs-lookup"><span data-stu-id="08bd9-104">by [Bradley Bartz](https://github.com/BradleyBartz)</span></span>
+<span data-ttu-id="874d3-104">durch [Bradley Bartz](https://github.com/BradleyBartz)</span><span class="sxs-lookup"><span data-stu-id="874d3-104">by [Bradley Bartz](https://github.com/BradleyBartz)</span></span>
 
-<span data-ttu-id="08bd9-105">Bradley Bartz und Richard Ersek zeigen an, wie die Web-Bereitstellungsprojekte zusätzliche Funktionen für das Erstellen und Bereitstellen von Website-Anwendungen, die in Visual Studio 2005 erstellt bereitzustellen.</span><span class="sxs-lookup"><span data-stu-id="08bd9-105">Bradley Bartz and Richard Ersek show how the Web Deployment Projects provide additional functionality for building and deploying web site applications created in Visual Studio 2005.</span></span>
+<span data-ttu-id="874d3-105">Bradley Bartz und Richard Ersek zeigen an, wie die Web-Bereitstellungsprojekte zusätzliche Funktionen für das Erstellen und Bereitstellen von Website-Anwendungen, die in Visual Studio 2005 erstellt bereitzustellen.</span><span class="sxs-lookup"><span data-stu-id="874d3-105">Bradley Bartz and Richard Ersek show how the Web Deployment Projects provide additional functionality for building and deploying web site applications created in Visual Studio 2005.</span></span>
 
-[<span data-ttu-id="08bd9-106">&#9654; Sehen Sie sich an (65 Minuten)</span><span class="sxs-lookup"><span data-stu-id="08bd9-106">&#9654; Watch video (65 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/web-deployment-projects)
+[<span data-ttu-id="874d3-106">&#9654;Sehen Sie sich an (65 Minuten)</span><span class="sxs-lookup"><span data-stu-id="874d3-106">&#9654; Watch video (65 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/web-deployment-projects)
 
->[!div class="step-by-step"]
-<span data-ttu-id="08bd9-107">[Zurück](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
-[Weiter](web-application-projects-web-deployment-projects.md)</span><span class="sxs-lookup"><span data-stu-id="08bd9-107">[Previous](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="874d3-107">[Zurück](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
+> [Weiter](web-application-projects-web-deployment-projects.md)</span><span class="sxs-lookup"><span data-stu-id="874d3-107">[Previous](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
 [Next](web-application-projects-web-deployment-projects.md)</span></span>

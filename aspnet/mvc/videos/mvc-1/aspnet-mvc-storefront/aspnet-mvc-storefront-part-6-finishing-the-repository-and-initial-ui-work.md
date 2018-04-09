@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work
-title: "Storefront ASP.NET-MVC, Teil 6: Abschließen des Repositorys und Aufgaben des anfänglichen UI | Microsoft Docs"
+title: 'Storefront ASP.NET-MVC, Teil 6: Abschließen des Repositorys und Aufgaben des anfänglichen UI | Microsoft Docs'
 author: robconery
 description: Rob CSS-Strategien mit Jon Galloway dreht und die Arbeit mit dem Front-End der Anwendung aufnehmen.
 ms.author: aspnetcontent
@@ -12,21 +12,21 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work
 msc.type: video
-ms.openlocfilehash: 526b05567ddfadfc417a8419870dccd9b4492f02
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 49521cb66a65e826cd6e4db337c22f01ce1cc467
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work"></a><span data-ttu-id="5fefe-103">Storefront ASP.NET-MVC, Teil 6: Abschließen des Repositorys und Aufgaben des anfänglichen UI</span><span class="sxs-lookup"><span data-stu-id="5fefe-103">ASP.NET MVC Storefront Part 6: Finishing The Repository, and Initial UI Work</span></span>
+<a name="aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work"></a><span data-ttu-id="a4f65-103">Storefront ASP.NET-MVC, Teil 6: Abschließen des Repositorys und Aufgaben des anfänglichen UI</span><span class="sxs-lookup"><span data-stu-id="a4f65-103">ASP.NET MVC Storefront Part 6: Finishing The Repository, and Initial UI Work</span></span>
 ====================
-<span data-ttu-id="5fefe-104">durch [stehlen Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="5fefe-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="a4f65-104">durch [stehlen Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="a4f65-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="5fefe-105">Rob CSS-Strategien mit Jon Galloway dreht und die Arbeit mit dem Front-End der Anwendung aufnehmen.</span><span class="sxs-lookup"><span data-stu-id="5fefe-105">Rob talks with Jon Galloway about CSS strategies and begin working in the Front end of the application.</span></span>
+<span data-ttu-id="a4f65-105">Rob CSS-Strategien mit Jon Galloway dreht und die Arbeit mit dem Front-End der Anwendung aufnehmen.</span><span class="sxs-lookup"><span data-stu-id="a4f65-105">Rob talks with Jon Galloway about CSS strategies and begin working in the Front end of the application.</span></span>
 
-[<span data-ttu-id="5fefe-106">&#9654; Sehen Sie sich an (20 Minuten)</span><span class="sxs-lookup"><span data-stu-id="5fefe-106">&#9654; Watch video (20 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work)
+[<span data-ttu-id="a4f65-106">&#9654;Sehen Sie sich an (20 Minuten)</span><span class="sxs-lookup"><span data-stu-id="a4f65-106">&#9654; Watch video (20 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work)
 
->[!div class="step-by-step"]
-<span data-ttu-id="5fefe-107">[Zurück](aspnet-mvc-storefront-part-5-globalization.md)
-[Weiter](aspnet-mvc-storefront-part-7-routing-and-ui-work.md)</span><span class="sxs-lookup"><span data-stu-id="5fefe-107">[Previous](aspnet-mvc-storefront-part-5-globalization.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="a4f65-107">[Zurück](aspnet-mvc-storefront-part-5-globalization.md)
+> [Weiter](aspnet-mvc-storefront-part-7-routing-and-ui-work.md)</span><span class="sxs-lookup"><span data-stu-id="a4f65-107">[Previous](aspnet-mvc-storefront-part-5-globalization.md)
 [Next](aspnet-mvc-storefront-part-7-routing-and-ui-work.md)</span></span>
