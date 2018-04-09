@@ -2,7 +2,7 @@
 uid: mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 title: Erstellen von MVC 5-App mit Facebook, Twitter, LinkedIn und Google "oauth2" Sign-on (c#) | Microsoft Docs
 author: Rick-Anderson
-description: "In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 5-Webanwendung zu erstellen, die Benutzern ermöglicht, melden Sie sich mithilfe von OAuth 2.0 mit Anmeldeinformationen aus einer externen authentifizieren..."
+description: In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 5-Webanwendung zu erstellen, die Benutzern ermöglicht, melden Sie sich mithilfe von OAuth 2.0 mit Anmeldeinformationen aus einer externen authentifizieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Erstellen einer ASP.NET MVC 5-App mit Facebook, Twitter, LinkedIn und Google "oauth2" Sign-on (c#)
 ====================
@@ -34,7 +34,7 @@ durch [Rick Anderson](https://github.com/Rick-Anderson)
 <a id="start"></a>
 ## <a name="getting-started"></a>Erste Schritte
 
-Starten, indem Sie installieren und Ausführen von [Visual Studio Express 2013 für Web](https://go.microsoft.com/fwlink/?LinkId=299058) oder [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Installieren von Visual Studio [2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521) oder höher. Hilfe bei Dropbox, GitHub, Linkedin, Instagram, Puffer, Salesforce, DATENSTROM, Stapel Exchange, Tripit, Twitch, Twitter, Yahoo und vieles mehr, finden Sie in diesem [eine Stop-Handbuch](http://www.oauthforaspnet.com/).
+Starten, indem Sie installieren und Ausführen von [Visual Studio Express 2013 für Web](https://go.microsoft.com/fwlink/?LinkId=299058) oder [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Installieren von Visual Studio [2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521) oder höher. Hilfe bei Dropbox, GitHub, Linkedin, Instagram, Puffer, Salesforce, DATENSTROM, Stapel Exchange, Tripit, Twitch, Twitter, Yahoo! und vieles mehr, finden Sie in diesem [Beispielprojekt](https://github.com/matthewdunsdon/oauthforaspnet).
 
 > [!NOTE]
 > Sie müssen Visual Studio installieren [2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521) oder höher, Google OAuth 2 verwenden und lokal ohne SSL-Warnungen zu debuggen.
@@ -118,9 +118,9 @@ Zum Authentifizierungsanbieter z. B. Google und Facebook herstellen, müssen Sie
 > Aktuelle Google OAuth-Anweisungen finden Sie unter [Konfigurieren von Google-Authentifizierung in ASP.NET Core](/aspnet/core/security/authentication/social/google-logins).
 
 1. Navigieren Sie zu der [Google-Entwicklerkonsole](https://console.developers.google.com/).
-1. Wenn Sie ein Projekt, bevor Sie erstellt haben, wählen Sie **Anmeldeinformationen** die Registerkarte "Links", und wählen Sie dann **erstellen**.
-1. Klicken Sie in der linken Registerkarte auf **Anmeldeinformationen**.
-1. Klicken Sie auf **Anmeldeinformationen erstellen** dann **OAuth-Client-ID**. 
+2. Wenn Sie ein Projekt, bevor Sie erstellt haben, wählen Sie **Anmeldeinformationen** die Registerkarte "Links", und wählen Sie dann **erstellen**.
+3. Klicken Sie in der linken Registerkarte auf **Anmeldeinformationen**.
+4. Klicken Sie auf **Anmeldeinformationen erstellen** dann **OAuth-Client-ID**. 
 
     1. In der **Client-ID erstellen** Dialogfeld, behalten Sie den Standardwert **-Webanwendung** für den Anwendungstyp.
     2. Festlegen der **autorisiert JavaScript** Ursprünge auf dem oben verwendeten SSL-URL (`https://localhost:44300/` , wenn Sie andere SSL-Projekte erstellt haben)
@@ -131,7 +131,7 @@ Zum Authentifizierungsanbieter z. B. Google und Facebook herstellen, müssen Sie
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image15.png)  
   
- Die folgende Abbildung zeigt die aktivierte APIs.  
+   Die folgende Abbildung zeigt die aktivierte APIs.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image16.png)
 7. In der Google APIs API-Manager finden Sie auf der **Anmeldeinformationen** Registerkarte zum Abrufen der **Clientkennung**. Herunterladen eine JSON-Datei mit geheimen Schlüsseln die Anwendung zu speichern. Kopieren und Einfügen der **ClientId** und **ClientSecret** in der `UseGoogleAuthentication` Methode gefunden, der *Startup.Auth.cs* in der Datei die *App_Start* Ordner. Die **ClientId** und **ClientSecret** unten aufgeführten Werte sind Beispiele und funktionieren nicht.
@@ -148,7 +148,7 @@ Zum Authentifizierungsanbieter z. B. Google und Facebook herstellen, müssen Sie
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image18.png)
 
     > [!NOTE]
-    > Wenn Sie eine der oben aufgeführten Schritte verpasst haben, erhalten Sie einen HTTP 401-Fehler. Überprüfen Sie die obigen Schritte erneut. Wenn Sie eine erforderliche Einstellung verpasst haben (z. B. **Produktname**), Element, und speichern Sie die fehlende hinzufügen, die es dauert einige Minuten, bis die Authentifizierung funktioniert.
+    > Wenn Sie eine der oben aufgeführten Schritte verpasst haben, erhalten Sie einen HTTP 401-Fehler. Überprüfen Sie die obigen Schritte erneut. Wenn Sie eine erforderliche Einstellung verpasst haben (z. B. **Produktname**), fügen Sie das fehlende Element und speichern; dauert einige Minuten, bis die Authentifizierung funktioniert.
 10. Sie werden auf der Google-Website umgeleitet werden, in dem Sie Ihre Anmeldeinformationen eingeben.   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image19.png)
@@ -167,14 +167,14 @@ Zum Authentifizierungsanbieter z. B. Google und Facebook herstellen, müssen Sie
 
 Für die Facebook OAuth2-Authentifizierung müssen Sie dem Projekt einige Einstellungen aus einer Anwendung kopieren, die Sie in Facebook zu erstellen.
 
-1. In Ihrem Browser, navigieren Sie zu [https://developers.facebook.com/apps](https://developers.facebook.com/apps) und melden Sie sich, indem Sie Ihre Facebook-Anmeldeinformationen eingeben.
+1. In Ihrem Browser, navigieren Sie zu [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) und melden Sie sich, indem Sie Ihre Facebook-Anmeldeinformationen eingeben.
 2. Wenn Sie bereits als ein Facebook-Entwickler registriert werden nicht, klicken Sie auf **registrieren Sie als Entwickler** und befolgen Sie die Anweisungen zum Registrieren.
 3. Auf der **Apps** auf **neue App**.
 
     ![Neue app erstellen](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Geben Sie eine **Anwendungsnamen** und **Kategorie**, klicken Sie dann auf **erstellen App**.
 
-    Dies muss innerhalb der Facebook eindeutig sein. Die **App Namespace** ist der Teil der URL, die Ihre App verwenden möchten, auf die Facebook-Anwendung für die Authentifizierung (z. B. https://apps.facebook.com/ {App-Namespace}) zugreifen. Wenn Sie nicht angeben einer **App Namespace**, die **App-ID** für die URL verwendet werden. Die **App-ID** ist eine lange vom System generierte Zahl, die Sie im nächsten Schritt sehen.
+    Dies muss innerhalb der Facebook eindeutig sein. Die <strong>App Namespace</strong> ist der Teil der URL, die zum Zugriff auf die Facebook-Anwendung für die Authentifizierung Ihrer App verwenden (z. B. https://apps.facebook.com/{App Namespace}). Wenn Sie nicht angeben einer <strong>App Namespace</strong>, die <strong>App-ID</strong> für die URL verwendet werden. Die <strong>App-ID</strong> ist eine lange vom System generierte Zahl, die Sie im nächsten Schritt sehen.
 
     ![Neuen App-Dialogfeld "erstellen"](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Senden Sie die Standardsicherheit Kontrollkästchen.

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
-title: "Unterschiedliche Versionen von ASP.NET Web Pages (Razor) parallel ausführen | Microsoft Docs"
+title: Unterschiedliche Versionen von ASP.NET Web Pages (Razor) parallel ausführen | Microsoft Docs
 author: tfitzmac
-description: "In diesem Artikel wird erläutert, wie ASP.NET Web Pages (Razor)-Websites auf dem gleichen Computer oder Server ausgeführt wird, wenn die Websites konfiguriert sind, unterschiedliche Versionen verwenden..."
+description: In diesem Artikel wird erläutert, wie ASP.NET Web Pages (Razor)-Websites auf dem gleichen Computer oder Server ausgeführt wird, wenn die Websites konfiguriert sind, unterschiedliche Versionen verwenden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: c11399b0bde59d18fa378ed48c15844454c1f956
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1729f3201013926b221afc92d23416b0081d8efb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Verschiedene Versionen von ASP.NET Web Pages (Razor) nebeneinander ausgeführt
 ====================
@@ -52,7 +52,7 @@ Hier sind einige Punkte zu beachten, wenn Sie die Webseiten mit WebMatrix instal
 - Wenn Sie eine Website mit einer anderen Version von ASP.NET Web Pages ausführen möchten, können Sie den Standort zu diesem Zweck konfigurieren. Wenn Ihre Website noch keinem *"Web.config"* Datei im Stammverzeichnis der Site, ein neues erstellen und kopieren Sie die folgenden XML-Code hinein, Überschreiben der vorhandenen Inhalts. Wenn der Standort bereits enthält eine *"Web.config"* hinzufügen. ein `<appSettings>` Element wie den folgenden Ausdruck ein, um die `<configuration>` Abschnitt.
 
     [!code-xml[Main](running-v1-and-v2-sites-side-by-side/samples/sample1.xml)]
-"-Wenn Sie keine Version im Angeben der *" Web.config "* Datei, einen Standort als letzte Version bereitgestellt wird. (Die Assemblys werden in kopiert die *"bin"* Ordner auf der Website bereitgestellt.)
+  "-Wenn Sie keine Version im Angeben der *" Web.config "* Datei, einen Standort als letzte Version bereitgestellt wird. (Die Assemblys werden in kopiert die *"bin"* Ordner auf der Website bereitgestellt.)
 - Neue Anwendungen, die mithilfe der Websitevorlagen im Web Matrix gehören die Assemblys der Web Pages-Version am Standort *"bin"* Ordner.
 
 Im Allgemeinen können Sie immer steuern, welche Version von Webseiten für Ihre Website verwendet werden, mithilfe von NuGet die entsprechenden Assemblys in der Website installieren *"bin"* Ordner. Um Pakete zu suchen, besuchen Sie [NuGet.org](http://NuGet.org).

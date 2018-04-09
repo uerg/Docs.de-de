@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
 title: Masterseiten | Microsoft Docs
 author: microsoft
-description: "Eine der Schlüsselkomponenten einer erfolgreichen Website ist ein einheitliches Erscheinungsbild. In ASP.NET 1.x, Entwickler, Benutzersteuerelemente mit allgemeinen Seite Elem repliziert..."
+description: Eine der Schlüsselkomponenten einer erfolgreichen Website ist ein einheitliches Erscheinungsbild. In ASP.NET 1.x, Entwickler, Benutzersteuerelemente mit allgemeinen Seite Elem repliziert...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: bd9effd4b73a014d4d7bb825b382b8db34d636f1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f45dd9704f665244d2a48ec000326f6e98984e4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages"></a>Masterseiten
 ====================
@@ -74,7 +74,7 @@ So erstellen Sie eine neue Masterseite
 **Abbildung 2**: Erstellen einer neuen Masterseite
 
 
-Beachten Sie, dass die Dateierweiterung für eine Gestaltungsvorlage *.master*. Dies ist eine der Methoden, die eine Masterseite von einer gewöhnlichen Seite abweicht. Der andere Hauptunterschied besteht darin, die statt einer @Page Richtlinie, die Gestaltungsvorlage enthält eine @Master Richtlinie. Wechseln Sie zur Quellansicht für die Master Seite, die Sie soeben erstellt haben, und überprüfen Sie den Code.
+Beachten Sie, dass die Dateierweiterung für eine Gestaltungsvorlage <em>.master</em>. Dies ist eine der Methoden, die eine Masterseite von einer gewöhnlichen Seite abweicht. Der andere Hauptunterschied besteht darin, die statt einer @Page Richtlinie, die Gestaltungsvorlage enthält eine @Master Richtlinie. Wechseln Sie zur Quellansicht für die Master Seite, die Sie soeben erstellt haben, und überprüfen Sie den Code.
 
 Eine neue Masterseite weisen ein Steuerelement eines ContentPlaceHolder standardmäßig. In den meisten Fällen ist es sinnvoller, erstellen Sie zunächst die gemeinsamen Seitenelemente, und fügen Sie dann ContentPlaceHolder-Steuerelemente, benutzerdefinierter Inhalt erwünscht ist. In diesen Fällen sollten Entwickler das Standardsteuerelement für ContentPlaceHolder löschen und Einfügen neuer Datensätze wie die Seite entwickelt wird. ContentPlaceHolder-Steuerelemente sind nicht in der Größe veränderbaren trotz der Tatsache, dass sie die Ziehpunkte angezeigt werden. Die Größen von ContentPlaceHolder Steuerelement automatisch basierend auf den Inhalt, den sie mit einer Ausnahme enthält; Wenn Sie z. B. einer Tabellenzelle ContentPlaceHolder-Steuerelement in einem Blockelement ablegen, wird die Größe entsprechend der Größe des Elements.
 
@@ -142,12 +142,12 @@ Die neue Seite, die in Visual Studio mit einem Steuerelement für jedes Steuerel
 
 Die Zuordnung zwischen einer Masterseite und einer Inhaltsseite kann in einem der vier verschiedene Arten konfiguriert werden:
 
-- Die **MasterPageFile** Attribut von der @Page Richtlinie
+- Die <strong>MasterPageFile</strong> Attribut von der @Page Richtlinie
 - Festlegen der **Page.MasterPageFile** -Eigenschaft im Code.
-- Die  **&lt;Seiten&gt;**  Element in der Konfigurationsdatei der Anwendung ("Web.config" im Stammverzeichnis der Anwendung)
-- Die  **&lt;Seiten&gt;**  Element in einem Unterordner-Konfigurationsdatei ("Web.config" in einem Unterordner)
+- Die **&lt;Seiten&gt;** Element in der Konfigurationsdatei der Anwendung ("Web.config" im Stammverzeichnis der Anwendung)
+- Die **&lt;Seiten&gt;** Element in einem Unterordner-Konfigurationsdatei ("Web.config" in einem Unterordner)
 
-## <a name="masterpagefile-attribute"></a>MasterPageFile-Attribut
+## <a name="masterpagefile-attribute"></a>MasterPageFile Attribute
 
 Das Attribut MasterPageFile erleichtert es eine Masterseite für einen bestimmten ASP.NET-Seite gelten. Es ist auch die Methode verwendet, um die Gestaltungsvorlage anzuwenden, wenn Sie prüfen, ob die **Masterseite auswählen** Kontrollkästchen wie in Übung 1 haben.
 
@@ -157,7 +157,7 @@ Die Eigenschaft MasterPageFile im Code festlegen, können Sie auf Ihre Inhalte z
 
 ## <a name="using-the-ltpagesgt-element"></a>Mithilfe der &lt;Seiten&gt; Element
 
-Sie können eine Masterseite für Ihren Seiten konfigurieren, indem Sie das MasterPageFile-Attribut der &lt;Seiten&gt; -Element der Datei "Web.config". Bei Verwendung dieser Methode sollten Sie bedenken, dass die web.config-Dateien, die weiter unten in der Anwendungsstruktur diese Einstellung überschreiben können. Alle MasterPageFile-Attributsatz einem @Page Richtlinie wird diese Einstellung auch überschreiben. Mithilfe der &lt;Seiten&gt; Element vereinfacht das Erstellen einer *master* Masterseite, die bei Bedarf in bestimmten Ordnern oder Dateien überschrieben werden kann.
+Sie können eine Masterseite für Ihren Seiten konfigurieren, indem Sie das MasterPageFile-Attribut der &lt;Seiten&gt; -Element der Datei "Web.config". Bei Verwendung dieser Methode sollten Sie bedenken, dass die web.config-Dateien, die weiter unten in der Anwendungsstruktur diese Einstellung überschreiben können. Alle MasterPageFile-Attributsatz einem @Page Richtlinie wird diese Einstellung auch überschreiben. Mithilfe der &lt;Seiten&gt; Element vereinfacht das Erstellen einer <em>master</em> Masterseite, die bei Bedarf in bestimmten Ordnern oder Dateien überschrieben werden kann.
 
 ## <a name="properties-in-master-pages"></a>Eigenschaften in Masterseiten
 

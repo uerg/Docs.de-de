@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
-title: "Konfigurieren eine TFS-Buildserver für Web Deploy | Microsoft Docs"
+title: Konfigurieren eine TFS-Buildserver für Web Deploy | Microsoft Docs
 author: jrjlee
-description: "Dieses Thema beschreibt das Vorbereiten eines Buildservers der Team Foundation Server (TFS) erstellen und Bereitstellen der Lösungen, die mit Team Build und die Internet-Informationsspeicher..."
+description: Dieses Thema beschreibt das Vorbereiten eines Buildservers der Team Foundation Server (TFS) erstellen und Bereitstellen der Lösungen, die mit Team Build und die Internet-Informationsspeicher...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Konfigurieren einen TFS-Build-Server für die Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Dieses Thema beschreibt die zum Vorbereiten eines Buildservers der Team Foundation Server (TFS) erstellen und Bereitstellen der Lösungen, die mit Team Build und die Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy).
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -100,7 +100,7 @@ Die beste Möglichkeit, allgemeine webplattformkomponenten installieren ist die 
 7. In der **ASP.NET MVC 3 (Visual Studio 2010)** auf **hinzufügen**.
 8. Klicken Sie im Navigationsbereich auf **Server**.
 9. In der **Web Bereitstellung Tool 2.1** auf **hinzufügen**.
-10. Klicken Sie auf **Installieren**. Der Webplattform-Installer erfahren Sie, eine Liste der Produkte & #x 2014; sowie alle zugehörigen Abhängigkeiten Ko & #x 2014; installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
+10. Klicken Sie auf **Installieren**. Zeigen Sie den Webplattform-Installer eine Liste mit Produkten&#x2014;zusammen mit verknüpften Abhängigkeiten&#x2014;installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
 11. Überprüfen Sie die Lizenzbedingungen, und wenn Sie den Bedingungen zustimmen, klicken Sie auf **ich stimme**.
 12. Wenn die Installation abgeschlossen ist, klicken Sie auf **Fertig stellen**, und schließen Sie dann die **Web Platform Installer 3.0** Fenster.
 
@@ -116,6 +116,6 @@ An diesem Punkt ist Ihrem Build-Server zum Starten der Erstellung und Bereitstel
 
 Weitere allgemeine Anleitungen zum Arbeiten mit Team Build finden Sie unter [Verwalten von Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
->[!div class="step-by-step"]
-[Zurück](adding-content-to-source-control.md)
-[Weiter](creating-a-build-definition-that-supports-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-content-to-source-control.md)
+> [Weiter](creating-a-build-definition-that-supports-deployment.md)

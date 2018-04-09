@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
-title: "Teil 1: Neues Projekt für Datei -> | Microsoft Docs"
+title: 'Teil 1: Neues Projekt für Datei -> | Microsoft Docs'
 author: JoeStagner
-description: "Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 1 werden (Übersicht) \"und\" Datei/neu Projekt behandelt."
+description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 1 werden (Übersicht) "und" Datei/neu Projekt behandelt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: bd840f9f3f5d723e6bc1bb35955a7770634e9483
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a1b9681516e626b6a0eec420b168a74e05d88afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-file--new-project"></a>Teil 1: Datei -> Neues Projekt
 ====================
@@ -27,7 +27,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 > Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 1 werden (Übersicht) "und" Datei/neu Projekt behandelt.
 
 
-## <a id="_Toc260221666"></a>Übersicht über
+## <a id="_Toc260221666"></a>  Übersicht über
 
 Dieses Lernprogramm ist eine Einführung in ASP.NET Web Forms. Wir werden langsam gestartet werden, damit Anfänger Ebene Webentwicklung auftreten ist in Ordnung.
 
@@ -63,9 +63,9 @@ Wir beginnen, indem Sie ein neues ASP.NET Web Forms-Projekt in Visual Studio 201
 
 Sie Schritt für Schritt nachvollziehen können, oder Sie können aus die fertigen Anwendung herunterladen [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-Sie können Visual Studio 2010 oder das kostenlose Visual Web Developer 2010 aus [https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/). Um die Anwendung zu erstellen, können Sie entweder SQL Server oder den freien SQL Server Express auf Host der Datenbank.
+Sie können Visual Studio 2010 oder das kostenlose Visual Web Developer 2010 aus [ https://www.microsoft.com/express/Web/ ](https://www.microsoft.com/express/Web/). Um die Anwendung zu erstellen, können Sie entweder SQL Server oder den freien SQL Server Express auf Host der Datenbank.
 
-## <a id="_Toc260221667"></a>Datei / neues Projekt
+## <a id="_Toc260221667"></a>  Datei / neues Projekt
 
 Wir beginnen, indem Sie das neue Projekt über das Menü Datei in Visual Studio auswählen. Daraufhin wird das Dialogfeld "Neues Projekt".
 
@@ -105,5 +105,5 @@ Wir werden auch die Gestaltungsvorlage in das Verzeichnis Stile zu verschieben. 
 
 Nach der Durchführung dieses wir ändern die Gestaltungsvorlage müssen Verweise in der ASPX-Dateien wird standardmäßig generiert, die ASP.NET Web Forms-Seiten.
 
->[!div class="step-by-step"]
-[Nächste](tailspin-spyworks-part-2.md)
+> [!div class="step-by-step"]
+> [Nächste](tailspin-spyworks-part-2.md)

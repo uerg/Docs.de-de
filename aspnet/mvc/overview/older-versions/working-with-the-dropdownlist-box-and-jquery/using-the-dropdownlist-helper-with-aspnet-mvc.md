@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 title: Verwenden der DropDownList-Hilfsmethode mit ASP.NET MVC | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21373deeded801c5cea9e89f6dac0f3542a55ca5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Verwenden der DropDownList-Hilfsmethode mit ASP.NET MVC
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 In diesem Lernprogramm erfahren Sie die Grundlagen der Arbeit mit der [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Helper und [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) Helper in einer ASP.NET MVC-Webanwendung. Sie können Microsoft Visual Web Developer 2010 Express Service Pack 1, eine kostenlose Version von Microsoft Visual Studio ist, um das Lernprogramm ausführen. Bevor Sie beginnen, stellen Sie sicher, dass Sie die unten aufgeführten erforderlichen Komponenten installiert haben. Sie können alle installieren, indem Sie auf den folgenden Link: [Webplattform-Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternativ können Sie die erforderlichen Komponenten, die über die folgenden Links einzeln installieren:
 
-- [Visual Studio Web Developer Express SP1-Voraussetzungen](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
+- [Visual Studio Web Developer Express SP1-Voraussetzungen](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
 - [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Common Language Runtime + Tools unterstützen)
 
@@ -193,7 +193,7 @@ Das ausgewählte Plug-in ist Starter und abgeschlossenen Beispielprojekte, die i
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Wir sind im obigen Code hinzufügen, die HTML-Attribut und Attributwert `class = "chzn-select"`. Das @-Zeichen vorausgeht Klasse hat nichts mit Razor-Ansichtsmodul tun. `class`ist eine [C#-Schlüsselwort](https://msdn.microsoft.com/library/x53a06bb.aspx). C#-Schlüsselwörter können nicht als Bezeichner verwendet werden, es sei denn, sie als Präfix @ enthalten. Im Beispiel oben `@class` ist ein gültiger Bezeichner jedoch **Klasse** ist, da **Klasse** ist ein Schlüsselwort.
+Wir sind im obigen Code hinzufügen, die HTML-Attribut und Attributwert `class = "chzn-select"`. Das @-Zeichen vorausgeht Klasse hat nichts mit Razor-Ansichtsmodul tun. `class` ist eine [C#-Schlüsselwort](https://msdn.microsoft.com/library/x53a06bb.aspx). C#-Schlüsselwörter können nicht als Bezeichner verwendet werden, es sei denn, sie als Präfix @ enthalten. Im Beispiel oben `@class` ist ein gültiger Bezeichner jedoch **Klasse** ist, da **Klasse** ist ein Schlüsselwort.
 
 Fügen Sie Verweise auf die *Chosen/chosen.jquery.js* und *Chosen/chosen.css* Dateien. Die *Chosen/chosen.jquery.js* und implementiert die funktional der das ausgewählte Plug-in. Die *Chosen/chosen.css* Datei enthält die Formatvorlage. Fügen Sie diese Verweise auf den unteren Rand der *Views\Home\MultiSelectCountry.cshtml* Datei. Der folgende Code zeigt, wie auf das ausgewählte Plug-in verwiesen wird.
 
@@ -217,5 +217,5 @@ Führen Sie die Anwendung, und navigieren Sie zu der `MultiSelectCountry` anzeig
 
 Im nächsten Abschnitt sehen Sie die Funktionsweise der ASP.NET MVC-Gerüstbau mit der **DropDownList** Helper.
 
->[!div class="step-by-step"]
-[Nächste](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Nächste](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

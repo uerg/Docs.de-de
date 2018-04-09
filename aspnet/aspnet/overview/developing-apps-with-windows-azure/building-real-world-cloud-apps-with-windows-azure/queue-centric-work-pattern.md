@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 title: Warteschlange anwendungsorientierte Arbeit Muster (Building Real-World Cloud Apps with Azure) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 124e673206ecea2eac5efb8c2802a32a690fa104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Warteschlange anwendungsorientierte Arbeit Muster (Building Real-World Cloud Apps with Azure)
 ====================
@@ -194,6 +194,6 @@ Video:
 
 - [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Videoreihe Marc Mercuri, Ulrich Homann und Mark Simms neun Teil. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Eine Einführung in die Azure Storage-Dienst. und Warteschlangen finden Sie in der Folge 5 35:13 ab.
 
->[!div class="step-by-step"]
-[Zurück](distributed-caching.md)
-[Weiter](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Zurück](distributed-caching.md)
+> [Weiter](more-patterns-and-guidance.md)

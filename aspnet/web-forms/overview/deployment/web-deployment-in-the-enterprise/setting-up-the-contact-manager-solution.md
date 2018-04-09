@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
-title: "Die Kontakt-Manager-Lösung einrichten | Microsoft Docs"
+title: Die Kontakt-Manager-Lösung einrichten | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie herunterladen und konfigurieren die Projektmappe Contact Manager lokal auf einer Arbeitsstation Developer ausgeführt wird."
+description: In diesem Thema wird beschrieben, wie herunterladen und konfigurieren die Projektmappe Contact Manager lokal auf einer Arbeitsstation Developer ausgeführt wird.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e8fb24f5b2d96d864d1aa6bc0f78644773de00ab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>Die Kontakt-Manager-Lösung einrichten
 ====================
@@ -125,6 +125,6 @@ An diesem Punkt sollte die Projektmappe Contact Manager vollständig konfigurier
 
 Im nächsten Thema [verstehen die Projektdatei](understanding-the-project-file.md), wird erläutert, wie Sie die benutzerdefinierte Microsoft Build Engine (MSBuild)-Projektdateien innerhalb der Projektmappe Contact Manager verwenden können, um den Bereitstellungsprozess zu steuern.
 
->[!div class="step-by-step"]
-[Zurück](the-contact-manager-solution.md)
-[Weiter](understanding-the-project-file.md)
+> [!div class="step-by-step"]
+> [Zurück](the-contact-manager-solution.md)
+> [Weiter](understanding-the-project-file.md)

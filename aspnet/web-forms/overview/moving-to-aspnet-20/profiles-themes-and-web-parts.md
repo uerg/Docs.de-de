@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 title: Profile, Designs und Webparts | Microsoft Docs
 author: microsoft
-description: "Es gibt wichtige Änderungen an der Konfiguration und Instrumentation in ASP.NET 2.0. Die neue API zum ASP.NET Konfiguration ermöglicht Änderungen an der Konfiguration erfolgen Pr..."
+description: Es gibt wichtige Änderungen an der Konfiguration und Instrumentation in ASP.NET 2.0. Die neue API zum ASP.NET Konfiguration ermöglicht Änderungen an der Konfiguration erfolgen Pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b749ed093fbaacf45b60f2826a2c20bac219a5c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Profile, Designs und Webparts
 ====================
@@ -341,19 +341,19 @@ In diesem Teil der exemplarischen Vorgehensweise erstellen Sie eine Seite, die W
 4. Platzieren Sie die Einfügemarke an der Stelle vor dem `<div>` tags auf der Entwurfsoberfläche, und drücken Sie EINGABETASTE, um eine neue Zeile hinzuzufügen. Positionieren Sie die Einfügemarke an der Stelle vor dem neue-Zeile-Zeichen, klicken Sie auf die **Block Format** Dropdownlisten-Steuerelements auf das Menü, und wählen die **Überschrift 1** Option. Fügen Sie den Text, in der Überschrift **Demo Webparts-Seite**.
 5. Aus der **WebParts** Registerkarte Toolbox, ziehen Sie eine **WebPartManager** -Steuerelement auf die Seite, und positionieren sie direkt hinter dem neue-Zeile-Zeichen und vor der `<div>`Tags.   
   
- Die **WebPartManager** Steuerelement wird die Ausgabe erstellt, nicht gerendert, damit es als graues Feld auf der Designeroberfläche angezeigt wird.
+   Die **WebPartManager** Steuerelement wird die Ausgabe erstellt, nicht gerendert, damit es als graues Feld auf der Designeroberfläche angezeigt wird.
 6. Die Einfügemarke innerhalb der `<div>` Tags.
 7. In der **Layout** Menü klicken Sie auf **Tabelle einfügen**, und erstellen Sie eine neue Tabelle mit einer Zeile und drei Spalten. Klicken Sie auf die **Cell Properties** auswählen **oben** aus der **vertikale Ausrichtung** Dropdown-Liste, klicken Sie auf **OK**, und klicken Sie auf **OK** erneut aus, um die Tabelle zu erstellen.
 8. Ziehen Sie ein Steuerelement WebPartZone in der linken Spalte ein. Mit der rechten Maustaste die **WebPartZone** steuern, wählen Sie **Eigenschaften**, und legen Sie die folgenden Eigenschaften:   
   
- ID: SidebarZone   
+   ID: SidebarZone   
   
- HeaderText: Randleiste
+   HeaderText: Randleiste
 9. Ziehen Sie eine zweite **WebPartZone** -Steuerelement in der mittleren Spalte, und legen Sie die folgenden Eigenschaften:   
   
- ID: MainZone   
+   ID: MainZone   
   
- HeaderText: Main
+   HeaderText: Main
 10. Speichern Sie die Datei.
 
 Die Seite verfügt jetzt über zwei verschiedene Zonen, die Sie einzeln steuern können. Allerdings muss weder Zone alle Inhalte, damit erstellen die Inhalte der nächste Schritt besteht. In dieser exemplarischen Vorgehensweise zur Arbeit mit Webparts-Steuerelemente, in denen nur statische Inhalte angezeigt.
@@ -462,10 +462,10 @@ Sie können jetzt testen die Funktion zum Bearbeiten von Seiten und Layout zu ä
 2. Um zu zeigen, wird die Funktionsfähigkeit Personalisierung, schließen Sie den Browser, und Laden Sie die Seite erneut. Die vorgenommenen Änderungen werden für zukünftige Browsersitzungen gespeichert.
 3. Aus der **Anzeigemodus** klicken Sie im Menü **bearbeiten**.   
   
- Jedes Steuerelement auf der Seite wird jetzt mit einem nach unten weisenden Pfeil in der Titelleiste angezeigt, die Verben-Dropdownmenü enthält.
+   Jedes Steuerelement auf der Seite wird jetzt mit einem nach unten weisenden Pfeil in der Titelleiste angezeigt, die Verben-Dropdownmenü enthält.
 4. Klicken Sie auf den Pfeil, um das im Verbmenü Anzeigen der **Meine Links** Steuerelement. Klicken Sie auf die **bearbeiten** Verb.   
   
- Die **EditorZone** Steuerelement angezeigt wird, Anzeigen der EditorPart-Steuerelemente hinzugefügt.
+   Die **EditorZone** Steuerelement angezeigt wird, Anzeigen der EditorPart-Steuerelemente hinzugefügt.
 5. In der **Darstellung** Abschnitt des Bearbeitungssteuerelements, Änderung der **Titel** Favoriten, verwenden die **Chromtyp** -Dropdownliste auswählen **nur Titel**, und klicken Sie dann auf **übernehmen**. Der folgende Screenshot zeigt die Seite im Bearbeitungsmodus befindet.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Webparts-Demoseite im Bearbeitungsmodus
@@ -496,7 +496,7 @@ Sie können auch Benutzer ihrer Seite Webparts-Steuerelemente zur Laufzeit hinzu
 1. Öffnen Sie die Seite "WebPartsDemo.aspx", und wechseln Sie zur **Entwurf** anzeigen.
 2. Aus der **WebParts** Registerkarte der Toolbox ziehen Sie ein CatalogZone-Steuerelement in der rechten Spalte der Tabelle, darunter die **EditorZone** Steuerelement.   
   
- Beide Steuerelemente können in der gleichen Tabellenzelle sein, da sie nicht gleichzeitig angezeigt werden.
+   Beide Steuerelemente können in der gleichen Tabellenzelle sein, da sie nicht gleichzeitig angezeigt werden.
 3. Klicken Sie im Bereich "Eigenschaften" zuweisen die Zeichenfolge **Webparts hinzufügen** der HeaderText-Eigenschaft von der **CatalogZone** Steuerelement.
 4. Aus der **WebParts** Abschnitt der Toolbox ziehen Sie ein DeclarativeCatalogPart-Steuerelement in den Inhaltsbereich des der **CatalogZone** Steuerelement.
 5. Klicken Sie auf den Pfeil in der oberen rechten Ecke des der **DeclarativeCatalogPart** steuern, um seine Menü "Aufgaben" verfügbar zu machen, und wählen Sie dann **Vorlagen bearbeiten**.
@@ -504,7 +504,7 @@ Sie können auch Benutzer ihrer Seite Webparts-Steuerelemente zur Laufzeit hinzu
 7. Wechseln Sie zur **Quelle** anzeigen. Überprüfen Sie den Quellcode der &lt;Asp: Catalogzone&gt; Element. Beachten Sie, dass die **DeclarativeCatalogPart** Steuerelement enthält eine &lt;Webpartstemplate&gt; Element mit den beiden Serversteuerelemente eingeschlossen, die Sie auf der Seite aus dem Katalog hinzugefügt werden.
 8. Hinzufügen einer **Titel** Eigenschaft auf die einzelnen Sie hinzugefügten Steuerelemente im Katalog mit den Zeichenfolgenwert gezeigt für jeden einzelnen Titel im folgenden Codebeispiel. Obwohl der Titel nicht auf eine Eigenschaft ist normalerweise einstellbaren für diese beiden Serversteuerelemente zur Entwurfszeit, wenn ein Benutzer diese Steuerelemente hinzufügt eine **WebPartZone** Zone aus dem Katalog zur Laufzeit, sie werden jeweils in eingeschlossen ein  **GenericWebPart** Steuerelement. Dies ermöglicht ihnen, wie Webparts-Steuerelemente zu fungieren, damit sie Titel angezeigt werden können.   
   
- Der Code für die beiden Steuerelemente enthalten, die der **DeclarativeCatalogPart** Steuerelement sollte nun folgendermaßen aussehen. 
+   Der Code für die beiden Steuerelemente enthalten, die der **DeclarativeCatalogPart** Steuerelement sollte nun folgendermaßen aussehen. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Speichern Sie die Seite.
@@ -516,12 +516,12 @@ Sie können jetzt den Katalog testen.
 1. Laden Sie die Seite in einem Browser.
 2. Klicken Sie auf die **Anzeigemodus** Dropdown-Menü, und wählen Sie **Katalog**.   
   
- Der Katalog mit dem Titel **Webparts hinzufügen** wird angezeigt.
+   Der Katalog mit dem Titel **Webparts hinzufügen** wird angezeigt.
 3. Ziehen Sie die **Favoriten** zurück zum Anfang der Randleistenzone aus der Main-Zone zu steuern, und legen Sie sie es.
 4. In der **Webparts hinzufügen** Katalog, wählen Sie beide Kontrollkästchen, und wählen Sie dann **Main** aus der Dropdown-Liste, die die verfügbaren Zonen enthält.
 5. Klicken Sie auf **hinzufügen** im Katalog. Die Main-Zone werden die Steuerelemente hinzugefügt. Wenn Sie möchten, können Sie mehrere Instanzen von Steuerelementen aus dem Katalog auf der Seite hinzufügen.   
   
- Der folgende Screenshot zeigt die Seite mit den Dateiupload-Steuerelement und den Kalender, in der Main-Zone. 
+   Der folgende Screenshot zeigt die Seite mit den Dateiupload-Steuerelement und den Kalender, in der Main-Zone. 
 
 ![Steuerelemente, die aus dem Katalog der Main-Zone hinzugefügt](profiles-themes-and-web-parts/_static/image7.gif)
 

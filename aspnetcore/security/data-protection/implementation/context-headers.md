@@ -1,7 +1,7 @@
 ---
-title: Kontext-Header
+title: Kontext-Header in ASP.NET Core
 author: rick-anderson
-description: In diesem Dokument werden die Implementierungsdetails der ASP.NET Core Data Protection Kontext Header.
+description: Erfahren Sie mehr Details zur Implementierung von Headern für ASP.NET Core-Datenschutz-Kontext.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>Kontext-Header
+# <a name="context-headers-in-aspnet-core"></a>Kontext-Header in ASP.NET Core
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ Die meisten Systeme die kryptografische Flexibilität unterstützen dazu einige 
 
 Ausführen in Einzelschritten zurück, haben wir entschieden, dass wir das Problem aus der falschen Richtung fast erreicht wurden. Eine OID gibt an, was der Algorithmus ist, aber wir nicht tatsächlich zu diesem erledigen. Wenn wir einen Einzelwert entropic sicher in zwei verschiedene Algorithmen verwenden müssen, ist es nicht für uns wissen, was tatsächlich die Algorithmen sind erforderlich. Was tatsächlich wichtig ist, wie sie sich Verhalten. Alle ordentliche symmetrischen Block-Verschlüsselungsalgorithmus wird auch eine starke pseudozufälligen Permutation (PRP): Korrigieren Sie die Eingaben (Schlüssel, IV-Modus nur-Text verketten) und die Chiffretext Ausgabe mit einer Wahrscheinlichkeit Überlastung werden andere symmetrische Blockchiffre unterscheiden der Algorithmus den gleichen Eingaben. Auf ähnliche Weise alle ordentliche eines schlüsselgebundenen Hashalgorithmus-Funktion ist auch ein sicheres pseudozufälligen (PRF), und angegebene einen festen Eingabeset seine Ausgabe überwältigend werden alle anderen eines schlüsselgebundenen Hashalgorithmus-Funktion unterscheidet.
 
-Wir verwenden dieses Konzept der starken PRPs und PRFs einen Kontextheader erstellen. Diese Kontextheader fungiert im Wesentlichen als einen stabilen Fingerabdruck über die Algorithmen für einen bestimmten Vorgang verwendet, und bietet die kryptografische Flexibilität, die von der Datenschutzsystem benötigt werden. Dieser Header ist reproduzierbar und wird später verwendet, als Teil der [Unterschlüssel Ableitung Prozess](subkeyderivation.md#data-protection-implementation-subkey-derivation). Es gibt zwei Möglichkeiten, um die Kontextheader je nach den Betriebsmodi der zugrunde liegenden Algorithmen zu erstellen.
+Wir verwenden dieses Konzept der starken PRPs und PRFs einen Kontextheader erstellen. Diese Kontextheader fungiert im Wesentlichen als einen stabilen Fingerabdruck über die Algorithmen für einen bestimmten Vorgang verwendet, und bietet die kryptografische Flexibilität, die von der Datenschutzsystem benötigt werden. Dieser Header ist reproduzierbar und wird später verwendet, als Teil der [Unterschlüssel Ableitung Prozess](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Es gibt zwei Möglichkeiten, um die Kontextheader je nach den Betriebsmodi der zugrunde liegenden Algorithmen zu erstellen.
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>Verschlüsselung im CBC-Modus + HMAC-Authentifizierung
 

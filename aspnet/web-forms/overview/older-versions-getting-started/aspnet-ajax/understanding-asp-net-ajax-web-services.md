@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 title: Grundlegendes zu ASP.NET AJAX-Webdienste | Microsoft Docs
 author: scottcate
-description: "Webdienste sind ein wesentlicher Bestandteil von .NET Framework, die eine plattformübergreifende-Lösung zum Austauschen von Daten zwischen verteilten Systemen zu erstellen. Obwohl Web..."
+description: Webdienste sind ein wesentlicher Bestandteil von .NET Framework, die eine plattformübergreifende-Lösung zum Austauschen von Daten zwischen verteilten Systemen zu erstellen. Obwohl Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 8eb3486c9b3f4ddb6a8bc2c1cdcac774a6852574
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b9f61f895fea1960ebd25780454b86d5c3ba1bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-web-services"></a>Grundlegendes zu ASP.NET AJAX-Webdienste
 ====================
@@ -51,7 +51,7 @@ Diese Ersetzung HttpHandler wird hergestellt, damit JavaScript Object Notation (
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *>[!NOTE] der Name des Vorgangs als Teil der URL zum Webdienst definiert ist; darüber hinaus Anforderungsnachrichten sind nicht immer übermittelt über JSON. Web Services können ScriptMethod-Attributs nutzen, mit dem UseHttpGet-Parameter auf True festgelegt, wodurch über zu übergebenden Parameter an eine die Abfragezeichenfolgen-Parameter.*
+> *> [!NOTE] der Name des Vorgangs wird als Teil der URL zum Webdienst definiert. Darüber hinaus sind Anforderungsnachrichten nicht immer über JSON übermittelt. Web Services können ScriptMethod-Attributs nutzen, mit dem UseHttpGet-Parameter auf True festgelegt, wodurch über zu übergebenden Parameter an eine die Abfragezeichenfolgen-Parameter.*
 
 
 **Auflisten von 3. Webdienst-Antwortnachricht in JSON serialisiert**
@@ -160,7 +160,7 @@ Hinzufügen eines Verweises auf die CustomersService.asmx über das ScriptManage
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *>[!NOTE] Wenn Sie möchten, um den eigentlichen Code der JavaScript-Proxy anzuzeigen, die generiert wird, Sie geben die an die gewünschte .NET Webdienst-URL in Internet Explorer-Adressfeld und js es am Ende anfügen können.*
+> *> [!NOTE] Wenn Sie möchten, um den eigentlichen Code der JavaScript-Proxy anzuzeigen, die generiert wird, Sie geben die an die gewünschte .NET Webdienst-URL in Internet Explorer-Adressfeld und js es am Ende anfügen können.*
 
 
 Wenn debugging in "Web.config" aktiviert ist, die auf der Seite als eine Debugversion des JavaScript-Proxys eingebettet werden gezeigt weiter:
@@ -263,7 +263,7 @@ Mit dem PageMethods-Objekt ist sehr ähnlich, mit der ein JavaScript-Proxy-Objek
 
 ## <a name="the-autocompleteextender-and-the-aspnet-ajax-toolkit"></a>Die AutoCompleteExtender und das ASP.NET AJAX-Toolkit
 
-Das ASP.NET AJAX-Toolkit (Nächten [http://ajax.asp.net](http://ajax.asp.net)) bietet mehrere Steuerelemente, die zum Zugriff auf Web-Dienste verwendet werden können. Insbesondere das Toolkit enthält ein nützlich-Steuerelement namens `AutoCompleteExtender` , die zum Aufrufen von Webdiensten und Anzeigen von Daten in Seiten ohne überhaupt Schreiben von JavaScript-Code verwendet werden kann.
+Das ASP.NET AJAX-Toolkit (Nächten [ http://ajax.asp.net ](http://ajax.asp.net)) bietet mehrere Steuerelemente, die zum Zugriff auf Web-Dienste verwendet werden können. Insbesondere das Toolkit enthält ein nützlich-Steuerelement namens `AutoCompleteExtender` , die zum Aufrufen von Webdiensten und Anzeigen von Daten in Seiten ohne überhaupt Schreiben von JavaScript-Code verwendet werden kann.
 
 Das Steuerelement AutoCompleteExtender kann verwendet werden, eines Textfelds vorhandene Funktionalität erweitern und unterstützen von Benutzern, die weitere Daten einfach zu suchen, die sie suchen. Wie sie in ein Textfeld eingeben, wird das Steuerelement kann verwendet werden, um einen Webdienst abzufragen und zeigt die Ergebnisse unterhalb des Textfelds, dynamisch. Abbildung 4 zeigt ein Beispiel mithilfe des Steuerelements AutoCompleteExtender Kunden-Ids für eine Anwendung Unterstützung anzuzeigen. Wie der Benutzer in das Textfeld ein andere Zeichen eingibt, werden verschiedene Elemente darunter auf Grundlage der Eingabe angezeigt. Benutzer können dann die gewünschten Kunden-Id auswählen.
 
@@ -299,7 +299,7 @@ Der Webdienst aufgerufen werden muss das ScriptService-Attribut angewendet wird,
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample28.cs)]
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 ASP.NET AJAX bietet hervorragende Unterstützung für Webdienste aufrufen, ohne das Schreiben umfangreichen benutzerdefinierten JavaScript-Code zur Behandlung der Anforderung und Antwort-Nachrichten. In diesem Artikel haben Sie gesehen wie AJAX-fähigen .NET Web Services, um sie zum Verarbeiten von JSON-Nachrichten und zum Definieren von JavaScript-Proxys, die über das ScriptManager-Steuerelement zu aktivieren. Sie haben auch erfahren, wie die JavaScript-Proxys verwendet werden können, zum Aufrufen von Webdiensten, einfache und komplexe Typen verarbeiten, und Fehler behandeln. Schließlich haben Sie gesehen, wie Seitenmethoden verwendet werden können, um den Prozess des Erstellens und Aufrufe des Webdiensts zu vereinfachen und wie das Steuerelement AutoCompleteExtender Hilfe für Endbenutzer bereitstellen kann, wie sie geben. Zwar in ASP.NET AJAX verfügbar UpdatePanel sicherlich das Steuerelement Wahl für viele AJAX-Programmierer aufgrund seiner Einfachheit, kann das zu wissen, wie das Aufrufen von Webdiensten über JavaScript-Proxys in vielen Anwendungen nützlich sein.
 
@@ -309,6 +309,6 @@ Dan Wahlin (Microsoft Most Valuable Professional für ASP.NET und XML-Webdienste
 
 Scott Cate arbeitet mit Microsoft-Web-Technologien seit 1997 und Präsidenten des myKB.com ist ([www.myKB.com](http://www.myKB.com)), in dem er zum Schreiben von ASP.NET spezialisiert-basierten Anwendungen, die Wissensdatenbank softwarelösungen konzentriert. Scott hergestellt werden kann, per e-Mail an [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) oder seinen Blog unter [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Zurück](understanding-asp-net-ajax-localization.md)
-[Weiter](understanding-asp-net-ajax-debugging-capabilities.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-asp-net-ajax-localization.md)
+> [Weiter](understanding-asp-net-ajax-debugging-capabilities.md)

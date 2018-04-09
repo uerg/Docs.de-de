@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: "Einführung in ASP.NET Web Pages - Eingabe von Datenbankdaten mit Forms | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - Eingabe von Datenbankdaten mit Forms | Microsoft Docs
 author: tfitzmac
 description: Dieses Lernprogramm zeigt das Erstellen eines Formulars Eintrag und geben dann die Daten, die Sie erhalten von dem Formular in eine Datenbanktabelle bei der Verwendung von ASP.NET Web Pages...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Einführung in ASP.NET Web Pages - Datenbankdaten mithilfe von Formularen eingeben
 ====================
@@ -101,7 +101,7 @@ Das heißt, geben Sie die Tabelle einzufügen, dann Listet die Spalten einzufüg
 
 Die Spalten, die Sie in einfügen, sind bereits im Befehl aufgeführt – `(Title, Genre, Year)`. Ist das interessante daran, wie Sie die Werte in den Textfeldern in Abrufen der `VALUES` Teil des Befehls. Anstelle der eigentlichen Werte finden Sie unter `@0`, `@1`, und `@2`, dem sind natürlich Platzhalter. Wenn Sie den Befehl ausführen (auf der `db.Execute` Zeile), übergeben Sie die Werte, die Sie in den Textfeldern an.
 
-**Wichtig!** Denken Sie daran, dass die einzige Möglichkeit, Sie sollte jemals enthalten Daten, die online von einem Benutzer in einer SQL­Anweisung eingegeben ist die Verwendung von Platzhaltern, wie Sie hier sehen (`VALUES(@0, @1, @2)`). Wenn Sie Benutzereingaben in einer SQL-Anweisung verketten, Sie öffnen, selbst für eine SQL-Injection-Angriff wie in beschrieben [Form-Grundlagen in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (dem vorherigen Lernprogramm).
+**Wichtig** Denken Sie daran, dass die einzige Möglichkeit, Sie sollte jemals enthalten Daten, die online von einem Benutzer in einer SQL­Anweisung eingegeben ist die Verwendung von Platzhaltern, wie Sie hier sehen (`VALUES(@0, @1, @2)`). Wenn Sie Benutzereingaben in einer SQL-Anweisung verketten, Sie öffnen, selbst für eine SQL-Injection-Angriff wie in beschrieben [Form-Grundlagen in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (dem vorherigen Lernprogramm).
 
 Immer noch innerhalb der `if` blockieren, fügen Sie die folgende Zeile nach der `db.Execute` Zeile:
 
@@ -121,7 +121,7 @@ In der Strukturansicht der Dateien in WebMatrix, mit der Maustaste die *AddMovie
 
 ![Seite im Browser "Film hinzufügen"](entering-data/_static/image2.png)
 
-(Wenn Sie sich mit einer anderen Seite im Browser beenden, stellen Sie sicher, dass die URL `http://localhost:nnnnn/AddMovie`), wobei  *nnnnn*  ist die Portnummer, die Sie verwenden.)
+(Wenn Sie sich mit einer anderen Seite im Browser beenden, stellen Sie sicher, dass die URL `http://localhost:nnnnn/AddMovie`), wobei *Nnnnn* ist die Portnummer, die Sie verwenden.)
 
 Haben Sie eine Fehlerseite erhalten? Wenn dies der Fall ist, wird lesen sie sorgfältig, und stellen Sie sicher, dass der Code genau wie weiter oben aufgeführt wurden.
 
@@ -145,7 +145,7 @@ In diesem Fall hat nicht die Datenbank tatsächlich auslösen (oder *auslösen*)
 
 Sie möchte nicht offensichtlich, Benutzer, die Hälfte leere Filminformationen in die Datenbank eingeben können. Die Lösung besteht darin, die Eingaben des Benutzers zu überprüfen. Zu Beginn die Überprüfung wird einfach stellen Sie sicher, dass der Benutzer einen Wert für alle Felder eingegeben hat (d. h., dass Sie nicht davon enthält eine leere Zeichenfolge).
 
-> [!TIP] 
+> [!TIP]
 > 
 > **NULL und leere Zeichenfolgen**
 > 
@@ -260,6 +260,6 @@ In den nächsten Lernprogrammen erfahren Sie, wie, damit Benutzer Daten bearbeit
 - [SQL INSERT INTO-Anweisung](http://www.w3schools.com/sql/sql_insert.asp) auf der Website W3Schools
 - [Validieren von Benutzereingaben in ASP.NET Web Pages Sites](https://go.microsoft.com/fwlink/?LinkId=253002). Weitere Informationen zum Arbeiten mit der `Validation` Helper.
 
->[!div class="step-by-step"]
-[Zurück](form-basics.md)
-[Weiter](updating-data.md)
+> [!div class="step-by-step"]
+> [Zurück](form-basics.md)
+> [Weiter](updating-data.md)

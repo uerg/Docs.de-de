@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 18e76a763e22c0d1046acc60e095bbd11960c5e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e1b36f0bfc244e39bb620c1c066b3e2403722cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-formviews-templates-c"></a>Verwenden die FormView-Vorlagen (c#)
 ====================
@@ -33,12 +33,12 @@ In den letzten beiden Lernprogrammen wurde erläutert, wie Steuerelemente GridVi
 
 Im Gegensatz zu DetailsView, besteht FormView keine Felder. Sie können keine FormView eine BoundField- oder TemplateField hinzufügen. Stattdessen wird die FormView gerendert mithilfe von Vorlagen. Die FormView als DetailsView-Steuerelement, das ein einzelnes TemplateField enthält vorstellen. Die FormView unterstützt die folgenden Vorlagen:
 
-- `ItemTemplate`verwendet, um den entsprechenden Datensatz in die FormView angezeigt Rendern
-- `HeaderTemplate`zur Angabe einer optionalen Kopfzeile
-- `FooterTemplate`zur Angabe einer optionalen Fußzeile
-- `EmptyDataTemplate`Wenn die FormView `DataSource` verfügt nicht über alle Datensätze der `EmptyDataTemplate` wird anstelle von verwendet die `ItemTemplate` für das Rendern von Markup des Steuerelements
-- `PagerTemplate`kann verwendet werden, die Paging-Schnittstelle für FormViews anpassen, die Paging aktiviert haben
-- `EditItemTemplate` / `InsertItemTemplate`verwendet, um die Bearbeitungsoberfläche oder Einfügen von Schnittstelle für FormViews anzupassen, die solche Funktionen unterstützen
+- `ItemTemplate` verwendet, um den entsprechenden Datensatz in die FormView angezeigt Rendern
+- `HeaderTemplate` zur Angabe einer optionalen Kopfzeile
+- `FooterTemplate` zur Angabe einer optionalen Fußzeile
+- `EmptyDataTemplate` Wenn die FormView `DataSource` verfügt nicht über alle Datensätze der `EmptyDataTemplate` wird anstelle von verwendet die `ItemTemplate` für das Rendern von Markup des Steuerelements
+- `PagerTemplate` kann verwendet werden, die Paging-Schnittstelle für FormViews anpassen, die Paging aktiviert haben
+- `EditItemTemplate` / `InsertItemTemplate` verwendet, um die Bearbeitungsoberfläche oder Einfügen von Schnittstelle für FormViews anzupassen, die solche Funktionen unterstützen
 
 Verwenden in diesem Lernprogramm untersuchenden der FormView-Steuerelement eine weniger strenge Anzeige von Produkten darstellen. Statt später durch die Felder für Name, Kategorie, Lieferanten und usw. FormView des `ItemTemplate` zeigt diese Werte mit einer Kombination aus einem Header-Element und ein `<table>` (siehe Abbildung 1).
 
@@ -111,12 +111,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde E.R. Gärtner ein. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](using-templatefields-in-the-detailsview-control-cs.md)
-[Weiter](displaying-summary-information-in-the-gridview-s-footer-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](using-templatefields-in-the-detailsview-control-cs.md)
+> [Weiter](displaying-summary-information-in-the-gridview-s-footer-cs.md)

@@ -1,7 +1,7 @@
 ---
-title: Bundling und Minimierung in ASP.NET Core
+title: Paket und Minifiy statische Objekte in ASP.NET Core
 author: scottaddie
-description: "Erfahren Sie, wie statische Ressourcen in einer ASP.NET Core-Web-Anwendung zu optimieren, indem Sie Bündelung und Minimierung Techniken anwenden."
+description: Erfahren Sie, wie statische Ressourcen in einer ASP.NET Core-Web-Anwendung zu optimieren, indem Sie Bündelung und Minimierung Techniken anwenden.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>Bundling und Minimierung
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Paket und Minifiy statische Objekte in ASP.NET Core
 
 Von [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ Konfigurationsoptionen sind verfügbar:
 
 * `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **required**
 * `inputFiles`: Ein Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
-* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optionale**, *Standard:`minify: { enabled: true }`*
+* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optionale**, *Standard: `minify: { enabled: true }`*
   * Konfigurationsoptionen sind pro Datei Ausgabetyp verfügbar.
     * [CSS-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ Geben Sie die einzuschließenden Dateien aus, auf den Seiten mit den [Umgebung T
 
 Die folgenden `environment` Tag rendert die unverarbeiteten CSS-Dateien, bei der Ausführung im die `Development` Umgebung:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 Die folgenden `environment` Tag rendert die gebündelten und verkleinerte CSS-Dateien aus, wenn in einer Umgebung ausgeführt, außer `Development`. Z. B. Ausführung `Production` oder `Staging` löst diese Stylesheets gerendert:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Verwenden von Gulp bundleconfig.json
 
 Es gibt Fälle, in denen eine app Bündelung und Minimierung Workflow zusätzliche Verarbeitung erforderlich ist. Beispiele sind Image Optimierung, Cache Abwehrprogramm und CDN Asset-Verarbeitung. Um diese Anforderungen zu erfüllen, können Sie den Workflow Bündelung und Minimierung zum Verwenden von Gulp konvertieren.

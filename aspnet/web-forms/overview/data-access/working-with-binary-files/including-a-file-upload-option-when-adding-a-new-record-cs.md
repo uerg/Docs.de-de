@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
-title: "Option z. B. eine Datei hochladen, wenn Sie einen neuen Datensatz (c#) hinzufügen | Microsoft Docs"
+title: Option z. B. eine Datei hochladen, wenn Sie einen neuen Datensatz (c#) hinzufügen | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie eine Weboberfläche erstellen, die können den Benutzer sowohl geben Text-Daten und Hochladen von Binärdateien. Um die verfügbaren Optionen t veranschaulichen..."
+description: Dieses Lernprogramm zeigt, wie eine Weboberfläche erstellen, die können den Benutzer sowohl geben Text-Daten und Hochladen von Binärdateien. Um die verfügbaren Optionen t veranschaulichen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 384251e5d0d72c6d1cc014c929a5d504be11d1d6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab63f9b0c536be81fdaa894985bae6a6b9346fa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Z. B. eine Datei hochladen-Option beim Hinzufügen eines neuen Datensatzes (c#)
 ====================
@@ -280,12 +280,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Dave Gardner Teresa Murphy und Bernadette Leigh. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](displaying-binary-data-in-the-data-web-controls-cs.md)
-[Weiter](updating-and-deleting-existing-binary-data-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [Weiter](updating-and-deleting-existing-binary-data-cs.md)

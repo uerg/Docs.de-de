@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 title: Anzeigen von Daten mit dem DataList und Wiederholungsmodul-Steuerelement (VB) | Microsoft Docs
 author: rick-anderson
-description: "In den vorherigen Lernprogrammen haben wir des GridView-Steuerelements verwendet, um Daten anzuzeigen. Mit diesem Lernprogramm beginnen, untersuchen wir häufige Muster von Berichten mit erstellen..."
+description: In den vorherigen Lernprogrammen haben wir des GridView-Steuerelements verwendet, um Daten anzuzeigen. Mit diesem Lernprogramm beginnen, untersuchen wir häufige Muster von Berichten mit erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6aa7cb76295d18711d88dd9855b43b259b558060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>Anzeigen von Daten mit dem DataList und Wiederholungsmodul-Steuerelement (VB)
 ====================
@@ -161,12 +161,12 @@ Durch das Hinzufügen dieser Skin-Datei wird das DataList-s-Darstellung im Desig
 
 Zusätzlich zu den `ItemTemplate`, DataList unterstützt sechs anderer optionalen Vorlagen:
 
-- `HeaderTemplate`Wenn angegeben, die Ausgabe eine Kopfzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
-- `AlternatingItemTemplate`abwechselnde Elemente gerendert.
-- `SelectedItemTemplate`verwendet zum Rendern des ausgewählten Elements. das ausgewählte Element ist das Element, dessen Index der DataList s entspricht [ `SelectedIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate`verwendet zum Rendern des Elements, das bearbeitet wird
-- `SeparatorTemplate`Wenn angegeben, fügt ein Trennzeichen zwischen den einzelnen Elementen und wird verwendet, um das Trennzeichen zu rendern.
-- `FooterTemplate`-Wenn angegeben, die Ausgabe eine Fußzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
+- `HeaderTemplate` Wenn angegeben, die Ausgabe eine Kopfzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
+- `AlternatingItemTemplate` abwechselnde Elemente gerendert.
+- `SelectedItemTemplate` verwendet zum Rendern des ausgewählten Elements. das ausgewählte Element ist das Element, dessen Index der DataList s entspricht [ `SelectedIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` verwendet zum Rendern des Elements, das bearbeitet wird
+- `SeparatorTemplate` Wenn angegeben, fügt ein Trennzeichen zwischen den einzelnen Elementen und wird verwendet, um das Trennzeichen zu rendern.
+- `FooterTemplate` -Wenn angegeben, die Ausgabe eine Fußzeile hinzugefügt und wird verwendet, um diese Zeile zu rendern.
 
 Beim Angeben der `HeaderTemplate` oder `FooterTemplate`, DataList Fügt eine zusätzliche Zeile der Kopf- oder Fußzeile auf der gerenderten Ausgabe. Wie werden mit GridView s Kopf- und Fußzeilen Zeilen, Kopf- und Fußzeilen in einem DataList nicht an Daten gebunden. Aus diesem Grund jede Databinding-Syntax in der `HeaderTemplate` oder `FooterTemplate` , dass Versuche gebundene Daten, die Zugriff auf eine leere Zeichenfolge zurückgegeben werden.
 
@@ -210,11 +210,11 @@ Stimmen Sie eine Quelle anzeigen/in Ihrem Browser beim Besuchen des DataList-Bei
 
 Was geschieht, wenn t ein HTML-ausgeben möchten Verschlüsselungskennwort `<table>`, obwohl? Insgesamt und vollständige Kontrolle über das Markup generiert, die für ein Data-Websteuerelement müssen wir Wiederholungsmodul-Steuerelement verwenden. Wie das DataList Repeater basierend auf Vorlagen erstellt. Repeater, bietet jedoch nur die folgenden fünf Vorlagen:
 
-- `HeaderTemplate`Wenn angegeben, fügt das angegebene Markup vor den Elementen
-- `ItemTemplate`verwendet, um Elemente zu rendern.
-- `AlternatingItemTemplate`Wenn angegeben, verwendet, um abwechselnde Elemente zu rendern.
-- `SeparatorTemplate`Wenn angegeben, fügt das angegebene Markup zwischen den einzelnen Elementen
-- `FooterTemplate`-Wenn angegeben, fügt das angegebene Markup nach den Elementen
+- `HeaderTemplate` Wenn angegeben, fügt das angegebene Markup vor den Elementen
+- `ItemTemplate` verwendet, um Elemente zu rendern.
+- `AlternatingItemTemplate` Wenn angegeben, verwendet, um abwechselnde Elemente zu rendern.
+- `SeparatorTemplate` Wenn angegeben, fügt das angegebene Markup zwischen den einzelnen Elementen
+- `FooterTemplate` -Wenn angegeben, fügt das angegebene Markup nach den Elementen
 
 In ASP.NET 1.x Repeater Steuerelement häufig verwendet wurde, um eine Liste mit Aufzählungszeichen angezeigt, deren Daten von einer Datenquelle stammen. In einem solchen Fall die `HeaderTemplate` und `FooterTemplates` enthält den öffnenden und schließenden `<ul>` , while-Tags, die `ItemTemplate` enthält `<li>` Elemente mit Databinding-Syntax. Dieser Ansatz kann trotzdem in ASP.NET 2.0 verwendet werden, wie wir gesehen, in beiden Beispielen in haben der [Masterseiten und Websitenavigation](../introduction/master-pages-and-site-navigation-vb.md) Lernprogramm:
 
@@ -312,12 +312,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Yaakov Ellis, Liz Shulok Randy Schmidt und Stacy Park. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](nested-data-web-controls-cs.md)
-[Weiter](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](nested-data-web-controls-cs.md)
+> [Weiter](formatting-the-datalist-and-repeater-based-upon-data-vb.md)

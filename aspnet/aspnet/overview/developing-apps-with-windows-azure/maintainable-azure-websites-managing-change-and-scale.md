@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: "Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung | Microsoft Docs"
+title: 'Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung | Microsoft Docs'
 author: rick-anderson
-description: "Erfahren Sie in dieser Übung, wie Microsoft Azure erleichtert das Erstellen und Bereitstellen von Websites bis hin zur Produktion."
+description: Erfahren Sie in dieser Übung, wie Microsoft Azure erleichtert das Erstellen und Bereitstellen von Websites bis hin zur Produktion.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 4bce02b2c592ff04e0dbce78d18004c69268e4fd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a79921681b4e742b5cd23f7119d19f4dd74c3f83
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 [Herunterladen von Web-Lager Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Mit SQL-Datenbanken ist es wichtig, Ihre produktive Datenbank aktuell zu halten, wenn Sie neue Versionen der Anwendung bereitstellen. Dank an **Entity Framework Code First-Migrationen**, um Ihre Umgebungen in Minuten aktualisieren wurde die Entwicklung und Bereitstellung Ihres Datenmodells vereinfacht. Dieser praktischen Übungseinheit werden Sie in den anderen Themen an, die auftreten können, wenn Sie Ihre Web-app in produktionsumgebungen in Microsoft Azure bereitstellen.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 > 
 > Weitere ausführliche Beschreibung in diesem Thema finden Sie unter der [Building Real-World Cloud-Apps mit Azure-e-Book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -281,13 +281,13 @@ In dieser Aufgabe erstellen Sie eine Web-app in **Azure App Service** über das 
     *Anpassen der neuen Web-app*
 5. Geben Sie die folgenden Informationen für die datenbankeinstellungen:
 
-    - In der **Namen** Text Geben Sie einen Datenbanknamen an (z. B. *Geekquiz\_Db*)
-    - Auf dem Server **Dropdownelement** Liste **neue SQL-Datenbankserver**. Alternativ können Sie einen vorhandenen Server auswählen.
-    - In der **Datenbankbenutzername** und **Datenbankkennwort** Felder, geben Sie den Administratorbenutzernamen und das Kennwort für den SQL-Datenbankserver. Wenn Sie einen Server auswählen ist bereits vorhanden, Sie werden aufgefordert, das Kennwort.
+   - In der **Namen** Text Geben Sie einen Datenbanknamen an (z. B. *Geekquiz\_Db*)
+   - Auf dem Server **Dropdownelement** Liste **neue SQL-Datenbankserver**. Alternativ können Sie einen vorhandenen Server auswählen.
+   - In der **Datenbankbenutzername** und **Datenbankkennwort** Felder, geben Sie den Administratorbenutzernamen und das Kennwort für den SQL-Datenbankserver. Wenn Sie einen Server auswählen ist bereits vorhanden, Sie werden aufgefordert, das Kennwort.
 
-    ![Datenbankeinstellungen angeben](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![Datenbankeinstellungen angeben](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-    *Datenbankeinstellungen angeben*
+     *Datenbankeinstellungen angeben*
 6. Klicken Sie auf **Weiter**, um fortzufahren.
 7. Wählen Sie **lokales Git-Repository** für die quellcodeverwaltung verwenden, und klicken Sie auf **Weiter**.
 
@@ -687,7 +687,7 @@ In dieser Aufgabe verwenden Sie das Server-Explorer-Fenster in Visual Studio fü
 
 In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild hochgeladen in Azure Blob Storage (statt dem Image befindet sich in der Web-app) durch Hinzufügen einer ASP.NET URL-neuschreibungsregel in der **"Web.config"**Datei.
 
-1. Öffnen Sie in Visual Studio die **"Web.config"** Datei innerhalb der **GeekQuiz** Projekt, und suchen Sie die  **&lt;"System.Webserver"&gt;**  Element.
+1. Öffnen Sie in Visual Studio die **"Web.config"** Datei innerhalb der **GeekQuiz** Projekt, und suchen Sie die **&lt;"System.Webserver"&gt;** Element.
 2. Fügen Sie den folgenden Code zum Hinzufügen eine URL-rewrite Regel, aktualisieren den Platzhalter mit den Namen des Speicherkontos.
 
     (Codeausschnitt - *WebSitesInProduction - Ex4 - UrlRewriteRule*)
@@ -785,7 +785,7 @@ Nun, dass **zur automatischen Skalierung** wurde konfiguriert, erstellen Sie ein
     ![Hinzufügen einer Anforderung WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "WebTest1 eine Anforderung hinzugefügt")
 
     *Hinzufügen einer Anforderung WebTest1*
-4. In der **Eigenschaften** Fenster für den neuen Anforderungsknoten aktualisiert die **Url** Eigenschaft, um auf die URL Ihrer Web-App zu verweisen (z. B.  *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* ).
+4. In der **Eigenschaften** Fenster für den neuen Anforderungsknoten aktualisiert die **Url** Eigenschaft, um auf die URL Ihrer Web-App zu verweisen (z. B. *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
 
     ![Ändern der Url-Eigenschaft](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Ändern der Url-Eigenschaft")
 
@@ -797,13 +797,13 @@ Nun, dass **zur automatischen Skalierung** wurde konfiguriert, erstellen Sie ein
     *Hinzufügen einer Schleife zu WebTest1*
 6. In der **Bedingungsregel hinzufügen und Elemente zur Schleife** wählen Sie im Dialogfeld die **For-Schleife** -Regel und ändern Sie die folgenden Eigenschaften.
 
-    1. **Beenden Sie Wert:** 1000
-    2. **Kontext der Parametername:** Iterator
-    3. **Inkrementwert:** 1
+   1. **Beenden Sie Wert:** 1000
+   2. **Kontext der Parametername:** Iterator
+   3. **Inkrementwert:** 1
 
-    ![Auswählen der For-Schleife-Regel, und aktualisieren Sie die Eigenschaften](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "Sie die For-Schleife-Regel auswählen und Aktualisieren der Eigenschaften")
+      ![Auswählen der For-Schleife-Regel, und aktualisieren Sie die Eigenschaften](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "Sie die For-Schleife-Regel auswählen und Aktualisieren der Eigenschaften")
 
-    *Auswählen der For-Schleife-Regel, und Aktualisieren der Eigenschaften*
+      *Auswählen der For-Schleife-Regel, und Aktualisieren der Eigenschaften*
 7. Klicken Sie unter der **Elemente in der Schleife** Abschnitt, wählen Sie die Anforderung, die Sie zuvor das erste und letzte Element, für die Schleife werden erstellt. Klicken Sie auf **OK** um den Vorgang fortzusetzen.
 
     ![Auswahl der ersten und letzten Elemente für die Schleife](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "Auswahl der ersten und letzten Elemente für die Schleife")

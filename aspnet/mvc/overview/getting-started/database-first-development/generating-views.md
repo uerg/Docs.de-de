@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'EF Datenbank zuerst mit ASP.NET MVC: Generieren von Sichten | Microsoft Docs'
 author: tfitzmac
-description: "MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri..."
+description: MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 5fccb3c56af0945ec448becff777a3e92dc160d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60e89a187a879255eb051dc87241714cef6fa63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>EF Datenbank zuerst mit ASP.NET MVC: Generieren von Sichten
 ====================
@@ -109,6 +109,6 @@ Darüber hinaus wird die Überprüfung der bereitgestellten Werte automatisch ba
 
 Sie haben sichergestellt, dass die automatisch generierten Sichten ermöglichen einen Benutzer mit den Daten in der Datenbank arbeiten. In der nächsten Lernprogramm dieser Reihe Sie die Datenbank aktualisieren, und nehmen Sie die entsprechenden Änderungen in der Webanwendung.
 
->[!div class="step-by-step"]
-[Zurück](creating-the-web-application.md)
-[Weiter](changing-the-database.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-the-web-application.md)
+> [Weiter](changing-the-database.md)

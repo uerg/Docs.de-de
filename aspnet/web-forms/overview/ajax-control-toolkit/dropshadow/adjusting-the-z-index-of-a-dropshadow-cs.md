@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 title: Anpassen der Z-Index von einem DropShadow (c#) | Microsoft Docs
 author: wenz
-description: "DropShadow-Steuerelements in der AJAX-Steuerelement-Toolkit erweitert einen Bereich mit Schatten. Jedoch diese Schatten manchmal mit anderen Steuerelementen für Insta steht in Konflikt..."
+description: DropShadow-Steuerelements in der AJAX-Steuerelement-Toolkit erweitert einen Bereich mit Schatten. Jedoch diese Schatten manchmal mit anderen Steuerelementen für Insta steht in Konflikt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 161f02daa5dd1f0e21853c1b7c1a65c1a9aa5d03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82add8427c8e574b213b67315e69bb4c28846095
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>Anpassen der Z-Index von einem DropShadow (c#)
 ====================
@@ -68,5 +68,5 @@ Vorher: Ist der Menüeintrag nicht sichtbar ([klicken Sie hier, um das Bild in v
 
 Nach: Wird angezeigt, den Menüeintrag ([klicken Sie hier, um das Bild in voller Größe angezeigt](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Nächste](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](manipulating-dropshadow-properties-from-client-code-cs.md)

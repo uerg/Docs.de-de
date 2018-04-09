@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
-title: "Einführung in ASP.NET Web Pages - Aktualisieren von Datenbankdaten | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - Aktualisieren von Datenbankdaten | Microsoft Docs
 author: tfitzmac
-description: "In diesem Lernprogramm wird gezeigt, wie (ändern) einer vorhandenen Datenbank-Eintrag zu aktualisieren, wenn Sie ASP.NET Web Pages (Razor) verwenden. Es wird vorausgesetzt, Sie haben die Reihe abgeschlossen th..."
+description: In diesem Lernprogramm wird gezeigt, wie (ändern) einer vorhandenen Datenbank-Eintrag zu aktualisieren, wenn Sie ASP.NET Web Pages (Razor) verwenden. Es wird vorausgesetzt, Sie haben die Reihe abgeschlossen th...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e889cd27e2267a08f7b6ea708c92e35edbdd7a1a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Einführung in ASP.NET Web Pages - Aktualisieren von Datenbankdaten
 ====================
@@ -108,7 +108,7 @@ Sobald Sie wissen der `format` -Eigenschaft, es ist einfacher zu verstehen, wie 
 
 Die Spalte besteht aus *nur* der das Markup, das den Link gerendert wird, sowie einige Informationen (ID), die extrahiert aus dem Datenbankdatensatz für die Zeile.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Benannte Parameter und Positionsparameter für eine Methode**
 > 
@@ -173,7 +173,7 @@ Der Code verwendet `Request.QueryString["id"]` beim Abrufen der ID, die an die S
 
 Dieser Code zeigt eine andere Möglichkeit, Informationen zu überprüfen. Im vorherigen Lernprogramm, mit denen Sie gearbeitet der `Validation` Helper. Sie die zu überprüfenden Felder registriert ASP.NET automatisch und hat die Überprüfung Fehler angezeigt, indem `Html.ValidationMessage` und `Html.ValidationSummary`. In diesem Fall sind jedoch nicht wirklich Benutzereingaben überprüften. Stattdessen können Sie einen Wert überprüfen, der von einer anderen Stelle auf der Seite "übergeben wurde. Die `Validation` Hilfsprogramm nicht weiter, die für Sie.
 
-Aus diesem Grund Sie den Wert selbst überprüfen, durch das Testen mit `if(!Request.QueryString["ID"].IsEmpty()`). Wenn ein Problem vorliegt, können Sie den Fehler anzeigen, indem Sie mit `Html.ValidationSummary`, wie Sie mit der `Validation` Helper. Zu diesem Zweck rufen Sie `Validation.AddFormError` und übergibt ihn dann eine anzuzeigende Meldung. `Validation.AddFormError`ist eine integrierte Methode, mit dem Sie die benutzerdefinierte Nachrichten zu definieren, die sich mit den Überprüfungssystem binden, die Sie bereits vertraut sind. (Später in diesem Lernprogramm stellen Informationen zu diesen Validierungsprozess etwas stabiler zu gestalten wir.)
+Aus diesem Grund Sie den Wert selbst überprüfen, durch das Testen mit `if(!Request.QueryString["ID"].IsEmpty()`). Wenn ein Problem vorliegt, können Sie den Fehler anzeigen, indem Sie mit `Html.ValidationSummary`, wie Sie mit der `Validation` Helper. Zu diesem Zweck rufen Sie `Validation.AddFormError` und übergibt ihn dann eine anzuzeigende Meldung. `Validation.AddFormError` ist eine integrierte Methode, mit dem Sie die benutzerdefinierte Nachrichten zu definieren, die sich mit den Überprüfungssystem binden, die Sie bereits vertraut sind. (Später in diesem Lernprogramm stellen Informationen zu diesen Validierungsprozess etwas stabiler zu gestalten wir.)
 
 Stellen Sie sicher, dass eine ID für den Film vorhanden ist, liest der Code für die Datenbank ab und sucht für nur eine einzelne Datenbank-Element. (Ihnen wahrscheinlich aufgefallen das allgemeine Muster für Datenbankvorgänge: Öffnen Sie die Datenbank, definieren Sie eine SQL-Anweisung, und führen Sie die Anweisung.) Dieses Mal SQL `Select` -Anweisung enthält `WHERE ID = @0`. Da die ID eindeutig ist, kann nur ein Datensatz zurückgegeben werden.
 
@@ -311,6 +311,6 @@ In den nächsten Lernprogrammen sehen Sie, wie einen Movie-Datensatz gelöscht.
 - [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](../../getting-started/introducing-razor-syntax-c.md)
 - [SQL-UPDATE-Anweisung](http://www.w3schools.com/sql/sql_update.asp) auf der Website W3Schools
 
->[!div class="step-by-step"]
-[Zurück](entering-data.md)
-[Weiter](deleting-data.md)
+> [!div class="step-by-step"]
+> [Zurück](entering-data.md)
+> [Weiter](deleting-data.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
-title: "Übergeben von Daten an View Master Pages (VB) | Microsoft Docs"
+title: Übergeben von Daten an View Master Pages (VB) | Microsoft Docs
 author: microsoft
-description: "Ziel dieses Lernprogramms wird erläutert, wie Sie Daten von einem Controller an eine Ansicht Gestaltungsvorlage übergeben können. Untersuchen wir zwei Strategien für die Übergabe von Daten an eine Ansicht m..."
+description: Ziel dieses Lernprogramms wird erläutert, wie Sie Daten von einem Controller an eine Ansicht Gestaltungsvorlage übergeben können. Untersuchen wir zwei Strategien für die Übergabe von Daten an eine Ansicht m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d92a1afe46af124e835b3d59f2b2093402742bbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd7c5baacc00490720d1f82252d81e40c097c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="passing-data-to-view-master-pages-vb"></a>Übergeben von Daten an View Master Pages (VB)
 ====================
@@ -53,7 +53,7 @@ Beginnen Sie mit der einfachsten Lösung zum Anzeigen von Daten von einem Contro
 
 Betrachten Sie den Controller im Codebeispiel 1 aus. Macht zwei Aktionen, die mit dem Namen `Index()` und `Details()`. Die `Index()` Aktionsmethode gibt jeder Film in der Datenbanktabelle Filme zurück. Die `Details()` Aktionsmethode gibt jeder Film in einer bestimmten Film-Kategorie.
 
-**Auflisten von 1 –`Controllers\HomeController.vb`**
+**Auflisten von 1 – `Controllers\HomeController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample1.vb)]
 
@@ -69,13 +69,13 @@ Die `Details()` Aktion fügt auch zwei Schlüssel mit dem Namen Kategorien und F
 
 Auflisten von 2 enthalten die Indexansicht. Es durchläuft einfach die Liste von Filmen dargestellt, die vom Element "Filme" in den Anzeigedaten.
 
-**Auflisten von 2 –`Views\Home\Index.aspx`**
+**Auflisten von 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample2.aspx)]
 
 Die Ansicht, die Gestaltungsvorlage in 3 auflisten enthalten ist. Die master-Ansichtsseite durchläuft und rendert alle Film-Kategorien, die vom Element "Kategorien" dargestellt, aus der Anzeigedaten.
 
-**Auflisten von 3:`Views\Shared\Site.master`**
+**Auflisten von 3: `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -91,7 +91,7 @@ Die ApplicationController-Klasse ist im Codebeispiel 4 enthalten.
 
 Die ApplicationController-Klasse ist im Codebeispiel 4 enthalten.
 
-**Auflisten von 4 –`Controllers\ApplicationController.vb`**
+**Auflisten von 4 – `Controllers\ApplicationController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample4.vb)]
 
@@ -103,7 +103,7 @@ Dritte, beachten Sie, dass der Anwendung-Controller einen Konstruktor enthält, 
 
 Der Controller Filme auflisten 5 erbt von der Anwendung-Controller.
 
-**Auflisten von 5 –`Controllers\MoviesController.vb`**
+**Auflisten von 5 – `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample5.vb)]
 
@@ -117,5 +117,5 @@ In diesem Lernprogramm erläutert wir zwei Ansätze zum Anzeigen von Daten von e
 
 Als Nächstes untersucht wir eine viel bessere Strategie zum Hinzufügen von Daten, die von einer Masterseite Ansicht zum Anzeigen von Daten erforderlich. Statt die Ansichtsdaten in jede Controlleraktion zu addieren, haben wir die Ansichtsdaten nur einmal innerhalb eines Controllers Anwendung hinzugefügt. Auf diese Weise können Sie doppelte Code vermeiden, bei der Übergabe von Daten an eine Ansicht Masterseite in einer ASP.NET MVC-Anwendung.
 
->[!div class="step-by-step"]
-[Zurück](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](creating-page-layouts-with-view-master-pages-vb.md)

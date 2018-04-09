@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 title: Erstellen einen OData-v3-Endpunkt mit Web-API 2 | Microsoft Docs
 author: MikeWasson
-description: "Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Methode zur Strukturdaten Datenabfragen durchzuführen, und die Daten bearbeiten..."
+description: Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Methode zur Strukturdaten Datenabfragen durchzuführen, und die Daten bearbeiten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Erstellen einen OData-v3-Endpunkt mit Web-API 2
 ====================
@@ -150,7 +150,7 @@ Die **MapODataRoute** Methode fügt eine Route für den OData-Endpunkt.
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-Der erste Parameter ist ein Anzeigename für die Route. Dieser Name werden von Clients des Diensts nicht angezeigt. Der zweite Parameter ist der URI-Präfix für den Endpunkt. Wenn Sie diesen Code, der URI für die Produkte Entitätenmenge lautet http://*Hostname*  /Odata/Produkte. Ihre Anwendung kann mehr als ein OData-Endpunkt besitzen. Rufen Sie für jeden Endpunkt **MapODataRoute** , und geben Sie einen eindeutigen Routennamen und einen eindeutigen URI-Präfix.
+Der erste Parameter ist ein Anzeigename für die Route. Dieser Name werden von Clients des Diensts nicht angezeigt. Der zweite Parameter ist der URI-Präfix für den Endpunkt. Wenn Sie diesen Code, der URI für die Produkte Entitätenmenge lautet http://<em>Hostname</em>  /Odata/Produkte. Ihre Anwendung kann mehr als ein OData-Endpunkt besitzen. Rufen Sie für jeden Endpunkt <strong>MapODataRoute</strong> , und geben Sie einen eindeutigen Routennamen und einen eindeutigen URI-Präfix.
 
 <a id="seed-db"></a>
 ## <a name="seed-the-database-optional"></a>Ausgangswert für die Datenbank (Optional)

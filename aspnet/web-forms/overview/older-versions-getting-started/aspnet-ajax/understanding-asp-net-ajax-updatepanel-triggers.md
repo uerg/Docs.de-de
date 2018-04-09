@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 title: Grundlegendes zu ASP.NET AJAX UpdatePanel Triggern | Microsoft Docs
 author: scottcate
-description: "Bei der Arbeit im Markup-Editor in Visual Studio können Sie (von IntelliSense) Beachten Sie, dass zwei untergeordnete Elemente eines Steuerelements UpdatePanel vorhanden sind. Einer der w-fragewörter..."
+description: Bei der Arbeit im Markup-Editor in Visual Studio können Sie (von IntelliSense) Beachten Sie, dass zwei untergeordnete Elemente eines Steuerelements UpdatePanel vorhanden sind. Einer der w-fragewörter...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Grundlegendes zu ASP.NET AJAX UpdatePanel-Triggern
 ====================
@@ -59,8 +59,8 @@ Auf ähnliche Weise die `<asp:PostBackTrigger>` -Element Trigger, die eine parti
 
 | **Tag** | **Beschreibung** |
 | --- | --- |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Gibt ein Steuerelement und ein Ereignis, das ein Teilseite Update UpdatePanel verursachen kann, die diese Trigger Verweis enthält. |
-| &lt;ASP PostBackTrigger:&gt; | Gibt ein Steuerelement und ein Ereignis, das bewirkt eine vollständige Seite-Aktualisierung (eine vollständige Seite-Aktualisierung). Eine vollständige Aktualisierung zu erzwingen, wenn ein Steuerelement andernfalls Teilrendering auslöst, kann dieses Tag verwendet werden. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Gibt ein Steuerelement und ein Ereignis, das ein Teilseite Update UpdatePanel verursachen kann, die diese Trigger Verweis enthält. |
+| &lt;asp:PostBackTrigger&gt; | Gibt ein Steuerelement und ein Ereignis, das bewirkt eine vollständige Seite-Aktualisierung (eine vollständige Seite-Aktualisierung). Eine vollständige Aktualisierung zu erzwingen, wenn ein Steuerelement andernfalls Teilrendering auslöst, kann dieses Tag verwendet werden. |
 
 ## <a name="walkthrough-cross-updatepanel-triggers"></a>*Exemplarische Vorgehensweise: Cross-UpdatePanel-Triggern*
 
@@ -85,7 +85,7 @@ Auf ähnliche Weise die `<asp:PostBackTrigger>` -Element Trigger, die eine parti
 ([Klicken Sie hier, um das Bild in voller Größe angezeigt](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
 
 
-## <a name="under-the-hood"></a>*Hinter den Kulissen*
+## <a name="under-the-hood"></a>*Einblick in die Hintergründe*
 
 Nutzen das Beispiel, das wir soeben erstellt haben, können wir sehen Sie sich ausgeführten ASP.NET AJAX und zu deren Funktionsweise Trigger unsere UpdatePanel-Cross-Bereich. Voraussetzung hierfür ist, arbeiten wir mit der generierten Seitenquelle HTML als auch die Mozilla Firefox-Erweiterung namens FireBug - mithilfe dieser Option können wir die AJAX-Postbacks leichter überprüfen. Wir verwenden auch das Tool .NET Reflector von Lutz Roeder. Beide Tools sind online kostenlos verfügbar und können mit einem Internetsuche gefunden werden.
 
@@ -151,10 +151,10 @@ Durch Untersuchen der internen Funktionsweise des ASP.NET AJAX-Formulars post Mo
 
 ## <a name="bio"></a>Lebenslauf
 
-Rob Paveza ist senior .NET Anwendungsentwickler bei Terralever ([www.terralever.com](http://www.terralever.com)), eine führende interaktive marketing hingegen in Tempe, AZ. Er die erreicht werden kann, zur [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), und seinen Blog finden Sie unter [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
+Rob Paveza ist senior .NET Anwendungsentwickler bei Terralever ([www.terralever.com](http://www.terralever.com)), eine führende interaktive marketing hingegen in Tempe, AZ. Er die erreicht werden kann, zur [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), und seinen Blog finden Sie unter [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
 
 Scott Cate arbeitet mit Microsoft-Web-Technologien seit 1997 und Präsidenten des myKB.com ist ([www.myKB.com](http://www.myKB.com)), in dem er zum Schreiben von ASP.NET spezialisiert-basierten Anwendungen, die Wissensdatenbank softwarelösungen konzentriert. Scott hergestellt werden kann, per e-Mail an [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) oder seinen Blog unter [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Zurück](understanding-partial-page-updates-with-asp-net-ajax.md)
-[Weiter](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [Weiter](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

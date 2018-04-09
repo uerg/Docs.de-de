@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 title: Starten ein modales Popupfenster von Servercode (VB) | Microsoft Docs
 author: wenz
-description: "ModalPopup-Steuerelement in das AJAX-Steuerelement-Toolkit bietet eine einfache Möglichkeit, ein modales Popupdialogfeld clientseitige Weise zu erstellen. Einige Szenarien erfordern jedoch, t..."
+description: ModalPopup-Steuerelement in das AJAX-Steuerelement-Toolkit bietet eine einfache Möglichkeit, ein modales Popupdialogfeld clientseitige Weise zu erstellen. Einige Szenarien erfordern jedoch, t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c4bcf3e32b3aa91bb73e01296bc1fc1a2e064711
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46554dae60ad9cd13e97e5755e95cb2125d1fed9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="launching-a-modal-popup-window-from-server-code-vb"></a>Starten ein modales Popupfenster von Servercode (VB)
 ====================
@@ -72,6 +72,6 @@ Die `$find()` -Funktion sucht nach einem benannten Element auf der Seite und die
 
 Modale Popupdialogfeld angezeigt, wenn eine der Schaltflächen geklickt wird ([klicken Sie hier, um das Bild in voller Größe angezeigt](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](positioning-a-modalpopup-cs.md)
-[Weiter](using-modalpopup-with-a-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](positioning-a-modalpopup-cs.md)
+> [Weiter](using-modalpopup-with-a-repeater-control-vb.md)

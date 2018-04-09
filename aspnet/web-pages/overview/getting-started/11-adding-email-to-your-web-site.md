@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
 title: Senden von E-Mail von einem ASP.NET Web Pages (Razor) Standort | Microsoft Docs
 author: tfitzmac
-description: "In diesem Kapitel wird erläutert, wie eine automatisierte e-Mail-Nachricht von einer Website gesendet werden."
+description: In diesem Kapitel wird erläutert, wie eine automatisierte e-Mail-Nachricht von einer Website gesendet werden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9be242d238c627a9557fe7ff7e596974e5b7d1c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Senden von E-Mail von einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -48,7 +48,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 
 Es gibt viele Gründe, warum Sie möglicherweise das Senden von e-Mails aus Ihrer Website. Können Sie Bestätigungsnachrichten an Benutzer senden, oder Sie können Benachrichtigungen an sich selbst senden, (z. B., die ein neuer Benutzer registriert wurden.) Die `WebMail` Helper erleichtert Ihnen das Senden von e-Mails.
 
-Verwenden der `WebMail` Helper, müssen Sie Zugriff auf einen SMTP-Server haben. (SMTP steht für *Simple Mail Transfer Protocol*.) Ein SMTP-Server ist ein e-Mail-Server, der nur Nachrichten mit Server &#8212;des Empfängers weiterleitet. Es ist der ausgehenden e-Mail-Seite. Wenn Sie einen Hostinganbieter für Ihre Website verwenden, sie wahrscheinlich richten Sie mit e-Mail-Adresse, und sie ableiten können Sie was Ihr SMTP-Servername ist. Wenn Sie in einem Unternehmensnetzwerk arbeiten, erhalten ein Administrator oder Ihre IT-Abteilung in der Regel die Informationen über einen SMTP-Server Sie, die Sie verwenden können. Wenn Sie zu Hause arbeiten, sind Sie möglicherweise auch in der Ihre normale e-Mail-Anbieter, die Sie, den Namen des SMTP-Servers erkennen können zu testen. Sie müssen in der Regel:
+Verwenden der `WebMail` Helper, müssen Sie Zugriff auf einen SMTP-Server haben. (SMTP steht für *Simple Mail Transfer Protocol*.) Ein SMTP-Server ist ein e-Mail-Server, der nur Nachrichten an den Server des Empfängers weiterleitet &#8212; der ausgehenden e-Mail-Seite ist. Wenn Sie einen Hostinganbieter für Ihre Website verwenden, sie wahrscheinlich richten Sie mit e-Mail-Adresse, und sie ableiten können Sie was Ihr SMTP-Servername ist. Wenn Sie in einem Unternehmensnetzwerk arbeiten, erhalten ein Administrator oder Ihre IT-Abteilung in der Regel die Informationen über einen SMTP-Server Sie, die Sie verwenden können. Wenn Sie zu Hause arbeiten, sind Sie möglicherweise auch in der Ihre normale e-Mail-Anbieter, die Sie, den Namen des SMTP-Servers erkennen können zu testen. Sie müssen in der Regel:
 
 - Der Name des SMTP-Servers.
 - Die Portnummer. Dies ist fast immer 25. Allerdings ISP benötigen Sie möglicherweise Port 587 verwenden. Bei Verwendung von secure Sockets Layer (SSL) zum Abrufen von e-Mails ggf. Sie einen anderen Port. Wenden Sie sich an Ihrem e-Mail-Anbieter.
@@ -86,23 +86,23 @@ In diesem Verfahren erstellen Sie zwei Seiten. Die erste Seite verfügt über ei
 
     Ändern Sie die folgenden e-Mail-verwandte Einstellungen im Code:
 
-    - Legen Sie `your-SMTP-host` auf den Namen des SMTP-Servers, die Sie können zugreifen.
-    - Legen Sie `your-user-name-here` mit dem Benutzernamen für Ihr SMTP-Server-Konto.
-    - Legen Sie `your-account-password` auf das Kennwort für Ihr SMTP-Server-Konto.
-    - Legen Sie `your-email-address-here` an Ihre eigene e-Mail-Adresse. Dies ist die e-Mail-Adresse, der aus die Nachricht gesendet wird. (Einige e-Mail-Anbieter nicht können Sie angeben, ein anderes `From` behandeln und Ihren Benutzernamen als verwendet die `From` Adresse.)
+   - Legen Sie `your-SMTP-host` auf den Namen des SMTP-Servers, die Sie können zugreifen.
+   - Legen Sie `your-user-name-here` mit dem Benutzernamen für Ihr SMTP-Server-Konto.
+   - Legen Sie `your-account-password` auf das Kennwort für Ihr SMTP-Server-Konto.
+   - Legen Sie `your-email-address-here` an Ihre eigene e-Mail-Adresse. Dies ist die e-Mail-Adresse, der aus die Nachricht gesendet wird. (Einige e-Mail-Anbieter nicht können Sie angeben, ein anderes `From` behandeln und Ihren Benutzernamen als verwendet die `From` Adresse.)
 
-    > [!TIP] 
-    > 
-    > <a id="configuring_email_settings"></a>
-    > ### <a name="configuring-email-settings"></a>Konfigurieren von e-Mail-Einstellungen
-    > 
-    > Es kann eine Herausforderung in einigen Fällen stellen Sie sicher, dass Sie die richtigen Einstellungen für den SMTP-Server, Portnummer und usw. sein. Im Folgenden einige Tipps:
-    > 
-    > - Der SMTP-Servername ist häufig etwa `smtp.provider.com` oder `smtp.provider.net`. Jedoch wenn Sie Ihre Website mit einem Hostinganbieter veröffentlichen, der SMTP-Servernamen zu diesem Zeitpunkt möglicherweise `localhost`. Dies ist möglicherweise, nachdem Sie veröffentlicht haben, und Ihre Website auf dem Server des Anbieters ausgeführt wird, der e-Mail-Server aus der Perspektive der Anwendung lokalen. Diese Änderung in Server-Namen kann dies bedeuten, dass Sie den SMTP-Servernamen als Teil der Veröffentlichungsprozess ändern müssen.
-    > - Die Nummer des Ports ist in der Regel 25. Allerdings erfordern einige Anbieter Port 587 oder ein anderer Port.
-    > - Stellen Sie sicher, dass Sie die richtigen Anmeldeinformationen verwenden. Wenn Sie Ihre Website mit einem Hostinganbieter veröffentlicht haben, verwenden Sie die Anmeldeinformationen, die der Anbieter zum Abrufen von e-Mails sind speziell angegeben hat. Hierbei können sich von den Anmeldeinformationen handeln, die Sie zum Veröffentlichen verwenden.
-    > - In einigen Fällen benötigen nicht Sie die Anmeldeinformationen an. Wenn Sie e-Mail-Nachricht mit Ihren persönlichen Internetdienstanbieter gesendet, möglicherweise Ihre Anmeldeinformationen von Ihrem e-Mail-Anbieter bereits kennen. Nachdem Sie veröffentlicht haben, müssen Sie andere Anmeldeinformationen als beim Testen auf dem lokalen Computer verwenden.
-    > - Wenn die Verschlüsselung von Ihrem e-Mail-Anbieter verwendet wird, müssen Sie festlegen `WebMail.EnableSsl` auf `true`.
+     > [!TIP] 
+     > 
+     > <a id="configuring_email_settings"></a>
+     > ### <a name="configuring-email-settings"></a>Konfigurieren von e-Mail-Einstellungen
+     > 
+     > Es kann eine Herausforderung in einigen Fällen stellen Sie sicher, dass Sie die richtigen Einstellungen für den SMTP-Server, Portnummer und usw. sein. Im Folgenden einige Tipps:
+     > 
+     > - Der SMTP-Servername ist häufig etwa `smtp.provider.com` oder `smtp.provider.net`. Jedoch wenn Sie Ihre Website mit einem Hostinganbieter veröffentlichen, der SMTP-Servernamen zu diesem Zeitpunkt möglicherweise `localhost`. Dies ist möglicherweise, nachdem Sie veröffentlicht haben, und Ihre Website auf dem Server des Anbieters ausgeführt wird, der e-Mail-Server aus der Perspektive der Anwendung lokalen. Diese Änderung in Server-Namen kann dies bedeuten, dass Sie den SMTP-Servernamen als Teil der Veröffentlichungsprozess ändern müssen.
+     > - Die Nummer des Ports ist in der Regel 25. Allerdings erfordern einige Anbieter Port 587 oder ein anderer Port.
+     > - Stellen Sie sicher, dass Sie die richtigen Anmeldeinformationen verwenden. Wenn Sie Ihre Website mit einem Hostinganbieter veröffentlicht haben, verwenden Sie die Anmeldeinformationen, die der Anbieter zum Abrufen von e-Mails sind speziell angegeben hat. Hierbei können sich von den Anmeldeinformationen handeln, die Sie zum Veröffentlichen verwenden.
+     > - In einigen Fällen benötigen nicht Sie die Anmeldeinformationen an. Wenn Sie e-Mail-Nachricht mit Ihren persönlichen Internetdienstanbieter gesendet, möglicherweise Ihre Anmeldeinformationen von Ihrem e-Mail-Anbieter bereits kennen. Nachdem Sie veröffentlicht haben, müssen Sie andere Anmeldeinformationen als beim Testen auf dem lokalen Computer verwenden.
+     > - Wenn die Verschlüsselung von Ihrem e-Mail-Anbieter verwendet wird, müssen Sie festlegen `WebMail.EnableSsl` auf `true`.
 4. Führen Sie die *EmailRequest.cshtml* Seite in einem Browser. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.)
 5. Geben Sie Ihren Namen und eine Beschreibung des Problems, und klicken Sie dann auf die **Absenden** Schaltfläche. Sie sind umgeleitet, um die *ProcessRequest.cshtml* Seite, die die Nachricht bestätigt und dem sendet Ihnen einer e-Mail-Nachricht. 
 

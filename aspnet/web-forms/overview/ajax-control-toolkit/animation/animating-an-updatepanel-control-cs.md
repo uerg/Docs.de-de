@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 title: Animieren eines UpdatePanel-Steuerelements (c#) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Für den Inhalt einer..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Für den Inhalt einer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6d8954d2ec886994cdd723121e540b471131f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d8d5b9c3f15b39045b5e01b455bdddfc9443a24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-an-updatepanel-control-c"></a>Animieren eines UpdatePanel-Steuerelements (c#)
 ====================
@@ -43,8 +43,8 @@ Die Animation in diesem Szenario gelten für eine ASP.NET `Wizard` Websteuerelem
 
 Das Markup für die `UpdatePanelAnimationExtender` Steuerelement sind sehr ähnlich, um das Markup, das für die `AnimationExtender`. In der `TargetControlID` Attribut wir bieten die `ID` von der `UpdatePanel` zu animierende; innerhalb der `UpdatePanelAnimationExtender` -Steuerelement, die `<Animations>` -Element enthält XML-Markup für Animationen. Allerdings gibt es einen Unterschied: die Menge der Ereignisse und Ereignishandler ist im Vergleich zur beschränkt `AnimationExtender`. Für `UpdatePanels`, nur zwei davon vorhanden:
 
-- `<OnUpdated>`Wenn die UpdatePanel aktualisiert wurde
-- `<OnUpdating>`Beim Starten der UpdatePanel aktualisieren
+- `<OnUpdated>` Wenn die UpdatePanel aktualisiert wurde
+- `<OnUpdating>` Beim Starten der UpdatePanel aktualisieren
 
 In diesem Szenario wird der neue Inhalt der `UpdatePanel` (nach dem Postback) eingeblendet wird. Dies ist die notwendige Markup für diese:
 
@@ -57,6 +57,6 @@ Jetzt bei jedem asynchronen in UpdatePanel Postback Einblenden der neue Inhalt d
 
 Der nächste Assistentenschritt wird im ausblenden ([klicken Sie hier, um das Bild in voller Größe angezeigt](animating-an-updatepanel-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](changing-an-animation-using-client-side-code-cs.md)
-[Weiter](dynamically-controlling-updatepanel-animations-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](changing-an-animation-using-client-side-code-cs.md)
+> [Weiter](dynamically-controlling-updatepanel-animations-cs.md)

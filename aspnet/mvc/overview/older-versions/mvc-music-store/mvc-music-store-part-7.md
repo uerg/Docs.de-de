@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: db459de687db862be00a9b59ff5b1b238fa75061
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a0f599da4691c5bb7c8e6f01625fc0e94ce0eac8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-membership-and-authorization"></a>Teil 7: Mitgliedschaft und Autorisierung
 ====================
@@ -110,6 +110,6 @@ Jetzt das Navigieren zu /StoreManager wird ein Dialogfeld "Anmelden" geöffnet:
 
 Nach der Anmeldung mit unserem neuen Administratorkonto können wir fahren Sie mit dem Album bearbeiten-Bildschirm als vor.
 
->[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-6.md)
-[Weiter](mvc-music-store-part-8.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc-music-store-part-6.md)
+> [Weiter](mvc-music-store-part-8.md)

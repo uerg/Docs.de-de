@@ -2,21 +2,21 @@
 uid: whitepapers/aspnet4/overview
 title: ASP.NET 4 und Visual Studio 2010 Web Development Overview | Microsoft Docs
 author: rick-anderson
-description: "Dieses Dokument bietet einen Überblick über viele neue Features für ASP.NET, die in.NET Framework 4 und Visual Studio 2010 enthalten sind."
+description: Dieses Dokument bietet einen Überblick über viele neue Features für ASP.NET, die in.NET Framework 4 und Visual Studio 2010 enthalten sind.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 und Visual Studio 2010 Web Development (Übersicht)
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/30/2018
 
 **Inhalt**
 
-**[Kerndienste](#0.2__Toc253429238 "_Toc253429238")**  
+**[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
 [Datei "Web.config", die Umgestaltung](#0.2__Toc253429239 "_Toc253429239")  
 [Erweiterbare Ausgabezwischenspeicherung](#0.2__Toc253429240 "_Toc253429240")  
 [AutoStart-Webanwendungen](#0.2__Toc253429241 "_Toc253429241")  
@@ -38,9 +38,9 @@ ms.lasthandoff: 01/30/2018
 [Caching-Objekt und die Objekt-Caching Erweiterbarkeit](#0.2__Toc253429246 "_Toc253429246")  
 [Erweiterbare HTML, URL und HTTP-Header, die Codierung](#0.2__Toc253429247 "_Toc253429247")  
 [Überwachung der Anwendungsleistung für einzelne Anwendungen in ein einzelner Workerprozess](#0.2__Toc253429248 "_Toc253429248")  
-[Festlegung von Zielversionen](#0.2__Toc253429249 "_Toc253429249")
+[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
-**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
+**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [jQuery eingeschlossene mit Web Forms und MVC](#0.2__Toc253429251 "_Toc253429251")  
 [Content Delivery Network-Support](#0.2__Toc253429252 "_Toc253429252")  
 [Explizite Skripts in ScriptManager](#0.2__Toc253429253 "_Toc253429253")
@@ -90,9 +90,9 @@ ms.lasthandoff: 01/30/2018
 [Web.config-Transformation](#0.2__Toc253429294 "_Toc253429294")  
 [Datenbankbereitstellung](#0.2__Toc253429295 "_Toc253429295")  
 [One-Click-Veröffentlichung für Webanwendungen](#0.2__Toc253429296 "_Toc253429296")  
-[Ressourcen](#0.2__Toc253429297 "_Toc253429297")
+[Resources](#0.2__Toc253429297 "_Toc253429297")
 
-**[Haftungsausschluss](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -199,13 +199,13 @@ ASP.NET 4 führt neue Möglichkeiten beim Erweitern der Größe des Anwendungs-U
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Um längere oder kürzere Pfade (der Teil der URL, die keine Protokoll, Servernamen und Abfragezeichenfolge enthalten) zu ermöglichen, Ändern der  *[MaxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  Attribut. Um längere oder kürzere Abfragezeichenfolgen zu ermöglichen, ändern Sie den Wert des der  *[MaxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  Attribut.
+Um längere oder kürzere Pfade (der Teil der URL, die keine Protokoll, Servernamen und Abfragezeichenfolge enthalten) zu ermöglichen, Ändern der *[MaxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* Attribut. Um längere oder kürzere Abfragezeichenfolgen zu ermöglichen, ändern Sie den Wert des der *[MaxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* Attribut.
 
 ASP.NET 4 können Sie so konfigurieren Sie die Zeichen, die durch die Überprüfung der URL-Zeichen verwendet werden. Wenn ASP.NET ein ungültiges Zeichen in den Pfadteil einer URL findet, lehnt die Anforderung ab und gibt einen HTTP 400-Fehler aus. In früheren Versionen von ASP.NET waren die URL-Zeichen-Überprüfungen auf einen festen Satz von Zeichen beschränkt. In ASP.NET 4 können Sie den Satz von Zeichen, die mit dem neuen anpassen *RequestPathInvalidChars* Attribut von der *HttpRuntime* Configuration-Element, wie im folgenden Beispiel gezeigt:
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Wird standardmäßig die *RequestPathInvalidChars* Attribut definiert acht Zeichen als ungültig. (In der Zeichenfolge, die zugewiesen *RequestPathInvalidChars* standardmäßig*,*die kleiner als (&lt;), größer als (&gt;), und das kaufmännische und-Zeichen (&amp;) Zeichen sind codiert werden, da die `Web.config` Datei ist eine XML-Datei.) Sie können die Menge der ungültigen Zeichen bei Bedarf anpassen.
+Wird standardmäßig die <em>RequestPathInvalidChars</em> Attribut definiert acht Zeichen als ungültig. (In der Zeichenfolge, die zugewiesen <em>RequestPathInvalidChars</em> standardmäßig<em>,</em>die kleiner als (&lt;), größer als (&gt;), und das kaufmännische und-Zeichen (&amp;) Zeichen sind codiert werden, da die `Web.config` Datei ist eine XML-Datei.) Sie können die Menge der ungültigen Zeichen bei Bedarf anpassen.
 
 > [!NOTE]
 > Beachten Sie ASP.NET 4 immer URL-Pfade, die Zeichen im ASCII-Bereich von 0 x 00 bis 0x1F, abgelehnt, da diese ungültige URL-Zeichen sind, gemäß Definition in RFC 2396 der IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). In Versionen von Windows Server ausführen, die IIS 6 oder höher der http.sys-Protokoll-Gerätetreiber automatisch abgelehnt URLs mit diesen Zeichen.
@@ -326,9 +326,11 @@ Durch das Microsoft Ajax-CDN nutzen, können Sie die Leistung der Ajax-Anwendung
 
 Microsoft Ajax Content Delivery Network unterstützt SSL (HTTPS) an, für den Fall, dass Sie einer Webseite mithilfe des Secure Sockets Layers bereitstellen müssen.
 
+Implementieren Sie ein Fallback, wenn das CDN nicht verfügbar ist. Das Fallback zu testen.
+
 Um weitere Informationen über das Microsoft Ajax-CDN finden Sie auf der folgenden Website:
 
-[https://www.ASP.NET/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
+[https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
 
 Die ScriptManager ASP.NET unterstützt das Microsoft Ajax-CDN. Durch Festlegen der Eigenschaft ein, die Eigenschaft EnableCdn können Sie alle ASP.NET Framework JavaScript-Dateien aus dem CDN abrufen:
 
@@ -412,13 +414,13 @@ Wie Sie sehen können, wird der Code Ansichtszustand für das Steuerelement Plac
 
 Die Auswirkung dieser Einstellungen ist, dass beim ersten der Seite laden im Browser die folgende Ausgabe angezeigt wird:
 
-Deaktiviert`: [DynamicValue]`
+Deaktiviert `: [DynamicValue]`
 
 Aktiviert:`[DynamicValue]`
 
 Nach einem Postback wird die folgende Ausgabe angezeigt:
 
-Deaktiviert`: [DeclaredValue]`
+Deaktiviert `: [DeclaredValue]`
 
 Aktiviert:`[DynamicValue]`
 
@@ -444,17 +446,17 @@ Die *HttpBrowserCapabilities* Objekt wird durch eine Reihe von Browserdefinition
 
 Die folgende Liste enthält neue Browser Definitionsdateien:
 
-- *BlackBerry.Browser*
-- *Chrome.Browser*
-- *Default.Browser*
-- *Firefox.Browser*
-- *Gateway.Browser*
-- *Generic.Browser*
-- *IE.Browser*
-- *Iemobile.Browser*
-- *iPhone.Browser*
-- *Opera.Browser*
-- *Safari.Browser*
+- *blackberry.browser*
+- *chrome.browser*
+- *Default.browser*
+- *firefox.browser*
+- *gateway.browser*
+- *generic.browser*
+- *ie.browser*
+- *iemobile.browser*
+- *iphone.browser*
+- *opera.browser*
+- *safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Browser Funktionen Anbieter verwenden
 
@@ -629,7 +631,7 @@ Die *RouteParameter* Klasse ermöglicht die Angabe Routendaten als Parameterwert
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-In diesem Fall wird der Wert der Route Parameter Searchterm verwendet werden, für die @companyname Parameter in der *wählen* Anweisung.
+In diesem Fall wird der Wert der Route Parameter Searchterm verwendet werden, für die @companyname Parameter in der <em>wählen</em> Anweisung.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -720,7 +722,7 @@ Persistente Auswahl wurde anfänglich nur in Dynamic Data-Projekten in .NET Fram
 
 <a id="0.2__Toc253429263"></a><a id="0.2__Toc243304637"></a>
 
-### <a name="aspnet-chart-control"></a>ASP.NET Chart-Steuerelement
+### <a name="aspnet-chart-control"></a>ASP.NET Chart Control
 
 Die ASP.NET *Diagramm* -Steuerelement nach unten erweitert die datenvisualisierung Angebote in .NET Framework. Mithilfe der *Diagramm* -Steuerelement können Sie ASP.NET-Seiten denen intuitive und grafisch anspruchsvollen Diagrammen für komplexe statistische oder finanzielle Analysen erstellen. Die ASP.NET *Diagramm* Steuerelement wurde als Add-on auf der Version von .NET Framework Version 3.5 SP1 eingeführt und ist Bestandteil der .NET Framework 4-Version.
 
@@ -983,7 +985,7 @@ Sie können eine CSS-Klasse, die gilt nur dann definieren die *ausgeblendete* El
 Standardmäßig werden die folgenden ASP.NET Web-Server-Steuerelemente, die Vorlagen unterstützen automatisch in einer äußeren Tabelle umschlossen, die verwendet wird, um Inlineformatvorlagen anzuwenden:
 
 - *FormView*
-- *Anmeldung*
+- *Login*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Assistenten*
@@ -1362,10 +1364,10 @@ Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen von Web Ap
 Die folgenden Websites bieten zusätzliche Informationen zu ASP.NET 4 und Visual Studio 2010.
 
 - [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) – der offiziellen Dokumentation für ASP.NET 4 auf Daten in der MSDN-Website.
-- [https://www.ASP.NET/](https://www.asp.net/) – ASP.NET die Website des Teams.
-- [https://www.ASP.NET/DynamicData/](https://msdn.microsoft.com/library/cc488545.aspx) und [ASP.NET Dynamic Data Content Map](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) – Online-Ressourcen auf der ASP.NET-Website-Team und in der offiziellen Dokumentation für ASP.NET Dynamic Data.
-- [https://www.ASP.NET/AJAX/](../../ajax/index.md) – die wichtigsten Webressource für ASP.NET Ajax-Entwicklung.
-- [https://Blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) – The Visual Web Developer-Team-Blog, der Informationen zu den Funktionen in Visual Studio 2010 enthalten.
+- [https://www.asp.net/](https://www.asp.net/) – Die ASP.NET Website des Teams.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) und [ASP.NET Dynamic Data Content Map](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) – Online-Ressourcen auf der ASP.NET-Website-Team und in der offiziellen Dokumentation für ASP.NET Dynamic Data.
+- [https://www.asp.net/ajax/](../../ajax/index.md) – Die wichtigsten Webressource für ASP.NET Ajax-Entwicklung.
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) – Die Visual Web Developer-Team-Blog, die Informationen zu den Funktionen in Visual Studio 2010 enthalten.
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) – die wichtigsten Webressource für Preview-Versionen von ASP.NET.
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>

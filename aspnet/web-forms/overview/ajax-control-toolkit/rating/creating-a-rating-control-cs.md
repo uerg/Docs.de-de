@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c004522ac72b848e42320862d77bced0c11ca15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a48cf0ed9402e2875e87ba7bdb76afc5f501a670
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-rating-control-c"></a>Erstellen eines Steuerelements Bewertung (c#)
 ====================
@@ -41,12 +41,12 @@ Anschließend erstellen Sie eine neue ASP.NET-Datei, und starten Sie mit dem Hin
 
 Fügen Sie dann die `Rating` Steuerelement aus dem ASP.NET AJAX-Steuerelement-Toolkit. Die folgenden Attribute müssen für dieses Beispiel festgelegt werden:
 
-- `CurrentRating`die erste Bewertung verwendet werden
-- `MaxRating`die maximale Bewertung für
-- `EmptyStarCssClass`die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) leer ist.
-- `FilledStarCssClass`die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) ausgefüllt wird
-- `StarCssClass`die CSS-Klasse, die für einen sichtbaren Stat verwendet
-- `WaitingStarCssClass`die CSS-Klasse verwenden, während Bewertungssterne zurück an den Server gesendet wird
+- `CurrentRating` die erste Bewertung verwendet werden
+- `MaxRating` die maximale Bewertung für
+- `EmptyStarCssClass` die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) leer ist.
+- `FilledStarCssClass` die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) ausgefüllt wird
+- `StarCssClass` die CSS-Klasse, die für einen sichtbaren Stat verwendet
+- `WaitingStarCssClass` die CSS-Klasse verwenden, während Bewertungssterne zurück an den Server gesendet wird
 
 Und hier ist das Markup erstellt ein Steuerelement für die Bewertung mit fünf Elementen (Smileys), von denen keine anfänglich ausgefüllt wird:
 
@@ -73,5 +73,5 @@ Speichern Sie die Seite, und Laden Sie sie in Ihren Browser. Wenn Sie auf die El
 
 Erstellen ein Bewertungssystem mit minimalem Codeeinsatz ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-rating-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Nächste](creating-a-rating-control-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](creating-a-rating-control-vb.md)

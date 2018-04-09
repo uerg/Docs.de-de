@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
-title: "Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#) | Microsoft Docs"
+title: Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#) | Microsoft Docs
 author: rick-anderson
 description: In diesem Lernprogramm sehen wir, wie ein ObjectDataSource Insert(), Update(), zugeordnet und Delete()-Methoden, um die Methoden der BLL Klassen sowie zur Configu...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dbd111f79eda6006cb9aed59d8fd0b0342415833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#)
 ====================
@@ -238,7 +238,7 @@ Für unser Tutorial aus, lassen Sie uns einfach Löschen aller Datensätze aus d
 - Erweitern der `DeleteProduct` Methode, um die Logik zum Löschen von Bestelldetails für das angegebene Produkt einschließen
 - Ändern Sie die SQL-Abfrage von TableAdapter verwendet, um das Löschen von Bestelldetails für das angegebene Produkt einschließen
 
-Nehmen wir einfach Löschen aller Datensätze aus der `Order Details` Tabelle, foreign Key-Einschränkung zu umgehen. Navigieren Sie zu dem Server-Explorer in Visual Studio, mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten, und wählen Sie die neue Abfrage. Klicken Sie dann in das Abfragefenster ein, führen Sie die folgende SQL-Anweisung an:`DELETE FROM [Order Details]`
+Nehmen wir einfach Löschen aller Datensätze aus der `Order Details` Tabelle, foreign Key-Einschränkung zu umgehen. Navigieren Sie zu dem Server-Explorer in Visual Studio, mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten, und wählen Sie die neue Abfrage. Klicken Sie dann in das Abfragefenster ein, führen Sie die folgende SQL-Anweisung an: `DELETE FROM [Order Details]`
 
 
 [![Löschen Sie alle Datensätze aus der Order Details-Tabelle](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
@@ -440,7 +440,7 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Nächste](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
-title: "Wiederherstellen und Ändern von Kennwörtern (VB) | Microsoft Docs"
+title: Wiederherstellen und Ändern von Kennwörtern (VB) | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET umfasst zwei Websteuerelemente für die Unterstützung bei der Wiederherstellung oder Kennwörter ändern. Das Steuerelement PasswordRecovery ermöglicht einen Besucher seine verloren Pa wiederherstellen..."
+description: ASP.NET umfasst zwei Websteuerelemente für die Unterstützung bei der Wiederherstellung oder Kennwörter ändern. Das Steuerelement PasswordRecovery ermöglicht einen Besucher seine verloren Pa wiederherstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b78469858483a9501a0f73d1c894e29ae0a99122
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cffe07eaea5144df82e56c989b0cde7cfd3d194a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Wiederherstellen und Ändern von Kennwörtern (VB)
 ====================
@@ -86,7 +86,7 @@ Bevor Sie diese Seite testen, besteht ein abschließendes Teil der Konfiguration
 Die Konfiguration der e-Mail-Übermittlung wird angegeben, über die [ `<system.net>` Element](https://msdn.microsoft.com/library/6484zdc1.aspx)des [ `<mailSettings>` Element](https://msdn.microsoft.com/library/w355a94k.aspx). Verwenden der [ `<smtp>` Element](https://msdn.microsoft.com/library/ms164240.aspx) die Übermittlungsmethode und der standardmäßige Absenderadresse an. Das folgende Markup konfiguriert e-Mail-Einstellungen zum Verwenden eines Netzwerk-SMTP-Servers mit dem Namen `smtp.example.com` an Port 25 und mit Benutzername/Kennwort-Anmeldeinformationen des Benutzernamens und Kennworts.
 
 > [!NOTE]
-> `<system.net>`ist ein untergeordnetes Element des Stamms `<configuration>` Element und ein gleichgeordnetes Element eines `<system.web>`. Fügen Sie daher nicht die `<system.net>` Element innerhalb der `<system.web>` -Element; stattdessen fügen Sie sie auf der gleichen Ebene.
+> `<system.net>` ist ein untergeordnetes Element des Stamms `<configuration>` Element und ein gleichgeordnetes Element eines `<system.web>`. Fügen Sie daher nicht die `<system.net>` Element innerhalb der `<system.web>` -Element; stattdessen fügen Sie sie auf der gleichen Ebene.
 
 
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
@@ -165,8 +165,8 @@ Die `MailDefinition` Eigenschaft ist nicht eindeutig, auf die PasswordRecovery-K
 
 Beim Zurücksetzen eines Benutzerkennworts das PasswordRecovery Aufrufe steuern die `MembershipUser` des Objekts [ `ResetPassword` Methode](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Diese Methode verfügt über zwei Überladungen:
 
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-das Kennwort eines Benutzers zurückgesetzt. Verwenden Sie diese Überladung, wenn `RequiresQuestionAndAnswer` ist "false".
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-setzt nur ein Benutzer das Kennwort, wenn das angegebene *SecurityAnswer* richtig ist. Verwenden Sie diese Überladung, wenn `RequiresQuestionAndAnswer` ist "true".
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -das Kennwort eines Benutzers zurückgesetzt. Verwenden Sie diese Überladung, wenn `RequiresQuestionAndAnswer` ist "false".
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -setzt nur ein Benutzer das Kennwort, wenn das angegebene *SecurityAnswer* richtig ist. Verwenden Sie diese Überladung, wenn `RequiresQuestionAndAnswer` ist "true".
 
 Beide Überladungen geben das neue, zufällig generiertes Kennwort zurück.
 
@@ -300,16 +300,16 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [ChangePassword-Steuerelement-Schnellstarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [Schnellstarts PasswordRecovery-Steuerelement](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [Senden von E-Mail in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail`Häufig gestellte Fragen](http://www.systemnetmail.com/)
+- [`System.Net.Mail` Häufig gestellte Fragen](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird * [Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm enthalten Michael Emmings und Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm enthalten Michael Emmings und Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](building-an-interface-to-select-one-user-account-from-many-vb.md)
-[Weiter](unlocking-and-approving-user-accounts-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [Weiter](unlocking-and-approving-user-accounts-vb.md)

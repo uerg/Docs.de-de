@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
-title: "Auswählen einer Animation aus einer (VB) | Microsoft Docs"
+title: Auswählen einer Animation aus einer (VB) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dd2cfd512b03fa1d1f7754d9f86d080c1977695d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f2bd1b3cc72595da7e8901786ea8415d7c1c524a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="picking-one-animation-out-of-a-list-vb"></a>Auswählen einer Animation aus einer (VB)
 ====================
@@ -45,7 +45,7 @@ Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hinterg
 
 [!code-css[Main](picking-one-animation-out-of-a-list-vb/samples/sample3.css)]
 
-Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter`runat="server":`
+Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter `runat="server":`
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ Das folgende Markup definiert drei Subanimation: Ändern der Größe der Breite 
 
 Einer der drei möglichen Animationen: Bereich ruft breiter ([klicken Sie hier, um das Bild in voller Größe angezeigt](picking-one-animation-out-of-a-list-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](animation-depending-on-a-condition-vb.md)
-[Weiter](animating-in-response-to-user-interaction-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](animation-depending-on-a-condition-vb.md)
+> [Weiter](animating-in-response-to-user-interaction-vb.md)

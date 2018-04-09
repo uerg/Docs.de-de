@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 title: Erstellen und Verpacken Webanwendungsprojekte | Microsoft Docs
 author: jrjlee
-description: "Wenn Sie ein Webprojekt für die Anwendung in einer remote-Server bereitstellen möchten, ist die erste Aufgabe erstellen Sie das Projekt, und generieren eine Web-Bereitstellung Packa..."
+description: Wenn Sie ein Webprojekt für die Anwendung in einer remote-Server bereitstellen möchten, ist die erste Aufgabe erstellen Sie das Projekt, und generieren eine Web-Bereitstellung Packa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: c05f725c9e6b493a6af8f5b5d20dbc9ff73a1ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d630e1776607bd0bd7c61e1f0f7234ef58c7533b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-and-packaging-web-application-projects"></a>Erstellen und Verpacken Webanwendungsprojekte
 ====================
@@ -59,8 +59,8 @@ Dieses Ziel verwendet die **MSBuild** Aufgabe zum Erstellen von verschiedenen Pr
 Die **Paket** Ziel ist definiert, der *Microsoft.Web.Publishing.targets* Datei. Dieses Ziel wird im Wesentlichen nimmt die Buildausgabe des Webanwendungsprojekts und verwandelt sie in ein Webbereitstellungspaket, die in einem IIS-Webserver veröffentlicht werden können.
 
 > [!NOTE]
-> So zeigen Sie eine Projektdatei an (z. B. *ContactManager.Mvc.csproj*) in Visual Studio 2010 müssen Sie zunächst das Projekt aus der Projektmappe entladen. In der **Projektmappen-Explorer** rechten Maustaste auf den Projektknoten, und klicken Sie dann auf **Projekt entladen**. Mit der rechten Maustaste erneut auf des Projektknotens, und klicken Sie dann auf **bearbeiten***[-Projektdatei]*). Die Projektdatei wird in seiner Rohform XML geöffnet. Denken Sie daran, um das Projekt erneut laden, wenn Sie fertig sind.  
-> Weitere Informationen zu MSBuild-Ziele, Aufgaben und **Import** -Anweisungen finden Sie unter [verstehen die Projektdatei](understanding-the-project-file.md). Eine ausführliche Einführung in die Projektdateien und die WPP finden Sie unter [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi und William Bartholomew, ISBN-Nummer: 978-0-7356-4524-0.
+> So zeigen Sie eine Projektdatei an (z. B. <em>ContactManager.Mvc.csproj</em>) in Visual Studio 2010 müssen Sie zunächst das Projekt aus der Projektmappe entladen. In der <strong>Projektmappen-Explorer</strong> rechten Maustaste auf den Projektknoten, und klicken Sie dann auf <strong>Projekt entladen</strong>. Mit der rechten Maustaste erneut auf des Projektknotens, und klicken Sie dann auf <strong>bearbeiten</strong><em>[-Projektdatei]</em>). Die Projektdatei wird in seiner Rohform XML geöffnet. Denken Sie daran, um das Projekt erneut laden, wenn Sie fertig sind.  
+> Weitere Informationen zu MSBuild-Ziele, Aufgaben und <strong>Import</strong> -Anweisungen finden Sie unter [verstehen die Projektdatei](understanding-the-project-file.md). Eine ausführliche Einführung in die Projektdateien und die WPP finden Sie unter [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi und William Bartholomew, ISBN-Nummer: 978-0-7356-4524-0.
 
 
 ## <a name="what-is-a-web-deployment-package"></a>Was ist ein Webbereitstellungspaket?
@@ -92,7 +92,7 @@ Die *SetParameters.xml* Datei ist entscheidend, verwalten den Bereitstellungspro
 > In Visual Studio 2010 unterstützt die WPP nicht das Vorkompilieren von Seiten in einer Web-Anwendung vor dem Packen. Die nächste Version von Visual Studio und die WPP umfasst die Möglichkeit zum Vorkompilieren einer Web-Anwendung als eine Verpackung fest.
 
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 Dieses Thema liefert einen Überblick über die Build- und Verpackungsprozesses für Webanwendungsprojekte in Visual Studio 2010. Es beschrieben, wie die WPP Web Deploy-Befehle von MSBuild aufgerufen werden können, und diese erläutert, wie der Build und Verpacken-Prozess.
 
@@ -104,6 +104,6 @@ Die nächsten Themen in diesem Lernprogramm [Konfigurieren von Parametern für d
 
 Eine ausführliche Einführung in die Projektdateien und die WPP finden Sie unter [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi und William Bartholomew, ISBN-Nummer: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Zurück](understanding-the-build-process.md)
-[Weiter](configuring-parameters-for-web-package-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-the-build-process.md)
+> [Weiter](configuring-parameters-for-web-package-deployment.md)

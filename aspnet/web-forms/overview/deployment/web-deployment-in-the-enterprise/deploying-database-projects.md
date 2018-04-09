@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 title: Bereitstellen von Datenbankprojekten | Microsoft Docs
 author: jrjlee
-description: "Hinweis: In vielen Bereitstellungsszenarios benötigen Sie die Möglichkeit, inkrementelle Updates an einer bereitgestellten Datenbank zu veröffentlichen. Die Alternative besteht darin, erneut erstellen..."
+description: 'Hinweis: In vielen Bereitstellungsszenarios benötigen Sie die Möglichkeit, inkrementelle Updates an einer bereitgestellten Datenbank zu veröffentlichen. Die Alternative besteht darin, erneut erstellen...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>Bereitstellen von Datenbankprojekten
 ====================
@@ -92,8 +92,8 @@ In diesem Fall gilt Folgendes:
 
 - Die **/a** (oder **/Action**) Switch gibt an, was VSDBCMD möchten. Sie können festlegen, um **Import** oder **bereitstellen**. Die **Import** Option wird verwendet, um eine DBSCHEMA-Datei aus einer vorhandenen Datenbank generieren und die **bereitstellen** Option wird verwendet, um eine DBSCHEMA-Datei in einer Zieldatenbank bereitzustellen.
 - Die **/manifest** (oder **/ManifestFile**) Switch identifiziert die DEPLOYMANIFEST-Datei, die Sie bereitstellen möchten. Wenn Sie stattdessen die DBSCHEMA-Datei verwenden möchten, verwenden Sie die **/Modell** (oder **/ModelFile**) wechseln.
-- Die **/cs** (oder **' / ConnectionString '**)-Switch bietet die Verbindungszeichenfolge für den Zielserver für die Datenbank. Beachten Sie, dass dies der Name der Datenbank & #x 2014 enthält. VSDBCMD muss mit dem Server zum Erstellen der Datenbank herzustellen. Er muss nicht mit einer einzelnen Datenbank hergestellt. Wenn Ihre DEPLOYMANIFEST-Datei eine Verbindungszeichenfolge enthält, können Sie diese Option weglassen. Wenn Sie den Switch trotzdem verwenden, wird der Switch-Wert der DeployManifest-Wert überschrieben.
-- Die **/p:TargetDatabase** Eigenschaft enthält den Namen, die Sie in die Zieldatenbank bei der Erstellung zuweisen möchten. Dies überschreibt den Wert für die **TargetDatabase** Eigenschaft in der DEPLOYMANIFEST-Datei. Sie können die **/p:** *[Eigenschaftenname]*Syntax, um eine Vielzahl von Bereitstellungseigenschaften festgelegt und alle SQLCMD-Variablen zu überschreiben, die in der SQLCMDVARS-Datei deklariert.
+- Die **/cs** (oder **' / ConnectionString '**)-Switch bietet die Verbindungszeichenfolge für den Zielserver für die Datenbank. Beachten Sie, dass dies der Name der Datenbank nicht&#x2014;VSDBCMD muss für die Verbindung mit dem Server zum Erstellen der Datenbank; Er muss nicht mit einer einzelnen Datenbank hergestellt. Wenn Ihre DEPLOYMANIFEST-Datei eine Verbindungszeichenfolge enthält, können Sie diese Option weglassen. Wenn Sie den Switch trotzdem verwenden, wird der Switch-Wert der DeployManifest-Wert überschrieben.
+- Die <strong>/p:TargetDatabase</strong> Eigenschaft enthält den Namen, die Sie in die Zieldatenbank bei der Erstellung zuweisen möchten. Dies überschreibt den Wert für die <strong>TargetDatabase</strong> Eigenschaft in der DEPLOYMANIFEST-Datei. Sie können die <strong>/p:</strong> <em>[Eigenschaftenname]</em>Syntax, um eine Vielzahl von Bereitstellungseigenschaften festgelegt und alle SQLCMD-Variablen zu überschreiben, die in der SQLCMDVARS-Datei deklariert.
 - Die **/dd+** (oder **/DeployToDatabase+**) gibt an, dass eine Bereitstellung erstellen, und klicken Sie auf die zielumgebung bereitgestellt werden sollen. Bei Angabe von **/dd-**, ohne den Schalter bzw. VSDBCMD ein Bereitstellungsskript generiert, aber nicht in der zielumgebung bereitgestellt. Dieser Schalter ist oft die Quelle der zu Verwirrung und wird ausführlicher im nächsten Abschnitt erläutert.
 - Die **/script** (oder **/DeploymentScriptFile**) Switch gibt an, in dem Sie das Bereitstellungsskript generieren möchten. Dieser Wert wirkt sich nicht auf den Bereitstellungsprozess aus.
 
@@ -150,6 +150,6 @@ Die folgenden Themen auf MSDN enthalten umfassenderen Anweisungen und Hintergrun
 - [Vorgehensweise: Vorbereiten einer Datenbank für die Bereitstellung über eine Eingabeaufforderung mit VSDBCMD. EXE-DATEI](https://msdn.microsoft.com/library/dd193258.aspx)
 - [Eine Übersicht über Datenbank-Build und Bereitstellung](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[Zurück](deploying-web-packages.md)
-[Weiter](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-web-packages.md)
+> [Weiter](creating-and-running-a-deployment-command-file.md)

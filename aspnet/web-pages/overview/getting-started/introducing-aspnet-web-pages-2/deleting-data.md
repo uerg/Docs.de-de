@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: "Einführung in ASP.NET Web Pages - Datenbankdaten löschen | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - Datenbankdaten löschen | Microsoft Docs
 author: tfitzmac
-description: "In diesem Lernprogramm wird gezeigt, wie einen einzelne Datenbank-Eintrag zu löschen. Es wird davon ausgegangen, dass Sie der Reihe durch Aktualisieren der Datenbankdaten in ASP.NET Web-PA abgeschlossen haben..."
+description: In diesem Lernprogramm wird gezeigt, wie einen einzelne Datenbank-Eintrag zu löschen. Es wird davon ausgegangen, dass Sie der Reihe durch Aktualisieren der Datenbankdaten in ASP.NET Web-PA abgeschlossen haben...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Einführung in ASP.NET Web Pages - Datenbankdaten löschen
 ====================
@@ -172,6 +172,6 @@ Der nächste Lernprogrammen wird gezeigt, wie eine allgemeine Darstellung und La
 - [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](../introducing-razor-syntax-c.md)
 - [DELETE-Anweisung von SQL](http://www.w3schools.com/sql/sql_delete.asp) auf der Website W3Schools
 
->[!div class="step-by-step"]
-[Zurück](updating-data.md)
-[Weiter](layouts.md)
+> [!div class="step-by-step"]
+> [Zurück](updating-data.md)
+> [Weiter](layouts.md)

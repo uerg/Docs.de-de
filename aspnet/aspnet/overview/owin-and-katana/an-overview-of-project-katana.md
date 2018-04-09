@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
-title: "Eine Übersicht über Project Katana | Microsoft Docs"
+title: Eine Übersicht über Project Katana | Microsoft Docs
 author: howarddierking
-description: "Dem ASP.NET-Framework wurde um mehr als zehn Jahren, und die Plattform die Entwicklung von unzähligen Websites und Diensten aktiviert hat. Als Web-Anwendung..."
+description: Dem ASP.NET-Framework wurde um mehr als zehn Jahren, und die Plattform die Entwicklung von unzähligen Websites und Diensten aktiviert hat. Als Web-Anwendung...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>Eine Übersicht über Project Katana
 ====================
@@ -144,7 +144,7 @@ Um das Ziel Portabilität zu veranschaulichen, erfordert das Verschieben von ein
 - Verwalten von den zugrunde liegenden Prozess aus.
 - Orchestrierung des Workflows, die in der Auswahl eines Servers und der Erstellung einer OWIN-Pipeline, über welche Anforderungen verarbeitet werden.
 
- Zu diesem Zeitpunkt stehen 3 primäre Hostingoptionen für Katana-basierte Anwendungen zur Verfügung:  
+  Zu diesem Zeitpunkt stehen 3 primäre Hostingoptionen für Katana-basierte Anwendungen zur Verfügung:  
   
 **IIS/ASP.NET**: verwenden die Standardtypen HttpModule und HttpHandler, OWIN-Pipelines in IIS als Teil einer anforderungsflusses ASP.NET ausführen können. Unterstützung für das hosting ASP.NET wird durch installieren das Microsoft.AspNet.Host.SystemWeb NuGet-Paket in ein Webanwendungsprojekt aktiviert. Darüber hinaus, da IIS als einem Host und einem Server fungiert, ist die Unterscheidung der OWIN-Server-Host in enger Verbindung in NuGet-Paket, d. h., wenn der SystemWeb-Host verwendet, ein Entwickler eine Implementierung von einem alternativen Server ersetzen kann nicht.  
   
@@ -221,7 +221,7 @@ Katana 2.0 sind die Middleware-Komponenten in erster Linie konzentriert sich auf
 
 ## <a name="for-more-information-about-katana"></a>Weitere Informationen zu Katana
 
-- Das Katana-Projekt auf GitHub: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/).
+- Das Katana-Projekt auf GitHub: [ https://github.com/aspnet/AspNetKatana/ ](https://github.com/aspnet/AspNetKatana/).
 - Video: [Katana-Projekt - OWIN für ASP.NET](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET), indem Howard Dierking.
 
 ## <a name="acknowledgements"></a>Bestätigungen

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 title: Programmgesteuertes Festlegen der Gestaltungsvorlage (c#) | Microsoft Docs
 author: rick-anderson
-description: "Untersucht die Masterseite der Inhaltsseite, programmgesteuert über den Ereignishandler PreInit festlegen."
+description: Untersucht die Masterseite der Inhaltsseite, programmgesteuert über den Ereignishandler PreInit festlegen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2294ee2e58e55901d77958e7cf45dd74fc2a1187
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Programmgesteuertes Festlegen der Gestaltungsvorlage (c#)
 ====================
@@ -139,7 +139,7 @@ Als Nächstes fügen Sie das folgende deklarative Markup zum `Alternate.master`.
 
 ### <a name="testing-the-new-master-page"></a>Testen die neue Gestaltungsvorlage
 
-So testen Sie dieses neue Masterseite Update der `BasePage` Klasse `OnPreInit` Methode, damit die `MasterPageFile` Eigenschaft der Wert zugewiesen "~ / Alternate.maser", und klicken Sie dann besuchen Sie die Website. Jeder Seite sollte ohne Fehler mit Ausnahme von zwei funktionsfähig sind: `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx`. Hinzufügen eines Produkts, DetailsView in `~/Admin/AddProduct.aspx` führt zu einem `NullReferenceException` aus der Zeile des Codes, der versucht, die Gestaltungsvorlage festgelegt `GridMessageText` Eigenschaft. Beim Zugriff auf `~/Admin/Products.aspx` ein `InvalidCastException` wird beim Laden der Seite mit der folgenden Meldung ausgelöst: "Cast-Objekt des Typs kann nicht ' ASP.alternate\_master" in den Typ "ASP.site\_master". "
+So testen Sie dieses neue Masterseite Update der `BasePage` Klasse `OnPreInit` Methode, damit die `MasterPageFile` Eigenschaft der Wert zugewiesen "~ / Alternate.master", und klicken Sie dann besuchen Sie die Website. Jeder Seite sollte ohne Fehler mit Ausnahme von zwei funktionsfähig sind: `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx`. Hinzufügen eines Produkts, DetailsView in `~/Admin/AddProduct.aspx` führt zu einem `NullReferenceException` aus der Zeile des Codes, der versucht, die Gestaltungsvorlage festgelegt `GridMessageText` Eigenschaft. Beim Zugriff auf `~/Admin/Products.aspx` ein `InvalidCastException` wird beim Laden der Seite mit der folgenden Meldung ausgelöst: "Cast-Objekt des Typs kann nicht ' ASP.alternate\_master" in den Typ "ASP.site\_master". "
 
 Diese Fehler auftreten, da die `Site.master` Code-Behind-Klasse enthält öffentlichen Ereignisse, Eigenschaften und Methoden, die nicht in definiert sind `Alternate.master`. Der Teil von Markup für diese beiden Seiten haben eine `@MasterType` -Direktive, verweist der `Site.master` Masterseite.
 
@@ -282,12 +282,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](master-pages-and-asp-net-ajax-cs.md)
-[Weiter](nested-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](master-pages-and-asp-net-ajax-cs.md)
+> [Weiter](nested-master-pages-cs.md)

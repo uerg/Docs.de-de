@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 title: Verwendung ViewData und ViewModel-Klassen implementieren | Microsoft Docs
 author: microsoft
-description: "Schritt 6 zeigt wie Aktivieren der Unterstützung für umfangreichere Formular Szenarien, bearbeiten und erläutert außerdem zwei Ansätze, die verwendet werden können, um Daten aus der Controller mit Ansichten zu übergeben:..."
+description: Schritt 6 zeigt wie Aktivieren der Unterstützung für umfangreichere Formular Szenarien, bearbeiten und erläutert außerdem zwei Ansätze, die verwendet werden können, um Daten aus der Controller mit Ansichten zu übergeben:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 36b9e87cc24f74f7f2cc592afb5102709b598f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-viewdata-and-implement-viewmodel-classes"></a>ViewData verwenden und implementieren ViewModel-Klassen
 ====================
@@ -127,6 +127,6 @@ Benutzerdefinierte geformten ViewModel-Klassen bieten ein hohes Maß an Flexibil
 
 Jetzt betrachten wir Verwendung Replikatsgruppenelemente und Master-Seiten erneut verwenden und die Benutzeroberfläche von der Anwendung gemeinsam genutzt.
 
->[!div class="step-by-step"]
-[Zurück](provide-crud-create-read-update-delete-data-form-entry-support.md)
-[Weiter](re-use-ui-using-master-pages-and-partials.md)
+> [!div class="step-by-step"]
+> [Zurück](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [Weiter](re-use-ui-using-master-pages-and-partials.md)

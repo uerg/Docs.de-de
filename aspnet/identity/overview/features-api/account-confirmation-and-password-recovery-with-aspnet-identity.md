@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: "Konto zur Bestätigung und Kennwortwiederherstellung mit ASP.NET Identity (c#) | Microsoft Docs"
+title: Konto zur Bestätigung und Kennwortwiederherstellung mit ASP.NET Identity (c#) | Microsoft Docs
 author: HaoK
-description: "Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, e-Mail-Bestätigung und das Kennwort zurücksetzen, vor dem Durchführen des Lernprogramms zuerst abgeschlossen werden soll. In diesem Lernprogramm..."
+description: Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, e-Mail-Bestätigung und das Kennwort zurücksetzen, vor dem Durchführen des Lernprogramms zuerst abgeschlossen werden soll. In diesem Lernprogramm...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
 ms.topic: article
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0167388cf6b488b72ca36f583a7794690dbf9900
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Kontobestätigung und Kennwortwiederherstellung mit ASP.NET Identity (c#)
 ====================
@@ -88,7 +88,7 @@ Starten, indem Sie installieren und Ausführen von [Visual Studio Express 2013 f
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
- Die e-Mail wurde an diesem Punkt nicht bestätigt.
+   Die e-Mail wurde an diesem Punkt nicht bestätigt.
 
 Sie können ihn zur Verwendung der andere Datenspeicher und zusätzliche Felder hinzufügen, Konfigurieren der Standardspeicher für die Daten für ASP.NET Identity ist Entity Framework. Finden Sie unter [zusätzliche Ressourcen](#addRes) Abschnitt am Ende dieses Lernprogramms.
 
@@ -117,7 +117,7 @@ Die `Startup` Klasse enthält auch eine Textvorlage zum Hinzufügen von soziale 
 - Zweistufige Authentifizierung (2FA). Ich werde 2FA und SMS in ein weiteres Lernprogramm behandelt.
 - Einbinden von e-Mails und SMS-Dienste. (Ich werde SMS in ein weiteres Lernprogramm behandelt).
 
-Die `ApplicationUserManager` Klasse abgeleitet wird, von der generischen `UserManager<ApplicationUser>` Klasse. `ApplicationUser`leitet sich von [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`leitet sich von der generischen `IdentityUser` Klasse:
+Die `ApplicationUserManager` Klasse abgeleitet wird, von der generischen `UserManager<ApplicationUser>` Klasse. `ApplicationUser` leitet sich von [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser` leitet sich von der generischen `IdentityUser` Klasse:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -127,11 +127,11 @@ Generische Argumente auf `IUser` ermöglichen es Ihnen, eine Klasse, die Verwend
 
 ### <a name="applicationuser"></a>ApplicationUser
 
-`ApplicationUser`(`public class ApplicationUserManager : UserManager<ApplicationUser>`) ist definiert *Models\IdentityModels.cs* als:
+`ApplicationUser` (`public class ApplicationUserManager : UserManager<ApplicationUser>`) ist definiert *Models\IdentityModels.cs* als:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-Der hervorgehobene Code oben generiert eine ["ClaimsIdentity"](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity und OWIN Cookieauthentifizierung sind anspruchsbasierte, daher das Framework benötigt die app zum Generieren einer `ClaimsIdentity` für den Benutzer. `ClaimsIdentity`enthält Informationen über alle Ansprüche für den Benutzer, z. B. den Namen des Benutzers, Alter und welche Rollen der Benutzer angehört. Sie können auch weitere Ansprüche für den Benutzer zu diesem Zeitpunkt hinzufügen.
+Der hervorgehobene Code oben generiert eine ["ClaimsIdentity"](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity und OWIN Cookieauthentifizierung sind anspruchsbasierte, daher das Framework benötigt die app zum Generieren einer `ClaimsIdentity` für den Benutzer. `ClaimsIdentity` enthält Informationen über alle Ansprüche für den Benutzer, z. B. den Namen des Benutzers, Alter und welche Rollen der Benutzer angehört. Sie können auch weitere Ansprüche für den Benutzer zu diesem Zeitpunkt hinzufügen.
 
 Die OWIN `AuthenticationManager.SignIn` Methode übergibt der `ClaimsIdentity` und meldet sich der Benutzer:
 
@@ -152,7 +152,7 @@ In diesem Abschnitt verwenden Sie NuGet Ein ausführlicheres Beispiel herunterzu
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
- In diesem Lernprogramm verwenden wir [SendGrid](http://sendgrid.com/) zum Senden von e-Mail. Die `Identity.Samples` Paket wird installiert, den wir arbeiten mit Code.
+   In diesem Lernprogramm verwenden wir [SendGrid](http://sendgrid.com/) zum Senden von e-Mail. Die `Identity.Samples` Paket wird installiert, den wir arbeiten mit Code.
 3. Legen Sie die [Projekt zur Verwendung von SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. Testen Sie lokales Konto erstellen, durch Ausführen der app, die durch Klicken auf die **registrieren** verknüpfen, und veröffentlichen Sie das Registrierungsformular.
 5. Klicken Sie auf die Demo-e-Mail, die e-Mail-Bestätigung simuliert.
@@ -198,7 +198,7 @@ Der folgende Code zeigt, wie zum Senden von e-Mail mithilfe der [MailMessage](ht
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
-> Sicherheit – sensible Daten nie im Quellcode speichern. Das Konto und die Anmeldeinformationen werden in der AppSetting gespeichert. Sie können auf Azure sicher diese Werte speichern, auf die  **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Registerkarte im Azure-Portal. Finden Sie unter [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Sicherheit – sensible Daten nie im Quellcode speichern. Das Konto und die Anmeldeinformationen werden in der AppSetting gespeichert. Sie können auf Azure sicher diese Werte speichern, auf die **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Registerkarte im Azure-Portal. Finden Sie unter [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 Geben Sie Ihre SendGrid-Anmeldeinformationen, führen Sie die app, beim e-Mail-Alias registriert wird, kann Klicken Sie auf den Link "bestätigen" in Ihre e-Mail-Adresse. Sehen Sie hierzu mit der [Outlook.com](http://outlook.com) e-Mail-Konto, finden Sie unter der John Atten [C#-SMTP-Konfiguration für Outlook.Com SMTP-Host](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) und seine[ASP.NET Identity 2.0: Festlegen der Kontovalidierung und einer zweistufigen Autorisierung](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) sendet.

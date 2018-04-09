@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
 title: Datengebundene Steuerelemente | Microsoft Docs
 author: microsoft
-description: "Die meisten ASP.NET-Anwendungen basieren auf ein gewisses Maß an Darstellung von Daten aus einer Back-End-Datenquelle. Datengebundene Steuerelemente wurden entscheidende Teil interagierenden w..."
+description: Die meisten ASP.NET-Anwendungen basieren auf ein gewisses Maß an Darstellung von Daten aus einer Back-End-Datenquelle. Datengebundene Steuerelemente wurden entscheidende Teil interagierenden w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ebb0f9a7a2f071b7bf7aa3855920f1a5784a61f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-bound-controls"></a>Datengebundene Steuerelemente
 ====================
@@ -91,14 +91,14 @@ Bei Auswahl eine Datenbanktabelle als Datenquelle für das Steuerelement AdRotat
 
 | **Spaltenname** | **Datentyp** | **Beschreibung** |
 | --- | --- | --- |
-| ID | int | Primärschlüssel. Diese Spalte kann einen beliebigen Namen aufweisen. |
-| ImageUrl | Nvarchar (*Länge*) | Der relative oder absolute URL des Bilds, das für die werbeeinblendung angezeigt wird. |
-| NavigateUrl | Nvarchar (*Länge*) | Die Ziel-URL für die Anzeige. Wenn Sie keinen Wert angeben, ist die Anzeige keinen Link. |
-| AlternateText | Nvarchar (*Länge*) | Der Text angezeigt, wenn das Bild nicht gefunden werden kann. In einigen Browsern wird der Text als QuickInfo angezeigt. Alternativer Text wird auch für den Zugriff verwendet, damit Benutzer, die in der Abbildung sehen können ihre Beschreibung lesen Sprachausgabe hören können. |
-| Stichwort | Nvarchar (*Länge*) | Eine Kategorie für die Anzeige auf der die Seite gefiltert werden kann. |
-| Eindrücke | int(4)-Datentyp | Eine Zahl, die die Wahrscheinlichkeit, wie oft die werbeeinblendung angezeigt werden. Je größer die Zahl, desto häufiger Ad wird angezeigt. Die Summe aller Eindrücke Werte in der XML-Datei kann 2.048.000.000-1 nicht überschreiten. |
-| Breite | int(4)-Datentyp | Die Breite des Bilds in Pixel. |
-| Höhe | int(4)-Datentyp | Die Höhe des Bilds in Pixel. |
+| Id | int | Primärschlüssel. Diese Spalte kann einen beliebigen Namen aufweisen. |
+| ImageUrl | nvarchar(*length*) | Der relative oder absolute URL des Bilds, das für die werbeeinblendung angezeigt wird. |
+| NavigateUrl | nvarchar(*length*) | Die Ziel-URL für die Anzeige. Wenn Sie keinen Wert angeben, ist die Anzeige keinen Link. |
+| AlternateText | nvarchar(*length*) | Der Text angezeigt, wenn das Bild nicht gefunden werden kann. In einigen Browsern wird der Text als QuickInfo angezeigt. Alternativer Text wird auch für den Zugriff verwendet, damit Benutzer, die in der Abbildung sehen können ihre Beschreibung lesen Sprachausgabe hören können. |
+| Stichwort | nvarchar(*length*) | Eine Kategorie für die Anzeige auf der die Seite gefiltert werden kann. |
+| Eindrücke | int(4) | Eine Zahl, die die Wahrscheinlichkeit, wie oft die werbeeinblendung angezeigt werden. Je größer die Zahl, desto häufiger Ad wird angezeigt. Die Summe aller Eindrücke Werte in der XML-Datei kann 2.048.000.000-1 nicht überschreiten. |
+| Breite | int(4) | Die Breite des Bilds in Pixel. |
+| Höhe | int(4) | Die Höhe des Bilds in Pixel. |
 
 In Fällen, in denen Sie bereits eine Datenbank mit einem anderen Schema verfügen, können Sie die **AlternateTextField**, **ImageUrlField**, und **NavigateUrlField** Eigenschaften zuordnen der AdRotator-Attribute, die vorhandene Datenbank. Zum Anzeigen der Daten aus der Datenbank im AdRotator-Steuerelement ein Datenquellen-Steuerelement auf der Seite hinzufügen, konfigurieren Sie die Verbindungszeichenfolge für das Datenquellensteuerelement, zeigen Sie auf die Datenbank und legen Sie das AdRotator Steuerelement **DataSourceID** Eigenschaft, die die ID des Datenquellen-Steuerelements. Verwenden Sie in Fällen, in dem Sie eine AdRotator Ads programmgesteuert konfigurieren müssen die AdCreated-Ereignis. Das Ereignis AdCreated akzeptiert zwei Parameter; ein Objekt und die anderen einer Instanz von AdCreatedEventArgs. Die AdCreatedEventArgs ist ein Verweis auf die Anzeige, die erstellt wird.
 
@@ -152,7 +152,7 @@ Die folgende Tabelle enthält die unterschiedlichen Feld Spaltentypen, die verwe
 | ImageField | Zeigt ein Bild für jedes Element im des GridView-Steuerelements an. |
 | TemplateField | Zeigt benutzerdefinierte Inhalte für jedes Element in einer angegebenen Vorlage entsprechend des GridView-Steuerelements. Diese Spaltenfeldtyp können Sie eine benutzerdefinierte Spalte ein Feld zu erstellen. |
 
-Um eine Spalte feldauflistung deklarativ zu definieren, zunächst hinzufügen, öffnende und schließende  **&lt;Spalten&gt;**  Tags zwischen dem Start- und Endtags des GridView-Steuerelements. Als Nächstes Listen Sie die Spaltenfelder, die zwischen den öffnenden und schließenden enthalten sein sollen  **&lt;Spalten&gt;**  Tags. Die Auflistung der Spalten in der aufgeführten Reihenfolge werden die angegebenen Spalten hinzugefügt. Die **Spalten** Auflistung speichert "all" die Spalte im Steuerelement Felder und ermöglicht Ihnen die Spaltenfelder im GridView-Steuerelement programmgesteuert zu verwalten.
+Um eine Spalte feldauflistung deklarativ zu definieren, zunächst hinzufügen, öffnende und schließende **&lt;Spalten&gt;** Tags zwischen dem Start- und Endtags des GridView-Steuerelements. Als Nächstes Listen Sie die Spaltenfelder, die zwischen den öffnenden und schließenden enthalten sein sollen **&lt;Spalten&gt;** Tags. Die Auflistung der Spalten in der aufgeführten Reihenfolge werden die angegebenen Spalten hinzugefügt. Die **Spalten** Auflistung speichert "all" die Spalte im Steuerelement Felder und ermöglicht Ihnen die Spaltenfelder im GridView-Steuerelement programmgesteuert zu verwalten.
 
 Explizit deklarierten Spaltenfelder können in Kombination mit automatisch generierten Spaltenfelder angezeigt werden. Wenn beide verwendet werden, werden zuerst explizit deklarierten Spaltenfelder gerendert gefolgt von den automatisch generierten Spaltenfelder.
 
@@ -270,10 +270,10 @@ Da das Steuerelement FormView Vorlagen verwendet wird, stellt er keine Möglichk
 | Abbrechen | "Cancel" | In aktualisieren oder Einfügen von Vorgängen verwendet, um den Vorgang abzubrechen und um die vom Benutzer eingegebenen Werte zu verwerfen. Die FormView-Steuerung wird dann wieder in den Modus, der von der DefaultMode-Eigenschaft angegeben. |
 | Löschen | "Löschen" | Bei Löschen von Vorgängen verwendet, die um den angezeigten Datensatz aus der Datenquelle zu löschen. Löst das ItemDeleting und ItemDeleted-Ereignis aus. |
 | Bearbeiten | "Bearbeiten" | Zum Aktualisieren der Vorgänge im FormView-Steuerelement in den Bearbeitungsmodus zu versetzen. Der Inhalt im angegebenen der **EditItemTemplate** Eigenschaft wird für die Datenzeile angezeigt. |
-| Insert | "Einfügen" | Bei Einfügevorgängen verwendet, die versuchen, einen neuen Datensatz in der Datenquelle mit den Werten, die vom Benutzer bereitgestellte einzufügen. Löst das ItemInserting und ItemInserted-Ereignis aus. |
+| Insert | "Insert" | Bei Einfügevorgängen verwendet, die versuchen, einen neuen Datensatz in der Datenquelle mit den Werten, die vom Benutzer bereitgestellte einzufügen. Löst das ItemInserting und ItemInserted-Ereignis aus. |
 | Neu | "New" | Verwendet in Einfügevorgängen zum Platzieren des FormView-Steuerelements im Einfügemodus. Der Inhalt im angegebenen der **InsertItemTemplate** Eigenschaft wird für die Datenzeile angezeigt. |
 | Seite | Seite """ | In Auslagerungsvorgänge verwendet, um eine Schaltfläche in der Pagerzeile darzustellen, die Paging ausführt. Den Pagingvorgang, legen die **CommandArgument** -Eigenschaft der Schaltfläche "Weiter", "Zurück", "First", "Letzte" oder der Index der Seite für die Navigation. Löst das PageIndexChanging und PageIndexChanged-Ereignis aus. |
-| Aktualisieren | "Update" | Verwendet in Aktualisierungsvorgängen für den Versuch, den angezeigten Datensatz in der Datenquelle mit den vom Benutzer bereitgestellten Werten zu aktualisieren. Löst das ItemUpdating und ItemUpdated-Ereignis aus. |
+| Update | "Update" | Verwendet in Aktualisierungsvorgängen für den Versuch, den angezeigten Datensatz in der Datenquelle mit den vom Benutzer bereitgestellten Werten zu aktualisieren. Löst das ItemUpdating und ItemUpdated-Ereignis aus. |
 
 Schaltfläche (die löscht den angezeigten Datensatzes sofort), wenn die Schaltfläche Bearbeiten oder neu geklickt wird, die FormView-Steuerelement in den Bearbeitungsmodus wechselt, oder Einfügemodus bzw., im Gegensatz zu löschen. In den Bearbeitungsmodus wechseln, der Inhalt enthalten, der **EditItemTemplate** Eigenschaft wird für das aktuelle Datenelement angezeigt. In der Regel ist die Bearbeitungselementvorlage definiert, dass die Schaltfläche "Bearbeiten", ein Update mit einer Schaltfläche "Abbrechen ersetzt wird". Eingabesteuerelemente, die für das Feld-Datentyp (z. B. ein Textfeld oder ein CheckBox-Steuerelement) geeignet sind, werden auch in der Regel mit der Wert eines Felds für den Benutzer zum Ändern angezeigt. Der Datensatz in der Datenquelle, auf die Schaltfläche "Aktualisieren" aktualisiert werden, während, Änderungen auf die Schaltfläche "Abbrechen abbricht".
 
@@ -341,7 +341,7 @@ Jede Datenzeile im DetailsView-Steuerelement wird durch das Feldsteuerelement er
 
 Standardmäßig ist die AutoGenerateRows-Eigenschaft auf festgelegt **"true"**, generiert die automatisch mit der Datenquelle gebundenen Feld Zeilenobjekts für jedes Feld gebunden. Gültige bindbare Typen sind Zeichenfolgen-, DateTime, Decimal, Guid und den Satz von primitiven Typen. Jedes Feld wird in einer Zeile als Text, in der Reihenfolge angezeigt in der jedes Feld in der Datenquelle angezeigt wird.
 
-Generiert automatisch die Zeilen bietet eine schnelle und einfache Möglichkeit, um jedes Feld im Datensatz anzuzeigen. Zum Nutzen des DetailsView erweiterten des Steuerelements jedoch Funktionen, die Zeilenfelder einschließt, DetailsView-Steuerelement explizit deklariert werden müssen. Deklarieren der Zeilenfelder, legen Sie zuerst die **AutoGenerateRows** Eigenschaft **"false"**. Als Nächstes fügen Sie öffnende und schließende  **&lt;Felder&gt;**  Tags zwischen dem Start- und Endtag des Steuerelements DetailsView. Listen Sie schließlich die Zeilenfelder, die zwischen den öffnenden und schließenden enthalten sein sollen  **&lt;Felder&gt;**  Tags. Fields-Auflistung, in der aufgeführten Reihenfolge werden die angegebenen Zeilenfelder hinzugefügt. Die **Felder** Auflistung können Sie die Zeilenfeldern im DetailsView-Steuerelement programmgesteuert zu verwalten.
+Generiert automatisch die Zeilen bietet eine schnelle und einfache Möglichkeit, um jedes Feld im Datensatz anzuzeigen. Zum Nutzen des DetailsView erweiterten des Steuerelements jedoch Funktionen, die Zeilenfelder einschließt, DetailsView-Steuerelement explizit deklariert werden müssen. Deklarieren der Zeilenfelder, legen Sie zuerst die **AutoGenerateRows** Eigenschaft **"false"**. Als Nächstes fügen Sie öffnende und schließende **&lt;Felder&gt;** Tags zwischen dem Start- und Endtag des Steuerelements DetailsView. Listen Sie schließlich die Zeilenfelder, die zwischen den öffnenden und schließenden enthalten sein sollen **&lt;Felder&gt;** Tags. Fields-Auflistung, in der aufgeführten Reihenfolge werden die angegebenen Zeilenfelder hinzugefügt. Die **Felder** Auflistung können Sie die Zeilenfeldern im DetailsView-Steuerelement programmgesteuert zu verwalten.
 
 > [!NOTE]
 > Automatisch generierte Felder der Fields-Auflistung nicht hinzugefügt werden.
@@ -513,7 +513,7 @@ Die **ShowCheckBoxes** Eigenschaft wirkt sich auf, und zwar unabhängig davon, o
 
 | **Eigenschaftswert** | **Auswirkung** |
 | --- | --- |
-| Keine | Kontrollkästchen werden nicht auf den Knoten angezeigt. Dies ist die Standardeinstellung. |
+| Keiner | Kontrollkästchen werden nicht auf den Knoten angezeigt. Dies ist die Standardeinstellung. |
 | Stamm | Ein Kontrollkästchen wird nur für den Stammknoten angezeigt. |
 | Übergeordnetes Element | Ein Kontrollkästchen wird nur auf diesen Knoten angezeigt, die über untergeordnete Knoten verfügen. Diese untergeordneten Knoten möglich übergeordneten Knoten oder Blattknoten. |
 | Blattebene | Ein Kontrollkästchen wird nur auf diesen Knoten angezeigt, die keine untergeordneten Knoten besitzen. |
@@ -701,16 +701,16 @@ In dieser Übung wird davon ausgegangen, dass Sie SQL Server lokal ausgeführt w
 16. Klicken Sie auf die **Spalten bearbeiten** verknüpfen, und stellen Sie sicher, dass **Felder automatisch generieren** aktiviert ist.
 17. Klicken Sie auf **OK**.
 18. Mit dem GridView-Steuerelement ausgewählt haben, klicken Sie auf die Schaltfläche neben dem **DataKeyNames** Eigenschaft im Bereich "Eigenschaften".
-19. Wählen Sie **"ProductID"** aus der **verfügbaren Felder** aus, und klicken Sie auf die  **&gt;**  Schaltfläche, um sie hinzuzufügen.
+19. Wählen Sie **"ProductID"** aus der **verfügbaren Felder** aus, und klicken Sie auf die **&gt;** Schaltfläche, um sie hinzuzufügen.
 20. Klicken Sie auf OK.
 21. Fügen Sie ein neues SqlDataSource-Steuerelement auf der Seite hinzu.
 22. Ändern Sie die ID des Steuerelements SqlDataSource **Details**.
 23. Wählen Sie im Menü ': SqlDataSource-Aufgaben **Datenquelle konfigurieren**.
 24. Wählen Sie **Northwind** aus der Dropdownliste und auf **Weiter**.
-25. Wählen Sie **Produkte** aus der **Namen** Dropdownliste, und überprüfen Sie die  **\***  Kontrollkästchen in der **Spalten** Listbox.
+25. Wählen Sie <strong>Produkte</strong> aus der <strong>Namen</strong> Dropdownliste, und überprüfen Sie die <strong> \</ strong > * Kontrollkästchen in der <strong>Spalten</strong> Listbox.
 26. Klicken Sie auf die **, in denen** Schaltfläche.
 27. Wählen Sie **"ProductID"** aus der **Spalte** Dropdownliste.
-28. Wählen Sie  **=**  in der Dropdownliste Operator.
+28. Wählen Sie **=** in der Dropdownliste Operator.
 29. Wählen Sie **Steuerelement** aus der **Quelle** Dropdownliste.
 30. Wählen Sie **GridView1** aus der **Kontroll-ID** Dropdownliste.
 31. Klicken Sie auf die **hinzufügen** Schaltfläche, um der WHERE-Klausel hinzuzufügen.

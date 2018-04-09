@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 2e5328ccda019462163b984da3661f7322b738df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03d20decf0eeff6062fbc6f8dd66f644b405c7cc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Verwenden von Abfragezeichenfolgen-Werte zum Filtern von Daten mit modellbindung und WebForms
 ====================
@@ -79,12 +79,12 @@ Wenn Sie einen der Links klicken, sehen Sie diese Student registrierten Kurse.
 
 ![Kurse anzeigen](using-query-string-values-to-retrieve-data/_static/image2.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm haben Sie eine Verknüpfung mit einem Abfragezeichenfolgenwert hinzugefügt. Dieser Wert der Abfragezeichenfolge wird verwendet, für den Wert des Parameters in der select-Methode.
 
 In der nächsten [Lernprogramm](adding-business-logic-layer.md), Sie den Code aus dem Code-Behind-Dateien in eine Geschäftslogikschicht und eine Datenzugriffsschicht verschoben.
 
->[!div class="step-by-step"]
-[Zurück](integrating-jquery-ui.md)
-[Weiter](adding-business-logic-layer.md)
+> [!div class="step-by-step"]
+> [Zurück](integrating-jquery-ui.md)
+> [Weiter](adding-business-logic-layer.md)

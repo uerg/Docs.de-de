@@ -2,7 +2,7 @@
 uid: mvc/overview/performance/bundling-and-minification
 title: Bundling und Minimierung | Microsoft Docs
 author: Rick-Anderson
-description: "Bundling und Minimierung sind zwei Techniken können Sie in ASP.NET 4.5 um Ladezeit für die Anforderung zu verbessern. Bundling und Minimierung verbessert die Ladezeit von Reducin..."
+description: Bundling und Minimierung sind zwei Techniken können Sie in ASP.NET 4.5 um Ladezeit für die Anforderung zu verbessern. Bundling und Minimierung verbessert die Ladezeit von Reducin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>Bundling und Minimierung
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bundling und Minimierung sind zwei Techniken können Sie in ASP.NET 4.5 um Ladezeit für die Anforderung zu verbessern. Bündelung und Minimierung verbessert die Ladezeit von reduziert die Anzahl der Anforderungen an den Server und reduziert die Größe der angeforderten Objekte (z. B. CSS- und JavaScript.)
 
@@ -65,7 +65,7 @@ Zusätzlich zu entfernen, Kommentare und Leerzeichen nicht erforderlich, wurden 
 
 Die folgende Tabelle zeigt einige wichtige Unterschiede zwischen alle Objekte einzeln auflisten und Bündelung und Minimierung (B/M) in das Beispielprogramm verwenden.
 
-|  | **Mithilfe von B/M** | **Ohne B/M** | **Ändern** |
+|  | **Mithilfe von B/M** | **Ohne B/M** | **Ändern Sie** |
 | --- | --- | --- | --- |
 | **Dateianforderungen** | 9 | 34 | 256% |
 | **Gesendete KB** | 3.26 | 11.92 | 266% |
@@ -98,7 +98,7 @@ Legen Sie zum Aktivieren von Bündelung und Minimierung der `debug` Wert auf "Fa
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> Es sei denn, `EnableOptimizations` ist `true` oder das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `false`, Dateien nicht gebündelt oder verkleinert werden. Darüber hinaus die .min Version der Dateien wird nicht verwendet werden, werden die vollständige Debugversionen ausgewählt werden. `EnableOptimizations`überschreibt das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei
+> Es sei denn, `EnableOptimizations` ist `true` oder das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei wird festgelegt, um `false`, Dateien nicht gebündelt oder verkleinert werden. Darüber hinaus die .min Version der Dateien wird nicht verwendet werden, werden die vollständige Debugversionen ausgewählt werden. `EnableOptimizations` überschreibt das Debug-Attribut in der [Kompilierung Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in der *"Web.config"* Datei
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Mithilfe von Bündelung und Minimierung mit ASP.NET Web Forms und Web Pages
@@ -186,7 +186,7 @@ Jede Datei explizit auf ein Paket hinzugefügt wird im Allgemeinen die bevorzugt
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- Die Platzhalter-Auswahl "\*CSS" wird in jeder CSS-Datei im Ordner "", einschließlich der *Content\themes\base\jquery.ui.all.css* Datei. Die *jquery.ui.all.css* Datei andere CSS-Dateien importiert.
+  Die Platzhalter-Auswahl "\*CSS" wird in jeder CSS-Datei im Ordner "", einschließlich der *Content\themes\base\jquery.ui.all.css* Datei. Die *jquery.ui.all.css* Datei andere CSS-Dateien importiert.
 
 ## <a name="bundle-caching"></a>Bündeln, Zwischenspeichern
 
@@ -233,15 +233,15 @@ Pakete sollten von Seiten partitioniert werden, die sie benötigen. Erstellt z. 
 
 Die `System.Web.Optimization` Namespace in System.Web.Optimization.DLL implementiert ist. Genutzt WebGrease-Bibliothek (WebGrease.dll) für Minimierung-Funktionen, die wiederum Antlr3.Runtime.dll verwendet.
 
-*Ich verwende Twitter schnelle Beiträge und teilen Sie Links aus. Meine Twitter-Handle ist*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Ich verwende Twitter schnelle Beiträge und teilen Sie Links aus. Meine Twitter-Handle ist*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - Video:[Bündelung und Optimieren von](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) von [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Eine Web Pages-Website Weboptimierung hinzugefügt](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
 - [Hinzufügen von Bündelung und Minimierung mit WebForms](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Leistungseinbußen bei der Bündelung und Minimierung auf Browsen im Internet](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) von [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [Verwenden des CDNs und zur Verbesserung der Leistung der Website läuft](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) von Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Leistungseinbußen bei der Bündelung und Minimierung auf Browsen im Internet](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) von [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Verwenden des CDNs und zur Verbesserung der Leistung der Website läuft](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) von Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Minimieren Sie RTT (Roundtripzeit)](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Contributors

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
-title: "Szenario: Konfigurieren einer Stagingumgebung für Web Deploy | Microsoft Docs"
+title: 'Szenario: Konfigurieren einer Stagingumgebung für Web Deploy | Microsoft Docs'
 author: jrjlee
-description: "In diesem Thema wird beschrieben, ein Webdienst-Bereitstellungsszenario für eine Stagingumgebung und erläutert, die Aufgaben, die Sie ausführen, um eine ähnliche Env einrichten müssen..."
+description: In diesem Thema wird beschrieben, ein Webdienst-Bereitstellungsszenario für eine Stagingumgebung und erläutert, die Aufgaben, die Sie ausführen, um eine ähnliche Env einrichten müssen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864559b0599091beeacb87e90e80a51285039df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Szenario: Konfigurieren einer Stagingumgebung für die Bereitstellung
 ====================
@@ -62,6 +62,6 @@ Die folgenden Themen enthalten alle Informationen, die Sie benötigen, um diese 
 
 Anleitungen zum Konfigurieren einer testumgebung typische Entwickler finden Sie unter [Szenario: Konfigurieren einer Umgebung testen für Webbereitstellung](scenario-configuring-a-test-environment-for-web-deployment.md). Anleitungen zum Konfigurieren einer typischen produktionsumgebung finden Sie unter [Szenario: Konfigurieren einer produktiven Umgebung für die Bereitstellung von](scenario-configuring-a-production-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Zurück](scenario-configuring-a-test-environment-for-web-deployment.md)
-[Weiter](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [Weiter](scenario-configuring-a-production-environment-for-web-deployment.md)

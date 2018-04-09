@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: "Einführung in ASP.NET Web Pages – erstellen ein konsistentes Layout | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages – erstellen ein konsistentes Layout | Microsoft Docs
 author: tfitzmac
-description: "Dieses Lernprogramm veranschaulicht die Layouts verwenden, um ein konsistentes Erscheinungsbild für die Seiten auf einer Website zu erstellen, die ASP.NET Web Pages verwendet. Es wird vorausgesetzt, Sie haben die..."
+description: Dieses Lernprogramm veranschaulicht die Layouts verwenden, um ein konsistentes Erscheinungsbild für die Seiten auf einer Website zu erstellen, die ASP.NET Web Pages verwendet. Es wird vorausgesetzt, Sie haben die...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Einführung in ASP.NET Web Pages - erstellen ein konsistentes Layout
 ====================
@@ -149,7 +149,7 @@ Diese Informationen zu Softwaretiteln ist generisch. Nehmen Sie an, dass das Tit
 
 Die `Page` Objekt steht auf allen *cshtml* Seiten und ist für diesen Zweck, d. h. Informationen zwischen einer Seite und das zugehörige Layout gemeinsam verwendet werden.
 
-Öffnen der*\_Layout.cshtml* Seite. Ändern der `<title>` Element so, dass die It wie dieses Markup hinzu:
+Öffnen der<em>\_Layout.cshtml</em> Seite. Ändern der `<title>` Element so, dass die It wie dieses Markup hinzu:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -237,6 +237,6 @@ In den nächsten Lernprogrammen erfahren Sie, wie Sie Ihre Website mit dem Inter
 - [Erstellen ein konsistentes Aussehen](https://go.microsoft.com/fwlink/?LinkID=202891) – ein Artikel, die einige weitere Details zum Arbeiten mit Layouts bereitstellt. Außerdem werden wie einen Wert an einer Layoutseite übergeben, das Anzeigen oder ausblenden Inhalte beschrieben.
 - [Geschachtelte Layoutseiten mit Razor](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) – Mike Brind Blogs ein Beispiel zum Layoutseiten schachteln. (Schließt einen Download der Seiten).
 
->[!div class="step-by-step"]
-[Zurück](deleting-data.md)
-[Weiter](publishing.md)
+> [!div class="step-by-step"]
+> [Zurück](deleting-data.md)
+> [Weiter](publishing.md)

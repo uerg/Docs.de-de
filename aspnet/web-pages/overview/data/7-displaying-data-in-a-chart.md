@@ -2,7 +2,7 @@
 uid: web-pages/overview/data/7-displaying-data-in-a-chart
 title: Anzeigen von Daten in einem Diagramm mit ASP.NET Web Pages (Razor) | Microsoft Docs
 author: microsoft
-description: "In diesem Kapitel wird erläutert, wie Daten in einem Diagramm angezeigt werden. In den vorherigen Kapiteln haben Sie gelernt, wie Sie Daten manuell, und in einem Raster anzeigen. In diesem Kapitel wird..."
+description: In diesem Kapitel wird erläutert, wie Daten in einem Diagramm angezeigt werden. In den vorherigen Kapiteln haben Sie gelernt, wie Sie Daten manuell, und in einem Raster anzeigen. In diesem Kapitel wird...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5cf17e54408d585e9a375b302b61b4e28d9b022a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Anzeigen von Daten in einem Diagramm mit ASP.NET Web Pages (Razor)
 ====================
@@ -129,7 +129,7 @@ Die dritte Option für das Diagramm ist die Verwendung eine XML-Datei wie die Da
 
     ![](7-displaying-data-in-a-chart/_static/image10.jpg)
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_UsingStatements"></a>
 > ### <a name="using-statements-and-fully-qualified-names"></a>"Using"-Anweisungen und voll qualifizierte Namen

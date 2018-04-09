@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C in ASP.NET Core
 
@@ -23,7 +23,7 @@ Von [Cam Soper](https://twitter.com/camsoper)
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloud Identity Management-Lösung für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung bei apps, die in der Cloud und lokal gehostet. Authentifizierungstypen einzelkonten, soziale Netzwerke-Konten gehören und verbundene Unternehmen-Konten. Darüber hinaus können Azure AD B2C Multi-Factor Authentication mit minimaler Konfiguration bereitstellen.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) Azure AD B2C sind separate Produktangeboten. Azure AD-Mandanten repräsentiert eine Organisation ein Azure AD B2C-Mandanten eine Auflistung von Identitäten, die mit den Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) und Azure AD B2C sind separate Produktangeboten. Azure AD-Mandanten repräsentiert eine Organisation ein Azure AD B2C-Mandanten eine Auflistung von Identitäten, die mit den Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Da Web-APIs verfügen über keine Benutzeroberfläche, können sie nicht zum Umleiten des Benutzers an einem sicheren Tokendienst wie Azure AD B2C. Stattdessen wird die API ein trägertoken, das über die aufrufende Anwendung übergeben werden, die bereits den Benutzer mit Azure AD B2C authentifiziert hat. Die API überprüft dann das Token ohne direkten Benutzereingriff.
 
@@ -78,21 +78,21 @@ In Visual Studio:
 1. Erstellen Sie eine neue ASP.NET Core-Webanwendung. 
 2. Wählen Sie **Web-API** aus der Liste der Vorlagen.
 3. Wählen Sie die **Authentifizierung ändern** Schaltfläche.
-    
+
     ![Authentifizierung-Schaltfläche "ändern"](./azure-ad-b2c-webapi/change-auth-button.png)
 
 4. In der **Authentifizierung ändern** wählen Sie im Dialogfeld **einzelne Benutzerkonten**, und wählen Sie dann **Herstellen einer Verbindung mit einer vorhandenen Speicher des Benutzers in der Cloud** in der Dropdownliste aus. 
-    
+
     ![Authentifizierungsdialog ändern](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
 5. Füllen Sie das Formular mit den folgenden Werten:
-    
+
     | Einstellung                       | Wert                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Domänenname**               | *&lt;der Domänenname Ihres B2C-Mandanten&gt;*          |
     | **Anwendungs-ID**            | *&lt;die Anwendungs-ID aus der Zwischenablage einfügen&gt;* |
     | **Registrieren oder anmelden Richtlinie** | `B2C_1_SiUpIn`                                        |
-    
+
     Wählen Sie **OK** schließen die **Authentifizierung ändern** Dialogfeld. Wählen Sie **OK** zum Erstellen der Web-app.
 
 Visual Studio erstellt die Web-API mit einem Controller namens *ValuesController.cs* , die hartcodierte Werte für GET-Anforderungen zurückgibt. Die Klasse wird mit ergänzt die [Authorize-Attribut](xref:security/authorization/simple), sodass alle Anforderungen Authentifizierung erforderlich ist.
@@ -140,17 +140,17 @@ Starten Sie Postman. Standardmäßig zeigt Postman der **neu erstellen** Dialogf
 Aus der **neu erstellen** Dialogfeld:
 
 1. Wählen Sie **anfordern**.
-    
+
     ![Schaltfläche für Anforderungen](./azure-ad-b2c-webapi/postman-create-new.png)
 
 2. Geben Sie *Werte abrufen* in der **Anforderungsnamen** Feld.
 3. Wählen Sie **+ erstellen Auflistung** zum Erstellen einer neuen Auflistung zum Speichern der Anforderungs. Namen für die Sammlung *ASP.NET Core Lernprogramme* und wählen Sie dann auf das Häkchen.
-    
-    ![Erstellen einer neuen Sammlung](./azure-ad-b2c-webapi/postman-create-collection.png)
+
+    ![Eine neue Sammlung erstellen](./azure-ad-b2c-webapi/postman-create-collection.png)
 
 4. Wählen Sie die **speichern zu ASP.NET Core Lernprogrammen** Schaltfläche.
 
-### <a name="test-the-web-api-withoutauthentication"></a>Testen Sie die Web-API-withoutauthentication
+### <a name="test-the-web-api-without-authentication"></a>Die Web-API ohne Authentifizierung testen
 
 Um sicherzustellen, dass die Web-API eine Authentifizierung erforderlich ist, stellen Sie zunächst eine Anforderung ohne Authentifizierung.
 
@@ -165,34 +165,36 @@ Um sicherzustellen, dass die Web-API eine Authentifizierung erforderlich ist, st
 Um eine authentifizierte Anforderung an die Web-API vornehmen zu können, ist ein trägertoken erforderlich. Postman erleichtert es, melden Sie sich an den Azure AD B2C-Mandanten und ein Token zu erhalten.
 
 1. Auf der **Autorisierung** Registerkarte die **Typ** Dropdownliste wählen **OAuth 2.0**. In der **hinzufügen Autorisierungsdaten zu** Dropdownliste wählen **Anforderungsheader**. Wählen Sie **neue Zugriffstoken abrufen**.
-    
+
     ![Registerkarte "Autorisierung" mit Einstellungen](./azure-ad-b2c-webapi/postman-auth-tab.png)
 
 2. Führen Sie die **Abrufen neuer ZUGRIFFSTOKEN** Dialogfeld wie folgt:
-    
-    | Einstellung                   | Wert                                                                                         | Hinweise                                                                                      |
-    |---------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-    | **Tokenname**            | *&lt;Tokenname&gt;*                                                                          | Geben Sie einen beschreibenden Namen für das Token aus.                                                    |
-    | **GRANT-Typ**            | Implizit                                                                                      |                                                                                            |
-    | **Rückruf-URL**          | `https://getpostman.com/postman`                                                              |                                                                                            |
-    | **Auth-URL**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Ersetzen Sie  *&lt;name_der_mandantendomäne&gt;*  mit dem Mandanten Domänennamen ohne spitzen Klammern. |
-    | **Client-ID**             | *&lt;Geben Sie das Postman App- <b>Anwendungs-ID</b>&gt;*                                       |                                                                                            |
-    | **Geheimer Clientschlüssel**         | *&lt;Leer lassen&gt;*                                                                         |                                                                                            |
-    | **Bereich**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Ersetzen Sie  *&lt;name_der_mandantendomäne&gt;*  mit dem Mandanten Domänennamen ohne spitzen Klammern. |
-    | **Clientauthentifizierung** | Clientanmeldeinformationen im Text senden                                                               |                                                                                            |
-    
+
+
+   |                Einstellung                 |                                             Wert                                             |                                                                                                                                    Hinweise                                                                                                                                     |
+   |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      <strong>Tokenname</strong>       |                                  <em>&lt;Tokenname&gt;</em>                                  |                                                                                                                   Geben Sie einen beschreibenden Namen für das Token aus.                                                                                                                    |
+   |      <strong>GRANT-Typ</strong>       |                                           Implizit                                            |                                                                                                                                                                                                                                                                              |
+   |     <strong>Rückruf-URL</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
+   |       <strong>Auth-URL</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Ersetzen Sie <em>&lt;name_der_mandantendomäne&gt;</em> mit Domänennamen des Mandanten.                                                                                                  |
+   |       <strong>Client-ID</strong>       |                <em>&lt;Geben Sie das Postman App- <b>Anwendungs-ID</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
+   |     <strong>Geheimer Clientschlüssel</strong>     |                                 <em>&lt;Leer lassen&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |         <strong>Bereich</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Ersetzen Sie <em>&lt;name_der_mandantendomäne&gt;</em> mit Domänennamen des Mandanten. Ersetzen Sie <em>&lt;api&gt;</em> mit dem Namen der Web-API-Projekt. Können Sie auch Anwendung-ID auf. Das Muster für die URL lautet: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope-Name}</em>. |
+   | <strong>Clientauthentifizierung</strong> |                                Clientanmeldeinformationen im Text senden                                |                                                                                                                                                                                                                                                                              |
+
+
 3. Wählen Sie die **Token anfordern** Schaltfläche.
 
 4. Postman öffnet ein neues Fenster mit den Azure AD B2C-Mandanten Anmelden im Dialogfeld ". Melden Sie sich mit einem vorhandenen Konto, (wenn die Richtlinien testen erstellt wurde), oder wählen Sie **jetzt registrieren** um ein neues Konto zu erstellen. Die **haben Sie Ihr Kennwort vergessen?** Link wird verwendet, um ein vergessenes Kennwort zurückzusetzen.
 
 5. Nach der Anmeldung erfolgreich können das Fenster wird geschlossen und die **ZUGRIFFSTOKEN verwalten** Dialogfeld wird angezeigt. Scrollen Sie zu den unten, und wählen die **verwenden Token** Schaltfläche.
-    
+
     ![Wo finden Sie die Schaltfläche "Token verwenden"](./azure-ad-b2c-webapi/postman-access-token.png)
 
 ### <a name="test-the-web-api-with-authentication"></a>Testen Sie die Web-API mit Authentifizierung
 
 Wählen Sie die **senden** Schaltfläche, um die Anforderung erneut zu senden. In diesem Fall der Antwortstatus ist *200 OK* und die JSON-Nutzlast wird angezeigt, in der Antwort **Text** Registerkarte.
-    
+
 ![Status der Nutzlast und Erfolg](./azure-ad-b2c-webapi/postman-success.png)
 
 ## <a name="next-steps"></a>Nächste Schritte

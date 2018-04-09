@@ -1,7 +1,7 @@
 ---
-title: "Allgemeine Referenz zu Fehlern für Azure App Service und IIS mit ASP.NET Core"
+title: Allgemeine Referenz zu Fehlern für Azure App Service und IIS mit ASP.NET Core
 author: guardrex
-description: "Unterscheiden Sie häufige Fehler, wenn ASP.NET Core-apps auf Azure-Apps-Dienst und IIS-hosting."
+description: Unterscheiden Sie häufige Fehler, wenn ASP.NET Core-apps auf Azure-Apps-Dienst und IIS-hosting.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Allgemeine Referenz zu Fehlern für Azure App Service und IIS mit ASP.NET Core
 
@@ -30,7 +30,7 @@ Sammeln Sie die folgende Informationen an:
 
 Vergleichen Sie die Informationen zu den folgenden allgemeinen Fehlermeldungen an. Wenn eine Übereinstimmung gefunden wird, befolgen Sie die Hinweise zur Fehlerbehebung.
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Installationsprogramm konnte VC++ Redistributable nicht abrufen
 
@@ -42,7 +42,7 @@ Vergleichen Sie die Informationen zu den folgenden allgemeinen Fehlermeldungen a
 
 Problembehandlung:
 
-* Verfügt das System während der Installation des Server Hosting-Pakets nicht über Zugriff auf das Internet, tritt diese Ausnahme auf, wenn das Installationsprogramm *Microsoft Visual C++ 2015 Redistributable* nicht abrufen kann. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Wenn das Installationsprogramm schlägt fehl, kann der Server nicht die .NET Core-Laufzeit, die zum Hosten einer Bereitstellung Framework abhängiges (Diskettenlaufwerk) erforderlich empfängt. Ein Diskettenlaufwerk hosten zu können, stellen Sie sicher, dass die Common Language Runtime, in Programmen installiert ist &amp; Funktionen. Bei Bedarf erhalten Sie einen Runtime-Installer aus [.NET Downloads](https://www.microsoft.com/net/download/core). Starten Sie nach dem Installieren der Runtime das System neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
+* Verfügt das System während der Installation des Server Hosting-Pakets nicht über Zugriff auf das Internet, tritt diese Ausnahme auf, wenn das Installationsprogramm *Microsoft Visual C++ 2015 Redistributable* nicht abrufen kann. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Wenn das Installationsprogramm schlägt fehl, kann der Server nicht die .NET Core-Laufzeit, die zum Hosten einer Bereitstellung Framework abhängiges (Diskettenlaufwerk) erforderlich empfängt. Ein Diskettenlaufwerk hosten zu können, stellen Sie sicher, dass die Common Language Runtime, in Programmen installiert ist &amp; Funktionen. Bei Bedarf erhalten Sie einen Runtime-Installer aus [.NET alle Downloads](https://www.microsoft.com/net/download/all). Starten Sie nach dem Installieren der Runtime das System neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>Durch ein Upgrade des Betriebssystems wird das ASP.NET Core-Modul (32-Bit) entfernt
 
@@ -92,7 +92,7 @@ Problembehandlung:
 
 ## <a name="incorrect-website-physical-path-or-app-missing"></a>Falsche Website physischen Pfad oder die app fehlt
 
-* **Browser:** 403 Verboten: Zugriff wird verweigert  **– oder –**  403.14 Verboten: Der Webserver ist so konfiguriert, dass der Inhalt dieses Verzeichnisses nicht aufgelistet wird.
+* **Browser:** 403 Verboten: Zugriff wird verweigert **– oder –** 403.14 Verboten: Der Webserver ist so konfiguriert, dass der Inhalt dieses Verzeichnisses nicht aufgelistet wird.
 
 * **Anwendungsprotokoll:** Kein Eintrag
 
@@ -138,7 +138,7 @@ Problembehandlung:
 
 * Ein Diskettenlaufwerk wurden bereitgestellt und .NET Core ohne Neustarten von IIS installiert. Starten Sie den Server neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
 
-* Ein Diskettenlaufwerk ist möglicherweise bereitgestellt wurde ohne die .NET Core-Laufzeit installieren, auf dem Hostsystem. Wenn die .NET Core-Laufzeit wurde nicht installiert wurde, führen Sie die **Paket-Installer .NET Core Windows Server-Hosting** auf dem System. Siehe [Installieren des Pakets „.NET Core Windows Server Hosting“](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Wenn es sich bei dem Versuch, die .NET Core-Laufzeit auf einem System ohne Internetverbindung installieren, erhalten Sie die Laufzeit von [.NET Downloads](https://www.microsoft.com/net/download/core) und führen Sie den hosting Paket-Installer zum Installieren des ASP.NET Core-Moduls. Schließen Sie die Installation ab, indem Sie das System oder IIS neu starten. Führen Sie dazu **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus.
+* Ein Diskettenlaufwerk ist möglicherweise bereitgestellt wurde ohne die .NET Core-Laufzeit installieren, auf dem Hostsystem. Wenn die .NET Core-Laufzeit wurde nicht installiert wurde, führen Sie die **Paket-Installer .NET Core Windows Server-Hosting** auf dem System. Siehe [Installieren des Pakets „.NET Core Windows Server Hosting“](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Wenn es sich bei dem Versuch, die .NET Core-Laufzeit auf einem System ohne Internetverbindung installieren, erhalten Sie die Laufzeit von [.NET alle Downloads](https://www.microsoft.com/net/download/all) und führen Sie den hosting Paket-Installer zum Installieren des ASP.NET Core-Moduls. Schließen Sie die Installation ab, indem Sie das System oder IIS neu starten. Führen Sie dazu **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus.
 
 * Ein Diskettenlaufwerk wurden bereitgestellt und die *Microsoft Visual C++ 2015 Redistributable (x64)* ist nicht auf dem System installiert. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
@@ -211,6 +211,18 @@ Problembehandlung
 Problembehandlung
 
 * Überprüfen Sie, ob die Datei *web.config* der untergeordneten App einen `<handlers>`-Abschnitt enthält.
+
+## <a name="stdout-log-path-incorrect"></a>"stdout" Protokollpfad ist falsch
+
+* **Browser:** die app normal reagiert.
+
+* **Anwendungsprotokoll:** Warnung: "stdoutlogfile" konnte nicht erstellt \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log ErrorCode = - 2147024893.
+
+* **Protokoll des ASP.NET Core-Moduls:** Protokolldatei nicht erstellt
+
+Problembehandlung
+
+* Die `stdoutLogFile` im angegebenen Pfad die `<aspNetCore>` Element des *"Web.config"* ist nicht vorhanden. Weitere Informationen finden Sie unter der [protokollieren erstellen und die Umleitung](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) Abschnitt des Referenzthemas zur Konfiguration ASP.NET Core-Modul.
 
 ## <a name="application-configuration-general-issue"></a>Allgemeines Problem mit der Anwendungskonfiguration
 

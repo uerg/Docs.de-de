@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
-title: "Hinzufügen von zusätzlichen DataTable-Spalten (VB) | Microsoft Docs"
+title: Hinzufügen von zusätzlichen DataTable-Spalten (VB) | Microsoft Docs
 author: rick-anderson
-description: "Wenn Sie den TableAdapter-Assistenten zum Erstellen eines typisierten Datasets verwenden, enthält entsprechende DataTable die Spalten, die von der Abfrage Hauptdatenbank zurückgegeben. Aber es..."
+description: Wenn Sie den TableAdapter-Assistenten zum Erstellen eines typisierten Datasets verwenden, enthält entsprechende DataTable die Spalten, die von der Abfrage Hauptdatenbank zurückgegeben. Aber es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b51089057ad1e14901cb09589534d6e575261c3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Hinzufügen von zusätzlichen DataTable-Spalten (VB)
 ====================
@@ -41,9 +41,9 @@ In diesem Lernprogramm untersuchen wir an, wie ein DataTable-s-Schema, um weiter
 
 In der *Erstellen neuer gespeicherter Prozeduren für die typisierte DataSet s TableAdapters* Lernprogramm typisiertes DataSet namens erstellten `NorthwindWithSprocs`. Dieses DataSet enthält derzeit zwei DataTables: `ProductsDataTable` und `EmployeesDataTable`. Die `ProductsTableAdapter` hat die folgenden drei Methoden:
 
-- `GetProducts`-der Hauptabfrage, die zurückgibt, alle Datensätze aus der `Products` Tabelle
-- `GetProductsByCategoryID(categoryID)`-Gibt alle Produkte mit dem angegebenen *CategoryID*.
-- `GetProductByProductID(productID)`-Gibt das bestimmte Produkt mit dem angegebenen *"ProductID"*.
+- `GetProducts` -der Hauptabfrage, die zurückgibt, alle Datensätze aus der `Products` Tabelle
+- `GetProductsByCategoryID(categoryID)` -Gibt alle Produkte mit dem angegebenen *CategoryID*.
+- `GetProductByProductID(productID)` -Gibt das bestimmte Produkt mit dem angegebenen *"ProductID"*.
 
 Der Hauptabfrage und zwei zusätzlichen Methoden zurückgeben den gleichen Satz von Datenfeldern, d. h. alle Spalten aus der `Products` Tabelle. Es gibt keine korrelierten Unterabfragen oder `JOIN` s herausziehen aufeinander bezogene Daten in der `Categories` oder `Suppliers` Tabellen. Aus diesem Grund die `ProductsDataTable` verfügt über eine entsprechende Spalte für jedes Feld in der `Products` Tabelle.
 
@@ -209,12 +209,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Randy Schmidt, Jacky Goor Bernadette Leigh und Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](updating-the-tableadapter-to-use-joins-vb.md)
-[Weiter](working-with-computed-columns-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](updating-the-tableadapter-to-use-joins-vb.md)
+> [Weiter](working-with-computed-columns-vb.md)

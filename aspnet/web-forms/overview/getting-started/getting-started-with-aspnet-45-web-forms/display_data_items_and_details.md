@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 title: Anzeigen von Daten, Elemente und Details | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>Anzeigen von Daten, Elemente und Details
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -38,7 +38,7 @@ Diesem Lernprogramm wird beschrieben, wie Datenelemente und mithilfe von ASP.NET
 
 ### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Dies sind die Funktionen, die im Lernprogramm eingeführt:
 
-- Wurden die Modellbindung
+- Modellbindung
 - Wertanbieter
 
 ## <a name="adding-a-data-control-to-display-products"></a>Hinzufügen eines Datensteuerelements zum Anzeigen von Produkten
@@ -131,7 +131,7 @@ Dieser Code verwendet eine **FormView** -Steuerelement zum Anzeigen von Details 
 Um die oben genannten Markup in der Datenbank zu verbinden, müssen Sie zusätzlichen Code zum Hinzufügen der *ProductDetails.aspx* Code.
 
 1. In **Projektmappen-Explorer**, mit der rechten Maustaste *ProductDetails.aspx* , und klicken Sie dann auf **Code anzeigen**.  
- Die *ProductDetails.aspx.cs* Datei angezeigt.
+   Die *ProductDetails.aspx.cs* Datei angezeigt.
 2. Ersetzen Sie den vorhandenen Code durch folgenden Code:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -160,6 +160,6 @@ In diesem Lernprogramm der Reihe Sie haben Markup und Code hinzufügen, um eine 
 
 [Abrufen und Anzeigen von Daten mit modellbindung und WebForms](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[Zurück](ui_and_navigation.md)
-[Weiter](shopping-cart.md)
+> [!div class="step-by-step"]
+> [Zurück](ui_and_navigation.md)
+> [Weiter](shopping-cart.md)

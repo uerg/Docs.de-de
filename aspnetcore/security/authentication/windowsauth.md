@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff47519db4e9d1c5aea8811fef24c84bb564e80e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Konfigurieren der Windows-Authentifizierung in einer ASP.NET Core-app
+# <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurieren der Windows-Authentifizierung in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com) und [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -84,20 +84,17 @@ Starten Sie die app aus, um sicherzustellen, dass die Windows-Authentifizierung 
 
 ## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>Windows-Authentifizierung mit HTTP.sys oder WebListener aktivieren
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Obwohl Kestrel Windows-Authentifizierung nicht unterstützt, können Sie [HTTP.sys](xref:fundamentals/servers/httpsys) selbst gehostete Szenarien unter Windows unterstützt. Das folgende Beispiel konfiguriert die app Webhost um HTTP.sys mit Windows-Authentifizierung zu verwenden:
 
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Obwohl Kestrel Windows-Authentifizierung nicht unterstützt, können Sie [WebListener](xref:fundamentals/servers/weblistener) selbst gehostete Szenarien unter Windows unterstützt. Das folgende Beispiel konfiguriert die app Webhost um WebListener mit Windows-Authentifizierung zu verwenden:
 
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
----
-
+* * *
 ## <a name="work-with-windows-authentication"></a>Arbeiten mit Windows-Authentifizierung
 
 Der Konfigurationsstatus des anonymen Zugriffs bestimmt die Art, wie die `[Authorize]` und `[AllowAnonymous]` Attribute werden in der app verwendet. Die folgenden beiden Abschnitten wird erläutert, wie die Zustände, zulässige und unzulässige Konfiguration des anonymen Zugriffs zu behandeln.

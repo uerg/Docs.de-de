@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
-title: "Anpassen der Benutzeroberfläche der Datenänderung (c#) | Microsoft Docs"
+title: Anpassen der Benutzeroberfläche der Datenänderung (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm lernen wir an, wie die Schnittstelle für einen bearbeitbaren GridView anpassen, indem Sie das standard-Textfeld ersetzen und das Kontrollkästchen-Steuerelemente mit Alternati..."
+description: In diesem Lernprogramm lernen wir an, wie die Schnittstelle für einen bearbeitbaren GridView anpassen, indem Sie das standard-Textfeld ersetzen und das Kontrollkästchen-Steuerelemente mit Alternati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fb0b20ab25d87eddc0b2f9da786db469b16f861a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f25b265c50870d59721a94c01d78f589a5d5f1c3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-c"></a>Anpassen der Benutzeroberfläche der Datenänderung (c#)
 ====================
@@ -236,7 +236,7 @@ Konvertieren der `Discontinued` CheckBoxField in ein TemplateField, wodurch ein 
 Ersetzen Sie das Kontrollkästchen in den beiden die `ItemTemplate` und `EditItemTemplate` mit einem Steuerelement RadioButtonList festlegen beide RadioButtonList `ID` Eigenschaften `DiscontinuedChoice`. Als Nächstes geben Sie an, dass die RadioButtonList jeweils zwei Optionsfelder, eine mit der Bezeichnung "aktiv" sollte mit dem Wert "False" und eine, die mit der Bezeichnung "Discontinued" mit dem Wert "True". Zu diesem Zweck können Sie entweder die Geben Sie die `<asp:ListItem>` Elemente im direkt über die deklarative Syntax, oder Verwenden der `ListItem` Auflistungs-Editor vom Designer. Abbildung 13 zeigt die `ListItem` Auflistungs-Editor, nachdem die beiden Optionen-Optionsfeld angegeben wurden.
 
 
-[![Hinzufügen](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
+[![Add](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
 
 **Abbildung 13**: Hinzufügen von "Aktiv" und "Discontinued" Optionen zu RadioButtonList ([klicken Sie hier, um das Bild in voller Größe angezeigt](customizing-the-data-modification-interface-cs/_static/image39.png))
 
@@ -276,8 +276,8 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
-[Weiter](implementing-optimistic-concurrency-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [Weiter](implementing-optimistic-concurrency-cs.md)

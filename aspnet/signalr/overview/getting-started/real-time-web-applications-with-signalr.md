@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: "Praktische Übungseinheiten: Echtzeit-Webanwendungen mit SignalR | Microsoft Docs"
+title: 'Praktische Übungseinheiten: Echtzeit-Webanwendungen mit SignalR | Microsoft Docs'
 author: rick-anderson
-description: "Echtzeit-Webanwendungen bieten die Möglichkeit, serverseitige an verbundene Clients Inhalte, sobald sie auftreten, können Sie in Echtzeit mithilfe von push. Für ASP.NET-Entwickler,, ASP..."
+description: Echtzeit-Webanwendungen bieten die Möglichkeit, serverseitige an verbundene Clients Inhalte, sobald sie auftreten, können Sie in Echtzeit mithilfe von push. Für ASP.NET-Entwickler,, ASP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a2bc120ded18ad2302fd6c5cde65a5323e86ca8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Praktische Übungseinheiten: Echtzeit-Webanwendungen mit SignalR
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 [Herunterladen von Web-Lager Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > ![SignalR-Architektur](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -160,12 +160,12 @@ In dieser Aufgabe erstellen Sie SignalR zur Projektmappe hinzufügen und Senden 
 
     *SignalR-Paketinstallation*
 
-    > [!NOTE]
-    > Bei der Installation von **SignalR** NuGet-Pakete Version 2.0.2 aus einer neuen MVC 5-Anwendung, müssen manuell aktualisieren **OWIN** -Paketen zur Version 2.0.1 (oder höher) vor der Installation von SignalR. Zu diesem Zweck können Sie das folgende Skript im Ausführen der **Package Manager Console**:
-    > 
-    > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
-    > 
-    > In einer zukünftigen Version von SignalR wird die OWIN-Abhängigkeiten werden automatisch aktualisiert.
+   > [!NOTE]
+   > Bei der Installation von **SignalR** NuGet-Pakete Version 2.0.2 aus einer neuen MVC 5-Anwendung, müssen manuell aktualisieren **OWIN** -Paketen zur Version 2.0.1 (oder höher) vor der Installation von SignalR. Zu diesem Zweck können Sie das folgende Skript im Ausführen der **Package Manager Console**:
+   > 
+   > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
+   > 
+   > In einer zukünftigen Version von SignalR wird die OWIN-Abhängigkeiten werden automatisch aktualisiert.
 3. In **Projektmappen-Explorer**, erweitern Sie die **Skripts** Ordner, und beachten Sie, die SignalR *Js* Dateien der Projektmappe hinzugefügt wurden.
 
     ![SignalR JavaScript verweist auf](real-time-web-applications-with-signalr/_static/image10.png "SignalR JavaScript verweist.")
@@ -349,7 +349,7 @@ In dieser Aufgabe erstellen Sie eine Datenbank, die als eine Rückwandplatine f�
     ![Der Status von Service Broker Abfragen](real-time-web-applications-with-signalr/_static/image25.png "Abfragen des Service Broker-Status")
 
     *Abfragen von den Service Broker-Status*
-8. Wenn der Wert der **ist\_Broker\_aktiviert** Spalte in der Datenbank ist &quot;0&quot;, verwenden Sie den folgenden Befehl, um ihn zu aktivieren. Ersetzen Sie  **&lt;Ihre Datenbank&gt;**  mit dem Namen, die Sie beim Erstellen der Datenbank festlegen (z. B.: SignalR).
+8. Wenn der Wert der **ist\_Broker\_aktiviert** Spalte in der Datenbank ist &quot;0&quot;, verwenden Sie den folgenden Befehl, um ihn zu aktivieren. Ersetzen Sie **&lt;Ihre Datenbank&gt;** mit dem Namen, die Sie beim Erstellen der Datenbank festlegen (z. B.: SignalR).
 
     [!code-sql[Main](real-time-web-applications-with-signalr/samples/sample12.sql)]
 
@@ -369,7 +369,7 @@ In dieser Aufgabe Konfigurieren Sie **Meister Quiz** zur Verbindung mit der SQL 
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. Wiederholen Sie dieses Mal jedoch den vorherigen Schritt für Projekt **GeekQuiz2**.
-3. Öffnen Sie zum Konfigurieren der SQL Server-Rückwandplatine der **Startup.cs** Datei von der **GeekQuiz** Projekt, und fügen Sie den folgenden Code hinzu der **konfigurieren** Methode. Ersetzen Sie  **&lt;Ihre Datenbank&gt;**  durch Ihren Datenbanknamen, die Sie beim Erstellen der SQL Server-Rückwandplatine verwendet. Wiederholen Sie diesen Schritt für die **GeekQuiz2** Projekt.
+3. Öffnen Sie zum Konfigurieren der SQL Server-Rückwandplatine der **Startup.cs** Datei von der **GeekQuiz** Projekt, und fügen Sie den folgenden Code hinzu der **konfigurieren** Methode. Ersetzen Sie **&lt;Ihre Datenbank&gt;** durch Ihren Datenbanknamen, die Sie beim Erstellen der SQL Server-Rückwandplatine verwendet. Wiederholen Sie diesen Schritt für die **GeekQuiz2** Projekt.
 
     (Codeausschnitt - *RealTimeSignalR - Ex2 - StartupConfiguration*)
 

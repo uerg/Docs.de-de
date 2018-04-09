@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2294f2aba3f765d7849d1f407e85f424dc8b2518
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04d393edca0469df140f06a7d083a48aa8f84b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Code First-Migrationen und Bereitstellung mit dem Entity Framework in einer ASP.NET MVC-Anwendung
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio 2013. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Bisher hat die Anwendung lokal in IIS Express auf dem Entwicklungscomputer ausgeführt wurde. Um einer realen Anwendung für andere Benutzer über das Internet verfügbar zu machen, müssen Sie es auf einen Webhostinganbieter bereitstellen. In diesem Lernprogramm stellen Sie die University Contoso-Anwendung in der Cloud in Azure bereit.
 
@@ -37,9 +37,9 @@ Es wird empfohlen, dass Sie einen Prozess für die fortlaufende Integration mit 
 
 ## <a name="enable-code-first-migrations"></a>Aktivieren Sie die Code First-Migrationen
 
-Wenn Sie eine neue Anwendung entwickeln, Ihr Datenmodell ändert sich häufig, und jedes Mal das Modell ändert, ruft nicht synchron mit der Datenbank ab. Sie haben das Entity Framework automatisch löschen und Neuerstellen der Datenbank bei jeder Änderung des Datenmodells konfiguriert. Wenn Sie hinzufügen, entfernen, Entitätsklassen oder Ändern Ihrer `DbContext` Klasse, das nächste Mal führen Sie die Anwendung es automatisch die vorhandene Datenbank gelöscht wird, ein neues Zertifikat an, die das Modell entspricht und startet ihn mit Testdaten erstellt.
+Wenn Sie eine neue Anwendung entwickeln, ändert sich Ihr Datenmodell häufig. Jedes Mal, wenn das Datenmodell geändert wird, ist es nicht mehr synchron mit der Datenbank. Sie haben das Entity Framework automatisch löschen und Neuerstellen der Datenbank bei jeder Änderung des Datenmodells konfiguriert. Wenn Sie hinzufügen, entfernen, Entitätsklassen oder Ändern Ihrer `DbContext` Klasse, das nächste Mal führen Sie die Anwendung es automatisch die vorhandene Datenbank gelöscht wird, ein neues Zertifikat an, die das Modell entspricht und startet ihn mit Testdaten erstellt.
 
-Synchronisieren der Datenbank mit dem Datenmodell diese Methode funktioniert gut, bis Sie die Anwendung bis hin zur Produktion bereitstellen. Wenn die Anwendung in der produktionsumgebung ausgeführt wird, wird es in der Regel Speichern von Daten, die Sie beibehalten möchten, und nicht alles, was jedes Mal nicht mehr verändert z. B. eine neue Spalte hinzufügen möchten. Die [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) löst dieses Problem durch Code First zum Aktualisieren des Datenbankschemas anstatt durch Löschen und Neuerstellen der Datenbank aktivieren. In diesem Lernprogramm stellen Sie die Anwendung, und um für die Vorbereitung der Migration aktivieren.
+Diese Methode, bei der die Datenbank mit dem Datenmodell synchron gehalten wird, funktioniert so lange, bis Sie die Anwendung für die Produktion bereitstellen. Wenn die Anwendung in der produktionsumgebung ausgeführt wird, wird es in der Regel Speichern von Daten, die Sie beibehalten möchten, und nicht alles, was jedes Mal nicht mehr verändert z. B. eine neue Spalte hinzufügen möchten. Die [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) löst dieses Problem durch Code First zum Aktualisieren des Datenbankschemas anstatt durch Löschen und Neuerstellen der Datenbank aktivieren. In diesem Lernprogramm stellen Sie die Anwendung, und um für die Vorbereitung der Migration aktivieren.
 
 1. Deaktivieren Sie den Initialisierer, die Sie zuvor eingerichtet haben auskommentieren oder das Löschen der `contexts` Element, das Sie die Anwendungsdatei "Web.config" hinzugefügt.
 
@@ -48,7 +48,7 @@ Synchronisieren der Datenbank mit dem Datenmodell diese Methode funktioniert gut
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.xml?highlight=2)]
 
-    Diese Änderung richtet das Projekt ein, damit die erste Migration eine neue Datenbank erstellt wird. Ist dies nicht erforderlich, aber Sie werden später angezeigt, daher ist es eine gute Idee bleiben.
+    Durch diese Änderung wird das Projekt eingerichtet, sodass bei der ersten Migration eine neue Datenbank erstellt wird. Ist dies nicht erforderlich, aber Sie werden später angezeigt, daher ist es eine gute Idee bleiben.
 3. Aus der **Tools** Menü klicken Sie auf **Bibliothekspaket-Manager** und dann **Package Manager Console**.
 
     ![Selecting_Package_Manager_Console](https://asp.net/media/4336350/1pm.png)
@@ -112,11 +112,11 @@ Wenn Sie ausgeführt haben die `add-migration` Befehl Migrationen generiert den 
 
 [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Migrationen Aufrufe der `Up` Methode für die Implementierung des Datenmodells für eine Migration. Bei der Eingabe eines Befehls ein Rollback der Updates, die Migrationen Aufrufe der `Down` Methode.
+Die Migrationsfunktion ruft die Methode `Up` auf, um die Datenmodelländerungen für eine Migration zu implementieren. Wenn Sie einen Befehl eingeben, um ein Rollback für das Update auszuführen, ruft die Migrationsfunktion die Methode `Down` auf.
 
 Dies ist der anfänglichen Migration, die erstellt wurde, wenn Sie eingegeben haben die `add-migration InitialCreate` Befehl. Der Parameter (`InitialCreate` im Beispiel) wird verwendet, für die Datei benennen und kann beliebig sein; Sie wird in der Regel wählen Sie ein Wort oder Ausdruck, die zusammengefasst, was bei der Migration durchgeführt wird. Sie können z. B. eine spätere Migrationen Namen &quot;AddDepartmentTable&quot;.
 
-Wenn Sie die anfängliche Migration erstellt, wenn die Datenbank bereits vorhanden ist, wird die Erstellung Datenbankcode generiert, aber keinen ausführen, da die Datenbank bereits das Datenmodell entspricht. Während der Bereitstellung der app in eine andere Umgebung, in dem die Datenbank ist nicht vorhanden, noch dieser Code wird ausgeführt, um Ihre Datenbank zu erstellen, daher ist es eine gute Idee, zuerst zu testen. Warum ist Sie den Namen der Datenbank in der Verbindungszeichenfolge zuvor--geändert, sodass Migrationen eine neue von Grund auf neu erstellen können.
+Wenn Sie die ursprüngliche Migration erstellt haben, als die Datenbank bereits vorhanden war, wird der Code für die Datenbankerstellung zwar generiert, allerdings muss er nicht ausgeführt werden, da die Datenbank bereits dem Datenmodell entspricht. Wenn Sie die App in einer anderen Umgebung bereitstellen, in der die Datenbank noch nicht vorhanden ist, wird dieser Code ausgeführt, um Ihre Datenbank zu erstellen. Daher sollte dieser zunächst getestet werden. Aus diesem Grund haben Sie den Namen der Datenbank zuvor in der Verbindungszeichenfolge geändert – damit eine Datenbank bei Migrationen von Grund auf neu erstellt werden kann.
 
 1. In der **Package Manager Console** Fenster, geben Sie den folgenden Befehl aus:
 
@@ -125,7 +125,7 @@ Wenn Sie die anfängliche Migration erstellt, wenn die Datenbank bereits vorhand
     ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
     Die `update-database` -Befehl ausgeführt wird die `Up` Methode zum Erstellen der Datenbank aus, und klicken Sie dann es führt die `Seed` Methode zum Auffüllen der Datenbank. Dasselbe Verfahren wird automatisch dann in der Produktion ausgeführt, nach der Bereitstellung der Anwendung, wie Sie im folgenden Abschnitt sehen.
-- Verwendung **Server-Explorer** auf die Datenbank zu überprüfen, wie Sie im ersten Lernprogramm ausgeführt haben, und führen Sie die Anwendung aus, um sicherzustellen, dass alles noch die gleiche wie zuvor.
+2. Verwendung **Server-Explorer** auf die Datenbank zu überprüfen, wie Sie im ersten Lernprogramm ausgeführt haben, und führen Sie die Anwendung aus, um sicherzustellen, dass alles noch die gleiche wie zuvor.
 
 ## <a name="deploy-to-azure"></a>In Azure bereitstellen
 
@@ -153,7 +153,7 @@ Sie müssen die Datenbank in Azure SQL-Datenbank bereitstellen. SQL-Datenbank is
 
     ![Schaltfläche "Neu" im Verwaltungsportal](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/CreateWeb-Sql.png)
 
- Die **neue Web-App und SQL - erstellen** -Assistent wird geöffnet.
+   Die **neue Web-App und SQL - erstellen** -Assistent wird geöffnet.
 
 2. Das Blatt, geben Sie eine Zeichenfolge in der **Anwendungsnamen** Feld eindeutige URL für Ihre Anwendung verwenden. Die vollständige URL besteht hier plus die Standarddomäne von Azure-App-Dienste Eingabe aus (. azurewebsites.net). Wenn die **Anwendungsnamen** bereits verwendet wird, wird der Assistent benachrichtigt Sie dieses mit einem roten *der app-Name ist nicht verfügbar* Nachricht. Wenn die **Anwendungsnamen** ist verfügbar, Sie erhalten ein grünes Häkchen.
 
@@ -175,9 +175,9 @@ Sie müssen die Datenbank in Azure SQL-Datenbank bereitstellen. SQL-Datenbank is
 10. Ändern Sie [Sortierung](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support) nach Bedarf.
 11. Geben Sie einen Administrator **SQL-Administratorbenutzername** und **SQL-Administratorkennwort**. Wenn Sie ausgewählt haben **neue SQL-Datenbankserver**, Sie sind nicht Sie einen vorhandenen Namen und Kennwort hier eingeben, wird Sie einen neuen Namen und ein Kennwort, die Sie jetzt definieren, zur späteren Verwendung beim Zugriff auf die Datenbank eingeben. Wenn Sie einen Server ausgewählt haben, den Sie zuvor erstellt haben, müssen Sie Anmeldeinformationen für diesen Server eingeben.
 12. Telemetrie-Erfassung kann für die App Service mithilfe von Application Insights aktiviert werden. Application Insights mit wenig Konfiguration erfasst wertvolle Ereignis, Ausnahme, Abhängigkeits-, Anforderung und Ablaufverfolgungsinformationen. Weitere Informationen zu Application Insights Einstieg [Azure Docs](https://azure.microsoft.com/services/application-insights/).
-12. Klicken Sie auf **erstellen** unten auf dem Blatt ", um anzugeben, dass Sie fertig sind.
+13. Klicken Sie auf **erstellen** unten auf dem Blatt ", um anzugeben, dass Sie fertig sind.
   
- Das Verwaltungsportal auf der Seite "Dashboards" zurückgibt und die **Benachrichtigungen** Blatt am oberen Rand der Seite zeigt an, dass die Website erstellt wird. Nach einer Weile (in der Regel weniger als eine Minute) wird eine Benachrichtigung, die die Bereitstellung erfolgreich war. In der Navigationsleiste auf der linken Seite der neuen **App Service** wird angezeigt, der *Anwendungsdienste* Abschnitt und der neuen **SQL-Datenbank** wird angezeigt, der *SQL-Datenbanken*  Abschnitt.
+    Das Verwaltungsportal auf der Seite "Dashboards" zurückgibt und die **Benachrichtigungen** Blatt am oberen Rand der Seite zeigt an, dass die Website erstellt wird. Nach einer Weile (in der Regel weniger als eine Minute) wird eine Benachrichtigung, die die Bereitstellung erfolgreich war. In der Navigationsleiste auf der linken Seite der neuen **App Service** wird angezeigt, der *Anwendungsdienste* Abschnitt und der neuen **SQL-Datenbank** wird angezeigt, der *SQL-Datenbanken*  Abschnitt.
 
 ### <a name="deploy-the-application-to-azure"></a>Bereitstellen der Anwendung in Azure
 
@@ -195,30 +195,30 @@ Sie müssen die Datenbank in Azure SQL-Datenbank bereitstellen. SQL-Datenbank is
 5. Nachdem Sie das Profil konfiguriert wurde, die **Verbindung** Registerkarte wird angezeigt. Klicken Sie auf **Validate Connection** um sicherzustellen, dass die Einstellungen richtig sind.
 
     ![Überprüfen der Verbindung](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-7. Wenn die Verbindung erfolgreich überprüft wurde, wird ein grünes Häkchen neben gezeigt die **Validate Connection** Schaltfläche. Klicken Sie auf **Weiter**.
+6. Wenn die Verbindung erfolgreich überprüft wurde, wird ein grünes Häkchen neben gezeigt die **Validate Connection** Schaltfläche. Klicken Sie auf **Weiter**.
   
     ![Erfolgreich überprüfte Verbindung](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
-8. Öffnen der **Remote Verbindungszeichenfolge** Dropdown-Liste unter **SchoolContext** , und wählen Sie die Verbindungszeichenfolge für die Datenbank, die Sie erstellt haben.
-9. Wählen Sie **Datenbank aktualisieren**.
+7. Öffnen der **Remote Verbindungszeichenfolge** Dropdown-Liste unter **SchoolContext** , und wählen Sie die Verbindungszeichenfolge für die Datenbank, die Sie erstellt haben.
+8. Wählen Sie **Datenbank aktualisieren**.
 
     ![Registerkarte "Einstellungen"](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     Diese Einstellung bewirkt, dass der Bereitstellungsprozess so konfigurieren Sie die Anwendung automatisch *"Web.config"* Datei auf dem Zielserver, sodass der Code First verwendet die `MigrateDatabaseToLatestVersion` Initialisiererklasse.
-10. Klicken Sie auf **Weiter**.
-11. In der **Vorschau** auf **starten Preview**.
+9. Klicken Sie auf **Weiter**.
+10. In der **Vorschau** auf **starten Preview**.
   
     ![Schaltfläche "StartPreview" auf der Registerkarte "Vorschau"](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
   
- Die Registerkarte zeigt eine Liste der Dateien, die an den Server kopiert werden. Anzeigen der Vorschau ist nicht erforderlich, um die Anwendung zu veröffentlichen, aber es ist eine nützliche Funktion zu berücksichtigen. In diesem Fall müssen Sie mit der Liste der Dateien keine Wirkung, die angezeigt wird. Das nächste Mal mit das Sie diese Anwendung bereitstellen, werden in dieser Liste nur die Dateien, die geändert wurden.
+    Die Registerkarte zeigt eine Liste der Dateien, die an den Server kopiert werden. Anzeigen der Vorschau ist nicht erforderlich, um die Anwendung zu veröffentlichen, aber es ist eine nützliche Funktion zu berücksichtigen. In diesem Fall müssen Sie mit der Liste der Dateien keine Wirkung, die angezeigt wird. Das nächste Mal mit das Sie diese Anwendung bereitstellen, werden in dieser Liste nur die Dateien, die geändert wurden.
     ![Dateiausgabe StartPreview](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-12. Klicken Sie auf **Veröffentlichen**.
- Visual Studio startet den Prozess der die Dateien auf dem Azure-Server kopieren.
-13. Die **Ausgabe** Fenster zeigt, welche Bereitstellungsaktionen ausgeführt wurden, und gibt erfolgreichen Abschluss der Bereitstellung.
+11. Klicken Sie auf **Veröffentlichen**.
+    Visual Studio startet den Prozess der die Dateien auf dem Azure-Server kopieren.
+12. Die **Ausgabe** Fenster zeigt, welche Bereitstellungsaktionen ausgeführt wurden, und gibt erfolgreichen Abschluss der Bereitstellung.
   
     ![Fenster "Ausgabe" erfolgreich berichtsbereitstellung](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-BuildOutput.png)
-14. Nach der erfolgreichen Bereitstellung wird der Standardbrowser automatisch an die URL der bereitgestellten-Website geöffnet.
- Die Anwendung, die Sie erstellt haben, wird jetzt in der Cloud ausgeführt. 
+13. Nach der erfolgreichen Bereitstellung wird der Standardbrowser automatisch an die URL der bereitgestellten-Website geöffnet.
+    Die Anwendung, die Sie erstellt haben, wird jetzt in der Cloud ausgeführt. 
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
@@ -258,6 +258,6 @@ Lassen Sie Sie Feedback auf wie in diesem Lernprogramm mögen und was wir weiter
 
 Links zu anderen Entity Framework-Ressourcen finden Sie im [ASP.NET Data Access - Ressourcen empfohlen](xref:whitepapers/aspnet-data-access-content-map).
 
->[!div class="step-by-step"]
-[Zurück](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-[Weiter](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+> [!div class="step-by-step"]
+> [Zurück](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
+> [Weiter](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)

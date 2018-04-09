@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 title: Animieren in Reaktion auf Benutzerinteraktionen (c#) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Die Animationen können Stern..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Die Animationen können Stern...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: efb9c34c317ec56b43c498f40a857a9b47fa50b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 783563f4e33087e99a071cf829ca6bab246ba3b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-in-response-to-user-interaction-c"></a>Animieren in Reaktion auf Benutzerinteraktionen (c#)
 ====================
@@ -51,11 +51,11 @@ Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`,
 
 Innerhalb der `<Animations>` Knoten, es gibt fünf Möglichkeiten zum Starten der Animation über die Interaktion des Benutzers (ist das fehlende Element `<OnLoad>` das ausgeführt wird, nachdem die ganze Seite vollständig geladen wurde):
 
-- `<OnClick>`(Mausklick auf das Steuerelement)
-- `<OnHoverOut>`(verlassen hat das Steuerelement der Maus)
-- `<OnHoverOver>`(Maus bewegt wird, über ein Steuerelement, das Beenden der `<OnHoverOut>` Animation)
-- `<OnMouseOut>`(ein Steuerelement verlässt Maus)
-- `<OnMouseOver>`(Maus bewegt wird, über ein Steuerelement, Beenden nicht die `<OnMouseOut>` Animation)
+- `<OnClick>` (Mausklick auf das Steuerelement)
+- `<OnHoverOut>` (verlassen hat das Steuerelement der Maus)
+- `<OnHoverOver>` (Maus bewegt wird, über ein Steuerelement, das Beenden der `<OnHoverOut>` Animation)
+- `<OnMouseOut>` (ein Steuerelement verlässt Maus)
+- `<OnMouseOver>` (Maus bewegt wird, über ein Steuerelement, Beenden nicht die `<OnMouseOut>` Animation)
 
 In diesem Szenario `<OnClick>` verwendet wird. Klickt der Benutzer im Bereich wird skaliert, und gleichzeitig ausgeblendet.
 
@@ -66,6 +66,6 @@ In diesem Szenario `<OnClick>` verwendet wird. Klickt der Benutzer im Bereich wi
 
 Startet die Animation, klicken mit der Maus ([klicken Sie hier, um das Bild in voller Größe angezeigt](animating-in-response-to-user-interaction-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](picking-one-animation-out-of-a-list-cs.md)
-[Weiter](disabling-actions-during-animation-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](picking-one-animation-out-of-a-list-cs.md)
+> [Weiter](disabling-actions-during-animation-cs.md)

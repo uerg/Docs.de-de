@@ -2,7 +2,7 @@
 uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 title: ASP.NET Web Forms Connection Resiliency und Befehl abfangen | Microsoft Docs
 author: Erikre
-description: "In diesem Lernprogramm wird beschrieben, wie so ändern Sie eine beispielanwendung zur Unterstützung von resilienz von Verbindungen und Befehl abgefangen wird."
+description: In diesem Lernprogramm wird beschrieben, wie so ändern Sie eine beispielanwendung zur Unterstützung von resilienz von Verbindungen und Befehl abgefangen wird.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms Connection Resiliency und Befehl abfangen
 ====================
@@ -102,9 +102,9 @@ Wie oben beschrieben auf Grundlage, Sie heruntergeladen und geöffnet haben die 
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
- Die Schnittstelle enthält drei Ablaufverfolgungsstufen an, dass die relative Wichtigkeit der Protokolle, und Sie eine latenzzeitinformationen für Aufrufe von externen Dienst z. B. Datenbankabfragen bereit. Die Protokollierungsmethoden verfügen über Überladungen, mit denen Sie die Ausnahme übergeben. Dies ist so, dass Ausnahmeinformationen einschließlich Stapel-Trace und die inneren Ausnahmen zuverlässig von der Klasse, die die Schnittstelle protokolliert wird anstatt auf, die in jedem Methodenaufruf Protokollierung in der gesamten Anwendung durchgeführter implementiert.  
+   Die Schnittstelle enthält drei Ablaufverfolgungsstufen an, dass die relative Wichtigkeit der Protokolle, und Sie eine latenzzeitinformationen für Aufrufe von externen Dienst z. B. Datenbankabfragen bereit. Die Protokollierungsmethoden verfügen über Überladungen, mit denen Sie die Ausnahme übergeben. Dies ist so, dass Ausnahmeinformationen einschließlich Stapel-Trace und die inneren Ausnahmen zuverlässig von der Klasse, die die Schnittstelle protokolliert wird anstatt auf, die in jedem Methodenaufruf Protokollierung in der gesamten Anwendung durchgeführter implementiert.  
   
- Die `TraceApi` Methoden ermöglichen es Ihnen, die Latenz bei jedem Aufruf an einen externen Dienst z. B. SQL-Datenbank nachverfolgt.
+   Die `TraceApi` Methoden ermöglichen es Ihnen, die Latenz bei jedem Aufruf an einen externen Dienst z. B. SQL-Datenbank nachverfolgt.
 3. In der *Protokollierung* Ordner, erstellen Sie eine Klassendatei namens *Logger.cs* , und Ersetzen Sie den Standardcode durch folgenden Code:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
@@ -121,20 +121,20 @@ Als Nächstes erstellen Sie die Klassen, denen das Entity Framework aus aufrufen
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
- Dieser Code schreibt für erfolgreiche Abfragen oder Befehle ein Information-Protokoll mit abonnentenlatenzzeit-Informationen. Für Ausnahmen wird ein Fehlerprotokoll erstellt.
+   Dieser Code schreibt für erfolgreiche Abfragen oder Befehle ein Information-Protokoll mit abonnentenlatenzzeit-Informationen. Für Ausnahmen wird ein Fehlerprotokoll erstellt.
 2. So erstellen Sie den Interceptor-Klasse, die bei der Eingabe dummy vorübergehende Fehler generiert &quot;auslösen&quot; in der **Namen** Textfeld auf der Seite mit dem Namen *AdminPage.aspx*, erstellen Sie eine Klasse Datei mit dem Namen *InterceptorTransientErrors.cs* in der *Logik* Ordner und Ersetzen Sie die Standardeinstellung von code durch den folgenden Code:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
     Dieser code nur überschreibt die `ReaderExecuting` Methode, die für Abfragen aufgerufen wird, die mehrere Datenzeilen zurückgeben können. Falls gewünscht, um resilienz von Verbindungen für andere Typen von Abfragen zu überprüfen, können Sie auch überschreiben die `NonQueryExecuting` und `ScalarExecuting` Methoden, wie die Protokollierung-Interceptor verfügt.  
   
- Sie werden später erneut, melden Sie sich als "Administrator" und wählen die **Admin** Link auf der oberen Navigationsleiste. Klicken Sie dann auf die *AdminPage.aspx* Seite Sie ein Produkt mit dem Namen fügen &quot;auslösen&quot;. Der Code erstellt eine dummy-SQL-Datenbank-Ausnahme für Fehlernummer 20, einen Typ in der Regel nur vorübergehend aufzutreten bezeichnet. Andere Fehlernummern, die derzeit als vorübergehend erkannt werden 64, 233 10053, 10054, 10060, 10928, 10929, 40197, 40501 und 40613, aber dies sind implementierungsspezifisch in neuen Versionen von SQL-Datenbank. Das Produkt wird in "TransientErrorExample", die Sie im Code des folgen können umbenannt werden die *InterceptorTransientErrors.cs* Datei.  
+   Sie werden später erneut, melden Sie sich als "Administrator" und wählen die **Admin** Link auf der oberen Navigationsleiste. Klicken Sie dann auf die *AdminPage.aspx* Seite Sie ein Produkt mit dem Namen fügen &quot;auslösen&quot;. Der Code erstellt eine dummy-SQL-Datenbank-Ausnahme für Fehlernummer 20, einen Typ in der Regel nur vorübergehend aufzutreten bezeichnet. Andere Fehlernummern, die derzeit als vorübergehend erkannt werden 64, 233 10053, 10054, 10060, 10928, 10929, 40197, 40501 und 40613, aber dies sind implementierungsspezifisch in neuen Versionen von SQL-Datenbank. Das Produkt wird in "TransientErrorExample", die Sie im Code des folgen können umbenannt werden die *InterceptorTransientErrors.cs* Datei.  
   
- Der Code gibt die Ausnahme zurück, auf Entity Framework, anstatt die Abfrage ausgeführt, und übergeben die Ergebnisse zurück. Die vorübergehende Ausnahme zurückgegeben *vier* Zeiten und der Code dann wiederhergestellt wird, um das normale Verfahren für die Abfrage an die Datenbank übergeben.
+   Der Code gibt die Ausnahme zurück, auf Entity Framework, anstatt die Abfrage ausgeführt, und übergeben die Ergebnisse zurück. Die vorübergehende Ausnahme zurückgegeben *vier* Zeiten und der Code dann wiederhergestellt wird, um das normale Verfahren für die Abfrage an die Datenbank übergeben.
 
     Da alles, was protokolliert werden, müssen Sie möglicherweise feststellen, dass Entity Framework, zum Ausführen der Abfrage viermal versucht vor mehrmaligen und der einzige Unterschied in der Anwendung ist, dass es zum Rendern einer Seite mit Abfrageergebnissen länger dauert.  
   
- Die Anzahl der Häufigkeit, mit die Entity Framework versucht ist konfigurierbar. der Code gibt vier Mal aus, da dies der Standardwert für die SQL-Datenbank-Ausführungsrichtlinie ist. Wenn Sie die Ausführungsrichtlinie ändern, hatte Sie ändern den Code hier, der angibt, wie oft vorübergehende Fehler generiert werden. Außerdem können Sie den Code, um mehrere Ausnahmen generiert werden, damit Entity Framework löst ändern die `RetryLimitExceededException` Ausnahme.
+   Die Anzahl der Häufigkeit, mit die Entity Framework versucht ist konfigurierbar. der Code gibt vier Mal aus, da dies der Standardwert für die SQL-Datenbank-Ausführungsrichtlinie ist. Wenn Sie die Ausführungsrichtlinie ändern, hatte Sie ändern den Code hier, der angibt, wie oft vorübergehende Fehler generiert werden. Außerdem können Sie den Code, um mehrere Ausnahmen generiert werden, damit Entity Framework löst ändern die `RetryLimitExceededException` Ausnahme.
 3. In *"Global.asax"*, fügen Sie die folgenden using-Anweisungen:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
@@ -158,16 +158,16 @@ Sie haben auf eine Weise simulationscode vorübergehender Fehler geschrieben, di
 2. Wählen Sie **Admin** in der Navigationsleiste oben.
 3. Geben Sie ein neues Produkt mit dem Namen "Throw" mit der entsprechenden Beschreibung, Preis und Image-Datei ein.
 4. Drücken Sie die **Produkt hinzufügen** Schaltfläche.  
- Sie werden bemerken, dass der Browser ist scheinbar stillstehen für einige Sekunden, während das Entity Framework die Abfrage mehrere Male wiederholt. Der erste Wiederholungsversuch erfolgt sehr schnell, und klicken Sie dann die Wartezeit vor jedem Neuversuch zusätzliche erhöht. Dieser Vorgang mehr vor jedem Neuversuch aufgerufen wird, warten auf *Exponentielles Backoff* .
+   Sie werden bemerken, dass der Browser ist scheinbar stillstehen für einige Sekunden, während das Entity Framework die Abfrage mehrere Male wiederholt. Der erste Wiederholungsversuch erfolgt sehr schnell, und klicken Sie dann die Wartezeit vor jedem Neuversuch zusätzliche erhöht. Dieser Vorgang mehr vor jedem Neuversuch aufgerufen wird, warten auf *Exponentielles Backoff* .
 5. Warten Sie, bis die Seite nicht mehr Atttempting geladen wird.
 6. Beenden Sie das Projekt, und sehen Sie sich im Visual Studio **Ausgabe** Fenster aus, um die Ablaufverfolgungsausgabe finden Sie unter. Sie finden die **Ausgabe** Fenster dazu **Debuggen**  - &gt; **Windows**  - &gt;  **Ausgabe**. Sie müssen möglicherweise führen Sie einen Bildlauf nach verschiedene Protokolle, die von Ihrer Protokollierung geschrieben.  
   
- Beachten Sie, dass Sie, die tatsächlichen SQL-Abfragen an die Datenbank gesendet sehen können. Sie finden Sie einige anfängliche Abfragen und Befehle, die Entity Framework ermöglicht wird, um zu beginnen, überprüfen die Datenbank-Version und Migration die Verlaufstabelle.   
+   Beachten Sie, dass Sie, die tatsächlichen SQL-Abfragen an die Datenbank gesendet sehen können. Sie finden Sie einige anfängliche Abfragen und Befehle, die Entity Framework ermöglicht wird, um zu beginnen, überprüfen die Datenbank-Version und Migration die Verlaufstabelle.   
     ![Ausgabefenster](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
- Beachten Sie, dass es sich bei diesem Test nicht wiederholt werden kann, es sei denn, Sie die Anwendung zu beenden und starten Sie ihn neu. Wunsch verbindungsstabilität mehrmals in einer einzelnen Ausführung der Anwendung testen können Sie konnte Code schreiben, um die Fehleranzahl im Zurücksetzen `InterceptorTransientErrors` .
+   Beachten Sie, dass es sich bei diesem Test nicht wiederholt werden kann, es sei denn, Sie die Anwendung zu beenden und starten Sie ihn neu. Wunsch verbindungsstabilität mehrmals in einer einzelnen Ausführung der Anwendung testen können Sie konnte Code schreiben, um die Fehleranzahl im Zurücksetzen `InterceptorTransientErrors` .
 7. Mit den Unterschied Ausführungsstrategie (wiederholungsrichtlinie) hergestellt hat, Kommentar der `SetExecutionStrategy` in Zeile *WingtipToysConfiguration.cs* in der Datei die *Logik* Ordner, führen Sie die **Admin**  Seite im Debugmodus erneut, und fügen Sie das Produkt mit dem Namen &quot;auslösen&quot; erneut aus.  
   
- Dieses Mal hält der Debugger bei der ersten generierte Ausnahme sofort, wenn er versucht, die Abfrage beim ersten ausführen.  
+   Dieses Mal hält der Debugger bei der ersten generierte Ausnahme sofort, wenn er versucht, die Abfrage beim ersten ausführen.  
     ![Debuggen - Details anzeigen](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. Heben Sie die auskommentierung der `SetExecutionStrategy` Zeile in der *WingtipToysConfiguration.cs* Datei.
 

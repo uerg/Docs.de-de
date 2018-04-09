@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5cf1a430d6fe94174a877beb04b930409bdbf084
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Erstellen eine Datenzugriffsschicht (VB)
 ====================
@@ -77,7 +77,7 @@ Beim Arbeiten mit ist eine Option für die Daten die Logik datenbezogene direkt 
 
 Der gesamte Code, der speziell für die zugrunde liegende Datenquelle z. B. das Erstellen einer Verbindungs mit der Datenbank ist ausstellen `SELECT`, `INSERT`, `UPDATE`, und `DELETE` Befehle usw., sollten in der DAL befinden. Die Darstellungsschicht dürfen nicht für alle Verweise auf solche Datenzugriffscode, aber Sie sollten stattdessen Aufrufe an die DAL für alle datenanforderungen durchführen. Datenzugriffsebene enthalten i. d. r. Methoden für den Zugriff auf Daten in der zugrunde liegenden Datenbank. Die Northwind-Datenbank hat, z. B. `Products` und `Categories` Tabellen, mit denen die Produkte für den Verkauf und die Kategorien, zu denen sie gehören. In unserem DAL haben wir Methoden wie z. B.:
 
-- `GetCategories(),`die gibt Informationen über alle Kategorien zurück.
+- `GetCategories(),` die gibt Informationen über alle Kategorien zurück.
 - `GetProducts()`, die Informationen für alle Produkte zurück
 - `GetProductsByCategoryID(categoryID)`, das alle Produkte, die eine angegebene Kategorie angehören, zurück
 - `GetProductByProductID(productID)`, die Informationen zu einem bestimmten Produkt zurück
@@ -403,48 +403,48 @@ Erstellen Sie die folgenden Methoden, die mithilfe der folgenden Abfragen und Ta
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
 
 
 [![Der DataSet-Designer, nachdem die vier TableAdapter hinzugefügt wurden](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
@@ -537,12 +537,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Ron Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez und Carlos Santos. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](master-pages-and-site-navigation-cs.md)
-[Weiter](creating-a-business-logic-layer-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](master-pages-and-site-navigation-cs.md)
+> [Weiter](creating-a-business-logic-layer-vb.md)

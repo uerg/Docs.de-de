@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: "Web-Unternehmensbereitstellung: Szenarioübersicht | Microsoft Docs"
+title: 'Web-Unternehmensbereitstellung: Szenarioübersicht | Microsoft Docs'
 author: jrjlee
-description: "Diese Lernprogramme verwendet einer beispiellösung mit einer realistischen Maß an Komplexität, zusammen mit einem fiktiven Unternehmen Bereitstellungsszenario Ref bereitstellen..."
+description: Diese Lernprogramme verwendet einer beispiellösung mit einer realistischen Maß an Komplexität, zusammen mit einem fiktiven Unternehmen Bereitstellungsszenario Ref bereitstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: f90db22bf98456661c530e728e854ce109aec6fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Web-Unternehmensbereitstellung: Szenarioübersicht
 ====================
@@ -39,7 +39,7 @@ Application Lifecycle Management (ALM) Prozesse an Fabrikam, Inc. erfordern die 
 
 Jede dieser Umgebungen verfügt über unterschiedliche Konfigurations- und sicherheitsanforderungen und jede eindeutige Herausforderung stellt.
 
-### <a name="the-fabrikam-inc-server-infrastructure"></a>Der Fabrikam, Inc. Server-Infrastruktur
+### <a name="the-fabrikam-inc-server-infrastructure"></a>The Fabrikam, Inc. Server-Infrastruktur
 
 Dies ist die allgemeine Entwicklung und Bereitstellung Infrastruktur bei Fabrikam, Inc.
 
@@ -122,6 +122,6 @@ Darüber hinaus löst die Bereitstellung verwalten, wenn häufige und inkremente
 - Bereitstellungsaktivitäten protokolliert werden soll. Der Bereitstellungsprozess sollte e-Mail-Benachrichtigungen der erfolgreiche oder fehlgeschlagene Bereitstellungen an festgelegte Empfänger senden.
 - Ausfall eine automatisierte Bereitstellung sollten der Bereitstellungsprozess wiederholen Sie die aktuelle Bereitstellung oder der vorherigen Webpaket stattdessen bereitstellen.
 
->[!div class="step-by-step"]
-[Zurück](deploying-web-applications-in-enterprise-scenarios.md)
-[Weiter](application-lifecycle-management-from-development-to-production.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-web-applications-in-enterprise-scenarios.md)
+> [Weiter](application-lifecycle-management-from-development-to-production.md)

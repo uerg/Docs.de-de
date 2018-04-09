@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
 title: Verwenden das Schieberegler-Steuerelement mit Auto-Postback (VB) | Microsoft Docs
 author: wenz
-description: "Das Schieberegler-Steuerelement im AJAX Control Toolkit bietet einen grafische Schieberegler, der mit der Maus gesteuert werden kann. Es ist möglich, stellen die Schieberegler Autopost..."
+description: Das Schieberegler-Steuerelement im AJAX Control Toolkit bietet einen grafische Schieberegler, der mit der Maus gesteuert werden kann. Es ist möglich, stellen die Schieberegler Autopost...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fedd3ff947c6f5d5d4d00791087e9fd825fdf9d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: edb8fa13716c3c0beb7cf86dd3843caaec939483
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-slider-control-with-auto-postback-vb"></a>Verwenden das Schieberegler-Steuerelement mit Auto-Postback (VB)
 ====================
@@ -63,6 +63,6 @@ Verschieben des Schiebereglers wird einen Postback ausgelöst ([klicken Sie hier
 
 Danach wird das Datum der Änderung in die Bezeichnung geschrieben ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-the-slider-control-with-auto-postback-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Zurück](databinding-the-slider-control-cs.md)
-[Weiter](databinding-the-slider-control-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](databinding-the-slider-control-cs.md)
+> [Weiter](databinding-the-slider-control-vb.md)

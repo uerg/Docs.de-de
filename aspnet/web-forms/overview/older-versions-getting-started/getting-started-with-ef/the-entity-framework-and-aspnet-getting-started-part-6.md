@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 6 | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 6 | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework. Die beispielanwendung ist...
 ms.author: aspnetcontent
@@ -12,22 +12,22 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 164c2002a119420555d2c7065c5a79a5f433a725
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b76be25501275ba676c9a9acca8e73333439ee70
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 6
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
 
 ## <a name="implementing-table-per-hierarchy-inheritance"></a>Implementieren der "Tabelle pro Hierarchie"-Vererbung
 
-Im vorherigen Lernprogramm arbeitet Sie mit verbundenen Daten hinzufügen und Löschen von Beziehungen und durch Hinzufügen einer neuen Entität, die eine Beziehung zu einer vorhandenen Entität mussten. In diesem Lernprogramm erfahren Sie, wie Vererbung im Datenmodell implementiert.
+Im vorherigen Lernprogramm arbeitet Sie mit verbundenen Daten hinzufügen und Löschen von Beziehungen und durch Hinzufügen einer neuen Entität, die eine Beziehung zu einer vorhandenen Entität mussten. In diesem Tutorial erfahren Sie, wie Sie die Vererbung in das Datenmodell implementieren können.
 
 Vererbung können Sie in einer objektorientierten Programmierung mit verwandten Klassen arbeiten erleichtern. Sie können z. B. erstellen `Instructor` und `Student` abgeleitete Klassen eine `Person` Basisklasse. Sie können die gleichen Arten von Strukturen der Vererbung zwischen Entitäten im Entity Framework erstellen.
 
@@ -57,9 +57,9 @@ TPH Muster der methodenvererbung aufgeführt übermitteln im Entity Framework al
 
 ## <a name="adding-instructor-and-student-entities"></a>Hinzufügen von Dozenten und Student-Entitäten
 
-Öffnen der *SchoolModel.edmx* Datei der rechten Maustaste auf einen freien Bereich im Designer auswählen **hinzufügen**, und wählen Sie dann **Entität***.*
+Öffnen der <em>SchoolModel.edmx</em> Datei der rechten Maustaste auf einen freien Bereich im Designer auswählen <strong>hinzufügen</strong>, und wählen Sie dann <strong>Entität</strong><em>.</em>
 
-[![Image01 abgerufen wird](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
 In der **Entität hinzufügen** (Dialogfeld), Name der Entität `Instructor` und legen Sie dessen **Basistyp** option `Person`.
 
@@ -161,6 +161,6 @@ Als Ergebnis dieser Änderungen haben Sie die Contoso-University Anwendung Verwa
 
 Sie haben nun gesehen, eine Möglichkeit, ein Vererbungsmuster im Entity Framework zu implementieren. Im folgenden Lernprogramm erfahren Sie, wie Sie gespeicherte Prozeduren verwenden, um besser steuern, wie das Entity Framework für die Datenbank zugreift.
 
->[!div class="step-by-step"]
-[Zurück](the-entity-framework-and-aspnet-getting-started-part-5.md)
-[Weiter](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Zurück](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [Weiter](the-entity-framework-and-aspnet-getting-started-part-7.md)

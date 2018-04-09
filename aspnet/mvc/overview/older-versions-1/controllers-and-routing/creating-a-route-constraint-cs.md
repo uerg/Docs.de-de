@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
-title: "Erstellen einer Routeneinschränkung (c#) | Microsoft Docs"
+title: Erstellen einer Routeneinschränkung (c#) | Microsoft Docs
 author: StephenWalther
-description: "In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen."
+description: In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ee83a134dcbdd1abfb296f3126a64c7d4ebab7f5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3159feb6538e3048f4f235f7d549e692604ca4e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-route-constraint-c"></a>Erstellen einer Routeneinschränkung (c#)
 ====================
@@ -43,13 +43,13 @@ Beachten Sie, dass die Details()-Aktion, die von der Produkt-Controller verfügb
 
 Im Codebeispiel 1 definierten Route entspricht eine der folgenden URLs:
 
-- / Produkt/23
-- / Produkt/7
+- /Product/23
+- /Product/7
 
 Leider wird die Route auch die folgenden URLs übereinstimmen:
 
-- / Produkt/Bla
-- / Produkt/apple
+- /Product/blah
+- /Product/apple
 
 Da die Details() Aktion einen Ganzzahlparameter erwartet, verursacht der eine Anforderung, die etwas anderes als einen ganzzahligen Wert enthält einen Fehler aus. Beispielsweise bei der Eingabe der URL-/Product/apple in Ihrem Browser erhalten die Seite "Fehler" in Abbildung 1 Sie.
 
@@ -67,16 +67,16 @@ Was Sie tatsächlich möchten ist nur mit URLs übereinstimmen, die eine richtig
 
 Der reguläre Ausdruck \d+ entspricht mindestens einem ganzen Zahlen. Diese Einschränkung bewirkt, dass die Route Produkt entsprechend den folgenden URLs:
 
-- / Produkt/3
-- / Produkt/8999
+- /Product/3
+- /Product/8999
 
 Aber nicht die folgenden URLs:
 
-- / Produkt/apple
+- /Product/apple
 - / Produkt
 
 - Diese Browseranforderungen von einer anderen Route verarbeitet werden oder, wenn keine übereinstimmenden Routen vorhanden sind eine *die Ressource konnte nicht gefunden werden* Fehler zurückgegeben.
 
->[!div class="step-by-step"]
-[Zurück](creating-custom-routes-cs.md)
-[Weiter](creating-a-custom-route-constraint-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-custom-routes-cs.md)
+> [Weiter](creating-a-custom-route-constraint-cs.md)

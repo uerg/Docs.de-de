@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 title: Automatisieren Sie alles (Real-World Cloud Apps with Azure erstellen) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatisieren Sie alles (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -128,7 +128,7 @@ Als Erstes wird das Skript wird die Web-app erstellen, indem die `New-AzureWebsi
 
 ### <a name="create-the-storage-account"></a>Das Speicherkonto erstellen
 
-Dann das Hauptskript führt die *neu AzureStorage.ps1* Skript zu erstellen, angeben "*&lt;angegebenen" Websitename "&gt;*Speicher" für den speicherkontonamen und den gleichen Standort des Rechenzentrums als die Web-app.
+Dann das Hauptskript führt die <em>neu AzureStorage.ps1</em> Skript zu erstellen, angeben "<em>&lt;angegebenen" Websitename "&gt;</em>Speicher" für den speicherkontonamen und den gleichen Standort des Rechenzentrums als die Web-app.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
@@ -158,7 +158,7 @@ Das Skript zum Erstellen der Datenbank die Entwickler-Computer IP-Adresse abgeru
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`ist eine Funktion in das Skript, das Aufrufen der `ConvertTo-SecureString` -Cmdlet zum Verschlüsseln des Kennworts und gibt eine `PSCredential` Objekt vom selben Typ, der die `Get-Credential` -Cmdlet zurückgegeben.
+    `New-PSCredentialFromPlainText` ist eine Funktion in das Skript, das Aufrufen der `ConvertTo-SecureString` -Cmdlet zum Verschlüsseln des Kennworts und gibt eine `PSCredential` Objekt vom selben Typ, der die `Get-Credential` -Cmdlet zurückgegeben.
 - Erstellt die dienstanwendungs-Datenbank und der Mitgliedschaftsdatenbank mithilfe der `New-AzureSqlDatabase` Cmdlet.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -264,6 +264,6 @@ In der [nächsten Kapitels](source-control.md) Wir betrachten Quellcode und erl�
 - [Mithilfe von Windows PowerShell-Skripts zum Veröffentlichen in Entwicklungs- und Testumgebungen](https://msdn.microsoft.com/library/azure/dn642480.aspx). MSDN-Dokumentation, die erläutert, wie veröffentlichungsskripts, die Visual Studio generiert automatisch für Webprojekte.
 - [PowerShell-Tools für Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Visual Studio-Erweiterung, die in Visual Studio die sprachunterstützung für Windows PowerShell hinzugefügt.
 
->[!div class="step-by-step"]
-[Zurück](introduction.md)
-[Weiter](source-control.md)
+> [!div class="step-by-step"]
+> [Zurück](introduction.md)
+> [Weiter](source-control.md)

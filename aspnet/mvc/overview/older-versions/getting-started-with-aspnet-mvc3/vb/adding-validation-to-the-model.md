@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
-title: "Hinzufügen einer Validierung für das Modell (VB) | Microsoft Docs"
+title: Hinzufügen einer Validierung für das Modell (VB) | Microsoft Docs
 author: Rick-Anderson
 description: In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: cac86760b90c90a0ea2fad16268f60b5ccf61299
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 86058530aa00ecbc00aeebc6ed7b5cf019fdad72
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>Hinzufügen einer Validierung für das Modell (VB)
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also eine kostenlose Version von Microsoft Visual Studio. Bevor Sie beginnen, stellen Sie sicher, dass Sie die unten aufgeführten erforderlichen Komponenten installiert haben. Sie können alle installieren, indem Sie auf den folgenden Link: [Webplattform-Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternativ können Sie die erforderlichen Komponenten, die über die folgenden Links einzeln installieren:
 > 
@@ -123,6 +123,6 @@ Führen Sie die Anwendung, und navigieren Sie zu der `Movies` Controller.
 
 In den nächsten Teil der Reihe, prüfen Sie die Anwendung und wir stellen einige Verbesserungen, die automatisch generierte `Details` und `Delete` Methoden...
 
->[!div class="step-by-step"]
-[Zurück](adding-a-new-field.md)
-[Weiter](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-new-field.md)
+> [Weiter](improving-the-details-and-delete-methods.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
-title: "Eine Übersicht über bearbeiten und Löschen von Daten in das DataList (VB) | Microsoft Docs"
+title: Eine Übersicht über bearbeiten und Löschen von Daten in das DataList (VB) | Microsoft Docs
 author: rick-anderson
-description: "Während der DataList integrierte bearbeiten und Löschen von Funktionen fehlen, werden in diesem Lernprogramm erfahren Sie, wie DataList erstellen, unterstützt wird, bearbeiten und Löschen von o..."
+description: Während der DataList integrierte bearbeiten und Löschen von Funktionen fehlen, werden in diesem Lernprogramm erfahren Sie, wie DataList erstellen, unterstützt wird, bearbeiten und Löschen von o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e08b55f763677a40a03503e54a23dc77a10a34f5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6956777e91184a92e189db7aa716a4bd7dbbfccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>Eine Übersicht über bearbeiten und Löschen von Daten in das DataList (VB)
 ====================
@@ -249,7 +249,7 @@ Klicken Sie auf die bearbeitete Produkt s Update oder "Abbrechen"-Schaltflächen
 
 Damit das DataList sämtliche Elemente in den schreibgeschützten Modus rendern, müssen wir:
 
-1. Legen Sie die DataList s [ `EditItemIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) auf den Index des eine nicht existierende `DataListItem` Index. `-1`ist eine sichere Wahl, da die `DataListItem` ausgehend von Indizes `0`.
+1. Legen Sie die DataList s [ `EditItemIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) auf den Index des eine nicht existierende `DataListItem` Index. `-1` ist eine sichere Wahl, da die `DataListItem` ausgehend von Indizes `0`.
 2. Binden Sie die Daten an die Datenliste. Seit Nein `DataListItem` `ItemIndex` vorangestellten entsprechen DataList s `EditItemIndex`, wird die gesamte DataList in einem nur-Lese Modus gerendert werden.
 
 Diese Schritte können mit den folgenden Ereignishandlercode ausgeführt werden:
@@ -263,7 +263,7 @@ Ist der letzte Ereignishandler zum abschließen müssen der `UpdateCommand` -Ere
 
 1. Programmgesteuerten Zugriff auf den Namen des Produkts Benutzer eingegeben und Preis als auch die bearbeitete Produkt s `ProductID`.
 2. Veranlassen Sie die Aktualisierung durch Aufrufen der entsprechenden `UpdateProduct` überladen, die der `ProductsBLL` Klasse.
-3. Legen Sie die DataList s [ `EditItemIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) auf den Index des eine nicht existierende `DataListItem` Index. `-1`ist eine sichere Wahl, da die `DataListItem` ausgehend von Indizes `0`.
+3. Legen Sie die DataList s [ `EditItemIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) auf den Index des eine nicht existierende `DataListItem` Index. `-1` ist eine sichere Wahl, da die `DataListItem` ausgehend von Indizes `0`.
 4. Binden Sie die Daten an die Datenliste. Seit Nein `DataListItem` `ItemIndex` vorangestellten entsprechen DataList s `EditItemIndex`, wird die gesamte DataList in einem nur-Lese Modus gerendert werden.
 
 Schritt 1 und 2 sind verantwortlich für das Speichern des Benutzers s Änderungen; die Schritte 3 und 4 zurückgegeben DataList Datenbankzustands vorab bearbeiten, nachdem die Änderungen gespeichert wurden und sind identisch mit den Schritten, die ausgeführt werden, der `CancelCommand` -Ereignishandler.
@@ -339,12 +339,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones Ken Pespisa und Randy Schmidt. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](customizing-the-datalist-s-editing-interface-cs.md)
-[Weiter](performing-batch-updates-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](customizing-the-datalist-s-editing-interface-cs.md)
+> [Weiter](performing-batch-updates-vb.md)

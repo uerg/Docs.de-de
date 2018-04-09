@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9274924b441cb21e33eb57de06ff374428fa036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interaktion mit der Seite Inhalt aus der Gestaltungsvorlage (VB)
 ====================
@@ -153,7 +153,7 @@ Wie weiter oben in diesem Lernprogramm erläutert wird, müssen wir ein Ereignis
 Eine Klasse abonniert ein Ereignis durch das Erstellen einer *Ereignishandler*, dies ist eine Methode, die als Antwort auf ausgelösten Ereignisses ausgeführt wird. Der Verleger definiert die Ereignisse, die er durch definieren löst einer *Ereignisdelegaten*. Der Ereignisdelegat gibt an, welche Eingabeparameter der Ereignishandler zustimmen muss. In .NET Framework Ereignisdelegaten keinen Wert zurückgeben und akzeptieren zwei Eingabeparameter:
 
 - Ein `Object`, identifiziert die Ereignisquelle und
-- Eine abgeleitete Klasse`System.EventArgs`
+- Eine abgeleitete Klasse `System.EventArgs`
 
 Der zweite Parameter, die an einen Ereignishandler übergeben kann zusätzliche Informationen zum Ereignis enthalten. Während die Base `EventArgs` Klasse übergibt nicht auf alle Informationen, die .NET Framework enthält eine Reihe von Klassen, mit denen erweitert `EventArgs` und umfasst zusätzliche Eigenschaften. Z. B. eine `CommandEventArgs` Instanz an, auf die reagiert Ereignishandler übergeben wird die `Command` Ereignis, und enthält zwei informative Eigenschaften: `CommandArgument` und `CommandName`.
 
@@ -257,12 +257,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](interacting-with-the-master-page-from-the-content-page-vb.md)
-[Weiter](master-pages-and-asp-net-ajax-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [Weiter](master-pages-and-asp-net-ajax-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 title: 'Teil 4: Auflisten von Produkten | Microsoft Docs'
 author: JoeStagner
-description: "Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 deckt Auflisten von Produkten mit der GridView Vertr...."
+description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 deckt Auflisten von Produkten mit der GridView Vertr....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>Teil 4: Angebot Produkte
 ====================
@@ -27,7 +27,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 > Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 werden die Produkte Angebot des GridView-Steuerelements behandelt.
 
 
-## <a id="_Toc260221670"></a>Auflisten von Produkten mit des GridView-Steuerelements
+## <a id="_Toc260221670"></a>  Auflisten von Produkten mit des GridView-Steuerelements
 
 Fangen wir implementieren unsere ProductsList.aspx-Seite "Mit der rechten Maustaste auf" auf unserer Projektmappe, und wählen "Hinzufügen" und "Neues Element".
 
@@ -100,6 +100,6 @@ Die Datenbank enthält eine Tabelle mit dem Namen "ShoppingCart". Wenn wir ein E
 
 Es ist auch Folgendes zu beachten, dass wir einen einfache Einkaufswagen erstellen und die shopping Cart-Logik mit shopping Cart-Anzeige einbetten. Es empfiehlt sich auch unsere warenkorbsoftware in einer vollständig separaten Business-Ebene zu implementieren.
 
->[!div class="step-by-step"]
-[Zurück](tailspin-spyworks-part-3.md)
-[Weiter](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [Zurück](tailspin-spyworks-part-3.md)
+> [Weiter](tailspin-spyworks-part-5.md)

@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
 title: Installieren eine Hilfsmethode in einer ASP.NET Web-Seiten (Razor) Standort | Microsoft Docs
 author: tfitzmac
-description: "Dieser Artikel beschreibt, wie eine Hilfsprogramm auf einer Website für ASP.NET Web Pages (Razor) installieren. Ein Hilfsprogramm ist eine wiederverwendbare Komponente sein, die Code und Markup zum pro umfasst..."
+description: Dieser Artikel beschreibt, wie eine Hilfsprogramm auf einer Website für ASP.NET Web Pages (Razor) installieren. Ein Hilfsprogramm ist eine wiederverwendbare Komponente sein, die Code und Markup zum pro umfasst...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 842c5a56d14314217c1e6ad6d48ded28d3cc5b4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Installieren eine Hilfsprogramm an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -32,7 +32,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
 > 
 > 
-> - WebMatrix-3
+> - WebMatrix 3
 
 
 ## <a name="overview-of-helpers"></a>Übersicht über die Hilfsprogramme
@@ -49,10 +49,10 @@ ASP.NET Web Pages verfügt über einige integrierte Hilfsprogramme. Viele Hilfsp
 2. Dies startet den NuGet-Paket-Manager und die verfügbaren Pakete angezeigt. Geben Sie in das Suchfeld ein Schlüsselwort für das Hilfsprogramm, die, das Sie installieren möchten.
 
     ![Im Dialogfeld NuGet Gallery WebMatrix](installing-helpers/_static/image2.png)
-- Wählen Sie das Paket, und klicken Sie dann auf **installieren**. Klicken Sie auf **Ja** Wenn gefragt, ob Sie verwenden möchten, installieren Sie das Paket und anzugeben, dass Sie ihnen zustimmen.
+3. Wählen Sie das Paket, und klicken Sie dann auf **installieren**. Klicken Sie auf **Ja** Wenn gefragt, ob Sie verwenden möchten, installieren Sie das Paket und anzugeben, dass Sie ihnen zustimmen.
 
-    Wenn dies der erste Mal Sie eine Hilfsprogramm installiert haben ist, erstellt NuGet Ordner in Ihre Website für den Code, der das Hilfsprogramm bildet.
-- Um ein Hilfsprogramm deinstallieren möchten, klicken Sie auf die **Katalog** Schaltfläche, klicken Sie auf die **installiert** Registerkarte, und wählen Sie das Paket deinstalliert werden soll.
+     Wenn dies der erste Mal Sie eine Hilfsprogramm installiert haben ist, erstellt NuGet Ordner in Ihre Website für den Code, der das Hilfsprogramm bildet.
+4. Um ein Hilfsprogramm deinstallieren möchten, klicken Sie auf die **Katalog** Schaltfläche, klicken Sie auf die **installiert** Registerkarte, und wählen Sie das Paket deinstalliert werden soll.
 
 ## <a name="installing-the-twitter-helper"></a>Installieren das Twitter-Hilfsprogramm
 

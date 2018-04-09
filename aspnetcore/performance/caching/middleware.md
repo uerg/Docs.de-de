@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -88,7 +88,7 @@ Zwischenspeichern von Antworten von der Middleware, wird die Verwendung von HTTP
 | Header | Details |
 | ------ | ------- |
 | Autorisierung | Die Antwort wird nicht zwischengespeichert, wenn der Header vorhanden ist. |
-| Cache-Control | Die Middleware berücksichtigt nur Zwischenspeichern von Antworten mit markiert die `public` Cache-Anweisung. Caching mit den folgenden Parametern zu steuern:<ul><li>Max-age</li><li>Max-veraltet &#8224;</li><li>Min-frisch</li><li>Must-revalidate-Anweisung</li><li>ohne-cache</li><li>ohne-Speicher</li><li>nur-If-Cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224; Wenn keine Beschränkung auf angegeben wird `max-stale`, die Middleware führt keine Aktion.<br>&#8225; `proxy-revalidate` hat dieselbe Wirkung wie das `must-revalidate`.<br><br>Weitere Informationen finden Sie unter [RFC 7231: Cache-Control-Request-Direktiven](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | Die Middleware berücksichtigt nur Zwischenspeichern von Antworten mit markiert die `public` Cache-Anweisung. Caching mit den folgenden Parametern zu steuern:<ul><li>Max-age</li><li>Max-veraltet&#8224;</li><li>Min-frisch</li><li>Must-revalidate-Anweisung</li><li>ohne-cache</li><li>ohne-Speicher</li><li>nur-If-Cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Wenn kein Limit angegeben wird, auf `max-stale`, die Middleware führt keine Aktion.<br>&#8225;`proxy-revalidate`hat dieselbe Wirkung wie das `must-revalidate`.<br><br>Weitere Informationen finden Sie unter [RFC 7231: Cache-Control-Request-Direktiven](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | Ein `Pragma: no-cache` Header in der Anforderung erzeugt dieselbe Wirkung wie das `Cache-Control: no-cache`. Dieser Header wird überschrieben, indem die relevanten Direktiven in der `Cache-Control` -Header, falls vorhanden. Für die Abwärtskompatibilität mit HTTP/1.0 berücksichtigt. |
 | Set-Cookie | Die Antwort wird nicht zwischengespeichert, wenn der Header vorhanden ist. |
 | variieren | Die `Vary` Header variiert die zwischengespeicherte Antwort von einer anderen Spaltenüberschrift verwendet wird. Z. B. Antworten zwischenspeichern, codieren Sie dazu die `Vary: Accept-Encoding` -Header, der Antworten für Anforderungen mit Headern zwischenspeichert `Accept-Encoding: gzip` und `Accept-Encoding: text/plain` getrennt. Eine Antwort mit dem Headerwert `*` wird nie gespeichert. |
@@ -105,7 +105,7 @@ Die Middleware respektiert die Regeln für die [Zwischenspeichern von HTTP 1.1-S
 
 Untersuchen Sie mehr Kontrolle über das Verhalten beim Zwischenspeichern andere caching-Funktionen von ASP.NET Core. Informationen hierzu finden Sie in den folgenden Themen:
 
-* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [In-Memory-Cache](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
 * [Cache-Tag-Hilfsprogramm im Kern der ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
@@ -142,7 +142,7 @@ Beim Testen und Problembehandlung für das Verhalten beim Zwischenspeichern, mö
 
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)
-* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [In-Memory-Cache](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
 * [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)

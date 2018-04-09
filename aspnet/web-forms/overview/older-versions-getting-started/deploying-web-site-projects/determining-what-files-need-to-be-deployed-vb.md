@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: "Bestimmen, welche Dateien werden müssen (VB) bereitgestellten | Microsoft Docs"
+title: Bestimmen, welche Dateien werden müssen (VB) bereitgestellten | Microsoft Docs
 author: rick-anderson
-description: "Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung uns erstellt wurde..."
+description: Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung uns erstellt wurde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Bestimmen, welche Dateien werden müssen (VB) bereitgestellt
 ====================
@@ -41,7 +41,7 @@ Betrachten Sie eine ASP.NET-Seite mit dem Namen `Clock.aspx` , die ein Label-Ste
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-In der Reihenfolge für das Datenbankmodul ASP.NET eine Anforderung für diese Seite, die Seite Codeteil (die  *`WebPage`*  `.aspx.vb` Datei) muss zuerst kompiliert werden. Dieser Kompilierung kann explizit oder automatisch durchgeführt werden soll.
+In der Reihenfolge für das Datenbankmodul ASP.NET eine Anforderung für diese Seite, die Seite Codeteil (die *`WebPage`* `.aspx.vb` Datei) muss zuerst kompiliert werden. Dieser Kompilierung kann explizit oder automatisch durchgeführt werden soll.
 
 Wenn die Kompilierung explizit erfolgt, und klicken Sie dann die gesamte Anwendung Quellcode wird in eine oder mehrere Assemblys kompiliert (`.dll` Dateien) befindet sich in der Anwendungsverzeichnis `Bin` Verzeichnis. In angeordnet, wenn es sich bei die Kompilierung automatisch ablaufenden Schlüsselaustausches eingerichtet und dann das resultierende automatisch generierte Assembly ist, wird standardmäßig die `Temporary ASP.NET Files` Ordner, das auf `%WINDOWS%\Microsoft.NET\Framework\<version>`, obwohl dieser Speicherort unterscheidet sich konfigurierbar über die [ &lt; Kompilierung&gt; Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in `Web.config`. Mit der expliziten Kompilierung müssen Sie eine bestimmte Aktion, die ASP.NET-Anwendung Code in eine Assembly zu kompilieren, und dieser Schritt wird vor der Bereitstellung. Mit der automatische Kompilierung tritt auf, im Verlauf des Vorgangs auf dem Webserver Wenn zuerst die Ressource zugegriffen wird.
 
@@ -79,15 +79,15 @@ Der Download für dieses Lernprogramm umfasst eine ASP.NET-Anwendung Buch Review
 - Eine Gestaltungsvorlage (`Site.master`).
 - Sieben verschiedenen ASP.NET-Seiten:
 
-    - ~/`Default.aspx`-Homepage der Website.
-    - ~/`About.aspx`-eine Seite "Über die Website".
-    - ~/`Fiction/Default.aspx`-eine Seite mit der Liste die Idee Bücher, die überarbeitet wurden.
+    - ~/`Default.aspx` -Homepage der Website.
+    - ~/`About.aspx` -eine Seite "Über die Website".
+    - ~/`Fiction/Default.aspx` -eine Seite mit der Liste die Idee Bücher, die überarbeitet wurden.
 
-        - ~/`Fiction/Blaze.aspx`-eine Überprüfung der Richard Bachman Novel *Blaze*.
-    - ~/`Tech/Default.aspx`-eine Seite mit der Technologie Bücher, die überarbeitet wurden.
+        - ~/`Fiction/Blaze.aspx` -eine Überprüfung der Richard Bachman Novel *Blaze*.
+    - ~/`Tech/Default.aspx` -eine Seite mit der Technologie Bücher, die überarbeitet wurden.
 
-        - ~/`Tech/CYOW.aspx`-eine Überprüfung der *Erstellen Ihrer eigenen Website*.
-        - ~/`Tech/TYASP35.aspx`-eine Überprüfung der *Schulen selbst ASP.NET 3.5 in 24 Stunden*.
+        - ~/`Tech/CYOW.aspx` -eine Überprüfung der *Erstellen Ihrer eigenen Website*.
+        - ~/`Tech/TYASP35.aspx` -eine Überprüfung der *Schulen selbst ASP.NET 3.5 in 24 Stunden*.
 - Drei unterschiedlichen CSS-Dateien in den `Styles` Ordner.
 - Vier Bilddateien - eine Powered by ASP.NET-Logo und Images im Hintergrund der drei überprüft Bücher - alle befindet sich in der `Images` Ordner.
 - Ein `Web.sitemap` Datei, die die Siteübersicht definiert und dient zum Anzeigen des Menüs in der `Default.aspx` Seiten in das Stammverzeichnis und `Fiction` und `Tech` Ordner.
@@ -189,6 +189,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Visual Studio 2005-Website-Projektsystem: Worum handelt es sich, und warum wir Sie tun?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Exemplarische Vorgehensweise: Konvertieren eines Website-Projekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Zurück](asp-net-hosting-options-vb.md)
-[Weiter](deploying-your-site-using-an-ftp-client-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](asp-net-hosting-options-vb.md)
+> [Weiter](deploying-your-site-using-an-ftp-client-vb.md)

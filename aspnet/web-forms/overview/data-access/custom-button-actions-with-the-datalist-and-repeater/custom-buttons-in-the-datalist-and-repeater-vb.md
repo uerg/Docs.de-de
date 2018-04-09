@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
-title: "Benutzerdefinierte Schaltflächen im DataList und Repeater (VB) | Microsoft Docs"
+title: Benutzerdefinierte Schaltflächen im DataList und Repeater (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm fügen wir eine Schnittstelle erstellen, die einen Repeater verwendet wird, um die Liste der Kategorien im System, mit jeder Kategorie bietet eine Schaltfläche, um seine Associ anzeigen..."
+description: In diesem Lernprogramm fügen wir eine Schnittstelle erstellen, die einen Repeater verwendet wird, um die Liste der Kategorien im System, mit jeder Kategorie bietet eine Schaltfläche, um seine Associ anzeigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6e470590252102c486bb72ff46f516180aa09ba8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Benutzerdefinierte Schaltflächen im DataList und Repeater (VB)
 ====================
@@ -104,8 +104,8 @@ Jedes Mal, wenn eine Schaltfläche, LinkButton oder ImageButton innerhalb einer 
 
 Wenn eine Schaltfläche in einem DataList oder Repeater geklickt wird, muss häufig (im Fall, dass es möglicherweise mehrere Schaltflächen innerhalb des Steuerelements, wie z. B. beide eine Bearbeitung und Schaltfläche "löschen"), auf welche Schaltfläche geklickt wurde und möglicherweise einige zusätzliche Informationen (z. B. übergibt der Wert des Primärschlüssels des Elements, dessen Schaltfläche geklickt wurde). Die Schaltfläche, LinkButton und ImageButton bieten zwei Eigenschaften, deren Werte werden an, die `ItemCommand` Ereignishandler:
 
-- `CommandName`eine Zeichenfolge, die normalerweise verwendet, um jede Schaltfläche in der Vorlage zu identifizieren.
-- `CommandArgument`häufig verwendet, um den Wert eines Felds Daten, z. B. dem Primärschlüsselwert halten
+- `CommandName` eine Zeichenfolge, die normalerweise verwendet, um jede Schaltfläche in der Vorlage zu identifizieren.
+- `CommandArgument` häufig verwendet, um den Wert eines Felds Daten, z. B. dem Primärschlüsselwert halten
 
 In diesem Beispiel legen Sie die s LinkButton `CommandName` Eigenschaft ShowProducts und Binden der aktuelle Datensatz s Primärschlüsselwert `CategoryID` auf die `CommandArgument` Eigenschaft, die mit der Syntax Databinding `CategoryArgument='<%# Eval("CategoryID") %>'`. Nachdem Sie diese beiden Eigenschaften angegeben, sollte die LinkButton s deklarative Syntax wie folgt aussehen:
 
@@ -116,10 +116,10 @@ Wenn die Schaltfläche klicken, wird ein Postback erfolgt und die s DataList ode
 
 Erstellen Sie einen Ereignishandler für die Repeater s `ItemCommand` Ereignis, und beachten Sie den zweiten Parameter an den Ereignishandler übergeben (mit dem Namen `e`). Diese zweite Parameter ist vom Typ [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) und verfügt über die folgenden vier Eigenschaften:
 
-- `CommandArgument`der Wert von der Schaltfläche s `CommandArgument` Eigenschaft
-- `CommandName`der Wert der Schaltfläche s `CommandName` Eigenschaft
-- `CommandSource`Ein Verweis auf das Schaltflächen-Steuerelement, auf die geklickt wurde
-- `Item`Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein`RepeaterItem`
+- `CommandArgument` der Wert von der Schaltfläche s `CommandArgument` Eigenschaft
+- `CommandName` der Wert der Schaltfläche s `CommandName` Eigenschaft
+- `CommandSource` Ein Verweis auf das Schaltflächen-Steuerelement, auf die geklickt wurde
+- `Item` Ein Verweis auf die [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) , enthält die Schaltfläche, die per Mausklick; jeder Datensatz an Wiederholungsmoduls gebunden wird auswirken, als ein `RepeaterItem`
 
 Seit der ausgewählten Kategorie s `CategoryID` über übergeben der `CommandArgument` -Eigenschaft, wir können den Satz von Produkten in der ausgewählten Kategorie zugeordnet der `ItemCommand` -Ereignishandler. Diese Produkte können in einem BulletedList-Steuerelement gebunden werden die `ItemTemplate` (die wir noch hinzuzufügende Ve). Alle, die verbleibt, besteht im Hinzufügen der BulletedList, verweisen sie in der `ItemCommand` -Ereignishandler, und binden, welche Produkte für die ausgewählte Kategorie, die wir in Schritt 4 konfigurieren müssen.
 
@@ -162,11 +162,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Dennis Patterson. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](custom-buttons-in-the-datalist-and-repeater-cs.md)
+> [!div class="step-by-step"]
+> [Vorherige](custom-buttons-in-the-datalist-and-repeater-cs.md)

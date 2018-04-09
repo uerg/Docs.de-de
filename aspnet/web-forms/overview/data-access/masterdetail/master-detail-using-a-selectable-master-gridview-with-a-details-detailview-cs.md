@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
-title: "Master/Detail-mit auswählbaren Master GridView mit einer Details-DetailView (c#) | Microsoft Docs"
+title: Master/Detail-mit auswählbaren Master GridView mit einer Details-DetailView (c#) | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm müssen eine GridView, deren Zeilen, den Namen und den Preis jedes Produkts zusammen mit einer Schaltfläche auswählen enthalten. Klicken Sie auf die Schaltfläche für eine Particu auswählen..."
+description: Dieses Lernprogramm müssen eine GridView, deren Zeilen, den Namen und den Preis jedes Produkts zusammen mit einer Schaltfläche auswählen enthalten. Klicken Sie auf die Schaltfläche für eine Particu auswählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5f0d380ee411116844f42a542c12050513721eb1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9d39786cb17449b93e6f728a0a3c920e1be089be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Master/Detail-mit auswählbaren Master GridView mit einer Details-DetailView (c#)
 ====================
@@ -131,12 +131,12 @@ Mit der `ProductsGrid` GridView abgeschlossen, bleibt eine DetailsView hinzufüg
 **Abbildung 9**: Aufrufen der `ProductsBLL` Klasse `GetProductByProductID(productID)` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image27.png))
 
 
-Haben die  *`productID`*  Wert des Parameters aus des GridView-Steuerelements `SelectedValue` Eigenschaft. Wie zuvor der GridView erläutert `SelectedValue` Eigenschaft gibt die ersten Daten-Schlüsselwert für die ausgewählte Zeile. Daher ist es zwingend erforderlich, die der GridView `DataKeyNames` -Eigenschaftensatz auf `ProductID`, sodass der ausgewählten Zeile `ProductID` ist der Rückgabewert von `SelectedValue`.
+Haben die *`productID`* Wert des Parameters aus des GridView-Steuerelements `SelectedValue` Eigenschaft. Wie zuvor der GridView erläutert `SelectedValue` Eigenschaft gibt die ersten Daten-Schlüsselwert für die ausgewählte Zeile. Daher ist es zwingend erforderlich, die der GridView `DataKeyNames` -Eigenschaftensatz auf `ProductID`, sodass der ausgewählten Zeile `ProductID` ist der Rückgabewert von `SelectedValue`.
 
 
 [![Festlegen von "ProductID" und Parameter an der GridView "SelectedValue"-Eigenschaft](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
 
-**Abbildung 10**: Legen Sie die  *`productID`*  Parameter an der GridView `SelectedValue` Eigenschaft ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
+**Abbildung 10**: Legen Sie die *`productID`* Parameter an der GridView `SelectedValue` Eigenschaft ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
 
 
 Sobald die `productDetailsDataSource` ObjectDataSource ordnungsgemäß konfiguriert und, DetailsView gebunden wurde, dieses Lernprogramm ist abgeschlossen! Wenn die Seite zuerst besucht wird keine Zeile ausgewählt ist, sodass der GridView `SelectedValue` -Eigenschaft gibt `null`. Da es sich um keine Produkte mit einer `NULL` `ProductID` Wert keine Einträge werden zurückgegeben, durch die `GetProductByProductID(productID)` -Methode, d. h., DetailsView nicht angezeigt wird (siehe Abbildung 11). Wenn Sie auf eine GridView-Zeile-Schaltfläche auswählen, erfolgt ein Postback und DetailsView wird aktualisiert. Dieses Mal der GridView `SelectedValue` -Eigenschaft gibt die `ProductID` der ausgewählten Zeile der `GetProductByProductID(productID)` Methode gibt ein `ProductsDataTable` mit Informationen über das jeweilige Produkt und DetailsView zeigt diese Details (siehe Abbildung 12).
@@ -162,12 +162,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](master-detail-filtering-across-two-pages-cs.md)
-[Weiter](master-detail-filtering-with-a-dropdownlist-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](master-detail-filtering-across-two-pages-cs.md)
+> [Weiter](master-detail-filtering-with-a-dropdownlist-vb.md)

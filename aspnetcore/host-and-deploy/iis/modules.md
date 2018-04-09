@@ -1,7 +1,7 @@
 ---
-title: Verwenden IIS-Module mit ASP.NET Core
+title: IIS-Module mit ASP.NET Core
 author: guardrex
-description: "Aktive und inaktive IIS-Module für ASP.NET Core-apps und zum Verwalten von IIS-Module zu ermitteln."
+description: Aktive und inaktive IIS-Module für ASP.NET Core-apps und zum Verwalten von IIS-Module zu ermitteln.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-iis-modules-with-aspnet-core"></a>Verwenden IIS-Module mit ASP.NET Core
+# <a name="iis-modules-with-aspnet-core"></a>IIS-Module mit ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
@@ -49,7 +49,7 @@ ASP.NET Core-apps werden in einer reverse-Proxy-Konfiguration von IIS gehostet. 
 | **Protokollunterstützung**<br>`ProtocolSupportModule` | Ja | |
 | **Anforderungsfilterung**<br>`RequestFilteringModule` | Ja | [URL umschreiben Middleware `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Anforderungsüberwachung**<br>`RequestMonitorModule` | Ja | |
-| **URLs**<br>`RewriteModule` | Ja &#8224; | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
+| **URLs**<br>`RewriteModule` | Ja&#8224; | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
 | **Serverseitige Include-Dateien**<br>`ServerSideIncludeModule` | Nein | |
 | **Komprimierung statischer**<br>`StaticCompressionModule` | Nein | [Antworten komprimierende Middleware](xref:performance/response-compression) |
 | **Statischer Inhalt**<br>`StaticFileModule` | Nein | [Middleware für statische Dateien](xref:fundamentals/static-files) |
@@ -58,7 +58,7 @@ ASP.NET Core-apps werden in einer reverse-Proxy-Konfiguration von IIS gehostet. 
 | **URL-Autorisierung**<br>`UrlAuthorizationModule` | Ja | [ASP.NET Core Identität](xref:security/authentication/identity) |
 | **Windows-Authentifizierung**<br>`WindowsAuthenticationModule` | Ja | |
 
-&#8224; Das URL Rewrite-Modul des `isFile` und `isDirectory` Übereinstimmungstypen nicht unterstützt, mit ASP.NET Core apps aufgrund der Änderungen in [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
+&#8224;Das URL Rewrite-Modul des `isFile` und `isDirectory` Übereinstimmungstypen nicht unterstützt, mit ASP.NET Core apps aufgrund der Änderungen in [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Verwaltete Module
 
@@ -106,21 +106,21 @@ Wenn die Entscheidung zum Entfernen eines Moduls mit einer Einstellung in *"Web.
 
 1. Entsperren Sie das Modul auf Serverebene. Wählen Sie den IIS-Server im IIS-Manager **Verbindungen** Randleiste. Öffnen der **Module** in der **IIS** Bereich. Wählen Sie das Modul in der Liste aus. In der **Aktionen** wählen Sie auf der rechten Seite Randleiste **Unlock**. Entsperren Sie so viele Module, wie Sie aufheben möchten *"Web.config"* später erneut.
 
-1. Bereitstellen die app ohne einen  **\<Module >** im Abschnitt *"Web.config"*. Wenn eine app bereitgestellt wurde, mit einer *"Web.config"* , enthält der  **\<Module >** Abschnitt, ohne dass entsperrt werden im Abschnitt zuerst im IIS-Manager, den Konfigurations-Manager löst eine Ausnahme aus. Beim Versuch, den Abschnitt zu entsperren. Aus diesem Grund bereitstellen die app ohne einen  **\<Module >** Abschnitt.
+2. Bereitstellen die app ohne einen  **\<Module >** im Abschnitt *"Web.config"*. Wenn eine app bereitgestellt wurde, mit einer *"Web.config"* , enthält der  **\<Module >** Abschnitt, ohne dass entsperrt werden im Abschnitt zuerst im IIS-Manager, den Konfigurations-Manager löst eine Ausnahme aus. Beim Versuch, den Abschnitt zu entsperren. Aus diesem Grund bereitstellen die app ohne einen  **\<Module >** Abschnitt.
 
-1. Entsperren der  **\<Module >** Abschnitt *"Web.config"*. In der **Verbindungen** Randleiste, wählen Sie die Website im **Sites**. In der **Management** öffnen Sie im Bereich der **Dienstkonfigurations-Editor**. Verwenden Sie die Navigationssteuerelemente Auswählen der `system.webServer/modules` Abschnitt. In der **Aktionen** Randleiste auf der rechten Seite auswählen, um **Unlock** Abschnitt.
+3. Entsperren der  **\<Module >** Abschnitt *"Web.config"*. In der **Verbindungen** Randleiste, wählen Sie die Website im **Sites**. In der **Management** öffnen Sie im Bereich der **Dienstkonfigurations-Editor**. Verwenden Sie die Navigationssteuerelemente Auswählen der `system.webServer/modules` Abschnitt. In der **Aktionen** Randleiste auf der rechten Seite auswählen, um **Unlock** Abschnitt.
 
-1. An diesem Punkt ein  **\<Module >** Abschnitt hinzugefügt werden kann die *"Web.config"* -Datei mit einem  **\<entfernen >** Element So entfernen Sie das Modul aus die app. Mehrere  **\<entfernen >** -Elemente hinzugefügt werden können, um mehrere Module zu entfernen. Wenn *"Web.config"* Änderungen auf dem Server vorgenommen werden, nehmen Sie die gleichen Änderungen sofort auf des Projekts *"Web.config"* lokal. Entfernen eines Moduls, das auf diese Weise wird nicht die Verwendung des Moduls mit anderen apps auf dem Server betreffen.
+4. An diesem Punkt ein  **\<Module >** Abschnitt hinzugefügt werden kann die *"Web.config"* -Datei mit einem  **\<entfernen >** Element So entfernen Sie das Modul aus die app. Mehrere  **\<entfernen >** -Elemente hinzugefügt werden können, um mehrere Module zu entfernen. Wenn *"Web.config"* Änderungen auf dem Server vorgenommen werden, nehmen Sie die gleichen Änderungen sofort auf des Projekts *"Web.config"* lokal. Entfernen eines Moduls, das auf diese Weise wird nicht die Verwendung des Moduls mit anderen apps auf dem Server betreffen.
 
-  ```xml
-  <configuration> 
+   ```xml
+   <configuration> 
     <system.webServer> 
       <modules> 
         <remove name="MODULE_NAME" /> 
       </modules> 
     </system.webServer> 
-  </configuration>
-  ```
+   </configuration>
+   ```
 
 Für eine IIS-Installation mit den Standard-Modulen, die installiert werden soll, verwenden Sie die folgenden  **\<Modul >** Abschnitt aus, um die Standardmodule zu entfernen.
 
