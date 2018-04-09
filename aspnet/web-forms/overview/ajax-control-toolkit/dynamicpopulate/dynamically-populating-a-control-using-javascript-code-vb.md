@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
-title: "Dynamisch Auffüllen eines Steuerelements mithilfe von JavaScript-Code (VB) | Microsoft Docs"
+title: Dynamisch Auffüllen eines Steuerelements mithilfe von JavaScript-Code (VB) | Microsoft Docs
 author: wenz
-description: "Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf t..."
+description: Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4090b3a785059c8f09de266df79eba0914e9f13
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04bbc6fca839c2b1ed5cafd3a4411604b98e187d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>Dynamisch Auffüllen eines Steuerelements mithilfe von JavaScript-Code (VB)
 ====================
@@ -62,6 +62,6 @@ Beachten Sie, dass innerhalb des Kontexts eines Optionsfelds, der JavaScript-Aus
 
 Mit einem Klick auf die Schaltfläche ruft das Datum ab, aus dem Server in das angegebene Format ([klicken Sie hier, um das Bild in voller Größe angezeigt](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](dynamically-populating-a-control-vb.md)
-[Weiter](using-dynamicpopulate-with-a-user-control-and-javascript-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](dynamically-populating-a-control-vb.md)
+> [Weiter](using-dynamicpopulate-with-a-user-control-and-javascript-vb.md)

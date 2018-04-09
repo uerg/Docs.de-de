@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: "Erweiterte Szenarien für Entity Framework 6 für ein MVC 5-Web-Anwendung (12 12) | Microsoft Docs"
+title: Erweiterte Szenarien für Entity Framework 6 für ein MVC 5-Web-Anwendung (12 12) | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio erstellen...
 ms.author: aspnetcontent
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 85276377671b96e65406639c8584d9ebf8d77ff7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 50987b30a49173605e7aeb8eb65ff1fe5d5e5753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Erweiterte Entity Framework 6 Szenarien für ein MVC 5-Web-Anwendung (12 12)
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio 2013. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Im vorherigen Lernprogramm implementiert Sie Tabelle pro Hierarchie Vererbung. Dieses Lernprogramm enthält verschiedene Themen, in denen sind nützlich sein, wenn Sie die Grundlagen des Entwickelns von PHP-Webanwendungen, die mithilfe von Entity Framework Code First hinausgehen beachten führt. Schrittweise Anweisungen führt Sie durch den Code und mithilfe von Visual Studio für die folgenden Themen:
@@ -59,12 +59,12 @@ Für die meisten dieser Themen arbeiten Sie mit der Seiten, die Sie bereits erst
 Der Entity Framework Code First-API enthält Methoden, die Ihnen ermöglichen, die SQL-Befehle direkt an die Datenbank übergeben. Sie haben folgende Möglichkeiten:
 
 - Verwenden der [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx) Methode zum Abfragen, die Entitätstypen zurückgeben. Die zurückgegebenen Objekte muss mit der vom erwarteten Typ der `DbSet` -Objekt, und sie werden automatisch nachverfolgt vom Kontext Datenbank, wenn Sie die Überwachung deaktivieren. (Finden Sie im folgenden Abschnitt zu den [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx) Methode.)
-- Verwenden der [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) Methode für Abfragen, die Typen zurückgeben, die Entitäten nicht. Die zurückgegebenen Daten wird nicht von den Datenbankkontext nachverfolgt, auch wenn Sie diese Methode zum Abrufen von Entitätstypen verwenden.
+- Verwenden der [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) Methode für Abfragen, die Typen zurückgeben, die Entitäten nicht. Die zurückgegebenen Daten werden nicht vom Datenbankkontext nachverfolgt, auch wenn Sie diese Methode zum Abrufen von Entitätstypen verwenden.
 - Verwenden der [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx) für nichtabfragebefehle.
 
-Einer der Vorteile der Verwendung von Entity Framework ist, dass diese vermieden wird, den Code zu viel Wert auf eine bestimmte Methode zum Speichern von Daten zu binden. Dies geschieht durch Generieren von SQL-Abfragen und Befehle, die auch Sie freigibt, müssen sie selbst schreiben. Aber herausragende Szenarien stehen, wenn müssen Sie bestimmte SQL-Abfragen ausführen, die Sie manuell erstellt haben, und diese Methoden können Sie solche Ausnahmen zu behandeln.
+Einer der Vorteile von Entity Framework ist die Tatsache, dass vermieden wird, den Code zu eng an eine bestimmte Methode zum Speichern von Daten zu binden. Dies geschieht, indem SQL-Abfragen und -Befehle für Sie generiert werden. Somit müssen Sie sie nicht selbst schreiben. Aber herausragende Szenarien stehen, wenn müssen Sie bestimmte SQL-Abfragen ausführen, die Sie manuell erstellt haben, und diese Methoden können Sie solche Ausnahmen zu behandeln.
 
-Wie immer "true" ist, wenn Sie SQL-Befehle in einer Webanwendung ausführen, müssen Sie Vorsichtsmaßnahmen treffen, Ihre Website vor SQL Injection-Angriffen schützen werden. Eine Möglichkeit dazu besteht darin parametrisierte Abfragen zu verwenden, um sicherzustellen, dass Zeichenfolgen, die von einer Webseite übermittelten als SQL-Befehle interpretiert werden können. In diesem Lernprogramm verwenden Sie parametrisierte Abfragen beim Integrieren von Benutzereingaben in einer Abfrage.
+Dies trifft immer zu, wenn Sie SQL-Befehle in einer Webanwendung ausführen. Treffen Sie deshalb Vorsichtsmaßnahmen, um Ihre Website vor Angriffen durch Einschleusung von SQL-Befehlen zu schützen. Verwenden Sie dazu parametrisierte Abfragen, um sicherzustellen, dass Zeichenfolgen, die von einer Webseite übermittelt werden, nicht als SQL-Befehle interpretiert werden können. In diesem Tutorial verwenden Sie parametrisierte Abfragen beim Integrieren von Benutzereingaben in eine Abfrage.
 
 ### <a name="calling-a-query-that-returns-entities"></a>Aufrufen einer Abfrage, die zurückgegeben Entitäten
 
@@ -74,13 +74,13 @@ In *DepartmentController.cs*in der `Details` -Methode, ersetzen die `db.Departme
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample1.cs?highlight=8-14)]
 
-Um sicherzustellen, dass der neue Code ordnungsgemäß funktioniert, wählen Sie die **Abteilungen** Registerkarte und dann **Details** für eines der Abteilungen.
+Wählen Sie die Registerkarte **Departments** (Abteilungen) und dann **Details** für eine der Abteilungen aus. So können Sie überprüfen, ob der neue Code korrekt funktioniert.
 
-![Department-Details](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image2.png)
+![Fakultätsdetails](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image2.png)
 
 ### <a name="calling-a-query-that-returns-other-types-of-objects"></a>Aufrufen von einer Abfrage, zurückgibt andere Typen von Objekten
 
-Zuvor haben Sie ein Student statistikraster für die Info-Seite, die die Anzahl der Schüler für jede Registrierungsdatum ergab erstellt. Der Code, die dies in tut *HomeController.cs* verwendet LINQ:
+Sie haben zuvor ein Statistikraster für Studenten für die Infoseite erstellt, das die Anzahl der Studenten für jedes Anmeldedatum zeigt. Der Code, die dies in tut *HomeController.cs* verwendet LINQ:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
@@ -90,13 +90,13 @@ In *HomeController.cs*, ersetzen Sie die LINQ-Anweisung in die `About` Methode m
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs?highlight=3-18)]
 
-Führen Sie die Seite "Info". Es zeigt die gleichen Daten wie zuvor.
+Führen Sie die Seite "Info". Sie zeigt die gleichen Daten wie zuvor.
 
 ![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image3.png)
 
 ### <a name="calling-an-update-query"></a>Aufrufen einer Update-Abfrage
 
-Angenommen Sie, Sie möchten, dass Contoso University Administratoren in der Datenbank, z. B. das Ändern der Anzahl der Gutschriften für jeder Kurs massenänderungen ausführen kann. Verfügt die Universität eine große Anzahl von Kurse, wäre es ineffizient, diese als Entitäten abrufen und ändern Sie sie einzeln. In diesem Abschnitt implementieren Sie eine Webseite, die dem Benutzer ermöglicht, geben Sie einen Faktor, um die Anzahl der Gutschriften für alle Kurse ändern, und fügen Sie die Änderung vornehmen, durch das Ausführen einer SQL `UPDATE` Anweisung. Die Webseite wird wie die folgende Abbildung aussehen:
+Angenommen Sie, Sie möchten, dass Contoso University Administratoren in der Datenbank, z. B. das Ändern der Anzahl der Gutschriften für jeder Kurs massenänderungen ausführen kann. Wenn die Universität über eine große Anzahl an Kursen verfügt, wäre es ineffizient, sie alle als Entitäten abzurufen und separat zu ändern. In diesem Abschnitt implementieren Sie eine Webseite, die dem Benutzer ermöglicht, geben Sie einen Faktor, um die Anzahl der Gutschriften für alle Kurse ändern, und fügen Sie die Änderung vornehmen, durch das Ausführen einer SQL `UPDATE` Anweisung. Die Webseite wird wie die folgende Abbildung aussehen:
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
 
@@ -118,15 +118,15 @@ In *Views\Course\UpdateCourseCredits.cshtml*, den Code durch den folgenden Code 
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cshtml)]
 
-Führen Sie die `UpdateCourseCredits` Methode dazu die **Kurse** Registerkarte, klicken Sie dann hinzufügen "/ UpdateCourseCredits" am Ende der URL in die Adressleiste des Browsers (z. B.: `http://localhost:50205/Course/UpdateCourseCredits`). Geben Sie eine Zahl in das Textfeld ein:
+Führen Sie die `UpdateCourseCredits`-Methode aus, indem Sie die Registerkarte **Courses** (Kurse) auswählen, und dann „/UpdateCourseCredits“ am Ende der URL in die Adressleiste des Browsers einfügen (z.B.: `http://localhost:50205/Course/UpdateCourseCredits`). Geben Sie eine Zahl in das Textfeld ein:
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-Klicken Sie auf **Aktualisieren**. Daraufhin wird die Anzahl der betroffenen Zeilen:
+Klicken Sie auf **Aktualisieren**. Die Anzahl der betroffenen Zeilen wird angezeigt:
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 
-Klicken Sie auf **zurück zur Listenansicht** um die Liste der Kurse mit der geänderte Anzahl von Gutschriften anzuzeigen.
+Klicken Sie auf **Zurück zur Liste**, um die Kursliste mit der geänderte Anzahl von Credits anzuzeigen.
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
@@ -135,19 +135,19 @@ Weitere Informationen zu unformatierten SQL-Abfragen finden Sie unter [unformati
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>No-Überwachungsabfragen
 
-Wenn ein Datenbankkontext Ruft die Tabellenzeilen ab und erstellt von Entitätsobjekten, die sie darstellen, werden von nachverfolgt standardmäßig er, ob die Entitäten im Arbeitsspeicher synchron, sind was in der Datenbank ist. Die Daten im Arbeitsspeicher als Cache fungiert und werden verwendet, wenn Sie eine Entität aktualisieren. Dieses Zwischenspeichern ist häufig in einer Webanwendung nicht erforderlich, da Kontext Instanzen sind in der Regel kurzlebige (ein neuer Schlüssel wird erstellt und freigegeben für jede Anforderung) sowie den Kontext, liest eine Entität ist in der Regel verworfen werden, bevor diese Entität erneut verwendet wird.
+Wenn ein Datenbankkontext Tabellenzeilen abruft und Entitätsobjekte erstellt, die diese darstellen, verfolgen sie standardgemäß, ob die Entitäten im Arbeitsspeicher mit dem Inhalt der Datenbank synchronisiert sind. Die Daten im Arbeitsspeicher fungieren als Cache und werden verwendet, wenn Sie eine Entität aktualisieren. Diese Zwischenspeicherung ist in Webanwendungen oft überflüssig, da Kontextinstanzen in der Regel kurzlebig sind (eine neue wird bei jeder Anforderung erstellt und gelöscht), und der Kontext, der eine Entität liest, wird in der Regel gelöscht, bevor diese Entität erneut verwendet wird.
 
-Sie können die Überwachung von Entitätsobjekten im Arbeitsspeicher deaktivieren, mit der [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) Methode. Typische Szenarios, in denen Sie möchten, die, umfassen Folgendes:
+Sie können die Überwachung von Entitätsobjekten im Arbeitsspeicher deaktivieren, mit der [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) Methode. Typische Szenarios, in denen Sie das möglicherweise tun wollen, umfassen Folgendes:
 
 - Eine Abfrage ruft solche eine große Datenmenge, die durch das Ausschalten Überwachung deutlich die Leistung steigern können.
-- Sie eine Entität anfügen, um es zu aktualisieren möchten, aber Sie zuvor die gleiche Entität für einen anderen Zweck abgerufen. Da die Entität bereits vom Kontext Datenbank nachverfolgt wird, können Sie die Entität nicht anfügen, die Sie ändern möchten. Eine Möglichkeit für diese Situation ist die Verwendung der `AsNoTracking` Option mit der oben dargestellten Abfrage.
+- Sie eine Entität anfügen, um es zu aktualisieren möchten, aber Sie zuvor die gleiche Entität für einen anderen Zweck abgerufen. Da diese Entität bereits vom Datenbankkontext nachverfolgt wird, können Sie die zu ändernde Entität nicht anfügen. Eine Möglichkeit für diese Situation ist die Verwendung der `AsNoTracking` Option mit der oben dargestellten Abfrage.
 
 Ein Beispiel für die Verwendung der [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) -Methode finden Sie unter [die frühere Version dieses Lernprogramms](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Diese Version des Lernprogramms nicht das Flag "geändert" auf eine Entität Binder erstellte Modell in der Methode bearbeiten festlegen, damit sie nicht benötigt `AsNoTracking`.
 
 <a id="sql"></a>
 ## <a name="examining-sql-sent-to-the-database"></a>Untersuchen von SQL an die Datenbank gesendet
 
-Manchmal ist es hilfreich, in der Lage, um den tatsächlichen SQL-Abfragen anzuzeigen, die an die Datenbank gesendet werden. In einer früheren Lernprogramm haben Sie gesehen, wie dies im Code der Interceptor; Jetzt sehen Sie einige Möglichkeiten zu diesem Zweck ohne Interceptor Code zu schreiben. Um dies zu testen, müssen Sie betrachten Sie eine einfache Abfrage und betrachten, was darauf, geschieht wie Sie solche Eager laden, Filtern und Sortieren von Optionen hinzufügen.
+Manchmal ist es hilfreich, die tatsächlichen SQL-Abfragen anzuzeigen, die an die Datenbank gesendet werden. In einer früheren Lernprogramm haben Sie gesehen, wie dies im Code der Interceptor; Jetzt sehen Sie einige Möglichkeiten zu diesem Zweck ohne Interceptor Code zu schreiben. Um dies zu testen, müssen Sie betrachten Sie eine einfache Abfrage und betrachten, was darauf, geschieht wie Sie solche Eager laden, Filtern und Sortieren von Optionen hinzufügen.
 
 In *Controller/CourseController*, ersetzen Sie die `Index` Methode durch den folgenden Code, um unverzüglichem Laden vorübergehend zu beenden:
 
@@ -193,12 +193,12 @@ Entfernen Sie die `var sql = courses.ToString()` Zeile.
 
 <a id="repo"></a>
 
-## <a name="repository-and-unit-of-work-patterns"></a>Repository und die Einheit der Arbeit-Muster
+## <a name="repository-and-unit-of-work-patterns"></a>Repository- und Arbeitseinheitsmuster
 
-Viele Entwickler schreiben Code, um das Repository und die Einheit der Arbeit Muster als Wrapper um Code implementieren, die mit dem Entity Framework funktioniert. Diese Muster sollen eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikschicht einer Anwendung zu erstellen. Diese Muster implementieren, um die Anwendung von Änderungen im Datenspeicher zu isolieren und Endprodukts automatisierte Komponententests oder eine testgesteuerte Entwicklung (TDD). Schreiben zusätzlichen Code zum Implementieren dieser Muster ist jedoch nicht immer die beste Wahl für Anwendungen mit EF, verschiedene Ursachen:
+Viele Entwickler schreiben Code, um das Repository- und Arbeitseinheitsmuster als Wrapper um den Code zu implementieren, der mit dem Entity Framework arbeitet. Diese Muster sollen eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikebene einer Anwendung erstellen. Die Implementierung dieser Muster unterstützt die Isolation Ihrer Anwendung vor Änderungen im Datenspeicher und kann automatisierte Komponententests oder eine testgesteuerte Entwicklung (Test-Driven Development, TDD) erleichtern. Schreiben zusätzlichen Code zum Implementieren dieser Muster ist jedoch nicht immer die beste Wahl für Anwendungen mit EF, verschiedene Ursachen:
 
-- Die Klasse der EF-Kontext selbst isoliert Codes von Store-datenspezifische Code.
-- Die EF-Context-Klasse kann fungieren, als eine Arbeitseinheit Klasse für Datenbank-updates, die Sie mithilfe von EF ausführen.
+- Die EF-Kontextklasse isoliert Ihren Code selbst vor datenspeicherspezifischem Code.
+- Die EF-Kontextklasse kann als Arbeitseinheitsklasse für Updates der Datenbank fungieren, die Sie mithilfe von EF ausführen.
 - Funktionen von Entity Framework 6 vereinfachen die testgesteuerte Entwicklung zu implementieren, ohne Repository Code zu schreiben.
 
 Weitere Informationen dazu, wie Sie das Repository und die Einheit der Arbeit Muster zu implementieren, finden Sie unter [die Entity Framework 5 Version dieser Reihe von Lernprogrammen](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md). Informationen zu Methoden zum TDD in Entity Framework 6 implementieren finden Sie unter den folgenden Ressourcen:
@@ -227,9 +227,9 @@ In den meisten Fällen müssen Sie nicht diese Verwendung von Proxys bewusst sei
 Weitere Informationen finden Sie unter [arbeiten mit Proxys](https://msdn.microsoft.com/data/JJ592886.aspx) auf MSDN.
 
 <a id="changedetection"></a>
-## <a name="automatic-change-detection"></a>Automatische änderungserkennung
+## <a name="automatic-change-detection"></a>Automatische Änderungserkennung
 
-Entity Framework bestimmt wie eine Entität geändert wurde (und daher die Updates an die Datenbank gesendet werden müssen), indem Sie die aktuellen Werte von einer Entität mit den ursprünglichen Werten vergleichen. Die ursprünglichen Werte werden gespeichert, wenn die Entität abgefragt oder angefügt wird. Einige der Methoden, die dazu führen, änderungserkennung für automatische dass lauten wie folgt:
+Entity Framework bestimmt wie eine Entität geändert wurde (und welche Updates an die Datenbank gesendet werden müssen), indem die aktuellen Werte einer Entität mit den ursprünglichen Werten verglichen werden. Die ursprünglichen Werte werden gespeichert, wenn die Entität abgefragt oder angefügt wird. Einige der Methoden, die automatisch eine Änderungserkennung durchführen, sind die folgenden:
 
 - `DbSet.Find`
 - `DbSet.Local`
@@ -262,7 +262,7 @@ Beim Aufrufen der `SaveChanges` -Methode, wird standardmäßig das Entity Framew
 
 Der Quellcode für Entity Framework 6 finden Sie unter [GitHub](https://github.com/aspnet/EntityFramework6). Melden Sie den Fehler, und Sie können auch eigene Erweiterungen auf den Quellcode von EF beitragen.
 
-Obwohl der Quellcode geöffnet ist, wird die Entity Framework als ein Produkt von Microsoft vollständig unterstützt. Das Microsoft Entity Framework-Team verfolgt die Kontrolle über die Beiträge akzeptiert werden und testet alle Änderungen am Code zum Gewährleisten der Qualität von jeder Version.
+Obwohl der Quellcode geöffnet ist, wird die Entity Framework als ein Produkt von Microsoft vollständig unterstützt. Das Microsoft Entity Framework-Team überprüft, welche Beiträge akzeptiert werden. Es testet alle Codeänderungen, um die Qualität jedes Release zu garantieren.
 
 <a id="summary"></a>
 ## <a name="summary"></a>Zusammenfassung
@@ -274,7 +274,7 @@ Weitere Informationen dazu, wie Sie Ihre Webanwendung bereitstellen, nachdem Sie
 Weitere Informationen zu anderen Themen im Zusammenhang mit MVC, wie beispielsweise Authentifizierung und Autorisierung, finden Sie unter der [ASP.NET MVC - Ressourcen empfohlen](../recommended-resources-for-mvc.md).
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>Bestätigungen
+## <a name="acknowledgments"></a>Danksagungen
 
 - Tom Dykstra geschrieben hat die ursprüngliche Version dieses Lernprogramms, Co-Autor EF 5-Aktualisierung und wurde das Update 6 EF geschrieben. Peter ist ein senior programming Writer auf dem Microsoft-Webplattform und Tools Inhaltsteam.
 - [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) wurde der Großteil der Arbeit aktualisieren das Lernprogramm für 5 EF und MVC 4 und Co-Autor der EF-6-Update. Rick ist ein senior programming Writer zum Microsoft Azure und MVC konzentrieren.
@@ -333,16 +333,16 @@ Lösung
 
 Eine Möglichkeit, die Sie diese Fehlermeldung erhalten, können wird vom Vorhandensein mehrerer Kopien der Lösung, jede von ihnen die gleiche Portnummer verwenden. In der Regel können Sie dieses Problem beheben, indem Beenden alle Instanzen von Visual Studio und anschließend das Projekt, auf dem Sie arbeiten, Neustart. Wenn dies nicht funktioniert, versuchen Sie es ändern der Portnummer. Klicken Sie mit der rechten Maustaste auf die Projektdatei, und klicken Sie dann auf Eigenschaften. Wählen Sie die **Web** Registerkarte, und ändern Sie dann die Portnummer in das **Projekt-Url** Textfeld.
 
-### <a name="error-locating-sql-server-instance"></a>Fehler beim Suchen von SQL Server-Instanz
+### <a name="error-locating-sql-server-instance"></a>Fehler beim Bestimmen der SQL Server-Instanz
 
 Fehlermeldung:
 
-> Ein netzwerkbezogener oder Instanzspezifischer Fehler beim Herstellen einer Verbindung mit SQL Server. Der Server wurde nicht gefunden oder es konnte nicht auf ihn zugegriffen werden. Stellen Sie sicher, dass der Instanzname richtig und SQL Server so konfiguriert ist, das Remoteverbindungen zulässig sind. (Anbieter: SQL Network Interfaces, Fehler: 26 - Fehler beim Suchen von Server-Instanz angegeben.)
+> Ein netzwerkbezogener oder instanzspezifischer Fehler beim Herstellen einer Verbindung mit SQL Server. Der Server wurde nicht gefunden oder es konnte nicht auf ihn zugegriffen werden. Stellen Sie sicher, dass der Instanzname richtig und SQL Server so konfiguriert ist, das Remoteverbindungen zulässig sind. (Anbieter: SQL-Netzwerkschnittstellen, Fehler: 26 – Fehler beim Suchen des angegebenen Servers/der angegebenen Instanz.)
 
 
 Lösung
 
-Überprüfen Sie die Verbindungszeichenfolge an. Wenn Sie die Datenbank manuell gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge.
+Überprüfen Sie die Verbindungszeichenfolge. Wenn Sie die Datenbank manuell gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge.
 
->[!div class="step-by-step"]
-[Vorherige](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Vorherige](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

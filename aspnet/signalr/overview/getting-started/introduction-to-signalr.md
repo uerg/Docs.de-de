@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
-title: "Einführung in SignalR | Microsoft Docs"
+title: Einführung in SignalR | Microsoft Docs
 author: pfletcher
-description: "In diesem Artikel wird beschrieben, was eine SignalR ist und einige der Lösungen, die dieser Standard entwickelt wurde, um zu erstellen."
+description: In diesem Artikel wird beschrieben, was eine SignalR ist und einige der Lösungen, die dieser Standard entwickelt wurde, um zu erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr"></a>Einführung in SignalR
 ====================
@@ -85,11 +85,11 @@ Die folgende Liste enthält die Schritte, die SignalR verwendet, um zu entscheid
 2. Wenn JSONP konfiguriert ist (d. h. die `jsonp` Parameter auf festgelegt ist `true` Wenn die Verbindung gestartet ist), lange Abruf verwendet wird.
 3. Wenn eine domänenübergreifende-Verbindung hergestellt wird (d. h., wenn der SignalR-Endpunkt nicht in derselben Domäne wie der Hostseite ist), wird WebSocket verwendet werden, wenn die folgenden Kriterien erfüllt sind:
 
-    - Der Client unterstützt die CORS (Cross-Origin Resource Sharing). Details zu den Clients CORS unterstützen, finden Sie unter [CORS am caniuse.com](http://www.caniuse.com/CORS).
-    - Der Client unterstützt WebSocket
-    - Der Server unterstützt WebSocket
+   - Der Client unterstützt die CORS (Cross-Origin Resource Sharing). Details zu den Clients CORS unterstützen, finden Sie unter [CORS am caniuse.com](http://www.caniuse.com/CORS).
+   - Der Client unterstützt WebSocket
+   - Der Server unterstützt WebSocket
 
-    Wenn keines diese Kriterien nicht erfüllt sind, wird die langen Abfragen verwendet. Weitere Informationen für domänenübergreifende Verbindungen finden Sie unter [Gewusst wie: Herstellen einer Verbindung domänenübergreifende](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+     Wenn keines diese Kriterien nicht erfüllt sind, wird die langen Abfragen verwendet. Weitere Informationen für domänenübergreifende Verbindungen finden Sie unter [Gewusst wie: Herstellen einer Verbindung domänenübergreifende](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
 4. Wenn JSONP ist nicht konfiguriert, und die Verbindung keine domänenübergreifende ist, werden WebSocket verwendet werden, wenn Client und Server unterstützen.
 5. Wenn der Client oder Server WebSocket nicht unterstützt wird, wird Server gesendete Ereignisse verwendet, sofern dieser verfügbar ist.
 6. Wenn Server gesendete Ereignisse nicht verfügbar ist, wird eine unbegrenzte Zeitdauer aufbewahrt Frame versucht.

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: "Die Kontakt-Manager-Lösung | Microsoft Docs"
+title: Die Kontakt-Manager-Lösung | Microsoft Docs
 author: jrjlee
-description: "Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die Kontakt-Manager-Lösung & #x 2014; um eine Enterprise-Skalierung-Anwendung mit einer realistischen Leve darzustellen..."
+description: Diese Reihe von Lernprogrammen verwendet eine beispiellösung&#x2014;die Projektmappe Contact Manager&#x2014;zur Darstellung einer Enterprise-Skalierung-Anwendung mit einer realistischen Leve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>Die Kontakt-Manager-Lösung
 ====================
@@ -24,7 +24,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Dies [Reihe von Lernprogrammen](web-deployment-in-the-enterprise.md) verwendet eine Beispielprojektmappe & #x 2014; die Kontakt-Manager-Lösung & #x 2014; um eine Enterprise-Skalierung-Anwendung mit einer realistischen Maß an Komplexität darzustellen. Dieses Thema führt die Kontakt-Manager-Lösung, beschreibt die wichtigsten Komponenten der Lösung und identifiziert die Herausforderungen bei der Bereitstellung dieser Art von Anwendung an verschiedenen Ziel Plattformen in einer unternehmensumgebung.
+> Dies [Reihe von Lernprogrammen](web-deployment-in-the-enterprise.md) verwendet eine beispiellösung&#x2014;die Projektmappe Contact Manager&#x2014;um eine Enterprise-Skalierung-Anwendung mit einer realistischen Maß an Komplexität darzustellen. Dieses Thema führt die Kontakt-Manager-Lösung, beschreibt die wichtigsten Komponenten der Lösung und identifiziert die Herausforderungen bei der Bereitstellung dieser Art von Anwendung an verschiedenen Ziel Plattformen in einer unternehmensumgebung.
 > 
 > Arbeit durch die Themen in diesen Lernprogrammen können Sie die Projektmappe Contact Manager als eine referenzimplementierung verwenden, die zeigt, wie Sie bestimmte Probleme in Bereitstellungsszenarios erfüllen können. Im nächsten Thema [Einstellung von der Kontakt-Manager-Lösung](setting-up-the-contact-manager-solution.md), herunterladen und Ausführen der Projektmappe auf der Arbeitsstation Developer beschreibt.
 
@@ -67,6 +67,6 @@ In diesem Thema eine allgemeine Übersicht über die Projektmappe Contact Manage
 
 Im nächsten Thema [Einstellung von der Kontakt-Manager-Lösung](setting-up-the-contact-manager-solution.md), herunterladen und Ausführen der Projektmappe auf der Arbeitsstation Developer beschreibt.
 
->[!div class="step-by-step"]
-[Zurück](web-deployment-in-the-enterprise.md)
-[Weiter](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Zurück](web-deployment-in-the-enterprise.md)
+> [Weiter](setting-up-the-contact-manager-solution.md)

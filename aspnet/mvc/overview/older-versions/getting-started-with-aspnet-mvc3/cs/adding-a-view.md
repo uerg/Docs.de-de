@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
-title: "Hinzufügen einer Ansicht (c#) | Microsoft Docs"
+title: Hinzufügen einer Ansicht (c#) | Microsoft Docs
 author: Rick-Anderson
 description: In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 46d5494e668dfe156aeb6647ded83e6ce5366714
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50ce4a2024ffd9e2bbb5526717052d486689ff38
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-c"></a>Hinzufügen einer Ansicht (c#)
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Eine aktualisierte Version dieses Lernprogramms steht [hier](../../../getting-started/introduction/getting-started.md) , ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher, führen und weitere Funktionen veranschaulicht.
@@ -77,7 +77,7 @@ Zuerst möchten Sie den Titel "Meine MVC-Anwendung" am oberen Rand der Seite zu 
 
 [![_LayoutCshtml](adding-a-view/_static/image8.png)](adding-a-view/_static/image7.png)
 
-Layoutvorlagen können Sie zum Angeben von HTML-Container-Layout Ihres Standorts an einem Ort, und wenden Sie es über mehrere Seiten an Ihrem Standort. Beachten Sie die `@RenderBody()` Zeile am unteren Rand der Datei. `RenderBody`ist ein Platzhalter, in dem alle Ansicht-spezifische Seiten, die Sie erstellen, "umschlossene" in der Seite "Layout" angezeigt. Ändern Sie die Titelüberschrift in die Layoutvorlage aus "Meine MVC-Anwendung" in "MVC-Film-App".
+Layoutvorlagen können Sie zum Angeben von HTML-Container-Layout Ihres Standorts an einem Ort, und wenden Sie es über mehrere Seiten an Ihrem Standort. Beachten Sie die `@RenderBody()` Zeile am unteren Rand der Datei. `RenderBody` ist ein Platzhalter, in dem alle Ansicht-spezifische Seiten, die Sie erstellen, "umschlossene" in der Seite "Layout" angezeigt. Ändern Sie die Titelüberschrift in die Layoutvorlage aus "Meine MVC-Anwendung" in "MVC-Film-App".
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml)]
 
@@ -113,7 +113,7 @@ Controller sind verantwortlich für das Bereitstellen von den Daten oder Objekte
 
 Derzeit die `Welcome` Aktionsmethode in der `HelloWorldController` -Klasse akzeptiert eine `name` und ein `numTimes` übergeben wird und Ausgaben die Werte direkt an den Browser. Anstatt den Controller, die dieser Antwort als Zeichenfolge Rendern nutzen zu können, Ändern des Controllers, um stattdessen verwenden Sie eine Vorlage anzeigen. Die Ansichtsvorlage generiert eine dynamische Antwort. Das bedeutet, dass Sie die entsprechenden Datenelemente vom Controller an die Ansicht übergeben müssen, um die Antwort zu generieren. Hierzu können Sie, dass des Controllers die dynamische Daten zu konzentrieren, die in der Vorlage anzeigen muss ein `ViewBag` -Objekt, das die Ansicht klicken Sie dann auf Sie zugreifen können.
 
-Zurück zu der *HelloWorldController.cs* Datei und ändern Sie die `Welcome` -Methode zum Hinzufügen einer `Message` und `NumTimes` -Wert an die `ViewBag` Objekt. `ViewBag`ist ein dynamisches Objekt, d. h. Sie beliebig ihm aufnehmen können. die `ViewBag` Objekt verfügt über keine definierten Eigenschaften aus, bis Sie etwas darin einfügen. Die vollständige Datei *HelloWorldController.cs* sieht wie folgt aus:
+Zurück zu der *HelloWorldController.cs* Datei und ändern Sie die `Welcome` -Methode zum Hinzufügen einer `Message` und `NumTimes` -Wert an die `ViewBag` Objekt. `ViewBag` ist ein dynamisches Objekt, d. h. Sie beliebig ihm aufnehmen können. die `ViewBag` Objekt verfügt über keine definierten Eigenschaften aus, bis Sie etwas darin einfügen. Die vollständige Datei *HelloWorldController.cs* sieht wie folgt aus:
 
 [!code-csharp[Main](adding-a-view/samples/sample6.cs)]
 
@@ -141,6 +141,6 @@ Jetzt werden die Daten der URL entnommen und automatisch an den Controller über
 
 Das war also eine Art eines „M“ für Modell, jedoch nicht der Art Datenbank. Lassen Sie uns das Gelernte umsetzen und eine Filmdatenbank erstellen.
 
->[!div class="step-by-step"]
-[Zurück](adding-a-controller.md)
-[Weiter](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-controller.md)
+> [Weiter](adding-a-model.md)

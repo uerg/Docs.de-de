@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
-title: "Einführung in das Lernprogramm NerdDinner | Microsoft Docs"
+title: Einführung in das Lernprogramm NerdDinner | Microsoft Docs
 author: shanselman
-description: "Die beste Möglichkeit, erfahren, ein neues Framework besteht darin mit erstellen. In diesem Lernprogramm erläutert, wie eine kleine, aber vollständige, Anwendung, die mit ASP.NET.. erstellen..."
+description: Die beste Möglichkeit, erfahren, ein neues Framework besteht darin mit erstellen. In diesem Lernprogramm erläutert, wie eine kleine, aber vollständige, Anwendung, die mit ASP.NET.. erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 57eedb224e26867c78cc399b89f91b95f722074d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>Einführung in das Lernprogramm NerdDinner
 ====================
@@ -88,5 +88,5 @@ Wir haben behandelt, was NerdDinner ist, wir werden unsere Hüllen als Rollup an
 
 Wir beginnen, indem Sie mithilfe von Datei -&gt;neues Projekt in Visual Studio die NerdDinner-Anwendung erstellen.
 
->[!div class="step-by-step"]
-[Nächste](create-a-new-aspnet-mvc-project.md)
+> [!div class="step-by-step"]
+> [Nächste](create-a-new-aspnet-mvc-project.md)

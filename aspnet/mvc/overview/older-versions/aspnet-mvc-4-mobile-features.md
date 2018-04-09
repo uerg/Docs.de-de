@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4-Funktionen für mobile Geräte
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Es gibt jetzt eine MVC 5-Version dieses Lernprogramm mit Codebeispiele unter [Bereitstellen einer ASP.NET MVC 5 Mobile Web-Anwendung auf Azure-Websites](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
@@ -190,7 +190,7 @@ Installieren der *jQuery.Mobile.MVC* NuGet-Paket auf diese Weise:
 1. Aus der **Tools** klicken Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **Package Manager Console**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
-2. In der **Package Manager Console**, geben Sie`Install-Package jQuery.Mobile.MVC -version 1.0.0`
+2. In der **Package Manager Console**, geben Sie `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
 Die folgende Abbildung zeigt die Dateien hinzugefügt und dem Projekt MvcMobile geändert werden, indem die jQuery.Mobile.MVC NuGet-Paket. Dateien, die hinzugefügt werden [hinzufügen] nach den Dateinamen angefügt haben. Anzeigen des Bilds nicht das GIF und PNG-Dateien hinzugefügt werden, um die *Content\images* Ordner.
 
@@ -204,7 +204,7 @@ Das jQuery.Mobile.MVC NuGet-Paket wird Folgendes installiert:
 - jQuery Mobile JavaScript-Dateien.
 - Eine jQuery Mobile formatiertes Layoutdatei (*Views\Shared\\_Layout.Mobile.cshtml*).
 - Eine Teilansicht ansichtumschaltung *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*), die einen Link am Anfang jeder Seite von Desktops und mobile Ansicht wechseln bereitstellt.
-- Mehrere*PNG* und *GIF* Bilddateien in der *Content\images* Ordner.
+- Mehrere<em>PNG</em> und <em>GIF</em> Bilddateien in der <em>Content\images</em> Ordner.
 
 Öffnen der *"Global.asax"* Datei, und fügen Sie den folgenden Code als die letzte Zeile des der `Application_Start` Methode.
 
@@ -270,7 +270,7 @@ Sie können eine Standardansicht für die (stationäre) Rendern in einem mobilen
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Wenn `RequireConsistentDisplayMode` festgelegt ist, um `true`, mobile Layout (*\_Layout.Mobile.cshtml*) wird nur für mobilen Ansichten verwendet. (Die Ansichtsdatei ist also der Form ***ViewName**. Mobile.cshtml*.) Möglicherweise möchten Sie festlegen `RequireConsistentDisplayMode` zu `true` , wenn das Layout Ihren mobilen nicht gut mit Ansichten stationäre funktioniert. Der Screenshot unten zeigt wie die *Lautsprecher* Seite gerendert wird, wenn `RequireConsistentDisplayMode` festgelegt ist, um `true`.
+Wenn `RequireConsistentDisplayMode` festgelegt ist, um `true`, mobile Layout (<em>\_Layout.Mobile.cshtml</em>) wird nur für mobilen Ansichten verwendet. (Die Datei ist im Format <em>** ViewName</em><em>. Mobile.cshtml</em>.) Möglicherweise möchten Sie festlegen `RequireConsistentDisplayMode` zu `true` , wenn das Layout Ihren mobilen nicht gut mit Ansichten stationäre funktioniert. Der Screenshot unten zeigt wie die <em>Lautsprecher</em> Seite gerendert wird, wenn `RequireConsistentDisplayMode` festgelegt ist, um `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 

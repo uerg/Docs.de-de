@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 title: Validieren von Benutzereingaben in ASP.NET Web Pages (Razor) Standorte | Microsoft Docs
 author: tfitzmac
-description: "In diesem Artikel wird erläutert, wie Informationen zu überprüfen, Sie von Benutzern erhalten &mdash; , also stellen Sie sicher, dass Benutzer geben Sie gültige Informationen in HTML forms in einem Auftragsschritt..."
+description: In diesem Artikel wird erläutert, wie Informationen zu überprüfen, Sie von Benutzern erhalten &mdash; , also stellen Sie sicher, dass Benutzer geben Sie gültige Informationen in HTML forms in einem Auftragsschritt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 3bde2a4ea69577ebcbe3e9e89a7ee07e6ece8dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34f703e6db70ac79c22f4a50d4cfd4e2326b4c74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Validieren von Benutzereingaben in ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -83,15 +83,15 @@ In ASP.NET Web Pages 2 können Sie die `Validator` Hilfsmethode zum Testen von B
     Verwenden Sie zum Überprüfen für Pflichtfelder `Validation.RequireField(field, [error message])` (für ein einzelnes Feld) oder `Validation.RequireFields(field1, field2, ...))` (für eine Liste von Feldern). Verwenden Sie für andere Typen von Validierung, `Validation.Add(field, ValidationType)`. Für `ValidationType`, Sie können diese Optionen verwenden:
 
     `Validator.DateTime ([error message])`  
-`Validator.Decimal([error message])`  
-`Validator.EqualsTo(otherField [, error message])`  
-`Validator.Float([error message])`  
-`Validator.Integer([error message])`  
-`Validator.Range(min, max [, error message])`  
-`Validator.RegEx(pattern [, error message])`  
-`Validator.Required([error message])`  
-`Validator.StringLength(length)`  
-`Validator.Url([error message])`
+   `Validator.Decimal([error message])`  
+   `Validator.EqualsTo(otherField [, error message])`  
+   `Validator.Float([error message])`  
+   `Validator.Integer([error message])`  
+   `Validator.Range(min, max [, error message])`  
+   `Validator.RegEx(pattern [, error message])`  
+   `Validator.Required([error message])`  
+   `Validator.StringLength(length)`  
+   `Validator.Url([error message])`
 3. Wenn die Seite übermittelt wird, überprüfen Sie, ob Überprüfung durch die Überprüfung bestanden hat `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
@@ -122,7 +122,7 @@ Sie können die Unterstützung zum Ausführen einer Validierung in Clientskripts
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
- Zwei der Bibliotheken können über ein Netzwerk für Inhaltsübermittlung (CDN) geladen werden, daher ist es nicht unbedingt Komponenten auf Ihrem Computer oder Server befinden. Sie benötigen jedoch eine lokale Kopie der *jquery.validate.unobtrusive.js*. Wenn Sie nicht bereits mit einer Vorlage WebMatrix arbeiten (z. B. **Starter Site** ), die die Bibliothek enthält, erstellen Sie eine Web Pages-Website auf der Grundlage **Starter Site**. Kopieren Sie dann die *js* Datei auf Ihrer aktuellen Website.
+   Zwei der Bibliotheken können über ein Netzwerk für Inhaltsübermittlung (CDN) geladen werden, daher ist es nicht unbedingt Komponenten auf Ihrem Computer oder Server befinden. Sie benötigen jedoch eine lokale Kopie der *jquery.validate.unobtrusive.js*. Wenn Sie nicht bereits mit einer Vorlage WebMatrix arbeiten (z. B. **Starter Site** ), die die Bibliothek enthält, erstellen Sie eine Web Pages-Website auf der Grundlage **Starter Site**. Kopieren Sie dann die *js* Datei auf Ihrer aktuellen Website.
 2. Fügen Sie im Markup für jedes Element, das Sie überprüfen möchten, die einen Aufruf von `Validation.For(field)`. Diese Methode gibt die Attribute, die durch die clientseitige Validierung verwendet werden. (Statt tatsächliche JavaScript-Code ausgeben, die Methode ausgibt Attribute wie `data-val-...`. Diese Attribute unterstützen unaufdringliche Clientvalidierung, die jQuery verwendet, um die Aktionen auszuführen.)
 
 Die folgende Seite wird gezeigt, wie im Beispiel weiter oben dargestellten clientseitige Validierung Funktionen hinzugefügt.
@@ -144,12 +144,12 @@ In diesem Beispiel funktioniert nicht, die Tests für ein gültiges Datum im Cli
 
 Sie können steuern, wie Validierungsfehler angezeigt werden, durch Definieren von CSS-Klassen, die die folgenden reservierten Namen aufweisen:
 
-- `field-validation-error`. Definiert die Ausgabe von der `Html.ValidationMessage` Methode, wenn es einen Fehler angezeigt wird.
-- `field-validation-valid`. Definiert die Ausgabe von der `Html.ValidationMessage` Methode, wenn kein Fehler vorliegt.
-- `input-validation-error`. Definiert, wie `<input>` Elemente werden gerendert, wenn ein Fehler vorliegt. (Z. B. können Sie diese Klasse verwenden, zum Festlegen der Hintergrundfarbe für eine &lt;input&gt; Element in eine andere Farbe, wenn der Wert ungültig ist.) Diese CSS-Klasse wird nur während der Clientvalidierung (in ASP.NET Web Pages 2) verwendet.
-- `input-validation-valid`. Definiert die Darstellung von `<input>` Elemente angezeigt, wenn kein Fehler vorliegt.
-- `validation-summary-errors`. Definiert die Ausgabe von der `Html.ValidationSummary` Methode, die eine Liste von Fehlern anzeigt.
-- `validation-summary-valid`. Definiert die Ausgabe von der `Html.ValidationSummary` Methode, wenn kein Fehler vorliegt.
+- `field-validation-error` Definiert die Ausgabe von der `Html.ValidationMessage` Methode, wenn es einen Fehler angezeigt wird.
+- `field-validation-valid` Definiert die Ausgabe von der `Html.ValidationMessage` Methode, wenn kein Fehler vorliegt.
+- `input-validation-error` Definiert, wie `<input>` Elemente werden gerendert, wenn ein Fehler vorliegt. (Z. B. können Sie diese Klasse verwenden, zum Festlegen der Hintergrundfarbe für eine &lt;input&gt; Element in eine andere Farbe, wenn der Wert ungültig ist.) Diese CSS-Klasse wird nur während der Clientvalidierung (in ASP.NET Web Pages 2) verwendet.
+- `input-validation-valid` Definiert die Darstellung von `<input>` Elemente angezeigt, wenn kein Fehler vorliegt.
+- `validation-summary-errors` Definiert die Ausgabe von der `Html.ValidationSummary` Methode, die eine Liste von Fehlern anzeigt.
+- `validation-summary-valid` Definiert die Ausgabe von der `Html.ValidationSummary` Methode, wenn kein Fehler vorliegt.
 
 Die folgenden `<style>` Block werden Regeln für fehlerbedingungen.
 

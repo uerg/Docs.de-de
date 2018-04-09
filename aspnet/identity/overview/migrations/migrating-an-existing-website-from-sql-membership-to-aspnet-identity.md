@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 12/19/2014
 ms.topic: article
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migration von einer vorhandenen Website von SQL-Mitgliedschaft zu ASP.NET Identity
 ====================
@@ -67,14 +67,14 @@ Für dieses Lernprogramm dauert es eine Webanwendungsvorlage aus (Webformulare) 
 
 1. Im Projektmappen-Explorer mit der Maustaste des Projekts &gt; **NuGet-Pakete verwalten**. Geben Sie in das Suchfeld "Asp.net Identity" aus. Wählen Sie das Paket in der Liste der Ergebnisse, und klicken Sie auf installieren. Akzeptieren Sie den Lizenzvertrag, klicken Sie auf die Schaltfläche "Akzeptieren". Beachten Sie, dass dieses Paket die abhängigkeitspakete installiert wird: EntityFramework und Microsoft ASP.NET Identity Core. Auf ähnliche Weise installieren Sie die folgenden Pakete (überspringen die letzten 4 OWIN-Pakete aus, wenn Sie nicht OAuth-Protokoll-in aktivieren möchten):
 
-    - Microsoft.AspNet.Identity.Owin
-    - Microsoft.Owin.Host.SystemWeb
-    - Microsoft.Owin.Security.Facebook
-    - Microsoft.Owin.Security.Google
-    - Microsoft.Owin.Security.MicrosoftAccount
-    - Microsoft.Owin.Security.Twitter
+   - Microsoft.AspNet.Identity.Owin
+   - Microsoft.Owin.Host.SystemWeb
+   - Microsoft.Owin.Security.Facebook
+   - Microsoft.Owin.Security.Google
+   - Microsoft.Owin.Security.MicrosoftAccount
+   - Microsoft.Owin.Security.Twitter
 
-    ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
+     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
 ### <a name="migrate-database-to-the-new-identity-system"></a>Migrieren Sie die Datenbank auf die neue Identitätssystem
 
@@ -193,7 +193,7 @@ In diesem Beispiel haben die Tabellen AspNetRoles, AspNetUserClaims, AspNetLogin
 
 ### <a name="create-new-account-management-pages"></a>Verwaltungsseiten für neues Konto erstellen
 
-Der nächste Schritt der Migration besteht darin Verwaltungsseiten Konto hinzuzufügen, mit denen einen Benutzer registrieren und anmelden. Das alte Konto Seiten aus der SQL-Mitgliedschaft in verwenden Sie Steuerelemente, die mit der neuen Identität-System nicht unterstützt. Beim Hinzufügen des neuen Benutzers Verwaltungsseiten Lernprogramm unter diesem Link folgen [https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) beginnend mit dem Schritt " Hinzufügen von Web Forms für die Registrierung von Benutzern für Ihre Anwendung ", da es bereits das Projekt erstellt und die NuGet-Pakete hinzugefügt haben.
+Der nächste Schritt der Migration besteht darin Verwaltungsseiten Konto hinzuzufügen, mit denen einen Benutzer registrieren und anmelden. Das alte Konto Seiten aus der SQL-Mitgliedschaft in verwenden Sie Steuerelemente, die mit der neuen Identität-System nicht unterstützt. Beim Hinzufügen des neuen Benutzers Verwaltungsseiten Lernprogramm unter diesem Link folgen [ https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project ](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) beginnend mit dem Schritt "Webformulare zum Registrieren von Benutzern für Ihre Anwendung hinzufügen", da es bereits die NuGet hinzugefügt und erstellt das Projekt Pakete.
 
 Wir müssen nehmen einige Änderungen für das Beispiel mit dem Projekt arbeiten, das wir hier haben.
 

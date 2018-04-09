@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8eedff4691c1115e242be884f9e74663dc0b4f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ea3aaa5461c2f58a927ae975568f18a34a4729b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="fighting-bots-c"></a>Abwehren von Bots (c#)
 ====================
@@ -37,7 +37,7 @@ Ein gebräuchliches Verfahren zur Bots zunichte machen werden CAPTCHAs vollstän
 
 Es gibt mehrere vor- und Nachteile dieser Vorgehensweise, aber eine Erläuterung dieser sprengt des Rahmen dieses lehrprogramms sprengen. Es ist jedoch ein Steuerelement in ASP.NET AJAX Control Toolkit, die einen ähnlichen Ansatz bereitstellt: `NoBot`. Es ist einfacher, als ein CAPTCHA zu umgehen, aber ist sehr einfach zu verwenden und Flugpreise sehr gut auf Websites wie Blogs, in denen es Erfolg berücksichtigt ist, wenn die meisten Versuche Spam, sind wird außer Kraft gesetzt, die die `NoBot` Steuerelement möglich.
 
-`NoBot`fängt das Postback von der aktuellen ASP.NET Web Form ab, wenn mindestens eine der folgenden Bedingungen erfüllt ist:
+`NoBot` fängt das Postback von der aktuellen ASP.NET Web Form ab, wenn mindestens eine der folgenden Bedingungen erfüllt ist:
 
 - Der Browser eine JavaScript-Rätsel lösen fehlschlägt (z. B. wenn JavaScript deaktiviert ist)
 - Der Benutzer übermittelt das Formular, um schnelle
@@ -45,9 +45,9 @@ Es gibt mehrere vor- und Nachteile dieser Vorgehensweise, aber eine Erläuterung
 
 Um diese Bedingungen zu überprüfen der `NoBot` Steuerelement erfordert diese Attribute (alle von ihnen optional):
 
-- `ResponseMinimumDelaySeconds`minimale Anzahl der Sekunden zwischen postbacks
-- `CutoffWindowSeconds`die Länge des Zeitintervalls, in denen Postbacks aus einem IP-Measures sind
-- `CutoffMaximumInstances`maximale Anzahl der Sekunden pro Zeitintervall
+- `ResponseMinimumDelaySeconds` minimale Anzahl der Sekunden zwischen postbacks
+- `CutoffWindowSeconds` die Länge des Zeitintervalls, in denen Postbacks aus einem IP-Measures sind
+- `CutoffMaximumInstances` maximale Anzahl der Sekunden pro Zeitintervall
 
 Das folgende Markup Forderungen, mindestens zwei Sekunden verstreichen zwischen Postbacks und es sind nur fünf Postbacks oder weniger in einem Intervall von 30 Sekunden:
 
@@ -72,5 +72,5 @@ Wenn Sie dieses Skript ausführen, und Deaktivieren von JavaScript oder des Form
 
 Diese Fehlermeldung kann durch einen Bot verursacht worden sein ([klicken Sie hier, um das Bild in voller Größe angezeigt](fighting-bots-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Nächste](fighting-bots-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](fighting-bots-vb.md)

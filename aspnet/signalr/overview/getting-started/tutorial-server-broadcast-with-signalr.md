@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Lernprogramm: Broadcast-Server mit SignalR 2
 ====================
@@ -65,7 +65,7 @@ Die Anwendung, die Sie in den ersten Teil dieses Lernprogramms erstellen zeigt e
 
 ![StockTicker Anfangsversion](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-Der Server wird in regelmäßigen Abständen nach dem Zufallsprinzip Aktienkurse aktualisiert, und der legt die Updates für alle verbundenen Clients. Im Browser die Zahlen und Symbole in der **ändern** und  **%**  Spalten ändern sich dynamisch in Reaktion auf Benachrichtigungen vom Server. Wenn Sie zusätzliche Browsern auf die gleiche URL öffnen, zeigen sie alle die gleichen Daten und die gleichen Änderungen an den Daten gleichzeitig.
+Der Server wird in regelmäßigen Abständen nach dem Zufallsprinzip Aktienkurse aktualisiert, und der legt die Updates für alle verbundenen Clients. Im Browser die Zahlen und Symbole in der **ändern** und **%** Spalten ändern sich dynamisch in Reaktion auf Benachrichtigungen vom Server. Wenn Sie zusätzliche Browsern auf die gleiche URL öffnen, zeigen sie alle die gleichen Daten und die gleichen Änderungen an den Daten gleichzeitig.
 
 Dieses Lernprogramm enthält folgende Abschnitte:
 
@@ -218,7 +218,7 @@ Sie haben nun das Einrichten der Servercode abgeschlossen. Im nächsten Abschnit
 
     Die Skripttags geben die jQuery-Skriptdatei, die SignalR Core-Skriptdatei der Skriptdatei für SignalR-Proxys und einer StockTicker-Skriptdatei, die Sie später erstellen. Der SignalR Proxys-Skriptdatei, die die URL "/ Signalr/Hubs" angegeben wird, wird dynamisch generiert und Proxymethoden für die Methoden in der Hub-Klasse, in diesem Fall für StockTickerHub.GetAllStocks definiert. Wenn Sie dies bevorzugen, können Sie diese JavaScript-Datei manuell generieren, mit [SignalR-Hilfsprogramme](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) und dynamische Erstellung im Methodenaufruf MapHubs deaktivieren.
 3. > [!IMPORTANT]
- > Stellen Sie sicher, dass in die JavaScript-Datei verweist auf *StockTicker.html* richtig sind. D. h. Stellen Sie sicher, dass die jQuery-Version in Ihr Skripttag (1.10.2 im Beispiel) identisch mit dem jQuery-Version in Ihrem Projekts ist *Skripts* Ordner, und stellen Sie sicher, dass die SignalR-Version in Ihr Skripttag identisch mit SignalR ist die Version in Ihrem Projekts *Skripts* Ordner. Ändern Sie die Dateinamen in den Skripttags bei Bedarf.
+   > Stellen Sie sicher, dass in die JavaScript-Datei verweist auf *StockTicker.html* richtig sind. D. h. Stellen Sie sicher, dass die jQuery-Version in Ihr Skripttag (1.10.2 im Beispiel) identisch mit dem jQuery-Version in Ihrem Projekts ist *Skripts* Ordner, und stellen Sie sicher, dass die SignalR-Version in Ihr Skripttag identisch mit SignalR ist die Version in Ihrem Projekts *Skripts* Ordner. Ändern Sie die Dateinamen in den Skripttags bei Bedarf.
 4. In **Projektmappen-Explorer**, mit der rechten Maustaste *StockTicker.html*, und klicken Sie dann auf **als Startseite festlegen**.
 5. Erstellen Sie eine neue JavaScript-Datei im Projektordner, und nennen Sie sie *StockTicker.js*...
 6. Ersetzen Sie den Vorlagencode, durch den folgenden Code:

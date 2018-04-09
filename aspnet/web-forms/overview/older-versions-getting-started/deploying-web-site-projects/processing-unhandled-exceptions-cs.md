@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 title: Verarbeitung von nicht behandelten Ausnahmen (c#) | Microsoft Docs
 author: rick-anderson
-description: "Tritt ein Laufzeitfehler auf eine Webanwendung in der Produktion ist es wichtig, einen Entwickler benachrichtigt, damit den Fehler protokolliert werden, damit er an einen la diagnostiziert werden möglicherweise..."
+description: Tritt ein Laufzeitfehler auf eine Webanwendung in der Produktion ist es wichtig, einen Entwickler benachrichtigt, damit den Fehler protokolliert werden, damit er an einen la diagnostiziert werden möglicherweise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dda73ca1878396e04b8ff04a255c25bf26ed4eff
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fccd529f5c489ed28f3cb01f07ffdc4452ead36d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>Verarbeitung von nicht behandelten Ausnahmen (c#)
 ====================
@@ -167,6 +167,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Arbeiten mit ASP.NET `Global.asax` Datei](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
 - [Arbeiten mit `HttpApplication` Instanzen](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
->[!div class="step-by-step"]
-[Zurück](displaying-a-custom-error-page-cs.md)
-[Weiter](logging-error-details-with-asp-net-health-monitoring-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](displaying-a-custom-error-page-cs.md)
+> [Weiter](logging-error-details-with-asp-net-health-monitoring-cs.md)

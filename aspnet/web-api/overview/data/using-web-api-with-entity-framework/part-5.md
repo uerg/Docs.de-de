@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-5
-title: "Erstellen Sie die Datenübertragungsobjekte (DTOs) | Microsoft Docs"
+title: Erstellen Sie die Datenübertragungsobjekte (DTOs) | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e179dcd52200734a45c84b3c7c3069a4727904c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35e01f959072b96204de3e2ce3d507635720e110
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-data-transfer-objects-dtos"></a>Erstellen Sie die Datenübertragungsobjekte (DTOs)
 ====================
@@ -53,7 +53,7 @@ Hier wird die generiert wird, durch die neue SQL `GetBooks` Methode. Beachten Si
 
 > [!NOTE]
 > In diesem Lernprogramm möchten wir in DTOs manuell im Code konvertieren. Eine andere Möglichkeit ist die Verwendung eine Bibliothek wie [AutoMapper](http://automapper.org/) , die die Konvertierung automatisch verarbeitet.
-
->[!div class="step-by-step"]
-[Zurück](part-4.md)
-[Weiter](part-6.md)
+> 
+> [!div class="step-by-step"]
+> [Zurück](part-4.md)
+> [Weiter](part-6.md)

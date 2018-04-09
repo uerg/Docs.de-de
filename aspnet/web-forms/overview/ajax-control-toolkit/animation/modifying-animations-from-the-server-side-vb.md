@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
-title: "Ändern von Animationen von der Serverseite (VB) | Microsoft Docs"
+title: Ändern von Animationen von der Serverseite (VB) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Es kann auch die Animationen an..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Es kann auch die Animationen an...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5b23cce529be24157a8a3f9136de7ad7bafc1ea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2b9ce85fc5040b2318233b3c553c2cf53dd03555
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="modifying-animations-from-the-server-side-vb"></a>Ändern von Animationen von der Serverseite (VB)
 ====================
@@ -62,6 +62,6 @@ Fügen Sie schließlich die `AnimationExtender` innerhalb der aktuellen Seite st
 
 Die Animation wird mithilfe von serverseitiger C#/VB-Code erstellt ([klicken Sie hier, um das Bild in voller Größe angezeigt](modifying-animations-from-the-server-side-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](triggering-an-animation-in-another-control-vb.md)
-[Weiter](executing-animations-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](triggering-an-animation-in-another-control-vb.md)
+> [Weiter](executing-animations-using-client-side-code-vb.md)

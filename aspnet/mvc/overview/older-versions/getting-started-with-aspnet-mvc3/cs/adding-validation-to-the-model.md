@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
-title: "Hinzufügen einer Validierung für das Modell (c#) | Microsoft Docs"
+title: Hinzufügen einer Validierung für das Modell (c#) | Microsoft Docs
 author: Rick-Anderson
-description: "Erstellen eines Domänencontrollers"
+description: Erstellen eines Domänencontrollers
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cdfe76f440e34ca7356af193186f90d2231b9db6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Hinzufügen einer Validierung für das Modell (c#)
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Eine aktualisierte Version dieses Lernprogramms steht [hier](../../../getting-started/introduction/getting-started.md) , ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher, führen und weitere Funktionen veranschaulicht.
@@ -127,6 +127,6 @@ Führen Sie die Anwendung, und navigieren Sie zu der `Movies` Controller.
 
 Im nächsten Teil der Reihe überprüfen wir die Anwendung und nehmen einige Verbesserungen an den automatisch generierten Methoden `Details` und `Delete` vor.
 
->[!div class="step-by-step"]
-[Zurück](adding-a-new-field.md)
-[Weiter](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-new-field.md)
+> [Weiter](improving-the-details-and-delete-methods.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: "Teil 3: Layout und die Kategorie Menü | Microsoft Docs"
+title: 'Teil 3: Layout und die Kategorie Menü | Microsoft Docs'
 author: JoeStagner
-description: "Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 3 beschreibt das Hinzufügen von Layout und ein Kategorie-Menü."
+description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 3 beschreibt das Hinzufügen von Layout und ein Kategorie-Menü.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>Teil 3: Layout und die Kategorie Menü
 ====================
@@ -27,7 +27,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 > Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 3 beschreibt das Hinzufügen von Layout und ein Kategorie-Menü.
 
 
-## <a id="_Toc260221669"></a>Einige Layout und ein Menü Kategorie hinzufügen
+## <a id="_Toc260221669"></a>  Einige Layout und ein Menü Kategorie hinzufügen
 
 Auf unserer Website Masterseite fügen wir ein div-Tag für die linke Spalte, die unsere Product Category-Menü enthält.
 
@@ -77,6 +77,6 @@ Können die Anwendung jetzt ausführen.
 
 Beachten Sie, dass unsere Product Category-Menü jetzt angezeigt wird. wenn es für eine Kategorie Menüelemente zeigen sehen wir die im Menü Element-Link verweist auf eine Seite, die wir noch implementieren müssen mit dem Namen ProductsList.aspx und enthält es ein Zeichenfolgenargument dynamischen Abfrage erstellt haben die  Id der Kategorie.
 
->[!div class="step-by-step"]
-[Zurück](tailspin-spyworks-part-2.md)
-[Weiter](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [Zurück](tailspin-spyworks-part-2.md)
+> [Weiter](tailspin-spyworks-part-4.md)

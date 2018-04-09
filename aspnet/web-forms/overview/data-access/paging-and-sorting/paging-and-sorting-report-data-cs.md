@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 title: Paging und Sortieren von Berichtsdaten (c#) | Microsoft Docs
 author: rick-anderson
-description: "Paging und Sortieren von sind zwei sehr allgemeine Funktionen zum Anzeigen von Daten in einer online-Anwendung. In diesem Lernprogramm führen wir einen ersten Blick auf das Hinzufügen einer Sortierung und..."
+description: Paging und Sortieren von sind zwei sehr allgemeine Funktionen zum Anzeigen von Daten in einer online-Anwendung. In diesem Lernprogramm führen wir einen ersten Blick auf das Hinzufügen einer Sortierung und...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d5cf45e391a2b32e1d22e160fd2757b754753875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 06a907f2af0adb2eb8aef5a814c2d767b62db69a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-and-sorting-report-data-c"></a>Paging und Sortieren von Berichtsdaten (c#)
 ====================
@@ -115,13 +115,13 @@ Die DetailsView und die FormView-Steuerelemente zeigen nur einen einzelnen Daten
 
 Diese Schnittstelle GridView, DetailsView und FormView s Paging kann mithilfe der folgenden Eigenschaften angepasst werden:
 
-- `PagerStyle`Gibt die Formatinformationen für die Auslagerungsdatei-Schnittstelle an. festlegbaren Einstellungen wie `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`und so weiter.
-- `PagerSettings`enthält eine Bevy von Eigenschaften, die die Funktionalität der Schnittstelle Paging anpassen können. `PageButtonCount` gibt die maximale Anzahl der numerischen Seitenzahlen angezeigt, in der Auslagerungsdatei-Schnittstelle (der Standard ist 10); das [ `Mode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) gibt an, wie die Paginierung-Schnittstelle funktioniert und kann so festgelegt werden: 
+- `PagerStyle` Gibt die Formatinformationen für die Auslagerungsdatei-Schnittstelle an. festlegbaren Einstellungen wie `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`und so weiter.
+- `PagerSettings` enthält eine Bevy von Eigenschaften, die die Funktionalität der Schnittstelle Paging anpassen können. `PageButtonCount` gibt die maximale Anzahl der numerischen Seitenzahlen angezeigt, in der Auslagerungsdatei-Schnittstelle (der Standard ist 10); das [ `Mode` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) gibt an, wie die Paginierung-Schnittstelle funktioniert und kann so festgelegt werden: 
 
-    - `NextPrevious`Zeigt ein Schaltflächen Weiter und zurück, sodass der Benutzer eine Seite vorwärts oder rückwärts zu einem Zeitpunkt zu Schritt
-    - `NextPreviousFirstLast`Zusätzlich zu den Schaltflächen Weiter und zurück sind auch erste und letzte Schaltflächen enthalten, sodass der Benutzer auf der ersten oder letzten Seite der Daten schnell zu verschieben
-    - `Numeric`Zeigt eine Reihe von Seitenzahlen, sodass der Benutzer sofort auf einer beliebigen Seite wechseln
-    - `NumericFirstLast`Zusätzlich zu den Seitenzahlen umfasst erste und letzte Schaltflächen, sodass der Benutzer auf der ersten oder letzten Seite der Daten schnell zu verschieben. die ersten/letzten Schaltflächen werden nur angezeigt, wenn alle der numerischen Seitenzahlen aufgenommen werden können
+    - `NextPrevious` Zeigt ein Schaltflächen Weiter und zurück, sodass der Benutzer eine Seite vorwärts oder rückwärts zu einem Zeitpunkt zu Schritt
+    - `NextPreviousFirstLast` Zusätzlich zu den Schaltflächen Weiter und zurück sind auch erste und letzte Schaltflächen enthalten, sodass der Benutzer auf der ersten oder letzten Seite der Daten schnell zu verschieben
+    - `Numeric` Zeigt eine Reihe von Seitenzahlen, sodass der Benutzer sofort auf einer beliebigen Seite wechseln
+    - `NumericFirstLast` Zusätzlich zu den Seitenzahlen umfasst erste und letzte Schaltflächen, sodass der Benutzer auf der ersten oder letzten Seite der Daten schnell zu verschieben. die ersten/letzten Schaltflächen werden nur angezeigt, wenn alle der numerischen Seitenzahlen aufgenommen werden können
 
 Darüber hinaus die GridView, DetailsView und FormView alle bieten die `PageIndex` und `PageCount` Eigenschaften, die der aktuellen Seite angezeigt wird und die Gesamtanzahl von Datenseiten, Serveroptionsparameter anzugeben. Die `PageIndex` -Eigenschaft ist indiziert, beginnend mit 0, was bedeutet, dass beim Anzeigen der ersten Seite des Data `PageIndex` gleich "0" wird. `PageCount`, auf der anderen Seite beginnt Zähler bei 1, was bedeutet, dass `PageIndex` ist beschränkt auf die Werte zwischen 0 und `PageCount - 1`.
 
@@ -245,7 +245,7 @@ Alle GridView Felder, die BoundField-, CheckBoxField, TemplateField und usw. hab
 
 1. Die GridView s [Sorting-Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) ausgelöst wird
 2. Die GridView s [ `SortExpression` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) festgelegt ist, um die `SortExpression` des Felds, deren Sortierung Header LinkButton geklickt wurde
-3. Das ObjectDataSource werden alle Daten aus der BLL erneut abgerufen und sortiert dann die Daten mithilfe der GridView-s`SortExpression`
+3. Das ObjectDataSource werden alle Daten aus der BLL erneut abgerufen und sortiert dann die Daten mithilfe der GridView-s `SortExpression`
 4. Die GridView s `PageIndex` Eigenschaft auf 0 zurückgesetzt, was bedeutet, dass beim Sortieren des Benutzers wird zurückgegeben, zur ersten Seite der Daten (vorausgesetzt, Unterstützung der Paginierung implementiert wurde)
 5. Die GridView s [ `Sorted` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) ausgelöst wird
 
@@ -306,7 +306,7 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Nächste](efficiently-paging-through-large-amounts-of-data-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](efficiently-paging-through-large-amounts-of-data-cs.md)

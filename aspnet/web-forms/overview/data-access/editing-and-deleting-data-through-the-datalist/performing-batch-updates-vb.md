@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
-title: "Ausführen von BatchUpdates (VB) | Microsoft Docs"
+title: Ausführen von BatchUpdates (VB) | Microsoft Docs
 author: rick-anderson
-description: "Informationen zum Erstellen einer vollständig bearbeitbar DataList, in dem sämtliche Elemente sind im, Bearbeitungsmodus, deren Werte gespeichert werden können, indem Sie auf eine Schaltfläche 'Alle aktualisieren' auf der..."
+description: Informationen zum Erstellen einer vollständig bearbeitbar DataList, in dem sämtliche Elemente sind im, Bearbeitungsmodus, deren Werte gespeichert werden können, indem Sie auf eine Schaltfläche 'Alle aktualisieren' auf der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-vb"></a>Ausführen von BatchUpdates (VB)
 ====================
@@ -43,8 +43,8 @@ In diesem Lernprogramm untersuchen wir zum Aktivieren der Benutzer mit einem vol
 
 In dem vorherigen Lernprogramm, in dem wir erstellen ein standard, Elementebene bearbeitbaren DataList, wir zwei Vorlagen verwendet:
 
-- `ItemTemplate`enthalten, die nur-Lese Benutzeroberfläche (die Bezeichnung-Websteuerelemente zum Anzeigen von jeder s Produktname und Preis).
-- `EditItemTemplate`enthalten die Benutzeroberfläche des bearbeiten-Modus (die beiden TextBox Web-Steuerelemente).
+- `ItemTemplate` enthalten, die nur-Lese Benutzeroberfläche (die Bezeichnung-Websteuerelemente zum Anzeigen von jeder s Produktname und Preis).
+- `EditItemTemplate` enthalten die Benutzeroberfläche des bearbeiten-Modus (die beiden TextBox Web-Steuerelemente).
 
 DataList-s `EditItemIndex` Eigenschaft bestimmt, welche `DataListItem` (sofern vorhanden) gerendert wird, mithilfe der `EditItemTemplate`. Insbesondere die `DataListItem` , deren `ItemIndex` Wert entspricht die DataList s `EditItemIndex` Eigenschaft wird dargestellt, mit der `EditItemTemplate`. Dieses Modell funktioniert gut, wenn nur ein Element auf eine Zeit, aber auseinander fällt bearbeitet werden kann, für die Erstellung vollständig bearbeitbar DataList.
 
@@ -163,12 +163,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones und Ken Pespisa. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-[Weiter](handling-bll-and-dal-level-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [Weiter](handling-bll-and-dal-level-exceptions-vb.md)

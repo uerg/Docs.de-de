@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 title: Zugriff auf das Modell Daten aus einem Controller | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Zugriff auf das Modell Daten aus einem Controller
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In diesem Abschnitt erstellen Sie ein neues `MoviesController` Klasse, und Schreiben von Code, ruft die Filmdaten ab und zeigt ihn im Browser mit einer Vorlage anzeigen.
 
@@ -40,7 +40,7 @@ In der **Gerüst hinzufügen** (Dialogfeld), klicken Sie auf **MVC 5-Controller 
 - Wählen Sie **MovieDBContext (MvcMovie.Models)** für die Daten Context-Klasse.
 - Geben Sie für den Controllernamen **MoviesController**.
 
- Die folgende Abbildung zeigt das Dialogfeld "Abgeschlossene".  
+  Die folgende Abbildung zeigt das Dialogfeld "Abgeschlossene".  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
@@ -64,7 +64,7 @@ Klicken Sie auf den Link **Neu erstellen**. Geben Sie einige Details über einen
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Sie können im Feld "Preis" Dezimaltrennzeichen oder Kommas eingeben möglicherweise nicht. Darin jQuery-Validierung bei nicht englischen Gebietsschemas zu unterstützen, verwenden ein Komma (&quot;,&quot;) für ein Dezimaltrennzeichen und einem nicht US-englischen Datums-und Uhrzeitformate, enthalten Sie *globalize.js* und Ihre spezifischen  *Cultures/globalize.Cultures.js* Datei (aus [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) und JavaScript verwenden `Globalize.parseFloat`. Ich zeige wie dies in den nächsten Lernprogrammen ausgeführt werden. Geben Sie einstweilen ganze Zahlen wie 10 ein.
+> Sie können im Feld "Preis" Dezimaltrennzeichen oder Kommas eingeben möglicherweise nicht. darin jQuery-Validierung bei nicht englischen Gebietsschemas zu unterstützen, verwenden ein Komma (&quot;,&quot;) für ein Dezimaltrennzeichen und einem nicht US-englischen Datums-und Uhrzeitformate, enthalten Sie *globalize.js* und Ihre spezifischen  *Cultures/globalize.Cultures.js* Datei (aus [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) und JavaScript verwenden `Globalize.parseFloat`. Ich zeige wie dies in den nächsten Lernprogrammen ausgeführt werden. Geben Sie einstweilen ganze Zahlen wie 10 ein.
 
 
 Klicken auf die **erstellen** Schaltfläche bewirkt, dass das Formular an den Server zurückgesendet werden, in dem die Informationen in der Datenbank gespeichert. Sie sind dann umgeleitet, um die */Movies* URL, wo Sie in die Auflistung den neu erstellten Film finden können.
@@ -157,6 +157,6 @@ Wenn Sie fertig sind, schließen Sie die Verbindung, indem Sie mit der rechten M
 
 Sie verfügen jetzt über eine Datenbank und Seiten zum Anzeigen, Bearbeiten, Aktualisieren und Löschen von Daten. In den nächsten Lernprogrammen wir untersuchen Sie den Rest des Codes scaffolded und Hinzufügen einer `SearchIndex` Methode und eine `SearchIndex` anzeigen, die für Filme in dieser Datenbank durchsuchen kann. Weitere Informationen zur Verwendung von Entity Framework mit MVC finden Sie unter [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC-Anwendung](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
->[!div class="step-by-step"]
-[Zurück](creating-a-connection-string.md)
-[Weiter](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-connection-string.md)
+> [Weiter](examining-the-edit-methods-and-edit-view.md)

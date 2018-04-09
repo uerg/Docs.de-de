@@ -1,7 +1,7 @@
 ---
-title: Verwenden der React-with-Redux-Projektvorlage
+title: Verwenden Sie die Projektvorlage reagieren mit Redux mit ASP.NET Core
 author: SteveSandersonMS
-description: "Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren mit Redux und erstellen-reagieren-app."
+description: Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren mit Redux und erstellen-reagieren-app.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>Verwenden der React-with-Redux-Projektvorlage
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Verwenden Sie die Projektvorlage reagieren mit Redux mit ASP.NET Core
 
 > [!NOTE]
 > Diese Dokumentation betrifft nicht die in ASP.NET Core 2.0 enthaltene React-with-Redux-Projektvorlage. Es geht hier um die neuere React-with-Redux-Vorlage, auf die Sie manuell aktualisieren können. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.

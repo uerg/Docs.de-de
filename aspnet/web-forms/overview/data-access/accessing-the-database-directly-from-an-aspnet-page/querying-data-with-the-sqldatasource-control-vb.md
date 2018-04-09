@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 title: Abfragen von Daten mit SqlDataSource-Steuerelement (VB) | Microsoft Docs
 author: rick-anderson
-description: "In den vorherigen Lernprogrammen verwendet wurde das ObjectDataSource-Steuerelement, um die Darstellungsschicht von der Datenzugriffsschicht vollständig zu trennen. Mit diesem Tutor wird gestartet..."
+description: In den vorherigen Lernprogrammen verwendet wurde das ObjectDataSource-Steuerelement, um die Darstellungsschicht von der Datenzugriffsschicht vollständig zu trennen. Mit diesem Tutor wird gestartet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a3832bd9847ec8e789b71d13b30a673c8779f4ac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f886ca85a2a4dea5daeff109370bedc1a3f7265
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>Abfragen von Daten mit SqlDataSource-Steuerelement (VB)
 ====================
@@ -201,7 +201,7 @@ Fügen Sie ein anderes GridView-Steuerelement an die `Querying.aspx` Seite und w
 
 ![Erstellen Sie ein neues SqlDataSource-Steuerelement mit dem Namen ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
 
-**Abbildung 12**: Erstellen Sie ein neues SqlDataSource-Steuerelement mit dem Namen`ProductsWithCategoryInfoDataSource`
+**Abbildung 12**: Erstellen Sie ein neues SqlDataSource-Steuerelement mit dem Namen `ProductsWithCategoryInfoDataSource`
 
 
 Der nächste Bildschirm fordert uns auf die Datenbank anzugeben. Wählen Sie wie in Abbildung 7 zurück, die `NORTHWINDConnectionString` aus der Dropdown-Liste, und klicken Sie auf Weiter. Konfigurieren Sie den Bildschirm Select-Anweisung wählen Sie angeben aus, eine benutzerdefinierte SQL-Anweisung oder gespeicherte Prozedur Optionsfeld aus, und klicken Sie auf Weiter. Hierdurch wird der Bildschirm definieren benutzerdefinierte Anweisungen oder gespeicherte Prozeduren, die Registerkarten, die mit der Bezeichnung SELECT, UPDATE, INSERT und DELETE bietet angezeigt. Auf jeder Registerkarte können Sie eine benutzerdefinierte SQL­Anweisung in das Textfeld eingeben oder wählen Sie eine gespeicherte Prozedur aus der Dropdown Liste. In diesem Lernprogramm betrachten wir eine benutzerdefinierte SQL­Anweisung eingeben; das nächste Lernprogramm enthält ein Beispiel, eine gespeicherte Prozedur verwendet.
@@ -256,12 +256,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Susan Connery Bernadette Leigh und David Suru. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
-[Weiter](using-parameterized-queries-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+> [Weiter](using-parameterized-queries-with-the-sqldatasource-vb.md)

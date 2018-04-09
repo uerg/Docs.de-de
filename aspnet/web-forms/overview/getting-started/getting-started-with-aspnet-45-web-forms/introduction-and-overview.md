@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Erste Schritte mit ASP.NET 4.5 WebForms und Visual Studio 2013
 ====================
@@ -177,9 +177,9 @@ Nach der Installation der erforderlichen Komponenten können Sie beginnen, erste
 
 [Erste Schritte mit ASP.NET 4.5 WebForms und Visual Studio 2013 – Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (c#) 
 
-Der Download ist eine *ZIP* Datei. Anzeigen des abgeschlossenen Projekts, die diese Reihe von Lernprogrammen erstellt, suchen und wählen Sie die *c#*Ordner in der *ZIP* Datei. Speichern Sie die *c#* den Ordner aus dem Ordner, die Sie zum Arbeiten mit Visual Studio 2013-Projekte verwenden. Standardmäßig lautet der Ordner von Visual Studio 2013-Projekte wie folgt:
+Der Download ist eine <em>ZIP</em> Datei. Anzeigen des abgeschlossenen Projekts, die diese Reihe von Lernprogrammen erstellt, suchen und wählen Sie die <em>c#</em>Ordner in der <em>ZIP</em> Datei. Speichern Sie die <em>c#</em> den Ordner aus dem Ordner, die Sie zum Arbeiten mit Visual Studio 2013-Projekte verwenden. Standardmäßig lautet der Ordner von Visual Studio 2013-Projekte wie folgt:
 
-**C:\Users\*****&lt;Benutzername&gt;*** \Documents\Visual Studio 2013\Projects**
+<strong>C:\Users\</ strong ><strong><em>&lt;Benutzername&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 Benennen Sie die ***c#*** Ordner ***WingtipToys***.
 
@@ -197,5 +197,5 @@ Kommentare für diese Reihe von Lernprogrammen Willkommen sind, und bei der Aktu
 
 Wenn ein Fehler tritt auf, während der Entwicklung, oder die Website nicht ordnungsgemäß ausgeführt werden kann, wird die Fehlermeldungen können komplexe Informationen zu den Ursachen geben, an die Quelle des Problems oder möglicherweise nicht erläutert, wie sie diesen Fehler beheben. Sie können auch verwenden, um Sie für einige allgemeine Problemszenarien zu finden, die [ASP.NET Foren](https://forums.asp.net/) oder im Lieferumfang von f und A-Abschnitt der [erste Schritte mit ASP.NET 4.5 Web Forms und Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) ( C#) Beispiel. Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, wenn Sie die Lernprogramme absolvieren, achten Sie darauf, dass Sie die oben genannten Speicherorte zu überprüfen.
 
->[!div class="step-by-step"]
-[Nächste](create-the-project.md)
+> [!div class="step-by-step"]
+> [Nächste](create-the-project.md)

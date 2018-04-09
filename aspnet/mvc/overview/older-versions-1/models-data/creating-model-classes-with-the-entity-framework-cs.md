@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 title: Erstellen von Modellklassen mit dem Entity Framework (c#) | Microsoft Docs
 author: microsoft
-description: "In diesem Lernprogramm erfahren Sie, wie für die Verwendung von ASP.NET MVC mit Microsoft Entity Framework. Erfahren Sie, wie der Assistent für Entity verwenden, um ein ADO.NET Entity Da erstellen..."
+description: In diesem Lernprogramm erfahren Sie, wie für die Verwendung von ASP.NET MVC mit Microsoft Entity Framework. Erfahren Sie, wie der Assistent für Entity verwenden, um ein ADO.NET Entity Da erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a897f671de73d9991189e32a5d86b513051ef05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b0a79da580f14d5ae6bcfaaa00d3900234dc662e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-c"></a>Erstellen von Modellklassen mit dem Entity Framework (c#)
 ====================
@@ -33,7 +33,7 @@ Um zu veranschaulichen, wie Sie Microsoft Entity Framework mit ASP.NET MVC verwe
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie Visual Studio 2008 oder Visual Web Developer 2008 mit Service Pack 1 aufweisen. Sie benötigen die Service Pack 1, um die Verwendung von Entity Framework. Sie können Visual Studio 2008 Service Pack 1 oder Visual Web Developer mit Service Pack 1 aus der folgenden Adresse herunterladen:
 
-> [https://www.ASP.NET/Downloads/](https://www.asp.net/downloads)
+> [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 
 > [!NOTE] 
@@ -209,7 +209,7 @@ Wenn Sie Datenbank-Datensätze zu bearbeiten, müssen Sie übergeben Sie die Id 
 
 Der endgültige Datenbankvorgang, die wir in diesem Lernprogramm befassen müssen, ist Datenbankdatensätze löschen. Auflisten von 6 können Controlleraktion Datensatzes in einer bestimmten Datenbank zu löschen.
 
-**Auflisten von 6 – \Controllers\HomeController.cs (Delete-Aktion)**
+**Listing 6 -- \Controllers\HomeController.cs (Delete action)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample9.cs)]
 
@@ -221,5 +221,5 @@ Der Zweck dieses Lernprogramms wurde veranschaulicht, wie Sie die Datenbank-driv
 
 Zuerst wird erläutert, Verwendung des Entity Data Model-Assistenten zum Generieren eines Entity Data Model aus Visual Studio. Als Nächstes erfahren Sie, wie LINQ to Entities verwenden, um eine Gruppe von Datenbankdatensätzen aus einer Datenbanktabelle abrufen. Schließlich können wir das Entity Framework verwendet, um einfügen, aktualisieren und Löschen von Datenbank-Datensätze.
 
->[!div class="step-by-step"]
-[Nächste](creating-model-classes-with-linq-to-sql-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](creating-model-classes-with-linq-to-sql-cs.md)

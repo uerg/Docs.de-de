@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: "Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#) | Microsoft Docs"
+title: Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#) | Microsoft Docs
 author: StephenWalther
-description: "Informationen Sie zum Erstellen von Komponententests für Controlleraktionen. In diesem Lernprogramm veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine geben gibt..."
+description: Informationen Sie zum Erstellen von Komponententests für Controlleraktionen. In diesem Lernprogramm veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine geben gibt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 56c981363f1905c1c9869dbaf2adb6b5ac1c28a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccd9a1b3aee8379c23c01c5eb7f756a786f6359d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#)
 ====================
@@ -33,7 +33,7 @@ Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie Komponententests fü
 
 Zunächst erstellen den Controller, den wir testen möchten. Der Controller, mit dem Namen der `ProductController`, Auflisten von 1 enthalten ist.
 
-**Auflisten von 1 –`ProductController.cs`**
+**Auflisten von 1 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
@@ -43,7 +43,7 @@ Die `ProductController` enthält zwei Aktionsmethoden `Index()` und `Details()`.
 
 Angenommen, wir testen möchten, und zwar unabhängig davon, ob die `ProductController` gibt die richtige Sicht zurück. Wir möchten sicherstellen, dass bei der `ProductController.Details()` Aktion aufgerufen wird, wird die Detailansicht zurückgegeben. Die Testklasse im Codebeispiel 2 enthält einen Komponententest für das Testen der Sicht zurückgegeben werden, indem die `ProductController.Details()` Aktion.
 
-**Auflisten von 2 –`ProductControllerTest.cs`**
+**Auflisten von 2 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
@@ -74,11 +74,11 @@ Sie können den Komponententest in Auflisten von 2 ausführen, indem Sie die Tas
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>Testen die Ansichtsdaten zurückgegebenes eines Controllers
 
-Ein MVC-Controller übergibt Daten an eine Ansicht mit der so genannte  *`View Data`* . Angenommen, dass Sie die Details für ein bestimmtes Produkt anzuzeigen, wenn Sie aufrufen möchten die `ProductController Details()` Aktion. In diesem Fall können Sie eine Instanz des erstellen eine `Product` Klasse (definiert in Ihrem Modell), und übergeben Sie die Instanz, die die `Details` Ansicht durch nutzen `View Data`.
+Ein MVC-Controller übergibt Daten an eine Ansicht mit der so genannte *`View Data`*. Angenommen, dass Sie die Details für ein bestimmtes Produkt anzuzeigen, wenn Sie aufrufen möchten die `ProductController Details()` Aktion. In diesem Fall können Sie eine Instanz des erstellen eine `Product` Klasse (definiert in Ihrem Modell), und übergeben Sie die Instanz, die die `Details` Ansicht durch nutzen `View Data`.
 
 Das geänderte `ProductController` auflisten 3 enthält ein aktualisiertes `Details()` Aktion, die ein Produkt zurückgibt.
 
-**Auflisten von 3:`ProductController.cs`**
+**Auflisten von 3: `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
@@ -86,7 +86,7 @@ Zuerst die `Details()` Aktion erstellt eine neue Instanz der dem `Product` Klass
 
 Sie können Komponententests schreiben zu prüfen, ob die erwarteten Daten sind Daten enthalten, die in der Sicht. Den Komponententest im Codebeispiel 4 Tests, und zwar unabhängig davon, ob ein Produkt, das einen Laptop darstellt zurückgegeben wird, beim Aufrufen der `ProductController Details()` Aktionsmethode.
 
-**Auflisten von 4 –`ProductControllerTest.cs`**
+**Auflisten von 4 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
@@ -98,13 +98,13 @@ Eine komplexere Controlleraktion möglicherweise unterschiedliche Typen von Akti
 
 Z. B. das geänderte `Details()` Aktion im Codebeispiel 5 gibt den `Details` anzeigen, wenn Sie ein gültiges Produkt-Id an die Aktion übergeben. Wenn Sie eine ungültige Produkt-Id – eine Id mit einem Wert kleiner übergeben als 1 – können Sie umgeleitet werden, um die `Index()` Aktion.
 
-**Auflisten von 5 –`ProductController.cs`**
+**Auflisten von 5 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
 Sie können das Verhalten Testen der `Details()` Aktion mit dem Komponententest 6 auflisten. Der Komponententest Auflisten von 6 stellt sicher, dass Sie zur umgeleitet werden die `Index` anzeigen, wenn eine Id mit dem Wert-1, um übergeben wird die `Details()` Methode.
 
-**Auflisten von 6 –`ProductControllerTest.cs`**
+**Auflisten von 6 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
@@ -118,5 +118,5 @@ Als Nächstes untersucht wie Sie testen können, den Inhalt der `View Data`. Hab
 
 Abschließend wird erläutert, wie Sie testen können, ob eine Controlleraktion verschiedene Informationstypen Aktionsergebnisse zurückgegeben werden. Sie haben gelernt, wie zu prüfen, ob ein Controller gibt eine `ViewResult` oder ein `RedirectToRouteResult`.
 
->[!div class="step-by-step"]
-[Nächste](creating-unit-tests-for-asp-net-mvc-applications-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

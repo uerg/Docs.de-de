@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 5b38f88283c5d2d93f0bab283dbd9451855d95e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497c2898db2e03b0650982c3ad1e6b5ac5ca639d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-views-and-viewmodels"></a>Teil 3: Ansichten und ViewModels
 ====================
@@ -237,7 +237,7 @@ Dies funktioniert, aber dies könnte zu später behandeln, da er auf eine hartco
 
 Eine alternative Methode, die verwendet werden können, besteht darin ein HTML-Hilfsmethode nutzen. ASP.NET MVC umfasst HTML-Hilfsmethoden aus unserem Vorlagencode Ansicht zum Ausführen einer Vielzahl von allgemeinen Aufgaben wie folgt zur Verfügung stehen. Die Hilfsmethode Html.ActionLink() ist eine besonders nützlich, und erleichtert das Erstellen von HTML &lt;ein&gt; verknüpft und übernimmt die ärgerlich Details, wie Sie sicherstellen, dass URL-Pfade sind ordnungsgemäß URL-codiert.
 
-Html.ActionLink() verfügt über mehrere verschiedene Überladungen zur Angabe so viele Informationen, wie Sie für Ihre Verknüpfungen benötigen. Im einfachsten Fall müssen Sie angeben, nur der Text des Links und die Aktionsmethode soll, wenn auf dem Client auf der Link geklickt wird. Beispielsweise können wir mit "/ Store /" Index()-Methode auf der Detailseite für Speicher mit der Text des Links "Wechseln Sie zu der Columnstore-Index" mithilfe des folgenden Aufrufs verknüpfen:
+Html.ActionLink() has several different overloads to allow specifying as much information as you need for your links. Im einfachsten Fall müssen Sie angeben, nur der Text des Links und die Aktionsmethode soll, wenn auf dem Client auf der Link geklickt wird. Beispielsweise können wir mit "/ Store /" Index()-Methode auf der Detailseite für Speicher mit der Text des Links "Wechseln Sie zu der Columnstore-Index" mithilfe des folgenden Aufrufs verknüpfen:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample20.cshtml)]
 
@@ -262,6 +262,6 @@ Der HTML-Code für die Liste "Genre" sieht wie folgt:
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 
 
->[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-2.md)
-[Weiter](mvc-music-store-part-4.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc-music-store-part-2.md)
+> [Weiter](mvc-music-store-part-4.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
-title: "Erstellen einer benutzerdefinierten Sortierung Benutzeroberfläche (VB) | Microsoft Docs"
+title: Erstellen einer benutzerdefinierten Sortierung Benutzeroberfläche (VB) | Microsoft Docs
 author: rick-anderson
-description: "Beim Anzeigen einer langen Liste von Daten sortiert werden, es kann sehr hilfreich sein, gruppieren Sie verknüpfte Daten durch die Einführung von Trennzeichen für Zeilen. In diesem Lernprogramm sehen wir wie Anmelde..."
+description: Beim Anzeigen einer langen Liste von Daten sortiert werden, es kann sehr hilfreich sein, gruppieren Sie verknüpfte Daten durch die Einführung von Trennzeichen für Zeilen. In diesem Lernprogramm sehen wir wie Anmelde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 527bfe62a7293d0aa2d6b5b83119bb922906120b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35144907aceda6ece56d91b24aba15ef951ed99a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Erstellen einer benutzerdefinierten Sortierung Benutzeroberfläche (VB)
 ====================
@@ -141,7 +141,7 @@ Mit dem Index der Spalte, nach der die Daten sortiert werden, besteht der letzte
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample4.vb)]
 
-Dieser Code beginnt durch Programmgesteuertes Verweisen auf die `Table` Objekt auf der Stammebene des GridView-s-Steuerelementhierarchie gefunden, und erstellen Sie eine Zeichenfolgenvariable mit dem Namen `lastValue`. `lastValue`Dient zum Vergleichen des aktuellen Zeile s sortiert Spaltenwert mit der vorherigen s-Zeilenwert. Anschließend wird die GridView-s `Rows` Auflistung aufgezählt, und für jede Zeile befindet sich der Wert für die sortierte Spalte in der `currentValue` Variable.
+Dieser Code beginnt durch Programmgesteuertes Verweisen auf die `Table` Objekt auf der Stammebene des GridView-s-Steuerelementhierarchie gefunden, und erstellen Sie eine Zeichenfolgenvariable mit dem Namen `lastValue`. `lastValue` Dient zum Vergleichen des aktuellen Zeile s sortiert Spaltenwert mit der vorherigen s-Zeilenwert. Anschließend wird die GridView-s `Rows` Auflistung aufgezählt, und für jede Zeile befindet sich der Wert für die sortierte Spalte in der `currentValue` Variable.
 
 > [!NOTE]
 > Um zu bestimmen, den Wert der Spalte sortiert s bestimmten Zeile, die ich verwende der Zelle s `Text` Eigenschaft. Es funktioniert gut für BoundFields, aber funktioniert nicht wie gewünscht für von TemplateFields, CheckBoxFields, und so weiter. Sehen wir uns wie alternative GridView-Felder in Kürze zu berücksichtigen.
@@ -198,7 +198,7 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Vorherige](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](sorting-custom-paged-data-vb.md)

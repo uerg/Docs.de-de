@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
-title: "Anzeigen von Zusammenfassungsinformationen in die GridView Fußzeile (VB) | Microsoft Docs"
+title: Anzeigen von Zusammenfassungsinformationen in die GridView Fußzeile (VB) | Microsoft Docs
 author: rick-anderson
-description: "Zusammenfassende Informationen wird häufig am unteren Rand des Berichts in eine Summenzeile angezeigt. Des GridView-Steuerelements kann eine Fußzeile enthalten, deren Zellen Wir Pr können..."
+description: Zusammenfassende Informationen wird häufig am unteren Rand des Berichts in eine Summenzeile angezeigt. Des GridView-Steuerelements kann eine Fußzeile enthalten, deren Zellen Wir Pr können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e5b7e39a44d43a857c62842ea3e1dddcacf05c9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a1a3f3c680f367395f984254da6cdcdd3c08d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>Anzeigen von Zusammenfassungsinformationen in die GridView Fußzeile (VB)
 ====================
@@ -101,7 +101,7 @@ Da die `GetProductsByCategoryID(categoryID)` Methode akzeptiert einen Eingabepar
 
 [![Die CategoryID-Parameterwert aus der ausgewählten Kategorien DropDownList abrufen](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**Abbildung 8**: Abrufen der  *`categoryID`*  Parameterwert aus der ausgewählten Kategorien DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**Abbildung 8**: Abrufen der *`categoryID`* Parameterwert aus der ausgewählten Kategorien DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 Nach Abschluss des Assistenten müssen die GridView ein BoundField für jede Produkt-Eigenschaft. Bereinigen Sie wir diese BoundFields so, dass nur die `ProductName`, `UnitPrice`, `UnitsInStock`, und `UnitsOnOrder` BoundFields werden angezeigt. Wahlweise können Sie alle Einstellungen auf den verbleibenden BoundFields hinzufügen (z. B. beim Formatieren der `UnitPrice` als Währung). Nachdem diese Änderungen vorgenommen wurden, sollte die GridView deklarative Markup etwa wie folgt aussehen:
@@ -114,7 +114,7 @@ Zu diesem Zeitpunkt haben wir einen voll funktionsfähige Master/Detail-Bericht,
 
 [![Die CategoryID-Parameterwert aus der ausgewählten Kategorien DropDownList abrufen](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**Abbildung 9**: Abrufen der  *`categoryID`*  Parameterwert aus der ausgewählten Kategorien DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**Abbildung 9**: Abrufen der *`categoryID`* Parameterwert aus der ausgewählten Kategorien DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>Schritt 2: Anzeigen eine Fußzeile in die GridView
@@ -177,10 +177,10 @@ Erstellen einer `RowDataBound` -Ereignishandler für die GridView GridView im De
 
 Um einen laufenden insgesamt verwalten müssen wir Variablen außerhalb des Bereichs der Ereignishandler zu definieren. Erstellen Sie die folgenden vier Seitenebene Variablen:
 
-- `_totalUnitPrice`, des Typs`Decimal`
-- `_totalNonNullUnitPriceCount`, des Typs`Integer`
-- `_totalUnitsInStock`, des Typs`Integer`
-- `_totalUnitsOnOrder`, des Typs`Integer`
+- `_totalUnitPrice`, des Typs `Decimal`
+- `_totalNonNullUnitPriceCount`, des Typs `Integer`
+- `_totalUnitsInStock`, des Typs `Integer`
+- `_totalUnitsOnOrder`, des Typs `Integer`
 
 Als Nächstes schreiben den Code, um diese drei Variablen zu erhöhen, für jede Datenzeile in ermittelt die `RowDataBound` -Ereignishandler.
 
@@ -221,7 +221,7 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](using-the-formview-s-templates-vb.md)

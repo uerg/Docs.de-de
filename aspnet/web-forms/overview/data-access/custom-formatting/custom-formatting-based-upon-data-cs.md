@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 title: Benutzerdefinierte Formatierung basierend auf Daten (c#) | Microsoft Docs
 author: rick-anderson
-description: "Passen das Format des GridView, DetailsView oder FormView basierend auf der gebundenen Daten kann auf verschiedene Weise erreicht werden. In diesem Lernprogramm fügen wir l..."
+description: Passen das Format des GridView, DetailsView oder FormView basierend auf der gebundenen Daten kann auf verschiedene Weise erreicht werden. In diesem Lernprogramm fügen wir l...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 606721b01fae34a7bce85d497a442cb110f1b51e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 31cf628baf2250c2e7e71ab38cd64b218dc927e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-c"></a>Benutzerdefinierte Formatierung basierend auf Daten (c#)
 ====================
@@ -217,19 +217,19 @@ Diese drei einfache Schritte sind ausreichend, DetailsView und FormView, da sie 
 
 Klicken Sie in Schritt 2 die GridView Listet die Datenquelle, und für jeden Datensatz erstellt eine `GridViewRow` -Instanz und den aktuellen Datensatz an es gebunden. Für jede `GridViewRow` an die GridView hinzugefügt, werden zwei Ereignisse ausgelöst:
 
-- **`RowCreated`**wird ausgelöst, nachdem der `GridViewRow` erstellt wurde
-- **`RowDataBound`**wird ausgelöst, nachdem der aktuelle Datensatz an gebunden wurde die `GridViewRow`.
+- **`RowCreated`** wird ausgelöst, nachdem der `GridViewRow` erstellt wurde
+- **`RowDataBound`** wird ausgelöst, nachdem der aktuelle Datensatz an gebunden wurde die `GridViewRow`.
 
 Für die GridView anschließend wird die Datenbindung genauer mit der folgenden Sequenz von Schritten beschrieben:
 
 1. Der GridView `DataBinding` Ereignis ausgelöst wird.
 2. Die Daten werden an die GridView gebunden.   
   
- Für jeden Datensatz in der Datenquelle 
+   Für jeden Datensatz in der Datenquelle 
 
     1. Erstellen einer `GridViewRow` Objekt
     2. Auslösen der `RowCreated` Ereignis
-    3. Binden Sie den Datensatz der`GridViewRow`
+    3. Binden Sie den Datensatz der `GridViewRow`
     4. Auslösen der `RowDataBound` Ereignis
     5. Hinzufügen der `GridViewRow` auf die `Rows` Auflistung
 3. Der GridView `DataBound` Ereignis ausgelöst wird.
@@ -275,12 +275,12 @@ Wenn die `RowDataBound` Ereignis wird ausgelöst, der Ereignishandler wird über
 
 Bei der Arbeit mit der `RowDataBound` Ereignishandler, es wichtig ist zu bedenken, die die GridView besteht aus verschiedenen Typen von Zeilen und die dieses Ereignis wird ausgelöst, für *alle* Zeile Typen. Ein `GridViewRow`Typ kann bestimmt werden, indem seine `RowType` -Eigenschaft, und kann einen der möglichen Werte haben:
 
-- `DataRow`eine Zeile, die an einen Datensatz aus der GridView gebunden ist`DataSource`
-- `EmptyDataRow`die Zeile angezeigt, wenn der GridView `DataSource` ist leer
-- `Footer`die Fußzeile; dargestellt der GridView `ShowFooter` Eigenschaft auf festgelegt ist`true`
-- `Header`die Kopfzeile; angezeigt, wenn die GridView ShowHeader-Eigenschaft festgelegt ist, `true` (Standard)
-- `Pager`GridView implementiert, die paging, der Zeile, die der Auslagerung-Benutzeroberfläche angezeigt wird
-- `Separator`nicht für die GridView verwendet, aber von verwendet die `RowType` Eigenschaften für die DataList und Repeater Steuerelemente, die zwei Data Websteuerelemente besprechen wir in Zukunft Lernprogramme
+- `DataRow` eine Zeile, die an einen Datensatz aus der GridView gebunden ist `DataSource`
+- `EmptyDataRow` die Zeile angezeigt, wenn der GridView `DataSource` ist leer
+- `Footer` die Fußzeile; dargestellt der GridView `ShowFooter` Eigenschaft auf festgelegt ist `true`
+- `Header` die Kopfzeile; angezeigt, wenn die GridView ShowHeader-Eigenschaft festgelegt ist, `true` (Standard)
+- `Pager` GridView implementiert, die paging, der Zeile, die der Auslagerung-Benutzeroberfläche angezeigt wird
+- `Separator` nicht für die GridView verwendet, aber von verwendet die `RowType` Eigenschaften für die DataList und Repeater Steuerelemente, die zwei Data Websteuerelemente besprechen wir in Zukunft Lernprogramme
 
 Da die `EmptyDataRow`, `Header`, `Footer`, und `Pager` Zeilen werden nicht zugeordnet eine `DataSource` aufzuzeichnen, sie besitzen immer eine `null` Wert für ihre `DataItem` Eigenschaft. Aus diesem Grund ist, bevor Sie versuchen, arbeiten mit dem aktuellen `GridViewRow`des `DataItem` -Eigenschaft, wir zuerst müssen sicherstellen, dass wir zu tun haben eine `DataRow`. Dies kann durch Überprüfen der `GridViewRow`des `RowType` Eigenschaft wie folgt:
 
@@ -319,11 +319,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden E.R. Gärtner ein, Dennis Patterson und Dan Jagers. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Nächste](using-templatefields-in-the-gridview-control-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](using-templatefields-in-the-gridview-control-cs.md)

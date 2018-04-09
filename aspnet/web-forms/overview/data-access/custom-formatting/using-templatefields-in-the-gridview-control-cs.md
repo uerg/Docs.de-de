@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 title: Verwenden von TemplateFields in des GridView-Steuerelements (c#) | Microsoft Docs
 author: rick-anderson
-description: "Um die Flexibilität, bietet die GridView der TemplateField, die mithilfe einer Vorlage rendert. Eine Vorlage kann eine Mischung aus statischem HTML-Code, Web Controls, einschließen und..."
+description: Um die Flexibilität, bietet die GridView der TemplateField, die mithilfe einer Vorlage rendert. Eine Vorlage kann eine Mischung aus statischem HTML-Code, Web Controls, einschließen und...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6485cbda50912920808fc0caf41c888493f210dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Verwenden von TemplateFields in des GridView-Steuerelements (c#)
 ====================
@@ -94,7 +94,7 @@ Fahren Sie fort, und konvertieren Sie die `FirstName` BoundField in ein Template
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample2.aspx)]
 
-Wie Sie sehen können, besteht die TemplateField zwei Vorlagen für eine `ItemTemplate` hat, die die Bezeichnung, deren `Text` auf den Wert der Eigenschaft festgelegt ist die `FirstName` Feld "Daten", und ein `EditItemTemplate` mit einem Textfeld-Steuerelement, dessen `Text` -Eigenschaft ebenfalls festgelegt wird um die `FirstName` Feld "Daten". Die Syntax der Databinding - `<%# Bind("fieldName") %>` -gibt an, dass das Feld "Daten"  *`fieldName`*  an die angegebene Eigenschaft des Web-Steuerelement gebunden ist.
+Wie Sie sehen können, besteht die TemplateField zwei Vorlagen für eine `ItemTemplate` hat, die die Bezeichnung, deren `Text` auf den Wert der Eigenschaft festgelegt ist die `FirstName` Feld "Daten", und ein `EditItemTemplate` mit einem Textfeld-Steuerelement, dessen `Text` -Eigenschaft ebenfalls festgelegt wird um die `FirstName` Feld "Daten". Die Syntax der Databinding - `<%# Bind("fieldName") %>` -gibt an, dass das Feld "Daten" *`fieldName`* an die angegebene Eigenschaft des Web-Steuerelement gebunden ist.
 
 Hinzufügen der `LastName` Datenfeld der Spalte Wert, der diese TemplateField wir eine andere Bezeichnung Websteuerelement in müssen der `ItemTemplate` und Binden der `Text` Eigenschaft, um `LastName`. Dies kann entweder manuell oder mithilfe des Designers erreicht werden. Zu diesem Zweck per hand katalogisiert wird einfach die entsprechende deklarative Syntax zum Hinzufügen der `ItemTemplate`:
 
@@ -239,7 +239,7 @@ Legen Sie diese neue TemplateField `HeaderText` "Tage auf des Auftrags"-Eigensch
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample6.aspx)]
 
-`Container.DataItem`Gibt eine `DataRowView` , Objekt entspricht der `DataSource` Datensatz gebunden werden, um die `GridViewRow`. Die `Row` Eigenschaft gibt den stark typisierten `Northwind.EmployeesRow`, der übergeben wird, um die `DisplayDaysOnJob` Methode. Stehen diese Databinding-Syntax direkt in die `ItemTemplate` (wie in der folgenden deklarative Syntax gezeigt) oder zugewiesen werden kann, um die `Text` Eigenschaft von einem Label-Steuerelement.
+`Container.DataItem` Gibt eine `DataRowView` , Objekt entspricht der `DataSource` Datensatz gebunden werden, um die `GridViewRow`. Die `Row` Eigenschaft gibt den stark typisierten `Northwind.EmployeesRow`, der übergeben wird, um die `DisplayDaysOnJob` Methode. Stehen diese Databinding-Syntax direkt in die `ItemTemplate` (wie in der folgenden deklarative Syntax gezeigt) oder zugewiesen werden kann, um die `Text` Eigenschaft von einem Label-Steuerelement.
 
 > [!NOTE]
 > Alternativ können Sie anstelle der Übergabe von einer `EmployeesRow` Instanz übergeben wir gerade die `HireDate` -Wert mit `<%# DisplayDaysOnJob(Eval("HireDate")) %>`. Allerdings die `Eval` Methode gibt ein `object`, sodass wir hätten so ändern Sie unsere `DisplayDaysOnJob` Methodensignatur akzeptieren einen Eingabeparameter vom Typ `object`, stattdessen. Wir können nicht ungeprüft umgewandelt der `Eval("HireDate")` aufrufen, um eine `DateTime` da die `HireDate` Spalte in der `Employees` Tabelle darf `NULL` Werte. Aus diesem Grund müssen wir akzeptieren ein `object` als Eingabeparameter für die `DisplayDaysOnJob` -Methode ist, überprüfen, um festzustellen, ob es sich um eine Datenbank wurde `NULL` Wert (dem können mithilfe von durchgeführt werden `Convert.IsDBNull(objectToCheck)`), und fahren Sie dann entsprechend.
@@ -276,12 +276,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Dan Jagers. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](custom-formatting-based-upon-data-cs.md)
-[Weiter](using-templatefields-in-the-detailsview-control-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](custom-formatting-based-upon-data-cs.md)
+> [Weiter](using-templatefields-in-the-detailsview-control-cs.md)

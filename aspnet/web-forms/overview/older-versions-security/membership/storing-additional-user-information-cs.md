@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
-title: "Speichern von zusätzliche Benutzerinformationen (c#) | Microsoft Docs"
+title: Speichern von zusätzliche Benutzerinformationen (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden wir diese Frage beantworten, durch das Erstellen einer Anwendung sehr rudimentär Gästebuch. In diesem Fall werden wir verschiedene Optionen für Modeli betrachten..."
+description: In diesem Lernprogramm werden wir diese Frage beantworten, durch das Erstellen einer Anwendung sehr rudimentär Gästebuch. In diesem Fall werden wir verschiedene Optionen für Modeli betrachten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38dfdab395b6b3559d293c5b1488ede2e88bfe91
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: e484f63a82ad9ecf1f376143bdc1924e231e0801
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-c"></a>Das Speichern von zusätzliche Benutzerinformationen (c#)
 ====================
@@ -107,13 +107,13 @@ Die `GuestbookComments` Tabelle veranschaulicht, wie zum Speichern von Informati
 
 Jetzt müssen wir jedes Benutzerkonto zum Speichern des Benutzers home Örtlichkeit Homepage und Signatur, die in seinem Gästebuchkommentaren angezeigt werden drei Spalten zuordnen. Es gibt Anzahl von Möglichkeiten, dies zu erreichen:
 
-- **Hinzufügen von neuen Spalten mit den ***`aspnet_Users`*** oder ***`aspnet_Membership`*** Tabellen.** Ich würde dieser Ansatz nicht empfohlen, da es sich um das von verwendete Schema ändert die `SqlMembershipProvider`. Diese Entscheidung kann zurückkehren, um Sie dem Weg zu entsorgen werden. Was geschieht, wenn eine zukünftige Version von ASP.NET ein anderes verwendet beispielsweise `SqlMembershipProvider` Schema. Microsoft ist eventuell ein Tool zum Migrieren von ASP.NET 2.0 `SqlMembershipProvider` Daten auf das neue Schema, aber wenn Sie die ASP.NET 2.0 vorgenommenen `SqlMembershipProvider` Schema, eine solche Konvertierung möglicherweise nicht möglich.
+- <strong>Hinzufügen von neuen Spalten mit den</strong><strong>`aspnet_Users`</strong><strong>oder</strong><strong>`aspnet_Membership`</strong><strong>Tabellen.</strong> Ich würde dieser Ansatz nicht empfohlen, da es sich um das von verwendete Schema ändert die `SqlMembershipProvider`. Diese Entscheidung kann zurückkehren, um Sie dem Weg zu entsorgen werden. Was geschieht, wenn eine zukünftige Version von ASP.NET ein anderes verwendet beispielsweise `SqlMembershipProvider` Schema. Microsoft ist eventuell ein Tool zum Migrieren von ASP.NET 2.0 `SqlMembershipProvider` Daten auf das neue Schema, aber wenn Sie die ASP.NET 2.0 vorgenommenen `SqlMembershipProvider` Schema, eine solche Konvertierung möglicherweise nicht möglich.
 
 - **Verwenden von ASP. NET Profil Framework eine Profileigenschaft für home Örtlichkeit, Homepage und Signatur definieren.** ASP.NET umfasst ein Profil-Framework, das entworfen wurde, um zusätzliche benutzerspezifische Daten zu speichern. Wie das Framework Mitgliedschaft wird das Profil Framework Anbietermodell erstellt. Lieferumfang von .NET Framework eine `SqlProfileProvider` abgeschlossenen Profildaten in einer SQL Server-Datenbank gespeichert. Tatsächlich verwendet die Datenbank bereits die verwendete Tabelle der `SqlProfileProvider` (`aspnet_Profile`), wie er hinzugefügt wurde, wenn wir hinzugefügt, sichern die Anwendungsdienste der <a id="_msoanchor_2"> </a> [ *erstellen das Schema für die Mitgliedschaft in SQL Server* ](creating-the-membership-schema-in-sql-server-cs.md) Lernprogramm.   
- Der wichtigste Vorteil von der Profil-Framework ist, dass es Entwicklern, definieren Sie die Profileigenschaften in zulässt `Web.config` – kein Code geschrieben werden, um die Profildaten in und aus den zugrunde liegenden Datenspeicher serialisieren muss. Kurz gesagt, ist es äußerst einfach, eine Reihe von Profileigenschaften definieren und im Code arbeiten. Das Profilsystem hinterlässt jedoch viel wünschenswert sein, bei der versionsverwaltung verwendet, wenn Sie verfügen über eine Anwendung, in denen Sie erwarten, dass neue benutzerspezifische Eigenschaften hinzugefügt werden, bei einem späteren Zeitpunkt oder vorhandene entfernt oder geändert werden, und klicken Sie dann die Profil-Framework möglicherweise nicht, die  beste Option. Darüber hinaus die `SqlProfileProvider` speichert die Profileigenschaften in einer hochgradig denormalisierten Weise, somit unmöglich zum Ausführen von Abfragen direkt gegen die Profildaten (z. B. wie viele Benutzer eine home Örtlichkeit von New York haben).   
- Weitere Informationen über das Profil-Framework finden Sie im Abschnitt "Weitere Messwerte" am Ende dieses Lernprogramms.
+  Der wichtigste Vorteil von der Profil-Framework ist, dass es Entwicklern, definieren Sie die Profileigenschaften in zulässt `Web.config` – kein Code geschrieben werden, um die Profildaten in und aus den zugrunde liegenden Datenspeicher serialisieren muss. Kurz gesagt, ist es äußerst einfach, eine Reihe von Profileigenschaften definieren und im Code arbeiten. Das Profilsystem hinterlässt jedoch viel wünschenswert sein, bei der versionsverwaltung verwendet, wenn Sie verfügen über eine Anwendung, in denen Sie erwarten, dass neue benutzerspezifische Eigenschaften hinzugefügt werden, bei einem späteren Zeitpunkt oder vorhandene entfernt oder geändert werden, und klicken Sie dann die Profil-Framework möglicherweise nicht, die  beste Option. Darüber hinaus die `SqlProfileProvider` speichert die Profileigenschaften in einer hochgradig denormalisierten Weise, somit unmöglich zum Ausführen von Abfragen direkt gegen die Profildaten (z. B. wie viele Benutzer eine home Örtlichkeit von New York haben).   
+  Weitere Informationen über das Profil-Framework finden Sie im Abschnitt "Weitere Messwerte" am Ende dieses Lernprogramms.
 
-- **Fügen Sie diese drei Spalten in eine neue Tabelle in der Datenbank und eine 1: 1 Beziehung zwischen dieser Tabelle herstellen und ***`aspnet_Users`***.** Dieser Ansatz umfasst mehr als arbeiten mit dem Profil-Framework, jedoch bietet maximale Flexibilität wie die zusätzlichen Eigenschaften in der Datenbank erstellt werden. Dies ist die Option, die in diesem Lernprogramm verwendet werden.
+- <strong>Fügen Sie diese drei Spalten in eine neue Tabelle in der Datenbank und eine 1: 1 Beziehung zwischen dieser Tabelle herstellen und</strong><strong>`aspnet_Users`</strong><strong>.</strong> Dieser Ansatz umfasst mehr als arbeiten mit dem Profil-Framework, jedoch bietet maximale Flexibilität wie die zusätzlichen Eigenschaften in der Datenbank erstellt werden. Dies ist die Option, die in diesem Lernprogramm verwendet werden.
 
 Wir erstellen eine neue Tabelle namens `UserProfiles` home Örtlichkeit, Homepage und Signatur für jeden Benutzer gespeichert. Mit der rechten Maustaste auf den Ordner Tabellen im Datenbank-Explorer-Fenster, und wählen Sie eine neue Tabelle erstellen. Den Namen der ersten Spalte `UserId` und legen Sie deren Typ auf `uniqueidentifier`. Unterbinden `NULL` Werte und die Spalte als Primärschlüssel kennzeichnen. Als Nächstes fügen Sie Spalten mit dem Namen: `HomeTown` des Typs `nvarchar(50)`; `HomepageUrl` des Typs `nvarchar(100)`; und die Signatur des Typs `nvarchar(500)`. Jede dieser drei Spalten lässt eine `NULL` Wert.
 
@@ -131,7 +131,7 @@ Nachdem wir das Datenmodell erstellt haben, können wir, ihn zu verwenden. In de
 
 Es gibt eine Vielzahl von Möglichkeiten zum Zulassen des derzeit angemeldeten Benutzers zum Anzeigen und bearbeiten seine home Örtlichkeit Homepage und Signatur-Informationen. Es konnte die Benutzeroberfläche manuell erstellt, mit dem Textfeld, und Bezeichnungsfeld-Steuerelementen oder es konnte Datentyps Web Controls, z. B. DetailsView-Steuerelement verwenden. Um die Datenbank ausführen `SELECT` und `UPDATE` Anweisungen geschrieben werden, um ADO.NET code in unserer Seite Code-Behind-Klasse, oder alternativ einen deklarativen Ansatz, mit dem SqlDataSource einsetzen. Im Idealfall würde die Anwendung eine mehrstufige Architektur enthalten, die wir von der Seite Code-Behind-Klasse oder deklarativ über das ObjectDataSource-Steuerelement programmgesteuert entweder aufrufen kann.
 
-Da diese Reihe von Lernprogrammen auf formularbasierte Authentifizierung, Autorisierung, Benutzerkonten und Rollen konzentriert, wird es nicht mehr eine ausführliche Beschreibung dieser Zugriffsoptionen unterschiedliche Daten oder warum eine mehrstufige Architektur bevorzugt wird, über das Ausführen von SQL-Anweisungen direkt von der ASP.NET-Seite. Ich werde exemplarisch erklärt, mit einem DetailsView und SqlDataSource – die schnellste und einfachste Option – erörterten Konzepte können jedoch sicherlich angewendet werden, alternative Zugriffslogik für die Steuerelemente und die von Web. Weitere Informationen zum Arbeiten mit Daten in ASP.NET finden Sie in meinem  *[arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)*  Reihe von Lernprogrammen.
+Da diese Reihe von Lernprogrammen auf formularbasierte Authentifizierung, Autorisierung, Benutzerkonten und Rollen konzentriert, wird es nicht mehr eine ausführliche Beschreibung dieser Zugriffsoptionen unterschiedliche Daten oder warum eine mehrstufige Architektur bevorzugt wird, über das Ausführen von SQL-Anweisungen direkt von der ASP.NET-Seite. Ich werde exemplarisch erklärt, mit einem DetailsView und SqlDataSource – die schnellste und einfachste Option – erörterten Konzepte können jedoch sicherlich angewendet werden, alternative Zugriffslogik für die Steuerelemente und die von Web. Weitere Informationen zum Arbeiten mit Daten in ASP.NET finden Sie in meinem * [arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md) * Reihe von Lernprogrammen.
 
 Öffnen der `AdditionalUserInfo.aspx` auf der Seite der `Membership` Ordner und Hinzufügen eines DetailsView-Steuerelements auf der Seite festlegen seiner `ID` Eigenschaft `UserProfile` und gelöscht wird, seine `Width` und `Height` Eigenschaften. Erweitern Sie die DetailsView Smarttag, und binden Sie es an eine neue Datenquellen-Steuerelements. Hierdurch wird der DataSource-Konfigurations-Assistent (siehe Abbildung 7). Der erste Schritt aufgefordert, den Datenquellentyp angeben. Da wir werden direkt an die Verbindung der `SecurityTutorials` Datenbank, wählen Sie das Datenbanksymbol angeben der `ID` als `UserProfileDataSource`.
 
@@ -283,7 +283,7 @@ Beachten Sie das Hinzufügen der `lnkUpdateSettings` Linksteuerelement auf die `
 
 Die `Guestbook.aspx` Seite ist, auf dem authentifizierten Benutzer angezeigten anzeigen und einen Kommentar können. Beginnen Sie mit dem Erstellen der Schnittstelle, um neue Gästebuchkommentaren hinzuzufügen.
 
-Öffnen der `Guestbook.aspx` Seite in Visual Studio und erstellen Sie eine neue Benutzeroberfläche besteht aus zwei TextBox-Steuerelemente enthalten, von denen eine für den neuen Kommentar Betreff und eine für Text. Legen Sie des ersten Textfeld-Steuerelements `ID` Eigenschaft, um `Subject` und seine `Columns` -Eigenschaft auf 40; legen Sekunde `ID` auf `Body`, dessen `TextMode` auf `MultiLine`, und die zugehörige `Width` und `Rows` Eigenschaften, die "95 %" und 8 bzw. Um die Benutzeroberfläche zu abzuschließen, fügen Sie eine Schaltfläche-Websteuerelement, der mit dem Namen `PostCommentButton` und legen Sie dessen `Text` -Eigenschaft auf "Your Comment" Post".
+Öffnen der `Guestbook.aspx` Seite in Visual Studio und erstellen Sie eine neue Benutzeroberfläche besteht aus zwei TextBox-Steuerelemente enthalten, von denen eine für den neuen Kommentar Betreff und eine für Text. Legen Sie des ersten Textfeld-Steuerelements `ID` Eigenschaft, um `Subject` und seine `Columns` -Eigenschaft auf 40; legen Sekunde `ID` auf `Body`, dessen `TextMode` auf `MultiLine`, und die zugehörige `Width` und `Rows` Eigenschaften, die "95 %" und 8 bzw.. Um die Benutzeroberfläche zu abzuschließen, fügen Sie eine Schaltfläche-Websteuerelement, der mit dem Namen `PostCommentButton` und legen Sie dessen `Text` -Eigenschaft auf "Your Comment" Post".
 
 Da jeder Gästebuch Kommentar Betreff und den Nachrichtentext erforderlich ist, fügen Sie einen RequiredFieldValidator für jede der Textfelder hinzu. Festlegen der `ValidationGroup` Eigenschaft von diesen Steuerelementen "EnterComment"; ebenso festlegen, die `PostCommentButton` des Steuerelements `ValidationGroup` -Eigenschaft auf "EnterComment". Weitere Informationen zu ASP. NET Validierungssteuerelemente, Auschecken [Formularvalidierung in ASP.NET](http://www.4guysfromrolla.com/webtech/090200-1.shtml), [unterzogen, wodurch der Validierungssteuerelemente in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx), und die [Überprüfung Server Steuerelemente Lernprogramm](http://www.w3schools.com/aspnet/aspnet_refvalidationcontrols.asp) auf [W3Schools](http://www.w3schools.com/).
 
@@ -428,9 +428,9 @@ Die erste `WizardStep`, `CreateUserWizardStep`, rendert die Schnittstelle, die d
 
 Zum Anpassen des Steuerelements CreateUserWizard-Schnittstelle, um zusätzliche Felder enthalten, können wir folgende Aktionen ausführen:
 
-- **Erstellen Sie eine oder mehrere neue ***`WizardStep`*** s, um die zusätzlichen Benutzeroberflächenelemente enthalten**. Zum Hinzufügen einer neuen `WizardStep` die CreateUserWizard, klicken Sie auf der "hinzufügen/entfernen `WizardSteps`" Verknüpfung von Smart Tag zum Starten der `WizardStep` Auflistungs-Editor. Von dort aus können Sie hinzufügen, entfernen oder Neuanordnen von Schritten im Assistenten. Dies ist die Vorgehensweise, die für dieses Lernprogramm verwendet wird.
+- <strong>Erstellen Sie eine oder mehrere neue</strong><strong>`WizardStep`</strong><strong>s, um die zusätzlichen Benutzeroberflächenelemente enthalten</strong>. Zum Hinzufügen einer neuen `WizardStep` die CreateUserWizard, klicken Sie auf der "hinzufügen/entfernen `WizardSteps`" Verknüpfung von Smart Tag zum Starten der `WizardStep` Auflistungs-Editor. Von dort aus können Sie hinzufügen, entfernen oder Neuanordnen von Schritten im Assistenten. Dies ist die Vorgehensweise, die für dieses Lernprogramm verwendet wird.
 
-- **Konvertieren der ***`CreateUserWizardStep`*** in einer bearbeitbaren ***`WizardStep`***.** Dies ersetzt die `CreateUserWizardStep` durch ein Äquivalent `WizardStep` , deren Markups definiert eine Benutzeroberfläche, die entspricht der `CreateUserWizardStep`"s. Durch Konvertieren der `CreateUserWizardStep` in einem `WizardStep` können wir die Steuerelemente neu positionieren oder fügen Sie zusätzliche Elemente der Benutzeroberfläche für diesen Schritt. Konvertiert die `CreateUserWizardStep` oder `CompleteWizardStep` in einer bearbeitbaren `WizardStep`, klicken Sie auf die "Benutzer anpassen-erstellen-Schritt" oder "Schritts anpassen" aus dem Smarttag des Steuerelements zu verknüpfen.
+- <strong>Konvertieren der</strong><strong>`CreateUserWizardStep`</strong><strong>in einer bearbeitbaren</strong><strong>`WizardStep`</strong><strong>.</strong> Dies ersetzt die `CreateUserWizardStep` durch ein Äquivalent `WizardStep` , deren Markups definiert eine Benutzeroberfläche, die entspricht der `CreateUserWizardStep`"s. Durch Konvertieren der `CreateUserWizardStep` in einem `WizardStep` können wir die Steuerelemente neu positionieren oder fügen Sie zusätzliche Elemente der Benutzeroberfläche für diesen Schritt. Konvertiert die `CreateUserWizardStep` oder `CompleteWizardStep` in einer bearbeitbaren `WizardStep`, klicken Sie auf die "Benutzer anpassen-erstellen-Schritt" oder "Schritts anpassen" aus dem Smarttag des Steuerelements zu verknüpfen.
 
 - **Verwenden Sie eine besondere Kombination der oben genannten beiden Optionen.**
 
@@ -527,12 +527,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird * [Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an...
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](user-based-authorization-cs.md)
-[Weiter](creating-the-membership-schema-in-sql-server-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](user-based-authorization-cs.md)
+> [Weiter](creating-the-membership-schema-in-sql-server-vb.md)

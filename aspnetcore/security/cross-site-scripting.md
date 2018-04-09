@@ -1,5 +1,5 @@
 ---
-title: Verhindern von Cross-Site Skripting (XSS) in ASP.NET Core
+title: Zu verhindern, dass siteübergreifende Skripting (XSS) in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zu Cross-Site-Skripting (XSS) und Techniken zur Behebung dieses Sicherheitsrisiko in ASP.NET Core-app.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Verhindern von Cross-Site Skripting (XSS) in ASP.NET Core
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zu verhindern, dass siteübergreifende Skripting (XSS) in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ AT einer grundlegenden Ebene XSS funktioniert, indem Sie dazu die Anwendung in d
 
 ## <a name="html-encoding-using-razor"></a>HTML-Codierung mit Razor
 
-Das Razor-Modul automatisch in MVC verwendet codiert alle Ausgabe auf Variablen, stammen, es sei denn, Sie tatsächlich hart arbeiten, um zu verhindern, dass es auf diese Weise. Er verwendet die HTML-Attributs Codierungsregeln jedes Mal, wenn Sie die  *@*  Richtlinie. Als HTML ist das attributcodierung eine Obermenge der HTML-Codierung Dies bedeutet, dass Sie keine betreffen, selbst mit, ob Sie HTML-Codierung oder HTML-attributcodierung verwenden soll. Achten Sie darauf, nur @ in einem HTML-Kontext verwenden nicht, wenn nicht vertrauenswürdige Eingaben direkt in JavaScript einfügen möchten. Tag-Hilfsmethoden werden auch Eingabe codieren, die in der Tag-Parameter verwendet.
+Das Razor-Modul automatisch in MVC verwendet codiert alle Ausgabe auf Variablen, stammen, es sei denn, Sie tatsächlich hart arbeiten, um zu verhindern, dass es auf diese Weise. Er verwendet die HTML-Attributs Codierungsregeln jedes Mal, wenn Sie die *@* Richtlinie. Als HTML ist das attributcodierung eine Obermenge der HTML-Codierung Dies bedeutet, dass Sie keine betreffen, selbst mit, ob Sie HTML-Codierung oder HTML-attributcodierung verwenden soll. Achten Sie darauf, nur @ in einem HTML-Kontext verwenden nicht, wenn nicht vertrauenswürdige Eingaben direkt in JavaScript einfügen möchten. Tag-Hilfsmethoden werden auch Eingabe codieren, die in der Tag-Parameter verwendet.
 
 Ausführen der folgenden Razor-Ansicht an.
 
@@ -145,7 +145,7 @@ Dies wird wie folgt im Browser gerendert;
 
 ## <a name="accessing-encoders-in-code"></a>Beim Zugriff auf den Encoder in code
 
-Die HTML, JavaScript und URL-Encoder für Ihren Code auf zwei Arten verfügbar sind, können Sie sie über einfügen [Abhängigkeitsinjektion](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) oder Sie können die Standard-Encoder in enthalten die `System.Text.Encodings.Web` Namespace. Wenn Sie die Standard-Encoder verwenden, und klicken Sie dann alle auf Sie angewendet Zeichenbereiche werden als sicher behandelt wird nicht wirksam: Verwenden Sie die Standard-Encoder die sichersten mögliche Codierungsregeln.
+Die HTML, JavaScript und URL-Encoder für Ihren Code auf zwei Arten verfügbar sind, können Sie sie über einfügen [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) oder Sie können die Standard-Encoder in enthalten die `System.Text.Encodings.Web` Namespace. Wenn Sie die Standard-Encoder verwenden, und klicken Sie dann alle auf Sie angewendet Zeichenbereiche werden als sicher behandelt wird nicht wirksam: Verwenden Sie die Standard-Encoder die sichersten mögliche Codierungsregeln.
 
 Die konfigurierbaren Encoder über DI verwenden Ihre Konstruktoren sollte ein *HtmlEncoder*, *JavaScriptEncoder* und *UrlEncoder* Parameter nach Bedarf. Beispiel:
 

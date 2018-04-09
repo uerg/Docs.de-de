@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: "EF Datenbank zuerst mit ASP.NET MVC: Verbessern der Datenüberprüfung | Microsoft Docs"
+title: 'EF Datenbank zuerst mit ASP.NET MVC: Verbessern der Datenüberprüfung | Microsoft Docs'
 author: tfitzmac
-description: "MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri..."
+description: MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8ea2e94db7956b76c5ccf0a139ac024e38910b49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Datenbank zuerst mit ASP.NET MVC: Verbessern der Datenüberprüfung
 ====================
@@ -87,6 +87,6 @@ Speichern Sie die ContosoModel.edmx-Datei, um die Änderungen zu übernehmen.
 
 Öffnen Sie die Datei Student.cs oder Enrollment.cs, und beachten Sie, dass die Validierungsattribute für Daten, die Sie zuvor angewendet nicht mehr in der Datei enthalten sind. Allerdings wird führen Sie die Anwendung aus, und beachten Sie, dass die Validierungsregeln weiterhin angewendet werden, wenn Sie Daten eingeben.
 
->[!div class="step-by-step"]
-[Zurück](customizing-a-view.md)
-[Weiter](publish-to-azure.md)
+> [!div class="step-by-step"]
+> [Zurück](customizing-a-view.md)
+> [Weiter](publish-to-azure.md)

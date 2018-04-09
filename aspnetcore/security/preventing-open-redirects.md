@@ -1,5 +1,5 @@
 ---
-title: Verhindern von Angriffen von Open Umleitung in einer ASP.NET Core-app
+title: Open Umleitung Angriffe in ASP.NET Core
 author: ardalis
 description: Zeigt, wie open umleitungs-Angriffe gegen eine ASP.NET Core-app zu verhindern
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: d6cd65a2516c4d5e41428f0c1f2dbbe913ac2123
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Verhindern von Angriffen von Open Umleitung in einer ASP.NET Core-app
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Open Umleitung Angriffe in ASP.NET Core
 
 Eine Web-app, die an eine URL umleitet, die über die Anforderung, z. B. die Abfragezeichenfolge oder Formular Daten angegeben wird kann potenziell mit manipuliert werden, um Benutzer an eine externe, böswillige URL weiterzuleiten. Diese Manipulation wird einen öffnen-Redirect-Angriff bezeichnet.
 
@@ -31,7 +31,7 @@ Da der Ziel-URL in die Abfragezeichenfolge der Anforderung angegeben ist, kann e
 
 Ein böswilliger Benutzer könnte einen Angriff den böswilliger Benutzerzugriff auf eines Benutzers Anmeldeinformationen oder vertrauliche Informationen in Ihrer app zu ermöglichen entwickeln. Um das Risiko eines Angriffs zu beginnen, ermöglichen sie den Benutzer einen Link zur Anmeldeseite für Ihre Website, und klicken Sie auf eine `returnUrl` Querystring-Wert zur URL hinzugefügt. Z. B. die [NerdDinner.com](http://nerddinner.com) beispielanwendung (für ASP.NET MVC geschrieben) schließt solche eine Anmeldeseite hier: ``http://nerddinner.com/Account/LogOn?returnUrl=/Home/About``. Der Angriff führt dann folgende Schritte aus:
 
-1. Benutzer klickt auf einen Link zur ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (Beachten Sie, dass zweiten URL ist Nerddi**n**mputerkonto, nicht Nerddi**nn**mputerkonto).
+1. Benutzer klickt auf einen Link zur ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (Beachten Sie, dass zweiten URL ist Nerddi**n**mputerkonto, nicht Nerddi**Nn**mputerkonto).
 2. Der Benutzer anmeldet erfolgreich.
 3. Der Benutzer umgeleitet wird (durch den Standort) ``http://nerddiner.com/Account/LogOn`` (bösartige Website, die echte Website aussieht).
 4. Der Benutzer wieder anmeldet (Vergabe böswillige Standort ihrer Anmeldeinformationen) und wieder an die wirkliche Website umgeleitet werden.
@@ -57,11 +57,11 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect``Wenn eine nicht lokale-URL angegeben ist, wird eine Ausnahme ausgelöst. Andernfalls verhält sich ebenso wie die ``Redirect`` Methode.
+``LocalRedirect`` Wenn eine nicht lokale-URL angegeben ist, wird eine Ausnahme ausgelöst. Andernfalls verhält sich ebenso wie die ``Redirect`` Methode.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Verwenden der [IsLocalUrl](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iurlhelper#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) Methode zum Testen von URLs vor der Umleitung:
+Verwenden der [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) Methode zum Testen von URLs vor der Umleitung:
 
 Das folgende Beispiel zeigt, wie zu überprüfen, ob vor der Umleitung für eine URL lokal ist.
 

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
-title: "Hinzufügen einer Ansicht (VB) | Microsoft Docs"
+title: Hinzufügen einer Ansicht (VB) | Microsoft Docs
 author: Rick-Anderson
 description: In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>Hinzufügen einer Ansicht (VB)
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also eine kostenlose Version von Microsoft Visual Studio. Bevor Sie beginnen, stellen Sie sicher, dass Sie die unten aufgeführten erforderlichen Komponenten installiert haben. Sie können alle installieren, indem Sie auf den folgenden Link: [Webplattform-Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternativ können Sie die erforderlichen Komponenten, die über die folgenden Links einzeln installieren:
 > 
@@ -65,7 +65,7 @@ Sieht ziemlich guten. Beachten Sie jedoch, dass die Titelleiste des Browsers sag
 
 Zunächst sehen wir Ändern des Texts &quot;Meine MVC-Anwendung.&quot; Dieser Text wird freigegeben und auf jeder Seite angezeigt. Anscheinend tatsächlich nur zentral in unserer-Projekt, obwohl er auf jeder Seite in der vorliegenden Anwendung ist. Wechseln Sie zu der */Ansichten/freigegeben* Ordner **Projektmappen-Explorer** , und öffnen Sie die  *\_Layout.vbhtml* Datei. Diese Datei eine Layoutseite aufgerufen wird und es wird die freigegebene &quot;Shell&quot; , die alle anderen Seiten zu verwenden.
 
-Beachten Sie die `@RenderBody()` Codezeile am unteren Rand der Datei. `RenderBody`ist ein Platzhalter, in dem alle Seiten, die Sie erstellen, anzeigen, &quot;umschlossen&quot; in die Seite "Layout". Ändern der `<h1>` Überschrift aus  **&quot;**  Meine MVC-Anwendung&quot; auf &quot;MVC Film-App&quot;.
+Beachten Sie die `@RenderBody()` Codezeile am unteren Rand der Datei. `RenderBody` ist ein Platzhalter, in dem alle Seiten, die Sie erstellen, anzeigen, &quot;umschlossen&quot; in die Seite "Layout". Ändern der `<h1>` Überschrift aus **&quot;** Meine MVC-Anwendung&quot; auf &quot;MVC Film-App&quot;.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -111,11 +111,11 @@ Hier wird Ihre **Ansicht hinzufügen** das Dialogfeld sieht wie folgt aus.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Fügen Sie den folgenden Code unter der `<h2>` Element in der neuen *Willkommen.* Vbhtml-Datei. Wir stellen eine Schleife und sagen &quot;Hello&quot; so häufig wie der Benutzer sagt es soll!
+Fügen Sie den folgenden Code unter der `<h2>` Element in der neuen <em>Willkommen.</em> Vbhtml-Datei. Wir stellen eine Schleife und sagen &quot;Hello&quot; so häufig wie der Benutzer sagt es soll!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Führen Sie die Anwendung, und navigieren Sie zu`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Führen Sie die Anwendung, und navigieren Sie zu `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 Jetzt werden die Daten der URL entnommen und automatisch an den Controller übergeben. Der Controller und die Daten in Paketen ein `Model` Objekt auf und übergibt das Objekt in der Ansicht. Die Sicht als dem Benutzer die Daten als HTML angezeigt.
 
@@ -123,6 +123,6 @@ Jetzt werden die Daten der URL entnommen und automatisch an den Controller über
 
 Nun, das eine Art wurde von einer &quot;M&quot; Modell, aber nicht die Art der Datenbank. Lassen Sie uns das Gelernte umsetzen und eine Filmdatenbank erstellen.
 
->[!div class="step-by-step"]
-[Zurück](adding-a-controller.md)
-[Weiter](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-controller.md)
+> [Weiter](adding-a-model.md)

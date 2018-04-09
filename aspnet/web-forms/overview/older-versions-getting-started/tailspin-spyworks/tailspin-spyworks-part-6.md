@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 title: 'Teil 6: ASP.NET-Mitgliedschaft | Microsoft Docs'
 author: JoeStagner
-description: "Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 6 fügt ASP.NET-Mitgliedschaft hinzu."
+description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 6 fügt ASP.NET-Mitgliedschaft hinzu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: efb0e2bed1172f42c7f1539f016fba305c47e3eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-aspnet-membership"></a>Teil 6: ASP.NET-Mitgliedschaft
 ====================
@@ -27,7 +27,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 > Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 6 fügt ASP.NET-Mitgliedschaft hinzu.
 
 
-## <a id="_Toc260221672"></a>Arbeiten mit ASP.NET Membership
+## <a id="_Toc260221672"></a>  Arbeiten mit ASP.NET Membership
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -112,6 +112,6 @@ Im Rahmen dieser beispielanwendung müssen wir ein Lieferdatum berechnen, indem 
 
 Die Anwendung jetzt ausführen lässt, den Einkaufswagen Prozess von Anfang bis Ende zu testen.
 
->[!div class="step-by-step"]
-[Zurück](tailspin-spyworks-part-5.md)
-[Weiter](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Zurück](tailspin-spyworks-part-5.md)
+> [Weiter](tailspin-spyworks-part-7.md)

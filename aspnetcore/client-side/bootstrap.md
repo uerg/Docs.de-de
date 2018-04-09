@@ -1,7 +1,7 @@
 ---
-title: "Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap und ASP.NET Core"
+title: Erstellen Sie ansprechender, reaktionsfähiger-Sites mit Bootstrap und ASP.NET Core
 author: ardalis
-description: "Erfahren Sie, wie Bootstrap verwenden, für die Entwicklung von reaktionsfähig Web-apps mit ASP.NET Core."
+description: Erfahren Sie, wie Bootstrap verwenden, für die Entwicklung von reaktionsfähig Web-apps mit ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap und ASP.NET Core
+# <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Erstellen Sie ansprechender, reaktionsfähiger-Sites mit Bootstrap und ASP.NET Core
 
 <a name="bootstrap-index"></a>
 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: "Veröffentlichen Sie die App in Azure-Azure App Service | Microsoft Docs"
+title: Veröffentlichen Sie die App in Azure-Azure App Service | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 08994815cb339800619caacdcb8d717e9986f9d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Veröffentlichen Sie die App in Azure-Azure App Service
 ====================
@@ -57,5 +57,5 @@ Geben Sie einen Standortnamen an. Wählen Sie Ihr Azure-Abonnement und die Regio
 
 Klicken Sie auf die **Einstellungen** und prüfen Sie &quot;führen Sie Code First-Migrationen&quot;. Klicken Sie dann auf **veröffentlichen**.
 
->[!div class="step-by-step"]
-[Zurück](part-9.md)
+> [!div class="step-by-step"]
+> [Vorherige](part-9.md)

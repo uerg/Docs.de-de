@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: "Sicherheitshinweise für ASP.NET Web API 2 OData | Microsoft Docs"
+title: Sicherheitshinweise für ASP.NET Web API 2 OData | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/06/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 799e2a0c742b545acf3b5cd27531d734aa7def80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 41b05f2a2f8247853d8358e6cc1246c8b438a6db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Sicherheitshinweise für ASP.NET Web API 2 OData
 ====================
@@ -70,8 +70,8 @@ Wenn Sie wissen, dass alle Clients (z. B. in einer unternehmensumgebung) als ver
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
 - Erwägen Sie, das Einschränken des $filter Abfragen nach schreiben ein Validator, das für Ihre Datenbank angepasst wird. Betrachten Sie beispielsweise die beiden Abfragen aus: 
 
-    - Alle Filme mit Akteure, deren Nachname mit "A" beginnt.
-    - Alle Filme 1994 freigegeben.
+  - Alle Filme mit Akteure, deren Nachname mit "A" beginnt.
+  - Alle Filme 1994 freigegeben.
 
     Wenn Filme von Akteuren, indiziert sind, müssen Sie die erste Abfrage möglicherweise das Datenbankmodul zum Scannen der gesamten Liste von Filmen. Während die zweite Abfrage akzeptabel sein kann, werden die Annahme, dass Filme nach Version Jahr indiziert.
 

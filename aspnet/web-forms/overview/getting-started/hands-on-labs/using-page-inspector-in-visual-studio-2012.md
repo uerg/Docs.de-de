@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 title: Mit Page Inspector in Visual Studio 2012 | Microsoft Docs
 author: rick-anderson
-description: "In dieser praktischen Übungseinheit werden Sie feststellen, ein neues Tool zum Suchen und Beheben von Problemen Webseite in Visual Studio - der Seitenprüfung angezeigt werden. Seitenprüfung ist ein neues tool von b..."
+description: In dieser praktischen Übungseinheit werden Sie feststellen, ein neues Tool zum Suchen und Beheben von Problemen Webseite in Visual Studio - der Seitenprüfung angezeigt werden. Seitenprüfung ist ein neues tool von b...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1a9e093faae2cea1c27c582e22aebc908f78addb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Verwenden der Seitenprüfung in Visual Studio 2012
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 > In dieser praktischen Übungseinheit werden Sie feststellen, ein neues Tool zum Suchen und Beheben von Problemen Webseite in Visual Studio - der Seitenprüfung angezeigt werden.
 > 
@@ -38,7 +38,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -96,12 +96,12 @@ In dieser Aufgabe erfahren Sie, wie mit der Seitenprüfung im Kontext eines ASP.
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex1-MVC4/Begin/** Ordner.
 
-    1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Suchen Sie im Projektmappen-Explorer **Index.cshtml** zeigen an, unter dem **/Ansichten/Start** Projektordner, der rechten Maustaste darauf und wählen Sie **in Seitenprüfung anzeigen**.
 
     ![Auswählen einer Datei in der Seitenprüfung Vorschau](using-page-inspector-in-visual-studio-2012/_static/image1.png "Auswählen einer Datei, in der Vorschau in Seitenprüfung anzeigen")
@@ -221,7 +221,7 @@ In dieser Aufgabe werden Sie der seitenprüfung verwenden und einige Probleme be
 2. Ein-/ausschalten-Überprüfungsmodus ausgewählt haben klicken Sie auf Schließen, aber nicht auf den Link registrieren, um ihren Code zu öffnen.
 
     Beachten Sie, die der Quellcode der Links sich in befindet der  **\_LoginPartial.cshtml** Datei, nicht die Index.cshtml noch die \_Layout.cshtml, die die Anwendungsmöglichkeiten sind interessante Informationen finden Sie in der ersten Stelle. Sie haben direkt in der richtigen Quelldatei platziert wurde.
-3. In der **Stile** Registerkarte, suchen und klicken Sie auf die  **<section> #login</section>**  Element, das die HTML--Container, damit diese Links wird.
+3. In der **Stile** Registerkarte, suchen und klicken Sie auf die **<section> #login</section>** Element, das die HTML--Container, damit diese Links wird.
 
     Beachten Sie, dass die **#login** Stil befindet sich im automatisch **"Site.CSS" ändern** nach anklicken. Darüber hinaus wird der Code jetzt hervorgehoben.
 
@@ -242,7 +242,7 @@ In dieser Aufgabe werden Sie der seitenprüfung verwenden und einige Probleme be
     ![Seite "aktualisiert"](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *Seite "aktualisiert"*
-6. Mit den Überprüfungsmodus, aktivieren Sie keines der  **&lt;li&gt;**  Elemente beziehen, enthalten die &quot;registrieren&quot; und &quot;melden Sie sich&quot; Links. Klicken Sie auf die  **&lt;Abschnitt&gt; #login** Element für den Zugriff auf **Styles.css** Code.
+6. Mit den Überprüfungsmodus, aktivieren Sie keines der **&lt;li&gt;** Elemente beziehen, enthalten die &quot;registrieren&quot; und &quot;melden Sie sich&quot; Links. Klicken Sie auf die  **&lt;Abschnitt&gt; #login** Element für den Zugriff auf **Styles.css** Code.
 
     ![Suchen Sie das Format von](using-page-inspector-in-visual-studio-2012/_static/image19.png "suchen das Format")
 
@@ -287,12 +287,12 @@ In dieser Aufgabe erfahren Sie, wie die Page Inspector-Funktionen im Kontext ein
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex2-WebForms/Begin/** Ordner.
 
-    1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Suchen Sie im Projektmappen-Explorer **"default.aspx"** Seite der rechten Maustaste darauf und wählen Sie **in Seitenprüfung anzeigen**.
 
     ![Öffnen "default.aspx" mit der Seitenprüfung](using-page-inspector-in-visual-studio-2012/_static/image24.png "Öffnen von "default.aspx" mit der Seitenprüfung")
@@ -433,7 +433,7 @@ In dieser Aufgabe verwenden Sie die seitenprüfung für einige der Fotogalerie A
     ![Seite "aktualisiert"](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *Seite "aktualisiert"*
-6. Mit den Überprüfungsmodus, aktivieren Sie keines der  **&lt;li&gt;**  Elemente beziehen, enthalten die &quot;registrieren&quot; und &quot;melden Sie sich&quot; Links. Klicken Sie auf die  **&lt;Abschnitt&gt; #login** Element für den Zugriff auf **Styles.css** Code.
+6. Mit den Überprüfungsmodus, aktivieren Sie keines der **&lt;li&gt;** Elemente beziehen, enthalten die &quot;registrieren&quot; und &quot;melden Sie sich&quot; Links. Klicken Sie auf die  **&lt;Abschnitt&gt; #login** Element für den Zugriff auf **Styles.css** Code.
 
     ![Suchen Sie das Format von](using-page-inspector-in-visual-studio-2012/_static/image42.png "suchen das Format")
 
@@ -474,9 +474,9 @@ Durch diese praktische Übungseinheit haben gelernt, wie die Web-Anwendung in de
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für das Web
 
-Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
+Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
 
-1. Wechseln Sie zu [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; *Visual Studio Express 2012 für das Web mit Windows Azure SDK*&quot;.
+1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Windows Azure SDK</em>&quot;.
 2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 

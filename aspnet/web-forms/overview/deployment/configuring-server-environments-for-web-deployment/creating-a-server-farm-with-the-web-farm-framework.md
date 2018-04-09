@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Erstellen eine Serverfarm mit Webfarmframework
 ====================
@@ -27,7 +27,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird beschrieben, wie Web Farm Framework (WFF) 2.0 zum Erstellen und Konfigurieren einer Webfarm-Server aus einer Auflistung von Servern verwendet wird.
 
 
-Bereitzustellendes WFF können Sie Web Platform Produkte und Komponenten, Webanwendungen, Websites und Konfigurationseinstellungen auf mehrere Load Balancing Webserver synchronisieren. In Szenarien, in denen Sie mehr als ein Webserver, wie die Staging-und produktionsumgebungen kann dadurch enorm Ihrer Bereitstellung und Konfiguration vereinfacht werden. Sie können eine Webanwendung auf einem Einzelserver & #x 2014; Bereitstellen der *Primärserver*& #x 2014; und WFF wird automatisch auf alle anderen Webserver in der Serverfarm, die dieser Webanwendung zu replizieren.
+Bereitzustellendes WFF können Sie Web Platform Produkte und Komponenten, Webanwendungen, Websites und Konfigurationseinstellungen auf mehrere Load Balancing Webserver synchronisieren. In Szenarien, in denen Sie mehr als ein Webserver, wie die Staging-und produktionsumgebungen kann dadurch enorm Ihrer Bereitstellung und Konfiguration vereinfacht werden. Sie können eine Webanwendung auf einem einzelnen Server bereitstellen&#x2014;der *Primärserver*&#x2014;und Replikation WFF automatisch auf alle anderen Webserver in der Serverfarm, die dieser Webanwendung.
 
 ## <a name="understanding-the-web-farm-framework"></a>Grundlegendes zu Webfarmframework
 
@@ -51,7 +51,7 @@ Bevor Sie beginnen, Ihre Umgebungen Staging und Produktion konfigurieren, wird e
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
-Um die Aufgaben und exemplarische Vorgehensweisen in diesem Thema abzuschließen, benötigen Sie mindestens drei Servern & #x 2014; einen WFF-Controller, einen primären Webserver für die Serverfarm und einen oder mehrere sekundäre Webserver für die Serverfarm. Sie können weitere sekundäre Server mit einer Serverfarm WFF zu einem beliebigen Zeitpunkt hinzufügen. Auf hoher Ebene, zum Erstellen und Konfigurieren einer WFF-Serverfarm für die Staging- oder Produktionsserver Umgebung, der Sie benötigen:
+Um die Aufgaben und exemplarische Vorgehensweisen in diesem Thema abzuschließen, benötigen Sie mindestens drei Server&#x2014;einen WFF-Controller, einem primären Server für die Serverfarm und einen oder mehrere sekundäre Webserver für die Serverfarm. Sie können weitere sekundäre Server mit einer Serverfarm WFF zu einem beliebigen Zeitpunkt hinzufügen. Auf hoher Ebene, zum Erstellen und Konfigurieren einer WFF-Serverfarm für die Staging- oder Produktionsserver Umgebung, der Sie benötigen:
 
 - Erstellen Sie einen Controllerserver Internet Information Services (IIS) 7.5 und WFF 2.0 installieren.
 - Bereiten Sie primäre und sekundäre Server durch eine allgemeine Administratorkonto erstellen und Konfigurieren von Firewallausnahmen vor.
@@ -78,7 +78,7 @@ Um einen WFF-Controller-Server erstellen, müssen Sie IIS 7 oder höher und WFF 
 2. Am oberen Rand der **Web Platform Installer 3.0** Fenster, klicken Sie auf **Produkte**.
 3. Klicken Sie auf der linken Seite des Fensters klicken Sie im Navigationsbereich auf **Server**.
 4. In der **empfohlene Konfiguration von IIS 7** auf **hinzufügen**.
-5. In der **Web Farm Framework 2. *** X* auf **hinzufügen**.
+5. In der <strong>Web Farm Framework 2.</strong> <em>x</em> auf <strong>hinzufügen</strong>.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Klicken Sie auf **Installieren**. Beachten Sie, dass der Webplattform-Installer das Webbereitstellungstool zusammen mit verschiedenen Abhängigkeiten der Installationsliste hinzugefügt wurde.
@@ -96,7 +96,7 @@ Vor dem Erstellen einer Serverfarm WFF sollten Sie einige Vorbereitungsaufgaben 
 
 Weitere Informationen zum Konfigurieren von dieser Firewallausnahmen in der Windows-Firewall finden Sie unter [System- und für die Plattform für das Web Farm Framework 2.0 für IIS 7](https://go.microsoft.com/?linkid=9805128). Andere Firewallsysteme finden Sie in der Produktdokumentation.
 
-Das nächste Verfahren können Sie ein Domänenkonto zur lokalen Administratorengruppe in Windows Server 2008 R2 hinzufügen. Führen Sie dieses Verfahren auf jedem Server, den Sie mit der Serverfarm & #x 2014; hinzufügen möchten also dasselbe Domänenkonto der lokalen Administratorengruppe auf dem primären Server und in jeder sekundären Serverinstanz hinzufügen.
+Das nächste Verfahren können Sie ein Domänenkonto zur lokalen Administratorengruppe in Windows Server 2008 R2 hinzufügen. Führen Sie dieses Verfahren auf jedem Server, den Sie mit der Serverfarm hinzufügen möchten&#x2014;also dasselbe Domänenkonto der lokalen Administratorengruppe auf dem primären Server und in jeder sekundären Serverinstanz hinzufügen.
 
 **Ein Domänenkonto zur lokalen Administratorgruppe hinzufügen**
 
@@ -111,7 +111,7 @@ Das nächste Verfahren können Sie ein Domänenkonto zur lokalen Administratoren
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. In der **Eigenschaften von Administratoren** (Dialogfeld), klicken Sie auf **OK**.
 
-Die Server können jetzt mit einer Serverfarm hinzugefügt werden. Im Fall dem primären Server und konfigurieren Sie den Server aus, um den Anforderungen Ihrer Anwendung zu erfüllen, vor oder nach dem Erstellen der Serverfarm & #x 2014; in beiden Fällen wird die WFF Server synchronisieren, indem Sie die gleichen Produkte,-Komponenten bereitstellen oder die Konfiguration an den sekundären Servern. Der Einfachheit halber wird in diesem Lernprogramm davon ausgegangen, dass Sie den primären Server konfigurieren müssen, wenn Sie die Serverfarm erstellt haben.
+Die Server können jetzt mit einer Serverfarm hinzugefügt werden. Im Fall dem primären Server und konfigurieren Sie den Server aus, um den Anforderungen Ihrer Anwendung zu erfüllen, vor oder nach dem Erstellen der Serverfarm&#x2014;in beiden Fällen wird der WFF Server synchronisieren, indem Sie die gleichen Produkte, Komponenten oder eine Konfiguration bereitstellen an den sekundären Servern. Der Einfachheit halber wird in diesem Lernprogramm davon ausgegangen, dass Sie den primären Server konfigurieren müssen, wenn Sie die Serverfarm erstellt haben.
 
 ## <a name="create-the-wff-server-farm"></a>Erstellen Sie die WFF-Serverfarm
 
@@ -225,12 +225,12 @@ Sie können die Integrität Ihrer Serverfarm jederzeit über den IIS-Manager auf
 
 ## <a name="conclusion"></a>Schlussbemerkung
 
-Die Serverfarm WFF sollte jetzt einsatzbereit sein. Sie können den primären Server zur Unterstützung von unabhängig davon, welche Bereitstellungsansatz gewünscht & #x 2014 konfigurieren; finden Sie im Abschnitt Weitere Themen Details & #x 2014; und die Konfiguration wird in jeder sekundären Serverinstanz in der Farm repliziert werden.
+Die Serverfarm WFF sollte jetzt einsatzbereit sein. Sie können den primären Server unabhängig davon, welche Bereitstellungsansatz unterstützen gewünscht konfigurieren&#x2014;finden Sie weitere Themen im Abschnitt&#x2014;und Ihre Konfiguration wird in jeder sekundären Serverinstanz in der Farm repliziert werden.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
 Weitere Informationen zu allen Aspekten der Konfiguration und Verwendung der WFF zu erhalten, finden Sie unter der [Microsoft Web Farm Framework 2.0 für IIS 7](https://go.microsoft.com/?linkid=9805129) Website.
 
->[!div class="step-by-step"]
-[Zurück](configuring-a-database-server-for-web-deploy-publishing.md)
-[Weiter](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-a-database-server-for-web-deploy-publishing.md)
+> [Weiter](configuring-deployment-properties-for-a-target-environment.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 title: Angeben der Titel, Meta-Tags und andere HTML-Header in der Gestaltungsvorlage (. VB) | Microsoft Docs
 author: rick-anderson
-description: "Prüft auf verschiedene Techniken zum Definieren der ausgewählten &lt;Head&gt; Elemente in der Master-Seite von der Seite Inhalt."
+description: Prüft auf verschiedene Techniken zum Definieren der ausgewählten &lt;Head&gt; Elemente in der Master-Seite von der Seite Inhalt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8bf9d32eee3e35ffc84521f7f82f7beecc99a0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Angeben der Titel, Meta-Tags und andere HTML-Header in der Gestaltungsvorlage (VB)
 ====================
@@ -130,7 +130,7 @@ Unsere erste Aufgabe ist die Erstellung eine Klasse Basisseite ist eine Klasse, 
 
 ![Fügen Sie einen Ordner "App_Code" und eine Klasse namens BasePage hinzu](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
 
-**Abbildung 04**: Hinzufügen einer `App_Code` Ordner und eine Klasse namens`BasePage`
+**Abbildung 04**: Hinzufügen einer `App_Code` Ordner und eine Klasse namens `BasePage`
 
 
 > [!NOTE]
@@ -279,7 +279,7 @@ Update der `BasePage` Klasse `OnLoadComplete` Methode, um den folgenden Code ein
 
 Wie zuvor die `OnLoadComplete` Methode startet, wird festgestellt, ob der Titel der Seite explizit festgelegt wurde. Wenn `Page.Title` ist `Nothing`, eine leere Zeichenfolge oder den Wert "Seite" unbenannt "" zugewiesen ist, und klicken Sie dann der Code automatisch einen Wert zuweist `Page.Title`.
 
-Zum Bestimmen des Titels, startet der Code durch Verweisen auf die [ `SiteMap` Klasse](https://msdn.microsoft.com/library/system.web.sitemap.aspx)des [ `CurrentNode` Eigenschaft](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Gibt die [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) Instanz in der Siteübersicht, die die derzeit angeforderte Seite entspricht. Vorausgesetzt, die gerade angeforderte Seite befindet sich innerhalb der Siteübersicht der `SiteMapNode`des `Title` Titel der Seite Eigenschaft zugewiesen ist. Ist die aktuell angeforderte Seite nicht in der Siteübersicht `CurrentNode` gibt `Nothing` und Dateiname für die angeforderte Seite dient als Titel (wie in Schritt2 vorgenommen wurde).
+Zum Bestimmen des Titels, startet der Code durch Verweisen auf die [ `SiteMap` Klasse](https://msdn.microsoft.com/library/system.web.sitemap.aspx)des [ `CurrentNode` Eigenschaft](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` Gibt die [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) Instanz in der Siteübersicht, die die derzeit angeforderte Seite entspricht. Vorausgesetzt, die gerade angeforderte Seite befindet sich innerhalb der Siteübersicht der `SiteMapNode`des `Title` Titel der Seite Eigenschaft zugewiesen ist. Ist die aktuell angeforderte Seite nicht in der Siteübersicht `CurrentNode` gibt `Nothing` und Dateiname für die angeforderte Seite dient als Titel (wie in Schritt2 vorgenommen wurde).
 
 Abbildung 12 zeigt die `MultipleContentPlaceHolders.aspx` Seite, wenn Sie über einen Browser angezeigt. Da auf dieser Seite Titel nicht explizit festgelegt ist, wird die entsprechende Zuordnung Websiteknoten der Titel wird stattdessen verwendet.
 
@@ -345,12 +345,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones und Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](multiple-contentplaceholders-and-default-content-vb.md)
-[Weiter](urls-in-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](multiple-contentplaceholders-and-default-content-vb.md)
+> [Weiter](urls-in-master-pages-vb.md)

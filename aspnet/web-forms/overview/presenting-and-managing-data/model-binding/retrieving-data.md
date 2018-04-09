@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: e750250285fcb0088da284588d721ac21e73820c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 26873efa5dbfdbdab39a52cfb9cfd5a65c8231a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Abrufen und Anzeigen von Daten mit modellbindung und WebForms
 ====================
@@ -176,11 +176,11 @@ Visual Studio nicht nur eine Methode im Code-Behind mit der richtigen Signatur e
 
 Der obige Code müssen erneut, nicht dem Projekt hinzugefügt werden. In den nächsten Lernprogrammen implementieren Sie Methoden zum Aktualisieren, löschen und neue Daten hinzufügen.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm erstellte Modell Datenklassen und eine Datenbank aus dieser Klassen generiert. Sie können die Datenbanktabellen mit Testdaten gefüllt. Sie wurden die modellbindung zum Abrufen von Daten aus der Datenbank verwendet, und klicken Sie dann die Daten in einem GridView angezeigt.
 
 In der nächsten [Lernprogramm](updating-deleting-and-creating-data.md) in dieser Serie, aktivieren Sie aktualisieren, löschen und Erstellen von Daten.
 
->[!div class="step-by-step"]
-[Nächste](updating-deleting-and-creating-data.md)
+> [!div class="step-by-step"]
+> [Nächste](updating-deleting-and-creating-data.md)

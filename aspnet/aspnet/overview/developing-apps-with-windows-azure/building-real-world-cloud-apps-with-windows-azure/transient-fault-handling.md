@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: "Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen) | Microsoft Docs"
+title: Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/03/2015
 ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86bd67b04931ae2452f6e063e6475a434a0125bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -104,6 +104,6 @@ Codebeispiel
 
 - [Grundlagen von Clouddiensten in Azure Cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Beispielanwendung erstellt, indem die Microsoft Azure-Kundenberatungsteam, die zeigt, wie die [Enterprise Library vorübergehende Behandlung von Fehlerblock](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Weitere Informationen finden Sie unter [Cloud-Dienst-Grundlagen Datenzugriffsebene – vorübergehender Fehler behandeln](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH wird empfohlen, für den Datenbankzugriff mithilfe von ADO.NET direkt (ohne Verwendung von Entity Framework).
 
->[!div class="step-by-step"]
-[Zurück](monitoring-and-telemetry.md)
-[Weiter](distributed-caching.md)
+> [!div class="step-by-step"]
+> [Zurück](monitoring-and-telemetry.md)
+> [Weiter](distributed-caching.md)

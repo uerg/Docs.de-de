@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04444ce98fa60045cf617a6c518dd55677258148
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Was ist neu im Entity Framework 4.0
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie stellen Sie diese auf die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
 
@@ -118,39 +118,39 @@ Erstellen Sie eine andere Entität die gleiche Weise, und nennen Sie sie `Donati
 
 Zum Hinzufügen einer Zuordnung zwischen diesen beiden Entitäten Maustaste die `Alumnus` Entität select **hinzufügen**, und wählen Sie dann **Zuordnung**.
 
-[![Image10](what-s-new-in-the-entity-framework-4/_static/image18.png)](what-s-new-in-the-entity-framework-4/_static/image17.png)
+[![image10](what-s-new-in-the-entity-framework-4/_static/image18.png)](what-s-new-in-the-entity-framework-4/_static/image17.png)
 
 Die Standardwerte den **Zuordnung hinzufügen** Dialogfeld vorstellungen entsprechen (1-zu-viele Navigationseigenschaften einschließen, Fremdschlüssel enthalten), also nur auf **OK**.
 
-[![Image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
+[![image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
 
 Der Designer Fügt eine Assoziationslinie und eine foreign Key-Eigenschaft.
 
-[![Image12](what-s-new-in-the-entity-framework-4/_static/image22.png)](what-s-new-in-the-entity-framework-4/_static/image21.png)
+[![image12](what-s-new-in-the-entity-framework-4/_static/image22.png)](what-s-new-in-the-entity-framework-4/_static/image21.png)
 
 Nun können Sie die Datenbank zu erstellen. Mit der rechten Maustaste in des Entwurfs, die Entwurfsoberfläche, und wählen **zur Datenbankgenerierung aus Modell**.
 
-[![Image13](what-s-new-in-the-entity-framework-4/_static/image24.png)](what-s-new-in-the-entity-framework-4/_static/image23.png)
+[![image13](what-s-new-in-the-entity-framework-4/_static/image24.png)](what-s-new-in-the-entity-framework-4/_static/image23.png)
 
 Dies startet den Assistenten zum Generieren einer Datenbank. (Wenn Sie Warnungen, die darauf hinweisen anzeigen, dass die Entitäten zugeordnet sind, können Sie die wird ignorieren.)
 
 In der **wählen Sie Ihre Datenverbindung** Schritt, klicken Sie auf **neue Verbindung**.
 
-[![Image14](what-s-new-in-the-entity-framework-4/_static/image26.png)](what-s-new-in-the-entity-framework-4/_static/image25.png)
+[![image14](what-s-new-in-the-entity-framework-4/_static/image26.png)](what-s-new-in-the-entity-framework-4/_static/image25.png)
 
 In der **Verbindungseigenschaften** Dialogfeld Feld, wählen Sie die lokale SQL Server Express-Instanz aus, und nennen Sie die Datenbank `AlumniAsssociation`.
 
-[![Image15](what-s-new-in-the-entity-framework-4/_static/image28.png)](what-s-new-in-the-entity-framework-4/_static/image27.png)
+[![image15](what-s-new-in-the-entity-framework-4/_static/image28.png)](what-s-new-in-the-entity-framework-4/_static/image27.png)
 
 Klicken Sie auf **Ja** Wenn Sie gefragt, ob die Datenbank erstellt werden soll. Wenn die **wählen Sie Ihre Datenverbindung** Schritt erneut angezeigt wird, klicken Sie auf **Weiter**.
 
 In der **Zusammenfassung und Einstellungen** Schritt, klicken Sie auf **Fertig stellen**.
 
-[![Image18](what-s-new-in-the-entity-framework-4/_static/image30.png)](what-s-new-in-the-entity-framework-4/_static/image29.png)
+[![image18](what-s-new-in-the-entity-framework-4/_static/image30.png)](what-s-new-in-the-entity-framework-4/_static/image29.png)
 
 Ein *.sql* -Datei mit den Befehlen Data Definition Language (DDL) erstellt, aber noch nicht die Befehle noch ausgeführt wurde.
 
-[![Image20](what-s-new-in-the-entity-framework-4/_static/image32.png)](what-s-new-in-the-entity-framework-4/_static/image31.png)
+[![image20](what-s-new-in-the-entity-framework-4/_static/image32.png)](what-s-new-in-the-entity-framework-4/_static/image31.png)
 
 Verwenden Sie ein Tool wie z. B. **SQL Server Management Studio** führen Sie das Skript, und erstellen Sie die Tabellen aus, wie dies möglicherweise beim Erstellen geschehen ist der `School` -Datenbank für den [im ersten Lernprogramm Getting Started Tutorial Reihe ](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md). (Es sei denn, Sie die Datenbank heruntergeladen haben.)
 
@@ -158,7 +158,7 @@ Jetzt können Sie die `AlumniAssociation` Datenmodell in Ihre Web-Seiten die gle
 
 Mit **Server-Explorer**, fügen Sie die folgenden Zeilen, die `Alumnus` und `Donation` Tabellen.
 
-[![Image21](what-s-new-in-the-entity-framework-4/_static/image34.png)](what-s-new-in-the-entity-framework-4/_static/image33.png)
+[![image21](what-s-new-in-the-entity-framework-4/_static/image34.png)](what-s-new-in-the-entity-framework-4/_static/image33.png)
 
 Erstellen Sie eine neue Webseite mit dem Namen *Alumni.aspx* , verwendet der *Site.Master* Masterseite. Fügen Sie das folgende Markup zum Rendern der `Content` Steuerelement namens `Content2`:
 
@@ -174,7 +174,7 @@ Dieser Code stellt die innere `GridView` steuern Sie mithilfe der `Donations` Na
 
 Führen Sie die Seite.
 
-[![Image22](what-s-new-in-the-entity-framework-4/_static/image36.png)](what-s-new-in-the-entity-framework-4/_static/image35.png)
+[![image22](what-s-new-in-the-entity-framework-4/_static/image36.png)](what-s-new-in-the-entity-framework-4/_static/image35.png)
 
 (Hinweis: Diese Seite ist im herunterladbaren Projekt enthalten, aber Sie funktionieren müssen die Datenbank in der lokalen SQL Server Express-Instanz erstellen; die Datenbank ist nicht als ein *mdf* in der Datei die *App\_ Daten* Ordner.)
 
@@ -203,7 +203,7 @@ Weitere Informationen zum Verwenden der Code First-Ansatz für die Entwicklung, 
 - [MVC-Music Store-Lernprogramm – Teil 4: Modelle und Datenzugriff](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [Erste Schritte mit MVC 3 – Teil 4: Entity Framework Code First-Entwicklung](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
-Darüber hinaus wird ein neues MVC Code First-Lernprogramm, in dem eine Anwendung ähnelt der Universität von Contoso-Anwendung erstellt projiziert, um veröffentlicht werden, für die Steifheit 2011 am [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
+Darüber hinaus ein neues MVC Code First-Lernprogramm, in dem eine Anwendung ähnelt der Universität von Contoso-Anwendung erstellt projiziert wird, um in der-Version vom Frühjahr 2011 am veröffentlicht werden [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
 ## <a name="more-information"></a>Weitere Informationen
 
@@ -212,5 +212,5 @@ Dies schließt die Übersicht, was neu in der Entity Framework und diese Fortset
 - [Neuigkeiten in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) MSDN-Thema zu neuen Funktionen in Version 4 von Entity Framework.
 - [Ankündigung der Version von Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) das Entity Framework-Entwicklungsteam finden Sie im Blogbeitrag zu neuen Funktionen in Version 4.
 
->[!div class="step-by-step"]
-[Vorherige](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Vorherige](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

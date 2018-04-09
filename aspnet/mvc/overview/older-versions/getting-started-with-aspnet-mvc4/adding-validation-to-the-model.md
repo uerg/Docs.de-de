@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
-title: "Hinzufügen einer Validierung zum Modell | Microsoft Docs"
+title: Hinzufügen einer Validierung zum Modell | Microsoft Docs
 author: Rick-Anderson
-description: "Hinweis: Eine aktualisierte Version dieses Lernprogramms ist hier verfügbar, die ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher zu verfolgen und demo..."
+description: 'Hinweis: Eine aktualisierte Version dieses Lernprogramms ist hier verfügbar, die ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher zu verfolgen und demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6de7d279677c7bbf220b956767a97aaaff8da9a1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 39d1d9d4cb8b11f7ce5a3a85c51f652115d79db7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model"></a>Hinzufügen einer Validierung zum Modell
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Eine aktualisierte Version dieses Lernprogramms steht [hier](../../getting-started/introduction/getting-started.md) , ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher, führen und weitere Funktionen veranschaulicht.
@@ -81,7 +81,7 @@ Klicken Sie auf die **neu erstellen** Link, um einen neuen Film hinzufügen. Fü
 ![8_validationErrors](adding-validation-to-the-model/_static/image1.png)
 
 > [!NOTE]
-> auf die jQuery-Validierung für nicht englischen Gebietsschemas zu unterstützen, verwenden ein Komma (&quot;,&quot;) Sie müssen für ein Dezimaltrennzeichen einschließen *globalize.js* und Ihre spezifischen *cultures/globalize.cultures.js* Datei (aus [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) und JavaScript verwenden `Globalize.parseFloat`. Der folgende Code zeigt die Änderungen an der Views\Movies\Edit.cshtml-Datei zur Bearbeitung der &quot;fr-FR&quot; Kultur:
+> auf die jQuery-Validierung für nicht englischen Gebietsschemas zu unterstützen, verwenden ein Komma (&quot;,&quot;) Sie müssen für ein Dezimaltrennzeichen einschließen *globalize.js* und Ihre spezifischen *cultures/globalize.cultures.js* Datei (aus [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) und JavaScript verwenden `Globalize.parseFloat`. Der folgende Code zeigt die Änderungen an der Views\Movies\Edit.cshtml-Datei zur Bearbeitung der &quot;fr-FR&quot; Kultur:
 
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
@@ -94,10 +94,10 @@ Ihnen möglicherweise aufgefallen für die Eigenschaften `Title` und `Genre`, da
 
 1. Registerkarte ", in das Feld ein.
 2. Geben Sie Text ein.
-3. Registerkarte "aus.
+3. Wechseln Sie durch Drücken der TAB-Taste zum nächsten Feld.
 4. Auf der Registerkarte zurück in das Feld ein.
 5. Entfernen Sie den Text ein.
-6. Registerkarte "aus.
+6. Wechseln Sie durch Drücken der TAB-Taste zum nächsten Feld.
 
 Die oben angegebene Reihenfolge wird die erforderliche Überprüfung auslösen, ohne dafür die Schaltfläche "Absenden". Drücken einfach die Schaltfläche "Absenden" ohne Eingabe eines der Felder wird die clientseitige Validierung ausgelöst. Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine Validierungsfehler mehr auftreten. Können Sie testen, wenn Sie einen Haltepunkt in der HTTP-Post-Methode oder mithilfe der [Fiddler-Tool](http://fiddler2.com/fiddler2/) oder der Internet Explorer 9 [F12 Entwicklertools](https://msdn.microsoft.com/ie/aa740478).
 
@@ -165,6 +165,6 @@ Die folgende Abbildung zeigt die gleichen Daten angezeigt, wobei die Standardkul
 
 Im nächsten Teil der Reihe überprüfen wir die Anwendung und nehmen einige Verbesserungen an den automatisch generierten Methoden `Details` und `Delete` vor.
 
->[!div class="step-by-step"]
-[Zurück](adding-a-new-field-to-the-movie-model-and-table.md)
-[Weiter](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-new-field-to-the-movie-model-and-table.md)
+> [Weiter](examining-the-details-and-delete-methods.md)

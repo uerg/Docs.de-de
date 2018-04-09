@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 title: Erstellen Sie eine Datenbankanwendung Film innerhalb von 15 Minuten mit ASP.NET MVC (c#) | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther erstellt eine gesamte Datenbank-driven ASP.NET MVC-Anwendung von Grund auf Fertig stellen. Dieses Lernprogramm ist eine gute Einführung für Personen, die neue t werden..."
+description: Stephen Walther erstellt eine gesamte Datenbank-driven ASP.NET MVC-Anwendung von Grund auf Fertig stellen. Dieses Lernprogramm ist eine gute Einführung für Personen, die neue t werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a67ca5422d4353b8c23b3fd804246906b8b6d717
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 81e0ae42bc3e7656c933ba70920eaeeffa4c4bd6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>Erstellen Sie eine Datenbankanwendung Film innerhalb von 15 Minuten mit ASP.NET MVC (c#)
 ====================
@@ -63,7 +63,7 @@ Wenn Sie Visual Studio 2008 nicht besitzen, können Sie eine 90-Tage-Testversion
 
 Alternativ können Sie ASP.NET MVC Anwendungen mit Visual Web Developer Express 2008 erstellen. Wenn Sie Visual Web Developer Express verwenden möchten, müssen Sie Service Pack 1 installiert haben. Sie können Visual Web Developer-2008 Express mit Service Pack 1 von dieser Website herunterladen:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;Displaylang = En](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
 Nach der Installation von Visual Studio 2008 oder Visual Web Developer 2008 müssen Sie ASP.NET MVC-Framework zu installieren. Sie können das ASP.NET MVC-Framework von folgender Website herunterladen:
 
@@ -368,5 +368,5 @@ Der Zweck dieses Lernprogramms wurde um einen Eindruck von der Umgebung zum Erst
 
 In diesem Lernprogramm untersucht wir nur die grundlegenden Features von ASP.NET MVC-Framework. In zukünftigen Lernprogrammen eingehendere wir in Themen wie z. B. Controller, Controlleraktionen, Ansichten, Anzeigen von Daten und HTML-Hilfsmethoden.
 
->[!div class="step-by-step"]
-[Nächste](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)

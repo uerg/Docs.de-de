@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/16-adding-security-and-membership
-title: "Mitgliedschaft und Sicherheit zu einer ASP.NET-Webseite hinzufügen Pages (Razor) Website | Microsoft Docs"
+title: Mitgliedschaft und Sicherheit zu einer ASP.NET-Webseite hinzufügen Pages (Razor) Website | Microsoft Docs
 author: tfitzmac
-description: "Das Kapitel zeigt, wie Sie Ihre Website zu sichern, sodass einige Seiten nur an Personen verfügbar, die sind in anmelden. (Gewusst wie: Erstellen von Seiten Tha... entwicklungserfahrung"
+description: 'Das Kapitel zeigt, wie Sie Ihre Website zu sichern, sodass einige Seiten nur an Personen verfügbar, die sind in anmelden. (Gewusst wie: Erstellen von Seiten Tha... entwicklungserfahrung'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Hinzufügen von Sicherheit und die Mitgliedschaft in einer ASP.NET Web Pages (Razor) Standort
 ====================
@@ -47,7 +47,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web Helpers Library
 
 
-Sie können Ihre Website einrichten, sodass Benutzer, in &#8212;anmelden können; d. h., damit der Standort unterstützt *Mitgliedschaft*. Dies kann aus vielen Gründen nützlich sein. Z. B. möglicherweise Ihre Site Seiten, die nur für Elemente verfügbar sein sollen. In einigen Fällen müssen Sie möglicherweise Benutzer anmelden, um Sie Feedback senden oder einen Kommentar.
+Sie können Ihre Website einrichten, sodass Benutzer anmelden können &#8212; , also so, dass der Standort unterstützt *Mitgliedschaft*. Dies kann aus vielen Gründen nützlich sein. Z. B. möglicherweise Ihre Site Seiten, die nur für Elemente verfügbar sein sollen. In einigen Fällen müssen Sie möglicherweise Benutzer anmelden, um Sie Feedback senden oder einen Kommentar.
 
 Auch wenn Ihre Website Mitgliedschaft unterstützt, nicht Benutzern unbedingt erforderlich, um sich anzumelden, bevor sie einige der Seiten auf der Website verwenden. Benutzer angemeldet sind, werden als bezeichnet *anonyme Benutzer*.
 
@@ -88,26 +88,26 @@ Das folgende Verfahren beschreibt, wie die Website erstellen und zu konfiguriere
     Wenn Sie keine e-Mail-Bestätigung einrichten möchten, können Sie diesen Schritt und den nächsten Schritt überspringen. Wenn der SMTP-Werte nicht festgelegt werden, wird das neue Konto ohne eine e-Mail zur kaufbestätigung sofort verfügbar.
 6. Ändern Sie die folgenden e-Mail-bezogenen Einstellungen in den Code ein:
 
-    - Legen Sie `WebMail.SmtpServer` auf den Namen des SMTP-Servers, die Sie können zugreifen.
-    - Lassen Sie `WebMail.EnableSsl` festgelegt `true`. Diese Einstellung sichert die Anmeldeinformationen, die an den SMTP-Server gesendet werden, indem sie verschlüsselt werden.
-    - Legen Sie `WebMail.UserName` mit dem Benutzernamen für Ihr SMTP-Server-Konto.
-    - Legen Sie `WebMail.Password` auf das Kennwort für Ihr SMTP-Server-Konto.
-    - Legen Sie `WebMail.From` an Ihre eigene e-Mail-Adresse. Dies ist die e-Mail-Adresse, der aus die Nachricht gesendet wird.
+   - Legen Sie `WebMail.SmtpServer` auf den Namen des SMTP-Servers, die Sie können zugreifen.
+   - Lassen Sie `WebMail.EnableSsl` festgelegt `true`. Diese Einstellung sichert die Anmeldeinformationen, die an den SMTP-Server gesendet werden, indem sie verschlüsselt werden.
+   - Legen Sie `WebMail.UserName` mit dem Benutzernamen für Ihr SMTP-Server-Konto.
+   - Legen Sie `WebMail.Password` auf das Kennwort für Ihr SMTP-Server-Konto.
+   - Legen Sie `WebMail.From` an Ihre eigene e-Mail-Adresse. Dies ist die e-Mail-Adresse, der aus die Nachricht gesendet wird.
 
-    > [!NOTE] 
-    > 
-    > **Tipp** zusätzliche Informationen zu den Werten für diese Eigenschaften finden Sie unter [Konfigurieren von e-Mail-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
+     > [!NOTE] 
+     > 
+     > **Tipp** zusätzliche Informationen zu den Werten für diese Eigenschaften finden Sie unter [Konfigurieren von e-Mail-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
 7. Speichern und schließen Sie  *\_AppStart.cshtml*.
 8. Führen Sie die *Default.cshtml* Seite in einem Browser.
 
     ![Sicherheit-Mitgliedschaft-2](16-adding-security-and-membership/_static/image1.png)
 
-    > [!NOTE]
-    > Wenn Sie eine Fehlermeldung, die besagt angezeigt, dass eine Eigenschaft einer Instanz des Transportservers `ExtendedMembershipProvider`, der Standort möglicherweise nicht verwenden, die ASP.NET Web Pages-Mitgliedschaftssystems (SimpleMembership) konfiguriert werden. Dies kann manchmal auftreten, wenn es sich bei einem Hostinganbieter Server anders als Ihr lokaler Server konfiguriert ist. Um dieses Problem zu beheben, fügen Sie das folgende Element mit des Standorts *"Web.config"* Datei:
-    > 
-    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
-    > 
-    > Fügen Sie dieses Element als untergeordnetes Element von der `<configuration>` Element sowie einen Peer der `<system.web>` Element.
+   > [!NOTE]
+   > Wenn Sie eine Fehlermeldung, die besagt angezeigt, dass eine Eigenschaft einer Instanz des Transportservers `ExtendedMembershipProvider`, der Standort möglicherweise nicht verwenden, die ASP.NET Web Pages-Mitgliedschaftssystems (SimpleMembership) konfiguriert werden. Dies kann manchmal auftreten, wenn es sich bei einem Hostinganbieter Server anders als Ihr lokaler Server konfiguriert ist. Um dieses Problem zu beheben, fügen Sie das folgende Element mit des Standorts *"Web.config"* Datei:
+   > 
+   > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
+   > 
+   > Fügen Sie dieses Element als untergeordnetes Element von der `<configuration>` Element sowie einen Peer der `<system.web>` Element.
 9. Klicken Sie in der oberen rechten Ecke der Seite, auf die **registrieren** Link. Die *Register.cshtml* Seite wird angezeigt.
 10. Geben Sie einen Benutzernamen und ein Kennwort, und klicken Sie dann auf **registrieren**.
 
@@ -120,14 +120,14 @@ Das folgende Verfahren beschreibt, wie die Website erstellen und zu konfiguriere
 12. Klicken Sie auf den Link, um Ihr Konto zu aktivieren. Der Link zur Bestätigung wird eine Bestätigungsseite Registrierung geöffnet.
 
     ![Sicherheit-Mitgliedschaft-5](16-adding-security-and-membership/_static/image4.png)
-- Klicken Sie auf die **Anmeldung** verknüpfen, und melden Sie sich mit dem Konto, den Sie registriert.
+13. Klicken Sie auf die **Anmeldung** verknüpfen, und melden Sie sich mit dem Konto, den Sie registriert.
 
-    Nach dem Anmelden die **Anmeldung** und **registrieren** Links werden durch ersetzt eine **Logout** Link. Der Anmeldename wird als Link angezeigt. (Link können Sie die zu einer Seite zu wechseln, in dem Sie Ihr Kennwort ändern.)
+      Nach dem Anmelden die **Anmeldung** und **registrieren** Links werden durch ersetzt eine **Logout** Link. Der Anmeldename wird als Link angezeigt. (Link können Sie die zu einer Seite zu wechseln, in dem Sie Ihr Kennwort ändern.)
 
-    ![Sicherheit-Mitgliedschaft-6](16-adding-security-and-membership/_static/image5.png)
+      ![Sicherheit-Mitgliedschaft-6](16-adding-security-and-membership/_static/image5.png)
 
-    > [!NOTE]
-    > Standardmäßig senden ASP.NET Web Pages Anmeldeinformationen an den Server in Klartext (wie einem von Menschen lesbaren Text). Eine Produktionswebsite zu verwendende secure HTTP (https://, auch bekannt als die *secure Sockets Layer* oder SSL) zum Verschlüsseln von vertraulichen Informationen, die mit dem Server ausgetauscht werden. Können Sie die erforderlichen-e-Mail Nachrichten gesendet werden mit SSL durch Festlegen von `WebMail.EnableSsl=true` wie im vorherigen Beispiel. Weitere Informationen zu SSL finden Sie unter [Web Sichern der Kommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660).
+      > [!NOTE]
+      > Standardmäßig senden ASP.NET Web Pages Anmeldeinformationen an den Server in Klartext (wie einem von Menschen lesbaren Text). Eine Produktionswebsite zu verwendende secure HTTP (https://, auch bekannt als die *secure Sockets Layer* oder SSL) zum Verschlüsseln von vertraulichen Informationen, die mit dem Server ausgetauscht werden. Können Sie die erforderlichen-e-Mail Nachrichten gesendet werden mit SSL durch Festlegen von `WebMail.EnableSsl=true` wie im vorherigen Beispiel. Weitere Informationen zu SSL finden Sie unter [Web Sichern der Kommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660).
 
 ## <a name="additional-membership-functionality-in-the-site"></a>Zusätzliche Mitgliedschaftsfunktionen auf der Website
 
@@ -165,7 +165,7 @@ In diesem Verfahren erstellen Sie einen Ordner aus, der Seiten enthält, die nur
     (Die Portnummer (38366) wird wahrscheinlich in die URL anders sein.)
 
     Sie sind umgeleitet, um die *Login.cshtml* Seite, da Sie nicht angemeldet sind.
-- Melden Sie sich mit dem Konto, das Sie zuvor erstellt haben. Sie sind umgeleitet, an die *MembersInformation* Seite. Da Sie angemeldet sind, sehen Sie diesmal den Seiteninhalt zu.
+7. Melden Sie sich mit dem Konto, das Sie zuvor erstellt haben. Sie sind umgeleitet, an die *MembersInformation* Seite. Da Sie angemeldet sind, sehen Sie diesmal den Seiteninhalt zu.
 
 Um den Zugriff auf mehreren Seiten zu sichern, können Sie dies tun:
 
@@ -227,10 +227,10 @@ Die Anmeldeseite wird nicht mehr automatisierte Programme (auch bezeichnet als *
 7. Ersetzen Sie `PUBLIC_KEY` durch Ihren Schlüssel.
 8. Wenn Sie es bereits entfernt noch nicht, entfernen die `<div>` Element, das Text, der enthält mit "Zu ermöglichen, CAPTCHA-Prüfung..." beginnt. (Entfernen Sie den gesamten `<div>` Element und dessen Inhalt.)
 
-1. Führen Sie *Default.cshtml* in einem Browser. Wenn Sie bei der Website angemeldet sind, klicken Sie auf die **Logout** Link.
-2. Klicken Sie auf die **registrieren** verknüpfen und die Registrierung mithilfe des CAPTCHA-Tests zu testen.
+9. Führen Sie *Default.cshtml* in einem Browser. Wenn Sie bei der Website angemeldet sind, klicken Sie auf die **Logout** Link.
+10. Klicken Sie auf die **registrieren** verknüpfen und die Registrierung mithilfe des CAPTCHA-Tests zu testen.
 
-    ![Sicherheit-Mitgliedschaft-10](16-adding-security-and-membership/_static/image9.png)
+     ![Sicherheit-Mitgliedschaft-10](16-adding-security-and-membership/_static/image9.png)
 
 Weitere Informationen zu den `ReCaptcha` Helper, finden Sie unter [eine CATPCHA verwenden, um zu verhindern, dass automatisierte Programme (Bots) aus mithilfe der ASP.NET Web Site](https://go.microsoft.com/fwlink/?LinkId=251967).
 

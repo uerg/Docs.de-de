@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 title: Einmaliges Anmelden (Building Real-World Cloud Apps with Azure) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Einmaliges Anmelden (Building Real-World Cloud Apps with Azure)
 ====================
@@ -130,7 +130,7 @@ Und in wenigen Minuten Sie fertig sind.
 
 Sie müssen sich nur auf einem Domänencontroller in der Organisation, die unter Windows 2003 oder höher ausführen. Und keine Notwendigkeit, neu zu starten. Wenn Sie fertig sind, alle Ihre Benutzer in der Cloud sind und Sie erreichen einmaliges Anmelden aus beliebigen Web oder mobile Anwendung, die mithilfe von SAML, OAuth oder WS-Fed.
 
-– In einigen Fällen erhalten wir aufgefordert, zu wie sicheren sieht Microsoft verwendet diese für ihre eigenen vertraulichen Geschäftsdaten? Und die Antwort ist Ja, wir erledigen. Angenommen, Sie die interne Microsoft SharePoint-Website unter Fortfahren [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/), erhalten Sie zum Anmelden aufgefordert.
+– In einigen Fällen erhalten wir aufgefordert, zu wie sicheren sieht Microsoft verwendet diese für ihre eigenen vertraulichen Geschäftsdaten? Und die Antwort ist Ja, wir erledigen. Angenommen, Sie die interne Microsoft SharePoint-Website unter Fortfahren [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), erhalten Sie zum Anmelden aufgefordert.
 
 ![Office 365-Anmeldung](single-sign-on/_static/image20.png)
 
@@ -193,6 +193,6 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 - [Azure Active Directory Graph-API-Blog](https://blogs.msdn.com/b/aadgraphteam/).
 - [Zugriffssteuerung in BYOD und Directory-Integration in einer Hybrid-Identitätsinfrastruktur](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Tech Eduard 2014 Sitzung video von Gayana Bagdasaryan.
 
->[!div class="step-by-step"]
-[Zurück](web-development-best-practices.md)
-[Weiter](data-storage-options.md)
+> [!div class="step-by-step"]
+> [Zurück](web-development-best-practices.md)
+> [Weiter](data-storage-options.md)

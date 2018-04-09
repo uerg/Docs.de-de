@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: "Hinzufügen von ASP.NET Identity zu einem leeren oder vorhandene Web Forms-Projekt | Microsoft Docs"
+title: Hinzufügen von ASP.NET Identity zu einem leeren oder vorhandene Web Forms-Projekt | Microsoft Docs
 author: raquelsa
-description: "In diesem Lernprogramm wird gezeigt, wie eine ASP.NET-Anwendung ASP.NET Identity (das neue Mitgliedschaftssystem für ASP.NET) hinzu. Wenn Sie eine neue Web Forms oder MVC erstellen..."
+description: In diesem Lernprogramm wird gezeigt, wie eine ASP.NET-Anwendung ASP.NET Identity (das neue Mitgliedschaftssystem für ASP.NET) hinzu. Wenn Sie eine neue Web Forms oder MVC erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2013
 ms.topic: article
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8961e596f0d6cc4810e2439be1ec2915bddb8c78
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>Hinzufügen von ASP.NET Identity zu einem leeren oder vorhandene Web Forms-Projekt
 ====================
@@ -40,7 +40,7 @@ durch [Raquel Soares De Almeida](https://github.com/raquelsa)
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image2.png)  
   
- Beachten Sie, dass die **Authentifizierung ändern** -Schaltfläche deaktiviert ist und keine Unterstützung der Authentifizierung wird in dieser Vorlage bereitgestellt. Die Web Forms, MVC und Web-API-Vorlagen können Sie die authentifizierungsansatz auswählen. Weitere Informationen finden Sie unter [Übersicht der Authentifizierung](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
+   Beachten Sie, dass die **Authentifizierung ändern** -Schaltfläche deaktiviert ist und keine Unterstützung der Authentifizierung wird in dieser Vorlage bereitgestellt. Die Web Forms, MVC und Web-API-Vorlagen können Sie die authentifizierungsansatz auswählen. Weitere Informationen finden Sie unter [Übersicht der Authentifizierung](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
 
 ## <a name="adding-identity-packages-to-your-app"></a>Hinzufügen von Identity-Paketen zu Ihrer App
 
@@ -56,7 +56,7 @@ Beachten Sie, dass dieses Paket die abhängigkeitspakete installiert wird: Entit
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image4.png)
 2. In der **Namen für Artikel angeben** Dialogfeld Feld "Name" neue WebForm **registrieren**, und klicken Sie dann auf **OK**
-3. Ersetzen Sie das Markup in der generierten *Register.aspx* -Datei mit den folgenden Code. Die codeänderungen werden hervorgehoben.   
+3. Ersetzen Sie das Markup in der generierten *Register.aspx* -Datei mit den folgenden Code. Die Codeänderungen werden hervorgehoben.   
 
     [!code-aspx[Main](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/samples/sample1.aspx?highlight=9,12-40)]
 
@@ -152,20 +152,20 @@ Zu diesem Zeitpunkt haben wir Unterstützung für die Erstellung von Benutzern n
     > - Die `Page_Load` nun den Status des aktuellen Benutzers gesucht und führt die Aktionen, die basierend auf seiner `Context.User.Identity.IsAuthenticated` Status.  
     >     **Protokolliert in Benutzername angezeigt** : die Microsoft ASP.NET Identity Framework fügte Erweiterungsmethoden auf [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) , mit der Sie zum Abrufen der `UserName` und `UserId` für die angemeldeter Benutzer Diese Erweiterungsmethoden werden definiert, der `Microsoft.AspNet.Identity.Core` Assembly. Diese Erweiterungsmethoden finden sich die Ersetzung für [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
     > - SignIn-Methode:   
-    >     `This`-Methode ersetzt die vorherige `CreateUser_Click` Methode in diesem Beispiel und nun meldet sich der Benutzer nach der Benutzer erfolgreich erstellt.   
+    >     `This` -Methode ersetzt die vorherige `CreateUser_Click` Methode in diesem Beispiel und nun meldet sich der Benutzer nach der Benutzer erfolgreich erstellt.   
     >  Microsoft owin-Framework fügte Erweiterungsmethoden auf `System.Web.HttpContext` , mit der Sie zum Abrufen eines Verweises auf ein `IOwinContext`. Diese Erweiterungsmethoden werden in definiert `Microsoft.Owin.Host.SystemWeb` Assembly. Die `OwinContext` Klasse macht ein `IAuthenticationManager` -Eigenschaft, die authentifizierungsmiddlewarefunktionen, die für die aktuelle Anforderung verfügbar darstellt.  
     >  Sie können sich Benutzer anmelden, mit der `AuthenticationManager` aus aufrufen und OWIN `SignIn` und übergibt die `ClaimsIdentity` wie oben gezeigt.   
     >  Da ASP.NET Identity und OWIN Cookieauthentifizierung anspruchsbasiertes System befinden, wird das Framework benötigt die app zum Generieren einer `ClaimsIdentity` für den Benutzer.   
     >  Die `ClaimsIdentity` enthält Informationen über alle Ansprüche für den Benutzer, wie z. B. welche Rollen, die der Benutzer angehört. Sie können auch weitere Ansprüche für den Benutzer zu diesem Zeitpunkt hinzufügen.  
     >  Dieser Code wird der Benutzer anmelden und generieren ebenfalls einen Cookie. Dieser Aufruf ist analog zu [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) verwendet werden, indem Sie die [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Modul.
-    > - `SignOut`Methode:   
+    > - `SignOut` Methode:   
     >  Ruft einen Verweis auf die `AuthenticationManager` aus OWIN und Aufrufe `SignOut`. Dies ist analog zu [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) Methode, mit der die [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Modul.
 5. Drücken Sie **STRG + F5** erstellen und Ausführen der Anwendung. Geben Sie einen neuen Benutzernamen und ein Kennwort, und klicken Sie dann auf **registrieren**.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  
- Hinweis: an diesem Punkt der neue Benutzer erstellt und angemeldet.
+   Hinweis: an diesem Punkt der neue Benutzer erstellt und angemeldet.
 6. Klicken Sie auf **Abmelden** Schaltfläche. Sie werden in das Protokoll im Formular umgeleitet werden.
 7. Geben Sie ein ungültiger Benutzername oder Kennwort und klicken Sie auf **melden Sie sich** Schaltfläche.   
- Die `UserManager.Find` Methode Null und die Fehlermeldung zurück: " *Ungültiger Benutzername oder Kennwort* " wird angezeigt.  
+   Die `UserManager.Find` Methode Null und die Fehlermeldung zurück: " *Ungültiger Benutzername oder Kennwort* " wird angezeigt.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image14.png)

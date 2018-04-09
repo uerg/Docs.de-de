@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 title: ASP.NET Fehlerbehandlung | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET-Fehlerbehandlung
 ====================
@@ -104,7 +104,7 @@ Im obigen Code enthält die Try-Block den Code, der gegen eine mögliche Ausnahm
 Vor dem Hinzufügen von mit der Wingtip Toys-beispielanwendung für die Fehlerbehandlung, werden Sie Protokollierung von Anzeigefehlern-Unterstützung hinzufügen, indem ein `ExceptionUtility` Klasse, um die *Logik* Ordner. Durch diese Vorgehensweise wird jedes Mal die Anwendung einen Fehler behandelt, werden die Fehlerdetails in die Fehlerprotokolldatei hinzugefügt werden.
 
 1. Mit der rechten Maustaste die *Logik* Ordner, und wählen Sie dann **hinzufügen**  - &gt; **neues Element**.   
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Wählen Sie die **Visual C#-**  - &gt; **Code** Gruppe "Vorlagen" auf der linken Seite. Aktivieren Sie das Kontrollkästchen **Klasse**aus der Mitte aus, und nennen Sie sie **ExceptionUtility.cs**.
 3. Wählen Sie **Hinzufügen** aus. Die neue Klassendatei wird angezeigt.
 4. Ersetzen Sie den vorhandenen Code durch folgenden Code:  
@@ -118,7 +118,7 @@ Wenn eine Ausnahme auftritt, kann die Ausnahme in einer Protokolldatei für die 
 In der beispielanwendung Wingtip Toys wird eine Seite verwendet werden, um Fehler anzuzeigen. Die Fehlerseite dient zum Anzeigen einer sicheren Fehlermeldung an der Benutzern der Website. Allerdings ist der Benutzer ein Entwickler eine HTTP-Anforderung, die lokal auf dem Computer bereitgestellt werden, wo befindet sich der Code, zusätzliche Fehlerinformationen auf der Seite "Fehler" angezeigt.
 
 1. Mit der rechten Maustaste des Projektnamens (**Wingtip Toys**) in **Projektmappen-Explorer** , und wählen Sie **hinzufügen**  - &gt; **neues Element**.   
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Wählen Sie die **Visual C#-**  - &gt; **Web** Gruppe "Vorlagen" auf der linken Seite. Wählen Sie aus der Liste mittleren **Webformular mit Gestaltungsvorlage**, und nennen Sie sie **ErrorPage.aspx**.
 3. Klicken Sie auf **Hinzufügen**.
 4. Wählen Sie die *Site.Master* als Masterseite, und wählen Sie dann **OK**.
@@ -166,7 +166,7 @@ Wenn Sie anfordern der *NoPage.aspx* Seite, die nicht vorhanden ist, die Fehlers
 Um zu überprüfen, wie Ihre Anwendung funktioniert, wenn ein Fehler auftritt, können Sie absichtlich fehlerbedingungen in ASP.NET erstellen. In der beispielanwendung des Wingtip Toys löst Sie eine Test-Ausnahme beim Laden der Standardseite, um festzustellen, was geschieht.
 
 1. Öffnen Sie den Code-Behind von der *"default.aspx"* Seite in Visual Studio.   
- Die *"default.aspx.cs"* Code-Behind-Seite wird angezeigt.
+   Die *"default.aspx.cs"* Code-Behind-Seite wird angezeigt.
 2. In der `Page_Load` Handler, fügen Sie Code hinzu, sodass die Ereignishandler wie folgt aussieht:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
@@ -356,11 +356,11 @@ Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträ
 ## <a name="community-contributions"></a>Beiträge aus der Community
 
 - Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
- Visual Studio 2012 im Zusammenhang Codebeispiel auf MSDN: [Navigation Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+  Visual Studio 2012 im Zusammenhang Codebeispiel auf MSDN: [Navigation Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - James Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
- Visual Studio 2012 im Zusammenhang Codebeispiel auf MSDN: [ASP.NET 4.5 Web Forms Lernprogramm Reihe in Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+  Visual Studio 2012 im Zusammenhang Codebeispiel auf MSDN: [ASP.NET 4.5 Web Forms Lernprogramm Reihe in Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
 - Andrielle Azevedo - Microsoft technischen Zielgruppe Contributor (twitter: @driazevedo)  
- Visual Studio 2012-Übersetzung: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  Visual Studio 2012-Übersetzung: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
->[!div class="step-by-step"]
-[Vorherige](url-routing.md)
+> [!div class="step-by-step"]
+> [Vorherige](url-routing.md)

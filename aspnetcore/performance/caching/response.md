@@ -1,18 +1,18 @@
 ---
 title: Zwischenspeichern von Antworten in ASP.NET Core
 author: rick-anderson
-description: "Informationen Sie zum Verwenden von caching zu niedrigeren bandbreitenanforderungen Antwort und erhöhen Sie der Leistung von ASP.NET Core-apps."
+description: Informationen Sie zum Verwenden von caching zu niedrigeren bandbreitenanforderungen Antwort und erhöhen Sie der Leistung von ASP.NET Core-apps.
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -64,7 +64,7 @@ Keine aktuelle entwicklersteuerung dieses Verhalten beim Zwischenspeichern vorha
 
 Im Arbeitsspeicher Zwischenspeichern verwendet Serverarbeitsspeicher zum Speichern von zwischengespeicherter Daten. Diese Form des Cachings eignet sich für einen einzelnen oder mehrerer Server mithilfe von *persistente Sitzungen*. Persistente Sitzungen bedeutet, dass die Anfragen von einem Client immer mit dem gleichen Server zur Verarbeitung weitergeleitet werden.
 
-Weitere Informationen finden Sie unter [Einführung in die im Arbeitsspeicher Zwischenspeichern in ASP.NET Core](xref:performance/caching/memory).
+Weitere Informationen finden Sie unter [in-Memory-Cache](xref:performance/caching/memory).
 
 ### <a name="distributed-cache"></a>Verteilter Cache
 
@@ -180,9 +180,9 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Caching in HTTP aus der Spezifikation](https://tools.ietf.org/html/rfc7234#section-3)
+* [Das Speichern von Antworten in Caches](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [In-Memory-Cache](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
 * [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)

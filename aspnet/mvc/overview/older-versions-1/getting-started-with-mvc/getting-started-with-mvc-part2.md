@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
-title: "Hinzufügen eines Controllers | Microsoft Docs"
+title: Hinzufügen eines Controllers | Microsoft Docs
 author: shanselman
-description: "Eine aktualisierte Version dieses Lernprogramm hier mit Visual Studio 2013 verfügbar ist. Das neue Lernprogramm verwendet ASP.NET MVC 5, zahlreiche Verbesserungen über t bietet..."
+description: Eine aktualisierte Version dieses Lernprogramm hier mit Visual Studio 2013 verfügbar ist. Das neue Lernprogramm verwendet ASP.NET MVC 5, zahlreiche Verbesserungen über t bietet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 93a362cf83d39b29fcba3f2dee0c28257805a89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c6ecd1ffdd53a629d0079d57b85c7f6db2f316ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Hinzufügen eines Controllers
 ====================
@@ -77,6 +77,6 @@ Führen Sie die Anwendung, und besuchen Sie `http://localhost:xx/HelloWorld/Welc
 
 In beiden Beispielen der Controller wurde auf diese Weise die gesamte Arbeit, und verfügt über wurde zurückgeben HTML direkt. Normalerweise nicht Being unsere Controller HTML direkt - zurückgeben, da sehr aufwendig, um Code zu endet. Wir müssen stattdessen in der Regel eine separate Ansicht Vorlagendatei verwenden, können Sie die HTML-Antwort zu generieren. Sehen wir uns, wie wir dies durchführen können. Schließen Sie Ihren Browser, und zur IDE zurückzukehren.
 
->[!div class="step-by-step"]
-[Zurück](getting-started-with-mvc-part1.md)
-[Weiter](getting-started-with-mvc-part3.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started-with-mvc-part1.md)
+> [Weiter](getting-started-with-mvc-part3.md)

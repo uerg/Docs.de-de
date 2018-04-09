@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
-title: "Iteration #7 – Add Ajax-Funktionen (VB) | Microsoft Docs"
+title: 'Iteration #7 – Add Ajax-Funktionen (VB) | Microsoft Docs'
 author: microsoft
-description: "In der siebten Iteration werden die Reaktionsfähigkeit und die Leistung der Anwendung durch Hinzufügen von Unterstützung für Ajax verbessern."
+description: In der siebten Iteration werden die Reaktionsfähigkeit und die Leistung der Anwendung durch Hinzufügen von Unterstützung für Ajax verbessern.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa50fdea8ac165be3f8e96322ec049196a511ebe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d961ee39d7b87a31c7208645148b45c7b0c563
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-vb"></a>Iteration #7 – Add Ajax-Funktionen (VB)
 ====================
@@ -112,7 +112,7 @@ Beachten Sie, dass der partiellen im Codebeispiel 1 ein anderes Modell als die I
 
 Die aktualisierte Indexansicht ist im Codebeispiel 2 enthalten.
 
-**Auflisten von 2 – Views\Contact\Index.aspx**
+**Listing 2 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample3.aspx)]
 
@@ -148,7 +148,7 @@ Es gibt mehrere Möglichkeiten, die Sie für einen Benutzer angeben können, das
 
 Wir verwenden die jQuery-Bibliothek die mit dem Microsoft ASP.NET MVC-Framework zum Erstellen der Animationseffekte enthalten ist. Die aktualisierte Indexansicht ist im Codebeispiel 4 enthalten.
 
-**4 – Views\Contact\Index.aspx auflisten**
+**Listing 4 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample6.aspx)]
 
@@ -176,7 +176,7 @@ ASP.NET AJAX-Browserverlauf, müssen Sie drei Aktionen ausgeführt werden:
 
 Die aktualisierte Indexansicht ist im Codebeispiel 5 enthalten.
 
-**5 – Views\Contact\Index.aspx auflisten**
+**Listing 5 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample8.aspx)]
 
@@ -243,5 +243,5 @@ Wir haben auch Verlauf Browserunterstützung unsere Ajax-Anwendung. Wir aktivier
 
 Schließlich haben wir einen Delete-Link, der HTTP-DELETE-Operationen unterstützt. Durch Ausführen von Ajax löscht, können wir Benutzer Datenbankdatensätze zu löschen, ohne dass der Benutzer eine zusätzliche Delete Bestätigungsseite anfordern.
 
->[!div class="step-by-step"]
-[Zurück](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](iteration-6-use-test-driven-development-vb.md)

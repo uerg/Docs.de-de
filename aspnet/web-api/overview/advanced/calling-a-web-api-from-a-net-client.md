@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
 title: Rufen Sie eine Web-API aus einem .NET-Client (c#) | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/24/2017
@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Rufen Sie eine Web-API aus einem .NET-Client (c#)
 ====================
@@ -48,7 +48,7 @@ In Visual Studio, erstellen Sie eine neue Windows-Konsolen-app mit dem Namen **H
 
 Der vorhergehende Code ist die vollständige Client-app.
 
-`RunAsync`ausgeführt wird, und blockiert, bis er abgeschlossen wurde. Die meisten **"HttpClient"** Methoden sind asynchrone, daran, dass sie die Netzwerk-e/a ausführen. Alle asynchronen Vorgänge erfolgen in `RunAsync`. Normalerweise keine app den Haupt-Thread blockieren, aber diese app lässt nicht die ein Eingreifen.
+`RunAsync` ausgeführt wird, und blockiert, bis er abgeschlossen wurde. Die meisten **"HttpClient"** Methoden sind asynchrone, daran, dass sie die Netzwerk-e/a ausführen. Alle asynchronen Vorgänge erfolgen in `RunAsync`. Normalerweise keine app den Haupt-Thread blockieren, aber diese app lässt nicht die ein Eingreifen.
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -109,7 +109,7 @@ Der folgende Code sendet eine GET-Anforderung für ein Produkt:
 
 Die **GetAsync** Methode sendet die HTTP-GET-Anforderung. Wenn die Methode abgeschlossen wird, gibt es eine **HttpResponseMessage** , enthält die HTTP-Antwort. Wenn der Statuscode in der Antwort einen Erfolgscode ist, enthält der Antworttext die JSON-Darstellung eines Produkts. Rufen Sie **ReadAsAsync** zu deserialisierende JSON-Nutzlast an einen `Product` Instanz. Die **ReadAsAsync** Methode ist asynchron, da der Antworttext beliebig groß sein kann.
 
-**"HttpClient"** löst keine Ausnahme aus, wenn die HTTP-Antwort einen Fehlercode enthält. Stattdessen die **IsSuccessStatusCode** Eigenschaft **"false"** lautet der Status ein Fehlercode. Wenn Sie es vorziehen, die HTTP-Fehlercodes als Ausnahmen behandelt werden sollen, rufen Sie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) auf dem Antwortobjekt. `EnsureSuccessStatusCode`löst eine Ausnahme aus, wenn der Statuscode außerhalb des Bereichs 200 liegt&ndash;299. Beachten Sie, dass **"HttpClient"** kann Ausnahmen auslösen, aus anderen Gründen &mdash; z. B., wenn die Anforderung ein Timeout eintritt.
+**"HttpClient"** löst keine Ausnahme aus, wenn die HTTP-Antwort einen Fehlercode enthält. Stattdessen die **IsSuccessStatusCode** Eigenschaft **"false"** lautet der Status ein Fehlercode. Wenn Sie es vorziehen, die HTTP-Fehlercodes als Ausnahmen behandelt werden sollen, rufen Sie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) auf dem Antwortobjekt. `EnsureSuccessStatusCode` löst eine Ausnahme aus, wenn der Statuscode außerhalb des Bereichs 200 liegt&ndash;299. Beachten Sie, dass **"HttpClient"** kann Ausnahmen auslösen, aus anderen Gründen &mdash; z. B., wenn die Anforderung ein Timeout eintritt.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Medientypformatierer deserialisiert
@@ -167,16 +167,16 @@ Wie "GET" muss eine DELETE-Anforderung keinen Anforderungstext. Sie müssen nich
 
 So testen Sie die Client-app:
 
-1. [Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) und führen Sie die Server-app. [Anweisungen zum Herunterladen](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Stellen Sie sicher, dass die Server-app funktioniert. Für Exaxmple `http://localhost:64195/api/products` sollte eine Liste der Produkte zurück.
+1. [Herunterladen](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) und führen Sie die Server-app. [Anweisungen zum Download.](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample) Stellen Sie sicher, dass die Server-app funktioniert. Für Exaxmple `http://localhost:64195/api/products` sollte eine Liste der Produkte zurück.
 2. Legen Sie die Basis-URI für HTTP-Anforderungen. Ändern Sie die Portnummer an den Port in der Server-app verwendet.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 
 3. Führen Sie die Client-app. Es wird die folgende Ausgabe generiert:
 
- ```console
- Created at http://localhost:64195/api/products/4
-Name: Gizmo     Price: 100.0    Category: Widgets
-Updating price...
-Name: Gizmo     Price: 80.0     Category: Widgets
-Deleted (HTTP Status = 204)
-```
+   ```console
+   Created at http://localhost:64195/api/products/4
+   Name: Gizmo     Price: 100.0    Category: Widgets
+   Updating price...
+   Name: Gizmo     Price: 80.0     Category: Widgets
+   Deleted (HTTP Status = 204)
+   ```

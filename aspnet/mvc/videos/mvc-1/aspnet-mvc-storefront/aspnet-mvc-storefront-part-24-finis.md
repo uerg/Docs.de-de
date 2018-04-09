@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
-ms.openlocfilehash: fe3d05e4c3d895d376d1ec1083eafa016f0229ab
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 69e6d6c068d8451eeb619967224f4aa4a209c7eb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-24-finis"></a>Storefront ASP.NET-MVC-Teil 24: Finis
 ====================
@@ -24,7 +24,7 @@ durch [stehlen Conery](https://github.com/robconery)
 
 Dies ist der letzte Folge in der MVC-Storefront-Reihe, und Dies mag etwas ungerade. Es ist definitiv nicht die letzte Screencast, die ich in Bezug auf ASP.NET MVC erledigen, aber ich glaube, ich zu verlassen haben, soweit ich mit diese Reihe aufgenommen werden können.
 
-[&#9654; Sehen Sie sich an (27 Min.)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
+[&#9654;Sehen Sie sich an (27 Min.)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
 
->[!div class="step-by-step"]
-[Vorherige](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+> [!div class="step-by-step"]
+> [Vorherige](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)

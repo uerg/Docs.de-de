@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
-title: "Master/Detail-Filterung über zwei Seiten (VB) | Microsoft Docs"
+title: Master/Detail-Filterung über zwei Seiten (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm betrachten wir einen Master/Detail-Bericht über zwei Seiten Trennung ein. Auf der Seite 'master' verwenden wir Wiederholungsmodul-Steuerelement, um eine Liste der Categ rendern..."
+description: In diesem Lernprogramm betrachten wir einen Master/Detail-Bericht über zwei Seiten Trennung ein. Auf der Seite 'master' verwenden wir Wiederholungsmodul-Steuerelement, um eine Liste der Categ rendern...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f43fa998b81800cb1a2b7796ebb3922fc1caeb8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2afc216de3b6894cfdd112787ab92d7483198ecc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Master/Detail-Filterung über zwei Seiten (VB)
 ====================
@@ -59,7 +59,7 @@ Bei diesem Markup abgeschlossen ist verwendet werden Sie, können Sie unseren Fo
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Schritt 2: Aktivieren den Kategorienamen in einen Link auf der Seite "Details"
 
-Damit wird einen Benutzer die Informationen "Details" nach einer bestimmten Kategorie anzuzeigen, müssen wir einen Link auf jede Aufzählung Element, das beim geklickt haben, dauert des Benutzers auf die zweite Seite hinzufügen (`ProductsForCategoryDetails.aspx`). Dieser zweite Seite zeigt dann die Produkte für die ausgewählte Kategorie, die mit einem DataList. Um die Kategorie zu ermitteln, deren Link geklickt wurde, müssen wir der angeklickte Kategorie übergeben `CategoryID` auf der zweiten Seite über einen Mechanismus. Die einfachste und einfachste Möglichkeit zum Übertragen von skalarer Daten von einer Seite zu einem anderen ist über die Abfragezeichenfolge der die Option, die wir in diesem Lernprogramm verwenden. Insbesondere die `ProductsForCategoryDetails.aspx` Seite erwarten, dass das ausgewählte  *`categoryID`*  Wert eine Querystring-Feld mit dem Namen weitergereicht werden `CategoryID`. Um beispielsweise die Produkte für die Kategorie "Getränke" Anzeigen der verfügt über eine `CategoryID` 1, würde ein Benutzer besuchen Sie `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Damit wird einen Benutzer die Informationen "Details" nach einer bestimmten Kategorie anzuzeigen, müssen wir einen Link auf jede Aufzählung Element, das beim geklickt haben, dauert des Benutzers auf die zweite Seite hinzufügen (`ProductsForCategoryDetails.aspx`). Dieser zweite Seite zeigt dann die Produkte für die ausgewählte Kategorie, die mit einem DataList. Um die Kategorie zu ermitteln, deren Link geklickt wurde, müssen wir der angeklickte Kategorie übergeben `CategoryID` auf der zweiten Seite über einen Mechanismus. Die einfachste und einfachste Möglichkeit zum Übertragen von skalarer Daten von einer Seite zu einem anderen ist über die Abfragezeichenfolge der die Option, die wir in diesem Lernprogramm verwenden. Insbesondere die `ProductsForCategoryDetails.aspx` Seite erwarten, dass das ausgewählte *`categoryID`* Wert eine Querystring-Feld mit dem Namen weitergereicht werden `CategoryID`. Um beispielsweise die Produkte für die Kategorie "Getränke" Anzeigen der verfügt über eine `CategoryID` 1, würde ein Benutzer besuchen Sie `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
 So erstellen Sie einen Link für jedes Element der Liste mit Aufzählungszeichen aus im Wiederholungsmodul wir entweder ein HyperLink-Websteuerelement oder ein HTML-Ankerelement müssen (`<a>`) auf die `ItemTemplate`. In Szenarien, in denen der Link angezeigt, wenn für jede Zeile, die beide Vorgehensweisen reicht aus. Für Repeater möchte ich, mithilfe des Ankerelements. Um die Ankerelement zu verwenden, aktualisieren Sie die Repeater ItemTemplate:
 
@@ -170,18 +170,18 @@ Nach der Aktualisierung der Datenbank entsprechend, zurückgeben, um die `Catego
 
 Während der Master und die Detaildatensätze auf einer einzelnen Seite Master/Detail-Berichte angezeigt werden können, werden auf vielen Websites sie über zwei Webseiten ausgelagert. In diesem Lernprogramm erläutert wir, wie solche einen Master/Detail-Bericht implementiert, da die Kategorien aufgeführt, die in einer Aufzählung einen Repeater in der "master" Webseite und die zugehörigen Produkte aufgeführt, die auf der Seite "Details". Jedes Listenelement in der master-Webseite enthalten einen Link zu der Detailseite, die der Zeile übergeben `CategoryID` Wert.
 
-In der Seite "Details" Abrufen von dieser Produkte für den angegebenen Lieferanten wurde durchgeführt, über die `ProductsBLL` Klasse `GetProductsByCategoryID(categoryID)` Methode. Die  *`categoryID`*  Parameterwert angegeben wurde, deklarativ mithilfe der `CategoryID` Querystring-Wert als Parameterquelle für. Wir haben uns auch wie Kategoriedetails in der Seite Details zum Verwenden eines FormView angezeigt werden und wie eine Meldung angezeigt, wenn es keine Produkte wurden, die der ausgewählten Kategorie gehören.
+In der Seite "Details" Abrufen von dieser Produkte für den angegebenen Lieferanten wurde durchgeführt, über die `ProductsBLL` Klasse `GetProductsByCategoryID(categoryID)` Methode. Die *`categoryID`* Parameterwert angegeben wurde, deklarativ mithilfe der `CategoryID` Querystring-Wert als Parameterquelle für. Wir haben uns auch wie Kategoriedetails in der Seite Details zum Verwenden eines FormView angezeigt werden und wie eine Meldung angezeigt, wenn es keine Produkte wurden, die der ausgewählten Kategorie gehören.
 
 Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an...
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones und Liz Shulok. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
-[Weiter](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
+> [Weiter](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)

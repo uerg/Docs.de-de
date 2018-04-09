@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: "Hinzufügen einer Create-Methode, und erstellen Sie die Ansicht | Microsoft Docs"
+title: Hinzufügen einer Create-Methode, und erstellen Sie die Ansicht | Microsoft Docs
 author: shanselman
-description: "Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank."
+description: Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Hinzufügen einer Create-Methode und die Ansicht erstellen
 ====================
@@ -65,6 +65,6 @@ Dieses Movie-Objekt klicken Sie dann auf die Version [HttpPost] unsere erstellen
 
 Wir werden nicht überprüft, ob unsere Filme richtig angegeben, obwohl sind und die Datenbank wird nicht es uns ermöglichen, einen Film mit ohne Titel zu speichern. Es wäre schön, wenn wir den Benutzer informieren könnte, der vor der Datenbank einen Fehler ausgelöst hat. Wir müssen dies als Nächstes durchführen, indem validierungsunterstützung unsere Anwendung hinzufügen.
 
->[!div class="step-by-step"]
-[Zurück](getting-started-with-mvc-part5.md)
-[Weiter](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started-with-mvc-part5.md)
+> [Weiter](getting-started-with-mvc-part7.md)

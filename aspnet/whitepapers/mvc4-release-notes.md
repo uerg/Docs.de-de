@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: dbcea6090a0376b8732e02c0891721672bfe50f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -103,7 +103,7 @@ ASP.NET Web-API unterstützt die folgenden Funktionen:
 - **Web-API-Projektvorlage:** wählen Sie das neue Formular für Web-API-Projekt der neue MVC 4-Projekt-Assistent, schnell einsatzbereit mit ASP.NET Web-API.
 - **Gerüstbau:** verwenden die **Controller hinzufügen** Dialogfeld, um schnell einen Web-API-Controller basierend auf einem Entity Framework Gerüst basierend Modelltyp.
 
-Weitere Informationen zu ASP.NET Web-API finden Sie hier [https://www.asp.net/web-api](../web-api/index.md).
+Weitere Informationen zu ASP.NET Web-API finden Sie hier [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Verbesserungen an Standardeinstellung-Projektvorlagen
@@ -230,11 +230,11 @@ Die wichtigsten Änderungen von ASP.NET MVC 4 Release Candidate in dieser Versio
 - **Pro Route-Meldungshandler:** können Sie jetzt die endgültige Nachrichtenhandler in der Anforderungskette für eine bestimmte Route angeben. Dies ermöglicht die Unterstützung für fuhr entlang-Frameworks zum routing verwenden, um mit ihrer eigenen zuzuteilen (nicht -*IHttpController*) Endpunkte.
 - **Status der Benachrichtigungen:** der *ProgressMessageHandler* generiert eine statusbenachrichtigung für anforderungsentitäten, die hochgeladen und heruntergeladen werden. Mit dieser Handler ist es möglich, Nachverfolgen von wie weit Sie einen Anforderungstext hochladen oder Herunterladen einen Antworttext.
 - **Push Inhalte:** der *PushStreamContent* Klasse unterstützt Szenarien, bei denen ein datenproduzent direkt in der Anforderung oder Antwort (synchron oder asynchron) mithilfe eines Datenstroms schreiben möchte. Wenn die *PushStreamContent* kann Daten akzeptieren, es zu einer Action-Delegat, mit dem Ausgabestream aufruft. Der Entwickler kann dann in den Stream geschrieben, für lange je nach Bedarf, und Schließen der Stream beim Schreiben von abgeschlossen wurde. Die *PushStreamContent* erkennt das Schließen des Streams und schließt den zugrunde liegenden asynchronen *Aufgabe* für das Schreiben des Inhalts.
-- **Erstellen von Fehlerantworten:** verwenden die *HttpError* Typ, Fehlerinformationen von z. B. Fehler und Ausnahmen während weiterhin berücksichtigt einheitlich darstellen der *IncludeErrorDetailPolicy* . Verwenden Sie die neue *CreateErrorResponse* Erweiterungsmethoden einfache Erstellung von Fehlerantworten mit *HttpError* als Inhalt. Die *HttpError* Inhalt ist vollständig Content ausgehandelt.
+- **Erstellen von Fehlerantworten:** verwenden die *HttpError* Typ, Fehlerinformationen von z. B. Fehler und Ausnahmen während weiterhin berücksichtigt einheitlich darstellen der *IncludeErrorDetailPolicy*. Verwenden Sie die neue *CreateErrorResponse* Erweiterungsmethoden einfache Erstellung von Fehlerantworten mit *HttpError* als Inhalt. Die *HttpError* Inhalt ist vollständig Content ausgehandelt.
 - **MediaRangeMapping entfernt:** Medien Typ Bereiche jetzt von der Standardeinstellung inhaltsaushandlungsmodul behandelt.
 - **Standard-parameterbindung für einfache Typparameter ist jetzt [FromUri]:** In früheren Versionen von ASP.NET Web-API die standardmäßige Parameter, die Bindung für einfache Typparameter wurden die modellbindung verwendet. Die Standard-parameterbindung für Parameter einfache Typen ist jetzt *[FromUri]*.
 - **Aktionsauswahl berücksichtigt erforderlichen Parameter:** Aktionsauswahl in ASP.NET Web-API wird jetzt nur wählen Sie eine Aktion, wenn alle erforderlichen Parameter, die stammen aus dem URI bereitgestellt werden. Ein Parameter kann einen Standardwert für das Argument in der Methodensignatur Aktion bereitstellen als optional angegeben werden.
-- **Anpassen von HTTP-parameterbindungen:** verwenden die *ParameterBindingAttribute* verwenden oder Anpassen von die parameterbindung für einen bestimmten Action-Parameter der *ParameterBindingRules* auf die *HttpConfiguration* parameterbindungen anpassen breiterer.
+- **Anpassen von HTTP-parameterbindungen:** verwenden die *ParameterBindingAttribute* verwenden oder Anpassen von die parameterbindung für einen bestimmten Action-Parameter der *ParameterBindingRules* auf der *HttpConfiguration* parameterbindungen anpassen breiterer.
 - **MediaTypeFormatter-Verbesserungen:** Formatierungsprogramme haben nun Zugriff auf die vollständige *HttpContent* Instanz.
 - **Host Pufferung Richtlinienauswahl:** implementieren und Konfigurieren der *IHostBufferPolicySelector* -Dienst in ASP.NET Web-API zum Aktivieren der Hosts, um zu bestimmen, die Richtlinie für den Fall, Pufferung verwendet werden kann.
 - **Clientzertifikate auf hostagnostische Weise darauf zugreifen:** verwenden die *GetClientCertificate* Erweiterungsmethode zum Abrufen des bereitgestellten Clientzertifikats aus der Anforderungsnachricht.
@@ -245,7 +245,7 @@ Die wichtigsten Änderungen von ASP.NET MVC 4 Release Candidate in dieser Versio
 - **Verknüpfen von Generation Verbesserungen:** der *UrlHelper* mehr richtet sich nach *HttpControllerContext*. Sie können jetzt zugreifen der *UrlHelper* aus einem beliebigen Kontext, in dem der *HttpRequestMessage* ist verfügbar.
 - **Message-Handler Ausführung Reihenfolge ändern:** Meldungshandler werden jetzt die Ausführung in der Reihenfolge, die sie in umgekehrter Reihenfolge statt konfiguriert sind.
 - **Hilfsprogramm für Meldungshandler verknüpft:** neuen *HttpClientFactory* , die verknüpfen können *DelegatingHandlers* , und erstellen Sie eine *"HttpClient"* mit der gewünschte Pipeline jetzt kann es losgehen. Sie bietet auch Funktionen für verknüpft mit alternativen internen Handler (die Standardeinstellung ist *HttpClientHandler*) sowie die Verkabelung führen Sie bei Verwendung *HttpMessageInvoker* oder ein anderes  *DelegatingHandler* anstelle von *"HttpClient"* als Top-Instanz zum Aufrufen.
-- **Unterstützung für CDNs in ASP.NET Web-Optimierung:** ASP.NET Weboptimierung bietet jetzt Unterstützung für alternative aktivieren möchten, geben Sie für jeden CDN-Pfaden eine zusätzliche URL bündeln, die auf die gleiche Ressource in einem Netzwerk für Inhaltsübermittlung verweist. Unterstützende CDNs ermöglicht es Ihnen, Ihre Skripts und des Stils Bündel geografisch näher an den Consumer Ende Ihrer Webanwendungen abgerufen.
+- **Unterstützung für CDNs in ASP.NET Web-Optimierung:** ASP.NET Weboptimierung bietet jetzt Unterstützung für alternative aktivieren möchten, geben Sie für jeden CDN-Pfaden eine zusätzliche URL bündeln, die auf die gleiche Ressource in einem Netzwerk für Inhaltsübermittlung verweist. Unterstützende CDNs ermöglicht es Ihnen, Ihre Skripts und des Stils Bündel geografisch näher an den Consumer Ende Ihrer Webanwendungen abgerufen. Produktions-apps müssen als Fallback implementieren, wenn das CDN nicht verfügbar ist. Das Fallback zu testen.
 - **ASP.NET Web API weiterleitet und Konfiguration verschoben werden, um *WebApiConfig.Register* statische Methode, die im Testcode Resused sein können.** ASP.NET Web API Routen zuvor hinzugefügt wurden *RouteConfig.RegisterRoutes* zusammen mit den standard-MVC weiterleitet. Die Standardeinstellung leitet der ASP.NET Web-API und die Konfiguration in einer separaten jetzt behandelt *WebApiConfig.Register* Methode, um Tests zu vereinfachen.
 
 <a id="_Toc303253815"></a>
@@ -261,7 +261,7 @@ Die wichtigsten Änderungen von ASP.NET MVC 4 Release Candidate in dieser Versio
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Die folgenden Methoden wurden ebenfalls entfernt: 
+  Die folgenden Methoden wurden ebenfalls entfernt: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -275,22 +275,23 @@ Die wichtigsten Änderungen von ASP.NET MVC 4 Release Candidate in dieser Versio
 
     **Erforderliche updates**
 
-    1. In der Stammdatei "Web.config", fügen Sie einen neuen  *&lt;"appSettings"&gt;*  Eintrag mit dem Schlüssel *WebPages:Version* und dem Wert *1.0.0.0*. 
+  1. In der Stammdatei "Web.config", fügen Sie einen neuen *&lt;"appSettings"&gt;* Eintrag mit dem Schlüssel *WebPages:Version* und dem Wert *1.0.0.0*. 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-    2. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projektnamens, und wählen Sie dann auf Projekt entfernen. Klicken Sie dann mit der rechten Maustaste erneut auf des Namens, und wählen Sie bearbeiten *Projektname*csproj.
-    3. Suchen Sie die folgenden Assemblyverweise aus: 
+      [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
+  2. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projektnamens, und wählen Sie dann auf Projekt entfernen. Klicken Sie dann mit der rechten Maustaste erneut auf des Namens, und wählen Sie bearbeiten *Projektname*csproj.
+  3. Suchen Sie die folgenden Assemblyverweise aus: 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
+      [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-        Ersetzen Sie sie wie folgt:
+      Ersetzen Sie sie wie folgt:
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-    4. Speichern Sie die Änderungen zu, schließen Sie die Datei clientprojektdatei (csproj), die Sie wurden bearbeiten, und klicken Sie dann mit der rechten Maustaste des Projekts und wählen Sie erneut laden.
+      [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
+  4. Speichern Sie die Änderungen zu, schließen Sie die Datei clientprojektdatei (csproj), die Sie wurden bearbeiten, und klicken Sie dann mit der rechten Maustaste des Projekts und wählen Sie erneut laden.
+
 - **Ändern ein ASP.NET MVC 4-Projekt in Ziel 4.0, 4.5 aktualisiert sich nicht auf den Assemblyverweis EntityFramework:** Wenn Sie ein ASP.NET MVC 4-Projekt zum Ziel 4.0 nach Anwendung 4.5 der Verweis auf die Assembly EntityFramework zeigen weiterhin ändern auf die Version 4.5. Zum Beheben dieses Problems deinstallieren und das EntityFramework NuGet-Paket neu installieren.
-- **"403 Forbidden", wenn eine ASP.NET MVC 4-Anwendung in Azure ausgeführt wird, nach der Änderung Ziel 4.0, 4.5:** Wenn Sie ein ASP.NET MVC 4-Projekt zu Ziel 4.0 nach Anwendung 4.5 ändern, und klicken Sie dann in Azure bereitstellen möglicherweise zur Laufzeit eine 403 Forbidden Fehler angezeigt. Fügen zur Umgehung dieses Problems Folgendes verwenden, um die Datei "Web.config":`<modules runAllManagedModulesForAllRequests="true" />`
+- **"403 Forbidden", wenn eine ASP.NET MVC 4-Anwendung in Azure ausgeführt wird, nach der Änderung Ziel 4.0, 4.5:** Wenn Sie ein ASP.NET MVC 4-Projekt zu Ziel 4.0 nach Anwendung 4.5 ändern, und klicken Sie dann in Azure bereitstellen möglicherweise zur Laufzeit eine 403 Forbidden Fehler angezeigt. Fügen zur Umgehung dieses Problems Folgendes verwenden, um die Datei "Web.config": `<modules runAllManagedModulesForAllRequests="true" />`
 - **Visual Studio 2012 stürzt ab, bei der Eingabe einer "\' in einem Zeichenfolgenliteral in einer Razor-Datei.** Funktioniert das Problem geben Sie das schließende Anführungszeichen des Zeichenfolgenliterals zuerst.
-- **Navigieren zum &quot;Konto/verwalten&quot; in den Ergebnissen des Internet-Vorlage zu einem Laufzeitfehler, CHS, TRK und CHT Sprachen.** Zum Beheben des Problems ändern Sie die Seite zum Aussondern  *@User.Identity.Name*  verlegen als nur der Inhalt innerhalb der  *&lt;starken&gt;*  Tag.
+- <strong>Navigieren zum &quot;Konto/verwalten&quot; in den Ergebnissen des Internet-Vorlage zu einem Laufzeitfehler, CHS, TRK und CHT Sprachen.</strong> Zum Beheben des Problems ändern Sie die Seite zum Aussondern <em>@User.Identity.Name</em> verlegen als nur der Inhalt innerhalb der <em>&lt;starken&gt;</em> Tag.
 - **Google und LinkedIn-Anbietern werden im Azure-Websites nicht unterstützt.** Verwenden Sie alternativen Authentifizierungsanbieter, bei der Bereitstellung auf Azure-Websites.
 - **Bei Verwendung von UriPathExtensionMapping mit IIS 8 Express/IIS, würden Sie 404 Nichtgefunden-Fehler empfangen, wenn Sie versuchen, die die Erweiterung verwenden.** Der Handler für statische Dateien wirkt sich bei den Anforderungen an Web-APIs, mit denen *UriPathExtensionMappings*. Legen Sie *RunAllManagedModulesForAllRequests = "true"* in "Web.config", um das Problem zu umgehen.
 - **Controller.Execute-Methode wird nicht mehr aufgerufen.** Alle MVC-Controller werden jetzt immer asynchron ausgeführt.

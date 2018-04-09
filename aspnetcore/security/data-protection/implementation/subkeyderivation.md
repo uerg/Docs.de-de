@@ -1,7 +1,7 @@
 ---
-title: "Unterschlüssel Ableitung und authentifizierten Verschlüsselung"
+title: Unterschlüssel Ableitung und authentifizierten Verschlüsselung in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument erläutert die Implementierungsdetails des Datenschutzes ASP.NET Core Ableitung Unterschlüssel und Verschlüsselung authentifiziert."
+description: Erfahren Sie Details zur Implementierung des Datenschutzes für ASP.NET Core Ableitung Unterschlüssel und Verschlüsselung authentifiziert.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 4b905bbc7bb064b6ba1741557bd694c8c67ccfa8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="subkey-derivation-and-authenticated-encryption"></a>Unterschlüssel Ableitung und authentifizierten Verschlüsselung
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Unterschlüssel Ableitung und authentifizierten Verschlüsselung in ASP.NET Core
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
@@ -63,7 +63,7 @@ Nachdem K_E über die oben genannten Mechanismus generiert wird, werden wir eine
 *Ausgabe: = KeyModifier || IV || E_cbc (Data K_E, iv) || HMAC (K_H, iv || E_cbc (K_E, iv Data))*
 
 > [!NOTE]
-> Die `IDataProtector.Protect` Implementierung wird [das Magic-Header und Schlüssel-Id vorangestellt](authenticated-encryption-details.md) Ausgabe vor der Rückgabe an den Aufrufer. Da das Magic-Header und die Schlüssel-Id implizit sind Teil des [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), und da der Modifizierertaste als Eingabe für die KDF eingezogen wird, dies bedeutet, dass jedes einzelnes Byte der letzte zurückgegebene Nutzlast, von dem Mac authentifiziert
+> Die `IDataProtector.Protect` Implementierung wird [das Magic-Header und Schlüssel-Id vorangestellt](xref:security/data-protection/implementation/authenticated-encryption-details) Ausgabe vor der Rückgabe an den Aufrufer. Da das Magic-Header und die Schlüssel-Id implizit sind Teil des [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), und da der Modifizierertaste als Eingabe für die KDF eingezogen wird, dies bedeutet, dass jedes einzelnes Byte der letzte zurückgegebene Nutzlast, von dem Mac authentifiziert
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>Galois/Leistungsindikator Modus Verschlüsselung + Überprüfung
 
@@ -74,4 +74,4 @@ Nachdem K_E über die oben genannten Mechanismus generiert wird, werden wir gene
 *Ausgabe: = KeyModifier || Nonce || E_gcm (K_E, Nonce, Data) || authTag*
 
 > [!NOTE]
-> Obwohl GCM systemintern das Konzept der AAD unterstützt, sind wir noch AAD nur für die ursprüngliche KDF gespeist Aktivierung, um eine leere Zeichenfolge an GCM für ihr AAD-Parameter übergeben. Der Grund dafür ist kombinierter. Erstens [zur Unterstützung von Flexibilität](context-headers.md#data-protection-implementation-context-headers) nie K_M direkt als Verschlüsselungsschlüssel verwendet werden soll. Darüber hinaus erzwingt GCM sehr strenge eindeutigkeitsanforderungen an ihre Eingaben. Die Wahrscheinlichkeit, dass die GCM-Verschlüsselung-Routine jemals aufgerufene für zwei oder mehr unterschiedlichen ist das Sätze von Eingabedaten mit dem gleichen (Schlüssel, Nonce) Paar darf maximal 2 ^ 32. Die Behebung K_E es nicht möglich, wenn mehr als 2 ^ 32 Verschlüsselungsvorgängen, bevor wir führen afoul die 2, die der Mandant ^-32 zu beschränken. Dies scheint eine sehr große Anzahl von Vorgängen kann, jedoch ein Webserver mit hohem Datenverkehrsaufkommen über 4 Milliarden Anforderungen in reine Tagen angeben, auch in die normale Lebensdauer für diese Schlüssel. Der 2 kompatibel bleiben ^-32 Wahrscheinlichkeit der Grenzwert für den Vorgang fortgesetzt werden kann, verwenden Sie einen 128-Bit-Modifizierertaste und 96-Bit-Nonce, die die Anzahl der verwendbaren Vorgänge für alle angegebenen K_M radikal erweitert. Aus Gründen der Einfachheit des Entwurfs nutzen wir der Codepfad KDF zwischen CBC und GCM-Vorgänge und da in die KDF AAD berücksichtigten besteht keine Notwendigkeit für die GCM-Routine weiterleiten.
+> Obwohl GCM systemintern das Konzept der AAD unterstützt, sind wir noch AAD nur für die ursprüngliche KDF gespeist Aktivierung, um eine leere Zeichenfolge an GCM für ihr AAD-Parameter übergeben. Der Grund dafür ist kombinierter. Erstens [zur Unterstützung von Flexibilität](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) nie K_M direkt als Verschlüsselungsschlüssel verwendet werden soll. Darüber hinaus erzwingt GCM sehr strenge eindeutigkeitsanforderungen an ihre Eingaben. Die Wahrscheinlichkeit, dass die GCM-Verschlüsselung-Routine jemals aufgerufene für zwei oder mehr unterschiedlichen ist das Sätze von Eingabedaten mit dem gleichen (Schlüssel, Nonce) Paar darf maximal 2 ^ 32. Die Behebung K_E es nicht möglich, wenn mehr als 2 ^ 32 Verschlüsselungsvorgängen, bevor wir führen afoul die 2, die der Mandant ^-32 zu beschränken. Dies scheint eine sehr große Anzahl von Vorgängen kann, jedoch ein Webserver mit hohem Datenverkehrsaufkommen über 4 Milliarden Anforderungen in reine Tagen angeben, auch in die normale Lebensdauer für diese Schlüssel. Der 2 kompatibel bleiben ^-32 Wahrscheinlichkeit der Grenzwert für den Vorgang fortgesetzt werden kann, verwenden Sie einen 128-Bit-Modifizierertaste und 96-Bit-Nonce, die die Anzahl der verwendbaren Vorgänge für alle angegebenen K_M radikal erweitert. Aus Gründen der Einfachheit des Entwurfs nutzen wir der Codepfad KDF zwischen CBC und GCM-Vorgänge und da in die KDF AAD berücksichtigten besteht keine Notwendigkeit für die GCM-Routine weiterleiten.

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
-title: NerdDinner eingebunden | Microsoft Docs
+title: NerdDinner Wrap Up | Microsoft Docs
 author: microsoft
 description: Dies ist der Abschluss des Lernprogramms NerdDinner und bietet Ihnen weitere Informationen.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: bb55668c714532c0a9ff499511b7a47572314194
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d418f40f6d2911491c1a4f2498a4f711e9c271c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nerddinner-wrap-up"></a>NerdDinner – Zusammenfassung
 ====================
@@ -43,11 +43,11 @@ In diesem Lernprogramm NerdDinner ist das erste Kapitel des neuen [Professional 
 
 Lesen Sie den Rest des Buchs, sogar noch stärker ASP.NET MVC vertraut zu machen.
 
-Sie erhalten auch hervorragende ASP.NET-MVC Lernprogramme und Videos zur: [https://www.asp.net/mvc](../../../index.md) andere hervorragenden ASP.NET MVC-Onlinedokumentation werden in Kürze veröffentlicht. Ich aktualisieren Sie diese Seite, um Links zu zusätzlicher Bücher, sobald diese verfügbar sind.
+Sie erhalten auch hervorragende ASP.NET-MVC Lernprogramme und Videos zur: [ https://www.asp.net/mvc ](../../../index.md) andere hervorragenden ASP.NET MVC-Onlinedokumentation werden in Kürze veröffentlicht. Ich aktualisieren Sie diese Seite, um Links zu zusätzlicher Bücher, sobald diese verfügbar sind.
 
 Ich hoffe, dadurch,
 
 Scott
 
->[!div class="step-by-step"]
-[Zurück](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Vorherige](enable-automated-unit-testing.md)

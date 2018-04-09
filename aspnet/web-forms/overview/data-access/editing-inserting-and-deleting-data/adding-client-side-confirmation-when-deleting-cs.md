@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
-title: "Hinzufügen von clientseitigen Bestätigung beim Löschen von (c#) | Microsoft Docs"
+title: Hinzufügen von clientseitigen Bestätigung beim Löschen von (c#) | Microsoft Docs
 author: rick-anderson
-description: "In den Schnittstellen, die wir bisher erstellt haben, kann ein Benutzer versehentlich löschen von Daten durch Klicken auf die Schaltfläche \"löschen\", wenn sie auf die Schaltfläche \"Bearbeiten\" klicken. In diesem t..."
+description: In den Schnittstellen, die wir bisher erstellt haben, kann ein Benutzer versehentlich löschen von Daten durch Klicken auf die Schaltfläche "löschen", wenn sie auf die Schaltfläche "Bearbeiten" klicken. In diesem t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5e8ee76224a48d3132597016b81099bd70a1776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72b15d498e45cc519a14ecfe39111b224db88c30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>Hinzufügen von clientseitigen Bestätigung beim Löschen von (c#)
 ====================
@@ -75,7 +75,7 @@ Durch diese Änderungen haben wir eine voll funktionsfähige Webseite, die einem
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>Schritt 2: Aufrufen der confirm(string)-Funktion aus der löschen Schaltflächen clientseitige Onclick-Ereignis
 
-Die FormView erstellt wird, ist der letzte Schritt so konfigurieren Sie die Schaltfläche "löschen" solche, die bei es s geklickt wird, indem Sie den Besucher, der JavaScript-Code `confirm(string)` Funktion wird aufgerufen. Hinzufügen von clientseitigem Skript auf eine Schaltfläche, LinkButton oder ImageButton s clientseitige `onclick` Ereignis kann durch die Verwendung der umgesetzt werden die `OnClientClick property`, neu in ASP.NET 2.0. Da wir den Wert der haben möchten die `confirm(string)` -Funktion zurückgegeben hat, einfach legen Sie diese Eigenschaft:`return confirm('Are you certain that you want to delete this product?');`
+Die FormView erstellt wird, ist der letzte Schritt so konfigurieren Sie die Schaltfläche "löschen" solche, die bei es s geklickt wird, indem Sie den Besucher, der JavaScript-Code `confirm(string)` Funktion wird aufgerufen. Hinzufügen von clientseitigem Skript auf eine Schaltfläche, LinkButton oder ImageButton s clientseitige `onclick` Ereignis kann durch die Verwendung der umgesetzt werden die `OnClientClick property`, neu in ASP.NET 2.0. Da wir den Wert der haben möchten die `confirm(string)` -Funktion zurückgegeben hat, einfach legen Sie diese Eigenschaft: `return confirm('Are you certain that you want to delete this product?');`
 
 Nach dieser Änderung sollte die LinkButton löschen s deklarative Syntax aussehen:
 
@@ -156,8 +156,8 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](implementing-optimistic-concurrency-cs.md)
-[Weiter](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](implementing-optimistic-concurrency-cs.md)
+> [Weiter](limiting-data-modification-functionality-based-on-the-user-cs.md)

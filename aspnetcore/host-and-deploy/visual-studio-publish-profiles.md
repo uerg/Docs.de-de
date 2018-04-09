@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio die Veröffentlichungsprofile für ASP.NET Core-app-Bereitstellung"
+title: Visual Studio die Veröffentlichungsprofile für ASP.NET Core-app-Bereitstellung
 author: rick-anderson
-description: "Erfahren Sie, wie erstellen Veröffentlichungsprofile für ASP.NET Core-apps in Visual Studio."
+description: Erfahren Sie, wie erstellen Veröffentlichungsprofile für ASP.NET Core-apps in Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64c96f572c42c56480cfe2bd58f926d54eddf35e
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio die Veröffentlichungsprofile für ASP.NET Core-app-Bereitstellung
 
@@ -91,7 +91,7 @@ Wenn in MSBuild oder Visual Studio ein Projekt geladen wird, werden die folgende
 * Berechnen der zu veröffentlichenden Dateien
 * Veröffentlichen der Dateien auf dem Ziel
 
-### <a name="compute-project-items"></a>Berechnen der Projektelemente
+## <a name="compute-project-items"></a>Berechnen der Projektelemente
 
 Wenn das Projekt geladen ist, werden die Projektelemente (Dateien) berechnet. Die `item type`-Attribut bestimmt, wie die Datei verarbeitet wird. Standardmäßig sind *CS*-Dateien in der `Compile`-Elementliste enthalten. Dateien in der `Compile`-Elementliste werden kompiliert.
 
@@ -197,6 +197,7 @@ Der Webpublishing-Assistent unterstützt folgende Veröffentlichungsziele:
 Weitere Informationen finden Sie unter [What publishing options are right for me? (Welche Optionen für die Veröffentlichung sind für mich geeignet?)](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options)
 
 Beim Erstellen eines Veröffentlichungsprofils mit Visual Studio eine *Eigenschaften/PublishProfiles/\<Veröffentlichungsname > pubxml* MSBuild-Datei wird erstellt. Diese *PUBXML*-Datei ist eine MSBuild-Datei und enthält die Konfigurationseinstellungen für die Veröffentlichung. Diese Datei kann geändert werden, um den Build anpassen und Veröffentlichen von Prozess. Diese Datei wird vom Veröffentlichungsprozess gelesen. `<LastUsedBuildConfiguration>` ist ein Sonderfall, da er eine globale Eigenschaft und sollte nicht in jeder Datei, die im Build importiert werden. Weitere Informationen finden Sie unter [MSBuild: how to set the configuration property (MSBuild: Festlegen der Konfigurationseigenschaft)](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx).
+
 Die *pubxml* Datei darf nicht in die quellcodeverwaltung überprüft werden, da er abhängt der *User* Datei. Die *USER*-Datei sollte niemals in die Quellcodeverwaltung eingecheckt sein, da sie vertrauliche Informationen enthalten kann und nur für einen Benutzer und einen Computer gültig ist.
 
 Vertrauliche Informationen (z.B. das Verschlüsselungskennwort) werden auf einer Ebene pro Benutzer/Computer verschlüsselt und in der Datei *Properties/PublishProfiles/\<publish name>.pubxml.user* gespeichert. Da diese Datei vertrauliche Informationen enthalten kann, sollte sie **nicht** in die Quellverwaltung eingecheckt werden.
@@ -444,7 +445,7 @@ MSBuild file.
 
 Weitere Bereitstellungsbeispiele finden Sie unter [WebSDK Readme (WebSDK-Infodatei)](https://github.com/aspnet/websdk).
 
-### <a name="run-a-target-before-or-after-publishing"></a>Führen Sie ein Ziel vor oder nach der Veröffentlichung aus.
+## <a name="run-a-target-before-or-after-publishing"></a>Führen Sie ein Ziel vor oder nach der Veröffentlichung aus.
 
 Die integrierte `BeforePublish` und `AfterPublish` Ziele können verwendet werden, um ein Ziel vor oder nach dem Veröffentlichungsziel auszuführen. Das folgende Markup kann dem Veröffentlichungsprofil hinzugefügt werden, um Nachrichten an die Konsolenausgabe vor und nach der Veröffentlichung zu protokollieren:
 
@@ -455,6 +456,16 @@ Die integrierte `BeforePublish` und `AfterPublish` Ziele können verwendet werde
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
     <Message Text="Inside AfterPublish" Importance="high" />
 </Target>
+```
+
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>Veröffentlichen Sie auf einem Server unter Verwendung eines nicht vertrauenswürdigen Zertifikats
+
+Hinzufügen der `<AllowUntrustedCertificate>` Eigenschaft mit einem Wert von `True` auf dem Veröffentlichungsprofil ein:
+
+```xml
+<PropertyGroup>
+  <AllowUntrustedCertificate>True</AllowUntrustedCertificate>
+</PropertyGroup>
 ```
 
 ## <a name="the-kudu-service"></a>Der Kudu-Dienst
@@ -471,4 +482,4 @@ Klicken Sie auf das Menüelement [Debugging-Konsole](https://github.com/projectk
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) vereinfacht die Bereitstellung der Web-apps und Websites so, dass IIS-Servern.
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Probleme melden und Features für die Bereitstellung anfordern.
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Datei Probleme, und fordern Sie Funktionen für die Bereitstellung.

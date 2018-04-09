@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
-title: "Hinzufügen einer Validierung zum Modell | Microsoft Docs"
+title: Hinzufügen einer Validierung zum Modell | Microsoft Docs
 author: shanselman
-description: "Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank."
+description: Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 5616c3c3bc77be0a770540d04cc2ae48ba9eedff
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 78dd6bdd81fcb51a3a21a8f1ee12b4b2bfc37db5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model"></a>Hinzufügen einer Validierung zum Modell
 ====================
@@ -72,6 +72,6 @@ Führen Sie die Anwendung und besuchen Sie /Movies/Create erneut, und klicken Si
 
 Dies ist gute! Nehmen wir jetzt eine zusätzliche Spalte mit der Datenbank hinzufügen.
 
->[!div class="step-by-step"]
-[Zurück](getting-started-with-mvc-part6.md)
-[Weiter](getting-started-with-mvc-part8.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started-with-mvc-part6.md)
+> [Weiter](getting-started-with-mvc-part8.md)

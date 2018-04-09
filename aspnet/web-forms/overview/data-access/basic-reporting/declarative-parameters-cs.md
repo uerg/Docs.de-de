@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 840630852d28f49f4f4387f1d2cc6b275b468fc2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-c"></a>Deklarative Parametern (c#)
 ====================
@@ -127,7 +127,7 @@ Sobald der Besucher jedoch in einem Land eingibt und klickt auf die Schaltfläch
 
 ## <a name="showing-all-suppliers-by-default"></a>Alle Lieferanten in der Standardeinstellung angezeigt
 
-Stattdessen als keines der Lieferanten anzeigen, wenn die Seite zuerst anzeigen wir möchten möglicherweise *alle* Lieferanten zunächst, sodass der Benutzer zu der Liste nach unten zu kürzen, einen Landesnamen in das Textfeld eingeben. Wenn das Textfeld leer ist, wird der `SuppliersBLL` Klasse `GetSuppliersByCountry(country)` Methode übergeben eine `null` Wert für seine  *`country`*  Eingabeparameter. Dies `null` Wert wird dann nach unten in der DAL übergeben `GetSupplierByCountry(country)` -Methode, in dem er wird in einer Datenbank übersetzt `NULL` Wert für die `@Country` Parameter in der folgenden Abfrage:
+Stattdessen als keines der Lieferanten anzeigen, wenn die Seite zuerst anzeigen wir möchten möglicherweise *alle* Lieferanten zunächst, sodass der Benutzer zu der Liste nach unten zu kürzen, einen Landesnamen in das Textfeld eingeben. Wenn das Textfeld leer ist, wird der `SuppliersBLL` Klasse `GetSuppliersByCountry(country)` Methode übergeben eine `null` Wert für seine *`country`* Eingabeparameter. Dies `null` Wert wird dann nach unten in der DAL übergeben `GetSupplierByCountry(country)` -Methode, in dem er wird in einer Datenbank übersetzt `NULL` Wert für die `@Country` Parameter in der folgenden Abfrage:
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](displaying-data-with-the-objectdatasource-cs.md)
-[Weiter](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](displaying-data-with-the-objectdatasource-cs.md)
+> [Weiter](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)

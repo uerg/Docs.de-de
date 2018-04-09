@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
-title: "Deaktivieren Aktionen während der Animation (VB) | Microsoft Docs"
+title: Deaktivieren Aktionen während der Animation (VB) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Darüber hinaus wird die Aktion unterstützt..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Darüber hinaus wird die Aktion unterstützt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f68d27f60e9b224a7cc0d598962553afeb3f28f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9e2a0517800e90788bb67c1d75482a3d9340674b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-vb"></a>Deaktivieren Aktionen während der Animation (VB)
 ====================
@@ -62,6 +62,6 @@ Jedoch im vorliegenden Szenario nutzlos seit der Schaltfläche wäre dies ausgeb
 
 Die Schaltfläche ist deaktiviert, sobald die Animation ausgeführt wird ([klicken Sie hier, um das Bild in voller Größe angezeigt](disabling-actions-during-animation-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](animating-in-response-to-user-interaction-vb.md)
-[Weiter](triggering-an-animation-in-another-control-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](animating-in-response-to-user-interaction-vb.md)
+> [Weiter](triggering-an-animation-in-another-control-vb.md)

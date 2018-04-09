@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 title: Authentifizieren von Benutzern mit der Formularauthentifizierung (c#) | Microsoft Docs
 author: microsoft
-description: "Erfahren Sie, wie Sie das Attribut [Authorize] verwenden bestimmte Seiten in der MVC-Anwendung mit einem Kennwort zu schützen. Erfahren Sie, wie mit der Web Site Administration zu..."
+description: Erfahren Sie, wie Sie das Attribut [Authorize] verwenden bestimmte Seiten in der MVC-Anwendung mit einem Kennwort zu schützen. Erfahren Sie, wie mit der Web Site Administration zu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>Authentifizieren von Benutzern bei der Formularauthentifizierung (c#)
 ====================
@@ -107,7 +107,7 @@ Verwenden die standardmäßige SQL Express-Datenbank ist problemlos, beim Entwic
 
 Der erste Schritt besteht, alle erforderlichen Datenbankobjekte (Tabellen und gespeicherte Prozeduren) hinzugefügt werden, an der Produktionsdatenbank. Die einfachste Möglichkeit, diese Objekte in eine neue Datenbank hinzufügen, die ASP.NET SQL Server-Setup-Assistenten nutzen ist (siehe Abbildung 8). Sie können dieses Tool starten, öffnen die Visual Studio 2008-Eingabeaufforderung aus der Programmgruppe Microsoft Visual Studio 2008 und den folgenden Befehl von der Befehlszeile aus ausführen:
 
-ASPNET\_Regsql
+aspnet\_regsql
 
 **Abbildung 8 – die ASP.NET SQL Server-Setup-Assistenten**
 
@@ -119,7 +119,7 @@ Die ASP.NET SQL Server-Setup-Assistenten können Sie wählen Sie eine SQL Server
 > 
 > Wenn Sie nicht die ASP.NET SQL Server-Setup-Assistenten verwenden möchten, können Sie SQL-Skripts suchen, für die Datenbankobjekte der Anwendung Dienste in den folgenden Ordner hinzufügen:
 > 
-> > C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727
+> > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
 Nachdem Sie die erforderlichen Datenbankobjekte erstellt haben, müssen Sie so ändern Sie die datenbankverbindung, die von der MVC-Anwendung verwendet. Ändern Sie die ApplicationServices-Verbindungszeichenfolge in der Web-Konfigurationsdatei (web.config), sodass er in der Produktionsdatenbank zeigt. Beispielsweise verweist die geänderte Verbindung im Codebeispiel 3 mit einer Datenbank mit dem Namen MyProductionDB (die ursprüngliche ApplicationServices-Verbindungszeichenfolge wurde auskommentiert).
@@ -152,5 +152,5 @@ Nachdem Sie die erforderlichen Anmeldung zu erstellen, müssen Sie die Anmeldung
 
 In diesem Lernprogramm haben Sie gelernt, wie Sie die Formularauthentifizierung verwenden, beim Erstellen einer ASP.NET MVC-Anwendung. Zunächst haben Sie gelernt, wie Sie neue Benutzer und Rollen erstellen, indem Sie nutzen die Websiteverwaltungs-Tool. Als Nächstes haben Sie gelernt, wie Sie das Attribut [Authorize] zu verwenden, um zu verhindern, dass nicht autorisierte Benutzer Controlleraktionen aufrufen. Schließlich haben Sie gelernt, wie zum Konfigurieren Ihrer MVC-Anwendung zum Speichern von Rolleninformationen zu Benutzern und in einer Produktionsdatenbank.
 
->[!div class="step-by-step"]
-[Nächste](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](authenticating-users-with-windows-authentication-cs.md)

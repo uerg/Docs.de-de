@@ -11,13 +11,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 723e371e0d0b4877f96898c68cd59b433fa97dc1
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 5eac8ecf9de074d0a009690969de5beb4f284341
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="resource-based-authorization"></a>Ressourcenbasierte Autorisierung
+# <a name="resource-based-authorization-in-aspnet-core"></a>Ressource-basierte Autorisierung in ASP.NET Core
 
 Autorisierungsstrategie richtet sich nach der Ressource, auf die zugegriffen wird. Betrachten Sie ein Dokument Author-Eigenschaft besitzt. Nur der Ersteller ist zulässig, um das Dokument zu aktualisieren. Daher müssen Sie das Dokument aus dem Datenspeicher abgerufen werden vor der Auswertung der Autorisierung.
 
@@ -33,7 +33,7 @@ Autorisierung wird als implementiert eine [IAuthorizationService](/dotnet/api/mi
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
 
-`IAuthorizationService`verfügt über zwei `AuthorizeAsync` methodenüberladungen: eine akzeptieren, die Ressource und den Richtliniennamen und die andere akzeptiert die Ressource und eine Liste der Anforderungen zum Auswerten.
+`IAuthorizationService` verfügt über zwei `AuthorizeAsync` methodenüberladungen: eine akzeptieren, die Ressource und den Richtliniennamen und die andere akzeptiert die Ressource und eine Liste der Anforderungen zum Auswerten.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -66,30 +66,24 @@ Im folgenden Beispiel wird die Ressource, die gesichert werden in eine benutzerd
 > [!NOTE]
 > Der folgende Code-Beispielen wird davon ausgegangen, Authentifizierung ausgeführt wurde und den Satz der `User` Eigenschaft.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
----
-
+* * *
 ## <a name="write-a-resource-based-handler"></a>Schreiben Sie einen Handler ressourcenbasierte
 
 Schreiben einen Handler für ressourcenbasierte Autorisierung ist wesentlich unterscheidet nicht [schreiben einen Handler für einfache Anforderungen](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Erstellen Sie eine benutzerdefinierte Anforderung Klasse und Implementieren einer Anforderung Handler-Klasse. Die Handlerklasse gibt an, die Anforderungen und die Ressourcentyp. Z. B. einen Ereignishandler mit einem `SameAuthorRequirement` Anforderung und eine `Document` Ressource sieht wie folgt aus:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
----
-
+* * *
 Registrieren Sie die Anforderungen und die Ereignishandler in der `Startup.ConfigureServices` Methode:
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
@@ -102,16 +96,13 @@ Wenn Sie Ihre Entscheidungen basierend auf den Ergebnissen des CRUD vornehmen (*
 
 Der Handler wird folgendermaßen implementiert, mit einem `OperationAuthorizationRequirement` Anforderung und eine `Document` Ressource:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
----
-
+* * *
 Die vorherigen Handler überprüft den Vorgang unter Verwendung der Ressource, die Identität des Benutzers und der Anforderung `Name` Eigenschaft.
 
 Um einen Handler für die operative Ressource aufzurufen, geben Sie den Vorgang beim Aufrufen von `AuthorizeAsync` in Ihrer Seitenhandler oder Aktion. Im folgenden Beispiel wird bestimmt, ob der authentifizierte Benutzer berechtigt ist, um das angegebene Dokument anzuzeigen.
@@ -119,16 +110,14 @@ Um einen Handler für die operative Ressource aufzurufen, geben Sie den Vorgang 
 > [!NOTE]
 > Der folgende Code-Beispielen wird davon ausgegangen, Authentifizierung ausgeführt wurde und den Satz der `User` Eigenschaft.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
 Wenn die Autorisierung erfolgreich ist, wird die Seite für das Dokument anzeigen zurückgegeben. Wenn die Autorisierung fehlschlägt, aber der Benutzer authentifiziert wird, Zurückgeben von `ForbidResult` informiert authentifizierungsmiddleware, die Fehler bei der Autorisierung. Ein `ChallengeResult` wird zurückgegeben, wenn eine Authentifizierung durchgeführt werden muss. Für interaktive Browser-Clients kann es zum Umleiten des Benutzers zu einer Anmeldeseite um geeignet sein.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 
 Wenn die Autorisierung erfolgreich ist, wird die Ansicht für das Dokument zurückgegeben. Wenn die Autorisierung fehlschlägt, zurückgeben `ChallengeResult` Authentifizierung-Middleware informiert werden, dass Fehler bei der Autorisierung, die Middleware dauert die entsprechende Antwort. Eine entsprechende Antwort konnte einen Statuscode 401 oder 403 zurückgegeben werden. Für die interaktive Browser-Clients, kann dies bedeuten Weiterleiten des Benutzers zu einer Anmeldeseite um.
 
----
+* * *

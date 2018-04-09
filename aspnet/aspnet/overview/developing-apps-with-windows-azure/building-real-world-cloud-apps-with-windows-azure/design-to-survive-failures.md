@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: "Fehler (Building Real-World Cloud Apps with Azure) Überleben beim Entwurf | Microsoft Docs"
+title: Fehler (Building Real-World Cloud Apps with Azure) Überleben beim Entwurf | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Fehler (Building Real-World Cloud Apps with Azure) Überleben entwerfen
 ====================
@@ -131,6 +131,6 @@ Videos:
 - [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Neun zweiteilige Reihe Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Episoden 1 und 8 ein Wechsel in die Gründe für das Entwerfen von Cloud-apps für die Fehler verkraftet im Detail. Siehe auch die Nachbereitung Erläuterung der Einschränkung in der Folge 2 49:57, die Diskussion von Schwachstellen und Fehlerzuständen in Folge 2 beginnenden 56:05 und die Erläuterung der Trennschalter in Folge 3 beginnenden 40:55 ab.
 - [Erstellen von Big: Erkenntnisse aus Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms dreht Entwerfen für Fehler und Instrumentieren alles ab. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen.
 
->[!div class="step-by-step"]
-[Zurück](unstructured-blob-storage.md)
-[Weiter](monitoring-and-telemetry.md)
+> [!div class="step-by-step"]
+> [Zurück](unstructured-blob-storage.md)
+> [Weiter](monitoring-and-telemetry.md)

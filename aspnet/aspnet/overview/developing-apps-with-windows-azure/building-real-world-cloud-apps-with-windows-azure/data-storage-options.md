@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 title: Die Datenspeicheroptionen (Building Real-World Cloud Apps with Azure) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Die Datenspeicheroptionen (Building Real-World Cloud Apps with Azure)
 ====================
@@ -250,7 +250,7 @@ Es folgen einige Richtlinien zum Auswählen zwischen den beiden Modellen.
 | Azure SQL-Datenbank (PaaS) | SQLServer auf einem virtuellen Computer (IaaS) |
 | --- | --- |
 | **IT-Spezialisten** -nicht stehen Ihnen zum Erstellen oder Verwalten von virtuellen Computern, aktualisieren oder patch OS oder SQL; Azure übernimmt diese Aufgabe für Sie. -Integrierte hohe Verfügbarkeit mit einer SLA auf Datenbankebene. -Niedrige Gesamtbetriebskosten (TCO), da Sie Zahlen nur für Sie (keine Lizenz erforderlich) verwenden. -Gut für die Behandlung zahlreiche kleinere Datenbanken (&lt;= 500 GB). -Einfache dynamisch erstellen mit horizontaler Skalierung neue Datenbanken zu aktivieren. | ***IT-Spezialisten*** - Funktion mit einem kompatiblen mit einer lokalen SqlServer. -SQL Server können implementieren [hohe Verfügbarkeit mit AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) in 2 + VMs mit VM-Ebene SLA. -Sie haben die vollständige Kontrolle über wie SQL verwaltet wird. -SQL-Lizenzen erneut können, die Sie bereits besitzen, die oder für eine Stunde bezahlen. -Sich gut für die Behandlung von weniger aber größere (1 TB) Datenbanken. |
-| **Nachteile** -einige Lücken im Vergleich zur lokalen SQL Server-feature (fehlende [CLR-Integration](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [komprimierungsunterstützung](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server-Berichtsdienste](https://technet.microsoft.com/library/ms159106.aspx)usw.)-Datenbankgröße einzuhalten 500 GB. | ***Nachteile*** - Updates/Patches ("Betriebssystem" und "SQL") sind Ihrer Verantwortung - Erstellung und Verwaltung von Datenbanken Ihrer Verantwortung - Datenträger-IOPS (e/a-Vorgänge pro Sekunde) auf ca. 8000 (über 16 Datenlaufwerke) beschränkt. |
+| **Nachteile** -einige Lücken im Vergleich zur lokalen SQL Server-feature (fehlende [CLR-Integration](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [komprimierungsunterstützung](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx)usw.)-Datenbankgröße einzuhalten 500 GB. | ***Nachteile*** - Updates/Patches ("Betriebssystem" und "SQL") sind Ihrer Verantwortung - Erstellung und Verwaltung von Datenbanken Ihrer Verantwortung - Datenträger-IOPS (e/a-Vorgänge pro Sekunde) auf ca. 8000 (über 16 Datenlaufwerke) beschränkt. |
 
 Wenn Sie SQL Server auf einem virtuellen Computer verwenden möchten, können Sie Ihre eigene SQL Server-Lizenz oder Sie können für eine pro Stunde bezahlen. Im Portal oder über die REST-API können Sie z. B. einen neuen virtuellen Computer mit einem SQL Server-Image erstellen.
 
@@ -301,6 +301,6 @@ HDInsight (Hadoop unter Azure):
 - [Hadoop und HDInsight: Big Data in Azure](https://msdn.microsoft.com/magazine/dn385705.aspx). MSDN Magazine-Artikel von Bruno Terkaly und Ricardo Villalobos, Einführung in Hadoop unter Azure.
 - [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). MapReduce-Muster finden Sie unter.
 
->[!div class="step-by-step"]
-[Zurück](single-sign-on.md)
-[Weiter](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [Zurück](single-sign-on.md)
+> [Weiter](data-partitioning-strategies.md)

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
-title: "Die Überprüfung der Daten Anmerkung Validierungssteuerelemente (VB) | Microsoft Docs"
+title: Die Überprüfung der Daten Anmerkung Validierungssteuerelemente (VB) | Microsoft Docs
 author: microsoft
 description: Nutzen Sie die Daten Anmerkung Modellbinder validiert innerhalb einer ASP.NET MVC-Anwendung. Erfahren Sie, wie die verschiedenen Typen von Validierungssteuerelement verwendet...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 227c1acb5e478047c4e5cdc7dbddedd703e91292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d1987182a44a0ad3f91f455342dc934d1dd50267
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Die Überprüfung der Daten Anmerkung Validierungssteuerelemente (VB)
 ====================
@@ -78,7 +78,7 @@ Die Produktklasse zeigt, wie ein zusätzliches Attribut: das DisplayName-Attribu
 
 > [!NOTE] 
 > 
-> Wenn die Fehlermeldung angezeigt, indem ein Validator vollständig angepasst werden soll, können Sie eine benutzerdefinierte Fehlermeldung an das Validierungssteuerelement "ErrorMessage"-Eigenschaft wie folgt zuweisen:`<Required(ErrorMessage:="This field needs a value!")>`
+> Wenn die Fehlermeldung angezeigt, indem ein Validator vollständig angepasst werden soll, können Sie eine benutzerdefinierte Fehlermeldung an das Validierungssteuerelement "ErrorMessage"-Eigenschaft wie folgt zuweisen: `<Required(ErrorMessage:="This field needs a value!")>`
 
 
 Können Sie die Produktklasse in **Codebeispiel 1** mit Create()-Controlleraktion in **auflisten 2**. Diese Controlleraktion erneut die Erstellungsansicht an, wenn Modellstatus alle Fehler enthält.
@@ -153,5 +153,5 @@ Die Seite in **Abbildung 6** veranschaulicht die Fehlermeldungen zurückgegeben,
 
 In diesem Lernprogramm haben Sie gelernt, wie die Daten Anmerkung Modellbinder validiert innerhalb einer ASP.NET MVC-Anwendung nutzen. Sie haben gelernt, wie die verschiedenen Typen von Validierungssteuerelement-Attribute, z. B. die erforderlichen und StringLength-Attribute verwendet. Außerdem haben Sie gelernt, diese Attribute bei der Arbeit mit Microsoft Entity Framework nicht verwenden.
 
->[!div class="step-by-step"]
-[Zurück](validating-with-a-service-layer-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](validating-with-a-service-layer-vb.md)

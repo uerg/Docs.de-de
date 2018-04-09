@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: "Ausschließen von Dateien und Ordner von der Bereitstellung | Microsoft Docs"
+title: Ausschließen von Dateien und Ordner von der Bereitstellung | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie Sie können Dateien und Ordner ausschließen aus einem Webbereitstellungspaket beim Erstellen und Packen ein Webanwendungsprojekt."
+description: In diesem Thema wird beschrieben, wie Sie können Dateien und Ordner ausschließen aus einem Webbereitstellungspaket beim Erstellen und Packen ein Webanwendungsprojekt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Ausschließen von Dateien und Ordner von der Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird beschrieben, wie Sie können Dateien und Ordner ausschließen aus einem Webbereitstellungspaket beim Erstellen und Packen ein Webanwendungsprojekt.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="overview"></a>Übersicht
 
@@ -74,7 +74,7 @@ Obwohl Sie die Projektdateien zum Ausschließen bestimmter Dateien und Ordner be
 1. Erstellen eine benutzerdefinierten Projektdatei mit dem Namen *[Projektname].wpp.targets* im gleichen Ordner wie die Projektdatei.
 
     > [!NOTE]
-    > Die *. wpp.targets* Datei muss im gleichen Ordner wie die Projektdatei der Web-Anwendung & #x 2014; wechseln z. B. *ContactManager.Mvc.csproj*& #x 2014; statt im selben Ordner wie ein anderer Benutzerdefinierte Projektdateien verwenden Sie, um die Steuerung des Builds und Bereitstellungsprozess.
+    > Die *. wpp.targets* Datei muss sich im gleichen Ordner wie die Anwendung Webprojektdatei wechseln&#x2014;z. B. *ContactManager.Mvc.csproj*&#x2014;anstatt im gleichen Ordner wie die benutzerdefinierten Verwenden Sie zum Steuern der Build- und Bereitstellungsprozess Projektdateien verarbeiten.
 2. In der *. wpp.targets* Hinzufügen einer **ItemGroup** Element.
 3. In der **ItemGroup** Element hinzufügen **ExcludeFromPackageFolders** und **ExcludeFromPackageFiles** Elemente, die bestimmte Dateien und Ordner nach Bedarf ausschließen.
 
@@ -106,16 +106,16 @@ Das nächste Verfahren veranschaulicht das Hinzufügen einer *. wpp.targets* Dat
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Wenn Sie aus dem Webpaket ausschließen möchten, fügen eine **ExcludeFromPackageFolders** Element der **ItemGroup** Element:
 
-    1. In der **Include** -Attribut angegeben wird, geben Sie eine durch Semikolons getrennte Liste der Ordner, die Sie ausschließen möchten.
-    2. In der **FromTarget** Metadatenelement, geben Sie einen aussagekräftigen Wert um anzugeben, warum die Ordner, wie den Namen der ausgeschlossen werden die *. wpp.targets* Datei.
+   1. In der **Include** -Attribut angegeben wird, geben Sie eine durch Semikolons getrennte Liste der Ordner, die Sie ausschließen möchten.
+   2. In der **FromTarget** Metadatenelement, geben Sie einen aussagekräftigen Wert um anzugeben, warum die Ordner, wie den Namen der ausgeschlossen werden die *. wpp.targets* Datei.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Wenn Sie Dateien aus dem Webpaket ausschließen möchten, fügen Sie ein **ExcludeFromPackageFiles** Element an der **ItemGroup** Element:
 
-    1. In der **Include** -Attribut angegeben wird, geben Sie eine durch Semikolons getrennte Liste der Dateien, die Sie ausschließen möchten.
-    2. In der **FromTarget** Metadatenelement, geben Sie einen aussagekräftigen Wert um anzugeben, warum die Dateien, wie den Namen der ausgeschlossen werden die *. wpp.targets* Datei.
+   1. In der **Include** -Attribut angegeben wird, geben Sie eine durch Semikolons getrennte Liste der Dateien, die Sie ausschließen möchten.
+   2. In der **FromTarget** Metadatenelement, geben Sie einen aussagekräftigen Wert um anzugeben, warum die Dateien, wie den Namen der ausgeschlossen werden die *. wpp.targets* Datei.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. Die *[Projektname].wpp.targets* Datei sollte jetzt diesem ähneln:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ Dieses Thema beschreibt, wie Sie bestimmte Dateien und Ordner ausschließen, wen
 
 Weitere Informationen zum Verwenden von benutzerdefinierter Projektdateien von Microsoft Build Engine (MSBuild) um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Weitere Informationen über das Packen und Bereitstellungsprozess, finden Sie unter [erstellen und Packen Webanwendungsprojekte](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Konfigurieren von Parametern für die Bereitstellung von Paketen](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), und [ Bereitstellen von Webpaketen](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
->[!div class="step-by-step"]
-[Zurück](deploying-membership-databases-to-enterprise-environments.md)
-[Weiter](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-membership-databases-to-enterprise-environments.md)
+> [Weiter](taking-web-applications-offline-with-web-deploy.md)

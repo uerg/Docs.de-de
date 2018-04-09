@@ -1,7 +1,7 @@
 ---
-title: "Abhängigkeitsinjektion in Anforderung Handler"
+title: Abhängigkeitsinjektion in Anforderung Handler in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument beschreibt, wie Sie Autorisierung Anforderung Handler in einer ASP.NET Core-app mithilfe der Abhängigkeitsinjektion einfügen."
+description: Erfahren Sie, wie Authorization Anforderung Handler in einer ASP.NET Core-app mithilfe der Abhängigkeitsinjektion einfügen.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: 1b7506b49109264a8c628ea2e39ded9f5ace95d3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4de7f0e49ade459968f8c30fbad76ce96a65815f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-in-requirement-handlers"></a>Abhängigkeitsinjektion in Anforderung Handler
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Abhängigkeitsinjektion in Anforderung Handler in ASP.NET Core
 
 <a name="security-authorization-di"></a>
 
-[Müssen Autorisierung Handler registriert werden](policies.md#handler-registration) in die Auflistung während der Konfiguration (mit [Abhängigkeitsinjektion](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection)).
+[Müssen Autorisierung Handler registriert werden](xref:security/authorization/policies#handler-registration) in die Auflistung während der Konfiguration (mit [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)).
 
 Angenommen, mussten Sie ein Repository mit Regeln innerhalb eines ereignishandlers Autorisierung auswerten möchten, und diesem Repository registriert wurde, in die Auflistung. Die Autorisierung wird beheben und einfügen, die in Ihrem Konstruktor.
 

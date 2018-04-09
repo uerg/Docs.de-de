@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 title: Grundlegendes zur Projektdatei | Microsoft Docs
 author: jrjlee
-description: "Projektdateien Microsoft Build Engine (MSBuild) bilden den Kern des Prozesses Build- und Bereitstellungsprozess. Dieses Thema beginnt mit eine konzeptionelle Übersicht über MSBuild..."
+description: Projektdateien Microsoft Build Engine (MSBuild) bilden den Kern des Prozesses Build- und Bereitstellungsprozess. Dieses Thema beginnt mit eine konzeptionelle Übersicht über MSBuild...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 09c3793e9cdddb7c42cf966f2d079245f441540c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 49d1d4fbe48cd4f073e774d8a9c6c0c011bd3319
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-project-file"></a>Grundlegendes zu der Projektdatei
 ====================
@@ -36,9 +36,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 ## <a name="msbuild-and-the-project-file"></a>MSBuild und der Projektdatei
 
-Beim Erstellen und Projektmappen in Visual Studio erstellen, verwendet Visual Studio MSBuild jedes Projekt in der Projektmappe zu erstellen. Alle Visual Studio-Projekt enthält eine MSBuild-Projektdatei mit der Erweiterung, die den Typ des Projekts & #x 2014 wiedergibt; z. B. ein C#-Projekt (csproj), ein Projekt Visual Basic.NET (.vbproj) oder ein Datenbankprojekt (.dbproj). Um ein Projekt erstellen, muss MSBuild die Projektdatei, die dem Projekt zugeordneten verarbeiten. Die Projektdatei ist eine XML-Dokument mit den Informationen und Anweisungen, MSBuild, um das Erstellen des Projekts, z. B. den Inhalt einschließen, die plattformanforderungen, die Versionsinformationen, die Webserver oder die datenbankeinstellungen für Server muss, und die Aufgaben, die ausgeführt werden müssen.
+Beim Erstellen und Projektmappen in Visual Studio erstellen, verwendet Visual Studio MSBuild jedes Projekt in der Projektmappe zu erstellen. Alle Visual Studio-Projekt enthält eine MSBuild-Projektdatei mit der Erweiterung, die den Typ des Projekts wiedergibt&#x2014;z. B. ein C#-Projekt (csproj), ein Projekt Visual Basic.NET (.vbproj) oder ein Datenbankprojekt (.dbproj). Um ein Projekt erstellen, muss MSBuild die Projektdatei, die dem Projekt zugeordneten verarbeiten. Die Projektdatei ist eine XML-Dokument mit den Informationen und Anweisungen, MSBuild, um das Erstellen des Projekts, z. B. den Inhalt einschließen, die plattformanforderungen, die Versionsinformationen, die Webserver oder die datenbankeinstellungen für Server muss, und die Aufgaben, die ausgeführt werden müssen.
 
-MSBuild-Projektdateien basieren auf der [MSBuild XML-Schema](https://msdn.microsoft.com/library/5dy88c2e.aspx), und daher während des Erstellungsprozesses vollständig geöffnet und transparent. Darüber hinaus müssen Sie nicht Visual Studio zu installieren, um das MSBuild-Modul & #x 2014 verwenden; die MSBuild.exe ausführbare Datei ist Teil von .NET Framework und können Sie es an einer Eingabeaufforderung ausführen. Als Entwickler können Sie erstellen Ihre eigenen MSBuild-Projektdateien mit der MSBuild-XML-Schema erzwingen hochentwickelte und eine präzisere Kontrolle über die wie Ihre Projekte erstellt und bereitgestellt werden. Diese benutzerdefinierte Projektdateien arbeiten auf genau die gleiche Weise wie die Projektdateien, die Visual Studio automatisch generiert.
+MSBuild-Projektdateien basieren auf der [MSBuild XML-Schema](https://msdn.microsoft.com/library/5dy88c2e.aspx), und daher während des Erstellungsprozesses vollständig geöffnet und transparent. Darüber hinaus Sie Visual Studio zu installieren, um das MSBuild-Modul verwenden, müssen nicht&#x2014;MSBuild.exe ausführbaren Datei ist Teil von .NET Framework und Sie können über eine Eingabeaufforderung ausführen. Als Entwickler können Sie erstellen Ihre eigenen MSBuild-Projektdateien mit der MSBuild-XML-Schema erzwingen hochentwickelte und eine präzisere Kontrolle über die wie Ihre Projekte erstellt und bereitgestellt werden. Diese benutzerdefinierte Projektdateien arbeiten auf genau die gleiche Weise wie die Projektdateien, die Visual Studio automatisch generiert.
 
 > [!NOTE]
 > Sie können auch MSBuild-Projektdateien mit dem Team Build-Dienst in der Team Foundation Server (TFS) verwenden. Beispielsweise können Sie die Projektdateien in fortlaufende Integration (CI)-Szenarien zur automatischen Bereitstellung in einer testumgebung aus, bei der neue Code eingecheckt wird. Weitere Informationen finden Sie unter [Konfigurieren von Team Foundation Server für die automatisierte Bereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md).
@@ -93,7 +93,7 @@ Eine Projektdatei muss in der Regel enthalten zahlreiche unterschiedliche Arten 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Um einen Eigenschaftswert abzurufen, verwenden Sie das Format **$(***PropertyName***) ***.* Beispielsweise, um das Abrufen des Werts der **ServerName** -Eigenschaft geben Sie:
+Um einen Eigenschaftswert abzurufen, verwenden Sie das Format <strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em> Beispielsweise, um das Abrufen des Werts der <strong>ServerName</strong> -Eigenschaft geben Sie:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -113,7 +113,7 @@ Einbetten von Informationen als statische Eigenschaften in einer Projektdatei is
 > Weitere Informationen zu den Argumenten und -Switches Sie mit MSBuild.exe können, finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
-Die gleiche Eigenschaftensyntax können Sie um die Werte der Umgebungsvariablen und integrierte Projekteigenschaften zu erhalten. Viele häufig verwendete Eigenschaften, die für Sie definiert sind können, und Sie sie in den Projektdateien durch den Namen des entsprechenden Parameters einschließen. Z. B. zum Abrufen der aktuellen Projektplattform & #x 2014; z. B. **X86** oder **"anycpu"**& #x 2014; Sie zählen die **$(Platform)** eigenschaftsreferenz im der Projektdatei. Weitere Informationen finden Sie unter [Makros für Buildbefehle und-Eigenschaften](https://msdn.microsoft.com/library/c02as0cs.aspx), [gemeinsame MSBuild-Projekteigenschaften](https://msdn.microsoft.com/library/bb629394.aspx), und [reservierte Eigenschaften](https://msdn.microsoft.com/library/ms164309.aspx).
+Die gleiche Eigenschaftensyntax können Sie um die Werte der Umgebungsvariablen und integrierte Projekteigenschaften zu erhalten. Viele häufig verwendete Eigenschaften, die für Sie definiert sind können, und Sie sie in den Projektdateien durch den Namen des entsprechenden Parameters einschließen. Z. B. zum Abrufen der aktuellen Projektplattform&#x2014;z. B. **X86** oder **"anycpu"**&#x2014;Sie zählen die **$(Platform)** eigenschaftsreferenz im der Projektdatei. Weitere Informationen finden Sie unter [Makros für Buildbefehle und-Eigenschaften](https://msdn.microsoft.com/library/c02as0cs.aspx), [gemeinsame MSBuild-Projekteigenschaften](https://msdn.microsoft.com/library/bb629394.aspx), und [reservierte Eigenschaften](https://msdn.microsoft.com/library/ms164309.aspx).
 
 Eigenschaften werden häufig in Verbindung mit verwendet *Bedingungen*. Die meisten MSBuild-Elemente unterstützen die **Bedingung** -Attribut, das können Sie die Kriterien angeben, nach dem Auswerten MSBuild das Element. Betrachten Sie beispielsweise diese Eigenschaftsdefinition:
 
@@ -121,13 +121,13 @@ Eigenschaften werden häufig in Verbindung mit verwendet *Bedingungen*. Die meis
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
 
-Wenn MSBuild diese Eigenschaftsdefinition verarbeitet, es zunächst geprüft, ob ein **$(OutputRoot)** Eigenschaftswert steht. Bei den Wert der Eigenschaft leer & #x 2014; das heißt, der Benutzer wurde nicht bereitgestellt einen Wert für diese Eigenschaft der & #x 2014; ergibt die Bedingung **"true"** und den Wert der Eigenschaft auf festgelegt ist **... \Publish\Out**. Wenn der Benutzer einen Wert für diese Eigenschaft bereitgestellt hat, die Bedingung ausgewertet wird, um **"false"** und der statischen Eigenschaft-Wert wird nicht verwendet.
+Wenn MSBuild diese Eigenschaftsdefinition verarbeitet, es zunächst geprüft, ob ein **$(OutputRoot)** Eigenschaftswert steht. Wenn der Wert der Eigenschaft leer ist&#x2014;in anderen Worten: der Benutzer einen Wert für diese Eigenschaft angegeben wurde nicht&#x2014;ergibt die Bedingung **"true"** und den Wert der Eigenschaft auf festgelegt ist **... \Publish\Out**. Wenn der Benutzer einen Wert für diese Eigenschaft bereitgestellt hat, die Bedingung ausgewertet wird, um **"false"** und der statischen Eigenschaft-Wert wird nicht verwendet.
 
 Weitere Informationen über die verschiedenen Möglichkeiten, in dem Sie Bedingungen angeben können, finden Sie unter [MSBuild-Bedingungen](https://msdn.microsoft.com/library/7szfhaft.aspx).
 
 ### <a name="items-and-item-groups"></a>Elemente und Elementgruppen
 
-Einer der Rollen der Projektdatei wichtigen ist die Eingaben für den Buildprozess zu definieren. In der Regel wird diese Eingaben sind Dateien & #x 2014; Codedateien, Konfigurationsdateien, Befehlsdateien und alle anderen Dateien, die Sie benötigen, verarbeiten oder kopieren Sie als Teil des Buildprozesses. In der MSBuild-Projekt-Schema werden diese Eingaben durch dargestellt [Element](https://msdn.microsoft.com/library/ms164283.aspx) Elemente. In einer Projektdatei Elemente definiert werden müssen, innerhalb einer [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) Element. Ebenso wie **Eigenschaft** Elemente, Sie können den Namen einer **Element** Element jedoch beliebig. Sie müssen jedoch angeben, ein **Include** Attribut identifiziert die Datei oder der Platzhalter, der das Element darstellt.
+Einer der Rollen der Projektdatei wichtigen ist die Eingaben für den Buildprozess zu definieren. In der Regel werden diese Eingaben Dateien&#x2014;Codedateien, Konfigurationsdateien, Befehlsdateien und alle anderen Dateien, die Sie benötigen, verarbeiten oder kopieren Sie als Teil des Buildprozesses. In der MSBuild-Projekt-Schema werden diese Eingaben durch dargestellt [Element](https://msdn.microsoft.com/library/ms164283.aspx) Elemente. In einer Projektdatei Elemente definiert werden müssen, innerhalb einer [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) Element. Ebenso wie **Eigenschaft** Elemente, Sie können den Namen einer **Element** Element jedoch beliebig. Sie müssen jedoch angeben, ein **Include** Attribut identifiziert die Datei oder der Platzhalter, der das Element darstellt.
 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample6.xml)]
@@ -139,7 +139,7 @@ Durch Angeben von mehreren **Element** Elemente mit dem gleichen Namen, erstelle
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
 
-Auf diese Weise wird die Projektdatei festzuhalten und MSBuild zum Erstellen von Listen von Dateien, die in der gleichen Weise & #x 2014; verarbeitet werden müssen die **Verweis** Liste enthält die Assemblys, die für einen erfolgreichen Build den vorhandenseinmüssen**Kompilieren** zählen Codedateien, die kompiliert werden müssen, und die **Content** Liste enthält Ressourcen, die kopiert werden müssen, die unverändert. Betrachten wir wie während des Erstellungsprozesses verweist, und verwendet diese Elemente weiter unten in diesem Thema.
+Auf diese Weise wird die Projektdatei festzuhalten und MSBuild zum Erstellen von Listen von Dateien, die auf die gleiche Weise verarbeitet werden müssen&#x2014;der **Verweis** Liste enthält die Assemblys, die für eine erfolgreiche Erstellung vorhanden sein müssen die  **Kompilieren Sie** zählen Codedateien, die kompiliert werden müssen, und die **Content** Liste enthält Ressourcen, die kopiert werden müssen, die unverändert. Betrachten wir wie während des Erstellungsprozesses verweist, und verwendet diese Elemente weiter unten in diesem Thema.
 
 ReportItem-Elemente können auch einschließen, [ItemMetadata](https://msdn.microsoft.com/library/ms164284.aspx) untergeordnete Elemente. Diese sind benutzerdefinierte Schlüssel-Wert-Paare und Eigenschaften, die speziell für dieses Element sind im Wesentlichen darstellen. Angenommen, ein Großteil der **Kompilieren** ReportItem-Elemente in der Projektdatei enthalten **DependentUpon** untergeordnete Elemente.
 
@@ -195,11 +195,11 @@ Ziele und Aufgaben zählen **Bedingung** Attribute. Sie können daher ganze Ziel
 
 Wenn Sie nützliche Aufgaben und Ziele erstellen, müssen Sie im Allgemeinen beziehen sich auf die Eigenschaften und Elemente, die Sie an anderer Stelle in der Projektdatei definiert haben:
 
-- Geben Sie für die Verwendung ein Eigenschaftswerts **$(***PropertyName***)**, wobei *PropertyName* ist der Name des der **Eigenschaft** Element oder den Namen des der Parameter.
-- Um ein Element zu verwenden, geben **@(***ItemName***)**, wobei *ItemName* ist der Name des der **Element** Element.
+- Geben Sie für die Verwendung ein Eigenschaftswerts <strong>$(</strong><em>PropertyName</em><strong>)</strong>, wobei <em>PropertyName</em> ist der Name des der <strong>-Eigenschaft</strong> Element oder den Namen des Parameters.
+- Um ein Element zu verwenden, geben <strong>@(</strong><em>ItemName</em><strong>)</strong>, wobei <em>ItemName</em> ist der Name des der <strong>Element</strong> Element.
 
 > [!NOTE]
-> Denken Sie daran, dass wenn Sie mehrere Elemente mit dem gleichen Namen erstellen, Sie eine Liste erstellen. Im Gegensatz dazu, wenn Sie mehrere Eigenschaften mit demselben Namen zu erstellen, überschreiben die letzte angegebene Eigenschaftenwert alle zuvor beschriebenen Eigenschaften mit dem gleichen Namen & #x 2014; eine Eigenschaft kann nur einen einzelnen Wert enthalten.
+> Denken Sie daran, dass wenn Sie mehrere Elemente mit dem gleichen Namen erstellen, Sie eine Liste erstellen. Im Gegensatz dazu, wenn Sie mehrere Eigenschaften mit demselben Namen zu erstellen, Sie geben, der letzte Eigenschaftenwert überschreibt alle vorherigen Eigenschaften mit demselben Namen&#x2014;eine Eigenschaft kann nur einen einzelnen Wert enthalten.
 
 
 Beispielsweise ist in der *Publish.proj* Datei in der Beispielprojektmappe, sehen Sie sich die **BuildProjects** Ziel.
@@ -227,7 +227,7 @@ Sie können auch sehen, die **MSBuild** Vorgang ruft ein Ziel mit dem Namen **er
 
 ## <a name="splitting-project-files-to-support-multiple-environments"></a>Aufteilen von Projektdateien, um mehrere Umgebungen zu unterstützen.
 
-Angenommen, Sie möchten eine Lösung in mehreren Umgebungen, wie von Testservern, staging Plattformen und produktionsumgebungen bereitstellen können. Die Konfiguration kann im Wesentlichen zwischen diesen Umgebungen & #x 2014 unterschiedlich, und nicht nur im Hinblick auf den Servernamen, Verbindungszeichenfolgen und So weiter, sondern auch potenziell im Hinblick auf Anmeldeinformationen, Sicherheitseinstellungen und viele andere Faktoren. Wenn Sie dies regelmäßig durchführen müssen, ist es nicht sehr zweckmäßig, um mehrere Eigenschaften in der Projektdatei zu bearbeiten, jedes Mal, wenn Sie die zielumgebung wechseln. Trotzdem ist eine ideale Lösung eine endlose Liste von Eigenschaftswerten für den Buildprozess bereitgestellt werden müssen.
+Angenommen, Sie möchten eine Lösung in mehreren Umgebungen, wie von Testservern, staging Plattformen und produktionsumgebungen bereitstellen können. Die Konfiguration kann erheblich variieren, zwischen diesen Umgebungen&#x2014;nicht nur im Hinblick auf den Servernamen, Verbindungszeichenfolgen und So weiter, sondern auch potenziell im Hinblick auf Anmeldeinformationen, Sicherheitseinstellungen und viele andere Faktoren. Wenn Sie dies regelmäßig durchführen müssen, ist es nicht sehr zweckmäßig, um mehrere Eigenschaften in der Projektdatei zu bearbeiten, jedes Mal, wenn Sie die zielumgebung wechseln. Trotzdem ist eine ideale Lösung eine endlose Liste von Eigenschaftswerten für den Buildprozess bereitgestellt werden müssen.
 
 Glücklicherweise ist eine Alternative vorhanden. MSBuild können Sie die Buildkonfiguration auf mehreren Projektdateien aufgeteilt. Um die Funktionsweise zu sehen, in der Beispielprojektmappe Beachten Sie, dass es zwei benutzerdefinierte Projektdateien:
 
@@ -266,6 +266,6 @@ Im nächsten Thema [Verständnis des Build-Prozesses](understanding-the-build-pr
 
 Eine ausführliche Einführung in die Projektdateien und die WPP finden Sie unter [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi und William Bartholomew, ISBN-Nummer: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Zurück](setting-up-the-contact-manager-solution.md)
-[Weiter](understanding-the-build-process.md)
+> [!div class="step-by-step"]
+> [Zurück](setting-up-the-contact-manager-solution.md)
+> [Weiter](understanding-the-build-process.md)

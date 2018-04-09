@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
-title: "Überprüfen mit der IDataErrorInfo-Schnittstelle (VB) | Microsoft Docs"
+title: Überprüfen mit der IDataErrorInfo-Schnittstelle (VB) | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther wird gezeigt, wie benutzerdefinierte Überprüfungsfehlermeldungen durch Implementieren der IDataErrorInfo-Schnittstelle in einer Modellklasse angezeigt."
+description: Stephen Walther wird gezeigt, wie benutzerdefinierte Überprüfungsfehlermeldungen durch Implementieren der IDataErrorInfo-Schnittstelle in einer Modellklasse angezeigt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1439d470a7fa3cb1171dbdd0b7eec6a6aa52912d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60df0f934432484e0c97e0caef25c15605beb14f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-the-idataerrorinfo-interface-vb"></a>Überprüfen mit der IDataErrorInfo-Schnittstelle (VB)
 ====================
@@ -161,6 +161,6 @@ Beachten Sie, dass der Wert DateReleased automatisch überprüft wird. Da die Da
 
 In diesem Lernprogramm haben Sie gelernt, wie die IDataErrorInfo-Schnittstelle verwenden, um Überprüfungsfehlermeldungen zu generieren. Zunächst haben wir eine partielle Film-Klasse, die die Funktionalität der partiellen Film-Klasse, die vom Entity Framework generierten erweitert. Als Nächstes haben wir die Film Klasse OnTitleChanging() und OnDirectorChanging() partiellen Methoden Validierungslogik hinzugefügt. Abschließend implementiert wir IDataErrorInfo-Schnittstelle, um diese validierungsmeldungen zu ASP.NET MVC-Framework verfügbar zu machen.
 
->[!div class="step-by-step"]
-[Zurück](performing-simple-validation-vb.md)
-[Weiter](validating-with-a-service-layer-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](performing-simple-validation-vb.md)
+> [Weiter](validating-with-a-service-layer-vb.md)

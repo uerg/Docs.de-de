@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
-title: "Hinzufügen von Inhalt zur Quellcodeverwaltung | Microsoft Docs"
+title: Hinzufügen von Inhalt zur Quellcodeverwaltung | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird erläutert, wie Datenquellen-Steuerelements in Team Foundation Server (TFS) 2010 Inhalt hinzugefügt wird. Es wird beschrieben, wie ein Team cht aus Projektmappen und Projekte hinzufügen..."
+description: In diesem Thema wird erläutert, wie Datenquellen-Steuerelements in Team Foundation Server (TFS) 2010 Inhalt hinzugefügt wird. Es wird beschrieben, wie ein Team cht aus Projektmappen und Projekte hinzufügen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c9c3a506d2745a6793661453a293732429d3e46e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-content-to-source-control"></a>Hinzufügen von Inhalt zur Quellcodeverwaltung
 ====================
@@ -27,7 +27,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird erläutert, wie Datenquellen-Steuerelements in Team Foundation Server (TFS) 2010 Inhalt hinzugefügt wird. Es wird beschrieben, wie Hinzufügen von Projektmappen und Projekten zu einem Teamprojekt in TFS, und es wird erläutert, wie externe Abhängigkeiten wie Frameworks oder Assemblys zur quellcodeverwaltung hinzufügen.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -157,6 +157,6 @@ Im nächsten Thema [eine TFS-Build-Server für die Bereitstellung konfigurieren]
 
 Umfassendere Informationen zum Arbeiten mit Datenquellen-Steuerelements in TFS finden Sie unter [verwenden der Versionskontrolle](https://msdn.microsoft.com/library/ms181368.aspx).
 
->[!div class="step-by-step"]
-[Zurück](creating-a-team-project-in-tfs.md)
-[Weiter](configuring-a-tfs-build-server-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-team-project-in-tfs.md)
+> [Weiter](configuring-a-tfs-build-server-for-web-deployment.md)

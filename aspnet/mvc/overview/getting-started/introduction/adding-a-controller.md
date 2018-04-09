@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-a-controller
-title: "Hinzufügen eines Controllers | Microsoft Docs"
+title: Hinzufügen eines Controllers | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Hinzufügen eines Controllers
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 MVC steht für *Model-View-Controller*. MVC ist ein Muster für die Entwicklung von Anwendungen, die gut entworfen, einfach zu testender und leicht zu warten sind. MVC-basierten Anwendungen enthalten:
 
@@ -95,7 +95,7 @@ Ersetzen Sie die Willkommensseite Methode durch den folgenden Code ein:
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-Führen Sie die Anwendung, und geben Sie die folgende URL:`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+Führen Sie die Anwendung, und geben Sie die folgende URL: `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
@@ -115,6 +115,6 @@ Viele MVC-Anwendungen auf funktioniert die Standardroute. Erfahren Sie weiter un
 
 In diesen Beispielen wurde der Controller auf diese Weise wurde das &quot;VC&quot; Teil MVC –, also die Ansicht und Controller-Aufgaben. Der Controller ist HTML direkt zurückgeben. In der Regel soll nicht Controller HTML direkt zurückgeben, da, die sehr aufwendig, Code wird. Wir müssen stattdessen in der Regel eine separate Ansicht Vorlagendatei verwenden, können Sie die HTML-Antwort zu generieren. Sehen wir uns an, wie wir dies weiter.
 
->[!div class="step-by-step"]
-[Zurück](getting-started.md)
-[Weiter](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started.md)
+> [Weiter](adding-a-view.md)

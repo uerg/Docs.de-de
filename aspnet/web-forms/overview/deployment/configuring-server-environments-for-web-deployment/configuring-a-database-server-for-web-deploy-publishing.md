@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: "Konfigurieren einen Datenbankserver für Web Deploy-Veröffentlichung | Microsoft Docs"
+title: Konfigurieren einen Datenbankserver für Web Deploy-Veröffentlichung | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema beschreibt, wie einen SQL Server 2008 R2-Datenbankserver zur Unterstützung von Web Deploy und die Veröffentlichung zu konfigurieren. In diesem Thema beschriebenen Aufgaben sind co..."
+description: In diesem Thema beschreibt, wie einen SQL Server 2008 R2-Datenbankserver zur Unterstützung von Web Deploy und die Veröffentlichung zu konfigurieren. In diesem Thema beschriebenen Aufgaben sind co...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurieren einen Datenbankserver für Web Deploy-Veröffentlichung
 ====================
@@ -26,7 +26,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 > In diesem Thema beschreibt, wie einen SQL Server 2008 R2-Datenbankserver zur Unterstützung von Web Deploy und die Veröffentlichung zu konfigurieren.
 > 
-> Die in diesem Thema beschriebenen Tasks beziehen sich auf jede Bereitstellungsszenario & #x 2014; es spielt keine Rolle, ob Ihre Webserver konfiguriert sind, verwenden Sie die Remote-Agent-Dienst von IIS-Webbereitstellungstool (Web Deploy), das Bereitstellen von Web-Handler oder offline Bereitstellung oder die Anwendung wird auf einem einzelnen Webserver oder in einer Serverfarm ausgeführt. Die Bereitstellung der Datenbank kann entsprechend den sicherheitsanforderungen und andere Faktoren ändern. Beispielsweise können Sie die Datenbank mit oder ohne Beispieldaten, und Sie benutzerzuordnungen für die Rolle bereitstellen oder manuell konfigurieren, nach der Bereitstellung möglicherweise. Die Möglichkeit, die Sie konfigurieren, dass den Datenbankserver bleibt jedoch gleich.
+> Die in diesem Thema beschriebenen Tasks beziehen sich auf alle Bereitstellungsszenarien&#x2014;es spielt keine Rolle, ob Ihre Webserver konfiguriert sind, verwenden Sie die Remote-Agent-Dienst von IIS-Webbereitstellungstool (Web Deploy), das Bereitstellen von Web-Handler oder offline Bereitstellung oder die Anwendung wird auf einem einzelnen Webserver oder in einer Serverfarm ausgeführt. Die Bereitstellung der Datenbank kann entsprechend den sicherheitsanforderungen und andere Faktoren ändern. Beispielsweise können Sie die Datenbank mit oder ohne Beispieldaten, und Sie benutzerzuordnungen für die Rolle bereitstellen oder manuell konfigurieren, nach der Bereitstellung möglicherweise. Die Möglichkeit, die Sie konfigurieren, dass den Datenbankserver bleibt jedoch gleich.
 
 
 Sie müssen zusätzliche Produkte oder -Tools installieren, konfigurieren einen Datenbankserver zur Unterstützung einer webbereitstellung. Vorausgesetzt, dass Ihr Datenbankserver und den Webserver auf unterschiedlichen Computern laufen, müssen Sie einfach:
@@ -65,8 +65,8 @@ Um SQL Server die Kommunikation über TCP/IP zu aktivieren, verwenden Sie SQL Se
 1. Auf der **starten** Sie im Menü **Programme**, klicken Sie auf **Microsoft SQL Server 2008 R2**, klicken Sie auf **Konfigurationstools**, und klicken Sie dann auf **SQL Server-Konfigurations-Manager**.
 2. Erweitern Sie im Strukturansichtsbereich, **SQL Server-Netzwerkkonfiguration**, und klicken Sie dann auf **Protokolle für MSSQLSERVER**.
 
-    > [!NOTE]
-    > Wenn Sie mehrere Instanzen von SQL Server installiert haben, sehen Sie ein **Protokolle für *** [Instanzname]* Element für jede Instanz. Sie müssen zum Konfigurieren von Netzwerkeinstellungen auf eine vollverteilte Instanz nach Instanz.
+   > [!NOTE]
+   > Wenn Sie mehrere Instanzen von SQL Server installiert haben, sehen Sie eine <strong>Protokolle für</strong><em>[Instanzname]</em> Element für jede Instanz. Sie müssen zum Konfigurieren von Netzwerkeinstellungen auf eine vollverteilte Instanz nach Instanz.
 3. Klicken Sie im Detailbereich mit der Maustaste die **TCP/IP** Zeile, und klicken Sie dann auf **aktivieren**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ Weitere Informationen zum Konfigurieren von Windows-Firewall für SQL Server, in
 
 ## <a name="configure-logins-and-database-permissions"></a>Konfigurieren von Anmeldungen und Berechtigungen
 
-Wenn Sie eine Webanwendung zu IIS (Internetinformationsdienste) bereitstellen, führt die Anwendung über die Identität des Anwendungspools. Verwenden Sie in einer domänenumgebung Anwendungspoolidentitäten das Computerkonto des Servers, auf denen sie den Zugriff auf Netzwerkressourcen ausgeführt. Computerkonten haben die Form * [Domänenname]***\*** [Computername]***$** & #x 2014; z. B. **FABRIKAM\TESTWEB1$**. Damit Ihre Webanwendung auf eine Datenbank über das Netzwerk zugreifen können, müssen Sie:
+Wenn Sie eine Webanwendung zu IIS (Internetinformationsdienste) bereitstellen, führt die Anwendung über die Identität des Anwendungspools. Verwenden Sie in einer domänenumgebung Anwendungspoolidentitäten das Computerkonto des Servers, auf denen sie den Zugriff auf Netzwerkressourcen ausgeführt. Computerkonten haben die Form <em>[Domänenname]</em><strong>\</ strong ><em>[Computername]</em><strong>$</strong>&#x2014;beispielsweise <strong>FABRIKAM\TESTWEB1$</strong>. Damit Ihre Webanwendung auf eine Datenbank über das Netzwerk zugreifen können, müssen Sie:
 
 - SQL Server-Instanz eine Anmeldung für das Computerkonto des Web-Server hinzugefügt.
 - Alle erforderlichen Datenbankrollen die Anmeldung beim Computer-Konto zuordnen (i. d. r. **Db\_Datareader** und **Db\_Datawriter**).
@@ -231,6 +231,6 @@ Ihr Datenbankserver sollte jetzt bereit, um Remotedatenbank Bereitstellungen zu 
 
 Anleitung zum Bereitstellen von Datenbankprojekten, finden Sie unter [Datenbankprojekte bereitstellen](../web-deployment-in-the-enterprise/deploying-database-projects.md). Anleitungen zum Erstellen von Datenbank-Rollenmitgliedschaften durch Ausführen eines Skripts nach der Bereitstellung finden Sie unter [Bereitstellen von Datenbank-Rollenmitgliedschaften auf Testumgebungen](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Anleitung zur Verwendung der individuelle Bereitstellung Auflagen erfüllt werden können, die Mitgliedschaft Datenbanken darstellen, finden Sie unter [Mitgliedschaft-Datenbanken bereitstellen, um Unternehmensumgebungen](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
->[!div class="step-by-step"]
-[Zurück](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[Weiter](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [Weiter](creating-a-server-farm-with-the-web-farm-framework.md)

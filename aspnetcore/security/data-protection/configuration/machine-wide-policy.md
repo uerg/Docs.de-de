@@ -1,7 +1,7 @@
 ---
 title: Data Protection computerweite Supportrichtlinie in ASP.NET Core
 author: rick-anderson
-description: "Informationen Sie zur Unterstützung für das Festlegen von computerweiten Standardrichtlinie für alle apps, die ASP.NET Core-Datenschutz nutzen."
+description: Informationen Sie zur Unterstützung für das Festlegen von computerweiten Standardrichtlinie für alle apps, die ASP.NET Core-Datenschutz nutzen.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Data Protection computerweite Supportrichtlinie in ASP.NET Core
 
@@ -71,4 +71,4 @@ Wenn EncryptionType verwaltet wird, wird das System konfiguriert, um eine verwal
 Wenn EncryptionType beliebiger anderer Wert als Null oder leer ist, löst die Datenschutz-System eine Ausnahme beim Start.
 
 > [!WARNING]
-> Wenn eine Standardeinstellung für die Richtlinie konfigurieren, die Typnamen (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) umfasst, müssen die Typen der App verfügbar sein. Dies bedeutet, dass für apps, die auf dem Desktop-CLR ausgeführt wird, die Assemblys, die diese Typen enthalten, die im globalen Assemblycache (GAC) vorhanden sein sollte. Für ASP.NET Core-apps unter [.NET Core](https://www.microsoft.com/net/core), die Pakete, die diese Typen enthalten, die installiert werden soll.
+> Wenn eine Standardeinstellung für die Richtlinie konfigurieren, die Typnamen (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) umfasst, müssen die Typen der App verfügbar sein. Dies bedeutet, dass für apps, die auf dem Desktop-CLR ausgeführt wird, die Assemblys, die diese Typen enthalten, die im globalen Assemblycache (GAC) vorhanden sein sollte. Für ASP.NET Core-apps, die auf .NET Core ausgeführt wird sollte die Pakete, die diese Typen enthalten, die installiert werden.

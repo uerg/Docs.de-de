@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
-title: "Iteration #5 – Erstellen von Komponententests (VB) | Microsoft Docs"
+title: 'Iteration #5 – Erstellen von Komponententests (VB) | Microsoft Docs'
 author: microsoft
-description: "In der fünften Iteration stellen wir unsere Anwendung einfacher zu verwalten und ändern, indem Sie Komponententests hinzufügen. Wir unsere Daten Modellklassen modellieren und Erstellen von Komponententests für o..."
+description: In der fünften Iteration stellen wir unsere Anwendung einfacher zu verwalten und ändern, indem Sie Komponententests hinzufügen. Wir unsere Daten Modellklassen modellieren und Erstellen von Komponententests für o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab9ff5629cb468b785f5b82178f9f6247a55cacb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe59792a1e1a7950a318e7e893b3da12d53a8efa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Iteration #5: Generieren von Komponententests (VB)
 ====================
@@ -105,15 +105,15 @@ Ein Objekt modellieren-Framework können Sie z. B. um eine Pseudoversion des Rep
 
 Visual Studio enthält ein Objekt modellieren Framework keine. Es gibt jedoch mehrere kommerzielle und open-Source-Objekt modellieren-Frameworks für .NET Framework verfügbar:
 
-1. Moq - dieses Framework wird unter der open-Source-BSD-Lizenz verfügbar. Download von Moq [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
-2. Rhino Mocks – dieses Framework finden Sie unter der open-Source-BSD-Lizenz. Download Rhino Mocks aus [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
-3. Typemock Isolator - ist dies ein kommerziellen Framework. Sie können eine Testversion von herunterladen [http://www.typemock.com/](http://www.typemock.com/).
+1. Moq - dieses Framework wird unter der open-Source-BSD-Lizenz verfügbar. Download von Moq [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
+2. Rhino Mocks – dieses Framework finden Sie unter der open-Source-BSD-Lizenz. Download Rhino Mocks aus [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
+3. Typemock Isolator - ist dies ein kommerziellen Framework. Sie können eine Testversion von herunterladen [ http://www.typemock.com/ ](http://www.typemock.com/).
 
 In diesem Lernprogramm möchte ich Moq verwenden. Allerdings können Sie genauso einfach verwenden Rhino Mocks oder Typemock Isolator das Mock Erstellen von Objekten für die Kontakt-Manager-Anwendung.
 
 Bevor Sie Moq verwenden können, müssen Sie die folgenden Schritte ausführen:
 
-1. .
+1. sein.
 2. Bevor Sie den Download entpacken, stellen Sie sicher, dass Sie mit der rechten Maustaste in der das, und klicken Sie auf die Schaltfläche "mit der Bezeichnung" **zum Aufheben der Sperre** (siehe Abbildung 1).
 3. Entpacken Sie das herunterladen.
 4. Fügen Sie einen Verweis auf die Assembly Moq dem Testprojekt, indem Sie im Menü die Option **Projekt "," Verweis hinzufügen** So öffnen die **Verweis hinzufügen** Dialogfeld. Navigieren Sie unter der Registerkarte "Durchsuchen" zu dem Ordner, in dem Sie Moq entzippt, und wählen Sie die Assembly Moq.dll. Klicken Sie auf die **OK** Schaltfläche (siehe Abbildung 2).
@@ -238,6 +238,6 @@ Wir erstellt zwei Sätze von Komponententests. Zunächst haben wir Überprüfung
 
 In der nächsten Iteration ändern wir die Kontakt-Manager-Anwendung, sodass er Kontaktgruppen unterstützt. Diese neue Funktionalität fügen wir in unserer-Anwendung mit einer Software-Entwurfsprozess testorientierte Entwicklung aufgerufen.
 
->[!div class="step-by-step"]
-[Zurück](iteration-4-make-the-application-loosely-coupled-vb.md)
-[Weiter](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [Weiter](iteration-6-use-test-driven-development-vb.md)

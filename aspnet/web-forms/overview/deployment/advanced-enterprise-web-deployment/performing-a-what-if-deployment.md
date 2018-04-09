@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: "Durchführen einer was, wenn Bereitstellung | Microsoft Docs"
+title: Durchführen einer was, wenn Bereitstellung | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie \"WhatIf\" ausführen (oder simuliert) mit dem Internet Information Services (IIS)-Webbereitstellungstool (Web Deploy) und V Bereitstellungen..."
+description: In diesem Thema wird beschrieben, wie "WhatIf" ausführen (oder simuliert) mit dem Internet Information Services (IIS)-Webbereitstellungstool (Web Deploy) und V Bereitstellungen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Ausführen einer "Was-wäre-wenn" Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird beschrieben, wie "Was-wäre-wenn" ausführen (oder simuliert) mit dem Internet Information Services (IIS)-Webbereitstellungstool (Web Deploy) und VSDBCMD Bereitstellungen. Dadurch können Sie die Auswirkungen Ihrer Bereitstellung Logik auf eine bestimmte zielumgebung zu bestimmen, bevor Sie die Anwendung tatsächlich bereitstellen.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md)in die erstellungs-und Bereitstellung von zwei Projektdateien & #x 2014 kontrolliert wird; o Ne mit Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in die erstellungs-und Bereitstellung von gesteuert wird zwei Projektdateien&#x2014;eine Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten "" enthält. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Ausführen einer "Was-wäre-wenn" Bereitstellung für Webpakete
 
@@ -41,7 +41,7 @@ Web Deploy umfasst Funktionen, die können Sie Bereitstellungen in "Was-wäre-we
 
 Da eine "Was-wäre-wenn" Bereitstellung tatsächlich ändert nichts auf dem Zielserver, was immer nicht möglich ist, vorherzusagen, ob es sich bei eine Bereitstellung erfolgreich ist.
 
-Wie in beschrieben [Bereitstellen von Webpaketen](../web-deployment-in-the-enterprise/deploying-web-packages.md), kann beim Bereitstellen von Webpaketen mithilfe von Web Deploy in zwei Arten & #x 2014; mit dem MSDeploy.exe-Befehlszeilen-Hilfsprogramm direkt oder durch Ausführen der *. deploy.cmd* die Datei, die während des Erstellungsprozesses generiert.
+Wie in beschrieben [Bereitstellen von Webpaketen](../web-deployment-in-the-enterprise/deploying-web-packages.md), können Sie mithilfe von Web Deploy auf zwei Arten Webpaketen bereitstellen&#x2014;mithilfe des Befehlszeilendienstprogramms MSDeploy.exe direkt oder durch Ausführen der *. deploy.cmd* Datei während des Erstellungsprozesses generiert.
 
 Wenn Sie MSDeploy.exe direkt verwenden, können Sie eine "Was-wäre-wenn" Bereitstellung ausführen, durch Hinzufügen der **"-WhatIf"** Flag auf Ihre Befehlseingaben. Beispielsweise sollte um auszuwerten, was passieren würde, wenn Sie das Paket ContactManager.Mvc.zip in einer Stagingumgebung bereitgestellt, der MSDeploy-Befehl diesem ähneln:
 
@@ -122,7 +122,7 @@ Die nächste Phase bezieht sich auf alle Web Deploy parametrisieren und VSDBCMD 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-Auf ähnliche Weise wird das nächste Ziel des Hilfsprogramms VSDBCMD zum Bereitstellen einer Datenbank verwendet. Wird standardmäßig ein **/dd** Switch nicht enthalten ist. Dies bedeutet, dass VSDBCMD ein Bereitstellungsskript generiert, aber nicht werden, die Datenbank & #x 2014 bereitgestellt wird; das heißt, "Was-wäre-wenn-Szenario. Wenn die **"WhatIf"** Eigenschaft nicht festgelegt ist, um **"true"**, **/dd** Schalter hinzugefügt wird und VSDBCMD wird die Datenbank bereitstellen.
+Auf ähnliche Weise wird das nächste Ziel des Hilfsprogramms VSDBCMD zum Bereitstellen einer Datenbank verwendet. Wird standardmäßig ein **/dd** Switch nicht enthalten ist. Dies bedeutet, dass VSDBCMD ein Bereitstellungsskript generiert, aber die Datenbank nicht bereitgestellt werden&#x2014;heißt, "Was-wäre-wenn-Szenario. Wenn die **"WhatIf"** Eigenschaft nicht festgelegt ist, um **"true"**, **/dd** Schalter hinzugefügt wird und VSDBCMD wird die Datenbank bereitstellen.
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ Dieses Thema beschreibt, wie Sie "Was-wäre-wenn-Bereitstellungen mithilfe von W
 
 Weitere Informationen zu Web Deploy-Befehlszeilensyntax, finden Sie unter [Web Deploy Vorgang Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Um Hilfe bei der Befehlszeilenoptionen, die bei der Verwendung der *. deploy.cmd* finden Sie unter [Vorgehensweise: Installieren Sie eine Bereitstellung Paket mithilfe der Datei deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Anleitungen zu VSDBCMD-Befehlszeilensyntax, finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx).
 
->[!div class="step-by-step"]
-[Zurück](advanced-enterprise-web-deployment.md)
-[Weiter](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [Zurück](advanced-enterprise-web-deployment.md)
+> [Weiter](customizing-database-deployments-for-multiple-environments.md)

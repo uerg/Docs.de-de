@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: a0e92e27a44ffe7049b1addaecda76d300c36476
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b83c9b1cbe81a0ae31d086f1ccb9f55744f2604
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application"></a>Zum Einrichten und Verwenden von Cookies Authentifizierung in einer ASP.NET-Anwendung
 ====================
@@ -24,8 +24,8 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 Joe Stagner nutzt das vorherige Codebeispiel zum Veranschaulichen der Cookie-Authentifizierung verwenden. Weitere Informationen zu dieser Demo, ein Lernprogramm befindet [hier](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).
 
-[&#9654; Sehen Sie sich an (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application)
+[&#9654;Sehen Sie sich an (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application)
 
->[!div class="step-by-step"]
-[Zurück](how-to-change-the-forms-authentication-properties.md)
-[Weiter](asp-forms-login-relocation.md)
+> [!div class="step-by-step"]
+> [Zurück](how-to-change-the-forms-authentication-properties.md)
+> [Weiter](asp-forms-login-relocation.md)

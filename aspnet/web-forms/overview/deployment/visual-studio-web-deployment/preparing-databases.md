@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: "ASP.NET Web-Bereitstellung mit Visual Studio: Vorbereiten für die Bereitstellung der Datenbank | Microsoft Docs"
+title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Vorbereiten für die Bereitstellung der Datenbank | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61392af322de454687da522055005a670b34f510
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Vorbereiten für die Bereitstellung der Datenbank
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -171,7 +171,7 @@ Hier nicht zu, in der Regel die gleichen Daten in der Produktion werden sollen, 
 Die Development-Benutzer stellen Sie die Umgebung und die Produktionsbenutzer in Staging und Produktion. Dazu erstellen Sie zwei SQL-Skripts in diesem Lernprogramm: eine für die Entwicklung und eine für die Produktion und in späteren Lernprogrammen konfigurieren Sie des Veröffentlichungsprozesses, um sie auszuführen.
 
 > [!NOTE]
-> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der  **[MachineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Element in der Datei "Web.config".
+> Die Mitgliedschaftsdatenbank speichert einen Hash der Kennwörter. Zum Bereitstellen von Konten auf einem Computer zu einem anderen müssen Sie sicherstellen, dass hashing Routinen unterschiedliche Hashes auf dem Zielserver kein generieren, als auf dem Quellcomputer ausgeführt. Sie gleichen Hashes generiert bei der Verwendung der ASP.NET Universal Providers, solange Sie nicht den standardmäßigen Algorithmus ändern. Der Standardalgorithmus ist HMACSHA256 und angegeben wird, der **Überprüfung** Attribut von der **[MachineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Element in der Datei "Web.config".
 
 
 Sie können Skripts für die Bereitstellung von Daten manuell, mithilfe von SQL Server Management Studio (SSMS) oder mithilfe eines Drittanbietertools erstellen. Diese Rest dieses Lernprogramms erfahren Sie, wie es in SSMS, aber wenn Sie nicht möchten, installieren und Verwenden von SSMS können Sie die Skripts aus die abgeschlossene Version des Projekts abrufen und fahren Sie mit Abschnitt, in dem Sie sie im Projektmappenordner gespeichert.
@@ -215,11 +215,11 @@ Da das Projekt mit der Produktionsdatenbank noch nicht ausgeführt werden, wird 
 1. In SSMS **Objektexplorer**, mit der rechten Maustaste **Datenbanken** , und klicken Sie auf **Anfügen**.
 
     ![Anfügen von SSMS](preparing-databases/_static/image15.png)
-- In der **Datenbanken anfügen** (Dialogfeld), klicken Sie auf **hinzufügen** und navigieren Sie zu der *Aspnet-ContosoUniversity-Prod.mdf* in der Datei die *App\_ Daten* Ordner.
+2. In der **Datenbanken anfügen** (Dialogfeld), klicken Sie auf **hinzufügen** und navigieren Sie zu der *Aspnet-ContosoUniversity-Prod.mdf* in der Datei die *App\_ Daten* Ordner.
 
-    ![Hinzufügen von SSMS MDF-Datei anfügen](preparing-databases/_static/image16.png)
-- Klicken Sie auf **OK**.
-- Halten Sie die gleiche Prozedur, die Sie zuvor verwendet, um ein Skript für die Produktion-Datei erstellen. Benennen Sie die Skriptdatei *Aspnet-Daten-prod.sql*.
+     ![Hinzufügen von SSMS MDF-Datei anfügen](preparing-databases/_static/image16.png)
+3. Klicken Sie auf **OK**.
+4. Halten Sie die gleiche Prozedur, die Sie zuvor verwendet, um ein Skript für die Produktion-Datei erstellen. Benennen Sie die Skriptdatei *Aspnet-Daten-prod.sql*.
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -233,6 +233,6 @@ Im folgenden Lernprogramm konfigurieren Sie Einstellungen für Projektdateien, d
 
 Weitere Informationen zu NuGet, finden Sie unter [verwalten Projektbibliotheken mit NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) und [NuGet-Dokumentation](http://docs.nuget.org/docs/start-here/overview). Wenn Sie NuGet verwenden möchten, müssen Sie Informationen zum Analysieren eines NuGet-Pakets, um zu bestimmen, welche Aktion er ausführt, wenn er installiert ist. (sie können z. B. konfigurieren *"Web.config"* Transformationen, konfigurieren Sie PowerShell-Skripts zur Buildzeit usw. ausführen.) Weitere Informationen zur Funktionsweise von NuGet finden Sie unter [erstellen und veröffentlichen ein Paket](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) und [Konfigurationsdatei und Source Codetransformationen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Zurück](introduction.md)
-[Weiter](web-config-transformations.md)
+> [!div class="step-by-step"]
+> [Zurück](introduction.md)
+> [Weiter](web-config-transformations.md)

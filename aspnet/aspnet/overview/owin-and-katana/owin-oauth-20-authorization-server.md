@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 title: Owin-OAuth 2.0-Autorisierungsserver | Microsoft Docs
 author: hongyes
-description: "Dieses Lernprogramm führt Sie zum Implementieren von einem OAuth 2.0-Autorisierungsserver mithilfe von OAuth OWIN-Middleware. Dies ist ein erweitertes Lernprogramm, nur Outlin..."
+description: Dieses Lernprogramm führt Sie zum Implementieren von einem OAuth 2.0-Autorisierungsserver mithilfe von OAuth OWIN-Middleware. Dies ist ein erweitertes Lernprogramm, nur Outlin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 Authorization Server
 ====================
@@ -104,7 +104,7 @@ OAuth darauf nicht, wo und wie Sie Ihre Benutzerinformationen für das Konto ver
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`wird verwendet, um den Client mit der registrierte umleitungs-URL zu überprüfen. `ValidateClientAuthentication`überprüft die grundlegende Schema Header und Formulartext, um die Anmeldeinformationen des Clients abzurufen.
+`ValidateClientRedirectUri` wird verwendet, um den Client mit der registrierte umleitungs-URL zu überprüfen. `ValidateClientAuthentication` überprüft die grundlegende Schema Header und Formulartext, um die Anmeldeinformationen des Clients abzurufen.
 
 Die Anmeldeseite wird unten gezeigt:
 
@@ -241,10 +241,10 @@ Finden Sie unter *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.c
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`Methode können CORS für alle Domänen.
-- `UseOAuthBearerAuthentication`Methode ermöglicht OAuth token trägerauthentifizierungsmiddleware empfangen und trägertoken, das aus dem Autorisierungsheader in der Anforderung überprüft wird.
-- `Config.SuppressDefaultHostAuthenticaiton`Unterdrückt die standardmäßige authentifizierten Prinzipal aus der app zu hosten, daher alle Anforderungen anonyme nach dem Aufruf.
-- `HostAuthenticationFilter`aktiviert die Authentifizierung nur für den angegebenen Authentifizierungstyp. In diesem Fall ist es Träger-Authentifizierungstyp.
+- `UseCors` Methode können CORS für alle Domänen.
+- `UseOAuthBearerAuthentication` Methode ermöglicht OAuth token trägerauthentifizierungsmiddleware empfangen und trägertoken, das aus dem Autorisierungsheader in der Anforderung überprüft wird.
+- `Config.SuppressDefaultHostAuthenticaiton` Unterdrückt die standardmäßige authentifizierten Prinzipal aus der app zu hosten, daher alle Anforderungen anonyme nach dem Aufruf.
+- `HostAuthenticationFilter` aktiviert die Authentifizierung nur für den angegebenen Authentifizierungstyp. In diesem Fall ist es Träger-Authentifizierungstyp.
 
 Um die authentifizierte Identität zu veranschaulichen, erstellen wir eine ApiController zum Ausgeben von Ansprüchen des aktuellen Benutzers.
 
@@ -272,7 +272,7 @@ Hier wird der Beispielcode die `HomeController` des Clients.
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`erfordert SSL standardmäßig an. Da der Demo HTTP verwendet wird, müssen Sie fügen folgende Einstellung in der Datei "App.config":
+`DotNetOpenAuth` erfordert SSL standardmäßig an. Da der Demo HTTP verwendet wird, müssen Sie fügen folgende Einstellung in der Datei "App.config":
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

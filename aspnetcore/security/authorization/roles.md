@@ -1,7 +1,7 @@
 ---
-title: Rollenbasierte Autorisierung
+title: Rollenbasierte Autorisierung in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument veranschaulicht, wie ASP.NET Core Controller- und den Zugriff einschränken, indem Sie die Rollen zum Autorisieren Attribut übergeben."
+description: Erfahren Sie, wie ASP.NET Core Controller- und den Zugriff einschränken, indem Sie die Rollen zum Autorisieren Attribut übergeben.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/roles
-ms.openlocfilehash: 764d1fcc384fc8370d1a536f9609333de6bd4357
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7bc7ed35ef0496e855b024f92c915eb85b55511b
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="role-based-authorization"></a>Rollenbasierte Autorisierung
+# <a name="role-based-authorization-in-aspnet-core"></a>Rollenbasierte Autorisierung in ASP.NET Core
 
 <a name="security-authorization-role-based"></a>
 

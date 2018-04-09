@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
 title: 'Storefront ASP.NET-MVC-Teil 19a: Windows Workflow nachverfolgung kommentieren | Microsoft Docs'
 author: robconery
-description: "In dieser Folge ich nachverfolgung kommentieren mit weiteren Informationen zur Verwendung von Windows Workflow, und ich auf einige Feedback, das ich mit Episode 19 empfangen berührt."
+description: In dieser Folge ich nachverfolgung kommentieren mit weiteren Informationen zur Verwendung von Windows Workflow, und ich auf einige Feedback, das ich mit Episode 19 empfangen berührt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
 msc.type: video
-ms.openlocfilehash: d72f4af5ac0a55c43ccd6bfb7741484ee861fa53
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 8b5049e37417573059204f598ac04326c65ee11c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a>Storefront ASP.NET-MVC-Teil 19a: Windows Workflow nachverfolgung kommentieren
 ====================
@@ -24,8 +24,8 @@ durch [stehlen Conery](https://github.com/robconery)
 
 In dieser Folge ich nachverfolgung kommentieren mit weiteren Informationen zur Verwendung von Windows Workflow, und ich auf einige Feedback, das ich mit Episode 19 empfangen berührt.
 
-[&#9654; Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
+[&#9654;Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
 
->[!div class="step-by-step"]
-[Zurück](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
-[Weiter](aspnet-mvc-storefront-part-20-logging.md)
+> [!div class="step-by-step"]
+> [Zurück](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+> [Weiter](aspnet-mvc-storefront-part-20-logging.md)

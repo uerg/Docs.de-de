@@ -2,29 +2,29 @@
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate18
 title: jQuery.Validate Version 1.8 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 68fa43ec-b976-49ca-8e0f-fe317a0e598c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate18
 msc.type: content
-ms.openlocfilehash: d8629d27a0b7d16e039fe40c629d7b46a3389a7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83f3474799e23d5cb2f3b29761c2d4a0077036b9
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
-<a name="jqueryvalidate-version-18"></a>jQuery.Validate Version 1.8
+<a name="jqueryvalidate-version-18"></a>jquery.validate version 1.8
 ====================
 Die folgenden Dateien, die auf das CDN gehostet werden:
 
-- http://AJAX.aspnetcdn.com/AJAX/jQuery.Validate/1.8/jQuery.Validate.js
-- http://AJAX.aspnetcdn.com/AJAX/jQuery.Validate/1.8/jQuery.Validate.Min.js
-- http://AJAX.aspnetcdn.com/AJAX/jQuery.Validate/1.8/jQuery.Validate-vsdoc.js
-- http://AJAX.aspnetcdn.com/AJAX/jQuery.Validate/1.8/Additional-Methods.js
-- http://AJAX.aspnetcdn.com/AJAX/jQuery.Validate/1.8/Additional-Methods.Min.js
-- Lokalisierungsdateien am http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/localization/messages\_## js, in denen ## ist der Code für die Lokalisierung.
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.js
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate-vsdoc.js
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/additional-methods.js
+- https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/additional-methods.min.js
+- Lokalisierung Dateien am https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/localization/messages \_## js, in denen ## ist der Code für die Lokalisierung.

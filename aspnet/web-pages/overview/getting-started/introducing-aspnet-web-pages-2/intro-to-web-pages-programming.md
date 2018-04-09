@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: "Einführung in ASP.NET Web Pages - Programmierung Grundlagen | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - Programmierung Grundlagen | Microsoft Docs
 author: tfitzmac
-description: "Dieses Lernprogramm bietet Ihnen einen Überblick über das Programm in ASP.NET Web Pages mit Razor-Syntax. Lernen Sie: die grundlegende Razor-Syntax, die für Pr verwendet..."
+description: 'Dieses Lernprogramm bietet Ihnen einen Überblick über das Programm in ASP.NET Web Pages mit Razor-Syntax. Lernen Sie: die grundlegende Razor-Syntax, die für Pr verwendet...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/17/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Einführung in ASP.NET Web Pages - Grundlagen der Programmierung
 ====================
@@ -103,7 +103,7 @@ Sie sind nicht auf Variablen, begrenzt jedoch. In einigen Fällen hier das @-Zei
 
 - @(eine\*b) rendert das Produkt der in der Variablen ein, und b. (Die \* Operator bedeutet Multiplikation.)
 - @(Technologie + "" + Produkt) die Werte in den Variablen-Technologie und dem Produkt nach verketten und das Hinzufügen von Leerzeichen in der Zwischenzeit rendert. Der Operator (+) für das Verketten von Zeichenfolgen ist identisch mit dem Operator für das Hinzufügen von Zahlen. ASP.NET in der Regel ist ersichtlich, ob Sie mit Zahlen oder Zeichenfolgen arbeiten und führt die Aufgabe aus rechten mit dem + -Operator.
-- @Request.UrlRendert die Url-Eigenschaft für das Anforderungsobjekt. Das Request-Objekt enthält Informationen zur aktuellen Anforderung aus dem Browser, und natürlich die Url-Eigenschaft enthält die URL der aktuellen Anforderung.
+- @Request.Url Rendert die Url-Eigenschaft für das Anforderungsobjekt. Das Request-Objekt enthält Informationen zur aktuellen Anforderung aus dem Browser, und natürlich die Url-Eigenschaft enthält die URL der aktuellen Anforderung.
 
 Das Beispiel ist auch konzipiert, um anzuzeigen, dass Sie, die Sie können auf unterschiedliche Weise funktionieren. Sie können Berechnungen im Codeblock oben ausführen, fügen Sie die Ergebnisse in eine Variable und klicken Sie dann die Variable in Markup gerendert. Oder Sie können Berechnungen in einem Ausdruck rechts im Markup. Der Ansatz, den Sie verwenden, hängen von was Sie tun und zu einem gewissen Grad auf Ihren eigenen Anforderungen entsprechend.
 
@@ -165,7 +165,7 @@ Hier sind einige Beispiele der Bedingungen, die Sie, in einer If testen können 
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Variablen, die gegen Werten oder Ausdrücken können Sie testen, indem eine *logischer Operator* oder *Vergleichsoperator*: gleich (==), größer als (&gt;), kleiner als (&lt;), größer als oder gleich (&gt;=), und kleiner als oder gleich (&lt;=). Der! =-Operator bedeutet ungleich – z. B. wenn (eine! = 0) bedeutet, dass *Wenn* *eine**ist nicht gleich 0*.
+Variablen, die gegen Werten oder Ausdrücken können Sie testen, indem eine <em>logischer Operator</em> oder <em>Vergleichsoperator</em>: gleich (==), größer als (&gt;), kleiner als (&lt;), größer als oder gleich (&gt;=), und kleiner als oder gleich (&lt;=). Der! =-Operator bedeutet ungleich – z. B. wenn (eine! = 0) bedeutet, dass <em>Wenn</em> <em>eine</em><em>ist nicht gleich 0</em>.
 
 > [!NOTE]
 > Stellen Sie sicher, dass Sie feststellen, dass der Vergleichsoperator für gleich (==) nicht der = identisch ist. Den =-Operator wird nur zum Zuweisen von Werten verwendet (Var eine = 2). Wenn Sie diese Operatoren verwechseln, entweder erhalten Sie einen Fehler, oder Sie unerwartete Ergebnissen erhalten.
@@ -207,7 +207,7 @@ Führen Sie die Seite, und klicken Sie auf **Absenden**. Diesmal sehen Sie nicht
 
 ### <a name="testing-the-value-of-a-query-string"></a>Testen den Wert der Abfragezeichenfolge
 
-Eine weitere Tests. Diesmal, fügen Sie eine If-Block, der testet, einen Wert mit dem Namen anzeigen, die in der Abfragezeichenfolge übergeben werden kann. (Wie folgt: "Http://localhost:43097/TestRazorPart2.cshtml`?show=true`) ändern Sie die Seite, damit die Nachricht Sie angezeigt wurde haben ("This is erstmalig...", usw.) wird nur angezeigt, wenn der Wert des anzeigen auf" true "festgelegt ist.
+Eine weitere Tests. Diesmal, fügen Sie eine If-Block, der testet, einen Wert mit dem Namen anzeigen, die in der Abfragezeichenfolge übergeben werden kann. (Wie folgt: "http://localhost:43097/TestRazorPart2.cshtml`?show=true`) ändern Sie die Seite, damit die Nachricht Sie angezeigt wurde haben ("This is erstmalig...", usw.) wird nur angezeigt, wenn der Wert des anzeigen auf" true "festgelegt ist.
 
 An die untere (jedoch inneren) der Codeblock am oberen Rand der Seite "Folgendes ein:
 
@@ -259,7 +259,7 @@ Für den Fall, dass Sie nicht vollständig genau wissen sind, was Sie gerade get
 
 Führen Sie die Seite. Es gibt keine Meldung auf, da ShowMessage "false" ist, sodass im Markup der if(showMessage)-Test "false" zurückgibt.
 
-Klicken Sie auf **übermitteln**. Daraufhin wird das Datum und Uhrzeit, aber noch keine Nachricht.
+Klicken Sie auf **Senden**. Daraufhin wird das Datum und Uhrzeit, aber noch keine Nachricht.
 
 In Ihrem Browser, wechseln Sie in das Feld URL ein, und fügen Sie Folgendes am Ende der URL:? anzeigen = "true", und drücken Sie dann die EINGABETASTE.
 
@@ -281,7 +281,7 @@ ASP.NET Web Pages verfügt über einige integrierte Hilfsprogramme. Viele Hilfsp
 
 In diesem Teil des Lernprogramms installieren Sie eine Hilfsprogramm, mit dem Sie ein Image a. mit Gravatar ("Global erkannten Avatar") anzeigen können. Sie erfahren, dass zwei Dinge. Eine ist zum Suchen und installieren eine Hilfsmethode. Außerdem erfahren, wie eine Hilfsprogramm ganz einfach eine Aktion auszuführen, die Sie andernfalls benötigen würden mithilfe viel Code für die selbst schreiben.
 
-Registrieren Sie Ihren eigenen a. mit Gravatar an der a. mit Gravatar-Website unter [http://www.gravatar.com/](http://www.gravatar.com/), aber es ist nicht unbedingt ein a. mit Gravatar-Konto zum Ausführen dieser Teil des Lernprogramms zu erstellen.
+Registrieren Sie Ihren eigenen a. mit Gravatar an der a. mit Gravatar-Website unter [ http://www.gravatar.com/ ](http://www.gravatar.com/), aber es ist nicht unbedingt ein a. mit Gravatar-Konto zum Ausführen dieser Teil des Lernprogramms zu erstellen.
 
 Klicken Sie in WebMatrix, auf die **NuGet** Schaltfläche.
 
@@ -309,7 +309,7 @@ Klicken Sie in WebMatrix erstellen Sie eine Seite, und nennen Sie sie *GravatarT
 
 Innerhalb der &lt;Text&gt; Element, Hinzufügen einer &lt;Div&gt; Element. Innerhalb der &lt;Div&gt; Element, geben Sie Folgendes:
 
-@Gravatar.
+@Gravatar
 
 Das @-Zeichen ist das gleiche Zeichen, die Sie zum Kennzeichnen von Razor-Code verwendet haben. **A. mit Gravatar** ist das Hilfsprogramm-Objekt, das mit dem Sie arbeiten.
 
@@ -360,6 +360,6 @@ Nächste Lernprogramm führt Sie zum Arbeiten mit einer Datenbank. In diesem Ler
 - [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Twitter-Hilfsprogramm](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[Zurück](getting-started.md)
-[Weiter](displaying-data.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started.md)
+> [Weiter](displaying-data.md)

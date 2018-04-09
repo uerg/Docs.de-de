@@ -1,7 +1,7 @@
 ---
-title: "Einführung in die Autorisierung"
+title: Einführung in die Autorisierung in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument bietet eine grundlegende Erklärung der Autorisierung und erläutert, wie die Autorisierung auf ASP.NET Core bezieht."
+description: Grundlagen der Autorisierung und zur Funktionsweise von Autorisierung in ASP.NET Core-apps.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: 7ba1966dcaf1ce0510f489cfe0ff11501faffa56
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction"></a>Einführung
+# <a name="introduction-to-authorization-in-aspnet-core"></a>Einführung in die Autorisierung in ASP.NET Core
 
 <a name="security-authorization-introduction"></a>
 
@@ -25,7 +25,7 @@ Autorisierung ist orthogonale und unabhängig von der Authentifizierung, dabei d
 
 ## <a name="authorization-types"></a>Autorisierungstypen
 
-ASP.NET Core Autorisierung bietet ein einfaches, deklaratives [Rolle](roles.md) und eine umfangreiche [richtlinienbasierten](policies.md) Modell. Autorisierung ist in Anforderungen ausgedrückt und Handler auswerten ein Benutzer Ansprüche für Anforderungen. Imperative Überprüfungen können basieren auf einfachen oder Richtlinien für die Bewerten der Benutzeridentität und die Eigenschaften der Ressource, die der Benutzer zugreifen möchte.
+ASP.NET Core Autorisierung bietet ein einfaches, deklaratives [Rolle](xref:security/authorization/roles) und eine umfangreiche [richtlinienbasierten](xref:security/authorization/policies) Modell. Autorisierung ist in Anforderungen ausgedrückt und Handler auswerten ein Benutzer Ansprüche für Anforderungen. Imperative Überprüfungen können basieren auf einfachen oder Richtlinien für die Bewerten der Benutzeridentität und die Eigenschaften der Ressource, die der Benutzer zugreifen möchte.
 
 ## <a name="namespaces"></a>Namespaces
 

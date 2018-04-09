@@ -1,7 +1,7 @@
 ---
-title: Ersetzen von MachineKey in ASP.NET
+title: Ersetzen Sie den ASP.NET MachineKey in ASP.NET Core
 author: rick-anderson
-description: "Erfahren Sie, wie zum Ersetzen von MachineKey in ASP.NET für die Verwendung von neuen und sicherer Datenschutzsystem zulässig."
+description: Erfahren Sie, wie zum Ersetzen von MachineKey in ASP.NET für die Verwendung von neuen und sicherer Datenschutzsystem zulässig.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 8113780dd7b8b3010cf77d14abb45730a2f28959
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 18d14099786929058b17bac2a653eaa1489de7d2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="replace-machinekey-in-aspnet"></a>Ersetzen von MachineKey in ASP.NET
+# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Ersetzen Sie den ASP.NET MachineKey in ASP.NET Core
 
 <a name="compatibility-replacing-machinekey"></a>
 

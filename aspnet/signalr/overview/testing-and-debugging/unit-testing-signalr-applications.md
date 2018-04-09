@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
-title: "Komponententests für SignalR-Anwendungen | Microsoft Docs"
+title: Komponententests für SignalR-Anwendungen | Microsoft Docs
 author: pfletcher
 description: Dieser Artikel beschreibt, wie die Komponententest-Features von SignalR 2.0.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Einheit Testen von SignalR-Anwendungen
 ====================
@@ -72,11 +72,11 @@ In diesem Abschnitt fügen Sie einen Komponententest für die Anwendung in der [
     ![Fügen Sie Projektverweis hinzu](unit-testing-signalr-applications/_static/image3.png)
 6. Hinzufügen der Pakete SignalR Moq und XUnit, um die **TestLibrary** Projekt. In der **Package Manager Console**legen die **Projekt standardmäßig** Dropdownliste zu **TestLibrary**. Führen Sie die folgenden Befehle im Konsolenfenster angezeigt:
 
-    - `Install-Package Microsoft.AspNet.SignalR`
-    - `Install-Package Moq`
-    - `Install-Package XUnit`
+   - `Install-Package Microsoft.AspNet.SignalR`
+   - `Install-Package Moq`
+   - `Install-Package XUnit`
 
-    ![Installieren von Paketen](unit-testing-signalr-applications/_static/image4.png)
+     ![Installieren von Paketen](unit-testing-signalr-applications/_static/image4.png)
 7. Erstellen Sie die Testdatei. Mit der rechten Maustaste die **TestLibrary** Projekt, und klicken Sie auf **hinzufügen...** , **Klasse**. Benennen Sie die neue Klasse **Tests.cs**.
 8. Ersetzen Sie den Inhalt der Tests.cs durch den folgenden Code ein.
 

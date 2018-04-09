@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
-title: "Iteration #3 – Hinzufügen von formularvalidierung (VB) | Microsoft Docs"
+title: 'Iteration #3 – Hinzufügen von formularvalidierung (VB) | Microsoft Docs'
 author: microsoft
-description: "In der dritten Iteration fügen wir grundlegende formularvalidierung hinzu. Es wird verhindert, dass Personen senden eines Formulars ohne erforderlichen Felder des Formulars abzuschließen. Wir überprüfen auch Emai..."
+description: In der dritten Iteration fügen wir grundlegende formularvalidierung hinzu. Es wird verhindert, dass Personen senden eines Formulars ohne erforderlichen Felder des Formulars abzuschließen. Wir überprüfen auch Emai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9ed182fb58addd8c5dadbe6e3d09c391840ca00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e30e247bd31dfb800eea517d195025f9e881cd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-3--add-form-validation-vb"></a>Iteration #3 – Hinzufügen von formularvalidierung (VB)
 ====================
@@ -108,7 +108,7 @@ Nachdem Sie die Validierungsregeln ausgeführt werden, wird die IsValid-Eigensch
 
 > [!NOTE] 
 > 
-> Ich habe die regulären Ausdrücke zur Überprüfung der Telefonnummer und e-Mail-Adresse aus dem Repository regulären Ausdruck zur erhalten [ *http://regexlib.com*](http://regexlib.com)
+> Ich habe erhalten die regulären Ausdrücke zur Überprüfung der Telefonnummer und e-Mail-Adresse aus dem Repository regulären Ausdruck zur [*http://regexlib.com*](http://regexlib.com)
 
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Hinzufügen von Validierungslogik auf die Aktion bearbeiten
@@ -129,6 +129,6 @@ In dieser Iteration haben wir die Validierungslogik für unsere Kontakt-Manager-
 
 In der nächsten Iteration gestalten wir unsere Validierungslogik und Datenbank-Zugriffslogik aus unserem Controller. Es müssen mehrere Software-Entwurfsprinzipien, um es uns zum Erstellen einer Anwendung lose gekoppelten und sind besser verwaltbaren ermöglichen nutzen.
 
->[!div class="step-by-step"]
-[Zurück](iteration-2-make-the-application-look-nice-vb.md)
-[Weiter](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](iteration-2-make-the-application-look-nice-vb.md)
+> [Weiter](iteration-4-make-the-application-loosely-coupled-vb.md)

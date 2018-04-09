@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
-title: "Umbruch Datenbankänderungen innerhalb einer Transaktion (VB) | Microsoft Docs"
+title: Umbruch Datenbankänderungen innerhalb einer Transaktion (VB) | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm ist die erste von vier, die prüft, aktualisieren, löschen und Einfügen von Batches von Daten. In diesem Lernprogramm lernen wir an, wie Datenbanktransaktionen zulassen..."
+description: Dieses Lernprogramm ist die erste von vier, die prüft, aktualisieren, löschen und Einfügen von Batches von Daten. In diesem Lernprogramm lernen wir an, wie Datenbanktransaktionen zulassen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f054445091edbc27263127fb3b7b851776ec617f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2005561755b22f5811d011bd3146853f6cd184af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a>Umbruch Datenbankänderungen innerhalb einer Transaktion (VB)
 ====================
@@ -117,7 +117,7 @@ Das typisierte DataSet `Northwind.xsd` befindet sich der `App_Code` Ordner s `DA
 
 ![Fügen Sie einen Ordner namens TransactionSupport und eine Klassendatei mit dem Namen ProductsTableAdapter.TransactionSupport.vb hinzu](wrapping-database-modifications-within-a-transaction-vb/_static/image4.gif)
 
-**Abbildung 4**: Fügen Sie einen Ordner mit dem Namen `TransactionSupport` und eine Klassendatei mit dem Namen`ProductsTableAdapter.TransactionSupport.vb`
+**Abbildung 4**: Fügen Sie einen Ordner mit dem Namen `TransactionSupport` und eine Klassendatei mit dem Namen `ProductsTableAdapter.TransactionSupport.vb`
 
 
 Geben Sie den folgenden Code in die `ProductsTableAdapter.TransactionSupport.vb` Datei:
@@ -127,7 +127,7 @@ Geben Sie den folgenden Code in die `ProductsTableAdapter.TransactionSupport.vb`
 
 Die `Partial` -Schlüsselwort in der Klassendeklaration hier gibt an, an den Compiler, die innerhalb von hinzugefügten Member hinzugefügt werden, die `ProductsTableAdapter` -Klasse in der `NorthwindTableAdapters` Namespace. Beachten Sie die `Imports System.Data.SqlClient` -Anweisung am Anfang der Datei. Seit der TableAdapter für die Verwendung des SqlClient-Anbieters konfiguriert wurde, er verwendet intern eine [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx) -Objekt, dessen Befehle an die Datenbank ausgeben. Folglich müssen wir verwenden die `SqlTransaction` Klasse, um die Transaktion zu beginnen und dann einen commit oder Rollback für sie. Wenn Sie einen anderen Datenspeicher als Microsoft SQL Server verwenden, müssen Sie den entsprechenden Anbieter verwenden.
 
-Diese Methoden geben Sie die Bausteine, die erforderlich sind, Rollback- und commit einer Transaktion. Markiert sind `Public`, aktivieren sie innerhalb von verwendet werden die `ProductsTableAdapter`, von einer anderen Klasse in der DAL oder aus einer anderen Ebene in der Architektur, z. B. die BLL. `BeginTransaction`Öffnet die internen TableAdapter `SqlConnection` (falls erforderlich), startet die Transaktion und weist sie der `Transaction` -Eigenschaft, und fügt die Transaktion an den internen `SqlDataAdapter` s `SqlCommand` Objekte. `CommitTransaction`und `RollbackTransaction` rufen die `Transaction` s-Objekt `Commit` und `Rollback` Methoden, bzw. vor dem Schließen der internen `Connection` Objekt.
+Diese Methoden geben Sie die Bausteine, die erforderlich sind, Rollback- und commit einer Transaktion. Markiert sind `Public`, aktivieren sie innerhalb von verwendet werden die `ProductsTableAdapter`, von einer anderen Klasse in der DAL oder aus einer anderen Ebene in der Architektur, z. B. die BLL. `BeginTransaction` Öffnet die internen TableAdapter `SqlConnection` (falls erforderlich), startet die Transaktion und weist sie der `Transaction` -Eigenschaft, und fügt die Transaktion an den internen `SqlDataAdapter` s `SqlCommand` Objekte. `CommitTransaction` und `RollbackTransaction` rufen die `Transaction` s-Objekt `Commit` und `Rollback` Methoden, bzw. vor dem Schließen der internen `Connection` Objekt.
 
 ## <a name="step-3-adding-methods-to-update-and-delete-data-under-the-umbrella-of-a-transaction"></a>Schritt 3: Hinzufügen von Methoden zum Aktualisieren und Löschen von Daten des Wirkungsfelds einer Transaktion
 
@@ -247,18 +247,18 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 - [Wahrung der Datenbankkonsistenz mit Transaktionen](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)
 - [Verwalten von Transaktionen in SQLServer gespeicherte Prozeduren](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
-- [Transaktionen, die leicht gemacht werden:`System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
+- [Transaktionen, die leicht gemacht werden: `System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
 - ["TransactionScope" und "DataAdapters"](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [Mithilfe von Oracle Database Transactions in .NET](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Dave Gardner Hilton Giesenow und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](batch-inserting-cs.md)
-[Weiter](batch-updating-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](batch-inserting-cs.md)
+> [Weiter](batch-updating-vb.md)

@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core-Verzeichnisstruktur
 author: guardrex
-description: "Finden Sie die Verzeichnisstruktur veröffentlichter ASP.NET Core-Anwendungen."
+description: Finden Sie die Verzeichnisstruktur veröffentlichter ASP.NET Core-Anwendungen.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,23 +10,25 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 55e1e0dac32609446243098dbb4a4373f06b4212
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2a6ee4fefcc6d23b1c893a40b7b1be9edfcf9732
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="directory-structure-of-published-aspnet-core-apps"></a>Verzeichnisstruktur der veröffentlichten ASP.NET Core-apps
+# <a name="aspnet-core-directory-structure"></a>ASP.NET Core-Verzeichnisstruktur
 
 Von [Luke Latham](https://github.com/guardrex)
 
 In ASP.NET Core, das Anwendungsverzeichnis *veröffentlichen*, Anwendungsdateien, Konfigurationsdateien, statische Bestand, Pakete und die Common Language Runtime (für eigenständige apps) besteht.
 
-| App-Typ                       | Verzeichnisstruktur |
-| ------------------------------ | ------------------- |
+
+|            App-Typ            |                                                                                                                                                                                                                                                     Verzeichnisstruktur                                                                                                                                                                                                                                                      |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Framework-abhängige-Bereitstellung | <ul><li>Veröffentlichen\*<ul><li>Protokolle\* (falls in PublishOptions eingeschlossen)</li><li>refs\*</li><li>Laufzeiten\*</li><li>Sichten\* (falls in PublishOptions eingeschlossen)</li><li>"Wwwroot"\* (falls in PublishOptions eingeschlossen)</li><li>DLL-Datei</li><li>myapp.deps.json</li><li>myapp.dll</li><li>myapp.pdb</li><li>"MyApp". PrecompiledViews.dll (wenn es sich um eine Razor-Ansichten Vorkompilieren von)</li><li>myapp.PrecompiledViews.pdb (if precompiling Razor Views)</li><li>myapp.runtimeconfig.json</li><li>"Web.config" (falls in PublishOptions eingeschlossen)</li></ul></li></ul> |
-| Eigenständige Bereitstellung      | <ul><li>Veröffentlichen\*<ul><li>Protokolle\* (falls in PublishOptions eingeschlossen)</li><li>refs\*</li><li>Sichten\* (falls in PublishOptions eingeschlossen)</li><li>"Wwwroot"\* (falls in PublishOptions eingeschlossen)</li><li>DLL-Datei</li><li>myapp.deps.json</li><li>myapp.exe</li><li>myapp.pdb</li><li>"MyApp". PrecompiledViews.dll (wenn es sich um eine Razor-Ansichten Vorkompilieren von)</li><li>myapp.PrecompiledViews.pdb (if precompiling Razor Views)</li><li>myapp.runtimeconfig.json</li><li>"Web.config" (falls in PublishOptions eingeschlossen)</li></ul></li></ul> |
-\*Gibt ein Verzeichnis an
+|   Eigenständige Bereitstellung    |          <ul><li>Veröffentlichen\*<ul><li>Protokolle\* (falls in PublishOptions eingeschlossen)</li><li>refs\*</li><li>Sichten\* (falls in PublishOptions eingeschlossen)</li><li>"Wwwroot"\* (falls in PublishOptions eingeschlossen)</li><li>DLL-Datei</li><li>myapp.deps.json</li><li>myapp.exe</li><li>myapp.pdb</li><li>"MyApp". PrecompiledViews.dll (wenn es sich um eine Razor-Ansichten Vorkompilieren von)</li><li>myapp.PrecompiledViews.pdb (if precompiling Razor Views)</li><li>myapp.runtimeconfig.json</li><li>"Web.config" (falls in PublishOptions eingeschlossen)</li></ul></li></ul>           |
+
+\* Gibt ein Verzeichnis an
 
 Den Inhalt der *veröffentlichen* Verzeichnis darstellt der *Content Stammpfad*auch Namens der *Anwendungsbasispfads*, der Bereitstellung. Auf einen beliebigen Namen gewährt wird die *veröffentlichen* Verzeichnis in der Bereitstellung am Speicherort mit dem physischen Pfad des Servers für die gehostete Anwendung dient. Die *"Wwwroot"* Verzeichnis, falls vorhanden, enthält nur statische Objekte. Die *Protokolle* Verzeichnis in der Bereitstellung enthalten sein kann, indem es in das Projekt erstellen und Hinzufügen der `<Target>` folgenden Element Ihre *csproj* Datei oder beim Erstellen des Verzeichnisses physisch auf den Server.
 

@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 title: Die webbereitstellung im Unternehmen | Microsoft Docs
 author: jrjlee
-description: "In diesem Lernprogramm beschreibt, wie viele der Herausforderungen erfüllen, die Sie beim Verwalten der Bereitstellung von Enterprise-Skalierung von Webanwendungen auf entwickl auftreten werden..."
+description: In diesem Lernprogramm beschreibt, wie viele der Herausforderungen erfüllen, die Sie beim Verwalten der Bereitstellung von Enterprise-Skalierung von Webanwendungen auf entwickl auftreten werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: fc463cb689f4f63a12788b80958c9fc8fe20119d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Webbereitstellung im Unternehmen
 ====================
@@ -66,7 +66,7 @@ Dieses Lernprogramm zusammen mit den anderen Lernprogrammen in dieser Serie verw
 
 Dieses Lernprogramm enthält Themen, die in vier Hauptbereiche fallen.
 
-Diese Themen stellen Sie vor der referenzlösung & #x 2014; die Kontakt-Manager-Lösung & #x 2014; und beschrieben, wie die Software hier herunterladen und auf dem lokalen Computer zu konfigurieren:
+Diese Themen dienen als Einführung referenzlösung&#x2014;die Projektmappe Contact Manager&#x2014;und beschrieben, wie die Software hier herunterladen und auf dem lokalen Computer zu konfigurieren:
 
 - [Contact Manager-Lösung](the-contact-manager-solution.md)
 - [Einrichten der Contact Manager-Lösung](setting-up-the-contact-manager-solution.md)
@@ -104,5 +104,5 @@ Dies bildet einen Teil einer Reihe von fünf Lernprogramme auf Unternehmensebene
 - [Konfigurieren von Team Foundation Server für die Bereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie zum Konfigurieren von TFS, sodass unterstützen verschiedene Bereitstellungsszenarien, einschließlich automatisierter Bereitstellung im Rahmen des CI-Prozess und Bereitstellungen von bestimmte Builds manuell ausgelöst wird.
 - [Erweiterte Web Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie verschiedene erweiterte Bereitstellung, wie Datenbank-Bereitstellungen für mehrere Umgebungen anpassen, Ausschließen von Dateien und Ordner von der Bereitstellung und offline-Webanwendungen, die während des Bereitstellungsvorgangs Aufgaben .
 
->[!div class="step-by-step"]
-[Nächste](the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Nächste](the-contact-manager-solution.md)

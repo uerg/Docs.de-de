@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
-title: "Multi-Targeting-Unterstützung in Visual Studio 2008 | Microsoft Docs"
+title: Multi-Targeting-Unterstützung in Visual Studio 2008 | Microsoft Docs
 author: JoeStagner
-description: "Ich wird die MultiTarget-Funktion von Visual Studio 2008 veranschaulicht. In der Vergangenheit mussten Sie die Version von Visual Studio entsprechend dem Ziel .NET Versi auswählen..."
+description: Ich wird die MultiTarget-Funktion von Visual Studio 2008 veranschaulicht. In der Vergangenheit mussten Sie die Version von Visual Studio entsprechend dem Ziel .NET Versi auswählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: adca6be8a9e789cbbf05f7721d1707cc4681d836
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1e16946761939876ff95bf92e483ca1b43e3a10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="multi-targeting-support-in-visual-studio-2008"></a>Multi-Targeting-Unterstützung in Visual Studio 2008
 ====================
@@ -24,8 +24,8 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 Ich wird die MultiTarget-Funktion von Visual Studio 2008 veranschaulicht. In der Vergangenheit mussten Sie die Version von Visual Studio entsprechend die Zielversion von .NET auswählen. .NET 2.5 z. B. Visual Studio 2005 gearbeitet. Mit Visual Studio 2008 können Sie nun die Version von .NET für Ihre Anwendung geeignete auswählen.
 
-[&#9654; Sehen Sie sich an (5 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
+[&#9654;Sehen Sie sich an (5 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
 
->[!div class="step-by-step"]
-[Zurück](javascript-debugging-in-visual-studio-2008.md)
-[Weiter](intellisense-for-jscript-and-aspnet-ajax.md)
+> [!div class="step-by-step"]
+> [Zurück](javascript-debugging-in-visual-studio-2008.md)
+> [Weiter](intellisense-for-jscript-and-aspnet-ajax.md)

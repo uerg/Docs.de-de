@@ -1,5 +1,5 @@
 ---
-title: Arbeiten mit einem verteilten Cache in ASP.NET Core
+title: Arbeiten Sie mit einem verteilten Cache in ASP.NET Core
 author: ardalis
 description: Erfahren Sie, wie ASP.NET Core verteilte caching zur Verbesserung der app-Leistung und Skalierbarkeit, insbesondere in einer Cloud oder Server-Umgebung verwenden.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Arbeiten mit einem verteilten Cache in ASP.NET Core
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Arbeiten Sie mit einem verteilten Cache in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Verteilte Caches können die Leistung und Skalierbarkeit von ASP.NET Core-apps v
 
 ## <a name="what-is-a-distributed-cache"></a>Was ist ein verteilter Cache
 
-Ein verteilter Cache wird von mehreren app-Servern gemeinsam genutzt (finden Sie unter [Zwischenspeichern Grundlagen](memory.md#caching-basics)). Die Informationen im Cache befindet sich nicht im Speicher der einzelnen Webserver gespeichert, und die zwischengespeicherten Daten für alle von der app-Servern verfügbar ist. Dies bietet mehrere Vorteile:
+Ein verteilter Cache wird von mehreren app-Servern gemeinsam genutzt (finden Sie unter [Cache Grundlagen](memory.md#caching-basics)). Die Informationen im Cache befindet sich nicht im Speicher der einzelnen Webserver gespeichert, und die zwischengespeicherten Daten für alle von der app-Servern verfügbar ist. Dies bietet mehrere Vorteile:
 
 1. Zwischengespeicherte Daten sind auf allen Webservern kohärente. Benutzer nicht unterschiedliche Ergebnisse angezeigt, je nachdem welche, die Web Server seine Anforderung behandelt
 
@@ -95,7 +95,7 @@ Im Beispielcode wird ein `RedisCache` Implementierung wird verwendet, wenn die S
 [!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> Um Redis auf dem lokalen Computer zu installieren, installieren Sie das Paket chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) und führen Sie `redis-server` über eine Eingabeaufforderung.
+> Um Redis auf dem lokalen Computer zu installieren, installieren Sie das Paket chocolatey [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) und führen Sie `redis-server` über eine Eingabeaufforderung.
 
 ## <a name="using-a-sql-server-distributed-cache"></a>Mithilfe eines SQL Server verteilte Caches
 
@@ -138,7 +138,7 @@ Wenn Sie entscheiden, welche Implementierung der `IDistributedCache` Recht für 
 
 * [Redis-Cache für Azure](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [SQL­Datenbank in Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [In-Memory-Cache](xref:performance/caching/memory)
 * [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)

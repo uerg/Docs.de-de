@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 title: Bereitstellen von Webpaketen | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie Sie Web-Bereitstellungspakete mit einem Remoteserver veröffentlichen können, mit dem Internet Information Services (IIS)-Webbereitstellungstool (Web..."
+description: In diesem Thema wird beschrieben, wie Sie Web-Bereitstellungspakete mit einem Remoteserver veröffentlichen können, mit dem Internet Information Services (IIS)-Webbereitstellungstool (Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-packages"></a>Bereitstellen von Webpaketen
 ====================
@@ -43,10 +43,10 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 Ausführen der [*Projektname*]*. deploy.cmd* Datei ist die einfachste Möglichkeit zum Bereitstellen eines Webpakets. Insbesondere das Verwenden der *. deploy.cmd* Datei bietet folgende Vorteile gegenüber MSDeploy.exe direkt:
 
-- Sie müssen den Speicherort des Webbereitstellungspaket & #x 2014; angeben der *. deploy.cmd* Datei bereits bekannt ist.
-- Sie müssen den Speicherort der an die *SetParameters.xml* Datei & #x 2014; die *. deploy.cmd* Datei bereits bekannt, wo es ist.
-- Sie müssen nicht angeben von Quelle und Ziel MSDeploy-Anbieter & #x 2014; die *. deploy.cmd* Datei bereits weiß, welche Werte verwendet.
-- Sie müssen nicht angeben von MSDeploy Vorgang Einstellungen & #x 2014; die *. deploy.cmd* Datei fügt die häufigsten erforderlichen Werte automatisch an den MSDeploy.exe-Befehl.
+- Sie müssen nicht angeben des Speicherorts der Webbereitstellungspaket&#x2014;der *. deploy.cmd* Datei bereits bekannt, wo sie ist.
+- Sie müssen den Speicherort der an die *SetParameters.xml* Datei&#x2014;der *. deploy.cmd* Datei bereits bekannt, wo es ist.
+- Sie müssen nicht angeben von Quell- und Zielschemas MSDeploy-Anbieter&#x2014;der *. deploy.cmd* Datei bereits weiß, welche Werte verwendet.
+- Sie müssen nicht MSDeploy Vorgang Einstellungen angeben&#x2014;der *. deploy.cmd* Datei fügt die häufigsten erforderlichen Werte automatisch an den MSDeploy.exe-Befehl.
 
 Vor der Verwendung der *. deploy.cmd* Datei zum Bereitstellen eines Webpakets sollten Sie sicherstellen, dass:
 
@@ -92,7 +92,7 @@ Angenommen, Sie möchten das Webanwendungsprojekt ContactManager.Mvc in einer te
 In diesem Beispiel:
 
 - Die **/y** Flag gibt an, dass das Paket tatsächlich bereitgestellt werden soll, anstatt auf diese Weise einer Testversion ausführen.
-- Die **/m** Flag gibt an, dass Sie das Paket auf dem Server mit dem Namen TESTWEB1 bereitstellen möchten. Dieser Wert wird MSDeploy.exe versucht, das Paket an den Webserver Bereitstellen von Remote-Agent-Dienst unter http://TESTWEB1/MSDeployAgentService bereitgestellt.
+- Die **/m** Flag gibt an, dass Sie das Paket auf dem Server mit dem Namen TESTWEB1 bereitstellen möchten. Dieser Wert wird MSDeploy.exe zur Bereitstellung des Pakets an den Dienst Web Deploy Remote-Agents versucht http://TESTWEB1/MSDeployAgentService.
 - Die **/a** Flag gibt an, dass NTLM-Authentifizierung verwendet werden soll. Daher müssen Sie einen Benutzernamen und ein Kennwort angeben.
 
 Zur Veranschaulichung Verwendung der *. deploy.cmd* Datei vereinfacht die Bereitstellung, sehen Sie sich den MSDeploy.exe-Befehl, die generiert und ausgeführt, wenn Sie ausführen, ruft *ContactManager.Mvc.deploy.cmd* verwenden die oben angezeigten Optionen.
@@ -117,7 +117,7 @@ Wenn Sie auf "MSDeploy.exe" verwenden, müssen Sie drei wichtige Arten von Infor
 - Ein **– Dest** Parameter, der angibt, wo die Daten an.
 - Ein **– Verb** Parameter, der angibt der [Vorgang](https://technet.microsoft.com/library/dd568989(WS.10).aspx) Sie ausführen möchten.
 
-Verwendet MSDeploy.exe [Web Deploy-Anbieter](https://technet.microsoft.com/library/dd569040(WS.10).aspx) Quell- und Zielserver um Daten zu verarbeiten. Web Deploy umfasst zahlreiche von Anbietern, die den Bereich von Anwendungen und Datenquellen, funktioniert er mit & #x 2014 darstellen; es gibt z. B.-Anbieter für SQL Server-Datenbanken, IIS-Webservern, Zertifikate, global Assembly Cache (GAC)-Assemblys, verschiedene verschiedene Konfigurationsdateien und viele andere Typen von Daten. Sowohl die **– Quelle** Parameter und die **– Dest** Parameter muss einen Anbieter angeben, in der Form **– Quelle**: [*ProviderName*] = [*Speicherort*]. Wenn Sie eine Web-Paket auf einer IIS-Website bereitstellen, sollten Sie diese Werte verwenden:
+Verwendet MSDeploy.exe [Web Deploy-Anbieter](https://technet.microsoft.com/library/dd569040(WS.10).aspx) Quell- und Zielserver um Daten zu verarbeiten. Web Deploy umfasst zahlreiche von Anbietern, die den Bereich der Anwendungen und Datenquellen darstellen, funktioniert er mit&#x2014;z. B.-Anbieter für SQL Server-Datenbanken, IIS-Webservern, Zertifikate, global Assembly Cache (GAC)-Assemblys, es gibt verschiedene verschiedene Konfigurationsdateien und viele andere Typen von Daten. Sowohl die **– Quelle** Parameter und die **– Dest** Parameter muss einen Anbieter angeben, in der Form **– Quelle**: [*ProviderName*] = [*Speicherort*]. Wenn Sie eine Web-Paket auf einer IIS-Website bereitstellen, sollten Sie diese Werte verwenden:
 
 - Die **– Quelle** Anbieter befindet sich immer [Paket](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Zum Beispiel:
 
@@ -213,6 +213,6 @@ In diesem Thema beschrieben, wie Sie eine Web-Paket entweder durch Ausführen vo
 
 Anleitungen zum Erstellen und ein Webbereitstellungspaket parametrisieren finden Sie unter [erstellen und Packen Webanwendungsprojekte](building-and-packaging-web-application-projects.md) und [Konfigurieren von Parametern für die Bereitstellung von Paketen](configuring-parameters-for-web-package-deployment.md). Anleitungen zum Erstellen und Bereitstellen von Webpaketen aus einer Instanz von Team Foundation Server (TFS) finden Sie unter [Konfigurieren von Team Foundation Server für die automatisierte Bereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Informationen zum Anpassen und Problembehandlung für den Bereitstellungsprozess finden Sie unter [Ausschließen von Dateien und Ordnern über Bereitstellung](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
 
->[!div class="step-by-step"]
-[Zurück](configuring-parameters-for-web-package-deployment.md)
-[Weiter](deploying-database-projects.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-parameters-for-web-package-deployment.md)
+> [Weiter](deploying-database-projects.md)

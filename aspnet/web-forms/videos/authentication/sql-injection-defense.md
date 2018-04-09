@@ -2,7 +2,7 @@
 uid: web-forms/videos/authentication/sql-injection-defense
 title: SQL Injection Defense | Microsoft Docs
 author: JoeStagner
-description: "Eine Schwachstelle SQL Injection in Ihrer Anwendung kann den ganzen Tag beschädigen. In diesem Video erläutert Microsofts Joe Stagner wie SQL Injection-Angriffen Happ können..."
+description: Eine Schwachstelle SQL Injection in Ihrer Anwendung kann den ganzen Tag beschädigen. In diesem Video erläutert Microsofts Joe Stagner wie SQL Injection-Angriffen Happ können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/29/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/sql-injection-defense
 msc.type: video
-ms.openlocfilehash: db667d57b1cc3e2e5c78d93fe1dcee37dc5f0f1e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9b22721032a12f0a566c3837b80ef4f4fbb41960
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sql-injection-defense"></a>SQL-Injection-Schutz
 ====================
@@ -24,7 +24,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 Eine Schwachstelle SQL Injection in Ihrer Anwendung kann den ganzen Tag beschädigen. In diesem Video erläutert Microsofts Joe Stagner wie SQL Injection-Angriffen auftreten können, wie ein Angreifer sie verwenden kann und wie Sie Ihrer ASP.NET-Anwendung vor SQL Injection-Anfälligkeiten zu schützen.
 
-[&#9654; Sehen Sie sich an (25 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
+[&#9654;Sehen Sie sich an (25 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
 
->[!div class="step-by-step"]
-[Vorherige](creating-inactive-users.md)
+> [!div class="step-by-step"]
+> [Vorherige](creating-inactive-users.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
-title: "MVC Database First-Site in Azure veröffentlichen | Microsoft Docs"
+title: MVC Database First-Site in Azure veröffentlichen | Microsoft Docs
 author: tfitzmac
-description: "MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri..."
+description: MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Veröffentlichen Sie MVC Database First-Site in Azure.
 ====================
@@ -166,5 +166,5 @@ Einführende beispielsweise der Code First-Entwicklung finden Sie unter [erste S
 
 Ein komplexeres Beispiel finden Sie unter [Erstellen eines Entity Framework-Datenmodells für eine ASP.NET MVC 4-App](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Beachten Sie, dass der DbContext-API, mit denen Sie für die Arbeit mit Daten in Database First identisch mit der API Sie zum Arbeiten mit Daten in Code First verwenden. Selbst wenn Sie Database First verwenden möchten, können Sie erfahren, wie komplexere Szenarien, z. B. Lesen und Aktualisieren von verknüpften Daten zu behandeln Parallelitätskonflikte usw. aus einem Code First-Lernprogramm. Der einzige Unterschied besteht in der Datenbank, der Context-Klasse und der Entitätsklassen wie erstellt werden.
 
->[!div class="step-by-step"]
-[Vorherige](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Vorherige](enhancing-data-validation.md)

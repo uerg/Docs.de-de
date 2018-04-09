@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 title: Zwischenspeichern von Daten beim Start der Anwendung (VB) | Microsoft Docs
 author: rick-anderson
-description: "In einer beliebigen Webanwendung einige Daten häufig verwendet werden, und einige Daten nur selten verwendet werden. Wir können unsere ASP.NET Anwendung b leistungsverbesserung..."
+description: In einer beliebigen Webanwendung einige Daten häufig verwendet werden, und einige Daten nur selten verwendet werden. Wir können unsere ASP.NET Anwendung b leistungsverbesserung...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b84b797bf0c9670ac65a5384b6d95d5df3827eb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8f322dae89480fc7ed5586d7f8eeb4c67d7839f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-at-application-startup-vb"></a>Zwischenspeichern von Daten beim Start der Anwendung (VB)
 ====================
@@ -129,11 +129,11 @@ Hinzufügen der `Global.asax` Datei in Ihrer Web-Anwendung s Root-Verzeichnis au
 
 Die Standardeinstellung `Global.asax` Vorlage enthält fünf Methoden in einer serverseitigen `<script>` Tag:
 
-- **`Application_Start`**Führt beim Starten der Webanwendung
-- **`Application_End`**wird ausgeführt, wenn die Anwendung heruntergefahren wird
-- **`Application_Error`**wird immer ausgeführt, wenn eine nicht behandelte Ausnahme die Anwendung erreicht.
-- **`Session_Start`**wird ausgeführt, wenn eine neue Sitzung erstellt wird
-- **`Session_End`**wird ausgeführt, wenn eine Sitzung abgelaufen ist oder abgebrochen wird
+- **`Application_Start`** Führt beim Starten der Webanwendung
+- **`Application_End`** wird ausgeführt, wenn die Anwendung heruntergefahren wird
+- **`Application_Error`** wird immer ausgeführt, wenn eine nicht behandelte Ausnahme die Anwendung erreicht.
+- **`Session_Start`** wird ausgeführt, wenn eine neue Sitzung erstellt wird
+- **`Session_End`** wird ausgeführt, wenn eine Sitzung abgelaufen ist oder abgebrochen wird
 
 Die `Application_Start` Ereignishandler wird nur einmal während des Lebenszyklus einer Anwendung s aufgerufen. Starten der Anwendung zum erste Mal eine ASP.NET-Ressource aus der Anwendung angefordert wird und weiterhin ausgeführt, bis die Anwendung neu gestartet wird, dies geschehen kann, durch Ändern des Inhalts der `/Bin` Ordner ändern `Global.asax`, Ändern der den Inhalt der `App_Code` Ordner, oder ändern Sie die `Web.config` -Datei zwischen hat andere Ursachen. Verweisen auf [Übersicht über ASP.NET den Lebenszyklus](https://msdn.microsoft.com/library/ms178473.aspx) für eine ausführlichere Erläuterung im Lebenszyklus Anwendung.
 
@@ -194,12 +194,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Teresa Murphy und Zack Jones. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](caching-data-in-the-architecture-vb.md)
-[Weiter](using-sql-cache-dependencies-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](caching-data-in-the-architecture-vb.md)
+> [Weiter](using-sql-cache-dependencies-vb.md)

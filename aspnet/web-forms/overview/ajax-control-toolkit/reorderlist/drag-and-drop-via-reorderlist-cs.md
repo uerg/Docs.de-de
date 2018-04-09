@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
-title: "Drag & Drop über ReorderList (c#) | Microsoft Docs"
+title: Drag & Drop über ReorderList (c#) | Microsoft Docs
 author: wenz
 description: Das Steuerelement ReorderList im AJAX-Steuerelement-Toolkit bietet eine Liste, die vom Benutzer per Drag & Drop neu angeordnet werden kann. Die aktuelle Bestellung in der Liste wird...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6afecfc7330647e6f4944c507e308afec6d2401b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42464d10f119e0ba51d5eebf2a67e76e3e419bda
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a>Drag & Drop über ReorderList (c#)
 ====================
@@ -35,16 +35,16 @@ Die `ReorderList` Steuerelement im AJAX-Steuerelement-Toolkit enthält eine List
 
 Die `ReorderList` Steuerelement unterstützt Binden von Daten aus einer Datenbank in der Liste. Beste daran ist, wird auch das Schreiben von Änderungen Sequenznummern das Listenelement zurück an den Datenspeicher unterstützt.
 
-Dieses Beispiel verwendet Microsoft SQL Server 2005 Express Edition als Datenspeicher. Die Datenbank ist ein optional (und kostenlosen) Teil einer Installation von Visual Studio, einschließlich der express Edition. Es ist auch verfügbar als separater Download unter [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). In diesem Beispiel gehen wir davon aus, dass die Instanz von SQL Server 2005 Express Edition aufgerufen wird `SQLEXPRESS` und befindet sich auf dem gleichen Computer wie der Webserver; Dies ist auch die Standardeinstellungen. Wenn Ihr Setup abweicht, müssen Sie passen Sie die Verbindungsinformationen für die Datenbank.
+Dieses Beispiel verwendet Microsoft SQL Server 2005 Express Edition als Datenspeicher. Die Datenbank ist ein optional (und kostenlosen) Teil einer Installation von Visual Studio, einschließlich der express Edition. Es ist auch verfügbar als separater Download unter [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). In diesem Beispiel gehen wir davon aus, dass die Instanz von SQL Server 2005 Express Edition aufgerufen wird `SQLEXPRESS` und befindet sich auf dem gleichen Computer wie der Webserver; Dies ist auch die Standardeinstellungen. Wenn Ihr Setup abweicht, müssen Sie passen Sie die Verbindungsinformationen für die Datenbank.
 
 Die einfachste Möglichkeit zum Einrichten der Datenbank ist die Verwendung der Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = En](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) ). Herstellen einer Verbindung mit dem Server, doppelklicken Sie auf `Databases` und eine neue Datenbank erstellen (mit der rechten Maustaste, und wählen Sie `New Database`) aufgerufen `Tutorials`.
 
 Erstellen Sie in dieser Datenbank eine neue Tabelle namens `AJAX` mit den folgenden vier Spalten:
 
-- `id`(primary Key, Integer, Identität, not NULL)
-- `char`(char(1), NULL)
-- `description`(varchar(50)-Spalte, NULL)
-- `position`(Int, NULL)
+- `id` (primary Key, Integer, Identität, not NULL)
+- `char` (char(1), NULL)
+- `description` (varchar(50)-Spalte, NULL)
+- `position` (int, NULL)
 
 
 [![Das Layout der AJAX-Tabelle](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
@@ -90,6 +90,6 @@ Führen Sie in diesem Beispiel wird im Browser, und ordnen Sie die Listenelement
 
 Das Datenelement in der Datenbank geändert wird, gemäß der neuen Liste Reihenfolge ([klicken Sie hier, um das Bild in voller Größe angezeigt](drag-and-drop-via-reorderlist-cs/_static/image9.png))
 
->[!div class="step-by-step"]
-[Zurück](using-postbacks-with-reorderlist-cs.md)
-[Weiter](using-postbacks-with-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](using-postbacks-with-reorderlist-cs.md)
+> [Weiter](using-postbacks-with-reorderlist-vb.md)

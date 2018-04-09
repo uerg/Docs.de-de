@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Erstellen einer MVC 3-Anwendung mit Razor und Unaufdringlichem JavaScript
 ====================
@@ -54,7 +54,7 @@ In diesem Lernprogramm werden Sie nicht den ASP.NET-Mitgliedschaftsanbieter verw
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Bearbeiten der  *\_Layout.cshtml* -Datei und Ersetzen Sie das Markup der `<div>` Element mit dem Namen `logindisplay` mit der Meldung  *&quot;* Anmeldung deaktiviert&quot;. Das folgende Beispiel zeigt das neue Markup:
+Bearbeiten der  <em>\_Layout.cshtml</em> -Datei und Ersetzen Sie das Markup der `<div>` Element mit dem Namen `logindisplay` mit der Meldung <em>&quot;</em>Anmeldung deaktiviert&quot;. Das folgende Beispiel zeigt das neue Markup:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -122,7 +122,7 @@ Fügen Sie die folgenden `Details` Methode, um den home-Controller:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-Mit der rechten Maustaste innerhalb der `Details` -Methode, und wählen Sie dann **Ansicht hinzufügen**. Überprüfen Sie, ob die **Datenklasse anzeigen** enthält **Mvc3Razor.Models.UserModel***.* Legen Sie **Inhalt anzeigen** auf **Details** , und klicken Sie dann auf **hinzufügen**.
+Mit der rechten Maustaste innerhalb der `Details` -Methode, und wählen Sie dann <strong>Ansicht hinzufügen</strong>. Überprüfen Sie, ob die <strong>Datenklasse anzeigen</strong> enthält <strong>Mvc3Razor.Models.UserModel</strong><em>.</em> Legen Sie <strong>Inhalt anzeigen</strong> auf <strong>Details</strong> , und klicken Sie dann auf <strong>hinzufügen</strong>.
 
 ![Hinzufügen der Detailansicht](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 

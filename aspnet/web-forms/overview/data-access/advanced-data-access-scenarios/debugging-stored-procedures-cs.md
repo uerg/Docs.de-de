@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 title: Debuggen von gespeicherten Prozeduren (c#) | Microsoft Docs
 author: rick-anderson
-description: "Editionen von Visual Studio Professional und Team System ermöglichen es Ihnen, Haltepunkte setzen und Schritt gespeicherten Prozeduren in SQL Server, wodurch das Debuggen von gespeicherten..."
+description: Editionen von Visual Studio Professional und Team System ermöglichen es Ihnen, Haltepunkte setzen und Schritt gespeicherten Prozeduren in SQL Server, wodurch das Debuggen von gespeicherten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c5f797691a6920c65db7e3906aa5fd3b348b54b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 52bb409798dae550c664b78521f0fb4793464833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="debugging-stored-procedures-c"></a>Debuggen von gespeicherten Prozeduren (c#)
 ====================
@@ -167,7 +167,7 @@ Der erste Schritt ist relativ unkompliziert. Zunächst Identifizieren des Benutz
 
 Die zweite Aufgabe erfordert, dass die Windows-Benutzerkonto, mit dem Debuggen der Anwendung, eine gültige Anmeldung auf die Remotedatenbank. Allerdings sind die Chancen, dass die Windows-Konto, das auf Ihre Arbeitsstation mit dem Sie angemeldet, auf, eine gültige Anmeldung auf SQL Server ist. Statt SQL Server die bestimmten Anmeldekonto hinzugefügt, wäre eine bessere Wahl, einige Windows-Benutzerkonto als das debugging SQL Server-Dienstkonto festlegen. Um die Datenbankobjekte von einer SQL Server-Remoteinstanz zu debuggen, würden Sie dann Visual Studio unter Verwendung dieser Windows-Konto s Anmeldeinformationen ausführen.
 
-Ein Beispiel sollte Dinge verdeutlichen. Angenommen, es ein Windows-Konto mit dem Namen ist `SQLDebug` innerhalb der Windows-Domäne. Dieses Konto auf die SQL Server-Remoteinstanz als eine gültige Anmeldung und als Mitglied hinzugefügt werden müssten die `sysadmin` Rolle. Klicken Sie dann müssten wir um remote SQL Server-Instanz von Visual Studio zu debuggen, Ausführen von Visual Studio als die `SQLDebug` Benutzer. Dies könnte durch Protokollierung aus unserem Arbeitsstation wieder anmelden, als `SQLDebug`, und starten Sie dann Visual Studio, jedoch ein einfacherer Ansatz wäre, sich unsere Arbeitsstation mit eigenen Anmeldeinformationen anmelden, und verwenden Sie dann `runas.exe` zum Starten von Visual Studio als die `SQLDebug` Benutzer. `runas.exe`ermöglicht es eine bestimmte Anwendung unter dem Deckmantel von einem anderen Benutzerkonto ausgeführt werden. Zum Starten von Visual Studio als `SQLDebug`, könnten Sie die folgende Anweisung in der Befehlszeile eingeben:
+Ein Beispiel sollte Dinge verdeutlichen. Angenommen, es ein Windows-Konto mit dem Namen ist `SQLDebug` innerhalb der Windows-Domäne. Dieses Konto auf die SQL Server-Remoteinstanz als eine gültige Anmeldung und als Mitglied hinzugefügt werden müssten die `sysadmin` Rolle. Klicken Sie dann müssten wir um remote SQL Server-Instanz von Visual Studio zu debuggen, Ausführen von Visual Studio als die `SQLDebug` Benutzer. Dies könnte durch Protokollierung aus unserem Arbeitsstation wieder anmelden, als `SQLDebug`, und starten Sie dann Visual Studio, jedoch ein einfacherer Ansatz wäre, sich unsere Arbeitsstation mit eigenen Anmeldeinformationen anmelden, und verwenden Sie dann `runas.exe` zum Starten von Visual Studio als die `SQLDebug` Benutzer. `runas.exe` ermöglicht es eine bestimmte Anwendung unter dem Deckmantel von einem anderen Benutzerkonto ausgeführt werden. Zum Starten von Visual Studio als `SQLDebug`, könnten Sie die folgende Anweisung in der Befehlszeile eingeben:
 
 
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
@@ -190,8 +190,8 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](protecting-connection-strings-and-other-configuration-information-cs.md)
-[Weiter](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](protecting-connection-strings-and-other-configuration-information-cs.md)
+> [Weiter](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)

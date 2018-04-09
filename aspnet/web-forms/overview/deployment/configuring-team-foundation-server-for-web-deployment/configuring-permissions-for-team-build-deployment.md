@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: "Konfigurieren von Berechtigungen für Team Build-Bereitstellung | Microsoft Docs"
+title: Konfigurieren von Berechtigungen für Team Build-Bereitstellung | Microsoft Docs
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie so konfigurieren Sie Berechtigungen so aktivieren Sie die Build-Server zum Bereitstellen von Inhalt an den Webserver und Datenbankserver als Teil eines automatisierten b wird...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurieren von Berechtigungen für Team Build-Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Dieses Thema beschreibt das Konfigurieren von Berechtigungen für die Build-Server zum Bereitstellen von Inhalt an den Webserver und Datenbankserver als Teil eines automatisierten Build-Prozesses zu aktivieren.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -38,7 +38,7 @@ Wenn Sie den Team Foundation Server (TFS) 2010-Builddienst installieren, geben S
 Alle Bereitstellungsaufgaben, die erfordern Windows-Authentifizierung, und Sie mit Team Build, automatisieren möchten werden mit der Dienstidentität Build ausgeführt. Daher müssen Sie der Build-Dienstidentität alle erforderlichen Berechtigungen für Ihre Webserver und Ihrer Datenbankserver aufzurüsten gewähren.
 
 > [!NOTE]
-> Das Netzwerkdienstkonto verwendet das Konto "Machine", um auf anderen Computern zu authentifizieren. Computerkonten haben die Form * [Domänenname]\[Computername] ***$**& #x 2014, z. B. **FABRIKAM\TFSBUILD$**. Wenn der Builddienst ausgeführt wird, mit der Identität Network Service, sollten Sie daher alle erforderlichen Berechtigungen für die computerkontoidentität für Ihren Buildserver gewähren.
+> Das Netzwerkdienstkonto verwendet das Konto "Machine", um auf anderen Computern zu authentifizieren. Computerkonten haben die Form * [Domänenname]\[Computername] ***$**&#x2014;z. B. **FABRIKAM\TFSBUILD$**. Wenn der Builddienst ausgeführt wird, mit der Identität Network Service, sollten Sie daher alle erforderlichen Berechtigungen für die computerkontoidentität für Ihren Buildserver gewähren.
 
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurieren von Webserverberechtigungen
@@ -50,7 +50,7 @@ Wie in beschrieben [Auswählen der rechts Ansatz für die Webbereitstellung](../
 
 Der remote-Agent hat in diesem Fall zwei wichtige Einschränkungen:
 
-- Der remote-Agent unterstützt nur die NTLM-Authentifizierung. Das heißt, die Bereitstellung muss die Dienstidentität für Build & #x 2014 verwenden, kann ein anderes Konto nicht imitieren.
+- Der remote-Agent unterstützt nur die NTLM-Authentifizierung. In anderen Worten muss die Bereitstellung die Build-Dienstidentität verwenden&#x2014;kann ein anderes Konto nicht imitieren.
 - Um den remote-Agenten zu verwenden, muss das Konto, das die Bereitstellung führt ein Administrator auf dem Zielserver sein.
 
 Zusammen bilden diese zwei Einschränkungen den remote-Agent-Ansatz nicht wünschenswert, dass eine automatische Bereitstellung von Team Build. Um diesen Ansatz verwenden, müssten Sie den Builddienst ein Administratorkonto auf dem Zielserver Web zu machen.
@@ -93,5 +93,5 @@ An diesem Punkt sollten Sie verstehen, die Berechtigungen, die erforderlich sein
 
 Weitere Informationen zum Konfigurieren von Windows Server-Umgebungen zur Unterstützung der Remotebereitstellung finden Sie unter [Konfigurieren von Server-Umgebungen für die Bereitstellung](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Vorherige](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Vorherige](deploying-a-specific-build.md)

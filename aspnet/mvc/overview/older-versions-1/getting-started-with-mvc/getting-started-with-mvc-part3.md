@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
-title: "Hinzufügen einer Ansicht | Microsoft Docs"
+title: Hinzufügen einer Ansicht | Microsoft Docs
 author: shanselman
-description: "Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank."
+description: Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -120,6 +120,6 @@ Führen Sie die Anwendung, und besuchen Sie `http://localhost:xx/HelloWorld/Welc
 
 Also wurde, die eine Art von einem "M" für das Modell, aber nicht die Art der Datenbank. Was wir gelernt haben, und erstellen Sie eine Datenbank von Filmen sehen wir uns.
 
->[!div class="step-by-step"]
-[Zurück](getting-started-with-mvc-part2.md)
-[Weiter](getting-started-with-mvc-part4.md)
+> [!div class="step-by-step"]
+> [Zurück](getting-started-with-mvc-part2.md)
+> [Weiter](getting-started-with-mvc-part4.md)

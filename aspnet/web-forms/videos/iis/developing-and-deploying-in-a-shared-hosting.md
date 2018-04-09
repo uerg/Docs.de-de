@@ -2,7 +2,7 @@
 uid: web-forms/videos/iis/developing-and-deploying-in-a-shared-hosting
 title: Entwickeln und Bereitstellen von In ein freigegebenes Hosting | Microsoft Docs
 author: JoeStagner
-description: "Dieses Video führt Sie beim Entwickeln von ASP.NET-Anwendungen in einer freigegebenen Hostingumgebung durch die Demonstration &quot;Live bearbeiten&quot; und &quot;Remote Veröffentlichung &..."
+description: Dieses Video führt Sie beim Entwickeln von ASP.NET-Anwendungen in einer freigegebenen Hostingumgebung durch die Demonstration &quot;Live bearbeiten&quot; und &quot;Remote Veröffentlichung &...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/iis/developing-and-deploying-in-a-shared-hosting
 msc.type: video
-ms.openlocfilehash: f452dd7c2ff3b3c229a50d330f2aa3fb7fdd46d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 806e328472ee398c5641c899b41176a89fe37353
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-and-deploying-in-a-shared-hosting"></a>Entwickeln und Bereitstellen von In ein freigegebenes Hosting
 ====================
@@ -24,7 +24,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 In diesem Video wird die Entwicklung von ASP.NET-Anwendungen in einer freigegebenen Hostingumgebung durch die Demonstration "Live bearbeiten" und "Remote Veröffentlichung" Features in Visual Web Developer 2008 eingeführt.
 
-[&#9654; Sehen Sie sich an (46 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
+[&#9654;Sehen Sie sich an (46 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
 
->[!div class="step-by-step"]
-[Nächste](working-with-iis7-deligated-admin.md)
+> [!div class="step-by-step"]
+> [Nächste](working-with-iis7-deligated-admin.md)

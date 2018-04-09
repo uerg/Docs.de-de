@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: "Hinzufügen von sozialen Netzwerken zu ASP.NET Web Sites (Razor) Seiten | Microsoft Docs"
+title: Hinzufügen von sozialen Netzwerken zu ASP.NET Web Sites (Razor) Seiten | Microsoft Docs
 author: tfitzmac
-description: "In diesem Kapitel wird erläutert, wie Dienste für soziale Netzwerke Ihrer Website integriert werden. In diesem Kapitel erfahren Sie, wie Besucher Lesezeichenlink/Ihrer Website..."
+description: In diesem Kapitel wird erläutert, wie Dienste für soziale Netzwerke Ihrer Website integriert werden. In diesem Kapitel erfahren Sie, wie Besucher Lesezeichenlink/Ihrer Website...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2c43fa7d286e43f3a4581662ce421c7435e1871f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>Hinzufügen von Social Networking zu ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -57,10 +57,10 @@ Um diese Symbole anzuzeigen, fügen Sie der `LinkSharecode` Helper zu einer Seit
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
     In diesem Beispiel wird bei der `LinkShare` ausgeführt, den Titel der Seite wird als Parameter, der wiederum den Titel der Seite auf der Website für soziale Netzwerke übergibt übergeben. Sie konnte jedoch in einer beliebigen Zeichenfolge übergeben, die Sie möchten. In diesem Beispiel gibt auch die social Network-Sites in der Liste eingeschlossen werden sollen. Sie können die social Network-Sites angeben, die auf Ihrer Website relevant sind.
-- Führen Sie die *ListLinkShare.cshtml* Seite in einem Browser. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.)
-- Klicken Sie auf ein Symbol für einen dieser Standorte, denen Sie registriert sind. Der Link leitet Sie zur Seite "" auf dem ausgewählten sozialen Netzwerk-Standort, in dem Sie freigeben können, einen Link. Z. B. Wenn Sie den Reddit Link klicken, Sie werden erstellt die `submit to reddit` Seite Reddit-Website.
+2. Führen Sie die *ListLinkShare.cshtml* Seite in einem Browser. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.)
+3. Klicken Sie auf ein Symbol für einen dieser Standorte, denen Sie registriert sind. Der Link leitet Sie zur Seite "" auf dem ausgewählten sozialen Netzwerk-Standort, in dem Sie freigeben können, einen Link. Z. B. Wenn Sie den Reddit Link klicken, Sie werden erstellt die `submit to reddit` Seite Reddit-Website.
 
-    ![Abbildung 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![Abbildung 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>Hinzufügen einer Twitter-Feed
@@ -81,7 +81,7 @@ Die folgende hervorgehobene Code ist der Code, der aus dem Tool wie Schaltfläch
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Rendern einer a. mit Gravatar-Bild
 
-Ein *a. mit Gravatar* (eine &quot;Global erkannten Avatar&quot;) ist ein, auf mehreren Websites als den Avatar &#8212;verwendet werden kann, d. h., ein Bild, das Sie darstellt. Eine a. mit Gravatar kann z. B. eine Person in einem Forumsbeitrag in einem Blogkommentar zu identifizieren und so weiter. (Registrieren Sie Ihren eigenen a. mit Gravatar an der a. mit Gravatar-Website unter [http://www.gravatar.com/](http://www.gravatar.com/).) Wenn Sie Bilder neben den Namen oder die e-Mail-Adressen der Personen auf Ihrer Website anzeigen möchten, können Sie die a. mit Gravatar-Hilfsprogramm verwenden.
+Ein *a. mit Gravatar* (eine &quot;Global erkannten Avatar&quot;) ist ein Bild, das als den Avatar für mehrere Websites verwendet werden kann &#8212; , also ein Bild, das Sie darstellt. Eine a. mit Gravatar kann z. B. eine Person in einem Forumsbeitrag in einem Blogkommentar zu identifizieren und so weiter. (Registrieren Sie Ihren eigenen a. mit Gravatar an der a. mit Gravatar-Website unter [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Wenn Sie Bilder neben den Namen oder die e-Mail-Adressen der Personen auf Ihrer Website anzeigen möchten, können Sie die a. mit Gravatar-Hilfsprogramm verwenden.
 
 In diesem Beispiel verwenden Sie eine einzelne a. mit Gravatar, die sich selbst darstellt. Eine andere Möglichkeit, eine a. mit Gravatar verwenden ist, damit Benutzer ihre a. mit Gravatar-Adresse angeben, wenn sie auf Ihrer Website registriert. (Sie können erfahren Sie, wie Personen, die in registrieren können [Sicherheit hinzufügen und die Mitgliedschaft in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=202904).) Klicken Sie dann, wenn Sie Informationen für diesen Benutzer anzeigen, können Sie hinzufügen die a. mit Gravatar, in dem Sie den Namen des Benutzers anzeigen.
 

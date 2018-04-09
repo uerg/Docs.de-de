@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
-title: "Bestimmen, welche Dateien werden müssen bereitgestellt (c#) | Microsoft Docs"
+title: Bestimmen, welche Dateien werden müssen bereitgestellt (c#) | Microsoft Docs
 author: rick-anderson
-description: "Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung uns erstellt wurde..."
+description: Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung uns erstellt wurde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ff5f1d7d156efa12d97382db56211a07c43178fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>Bestimmen, welche Dateien werden müssen bereitgestellt (c#)
 ====================
@@ -80,14 +80,14 @@ Der Download für dieses Lernprogramm umfasst eine ASP.NET-Anwendung Buch Review
 - Sieben verschiedenen ASP.NET-Seiten: 
 
     - ~`/Default.aspx`-Homepage der Website.
-    - ~`/About.aspx`-eine Seite "Über die Website".
-    - ~`/Fiction/Default.aspx`-eine Seite mit der Liste die Idee Bücher, die überarbeitet wurden. 
+    - ~`/About.aspx` -eine Seite "Über die Website".
+    - ~`/Fiction/Default.aspx` -eine Seite mit der Liste die Idee Bücher, die überarbeitet wurden. 
 
-        - ~`/Fiction/Blaze.aspx`-eine Überprüfung der Richard Bachman Novel *Blaze*.
-    - ~/`Tech/Default.aspx`-eine Seite mit der Technologie Bücher, die überarbeitet wurden. 
+        - ~`/Fiction/Blaze.aspx` -eine Überprüfung der Richard Bachman Novel *Blaze*.
+    - ~/`Tech/Default.aspx` -eine Seite mit der Technologie Bücher, die überarbeitet wurden. 
 
         - ~/`Tech/CYOW.aspx`-eine Überprüfung der *Erstellen Ihrer eigenen Website*.
-        - ~/`Tech/TYASP35.aspx`-eine Überprüfung der *Schulen selbst ASP.NET 3.5 in 24 Stunden*.
+        - ~/`Tech/TYASP35.aspx` -eine Überprüfung der *Schulen selbst ASP.NET 3.5 in 24 Stunden*.
 - Drei verschiedene CSS-Dateien im Ordner "Formatvorlagen".
 - Vier Bilddateien - eine Powered by ASP.NET-Logo und Images im Hintergrund der drei überprüft Bücher - alle befindet sich in der `Images` Ordner.
 - Ein `Web.sitemap` Datei, die die Siteübersicht definiert und dient zum Anzeigen des Menüs in der `Default.aspx` Seiten in das Stammverzeichnis und `Fiction` und `Tech` Ordner.
@@ -110,7 +110,7 @@ Diese Anwendung wird nicht mit eine Datenbank verwendet. Jede Überprüfung wird
 In diesem Lernprogramm wurden zwei Kopien der Webanwendung, die jedes als ein anderer Typ von Visual Studio-Projekt implementiert: BookReviewsWAP ein Webanwendungsprojekt und BookReviewsWSP, eine Website-Projekt. Beide Projekte mit Visual Web Developer 2008 SP1 erstellt wurden, und Verwenden von ASP.NET 3.5 SP1. Diese Projekte zunächst für die Zusammenarbeit mit Entzippen den Inhalt auf Ihrem Desktop. Öffnen das Webanwendungsprojekt (BookReviewsWAP), navigieren zu dem Ordner BookReviewsWAP aus, und doppelklicken Sie auf die Projektmappendatei `BookReviewsWAP.sln`. Um das Websiteprojekt (BookReviewsWSP) zu öffnen, starten Sie Visual Studio und dann wählen Sie im Menü Datei die Option für die Website öffnen, navigieren Sie zu der `BookReviewsWSP` Ordner auf Ihrem Desktop, und klicken Sie auf OK.
 
 
-Die übrigen zwei Abschnitte in diesem Lernprogramm betrachten welche Dateien müssen Sie in der produktionsumgebung kopieren, wenn Sie die Anwendung bereitstellen. Die nächsten beiden Lernprogramme -  *[Bereitstellen Ihrer Website mithilfe von FTP](deploying-your-site-using-an-ftp-client-cs.md)*  und  *[Bereitstellen Ihrer Website mit Visual Studio](deploying-your-site-using-visual-studio-cs.md)*  -zeigen verschiedene Verwendungsmöglichkeiten Kopieren Sie diese Dateien auf einen Webhostinganbieter.
+Die übrigen zwei Abschnitte in diesem Lernprogramm betrachten welche Dateien müssen Sie in der produktionsumgebung kopieren, wenn Sie die Anwendung bereitstellen. Die nächsten beiden Lernprogramme - *[Bereitstellen Ihrer Website mithilfe von FTP](deploying-your-site-using-an-ftp-client-cs.md)* und *[Bereitstellen Ihrer Website mit Visual Studio](deploying-your-site-using-visual-studio-cs.md)* -zeigen verschiedene Verwendungsmöglichkeiten Kopieren Sie diese Dateien auf einen Webhostinganbieter.
 
 ## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Bestimmen die Dateien für das Webprojekt für die Anwendung bereitstellen
 
@@ -185,6 +185,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Visual Studio 2005-Website-Projektsystem: Worum handelt es sich, und warum wir Sie tun?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Exemplarische Vorgehensweise: Konvertieren eines Website-Projekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Zurück](asp-net-hosting-options-cs.md)
-[Weiter](deploying-your-site-using-an-ftp-client-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](asp-net-hosting-options-cs.md)
+> [Weiter](deploying-your-site-using-an-ftp-client-cs.md)

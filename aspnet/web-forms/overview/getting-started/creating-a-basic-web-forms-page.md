@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
 title: Erstellen einen grundlegenden ASP.NET 4.5 Web Forms-Seite in Visual Studio 2013 | Microsoft Docs
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Erstellen einer einfachen ASP.NET Forms 4.5 Web Seite in Visual Studio 2013
 ====================
@@ -201,8 +201,8 @@ Visual Studio bietet verschiedene Möglichkeiten zum Festlegen der Eigenschaften
 
     > [!NOTE] 
     > 
-    > Alle Steuerelemente befinden sich in einem **Formular** -Element, das das Attribut verfügt auch über **Runat =&quot;Server&quot;**. Die **Runat =&quot;Server&quot;**  Attribut und der **Asp:** -Präfix für Steuerelementtags die Steuerelemente markieren, sodass sie beim Ausführen der Seite auf dem Server von ASP.NET verarbeitet werden. Code außerhalb des  **&lt;bilden Runat =&quot;Server&quot; &gt;**  und  **&lt;Skript Runat =&quot;Server&quot; &gt;**  Elemente wird unverändert an den Browser, weshalb der ASP-Code innerhalb eines Elements werden muss, dessen Starttag enthält, gesendet, die **Runat =&quot;Server&quot;**  Attribut.
-4. Anschließend fügen Sie eine zusätzliche Eigenschaft der [Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) Steuerelement. Platzieren die Einfügemarke direkt nach dem **Asp: Label** in der  **&lt;Asp: Label&gt;**  markieren, und drücken Sie dann die **LEERTASTE**.
+    > Alle Steuerelemente befinden sich in einem **Formular** -Element, das das Attribut verfügt auch über **Runat =&quot;Server&quot;**. Die **Runat =&quot;Server&quot;**  Attribut und der **Asp:** -Präfix für Steuerelementtags die Steuerelemente markieren, sodass sie beim Ausführen der Seite auf dem Server von ASP.NET verarbeitet werden. Code außerhalb des **&lt;bilden Runat =&quot;Server&quot; &gt;** und **&lt;Skript Runat =&quot;Server&quot; &gt;** Elemente wird unverändert an den Browser, weshalb der ASP-Code innerhalb eines Elements werden muss, dessen Starttag enthält, gesendet, die **Runat =&quot;Server&quot;**  Attribut.
+4. Anschließend fügen Sie eine zusätzliche Eigenschaft der [Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) Steuerelement. Platzieren die Einfügemarke direkt nach dem **Asp: Label** in der **&lt;Asp: Label&gt;** markieren, und drücken Sie dann die **LEERTASTE**.
 
     Eine Dropdownliste wird angezeigt, in dem die Liste der verfügbaren Eigenschaften angezeigt, Sie, für festlegen können, eine [Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) Steuerelement. Dieses Feature genannt **IntelliSense**, hilft Ihnen in **Quelle** Ansicht mit der Syntax von Serversteuerelementen, HTML-Elemente und andere Elemente auf der Seite. Die folgende Abbildung zeigt die **IntelliSense** Dropdown-Liste für die [Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) Steuerelement.
 
@@ -214,7 +214,7 @@ Visual Studio bietet verschiedene Möglichkeiten zum Festlegen der Eigenschaften
     > [!NOTE] 
     > 
     > Sie können anzeigen, eine **IntelliSense** Dropdown-Liste jederzeit durch Drücken von **STRG + J** beim Anzeigen von Code.
-6. Wählen Sie eine Farbe für die  **[Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)**  Text des Steuerelements. Stellen Sie sicher, dass Sie eine Farbe auswählen, die dunkel gegen einen weißen Hintergrund gelesen wird.
+6. Wählen Sie eine Farbe für die **[Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** Text des Steuerelements. Stellen Sie sicher, dass Sie eine Farbe auswählen, die dunkel gegen einen weißen Hintergrund gelesen wird.
 
     Die **ForeColor** Attribut mit der Farbe, die Sie ausgewählt haben, z. B. das schließende Anführungszeichen, abgeschlossen ist.
 
@@ -231,7 +231,7 @@ In dieser exemplarischen Vorgehensweise schreiben Sie Code, der den Namen gelese
 2. Doppelklicken Sie auf die [Schaltfläche](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) Steuerelement.
 
     Standardmäßig Visual Studio wechselt zu einer Code-Behind-Datei und erstellt einen Skeleton-Ereignishandler für das [Schaltfläche](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) Standardereignis des Steuerelements, das [klicken Sie auf](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) Ereignis. Die Code-Behind-Datei trennt UI Markup (z. B. HTML) aus dem Servercode (z. B. c#).   
-Code für diesen Ereignishandler hinzugefügt, wird der Cursor positioniert.
+   Code für diesen Ereignishandler hinzugefügt, wird der Cursor positioniert.
 
     > [!NOTE] 
     > 
@@ -247,7 +247,7 @@ Code für diesen Ereignishandler hinzugefügt, wird der Cursor positioniert.
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
 5. Wechseln Sie zurück zum Anzeigen der **Quelle** Überblick über Ihre HTML-Markup, indem Sie mit der rechten Maustaste *FirstWebPage.aspx* in der **Projektmappen-Explorer** auswählen und **anzeigen Markup**.
-6. Führen Sie einen Bildlauf zu der  **&lt;Asp: Schaltfläche&gt;**  Element. Beachten Sie, dass die  **&lt;Asp: Schaltfläche&gt;**  Element verfügt jetzt über das Attribut **Onclick =&quot;Button1\_klicken Sie auf&quot;**.
+6. Führen Sie einen Bildlauf zu der **&lt;Asp: Schaltfläche&gt;** Element. Beachten Sie, dass die **&lt;Asp: Schaltfläche&gt;** Element verfügt jetzt über das Attribut **Onclick =&quot;Button1\_klicken Sie auf&quot;**.
 
     Dieses Attribut bindet der Schaltfläche [klicken Sie auf](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) Ereignis, um die Ereignishandlermethode, die Sie im vorherigen Schritt codiert.
 
@@ -268,7 +268,7 @@ Sie können jetzt die Steuerelemente auf der Seite testen.
     Der eingegebene Name wird angezeigt, der [Bezeichnung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) Steuerelement. Beachten Sie, dass wenn Sie auf die Schaltfläche klicken, die Seite an den Webserver zurückgesendet wird. ASP.NET klicken Sie dann die Seite neu, führt den Code (in diesem Fall die [Schaltfläche](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) des Steuerelements [klicken Sie auf](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) -Ereignishandler ausgeführt), und klicken Sie dann die neue Seite an den Browser sendet. Wenn Sie die Statusleiste im Browser zu beobachten, sehen Sie sich, dass die Seite einen Roundtrip an dem Webserver jedes Mal macht Sie auf die Schaltfläche klicken.
 3. Zeigen Sie im Browser die Quelle der Seite, die Sie ausführen, indem Sie auf der Seite mit der rechten Maustaste und auswählen **Quelltext anzeigen**.
 
-    In den Quellcode der Seite sehen Sie HTML, ohne Servercode. Insbesondere nicht angezeigt. die  **&lt;Asp:&gt;**  Elemente, die Sie mit arbeiteten **Quelle** anzeigen. Wenn die Seite ausgeführt wird, wird von ASP.NET Serversteuerelemente verarbeitet und rendert die HTML-Elemente auf der Seite ", mit denen die Funktionen, die die Darstellung des Steuerelements. Z. B. die  **&lt;Asp: Schaltfläche&gt;**  Steuerelement wird als HTML gerendert  **&lt;Eingabetyp =&quot;übermitteln&quot; &gt;**  Element.
+    In den Quellcode der Seite sehen Sie HTML, ohne Servercode. Insbesondere nicht angezeigt. die **&lt;Asp:&gt;** Elemente, die Sie mit arbeiteten **Quelle** anzeigen. Wenn die Seite ausgeführt wird, wird von ASP.NET Serversteuerelemente verarbeitet und rendert die HTML-Elemente auf der Seite ", mit denen die Funktionen, die die Darstellung des Steuerelements. Z. B. die **&lt;Asp: Schaltfläche&gt;** Steuerelement wird als HTML gerendert **&lt;Eingabetyp =&quot;übermitteln&quot; &gt;** Element.
 4. Schließen Sie den Browser.
 
 
@@ -297,7 +297,7 @@ In diesem Abschnitt fügen Sie eine [System.Web.UI.WebControls.Calendar](https:/
 4. Aus der **wählen Sie ein Schema** wählen **einfache** , und klicken Sie dann auf **OK**.
 5. Wechseln Sie zur **Quelle** anzeigen.
 
-    Sehen Sie die  **&lt;Asp: Kalender&gt;**  Element. Dieses Element ist wesentlich länger als die Elemente für einfache Steuerelemente, die Sie zuvor erstellt haben. Es enthält auch Unterelemente, z. B.  **&lt;WeekEndDayStyle&gt;**, die verschiedenen formatierungseinstellungen darstellen. Die folgende Abbildung zeigt die [Kalender](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) steuern **Quelle** anzeigen. (Das genaue Markup, das Sie in finden Sie unter **Quelle** Ansicht möglicherweise unterscheiden sich geringfügig von der Abbildung.)
+    Sehen Sie die **&lt;Asp: Kalender&gt;** Element. Dieses Element ist wesentlich länger als die Elemente für einfache Steuerelemente, die Sie zuvor erstellt haben. Es enthält auch Unterelemente, z. B.  **&lt;WeekEndDayStyle&gt;**, die verschiedenen formatierungseinstellungen darstellen. Die folgende Abbildung zeigt die [Kalender](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) steuern **Quelle** anzeigen. (Das genaue Markup, das Sie in finden Sie unter **Quelle** Ansicht möglicherweise unterscheiden sich geringfügig von der Abbildung.)
 
     ![Monatskalender-Steuerelement in der Quellansicht](creating-a-basic-web-forms-page/_static/image15.png "Monatskalender-Steuerelement in der Quellansicht")
 
@@ -316,10 +316,12 @@ In diesem Abschnitt programmieren Sie die [Kalender](https://msdn.microsoft.com/
 2. Fertig stellen die [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) -Ereignishandler durch den folgenden Code.
 
 
-    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+~~~
+[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+~~~
 
  Der obige Code wird der Text des Label-Steuerelements auf das ausgewählte Datum Rand des Kalendersteuerelements an.
 

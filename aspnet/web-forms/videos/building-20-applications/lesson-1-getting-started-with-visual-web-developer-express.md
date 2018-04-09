@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express
 msc.type: video
-ms.openlocfilehash: 4cef2ac50a2f20640f1869a4c99a183525d5345a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 273850d9d0605c70c366ba42b6d679a7c2be65e1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="lesson-1-getting-started-with-visual-web-developer-express"></a>[Lektion 1:] Erste Schritte mit Visual Web Developer Express
 ====================
@@ -24,7 +24,7 @@ durch [Microsoft](https://github.com/microsoft)
 
 In dieser Lektion beginnen Sie mit Visual Web Developer Express Edition vertraut machen, und sehen Sie sich des Workflows bei der Verwendung des Programms zum dynamischen ASP.NET Web Sites erstellen.
 
-[&#9654; Sehen Sie sich an (28 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-1-getting-started-with-visual-web-developer-express)
+[&#9654;Sehen Sie sich an (28 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-1-getting-started-with-visual-web-developer-express)
 
->[!div class="step-by-step"]
-[Nächste](lesson-2-creating-a-web-forms-user-interface.md)
+> [!div class="step-by-step"]
+> [Nächste](lesson-2-creating-a-web-forms-user-interface.md)

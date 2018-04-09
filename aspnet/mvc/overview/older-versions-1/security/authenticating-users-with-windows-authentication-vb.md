@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 63b1266e03041c4261e71fd25e988c63932b503e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cf711d44a05d2457493998ed61e86536c65b5984
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Authentifizieren von Benutzern mit Windows-Authentifizierung (VB)
 ====================
@@ -51,7 +51,7 @@ Für eine produktionsanwendung Web bei Verwendung auf der Seite IIS als Webserve
 
 > [!NOTE] 
 > 
-> Eine ausführlichere Übersicht über diese verschiedenen Typen der Authentifizierung finden Sie unter [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Eine ausführlichere Übersicht über diese verschiedenen Typen der Authentifizierung finden Sie unter [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Sie können Internetinformationsdienste-Manager verwenden, um eine bestimmte Art von Authentifizierung zu aktivieren. Denken Sie daran, dass alle Typen der Authentifizierung nicht bei jedem Betriebssystem verfügbar sind. Wenn Sie IIS 7.0 mit Windows Vista verwenden, müssen Sie darüber hinaus die verschiedenen Typen von Windows-Authentifizierung aktivieren, bevor sie in der Internetinformationsdienste-Manager angezeigt werden. Open **der Systemsteuerung unter Programme, Programme und Funktionen, die Windows-Funktionen ein- oder ausschalten**, und erweitern Sie den Internetinformationsdienste (IIS)-Knoten (siehe Abbildung 2).
@@ -92,6 +92,6 @@ Wenn Sie andererseits, verwenden Sie IIS mit anonyme Authentifizierung deaktivie
 
 In diesem Lernprogramm wird erläutert, wie Sie die Windows-Authentifizierung im Kontext einer ASP.NET MVC-Anwendung verwenden können. Sie haben gelernt, wie die Windows-Authentifizierung innerhalb Ihrer Anwendung Webkonfigurationsdatei aktiviert und wie die Authentifizierung mit IIS konfiguriert. Schließlich haben Sie gelernt, verwenden Sie die &lt;autorisieren&gt; Attribut den Zugriff auf Controlleraktionen auf bestimmte Windows-Benutzer oder Gruppen beschränken.
 
->[!div class="step-by-step"]
-[Zurück](authenticating-users-with-forms-authentication-vb.md)
-[Weiter](preventing-javascript-injection-attacks-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](authenticating-users-with-forms-authentication-vb.md)
+> [Weiter](preventing-javascript-injection-attacks-vb.md)

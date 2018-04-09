@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3b7add6765374fc3e5dba2c90239102354da3922
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Bereitstellen Ihrer Website mithilfe eines FTP-Clients (c#)
 ====================
@@ -161,6 +161,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [App\_Offline.htm und das Umgehen von der Funktion "Internet Explorer-freundliche Errors"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [Sitzungsstatus Modi](https://msdn.microsoft.com/library/ms178586.aspx)
 
->[!div class="step-by-step"]
-[Zurück](determining-what-files-need-to-be-deployed-cs.md)
-[Weiter](deploying-your-site-using-visual-studio-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](determining-what-files-need-to-be-deployed-cs.md)
+> [Weiter](deploying-your-site-using-visual-studio-cs.md)

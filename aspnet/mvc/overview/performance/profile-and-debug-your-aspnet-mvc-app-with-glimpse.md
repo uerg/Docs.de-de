@@ -2,7 +2,7 @@
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 title: Ein Profil erstellen und Debuggen von ASP.NET MVC-Anwendung mit Glimpse | Microsoft Docs
 author: Rick-Anderson
-description: "Glimpse ist verbergen und wachsenden-Familie von open Source-NuGet-Pakete, die detaillierte Leistung bietet, Debuggen und Diagnoseinformationen für ASP.NET ein..."
+description: Glimpse ist verbergen und wachsenden-Familie von open Source-NuGet-Pakete, die detaillierte Leistung bietet, Debuggen und Diagnoseinformationen für ASP.NET ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Ein Profil erstellen und Debuggen von ASP.NET MVC-Anwendung mit Glimpse
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Glimpse ist eine verbergen und wachsenden-Familie von open Source-NuGet-Pakete, die detaillierte Leistung bietet, debugging und Diagnoseinformationen für ASP.NET-Apps. Es ist sehr einfach zu installieren, einfache, extrem schnelle und wichtige Leistungsmetriken am unteren Rand jeder Seite angezeigt. Sie können einen Drilldown in Ihre app ausführen, wenn Sie benötigen, um herauszufinden, auf dem Server was. Glimpse bietet so viel wertvolle Informationen empfehlen wir, dass Sie es in der gesamten Entwicklungszyklus, einschließlich der Azure-testumgebung verwenden. Während [Fiddler](http://www.telerik.com/fiddler) und [F-12 Entwicklungstools](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) bieten eine clientseitige Sicht Glimpse bietet eine detaillierte Übersicht über den Server. Dieses Lernprogramm konzentriert sich auf die mit der Glimpse ASP.NET MVC und EF-Paketen, aber viele andere Pakete verfügbar sind. Nach Möglichkeit wird ich eine Verknüpfung in die entsprechende [Notizenlayouts Docs](http://getglimpse.com/Docs/) die ich zu gewährleisten. Glimpse ist ein open-Source-Projekt, Sie zu können tragen zu den Quellcode und Dokumente.
 
@@ -55,7 +55,7 @@ Die folgenden Befehle installieren Glimpse MVC5 und EF6 Module aus der Paket-Man
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Aktivieren von Glimpse für "localhost"
 
-Navigieren Sie zu http://localhost:&lt;port #&gt;/glimpse.axd und klicken Sie auf die **Glimpse einschalten** Schaltfläche.
+Navigieren Sie zu http://localhost: &lt;port #&gt;/glimpse.axd und klicken Sie auf die <strong>Glimpse einschalten</strong> Schaltfläche.
 
 ![Seite "Glimpse Axd"](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
@@ -93,7 +93,7 @@ Sie können ein Zeitsegment abzurufenden ausführliche Zeitsteuerungsinformation
 ![Wenn darauf gezeigt wird, um ausführliche Zeitsteuerungsdaten finden Sie unter](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image10.png)
 
 <a id="mb"></a>
-## <a name="model-binding"></a>Wurden die Modellbindung
+## <a name="model-binding"></a>Modellbindung
 
 Die [Bindung-Registerkarte "Modell"](http://getglimpse.com/Docs/Model-Binding-Tab) bietet eine Fülle von Informationen, um besser zu verstehen, wie Ihre Formularvariablen gebunden sind und warum einige nicht gebunden werden wie zu erwarten. Die folgende Abbildung zeigt die **?** Symbol ", die Sie klicken können, um die Glimpse-Hilfeseite für die jeweilige Funktion anzuzeigen.
 

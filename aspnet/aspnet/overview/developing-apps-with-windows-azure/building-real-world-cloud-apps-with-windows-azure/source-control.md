@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 title: Datenquellen-Steuerelement (Building Real-World Cloud Apps with Azure) | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelements (Building Real-World Cloud Apps with Azure)
 ====================
@@ -66,7 +66,7 @@ Die hauptverzweigung entspricht immer Code, der in der Produktion ist. Verzweigu
 
 Für big Teams möglicherweise separate Verzweigungen für jede neue Funktion; für eine kleinere Team müssen Sie möglicherweise "Jeder" Einchecken zur Development-Verzweigung.
 
-Haben eine Verzweigung für jede Funktion Funktion A bereit Sie-Zusammenführung wird immer der quellcodeänderungen in die Entwicklung von Verzweigen und nach unten in der anderen Zweige der Funktion. Zusammenführung der Quellcode kann zeitaufwändig sein, und um diese Aufgabe gleichzeitig Funktionen separate zu vermeiden, implementieren einige Teams Alternative aufgerufen  *[feature schaltet](http://en.wikipedia.org/wiki/Feature_toggle)*  (auch bekannt als *feature Flags*). Dies bedeutet, dass der gesamte Code für alle Funktionen in der gleichen Verzweigung ist, aber Sie aktivieren oder Deaktivieren von einzelnen Funktionen mithilfe von Switches im Code. Nehmen Sie z. B. an Funktion A ist ein neues Feld für korrigieren app-Vorgänge und Funktion B fügt Funktionen zum Zwischenspeichern. Der Code für beide Funktionen kann in die Development-Verzweigung werden, jedoch werden nur app-Anzeige von wird das neue Feld, wenn eine Variable auf "true", und er festgelegt ist nur verwendet zwischenspeichern, wenn eine andere Variable festgelegt ist auf "true". Wenn Funktion ein nicht höher gestuft werden können, aber die Funktion B bereit ist, können Sie höher Stufen der gesamte Code bis hin zur Produktion mit dem Feature ein Schalter deaktiviert, und schalten Sie die Funktion B. Sie können Fertig stellen Funktion A und Stufen Sie ihn später mit keine Quelle Code zusammengeführt.
+Haben eine Verzweigung für jede Funktion Funktion A bereit Sie-Zusammenführung wird immer der quellcodeänderungen in die Entwicklung von Verzweigen und nach unten in der anderen Zweige der Funktion. Zusammenführung der Quellcode kann zeitaufwändig sein, und um diese Aufgabe gleichzeitig Funktionen separate zu vermeiden, implementieren einige Teams Alternative aufgerufen *[feature schaltet](http://en.wikipedia.org/wiki/Feature_toggle)* (auch bekannt als *feature Flags*). Dies bedeutet, dass der gesamte Code für alle Funktionen in der gleichen Verzweigung ist, aber Sie aktivieren oder Deaktivieren von einzelnen Funktionen mithilfe von Switches im Code. Nehmen Sie z. B. an Funktion A ist ein neues Feld für korrigieren app-Vorgänge und Funktion B fügt Funktionen zum Zwischenspeichern. Der Code für beide Funktionen kann in die Development-Verzweigung werden, jedoch werden nur app-Anzeige von wird das neue Feld, wenn eine Variable auf "true", und er festgelegt ist nur verwendet zwischenspeichern, wenn eine andere Variable festgelegt ist auf "true". Wenn Funktion ein nicht höher gestuft werden können, aber die Funktion B bereit ist, können Sie höher Stufen der gesamte Code bis hin zur Produktion mit dem Feature ein Schalter deaktiviert, und schalten Sie die Funktion B. Sie können Fertig stellen Funktion A und Stufen Sie ihn später mit keine Quelle Code zusammengeführt.
 
 Und zwar unabhängig davon, ob Sie Verzweigungen oder schaltet für Funktionen verwenden, können eine Verzweigungsstruktur wie folgt auf eine Weise Agile- und wiederholbare Codes von der Entwicklung in die Produktion übertragen.
 
@@ -221,6 +221,6 @@ Weitere Informationen zum Umgang mit vertraulichen Informationen, der nicht in q
 
 Informationen zu weiteren Methoden, durch die Beibehaltung vertrauliche Informationen aus der quellcodeverwaltung finden Sie unter [ASP.NET MVC: behalten Sie Private Einstellungen von Datenquellen-Steuerelements](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
->[!div class="step-by-step"]
-[Zurück](automate-everything.md)
-[Weiter](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [Zurück](automate-everything.md)
+> [Weiter](continuous-integration-and-continuous-delivery.md)

@@ -1,7 +1,7 @@
 ---
-title: Verwenden Sie die Projektvorlage reagieren
+title: Verwenden Sie die Projektvorlage reagieren mit ASP.NET Core
 author: SteveSandersonMS
-description: "Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren und erstellen-reagieren-app."
+description: Informationen Sie zum Einstieg in die Projektvorlage für ASP.NET Core einzelnen Seite Anwendung (SPA) für reagieren und erstellen-reagieren-app.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-project-template"></a>Verwenden Sie die Projektvorlage reagieren
+# <a name="use-the-react-project-template-with-aspnet-core"></a>Verwenden Sie die Projektvorlage reagieren mit ASP.NET Core
 
 > [!NOTE]
-> Diese Dokumentation ist nicht zur reagieren-Projektvorlage in ASP.NET Core 2.0 enthalten. Es geht die neuere reagieren-Vorlage, die Sie manuell aktualisieren können. Die Vorlage wird standardmäßig in ASP.NET Core 2.1 enthalten.
+> Diese Dokumentation ist nicht zur reagieren-Projektvorlage in ASP.NET Core 2.0 enthalten. Es geht die neuere reagieren-Vorlage, die Sie manuell aktualisieren können. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.
 
 Die aktualisierte reagieren-Projektvorlage stellt einen nützlichen Startpunkt für ASP.NET Core-apps mit reagieren und [erstellen-reagieren-app](https://github.com/facebookincubator/create-react-app) Konventionen (CRA), um eine umfassende, clientseitige Benutzeroberfläche (UI) zu implementieren.
 
@@ -63,7 +63,7 @@ Die *ClientApp* Verzeichnis ist eine standard-app, der auf der CRA zu reagieren.
 
 Es gibt jedoch geringfügige Unterschiede zwischen der reagieren-app, die anhand dieser Vorlage erstellt und von CRA selbst erstellt; die app-Funktionen sind jedoch unverändert. Die app, die von der Vorlage erstellten enthält eine [Bootstrap](https://getbootstrap.com/)-basierten Layout und ein einfaches routing-Beispiel.
 
-## <a name="install-npm-packages"></a>Installieren Sie Npm-Pakete
+## <a name="install-npm-packages"></a>NPM-Pakete installieren
 
 Verwenden Sie zum Installieren eines Drittanbieters Npm-Pakete in eine Eingabeaufforderung die *ClientApp* Unterverzeichnis. Zum Beispiel:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5ef7a6f44758cf94fc19d6fbab3cc4b7bce8e8e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>WebMatrix und ASP.NET Web Pages (Razor) Beta 3-Version-Infodatei
 ====================
@@ -283,9 +283,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > Wenn Sie .NET Framework, Version 4 deinstallieren und anschließend neu installieren, ist ASP.NET Web Pages mit Razor-Syntax deaktiviert. Seiten mit den *cshtml* Erweiterung werden nicht ordnungsgemäß ausgeführt. ASP.NET Web Pages registriert eine Assembly im Stammverzeichnis Computer *"Web.config"* -Datei, und Entfernen von .NET Framework entfernt diese Datei. Installieren .NET Framework installiert eine neue Version der Konfigurationsdatei, aber den Verweis wird nicht für die ASP.NET Web Pages-Assembly hinzufügen.
 > 
 > **Problemumgehung** installieren Sie nach der Neuinstallation von .NET Framework, ASP.NET Web Pages mit Razor-Syntax. Dadurch wird das folgende Element auf der *"Web.config"* Datei im Stammverzeichnis Computer, i. d. r. an folgendem Speicherort:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
@@ -302,9 +302,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problem: URLs ohne Erweiterung.cshtml/.vbhtml Dateien unter IIS 7 oder IIS 7.5 nicht gefunden
 
 > Für IIS 7 oder IIS 7.5 mit einer URL wie die folgende Anforderungen können sich nicht mehr Seiten zu suchen, die *cshtml* oder *vbhtml* Erweiterung:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Das Problem tritt auf, da die URLs nicht standardmäßig für IIS 7 oder IIS 7.5 aktiviert ist. Das likeliest Szenario ist, dass das Problem nicht angezeigt werden, werden Wenn es sich bei Tests lokal mit IIS Express jedoch auftreten, wenn Sie Ihre Website für eine hosting-Website bereitstellen.
 > 
 > **Dieses Problem zu umgehen**
@@ -344,7 +344,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 >     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **to** *\Bin\x86*
 >     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
 > 2. Klicken Sie im Stammordner der Website, erstellen oder öffnen Sie eine *"Web.config"* Datei. (In WebMatrix Beta 3 dieser Dateityp ist verfügbar, wenn Sie auf **alle** in der **wählen Sie einen Dateityp** (Dialogfeld).)
-> 3. Fügen Sie das folgende Element als untergeordnetes Element von der  **&lt;Konfiguration&gt;**  Element (befindet sich nicht in der  **&lt;system.web&gt;**  Element):
+> 3. Fügen Sie das folgende Element als untergeordnetes Element von der **&lt;Konfiguration&gt;** Element (befindet sich nicht in der **&lt;system.web&gt;** Element):
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -366,21 +366,21 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > 
 > **Dieses Problem zu umgehen**  
 > Verwenden der `Encryption Mode` Eigenschaft von der `SqlCeConnection` Klasse, um SQL Server Compact 4.0-Datenbankdateien zu verschlüsseln. Im folgende Beispiel wird gezeigt, wie zum Erstellen einer verschlüsselten SQL Server Compact 4.0-Datenbank, mit der `Encryption Mode` Eigenschaft:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
 > Um den Verschlüsselungsmodus einer vorhandenen SQL Server Compact 4.0-Datenbank zu ändern, führen Sie folgende Schritte aus:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
 > Um eine nicht verschlüsselte SQL Server Compact 4.0-Datenbank zu verschlüsseln, führen Sie folgende Schritte aus:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
 
@@ -537,7 +537,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > Legen Sie den Datentyp für Parameter explizit wie z. B. `SqlDbType` oder `DbType`. Dies ist wichtig, im Fall von BLOB-Datentypen (`image` und `ntext`). Verwenden Sie Code wie folgt:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
 
 

@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/breaking-changes
-title: "ASP.NET 4 Lauffähigkeit | Microsoft Docs"
+title: ASP.NET 4 Lauffähigkeit | Microsoft Docs
 author: rick-anderson
-description: "Dieses Dokument beschreibt die Änderungen, die für die Version von .NET Framework 4-Version vorgenommen wurden, die Anwendungen beeinträchtigen können, die mit erstellt wurden..."
+description: Dieses Dokument beschreibt die Änderungen, die für die Version von .NET Framework 4-Version vorgenommen wurden, die Anwendungen beeinträchtigen können, die mit erstellt wurden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7eea51add6b05684357314e3d6aa5087383c6408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 wichtige Änderungen
 ====================
@@ -180,7 +180,7 @@ In diesem Szenario gibt der systemeigenen Konfigurationssystem IIS 7 und IIS 7.5
 
 Die problemumgehung für das erste Szenario ist beim Aktualisieren der Anwendungsebene `Web.config` Datei dazu den Standardtext für die Konfiguration von einem `Web.config` Datei, die automatisch von Visual Studio 2008 generiert wurde.
 
-Eine alternative problemumgehung für das erste Szenario ist mit Service Pack 2 für Vista oder Windows Server 2008 auf Ihrem Computer zu installieren oder installieren Sie Hotfix KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)), falschen zu beheben. Konfiguration der Zusammenführung Verhalten des IIS-Konfigurationssystems. Jedoch, nachdem Sie eine der folgenden Aktionen ausführen, wird Ihre Anwendung wahrscheinlich einen Fehler bei der Konfiguration für das zweite Szenario beschriebenen Gründen auftreten.
+Eine alternative problemumgehung für das erste Szenario ist mit Service Pack 2 für Vista oder Windows Server 2008 auf Ihrem Computer zu installieren oder installieren Sie Hotfix KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) zu beheben, die falsche Konfiguration der Zusammenführung von der IIS-Konfigurationssystems. Jedoch, nachdem Sie eine der folgenden Aktionen ausführen, wird Ihre Anwendung wahrscheinlich einen Fehler bei der Konfiguration für das zweite Szenario beschriebenen Gründen auftreten.
 
 Die problemumgehung für das zweite Szenario zu löschen, oder kommentieren Sie Sie aus allen ist der **system.web.extensions** Abschnitt Konfigurationsdefinitionen und Konfigurationsabschnitt Gruppe Definitionen über die Anwendungsebene `Web.config` Datei. Diese Definitionen sind in der Regel am oberen Rand der Anwendungsebene `Web.config` Datei und kann festgestellt werden, indem die **"configSections"** Element und seine untergeordneten Elemente.
 
@@ -192,8 +192,8 @@ Für beide Szenarien wird empfohlen, dass Sie auch manuell löschen, die **syste
 
 ASP.NET 4-Anwendungen, die als untergeordnete Anwendungen konfiguriert wurden, die frühere Versionen von ASP.NET ausführen, können möglicherweise aufgrund von Konfigurations- oder Kompilierungsfehlern nicht starten. Das folgende Beispiel zeigt eine Verzeichnisstruktur für eine Anwendung betroffenen.
 
-`/parentwebapp`(für die Verwendung von ASP.NET 2.0 oder ASP.NET 3.5 konfiguriert)  
-`/childwebapp`(für die Verwendung von ASP.NET 4 konfiguriert wird)
+`/parentwebapp` (für die Verwendung von ASP.NET 2.0 oder ASP.NET 3.5 konfiguriert)  
+`/childwebapp` (für die Verwendung von ASP.NET 4 konfiguriert wird)
 
 Die Anwendung in der `childwebapp` Ordner fehl, starten Sie auf IIS 7 oder IIS 7.5 und meldet einen Fehler bei der Konfiguration. Der Fehlertext wird eine Meldung ähnlich der folgenden enthalten:
 
@@ -323,13 +323,13 @@ Wenn es nicht möglich, auf der Website für ASP.NET 2.0 erneut zuordnen oder zu
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>Ereignishandler können in ein Standarddokument in IIS 7 oder IIS 7.5 nicht nicht ausgelöst integrierten-Modus
 
-ASP.NET 4 umfasst Änderungen, die ändern, wie die **Aktion** -Attribut von HTML **Formular** Element gerendert wird, wenn eine URL ohne Erweiterung in ein Standarddokument aufgelöst wird. Ein Beispiel für eine URL ohne Erweiterung zu Standarddokument wäre [http://contoso.com/](http://contoso.com/), wodurch eine Anforderung zum [http://contoso.com/Default.aspx](http://contoso.com/Default.aspx).
+ASP.NET 4 umfasst Änderungen, die ändern, wie die **Aktion** -Attribut von HTML **Formular** Element gerendert wird, wenn eine URL ohne Erweiterung in ein Standarddokument aufgelöst wird. Ein Beispiel für eine URL ohne Erweiterung zu Standarddokument wäre [ http://contoso.com/ ](http://contoso.com/), wodurch eine Anforderung zum [ http://contoso.com/Default.aspx ](http://contoso.com/Default.aspx).
 
-ASP.NET 4 stellt nun das HTML- **Formular** des Elements **Aktion** -Attributwert als eine leere Zeichenfolge, wenn eine Anforderung an eine URL ohne Erweiterung erfolgt, die ein Standarddokument zugeordnet wurde. Beispielsweise ist in früheren Versionen von ASP.NET verwenden, eine Anforderung zum [http://contoso.com](http://contoso.com) würde eine Anforderung zum `Default.aspx`. In diesem Dokument, das öffnende **Formular** Tag würde gerendert werden, wie im folgenden Beispiel gezeigt:
+ASP.NET 4 stellt nun das HTML- **Formular** des Elements **Aktion** -Attributwert als eine leere Zeichenfolge, wenn eine Anforderung an eine URL ohne Erweiterung erfolgt, die ein Standarddokument zugeordnet wurde. Beispielsweise ist in früheren Versionen von ASP.NET verwenden, eine Anforderung zum [ http://contoso.com ](http://contoso.com) würde eine Anforderung zum `Default.aspx`. In diesem Dokument, das öffnende **Formular** Tag würde gerendert werden, wie im folgenden Beispiel gezeigt:
 
 `<form action="Default.aspx" />`
 
-In ASP.NET 4 hat eine Anforderung zum [http://contoso.com](http://contoso.com) führt auch eine Anforderung zum `Default.aspx`. Allerdings rendert ASP.NET jetzt das öffnende HTML **Formular** Tag, wie im folgenden Beispiel gezeigt:
+In ASP.NET 4 hat eine Anforderung zum [ http://contoso.com ](http://contoso.com) führt auch eine Anforderung zum `Default.aspx`. Allerdings rendert ASP.NET jetzt das öffnende HTML **Formular** Tag, wie im folgenden Beispiel gezeigt:
 
 `<form action="" />`
 
@@ -370,7 +370,7 @@ Wenn Sie die legacy-CAS-Modell zurückkehren, werden die folgenden alten CAS-Ver
 - Es sind mehrere unterschiedliche Berechtigungssätze in einer einzelnen Anwendungsdomäne zulässig.
 - Explizite Berechtigung Assertionen sind nicht für Assemblys im GAC, die aufgerufen werden, wenn nur ASP.NET oder andere .NET Framework-Code auf dem Stapel ist erforderlich.
 
-Ein Szenario kann nicht wiederhergestellt werden, in der .NET Framework 4: nicht-teilweise vertrauenswürdige Anwendungen können nicht mehr bestimmte APIs in "System.Web.dll" und System.Web.Extensions.dll aufrufen. In früheren Versionen von .NET Framework war es möglich für nicht-teilweise vertrauenswürdige Webanwendungen explizit erteilt werden **überschneidet AspNetHostingPermission** Berechtigungen. Anschließend können diese Anwendungen verwenden, **System.Web.HttpUtility**, Typen in der **System.Web.ClientServices.\***  Namespaces und Typen im Zusammenhang mit Mitgliedschaft, Rollen und Profile. Diese Typen von nicht-teilweise vertrauenswürdige Anwendungen aufrufen wird in .NET Framework 4 nicht mehr unterstützt.
+Ein Szenario kann nicht wiederhergestellt werden, in der .NET Framework 4: nicht-teilweise vertrauenswürdige Anwendungen können nicht mehr bestimmte APIs in "System.Web.dll" und System.Web.Extensions.dll aufrufen. In früheren Versionen von .NET Framework war es möglich für nicht-teilweise vertrauenswürdige Webanwendungen explizit erteilt werden <strong>überschneidet AspNetHostingPermission</strong> Berechtigungen. Anschließend können diese Anwendungen verwenden, <strong>System.Web.HttpUtility</strong>, Typen in der <strong>System.Web.ClientServices.\< / strong > *-Namespaces und Typen im Zusammenhang mit Mitgliedschaft, Rollen und Profile. Diese Typen von nicht-teilweise vertrauenswürdige Anwendungen aufrufen wird in .NET Framework 4 nicht mehr unterstützt.
 
 > [!NOTE]
 > Die **HtmlEncode** und **HtmlDecode** Funktionalität von der **System.Web.HttpUtility** Klasse wurde verschoben, um die neuen .NET Framework 4  **System.Net.WebUtility** Klasse. War die einzige ASP.NET-Funktionalität, die verwendet wurde, ändern Sie die Anwendung Code entsprechend der neuen **WebUtility** stattdessen.

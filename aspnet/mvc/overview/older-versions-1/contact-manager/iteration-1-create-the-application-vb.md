@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
-title: "Iteration #1 – erstellen Sie die Anwendung (VB) | Microsoft Docs"
+title: 'Iteration #1 – erstellen Sie die Anwendung (VB) | Microsoft Docs'
 author: microsoft
-description: "In der ersten Iteration erstellen wir die Kontakt-Manager in der einfachsten möglich. Wir fügen die Unterstützung für die grundlegenden Datenbankvorgängen: erstellen, lesen, aktualisieren und d..."
+description: 'In der ersten Iteration erstellen wir die Kontakt-Manager in der einfachsten möglich. Wir fügen die Unterstützung für die grundlegenden Datenbankvorgängen: erstellen, lesen, aktualisieren und d...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 11d3d4f174207f5370849fdf4517f272b4b6bc6b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52029816bd9f37c3d5c3321d3c5e60599314a33b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-vb"></a>Iteration #1 – erstellen Sie die Anwendung (VB)
 ====================
@@ -67,7 +67,7 @@ In dieser Iteration ausführen wir die folgenden Schritte:
 
 In ASP.NET MVC-Anwendungen benötigen Sie Visual Studio 2008 oder Visual Web Developer 2008. auf Ihrem Computer (Visual Web Developer ist eine kostenlose Version von Visual Studio, die nicht alle der erweiterten Funktionen von Visual Studio enthalten ist) installiert. Sie können entweder die Testversion von Visual Studio 2008 oder Visual Web Developer von der folgenden Adresse herunterladen:
 
-[https://www.ASP.NET/Downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
@@ -76,17 +76,17 @@ In ASP.NET MVC-Anwendungen benötigen Sie Visual Studio 2008 oder Visual Web Dev
 
 ASP.NET MVC-Framework. Sie können das ASP.NET MVC-Framework unter folgender Adresse herunterladen:
 
-[https://www.ASP.NET/MVC](../../../index.md)
+[https://www.asp.net/mvc](../../../index.md)
 
 In diesem Lernprogramm verwenden wir das Entity Framework von Microsoft auf eine Datenbank zuzugreifen. Das Entity Framework ist im Lieferumfang von .NET Framework 3.5 Service Pack 1. Sie können dieses Servicepack von folgendem Speicherort herunterladen:
 
-[https://www.Microsoft.com/downloads/details.aspx?FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;Displaylang = En](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;Displaylang = En](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 Als Alternative zum Ausführen der einzelnen diese Downloads nacheinander können Sie den Webplattform-Installer (Web PI) nutzen. Sie können die Web-PI aus der folgenden Adresse herunterladen:
 
-[https://www.ASP.NET/Downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
-## <a name="aspnet-mvc-project"></a>ASP.NET MVC-Projekt
+## <a name="aspnet-mvc-project"></a>ASP.NET MVC Project
 
 ASP.NET MVC-Webanwendungsprojekt. Starten Sie Visual Studio, und wählen Sie die Menüoption **Datei, neues Projekt**. Die **neues Projekt** Dialogfeld wird angezeigt (siehe Abbildung 1). Wählen Sie die **Web** Projekttyp und die **ASP.NET MVC-Webanwendung** Vorlage. Nennen Sie das neue Projekt *ContactManager* , und klicken Sie auf die Schaltfläche "OK".
 
@@ -298,7 +298,7 @@ Der Text, der die Indexansicht enthält eine foreach-Schleife, die Durchlaufen a
 
 Wir müssen die Indexansicht eine Änderung vornehmen. Da wir eine Detailansicht nicht erstellen, können wir den Link Details zu entfernen. Suchen Sie und entfernen Sie den folgenden Code aus der Sicht des Indexes:
 
-{.id = Element. ID}) "&gt;
+{.id = item.Id})%&gt;
 
 Nachdem Sie die Indexansicht geändert haben, können Sie die Kontakt-Manager-Anwendung ausführen. Wählen Sie die Menüoption Debuggen, Debugging starten, oder drücken Sie einfach F5. Beim ersten der Anwendung ausführen erhalten Sie im Dialogfeld in Abbildung 14. Wählen Sie die Option **ändern Sie die Datei "Web.config" zum Aktivieren des Debuggens** , und klicken Sie auf die Schaltfläche "OK".
 
@@ -419,7 +419,7 @@ Gibt eine Bestätigungsformular für das Löschen von einem Datensatz aus der Da
 
 Wir müssen die Indexansicht ändern, sodass sie einen Link zum Löschen von Kontaktdatensatz enthält (siehe Abbildung 21). Sie müssen den folgenden Code in der gleichen Tabellenzelle hinzufügen, die den Bearbeitungslink enthält:
 
-{.id = Element. ID}) "&gt;
+{.id = item.Id})%&gt;
 
 
 [![Das Dialogfeld "Neues Projekt"](iteration-1-create-the-application-vb/_static/image21.jpg)](iteration-1-create-the-application-vb/_static/image41.png)
@@ -472,7 +472,7 @@ Nachdem Sie diese Änderung vorgenommen haben, wird die Anwendung nicht mehr ein
 
 Wir müssen die Standardroute in der Datei "Global.asax" des Controllers Kontakt anstelle der Home-Controller verwendet zu aktualisieren. Öffnen Sie die Datei "Global.asax", und ändern Sie den Standard-Controller verwendet, die für die Standardroute (Siehe auflisten von 10).
 
-**Auflisten von 10 - Global.asax.vb**
+**Listing 10 - Global.asax.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample10.vb)]
 
@@ -490,6 +490,6 @@ Zweitens haben wir alle Form-Überprüfung nicht implementiert. Angenommen, ist 
 
 Schließlich und am wichtigsten ist, kann nicht die aktuelle Iteration der der Kontakt-Manager-Anwendung einfach geändert oder beibehalten werden. Beispielsweise ist die Datenbank-Zugriffslogik rechts in der Controlleraktionen integrierten. Dies bedeutet, dass wir unsere Datenzugriffscode ändern können, ohne zu unserem Domänencontroller ändern. In späteren Iterationen untersuchen wir die Software-Entwurfsmuster, die wir implementieren können, um den Vorgesetzten des Kontakts stabiler so ändern Sie vornehmen.
 
->[!div class="step-by-step"]
-[Zurück](iteration-7-add-ajax-functionality-cs.md)
-[Weiter](iteration-2-make-the-application-look-nice-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](iteration-7-add-ajax-functionality-cs.md)
+> [Weiter](iteration-2-make-the-application-look-nice-vb.md)

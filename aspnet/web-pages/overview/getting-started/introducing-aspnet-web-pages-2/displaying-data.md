@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: "Einführung in ASP.NET Web Pages – Anzeigen von Daten | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages – Anzeigen von Daten | Microsoft Docs
 author: tfitzmac
 description: In diesem Lernprogramm erfahren Sie, wie Sie eine Datenbank in WebMatrix erstellen und Datenbankdaten auf einer Seite angezeigt, bei der Verwendung von ASP.NET Web Pages (Razor). Es wird davon ausgegangen, y...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: fdb9af0ba87c7802c63451ac7aa422e0020b5719
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c66e5fb0a1a49da411286e19c7954f83055c3fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Einführung in ASP.NET Web Pages - Anzeige von Daten
 ====================
@@ -36,7 +36,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > Features/Technologien erläutert:
 > 
 > - WebMatrix Datenbanktools.
-> - `WebGrid`Hilfsmethode.
+> - `WebGrid` Hilfsmethode.
 
 
 ## <a name="what-youll-build"></a>Was müssen Sie erstellen
@@ -338,6 +338,6 @@ In den nächsten Lernprogrammen erfahren Sie, wie mit Razor und C#-Code zum Abru
 
 - [Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkID=202890)
 
->[!div class="step-by-step"]
-[Zurück](intro-to-web-pages-programming.md)
-[Weiter](form-basics.md)
+> [!div class="step-by-step"]
+> [Zurück](intro-to-web-pages-programming.md)
+> [Weiter](form-basics.md)

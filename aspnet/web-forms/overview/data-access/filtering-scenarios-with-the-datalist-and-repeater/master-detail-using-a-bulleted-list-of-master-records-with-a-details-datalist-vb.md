@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
-title: "Master/Detail-Details DataList (VB) eine Aufzählung der Master-Datensätze mit | Microsoft Docs"
+title: Master/Detail-Details DataList (VB) eine Aufzählung der Master-Datensätze mit | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm fügen wir den zweiseitige Master/Detail-Bericht, der im vorherigen Lernprogramm in einer einzelnen Seite komprimieren zeigt eine Aufzählung der Kategorienamen bei t..."
+description: In diesem Lernprogramm fügen wir den zweiseitige Master/Detail-Bericht, der im vorherigen Lernprogramm in einer einzelnen Seite komprimieren zeigt eine Aufzählung der Kategorienamen bei t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d87dc7f4fb00e96d9eb2653e6fbc1efb8bb656c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master/Detail-verwenden eine Aufzählung der Master-Datensätze mit Details DataList (VB)
 ====================
@@ -74,7 +74,7 @@ Nach dem Hinzufügen von CSS-Klasse, und konfigurieren das Markup in der `Catego
 
 Steuern mit vollständige Markup umgibt Repeater und DataList s wir re kann jetzt die Kategoriedaten an den Repeater binden. Wie in der Aufzählung von Kategorien in Abbildung 1 gezeigt, müssen jedoch zusätzlich zu den einzelnen s Kategorienamen wir auch zum Anzeigen der Anzahl der Produkte, die der Kategorie zugeordnet. Für den Zugriff auf diese Informationen können wir entweder:
 
-- **Ermitteln Sie diese Informationen aus der ASP.NET Seite s-Code-Behind-Klasse.** Einer bestimmten  *`categoryID`*  können wir die Anzahl der zugeordneten Produkte zu ermitteln, durch Aufrufen der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode. Diese Methode gibt ein `ProductsDataTable` Objekt, dessen `Count` Eigenschaft gibt an, wie viele `ProductsRow` s vorhanden ist, ist die Anzahl der Produkte für die angegebene  *`categoryID`* . Erstellen wir ein `ItemDataBound` -Ereignishandler für die Repeater, die für jede Kategorie gebunden an die Repeater aufruft der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode und enthält die Anzahl der in der Ausgabe.
+- **Ermitteln Sie diese Informationen aus der ASP.NET Seite s-Code-Behind-Klasse.** Einer bestimmten *`categoryID`* können wir die Anzahl der zugeordneten Produkte zu ermitteln, durch Aufrufen der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode. Diese Methode gibt ein `ProductsDataTable` Objekt, dessen `Count` Eigenschaft gibt an, wie viele `ProductsRow` s vorhanden ist, ist die Anzahl der Produkte für die angegebene *`categoryID`*. Erstellen wir ein `ItemDataBound` -Ereignishandler für die Repeater, die für jede Kategorie gebunden an die Repeater aufruft der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode und enthält die Anzahl der in der Ausgabe.
 - **Update der `CategoriesDataTable` in das typisierte DataSet enthalten eine `NumberOfProducts` Spalte.** Wir können dann aktualisieren, die `GetCategories()` Methode in der `CategoriesDataTable` umfassen diese Informationen, oder lassen Sie alternativ `GetCategories()` als-ist, und erstellen Sie ein neues `CategoriesDataTable` Methode mit dem Namen `GetCategoriesAndNumberOfProducts()`.
 
 Lassen Sie s beiden Techniken zu untersuchen. Der erste Ansatz ist einfacher zu implementieren, da wir t müssen der Datenzugriffsebene aktualisiert Verschlüsselungskennwort; Dies erfordert allerdings weitere Kommunikation mit der Datenbank. Der Aufruf der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode in der `ItemDataBound` -Ereignishandler fügt einen zusätzliche Datenbankaufruf für die einzelnen Kategorien im Wiederholungsmodul angezeigt. Mit dieser Technik stehen *N* + 1 Datenbankaufrufe, in denen *N* ist die Anzahl der Kategorien im Wiederholungsmodul angezeigt. Mit den zweiten Ansatz, die produktanzahl zurückgegeben, mit Informationen zu jeder Kategorie aus der `CategoriesBLL` Klasse s `GetCategories()` (oder `GetCategoriesAndNumberOfProducts()`) Methode, wodurch nur einen Trip zur Datenbank.
@@ -210,7 +210,7 @@ Die Ausgabe, die durch die DAL enthalten aktualisieren gerendert eine `NumberOfP
 
 An diesem Punkt haben wir die `Categories` Repeater Anzeigen der Liste der Kategorien zusammen mit der Anzahl der Produkte in jeder Kategorie. Repeater LinkButton verwendet, für die einzelnen Kategorien durch Klicken auf wird eine Postback handeln, bei dem zeigen wir, müssen Sie zum Anzeigen dieser Produkte für die ausgewählte Kategorie in den `CategoryProducts` DataList.
 
-Eine Herausforderung, die für uns ist wie das DataList nur die Produkte für die ausgewählte Kategorie angezeigt. In der [Master/Detail mit auswählbaren Master GridView mit einer Details DetailsView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) Lernprogramm wurde erläutert, wie einer GridView, deren Zeilen erstellen konnten ausgewählt werden, mit der ausgewählten Zeile s details in einem DetailsView auf derselben Seite angezeigt wird. Die GridView s ObjectDataSource zurückgegebenen Informationen zu allen Produkten, die mit der `ProductsBLL` s `GetProducts()` -Methode auf, DetailsView-s ObjectDataSource abgerufenen Informationen zur Verwendung ausgewählten Produkt der `GetProductsByProductID(productID)` Methode. Die  *`productID`*  Parameterwert deklarativ bereitgestellt wurde, durch den Wert der GridView s zuordnen `SelectedValue` Eigenschaft. Leider Repeater verfügt nicht über eine `SelectedValue` Eigenschaft und kann nicht als Parameterquelle für fungieren.
+Eine Herausforderung, die für uns ist wie das DataList nur die Produkte für die ausgewählte Kategorie angezeigt. In der [Master/Detail mit auswählbaren Master GridView mit einer Details DetailsView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) Lernprogramm wurde erläutert, wie einer GridView, deren Zeilen erstellen konnten ausgewählt werden, mit der ausgewählten Zeile s details in einem DetailsView auf derselben Seite angezeigt wird. Die GridView s ObjectDataSource zurückgegebenen Informationen zu allen Produkten, die mit der `ProductsBLL` s `GetProducts()` -Methode auf, DetailsView-s ObjectDataSource abgerufenen Informationen zur Verwendung ausgewählten Produkt der `GetProductsByProductID(productID)` Methode. Die *`productID`* Parameterwert deklarativ bereitgestellt wurde, durch den Wert der GridView s zuordnen `SelectedValue` Eigenschaft. Leider Repeater verfügt nicht über eine `SelectedValue` Eigenschaft und kann nicht als Parameterquelle für fungieren.
 
 > [!NOTE]
 > Dies ist die Herausforderungen, die bei der Verwendung von LinkButton in ein Repeater angezeigt. Hatten wir einen Link für die Übergabe in verwendet das `CategoryID` über die Abfragezeichenfolge wir konnte verwenden Sie stattdessen das QueryString-Feld als Quelle für den Parameter-s-Wert.
@@ -233,7 +233,7 @@ Dropdownliste für die Parameter-Quelle werden jetzt auf None festgelegt. Wir m�
 
 [![Führen Sie als Parameter-Quelle für die CategoryID-Parameter nicht angeben](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
-**Abbildung 13**: Geben Sie keine Parameterquelle für die  *`categoryID`*  Parameter ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
+**Abbildung 13**: Geben Sie keine Parameterquelle für die *`categoryID`* Parameter ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
 
 Nach Abschluss des Assistenten für die Datenquelle konfigurieren Visual Studio generiert automatisch die DataList s `ItemTemplate`. Ersetzen Sie diese Standardeinstellung `ItemTemplate` wir mit der Vorlage verwendet wird, in dem vorherigen Lernprogramm; legen Sie außerdem die DataList s `RepeatColumns` -Eigenschaft auf 2. Nach diesen Änderungen sollte das deklarative Markup für DataList und seine zugehörigen ObjectDataSource wie folgt aussehen:
@@ -241,7 +241,7 @@ Nach Abschluss des Assistenten für die Datenquelle konfigurieren Visual Studio 
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample10.aspx)]
 
-Derzeit ist die `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  Parameter nicht festgelegt ist, damit keine Produkte angezeigt werden, wenn die Seite anzeigen. Müssen wir handelt es sich dieser Parameterwert legen Sie auf der Grundlage der `CategoryID` der geklickt wurde Kategorie im wiederholungsmodul ab. Dies führt zu zwei Herausforderungen: zuerst, wie wir feststellen, wenn ein LinkButton im Wiederholungsmodul s `ItemTemplate` wurde geklickt wurde, und zweitens wie können wir ermitteln der `CategoryID` der entsprechenden Kategorie, deren LinkButton geklickt wurde?
+Derzeit ist die `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* Parameter nicht festgelegt ist, damit keine Produkte angezeigt werden, wenn die Seite anzeigen. Müssen wir handelt es sich dieser Parameterwert legen Sie auf der Grundlage der `CategoryID` der geklickt wurde Kategorie im wiederholungsmodul ab. Dies führt zu zwei Herausforderungen: zuerst, wie wir feststellen, wenn ein LinkButton im Wiederholungsmodul s `ItemTemplate` wurde geklickt wurde, und zweitens wie können wir ermitteln der `CategoryID` der entsprechenden Kategorie, deren LinkButton geklickt wurde?
 
 Wie die Steuerelemente für Schaltfläche und ImageButton LinkButton verfügt über eine `Click` Ereignis und eine [ `Command` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). Die `Click` Ereignis dient lediglich Beachten Sie, dass die LinkButton geklickt wurde. In einigen Fällen müssen jedoch zusätzlich zu beachten, dass die LinkButton geklickt wurde es auch einige zusätzliche Informationen an den Ereignishandler übergeben. Wenn dies der Fall, die LinkButton s ist [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) und [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) Eigenschaften können diese zusätzlichen Informationen zugewiesen werden. Dann, wenn die LinkButton geklickt wird, dessen `Command` -Ereignis ausgelöst (anstelle von seiner `Click` Ereignis) und der Ereignishandler übergeben die Werte von der `CommandName` und `CommandArgument` Eigenschaften.
 
@@ -296,11 +296,11 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Zack Jones. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](master-detail-filtering-acess-two-pages-datalist-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
 title: 'EF Datenbank zuerst mit ASP.NET MVC: Erstellen der Webanwendung und Datenmodelle | Microsoft Docs'
 author: tfitzmac
-description: "MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri..."
+description: MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: f495bfa3aa5332e4ca3e44c2ffbfb760fbbeafc8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04ccc00fa48702608fdc7b5b00d73778985852f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>EF Datenbank zuerst mit ASP.NET MVC: Erstellen der Webanwendung und Datenmodelle
 ====================
@@ -101,6 +101,6 @@ Die **ContosoModel.Context.cs** -Datei enthält eine Klasse, die von abgeleitet 
 
 Erstellen Sie bevor Sie mit diesem Lernprogramm fortfahren das Projekt aus. Im nächsten Abschnitt generieren Sie Code basiert auf Datenmodellen, aber dieser Abschnitt nicht funktioniert, wenn das Projekt nicht erstellt wurde.
 
->[!div class="step-by-step"]
-[Zurück](setting-up-database.md)
-[Weiter](generating-views.md)
+> [!div class="step-by-step"]
+> [Zurück](setting-up-database.md)
+> [Weiter](generating-views.md)

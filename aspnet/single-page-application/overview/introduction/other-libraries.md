@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/05/2013
 ms.topic: article
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 5a863f50401a4e2bab3f772374b7fd178f6c6cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ac260e88fd156bad4b414e93325d5a04c490c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="know-a-library-other-than-knockout"></a>Wissen Sie eine Bibliothek als Knockout?
 ====================
@@ -57,15 +57,17 @@ Im Vergleich mit den anderen Vorlagen, die hier aufgeführten bietet die Hot Han
 
 Hier werden die von jeder SPA-Vorlage bereitgestellten Funktionen:
 
-|  | ASP.NET SPA | Backbone | Kinderspiel/Angular | Kinderspiel/KO | Ember | Im laufenden Systembetrieb Handtuch |
-| --- | --- | --- | --- | --- | --- | --- |
-| TODO-Beispiel | &#10003; |  | &#10003; | &#10003; | &#10003; |  |
-| Bare-Vorlage |  | &#10003; |  |  |  | &#10003; |
-| Navigation und Verlauf |  | &#10003; | &#10003; |  | &#10003; | &#10003; |
-| Bibliotheken |  |  |  |  |  |  |
-| Angular |  |  | &#10003; |  |  |  |
-| &#8195; Backbone |  | &#10003; |  |  |  |  |
-| Kinderspiel |  |  | &#10003; | &#10003; |  | &#10003; |
-| Durandal |  |  |  |  |  | &#10003; |
-| Ember |  |  |  |  | &#10003; |  |
-| Knockout | &#10003; |  |  | &#10003; |  | &#10003; |
+
+|                        | ASP.NET SPA | Backbone | Kinderspiel/Angular | Breeze/KO |  Ember   | Im laufenden Systembetrieb Handtuch |
+|------------------------|-------------|----------|----------------|-----------|----------|-----------|
+|      TODO-Beispiel       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|     Bare-Vorlage      |             | &#10003; |                |           |          | &#10003;  |
+| Navigation und Verlauf |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
+|        Bibliotheken        |             |          |                |           |          |           |
+|        Angular         |             |          |    &#10003;    |           |          |           |
+|    &#8195;Backbone     |             | &#10003; |                |           |          |           |
+|         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
+|        Durandal        |             |          |                |           |          | &#10003;  |
+|         Ember          |             |          |                |           | &#10003; |           |
+|        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 title: Masterseiten und ASP.NET AJAX (c#) | Microsoft Docs
 author: rick-anderson
-description: "Erläutert die Optionen für die Verwendung von ASP.NET AJAX und Masterseiten. Prüft, mit der Klasse ScriptManagerProxy; Erläutert, wie die verschiedenen JS-Dateien Dependi geladen werden..."
+description: Erläutert die Optionen für die Verwendung von ASP.NET AJAX und Masterseiten. Prüft, mit der Klasse ScriptManagerProxy; Erläutert, wie die verschiedenen JS-Dateien Dependi geladen werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87e5855354610723823da88ec961e7391c3f705f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Masterseiten und ASP.NET AJAX (c#)
 ====================
@@ -184,9 +184,9 @@ Zum Hinzufügen verwenden ScriptManager Anpassungen in Abständen von Seite Scri
 
 Erweitern, um das Steuerelement ScriptManagerProxy in Aktion zu sehen, wir UpdatePanel in `ShowRandomProduct.aspx` eine Schaltfläche enthalten, die mit clientseitigem Skript anhalten oder Fortsetzen der Timer-Steuerelement. Das Timer-Steuerelement verfügt über drei clientseitige-Methoden, die es verwenden können, um diese gewünschte Funktionalität zu erzielen:
 
-- `_startTimer()`– Startet das Timer-Steuerelement
-- `_raiseTick()`– bewirkt, dass das Timer-Steuerelement, "Takt" und Zurücksenden und Auslösen von seiner `Tick` Ereignis auf dem Server
-- `_stopTimer()`– beendet den Timer-Steuerelement
+- `_startTimer()` – Startet das Timer-Steuerelement
+- `_raiseTick()` – bewirkt, dass das Timer-Steuerelement, "Takt" und Zurücksenden und Auslösen von seiner `Tick` Ereignis auf dem Server
+- `_stopTimer()` – beendet den Timer-Steuerelement
 
 Erstellen wir eine JavaScript-Datei mit einer Variablen namens `timerEnabled` und eine Funktion namens `ToggleTimer`. Die `timerEnabled` Variable gibt an, ob das Timer-Steuerelement derzeit aktiviert oder deaktiviert ist, wird standardmäßig auf "true". Die `ToggleTimer` -Funktion akzeptiert zwei Eingabeparameter: ein Verweis auf die Schaltfläche "anhalten/fortsetzen" und die clientseitige `id` Wert, der das Timer-Steuerelement. Diese Funktion wird der Wert von `timerEnabled`, ruft einen Verweis auf das Timer-Steuerelement, startet oder beendet den Zeitgeber (abhängig vom Wert der `timerEnabled`), und aktualisiert die Anzeige des Schaltflächentext in "Pause" oder "Resume". Diese Funktion wird aufgerufen werden, wenn das anhalten/fortsetzen geklickt wird.
 
@@ -228,7 +228,7 @@ Wir können nun Aufrufe der `ToggleTimer` in definierte Funktion `TimerScript.js
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
-Dies zeigt eine Schaltfläche mit dem Text "Anhalten" an. Bei jedem geklickt wird, die JavaScript-Funktion `ToggleTimer` aufgerufen wird, übergibt einen Verweis auf die Schaltfläche "" und der Id-Wert, der das Timer-Steuerelement (`ProductTimer`). Beachten Sie die Syntax zum Abrufen der `id` Wert, der das Timer-Steuerelement. `<%=ProductTimer.ClientID%>`Gibt den Wert der `ProductTimer` Timer-Steuerelement `ClientID` Eigenschaft. In der [ *Steuerelement-ID auf Inhaltsseiten Benennung* ](control-id-naming-in-content-pages-cs.md) Lernprogramm wir haben auch über die Unterschiede zwischen den serverseitigen `ID` Wert und die resultierende clientseitige `id` Wert, und wie `ClientID` gibt zurück, die die clientseitige `id`.
+Dies zeigt eine Schaltfläche mit dem Text "Anhalten" an. Bei jedem geklickt wird, die JavaScript-Funktion `ToggleTimer` aufgerufen wird, übergibt einen Verweis auf die Schaltfläche "" und der Id-Wert, der das Timer-Steuerelement (`ProductTimer`). Beachten Sie die Syntax zum Abrufen der `id` Wert, der das Timer-Steuerelement. `<%=ProductTimer.ClientID%>` Gibt den Wert der `ProductTimer` Timer-Steuerelement `ClientID` Eigenschaft. In der [ *Steuerelement-ID auf Inhaltsseiten Benennung* ](control-id-naming-in-content-pages-cs.md) Lernprogramm wir haben auch über die Unterschiede zwischen den serverseitigen `ID` Wert und die resultierende clientseitige `id` Wert, und wie `ClientID` gibt zurück, die die clientseitige `id`.
 
 Abbildung 11 zeigt diese Seite, wenn zunächst über einen Browser zugegriffen werden. Der Zeitgeber wird derzeit ausgeführt und die angezeigten Produktinformationen alle 15 Sekunden aktualisiert. Abbildung 12 zeigt den Bildschirm, nachdem die entsprechende Schaltfläche geklickt wurde. Klicken auf die Schaltfläche "Anhalten" hält den Zeitgeber und aktualisiert den Schaltflächentext in "Fortsetzen". Die Produktinformationen aktualisieren (und wird fortgesetzt, aktualisieren Sie alle 15 Sekunden), sobald der Benutzer fortsetzen klickt.
 
@@ -264,12 +264,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](interacting-with-the-content-page-from-the-master-page-cs.md)
-[Weiter](specifying-the-master-page-programmatically-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](interacting-with-the-content-page-from-the-master-page-cs.md)
+> [Weiter](specifying-the-master-page-programmatically-cs.md)

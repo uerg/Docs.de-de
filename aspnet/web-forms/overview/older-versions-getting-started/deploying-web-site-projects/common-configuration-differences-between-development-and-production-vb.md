@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 title: Allgemeine Konfigurationsunterschiede zwischen Entwicklungs- und Produktionsumgebungen (VB) | Microsoft Docs
 author: rick-anderson
-description: "In früheren Lernprogrammen haben wir unsere Website durch Kopieren alle relevanten Dateien aus der Entwicklungsumgebung in der produktionsumgebung bereitgestellt. Aber ich..."
+description: In früheren Lernprogrammen haben wir unsere Website durch Kopieren alle relevanten Dateien aus der Entwicklungsumgebung in der produktionsumgebung bereitgestellt. Aber ich...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b53565e4ae09b007029bdab7cc8724e2d7d193fe
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079f6c5a67ec378991ff63694c30e94ed8011bb4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-vb"></a>Allgemeine Konfigurationsunterschiede zwischen Entwicklungs- und Produktionsumgebungen (VB)
 ====================
@@ -53,7 +53,7 @@ Bei eine ASP.NET-Seite besucht wird für erstmalig (oder der ersten Mal nach der
 Das Debugattribut ist eines der wichtigsten Attribute in der `<compilation>` Element. Wenn die `debug` -Attribut auf "true", und klicken Sie dann den kompilierten Assemblys Debugsymbole, die erforderlich sind enthalten, wenn eine Anwendung in Visual Studio Debuggen festgelegt ist. Aber Debugsymbole vergrößern die Assembly und erzwingen Sie zusätzlichen arbeitsspeicheranforderungen aus, wenn der Code ausgeführt wird. Darüber hinaus, wenn die `debug` -Attribut auf "alle Inhalte, die zurückgegeben werden, indem Sie"Wahr"festgelegt ist `WebResource.axd` nicht zwischengespeichert werden, was bedeutet, dass jedes Mal ein Benutzer eine Seite besucht, sie die statische Inhalte zurückgegebenes erneut herunterladen müssen `WebResource.axd`.
 
 > [!NOTE]
-> `WebResource.axd`eine integrierte HTTP-Handler ist in ASP.NET 2.0 eingeführt, mit denen Serversteuerelemente eingebettete Ressourcen, z. B. Skriptdateien, Bilder, CSS-Dateien und andere Inhalte abrufen. Weitere Informationen zum `WebResource.axd` funktioniert und wie Sie Zugriff auf eingebettete Ressourcen von Ihrer benutzerdefinierten Serversteuerelemente verwenden finden Sie unter [Zugriff auf eingebettete Ressourcen über eine URL verwendet `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
+> `WebResource.axd` eine integrierte HTTP-Handler ist in ASP.NET 2.0 eingeführt, mit denen Serversteuerelemente eingebettete Ressourcen, z. B. Skriptdateien, Bilder, CSS-Dateien und andere Inhalte abrufen. Weitere Informationen zum `WebResource.axd` funktioniert und wie Sie Zugriff auf eingebettete Ressourcen von Ihrer benutzerdefinierten Serversteuerelemente verwenden finden Sie unter [Zugriff auf eingebettete Ressourcen über eine URL verwendet `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
 
 
 Die `<compilation>` des Elements `debug` Attribut wird festgelegt, dass Sie "true" in der Entwicklungsumgebung. Tatsächlich, dass auf dieses Attribut muss auf "true", um eine Webanwendung Debuggen festgelegt werden kann Wenn Sie versuchen, eine ASP.NET-Anwendung in Visual Studio zu debuggen und die `debug` -Attribut auf "False" festgelegt ist, Visual Studio zeigt eine Meldung erläutert wird, dass die Anwendung kann, bis gedebuggt werden die `debug` -Attribut auf "true" und wird festgelegt ist Angebot, für Sie diese Änderung vorzunehmen.
@@ -136,6 +136,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Visual Studio 2008 Web-Bereitstellungsprojekte](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [Bereitstellung Projekt Unterstützung für Visual Studio 2008 Web freigegeben](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
 - [Webbereitstellungsprojekte](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
->[!div class="step-by-step"]
-[Zurück](deploying-your-site-using-visual-studio-vb.md)
-[Weiter](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-your-site-using-visual-studio-vb.md)
+> [Weiter](core-differences-between-iis-and-the-asp-net-development-server-vb.md)

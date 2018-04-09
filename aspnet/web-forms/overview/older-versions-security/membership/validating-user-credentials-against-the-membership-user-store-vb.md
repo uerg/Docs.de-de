@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
-title: "Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (VB) | Microsoft Docs"
+title: Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht..."
+description: In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f57bc8c32757c1ea25bf6bbb34539570e4c09aad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (VB)
 ====================
@@ -71,8 +71,8 @@ Wenn ein Besucher die Anmeldeseite erreicht und übermittelt ihre Anmeldeinforma
 
 Um solche Brute-Force-Angriffe zu verhindern, sperrt das Framework der Mitgliedschaft eines Benutzers, wenn eine bestimmte Anzahl von nicht erfolgreichen Anmeldeversuche innerhalb einer bestimmten Zeitspanne vorhanden sind. Die genauen Parameter können über die folgenden zwei Mitgliedschaft Anbieter Konfigurationseinstellungen konfiguriert werden:
 
-- `maxInvalidPasswordAttempts`-Gibt an, wie viele wurde ein ungültiges Kennwort Versuche dürfen für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt ist. Der Standardwert ist 5.
-- `passwordAttemptWindow`-Gibt den Zeitraum in Minuten, während dessen die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
+- `maxInvalidPasswordAttempts` -Gibt an, wie viele wurde ein ungültiges Kennwort Versuche dürfen für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt ist. Der Standardwert ist 5.
+- `passwordAttemptWindow` -Gibt den Zeitraum in Minuten, während dessen die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
 
 Wenn ein Benutzer gesperrt wurde, kann nicht er sich erst anmelden, ein Administrator ihr Konto entsperrt. Wenn ein Benutzer gesperrt ist die `ValidateUser` Methode wird *immer* zurückgeben `False`, selbst wenn Sie gültige Anmeldeinformationen angegeben werden. Während dieses Verhalten die Wahrscheinlichkeit, die ein Hacker durch Brute-Force-Methoden in Ihrer Website unterbrochen wird verringert, kann er ein gültiger Benutzer, einfach das Kennwort vergessen hat oder versehentlich die FESTSTELLTASTE aktiviert ist, auf oder hat einen ungültigen Eingabe Tag, Sperrung annehmen.
 
@@ -110,7 +110,7 @@ Und wir sind fertig! Bei der Anmeldung des Steuerelements anmelden Schaltfläche
 
 Das Steuerelement für die Anmeldung verwendet vier Faktoren, die entsprechende Seite zum Umleiten des Benutzers, um nach einer erfolgreichen Anmeldung festzulegen:
 
-- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der Definition von `loginUrl` ist der Standardwert für diese Einstellung festlegen, in die Konfiguration der Formularauthentifizierung;`Login.aspx`
+- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der Definition von `loginUrl` ist der Standardwert für diese Einstellung festlegen, in die Konfiguration der Formularauthentifizierung; `Login.aspx`
 - Das Vorhandensein einer `ReturnUrl` Querystring-Parameter
 - Der Wert des Steuerelements für die Anmeldung [ `DestinationUrl` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - Die `defaultUrl` Wert, der in den Formularen Konfigurationseinstellungen für die Authentifizierung angegeben; Standardwert für diese Einstellung ist "default.aspx"
@@ -230,7 +230,7 @@ Wie Sie sehen können, die `Authenticate` übergebene Ereignishandler wird ein O
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Bestimmen und die angegebenen Anmeldeinformationen überprüft.
 
-Verwenden Sie das Anmelde-Steuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebenen Benutzernamens und Kennworts-Anmeldeinformationen. Um die Werte in jeder zusätzlichen Websteuerelemente eingegeben bestimmen (wie z. B. die `Email` Textfeld wir im vorherigen Schritt hinzugefügt), verwenden Sie `LoginControlID.FindControl`("*`controlID`*") einen programmgesteuerten Verweis auf das Web abrufen Steuerelement in der Vorlage, dessen `ID` -Eigenschaft gleich  *`controlID`* . Beispielsweise, um das Abrufen eines Verweises auf die `Email` TextBox, verwenden Sie den folgenden Code:
+Verwenden Sie das Anmelde-Steuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebenen Benutzernamens und Kennworts-Anmeldeinformationen. Um die Werte in jeder zusätzlichen Websteuerelemente eingegeben bestimmen (wie z. B. die `Email` Textfeld wir im vorherigen Schritt hinzugefügt), verwenden Sie `LoginControlID.FindControl`("*`controlID`*") einen programmgesteuerten Verweis auf das Web abrufen Steuerelement in der Vorlage, dessen `ID` -Eigenschaft gleich *`controlID`*. Beispielsweise, um das Abrufen eines Verweises auf die `Email` TextBox, verwenden Sie den folgenden Code:
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
@@ -310,12 +310,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Teresa Murphy und Michael Olivero. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](creating-user-accounts-vb.md)
-[Weiter](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-user-accounts-vb.md)
+> [Weiter](user-based-authorization-vb.md)

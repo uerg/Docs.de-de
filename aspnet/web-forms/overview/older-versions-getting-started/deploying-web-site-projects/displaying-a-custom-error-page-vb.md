@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 title: Anzeigen einer Fehlerseite (VB) | Microsoft Docs
 author: rick-anderson
-description: "Was sieht der Benutzer, tritt ein Laufzeitfehler in einer ASP.NET-Webanwendung? Die Antwort abhängig, wie der Website &lt;CustomErrors&gt; Konfiguration..."
+description: Was sieht der Benutzer, tritt ein Laufzeitfehler in einer ASP.NET-Webanwendung? Die Antwort abhängig, wie der Website &lt;CustomErrors&gt; Konfiguration...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8a2f88490de08f731f9737d15237ae445c5ec0d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: eda7ceeac174f0d1697cb95d2eab4127f124011e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Anzeigen einer Fehlerseite (VB)
 ====================
@@ -60,7 +60,7 @@ Beachten Sie die ausnahmefehlerinformationen im dargestellt **Abbildung 1**. Aus
 
 Die andere Art von YSOD YSOD der Common Language Runtime-Fehler ist, und auf **Abbildung 2**. Die Common Language Runtime-Fehler YSOD informiert den Besucher, den ein Laufzeitfehler aufgetreten ist, aber es umfasst keine Informationen über die Ausnahme, die ausgelöst wurde. (Es der Fall ist, Anweisungen jedoch bereitstellen, wie die Fehlerdetails können durch Ändern der `Web.config` -Datei, die macht eine YSOD, die von unprofessionell stammt.)
 
-Standardmäßig YSOD der Common Language Runtime-Fehler wird angezeigt, die Benutzer besuchen Remote (über http://www.yoursite.com), wie durch die URL in die Adressleiste des Browsers belegt **Abbildung 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Die zwei verschiedenen YSOD Bildschirme vorhanden sein, da Entwickler regionale die Fehlerdetails, sondern solche Informationen sollten auf einem live-Standort nicht angezeigt, wie sie potenzielle Sicherheitsrisiken oder andere sensible Informationen für alle Benutzer besucht Offenlegen möglicherweise Ihre Standort.
+Standardmäßig wird der Common Language Runtime-Fehler YSOD dargestellt, um Benutzer remote auf (über http://www.yoursite.com), wie durch die URL in die Adressleiste des Browsers belegt **Abbildung 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Die zwei verschiedenen YSOD Bildschirme vorhanden sein, da Entwickler regionale die Fehlerdetails, sondern solche Informationen sollten auf einem live-Standort nicht angezeigt, wie sie potenzielle Sicherheitsrisiken oder andere sensible Informationen für alle Benutzer besucht Offenlegen möglicherweise Ihre Standort.
 
 > [!NOTE]
 > Wenn Sie sind die folgenden zusammen und DiscountASP.NET wie auf dem Webhost verwenden, werden Sie möglicherweise feststellen, dass die Common Language Runtime-Fehler YSOD beim Besuch der live-Standorts nicht angezeigt wird. Dies ist da DiscountASP.NET ihre Server so konfiguriert, dass die Ausnahme Details YSOD anzeigen in der Standardeinstellung verfügt. Die gute Nachricht ist, dass Sie dieses Standardverhalten, indem hinzufügen überschreiben können einer `<customErrors>` Abschnitt Ihrer `Web.config` Datei. Im Abschnitt "Konfigurieren der Fehler angezeigt wird" untersucht die `<customErrors>` Abschnitt detailliert.
@@ -89,11 +89,11 @@ Die drei möglichen Fehlern Seiten angezeigt wird, basiert auf zwei Variablen:
 
 Die [ `<customErrors>` Abschnitt](https://msdn.microsoft.com/library/h0hfz6fc.aspx) in `Web.config` verfügt über zwei Attribute, die beeinflussen, welche Seite "Fehler" angezeigt wird: `defaultRedirect` und `mode`. Das `defaultRedirect`-Attribut ist optional. Wenn angegeben, gibt die URL für die benutzerdefinierte Fehlerseite an und gibt an, dass die benutzerdefinierte Fehlerseite soll, anstatt die Common Language Runtime-Fehler YSOD angezeigt werden. Die `mode` Attribut ist erforderlich und akzeptiert einen von drei Werten: `On`, `Off`, oder `RemoteOnly`. Diese Werte weisen folgendes Verhalten auf:
 
-- `On`-Gibt an, dass die benutzerdefinierte Fehlerseite oder YSOD der Common Language Runtime-Fehler, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
-- `Off`-Gibt an, dass die Ausnahme Details YSOD, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
-- `RemoteOnly`-Gibt an, dass die benutzerdefinierte Fehlerseite oder der Common Language Runtime-Fehler YSOD remote Besucher angezeigt wird, während die Ausnahme Details YSOD lokalen Besucher angezeigt wird.
+- `On` -Gibt an, dass die benutzerdefinierte Fehlerseite oder YSOD der Common Language Runtime-Fehler, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
+- `Off` -Gibt an, dass die Ausnahme Details YSOD, um alle Besucher konfigurieren angezeigt wird, unabhängig davon, ob sie lokal oder remote.
+- `RemoteOnly` -Gibt an, dass die benutzerdefinierte Fehlerseite oder der Common Language Runtime-Fehler YSOD remote Besucher angezeigt wird, während die Ausnahme Details YSOD lokalen Besucher angezeigt wird.
 
-Sofern nicht anders angegeben, wird ASP.NET verhält, als ob Sie die Mode-Attribut, um festgelegt wurden `RemoteOnly` wurde nicht angegeben, und ein `defaultRedirect` Wert. Das heißt, ist das Standardverhalten, dass die Ausnahme Details YSOD lokalen Besucher angezeigt wird, während der Laufzeit Fehler YSOD remote Besucher angezeigt wird. Sie können dieses Standardverhalten außer Kraft setzen, durch Hinzufügen einer `<customErrors>` Abschnitt aus, um Ihre Web-Anwendungsverzeichnis`Web.config file.`
+Sofern nicht anders angegeben, wird ASP.NET verhält, als ob Sie die Mode-Attribut, um festgelegt wurden `RemoteOnly` wurde nicht angegeben, und ein `defaultRedirect` Wert. Das heißt, ist das Standardverhalten, dass die Ausnahme Details YSOD lokalen Besucher angezeigt wird, während der Laufzeit Fehler YSOD remote Besucher angezeigt wird. Sie können dieses Standardverhalten außer Kraft setzen, durch Hinzufügen einer `<customErrors>` Abschnitt aus, um Ihre Web-Anwendungsverzeichnis `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>Verwenden eine benutzerdefinierte Fehlerseite
 
@@ -143,7 +143,7 @@ Durch diese Änderung vorhanden, wenn ein Benutzer Zugriff auf Remote eine ASP.N
 > Auschecken [404 Fehlerseiten mehr einmal](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) Anleitungen zum effektiven Fehler 404-Seiten erstellen.
 
 
-[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Abbildung 7**: die Seite "Benutzerdefiniert 404-Fehler" in einer Meldung spezielleren als`Oops.aspx`  
+[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Abbildung 7**: die Seite "Benutzerdefiniert 404-Fehler" in einer Meldung spezielleren als `Oops.aspx`  
  ([Klicken Sie hier, um das Bild in voller Größe angezeigt](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
 Da Sie wissen, dass die `404.aspx` Seite erreicht ist nur, wenn der Benutzer für eine Seite anfordert, die nicht gefunden wurde, können Sie dieses benutzerdefinierte Fehlerseite Einbeziehung von Funktionen bereit, mit dem Benutzer, die diese bestimmte Art von Fehler zu beheben helfen verbessern. Beispielsweise erstellen Sie eine Datenbanktabelle, die ordnet ungültige URLs, die gute URLs bekannt werden konnte, und lassen Sie dann die `404.aspx` benutzerdefinierte Fehlerseite Ausführen eine Abfrage, die Tabelle und Seiten, die der Benutzer zu erreichen versuchen möglicherweise vorschlagen.
@@ -172,6 +172,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Behandeln und Auslösen von Ausnahmen](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Verwenden benutzerdefinierte Fehlerseiten ordnungsgemäß in ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[Zurück](strategies-for-database-development-and-deployment-vb.md)
-[Weiter](processing-unhandled-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](strategies-for-database-development-and-deployment-vb.md)
+> [Weiter](processing-unhandled-exceptions-vb.md)

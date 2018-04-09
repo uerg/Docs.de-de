@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
-title: "Aktualisieren, löschen und Erstellen von Daten mit modellbindung und WebForms | Microsoft Docs"
+title: Aktualisieren, löschen und Erstellen von Daten mit modellbindung und WebForms | Microsoft Docs
 author: tfitzmac
 description: Diese Reihe von Lernprogrammen veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung bei einem ASP.NET Web Forms-Projekt. Wurden die modellbindung macht die dateninteraktion Weitere gerade-...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 18c065b44524e7738c048b5908fa50c592188064
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6536f7858afde5faf3aedd34f3cbe95c5ed0d53
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Aktualisieren, löschen und Erstellen von Daten mit modellbindung und WebForms
 ====================
@@ -26,7 +26,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Dieses Lernprogramm veranschaulicht das Erstellen, aktualisieren und Löschen von Daten mit modellbindung. Sie können die folgenden Eigenschaften festlegen:
 > 
-> - deleteMethod
+> - DeleteMethod
 > - InsertMethod
 > - UpdateMethod
 > 
@@ -127,12 +127,12 @@ Klicken Sie auf **einfügen** , und beachten Sie die neue Studenten erstellt wur
 
 ![Anzeigen von neuen Studenten](updating-deleting-and-creating-data/_static/image7.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm ermöglichte aktualisieren, löschen und Erstellen von Daten. Sie wird sichergestellt, dass es sich um eine Überprüfungsregeln angewendet werden, bei der Interaktion mit den Daten.
 
 In der nächsten [Lernprogramm](sorting-paging-and-filtering-data.md) in dieser Serie, aktivieren Sie sortieren, paging und Filtern von Daten.
 
->[!div class="step-by-step"]
-[Zurück](retrieving-data.md)
-[Weiter](sorting-paging-and-filtering-data.md)
+> [!div class="step-by-step"]
+> [Zurück](retrieving-data.md)
+> [Weiter](sorting-paging-and-filtering-data.md)

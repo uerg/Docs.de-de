@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 title: Verwenden der TagBuilder-Klasse zum Erstellen von HTML-Hilfsmethoden (c#) | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther stellt Ihnen eine nützliche Hilfsprogrammklasse in ASP.NET MVC-Framework mit dem Namen der TagBuilder-Klasse. Sie können einfach die TagBuilder-Klasse, um..."
+description: Stephen Walther stellt Ihnen eine nützliche Hilfsprogrammklasse in ASP.NET MVC-Framework mit dem Namen der TagBuilder-Klasse. Sie können einfach die TagBuilder-Klasse, um...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 63f07c3f95c520dbc74f3568aa65dc6a6f34a901
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 6c0e8e4e3a733f2cc8690dc85e3006bce6c661d2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>Verwenden die TagBuilder-Klasse zum Erstellen von HTML-Hilfsmethoden (c#)
 ====================
@@ -77,6 +77,6 @@ Beachten Sie, dass Sie den Namespace, der dem Image-Hilfsprogramm am oberen Rand
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample3.aspx)]
 
->[!div class="step-by-step"]
-[Zurück](creating-custom-html-helpers-cs.md)
-[Weiter](creating-page-layouts-with-view-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-custom-html-helpers-cs.md)
+> [Weiter](creating-page-layouts-with-view-master-pages-cs.md)

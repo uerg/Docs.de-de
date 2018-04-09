@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 title: OWIN-Middleware in der IIS-integrierten Pipeline | Microsoft Docs
 author: Praburaj
-description: "Dieser Artikel zeigt, wie zum Ausführen von owin-Middleware-Komponenten (OMCs) in der integrierten IIS-Pipeline und zum Festlegen von der Pipeline-Ereignis ein OMC auf ausgeführt. Sie sollten..."
+description: Dieser Artikel zeigt, wie zum Ausführen von owin-Middleware-Komponenten (OMCs) in der integrierten IIS-Pipeline und zum Festlegen von der Pipeline-Ereignis ein OMC auf ausgeführt. Sie sollten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>OWIN-Middleware in der integrierten IIS-pipeline
 ====================
@@ -83,13 +83,13 @@ Owin-Middleware-Komponenten (OMC) können zum Ausführen von auf owin-Pipeline-P
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- Aufrufe von `app.UseStageMarker` übergeben `Authenticate` oder `PostAuthenticate` nicht berücksichtigt werden, und es wird keine Ausnahme ausgelöst. Führen Sie in der letzten Phase, dies ist standardmäßig OMCs `PreHandlerExecute`. Phase Marker werden verwendet, damit sie zuvor ausgeführt werden können. Wenn Sie die Phase Marker außerhalb der Reihenfolge angeben, runden wir auf den früheren Marker. Hinzufügen eine phasenmarkierung sagt also "Phase X oder höher ausführen". Bei den frühesten phasenmarkierung hinzugefügt, nachdem sie in der OWIN-Pipeline des OMC-ausführen.
+   Aufrufe von `app.UseStageMarker` übergeben `Authenticate` oder `PostAuthenticate` nicht berücksichtigt werden, und es wird keine Ausnahme ausgelöst. Führen Sie in der letzten Phase, dies ist standardmäßig OMCs `PreHandlerExecute`. Phase Marker werden verwendet, damit sie zuvor ausgeführt werden können. Wenn Sie die Phase Marker außerhalb der Reihenfolge angeben, runden wir auf den früheren Marker. Hinzufügen eine phasenmarkierung sagt also "Phase X oder höher ausführen". Bei den frühesten phasenmarkierung hinzugefügt, nachdem sie in der OWIN-Pipeline des OMC-ausführen.
 4. Der frühesten Stufe der Aufrufe an `app.UseStageMarker` Wins. Angenommen, wenn Sie die Reihenfolge der wechseln `app.UseStageMarker` Aufrufe aus unserer vorherigen Beispiel:
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- Das Fenster "Ausgabe" wird angezeigt: 
+   Das Fenster "Ausgabe" wird angezeigt: 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- Die OMCs alle ausgeführt, in der `AuthenticateRequest` bereitstellen, da der letzte OMC registriert die `Authenticate` -Ereignis und die `Authenticate` Ereignis vorangeht, alle anderen Ereignisse.
+   Die OMCs alle ausgeführt, in der `AuthenticateRequest` bereitstellen, da der letzte OMC registriert die `Authenticate` -Ereignis und die `Authenticate` Ereignis vorangeht, alle anderen Ereignisse.

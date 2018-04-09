@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 title: Erstellen von Webanwendungen Offline mit Web Deploy | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie eine Webanwendung für die Dauer einer automatisierten Bereitstellung mithilfe der Internetinformationsdienste (Internet Information Services, IIS) Web Depl offline geschaltet werden..."
+description: In diesem Thema wird beschrieben, wie eine Webanwendung für die Dauer einer automatisierten Bereitstellung mithilfe der Internetinformationsdienste (Internet Information Services, IIS) Web Depl offline geschaltet werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Erstellen von Webanwendungen Offline mit Web Deploy
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird beschrieben, wie eine Webanwendung für die Dauer einer automatisierten Bereitstellung über das Internet Information Services (IIS)-Webbereitstellungstool (Web Deploy) offline erstellt werden. Benutzer, die an die Web-Anwendung durchsuchen werden umgeleitet, um eine *App\_offline.htm* Datei, bis die Bereitstellung abgeschlossen ist.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -94,7 +94,7 @@ Um diese Befehle als Teil eines Prozesses Build- und Bereitstellungsprozess auto
 2. Im Stammverzeichnis **Projekt** Element, erstellen Sie ein neues **PropertyGroup** Element zum Speichern von Variablen für die *App\_offline* Bereitstellung:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. Die **SourceRoot** Eigenschaft an anderer Stelle definiert ist, der *Publish.proj* Datei. Er gibt den Speicherort des Stammordners für den Quellinhalt relativ zu den aktuellen Pfad & #x 2014; das heißt, relativ zum Speicherort der an die *Publish.proj* Datei.
+3. Die **SourceRoot** Eigenschaft an anderer Stelle definiert ist, der *Publish.proj* Datei. Er gibt den Speicherort des Stammordners für den Quellinhalt relativ zum Pfad aktuellen an&#x2014;also relativ zum Speicherort von der *Publish.proj* Datei.
 4. Die **ContentPath** Anbieter akzeptiert keine relative Dateipfade, daher müssen Sie einen absoluten Pfad der Quelldatei abrufen, bevor Sie bereitgestellt werden können. Sie können die [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) Aufgabe dazu.
 5. Fügen Sie einen neuen **Ziel** Element mit dem Namen **GetAppOfflineAbsolutePath**. In diesem Ziel verwenden die **ConvertToAbsolutePath** ausführen einen absoluten Pfad zum Abrufen der *App\_offline-Vorlage* Datei im Projektordner.
 
@@ -116,7 +116,7 @@ Wenn Sie Ihre benutzerdefinierte MSBuild-Projektdatei Ausführen der *App\_offli
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Hinzufügen der App\_Offlinedatei Bereitstellungspaketen
 
-Je nach Ihrer Bereitstellung, jeglichen vorhandenen Inhalt der Ziel-IIS-Webanwendung & #x 2014; konfigurieren auf wie die *App\_offline.htm* Datei & #x 2014; möglicherweise automatisch gelöscht, wenn Sie ein Web deploy Paket an das Ziel. Um sicherzustellen, dass die *App\_offline.htm* Datei wird so lange für die Dauer der Bereitstellung, müssen Sie die Datei in das Webbereitstellungspaket selbst enthalten darüber hinaus die Datei direkt zu Beginn der Bereitstellung Der Bereitstellungsprozess.
+Abhängig von der Konfiguration Ihrer Bereitstellung vorhandene Inhalte am Ziel IIS-Webanwendung&#x2014;wie die *App\_offline.htm* Datei&#x2014;möglicherweise automatisch gelöscht, wenn Sie ein Web deploy Paket an das Ziel. Um sicherzustellen, dass die *App\_offline.htm* Datei wird so lange für die Dauer der Bereitstellung, müssen Sie die Datei in das Webbereitstellungspaket selbst enthalten darüber hinaus die Datei direkt zu Beginn der Bereitstellung Der Bereitstellungsprozess.
 
 - Wenn Sie die vorherigen Aufgaben in diesem Thema befolgt haben, Sie müssen hinzugefügt haben, die *App\_offline.htm* Datei zum Webanwendungsprojekt-Anwendung unter einem anderen Dateinamen (wir verwendet *App\_ Offline-template.htm*) und haben legen Sie die Buildaktion auf **keine**. Diese Änderungen sind erforderlich, um zu verhindern, dass die Datei aus stören Entwicklung und Debuggen. Daher müssen Sie zum Anpassen des Verpackungsprozesses, um sicherzustellen, dass die *App\_offline.htm* Datei in das Webbereitstellungspaket enthalten ist.
 
@@ -125,7 +125,7 @@ Die Publishing Web Pipeline (WPP) verwendet eine Liste der mit dem Namen **Files
 1. Erstellen eine benutzerdefinierten Projektdatei mit dem Namen *[Projektname].wpp.targets* im gleichen Ordner wie die Projektdatei.
 
     > [!NOTE]
-    > Die *. wpp.targets* Datei muss im gleichen Ordner wie die Projektdatei der Web-Anwendung & #x 2014; wechseln z. B. *ContactManager.Mvc.csproj*& #x 2014; statt im selben Ordner wie ein anderer Benutzerdefinierte Projektdateien verwenden Sie, um die Steuerung des Builds und Bereitstellungsprozess.
+    > Die *. wpp.targets* Datei muss sich im gleichen Ordner wie die Anwendung Webprojektdatei wechseln&#x2014;z. B. *ContactManager.Mvc.csproj*&#x2014;anstatt im gleichen Ordner wie die benutzerdefinierten Verwenden Sie zum Steuern der Build- und Bereitstellungsprozess Projektdateien verarbeiten.
 2. In der *. wpp.targets* Datei, erstellen Sie ein neues MSBuild-Ziel, die ausgeführt wird *vor* der **CopyAllFilesToSingleFolderForPackage** Ziel. Dies ist das WPP-Ziel, das erstellt eine Liste der Dinge, die in das Paket eingeschlossen werden sollen.
 3. Erstellen Sie in das neue Ziel ein **ItemGroup** Element.
 4. In der **ItemGroup** Element, Hinzufügen einer **FilesForPackagingFromProject** Element, und geben Sie die *App\_offline.htm* Datei.
@@ -175,6 +175,6 @@ Weitere Informationen über das Packen und Bereitstellungsprozess, finden Sie un
 
 Wenn Sie Ihre Webanwendungen direkt aus Visual Studio veröffentlichen, anstatt mit benutzerdefinierte MSBuild-Projekt Datei beschriebene Ansatz in diesen Lernprogrammen, müssen Sie einen etwas anderen Ansatz verwenden, um die Anwendung offline, während der Veröffentlichung zu erstellen Prozess. Weitere Informationen finden Sie unter [wie Ihre Web-app während der Veröffentlichung werden](https://go.microsoft.com/?linkid=9805135) (Blogbeitrag).
 
->[!div class="step-by-step"]
-[Zurück](excluding-files-and-folders-from-deployment.md)
-[Weiter](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Zurück](excluding-files-and-folders-from-deployment.md)
+> [Weiter](running-windows-powershell-scripts-from-msbuild-project-files.md)

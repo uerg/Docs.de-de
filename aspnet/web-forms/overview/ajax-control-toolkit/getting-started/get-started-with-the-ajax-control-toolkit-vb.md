@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
-title: "Erste Schritte mit dem Toolkit für AJAX-Steuerelement (VB) | Microsoft Docs"
+title: Erste Schritte mit dem Toolkit für AJAX-Steuerelement (VB) | Microsoft Docs
 author: microsoft
-description: "Erfahren Sie, müssen Sie wissen, erste Schritte mit dem Toolkit für AJAX-Steuerelement."
+description: Erfahren Sie, müssen Sie wissen, erste Schritte mit dem Toolkit für AJAX-Steuerelement.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0bbf6dc0be8a96ecd47b8620a6ba3220b50f10d4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 30653a147bd3bf581af27220e11cdecc2f89fc4a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="get-started-with-the-ajax-control-toolkit-vb"></a>Erste Schritte mit dem Toolkit für AJAX-Steuerelement (VB)
 ====================
@@ -89,6 +89,6 @@ Wenn Sie eine ältere Version des Toolkits verwenden und müssen nun auf Verschi
 - Binärdateien - löschen Sie die alte Version der Assembly AjaxControlToolkit.dll aus Ihrer Website-Ordner "bin".
 - Toolboxelemente - löschen die Registerkarte "AJAX Control Toolkit" und führen Sie die obengenannten Schritte, um die Registerkarte mit der neuen Version der Assembly AjaxControlToolkit.dll neu zu erstellen.
 
->[!div class="step-by-step"]
-[Zurück](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
-[Weiter](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
+> [Weiter](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

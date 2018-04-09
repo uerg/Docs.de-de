@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: "Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests | Microsoft Docs"
+title: 'Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests | Microsoft Docs'
 author: tdykstra
 description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. I...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie stellen Sie diese auf die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
 
@@ -95,7 +95,7 @@ Fügen Sie im Testprojekt einen Verweis auf `System.Data.Entity` und fügen Sie 
 
 Sie können jetzt die Repository-Klasse erstellen, die Sie mit Komponententests verwenden möchten. Der Datenspeicher für dieses Repository werden innerhalb der Klasse.
 
-[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
+[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
 Im Testprojekt eine neue Klassendatei erstellen, nennen Sie sie *MockSchoolRepository.cs*, und Ersetzen Sie den vorhandenen Code durch folgenden Code:
 
@@ -107,7 +107,7 @@ Diese Klasse Repository hat dieselben CRUD-Methoden wie derjenige, der das Entit
 
 Die **testen** -Projektvorlage ein Stub-Komponententestklasse für Sie erstellt und die nächste Aufgabe besteht darin ändern diese Klasse, indem Sie Komponententestmethoden hinzugefügt, für die Geschäftslogik, die die Geschäftslogik Klasse hinzugefügt werden sollen.
 
-[![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
+[![image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
 
 Klicken Sie Contoso-Universität jeder einzelne Kursleiter kann nur der Administrator eine einzelne Abteilung und Geschäftslogik zum Erzwingen dieser Regel hinzufügen werden müssen. Starten Sie durch Hinzufügen von Tests und Ausführen der Tests aus, um diese Fehler anzuzeigen. Sie klicken Sie dann fügen Sie den Code und erneuten Ausführen der Tests ein erwarten sie erfolgreich ab.
 
@@ -125,7 +125,7 @@ Die Testmethoden überprüfen, ob die Geschäftslogik Klasse eine Ausnahme ausl�
 
 Exception-Klasse noch nicht noch erstellt werden, damit dieser Code nicht kompiliert wird. Zum Kompilieren abrufen Maustaste `DuplicateAdministratorException` , und wählen Sie **generieren**, und klicken Sie dann **Klasse**.
 
-[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
+[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
 Dadurch wird eine Klasse erstellt, in das Testprojekt, das Sie löschen können, nachdem Sie in das Hauptprojekt Exception-Klasse erstellt haben. und die Geschäftslogik implementiert.
 
@@ -225,6 +225,6 @@ Dies schließt die Einführung zum Implementieren des Repositorymusters für die
 
 Im folgenden Lernprogramm sehen Sie, wie Sortier- und Filterfunktionen zur Anwendung hinzugefügt werden.
 
->[!div class="step-by-step"]
-[Zurück](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-[Weiter](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [!div class="step-by-step"]
+> [Zurück](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+> [Weiter](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
-title: "Wie ändere ich meine Felder wie gerendert? | Microsoft-Dokumentation"
+title: Wie ändere ich meine Felder wie gerendert? | Microsoft-Dokumentation
 author: shanselman
-description: "In diesem Video erfahren Sie, wie die Art und Weise geändert werden, die von Datenfeldern gerendert werden. Sie können Steuerelemente eines Drittanbieters für einige Felder anschließen."
+description: In diesem Video erfahren Sie, wie die Art und Weise geändert werden, die von Datenfeldern gerendert werden. Sie können Steuerelemente eines Drittanbieters für einige Felder anschließen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
-ms.openlocfilehash: 96f72f3b83aebc224c29e20ae281334970ae5d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 57529627d54d5fc8d4db50b1d5b254e8811321e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-change-how-my-fields-render"></a>Wie ändere ich meine Felder wie gerendert?
 ====================
@@ -24,8 +24,8 @@ durch [Scott Hanselman](https://github.com/shanselman)
 
 In diesem Video erfahren Sie, wie die Art und Weise geändert werden, die von Datenfeldern gerendert werden. Sie können Steuerelemente eines Drittanbieters für einige Felder anschließen.
 
-[&#9654; Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
+[&#9654;Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
 
->[!div class="step-by-step"]
-[Zurück](how-do-i-enable-inline-gridview-editing.md)
-[Weiter](how-do-i-handle-business-logic-exceptions.md)
+> [!div class="step-by-step"]
+> [Zurück](how-do-i-enable-inline-gridview-editing.md)
+> [Weiter](how-do-i-handle-business-logic-exceptions.md)

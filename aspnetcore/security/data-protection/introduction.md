@@ -1,7 +1,7 @@
 ---
-title: "Einführung in Data Protection"
+title: ASP.NET Core Datenschutz
 author: rick-anderson
-description: "Dieses Dokument führt das Konzept des Datenschutzes und der Entwurfsprinzipien der zugeordneten ASP.NET Core APIs erläutert."
+description: In dieser Lektion erfahren Sie, das Konzept des Datenschutzes und der Entwurfsprinzipien von ASP.NET Core Data-Schutz-APIs.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: acd38679390b92705703111b72816f1a5d3ba848
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-data-protection"></a>Einführung in Data Protection
+# <a name="aspnet-core-data-protection"></a>ASP.NET Core Datenschutz
 
 Webanwendungen müssen häufig sicherheitsrelevante Daten zu speichern. Windows DPAPI für desktopanwendungen bietet, aber dies ist nicht für Webanwendungen. ASP.NET Core Data Protection Stapel bieten eine einfache, einfach zu verwendende cryptographic API, die ein Entwickler zum Schützen von Daten, einschließlich der schlüsselverwaltung und Drehung verwenden kann.
 
@@ -45,7 +45,7 @@ Wir Erkennen von Problemen mit dem vorhandenen Stapel gestartet. Sobald wir hatt
 
 * Im Ruhezustand nach Möglichkeit sollten Schlüssel geschützt werden. Das System sollte eine entsprechende Standardeinstellung Schutzmechanismus herausfinden und automatisch angewendet.
 
-Diese Grundsätze Bedenken wir eine einfache entwickelt [einfach zu verwendende](using-data-protection.md) Data Protection Stapel.
+Diese Grundsätze Bedenken wir eine einfache entwickelt [einfach zu verwendende](xref:security/data-protection/using-data-protection) Data Protection Stapel.
 
 Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Persistenz des vertraulichen Nutzlasten gedacht. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://docs.microsoft.com/rights-management/) eignen sich besser auf das Szenario der unbegrenzten Speicher und Verwaltungsfunktionen für entsprechend starken haben. Dies bedeutet, dass keine verbietet einen Entwickler mithilfe der ASP.NET Core Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten.
 
@@ -53,11 +53,11 @@ Die ASP.NET Core Datenschutz-APIs sind nicht in erster Linie für unbestimmte Pe
 
 Die Datenschutzsystem ist in fünf main Pakete unterteilt. Verschiedene Aspekte des diese APIs Ziel drei wichtigsten Zielgruppen;
 
-1. Die [Consumer APIs Übersicht](consumer-apis/overview.md) Anwendung und Framework-Entwickler ausgerichtet.
+1. Die [Consumer APIs Übersicht](xref:security/data-protection/consumer-apis/overview) Anwendung und Framework-Entwickler ausgerichtet.
 
    "Ich möchte nicht Weitere Informationen zur Funktionsweise von des Stapels oder darüber, wie es konfiguriert ist. Ich möchte einfach einigen Vorgängen als einfache Weise mit hoher Wahrscheinlichkeit erfolgreich mit den APIs wie möglich ausführen."
 
-2. Die [Konfigurations-APIs](configuration/overview.md) ausgelegt, Entwickler und Systemadministratoren.
+2. Die [Konfigurations-APIs](xref:security/data-protection/configuration/overview) ausgelegt, Entwickler und Systemadministratoren.
 
    "Ich möchte die Datenschutzsystem Teilen Sie, dass meine Umgebung Nichtstandard-Pfade oder Einstellungen erfordert."
 
@@ -75,6 +75,6 @@ Der Data Protection Stapel besteht aus fünf Paketen.
 
 * Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Dieses Paket enthält z. B. eine einfache "Instanziieren des Systems, zeigen Sie auf einem bestimmten-Speicherverzeichnis keine Dependency Injection-Setup"-API (Weitere Informationen). Es enthält auch die Erweiterungsmethoden für die Lebensdauer des geschützten Nutzlasten (Weitere Informationen) beschränken.
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb installiert werden kann, in eine vorhandene ASP.NET 4.x-Anwendung zum Umleiten der <machineKey> Vorgänge stattdessen die neuen Data Protection Stapel verwenden. Finden Sie unter [Kompatibilität](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) für Weitere Informationen.
+* Microsoft.AspNetCore.DataProtection.SystemWeb installiert werden kann, in eine vorhandene ASP.NET 4.x-Anwendung zum Umleiten der <machineKey> Vorgänge stattdessen die neuen Data Protection Stapel verwenden. Finden Sie unter [Kompatibilität](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) für Weitere Informationen.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Finden Sie unter [Kennworthashs](consumer-apis/password-hashing.md) für Weitere Informationen.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Finden Sie unter [Hashing von Kennwörtern](xref:security/data-protection/consumer-apis/password-hashing) für Weitere Informationen.

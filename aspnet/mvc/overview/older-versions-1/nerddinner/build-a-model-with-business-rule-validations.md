@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: "Erstellen eines Modells mit Business Regel Überprüfungen | Microsoft Docs"
+title: Erstellen eines Modells mit Business Regel Überprüfungen | Microsoft Docs
 author: microsoft
-description: "Schritt 3 veranschaulicht, wie ein Modell zu erstellen, können wir, um beide Abfrage verwenden und die Datenbank für unsere NerdDinner-Anwendung zu aktualisieren."
+description: Schritt 3 veranschaulicht, wie ein Modell zu erstellen, können wir, um beide Abfrage verwenden und die Datenbank für unsere NerdDinner-Anwendung zu aktualisieren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: dbe6370979f218988c168df3e80314ef9b338fbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5a482474fd2f41836f70952306ada5cd9136455
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-a-model-with-business-rule-validations"></a>Erstellen eines Modells mit Business Regel Überprüfungen
 ====================
@@ -228,6 +228,6 @@ Wir haben jetzt ein Modell, mit denen wir können Abfragen sowohl die Datenbank 
 
 Nehmen wir jetzt einige Controller und Ansichten dem Projekt hinzugefügt, das es verwenden können, um eine HTML-UI-Erfahrung herum zu erstellen.
 
->[!div class="step-by-step"]
-[Zurück](create-a-database.md)
-[Weiter](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [!div class="step-by-step"]
+> [Zurück](create-a-database.md)
+> [Weiter](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

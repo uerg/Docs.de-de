@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9059e358311cc80b6a64aa3ee1168f4ffcd4e94c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c0123c12bb653a7f680154e2155eae0eb129428
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-vb"></a>Geschachtelte Masterseiten (VB)
 ====================
@@ -94,7 +94,7 @@ Dieses Markup zeigt eine Verknüpfung mit dem Titel "Geschachtelte Masterseiten 
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>Schritt 2: Erstellen einer einfachen geschachtelte Masterseite
 
-`Simple.master`enthält zwei ContentPlaceHolder-Steuerelemente: die `MainContent` ContentPlaceHolder, die wir hinzugefügt, in das Web Form zusammen mit der `head` ContentPlaceHolder in die `<head>` Element. Wir würden eine Inhaltsseite zu erstellen und binden Sie es an `Simple.master` Inhaltsseite müssten zwei Content-Steuerelemente, die zwei ContentPlaceHolders verweisen. Auf ähnliche Weise, wenn wir eine geschachtelte Masterseite erstellen und binden Sie es an `Simple.master` geschachtelte Masterseite zwei Content-Steuerelemente haben.
+`Simple.master` enthält zwei ContentPlaceHolder-Steuerelemente: die `MainContent` ContentPlaceHolder, die wir hinzugefügt, in das Web Form zusammen mit der `head` ContentPlaceHolder in die `<head>` Element. Wir würden eine Inhaltsseite zu erstellen und binden Sie es an `Simple.master` Inhaltsseite müssten zwei Content-Steuerelemente, die zwei ContentPlaceHolders verweisen. Auf ähnliche Weise, wenn wir eine geschachtelte Masterseite erstellen und binden Sie es an `Simple.master` geschachtelte Masterseite zwei Content-Steuerelemente haben.
 
 Fügen Sie eine neue geschachtelte Masterseite der `NestedMasterPages` Ordner mit dem Namen `SimpleNested.master`. Mit der rechten Maustaste auf die `NestedMasterPages` Ordner, und wählen Sie Neues Element hinzufügen. Daraufhin wird das Dialogfeld "Neues Element hinzufügen" in Abbildung 2 dargestellt. Wählen Sie den Vorlagentyp Gestaltungsvorlage und den Namen der neuen Masterseite. Um anzugeben, dass die neue Masterseite einer geschachtelten Masterseite werden soll, das Kontrollkästchen Sie "Masterseite auswählen".
 
@@ -126,7 +126,7 @@ Aktualisieren Sie diese geschachtelten Masterseite, sodass sie den Text "Hello, 
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Klicken Sie nach dem Herstellen der Code, die geschachtelten Masterseite speichern, und fügen Sie dann eine neue Seite zu den `NestedMasterPages` Ordner mit dem Namen `Default.aspx`, und binden Sie es an die `SimpleNested.master` Masterseite. Beim Hinzufügen von dieser Seite werden Sie möglicherweise überrascht, dass sie keine Inhaltssteuerelemente enthält (siehe Abbildung 4). Inhaltsseite kann nur Zugriff auf seine *übergeordneten* Seite ContentPlaceHolders "master". `SimpleNested.master`enthält keine ContentPlaceHolder-Steuerelemente. aus diesem Grund kann keine an diese Masterseite gebundene Inhaltsseite Content-Steuerelemente enthalten.
+Klicken Sie nach dem Herstellen der Code, die geschachtelten Masterseite speichern, und fügen Sie dann eine neue Seite zu den `NestedMasterPages` Ordner mit dem Namen `Default.aspx`, und binden Sie es an die `SimpleNested.master` Masterseite. Beim Hinzufügen von dieser Seite werden Sie möglicherweise überrascht, dass sie keine Inhaltssteuerelemente enthält (siehe Abbildung 4). Inhaltsseite kann nur Zugriff auf seine *übergeordneten* Seite ContentPlaceHolders "master". `SimpleNested.master` enthält keine ContentPlaceHolder-Steuerelemente. aus diesem Grund kann keine an diese Masterseite gebundene Inhaltsseite Content-Steuerelemente enthalten.
 
 
 [![Die neue Seite enthält keine Inhaltssteuerelemente](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
@@ -258,7 +258,7 @@ Abbildung 10 zeigt die `AdminNested.master` geschachtelte Masterseite, wenn Sie 
 
 Jedes Mal, wenn wir den Bereich "Verwaltung" eine neue Seite hinzufügen wir sie zum Binden müssen der `AdminNested.master` Masterseite soeben erstellt wurde. Aber was ist mit den vorhandenen Inhaltsseiten? Alle Inhaltsseiten am Standort derzeit abgeleitet werden, aus der `BasePage` -Klasse, die Masterseite der Inhaltsseite programmgesteuert zur Laufzeit festgelegt. Dies ist nicht die für die Content-Seiten in den Bereich "Verwaltung" gewünschte Verhalten. Stattdessen werden diese Inhaltsseiten immer verwenden soll die `AdminNested.master` Seite. Es werden die Verantwortung der geschachtelten Masterseite rechts auf der obersten Ebene Inhaltsseite zur Laufzeit auswählen.
 
-Um die beste Möglichkeit, um zu erreichen dies gewünscht Verhalten ist zum Erstellen einer neuen benutzerdefinierten Basisseite-Klasse, die mit dem Namen `AdminBasePage` , reicht die `BasePage` Klasse. `AdminBasePage`überschreiben können Sie dann die `SetMasterPageFile` und legen Sie die `Page` des Objekts `MasterPageFile` auf den hartcodierten Wert "~ / Admin/AdminNested.master". Auf diese Weise eine andere Seite, die abgeleitet `AdminBasePage` verwenden `AdminNested.master`, während eine andere Seite, die abgeleitet `BasePage` hat seine `MasterPageFile` Eigenschaftensatz dynamisch entweder "~ / Site.master" oder "~ / Alternate.master" basierend auf dem Wert von der `MyMasterPage` Sitzungsvariablen.
+Um die beste Möglichkeit, um zu erreichen dies gewünscht Verhalten ist zum Erstellen einer neuen benutzerdefinierten Basisseite-Klasse, die mit dem Namen `AdminBasePage` , reicht die `BasePage` Klasse. `AdminBasePage` überschreiben können Sie dann die `SetMasterPageFile` und legen Sie die `Page` des Objekts `MasterPageFile` auf den hartcodierten Wert "~ / Admin/AdminNested.master". Auf diese Weise eine andere Seite, die abgeleitet `AdminBasePage` verwenden `AdminNested.master`, während eine andere Seite, die abgeleitet `BasePage` hat seine `MasterPageFile` Eigenschaftensatz dynamisch entweder "~ / Site.master" oder "~ / Alternate.master" basierend auf dem Wert von der `MyMasterPage` Sitzungsvariablen.
 
 Starten, indem Sie eine neue Klassendatei zum Hinzufügen der `App_Code` Ordner mit dem Namen `AdminBasePage.vb`. Haben `AdminBasePage` erweitern `BasePage` und überschreiben Sie dann die `SetMasterPageFile` Methode. Weisen Sie in dieser Methode die `MasterPageFile` den Wert "~ / Admin/AdminNested.master". Nach diesen Änderungen Ihrer Klasse sollte Datei etwa wie folgt aussehen:
 
@@ -358,11 +358,11 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](specifying-the-master-page-programmatically-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
-title: "Iteration #6 – verwenden Sie eine testgesteuerte Entwicklung (VB) | Microsoft Docs"
+title: 'Iteration #6 – verwenden Sie eine testgesteuerte Entwicklung (VB) | Microsoft Docs'
 author: microsoft
-description: "In dieser Iteration sechste wir neue Funktionalität Hinzufügen der Anwendung durch Schreiben von Komponententests zuerst und Code für die Komponententests schreiben. In dieser Iteration..."
+description: In dieser Iteration sechste wir neue Funktionalität Hinzufügen der Anwendung durch Schreiben von Komponententests zuerst und Code für die Komponententests schreiben. In dieser Iteration...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b558df9c0b44f5f76115270d361b6022658f9f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 71b3425c5ca8cbfc1b89493c7afb26681f8bdc9d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>Iteration #6 – verwenden Sie eine testgesteuerte Entwicklung (VB)
 ====================
@@ -250,7 +250,7 @@ Wir müssen eine neue Gruppe Datenbanktabelle zu erstellen. Führen Sie folgende
 | **Spaltenname** | **Datentyp** | **NULL-Werte zulassen** |
 | --- | --- | --- |
 | Id | int | False |
-| Name | Nvarchar(50) | False |
+| name | Nvarchar(50) | False |
 
 
 Als Nächstes müssen wir alle Daten aus der Contacts-Tabelle löschen (andernfalls wir gewonnen t Lage, eine Beziehung zwischen den Tabellen Kontakte und Gruppen zu erstellen). Führen Sie folgende Schritte aus:
@@ -360,6 +360,6 @@ Wir nach dem Schreiben von viel Code erfüllen die Anforderungen, die von den Ko
 
 In der nächsten Iteration – die letzte Iteration--schreiben wir unsere Anwendung Ajax nutzen. Durch Ajax nutzen, müssen die Reaktionsfähigkeit und die Leistung der Anwendung wenden Sie sich an Manager verbessert werden.
 
->[!div class="step-by-step"]
-[Zurück](iteration-5-create-unit-tests-vb.md)
-[Weiter](iteration-7-add-ajax-functionality-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](iteration-5-create-unit-tests-vb.md)
+> [Weiter](iteration-7-add-ajax-functionality-vb.md)

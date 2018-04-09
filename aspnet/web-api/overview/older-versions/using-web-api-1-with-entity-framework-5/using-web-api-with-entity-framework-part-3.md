@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 title: 'Teil 3: Erstellen eines Controllers Admin | Microsoft Docs'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 6fadfb6e96ae287fc5f81516b7535e03853c7e6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 588d9d1b5d27759692cd840faabf2c3549c309d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-creating-an-admin-controller"></a>Teil 3: Erstellen eines Admin-Controllers
 ====================
@@ -71,10 +71,10 @@ Die `AdminController` Klasse definiert fünf Methoden, die grundlegende CRUD-Fun
 | Controllermethode | Beschreibung | URI | HTTP-Methode |
 | --- | --- | --- | --- |
 | GetProducts | Ruft alle Produkte ab. | API-Produkte | GET |
-| GetProduct | Sucht nach einem Produkt nach ID auf. | API-Produkte/*Id* | GET |
-| PutProduct | Aktualisiert ein Produkt. | API-Produkte/*Id* | PUT |
+| GetProduct | Sucht nach einem Produkt nach ID auf. | api/products/*id* | GET |
+| PutProduct | Aktualisiert ein Produkt. | api/products/*id* | PUT |
 | PostProduct | Erstellt ein neues Produkt. | API-Produkte | BEREITSTELLEN |
-| DeleteProduct | Löscht ein Produkt. | API-Produkte/*Id* | DELETE |
+| DeleteProduct | Löscht ein Produkt. | api/products/*id* | DELETE |
 
 Jede Methode ruft `OrdersContext` zum Abfragen der Datenbank. Aufrufen von Methoden, die die Auflistung (PUT, POST und DELETE) ändern `db.SaveChanges` damit die Änderungen in der Datenbank beibehalten. Controller sind pro HTTP-Anforderung erstellt, und dann verworfen, daher ist es erforderlich, um Änderungen beizubehalten, bevor eine Methode zurückgegeben.
 
@@ -102,6 +102,6 @@ Senden Sie eine HTTP-Anforderung an "`http://localhost:*portnum*/api/admin`. Die
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 
->[!div class="step-by-step"]
-[Zurück](using-web-api-with-entity-framework-part-2.md)
-[Weiter](using-web-api-with-entity-framework-part-4.md)
+> [!div class="step-by-step"]
+> [Zurück](using-web-api-with-entity-framework-part-2.md)
+> [Weiter](using-web-api-with-entity-framework-part-4.md)

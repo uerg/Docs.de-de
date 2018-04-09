@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 75e1dff96f8b56d74c28ff9d522f4766fbad669f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 195c01ff0d71b2bfd0c00e71244d47a166330921
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>Teil 8: Einkaufswagen mit Ajax-Updates
 ====================
@@ -161,6 +161,6 @@ Nach dem Laden von Ihrem Einkaufswagen, können Sie auf Entfernen aus dem Einkau
 Wir haben eine funktionierende Einkaufswagen dadurch nicht registrierte Benutzer das Hinzufügen von Elementen zum Einkaufswagen erstellt. Im folgenden Abschnitt werden wir ihnen das Registrieren und Ausführen des Auscheckvorgangs gewähren.
 
 
->[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-7.md)
-[Weiter](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc-music-store-part-7.md)
+> [Weiter](mvc-music-store-part-9.md)

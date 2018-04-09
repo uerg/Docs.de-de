@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 title: Authentifizieren von Benutzern mit der Formularauthentifizierung (VB) | Microsoft Docs
 author: microsoft
-description: "Erfahren Sie, wie Sie das Attribut [Authorize] verwenden bestimmte Seiten in der MVC-Anwendung mit einem Kennwort zu schützen. Erfahren Sie, wie mit der Web Site Administration zu..."
+description: Erfahren Sie, wie Sie das Attribut [Authorize] verwenden bestimmte Seiten in der MVC-Anwendung mit einem Kennwort zu schützen. Erfahren Sie, wie mit der Web Site Administration zu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7d52e51158575c674264efd19c81de9b077d27b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ff425a4c9728de2eec3d0c94e76cb51a15de487
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-vb"></a>Authentifizieren von Benutzern bei der Formularauthentifizierung (VB)
 ====================
@@ -33,25 +33,25 @@ Bevor wir weitere Schritte sind, sollten wir zunächst einige Benutzer und Rolle
 
 **Abbildung 1: Starten die Websiteverwaltungs-Tool**
 
-![clip_image002 [4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
+![clip_image002[4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
 
 Innerhalb der Websiteverwaltungs-Tool erstellen Sie neue Benutzer und Rollen durch Auswählen der Registerkarte "Sicherheit". Klicken Sie auf die **Benutzer erstellen** Link zum Erstellen eines neuen Benutzers mit dem Namen Stephen (siehe Abbildung 2). Geben Sie den Benutzer Stephen mit jedes Kennwort, das gewünschte (z. B. *geheimen*).
 
 **Abbildung 2 – Erstellen eines neuen Benutzers**
 
-![clip_image004 [4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
+![clip_image004[4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
 
 Neue Rollen wird vom ersten Aktivieren der Rollen und definieren eine oder mehrere Rollen erstellen. Rollen aktivieren, indem Sie auf die **Rollen aktivieren** Link. Als Nächstes erstellen Sie eine Rolle mit dem Namen *Administratoren* durch Klicken auf die **erstellen oder Verwalten von Rollen** verknüpfen (siehe Abbildung 3).
 
 **Abbildung 3: Erstellen einer neuen Rolle**
 
-![clip_image006 [4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
+![clip_image006[4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
 
 Schließlich erstellen Sie einen neuen Benutzer mit dem Namen Sally und "Administratoren" Sally zuordnen, indem Sie auf den Link für die Create User und Administratoren beim Sally erstellen (siehe Abbildung 4).
 
 **Abbildung 4 – Hinzufügen eines Benutzers zu einer Rolle**
 
-![clip_image008 [4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
+![clip_image008[4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
 
 Wenn alle als und ausgeführt, sollten Sie zwei neue Benutzer, die mit dem Namen Stephen und Sally haben. Sie sollten auch eine neue Rolle mit dem Namen Administrators verfügen. Sally ist ein Mitglied der Rolle "Administratoren" und Stephen nicht.
 
@@ -69,7 +69,7 @@ Wenn Sie die Aktion CompanySecrets() durch Eingabe der URL/Home/CompanySecrets i
 
 **Abbildung 5 – die Login-Sicht**
 
-![clip_image010 [4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
+![clip_image010[4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
 
 Die Sicht für die Anmeldung können Ihren Benutzernamen und Ihr Kennwort eingeben. Wenn Sie kein registrierter Benutzer klicken Sie auf die **registrieren** Link zum Navigieren zu dem Register anzeigen (siehe Abbildung 6). Die Register-Ansicht können Sie um ein neues Benutzerkonto zu erstellen.
 
@@ -107,7 +107,7 @@ Verwenden die standardmäßige SQL Express-Datenbank ist problemlos, beim Entwic
 
 Der erste Schritt besteht, alle erforderlichen Datenbankobjekte (Tabellen und gespeicherte Prozeduren) hinzugefügt werden, an der Produktionsdatenbank. Die einfachste Möglichkeit, diese Objekte in eine neue Datenbank hinzufügen, die ASP.NET SQL Server-Setup-Assistenten nutzen ist (siehe Abbildung 8). Sie können dieses Tool starten, öffnen die Visual Studio 2008-Eingabeaufforderung aus der Programmgruppe Microsoft Visual Studio 2008 und den folgenden Befehl von der Befehlszeile aus ausführen:
 
-ASPNET\_Regsql
+aspnet\_regsql
 
 **Abbildung 8 – die ASP.NET SQL Server-Setup-Assistenten**
 
@@ -117,9 +117,9 @@ Die ASP.NET SQL Server-Setup-Assistenten können Sie wählen Sie eine SQL Server
 
 > [!NOTE]
 > Wenn Sie nicht die ASP.NET SQL Server-Setup-Assistenten verwenden möchten, können Sie SQL-Skripts suchen, für die Datenbankobjekte der Anwendung Dienste in den folgenden Ordner hinzufügen:
-
-
-> C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727
+> 
+> 
+> C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
 Nachdem Sie die erforderlichen Datenbankobjekte erstellt haben, müssen Sie so ändern Sie die datenbankverbindung, die von der MVC-Anwendung verwendet. Ändern Sie die ApplicationServices-Verbindungszeichenfolge in der Web-Konfigurationsdatei (web.config), sodass er in der Produktionsdatenbank zeigt. Beispielsweise verweist die geänderte Verbindung im Codebeispiel 3 mit einer Datenbank mit dem Namen MyProductionDB (die ursprüngliche ApplicationServices-Verbindungszeichenfolge wurde auskommentiert).
@@ -152,6 +152,6 @@ Nachdem Sie die erforderlichen Anmeldung zu erstellen, müssen Sie die Anmeldung
 
 In diesem Lernprogramm haben Sie gelernt, wie Sie die Formularauthentifizierung verwenden, beim Erstellen einer ASP.NET MVC-Anwendung. Zunächst haben Sie gelernt, wie Sie neue Benutzer und Rollen erstellen, indem Sie nutzen die Websiteverwaltungs-Tool. Als Nächstes haben Sie gelernt, wie Sie das Attribut [Authorize] zu verwenden, um zu verhindern, dass nicht autorisierte Benutzer Controlleraktionen aufrufen. Schließlich haben Sie gelernt, wie zum Konfigurieren Ihrer MVC-Anwendung zum Speichern von Rolleninformationen zu Benutzern und in einer Produktionsdatenbank.
 
->[!div class="step-by-step"]
-[Zurück](preventing-javascript-injection-attacks-cs.md)
-[Weiter](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](preventing-javascript-injection-attacks-cs.md)
+> [Weiter](authenticating-users-with-windows-authentication-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 title: 'Anwendungslebenszyklus-Verwaltung: Von der Entwicklung bis hin zur Produktion | Microsoft Docs'
 author: jrjlee
-description: "In diesem Thema wird veranschaulicht, wie ein fiktives Unternehmen für die Bereitstellung von eine ASP.NET-Webanwendung durch Test-, Staging-und produktionsumgebungen als Par verwaltet..."
+description: In diesem Thema wird veranschaulicht, wie ein fiktives Unternehmen für die Bereitstellung von eine ASP.NET-Webanwendung durch Test-, Staging-und produktionsumgebungen als Par verwaltet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f7ffff1c3434ce98c70265e4bf64047fd44252d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8beeffb374df09c6695a1845199d30006ddcc1b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Anwendungslebenszyklus-Verwaltung: Von der Entwicklung bis hin zur Produktion
 ====================
@@ -26,7 +26,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 
 > In diesem Thema wird veranschaulicht, wie ein fiktives Unternehmen für die Bereitstellung von eine ASP.NET-Webanwendung durch Test-, Staging-und produktionsumgebungen als Teil eines Prozesses kontinuierliches entwickeln verwaltet. In der gesamten Thema sind Links zu zusätzlicher Informationen und Vorgehensweisen zum Ausführen bestimmter Aufgaben bereitgestellt.
 > 
-> Das Thema dient zum bieten einer allgemeinen Übersicht über die für eine [Reihe von Lernprogrammen](deploying-web-applications-in-enterprise-scenarios.md) auf webbereitstellung im Unternehmen. Keine Sorge, wenn Sie nicht mit einigen der hier beschriebenen Konzepte & #x 2014 vertraut sind, die Lernprogramme, die Folgen enthalten ausführliche Informationen für alle diese Aufgaben und Verfahren.
+> Das Thema dient zum bieten einer allgemeinen Übersicht über die für eine [Reihe von Lernprogrammen](deploying-web-applications-in-enterprise-scenarios.md) auf webbereitstellung im Unternehmen. Keine Sorge, wenn Sie nicht mit einigen der hier beschriebenen Konzepte vertraut sind&#x2014;die Lernprogramme, die Folgen enthalten ausführliche Informationen für alle diese Aufgaben und Verfahren.
 > 
 > > [!NOTE]
 > > Forthe der Einfachheit halber in diesem Thema nicht aktualisieren Datenbanken im Rahmen des Bereitstellungsprozesses erläutert. Allerdings inkrementelle Updates auf Datenbankfunktionen ist eine Voraussetzung für viele Szenarien der Enterprise und Anleitungen finden Sie auf der erläutert, wie dies weiter unten in diesem Lernprogramm ausgeführt. Weitere Informationen finden Sie unter [Datenbankprojekte bereitstellen](../web-deployment-in-the-enterprise/deploying-database-projects.md).
@@ -95,7 +95,7 @@ Um die Bereitstellung ausgeführt wird, ein Benutzer führt die *Publish.proj* D
 
 > [!NOTE]
 > Die Funktionsweise dieser benutzerdefinierten Projektdateien ist unabhängig von der Mechanismus, mit dem MSBuild aufrufen. Beispielsweise können Sie die MSBuild-Befehlszeile direkt, wie in beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Sie können die Projektdateien über eine Befehlsdatei ausführen, wie in beschrieben [erstellen und Ausführen einer Befehlsdatei Bereitstellung](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternativ können Ausführen der Projektdateien aus einer Builddefinition in TFS, wie in beschrieben [Erstellen einer Builddefinition, unterstützt die Bereitstellung](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> In jedem Fall ist das Endergebnis dasselbe & #x 2014; MSBuild führt die zusammengeführte Projektdatei und die Projektmappe in der zielumgebung bereitgestellt. Dies bietet Ihnen ein hohes Maß an Flexibilität in wie die publishing Prozess ausgelöst.
+> In jedem Fall ist das Endergebnis dasselbe&#x2014;MSBuild führt die zusammengeführte Projektdatei und die Projektmappe in der zielumgebung bereitgestellt. Dies bietet Ihnen ein hohes Maß an Flexibilität in wie die publishing Prozess ausgelöst.
 
 
 Sobald er die benutzerdefinierte Projektdateien erstellt, Matt Projektmappenordner hinzugefügt, und in die quellcodeverwaltung überprüft werden.
@@ -106,7 +106,7 @@ Als eine Aufgabe finalen Vorbereitung zusammenarbeiten, Matt und Rob um drei Bui
 
 - **DeployToTest**. Die Projektmappe Contact Manager erstellt und jedes Mal, wenn eine Überprüfung erfolgt, in der testumgebung bereitgestellt.
 - **DeployToStaging**. Dadurch wird die Ressourcen aus einem angegebenen vorherigen Build in der Stagingumgebung bereitgestellt, wenn ein Entwickler den Build Warteschlangen.
-- **"DeployToStaging-WhatIf"**. Dies führt eine "Was-wäre-wenn" Bereitstellung in der Stagingumgebung, wenn ein Entwickler den Build Warteschlangen.
+- **DeployToStaging-WhatIf**. Dies führt eine "Was-wäre-wenn" Bereitstellung in der Stagingumgebung, wenn ein Entwickler den Build Warteschlangen.
 
 Die folgenden Abschnitte enthalten weitere Details zu jeder dieser Builddefinitionen.
 
@@ -185,7 +185,7 @@ Die **DeployToStaging-WhatIf** Builddefinition enthält die gleiche Bereitstellu
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
 
-Innerhalb der *Publish.proj* Datei, die **"WhatIf"** Eigenschaft gibt an, dass alle Ressourcen zur Bereitstellung "Was-wäre-wenn"-Modus veröffentlicht werden soll. Das heißt, werden Protokolldateien generiert, als wäre die Bereitstellung im Voraus nicht hatte, aber nichts tatsächlich in der zielumgebung geändert wird. Auf diese Weise können Sie die Auswirkungen eines vorgeschlagenen Bereitstellung & #x 2014 bewertet, insbesondere, was wird abrufen hinzugefügt haben, was aktualisiert wird, und welche gelöscht werden & #x 2014; bevor Sie Änderungen tatsächlich vornehmen.
+Innerhalb der *Publish.proj* Datei, die **"WhatIf"** Eigenschaft gibt an, dass alle Ressourcen zur Bereitstellung "Was-wäre-wenn"-Modus veröffentlicht werden soll. Das heißt, werden Protokolldateien generiert, als wäre die Bereitstellung im Voraus nicht hatte, aber nichts tatsächlich in der zielumgebung geändert wird. Auf diese Weise können Sie die Auswirkungen einer vorgeschlagenen Bereitstellung bewertet&#x2014;in bestimmten, was hinzugefügt wird, was aktualisiert wird und welche gelöscht werden&#x2014;, bevor Sie Änderungen tatsächlich vornehmen.
 
 > [!NOTE]
 > Weitere Informationen zum Konfigurieren von "Was-wäre-wenn-Bereitstellungen finden Sie unter [Ausführen einer"Was-wäre-wenn"Bereitstellung](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
@@ -216,7 +216,7 @@ Dies ist der grundsätzliche Erstellungsprozess für eine Bereitstellung in der 
 
 IIS-Manager enthält einen Import Anwendungs-Paket-Assistenten, der zum Veröffentlichen von Webpakete in einer IIS-Website ermöglicht. Eine exemplarische Vorgehensweise, um dieses Verfahren ausführen, finden Sie unter [Webpaketen manuell installieren](../web-deployment-in-the-enterprise/manually-installing-web-packages.md).
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Thema bereitgestellten eine Abbildung des Bereitstellungslebenszyklus für eine typische Enterprise-Skalierung-Webanwendung.
 
@@ -227,5 +227,5 @@ Dieses Thema ist Teil einer Reihe von Lernprogrammen, die Anleitungen auf versch
 - [Konfigurieren von Team Foundation Server für automatisierte Webbereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Dieses Lernprogramm bietet Hinweise zum Bereitstellung Logik in TFS Buildprozesse zu integrieren.
 - [Erweiterte Web Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Dieses Lernprogramm bietet Hinweise zum erfüllen einige der komplexeren Herausforderungen der Bereitstellung dieser Organisationen Gesicht.
 
->[!div class="step-by-step"]
-[Zurück](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Vorherige](enterprise-web-deployment-scenario-overview.md)

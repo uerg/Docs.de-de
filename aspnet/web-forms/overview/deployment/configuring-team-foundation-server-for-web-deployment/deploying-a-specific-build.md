@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>Bereitstellen von einem bestimmten Build
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Dieses Thema beschreibt, wie Web Deploy Packages and Datenbankskripts aus einem bestimmten vorherigen Build an ein neues Ziel, z. B. ein Staging- oder Produktionsserver Umgebung bereitstellen.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md)in die erstellungs-und Bereitstellung von zwei Projektdateien & #x 2014 kontrolliert wird; o Ne mit Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in die erstellungs-und Bereitstellung von gesteuert wird zwei Projektdateien&#x2014;eine Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten "" enthält. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -54,13 +54,13 @@ In der [-Beispielprojektmappe](../web-deployment-in-the-enterprise/the-contact-m
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Die Projektdatei, die zum Bereitstellen von Webpaketen und Datenbankskripts von einem anderen Speicherort & #x 2014; z. B. die Ausgaben eines vorherigen TFS-Build & #x 2014; gegebenenfalls müssen Sie lediglich überschreiben die **OutputRoot** Eigenschaft. Sie sollten den Wert der Eigenschaft auf den relevanten Buildordner auf dem Team Build-Server festlegen. Wenn Sie MSBuild über die Befehlszeile ausführen, geben Sie einen Wert für **OutputRoot** als Befehlszeilenargument:
+Gegebenenfalls die Projektdatei, die zum Bereitstellen von Webpaketen und-Datenbankskripts aus einem anderen Speicherort&#x2014;wie die Ausgaben des vorherigen TFS-Build&#x2014;müssen Sie einfach überschreiben die **OutputRoot** Eigenschaft. Sie sollten den Wert der Eigenschaft auf den relevanten Buildordner auf dem Team Build-Server festlegen. Wenn Sie MSBuild über die Befehlszeile ausführen, geben Sie einen Wert für **OutputRoot** als Befehlszeilenargument:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-In der Praxis jedoch, Sie würden auch überspringen möchten die **erstellen** Ziel & #x 2014; es ist kein Punkt in der Projektmappe erstellen, wenn Sie nicht die Ausgaben des builddebugvorgangs verwenden möchten. Sie können dazu durch Hinzufügen von Zielen, die Sie über die Befehlszeile ausführen möchten:
+In der Praxis jedoch, Sie würden auch überspringen möchten die **erstellen** Ziel&#x2014;keinen Sinn in der Projektmappe erstellen, wenn Sie nicht die Ausgaben des builddebugvorgangs verwenden möchten. Sie können dazu durch Hinzufügen von Zielen, die Sie über die Befehlszeile ausführen möchten:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ Allerdings in den meisten Fällen sollten Sie die Logik für die Bereitstellung 
 
 Die nächste Prozedur beschreibt, wie eine Builddefinition erstellen, die Benutzern, die Trigger-Bereitstellungen in einer Stagingumgebung mit einem einzigen Befehl ermöglicht.
 
-In diesem Fall nicht die Builddefinition nichts erstellen soll & #x 2014; Sie nur er die Logik für die Bereitstellung in der Projektdatei, benutzerdefinierte ausgeführt werden soll. Die *Publish.proj* -Datei enthält, bedingten Logik, die überspringt die **erstellen** abzielen, wenn die Datei im Team Build ausgeführt wird. Dies geschieht durch das Auswerten der integriertes **BuildingInTeamBuild** -Eigenschaft, die automatisch, dass festgelegt ist **"true"** Wenn Sie die Projektdatei in Team Build ausführen. Folglich können während des Erstellungsprozesses überspringen und führen Sie Folgendes aus der Projektdatei, um einen vorhandenen Build bereitstellen.
+In diesem Fall nicht sollen die Builddefinition nichts erstellen&#x2014;nur diesen die Logik für die Bereitstellung in der Projektdatei, benutzerdefinierten Code ausführen möchten. Die *Publish.proj* -Datei enthält, bedingten Logik, die überspringt die **erstellen** abzielen, wenn die Datei im Team Build ausgeführt wird. Dies geschieht durch das Auswerten der integriertes **BuildingInTeamBuild** -Eigenschaft, die automatisch, dass festgelegt ist **"true"** Wenn Sie die Projektdatei in Team Build ausführen. Folglich können während des Erstellungsprozesses überspringen und führen Sie Folgendes aus der Projektdatei, um einen vorhandenen Build bereitstellen.
 
 **So erstellen eine Builddefinition, um die Bereitstellung manuell auslösen**
 
@@ -133,6 +133,6 @@ In diesem Thema beschrieben, wie die Bereitstellungsressourcen wie Webpaketen un
 
 Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Zurück](creating-a-build-definition-that-supports-deployment.md)
-[Weiter](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-build-definition-that-supports-deployment.md)
+> [Weiter](configuring-permissions-for-team-build-deployment.md)

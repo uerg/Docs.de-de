@@ -1,7 +1,7 @@
 ---
-title: "Schlüsselverwaltungsdienst-Erweiterbarkeit"
+title: Schlüsselverwaltung Erweiterbarkeit in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument beschreibt ASP.NET Core Data Protection schlüsselverwaltung Erweiterbarkeit."
+description: Informationen Sie zu ASP.NET Core Datenschutz schlüsselverwaltung Erweiterbarkeit.
 manager: wpickett
 ms.author: riande
 ms.date: 11/22/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: bcc4984efcee9a6ffd0f3b503a38089c78adf5e8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3042b371cf7be8fa0218c1906042d2810b180e3
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management-extensibility"></a>Schlüsselverwaltungsdienst-Erweiterbarkeit
+# <a name="key-management-extensibility-in-aspnet-core"></a>Schlüsselverwaltung Erweiterbarkeit in ASP.NET Core
 
 <a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
-> Lesen der [schlüsselverwaltung](../implementation/key-management.md#data-protection-implementation-key-management) Abschnitt vor dem Lesen in diesem Abschnitt, wie einige der grundlegenden Konzepte hinter dieser APIs erläutert wird.
+> Lesen der [schlüsselverwaltung](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) Abschnitt vor dem Lesen in diesem Abschnitt, wie einige der grundlegenden Konzepte hinter dieser APIs erläutert wird.
 
 >[!WARNING]
 > Typen, die jede der folgenden Schnittstellen implementieren, sollten threadsichere werden für mehrere Aufrufer.
@@ -37,11 +37,11 @@ Die `IKey` Schnittstelle ist die grundlegende Darstellung eines Schlüssels in K
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Darüber hinaus `IKey` macht eine `CreateEncryptor` Methode, die verwendet werden kann, erstellen eine [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) Instanz gebunden werden, um diesen Schlüssel.
+Darüber hinaus `IKey` macht eine `CreateEncryptor` Methode, die verwendet werden kann, erstellen eine [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) Instanz gebunden werden, um diesen Schlüssel.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Darüber hinaus `IKey` macht eine `CreateEncryptorInstance` Methode, die verwendet werden kann, erstellen eine [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) Instanz gebunden werden, um diesen Schlüssel.
+Darüber hinaus `IKey` macht eine `CreateEncryptorInstance` Methode, die verwendet werden kann, erstellen eine [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) Instanz gebunden werden, um diesen Schlüssel.
 
 ---
 
@@ -123,7 +123,7 @@ In der Implementierung der `CreateNewKey`, `IAuthenticatedEncryptorConfiguration
 
 In der Implementierung der `GetAllKeys`, die XML-Dokumente darstellen Schlüssel und Revocations werden gelesen, aus der zugrunde liegenden `IXmlRepository`. Wenn diese Dokumente verschlüsselt sind, wird das System diese automatisch entschlüsselt. `XmlKeyManager` erstellt das entsprechende `IAuthenticatedEncryptorDescriptorDeserializer` -Instanzen, die Dokumente zu deserialisierenden gestaffelte `IAuthenticatedEncryptorDescriptor` -Instanzen, die einzelnen umschlossen werden `IKey` Instanzen. Diese Auflistung von `IKey` Instanzen wird an den Aufrufer zurückgegeben.
 
-Weitere Informationen zu bestimmten XML-Elemente finden Sie der [Schlüsselspeicher Format Dokument](../implementation/key-storage-format.md#data-protection-implementation-key-storage-format).
+Weitere Informationen zu bestimmten XML-Elemente finden Sie der [Schlüsselspeicher Format Dokument](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).
 
 ## <a name="ixmlrepository"></a>IXmlRepository
 
@@ -135,7 +135,7 @@ Die `IXmlRepository` Schnittstelle darstellt, einen Typ, der dauerhaft zu XML un
 
 Implementierungen von `IXmlRepository` müssen nicht den Umweg über diese XML-Code zu analysieren. Sie sollten die XML-Dokumente als nicht transparent behandelt und höhere Ebenen Gedanken machen, generieren und die Dokumente analysieren können.
 
-Es gibt zwei integrierte konkrete Typen die implementieren `IXmlRepository`: `FileSystemXmlRepository` und `RegistryXmlRepository`. Finden Sie unter der [softwareschlüsselspeicher-Anbieter Dokument](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers) für Weitere Informationen. Registrieren ein benutzerdefinierten `IXmlRepository` wäre die geeignete Weise verwenden Sie einen anderen Sicherungsspeicher, z. B. Azure Blob-Speicher.
+Es gibt zwei integrierte konkrete Typen die implementieren `IXmlRepository`: `FileSystemXmlRepository` und `RegistryXmlRepository`. Finden Sie unter der [softwareschlüsselspeicher-Anbieter Dokument](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers) für Weitere Informationen. Registrieren ein benutzerdefinierten `IXmlRepository` wäre die geeignete Weise verwenden Sie einen anderen Sicherungsspeicher, z. B. Azure Blob-Speicher.
 
 Um das Standard-Repository anwendungsweite ändern möchten, registrieren Sie eine benutzerdefinierte `IXmlRepository` Instanz:
 
@@ -169,7 +169,7 @@ Es gibt vier integrierte konkrete Typen die implementieren `IXmlEncryptor`:
 * `DpapiXmlEncryptor`
 * `NullXmlEncryptor`
 
-Finden Sie unter der [Schlüsselverschlüsselung auf Rest Dokumentbibliotheks-](../implementation/key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) für Weitere Informationen.
+Finden Sie unter der [Schlüsselverschlüsselung auf Rest Dokumentbibliotheks-](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) für Weitere Informationen.
 
 Um den Schlüssel Verschlüsselung auf Rest Standardmechanismus anwendungsweite zu ändern, registrieren Sie ein benutzerdefiniertes `IXmlEncryptor` Instanz:
 

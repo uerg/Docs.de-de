@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
-title: "Erneute Verwendung Benutzeroberfläche mit Masterseiten und Replikatsgruppenelemente | Microsoft Docs"
+title: Erneute Verwendung Benutzeroberfläche mit Masterseiten und Replikatsgruppenelemente | Microsoft Docs
 author: microsoft
 description: Schritt 7 sucht Methoden zum TROCKENEN Prinzip angewendet werden kann in unserer Ansichtsvorlagen Codeduplikaten, mithilfe von Teilansicht Vorlagen und Gestaltungsvorlagen zu vermeiden.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
-ms.openlocfilehash: c42cd6aca40b08a9f8461532fbfd0589901b64ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ade655f3a4a429360b678d02fb564ac9cf255d42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="re-use-ui-using-master-pages-and-partials"></a>Verwenden Sie die Benutzeroberfläche mit Masterseiten und Replikatsgruppenelemente erneut
 ====================
@@ -137,6 +137,6 @@ Replikatsgruppenelemente und Gestaltungsvorlagen bieten sehr flexible Optionen, 
 
 Nehmen wir jetzt rufen Sie erneut auf das Angebot-Szenario, das wir zuvor erstellt und skalierbare pagingunterstützung zu aktivieren.
 
->[!div class="step-by-step"]
-[Zurück](use-viewdata-and-implement-viewmodel-classes.md)
-[Weiter](implement-efficient-data-paging.md)
+> [!div class="step-by-step"]
+> [Zurück](use-viewdata-and-implement-viewmodel-classes.md)
+> [Weiter](implement-efficient-data-paging.md)

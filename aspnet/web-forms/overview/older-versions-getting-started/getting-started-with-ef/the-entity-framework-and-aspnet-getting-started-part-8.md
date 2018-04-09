@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 8 | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 8 | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework. Die beispielanwendung ist...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 035cce022d1b3697b825a96487529dbc9675d90e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 8
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -91,7 +91,7 @@ In der Regel möchten Sie die Funktionalität von dynamischen Daten anpassen. Be
 
 In **Projektmappen-Explorer**, mit der rechten Maustaste die **ContosoUniversity** -Projekt, wählen **Verweis hinzufügen**, und fügen Sie einen Verweis auf `System.ComponentModel.DataAnnotations`.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
 
 In der *DAL* Ordner eine neue Klassendatei erstellen, nennen Sie sie *Student.cs*, und Ersetzen Sie den Vorlagencode darin, durch den folgenden Code.
 
@@ -101,7 +101,7 @@ Dieser Code erstellt eine partielle Klasse für die `Student` Entität. Die `Met
 
 Die Attribute, die auf Eigenschaften in der Metadatenklasse angewendet, geben Sie Formatierung, Validierung, Regeln und Fehlermeldungen. Die hier aufgeführten Attribute müssen die folgenden Ergebnisse:
 
-- `EnrollmentDate`wird als Datum (ohne ein Time) angezeigt.
+- `EnrollmentDate` wird als Datum (ohne ein Time) angezeigt.
 - Beide Felder müssen 25 Zeichen oder weniger umfasst, sowie eine benutzerdefinierte Fehlermeldung wird bereitgestellt.
 - Beide Namensfelder sind erforderlich, und eine benutzerdefinierte Fehlermeldung wird bereitgestellt.
 
@@ -111,7 +111,7 @@ Führen Sie die *Students.aspx* Seite erneut, und sehen Sie, dass die Datumsanga
 
 Bearbeiten Sie eine Zeile aus, und wiederholen Sie die Werte in den Namensfeldern deaktivieren. Das Sternchen, der angibt, Feld Fehler angezeigt werden, sobald Sie ein Feld lassen, bevor Sie auf **Update**. Beim Klicken auf **Update**, die Seite zeigt den Fehlermeldungstext, die Sie angegeben haben.
 
-[![Image10](the-entity-framework-and-aspnet-getting-started-part-8/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image15.png)
+[![image10](the-entity-framework-and-aspnet-getting-started-part-8/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image15.png)
 
 Wiederholen Sie den Namen eingeben, die mehr als 25 Zeichen sind, klicken Sie auf **Update**, und die Seite zeigt den Fehlermeldungstext, die Sie angegeben haben.
 
@@ -132,5 +132,5 @@ Dies schließt diese Reihe von Lernprogrammen zu den ersten Schritten mit dem En
 - [Entity Framework-Foren auf MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Blog des Julie Lerman](http://thedatafarm.com/blog/)
 
->[!div class="step-by-step"]
-[Vorherige](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Vorherige](the-entity-framework-and-aspnet-getting-started-part-7.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 title: Anzeigen einer Tabelle von Datenbankdaten (c#) | Microsoft Docs
 author: microsoft
-description: "In diesem Lernprogramm werden ich zwei Methoden zum Anzeigen von einer Gruppe von Datenbankdatensätzen gezeigt. Ich anzeigen zwei Methoden für einen Satz von Datenbank-Datensätze in einem HTML-ta Formatierung"
+description: In diesem Lernprogramm werden ich zwei Methoden zum Anzeigen von einer Gruppe von Datenbankdatensätzen gezeigt. Ich anzeigen zwei Methoden für einen Satz von Datenbank-Datensätze in einem HTML-ta Formatierung
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 37ea081df2ee26e186669b815a4d769e1976ae9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d5dc9dd4a82e4577c6c1a3b124d45fef0b0f67c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-c"></a>Anzeigen einer Tabelle von Datenbankdaten (c#)
 ====================
@@ -189,6 +189,6 @@ Die RenderPartial()-Methode ist anders als die meisten anderen Hilfsmethoden, da
 
 Das Ziel dieses Lernprogramms wurde zur Erläuterung, wie Sie einen Satz von Datenbank-Datensätze in einer HTML-Tabelle anzeigen können. Zunächst haben Sie gelernt, wie einen Satz von Datenbank-Datensätze in eine Controlleraktion zurückgegeben, durch die Nutzung von Microsoft Entity Framework. Als Nächstes haben Sie gelernt, wie Visual Studio Gerüstbau zu verwenden, um eine Ansicht zu generieren, die eine Auflistung von Elementen werden automatisch angezeigt. Schließlich haben Sie gelernt, wie Sie die Sicht zu vereinfachen, indem Sie eine partielle nutzen. Sie haben gelernt, wie eine partielle als Vorlage verwenden, damit Sie jede Datenbankeintrag formatieren können.
 
->[!div class="step-by-step"]
-[Zurück](creating-model-classes-with-linq-to-sql-cs.md)
-[Weiter](performing-simple-validation-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-model-classes-with-linq-to-sql-cs.md)
+> [Weiter](performing-simple-validation-cs.md)

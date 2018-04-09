@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
 title: Inline-Bearbeitung in ASP.NET Dynamic Data-Anwendungen aktivieren | Microsoft Docs
 author: JoeStagner
-description: "In diesem Video wird gezeigt, mit URL-Routing, Inline-Bearbeitung in einer ASP.NET-Anwendung für dynamische Daten aktivieren."
+description: In diesem Video wird gezeigt, mit URL-Routing, Inline-Bearbeitung in einer ASP.NET-Anwendung für dynamische Daten aktivieren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 6c45782177582e6db0cd409cf522de5bcc978bc6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e248df1f78c360f0d92633b5c14c523983c2966
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>Aktivieren Sie Inline-Bearbeitung in ASP.NET Dynamic Data-Anwendungen
 ====================
@@ -24,8 +24,8 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 
 In diesem Video wird gezeigt, mit URL-Routing, Inline-Bearbeitung in einer ASP.NET-Anwendung für dynamische Daten aktivieren.
 
-[&#9654; Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/enable-in-line-editing-in-aspnet-dynamic-data-applications)
+[&#9654;Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/enable-in-line-editing-in-aspnet-dynamic-data-applications)
 
->[!div class="step-by-step"]
-[Zurück](begin-modifying-dynamic-data-applications-with-url-routing.md)
-[Weiter](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
+> [!div class="step-by-step"]
+> [Zurück](begin-modifying-dynamic-data-applications-with-url-routing.md)
+> [Weiter](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)

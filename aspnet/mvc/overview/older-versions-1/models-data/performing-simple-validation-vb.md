@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
-title: "Ausführen von einfachen Überprüfung (VB) | Microsoft Docs"
+title: Ausführen von einfachen Überprüfung (VB) | Microsoft Docs
 author: StephenWalther
-description: "Erfahren Sie, wie die Validierung in ASP.NET MVC-Anwendung. In diesem Lernprogramm führt Stephen Walther Sie Modellzustand und die Validierung, HTML-Hilfsobjekt..."
+description: Erfahren Sie, wie die Validierung in ASP.NET MVC-Anwendung. In diesem Lernprogramm führt Stephen Walther Sie Modellzustand und die Validierung, HTML-Hilfsobjekt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc4cdbcd267bcdd3e71abc4c52664ae62c5c02e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-vb"></a>Ausführen von einfachen Überprüfung (VB)
 ====================
@@ -130,6 +130,6 @@ Wenn Sie die Darstellung dieser anpassen, prebinding Fehlermeldungen möchten m�
 
 Das Ziel dieses Lernprogramms wurde um die grundlegende Funktionsweise der Validierung in ASP.NET MVC-Framework zu beschreiben. Sie haben gelernt, wie Modellzustand und die Validierung HTML-Hilfsmethoden verwenden. Wir besprochen haben auch die Unterscheidung zwischen prebinding und postbinding Überprüfung. In anderen Lernprogrammen besprechen wir verschiedene Strategien zum Verschieben von Validierungscodes aus Ihrem Domänencontroller und in Ihren Modellklassen.
 
->[!div class="step-by-step"]
-[Zurück](displaying-a-table-of-database-data-vb.md)
-[Weiter](validating-with-the-idataerrorinfo-interface-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](displaying-a-table-of-database-data-vb.md)
+> [Weiter](validating-with-the-idataerrorinfo-interface-vb.md)

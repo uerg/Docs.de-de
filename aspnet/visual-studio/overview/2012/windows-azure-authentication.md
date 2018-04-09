@@ -2,25 +2,25 @@
 uid: visual-studio/overview/2012/windows-azure-authentication
 title: Windows Azure-Authentifizierung | Microsoft Docs
 author: Rick-Anderson
-description: "Microsoft ASP.NET-Tools für Windows Azure Active Directory vereinfacht die Authentifizierung für Webanwendungen, die auf Windows Azure-Websites gehostet aktivieren..."
+description: Microsoft ASP.NET-Tools für Windows Azure Active Directory vereinfacht die Authentifizierung für Webanwendungen, die auf Windows Azure-Websites gehostet aktivieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2013
 ms.topic: article
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09cb37ceb0132958a48f5f3a5d52dc46c6f0a78d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure-Authentifizierung
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Tools für Microsoft ASP.NET für Windows Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Windows Azure-Websites](https://www.windowsazure.com/home/features/web-sites/). Sie können Windows Azure-Authentifizierung verwenden, um Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihre eigene benutzerdefinierte Windows Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
 > 
@@ -50,7 +50,7 @@ Wenn Sie nicht mit einen vorhandenen Windows Azure Active Directory-Mandanten (z
 
 1. Wählen Sie im Menü Projekt **Windows Azure-Authentifizierung aktivieren**:  
   
- ![](windows-azure-authentication/_static/image2.png)
+   ![](windows-azure-authentication/_static/image2.png)
 
 2. Geben Sie die Domäne für Ihren Windows Azure Active Directory-Mandanten (z. B. "contoso.onmicrosoft.com"), und klicken Sie auf **aktivieren**:
 
@@ -58,7 +58,7 @@ Wenn Sie nicht mit einen vorhandenen Windows Azure Active Directory-Mandanten (z
 
 3. In der Webauthentifizierung Dialogfeld Anmeldung als Administrator für Ihren Windows Azure Active Directory-Mandanten:  
   
- ![](windows-azure-authentication/_static/image4.png)
+   ![](windows-azure-authentication/_static/image4.png)
 
 ![](windows-azure-authentication/_static/image5.png)
 

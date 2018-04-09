@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: "Erstellen Sie eine sichere ASP.NET Web Forms-app mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurücksetzen (c#) | Microsoft Docs"
+title: Erstellen Sie eine sichere ASP.NET Web Forms-app mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurücksetzen (c#) | Microsoft Docs
 author: Erikre
-description: "In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer ASP.NET Web Forms-Apps mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurückzusetzen, verwenden das ASP.NET Identity-Element..."
+description: In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer ASP.NET Web Forms-Apps mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurückzusetzen, verwenden das ASP.NET Identity-Element...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Erstellen Sie eine sichere ASP.NET Web Forms-app mit benutzerregistrierung, e-Mail-Bestätigung und das Kennwort zurücksetzen (c#)
 ====================
@@ -90,7 +90,7 @@ Obwohl dieses Lernprogramm zeigt nur zum Hinzufügen von e-Mail-Benachrichtigung
     [!code-xml[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample3.xml?highlight=2-5)]
 
     > [!WARNING]
-    > Sicherheit – sensible Daten nie im Quellcode speichern. In diesem Beispiel wird das Konto und die Anmeldeinformationen werden gespeichert der **AppSetting** Teil der *"Web.config"* Datei. Sie können auf Azure sicher diese Werte speichern, auf die  **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Registerkarte im Azure-Portal. Weitere Informationen finden Sie im Thema andersons [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Sicherheit – sensible Daten nie im Quellcode speichern. In diesem Beispiel wird das Konto und die Anmeldeinformationen werden gespeichert der **AppSetting** Teil der *"Web.config"* Datei. Sie können auf Azure sicher diese Werte speichern, auf die **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Registerkarte im Azure-Portal. Weitere Informationen finden Sie im Thema andersons [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 6. Fügen Sie die e-Mail-Dienst-Werte, um widerzuspiegeln, dass die Werte der SendGrid-Authentifizierung (Benutzername und Kennwort), damit Sie erfolgreich können Ihre app Senden von e-Mails von. Achten Sie darauf, dass Sie Ihren SendGrid-Kontonamen statt auf die e-Mail-Adresse angegebene SendGrid verwenden.
 
 ### <a name="enable-email-confirmation"></a>Aktivieren von e-Mail-Bestätigung
@@ -104,9 +104,9 @@ Obwohl dieses Lernprogramm zeigt nur zum Hinzufügen von e-Mail-Benachrichtigung
 2. In **Projektmappen-Explorer**, mit der rechten Maustaste *"default.aspx"* , und wählen Sie **als Startseite festlegen**.
 3. Führen Sie die app durch Drücken von **F5.** Nachdem die Seite angezeigt wird, klicken Sie auf die **registrieren** Link, um die Seite "Register" anzuzeigen.
 4. Geben Sie Ihre e-Mail- und das Kennwort, und klicken Sie auf die **registrieren** Schaltfläche zum Senden einer e-Mail-Nachricht über SendGrid.  
- Der aktuelle Status des Projekts und Code ermöglicht dem Benutzer anmelden, nachdem sie das Registrierungsformular abgeschlossen, obwohl sie ihrem Konto bestätigt dies nicht getan haben.
+   Der aktuelle Status des Projekts und Code ermöglicht dem Benutzer anmelden, nachdem sie das Registrierungsformular abgeschlossen, obwohl sie ihrem Konto bestätigt dies nicht getan haben.
 5. Überprüfen Sie Ihr e-Mail-Konto, und klicken Sie auf den Link, um Ihre e-Mail-Adresse zu bestätigen.  
- Nachdem Sie das Registrierungsformular senden, werden Sie angemeldet werden.  
+   Nachdem Sie das Registrierungsformular senden, werden Sie angemeldet werden.  
     ![Beispiel-Website - angemeldet](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -146,9 +146,9 @@ Obwohl Sie das e-Mail-Konto bestätigt haben, würden an diesem Punkt müssen ni
 4. Führen Sie die app durch Drücken von **F5.** Nachdem die Seite angezeigt wird, klicken Sie auf die **melden Sie sich** Link.
 5. Klicken Sie auf die **haben Sie Ihr Kennwort vergessen?** Link zum Anzeigen der **"Kennwort vergessen"** Seite.
 6. Geben Sie Ihre e-Mail-Adresse ein, und klicken Sie auf die **Absenden** Schaltfläche, um eine e-Mail an Ihre Adresse senden, dem Sie Ihr Kennwort zurücksetzen können.   
- Überprüfen Sie Ihr e-Mail-Konto, und klicken Sie auf den Link zum Anzeigen der **Kennwort zurücksetzen** Seite.
+   Überprüfen Sie Ihr e-Mail-Konto, und klicken Sie auf den Link zum Anzeigen der **Kennwort zurücksetzen** Seite.
 7. Auf der **Kennwort zurücksetzen** geben Ihre e-Mail, Kennwort und bestätigte Kennwort. Drücken Sie anschließend die **zurücksetzen** Schaltfläche.  
- Wenn Sie Ihr Kennwort erfolgreich Zurücksetzen der **Kennwort geändert** Seite wird angezeigt. Nun können Sie sich mit Ihrem neuen Kennwort anmelden.
+   Wenn Sie Ihr Kennwort erfolgreich Zurücksetzen der **Kennwort geändert** Seite wird angezeigt. Nun können Sie sich mit Ihrem neuen Kennwort anmelden.
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>Senden von e-Mail-Bestätigungslink
@@ -167,7 +167,7 @@ Sobald ein Benutzer ein neues lokales Konto erstellt, werden sie einen Link zur 
 4. Löschen Sie alle Konten in der **AspNetUsers** Tabelle, die den e-Mail-Alias enthalten, Sie testen möchten.
 5. Führen Sie die app (**F5**), und registrieren Sie Ihre e-Mail-Adresse.
 6. Vor dem bestätigen Ihr neuen Kontos über die e-Mail-Adresse, die gerade übermittelt wurde, versuchen Sie, sich mit dem neuen Konto anzumelden.  
- Sie sehen, dass Sie nicht anmelden können, und dass Sie ein bestätigte e-Mail-Konto benötigen. Darüber hinaus können Sie jetzt eine bestätigungsmeldung an Ihrem e-Mail-Konto erneut senden.
+   Sie sehen, dass Sie nicht anmelden können, und dass Sie ein bestätigte e-Mail-Konto benötigen. Darüber hinaus können Sie jetzt eine bestätigungsmeldung an Ihrem e-Mail-Konto erneut senden.
 7. Geben Sie Ihre e-Mail-Adresse und das Kennwort ein, drücken Sie dann die **Bestätigung senden** Schaltfläche.
 8. Nachdem Sie Ihre e-Mail-Adresse auf Grundlage der neu gesendeten e-Mail-Nachricht bestätigt haben, melden Sie sich an die app.
 

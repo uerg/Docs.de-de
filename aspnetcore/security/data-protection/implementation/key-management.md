@@ -1,7 +1,7 @@
 ---
-title: "Schlüsselverwaltung"
+title: Schlüsselverwaltung in ASP.NET Core
 author: rick-anderson
-description: In diesem Dokument werden die Implementierungsdetails der ASP.NET Core Data Protection Key Management-APIs.
+description: Erfahren Sie mehr Details zur Implementierung der ASP.NET Core Datenschutz Key Management-APIs.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>Schlüsselverwaltung
+# <a name="key-management-in-aspnet-core"></a>Schlüsselverwaltung in ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ Die Datenschutzsystem verwaltet automatisch die Lebensdauer der Master-Schlüsse
 
 * Widerrufen - der Schlüssel gefährdet sein und dürfen nicht für neue Protect-Vorgänge verwendet werden.
 
-Erstellte, aktiven und abgelaufene Schlüssel möglicherweise alle zum Aufheben des Schutzes von eingehenden Nutzlasten verwendet. Gesperrte Schlüssel standardmäßig dürfen nicht zum Aufheben des Schutzes von Nutzlasten verwendet werden, aber der Anwendungsentwickler kann [dieses Verhalten überschreiben](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect) bei Bedarf.
+Erstellte, aktiven und abgelaufene Schlüssel möglicherweise alle zum Aufheben des Schutzes von eingehenden Nutzlasten verwendet. Gesperrte Schlüssel standardmäßig dürfen nicht zum Aufheben des Schutzes von Nutzlasten verwendet werden, aber der Anwendungsentwickler kann [dieses Verhalten überschreiben](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) bei Bedarf.
 
 >[!WARNING]
 > Der Entwickler möglicherweise versucht, einen Schlüssel aus dem Schlüssel Ring zu löschen, (z. B. durch die entsprechende Datei aus dem Dateisystem gelöscht). An diesem Punkt alle Daten, die durch den Schlüssel geschützt wird dauerhaft, und es gibt keine Notfall Überschreibung mit gesperrten Schlüssel vorhanden ist. Löschen einen Schlüssel wirklich destruktiven Verhalten ist und daher macht die Datenschutzsystem keine erstrangige-API zum Ausführen des Vorgangs.
@@ -83,6 +83,6 @@ Das folgende Beispiel veranschaulicht die Verwendung der `IKeyManager` Schnittst
 
 Die Datenschutzsystem hat eine heuristische, bei dem Versuch, einen geeigneten Schlüssel Speicherort und die Verschlüsselung auf Rest-Mechanismus automatisch hergeleitet werden. Dies kann auch durch den app-Entwickler. In den folgenden Dokumenten erläutert die integrierten Implementierungen der folgenden Mechanismen:
 
-* [In-Box-Schlüsselspeicher-Anbieter](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [In-Box-Schlüsselspeicher-Anbieter](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [Integrierte Schlüsselverschlüsselung zur Rest-Anbieter](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [Integrierte Schlüsselverschlüsselung zur Rest-Anbieter](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

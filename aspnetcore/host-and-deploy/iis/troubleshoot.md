@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Problembehandlung bei ASP.NET Core unter IIS
 
@@ -29,7 +29,7 @@ Zusätzliche Themen zur Problembehandlung:
 [Problembehandlung bei ASP.NET Core in Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)  
 Obwohl App Service verwendet die [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) und IIS auf Host-apps finden Sie im dedizierte Thema Anweisungen für App-Dienst spezifisch sind.
 
-[Fehlerbehandlung](xref:fundamentals/error-handling)  
+[Behandeln von Fehlern](xref:fundamentals/error-handling)  
 Gewusst wie: Behandeln von Fehlern in ASP.NET Core apps während der Entwicklung auf einem lokalen System zu ermitteln.
 
 [Lernen Sie das Debuggen mit Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
@@ -96,20 +96,20 @@ Zum Aktivieren und Anzeigen von "stdout" protokolliert:
 
 1. Navigieren Sie zu der Website des Bereitstellungsordners auf dem Hostsystem.
 1. Wenn die *Protokolle* Ordner nicht vorhanden ist, erstellen Sie den Ordner. Anweisungen zum Aktivieren von MSBuild zum Erstellen der *Protokolle* Ordner in der Bereitstellung automatisch, finden Sie unter der [Verzeichnisstruktur](xref:host-and-deploy/directory-structure) Thema.
-1. Bearbeiten der *"Web.config"* Datei. Festlegen **StdoutLogEnabled** auf `true` , und ändern Sie die **"stdoutlogfile"** Pfad verweist auf die *Protokolle* Ordner (z. B. `.\logs\stdout`). `stdout`das Protokoll Dateinamenpräfix sich im Pfad befindet. Ein Zeitstempel, die Prozess-Id und die Dateierweiterung werden automatisch hinzugefügt, wenn das Protokoll erstellt wird. Mit `stdout` als Präfix des Dateinamens, eine typische Protokolldatei heißt *stdout_20180205184032_5412.log*. 
+1. Bearbeiten der *"Web.config"* Datei. Festlegen **StdoutLogEnabled** auf `true` , und ändern Sie die **"stdoutlogfile"** Pfad verweist auf die *Protokolle* Ordner (z. B. `.\logs\stdout`). `stdout` das Protokoll Dateinamenpräfix sich im Pfad befindet. Ein Zeitstempel, die Prozess-Id und die Dateierweiterung werden automatisch hinzugefügt, wenn das Protokoll erstellt wird. Mit `stdout` als Präfix des Dateinamens, eine typische Protokolldatei heißt *stdout_20180205184032_5412.log*. 
 1. Speichern Sie die aktualisierte *"Web.config"* Datei.
 1. Stellen Sie eine Anforderung an die app an.
 1. Navigieren Sie zu der *Protokolle* Ordner. Suchen Sie und öffnen Sie das neueste "stdout"-Protokoll.
 1. Untersuchen Sie das Anwendungsprotokoll auf Fehler.
 
-**Wichtig!** Deaktivieren Sie "stdout" protokollieren, wenn die Problembehandlung abgeschlossen ist.
+**Wichtig** Deaktivieren Sie "stdout" protokollieren, wenn die Problembehandlung abgeschlossen ist.
 
 1. Bearbeiten der *"Web.config"* Datei.
 1. Legen Sie **StdoutLogEnabled** auf `false`.
 1. Speichern Sie die Datei.
 
 > [!WARNING]
-> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Es ist, gilt keine Beschränkung für die Protokolldateigröße oder die Anzahl der erstellten Protokolldateien.
+> Fehler beim Deaktivieren des Protokolls "stdout" kann zur app oder Serverausfall führen. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt.
 >
 > Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
 

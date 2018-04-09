@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
-title: "Mit mehreren Datensätzen pro Zeile mit dem DataList-Steuerelement (VB) | Microsoft Docs"
+title: Mit mehreren Datensätzen pro Zeile mit dem DataList-Steuerelement (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem kurzen Tutorial lernen wir zum Anpassen der DataList-Layout über seine Eigenschaften RepeatColumns und RepeatDirection kennen."
+description: In diesem kurzen Tutorial lernen wir zum Anpassen der DataList-Layout über seine Eigenschaften RepeatColumns und RepeatDirection kennen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c85e5a1d7b88a9ed53ed8392a300d5118363bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Anzeigen von mehreren Datensätzen pro Zeile mit dem DataList-Steuerelement (VB)
 ====================
@@ -55,7 +55,7 @@ Nach dem Erstellen und binden die neue ObjectDataSource an DataList, Visual Stud
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-Beachten Sie, dass Ve enthalten einen Formatbezeichner in der `Eval` Databinding-Syntax für die `UnitPrice`, den zurückgegebenen Wert als Währung - Formatierung`Eval("UnitPrice", "{0:C}").`
+Beachten Sie, dass Ve enthalten einen Formatbezeichner in der `Eval` Databinding-Syntax für die `UnitPrice`, den zurückgegebenen Wert als Währung - Formatierung `Eval("UnitPrice", "{0:C}").`
 
 Nehmen Sie einen Moment Zeit, um die Seite in einem Browser besuchen. Wie in Abbildung 2 gezeigt, rendert die DataList als einspaltiges, mehrzeilige Tabelle Produkte.
 
@@ -113,12 +113,12 @@ Das DataList Listen werden standardmäßig, dessen Elemente in einer Tabelle ein
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde John Suru. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
-[Weiter](nested-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [Weiter](nested-data-web-controls-vb.md)

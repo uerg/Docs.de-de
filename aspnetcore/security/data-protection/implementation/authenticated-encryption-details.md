@@ -1,7 +1,7 @@
 ---
-title: "Authentifizierte Verschlüsselungsdetails"
+title: Authentifizierte Verschlüsselungsdetails in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument beschreibt die Implementierungsdetails des Datenschutzes ASP.NET Core authentifiziert Verschlüsselung."
+description: Erfahren Sie mehr Details zur Implementierung der Verschlüsselung von ASP.NET Core Data Protection authentifiziert.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: b58f36a5f0353da69d6f1ef4db542aba8267027a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authenticated-encryption-details"></a>Authentifizierte Verschlüsselungsdetails
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>Authentifizierte Verschlüsselungsdetails in ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
@@ -31,7 +31,7 @@ Die geschützte nutzlastformat besteht aus drei Hauptkomponenten:
 
 * Eine 128-Bit-Schlüssel-Id, die den Schlüssel zum Schützen dieser bestimmten Nutzlast identifiziert.
 
-* Der Rest der geschützten Nutzlast ist [speziell für die Verschlüsselung durch diesen Schlüssel gekapselt](subkeyderivation.md#data-protection-implementation-subkey-derivation). Im folgenden Beispiel den Schlüssel darstellt, ein AES-256-CBC + HMACSHA256-Verschlüsselung und die Nutzlast ist weiter wie folgt unterteilt: * Ein 128-Bit-Schlüssel-Modifizierer. * Eine 128-Bit-Initialisierungsvektor. * 48 Byte der AES-256-CBC-Ausgabe. * Ein Tag für den HMACSHA256-Authentifizierung.
+* Der Rest der geschützten Nutzlast ist [speziell für die Verschlüsselung durch diesen Schlüssel gekapselt](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Im folgenden Beispiel den Schlüssel darstellt, ein AES-256-CBC + HMACSHA256-Verschlüsselung und die Nutzlast ist weiter wie folgt unterteilt: * Ein 128-Bit-Schlüssel-Modifizierer. * Eine 128-Bit-Initialisierungsvektor. * 48 Byte der AES-256-CBC-Ausgabe. * Ein Tag für den HMACSHA256-Authentifizierung.
 
 Eine geschützte Beispielnutzlast wird unten veranschaulicht.
 

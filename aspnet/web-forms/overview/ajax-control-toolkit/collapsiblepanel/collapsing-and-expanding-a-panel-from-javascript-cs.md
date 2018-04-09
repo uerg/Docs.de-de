@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-cs
 title: Reduzieren und erweitern ein Panel aus JavaScript (c#) | Microsoft Docs
 author: wenz
-description: "Das CollapsiblePanel-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit einen Bereich erweitert und bietet die Möglichkeit, den Inhalt zu reduzieren und erweitern ihn ein..."
+description: Das CollapsiblePanel-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit einen Bereich erweitert und bietet die Möglichkeit, den Inhalt zu reduzieren und erweitern ihn ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 666f3e212ccdd5b26b466f4672134ce751dc5dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7baa3be7144946bde7d11afd9b1cb5f14ad9dede
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a>Reduzieren und erweitern ein Panel aus JavaScript (c#)
 ====================
@@ -53,7 +53,7 @@ Leider der Extender derzeit nicht verfügbar macht eine bestimmte API für reduz
 
 [!code-aspx[Main](collapsing-and-expanding-a-panel-from-javascript-cs/samples/sample5.aspx)]
 
-Im clientseitigen JavaScript-Code (Einstieg `<script type="text/javascript">`), die `$find()` Methode verwendet werden, muss für den Zugriff auf die `CollapsiblePanelExtender`. `$find("cpe")`Gibt einen Verweis darauf zurück. Von dort auf bestimmte Methoden lösen die Aufgabe.
+Im clientseitigen JavaScript-Code (Einstieg `<script type="text/javascript">`), die `$find()` Methode verwendet werden, muss für den Zugriff auf die `CollapsiblePanelExtender`. `$find("cpe")` Gibt einen Verweis darauf zurück. Von dort auf bestimmte Methoden lösen die Aufgabe.
 
 Die Methode zum Öffnen von (Erweitert) wird im Bereich aufgerufen `_doOpen()`; der folgende code implementiert die `doOpen()` Funktion aufgerufen, wenn die erste Schaltfläche geklickt wird:
 
@@ -72,5 +72,5 @@ Die dritte Schaltfläche Schaltet den Zustand des Bereichs: aus reduziert erweit
 
 Die dritte Schaltfläche ändert den Zustand des Bereichs: aus reduziert erweitert und zurück ([klicken Sie hier, um das Bild in voller Größe angezeigt](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Nächste](collapsing-and-expanding-a-panel-from-javascript-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](collapsing-and-expanding-a-panel-from-javascript-vb.md)

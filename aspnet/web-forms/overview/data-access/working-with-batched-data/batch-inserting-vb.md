@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
-title: "Batch eingefügt (VB) | Microsoft Docs"
+title: Batch eingefügt (VB) | Microsoft Docs
 author: rick-anderson
-description: "Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann..."
+description: Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-vb"></a>Batch eingefügt (VB)
 ====================
@@ -203,7 +203,7 @@ Als Nächstes erstellen Sie Ereignishandler für die Produkte hinzufügen von St
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir den hinzufügen-Produkten aus Lieferung zurückkehren `Click` -Ereignishandler in Schritt 4 und Code hinzufügen, um die Produkte zu speichern. `ReturnToDisplayInterface`beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownLists ihre erste "Optionen". Die beiden Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endwerten Steuerelement Index benennen den Namen und die Einheit Produktpreis Textfelder einfügen Schnittstelle und werden verwendet, in die Grenzen des verwendet die `For` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Bereiche `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende Schnittstelle ausgeblendet ist und die Anzeigenschnittstelle dargestellt.
+Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir den hinzufügen-Produkten aus Lieferung zurückkehren `Click` -Ereignishandler in Schritt 4 und Code hinzufügen, um die Produkte zu speichern. `ReturnToDisplayInterface` beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownLists ihre erste "Optionen". Die beiden Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endwerten Steuerelement Index benennen den Namen und die Einheit Produktpreis Textfelder einfügen Schnittstelle und werden verwendet, in die Grenzen des verwendet die `For` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Bereiche `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende Schnittstelle ausgeblendet ist und die Anzeigenschnittstelle dargestellt.
 
 Nehmen Sie einen Moment Zeit, um diese Seite in einem Browser zu testen. Beim ersten Seite besuchen sollte die Anzeigenschnittstelle angezeigt werden, wie in Abbildung 5 gezeigt wurde. Klicken Sie auf die Schaltfläche mit den Prozess mit dem Produktversand. Die Seite wird postback und die einfügende-Schnittstelle sollte jetzt angezeigt werden, wie in Abbildung 12 dargestellt. Klicken entweder die Produkte hinzufügen von Schaltflächen Lieferung oder "Abbrechen" zurück auf die Anzeigenschnittstelle.
 
@@ -269,11 +269,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Führen Sie Prüfer für dieses Lernprogramm Hilton Giesenow und S Ren Jacob Lauritsen wurden. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](batch-deleting-vb.md)

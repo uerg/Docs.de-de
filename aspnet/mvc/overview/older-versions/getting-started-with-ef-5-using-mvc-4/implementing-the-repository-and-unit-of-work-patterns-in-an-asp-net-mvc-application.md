@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementieren das Repository und die Einheit der Arbeit Muster in einer ASP.NET MVC-Anwendung (9 von 10)
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
 > 
 > > [!NOTE] 
 > > 
@@ -35,7 +35,7 @@ Im vorherigen Lernprogramm verwenden Vererbung, reduzieren Sie redundanten Code 
 
 ## <a name="the-repository-and-unit-of-work-patterns"></a>Das Repository und die Einheit der Arbeit-Muster
 
-Das Repository und die Einheit der Arbeit Muster, soll eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikschicht einer Anwendung zu erstellen. Diese Muster implementieren, um die Anwendung von Änderungen im Datenspeicher zu isolieren und Endprodukts automatisierte Komponententests oder eine testgesteuerte Entwicklung (TDD).
+Das Repository und die Einheit der Arbeit Muster, soll eine Abstraktionsebene zwischen der Datenzugriffsebene und den Geschäftslogikschicht einer Anwendung zu erstellen. Die Implementierung dieser Muster unterstützt die Isolation Ihrer Anwendung vor Änderungen im Datenspeicher und kann automatisierte Komponententests oder eine testgesteuerte Entwicklung (Test-Driven Development, TDD) erleichtern.
 
 In diesem Lernprogramm implementieren Sie eine Repository-Klasse für jeden Entitätstyp. Für die `Student` Entitätstyp erstellen Sie ein Repository-Schnittstelle und eine Repository-Klasse. Wenn Sie das Repository in Ihr Controller instanziieren, verwenden Sie die Schnittstelle, damit der Controller einen Verweis auf ein Objekt akzeptiert, der Repository-Schnittstelle implementiert. Wenn der Controller unter einer Webserver ausgeführt wird, erhält sie ein Repository, das mit dem Entity Framework zusammenarbeitet. Wenn der Controller unter einer Testklasse Einheit ausgeführt wird, erhält sie ein Repository, das zusammen mit Daten in einer Weise, die Sie, zum Testen bearbeiten können, wie z. B. eine Auflistung im Arbeitsspeicher gespeichert.
 
@@ -124,7 +124,7 @@ Nur der hervorgehobene Code hat sich geändert.
 
 In der ursprünglichen Version des Codes `students` als typisiert ist, ein `IQueryable` Objekt. Die Abfrage wird nicht an die Datenbank gesendet, bis er in eine Auflistung mit einer Methode wie konvertiert wird `ToList`, dem tritt nicht auf, bis die Indexansicht Student Modell zugreift. Die `Where` Methode in den ursprünglichen Code oben wird eine `WHERE` -Klausel in der SQL-Abfrage, die an die Datenbank gesendet wird. Dies bedeutet wiederum, dass nur die ausgewählten Entitäten von der Datenbank zurückgegeben werden. Allerdings Folge der Änderung `context.Students` auf `studentRepository.GetStudents()`, `students` Variablen, nachdem diese Anweisung ist ein `IEnumerable` -Auflistung, die alle Teilnehmer in der Datenbank enthält. Das Ergebnis des Anwendens der `Where` Methode ist identisch, aber jetzt die Arbeit im Arbeitsspeicher auf dem Webserver und nicht von der Datenbank erfolgt. Für Abfragen, die große Mengen an Daten zurückgeben, kann dies ineffizient sein.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **IQueryable-Objekt im Vergleich zu IEnumerable**
 > 
@@ -249,6 +249,6 @@ Sie haben nun das Repository und die Einheit der Arbeit Muster implementiert. Si
 
 Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Zurück](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Weiter](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Zurück](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Weiter](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

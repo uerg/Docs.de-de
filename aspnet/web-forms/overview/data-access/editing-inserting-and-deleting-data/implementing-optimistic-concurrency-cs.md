@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
-title: "Implementieren der vollständigen Parallelität (c#) | Microsoft Docs"
+title: Implementieren der vollständigen Parallelität (c#) | Microsoft Docs
 author: rick-anderson
-description: "Für eine Webanwendung, die mehrere Benutzer Daten bearbeiten kann, besteht das Risiko, dass zwei Benutzer gleichzeitig dieselben Daten bearbeiten werden möglicherweise zur Verfügung. In diesem Tutori..."
+description: Für eine Webanwendung, die mehrere Benutzer Daten bearbeiten kann, besteht das Risiko, dass zwei Benutzer gleichzeitig dieselben Daten bearbeiten werden möglicherweise zur Verfügung. In diesem Tutori...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a19e6c320838849e10d2aa397a23a0ee906bac22
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 27441ea9343055b3139468036fc6f201c77667e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Implementieren der vollständigen Parallelität (c#)
 ====================
@@ -259,8 +259,8 @@ Für die vorherigen Lernprogrammen, die Änderung von Daten beteiligt, entfernen
 
 Es ist eine abschließende Eigenschaft-Einstellung, die in der Reihenfolge für das ObjectDataSource auf die ursprünglichen Werte ordnungsgemäß an die BLL-Methoden übergeben vorgenommen werden muss. Das ObjectDataSource hat eine [ConflictDetection-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) , können zugewiesen [einen von zwei Werten](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
-- `OverwriteChanges`-Der Standardwert; die ursprünglichen Werte werden keine an der ursprünglichen Eingabeparameter BLL Methoden gesendet werden.
-- `CompareAllValues`-die ursprünglichen Werte, die Methoden für BLL sendet. Wählen Sie diese Option aus, wenn Sie vollständigen Parallelität verwenden
+- `OverwriteChanges` -Der Standardwert; die ursprünglichen Werte werden keine an der ursprünglichen Eingabeparameter BLL Methoden gesendet werden.
+- `CompareAllValues` -die ursprünglichen Werte, die Methoden für BLL sendet. Wählen Sie diese Option aus, wenn Sie vollständigen Parallelität verwenden
 
 Erkundet festzulegende der `ConflictDetection` Eigenschaft `CompareAllValues`.
 
@@ -429,8 +429,8 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](customizing-the-data-modification-interface-cs.md)
-[Weiter](adding-client-side-confirmation-when-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](customizing-the-data-modification-interface-cs.md)
+> [Weiter](adding-client-side-confirmation-when-deleting-cs.md)

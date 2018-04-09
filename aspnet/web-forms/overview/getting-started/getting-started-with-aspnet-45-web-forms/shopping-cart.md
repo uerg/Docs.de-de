@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 title: Einkaufswagen | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>Einkaufswagen
 ====================
@@ -43,7 +43,7 @@ In diesem Lernprogramm wird beschrieben, die Geschäftslogik erforderlich, um de
 1. Entity Framework Code First
 2. Datenanmerkungen
 3. Stark typisierte Datensteuerelemente
-4. Wurden die modellbindung
+4. Modellbindung
 
 ## <a name="creating-a-shopping-cart"></a>Erstellen den Einkaufswagen legen
 
@@ -66,7 +66,7 @@ Weiter oben in diesem Lernprogramm Reihe Sie das Schema für die Kategorie- und 
     ![Warenkorb - Dialogfeld "Neues Element" hinzufügen](shopping-cart/_static/image2.png)
 3. Nennen Sie diese neue Klasse *CartItem.cs*.
 4. Klicken Sie auf **Hinzufügen**.  
- Die neue Klassendatei wird im Editor angezeigt.
+   Die neue Klassendatei wird im Editor angezeigt.
 5. Ersetzen Sie den Standardcode durch folgenden Code:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ Wie bereits erwähnt, erstellen Sie eine Seite "Verarbeitung" mit dem Namen *Add
 #### <a name="to-create-the-add-to-cart-functionality"></a>So erstellen die Add To Cart Funktionalität:
 
 1. In **Projektmappen-Explorer**, mit der rechten Maustaste die **WingtipToys**Projekt, klicken Sie auf **hinzufügen**  - &gt; **neues Element**.  
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Fügen Sie eine standardmäßige neue Seite (Web Form) an die Anwendung mit dem Namen *AddToCart.aspx*. 
 
     ![Warenkorb - Webformular hinzufügen](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ Wie bereits erwähnt, einen Benutzer `ID` wird verwendet, um die Produkte zu ide
 Die *ShoppingCart.aspx* Seite zeigt die Produkte, die der Benutzer seinen Einkaufswagen legen hinzugefügt wurde. Es wird auch ermöglichen das Hinzufügen, entfernen und Aktualisieren von Elementen in den Einkaufswagen Sinn macht.
 
 1. In **Projektmappen-Explorer**, mit der rechten Maustaste **WingtipToys**, klicken Sie auf **hinzufügen**  - &gt; **neues Element**.  
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Fügen Sie eine neue Seite (Web Form), die durch Auswahl eine Masterseite enthält **Webformular mit Gestaltungsvorlage**. Nennen Sie die neue Seite *ShoppingCart.aspx*.
 3. Wählen Sie **Site.Master** anzufügende Masterseite auf das neu erstellte *aspx* Seite.
 4. In der *ShoppingCart.aspx* Seite, ersetzen Sie das vorhandene Markup durch Folgendes Markup:   
@@ -323,6 +323,6 @@ Der Einkaufswagen unterstützt hinzufügen, löschen und Aktualisieren von Eleme
 
 [ASP.NET Session State (Übersicht)](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[Zurück](display_data_items_and_details.md)
-[Weiter](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [Zurück](display_data_items_and_details.md)
+> [Weiter](checkout-and-payment-with-paypal.md)

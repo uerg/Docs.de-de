@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 title: Erstellen von Modellklassen mit LINQ to SQL) (VB) | Microsoft Docs
 author: microsoft
-description: "Das Ziel dieses Lernprogramms wird eine Methode zum Erstellen von Modellklassen für eine ASP.NET MVC-Anwendung erläutert. In diesem Lernprogramm erfahren Sie, wie zum Modell c erstellen..."
+description: Das Ziel dieses Lernprogramms wird eine Methode zum Erstellen von Modellklassen für eine ASP.NET MVC-Anwendung erläutert. In diesem Lernprogramm erfahren Sie, wie zum Modell c erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 972d5b11049825e84e070ef1c4b2b90116654397
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5438838123c40d82afbda191a48878d6dca80736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>Erstellen von Modellklassen mit LINQ to SQL) (VB)
 ====================
@@ -53,9 +53,10 @@ In diesem Lernprogramm--um veranschaulichen, wie Sie Modellklassen--erstellen k�
 
 Nachdem Sie die neue Datenbank erstellt haben, können Sie die Datenbank öffnen, durch Doppelklicken auf die Datei MoviesDB.mdf in der App\_Datenordner. Durch Doppelklicken auf die Datei MoviesDB.mdf wird das Server-Explorer-Fenster geöffnet (siehe Abbildung 2).
 
-|  | Das Server-Explorer-Fenster wird das Datenbank-Explorer-Fenster aufgerufen, wenn es sich bei Visual Web Developer verwenden. |
-| --- | --- |
 
+|   | Das Server-Explorer-Fenster wird das Datenbank-Explorer-Fenster aufgerufen, wenn es sich bei Visual Web Developer verwenden. |
+|---|----------------------------------------------------------------------------------------------------|
+|   |                                                                                                    |
 
 [![Mithilfe des Server-Explorer-Fensters](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
 
@@ -112,7 +113,7 @@ Nun, da wir unsere LINQ to SQL-Klassen haben, können wir diese Klassen verwende
 
 Zunächst müssen wir die HomeController-Klasse zu ändern. Diese Klasse kann im Ordner "Controller" der Anwendung gefunden werden. Ändern Sie die Klasse, sieht es wie im Codebeispiel 1-Klasse.
 
-**Auflisten von 1 –`Controllers\HomeController.vb`**
+**Auflisten von 1 – `Controllers\HomeController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample1.vb)]
 
@@ -122,7 +123,7 @@ Eine LINQ-Abfrage erfolgt für den DataContext hinzu, um alle Filme aus der Date
 
 Um die Filme anzuzeigen, müssen wir als Nächstes die Indexansicht ändern. Sie finden die Indexansicht im Ordner "Views\Home\". Aktualisieren Sie die Indexansicht, sodass es die Ansicht im Codebeispiel 2 aussieht.
 
-**Auflisten von 2 –`Views\Home\Index.aspx`**
+**Auflisten von 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample2.aspx)]
 
@@ -164,19 +165,19 @@ Wenn Sie die Repository-Klasse erstellen, erstellen Sie eine Schnittstelle, die 
 
 Die Schnittstelle im Codebeispiel 3 heißt IMovieRepository, und stellt eine einzelne Methode namens ListAll() dar.
 
-**Auflisten von 3:`Models\IMovieRepository.vb`**
+**Auflisten von 3: `Models\IMovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample3.vb)]
 
 Auflisten von 4 die Repository-Klasse implementiert die IMovieRepository-Schnittstelle. Beachten Sie, dass er eine Methode mit dem Namen ListAll() enthält, das die Methode vorhanden sein, durch die IMovieRepository-Schnittstelle entspricht.
 
-**Auflisten von 4 –`Models\MovieRepository.vb`**
+**Auflisten von 4 – `Models\MovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample4.vb)]
 
 Schließlich wird die Klasse MoviesController Auflisten von 5 des Repositorymusters verwendet. Es verwendet nicht mehr LINQ to SQL-Klassen direkt.
 
-**Auflisten von 5 –`Controllers\MoviesController.vb`**
+**Auflisten von 5 – `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample5.vb)]
 
@@ -186,7 +187,7 @@ Der zweite Konstruktor verfügt über einen einzelnen Parameter: ein IMovieRepos
 
 Die Klasse MoviesController ist ein Software-Entwurfsmuster wird aufgerufen, die Abhängigkeitsinjektion Muster ausnutzen. Insbesondere wird so genannte Abhängigkeitsinjektion Konstruktor verwendet. Erfahren Sie mehr zu diesem Muster im folgenden Artikel Smell lesen:
 
-[http://martinfowler.com/articles/Injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Beachten Sie, dass der gesamte Code in der Klasse MoviesController (mit Ausnahme von der erste Konstruktor) interagiert mit der Schnittstelle IMovieRepository anstelle der tatsächlichen MovieRepository-Klasse. Der Code interagiert mit einer abstrakten Schnittstelle anstatt eine konkrete Implementierung der Schnittstelle.
 
@@ -200,6 +201,6 @@ Das Ziel dieses Lernprogramms wurde veranschaulicht, wie Sie nutzen Microsoft-LI
 
 Als Nächstes untersucht wir einen etwas schwieriger ist jedoch definitiv mehr virtuous Pfad für die Anzeige von Datenbankdaten. Wir haben genutzt, des Repositorymusters und alle unsere Datenbankzugriffslogik in einer separaten Repository-Klasse platziert werden. In unserem Controller haben wir alle unsere Code für eine Schnittstelle anstelle einer konkreten Klasse geschrieben. Der Vorteil des Repositorymusters ist, dass wir können einfach datenzugriffstechnologien in der Zukunft ändern und es uns erlaubt, unsere Controllerklassen problemlos zu testen.
 
->[!div class="step-by-step"]
-[Zurück](creating-model-classes-with-the-entity-framework-vb.md)
-[Weiter](displaying-a-table-of-database-data-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-model-classes-with-the-entity-framework-vb.md)
+> [Weiter](displaying-a-table-of-database-data-vb.md)

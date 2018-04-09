@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
 title: Bearbeiten von Code in Visual Studio 2013 ASP.NET Web Forms | Microsoft Docs
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Code bearbeiten ASP.NET-Web Forms in Visual Studio 2013
 ====================
@@ -46,7 +46,7 @@ Für die Durchführung dieser exemplarischen Vorgehensweise benötigen Sie Folge
     >   
     > Wenn Sie Visual Studio verwenden, wird in dieser exemplarischen Vorgehensweise davon ausgegangen, dass Sie ausgewählt haben die **Webentwicklung** Auflistung von Einstellungen zum ersten Mal starten von Visual Studio. Weitere Informationen finden Sie unter [wie: Wählen Sie Web Development Umgebungseinstellungen](https://msdn.microsoft.com/library/ff521558.aspx).
 
- Eine Einführung zu Visual Studio und ASP.NET finden Sie unter [erstellen eine grundlegenden ASP.NET 4.5 Web Forms-Seite in Visual Studio 2013](creating-a-basic-web-forms-page.md).   
+  Eine Einführung zu Visual Studio und ASP.NET finden Sie unter [erstellen eine grundlegenden ASP.NET 4.5 Web Forms-Seite in Visual Studio 2013](creating-a-basic-web-forms-page.md).   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Erstellen ein Webanwendungsprojekt und eine Seite
@@ -98,19 +98,19 @@ Der Code-Editor in Visual Studio können Sie Fehler vermeiden, wie Sie Code schr
 
 
 1. In **Entwurf** anzuzeigen, doppelklicken Sie auf die leere Seite, um einen Handler für erstellen die **laden** Ereignis für die Seite.   
-Verwenden Sie den Ereignishandler nur als Ort, um Code zu schreiben.
+   Verwenden Sie den Ereignishandler nur als Ort, um Code zu schreiben.
 2. Geben Sie die folgende Zeile, die ein Fehler, und drücken Sie enthält die Handler **EINGABETASTE**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- Beim Drücken **EINGABETASTE**, Code-Editor platziert, grüne und rote unterstrichen (häufig aufrufen &quot;Wellenlinie&quot; Zeilen) unter Bereiche des Codes, die Probleme haben. Eine grüne Unterstreichung wird eine Warnung generiert. Ein roter Unterstrich signalisiert einen Fehler, den Sie beheben müssen. 
+   Beim Drücken **EINGABETASTE**, Code-Editor platziert, grüne und rote unterstrichen (häufig aufrufen &quot;Wellenlinie&quot; Zeilen) unter Bereiche des Codes, die Probleme haben. Eine grüne Unterstreichung wird eine Warnung generiert. Ein roter Unterstrich signalisiert einen Fehler, den Sie beheben müssen. 
 
     Halten Sie den Mauszeiger über `myStr` um eine QuickInfo anzuzeigen, die Aufschluss über die Warnung. Darüber hinaus halten Sie den Mauszeiger über die rote Unterstreichung, um die Fehlermeldung anzuzeigen.
 
     Die folgende Abbildung zeigt den Code mit der unterstrichen angezeigt.
 
     ![Willkommen bei Text in der Entwurfsansicht](code-editing-in-web-forms-pages/_static/image5.png "Willkommen Text in der Entwurfsansicht")  
- Der Fehler muss behoben werden, durch ein Semikolon hinzufügen `;` bis zum Ende der Linie. Die Warnung einfach benachrichtigt Sie, dass Sie verwendet haben die `myStr` noch Variable.  
+   Der Fehler muss behoben werden, durch ein Semikolon hinzufügen `;` bis zum Ende der Linie. Die Warnung einfach benachrichtigt Sie, dass Sie verwendet haben die `myStr` noch Variable.  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ In diesem Teil der exemplarischen Vorgehensweise müssen Sie einfachen Code schr
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- Der Code erstellt ein **ArrayList** Objekt, mithilfe einer Schleife mit Werten gefüllt, und verwendet dann eine andere Schleife zur Anzeige der Inhalte von den **ArrayList** Objekt.
+   Der Code erstellt ein **ArrayList** Objekt, mithilfe einer Schleife mit Werten gefüllt, und verwendet dann eine andere Schleife zur Anzeige der Inhalte von den **ArrayList** Objekt.
 4. Drücken Sie **STRG + F5** führen Sie die Seite, und klicken Sie dann auf die **Schaltfläche** um sicherzustellen, dass Sie die folgende Ausgabe erhalten:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]

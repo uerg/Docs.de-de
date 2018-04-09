@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
-title: "Auswählen einer Animation aus einer (c#) | Microsoft Docs"
+title: Auswählen einer Animation aus einer (c#) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Das Framework auch zulassen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a24c4ffe49df4eb663f833eb1814f7cbcf15e07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d4aac447fcdfbf296560091cfcdf5eb51997a7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="picking-one-animation-out-of-a-list-c"></a>Auswählen einer Animation aus einer (c#)
 ====================
@@ -45,7 +45,7 @@ Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hinterg
 
 [!code-css[Main](picking-one-animation-out-of-a-list-cs/samples/sample3.css)]
 
-Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter`runat="server":`
+Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter `runat="server":`
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ Das folgende Markup definiert drei Subanimation: Ändern der Größe der Breite 
 
 Einer der drei möglichen Animationen: Bereich ruft breiter ([klicken Sie hier, um das Bild in voller Größe angezeigt](picking-one-animation-out-of-a-list-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](animation-depending-on-a-condition-cs.md)
-[Weiter](animating-in-response-to-user-interaction-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](animation-depending-on-a-condition-cs.md)
+> [Weiter](animating-in-response-to-user-interaction-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
-title: "Übersicht über ASP.NET MVC-Controller (c#) | Microsoft Docs"
+title: Übersicht über ASP.NET MVC-Controller (c#) | Microsoft Docs
 author: StephenWalther
-description: "In diesem Lernprogramm führt Sie Stephen Walther in ASP.NET MVC-Controller. Erfahren Sie, wie zum Erstellen von neuen Controller und Aktion Res verschiedene Datentypen zurückgeben..."
+description: In diesem Lernprogramm führt Sie Stephen Walther in ASP.NET MVC-Controller. Erfahren Sie, wie zum Erstellen von neuen Controller und Aktion Res verschiedene Datentypen zurückgeben...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4ca745fa068b1813e01b131d53a0199cc47d5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95e7c555a52c8c3b765a6fffab15276491cf5714
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-c"></a>Übersicht über ASP.NET MVC-Controller (c#)
 ====================
@@ -89,7 +89,7 @@ Beachten Sie, dass die Aktion Index() Auflisten von 2 eine ViewResult() nicht zu
 4. RedirectToRoute - gibt ein Aktionsergebnis RedirectToRouteResult zurück.
 5. JSON - gibt ein JsonResult-Aktion-Ergebnis zurück.
 6. JavaScriptResult - gibt ein JavaScriptResult zurück.
-7. Content - gibt ein ContentResult Aktion-Ergebnis zurück.
+7. Content - Returns a ContentResult action result.
 8. Datei - gibt ein FileContentResult, FilePathResult oder FileStreamResult abhängig von den Parametern an die Methode übergeben.
 
 Wenn Sie eine Sicht an den Browser zurückgeben möchten, rufen Sie deshalb die View()-Methode. Wenn Sie den Benutzer eine Controlleraktion in eine andere umleiten möchten, rufen Sie die RedirectToAction()-Methode. Z. B. die Aktion Details() auflisten 3 zeigt eine Ansicht oder leitet den Benutzer an die Aktion Index(), je nachdem, ob die Id-Parameter einen Wert aufweist.
@@ -118,6 +118,6 @@ Die Aktion Index() auflisten 5 zurückgegeben ein DateTime-Objekt. ASP.NET MVC-F
 
 Der Zweck dieses Lernprogramms war, Einführung in die Konzepte der ASP.NET MVC-Controller, Controlleraktionen und Controller Aktionsergebnisse. Im ersten Abschnitt haben Sie gelernt, wie neue Controller einer ASP.NET MVC-Projekt hinzugefügt wird. Als Nächstes haben Sie gelernt, wie öffentliche Methoden eines Controllers für die Universe als Controlleraktionen verfügbar gemacht. Schließlich erläutert die verschiedenen Arten von Aktionsergebnisse, die eine Controlleraktion zurückgegeben werden können. Insbesondere besprochen haben wir wie ein ViewResult, RedirectToActionResult und ContentResult in eine Controlleraktion zurückgegeben.
 
->[!div class="step-by-step"]
-[Zurück](creating-an-action-vb.md)
-[Weiter](creating-custom-routes-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-an-action-vb.md)
+> [Weiter](creating-custom-routes-cs.md)

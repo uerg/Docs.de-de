@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cde6fe133291254531a797a434a4b2cdd226dd5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d584e614b5a4124044cd9decd2272192ca164643
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-edit-forms-and-templating"></a>Teil 5: Bearbeiten von Formularen von Formaten und Vorlagen
 ====================
@@ -265,6 +265,6 @@ Jetzt Wenn wir die /StoreManager/ URL navigieren, werden die Alben und Titel unt
 Hinweis: Dies zeigt die einfachen Fall erstellen und verwenden eine Hilfsmethode in einer Ansicht. Weitere Informationen finden Sie Informationen zum Erstellen von Hilfsprogrammen, die Sie in Ihrer Website verwenden können, finden Sie in meinem Blogbeitrag: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
 
 
->[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-4.md)
-[Weiter](mvc-music-store-part-6.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc-music-store-part-4.md)
+> [Weiter](mvc-music-store-part-6.md)

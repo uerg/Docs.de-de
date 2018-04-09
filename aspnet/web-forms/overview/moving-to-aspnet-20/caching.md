@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/caching
 title: Zwischenspeichern | Microsoft Docs
 author: microsoft
-description: "Ein Überblick über das caching ist wichtig für eine gut funktionierenden ASP.NET-Anwendung. ASP.NET 1.x angeboten drei verschiedene Optionen für das caching; ein Ausgabecaching..."
+description: Ein Überblick über das caching ist wichtig für eine gut funktionierenden ASP.NET-Anwendung. ASP.NET 1.x angeboten drei verschiedene Optionen für das caching; ein Ausgabecaching...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>Zwischenspeicherung
 ====================
@@ -59,7 +59,7 @@ Um das Element für ungültig zu erklären, das oben eingefügt wurde, entfernen
 
 Beachten Sie, dass der Schlüssel des Elements, das als Cacheschlüssel fungiert, die den Wert an das Array von Cacheschlüsseln hinzugefügt identisch sein muss.
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>SQL-Cache-Abhängigkeiten Abruf-basierte*(so genannte tabellenbasierte Abhängigkeiten)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>SQL-Cache-Abhängigkeiten Abruf-basierte<em>(so genannte tabellenbasierte Abhängigkeiten)</em>
 
 SQL Server 7 und 2000 verwenden das Abrufintervall-basierte Modell für SQL-Cache-Abhängigkeiten. Das Abrufintervall-basierte Modell wird ein Trigger verwendet, für eine Datenbanktabelle, die ausgelöst wird, wenn Daten in der Tabelle ändern. Die Updates Auslösen einer **ChangeId** -Feld in der Tabelle für die Benachrichtigung, die ASP.NET regelmäßig überprüft. Wenn die **ChangeId** Feld aktualisiert wurde, ASP.NET weiß, dass die Daten geändert haben und es werden die zwischengespeicherten Daten ungültig ist.
 
@@ -237,12 +237,13 @@ Die folgenden Attribute stehen zur Verfügung, in der &lt;Cache&gt; Element:
 
 Die folgenden Attribute stehen für die &lt;OutputCache&gt; Element.
 
-| **Attribut** | **Beschreibung** |
-| --- | --- |
-| **enableOutputCache** | Optionale **booleschen** Attribut. Aktiviert bzw. deaktiviert den Seitenausgabecache. Wenn deaktiviert, werden keine Seiten unabhängig von den Einstellungen programmgesteuerten oder deklarative zwischengespeichert. Standardwert ist **"true"**. |
-| **enableFragmentCache** | Optionale **booleschen** Attribut. Aktiviert bzw. deaktiviert die Anwendungscache Fragment. Wenn deaktiviert, werden keine Seiten zwischengespeichert, unabhängig von der [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) Richtlinie oder Zwischenspeichern verwendete Profil. Enthält eine Cache-Control-Header gibt an, dass upstream-Proxy-Server sowie die Browser-Clients nicht zum Cache Seitenausgabe versuchen sollte. Standardwert ist **"false"**. |
-| **sendCacheControlHeader** | Optionale **booleschen** Attribut. Ruft ab oder legt einen Wert, der angibt, ob die **Cache-Control: Private** Header vom Modul Ausgabe-Cache standardmäßig gesendet wird. Standardwert ist **"false"**. |
-| **omitVaryStar** | Optionale **booleschen** Attribut. Aktiviert/deaktiviert das Senden einer Http "**variieren: \*** "-Header in der Antwort. Mit der Standardeinstellung "false", eine "**variieren: \*** "-Header für die Seiten im Ausgabecache gesendet. Wenn die Vary-Header gesendet wird, können für verschiedene Versionen, die zwischengespeichert werden, was in den Vary-Header angegeben wird Basis. Beispielsweise *variieren: Benutzer-Agents* verschiedene Versionen einer Seite auf Grundlage der Benutzer-Agent, von die Anforderung gespeichert wird. Standardwert ist **"false"**. |
+
+|       <strong>Attribut</strong>        |                                                                                                                                                                                                                                                       <strong>Beschreibung</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          Optionale <strong>booleschen</strong> Attribut. Aktiviert bzw. deaktiviert den Seitenausgabecache. Wenn deaktiviert, werden keine Seiten unabhängig von den Einstellungen programmgesteuerten oder deklarative zwischengespeichert. Standardwert ist <strong>"true"</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                Optionale <strong>booleschen</strong> Attribut. Aktiviert bzw. deaktiviert die Anwendungscache Fragment. Wenn deaktiviert, werden keine Seiten zwischengespeichert, unabhängig von der [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) Richtlinie oder Zwischenspeichern verwendete Profil. Enthält eine Cache-Control-Header gibt an, dass upstream-Proxy-Server sowie die Browser-Clients nicht zum Cache Seitenausgabe versuchen sollte. Standardwert ist <strong>"false"</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      Optionale <strong>booleschen</strong> Attribut. Ruft ab oder legt einen Wert, der angibt, ob die <strong>Cache-Control: Private</strong> Header vom Modul Ausgabe-Cache standardmäßig gesendet wird. Standardwert ist <strong>"false"</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | Optionale <strong>booleschen</strong> Attribut. Aktiviert/deaktiviert das Senden einer Http "<strong>variieren: \</ strong ><em>"-Header in der Antwort. Mit der Standardeinstellung "false", eine "</em>* variieren: \* <strong>"-Header für die Seiten im Ausgabecache gesendet. Wenn die Vary-Header gesendet wird, können für verschiedene Versionen, die zwischengespeichert werden, was in den Vary-Header angegeben wird Basis. Beispielsweise <em>variieren: Benutzer-Agents</em> verschiedene Versionen einer Seite auf Grundlage der Benutzer-Agent, von die Anforderung gespeichert wird. Standardwert ist ** "false"</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>Die &lt;OutputCacheSettings&gt; Element
 

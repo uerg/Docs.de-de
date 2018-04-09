@@ -2,7 +2,7 @@
 uid: web-forms/videos/sql-2005/designing-relational-database-tables
 title: Entwerfen von Tabellen in relationalen Datenbanken | Microsoft Docs
 author: microsoft
-description: "Warum sind relationale Datenbanken, die beliebtesten? SQL Server-Anfänger erfahren, wie Sie Unterscheidung zwischen Primär- und Fremdschlüssel Schlüssel, Entwerfen Sie relationale Datenbank..."
+description: Warum sind relationale Datenbanken, die beliebtesten? SQL Server-Anfänger erfahren, wie Sie Unterscheidung zwischen Primär- und Fremdschlüssel Schlüssel, Entwerfen Sie relationale Datenbank...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/designing-relational-database-tables
 msc.type: video
-ms.openlocfilehash: d932b87905eaad0f68234d64428436f0d3e28fa8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95fe08217379dc69c3ad08fc394e780527f644d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="designing-relational-database-tables"></a>Entwerfen von Tabellen in relationalen Datenbanken
 ====================
@@ -24,8 +24,8 @@ durch [Microsoft](https://github.com/microsoft)
 
 Warum sind relationale Datenbanken, die beliebtesten? SQL Server-Anfänger erfahren, wie Sie zwischen Primär-und Fremdschlüssel unterscheiden, Entwerfen von Tabellen in relationalen Datenbanken, und erfahren Sie mehr über Normalisierungsregeln und Deduplizierung Normalisierung.
 
-[&#9654; Sehen Sie sich an (34 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/designing-relational-database-tables)
+[&#9654;Sehen Sie sich an (34 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/designing-relational-database-tables)
 
->[!div class="step-by-step"]
-[Zurück](more-about-column-data-types-and-other-properties.md)
-[Weiter](manipulating-database-data.md)
+> [!div class="step-by-step"]
+> [Zurück](more-about-column-data-types-and-other-properties.md)
+> [Weiter](manipulating-database-data.md)

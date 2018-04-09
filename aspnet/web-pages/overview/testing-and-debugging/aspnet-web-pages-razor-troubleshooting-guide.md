@@ -2,7 +2,7 @@
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 title: ASP.NET Web Pages (Razor) Handbuch zur Problembehandlung | Microsoft Docs
 author: tfitzmac
-description: "Dieser Artikel beschreibt die Probleme, die Sie möglicherweise beim Arbeiten mit ASP.NET Web Pages (Razor) und einige vorgeschlagenen Lösungen. Softwareversionen ASP.NET Web Pag..."
+description: Dieser Artikel beschreibt die Probleme, die Sie möglicherweise beim Arbeiten mit ASP.NET Web Pages (Razor) und einige vorgeschlagenen Lösungen. Softwareversionen ASP.NET Web Pag...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) Handbuch zur Problembehandlung
 ====================
@@ -144,12 +144,12 @@ Ersetzen Sie die entsprechenden Werte für `your-SMTP-server-name`und so weiter.
     *Ein Verbindungsversuch ist fehlgeschlagen, da die Gegenstelle nach einer Zeitspanne nicht ordnungsgemäß reagiert hat, oder die hergestellte Verbindung war fehlerhaft, da der Host verbunden hat nicht reagiert*
 
     Dieser Fehler bedeutet normalerweise, dass die Anwendung mit dem SMTP-Server keine Verbindung hergestellt werden konnte. Überprüfen Sie den Servernamen und Portnummer.
-- *Postfach nicht verfügbar. Die Serverantwort war: 5.1.0 &lt; someuser@invaliddomain &gt; Absender abgelehnt: Ungültige Absender-Domäne*
+- <em>Postfach nicht verfügbar. Die Serverantwort war: 5.1.0 &lt; someuser@invaliddomain &gt; Absender abgelehnt: Ungültige Absender-Domäne</em>
 
     Diese Meldung kann darauf hinweisen, die die `From` Adresse ist ungültig oder fehlt.
 - *Die angegebene Zeichenfolge ist nicht in der Form, die für eine e-Mail-Adresse erforderlich.*
 
-    Dieser Fehler kann darauf hinweisen, die den Wert der `To` oder `From` Eigenschaften werden nicht als e-Mail-Adressen erkannt. (ASP.NET können nicht überprüft werden, dass die e-Mail-Adresse gültig ist, wird nur die it's im richtigen Format, z. B.  *name@domain.com* .)
+    Dieser Fehler kann darauf hinweisen, die den Wert der `To` oder `From` Eigenschaften werden nicht als e-Mail-Adressen erkannt. (ASP.NET können nicht überprüft werden, dass die e-Mail-Adresse gültig ist, wird nur die it's im richtigen Format, z. B. *name@domain.com*.)
 
 > [!NOTE]
 > Entfernen Sie das Markup, das den Fehler angezeigt (`@errorMessage`) vor dem Veröffentlichen der Seite mit einem live-Standort. Es ist nicht ratsam, können Benutzer, die Fehlermeldungen anzuzeigen, die Sie von einem Server zu erhalten.

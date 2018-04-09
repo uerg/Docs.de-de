@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
-title: "Testen die Stärke von Kennwörtern (c#) | Microsoft Docs"
+title: Testen die Stärke von Kennwörtern (c#) | Microsoft Docs
 author: wenz
-description: "Kennwörter sind nahezu überall erforderlich, sodass lazy Benutzer einfache Kennwörter auswählen, über den leicht zu unterbrechen, sind tendenziell. In der ASP-Steuerelements \"PasswordStrength\"-Steuerelement. N..."
+description: Kennwörter sind nahezu überall erforderlich, sodass lazy Benutzer einfache Kennwörter auswählen, über den leicht zu unterbrechen, sind tendenziell. In der ASP-Steuerelements "PasswordStrength"-Steuerelement. N...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda7baae1833b074ba34d8f10fa434df14cc592e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5f4a7128f2edbef4fbe95faf9de19bdae5f436e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="testing-the-strength-of-a-password-c"></a>Testen die Stärke von Kennwörtern (c#)
 ====================
@@ -35,10 +35,10 @@ Kennwörter sind nahezu überall erforderlich, sodass lazy Benutzer einfache Ken
 
 Die `PasswordStrength` Steuerelement ein Textfeld, das erweitert und überprüft, ob das Kennwort in es ausreichend ist. Es bietet eine Vielzahl von Optionen über Attribute. Hier sind nur einige von ihnen:
 
-- `MinimumNumericCharacters`minimale Anzahl von Zeichen im Kennwort erforderlich
-- `MinimumSymbolCharacters`minimale Anzahl von Symbolzeichen (nicht Buchstaben und Ziffern), die im Kennwort erforderlich
-- `PreferredPasswordLength`die Mindestlänge des Kennworts
-- `RequiresUpperAndLowerCaseCharacters`Gibt an, ob das Kennwort muss Großbuchstaben und Kleinbuchstaben verwenden.
+- `MinimumNumericCharacters` minimale Anzahl von Zeichen im Kennwort erforderlich
+- `MinimumSymbolCharacters` minimale Anzahl von Symbolzeichen (nicht Buchstaben und Ziffern), die im Kennwort erforderlich
+- `PreferredPasswordLength` die Mindestlänge des Kennworts
+- `RequiresUpperAndLowerCaseCharacters` Gibt an, ob das Kennwort muss Großbuchstaben und Kleinbuchstaben verwenden.
 
 Die `StrengthIndicatorType` enthält die Informationen wie die Stärke der das Kennwort als Text vorhanden (Wert `"Text"`) oder als eine Art von Statusanzeige (Wert `"BarIndicator"`). In der `DisplayPosition` -Attribut, die Sie konfigurieren, in dem die Informationen angezeigt. Hier ist ein vollständiges Beispiel, einschließlich ASP.NET AJAX `ScriptManager` -Steuerelement, das `PasswordStrength` -Steuerelement und natürlich ein Textfeld, in dem der Benutzer ein Kennwort eingeben kann. Aus Gründen der Demo ist letztere Formularfelds ein normales Textfeld und nicht um ein Kennwortfeld, sodass Sie während der Entwicklung sehen können, was Sie eingeben.
 
@@ -51,5 +51,5 @@ Führen Sie die Seite, und geben Sie sofort: nur nachdem Kleinbuchstaben, Großb
 
 Jetzt das Kennwort (relativ) gut ist ([klicken Sie hier, um das Bild in voller Größe angezeigt](testing-the-strength-of-a-password-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Nächste](testing-the-strength-of-a-password-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](testing-the-strength-of-a-password-vb.md)

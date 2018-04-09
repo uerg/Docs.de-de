@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 title: Zwischenspeichern von Daten in der Architektur (VB) | Microsoft Docs
 author: rick-anderson
-description: "Im vorherigen Lernprogramm haben wir gelernt anzuwendende Zwischenspeicherung auf der Präsentationsebene. In diesem Lernprogramm erfahren wir unsere geschichteten Architectu nutzen..."
+description: Im vorherigen Lernprogramm haben wir gelernt anzuwendende Zwischenspeicherung auf der Präsentationsebene. In diesem Lernprogramm erfahren wir unsere geschichteten Architectu nutzen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 08f83c129d589859723249becb818386bfff19bf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>Zwischenspeichern von Daten in der Architektur (VB)
 ====================
@@ -50,7 +50,7 @@ Weitere ordnungsgemäß separaten CL-Klassen aus der DAL und BLL-Klasse, Let s e
 
 ![Fügen Sie einen neuen Ordner namens CL und eine Klasse namens ProductsCL.vb hinzu](caching-data-in-the-architecture-vb/_static/image2.png)
 
-**Abbildung 2**: Fügen Sie einen neuen Ordner namens `CL` und eine Klasse namens`ProductsCL.vb`
+**Abbildung 2**: Fügen Sie einen neuen Ordner namens `CL` und eine Klasse namens `ProductsCL.vb`
 
 
 Die `ProductsCL` -Klasse sollten den gleichen Satz von Daten und Methoden, wie in der entsprechenden Business Logic Layer-Klasse enthalten (`ProductsBLL`). Anstatt alle von diesen Methoden können s nur Build erstellen einige hier, um ein Gefühl für die Muster von CL verwendet. Insbesondere wir fügen die `GetProducts()` und `GetProductsByCategoryID(categoryID)` Methoden in Schritt 3 und ein `UpdateProduct` überladen, die in Schritt 4. Sie können die verbleibenden hinzufügen `ProductsCL` Methoden und `CategoriesCL`, `EmployeesCL`, und `SuppliersCL` Klassen nach Belieben.
@@ -62,7 +62,7 @@ Die Funktion untersucht in dem vorherigen Lernprogramm intern Zwischenspeichern 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-Die [ `Cache` Klasse](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` Methode](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) bietet eine Reihe von Überladungen. `Cache("key") = value`und `Cache.Insert(key, value)` sind Synonyme und sowohl der Cache mit dem angegebenen Schlüssel ohne einen definierten Ablauf ein Element hinzuzufügen. In der Regel möchten wir eine Ablaufzeit an, beim Hinzufügen eines Elements zum Cache muss entweder als eine Abhängigkeit, die eine zeitbasierte Ablauf oder beides. Verwenden Sie eine der anderen `Insert` s methodenüberladungen, Abhängigkeit oder zeitbasierte Ablaufinformationen bereitzustellen.
+Die [ `Cache` Klasse](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` Methode](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) bietet eine Reihe von Überladungen. `Cache("key") = value` und `Cache.Insert(key, value)` sind Synonyme und sowohl der Cache mit dem angegebenen Schlüssel ohne einen definierten Ablauf ein Element hinzuzufügen. In der Regel möchten wir eine Ablaufzeit an, beim Hinzufügen eines Elements zum Cache muss entweder als eine Abhängigkeit, die eine zeitbasierte Ablauf oder beides. Verwenden Sie eine der anderen `Insert` s methodenüberladungen, Abhängigkeit oder zeitbasierte Ablaufinformationen bereitzustellen.
 
 Die Caching-Ebene, die s-Methoden müssen zuerst zu überprüfen, wenn die angeforderten Daten im Cache befindet, und wenn dies der Fall ist, wird es von dort aus zurück. Wenn die angeforderten Daten nicht im Cache vorhanden ist, muss die entsprechende BLL-Methode aufgerufen werden. Der Rückgabewert sollte zwischengespeichert und dann zurückgegeben, wie das folgende Sequenzdiagramm zeigt.
 
@@ -113,7 +113,7 @@ Die `GetCacheItem(key)` und `AddCacheItem(key, value)` Methoden Schnittstelle mi
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample6.vb)]
 
-`GetCacheItem(key)`verwendet keinen *Schlüssel* Wert wie angegeben, sondern ruft die `GetCacheKey(key)` Methode, die zurückgibt der *Schlüssel* ProductsCache - vorangestellt. Die `MasterCacheKeyArray`, das die Zeichenfolge ProductsCache, hält dient auch durch die `AddCacheItem(key, value)` -Methode, vorübergehend eingehendem.
+`GetCacheItem(key)` verwendet keinen *Schlüssel* Wert wie angegeben, sondern ruft die `GetCacheKey(key)` Methode, die zurückgibt der *Schlüssel* ProductsCache - vorangestellt. Die `MasterCacheKeyArray`, das die Zeichenfolge ProductsCache, hält dient auch durch die `AddCacheItem(key, value)` -Methode, vorübergehend eingehendem.
 
 Von einer ASP.NET Seite "s" Code-Behind-Klasse, kann der Datencache mit zugegriffen werden die `Page` Klasse s [ `Cache` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx), und ermöglicht eine Syntax wie `Cache("key") = value`, wie in Schritt2 beschrieben. Von einer Klasse in der Architektur der Datencache möglich, die entweder `HttpRuntime.Cache` oder `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)des Blogeintrag [HttpRuntime.Cache Vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) notes geringfügigen Leistungsvorteil in mit `HttpRuntime` anstelle von `HttpContext.Current`; folglich `ProductsCL` verwendet `HttpRuntime`.
 
@@ -126,7 +126,7 @@ Wenn das Element nicht im Cache gefunden wurde die `ProductsCL` Klassenmethoden 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`Gibt die Ablaufzeit zeitbasierte 60 Sekunden in der Zukunft While [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) gibt es s keine Ablaufzeit an. Obwohl dies `Insert` methodenüberladung Eingabeparameter aufweisen, die für beide Absolute und gleitende Ablaufzeit, können Sie nur einen der beiden. Wenn Sie versuchen, geben Sie einen absoluten Zeitpunkt und eine Zeitspanne, die `Insert` Methode löst eine `ArgumentException` Ausnahme.
+`DateTime.Now.AddSeconds(CacheDuration)` Gibt die Ablaufzeit zeitbasierte 60 Sekunden in der Zukunft While [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) gibt es s keine Ablaufzeit an. Obwohl dies `Insert` methodenüberladung Eingabeparameter aufweisen, die für beide Absolute und gleitende Ablaufzeit, können Sie nur einen der beiden. Wenn Sie versuchen, geben Sie einen absoluten Zeitpunkt und eine Zeitspanne, die `Insert` Methode löst eine `ArgumentException` Ausnahme.
 
 > [!NOTE]
 > Diese Implementierung der `AddCacheItem(key, value)` Methode hat derzeit einige Nachteile. Wir behandeln und beheben diese Probleme in Schritt 4.
@@ -150,7 +150,7 @@ Let-s-Update die `AddCacheItem(key, value)` Methode, damit jedes Element dem Cac
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`ist ein Array von Zeichenfolgen, die einen einzelnen Wert, ProductsCache enthält. Zuerst wird ein Cacheelement, das dem Cache hinzugefügt und zugewiesen, das aktuelle Datum und die Uhrzeit. Wenn das Cacheelement, das bereits vorhanden ist, wird er aktualisiert. Als Nächstes wird eine Cacheabhängigkeit erstellt. Die [ `CacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor verfügt über mehrere Überladungen, jedoch wird hier verwendet erwartet zwei `String` array Eingaben. Die erste Vorlage gibt den Satz von Dateien als Abhängigkeit verwendet werden soll. Da wir Verschlüsselungskennwort t dateibasierten Abhängigkeiten, den Wert verwenden möchten `Nothing` wird für den ersten Eingabeparameter verwendet. Der zweite Eingabeparameter gibt die Menge der Cacheschlüssel, der als Abhängigkeit verwendet. Hier geben wir unsere einzige Abhängigkeit `MasterCacheKeyArray`. Die `CacheDependency` wird dann in übergeben der `Insert` Methode.
+`MasterCacheKeyArray` ist ein Array von Zeichenfolgen, die einen einzelnen Wert, ProductsCache enthält. Zuerst wird ein Cacheelement, das dem Cache hinzugefügt und zugewiesen, das aktuelle Datum und die Uhrzeit. Wenn das Cacheelement, das bereits vorhanden ist, wird er aktualisiert. Als Nächstes wird eine Cacheabhängigkeit erstellt. Die [ `CacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor verfügt über mehrere Überladungen, jedoch wird hier verwendet erwartet zwei `String` array Eingaben. Die erste Vorlage gibt den Satz von Dateien als Abhängigkeit verwendet werden soll. Da wir Verschlüsselungskennwort t dateibasierten Abhängigkeiten, den Wert verwenden möchten `Nothing` wird für den ersten Eingabeparameter verwendet. Der zweite Eingabeparameter gibt die Menge der Cacheschlüssel, der als Abhängigkeit verwendet. Hier geben wir unsere einzige Abhängigkeit `MasterCacheKeyArray`. Die `CacheDependency` wird dann in übergeben der `Insert` Methode.
 
 Dank dieser Änderung auf `AddCacheItem(key, value)`, invaliding der Cache ist so einfach wie das Entfernen der Abhängigkeitsverhältnis.
 
@@ -198,12 +198,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](caching-data-with-the-objectdatasource-vb.md)
-[Weiter](caching-data-at-application-startup-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](caching-data-with-the-objectdatasource-vb.md)
+> [Weiter](caching-data-at-application-startup-vb.md)

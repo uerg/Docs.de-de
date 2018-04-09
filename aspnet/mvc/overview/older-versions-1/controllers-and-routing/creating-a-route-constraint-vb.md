@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
-title: "Erstellen einer Routeneinschränkung (VB) | Microsoft Docs"
+title: Erstellen einer Routeneinschränkung (VB) | Microsoft Docs
 author: StephenWalther
-description: "In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen."
+description: In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67ff2666f4558abd4f8d9bddffd7aef8bb68d7bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2f50b371ac679218b06c4848e6d33516d29d3a82
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-route-constraint-vb"></a>Erstellen einer Routeneinschränkung (VB)
 ====================
@@ -29,7 +29,7 @@ Verwenden Sie routeneinschränkungen, um die Browseranforderungen einzuschränke
 
 Angenommen Sie, dass Sie die Route in Codebeispiel 1 in der Datei "Global.asax" definiert haben.
 
-**1 – Global.asax.vb auflisten**
+**Listing 1 - Global.asax.vb**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample1.vb)]
 
@@ -43,13 +43,13 @@ Beachten Sie, dass die Details()-Aktion, die von der Produkt-Controller verfügb
 
 Im Codebeispiel 1 definierten Route entspricht eine der folgenden URLs:
 
-- / Produkt/23
-- / Produkt/7
+- /Product/23
+- /Product/7
 
 Leider wird die Route auch die folgenden URLs übereinstimmen:
 
-- / Produkt/Bla
-- / Produkt/apple
+- /Product/blah
+- /Product/apple
 
 Da die Details() Aktion einen Ganzzahlparameter erwartet, verursacht der eine Anforderung, die etwas anderes als einen ganzzahligen Wert enthält einen Fehler aus. Beispielsweise bei der Eingabe der URL-/Product/apple in Ihrem Browser erhalten die Seite "Fehler" in Abbildung 1 Sie.
 
@@ -67,16 +67,16 @@ Was Sie tatsächlich möchten ist nur mit URLs übereinstimmen, die eine richtig
 
 Der reguläre Ausdruck \d+ entspricht mindestens einem ganzen Zahlen. Diese Einschränkung bewirkt, dass die Route Produkt entsprechend den folgenden URLs:
 
-- / Produkt/3
-- / Produkt/8999
+- /Product/3
+- /Product/8999
 
 Aber nicht die folgenden URLs:
 
-- / Produkt/apple
+- /Product/apple
 - / Produkt
 
 Diese Browseranforderungen von einer anderen Route verarbeitet werden oder, wenn keine übereinstimmenden Routen vorhanden sind eine *die Ressource konnte nicht gefunden werden* Fehler zurückgegeben.
 
->[!div class="step-by-step"]
-[Zurück](creating-custom-routes-vb.md)
-[Weiter](creating-a-custom-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-custom-routes-vb.md)
+> [Weiter](creating-a-custom-route-constraint-vb.md)

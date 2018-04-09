@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
-title: "Hinzufügen von Animationen zu einem Steuerelement (VB) | Microsoft Docs"
+title: Hinzufügen von Animationen zu einem Steuerelement (VB) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. In diesem Lernprogramm wird gezeigt, wie..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. In diesem Lernprogramm wird gezeigt, wie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2d6971ade89405245c8d23cafb6fd8bb9468639
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3da98e478c45213875b3829e51351d03571a05b8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-animation-to-a-control-vb"></a>Hinzufügen von Animationen zu einem Steuerelement (VB)
 ====================
@@ -51,22 +51,22 @@ Wir als Nächstes, müssen die `AnimationExtender`. Nach der Bereitstellung eine
 
 Der gesamte deklarativ Anwendung mithilfe einer XML-Syntax, leider zurzeit nicht vollständig von Visual Studio IntelliSense unterstützt. Der Stammknoten entspricht `<Animations>;` innerhalb dieses Knotens sind mehrere Ereignisse zulässig, wenn Animationen Stelle take(s) bestimmen:
 
-- `OnClick`(Mausklick)
-- `OnHoverOut`(wenn die Maus für ein Steuerelement verlässt)
-- `OnHoverOver`(wenn die Maus über ein Steuerelement bewegt wird, beenden die `OnHoverOut` Animation)
-- `OnLoad`(wenn die Seite geladen wurde)
-- `OnMouseOut`(wenn die Maus für ein Steuerelement verlässt)
-- `OnMouseOver`(wenn die Maus über ein Steuerelement bewegt wird, beenden Sie nicht die `OnMouseOut` Animation)
+- `OnClick` (Mausklick)
+- `OnHoverOut` (wenn die Maus für ein Steuerelement verlässt)
+- `OnHoverOver` (wenn die Maus über ein Steuerelement bewegt wird, beenden die `OnHoverOut` Animation)
+- `OnLoad` (wenn die Seite geladen wurde)
+- `OnMouseOut` (wenn die Maus für ein Steuerelement verlässt)
+- `OnMouseOver` (wenn die Maus über ein Steuerelement bewegt wird, beenden Sie nicht die `OnMouseOut` Animation)
 
 Das Framework enthält eine Reihe von Animationen, jeweils durch eine eigene XML-Element dargestellt wird. Hier ist eine Auswahl aus:
 
-- `<Color>`(ändern eine Farbe)
-- `<FadeIn>`(Ausblenden in)
-- `<FadeOut>`(ausblenden)
-- `<Property>`(Ändern eines Steuerelements-Eigenschaft)
-- `<Pulse>`(pulsating)
-- `<Resize>`(Ändern der Größe)
-- `<Scale>`(proportional ändern der Größe)
+- `<Color>` (ändern eine Farbe)
+- `<FadeIn>` (Ausblenden in)
+- `<FadeOut>` (ausblenden)
+- `<Property>` (Ändern eines Steuerelements-Eigenschaft)
+- `<Pulse>` (pulsating)
+- `<Resize>` (Ändern der Größe)
+- `<Scale>` (proportional ändern der Größe)
 
 In diesem Beispiel wird der Bereich ausgeblendet. Die Animation treffen 1,5 Sekunden (`Duration` Attribut), Anzeigen von 24 Frames (Animationsschritte) pro Sekunde (`Fps` Attributs). Hier wird das vollständige Markup für die `AnimationExtender` Steuerelement:
 
@@ -79,6 +79,6 @@ Wenn Sie dieses Skript ausführen, wird im Bereich angezeigt, und in 1,5 Sekunde
 
 Das Panel ausblenden ([klicken Sie hier, um das Bild in voller Größe angezeigt](adding-animation-to-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](dynamically-controlling-updatepanel-animations-cs.md)
-[Weiter](executing-several-animations-at-the-same-time-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](dynamically-controlling-updatepanel-animations-cs.md)
+> [Weiter](executing-several-animations-at-the-same-time-vb.md)

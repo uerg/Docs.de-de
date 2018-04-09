@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 title: ELMAH (VB) Fehlerdetails protokollieren | Microsoft Docs
 author: rick-anderson
-description: "Fehler beim Protokollieren Module und Handler (ELMAH) bietet einen anderen Ansatz für die Protokollierung von Common Language Runtime Fehlern in einer produktiven Umgebung. ELMAH ist ein kostenfreies open Source-Fehler..."
+description: Fehler beim Protokollieren Module und Handler (ELMAH) bietet einen anderen Ansatz für die Protokollierung von Common Language Runtime Fehlern in einer produktiven Umgebung. ELMAH ist ein kostenfreies open Source-Fehler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4bba02449debff17422f6b7008247fdf61856c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 584791a944c9e8eb0113da68719292f448573980
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-elmah-vb"></a>ELMAH (VB) protokollieren Fehlerdetails
 ====================
@@ -70,9 +70,9 @@ Die `Elmah.dll` -Assembly enthält, die vom System ELMAH verwendeten Klassen. Di
 
 - **HTTP-Module** -ein HTTP-Modul ist eine Klasse, die Ereignishandler für definiert `HttpApplication` Ereignisse, z. B. die `Error` Ereignis. ELMAH enthält mehrere HTTP-Module, die am häufigsten von Belang drei Konfigurationen wird: 
 
-    - `ErrorLogModule`-eine Protokollquelle nicht behandelte Ausnahmen protokolliert.
-    - `ErrorMailModule`-die Details einer nicht behandelten Ausnahme in einer e-Mail-Nachricht sendet.
-    - `ErrorFilterModule`-Entwickler angegebene Filter, um zu bestimmen, welche Ausnahmen protokolliert werden und welche gilt Einsen werden ignoriert.
+    - `ErrorLogModule` -eine Protokollquelle nicht behandelte Ausnahmen protokolliert.
+    - `ErrorMailModule` -die Details einer nicht behandelten Ausnahme in einer e-Mail-Nachricht sendet.
+    - `ErrorFilterModule` -Entwickler angegebene Filter, um zu bestimmen, welche Ausnahmen protokolliert werden und welche gilt Einsen werden ignoriert.
 - **HTTP-Handler** -HTTP-Handler ist eine Klasse, die zum Generieren von Markup für eine bestimmte Art von Anforderung zuständig ist. ELMAH enthält die HTTP-Handler, die Fehlerdetails als eine Webseite, als RSS-feed oder als eine durch Trennzeichen getrennte Datei (CSV) rendern.
 - **Fehler-Protokollquellen** - gebrauchsfertigen ELMAH Fehler in den Arbeitsspeicher, um eine Microsoft SQL Server-Datenbank, um eine Microsoft Access-Datenbank mit einer Oracle-Datenbank, um anmelden kann eine XML-Datei in eine SQLite-Datenbank oder in einer Datenbank von Vista-DB. Wie das Überwachungssystem wurde ELMAHs-Architektur mit Anbietermodell, was bedeutet, dass Sie erstellen und eigene benutzerdefinierte Quelle Protokollanbieter nahtlos integrieren, bei Bedarf erstellt.
 
@@ -257,6 +257,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Mithilfe von HTTP-Module und Handler austauschbare ASP.NET Komponenten erstellen](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Lernprogramme für Website-Sicherheit](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Zurück](logging-error-details-with-asp-net-health-monitoring-vb.md)
-[Weiter](precompiling-your-website-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](logging-error-details-with-asp-net-health-monitoring-vb.md)
+> [Weiter](precompiling-your-website-vb.md)

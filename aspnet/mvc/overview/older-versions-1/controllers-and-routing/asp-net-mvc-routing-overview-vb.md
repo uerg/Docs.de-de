@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4c74e61b1a0d5f5020154756e34dd2fa507034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3de0e21552a4aa03aa21f21a4e26028f1475f3e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC-Routing Overview (VB)
 ====================
@@ -37,7 +37,7 @@ Zweitens und wichtiger ist, wird eine Routingtabelle in die Datei "Global.asax" 
 
 Die Datei im Codebeispiel 1 enthält die standardmäßige Datei "Global.asax" einer ASP.NET MVC-Anwendung.
 
-**1 – Global.asax.vb auflisten**
+**Listing 1 - Global.asax.vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
 
@@ -47,7 +47,7 @@ Die Standard-Routingtabelle enthält eine einzelne Route (mit dem Namen "Default
 
 Stellen Sie sich vor, dass Sie die folgende URL in die Adressleiste des Webbrowsers eingeben:
 
-/ Home/Index/3
+/Home/Index/3
 
 Die Standardroute ordnet diese URL die folgenden Parameter:
 
@@ -55,7 +55,7 @@ Die Standardroute ordnet diese URL die folgenden Parameter:
 
 - Aktion = Index
 
-- ID = 3
+- id = 3
 
 Wenn Sie die URL/Home/Index/3 anfordern, wird der folgende Code ausgeführt:
 
@@ -65,7 +65,7 @@ Die Standardroute enthält Standardwerte für alle drei Parameter. Wenn Sie eine
 
 Sehen wir uns einige Beispiele, wie die Standardroute URLs Controlleraktionen zugeordnet. Stellen Sie sich vor, dass Sie die folgende URL in der Adressleiste des Browsers eingeben:
 
-/ Start
+/Home
 
 Aufgrund der Standardeinstellung Route Parameterstandardwerte wird diese URL eingeben der Index()-Methode der HomeController-Klasse auflisten verursachen in 2 aufgerufen werden.
 
@@ -109,6 +109,6 @@ URL/Home/Index/3 funktioniert andererseits, problemlos mit Index-Controlleraktio
 
 Das Ziel dieses Lernprogramms wurde eine kurze Einführung in ASP.NET-Routing stellen. Untersucht die Standard-Routingtabelle, die Sie durch eine neue ASP.NET MVC-Anwendung zu erhalten. Sie haben gelernt, wie die Standardroute URLs Controlleraktionen zugeordnet.
 
->[!div class="step-by-step"]
-[Zurück](creating-an-action-cs.md)
-[Weiter](understanding-action-filters-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-an-action-cs.md)
+> [Weiter](understanding-action-filters-vb.md)

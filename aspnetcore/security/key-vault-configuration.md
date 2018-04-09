@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Konfigurationsanbieter in ASP.NET Kern
 
@@ -54,20 +54,21 @@ Der Anbieter wurde die `ConfigurationBuilder` mit der `AddAzureKeyVault` Erweite
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Schlüsseltresor geheime Schlüssel erstellen und das Laden von Konfigurationswerten (Basic-Beispiel)
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
-    * Einfache Kennwörter werden als Name / Wert-Paare erstellt. Azure Key Vault geheime Namen sind nur alphanumerische Zeichen und Bindestriche enthalten.
-    * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen in der Stichprobe. Doppelpunkte, die normalerweise, zur Begrenzung von eines Abschnitts über einen Unterschlüssel in verwendet werden [ASP.NET kernkonfiguration](xref:fundamentals/configuration/index), für den geheimen Namen sind nicht zulässig. Aus diesem Grund sind zwei Bindestriche verwendet und für einen Doppelpunkt ausgetauscht werden, wenn der geheime Schlüssel in der app-Konfiguration geladen werden.
-    * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren. Der erste geheime Schlüssel ist ein einfacher Name und Wert und der zweiten geheimen Schlüssel erstellt einen geheimen Wert mit einem Abschnitt und der Unterschlüssel im Namen geheimen Schlüssels:
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Registrieren der Beispiel-app bei Azure Active Directory.
-  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
+   * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
+     * Einfache Kennwörter werden als Name / Wert-Paare erstellt. Azure Key Vault geheime Namen sind nur alphanumerische Zeichen und Bindestriche enthalten.
+     * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen in der Stichprobe. Doppelpunkte, die normalerweise, zur Begrenzung von eines Abschnitts über einen Unterschlüssel in verwendet werden [ASP.NET kernkonfiguration](xref:fundamentals/configuration/index), für den geheimen Namen sind nicht zulässig. Aus diesem Grund sind zwei Bindestriche verwendet und für einen Doppelpunkt ausgetauscht werden, wenn der geheime Schlüssel in der app-Konfiguration geladen werden.
+     * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren. Der erste geheime Schlüssel ist ein einfacher Name und Wert und der zweiten geheimen Schlüssel erstellt einen geheimen Wert mit einem Abschnitt und der Unterschlüssel im Namen geheimen Schlüssels:
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Registrieren der Beispiel-app bei Azure Active Directory.
+   * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
+
 2. Aktualisieren Sie der app *appsettings.json* Datei mit den Werten der `Vault`, `ClientId`, und `ClientSecret`.
 3. Führen Sie die Beispielapp, das erhält seine Konfigurationswerte aus `IConfigurationRoot` mit dem gleichen Namen wie den Namen des geheimen Schlüssels.
-  * Nicht-hierarchischen Werten: der Wert für `SecretName` abgerufen wird, mit `config["SecretName"]`.
-  * Hierarchische Werte (Abschnitte): Verwendung `:` (Doppelpunkt)-Notation oder `GetSection` Erweiterungsmethode. Verwenden Sie einen dieser Ansätze, um den Konfigurationswert zu erhalten:
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * Nicht-hierarchischen Werten: der Wert für `SecretName` abgerufen wird, mit `config["SecretName"]`.
+   * Hierarchische Werte (Abschnitte): Verwendung `:` (Doppelpunkt)-Notation oder `GetSection` Erweiterungsmethode. Verwenden Sie einen dieser Ansätze, um den Konfigurationswert zu erhalten:
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 Beim Ausführen der app zeigt eine Webseite für den geheimen geladenen Werte:
 
@@ -97,13 +98,14 @@ Wenn Sie diesen Ansatz zu implementieren:
 > Eigene bieten `KeyVaultClient` Implementierung `AddAzureKeyVault`. Angeben eines benutzerdefinierten Clients, ermöglicht Ihnen, eine einzelne Instanz des Clients zwischen den Konfigurationsanbieter und anderer Teile Ihrer app zu verwenden.
 
 1. Erstellen eines schlüsseltresors und Einrichten von Azure Active Directory (Azure AD) für die Anwendung gemäß der Anleitung in [erste Schritte mit Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
-    * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen.
-    * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren:
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Registrieren der Beispiel-app bei Azure Active Directory.
-  * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
+   * Fügen Sie geheime Schlüssel mit dem schlüsseltresor die [AzureRM Key Vault-PowerShell-Modul](/powershell/module/azurerm.keyvault) verfügbar der [PowerShell-Katalog](https://www.powershellgallery.com/packages/AzureRM.KeyVault), die [REST-API von Azure Key Vault](/rest/api/keyvault/), oder die [Azure-Portal](https://portal.azure.com/). Geheime Schlüssel werden erstellt, entweder als *manuell* oder *Zertifikat* geheime Schlüssel. *Zertifikat* Geheimnisse sind Zertifikate für apps und Dienste jedoch nicht von den Konfigurationsanbieter unterstützt. Verwenden Sie die *manuell* Option zum Erstellen von Name / Wert-Paar geheime Schlüssel für die Verwendung mit den Konfigurationsanbieter.
+     * Verwenden Sie hierarchische Werte (Konfigurationsabschnitte) `--` (zwei Bindestriche) als Trennzeichen.
+     * Erstellen Sie zwei *manuell* geheime Schlüssel mit den folgenden Name / Wert-Paaren:
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Registrieren der Beispiel-app bei Azure Active Directory.
+   * Autorisieren Sie die app auf den schlüsseltresor zugreifen. Bei Verwendung der `Set-AzureRmKeyVaultAccessPolicy` PowerShell-Cmdlet zum Autorisieren der app, Zugriff auf den schlüsseltresor, bieten `List` und `Get` Zugriff auf geheime Schlüssel mit `-PermissionsToSecrets list,get`.
+
 2. Aktualisieren Sie der app *appsettings.json* Datei mit den Werten der `Vault`, `ClientId`, und `ClientSecret`.
 3. Führen Sie die Beispielapp, das erhält seine Konfigurationswerte aus `IConfigurationRoot` mit dem gleichen Namen wie den Namen des mit Präfix geheimen Schlüssels. In diesem Beispiel wird das Präfix der app-Version, die Sie zur Verfügung gestellt wird die `PrefixKeyVaultSecretManager` beim Hinzufügen von Azure Key Vault-Konfigurationsanbieter. Der Wert für `AppSecret` abgerufen wird, mit `config["AppSecret"]`. Die Webseite, die von der app generiert wurde, zeigt den geladenen Wert:
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: "Benutzeroberfläche und Navigation | Microsoft Docs"
+title: Benutzeroberfläche und Navigation | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d2d4101455a85c53e016e567c0cf1337642f1863
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ui-and-navigation"></a>Benutzeroberfläche und Navigation
 ====================
@@ -54,7 +54,7 @@ Durch Ändern dieser Reihe von Lernprogrammen weiterhin die *"default.aspx"* Sei
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
 5. Speichern Sie die *"default.aspx"* Seite durch Auswahl **speichern "default.aspx"** aus der **Datei** Menü.
 
- Das resultierende *"default.aspx"* Seite wird wie folgt angezeigt: 
+   Das resultierende *"default.aspx"* Seite wird wie folgt angezeigt: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
@@ -62,7 +62,7 @@ Im Beispiel festgelegt haben die `Title` Attribut von der `@Page` Richtlinie. We
 
 Beispielseite "enthält die grundlegenden Elemente, die eine ASP.NET-Webseite bilden. Die Seite enthält statischen Text an, wie Sie in einer HTML-Seite, zusammen mit den Elementen, die für ASP.NET spezifisch sind. Der Inhalt der *"default.aspx"* Seite wird mit dem Inhalt der Masterseite, weiter unten in diesem Lernprogramm erläutert werden integriert werden.
 
-### <a name="page-directive"></a>@PageRichtlinie
+### <a name="page-directive"></a>@Page Richtlinie
 
 ASP.NET Web Forms enthalten normalerweise Direktiven, die Ihnen ermöglichen, Seiteninformationen Eigenschaften und der Konfiguration für die Seite anzugeben. Die Direktiven werden als Anweisungen zum Prozess der Seite von ASP.NET verwendet, aber sie werden nicht gerendert, im Rahmen der das Markup, das an den Browser gesendet wird.
 
@@ -166,8 +166,8 @@ In diesem Lernprogramm ändern Sie Aussehen und Verhalten der Anwendung Wingtip 
 2. Mit der rechten Maustaste die *bootstrap.css* Datei, und benennen Sie sie um *Bootstrap-original.css*.
 3. Benennen Sie die *bootstrap.min.css* auf *Bootstrap-original.min.css*.
 4. In **Projektmappen-Explorer**, mit der rechten Maustaste die *Content* Ordner, und wählen **Ordner in Datei-Explorer öffnen**.  
- Die Datei-Explorer wird angezeigt. Sie werden an diesem Speicherort heruntergeladenen bootstrap CSS-Dateien speichern.
-5. Wechseln Sie in Ihrem Browser zur [http://Bootswatch.com](http://bootswatch.com/).
+   Die Datei-Explorer wird angezeigt. Sie werden an diesem Speicherort heruntergeladenen bootstrap CSS-Dateien speichern.
+5. Wechseln Sie in Ihrem Browser zur [ http://Bootswatch.com ](http://bootswatch.com/).
 6. Führen Sie einen Bildlauf im Browserfenster, bis Sie das Design Schwachstelle angezeigt. 
 
     ![Benutzeroberfläche und Navigation - Schwachstelle Design](ui_and_navigation/_static/image5.png)
@@ -176,9 +176,9 @@ In diesem Lernprogramm ändern Sie Aussehen und Verhalten der Anwendung Wingtip 
 
     ![Benutzeroberfläche und Navigation - Projektmappen-Explorer](ui_and_navigation/_static/image6.png)
 
- Daraufhin werden die beiden neuen CSS-Dateien in den **Content** Ordner, aber beachten Sie, die das Symbol neben jedem Dateinamen abgeblendet ist. Dies bedeutet, dass die Datei noch nicht zum Projekt hinzugefügt wurde.
+   Daraufhin werden die beiden neuen CSS-Dateien in den **Content** Ordner, aber beachten Sie, die das Symbol neben jedem Dateinamen abgeblendet ist. Dies bedeutet, dass die Datei noch nicht zum Projekt hinzugefügt wurde.
 9. Mit der rechten Maustaste die *bootstrap.css* und *bootstrap.min.css* Dateien, und wählen **zu Projekt hinzufügen**.   
- Wenn Sie die Anwendung des Wingtip Toys weiter unten in diesem Lernprogramm ausführen, wird die neue Benutzeroberfläche angezeigt.
+   Wenn Sie die Anwendung des Wingtip Toys weiter unten in diesem Lernprogramm ausführen, wird die neue Benutzeroberfläche angezeigt.
 
 > [!NOTE] 
 > 
@@ -292,6 +292,6 @@ In diesem Lernprogramm der Reihe haben Sie einige einfache Benutzeroberfläche, 
 [ASP.NET Web-Server steuert (Übersicht)](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [CSS-Lernprogramm](http://www.w3schools.com/css/default.asp)
 
->[!div class="step-by-step"]
-[Zurück](create_the_data_access_layer.md)
-[Weiter](display_data_items_and_details.md)
+> [!div class="step-by-step"]
+> [Zurück](create_the_data_access_layer.md)
+> [Weiter](display_data_items_and_details.md)

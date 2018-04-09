@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Externen Authentifizierungsdienste mit ASP.NET Web-API (c#)
 ====================
@@ -119,7 +119,7 @@ In den folgenden Abschnitten erfahren Sie, wie der externen Authentifizierungsdi
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Facebook-Authentifizierung aktivieren
 
-Mithilfe von Facebook Authentifizierung erfordert, dass Sie eine Facebook-Entwicklerkonto erstellen und Ihr Projekt benötigen eine Anwendungs-ID und den geheimen Schlüssel von Facebook um zu funktionieren. Informationen zum Erstellen einer Facebook-Entwicklerkonto und Abrufen der Anwendungs-ID und geheimer Schlüssel finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Mithilfe von Facebook Authentifizierung erfordert, dass Sie eine Facebook-Entwicklerkonto erstellen und Ihr Projekt benötigen eine Anwendungs-ID und den geheimen Schlüssel von Facebook um zu funktionieren. Informationen zum Erstellen einer Facebook-Entwicklerkonto und Abrufen der Anwendungs-ID und geheimer Schlüssel finden Sie unter [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Nach der Anwendungs-ID und geheimer Schlüssel abgerufen haben, verwenden die folgenden Schritte aus, um die Facebook-Authentifizierung für Ihre Webanwendung zu aktivieren:
 
@@ -180,7 +180,7 @@ Verwenden Sie zum Aktivieren der Google-Authentifizierung für Ihre Webanwendung
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Microsoft-Authentifizierung aktivieren
 
-Microsoft-Authentifizierung erfordert, dass Sie ein Entwicklerkonto erstellen, und erfordert eine Client-ID und geheimer Clientschlüssel ordnungsgemäßes funktionieren. Weitere Informationen zu einem Microsoft-Entwicklerkonto erstellen und Abrufen von Ihrem Client-ID und geheimer Clientschlüssel, finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070).
+Microsoft-Authentifizierung erfordert, dass Sie ein Entwicklerkonto erstellen, und erfordert eine Client-ID und geheimer Clientschlüssel ordnungsgemäßes funktionieren. Weitere Informationen zu einem Microsoft-Entwicklerkonto erstellen und Abrufen von Ihrem Client-ID und geheimer Clientschlüssel, finden Sie unter [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070).
 
 Sobald Ihre consumerschlüssel und dem geheimen consumerschlüssel abgerufen wurden, gehen Sie folgendermaßen vor, um Microsoft-Authentifizierung für Ihre Webanwendung zu aktivieren:
 
@@ -212,7 +212,7 @@ Sobald Ihre consumerschlüssel und dem geheimen consumerschlüssel abgerufen wur
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Twitter-Authentifizierung aktivieren
 
-Twitter-Authentifizierung erfordert, dass Sie ein Entwicklerkonto erstellen, und er erfordert ein consumerschlüssel und dem geheimen consumerschlüssel aus, um die Funktion. Informationen zu einem Twitter-Entwicklerkonto erstellen und Ihre consumerschlüssel und dem geheimen consumerschlüssel abrufen, finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Twitter-Authentifizierung erfordert, dass Sie ein Entwicklerkonto erstellen, und er erfordert ein consumerschlüssel und dem geheimen consumerschlüssel aus, um die Funktion. Informationen zu einem Twitter-Entwicklerkonto erstellen und Ihre consumerschlüssel und dem geheimen consumerschlüssel abrufen, finden Sie unter [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Sobald Ihre consumerschlüssel und dem geheimen consumerschlüssel abgerufen wurden, verwenden die folgenden Schritte aus, um die Twitter-Authentifizierung für Ihre Webanwendung zu aktivieren:
 
@@ -260,19 +260,21 @@ Einige externe Authentifizierungsanbieter unterstützen keine Testen Ihrer Anwen
 
 - Fügen Sie einen statischen FQDN Zuordnen der HOSTS-Datei hinzu:
 
-    1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows.
-    2. Geben Sie folgenden Befehl ein:
+  1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows.
+  2. Geben Sie folgenden Befehl ein:
 
-        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
-    3. Fügen Sie einen Eintrag wie folgt zur Hostdatei hinzu:
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
+  3. Fügen Sie einen Eintrag wie folgt zur Hostdatei hinzu:
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. Speichern Sie und schließen Sie die Hostdatei.
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. Speichern Sie und schließen Sie die Hostdatei.
+
 - Konfigurieren von Visual Studio-Projekt zur Verwendung des FQDN:
 
-    1. Wenn Ihr Projekt in Visual Studio 2013 geöffnet ist, klicken Sie auf die **Projekt** Menü, und wählen Sie dann die Eigenschaften des Projekts. Sie können z. B. auswählen **WebApplication1 Eigenschaften**.
-    2. Wählen Sie die **Web** Registerkarte.
-    3. Geben Sie Ihren FQDN für den **Projekt Url**. Geben Sie z. B. <kbd>http://www.wingtiptoys.com</kbd> war, die die FQDN-Zuordnung, die Sie der HOSTS-Datei hinzugefügt.
+  1. Wenn Ihr Projekt in Visual Studio 2013 geöffnet ist, klicken Sie auf die **Projekt** Menü, und wählen Sie dann die Eigenschaften des Projekts. Sie können z. B. auswählen **WebApplication1 Eigenschaften**.
+  2. Wählen Sie die **Web** Registerkarte.
+  3. Geben Sie Ihren FQDN für den <strong>Projekt Url</strong>. Geben Sie z. B. <kbd> <http://www.wingtiptoys.com> </kbd> war, die die FQDN-Zuordnung, die Sie der HOSTS-Datei hinzugefügt.
+
 - Konfigurieren von IIS Express, um den vollqualifizierten Domänennamen für Ihre Anwendung verwenden:
 
     1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows.
@@ -283,14 +285,14 @@ Einige externe Authentifizierungsanbieter unterstützen keine Testen Ihrer Anwen
 
         <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
- Wobei **WebApplication1** ist der Name des Projekts und **BindingInformation** enthält die Portnummer und den vollqualifizierten Domänennamen, die Sie für die Tests verwenden möchten.
+  Wobei **WebApplication1** ist der Name des Projekts und **BindingInformation** enthält die Portnummer und den vollqualifizierten Domänennamen, die Sie für die Tests verwenden möchten.
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>So erhalten Sie die Einstellungen Ihrer Anwendung für Microsoft-Authentifizierung
 
 Verknüpfen eine Anwendung für Windows Live für Microsoft Authentication ist ein einfacher Vorgang. Wenn Sie nicht bereits eine Anwendung für Windows Live verknüpft haben, können Sie die folgenden Schritte aus:
 
-1. Navigieren Sie zu [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) Geben Sie Ihren Microsoft-Kontonamen und das Kennwort ein, und klicken Sie auf **anmelden**:
+1. Navigieren Sie zu [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) Geben Sie Ihren Microsoft-Kontonamen und das Kennwort ein, und klicken Sie auf **anmelden**:
 
     [![](external-authentication-services/_static/image64.png "Klicken Sie hier, um das Bild zu erweitern.")](external-authentication-services/_static/image63.png)
 2. Geben Sie den Namen und die Sprache Ihrer Anwendung, wenn Sie aufgefordert werden, und klicken Sie dann auf **ich stimme**:

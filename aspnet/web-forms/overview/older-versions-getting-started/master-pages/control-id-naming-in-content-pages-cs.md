@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 title: Steuern Sie die Benennungs-auf Inhaltsseiten (c#) | Microsoft Docs
 author: rick-anderson
-description: "Veranschaulicht, wie ContentPlaceHolder Steuerelemente als einem Benennungscontainer dienen, und stellen Sie daher programmgesteuert arbeiten mit einem Steuerelement schwierig (über FindConrol)..."
+description: Veranschaulicht, wie ContentPlaceHolder Steuerelemente als einem Benennungscontainer dienen, und stellen Sie daher programmgesteuert arbeiten mit einem Steuerelement schwierig (über FindConrol)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e834c38457c8477e0c81598d32f1e98473949d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>Steuerelement-ID, die Benennung in Inhaltsseiten (c#)
 ====================
@@ -121,7 +121,7 @@ Beachten Sie, dass die `id` -Attribut umfasst sowohl die Masterseite `ID` Wert (
 
 Jede ASP.NET-Serversteuerelement umfasst eine `FindControl("controlID")` -Methode, die das Steuerelement Nachfolger für ein Steuerelement mit dem Namen durchsucht *ControlID*. Wenn ein solches Steuerelement gefunden wird, wird diese zurückgegeben; Wenn kein entsprechendes Steuerelement gefunden wird, `FindControl` gibt `null`.
 
-`FindControl`ist nützlich in Szenarien, in denen müssen Sie ein Steuerelement zuzugreifen, aber Sie verfügen nicht über einen direkten Verweis auf sie. Beim Arbeiten mit Daten wie z. B. die GridView Websteuerelemente Steuerelemente innerhalb der GridView-Felder in die deklarative Syntax einmal definiert werden, aber zur Laufzeit eine Instanz des Steuerelements für jede Zeile GridView erstellt wird. Folglich die Steuerelemente zur Laufzeit generierten vorhanden, aber wir haben keinen direkten Verweis aus der CodeBehind-Klasse verfügbar. Daher müssen wir verwenden `FindControl` programmgesteuert mit einem bestimmten Steuerelement innerhalb von Feldern für die GridView zu arbeiten. (Weitere Informationen zur Verwendung von `FindControl` den Zugriff auf die Steuerelemente in ein Data-Websteuerelement-Vorlagen finden Sie unter [benutzerdefinierte Formatierung basierend auf Daten](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Dieses Szenario tritt auf, wenn Websteuerelemente dynamisch ein Webformular hinzufügen, das Thema behandelt [dynamische Daten Eintrag Benutzeroberflächen erstellen](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` ist nützlich in Szenarien, in denen müssen Sie ein Steuerelement zuzugreifen, aber Sie verfügen nicht über einen direkten Verweis auf sie. Beim Arbeiten mit Daten wie z. B. die GridView Websteuerelemente Steuerelemente innerhalb der GridView-Felder in die deklarative Syntax einmal definiert werden, aber zur Laufzeit eine Instanz des Steuerelements für jede Zeile GridView erstellt wird. Folglich die Steuerelemente zur Laufzeit generierten vorhanden, aber wir haben keinen direkten Verweis aus der CodeBehind-Klasse verfügbar. Daher müssen wir verwenden `FindControl` programmgesteuert mit einem bestimmten Steuerelement innerhalb von Feldern für die GridView zu arbeiten. (Weitere Informationen zur Verwendung von `FindControl` den Zugriff auf die Steuerelemente in ein Data-Websteuerelement-Vorlagen finden Sie unter [benutzerdefinierte Formatierung basierend auf Daten](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Dieses Szenario tritt auf, wenn Websteuerelemente dynamisch ein Webformular hinzufügen, das Thema behandelt [dynamische Daten Eintrag Benutzeroberflächen erstellen](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Um zu veranschaulichen, mit der `FindControl` Methode zum Suchen nach Steuerelementen innerhalb einer Inhaltsseite, erstellen Sie einen Ereignishandler für das `SubmitButton`des `Click` Ereignis. Fügen Sie in der Ereignishandler den folgenden Code, programmgesteuert verweist auf die `Age` Textfeld und `Results` Beschriftung mit der `FindControl` Methode und zeigt dann eine Nachricht in `Results` basierend auf der Eingabe des Benutzers.
 
@@ -256,7 +256,7 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [Masterseiten ASP.NET und`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [Masterseiten ASP.NET und `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
 - [Erstellen von Benutzeroberflächen für Dynamic Data-Eintrag](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Erweitern der Funktionalität der Basistyp mit Erweiterungsmethoden [c#]](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [Gewusst wie: Verweisen auf ASP.NET Master Seiteninhalt](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
@@ -265,12 +265,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones und Suchi Barnerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](urls-in-master-pages-cs.md)
-[Weiter](interacting-with-the-master-page-from-the-content-page-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](urls-in-master-pages-cs.md)
+> [Weiter](interacting-with-the-master-page-from-the-content-page-cs.md)

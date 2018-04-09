@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 title: Erstellen Sie eine REST-API mit Routing-Attribut in der ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Erstellen Sie eine REST-API mit Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -184,7 +184,7 @@ Wenn Sie anfordern `/api/books/1/details`, die Antwort sieht wie folgt aus:
 
 ## <a name="get-books-by-genre"></a>Abrufen von Büchern "Genre"
 
-Um eine Liste von Büchern in einer bestimmten "Genre" abzurufen, der Client sendet eine GET-Anforderung `/api/books/genre`, wobei *"Genre"* ist der Name des der "Genre". (Beispiel: `/get/books/fantasy`)
+Um eine Liste von Büchern in einer bestimmten "Genre" abzurufen, der Client sendet eine GET-Anforderung `/api/books/genre`, wobei *"Genre"* ist der Name des der "Genre". (Beispiel: `/api/books/fantasy`)
 
 Fügen Sie die folgende Methode hinzu `BooksController`.
 

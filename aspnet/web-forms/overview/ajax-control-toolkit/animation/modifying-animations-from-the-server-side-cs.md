@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
-title: "Ändern von Animationen von der Serverseite (c#) | Microsoft Docs"
+title: Ändern von Animationen von der Serverseite (c#) | Microsoft Docs
 author: wenz
-description: "Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Es kann auch die Animationen an..."
+description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Es kann auch die Animationen an...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1f9bda03b3e3edf3bbdc591cde9858944d39321
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6946875552c885ffb1f2a2eb7e728b85d7dd3973
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="modifying-animations-from-the-server-side-c"></a>Ändern von Animationen von der Serverseite (c#)
 ====================
@@ -62,6 +62,6 @@ Fügen Sie schließlich die `AnimationExtender` innerhalb der aktuellen Seite st
 
 Die Animation wird mithilfe von serverseitiger C#/VB-Code erstellt ([klicken Sie hier, um das Bild in voller Größe angezeigt](modifying-animations-from-the-server-side-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](triggering-an-animation-in-another-control-cs.md)
-[Weiter](executing-animations-using-client-side-code-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](triggering-an-animation-in-another-control-cs.md)
+> [Weiter](executing-animations-using-client-side-code-cs.md)

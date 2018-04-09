@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e8ae3c0fd1d67fba6dff965704b550bdc919c6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 47b1959f9b92d161da0476b274c8154333ad80dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Core-Unterschiede zwischen IIS und ASP.NET Development Server (VB)
 ====================
@@ -94,7 +94,7 @@ Durch:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample4.xml)]
 
-Mithilfe von ASP.NET Development Server, von der Website, und geben Sie die direkte URL auf einen der PDF-Dateien in der Adressleiste des Browsers angezeigt. Wenn Sie heruntergeladen haben, die Website verknüpft sind mit diesem Lernprogramm die URL sollte etwa wie folgt aus:`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+Mithilfe von ASP.NET Development Server, von der Website, und geben Sie die direkte URL auf einen der PDF-Dateien in der Adressleiste des Browsers angezeigt. Wenn Sie heruntergeladen haben, die Website verknüpft sind mit diesem Lernprogramm die URL sollte etwa wie folgt aus: `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 Diese URL in die Adressleiste eingeben bewirkt, dass der Browser eine Anforderung an den ASP.NET Development Server für die Datei senden. Der ASP.NET Development Server die Anforderung an die ASP.NET-Laufzeit zur Verarbeitung übergibt. Da es sich noch nicht angemeldet haben und die `Web.config` in der `PrivateDocs` Ordner für den anonymen Zugriff zu verweigern konfiguriert ist, den die ASP.NET-Laufzeit leitet uns automatisch zu der Anmeldeseite `Login.aspx` (siehe Abbildung 3). Wenn den Benutzer die Anmeldeseite umgeleitet, ASP.NET umfasst einen `ReturnUrl` Querystring-Parameter, der die Seite angezeigt wird der Benutzer wurde versucht, anzeigen. Nach der erfolgreichen Anmeldung der Benutzer kann auf dieser Seite zurückgegeben werden.
 
@@ -140,6 +140,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Alle Typen von Inhalten in IIS 7-Foren ASP.NET-Authentifizierung mit](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (Video)
 - [Webserver in Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[Zurück](common-configuration-differences-between-development-and-production-vb.md)
-[Weiter](deploying-a-database-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](common-configuration-differences-between-development-and-production-vb.md)
+> [Weiter](deploying-a-database-vb.md)

@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>Während des Betriebs Handtuch-Vorlage
 ====================
@@ -29,8 +29,8 @@ durch [Mads Kristensen](https://github.com/madskristensen)
 > [Im laufenden Systembetrieb Handtuch MVC-Vorlage für Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
 > [Im laufenden Systembetrieb Handtuch MVC-Vorlage für Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> 
+> 
 > Im laufenden Systembetrieb Handtuch: Da Sie nicht, fahren Sie mit der SPA ohne eine möchten!
 
 
@@ -47,9 +47,9 @@ Im laufenden Systembetrieb Handtuch SPA bietet einen App-Ordner, der JavaScript 
 
 Der Ordner "App":
 
-- Durandal
+- durandal
 - Dienste
-- ViewModels
+- viewmodels
 - Ansichten
 
 Der App-Ordner enthält eine Auflistung von Modulen. Diese Module Funktionalität zu kapseln und Abhängigkeiten auf andere Module deklarieren. Der Ordner Views enthält den HTML-Code für Ihre Anwendung und der Viewmodels-Ordner enthält die Präsentationslogik für Ansichten (ein allgemeines Muster MVVM). Der Ordner "Dienste" ist ideal für gemeinsame Dienste, die Ihre Anwendung z. B. HTTP-Datenabruf oder lokalen Speicher Interaktion möglicherweise Gehäuse. Es ist häufig mehrere Viewmodels Code aus den Modulen Dienst erneut zu verwenden.
@@ -60,7 +60,7 @@ Im laufenden Systembetrieb Handtuch baut auf der vertraut und leistungsfähige A
 
 - App\_starten
 - Inhalt
-- Domänencontroller
+- Controller
 - Modelle
 - Skripts
 - Ansichten
@@ -95,7 +95,7 @@ Hinzufügen von Code einfach zu starten!
 2. Hinzufügen von Ansichten der `App/views` Ordner
 3. Viewmodels zum Hinzufügen der `App/viewmodels` Ordner
 4. Hinzufügen von HTML und Knockout datenbindungen zu Ihren neuen Ansichten
-5. Aktualisieren Sie die Navigation Routen`shell.js`
+5. Aktualisieren Sie die Navigation Routen `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>Exemplarische Vorgehensweise für die HTML/JavaScript
 
@@ -159,6 +159,6 @@ Diese Viewmodels enthalten, die Eigenschaften und Funktionen, die gebunden sind 
 
 Dienste befinden sich im Ordner "App-Dienste". Im Idealfall konnte Ihre zukünftige Dienste wie z. B. ein Modul "DataService", die für das Abrufen und Bereitstellen von Remotedaten zuständig ist, platziert werden.
 
-### <a name="loggerjs"></a>Logger.js
+### <a name="loggerjs"></a>logger.js
 
 Im laufenden Systembetrieb Handtuch bietet eine `logger` Modul im Ordner "Dienste". Die `logger` Modul eignet sich ideal zum Protokollieren von Nachrichten an die Konsole und in der Popup-Popups an den Benutzer.

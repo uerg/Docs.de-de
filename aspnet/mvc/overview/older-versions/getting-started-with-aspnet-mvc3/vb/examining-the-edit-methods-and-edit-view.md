@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
-title: "Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (VB) | Microsoft Docs"
+title: Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (VB) | Microsoft Docs
 author: Rick-Anderson
 description: In diesem Lernprogramm erfahren Sie die Grundlagen der Erstellung einer ASP.NET MVC-Webanwendung mithilfe von Microsoft Visual Web Developer 2010 Express Service Pack 1, also...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 25ba5887a9fd179e75a45d4e140592d0ea66184a
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ab55de16baea3010f95c8f23a093544fb1fd7aa3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (VB)
 ====================
@@ -200,6 +200,6 @@ Führen Sie die Anwendung, und navigieren Sie zu */Filme/SearchIndex*. Versuchen
 
 In diesem Abschnitt untersuchen Sie die CRUD-Aktionsmethoden und Ansichten, die vom Framework generierten. Sie erstellt eine Aktionsmethode suchen und anzeigen, mit denen Benutzer anhand der Filmtitel und die "Genre" suchen kann. Im nächsten Abschnitt, betrachten Sie zum Hinzufügen einer Eigenschaft, um die `Movie` Modell und wie Sie einen Initialisierer hinzufügen, die automatisch eine Testdatenbank erstellen.
 
->[!div class="step-by-step"]
-[Zurück](accessing-your-models-data-from-a-controller.md)
-[Weiter](adding-a-new-field.md)
+> [!div class="step-by-step"]
+> [Zurück](accessing-your-models-data-from-a-controller.md)
+> [Weiter](adding-a-new-field.md)

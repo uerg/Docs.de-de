@@ -2,27 +2,27 @@
 uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 title: Erste Schritte mit OWIN und Katana | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/27/2013
 ms.topic: article
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8922aada723da9b149ec111902fcd883c8241dfb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac0302ef1a786f6b1eef8119b3134a965f01c533
+ms.sourcegitcommit: 5ab5c5f4bfdb0150f42ba84c2770eadf540cae48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 <a name="getting-started-with-owin-and-katana"></a>Erste Schritte mit OWIN und Katana
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Öffnen Sie die Weboberfläche für .NET (OWIN)](http://owin.org/) definiert eine Abstraktion zwischen .NET Webservern und Webanwendungen. Durch die Trennung des Servers aus der Anwendung, erleichtert OWIN Middleware für die Webentwicklung .NET zu erstellen. Darüber hinaus OWIN erleichtert es, Port-Webanwendungen zu anderen Hosts &#8212; z. B. Selbsthosting in einer Windows-Dienst oder ein anderer Prozess.
+[Öffnen Sie die Weboberfläche für .NET (OWIN)](http://owin.org/) definiert eine Abstraktion zwischen .NET Webservern und Webanwendungen. Durch die Trennung des Servers aus der Anwendung, erleichtert OWIN Middleware für die Webentwicklung .NET zu erstellen. Darüber hinaus OWIN erleichtert es, Port-Webanwendungen zu anderen Hosts&#8212;z. B. Selbsthosting in einer Windows-Dienst oder ein anderer Prozess.
 
 OWIN ist eine Spezifikation Community gehören, nicht um eine Implementierung. Das Katana-Projekt ist eine Reihe von Open Source-OWIN-Komponenten von Microsoft entwickelt wurde. Eine allgemeine Übersicht über OWIN und Katana finden Sie unter [eine Übersicht über Project Katana](an-overview-of-project-katana.md). In diesem Artikel springt ich rechts in Code, um zu beginnen.
 
@@ -54,7 +54,7 @@ Fügen Sie anschließend eine OWIN-Start-Klasse. Klicken Sie im Projektmappen-Ex
 
 ![](getting-started-with-owin-and-katana/_static/image4.png)
 
-Fügen Sie der `Startup1.Configuration`-Methode folgenden Code hinzu:
+Fügen Sie der `Startup1.Configuration`-Methode den folgenden Code hinzu:
 
 [!code-csharp[Main](getting-started-with-owin-and-katana/samples/sample1.cs?highlight=3)]
 
@@ -74,7 +74,7 @@ Drücken Sie F5, um das Debuggen zu starten. Visual Studio öffnet ein Browserfe
 
 ## <a name="self-host-owin-in-a-console-application"></a>Selbsthosting OWIN in einer Konsolenanwendung
 
-Es ist einfach, diese Anwendung zu konvertieren, von IIS-hosting Selbsthosting in einem benutzerdefinierten Prozess. Mit IIS gehostet wird verhält sich IIS als die HTTP-Server und wie der Prozess, die dem Server hosten. Mit Selbsthosting, Ihre Anwendung den Prozess erstellt und verwendet die **HttpListener** Klasse wie der HTTP-Server.
+Es ist einfach, diese Anwendung zu konvertieren, von IIS-hosting Selbsthosting in einem benutzerdefinierten Prozess. Mit IIS-hosting fungiert IIS als den HTTP-Server und der Prozess, der den Dienst hostet. Mit Selbsthosting, Ihre Anwendung den Prozess erstellt und verwendet die **HttpListener** Klasse wie der HTTP-Server.
 
 Erstellen Sie in Visual Studio eine neue Konsolenanwendung. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl ein:
 
@@ -108,6 +108,6 @@ Jetzt verwenden Sie STRG + F5, um die Anwendung ohne Debuggen auszuführen, dami
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erkennung von owin-Start-Klasse](owin-startup-class-detection.md)
+- [Erkennung der OWIN-Startup-Klasse](owin-startup-class-detection.md)
 - [Mit der ASP.NET Web API Self Host OWIN](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Mit der SignalR Selbsthosting OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

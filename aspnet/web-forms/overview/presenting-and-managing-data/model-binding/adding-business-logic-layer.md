@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: "Hinzufügen von Geschäftslogikschicht auf ein Projekt, wurden die modellbindung und WebForms verwendet. | Microsoft Docs"
+title: Hinzufügen von Geschäftslogikschicht auf ein Projekt, wurden die modellbindung und WebForms verwendet. | Microsoft Docs
 author: tfitzmac
 description: Diese Reihe von Lernprogrammen veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung bei einem ASP.NET Web Forms-Projekt. Wurden die modellbindung macht die dateninteraktion Weitere gerade-...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: ca50690052cca73a718342a9725c8096a72f1187
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 25e887bdc316abf65c780bb6c8d075e938e85064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Hinzufügen von Geschäftslogikschicht auf ein Projekt, wurden die modellbindung und WebForms verwendet
 ====================
@@ -64,11 +64,11 @@ Zum Schluss konvertieren Sie Students.aspx, AddStudent.aspx und Courses.aspx Sei
 
 Klicken Sie in den Code-Behind-Dateien für Studenten, Bildungseinrichtungen AddStudent und Kurse löschen Sie, oder kommentieren Sie die folgenden Abfragemethoden:
 
-- StudentsGrid\_GetData
-- StudentsGrid\_UpdateItem
-- StudentsGrid\_DeleteItem
-- AddStudentForm\_InsertItem-Methode
-- CoursesGrid\_GetData
+- studentsGrid\_GetData
+- studentsGrid\_UpdateItem
+- studentsGrid\_DeleteItem
+- addStudentForm\_InsertItem
+- coursesGrid\_GetData
 
 Sie verfügen jetzt über keinen Code in der CodeBehind-Datei, die zum Datenvorgänge gehört.
 
@@ -94,9 +94,9 @@ Stellen Sie im Courses.aspx ähnliche Änderungen.
 
 Führen Sie die Anwendung, und beachten Sie, dass alle Seiten funktionieren wie zuvor mussten. Die Validierungslogik auch funktioniert ordnungsgemäß.
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm strukturiert neu Sie die Anwendung eine Datenzugriffsschicht und Geschäftslogikschicht verwendet. Sie angegeben, dass die Data-Steuerelemente ein Objekts verwenden, das nicht die aktuelle Seite Datenvorgänge ist.
 
->[!div class="step-by-step"]
-[Zurück](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [Vorherige](using-query-string-values-to-retrieve-data.md)

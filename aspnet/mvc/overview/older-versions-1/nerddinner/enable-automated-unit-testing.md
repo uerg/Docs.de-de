@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 title: Automatisierte Komponententests | Microsoft Docs
 author: microsoft
-description: "Schritt 12 zeigt, wie eine Suite von automatisierte Komponententests entwickeln, überprüfen, ob unsere NerdDinner-Funktionalität und die geben uns des vertrauen Änderungen..."
+description: Schritt 12 zeigt, wie eine Suite von automatisierte Komponententests entwickeln, überprüfen, ob unsere NerdDinner-Funktionalität und die geben uns des vertrauen Änderungen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 1a4258054d90b2d5bcc06a63fb6f3b4673a4837d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fede08be7e06327c6d04fa5d36f7dd818d79b380
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-automated-unit-testing"></a>Aktivieren Sie automatisierte Komponententests
 ====================
@@ -45,7 +45,7 @@ Automatisierte Komponententests ermöglichen Sicherheitsnetz, die Ihnen ermögli
 
 Das ASP.NET MVC-Framework vereinfacht das einfache und natürliche Unit Test Anwendungsfunktionen. Außerdem können einen Test Driven Development (TDD)-Workflow, der je Test-First-Entwicklung ermöglicht.
 
-### <a name="nerddinnertests-project"></a>NerdDinner.Tests-Projekt
+### <a name="nerddinnertests-project"></a>NerdDinner.Tests Project
 
 Wenn wir unsere NerdDinner Anwendung am Anfang dieses Lernprogramms erstellt haben, wurden wir aufgefordert, ein Dialogfeld gefragt, ob wir, erstellen Sie ein Komponententestprojekt zusammen mit dem Anwendungsprojekt zu wechseln möchten:
 
@@ -128,7 +128,7 @@ Komponententests für Code unter Verwendung einer realen Datenbank bringt jedoch
 
 Sehen wir uns ein Entwurfsmuster namens "Abhängigkeitsinjektion", die helfen uns diese Probleme umgehen, und vermeiden Sie eine echte Datenbank mit unseren Tests verwendet werden müssen.
 
-### <a name="dependency-injection"></a>Abhängigkeitsinjektion
+### <a name="dependency-injection"></a>Dependency Injection
 
 Zurzeit ist DinnersController eng "der Klasse DinnerRepository verbunden". "Verbinden" verweist auf eine Situation, in dem eine Klasse explizit in einer anderen Klasse benötigt, um arbeiten:
 
@@ -234,7 +234,7 @@ Das Benutzerobjekt, auf die Basisklasse für Controller kapselt Informationen ü
 
 Mockframeworks stellen testen vereinfachen durch Aktivieren von uns falsche Versionen der abhängigen Objekte dynamisch zu erstellen, die unsere Tests unterstützen. Wir können z. B. ein pseudoframework in unserem Test wurde Aktion Bearbeiten verwenden, um ein Benutzerobjekt dynamisch zu erstellen, die unsere DinnersController verwenden können, einen Benutzernamen für die simulierten nachgeschlagen werden. Dadurch wird vermieden, dass einen null-Verweis ausgelöst wird, wenn wir unsere Tests ausführen.
 
-Es gibt viele .NET pseudoframeworks, die mit ASP.NET MVC verwendet werden kann (Sie können eine Liste von ihnen hier finden Sie unter: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). Zum Testen unserer NerdDinner-Anwendung verwenden wir eine open Source-Framework namens "Moq" imitieren, die heruntergeladen werden kann kostenlos von [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
+Es gibt viele .NET pseudoframeworks, die mit ASP.NET MVC verwendet werden kann (Sie können eine Liste von ihnen hier finden Sie unter: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Zum Testen unserer NerdDinner-Anwendung verwenden wir eine open Source-Framework namens "Moq" imitieren, die heruntergeladen werden kann kostenlos von [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
 
 Nachdem das Download abgeschlossen ist, fügen einen Verweis in unserem NerdDinner.Tests-Projekt auf die Assembly Moq.dll wir:
 
@@ -285,6 +285,6 @@ Eine der folgenden Kapitel im Buch besprechen (Test Driven Development, TDD), un
 
 Einige endgültigen eingebunden Kommentare.
 
->[!div class="step-by-step"]
-[Zurück](use-ajax-to-implement-mapping-scenarios.md)
-[Weiter](nerddinner-wrap-up.md)
+> [!div class="step-by-step"]
+> [Zurück](use-ajax-to-implement-mapping-scenarios.md)
+> [Weiter](nerddinner-wrap-up.md)

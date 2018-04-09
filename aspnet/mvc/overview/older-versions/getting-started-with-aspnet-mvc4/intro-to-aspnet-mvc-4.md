@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
-title: "Einführung in ASP.NET MVC 4 | Microsoft Docs"
+title: Einführung in ASP.NET MVC 4 | Microsoft Docs
 author: Rick-Anderson
-description: "Eine aktualisierte Version dieses Lernprogramm hier mit Visual Studio 2013 verfügbar ist. Das neue Lernprogramm verwendet ASP.NET MVC 5, zahlreiche Verbesserungen über t bietet..."
+description: Eine aktualisierte Version dieses Lernprogramm hier mit Visual Studio 2013 verfügbar ist. Das neue Lernprogramm verwendet ASP.NET MVC 5, zahlreiche Verbesserungen über t bietet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 519bac22ba2607931c5f3123b9b567859a2b3d1c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Einführung in ASP.NET MVC 4
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Eine aktualisierte Version ist in diesem Lernprogramm verfügbar [hier](../../getting-started/introduction/getting-started.md) mit [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Das neue Lernprogramm verwendet ASP.NET MVC 5, viele Verbesserungen über dieses Lernprogramms bereitstellt.
 > 
@@ -88,5 +88,5 @@ F5 bewirkt, dass Visual Studio starten Sie IIS Express, und führen Sie die Weba
 
 Direkt einsatzbereiten bietet diese Standardvorlage Seiten "Home", "Wenden Sie sich an" und "zu. Außerdem bietet Unterstützung zum Registrieren, und melden Sie sich, und enthält links zu Facebook und Twitter. Der nächste Schritt besteht ändern, wie diese Anwendung funktioniert, und erfahren etwas über ASP.NET MVC. Schließen Sie Ihren Browser, und ändern Sie Code.
 
->[!div class="step-by-step"]
-[Nächste](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Nächste](adding-a-controller.md)

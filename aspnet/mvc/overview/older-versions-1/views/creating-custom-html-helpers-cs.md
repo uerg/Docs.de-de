@@ -2,7 +2,7 @@
 uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 title: Erstellen von benutzerdefinierten HTML-Hilfsmethoden (c#) | Microsoft Docs
 author: microsoft
-description: "Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsmethoden erstellen können, die Sie im MVC-Ansichten zur Verfügung stehen. Durch die Nutzung von HTML-Hilfsobjekt..."
+description: Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsmethoden erstellen können, die Sie im MVC-Ansichten zur Verfügung stehen. Durch die Nutzung von HTML-Hilfsobjekt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a0b6d67eb7aab51ba2b422fab0788e34255f2c8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc9aa2aa8dbc02dc01833d671c3bfd19141ba74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-html-helpers-c"></a>Erstellen von benutzerdefinierten HTML-Hilfsmethoden (c#)
 ====================
@@ -57,7 +57,7 @@ Betrachten Sie beispielsweise das Formular im Codebeispiel 1 aus. Dieses Formula
 **Abbildung 01**: Seite gerendert wird, mit HTML-Hilfsmethoden ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-custom-html-helpers-cs/_static/image3.png))
 
 
-**Auflisten von 1 –`Views\Home\Index.aspx`**
+**Auflisten von 1 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample1.aspx)]
 
@@ -72,7 +72,7 @@ Die `Html.TextBox()` Hilfsmethoden werden zum Rendern von HTML in Codebeispiel 1
 
 ASP.NET MVC-Framework enthält einen kleinen Satz von Hilfsmethoden. In den meisten Fällen müssen Sie das MVC-Framework mit der benutzerdefinierten HTML-Hilfsmethoden zu erweitern. Im weiteren Verlauf dieses Lernprogramms erfahren Sie zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden.
 
-**Auflisten von 2 –`Index.aspx Source`**
+**Auflisten von 2 – `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample2.aspx)]
 
@@ -80,7 +80,7 @@ ASP.NET MVC-Framework enthält einen kleinen Satz von Hilfsmethoden. In den meis
 
 Die einfachste Möglichkeit zum Erstellen neuer HTML-Hilfsobjekt ist eine statische Methode erstellen, die eine Zeichenfolge zurückgibt. Stellen Sie sich vor, z. B., dass Sie eine neue HTML-Hilfsobjekt erstellen, der eine HTML rendert möchten `<label>` Tag. Sie können mithilfe die Klasse 2 auflisten Rendern einer `<label>` .
 
-**Auflisten von 2 –`Helpers\LabelHelper.cs`**
+**Auflisten von 2 – `Helpers\LabelHelper.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample3.cs)]
 
@@ -88,7 +88,7 @@ Es gibt keine besonderen über die Klasse 2 auflisten. Die `Label()` -Methode ei
 
 Die geänderte Indexansicht auflisten 3 verwendet den `LabelHelper` zum Rendern von HTML `<label>` Tags. Beachten Sie, die die Sicht enthält eine `<%@ imports %>` -Direktive, die importiert die `Application1.Helpers` Namespace.
 
-**Auflisten von 2 –`Views\Home\Index2.aspx`**
+**Auflisten von 2 – `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample4.aspx)]
 
@@ -100,7 +100,7 @@ Die Klasse im Codebeispiel 3 fügt eine Erweiterungsmethode zum der `HtmlHelper`
 
 Zweitens, beachten Sie, dass der erste Parameter der `Label()` Methode ist das Schlüsselwort vorangestellt `this`. Der erste Parameter einer Erweiterungsmethode gibt an, die Klasse, die die Erweiterungsmethode erweitert wird.
 
-**Auflisten von 3:`Helpers\LabelExtensions.cs`**
+**Auflisten von 3: `Helpers\LabelExtensions.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample5.cs)]
 
@@ -114,7 +114,7 @@ Nachdem Sie eine Erweiterungsmethode zu erstellen und die Anwendung erfolgreich 
 
 Die geänderte Indexansicht Auflisten von 4 verwendet die Erweiterungsmethode Html.Label() aller gerendert seine `<label>` Tags.
 
-**Auflisten von 4 –`Views\Home\Index3.aspx`**
+**Auflisten von 4 – `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
@@ -124,6 +124,6 @@ In diesem Lernprogramm haben Sie gelernt, zwei Methoden zum Erstellen von benutz
 
 In diesem Lernprogramm konzentriert sich ich auf eine sehr einfache HTML-Hilfsmethode erstellen. Beachten Sie, dass ein HTML-Hilfsobjekt ebenso kompliziert, wie gewünscht werden. Sie können HTML-Hilfsmethoden erstellen, die Inhalte wie Strukturansichten, Menüs oder Tabellen der Datenbankdaten rendern.
 
->[!div class="step-by-step"]
-[Zurück](asp-net-mvc-views-overview-cs.md)
-[Weiter](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](asp-net-mvc-views-overview-cs.md)
+> [Weiter](using-the-tagbuilder-class-to-build-html-helpers-cs.md)

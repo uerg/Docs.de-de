@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
-title: "Konfigurieren von Einstellungen für die Datenzugriffsebene-Verbindung und Befehlsebene (c#) | Microsoft Docs"
+title: Konfigurieren von Einstellungen für die Datenzugriffsebene-Verbindung und Befehlsebene (c#) | Microsoft Docs
 author: rick-anderson
-description: "Die TableAdapters innerhalb eines typisierten Datasets kümmern automatisch Befehle ausgibt, Herstellen einer Verbindung mit der Datenbank und Auffüllen einer DataTable mit den Ergebnissen..."
+description: Die TableAdapters innerhalb eines typisierten Datasets kümmern automatisch Befehle ausgibt, Herstellen einer Verbindung mit der Datenbank und Auffüllen einer DataTable mit den Ergebnissen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f5f221fd792956fc21cb6eb5834299d3c5bfa80d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurieren von Einstellungen für die Datenzugriffsebene-Verbindung und Befehlsebene (c#)
 ====================
@@ -93,7 +93,7 @@ Entsprechend der Anleitung unter dem [erstellen eine Datenzugriffsschicht](../in
 
 ![Fügen Sie einen Unterordner mit dem Namen ConnectionAndCommandSettings](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
-**Abbildung 3**: Fügen Sie einen Unterordner mit dem Namen`ConnectionAndCommandSettings`
+**Abbildung 3**: Fügen Sie einen Unterordner mit dem Namen `ConnectionAndCommandSettings`
 
 
 Fügen Sie eine neue Klassendatei mit dem Namen `ProductsTableAdapter.ConnectionAndCommandSettings.cs` , und geben Sie den folgenden Code:
@@ -169,12 +169,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Führen Sie Prüfer für dieses Lernprogramm Burnadette Leigh, S Ren Jacob Lauritsen, Teresa Murphy und Hilton Geisenow wurden. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](working-with-computed-columns-cs.md)
-[Weiter](protecting-connection-strings-and-other-configuration-information-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](working-with-computed-columns-cs.md)
+> [Weiter](protecting-connection-strings-and-other-configuration-information-cs.md)

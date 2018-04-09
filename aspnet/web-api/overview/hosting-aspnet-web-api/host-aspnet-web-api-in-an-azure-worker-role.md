@@ -2,7 +2,7 @@
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 title: Hosten von ASP.NET Web API 2 in einer Azure-Workerrolle | Microsoft Docs
 author: MikeWasson
-description: "Dieses Lernprogramm zeigt, wie zum Hosten von ASP.NET Web-API in einer Azure-Workerrolle mit OWIN Selbsthosting der Web-API-Framework. Öffnen Sie die Weboberfläche für .NET (OWIN) de..."
+description: Dieses Lernprogramm zeigt, wie zum Hosten von ASP.NET Web-API in einer Azure-Workerrolle mit OWIN Selbsthosting der Web-API-Framework. Öffnen Sie die Weboberfläche für .NET (OWIN) de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hosten von ASP.NET Web API 2 in einer Azure-Workerrolle
 ====================
@@ -131,7 +131,7 @@ Der Serveremulator weist eine lokale IP-Adresse an den Endpunkt an. Sie können 
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-Suchen Sie die IP-Adresse unter Dienstbereitstellungen, Bereitstellung [Id], Dienstdetails. Öffnen Sie einen Webbrowser, und navigieren Sie zu http://*Adresse*/Test/1, in dem *Adresse* ist die IP-Adresse zugewiesen, die vom Serveremulator; z. B. `http://127.0.0.1:80/test/1`. Die Antwort aus dem Web-API-Controller sollte angezeigt werden:
+Suchen Sie die IP-Adresse unter Dienstbereitstellungen, Bereitstellung [Id], Dienstdetails. Öffnen Sie einen Webbrowser, und navigieren Sie zu http://<em>Adresse</em>/Test/1, in dem <em>Adresse</em> ist die IP-Adresse zugewiesen, die vom Serveremulator; z. B. `http://127.0.0.1:80/test/1`. Die Antwort aus dem Web-API-Controller sollte angezeigt werden:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 

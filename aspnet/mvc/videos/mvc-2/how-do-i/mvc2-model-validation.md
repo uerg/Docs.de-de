@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/mvc2-model-validation
 msc.type: video
-ms.openlocfilehash: 7a4a53a4daa5f1dc79419879fa90e3d8db57e71e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: da2e3b549ad9e8f2def8c3c17d3aca206562195f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="mvc2---model-validation"></a>MVC2 - Modellvalidierung
 ====================
@@ -24,8 +24,8 @@ durch [Microsoft](https://github.com/microsoft)
 
 In diesem Video erfahren Sie mehr Informationen zum Data Anmerkungsattribute verwenden, um den Validierungsregeln definieren, und (AJAX) die clientseitige Validierung zu aktivieren.
 
-[&#9654; Sehen Sie sich an (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc2-model-validation)
+[&#9654;Sehen Sie sich an (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc2-model-validation)
 
->[!div class="step-by-step"]
-[Zurück](mvc2-stronglytyped-helpers.md)
-[Weiter](mvc2-template-customization.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc2-stronglytyped-helpers.md)
+> [Weiter](mvc2-template-customization.md)

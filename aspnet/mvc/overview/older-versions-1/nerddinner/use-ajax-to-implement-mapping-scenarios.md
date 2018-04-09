@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 title: Verwenden von AJAX zum Zuordnen von Szenarien implementieren | Microsoft Docs
 author: microsoft
-description: "Schritt 11 veranschaulicht das Integrieren von Unterstützung für AJAX-Zuordnung in unserer NerdDinner Anwendung Benutzer erstellen, bearbeiten oder Anzeigen von Abendessen Beiträgen l aktivieren..."
+description: Schritt 11 veranschaulicht das Integrieren von Unterstützung für AJAX-Zuordnung in unserer NerdDinner Anwendung Benutzer erstellen, bearbeiten oder Anzeigen von Abendessen Beiträgen l aktivieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: cc55560ce691826b6d52971b16d0515ed73d72a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b3f1e46886c4c1f054e43768b0a44695d71bf09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>Verwenden von AJAX implementieren Szenarien zuordnen
 ====================
@@ -115,7 +115,7 @@ Um unsere AJAX-Implementierung zu beenden, fügen Sie eine Zuordnung zur Startse
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-Wir beginnen, indem das Implementieren der Unterstützung unserer Datenbank und die Daten Repository Ebene eine standortbasierte Radius nach Abendessen effizient ausführen. Wir verwenden die neue [Geospatial-Funktionen von SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) implementiert, oder es können auch einen SQL-Funktion-Ansatz, der Gary Dryden im Artikel hier erläutert verwenden: [http://www.codeproject.com/KB/cs/ distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) und Rob Conery einem Blog beschrieben hat, zur Verwendung mit LINQ to SQL hier: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+Wir beginnen, indem das Implementieren der Unterstützung unserer Datenbank und die Daten Repository Ebene eine standortbasierte Radius nach Abendessen effizient ausführen. Wir verwenden die neue [Geospatial-Funktionen von SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) implementiert, oder es können auch einen SQL-Funktion-Ansatz, der Gary Dryden im Artikel hier erläutert verwenden: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) und Rob Conery einem Blog beschrieben hat, zur Verwendung mit LINQ to SQL hier: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
 Um dieses Verfahren zu implementieren, wir die "Server-Explorer öffnen" in Visual Studio, wählen Sie die Datenbank NerdDinner, und klicken Sie dann mit der rechten Maustaste auf den Funktionsknoten "" untergeordnete, darunter und wählen Sie zum Erstellen einer neuen "skalarwertige Funktion":
 
@@ -193,6 +193,6 @@ Klicken auf den Titel Dinner wird entweder im Blasendiagramm oder auf der rechte
 
 Wir haben jetzt die Anwendungsfunktionalität unsere NerdDinner-Anwendung implementiert. Lassen Sie uns nun ansehen, wie wir aktivieren können automatisiert Einheit davon testen.
 
->[!div class="step-by-step"]
-[Zurück](use-ajax-to-deliver-dynamic-updates.md)
-[Weiter](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Zurück](use-ajax-to-deliver-dynamic-updates.md)
+> [Weiter](enable-automated-unit-testing.md)

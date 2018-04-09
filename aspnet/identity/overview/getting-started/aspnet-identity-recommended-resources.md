@@ -2,25 +2,25 @@
 uid: identity/overview/getting-started/aspnet-identity-recommended-resources
 title: ASP.NET Identity empfohlene Ressourcen | Microsoft Docs
 author: Rick-Anderson
-description: "Dieses Thema enthält Links zu Dokumentationsressourcen zur Verwendung von ASP.NET Identity. Wenn Sie einen hervorragenden Blogbeitrag, Stackoverflow-Thread oder eine beliebige andere Lin wissen..."
+description: Dieses Thema enthält Links zu Dokumentationsressourcen zur Verwendung von ASP.NET Identity. Wenn Sie einen hervorragenden Blogbeitrag, Stackoverflow-Thread oder eine beliebige andere Lin wissen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2015
 ms.topic: article
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f2e1693a32fce6956ddb1e095e6f208b9f0faab6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity empfohlene Ressourcen
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Dieses Thema enthält Links zu Dokumentationsressourcen zur Verwendung von ASP.NET Identity.
 > 
@@ -94,7 +94,7 @@ Durch [Rick Anderson](https://github.com/Rick-Anderson)
     - [Grundlegendes zur extern Owin-Authentifizierung-Pipeline](http://coding.abel.nu/2014/06/understanding-the-owin-external-authentication-pipeline/)
     - [ASP.NET Identity und Owin (Übersicht)](http://coding.abel.nu/2014/06/asp-net-identity-and-owin-overview/)
 
- Durch [K. Scott Allen](https://twitter.com/OdeToCode) auf Ode in Code
+  Durch [K. Scott Allen](https://twitter.com/OdeToCode) auf Ode in Code
 
     - [ASP.NET Core Identity](http://odetocode.com/blogs/scott/archive/2013/11/25/asp-net-core-identity.aspx) dieses Blog untersucht die kernabstraktionen, einschließlich IUser, IUserStore und die\*Schnittstellen zu speichern.
     - [ASP.NET Identity mit dem Entity Framework](http://odetocode.com/blogs/scott/archive/2014/01/03/asp-net-identity-with-the-entity-framework.aspx) einzelne Benutzerkonten in MVC 5, Web-API und SPA-apps, Verbindungszeichenfolgen und Verwalten von Kontexten

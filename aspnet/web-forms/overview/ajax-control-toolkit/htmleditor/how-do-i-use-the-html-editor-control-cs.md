@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 title: Verwendung der HTML-Editor-Steuerelement (C#) | Microsoft Docs
 author: microsoft
-description: "HTMLEditor ist ein ASP.NET AJAX-Steuerelement, mit dem Sie leicht erstellen und Bearbeiten von HTML-Inhalt über die Schaltflächen in einer Symbolleiste."
+description: HTMLEditor ist ein ASP.NET AJAX-Steuerelement, mit dem Sie leicht erstellen und Bearbeiten von HTML-Inhalt über die Schaltflächen in einer Symbolleiste.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17343660d7bf7aa6210fa9c6c9c0206598d34b18
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fca18948c0e4f1323f214dc0033f19fa44efad47
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-c"></a>Verwendung der HTML-Editor-Steuerelement (C#)
 ====================
@@ -111,5 +111,5 @@ Stellen Sie sich vor, z. B., dass Sie eine Bloganwendung erstellt werden. In die
 
 In diesem Lernprogramm wurden das HTML-Editor-Steuerelement in das AJAX-Steuerelement-Toolkit enthalten eine kurze Übersicht über bereitgestellt. Sie haben gelernt, wie HTML-Editor mit der Inhalte von einem Benutzer akzeptieren und den Inhalt an den Server übermitteln. Es wird erläutert, wie Sie die Schaltflächen der Symbolleiste anpassen können, die vom HTML-Editor angezeigt werden. Schließlich haben Sie gelernt, wie Cross-Site Scripting Angriffe vermieden werden, wenn der HTML-Editor mit potenziell schädlichen Eingaben akzeptieren.
 
->[!div class="step-by-step"]
-[Nächste](how-do-i-use-the-html-editor-control-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](how-do-i-use-the-html-editor-control-vb.md)

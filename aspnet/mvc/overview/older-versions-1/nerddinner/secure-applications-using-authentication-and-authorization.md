@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 title: Sichern von Anwendungen mithilfe von Authentifizierung und Autorisierung | Microsoft Docs
 author: microsoft
-description: "Schritt 9 zeigt, wie Authentifizierung und Autorisierung für unsere Anwendung NerdDinner secure hinzufügen, damit Benutzer registrieren müssen und melden Sie sich an den Standort erstellen..."
+description: Schritt 9 zeigt, wie Authentifizierung und Autorisierung für unsere Anwendung NerdDinner secure hinzufügen, damit Benutzer registrieren müssen und melden Sie sich an den Standort erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: a23b2cf4d1728624698c0db49c25ea7efd3af67d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a9b1e6d7d453bd8dc5a61b1f1cec4617af7d693
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Sichern von Anwendungen mithilfe von Authentifizierung und Autorisierung
 ====================
@@ -155,6 +155,6 @@ Wir können unsere Vorlage anzeigen, um bedingt ein-/ausblenden der Links bearbe
 
 Jetzt betrachten wie wir authentifizierte Benutzern das Erstellen der Antwort für Abendessen mithilfe von AJAX aktivieren können.
 
->[!div class="step-by-step"]
-[Zurück](implement-efficient-data-paging.md)
-[Weiter](use-ajax-to-deliver-dynamic-updates.md)
+> [!div class="step-by-step"]
+> [Zurück](implement-efficient-data-paging.md)
+> [Weiter](use-ajax-to-deliver-dynamic-updates.md)

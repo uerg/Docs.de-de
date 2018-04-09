@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Befehlszeile Bereitstellung | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellung über die Befehlszeile
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -45,7 +45,7 @@ Sie werden, die durch Code ersetzen, die eine Zusammenfassung der Student-Anmeld
 
 Führen Sie das Projekt, und wählen Sie die **zu** Seite.
 
-![Zu den Seiten](command-line-deployment/_static/image2.png)
+![Seite „Info“](command-line-deployment/_static/image2.png)
 
 ## <a name="deploy-to-test-by-using-the-command-line"></a>Bereitstellen Sie in Test mithilfe der Befehlszeile
 
@@ -98,9 +98,9 @@ Sie können das Veröffentlichungsprofil angeben, nach Namen oder den vollständ
 
 Veröffentlichen von drei Methoden werden für die Veröffentlichung über die Befehlszeile unterstützt:
 
-- `MSDeploy`-Mithilfe von Web Deploy veröffentlichen.
-- `Package`-Veröffentlichen Sie, indem Sie ein Web Deploy-Paket erstellen. Sie müssen das Paket getrennt von der MSBuild-Befehl installieren, die es erstellt.
-- `FileSystem`-Durch Kopieren von Dateien in einem angegebenen Ordner veröffentlichen.
+- `MSDeploy` -Mithilfe von Web Deploy veröffentlichen.
+- `Package` -Veröffentlichen Sie, indem Sie ein Web Deploy-Paket erstellen. Sie müssen das Paket getrennt von der MSBuild-Befehl installieren, die es erstellt.
+- `FileSystem` -Durch Kopieren von Dateien in einem angegebenen Ordner veröffentlichen.
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>Angeben der Build-Konfiguration und Plattform
 
@@ -144,6 +144,6 @@ Sie haben jetzt ein Anwendungsupdate bereitgestellt, über die Befehlszeile.
 
 In den nächsten Lernprogrammen sehen Sie ein Beispiel zum Erweitern Sie im Web veröffentlichen Pipeline. Im Beispiel wird gezeigt, wie Dateien bereitstellen, die nicht im Projekt enthalten sind.
 
->[!div class="step-by-step"]
-[Zurück](deploying-a-database-update.md)
-[Weiter](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-a-database-update.md)
+> [Weiter](deploying-extra-files.md)

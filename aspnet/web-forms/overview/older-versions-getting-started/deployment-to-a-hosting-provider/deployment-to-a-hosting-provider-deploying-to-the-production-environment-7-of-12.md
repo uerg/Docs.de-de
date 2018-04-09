@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellung in der Produktionsumgebung - 7 von 12 | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellung in der Produktionsumgebung - 7 von 12
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -125,7 +125,7 @@ In der **Importieren von Veröffentlichungseinstellungen** wählen Sie im Dialog
 
 ![Veröffentlichen von Web-Assistent – Registerkarte "Datenbankverbindung"](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-Die PUBLISHSETTINGS-Datei setzt die geplante permanente URL für die Website im Ziel-URL, aber wenn Sie diese Domäne noch nicht erworben haben, ersetzen Sie den Wert mit der temporären URL. In diesem Beispiel wird die URL  *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com).* Der einzige Zweck dieses Dialogfelds ist, welche URL an den Browser automatisch nach erfolgreich nach der Bereitstellung geöffnet wird. Wenn Sie sie leer lassen, ist die einzige Konsequenz, dass der Browser nicht automatisch nach der Bereitstellung startet.
+Die PUBLISHSETTINGS-Datei setzt die geplante permanente URL für die Website im Ziel-URL, aber wenn Sie diese Domäne noch nicht erworben haben, ersetzen Sie den Wert mit der temporären URL. In diesem Beispiel wird die URL  *[ http://contosouniversity.com.vserver01.cytanium.com ](http://contosouniversity.com.vserver01.cytanium.com).* Der einzige Zweck dieses Dialogfelds ist, welche URL an den Browser automatisch nach erfolgreich nach der Bereitstellung geöffnet wird. Wenn Sie sie leer lassen, ist die einzige Konsequenz, dass der Browser nicht automatisch nach der Bereitstellung startet.
 
 Klicken Sie auf **Validate Connection** um sicherzustellen, dass die Einstellungen richtig sind und Sie können eine Verbindung mit dem Server herstellen. Wie weiter oben gezeigt, ein grünes Häkchen überprüft, ob die Verbindung erfolgreich ist.
 
@@ -137,9 +137,9 @@ Klicken Sie auf **Weiter**.
 
 In der **Datenbanken** Teil der **Einstellungen** Registerkarte, geben Sie den gleichen Veröffentlichungsprofil der Werte, die Sie für den Test eingegeben haben. Finden Sie die Verbindungszeichenfolgen, die Sie müssen, in der Dropdown-Listen.
 
-- In das Feld die Verbindungszeichenfolge für **SchoolContext,** auswählen`Data Source=|DataDirectory|School-Prod.sdf`
+- In das Feld die Verbindungszeichenfolge für **SchoolContext,** auswählen `Data Source=|DataDirectory|School-Prod.sdf`
 - Klicken Sie unter **SchoolContext**Option **gelten Code First-Migrationen**.
-- In das Feld die Verbindungszeichenfolge für **DefaultConnection**wählen`Data Source=|DataDirectory|aspnet-Prod.sdf`
+- In das Feld die Verbindungszeichenfolge für **DefaultConnection**wählen `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - Klicken Sie unter **DefaultConnection**, lassen Sie **Datenbank aktualisieren** deaktiviert.
 
 ![Veröffentlichen Sie die Registerkarte "Einstellungen" der Web-Assistent](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
@@ -252,6 +252,6 @@ Erstellen ein zweites Hostinganbieters-Konto ist ein Ansatz für die Arbeit mit 
 
 In den nächsten Lernprogrammen Sie Anwendungscode zu aktualisieren und die Änderung für die Test- und produktionsumgebungen Umgebungen bereitstellen.
 
->[!div class="step-by-step"]
-[Zurück](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-[Weiter](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [!div class="step-by-step"]
+> [Zurück](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [Weiter](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 title: ASP.NET MVC 4-Hilfsprogrammen, Formulare und Validierung | Microsoft Docs
 author: rick-anderson
-description: "In ASP.NET MVC 4-Modelle und Daten Zugriff praktische Übungseinheit haben Sie laden und Anzeigen von Daten aus der Datenbank wurde. In dieser praktischen Übungseinheit werden Sie zum Hinzufügen der..."
+description: In ASP.NET MVC 4-Modelle und Daten Zugriff praktische Übungseinheit haben Sie laden und Anzeigen von Daten aus der Datenbank wurde. In dieser praktischen Übungseinheit werden Sie zum Hinzufügen der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4-Hilfsprogrammen, Formulare und Überprüfung
 
@@ -112,12 +112,12 @@ In dieser Aufgabe erstellen Sie einen neuen Domänencontroller aufgerufen **Stor
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex1-CreatingTheStoreManagerController/Begin/** Ordner.
 
-    1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Fügen Sie einen neuen Domänencontroller hinzu. Zu diesem Zweck Maustaste die **Controller** Ordner im Projektmappen-Explorer, wählen Sie **hinzufügen** und dann die **Controller** Befehl. Ändern der **Controller** **Namen** auf **StoreManagerController** und stellen Sie sicher, dass die Option **MVC-Controller mit leeren Lese-/schreibaktionen**ausgewählt ist. Klicken Sie auf **Hinzufügen**.
 
     ![Dialogfeld "Controller hinzufügen"](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "Controller "hinzufügen"")
@@ -184,7 +184,7 @@ In diesem Schritt passen Sie die einfache Ansicht-Vorlage, die mit ASP.NET MVC-G
 1. Überprüfen Sie den Code erstellt. Die generierten Liste von Feldern werden Teil des folgenden HTML Tabelle mit **Gerüstbau** zum Anzeigen von Tabellendaten zu verwenden ist.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
-2. Ersetzen Sie die  **&lt;Tabelle&gt;**  Code durch den folgenden Code zur ausschließlichen Anzeige der **"Genre"**, **Interpreten**, **Albumtitel**, und **Preis** Felder. Dadurch werden gelöscht, die **AlbumId** und **Album Art URL** Spalten. Es ändert sich auch, GenreId und ArtistId Spalten zum Anzeigen ihrer verknüpfte Klasseneigenschaften eines **Artist.Name** und **Genre.Name**, und entfernt die **Details** Link.
+2. Ersetzen Sie die **&lt;Tabelle&gt;** Code durch den folgenden Code zur ausschließlichen Anzeige der **"Genre"**, **Interpreten**, **Albumtitel**, und **Preis** Felder. Dadurch werden gelöscht, die **AlbumId** und **Album Art URL** Spalten. Es ändert sich auch, GenreId und ArtistId Spalten zum Anzeigen ihrer verknüpfte Klasseneigenschaften eines **Artist.Name** und **Genre.Name**, und entfernt die **Details** Link.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample5.cshtml)]
 3. Ändern Sie die folgenden Beschreibungen.
@@ -231,14 +231,14 @@ In dieser Aufgabe fügen Sie eine neue Methode **Truncate** auf die **HTML** in 
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex2-AddingAnHTMLHelper/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Öffnen des StoreManager Index anzuzeigen. Zu diesem Zweck im Projektmappen-Explorer erweitern die **Ansichten** Ordner, und klicken Sie dann die **StoreManager** , und öffnen Sie die **Index.cshtml** Datei.
-3. Fügen Sie den folgenden Code unter der  **@model**  zum Definieren der **Truncate** Hilfsmethode.
+3. Fügen Sie den folgenden Code unter der <strong>@model</strong> zum Definieren der <strong>Truncate</strong> Hilfsmethode.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample7.cshtml)]
 
@@ -275,7 +275,7 @@ In dieser Aufgabe testen Sie, die die **StoreManager** **Index** Vorlage anzeige
 
 In dieser Übung erfahren Sie, zum Erstellen eines Formulars, um Speicher-Manager so bearbeiten Sie die Verwaltung zu ermöglichen. Durchsuchen sie die **/StoreManager/Edit/id** URL (**Id** wird die eindeutige Id des Albums bearbeiten), wodurch einen HTTP-GET-Aufruf an den Server.
 
-Die Aktionsmethode Controller bearbeiten wird das entsprechende Album aus der Datenbank abrufen, erstellen Sie eine **StoreManagerViewModel** Objekt, das (zusammen mit der eine Liste von Künstler und Genres) zu kapseln, und übergeben Sie ihn dann, um eine Ansicht aus, um Rendern von HTML-Seite an dem Benutzer. Diese Seite enthält eine  **&lt;Formular&gt;**  Element mit Textfelder und Dropdownlisten zur Bearbeitung der Eigenschaften Album.
+Die Aktionsmethode Controller bearbeiten wird das entsprechende Album aus der Datenbank abrufen, erstellen Sie eine **StoreManagerViewModel** Objekt, das (zusammen mit der eine Liste von Künstler und Genres) zu kapseln, und übergeben Sie ihn dann, um eine Ansicht aus, um Rendern von HTML-Seite an dem Benutzer. Diese Seite enthält eine **&lt;Formular&gt;** Element mit Textfelder und Dropdownlisten zur Bearbeitung der Eigenschaften Album.
 
 Sobald der Benutzer klickt und die Formularwerte Album aktualisiert der **speichern** Schaltfläche, die Änderungen werden gesendet, über HTTP-POST aufgerufen, **/StoreManager/Edit/id**. Obwohl die URL wie in den letzten Aufruf unverändert bleibt, ASP.NET MVC identifiziert, diesmal, es ist ein HTTP-POST und aus diesem Grund führt eine andere Methode des bearbeiten-Aktion (eine Angabe **[HttpPost]**).
 
@@ -288,12 +288,12 @@ In dieser Aufgabe wird der HTTP-GET-Version der Aktionsmethode bearbeiten zum Ab
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex3-CreatingTheEditView/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Öffnen der **StoreManagerController** Klasse. Erweitern Sie hierzu die **Controller** Ordner und doppelklicken Sie auf **StoreManagerController.cs**.
 3. Ersetzen Sie die **HTTP-GET bearbeiten** Aktionsmethode mit den folgenden Code zum Abrufen der entsprechenden **Album** als auch die **Genres** und **Künstler**aufgeführt.
 
@@ -425,12 +425,12 @@ In diesem Schritt implementieren Sie die HTTP-GET-Version von der Create Action-
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex4-AddingACreateView/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Open **StoreManagerController** Klasse. Erweitern Sie hierzu die **Controller** Ordner und doppelklicken Sie auf **StoreManagerController.cs**.
 3. Ersetzen Sie die **erstellen** Aktion-Methode durch den folgenden Code:
 
@@ -524,12 +524,12 @@ In dieser Aufgabe wird die HTTP-GET-Version von der Delete-Aktion-Methode zum Ab
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex5-HandlingDeletion/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Open **StoreManagerController** Klasse. Erweitern Sie hierzu die **Controller** Ordner und doppelklicken Sie auf **StoreManagerController.cs**.
 3. Die Löschaktion der Controller ist identisch mit der vorherigen Store Details Controlleraktion: anschließend fragt es die **Album** Objekt aus der Datenbank der **Id** bereitgestellt, die in der URL und gibt die entsprechende **Ansicht**. Ersetzen Sie hierzu die HTTP-GET **löschen** Aktion-Methode durch den folgenden Code:
 
@@ -613,12 +613,12 @@ Dies ist ein wenig komplexer in Fällen, wie diese Anwendung, in dem das Entity 
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex6-AddingValidation/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Öffnen der **Album.cs** aus der **Modelle** Ordner.
 3. Ersetzen Sie **Album.cs** Inhalt mit der hervorgehobene Code, damit er wie folgt aussieht:
 
@@ -657,7 +657,7 @@ In dieser Aufgabe testen Sie, dass die Seiten erstellen und Bearbeiten von Felde
 
     ![Überprüfte Felder bearbeiten (Seite)](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    Überprüfte Felder bearbeiten (Seite)
+    *Überprüfte Felder bearbeiten (Seite)*
 
 <a id="Exercise7"></a>
 
@@ -679,12 +679,12 @@ In dieser Aufgabe führen Sie die Anwendung vor dem Einfügen von jQuery damit b
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex7-UnobtrusivejQueryValidation/Begin/** Ordner. Andernfalls möglicherweise weiterhin mithilfe der **End** Lösung abgerufen, von der vorherigen Übung abschließen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Drücken Sie **F5**, um die Anwendung auszuführen.
 3. Das Projekt wird auf der Startseite gestartet. Navigieren Sie **/StoreManager/Create** , und klicken Sie auf **erstellen** ohne Ausfüllen des Formulars, um sicherzustellen, dass Sie validierungsmeldungen abrufen:
 
@@ -739,24 +739,24 @@ In dieser Aufgabe testen Sie, die die **StoreManager** Vorlage führt die client
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample23.html)]
 
-    > [!NOTE]
-    > Für jede Clientvalidierungsregel unaufdringliche jQuery Fügt ein Attribut mit Daten-Val -*Rulename*=&quot;*Nachricht*&quot;. Im folgenden finden Sie eine Liste der Tags, unauffälliger jQuery fügt die html-Eingabefeld Clientvalidierung ausführen:
-    > 
-    > - Daten-val
-    > - Daten-Val-Anzahl
-    > - Val-Datenbereich
-    > - Daten-Val-Range-min / Daten-Val-Range-max
-    > - Val erforderlichen Daten
-    > - Val-Datenlänge
-    > - Daten-Val-Länge-Max / Daten-Val-Länge-min
-    > 
-    > Alle Datenwerte mit Modell gefüllt **-Datenanmerkung**. Anschließend kann die gesamte Logik, die auf Serverseite arbeitet auf Clientseite ausgeführt werden. Price-Attribut hat beispielsweise die folgende datenanmerkung im Modell an:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
-    > 
-    > Ist nach der Verwendung unaufdringliche jQuery, der generierte Code ein:
-    >  
-    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
+   > [!NOTE]
+   > Für jede Clientvalidierungsregel unaufdringliche jQuery Fügt ein Attribut mit Daten-Val -*Rulename*=&quot;*Nachricht*&quot;. Im folgenden finden Sie eine Liste der Tags, unauffälliger jQuery fügt die html-Eingabefeld Clientvalidierung ausführen:
+   > 
+   > - Daten-val
+   > - Daten-Val-Anzahl
+   > - Val-Datenbereich
+   > - Daten-Val-Range-min / Daten-Val-Range-max
+   > - Val erforderlichen Daten
+   > - Val-Datenlänge
+   > - Daten-Val-Länge-Max / Daten-Val-Länge-min
+   > 
+   > Alle Datenwerte mit Modell gefüllt **-Datenanmerkung**. Anschließend kann die gesamte Logik, die auf Serverseite arbeitet auf Clientseite ausgeführt werden. Price-Attribut hat beispielsweise die folgende datenanmerkung im Modell an:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
+   > 
+   > Ist nach der Verwendung unaufdringliche jQuery, der generierte Code ein:
+   > 
+   > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
 * * *
 
@@ -781,9 +781,9 @@ Durch diese praktische Übungseinheit haben Sie gelernt so ändern Sie die in de
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für das Web
 
-Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
+Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
 
-1. Wechseln Sie zu [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; *Visual Studio Express 2012 für das Web mit Windows Azure SDK*&quot;.
+1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Windows Azure SDK</em>&quot;.
 2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 

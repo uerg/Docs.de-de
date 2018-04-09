@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>Einführung in das Verwenden von Gulp in ASP.NET Core 
+# <a name="use-gulp-in-aspnet-core"></a>Verwenden von Gulp in ASP.NET Core
 
 Durch [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Daniel Roth](https://github.com/danroth27), und [Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ Wenn Sie eine neue Web-app bereits erstellt haben, erstellen Sie ein neues ASP.N
     **Task Runner-Explorer** enthält die Liste der Gulp Aufgaben. (Möglicherweise müssen Sie auf die **aktualisieren** , auf der linken Seite des Projektnamens erscheint.)
     
     ![Taskausführungs-Explorer](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > Die **Taskausführungs-Explorer** Kontextmenüelement erscheint nur, wenn *gulpfile.js* befindet sich im Stammverzeichnis des Projekts.
 
 4.  Underneath **Aufgaben** in **Taskausführungs-Explorer**, mit der rechten Maustaste **Bereinigen**, und wählen Sie **ausführen** aus dem Popupmenü.
 
@@ -228,7 +231,7 @@ Nachdem das clean-Aufgabe ausgeführt wird, wenn Sie das Projekt in Visual Studi
 
     ![Führen Sie die erste Aufgabe Taskausführungs-Explorer](using-gulp/_static/06-TaskRunner-First.png)
 
-    Sie sehen, dass der Ausgabetext angezeigt wird. Wenn Sie Beispiele, die basierend auf ein häufiges Szenario interessiert sind, finden Sie unter Gulp Rezepte.
+    Der Ausgabetext wird angezeigt. Beispiele für häufige Szenarien Grundlage finden Sie unter [Gulp Rezepte](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Definieren und Ausführen von Aufgaben in einer Reihe
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: da3c8f347a709a4c9a47fd0ecce5201d9b0cd1b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 126262b440f3e914a7fac3f0b7eeadb4f648d2bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>Integrieren von JQuery UI Datepicker mit wurden die modellbindung und WebForms
 ====================
@@ -109,12 +109,12 @@ Wenn Sie einen Datensatz in der Rasteransicht bearbeiten, wird der Kalender eben
 
 ![DatePicker in GridView](integrating-jquery-ui/_static/image5.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm haben Sie gelernt, wie eine JQuery-Widget in ein Webformular integriert, das modellbindung verwendet wird.
 
 In der nächsten [Lernprogramm](using-query-string-values-to-retrieve-data.md), verwenden Sie einen Wert der Abfragezeichenfolge bei der Auswahl.
 
->[!div class="step-by-step"]
-[Zurück](sorting-paging-and-filtering-data.md)
-[Weiter](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [Zurück](sorting-paging-and-filtering-data.md)
+> [Weiter](using-query-string-values-to-retrieve-data.md)

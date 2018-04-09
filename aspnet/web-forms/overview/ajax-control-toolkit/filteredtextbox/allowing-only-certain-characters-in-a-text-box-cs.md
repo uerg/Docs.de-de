@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
-title: "Ermöglicht nur bestimmte Zeichen in einem Textfeld (c#) | Microsoft Docs"
+title: Ermöglicht nur bestimmte Zeichen in einem Textfeld (c#) | Microsoft Docs
 author: wenz
-description: "ASP.NET-Validierungssteuerelementen können sicherstellen, dass nur bestimmte Zeichen im Benutzereingaben zulässig sind. Jedoch ist dies immer noch nicht eingeben ungültige verhindern..."
+description: ASP.NET-Validierungssteuerelementen können sicherstellen, dass nur bestimmte Zeichen im Benutzereingaben zulässig sind. Jedoch ist dies immer noch nicht eingeben ungültige verhindern...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 246c3b5dd55ceb0f47ad1f4982ae5b3bf855e747
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2ffc4b741bd0c7f9c456b6e76017f5350ab6378
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>Ermöglicht nur bestimmte Zeichen in einem Textfeld (c#)
 ====================
@@ -45,10 +45,10 @@ Klicken Sie dann, benötigen wir ein Textfeld:
 
 Schließlich die `FilteredTextBoxExtender` übernimmt die Kontrolle einschränken, die Zeichen, die der Benutzer berechtigt ist, auf den Typ. Legen Sie zuerst die `TargetControlID` -Attribut auf die `ID` von der `TextBox` Steuerelement. Wählen Sie dann eine der verfügbaren `FilterType` Werte:
 
-- `Custom`Standardeinstellung; Sie müssen eine Liste der gültigen Zeichen angeben.
-- `LowercaseLetters`dazu nur Kleinbuchstaben
-- `Numbers`nur Ziffern
-- `UppercaseLetters`nur Großbuchstaben.
+- `Custom` Standardeinstellung; Sie müssen eine Liste der gültigen Zeichen angeben.
+- `LowercaseLetters` dazu nur Kleinbuchstaben
+- `Numbers` nur Ziffern
+- `UppercaseLetters` nur Großbuchstaben.
 
 Wenn die `Custom FilterType` verwendet wird, die `ValidChars` Eigenschaft muss festgelegt werden, und geben Sie eine Liste von Zeichen, die eingegeben werden kann. Übrigens: Wenn Sie versuchen, den Text in das Textfeld einfügen, werden alle ungültige Zeichen entfernt.
 
@@ -63,5 +63,5 @@ Führen Sie die Seite, und es wurde versucht, einen Buchstaben eingeben, wenn Ja
 
 Es können nur Ziffern eingegeben werden ([klicken Sie hier, um das Bild in voller Größe angezeigt](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Nächste](allowing-only-certain-characters-in-a-text-box-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](allowing-only-certain-characters-in-a-text-box-vb.md)

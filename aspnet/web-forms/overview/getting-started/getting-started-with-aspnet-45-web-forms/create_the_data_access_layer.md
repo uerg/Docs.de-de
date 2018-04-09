@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 title: Erstellen die Datenzugriffsebene | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 671d1bbf661dfb3e56c6ccd67ce0d383990918d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-data-access-layer"></a>Die Datenzugriffsebene erstellen
 ====================
@@ -68,13 +68,13 @@ In diesem Lernprogramm beginnen Sie durch Hinzufügen von einfachen Entitätskla
 
     ![Erstellen der Datenzugriffsschicht - neuen Menüelements](create_the_data_access_layer/_static/image1.png)
 
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Klicken Sie unter **Visual C#-** aus der **installiert** Bereich auf der linken Seite, wählen **Code**. 
 
     ![Erstellen der Datenzugriffsschicht - neuen Menüelements](create_the_data_access_layer/_static/image2.png)
 3. Wählen Sie **Klasse** aus der Mitte und nennen Sie diese neue Art *Product.cs*.
 4. Klicken Sie auf **Hinzufügen**.  
- Die neue Klassendatei wird im Editor angezeigt.
+   Die neue Klassendatei wird im Editor angezeigt.
 5. Ersetzen Sie den Standardcode durch folgenden Code:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
@@ -95,7 +95,7 @@ Um mithilfe der Klassen für den Datenzugriff zu starten, müssen Sie eine Konte
 Diese Prozedur fügt eine neue C#-Context-Klasse, die *Modelle* Ordner.
 
 1. Mit der rechten Maustaste die *Modelle* Ordner, und wählen Sie dann **hinzufügen**  - &gt; **neues Element**.   
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Wählen Sie **Klasse** aus der Mitte, nennen Sie sie *ProductContext.cs* , und klicken Sie auf **hinzufügen**.
 3. Ersetzen Sie den Standardcode, der in der Klasse mit den folgenden Code enthalten:   
 
@@ -188,6 +188,6 @@ In den nächsten Lernprogrammen aktualisiert die Benutzeroberfläche, Navigation
 [Erste Datenanmerkungen Code](https://msdn.microsoft.com/data/gg193958)  
 [Steigerung der Produktivität für das Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
->[!div class="step-by-step"]
-[Zurück](create-the-project.md)
-[Weiter](ui_and_navigation.md)
+> [!div class="step-by-step"]
+> [Zurück](create-the-project.md)
+> [Weiter](ui_and_navigation.md)

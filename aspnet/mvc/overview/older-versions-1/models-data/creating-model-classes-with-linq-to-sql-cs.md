@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 title: Erstellen von Modellklassen mit LINQ to SQL (c#) | Microsoft Docs
 author: microsoft
-description: "Das Ziel dieses Lernprogramms wird eine Methode zum Erstellen von Modellklassen für eine ASP.NET MVC-Anwendung erläutert. In diesem Lernprogramm erfahren Sie, wie zum Modell c erstellen..."
+description: Das Ziel dieses Lernprogramms wird eine Methode zum Erstellen von Modellklassen für eine ASP.NET MVC-Anwendung erläutert. In diesem Lernprogramm erfahren Sie, wie zum Modell c erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c640007a75f2421e0f6c1e86e525de4834bbc8e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Erstellen von Modellklassen mit LINQ to SQL (c#)
 ====================
@@ -109,7 +109,7 @@ Nun, da wir unsere LINQ to SQL-Klassen haben, können wir diese Klassen verwende
 
 Zunächst müssen wir die HomeController-Klasse zu ändern. Diese Klasse kann im Ordner "Controller" der Anwendung gefunden werden. Ändern Sie die Klasse, sieht es wie im Codebeispiel 1-Klasse.
 
-**Auflisten von 1 –`Controllers\HomeController.cs`**
+**Auflisten von 1 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample1.cs)]
 
@@ -119,7 +119,7 @@ Eine LINQ-Abfrage wird ausgeführt, für den DataContext hinzu, zum Abrufen alle
 
 Um die Filme anzuzeigen, müssen wir als Nächstes die Indexansicht ändern. Sie finden die Indexansicht in den `Views\Home\` Ordner. Aktualisieren Sie die Indexansicht, sodass es die Ansicht im Codebeispiel 2 aussieht.
 
-**Auflisten von 2 –`Views\Home\Index.aspx`**
+**Auflisten von 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample2.aspx)]
 
@@ -161,19 +161,19 @@ Wenn Sie die Repository-Klasse erstellen, erstellen Sie eine Schnittstelle, die 
 
 Die Schnittstelle im Codebeispiel 3 heißt `IMovieRepository` und es stellt eine einzelne Methode namens `ListAll()`.
 
-**Auflisten von 3:`Models\IMovieRepository.cs`**
+**Auflisten von 3: `Models\IMovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample3.cs)]
 
 Auflisten von 4 der Repository-Klasse implementiert die `IMovieRepository` Schnittstelle. Beachten Sie, dass es sich um eine Methode namens enthält `ListAll()` , entspricht der Methode vorhanden sein, durch die `IMovieRepository` Schnittstelle.
 
-**Auflisten von 4 –`Models\MovieRepository.cs`**
+**Auflisten von 4 – `Models\MovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample4.cs)]
 
 Schließlich die `MoviesController` Klasse auflisten 5 verwendet das Repositorymuster. Es verwendet nicht mehr LINQ to SQL-Klassen direkt.
 
-**Auflisten von 5 –`Controllers\MoviesController.cs`**
+**Auflisten von 5 – `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample5.cs)]
 
@@ -183,7 +183,7 @@ Der zweite Konstruktor verfügt über einen einzelnen Parameter: eine `IMovieRep
 
 Die `MoviesController` Klasse ist die Nutzung von ein Software-Entwurfsmuster, die die Abhängigkeitsinjektion Muster aufgerufen. Insbesondere wird so genannte Abhängigkeitsinjektion Konstruktor verwendet. Erfahren Sie mehr zu diesem Muster im folgenden Artikel Smell lesen:
 
-[http://martinfowler.com/articles/Injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Beachten Sie, dass der gesamte Code in der `MoviesController` Klasse (mit Ausnahme von der erste Konstruktor) interagiert mit den `IMovieRepository` Schnittstelle anstelle des tatsächlichen `MovieRepository` Klasse. Der Code interagiert mit einer abstrakten Schnittstelle anstatt eine konkrete Implementierung der Schnittstelle.
 
@@ -197,6 +197,6 @@ Das Ziel dieses Lernprogramms wurde veranschaulicht, wie Sie nutzen Microsoft-LI
 
 Als Nächstes untersucht wir einen etwas schwieriger ist jedoch definitiv mehr virtuous Pfad für die Anzeige von Datenbankdaten. Wir haben genutzt, des Repositorymusters und alle unsere Datenbankzugriffslogik in einer separaten Repository-Klasse platziert werden. In unserem Controller haben wir alle unsere Code für eine Schnittstelle anstelle einer konkreten Klasse geschrieben. Der Vorteil des Repositorymusters ist, dass wir können einfach datenzugriffstechnologien in der Zukunft ändern und es uns erlaubt, unsere Controllerklassen problemlos zu testen.
 
->[!div class="step-by-step"]
-[Zurück](creating-model-classes-with-the-entity-framework-cs.md)
-[Weiter](displaying-a-table-of-database-data-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-model-classes-with-the-entity-framework-cs.md)
+> [Weiter](displaying-a-table-of-database-data-cs.md)

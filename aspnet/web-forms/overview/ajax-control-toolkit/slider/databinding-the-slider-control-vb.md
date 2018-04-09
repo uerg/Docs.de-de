@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 title: DataBinding das Schieberegler-Steuerelement (VB) | Microsoft Docs
 author: wenz
-description: "Das Schieberegler-Steuerelement im AJAX Control Toolkit bietet einen grafische Schieberegler, der mit der Maus gesteuert werden kann. Es ist möglich, binden Sie die aktuelle Position..."
+description: Das Schieberegler-Steuerelement im AJAX Control Toolkit bietet einen grafische Schieberegler, der mit der Maus gesteuert werden kann. Es ist möglich, binden Sie die aktuelle Position...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d106fda523356c9b7abd2d82b2d82537b50bd21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ecd8598cd7fdcbbb4812e501bb30fa1f563a054
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="databinding-the-slider-control-vb"></a>DataBinding das Schieberegler-Steuerelement (VB)
 ====================
@@ -52,5 +52,5 @@ Wie Sie im Browser sehen können, funktioniert die Datenbindung in beide Richtun
 
 Schieberegler und Textfeld sind synchron ([klicken Sie hier, um das Bild in voller Größe angezeigt](databinding-the-slider-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](using-the-slider-control-with-auto-postback-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](using-the-slider-control-with-auto-postback-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 title: Master/Detail-Filtern mit einer DropDownList (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm sehen wir, wie die Masterdatensätze in die Details des ausgewählten Listenelements in einem GridView und eines DropDownList-Steuerelements angezeigt werden."
+description: In diesem Lernprogramm sehen wir, wie die Masterdatensätze in die Details des ausgewählten Listenelements in einem GridView und eines DropDownList-Steuerelements angezeigt werden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 42a6a76b0b05045bed1ada227b7c32a51600b760
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Master/Detail-Filtern mit einer DropDownList (c#)
 ====================
@@ -87,12 +87,12 @@ Der letzte Schritt in unserem Master/Detail-Bericht wird der Produkte in Zusamme
 **Abbildung 7**: Wählen Sie die `GetProductsByCategoryID(categoryID)` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))
 
 
-Nachdem Sie diese Methode auswählen, der ObjectDataSource Assistent fordert uns für den Wert für der Methode  *`categoryID`*  Parameter. Verwenden Sie den Wert des ausgewählten `categories` DropDownList Element legen Sie als Quelle für die Parameter zum Steuern und die ControlID auf `Categories`.
+Nachdem Sie diese Methode auswählen, der ObjectDataSource Assistent fordert uns für den Wert für der Methode *`categoryID`* Parameter. Verwenden Sie den Wert des ausgewählten `categories` DropDownList Element legen Sie als Quelle für die Parameter zum Steuern und die ControlID auf `Categories`.
 
 
 [![Legen Sie die CategoryID-Parameter auf den Wert der DropDownList Kategorien](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
-**Abbildung 8**: Festlegen der  *`categoryID`*  auf den Wert von der `Categories` DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
+**Abbildung 8**: Festlegen der *`categoryID`* auf den Wert von der `Categories` DropDownList ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
 
 
 Nehmen Sie einen Moment Zeit, um unseren Fortschritt in einem Browser zu überprüfen. Wenn die Seite zuerst besuchen zu können, gehören dieser Produkte der ausgewählten Kategorie (Getränke) angezeigt werden, (wie in Abbildung 9 gezeigt), aber der DropDownList ändern nicht die Daten aktualisiert. Dies ist, da ein Postback, damit die GridView auftreten muss zu aktualisieren. Zu diesem Zweck haben wir zwei Möglichkeiten, die (nicht erforderlich, Code schreiben zu müssen):
@@ -145,11 +145,11 @@ Nach der Änderung, wenn zuerst auf der Seite die Option "– Wählen Sie eine K
 **Abbildung 13**: auf der ersten Seite laden Nein Produkte angezeigt werden ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))
 
 
-Ist der Grund keine Produkte werden beim angezeigt, da das Listenelement "– Wählen Sie eine Kategorie –" ausgewählt ist, weil ihr Wert ist `-1` und es sind keine Produkte in der Datenbank mit einem `CategoryID` von `-1`. Ist dies das Verhalten werden soll und Sie an diesem Punkt fertig sind. Wenn jedoch angezeigt werden soll *alle* der Kategorien, wenn das Listenelement "– Wählen Sie eine Kategorie –" ausgewählt ist, zurück zu der `ProductsBLL` Klasse und Anpassen der `GetProductsByCategoryID(categoryID)` Methode so, dass die It Ruft die `GetProducts()` Methode Wenn Die übergebene in  *`categoryID`*  Parameter ist kleiner als 0 (null):
+Ist der Grund keine Produkte werden beim angezeigt, da das Listenelement "– Wählen Sie eine Kategorie –" ausgewählt ist, weil ihr Wert ist `-1` und es sind keine Produkte in der Datenbank mit einem `CategoryID` von `-1`. Ist dies das Verhalten werden soll und Sie an diesem Punkt fertig sind. Wenn jedoch angezeigt werden soll *alle* der Kategorien, wenn das Listenelement "– Wählen Sie eine Kategorie –" ausgewählt ist, zurück zu der `ProductsBLL` Klasse und Anpassen der `GetProductsByCategoryID(categoryID)` Methode so, dass die It Ruft die `GetProducts()` Methode Wenn Die übergebene in *`categoryID`* Parameter ist kleiner als 0 (null):
 
 [!code-csharp[Main](master-detail-filtering-with-a-dropdownlist-cs/samples/sample2.cs)]
 
-Die hier verwendete Technik ist vergleichbar mit der Vorgehensweise wird verwendet, um alle Lieferanten anzuzeigen zurück in die [deklarative Parameter](../basic-reporting/declarative-parameters-cs.md) Tutorial, obwohl in diesem Beispiel wir den Wert verwenden, `-1` , um anzugeben, dass alle Datensätze werden soll Im Gegensatz zu abgerufen `null`. Grund hierfür ist die  *`categoryID`*  Parameter von der `GetProductsByCategoryID(categoryID)` Methode erwartet als Integer-Wert übergeben, während im Lernprogramm deklarative Parameter in einen Zeichenfolgen-Eingabeparameter übergeben wurden.
+Die hier verwendete Technik ist vergleichbar mit der Vorgehensweise wird verwendet, um alle Lieferanten anzuzeigen zurück in die [deklarative Parameter](../basic-reporting/declarative-parameters-cs.md) Tutorial, obwohl in diesem Beispiel wir den Wert verwenden, `-1` , um anzugeben, dass alle Datensätze werden soll Im Gegensatz zu abgerufen `null`. Grund hierfür ist die *`categoryID`* Parameter von der `GetProductsByCategoryID(categoryID)` Methode erwartet als Integer-Wert übergeben, während im Lernprogramm deklarative Parameter in einen Zeichenfolgen-Eingabeparameter übergeben wurden.
 
 Abbildung 14 zeigt einen Screenshot der `FilterByDropDownList.aspx` Wenn die Option "– Wählen Sie eine Kategorie –" aktiviert ist. Hier werden sämtliche Produkte in der Standardeinstellung angezeigt, und die Benutzer kann die Anzeige eingrenzen, indem Sie durch Auswahl einer bestimmten Kategorie.
 
@@ -169,7 +169,7 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Nächste](master-detail-filtering-with-two-dropdownlists-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](master-detail-filtering-with-two-dropdownlists-cs.md)

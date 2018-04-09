@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
-title: "Dynamisch Auffüllen eines Steuerelements (VB) | Microsoft Docs"
+title: Dynamisch Auffüllen eines Steuerelements (VB) | Microsoft Docs
 author: wenz
-description: "Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf t..."
+description: Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ec0b6d429f3eb4a7243201c2a91adde462cf6345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2031a80be71a406e632955583d83920dd0f3ef7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-vb"></a>Dynamisch Auffüllen eines Steuerelements (VB)
 ====================
@@ -55,12 +55,12 @@ Eine HTML-Schaltfläche (als ein HTML-Steuerelement, da es ein Postback an den S
 
 Schließlich müssen wir die `DynamicPopulateExtender` Kontrolle über das Netzwerk Dinge einrichten. Die folgenden Attribute werden festgelegt werden kann (abgesehen von offensichtlichen diejenigen `ID` und `runat` = `"server"`):
 
-- `TargetControlID`eines Speicherorts für das Ergebnis aus den Aufruf des Webdiensts
-- `ServicePath`Pfad zum Webdienst (auslassen, wenn Sie eine Seitenmethode verwenden möchten)
-- `ServiceMethod`Name der Webmethode oder Seitenmethode
-- `ContextKey`Informationen zum Sitzungskontext an den Webdienst gesendet werden
-- `PopulateTriggerControlID`Element, das den Aufruf des Webdiensts ausgelöst
-- `ClearContentsDuringUpdate`angibt, ob das Zielelement während Webdienstaufruf leer
+- `TargetControlID` eines Speicherorts für das Ergebnis aus den Aufruf des Webdiensts
+- `ServicePath` Pfad zum Webdienst (auslassen, wenn Sie eine Seitenmethode verwenden möchten)
+- `ServiceMethod` Name der Webmethode oder Seitenmethode
+- `ContextKey` Informationen zum Sitzungskontext an den Webdienst gesendet werden
+- `PopulateTriggerControlID` Element, das den Aufruf des Webdiensts ausgelöst
+- `ClearContentsDuringUpdate` angibt, ob das Zielelement während Webdienstaufruf leer
 
 Wie Sie sehen können, das Steuerelement erfordert einige Informationen-Zustandsmodells alles vor Ort ist jedoch ziemlich selbsterklärend. Hier wird das Markup für die `DynamicPopulateExtender` -Steuerelement in das aktuelle Szenario:
 
@@ -73,6 +73,6 @@ Führen Sie die ASP.NET-Seite in den Browser, und klicken Sie auf die Schaltflä
 
 Mit einem Klick auf die Schaltfläche mit den vom Server abgerufen, das Datum ([klicken Sie hier, um das Bild in voller Größe angezeigt](dynamically-populating-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
-[Weiter](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [Weiter](dynamically-populating-a-control-using-javascript-code-vb.md)

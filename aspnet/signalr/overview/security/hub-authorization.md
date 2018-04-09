@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/hub-authorization
-title: "Authentifizierung und Autorisierung für SignalR-Hubs | Microsoft Docs"
+title: Authentifizierung und Autorisierung für SignalR-Hubs | Microsoft Docs
 author: pfletcher
-description: "Dieses Thema beschreibt, wie festzulegen, welche Benutzer oder Rollen hubmethoden zugreifen können. Versionen der Software, die in diesem Thema verwendet Visual Studio 2013 .NET 4.5 SignalR Ve..."
+description: Dieses Thema beschreibt, wie festzulegen, welche Benutzer oder Rollen hubmethoden zugreifen können. Versionen der Software, die in diesem Thema verwendet Visual Studio 2013 .NET 4.5 SignalR Ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Authentifizierung und Autorisierung für SignalR-Hubs
 ====================
@@ -73,10 +73,10 @@ Oder Sie können angeben, dass ein Hub enthält eine Methode, die allen Benutzer
 
 Die folgenden Beispiele behandeln verschiedene autorisierungsszenarien:
 
-- `[Authorize]`– nur authentifizierte Benutzer
-- `[Authorize(Roles = "Admin,Manager")]`– nur authentifizierte Benutzer in den angegebenen Rollen
-- `[Authorize(Users = "user1,user2")]`– nur authentifizierte Benutzer mit dem angegebenen Benutzernamen
-- `[Authorize(RequireOutgoing=false)]`– nur authentifizierte Benutzer können den Hub aufrufen, aber Aufrufe vom Server an Clients keine Autorisierung, z. B., Beschränkung Wenn nur bestimmte Benutzer eine Nachricht senden können, aber alle anderen können die Nachricht empfangen. Die RequireOutgoing-Eigenschaft kann nur auf den gesamten Hub, nicht für Einzelpersonen-Methoden in den Hub angewendet werden. Wenn RequireOutgoing nicht auf "false" festgelegt ist, werden nur Benutzer, die die autorisierungsanforderung erfüllen vom Server aufgerufen.
+- `[Authorize]` – nur authentifizierte Benutzer
+- `[Authorize(Roles = "Admin,Manager")]` – nur authentifizierte Benutzer in den angegebenen Rollen
+- `[Authorize(Users = "user1,user2")]` – nur authentifizierte Benutzer mit dem angegebenen Benutzernamen
+- `[Authorize(RequireOutgoing=false)]` – nur authentifizierte Benutzer können den Hub aufrufen, aber Aufrufe vom Server an Clients keine Autorisierung, z. B., Beschränkung Wenn nur bestimmte Benutzer eine Nachricht senden können, aber alle anderen können die Nachricht empfangen. Die RequireOutgoing-Eigenschaft kann nur auf den gesamten Hub, nicht für Einzelpersonen-Methoden in den Hub angewendet werden. Wenn RequireOutgoing nicht auf "false" festgelegt ist, werden nur Benutzer, die die autorisierungsanforderung erfüllen vom Server aufgerufen.
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Wenn der .NET Client mit einem Hub, der ASP.NET-Formularauthentifizierung verwen
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-Die Konsolen-app sendet die Anmeldeinformationen für **www.contoso.com/RemoteLogin** konnte die finden Sie in eine leere Seite, die den folgenden Code-Behind-Datei enthält.
+Die Konsolen-app sendet die Anmeldeinformationen für <strong>www.contoso.com/RemoteLogin</strong> konnte die finden Sie in eine leere Seite, die den folgenden Code-Behind-Datei enthält.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

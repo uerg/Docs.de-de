@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 title: Verwenden parametrisierte Abfragen mit der SqlDataSource (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm haben wir unsere Betrachtung der SqlDataSource-Steuerelement fortfahren und erfahren Sie, wie parametrisierte Abfragen zu definieren. Die Parameter können angegeben werden, beide Decla..."
+description: In diesem Lernprogramm haben wir unsere Betrachtung der SqlDataSource-Steuerelement fortfahren und erfahren Sie, wie parametrisierte Abfragen zu definieren. Die Parameter können angegeben werden, beide Decla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b1cda18620a970c45b05039dd380c393e3854889
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a7442ef3bebb2742cc36d695914b745aa2dfa721
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Verwenden parametrisierte Abfragen mit der SqlDataSource (VB)
 ====================
@@ -235,7 +235,7 @@ Durch Hinzufügen von einem SqlDataSource zum Starten `ParameterizedQueries.aspx
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-vb/samples/sample10.sql)]
 
-`ORDER BY NEWID()`Gibt die Datensätze in zufälliger Reihenfolge sortiert (finden Sie unter [Using `NEWID()` , nach dem Zufallsprinzip Sortieren von Datensätzen](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`Gibt den ersten Datensatz aus dem Resultset zurück. Zusammengestellt, die diese Abfrage gibt die `CategoryID` und `CategoryName` Spaltenwerte aus einer einzelnen, zufällig ausgewählten Kategorie.
+`ORDER BY NEWID()` Gibt die Datensätze in zufälliger Reihenfolge sortiert (finden Sie unter [Using `NEWID()` , nach dem Zufallsprinzip Sortieren von Datensätzen](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1` Gibt den ersten Datensatz aus dem Resultset zurück. Zusammengestellt, die diese Abfrage gibt die `CategoryID` und `CategoryName` Spaltenwerte aus einer einzelnen, zufällig ausgewählten Kategorie.
 
 Die Kategorie s angezeigt `CategoryName` -Wert, der Seite ein Label-Websteuerelement hinzugefügt haben, legen Sie seine `ID` Eigenschaft, um `CategoryNameLabel`, und löschen, dessen `Text` Eigenschaft. Um die Daten von einem SqlDataSource-Steuerelement programmgesteuert abzurufen, müssen wir Aufrufen seiner `Select()` Methode. Die [ `Select()` Methode](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) erwartet einen einzelnen Eingabeparameter vom Typ [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), der angibt, wie die Daten vor der Rückgabe Nachrichten werden sollte. Dies kann die Anweisungen zum Sortieren und Filtern der Daten enthalten und wird durch die Daten, die Websteuerelemente beim Sortieren oder paging durch die Daten von einem SqlDataSource-Steuerelement verwendet. In unserem Beispiel jedoch wir Verschlüsselungskennwort t müssen die Daten vor der Rückgabe geändert werden, und daher wird auf die `DataSourceSelectArguments.Empty` Objekt.
 
@@ -246,7 +246,7 @@ Im folgende Code wird veranschaulicht, wie die Datensätze aus Abrufen der `Rand
 
 [!code-vb[Main](using-parameterized-queries-with-the-sqldatasource-vb/samples/sample11.vb)]
 
-`randomCategoryView(0)`Gibt das erste `DataRowView` in der DataView. `randomCategoryView(0)("CategoryName")`Gibt den Wert der `CategoryName` Spalte in dieser ersten Zeile. Beachten Sie, dass die DataView lose typisierten ist. Einen bestimmter Spaltenwert verweisen muss den Namen der Spalte als Zeichenfolge (in diesem Fall CategoryName) übergeben werden. Abbildung 13 zeigt die Meldung angezeigt, der `CategoryNameLabel` beim Anzeigen der Seite ". Natürlich ist die tatsächliche Kategorienamen angezeigt nach dem Zufallsprinzip ausgewählt, die `RandomCategoryDataSource` SqlDataSource auf jeden Besuch der Seite "(einschließlich Postbacks).
+`randomCategoryView(0)` Gibt das erste `DataRowView` in der DataView. `randomCategoryView(0)("CategoryName")` Gibt den Wert der `CategoryName` Spalte in dieser ersten Zeile. Beachten Sie, dass die DataView lose typisierten ist. Einen bestimmter Spaltenwert verweisen muss den Namen der Spalte als Zeichenfolge (in diesem Fall CategoryName) übergeben werden. Abbildung 13 zeigt die Meldung angezeigt, der `CategoryNameLabel` beim Anzeigen der Seite ". Natürlich ist die tatsächliche Kategorienamen angezeigt nach dem Zufallsprinzip ausgewählt, die `RandomCategoryDataSource` SqlDataSource auf jeden Besuch der Seite "(einschließlich Postbacks).
 
 
 [![Nach dem Zufallsprinzip ausgewählte Kategorie-s, auf die Namen angezeigt wird](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
@@ -306,12 +306,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Scott Clyde Randell Schmidt und Ken Pespisa. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](querying-data-with-the-sqldatasource-control-vb.md)
-[Weiter](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](querying-data-with-the-sqldatasource-control-vb.md)
+> [Weiter](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

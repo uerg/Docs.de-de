@@ -1,7 +1,7 @@
 ---
-title: "Verschlüsselung ruhender"
+title: Verschlüsselung ruhender in ASP.NET Core
 author: rick-anderson
-description: "In diesem Dokument werden die Implementierungsdetails der ASP.NET Core Schutz Key Verschlüsselung ruhender Daten."
+description: Erfahren Sie mehr Details zur Implementierung von ASP.NET Core-Datenschutz-Verschlüsselung im Ruhezustand.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9247b141a44c958f34529e5a42a0ddc8c8893cb0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-encryption-at-rest"></a>Verschlüsselung ruhender
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>Verschlüsselung ruhender in ASP.NET Core
 
 <a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 Wird standardmäßig die Datenschutzsystem [verwendet eine Heuristik](xref:security/data-protection/configuration/default-settings) um zu bestimmen, wie kryptografischen schlüsselmaterialien ruhende verschlüsselt werden soll. Der Entwickler kann außer Kraft setzen die Heuristik und manuell angeben, wie die Schlüssel im Ruhezustand verschlüsselt werden soll.
 
 > [!NOTE]
-> Bei Angabe ein expliziter Schlüsselverschlüsselung zur Rest-Mechanismus wird die Datenschutzsystem den Standardmechanismus für die Speicherung Registrierung aufzuheben, den von die Heuristik zur Verfügung gestellt. Sie müssen [Geben Sie eine explizite schlüsselspeichermechanismus](key-storage-providers.md#data-protection-implementation-key-storage-providers), andernfalls das Data Protection-System nicht gestartet.
+> Bei Angabe ein expliziter Schlüsselverschlüsselung zur Rest-Mechanismus wird die Datenschutzsystem den Standardmechanismus für die Speicherung Registrierung aufzuheben, den von die Heuristik zur Verfügung gestellt. Sie müssen [Geben Sie eine explizite schlüsselspeichermechanismus](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), andernfalls das Data Protection-System nicht gestartet.
 
 <a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
@@ -95,7 +95,7 @@ In diesem Szenario wird die AD-Domänencontroller für die Verteilung der Versch
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Zertifikatbasierte Verschlüsselung mit Windows DPAPI-NG
 
-Wenn Sie auf Windows 8.1 ausführen / Windows Server 2012 R2 oder höher, können Sie verwenden Windows DPAPI-NG zertifikatbasierte Verschlüsselung ausführen, auch wenn die Anwendung ausgeführt wird, auf [.NET Core](https://www.microsoft.com/net/core). Um diesen Vorteil zu erstellen, verwenden Sie die Regel sicherheitsbeschreibungs-Zeichenfolge "Zertifikat HashId:thumbprint =", wobei Fingerabdruck den Hexadezimal codierten SHA1-Fingerabdruck des Zertifikats zu verwenden ist. Ein Beispiel finden Sie weiter unten.
+Wenn Sie auf Windows 8.1 ausführen / Windows Server 2012 R2 oder höher, können Sie verwenden Windows DPAPI-NG zertifikatbasierte Verschlüsselung ausführen, auch wenn die Anwendung auf .NET Core ausgeführt wird. Um diesen Vorteil zu erstellen, verwenden Sie die Regel sicherheitsbeschreibungs-Zeichenfolge "Zertifikat HashId:thumbprint =", wobei Fingerabdruck den Hexadezimal codierten SHA1-Fingerabdruck des Zertifikats zu verwenden ist. Ein Beispiel finden Sie weiter unten.
 
 ```csharp
 sc.AddDataProtection()

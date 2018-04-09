@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: "Teil 1: Übersicht und Datei -> Neues Projekt | Microsoft Docs"
+title: 'Teil 1: Übersicht und Datei -> Neues Projekt | Microsoft Docs'
 author: jongalloway
-description: "Diese Reihe von Lernprogrammen details aller die Schritte zum Erstellen von ASP.NET MVC-Music Store-beispielanwendung. Teil 1 erläutert Übersicht und Datei -> Neues Projekt."
+description: Diese Reihe von Lernprogrammen details aller die Schritte zum Erstellen von ASP.NET MVC-Music Store-beispielanwendung. Teil 1 erläutert Übersicht und Datei -> Neues Projekt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 1e3373a21c7d1766cfad390a7ba68b1363d8d895
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-file-new-project"></a>Teil 1: Übersicht und Datei -> Neues Projekt
 ====================
@@ -115,15 +115,15 @@ Die leere MVC 3-Vorlage nicht vollständig leer ist – er fügt eine grundlegen
 
 ASP.NET MVC binärencoder einige einfachen Benennungskonventionen für Ordnernamen:
 
-| **Ordner** | **Zweck** |
+| **Ordner** | **Purpose** |
 | --- | --- |
-| **/ Controller** | Domänencontroller für die vom Browser Eingabe müssen entscheiden, was Sie darin tun, und Antwort an den Benutzer reagieren. |
-| **/ Ansichten** | Ansichten halten unsere UI-Vorlagen |
-| **/ Modelle** | Modelle enthalten, und Bearbeiten von Daten |
-| **/ Content** | Dieser Ordner enthält, unsere Bilder, CSS und alle anderen statischen Inhalten |
-| **/ Skripts** | Dieser Ordner enthält unsere JavaScript-Dateien |
+| **/Controllers** | Domänencontroller für die vom Browser Eingabe müssen entscheiden, was Sie darin tun, und Antwort an den Benutzer reagieren. |
+| **/Views** | Ansichten halten unsere UI-Vorlagen |
+| **/Models** | Modelle enthalten, und Bearbeiten von Daten |
+| **/Content** | Dieser Ordner enthält, unsere Bilder, CSS und alle anderen statischen Inhalten |
+| **/Scripts** | Dieser Ordner enthält unsere JavaScript-Dateien |
 
 Diese Ordner sind auch in einer leeren ASP.NET MVC-Anwendung enthalten, da das ASP.NET MVC-Framework standardmäßig einen Ansatz "Konvention über Konfiguration verwendet", und einige Annahmen Standardwert basierend auf den Ordnerbenennungskonventionen. Suchen z. B. Domänencontrollern für Ansichten im Ordner "Ansichten" standardmäßig ohne dass Sie dies explizit im Code anzugeben. Verwenden von den Standardkonventionen reduziert die Menge an Code, die Sie schreiben, müssen und Sie können auch einfacher von anderen Entwicklern Projekts verstanden. Wir erläutern die folgenden Konventionen für die weitere, wenn wir unsere Anwendung erstellen.
 
->[!div class="step-by-step"]
-[Nächste](mvc-music-store-part-2.md)
+> [!div class="step-by-step"]
+> [Nächste](mvc-music-store-part-2.md)

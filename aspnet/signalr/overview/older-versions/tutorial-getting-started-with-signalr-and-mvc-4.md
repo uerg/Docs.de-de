@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Lernprogramm: Erste Schritte mit SignalR 1.x und MVC 4
 ====================
@@ -63,17 +63,17 @@ In diesem Abschnitt veranschaulicht das Erstellen einer ASP.NET MVC 4-Anwendung,
         > Wählen Sie in Visual Studio 2010 **.NET Framework 4** die Dropdown-Steuerelement die Framework-Version. SignalR-Code, die auf .NET Framework-Versionen 4 und 4.5 ausgeführt wird.
 
         ![Erstellen von Mvc-Webanwendung](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. Wählen Sie die Internet-Anwendungsvorlage, deaktivieren Sie die Option zum **erstellen ein Komponententestprojekts**, und klicken Sie auf OK.
+      2. Wählen Sie die Internet-Anwendungsvorlage, deaktivieren Sie die Option zum **erstellen ein Komponententestprojekts**, und klicken Sie auf OK.
 
-        ![Erstellen von Mvc-Internet-Website](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. Öffnen der **Tools | Bibliothek-Paket-Manager | Paket-Manager-Konsole** und führen Sie den folgenden Befehl. Dieser Schritt fügt dem Projekt eine Reihe von Skriptdateien und Assemblyverweisen, die SignalR-Funktionen zu aktivieren.
+         ![Erstellen von Mvc-Internet-Website](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. Öffnen der **Tools | Bibliothek-Paket-Manager | Paket-Manager-Konsole** und führen Sie den folgenden Befehl. Dieser Schritt fügt dem Projekt eine Reihe von Skriptdateien und Assemblyverweisen, die SignalR-Funktionen zu aktivieren.
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. In **Projektmappen-Explorer** erweitern Sie den Ordner "Skripts". Beachten Sie, dass das Projekt Skriptbibliotheken für SignalR hinzugefügt wurde.
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. In **Projektmappen-Explorer** erweitern Sie den Ordner "Skripts". Beachten Sie, dass das Projekt Skriptbibliotheken für SignalR hinzugefügt wurde.
 
-        ![Verweise auf](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, wählen Sie **hinzufügen | Neuer Ordner**, und fügen Sie einen neuen Ordner namens **Hubs**.
-    6. Mit der rechten Maustaste die **Hubs** Ordner, klicken Sie auf **hinzufügen | Klasse**, und erstellen Sie eine neue c#-Klasse, mit dem Namen **ChatHub.cs**. Sie verwenden diese Klasse als einen SignalR-Hub, die Nachrichten für alle Clients sendet.
+         ![Verweise auf](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, wählen Sie **hinzufügen | Neuer Ordner**, und fügen Sie einen neuen Ordner namens **Hubs**.
+      6. Mit der rechten Maustaste die **Hubs** Ordner, klicken Sie auf **hinzufügen | Klasse**, und erstellen Sie eine neue c#-Klasse, mit dem Namen **ChatHub.cs**. Sie verwenden diese Klasse als einen SignalR-Hub, die Nachrichten für alle Clients sendet.
 
 > [!NOTE]
 > Wenn Sie Visual Studio 2012 verwenden, und installiert die [ASP.NET und Web Tools 2012.2 Update](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), können Sie die neue Elementvorlage SignalR zum Erstellen der hubklasse. Zu diesem Zweck Maustaste die **Hubs** Ordner, klicken Sie auf **hinzufügen | Neues Element**Option **SignalR-Hub-Klasse (v1)**, und benennen Sie die Klasse **ChatHub.cs**.

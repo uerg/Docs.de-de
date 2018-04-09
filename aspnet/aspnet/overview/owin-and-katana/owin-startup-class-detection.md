@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
 title: Owin-Start Klasse Erkennung | Microsoft Docs
 author: Praburaj
-description: "Dieses Lernprogramm zeigt, wie zum Konfigurieren der OWIN-Start-Klasse geladen wird. Weitere Informationen zu OWIN finden Sie eine Übersicht über Project Katana. Dieses Lernprogramm wurde..."
+description: Dieses Lernprogramm zeigt, wie zum Konfigurieren der OWIN-Start-Klasse geladen wird. Weitere Informationen zu OWIN finden Sie eine Übersicht über Project Katana. Dieses Lernprogramm wurde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33d2745b24387419e5614c62c2d46948427b242a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-startup-class-detection"></a>Erkennung von owin-Start-Klasse
 ====================
@@ -38,20 +38,20 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
- Die `OwinStartup` Attribut überschreibt die Benennungskonvention verwendet wird. Sie können auch einen Anzeigenamen mit diesem Attribut angegeben ist, jedoch über einen Anzeigenamen erfordert, dass Sie auch verwenden, die `appSetting` Element in der Konfigurationsdatei.
+   Die `OwinStartup` Attribut überschreibt die Benennungskonvention verwendet wird. Sie können auch einen Anzeigenamen mit diesem Attribut angegeben ist, jedoch über einen Anzeigenamen erfordert, dass Sie auch verwenden, die `appSetting` Element in der Konfigurationsdatei.
 3. **AppSetting-Element in der Konfigurationsdatei**: die `appSetting` Element überschreibt die `OwinStartup` Attribut und Benennungskonvention. Kann auch über mehrere Autostart-Klassen (jede mit einer `OwinStartup` Attribut) und konfigurieren, welche Startklasse in einer Konfigurationsdatei mit dem Markup ähnlich der folgenden geladen werden:  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
- Die folgende Schlüssel, der explizit die Startklasse und die Assembly angibt, kann auch verwendet werden: 
+   Die folgende Schlüssel, der explizit die Startklasse und die Assembly angibt, kann auch verwendet werden: 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample3.xml)]
 
- Die folgenden XML-Code in der Konfigurationsdatei gibt einen benutzerfreundlichen Start Klassennamen des `ProductionConfiguration`.  
+   Die folgenden XML-Code in der Konfigurationsdatei gibt einen benutzerfreundlichen Start Klassennamen des `ProductionConfiguration`.  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
- Die oben genannten Markup muss verwendet werden, mit den folgenden `OwinStartup` -Typattribut gibt einen Anzeigenamen und bewirkt, dass die `ProductionStartup2` Klasse ausgeführt.
+   Die oben genannten Markup muss verwendet werden, mit den folgenden `OwinStartup` -Typattribut gibt einen Anzeigenamen und bewirkt, dass die `ProductionStartup2` Klasse ausgeführt.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample5.cs?highlight=1,16)]
 4. So deaktivieren Sie die OWIN-startermittlung Hinzufügen der `appSetting owin:AutomaticAppStartup` mit einem Wert von `"false"` in der Datei "Web.config".
@@ -63,29 +63,29 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https
 1. Erstellen Sie eine leere ASP.NET-Webanwendung und nennen sie **StartupDemo**. -Installieren Sie `Microsoft.Owin.Host.SystemWeb` mithilfe des NuGet-Paket-Managers. Aus der **Tools** klicken Sie im Menü **Bibliothekspaket-Manager**, und klicken Sie dann **Package Manager Console**. Geben Sie folgenden Befehl ein:  
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-- Fügen Sie eine OWIN-Start-Klasse. In Visual Studio 2013 mit der rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. – In der **neues Element hinzufügen** Dialogfeld Geben Sie *OWIN* suchen (Feld), und ändern Sie den Namen in Startup.cs, und klicken Sie dann auf **hinzufügen**.  
+2. Fügen Sie eine OWIN-Start-Klasse. In Visual Studio 2013 mit der rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. – In der **neues Element hinzufügen** Dialogfeld Geben Sie *OWIN* suchen (Feld), und ändern Sie den Namen in Startup.cs, und klicken Sie dann auf **hinzufügen**.  
   
-    ![](owin-startup-class-detection/_static/image1.png)   
+     ![](owin-startup-class-detection/_static/image1.png)   
   
- Das nächste Mal hinzugefügt werden soll ein *Owin Startklasse*, werden in von der **hinzufügen** im Menü.  
+   Das nächste Mal hinzugefügt werden soll ein *Owin Startklasse*, werden in von der **hinzufügen** im Menü.  
    
-    ![](owin-startup-class-detection/_static/image2.png)  
+     ![](owin-startup-class-detection/_static/image2.png)  
   
- Alternativ können Sie mit der rechten Maustaste, klicken Sie auf das Projekt und wählen Sie **hinzufügen**, und wählen Sie dann **neues Element**, und wählen Sie dann die **Owin Startklasse**.  
+   Alternativ können Sie mit der rechten Maustaste, klicken Sie auf das Projekt und wählen Sie **hinzufügen**, und wählen Sie dann **neues Element**, und wählen Sie dann die **Owin Startklasse**.  
   
-    ![](owin-startup-class-detection/_static/image3.png)  
+     ![](owin-startup-class-detection/_static/image3.png)  
   
 - Ersetzen Sie den generierten Code in der *Startup.cs* Datei durch Folgendes:  
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- Die `app.Use` Lambda-Ausdruck wird verwendet, um die angegebenen middlewarekomponente, für die OWIN-Pipeline zu registrieren. In diesem Fall werden wir die Protokollierung von eingehenden Anforderungen vor dem Antworten auf die eingehende Anforderung einrichten. Die `next` Parameter wird der Delegat ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [Aufgabe](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) an die nächste Komponente in der Pipeline. Die `app.Run` Lambda-Ausdruck, der Pipeline auf eingehende Anforderungen verknüpft, und stellt den Mechanismus für die Antwort.
+  Die `app.Use` Lambda-Ausdruck wird verwendet, um die angegebenen middlewarekomponente, für die OWIN-Pipeline zu registrieren. In diesem Fall werden wir die Protokollierung von eingehenden Anforderungen vor dem Antworten auf die eingehende Anforderung einrichten. Die `next` Parameter wird der Delegat ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [Aufgabe](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) an die nächste Komponente in der Pipeline. Die `app.Run` Lambda-Ausdruck, der Pipeline auf eingehende Anforderungen verknüpft, und stellt den Mechanismus für die Antwort.
      > [!NOTE]
      > Im obigen Code haben wir auskommentiert ist die `OwinStartup` -Attribut, und wir sind der Konvention aus der Klasse mit dem Namen der vertrauenden Seite `Startup` .-drücken ***F5*** zum Ausführen der Anwendung. Drücken Sie die aktualisierungstaste mehrmals.  
   
     ![](owin-startup-class-detection/_static/image4.png)  
-Hinweis: Die Anzahl der Bilder in diesem Lernprogramm gezeigt entspricht nicht die Zahl angezeigt. Die Millisekunde Zeichenfolge wird verwendet, um eine neue Antwort anzuzeigen, wenn Sie die Seite aktualisieren.  
- Sehen Sie die Ablaufverfolgungsinformationen in die **Ausgabe** Fenster.  
+  Hinweis: Die Anzahl der Bilder in diesem Lernprogramm gezeigt entspricht nicht die Zahl angezeigt. Die Millisekunde Zeichenfolge wird verwendet, um eine neue Antwort anzuzeigen, wenn Sie die Seite aktualisieren.  
+  Sehen Sie die Ablaufverfolgungsinformationen in die **Ausgabe** Fenster.  
   
     ![](owin-startup-class-detection/_static/image5.png)
 
@@ -105,7 +105,7 @@ In diesem Abschnitt fügen wir einen anderen Startklasse. Sie können mehrere OW
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample10.cs?highlight=6,14-18)]
 
- Die `OwinStartup` Attribut-Überladung, die oben genannten gibt `TestingConfiguration` als die *angezeigten* -Namen der Start-Klasse.
+   Die `OwinStartup` Attribut-Überladung, die oben genannten gibt `TestingConfiguration` als die *angezeigten* -Namen der Start-Klasse.
 6. Öffnen der *"Web.config"* Datei, und fügen Sie den OWIN-App-Systemstartschlüssel gibt den Anzeigenamen der Startklasse an:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample11.xml?highlight=3-5)]
@@ -122,11 +122,11 @@ In diesem Abschnitt fügen wir einen anderen Startklasse. Sie können mehrere OW
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample14.cs)]
 
- Jede der OWIN-App-Systemstartschlüssel unten führt dazu, dass die Produktions-Klasse zum Ausführen. 
+    Jede der OWIN-App-Systemstartschlüssel unten führt dazu, dass die Produktions-Klasse zum Ausführen. 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample15.xml)]
 
- Die letzte Schlüssel zum Systemstart gibt die Startmethode der Konfiguration an. Die folgenden Schlüssel zum Systemstart OWIN-App können Sie den Namen der Konfigurationsklasse, die ändern `MyConfiguration` .
+    Die letzte Schlüssel zum Systemstart gibt die Startmethode der Konfiguration an. Die folgenden Schlüssel zum Systemstart OWIN-App können Sie den Namen der Konfigurationsklasse, die ändern `MyConfiguration` .
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
@@ -136,7 +136,7 @@ In diesem Abschnitt fügen wir einen anderen Startklasse. Sie können mehrere OW
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample17.xml?highlight=3-6)]
 
- Der Schlüssel für die zuletzt wins, dies in diesem Fall `TestStartup` angegeben ist.
+   Der Schlüssel für die zuletzt wins, dies in diesem Fall `TestStartup` angegeben ist.
 2. Installieren Sie Owinhost aus der PMC: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample18.cmd)]
@@ -144,14 +144,14 @@ In diesem Abschnitt fügen wir einen anderen Startklasse. Sie können mehrere OW
 
     [!code-console[Main](owin-startup-class-detection/samples/sample19.cmd)]
 
- Es wird im Befehlsfenster angezeigt: 
+   Es wird im Befehlsfenster angezeigt: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample20.cmd)]
 4. Starten Sie einen Browser mit der URL `http://localhost:5000/`.  
   
     ![](owin-startup-class-detection/_static/image8.png)  
   
- OwinHost berücksichtigt die Start-Konventionen, die oben aufgeführten.
+   OwinHost berücksichtigt die Start-Konventionen, die oben aufgeführten.
 5. In das Befehlsfenster die EINGABETASTE, um OwinHost zu beenden.
 6. In der `ProductionStartup` -Klasse verwenden, fügen Sie das folgende OwinStartup-Attribut gibt einen Anzeigenamen an *ProductionConfiguration*.
 
@@ -160,9 +160,9 @@ In diesem Abschnitt fügen wir einen anderen Startklasse. Sie können mehrere OW
 
     [!code-console[Main](owin-startup-class-detection/samples/sample22.cmd)]
 
- Die Startklasse Produktion wird geladen.  
+   Die Startklasse Produktion wird geladen.  
     ![](owin-startup-class-detection/_static/image9.png)  
- Anwendung hat mehrere Autostart-Klassen, und in diesem Beispiel haben wir die Startklasse. bis zur Laufzeit laden verzögert.
+   Anwendung hat mehrere Autostart-Klassen, und in diesem Beispiel haben wir die Startklasse. bis zur Laufzeit laden verzögert.
 8. Testen Sie die folgenden Startoptionen für die Common Language Runtime:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample23.cmd)]

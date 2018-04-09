@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>Die wichtigsten Funktionen in ASP.NET Web Pages 2
 ====================
@@ -53,7 +53,7 @@ Um Webseiten zu installieren, können Sie Microsoft Web Platform Installer, dies
 
 1. Navigieren Sie zu die Installationsseite für die neueste Version von Webplattform-Installer:
 
-    [https://go.Microsoft.com/fwlink/?LinkId=226883](https://go.microsoft.com/fwlink/?LinkId=226883)
+    [https://go.microsoft.com/fwlink/?LinkId=226883](https://go.microsoft.com/fwlink/?LinkId=226883)
 
     > [!NOTE]
     > Wenn Sie bereits WebMatrix 1 installiert haben, von dieser Installation zu WebMatrix 2 Beta aktualisiert. Sie können Websites ausführen, die mit Version 1 oder 2 auf demselben Computer erstellt wurden. Weitere Informationen finden Sie im Abschnitt auf [Ausführung Web Pages-Anwendungen parallel dazu](#sidebyside).
@@ -62,9 +62,9 @@ Um Webseiten zu installieren, können Sie Microsoft Web Platform Installer, dies
     Wenn Sie Internet Explorer verwenden, fahren Sie mit dem nächsten Schritt fort. Wenn Sie einen anderen Browser wie Mozilla Firefox oder Google Chrome verwenden, werden Sie aufgefordert, speichern die *Webmatrix.exe* Datei auf Ihrem Computer. Speichern Sie die Datei, und klicken Sie dann auf, um das Installationsprogramm zu starten.
 3. Führen Sie das Installationsprogramm, und wählen Sie die **installieren** Schaltfläche. Hiermit werden installiert WebMatrix- und Web Pages.
 
-## <a id="New_and_Enhanced_Features"></a>Neue und verbesserte Funktionen
+## <a id="New_and_Enhanced_Features"></a>  Neue und verbesserte Funktionen
 
-### <a id="Changes_for_the_RC_Version"></a>Änderungen für die RC-Version (Juni 2012)
+### <a id="Changes_for_the_RC_Version"></a>  Änderungen für die RC-Version (Juni 2012)
 
 Die RC-Version im Juni 2012 verfügt über ein paar Änderungen über die Beta-Version aktualisieren, die im März 2012 veröffentlicht wurde. Diese Änderungen sind:
 
@@ -94,8 +94,8 @@ Die Beta-Version, die im Februar 2012 veröffentlicht wurde, nur wenige Änderun
     `<a href="~/Default.cshtml">Home</a>`
 - Die `Scripts` Helfer für die Verwaltung von Ressourcen (Ressource) wurde durch ersetzt die `Assets` Helper, verfügt über etwas andere Methoden, z. B. die folgenden:
 
-    - Für `Scripts.Add`, verwenden`Assets.AddScript`
-    - Für `Scripts.GetScriptTags`, verwenden`Assets.GetScripts`
+  - Für `Scripts.Add`, verwenden `Assets.AddScript`
+  - Für `Scripts.GetScriptTags`, verwenden `Assets.GetScripts`
 
     Dies ist eine unterbrechende Änderung. die `Scripts` Klasse ist nicht in der Betaversion verfügbar. Die Codebeispiele in diesem Dokument, mit denen Asset Management wurden mit dieser Änderung aktualisiert.
 
@@ -115,15 +115,15 @@ Die neue **persönliche Website** Vorlage können Sie eine Website zu erstellen,
 
 Für den Zugriff auf die **persönliche Website** Vorlage, wählen Sie **Vorlagen** auf die WebMatrix **Schnellstart** Bildschirm.
 
-[![Topseven-Personalsite-1](top-features-in-web-pages-2/_static/image2.png)](top-features-in-web-pages-2/_static/image1.png)
+[![topseven-personalsite-1](top-features-in-web-pages-2/_static/image2.png)](top-features-in-web-pages-2/_static/image1.png)
 
 In der **Vorlagen** Dialogfeld Wählen Sie die **persönliche Website** Vorlage.
 
-[![Topseven-Personalsite-2](top-features-in-web-pages-2/_static/image4.png)](top-features-in-web-pages-2/_static/image3.png)
+[![topseven-personalsite-2](top-features-in-web-pages-2/_static/image4.png)](top-features-in-web-pages-2/_static/image3.png)
 
 Die Zielseite der der **persönliche Website** Vorlage können Sie die Links zum Einrichten Ihrer Blog verwenden, führen Sie die Twitter-Seite und Fotos Seite.
 
-[![Topseven-Personalsite-3](top-features-in-web-pages-2/_static/image6.png)](top-features-in-web-pages-2/_static/image5.png)
+[![topseven-personalsite-3](top-features-in-web-pages-2/_static/image6.png)](top-features-in-web-pages-2/_static/image5.png)
 
 <a id="validation"></a>
 ### <a name="validating-user-input"></a>Validieren von Benutzereingaben
@@ -149,13 +149,13 @@ Eine Zusammenfassung anzeigen (`<ul>` Liste) aller Fehler, die sich auf der Seit
 
 Diese Schritte sind ausreichend, um die serverseitige Validierung zu implementieren. Wenn Sie die clientseitige Validierung hinzufügen möchten, gehen Sie darüber hinaus.
 
-Fügen Sie die Datei die folgenden Skriptverweise innerhalb der `<head>` Abschnitt einer Webseite. Die ersten beiden Skriptverweise zeigen auf remote-Dateien auf einem Content Delivery Network (CDN)-Server. Die dritte Verweis zeigt auf eine lokale Skriptdatei.
+Fügen Sie die Datei die folgenden Skriptverweise innerhalb der `<head>` Abschnitt einer Webseite. Die ersten beiden Skriptverweise zeigen auf remote-Dateien auf einem Content Delivery Network (CDN)-Server. Die dritte Verweis zeigt auf eine lokale Skriptdatei. Produktions-apps müssen als Fallback implementieren, wenn das CDN nicht verfügbar ist. Das Fallback zu testen.
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 Die einfachste Möglichkeit, erhalten eine lokale Kopie der *jquery.validate.unobtrusive.min.js* Bibliothek zum Erstellen einer neuen Web Pages-Website, die basierend auf einer Site-Vorlagen (z. B. Starter Site) ist. Die Website, die von der Vorlage erstellten stellt *jquery.validate.unobtrusive.js* -Datei in die Ordner "Skripts", von dem Sie sie auf Ihrer Website kopieren können.
 
-Wenn Ihre Website verwendet eine*\_SiteLayout* zum Steuern des Seitenlayouts Seite, Sie können diese Skriptverweise in dieser Seite einschließen, damit die Überprüfung für alle Inhaltsseiten verfügbar ist. Wenn Sie die Überprüfung nur auf bestimmte Seiten ausführen möchten, können Sie den Ressourcen-Manager, um die Skripts auf nur die Seiten zu registrieren. Zu diesem Zweck rufen `Assets.AddScript(path)` auf der Seite, die Sie überprüfen möchten und jede der Skriptdateien verweisen. Fügen Sie dann auf einen Aufruf von `Assets.GetScripts` in der  *\_SiteLayout* Seite, um den registrierten Rendern `<script>` Tags. Weitere Informationen finden Sie im Abschnitt [Registrieren von Skripts mit dem Ressourcen-Manager](#resmanagement).
+Wenn Ihre Website verwendet eine<em>\_SiteLayout</em> zum Steuern des Seitenlayouts Seite, Sie können diese Skriptverweise in dieser Seite einschließen, damit die Überprüfung für alle Inhaltsseiten verfügbar ist. Wenn Sie die Überprüfung nur auf bestimmte Seiten ausführen möchten, können Sie den Ressourcen-Manager, um die Skripts auf nur die Seiten zu registrieren. Zu diesem Zweck rufen `Assets.AddScript(path)` auf der Seite, die Sie überprüfen möchten und jede der Skriptdateien verweisen. Fügen Sie dann auf einen Aufruf von `Assets.GetScripts` in der  <em>\_SiteLayout</em> Seite, um den registrierten Rendern `<script>` Tags. Weitere Informationen finden Sie im Abschnitt [Registrieren von Skripts mit dem Ressourcen-Manager](#resmanagement).
 
 Rufen Sie in das Markup für ein einzelnes Element, das `Validation.For` Methode. Diese Methode gibt Attribute jQuery kann verknüpfen, um die clientseitige Validierung bereitzustellen. Zum Beispiel:
 
@@ -172,15 +172,15 @@ Das folgende Beispiel zeigt eine Seite, die Benutzereingaben in einem Formular �
 
 Hier ist die Seite auf, wenn ein Benutzer mit gültigen Eingaben übermittelt:
 
-[![TopSeven gültige 1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 Hier ist die Seite auf, wenn ein Benutzer, die sie ein erforderliches Feld leer gelassen übermittelt:
 
-[![TopSeven gültige 2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 Hier ist die Seite, wenn ein Benutzer mit einem anderen Knotentyp als eine ganze Zahl im übermittelt die **Gutschriften** Feld:
 
-[![TopSeven gültige 3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 Weitere Informationen finden Sie unter den folgenden Blogbeiträgen:
 
@@ -207,7 +207,7 @@ Das folgende Beispiel zeigt die Funktionsweise des Ressourcen-Managers. Der Code
 
 - Einen benutzerdefinierten Hilfsmethoden, die mit dem Namen `MakeNote`. Dieses Hilfsprogramm wrapping rendert eine Zeichenfolge in einem Feld eine `div` Element herum, formatiert wurde, mit einem Rahmen und durch Hinzufügen von &quot;Hinweis:&quot; darauf. Das Hilfsprogramm ruft außerdem eine JavaScript-Datei, die den Hinweis Laufzeitverhalten hinzufügt. Anstatt das Skript mit Verweisen eine `<script>` Tag, das Hilfsprogramm registriert das Skript durch Aufrufen von `Assets.AddScript` .
 - Eine JavaScript-Datei. Dies ist die Datei, die durch das Hilfsprogramm aufgerufen wird, und vorübergehend erhöht den Schriftgrad des Elemente Beachten Sie, während gleichzeitig eine `mouseover` Ereignis.
-- Eine Inhaltsseite, verweist auf die*\_SiteLayout* Seite rendert Manche Inhalte in den Text, und ruft dann die `MakeNote` Helper.
+- Eine Inhaltsseite, verweist auf die<em>\_SiteLayout</em> Seite rendert Manche Inhalte in den Text, und ruft dann die `MakeNote` Helper.
 - Ein  *\_SiteLayout* Seite. Diese Seite enthält eine allgemeine Header und ein Layout Seitenstruktur. Es enthält auch einen Aufruf an `Assets.GetScripts`, das Rendering von Skript in des Ressourcen-Managers ist auf einer Seite aufruft.
 
 Um das Beispiel auszuführen:
@@ -241,7 +241,7 @@ Um das Beispiel auszuführen:
 
 Der folgende Screenshot zeigt *ContentPage.cshtml* in einem Browser aus, wenn Sie den Mauszeiger über den Hinweis halten:
 
-[![TopSeven-Resmgr-1](top-features-in-web-pages-2/_static/image14.png)](top-features-in-web-pages-2/_static/image13.png)
+[![topSeven-resmgr-1](top-features-in-web-pages-2/_static/image14.png)](top-features-in-web-pages-2/_static/image13.png)
 
 <a id="oauthsetup"></a>
 ### <a name="enabling-logins-from-facebook-and-other-sites-using-oauth-and-openid"></a>Anmeldungen von Facebook und andere Standorte mithilfe von OAuth und OpenID aktivieren
@@ -250,7 +250,7 @@ Web Pages 2 bietet verbesserte Optionen für die Mitgliedschaft und Authentifizi
 
 Dieses Bild zeigt die Anmeldeseite von der **Starter Site** Vorlage, in dem ein Benutzer eine Facebook, Twitter oder Windows Live-Symbol zum Aktivieren der Protokollierung mit einem externen Konto auswählen kann:
 
-[![TopSeven-Oauth-1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
+[![topSeven-oauth-1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
 
 Sie können OAuth- und OpenID-Mitgliedschaft mit nur wenigen Codezeilen aktivieren. Die Methoden und Eigenschaften verwenden Sie zum Arbeiten mit dem OAuth und OpenID-Anbieter sind in der `WebMatrix.Security.OAuthWebSecurity` Klasse.
 
@@ -288,18 +288,18 @@ Sie können jetzt Google und Yahoo Anmeldungen testen.
 
     Die Webseite leitet die Anforderung an der Google-Anmeldeseite.
 
-    [![TopSeven-Oauth-6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
+    [![topSeven-oauth-6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
 3. Geben Sie Anmeldeinformationen für ein vorhandenes Google-Konto ein.
 4. Wenn Google Sie fragt, ob Sie "localhost", klicken Sie zum Verwenden von Informationen aus dem Konto zulassen möchten **zulassen**.
 
     Der Code verwendet das Google-Token zur Authentifizierung des Benutzers, und klicken Sie dann auf Ihrer Website auf diese Seite gibt. Auf dieser Seite können Benutzer ihre Google-Anmeldung mit einem vorhandenen Konto auf Ihrer Website zu verknüpfen, oder sie können ein neues Konto an Ihrem Standort ordnen Sie die externe Anmeldung mit registrieren.
 
-    [![TopSeven-Oauth-5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
 5. Wählen Sie die **zuordnen** Schaltfläche. Der Browser gibt zur Startseite der Anwendung.
 
-    [![TopSeven-Oauth-3](top-features-in-web-pages-2/_static/image22.png)](top-features-in-web-pages-2/_static/image21.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image22.png)](top-features-in-web-pages-2/_static/image21.png)
 
-    [![TopSeven-Oauth-3](top-features-in-web-pages-2/_static/image24.png)](top-features-in-web-pages-2/_static/image23.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image24.png)](top-features-in-web-pages-2/_static/image23.png)
 
 **Facebook-Anmeldungen aktivieren**:
 
@@ -335,17 +335,17 @@ Sie können jetzt die Facebook-Anmeldung testen.
 
     Die Webseite leitet die Anforderung an die Facebook-Anmeldeseite.
 
-    [![TopSeven-Oauth-2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
+    [![topSeven-oauth-2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
 3. Melden Sie sich eine Facebook-Konto. 
 
     Der Code verwendet das Facebook-Token, um Sie zu authentifizieren und gibt dann zurück auf eine Seite in dem Sie Ihre Facebook-Anmeldung mit Ihrer Website Anmeldung zuordnen. Der Name oder e-Mail-Adresse eines Benutzers in gefüllt wird die **E-Mail** Feld im Formular.
 
-    [![TopSeven-Oauth-5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
 4. Wählen Sie die **zuordnen** Schaltfläche. 
 
     Der Browser gibt, um zur Startseite, und Sie angemeldet sind.
 
-    [![TopSeven-Oauth-3](top-features-in-web-pages-2/_static/image30.png)](top-features-in-web-pages-2/_static/image29.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image30.png)](top-features-in-web-pages-2/_static/image29.png)
 
 **Twitter-Anmeldungen zu aktivieren:** 
 
@@ -383,16 +383,16 @@ Sie können jetzt die Twitter-Anmeldung testen.
 
     Die Webseite leitet die Anforderung an einen Twitter-Anmeldeseite für die Anwendung, die Sie erstellt haben.
 
-    [![TopSeven-Oauth-4](top-features-in-web-pages-2/_static/image32.png)](top-features-in-web-pages-2/_static/image31.png)
+    [![topSeven-oauth-4](top-features-in-web-pages-2/_static/image32.png)](top-features-in-web-pages-2/_static/image31.png)
 3. Melden Sie sich ein Twitter-Konto.
 4. Der Code verwendet das Twitter-Token zur Authentifizierung des Benutzers und wechselt zurück zu einer Seite, in dem Sie zuordnen können Ihre Anmeldung mit Ihrem Konto für die Website. Der Name oder e-Mail-Adresse in gefüllt wird die **E-Mail** Feld im Formular.
 
-    [![TopSeven-Oauth-5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
 5. Wählen Sie die **zuordnen** Schaltfläche. 
 
     Der Browser gibt, um zur Startseite, und Sie angemeldet sind.
 
-    [![TopSeven-Oauth-3](top-features-in-web-pages-2/_static/image36.png)](top-features-in-web-pages-2/_static/image35.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image36.png)](top-features-in-web-pages-2/_static/image35.png)
 
 <a id="maphelper"></a>
 ### <a name="adding-maps-using-the-maps-helper"></a>Hinzufügen von Zuordnungen mithilfe der Maps-Hilfsmethode
@@ -430,11 +430,11 @@ So testen Sie Ihre Zuordnungsseiten:
 1. Führen Sie die Seite *MapAddress.cshtml* Datei.
 2. Geben Sie eine vollständige Adresszeichenfolge, einschließlich einer Straße, Bundesland oder Kanton und Postleitzahl, und wählen Sie dann die **Map It** Schaltfläche. Die Seite wird eine Zuordnung von Google Maps gerendert: 
 
-    [![Topseven-Maphelper-1](top-features-in-web-pages-2/_static/image38.png)](top-features-in-web-pages-2/_static/image37.png)
+    [![topseven-maphelper-1](top-features-in-web-pages-2/_static/image38.png)](top-features-in-web-pages-2/_static/image37.png)
 3. Suchen Sie einen Satz von Breiten-und Längenkoordinaten für einen bestimmten Standort.
 4. Führen Sie die Seite *MapCoordinates.cshtml*. Geben Sie die Koordinaten, und wählen Sie dann die **Map It** Schaltfläche. Die Seite wird eine Zuordnung von Bing Maps gerendert: 
 
-    [![Topseven-Maphelper-2](top-features-in-web-pages-2/_static/image40.png)](top-features-in-web-pages-2/_static/image39.png)
+    [![topseven-maphelper-2](top-features-in-web-pages-2/_static/image40.png)](top-features-in-web-pages-2/_static/image39.png)
 
 <a id="sidebyside"></a>
 ### <a name="running-web-pages-applications-side-by-side"></a>Ausführen von Webseiten Anwendungen nebeneinander angezeigt werden
@@ -447,7 +447,7 @@ Hier sind einige Punkte zu beachten, wenn Sie die Web Pages 2-Betaversion mit We
 - Wenn Sie einen Standort mithilfe von Web Pages, Version 1 (anstelle des Standardwerts, wie am vorherigen Punkt) ausführen möchten, können Sie den Standort zu diesem Zweck konfigurieren. Wenn Ihre Website noch keinem *"Web.config"* Datei im Stammverzeichnis der Site, ein neues erstellen und kopieren Sie die folgenden XML-Code hinein, Überschreiben der vorhandenen Inhalts. Wenn der Standort bereits enthält eine *"Web.config"* hinzufügen. ein `<appSettings>` Element wie den folgenden Ausdruck ein, um die `<configuration>` Abschnitt.
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-"– Wenn Sie eine Version im nicht angeben der *" Web.config "* Datei, einem Standort wird als Version 2 Standort bereitgestellt. (Assemblys der Version 2 werden kopiert, um die *"bin"* Ordner auf der Website bereitgestellt.)
+  "– Wenn Sie eine Version im nicht angeben der *" Web.config "* Datei, einem Standort wird als Version 2 Standort bereitgestellt. (Assemblys der Version 2 werden kopiert, um die *"bin"* Ordner auf der Website bereitgestellt.)
 - Neue Anwendungen, die mit der Websitevorlagen im Web Matrix Version 2 Beta enthalten die Web Pages-Version 2-Assemblys in der Website erstellt *"bin"* Ordner.
 
 Im Allgemeinen können Sie immer steuern, welche Version von Webseiten für Ihre Website verwendet werden, mithilfe von NuGet die entsprechenden Assemblys in der Website installieren *"bin"* Ordner. Um Pakete zu suchen, besuchen Sie [NuGet.org](http://NuGet.org).
@@ -459,7 +459,7 @@ Web Pages 2 können Sie benutzerdefinierte zeigt zum Rendern von Inhalt auf Mobi
 
 Die `System.Web.WebPages` -Namespace enthält die folgenden Klassen, mit denen Sie arbeiten mit Anzeigemodi: `DefaultDisplayMode`, `DisplayInfo`, und `DisplayModes`. Sie können diese Klassen direkt verwenden und Code schreiben, der die Rechte Ausgabe für bestimmte Geräte gerendert wird.
 
-Alternativ können Sie gerätespezifische Seiten erstellen, mit einem Dateibenennung Muster wie folgt: *FileName.* *Mobile**cshtml*. Sie können z. B. zwei Versionen einer Seite, eine namens erstellen *MyFile.cshtml* und dasjenige mit dem Namen *MyFile.Mobile.cshtml*. Zur Laufzeit, wenn ein mobiles Gerät anfordert *MyFile.cshtml*, Webseiten rendert den Inhalt von *MyFile.Mobile.cshtml*. Andernfalls *MyFile.cshtml* gerendert wird.
+Alternativ können Sie gerätespezifische Seiten erstellen, mit einem Dateibenennung Muster wie folgt: <em>FileName.</em> <em>Mobile</em><em>cshtml</em>. Sie können z. B. zwei Versionen einer Seite, eine namens erstellen <em>MyFile.cshtml</em> und dasjenige mit dem Namen <em>MyFile.Mobile.cshtml</em>. Zur Laufzeit, wenn ein mobiles Gerät anfordert <em>MyFile.cshtml</em>, Webseiten rendert den Inhalt von <em>MyFile.Mobile.cshtml</em>. Andernfalls <em>MyFile.cshtml</em> gerendert wird.
 
 Das folgende Beispiel zeigt, wie mobile Rendering durch Hinzufügen einer Inhaltsseite für mobile Geräte aktivieren. *Page1.cshtml* enthält Inhalte sowie eine navigationsrandleiste. *Page1.Mobile.cshtml* den gleichen Inhalt enthält, lässt aber die Randleiste.
 
@@ -483,11 +483,11 @@ So erstellen und Ausführen des Codebeispiels:
 
 *Page1.cshtml* in einen Desktopbrowser gerendert:
 
-[![Topseven-Displaymodes-1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
+[![topseven-displaymodes-1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
 
 *Page1.Mobile.cshtml* in einer Sicht Apple iPhone-Simulator, in den Firefox-Browser angezeigt. Obwohl die Anforderung ist *Page1.cshtml*, die Anwendung rendert *Page1.Mobile.cshtml*.
 
-[![Topseven-Displaymodes-2](top-features-in-web-pages-2/_static/image44.png)](top-features-in-web-pages-2/_static/image43.png)
+[![topseven-displaymodes-2](top-features-in-web-pages-2/_static/image44.png)](top-features-in-web-pages-2/_static/image43.png)
 
 <a id="resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
@@ -502,5 +502,5 @@ So erstellen und Ausführen des Codebeispiels:
 ### <a name="webmatrix-resources"></a>WebMatrix-Ressourcen
 
 - [WebMatrix 2 Neuigkeiten](http://webmatrix.com/next)
-- [Microsoft WebMatrix-Website](https://go.microsoft.com/fwlink/?LinkID=195076)
+- [Microsoft WebMatrix Site](https://go.microsoft.com/fwlink/?LinkID=195076)
 - [Starten der Webentwicklung mit Microsoft WebMatrix](https://msdn.microsoft.com/en-us/library/hh145669(v=VS.99).aspx)(einschließlich eine beispielanwendung voller Länge Webseiten)

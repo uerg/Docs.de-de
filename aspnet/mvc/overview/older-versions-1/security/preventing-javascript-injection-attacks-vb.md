@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 title: Verhindern von JavaScript-Injection-Angriffe (VB) | Microsoft Docs
 author: StephenWalther
-description: "Verhindern, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe zu vermeiden Sie. In diesem Lernprogramm wird Stephen Walther erläutert, wie Sie de auf einfache Weise..."
+description: Verhindern, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe zu vermeiden Sie. In diesem Lernprogramm wird Stephen Walther erläutert, wie Sie de auf einfache Weise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1d49d4d1afa30247d3452a96c8004441ba417ac8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb19236b22abd455472621ce74a8cddf9752d6c5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-javascript-injection-attacks-vb"></a>Verhindern von JavaScript-Injection-Angriffe (VB)
 ====================
@@ -43,7 +43,7 @@ Stellen Sie sich vor, dass Sie eine Kunden-Feedback-Website erstellt haben (sieh
 
 Die Kunden-Feedback-Website verwendet das `controller` 1 aufgelistet. Dies `controller` enthält zwei Aktionen, die mit dem Namen `Index()` und `Create()`.
 
-**Auflisten von 1 –`HomeController.vb`**
+**Auflisten von 1 – `HomeController.vb`**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample1.vb)]
 
@@ -53,7 +53,7 @@ Die `Create()` Methode erstellt ein neues Feedbackelement und der Datenbank hinz
 
 Die `Index` Ansicht im Codebeispiel 2 enthalten ist.
 
-**Auflisten von 2 –`Index.aspx`**
+**Auflisten von 2 – `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample2.aspx)]
 
@@ -65,7 +65,7 @@ Stellen Sie sich vor, dass Sie den folgenden Text in der Kunden-Feedback-Formula
 
 [!code-html[Main](preventing-javascript-injection-attacks-vb/samples/sample3.html)]
 
-Dieser Text stellt eine JavaScript-Skript, das eine Warnung Meldungsfeld wird angezeigt. Nachdem ein Benutzer mit diesem Skript an das Feedback übermittelt zu bilden, die Nachricht *Boo!* wird angezeigt, wenn jeder Benutzer, die Kunden-Feedback-Website in der Zukunft besucht (siehe Abbildung 2).
+Dieser Text stellt eine JavaScript-Skript, das eine Warnung Meldungsfeld wird angezeigt. Nachdem ein Benutzer mit diesem Skript an das Feedback übermittelt zu bilden, die Nachricht <em>Boo!</em> wird angezeigt, wenn jeder Benutzer, die Kunden-Feedback-Website in der Zukunft besucht (siehe Abbildung 2).
 
 
 [![JavaScript-Injection](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
@@ -121,5 +121,5 @@ Warum ist dies das fehlerhafte? Wenn Sie Daten in der Datenbank in einen anderen
 
 Der Zweck dieses Tutorials konnten Sie über die Aussicht einen JavaScript-Injection-Angriff erschrecken. In diesem Lernprogramm erläuterten zwei Ansätze zum Schutz Ihrer ASP.NET MVC-Anwendungen vor Injection-Angriffen JavaScript: können Sie entweder HTML codieren Benutzer übermittelt Daten in der Ansicht, oder Sie können HTML codieren Benutzer übermittelt Daten im Controller.
 
->[!div class="step-by-step"]
-[Zurück](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](authenticating-users-with-windows-authentication-vb.md)

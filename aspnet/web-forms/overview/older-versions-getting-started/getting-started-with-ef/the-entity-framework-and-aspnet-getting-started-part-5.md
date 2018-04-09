@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 5 | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 5 | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework. Die beispielanwendung ist...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 5
 ====================
@@ -123,10 +123,10 @@ Führen Sie die Seite.
 
 [![Image01 abgerufen wird](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Wählen Sie einen Kursleiter. Die **weisen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten zu vermitteln, nicht, und die **entfernen einen Kurs** Dropdown-Liste zeigt die Kurse, die der Dozenten bereits zugewiesen ist. In der **weisen einen Kurs** Abschnitt, wählen Sie einen Kurs aus, und klicken Sie dann auf **zuweisen**. Verschiebt der Kurs der **entfernen einen Kurs** Dropdown-Liste. Wählen Sie einen Kurs in der **entfernen einen Kurs** Abschnitt, und klicken Sie auf ***** entfernen.* Verschiebt der Kurs der **weisen einen Kurs** Dropdown-Liste.
+Wählen Sie einen Kursleiter. Die <strong>weisen einen Kurs</strong> Dropdown-Liste zeigt die Kurse, die der Dozenten zu vermitteln, nicht, und die <strong>entfernen einen Kurs</strong> Dropdown-Liste zeigt die Kurse, die der Dozenten bereits zugewiesen ist. In der <strong>weisen einen Kurs</strong> Abschnitt, wählen Sie einen Kurs aus, und klicken Sie dann auf <strong>zuweisen</strong>. Verschiebt der Kurs der <strong>entfernen einen Kurs</strong> Dropdown-Liste. Wählen Sie einen Kurs in der <strong>entfernen einen Kurs</strong> Abschnitt, und klicken Sie auf <strong>entfernen</strong><em>.</em> Verschiebt der Kurs der <strong>weisen einen Kurs</strong> Dropdown-Liste.
 
 Sie haben jetzt einige weitere Verfahren zum Arbeiten mit verknüpften Daten angezeigt. Im folgenden Lernprogramm erfahren Sie, wie Vererbung in das Datenmodell zu verwenden, um die Verwaltbarkeit Ihrer Anwendung zu verbessern.
 
->[!div class="step-by-step"]
-[Zurück](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[Weiter](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [Zurück](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [Weiter](the-entity-framework-and-aspnet-getting-started-part-6.md)

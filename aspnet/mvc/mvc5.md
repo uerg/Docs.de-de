@@ -2,7 +2,7 @@
 uid: mvc/mvc5
 title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 ist ein Framework zum Erstellen von skalierbaren, standardbasierte Windows-Webanwendungen, die unter Verwendung von bewährte Entwurfsmuster geeinigt und die Leistungsfähigkeit von AS...."
+description: ASP.NET MVC 5 ASP.NET MVC 5 ist ein Framework zum Erstellen von skalierbaren, standardbasierte Windows-Webanwendungen, die unter Verwendung von bewährte Entwurfsmuster geeinigt und die Leistungsfähigkeit von AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
 ## <a name="whats-new-in-aspnet-mvc-5"></a>Was ist neu in ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>Eine ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Die Web-MVC-Projektvorlagen nahtlose Integration in die neue Umgebung für eine ASP.NET. Sie können das MVC-Projekt anpassen und konfigurieren Sie die Authentifizierung mit dem Assistenten für eine ASP.NET erstellen. Ein einführendes Lernprogramm zu ASP.NET MVC 5 finden Sie unter [erste Schritte mit ASP.NET MVC 5](overview/getting-started/introduction/getting-started.md).
 
@@ -38,15 +38,15 @@ Die MVC-Projektvorlage wurde aktualisiert, um verwenden [Bootstrap](http://getbo
 
 ### <a name="authentication-filters"></a>Authentifizierungsfilter
 
-[Authentifizierungsfilter](http://www.dotnetcurry.com/showarticle.aspx?ID=957) sind eine neue Art von Filter in ASP.NET MVC, die vor dem Autorisierungsfilter in der ASP.NET MVC-Pipeline ausgeführt werden und ermöglichen es Ihnen, geben Sie die Authentifizierung Logik pro-Aktion, pro Controller oder global für alle Controller. Authentifizierungsfilter Anmeldeinformationen in der Anforderung zu verarbeiten, und geben Sie einen entsprechenden Prinzipal. Authentifizierungsfilter können auch authentifizierungsaufforderungen als Antwort auf nicht autorisierte Anfragen hinzufügen. Finden Sie unter [ASP.NET MVC 5-Authentifizierungsfilter](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [Authentifizierungsfilter in ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/) und [schließlich neue ASP.NET MVC 5 Authentifizierungsfilter!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/).
+[Authentifizierungsfilter](http://www.dotnetcurry.com/showarticle.aspx?ID=957) sind eine neue Art von Filter in ASP.NET MVC, die vor dem Autorisierungsfilter in der ASP.NET MVC-Pipeline ausgeführt werden und ermöglichen es Ihnen, geben Sie die Authentifizierung Logik pro-Aktion, pro Controller oder global für alle Controller. Authentifizierungsfilter Anmeldeinformationen in der Anforderung zu verarbeiten, und geben Sie einen entsprechenden Prinzipal. Authentifizierungsfilter können auch authentifizierungsaufforderungen als Antwort auf nicht autorisierte Anfragen hinzufügen. Finden Sie unter [ASP.NET MVC 5-Authentifizierungsfilter](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [Authentifizierungsfilter in ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/).
 
 ### <a name="filter-overrides"></a>Filtern von Außerkraftsetzungen
 
 Sie können jetzt überschreiben, Anwenden der Filter auf eine bestimmte Aktionsmethode oder Controller durch Angabe einer [Filter überschreiben](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5). Außerkraftsetzung Filter geben Sie einen Satz von Typen, die für einen bestimmten Bereich (Aktions- oder Controllerebene) nicht ausgeführt werden soll. Dadurch können Sie so konfigurieren Sie Filter, die global angewendet, aber dann Ausschließen bestimmter globale Filter nicht auf bestimmte Aktionen oder Controllern angewendet. Finden Sie unter [Feature in ASP.NET MVC 5 und ASP.NET Web API 2 neue Filter überschreibt](https://weblogs.asp.net/imranbaloch/archive/2013/09/25/new-filter-overrides-in-asp-net-mvc-5-and-asp-net-web-api-2.aspx), [zum Verwenden der ASP.NET MVC 5 überschreibt Filterfunktion](http://hackwebwith.net/how-to-use-the-asp-net-mvc-5-filter-overrides-feature/), und [Filter in ASP.NET MVC 5 überschreibt](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)
 
-### <a name="attribute-routing"></a>Routing-Attribut
+### <a name="attribute-routing"></a>Attributrouting
 
-ASP.NET MVC unterstützt jetzt auch [routing-Attribut](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), Dank einen Beitrag von Tim McCall der Autor [http://attributerouting.net](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Routen angeben, durch Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller.
+ASP.NET MVC unterstützt jetzt auch [routing-Attribut](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), Dank einen Beitrag von Tim McCall der Autor [ http://attributerouting.net ](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Routen angeben, durch Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller.
 
 ## <a name="new-web-project-experience"></a>Neue Web Project-Benutzeroberfläche
 

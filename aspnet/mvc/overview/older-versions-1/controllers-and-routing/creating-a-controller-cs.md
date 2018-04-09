@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
-title: "Erstellen eines Domänencontrollers (c#) | Microsoft Docs"
+title: Erstellen eines Domänencontrollers (c#) | Microsoft Docs
 author: StephenWalther
-description: "In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie einen Controller einer ASP.NET MVC-Anwendung hinzufügen können."
+description: In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie einen Controller einer ASP.NET MVC-Anwendung hinzufügen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9faaff1e00998ef9a77c4928a9eb36fc93ab97f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86966f1064d09419e2102542c6d14c4162d153e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-c"></a>Erstellen eines Domänencontrollers (c#)
 ====================
@@ -92,10 +92,10 @@ Der Controller im Codebeispiel 3 verfügbar macht, eine Aktion, die mit dem Name
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Der ASP.NET Development Server verwendet eine zufällige Portnummer (z. B. 40071). Wenn Sie eine URL zum Aufrufen eines Controllers eingeben, müssen Sie die richtige Portnummer angeben. Sie können die Nummer des Ports bestimmen, indem Sie mit dem Mauszeiger der Maus auf das Symbol für den ASP.NET Development Server im Infobereich von Windows (untere Ecke des Bildschirms).
-
->[!div class="step-by-step"]
-[Zurück](adding-dynamic-content-to-a-cached-page-cs.md)
-[Weiter](creating-an-action-cs.md)
+> 
+> [!div class="step-by-step"]
+> [Zurück](adding-dynamic-content-to-a-cached-page-cs.md)
+> [Weiter](creating-an-action-cs.md)

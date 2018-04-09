@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: "Verwenden Sie Controller und Ansichten, um einer Auflistung/Detail-Benutzeroberfläche implementieren | Microsoft Docs"
+title: Verwenden Sie Controller und Ansichten, um einer Auflistung/Detail-Benutzeroberfläche implementieren | Microsoft Docs
 author: microsoft
-description: "Schritt 4 veranschaulicht das Hinzufügen ein Controllers an die Anwendung, die nutzt unserem Modell Benutzern einen Umgang mit Daten auflisten/Detail-Navigation bereitstellen..."
+description: Schritt 4 veranschaulicht das Hinzufügen ein Controllers an die Anwendung, die nutzt unserem Modell Benutzern einen Umgang mit Daten auflisten/Detail-Navigation bereitstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Verwenden von Controller und Ansichten zum Implementieren einer Auflistung/Detail-Benutzeroberflächenautomatisierungs
 ====================
@@ -59,10 +59,10 @@ Es wird auch von der neuen DinnersController Klasse innerhalb der Code-Editor ge
 
 Wir möchten Besuchern, die die Anwendung eine Liste der bevorstehenden Abendessen durchsuchen und ermöglicht es ihnen, klicken auf alle Dinner in der Liste, um bestimmte Details dazu finden Sie unter aktivieren. Dazu müssen wir die folgenden URLs aus der Anwendung zu veröffentlichen:
 
-| **URL** | **Zweck** |
+| **URL** | **Purpose** |
 | --- | --- |
 | */Dinners/* | Eine HTML-Liste von bevorstehenden Abendessen anzeigen |
-| */Dinners/Informationen / [Id]* | Anzeigen von Details zu einer bestimmten Dinner, angegeben durch ein "Id"-Parameter, die in der die DinnerID von der Dinner in der Datenbank übereinstimmen, wird der URL eingebettet. Zum Beispiel: /Dinners/Details/2 würde eine HTML-Seite mit den Details der Dinner DinnerID, dessen Wert 2 angezeigt. |
+| */Dinners/Details/[id]* | Anzeigen von Details zu einer bestimmten Dinner, angegeben durch ein "Id"-Parameter, die in der die DinnerID von der Dinner in der Datenbank übereinstimmen, wird der URL eingebettet. Zum Beispiel: /Dinners/Details/2 würde eine HTML-Seite mit den Details der Dinner DinnerID, dessen Wert 2 angezeigt. |
 
 Durch Hinzufügen von zwei öffentlichen "Aktionsmethoden"-Klasse DinnersController wie unten veröffentlichen wir anfängliche Implementierungen der folgenden URLs:
 
@@ -92,15 +92,15 @@ Die ASP.NET-MVC-Standardregeln für routing sind innerhalb der Methode "Register
 
 Die "Routen. MapRoute() "Methodenaufruf oben registriert Standardroutingregel, der eingehende URLs Controllerklassen mit URL-Format zugeordnet:" / {Controller} / {Aktion} / {Id} "– wobei"Controller"der Name der Controllerklasse instanziiert wird, ist"Action"ist der Name einer öffentliche Methode hinzu, und "Id" aufgerufen werden soll, ist ein optionaler Parameter, die eingebettete innerhalb der URL, die als Argument an die Methode übergeben werden kann. Der dritte Parameter übergeben, für den Methodenaufruf "MapRoute()" ist ein Satz von Standardwerten für die Controller/Aktion/Id-Werte verwenden, wenn sie nicht in der URL vorhanden sind (Controller = "Home", Aktion = "Index", Id = "").
 
-Im folgenden finden Sie eine Tabelle, die veranschaulicht, wie eine Vielzahl von URLs zugeordnet sind, unter Verwendung des standardmäßigen "*/ {Controller} / {Aktion} / {Id}"*Weiterleitungsregel:
+Im folgenden finden Sie eine Tabelle, die veranschaulicht, wie eine Vielzahl von URLs zugeordnet sind, unter Verwendung des standardmäßigen "<em>/ {Controller} / {Aktion} / {Id}"</em>Weiterleitungsregel:
 
 | **URL** | **Controller-Klasse** | **Action-Methode** | **Übergebenen Parameter** |
 | --- | --- | --- | --- |
-| */ Abendessen/Informationen/2* | DinnersController | Details(ID) | ID = 2 |
-| */ Abendessen/bearbeiten/5* | DinnersController | Edit(ID) | ID = 5 |
-| */ Abendessen/erstellen* | DinnersController | Eine Signatures-Auflistung | Nicht zutreffend |
-| */ Abendessen* | DinnersController | Index() | Nicht zutreffend |
-| */ Start* | HomeController | Index() | Nicht zutreffend |
+| */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
+| */Dinners/Create* | DinnersController | Eine Signatures-Auflistung | Nicht zutreffend |
+| */Dinners* | DinnersController | Index() | Nicht zutreffend |
+| */Home* | HomeController | Index() | Nicht zutreffend |
 | */* | HomeController | Index() | Nicht zutreffend |
 
 Die letzten drei Zeilen angezeigt werden die Standardwerte (Controller = Home, Aktion = Index, Id = "") verwendet wird. Da die Methode "Index" als Name für die Standard-Aktion registriert ist, wenn eine nicht angegeben ist, die "/ Abendessen" und "/ Home" URLs durch einen der Aktionsmethode Index() für ihre Controllerklassen aufgerufen werden soll. Da des Controllers "Home" als Standard-Domänencontroller registriert ist, wenn eine nicht angegeben ist, führt dazu, dass die URL "/" HomeController erstellt werden soll, und die Aktionsmethode Index() darauf, aufgerufen werden soll.
@@ -301,6 +301,6 @@ Wir haben jetzt eine schöne Dinner durchsuchen die Umgebung für die Zusammenar
 
 Jetzt aktivieren wir CRUD (Create, Read, Update, Delete) Datenformulars Unterstützung bearbeiten.
 
->[!div class="step-by-step"]
-[Zurück](build-a-model-with-business-rule-validations.md)
-[Weiter](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [Zurück](build-a-model-with-business-rule-validations.md)
+> [Weiter](provide-crud-create-read-update-delete-data-form-entry-support.md)

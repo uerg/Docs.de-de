@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
-title: "Der Farbwähler Extendersteuerelement (VB) mit | Microsoft Docs"
+title: Der Farbwähler Extendersteuerelement (VB) mit | Microsoft Docs
 author: microsoft
-description: "Farbwähler wird ein ASP.NET AJAX-Extender, der die clientseitige Farbe Kommissionierung Funktionalität mit Benutzeroberfläche in einem Popupsteuerelement bereitstellt. Es kann ASP.NET hinzugefügt werden..."
+description: Farbwähler wird ein ASP.NET AJAX-Extender, der die clientseitige Farbe Kommissionierung Funktionalität mit Benutzeroberfläche in einem Popupsteuerelement bereitstellt. Es kann ASP.NET hinzugefügt werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7453845909b2c0bd8d6b476b19d0fbc5050f7460
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411119f85d7f5c26703b7df40cff24fdf30b81d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a>Mithilfe der Farbwähler Extendersteuerelement (VB)
 ====================
@@ -114,5 +114,5 @@ Die SampleControlID-Eigenschaft wird verwendet, um ein Steuerelement zuzuordnen,
 
 In diesem Lernprogramm haben Sie gelernt, wie das Extendersteuerelement Farbwähler zu verwenden, um ein Dialogfeld für die Farbauswahl Popup anzuzeigen. Zunächst können wir untersucht, wie Sie das Dialogfeld anzeigen, wenn ein TextBox-Steuerelement den Fokus verschoben wird. Als Nächstes haben Sie gelernt, wie Sie eine Schaltfläche zu erstellen, die in dem Dialogfeld für die Farbauswahl angezeigt, auf die Schaltfläche geklickt wird.
 
->[!div class="step-by-step"]
-[Zurück](using-the-colorpicker-control-extender-cs.md)
+> [!div class="step-by-step"]
+> [Vorherige](using-the-colorpicker-control-extender-cs.md)

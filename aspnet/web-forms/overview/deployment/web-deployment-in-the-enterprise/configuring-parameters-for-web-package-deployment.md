@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
-title: "Konfigurieren von Parametern für die Bereitstellung von Paketen | Microsoft Docs"
+title: Konfigurieren von Parametern für die Bereitstellung von Paketen | Microsoft Docs
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie Parameterwerte, z. B. Internetinformationsdienste (Internet Information Services, IIS)-Web-Anwendungsnamen, Verbindungszeichenfolgen und Dienstendpunkte festlegen...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7be08f1a1fb7232911a44cf64e2e784dbb95ff48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Konfigurieren von Parametern für die Bereitstellung von Paketen
 ====================
@@ -92,7 +92,7 @@ Umfassende Informationen zum Erstellen einer *parameters.xml* finden Sie unter [
 
 ## <a name="modifying-the-setparametersxml-file"></a>Ändern die Datei SetParameters.Xml
 
-Wenn Sie planen, das Web-Anwendungspaket manuell bereitstellen & #x 2014; entweder durch Ausführen der *. deploy.cmd* Datei oder durch Ausführen von MSDeploy.exe aus der Befehlszeile & #x 2014; es ist nichts zum Beenden Sie die manuelle Bearbeitung der *SetParameters.xml* Datei vor der Bereitstellung. Wenn Sie eine Enterprise-Skalierung-Lösung arbeiten, müssen Sie ein webanwendungspaket als Teil eines größeren, automatisierte Build- und Bereitstellungsprozess Prozesses bereitstellen. In diesem Szenario benötigen Sie die Microsoft Build Engine (MSBuild) so ändern Sie die *SetParameters.xml* -Datei für Sie. Hierzu können Sie mithilfe von MSBuild **XmlPoke** Aufgabe.
+Wenn Sie das Web-Anwendungspaket manuell bereitstellen möchten&#x2014;entweder durch Ausführen der *. deploy.cmd* Datei oder durch Ausführen von MSDeploy.exe über die Befehlszeile&#x2014;es ist nichts zum Beenden Sie die manuelle Bearbeitung der  *SetParameters.xml* Datei vor der Bereitstellung. Wenn Sie eine Enterprise-Skalierung-Lösung arbeiten, müssen Sie ein webanwendungspaket als Teil eines größeren, automatisierte Build- und Bereitstellungsprozess Prozesses bereitstellen. In diesem Szenario benötigen Sie die Microsoft Build Engine (MSBuild) so ändern Sie die *SetParameters.xml* -Datei für Sie. Hierzu können Sie mithilfe von MSBuild **XmlPoke** Aufgabe.
 
 Die [Vorgesetzten Kontakts Beispielprojektmappe](the-contact-manager-solution.md) zeigt diesen Vorgang. Die Codebeispiele, die Folgen haben bearbeitet, um nur die Details anzuzeigen, die in diesem Beispiel relevant sind.
 
@@ -148,6 +148,6 @@ Informationen zum Erstellen von Webpaketen finden Sie unter [erstellen und Packe
 
 Weitere allgemeine Informationen zur Parametrisierung im Web Deploy, finden Sie unter [Web bereitstellen Parametrisierung in Aktion](https://go.microsoft.com/?linkid=9805119) (Blogbeitrag).
 
->[!div class="step-by-step"]
-[Zurück](building-and-packaging-web-application-projects.md)
-[Weiter](deploying-web-packages.md)
+> [!div class="step-by-step"]
+> [Zurück](building-and-packaging-web-application-projects.md)
+> [Weiter](deploying-web-packages.md)

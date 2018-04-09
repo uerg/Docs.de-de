@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 54e46c6f996b6fe86a227c851562e61678b02780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee088f841bdb68f4806b0b62be7d379b9eab9f8c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Implementieren der Vererbung mit dem Entity Framework in einer ASP.NET MVC-Anwendung (8 10)
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
 > 
 > > [!NOTE] 
 > > 
 > > Wenn ein Problem Sie können nicht aufgelöst auftreten, [herunterladen im Kapitel über das abgeschlossene](building-the-ef5-mvc4-chapter-downloads.md) und versuchen Sie, das Problem zu reproduzieren. Die Lösung des Problems finden in der Regel durch Vergleich des Codes den fertigen Code. Einige häufige Fehler und deren Lösung finden Sie unter [Fehler und Problemumgehungen.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
 
-Im vorherigen Lernprogramm behandelt Sie Parallelitätsausnahmen. In diesem Lernprogramm erfahren Sie, wie Vererbung im Datenmodell implementiert.
+Im vorherigen Lernprogramm behandelt Sie Parallelitätsausnahmen. In diesem Tutorial erfahren Sie, wie Sie die Vererbung in das Datenmodell implementieren können.
 
-Vererbung können Sie in einer objektorientierten Programmierung um redundanten Code zu vermeiden. In diesem Lernprogramm ändern Sie die `Instructor` und `Student` Klassen, damit sie ableiten eine `Person` Basisklasse, die Eigenschaften, z. B. enthält `LastName` , könne Dozenten und Studenten gemeinsam sind. Sie wird nicht hinzufügen oder Ändern von Webseiten, aber ändern Sie Teil des Codes und diese Änderungen werden automatisch in der Datenbank übernommen.
+Vererbung können Sie in einer objektorientierten Programmierung um redundanten Code zu vermeiden. In diesem Tutorial ändern Sie die Klassen `Instructor` und `Student` so, dass sie von einer `Person`-Basisklasse abgeleitet werden, die Eigenschaften wie `LastName` enthält. Diese Eigenschaften sind für Dozenten und Studenten gängig. Sie fügen keine Webseiten hinzu oder ändern diese, aber Sie werden Teile des Codes ändern. Diese Änderungen werden automatisch in der Datenbank widergespiegelt.
 
 ## <a name="table-per-hierarchy-versus-table-per-type-inheritance"></a>Tabelle pro Hierarchie im Vergleich zu Tabelle pro Typ Vererbung
 
@@ -41,23 +41,23 @@ Vererbung können Sie in einer objektorientierten Programmierung mit verwandten 
 
 ![Student_and_Instructor_classes](https://asp.net/media/2578113/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_e7a32f99-8bc4-48ce-aeaf-216a18071a8b.png)
 
-Angenommen, Sie möchten, für die Eigenschaften der redundanten Code vermeiden, die von gemeinsam genutzt werden die `Instructor` und `Student` Entitäten. Sie erstellen eine `Person` Basisklasse enthält nur diese Eigenschaften gemeinsam genutzt, muss sich die `Instructor` und `Student` Entitäten aus dieser Basisklasse erben, wie in der folgenden Abbildung gezeigt:
+Angenommen, Sie möchten den redundanten Code für die Eigenschaften löschen, die von den Entitäten `Instructor` und `Student` gemeinsam genutzt werden. Sie erstellen eine `Person` Basisklasse enthält nur diese Eigenschaften gemeinsam genutzt, muss sich die `Instructor` und `Student` Entitäten aus dieser Basisklasse erben, wie in der folgenden Abbildung gezeigt:
 
 ![Student_and_Instructor_classes_deriving_from_Person_class](https://asp.net/media/2578119/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_deriving_from_Person_class_671d708c-cbb8-454a-a8f8-c2d99439acd9.png)
 
-Es gibt mehrere Möglichkeiten, die diese Vererbungsstruktur in der Datenbank dargestellt werden konnte. Sie möglicherweise eine `Person` Tabelle Informationen zu Studenten und Lehrkräfte in einer einzelnen Tabelle enthält. Einige Spalten könnte gelten nur für Lehrkräfte (`HireDate`), einige nur für Studenten (`EnrollmentDate`), einige sowohl (`LastName`, `FirstName`). In der Regel müssen eine *Unterscheidungseigenschaft* Spalte, um anzugeben, welche Typen von jeder Zeile darstellt. Z. B. möglicherweise Unterscheidungsspalte für Studenten "Instructor" für Dozenten und "Student" haben.
+Es gibt mehrere Möglichkeiten, wie diese Vererbungsstruktur in der Datenbank dargestellt werden kann. Sie möglicherweise eine `Person` Tabelle Informationen zu Studenten und Lehrkräfte in einer einzelnen Tabelle enthält. Einige Spalten könnte gelten nur für Lehrkräfte (`HireDate`), einige nur für Studenten (`EnrollmentDate`), einige sowohl (`LastName`, `FirstName`). In der Regel müssen eine *Unterscheidungseigenschaft* Spalte, um anzugeben, welche Typen von jeder Zeile darstellt. So kann die Unterscheidungsspalte beispielsweise „Instructor“ für Dozenten und „Student“ für Studenten enthalten.
 
 ![Tabelle pro hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
 
 Dieses Muster für eine Entität Vererbungsstruktur aus einer einzelnen Datenbanktabelle generiert heißt *Tabelle pro Hierarchie* Vererbung (TPH).
 
-Eine Alternative besteht darin, von der Datenbank eher wie die Vererbungsstruktur. Sie könnte z. B. nur die Namensfelder besitzen, der `Person` Tabelle und über separate `Instructor` und `Student` Tabellen mit den Datumsfeldern.
+Alternativ kann die Datenbank so gestaltet werden, dass sie mehr wie die Vererbungsstruktur aussieht. Sie könnte z. B. nur die Namensfelder besitzen, der `Person` Tabelle und über separate `Instructor` und `Student` Tabellen mit den Datumsfeldern.
 
 ![Tabelle pro type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
 
 Dieses Muster versteht man eine Datenbanktabelle für jede Entitätsklasse aufgerufen *Tabelle pro Typ* Vererbung (TPT).
 
-TPH Muster der methodenvererbung aufgeführt übermitteln im Entity Framework als TPT Muster der methodenvererbung aufgeführt, in der Regel eine bessere Leistung, TPT Muster können komplexe Join-Abfragen ergeben. Dieses Lernprogramm veranschaulicht die TPH-Vererbung zu implementieren. Sie müssen zu diesem Zweck die folgenden Schritte ausführen:
+TPH Muster der methodenvererbung aufgeführt übermitteln im Entity Framework als TPT Muster der methodenvererbung aufgeführt, in der Regel eine bessere Leistung, TPT Muster können komplexe Join-Abfragen ergeben. Dieses Tutorial veranschaulicht die Implementierung der TPH-Vererbung. Sie müssen zu diesem Zweck die folgenden Schritte ausführen:
 
 - Erstellen einer `Person` Klasse, und Ändern der `Instructor` und `Student` Klassen ableiten `Person`.
 - Der Context-Klasse für Datenbank-Modelldatenbank Zuordnungscode hinzugefügt.
@@ -71,7 +71,7 @@ In der *Modelle* Ordner erstellen *Person.cs* , und Ersetzen Sie den Code durch 
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-In *Instructor.cs*, leiten Sie die `Instructor` -Klasse aus den `Person` Klasse, und entfernen Sie die Schlüssel und den Namen der Felder. Der Code wird wie im folgenden Beispiel aussehen:
+In *Instructor.cs*, leiten Sie die `Instructor` -Klasse aus den `Person` Klasse, und entfernen Sie die Schlüssel und den Namen der Felder. Der Code sieht aus wie im folgenden Beispiel:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
@@ -85,7 +85,7 @@ In *SchoolContext.cs*, Hinzufügen einer `DbSet` -Eigenschaft für die `Person` 
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-Dies ist das Entity Framework muss lediglich um eine Tabelle pro Hierarchie Vererbung konfigurieren. Wie Sie sehen werden, wenn die Datenbank neu erstellt wird, muss ein `Person` anstelle der Tabelle die `Student` und `Instructor` Tabellen.
+Das ist alles, was Entity Framework für die Konfiguration der „Tabelle pro Hierarchie“-Vererbung benötigt. Wie Sie sehen werden, wenn die Datenbank neu erstellt wird, muss ein `Person` anstelle der Tabelle die `Student` und `Instructor` Tabellen.
 
 ## <a name="changing-instructorid-and-studentid-to-personid"></a>Veränderliche InstructorID und StudentID an PersonID
 
@@ -100,7 +100,7 @@ Diese Änderung ist nicht erforderlich; nur der Name der Spalte in der Jointabel
 Als Nächstes müssen Sie ändern `InstructorID` auf `PersonID` und `StudentID` auf `PersonID` während des gesamten Projekts ***außer*** in den Dateien Zeitstempel Migrationen in der *Migrationen* Ordner. Dazu suchen und öffnen Sie nur die Dateien, die geändert werden müssen, dann führen Sie eine globale Änderung auf die geöffneten Dateien. Die einzige Datei in die *Migrationen* ist der Ordner, die Sie ändern, sollten *Migrations\Configuration.cs.*
 
 1. > [!IMPORTANT]
- > Schließen alle geöffneten Dateien in Visual Studio, um zu beginnen.
+   > Schließen alle geöffneten Dateien in Visual Studio, um zu beginnen.
 2. Klicken Sie auf **suchen und Ersetzen – Suchen nach allen Dateien** in der **bearbeiten** Menü, und suchen Sie anschließend für alle Dateien im Projekt mit `InstructorID`.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
@@ -108,7 +108,7 @@ Als Nächstes müssen Sie ändern `InstructorID` auf `PersonID` und `StudentID` 
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 4. Öffnen der **in Dateien ersetzen** Dialogfeld und Änderung **Suchen in** auf **alle geöffneten Dokumente**.
-5. Verwenden der **in Dateien ersetzen** Dialogfeld so ändern Sie alle `InstructorID` an`PersonID.`  
+5. Verwenden der **in Dateien ersetzen** Dialogfeld so ändern Sie alle `InstructorID` an `PersonID.`  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 6. Suchen Sie alle Dateien in das Projekt, das enthalten `StudentID`.
@@ -149,13 +149,13 @@ Führen Sie die `update-database` erneut aus.
 
 ## <a name="testing"></a>Test
 
-Führen Sie den Standort aus, und wiederholen Sie den verschiedenen Seiten. Alles funktioniert genauso wie zuvor.
+Führen Sie den Standort aus, und wiederholen Sie den verschiedenen Seiten. Alles funktioniert genauso wie vorher.
 
 In **Server-Explorer** erweitern **SchoolContext** und dann **Tabellen**, und Sie sehen, dass die **Student** und **Dozenten**  Tabellen wurden durch ersetzt eine **Person** Tabelle. Erweitern Sie die **Person** Tabelle, und wird angezeigt, dass sie alle Spalten, die verwendet besitzt werden die **Student** und **Dozenten** Tabellen.
 
 ![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Mit der rechten Maustaste in den Person-Tabelle, und klicken Sie dann auf **Tabellendaten anzeigen** Unterscheidungsspalte angezeigt.
+Klicken Sie mit der rechten Maustaste auf die Tabelle „Person“, und klicken Sie anschließend auf **Tabellendaten anzeigen**, um die Unterscheidungsspalte anzuzeigen.
 
 ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
@@ -169,6 +169,6 @@ Tabelle pro Hierarchie Vererbung wurde jetzt für implementiert die `Person`, `S
 
 Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Zurück](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Weiter](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Zurück](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Weiter](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 title: Bereitstellen einer Datenbank (VB) | Microsoft Docs
 author: rick-anderson
-description: "Bereitstellen einer ASP.NET-Webanwendung umfasst das Abrufen von erforderlichen Dateien und Ressourcen aus der Entwicklungsumgebung in der produktionsumgebung. Für da..."
+description: Bereitstellen einer ASP.NET-Webanwendung umfasst das Abrufen von erforderlichen Dateien und Ressourcen aus der Entwicklungsumgebung in der produktionsumgebung. Für da...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b0890d50f21eb790d81d54261a67fcf487b1c95e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 024a34c1b2e37e60e6777dd54dcbd9aa845ec749
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-vb"></a>Bereitstellen einer Datenbank (VB)
 ====================
@@ -41,10 +41,10 @@ Der aktualisierte Buch Reviews web-Anwendung verwendet ein [SQL Server 2008 Expr
 
 Die `Reviews.mdf` Datenbank enthält vier Tabellen:
 
-- `Genres`-enthält einen Datensatz für jede "Genre", wie z. B. Technology Idee und Business.
-- `Books`-enthält einen Datensatz für jede Überprüfung mit Spalten wie `Title`, `GenreId`, `ReviewDate`, und `Review`, o. ä.
-- `Authors`– enthält Informationen zu jeder Autor, die zu ein überprüfter Buch beigetragen hat.
-- `BooksAuthors`-eine m: n-Join-Tabelle, der angibt, welche Autoren welche Bücher geschrieben haben.
+- `Genres` -enthält einen Datensatz für jede "Genre", wie z. B. Technology Idee und Business.
+- `Books` -enthält einen Datensatz für jede Überprüfung mit Spalten wie `Title`, `GenreId`, `ReviewDate`, und `Review`, o. ä.
+- `Authors` – enthält Informationen zu jeder Autor, die zu ein überprüfter Buch beigetragen hat.
+- `BooksAuthors` -eine m: n-Join-Tabelle, der angibt, welche Autoren welche Bücher geschrieben haben.
   
 
 Abbildung 1 zeigt ein Diagramm, ER diese vier Tabellen.
@@ -195,6 +195,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Herunterladen der Microsoft SQL Server-Datenbank, die Publishing-Assistent 1.1](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Herunterladen der Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[Zurück](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
-[Weiter](configuring-the-production-web-application-to-use-the-production-database-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
+> [Weiter](configuring-the-production-web-application-to-use-the-production-database-vb.md)

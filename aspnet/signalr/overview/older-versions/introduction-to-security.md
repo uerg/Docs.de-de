@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/introduction-to-security
-title: "Einführung in die SignalR-Sicherheit (SignalR 1.x) | Microsoft Docs"
+title: Einführung in die SignalR-Sicherheit (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Beschreibt die Sicherheitsprobleme, die Sie beim Entwickeln einer Anwendung SignalR berücksichtigen müssen."
+description: Beschreibt die Sicherheitsprobleme, die Sie beim Entwickeln einer Anwendung SignalR berücksichtigen müssen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b756d3e71d89b6c826bd497f73d052c4c8f634e8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>Einführung in die SignalR-Sicherheit (SignalR 1.x)
 ====================
@@ -98,7 +98,7 @@ Hier ist ein Beispiel von CSRF-Angriffen:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
- Beachten Sie, dass die formaktion an den Standort anfällig für nicht auf die bösartige Website sendet. Dies ist der "Cross-Site" Teil CSRF.
+   Beachten Sie, dass die formaktion an den Standort anfällig für nicht auf die bösartige Website sendet. Dies ist der "Cross-Site" Teil CSRF.
 4. Der Benutzer klickt auf die Schaltfläche "Absenden". Der Browser umfasst das Authentifizierungscookie mit der Anforderung.
 5. Die Anforderung auf dem Server "example.com" mit dem Kontext des Benutzers Authentifizierung ausgeführt und Aktionen möglich, die ein authentifizierter Benutzer tun darf.
 

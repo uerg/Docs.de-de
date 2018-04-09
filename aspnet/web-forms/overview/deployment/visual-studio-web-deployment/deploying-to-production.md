@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellung bis hin zur Produktion | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f3b3898bd003ace100ba05619f2c45ca808462df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Bereitstellung bis hin zur Produktion
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -144,10 +144,10 @@ Nun, dass Sie eine Web-app und die Datenbank für die Stagingumgebung erstellt h
 9. 1. Wählen Sie **Datenbank aktualisieren**.
 
         Die **Remote Verbindungszeichenfolge** Feld direkt unterhalb **DefaultConnection** sich mit der Verbindungszeichenfolge aus der PUBLISHSETTINGS-Datei gefüllt ist. Die Verbindungszeichenfolge enthält SQL Server-Anmeldeinformationen, die im nur-Text gespeichert sind die *pubxml* Datei. Falls gewünscht, sie es dauerhaft zu speichern, können Sie sie aus dem Veröffentlichungsprofil ein entfernen, nachdem die Datenbank bereitgestellt wird und bewahren sie stattdessen in Azure. Weitere Informationen finden Sie unter [wie Sie Ihre Datenbank ASP.NET Verbindungszeichenfolgen schützen bei der Bereitstellung in Azure aus Quelle](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) Scott Hanselman Blog.
-    2. Klicken Sie auf **Datenbankupdates konfigurieren**.
-    3. In der **Datenbankupdates konfigurieren** (Dialogfeld), klicken Sie auf **SQL-Skript hinzufügen**.
-    4. In der **SQL-Skript hinzufügen** Feld, navigieren Sie zu der *Aspnet-Daten-prod.sql* Skript, das Sie zuvor im Projektmappenordner gespeichert, und klicken Sie dann auf **öffnen**.
-    5. Schließen der **Datenbankupdates konfigurieren** (Dialogfeld).
+      2. Klicken Sie auf **Datenbankupdates konfigurieren**.
+      3. In der **Datenbankupdates konfigurieren** (Dialogfeld), klicken Sie auf **SQL-Skript hinzufügen**.
+      4. In der **SQL-Skript hinzufügen** Feld, navigieren Sie zu der *Aspnet-Daten-prod.sql* Skript, das Sie zuvor im Projektmappenordner gespeichert, und klicken Sie dann auf **öffnen**.
+      5. Schließen der **Datenbankupdates konfigurieren** (Dialogfeld).
 10. Klicken Sie unter **SchoolContext** in der **Datenbanken** Abschnitt **führen Sie Code First-Migrationen (wird beim Anwendungsstart ausgeführt)**.
 
     Zeigt Visual Studio **führen Sie Code First-Migrationen** anstelle von **Update Database** für `DbContext` Klassen. Gegebenenfalls Migrationen zum Bereitstellen einer Datenbank, die Sie zugreifen, indem Sie mit den DbDacFx-Anbieter verwenden ein `DbContext` Klasse, finden Sie unter [wie ich eine Code First Datenbank ohne Migrationen bereitstellen?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) in der Web-Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET auf MSDN.
@@ -296,11 +296,11 @@ In den nächsten Lernprogrammen Sie Anwendungscode zu aktualisieren und die Änd
 
 > [!NOTE]
 > Während die Anwendung in der produktionsumgebung eingesetzt wird sollten Sie einen Wiederherstellungsplan implementieren. D. h., Sie sollten werden in regelmäßigen Abständen Sichern der Datenbanken aus der Produktions-app an einem sicheren Speicherort, und Generationen solcher Sicherungen beibehalten werden soll. Wenn Sie die Datenbank aktualisieren, sollten Sie eine Sicherungskopie von unmittelbar vor der Änderung. Klicken Sie dann, wenn Sie ein Fehler unterläuft und nicht erst ermitteln, nachdem Sie es in der produktionsumgebung bereitgestellt haben, noch werden Sie können zum Wiederherstellen der Datenbank in den Zustand, der vorlag, bevor er beschädigt wurde. Weitere Informationen finden Sie unter [Azure SQL-Datenbank sichern und Wiederherstellen](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
-
-
+> 
+> 
 > [!NOTE]
 > In diesem Lernprogramm der SQL Server ist Edition, das Sie bereitstellen, Azure SQL-Datenbank. Während des Bereitstellungsprozesses für andere Editionen von SQL Server vergleichbar ist, kann eine Anwendung für die Produktion speziellen Code für Azure SQL-Datenbank in einigen Szenarien erforderlich. Weitere Informationen finden Sie unter [arbeiten mit Azure SQL-Datenbank](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) und [auswählen zwischen SQL Server und Azure SQL-Datenbank](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
-
->[!div class="step-by-step"]
-[Zurück](setting-folder-permissions.md)
-[Weiter](deploying-a-code-update.md)
+> 
+> [!div class="step-by-step"]
+> [Zurück](setting-folder-permissions.md)
+> [Weiter](deploying-a-code-update.md)

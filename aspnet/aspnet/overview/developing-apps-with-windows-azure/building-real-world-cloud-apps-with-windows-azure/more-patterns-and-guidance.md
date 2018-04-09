@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 title: Weitere Hinweise (Building Real-World Cloud Apps with Azure) und Muster | Microsoft Docs
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5da5110afc50fa02fcfae551a18741821f18fcbb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Weitere Muster und Anleitungen (Building Real-World Cloud Apps with Azure)
 ====================
@@ -78,7 +78,7 @@ Kopieren der Festplatte Bücher
 Abschließend, wenn Sie beginnen, Erstellen von realen apps und in Azure ausführen, früher oder später benötigen Sie vielleicht Unterstützung von Experten. Sie können Fragen in der Community-Sites wie [Azure-Foren oder StackOverflow](https://azure.microsoft.com/support/forums/), oder Sie können Microsoft direkt für Azure-Support kontaktieren. Microsoft bietet auf mehreren Ebenen aus technischen Support Azure: eine Zusammenfassung und einen Vergleich der Optionen, finden Sie unter [Azure unterstützt](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>Bestätigungen
+## <a name="acknowledgments"></a>Danksagungen
 
 Dieser Inhalt wurde von Tom Dykstra, Rick Anderson und Mike Wasson geschrieben. Die meisten der ursprüngliche Inhalt stammt [Scott Guthrie](https://weblogs.asp.net/scottgu/), und er wiederum zog auf Material aus Mark Simms und die Microsoft Customer Advisory Team (CAT).
 
@@ -132,6 +132,6 @@ Andere Mitglieder der DGAC überprüft und die vorläufige Gliederung kommentier
 - Roger Whitehead
 - Pawel Wilkosz
 
->[!div class="step-by-step"]
-[Zurück](queue-centric-work-pattern.md)
-[Weiter](the-fix-it-sample-application.md)
+> [!div class="step-by-step"]
+> [Zurück](queue-centric-work-pattern.md)
+> [Weiter](the-fix-it-sample-application.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 title: Verwenden der TagBuilder-Klasse zum Erstellen von HTML-Hilfsmethoden (VB) | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther stellt Ihnen eine nützliche Hilfsprogrammklasse in ASP.NET MVC-Framework mit dem Namen der TagBuilder-Klasse. Sie können einfach die TagBuilder-Klasse, um..."
+description: Stephen Walther stellt Ihnen eine nützliche Hilfsprogrammklasse in ASP.NET MVC-Framework mit dem Namen der TagBuilder-Klasse. Sie können einfach die TagBuilder-Klasse, um...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 2b72e08dff646f66252f210543230186cab6e641
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Verwenden die TagBuilder-Klasse zum Erstellen von HTML-Hilfsmethoden (VB)
 ====================
@@ -79,6 +79,6 @@ Beachten Sie, dass Sie den Namespace, der dem Image-Hilfsprogramm am oberen Rand
 
 In einem Visual Basic-Anwendung ist der Standardnamespace identisch mit den Namen der Anwendung.
 
->[!div class="step-by-step"]
-[Zurück](creating-custom-html-helpers-vb.md)
-[Weiter](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-custom-html-helpers-vb.md)
+> [Weiter](creating-page-layouts-with-view-master-pages-vb.md)

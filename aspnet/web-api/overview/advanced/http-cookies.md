@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/http-cookies
 title: HTTP-Cookies in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: e17c51946a268aa13ec035d18dc516928c9f4419
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 363ca975cf75b635b766a53eeda87cf957eed60c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>HTTP-Cookies in ASP.NET Web-API
 ====================
@@ -36,7 +36,7 @@ Hier ist ein Beispiel mit Attributen:
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Um einem Cookie an den Server, den Client enthält einen Cookie-Header in späteren Anforderungen zurückzugeben.
+Um ein Cookie an den Server zurückzugeben, fügt der Client einen Cookie-Header in späteren Anforderungen.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
@@ -79,7 +79,7 @@ Ein **CookieHeaderValue** enthält eine Auflistung von **CookieState** Instanzen
 
 ## <a name="structured-cookie-data"></a>Strukturierte Cookiedaten
 
-Viele Browser einschränken, wie viele Cookies, die sie gespeichert werden und #8212; die Gesamtzahl sowohl die Anzahl pro Domäne. Aus diesem Grund kann es nützlich, um ein einzelnes Cookie, statt mehrere Cookies festzulegen strukturierte Daten abgelegt sein.
+Viele Browser einschränken, wie viele Cookies sie speichern&#8212;sowohl die Gesamtzahl und die Anzahl pro Domäne. Aus diesem Grund kann es nützlich, um ein einzelnes Cookie, statt mehrere Cookies festzulegen strukturierte Daten abgelegt sein.
 
 > [!NOTE]
 > RFC 6265 werden keine Cookies Datenstruktur definiert.

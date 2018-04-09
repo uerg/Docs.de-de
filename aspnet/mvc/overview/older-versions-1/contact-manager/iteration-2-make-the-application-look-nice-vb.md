@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
-title: "Iteration #2 – Stellen Sie die Anwendung sucht nice (VB) | Microsoft Docs"
+title: 'Iteration #2 – Stellen Sie die Anwendung sucht nice (VB) | Microsoft Docs'
 author: microsoft
-description: "In dieser Iteration haben wir die Darstellung der Anwendung verbessern, indem Ändern der Standard-Gestaltungsvorlage für ASP.NET MVC-Ansicht und cascading Stylesheet."
+description: In dieser Iteration haben wir die Darstellung der Anwendung verbessern, indem Ändern der Standard-Gestaltungsvorlage für ASP.NET MVC-Ansicht und cascading Stylesheet.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07c4eaaf9ae5a389605a98951e970d410ca23122
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8545351b099e52533789b372903cd493f533f834
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iteration #2 – Stellen Sie die Anwendung nice (VB) suchen
 ====================
@@ -66,7 +66,7 @@ Ich möchte keine Vorlage aus dem Katalog ASP.NET MVC-Entwurf für die Kontakt-M
 
 ASP.NET MVC-Design-Katalog ist eine kostenlose Ressource, die von Microsoft bereitgestellt. Die ASP.NET MVC-Katalog befindet sich unter folgender Adresse:
 
-[https://www.ASP.NET/MVC/Gallery](https://www.asp.net/mvc/gallery)
+[https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
 ASP.NET MVC-Design-Katalog hostet eine Auflistung von dieser Website-Entwürfe, die speziell für die Verwendung in einer ASP.NET MVC-Projekt erstellt wurden. Designs werden von einem Mitglied der Community hochgeladen. Besucher an den Katalog für ihre bevorzugte Designs darüber abstimmen können (siehe Abbildung 2).
 
@@ -115,7 +115,7 @@ Der ASP.NET MVC-Design-Gallery verfügt über eine gute Auswahl der Design-Forma
 
 Allerdings müssen Sie einen vollständig eindeutigen Entwurf für Ihre Website erstellen. In diesem Fall Sie es sinnvoll, mit einer Website designbüros arbeiten. Ich möchte diesen Ansatz für den Entwurf für die Kontakt-Manager-Anwendung verwenden.
 
-Ich oben wenden Sie sich an den Manager für die Iteration 1 ZIP und das Projekt an der designbüros gesendet. Visual Studio (schade darauf!), deren Besitzer sie nicht, jedoch t Problem darstellen. Sie konnten sich zum Herunterladen von Microsoft Visual Web Developer kostenlos von der [https://www.asp.net](https://www.asp.net) Website und Öffnen der Kontakt-Manager-Anwendung in Visual Web Developer. In einigen Tagen mussten sie den Entwurf in Abbildung 7 erstellt.
+Ich oben wenden Sie sich an den Manager für die Iteration 1 ZIP und das Projekt an der designbüros gesendet. Visual Studio (schade darauf!), deren Besitzer sie nicht, jedoch t Problem darstellen. Sie konnten sich zum Herunterladen von Microsoft Visual Web Developer kostenlos von der [ https://www.asp.net ](https://www.asp.net) Website und Öffnen der Kontakt-Manager-Anwendung in Visual Web Developer. In einigen Tagen mussten sie den Entwurf in Abbildung 7 erstellt.
 
 
 [![Das Dialogfeld "Neues Projekt"](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
@@ -163,6 +163,6 @@ Als Nächstes wird erläutert, wie Sie einen benutzerdefinierten Entwurf entwick
 
 In der nächsten Iteration konfigurieren wir den sehr wichtigen Betreff der Validierung. Wir hinzufügen, damit ein Benutzer kann nicht ohne Angabe von erforderlichen Werten, z. B. eine Person s zunächst einen neuen Kontakt erstellen und Nachname zu unserem Anwendung Validierungscode.
 
->[!div class="step-by-step"]
-[Zurück](iteration-1-create-the-application-vb.md)
-[Weiter](iteration-3-add-form-validation-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](iteration-1-create-the-application-vb.md)
+> [Weiter](iteration-3-add-form-validation-vb.md)

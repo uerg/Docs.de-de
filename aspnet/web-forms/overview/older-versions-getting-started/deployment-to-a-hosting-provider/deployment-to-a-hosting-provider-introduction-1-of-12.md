@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: "Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12 | Microsoft Docs"
+title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12 | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -53,7 +53,7 @@ Die Lernprogramme ASP.NET-Entwickler, die kleinen Organisationen oder anderen Um
 
 In unternehmensumgebungen sowie mehr in der Regel die fortlaufende Integration Prozesse implementiert wird, und die produktionsumgebung in der Regel von den Servern des Unternehmens gehostet wird. Auch normalerweise führen verschiedene Personen unterschiedliche Rollen. Informationen zum Enterprise-Bereitstellung finden Sie unter [Bereitstellen von Webanwendungen in Enterprise-Szenarios](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Organisationen können auch Webanwendungen in Azure bereitstellen, und die meisten der in diesen Lernprogrammen vorgestellten Verfahren gelten auch für Azure-App Services-Web-Apps. Eine Einführung in Azure finden Sie unter [https://azure.microsoft.com](https://azure.microsoft.com).
+Organisationen können auch Webanwendungen in Azure bereitstellen, und die meisten der in diesen Lernprogrammen vorgestellten Verfahren gelten auch für Azure-App Services-Web-Apps. Eine Einführung in Azure finden Sie unter [ https://azure.microsoft.com ](https://azure.microsoft.com).
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>In den Lernprogrammen vorgestellten Hostinganbieter
 
@@ -142,5 +142,5 @@ Auswirkungen auf die folgenden Funktionen der Anwendung, zur Bereitstellung oder
 
 In diesem ersten Lernprogramm in der Reihe haben Sie das Beispielprojekt für Visual Studio heruntergeladen und überprüft Websitefunktionen, die beeinflussen, wie Sie die Anwendung bereitstellen. In den folgenden Lernprogrammen vorbereiten Sie für die Bereitstellung durch das einrichten, dass einige der folgenden Schritte automatisch behandelt werden. Andere kümmern Sie manuell.
 
->[!div class="step-by-step"]
-[Nächste](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [Nächste](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

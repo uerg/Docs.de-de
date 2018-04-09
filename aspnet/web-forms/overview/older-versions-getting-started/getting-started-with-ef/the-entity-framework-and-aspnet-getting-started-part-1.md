@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010 erstellen...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms-
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. Es umfasst Funktionen wie Student Zulassung, Kurs Erstellung und Instructor-Zuweisungen.
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. Sie enthält Funktionen wie die Zulassung von Studenten, die Erstellung von Kursen und Aufgaben von Dozenten.
 > 
 > Im Lernprogramm werden Beispiele für in c#. Die [herunterladbaren Beispiel](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) enthält Code in c# und Visual Basic.
 > 
@@ -54,15 +54,15 @@ Die Anwendung, die Sie in diesen Lernprogrammen erstellen werden müssen ist ein
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image1.png)
 
-Benutzer können anzeigen und Studenten, Kurs und Instructor-Informationen aktualisieren. Die Bildschirme erstellen Sie nun ein paar sind unten dargestellt.
+Benutzer können Informationen zu den Studenten, Kursen und Dozenten abrufen. Die Bildschirme erstellen Sie nun ein paar sind unten dargestellt.
 
 [![Image30](the-entity-framework-and-aspnet-getting-started-part-1/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image3.png)
 
-[![Image37](the-entity-framework-and-aspnet-getting-started-part-1/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image5.png)
+[![image37](the-entity-framework-and-aspnet-getting-started-part-1/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image5.png)
 
-[![Image31](the-entity-framework-and-aspnet-getting-started-part-1/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image7.png)
+[![image31](the-entity-framework-and-aspnet-getting-started-part-1/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image7.png)
 
-[![Image32](the-entity-framework-and-aspnet-getting-started-part-1/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image9.png)
+[![image32](the-entity-framework-and-aspnet-getting-started-part-1/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image9.png)
 
 ## <a name="creating-the-web-application"></a>Erstellen der Webanwendung
 
@@ -106,17 +106,17 @@ Wenn Sie die Datenbank aus einem Skript erstellen, führen Sie die folgenden Sch
 
 1. In **Server-Explorer**, erweitern Sie **Datenverbindungen**, erweitern Sie *School.mdf*, mit der rechten Maustaste **Datenbankdiagrammen**, und wählen Sie **Neues Diagramm hinzufügen**.
 
-    [![Image35](the-entity-framework-and-aspnet-getting-started-part-1/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image17.png)
+    [![image35](the-entity-framework-and-aspnet-getting-started-part-1/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image17.png)
 2. Wählen Sie alle Tabellen aus, und klicken Sie dann auf **hinzufügen**.
 
-    [![Image36](the-entity-framework-and-aspnet-getting-started-part-1/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image19.png)
+    [![image36](the-entity-framework-and-aspnet-getting-started-part-1/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image19.png)
 
     SQL Server erstellt ein Datenbankdiagramm, die Tabellen, Spalten in Tabellen und Beziehungen zwischen den Tabellen anzeigt. Sie können die Tabellen, etwa, um sie zu organisieren, beliebig verschieben.
 3. Speichern Sie das Diagramm als "SchoolDiagram", und schließen Sie es.
 
 Wenn Sie Herunterladen der *School.mdf* -Datei, die mit diesem Lernprogramm geht sehen Sie das Datenbankdiagramm durch Doppelklicken auf **SchoolDiagram** unter **Datenbankdiagrammen** in **Server-Explorer**.
 
-[![Image38](the-entity-framework-and-aspnet-getting-started-part-1/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image21.png)
+[![image38](the-entity-framework-and-aspnet-getting-started-part-1/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image21.png)
 
 Das Diagramm sieht etwa wie folgt (in den Tabellen möglicherweise an verschiedenen Standorten, von dem hier gezeigten):
 
@@ -159,60 +159,60 @@ Sie können sehen, dass die Entitätsdiagramm Datenbankdiagramm über ein paar U
     In diesem Fall eine `Person` Entität kann oder möglicherweise nicht zugeordnet werden ein `OfficeAssignment` Entität. Ein `OfficeAssignment` Entität zugeordnet werden eine `Person` Entität. Das heißt, ein Kursleiter kann oder kann nicht zugewiesen werden, um ein Office und alle Office kann nur einen Kursleiter zugewiesen werden.
 - Eine 1: n-Zuordnung wird dargestellt, die durch "1" und "\*".
 
-    [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
+    [![image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    In diesem Fall eine `Person` Entität kann oder möglicherweise nicht über zugeordnete `StudentGrade` Entitäten. Ein `StudentGrade` Entität muss mit einem zugeordneten `Person` Entität. `StudentGrade`Entitäten darstellen tatsächlich registrierte Kurse in dieser Datenbank; Wenn eine Student einen Kurs registriert ist und noch keine Grade besteht die `Grade` -Eigenschaft null ist. Eine Student also möglicherweise nicht in jeder Kursen registriert sein noch, möglicherweise in einen Kurs registriert werden oder kann in mehreren Kursen registriert sein. Jeder Jahrgangsstufe einer registrierten Kurs gilt für nur eine Student.
+    In diesem Fall eine `Person` Entität kann oder möglicherweise nicht über zugeordnete `StudentGrade` Entitäten. Ein `StudentGrade` Entität muss mit einem zugeordneten `Person` Entität. `StudentGrade` Entitäten darstellen tatsächlich registrierte Kurse in dieser Datenbank; Wenn eine Student einen Kurs registriert ist und noch keine Grade besteht die `Grade` -Eigenschaft null ist. Eine Student also möglicherweise nicht in jeder Kursen registriert sein noch, möglicherweise in einen Kurs registriert werden oder kann in mehreren Kursen registriert sein. Jeder Jahrgangsstufe einer registrierten Kurs gilt für nur eine Student.
 - Eine m: n-Zuordnung dargestellte "\*"und"\*".
 
-    [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
+    [![image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
 
     In diesem Fall eine `Person` Entität kann oder möglicherweise nicht über zugeordnete `Course` Entitäten und das Gegenteil ist ebenfalls "true": eine `Course` Entität kann oder möglicherweise nicht über zugeordnete `Person` Entitäten. Also ein Kursleiter möglicherweise mehrere Kurse werden folgende Themen behandelt, und ein Kurs kann durch mehrere Lehrkräfte behandelt werden. (In dieser Datenbank diese Beziehung gilt nur für Lehrkräfte; es jedoch nicht Studenten mit Kurse verknüpft. Studenten sind Kursen durch die StudentGrades-Tabelle verknüpft.)
 
 Ein weiterer Unterschied zwischen dem Datenbankdiagramm und des Datenmodells ist die zusätzliche **Navigationseigenschaften** Abschnitt für jede Entität. Eine Navigationseigenschaft einer Entität verweist auf verknüpfte Entitäten. Z. B. die `Courses` Eigenschaft in einer `Person` Entität enthält eine Auflistung aller der `Course` , die verbundenen, Entitäten `Person` Entität.
 
-[![Image12](the-entity-framework-and-aspnet-getting-started-part-1/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image41.png)
+[![image12](the-entity-framework-and-aspnet-getting-started-part-1/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image41.png)
 
 Noch ein weiterer Unterschied zwischen der Datenbank und Datenmodell Abwesenheit ist die `CourseInstructor` Zuordnungstabelle, in der Datenbank, zum Verknüpfen verwendet wird, der `Person` und `Course` Tabellen in einer m: n-Beziehung. Navigationseigenschaften ermöglichen es Ihnen, die in Zusammenhang abrufen `Course` Entitäten aus der `Person` Entität und verknüpften `Person` Entitäten aus der `Course` Entität, daher keine Notwendigkeit besteht, die die Zuordnung im Datenmodell darstellen.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
 
 Für die Zwecke dieses Lernprogramms, nehmen Sie an der `FirstName` Spalte die `Person` Tabelle enthält einer Person Vornamen und Vornamen. So ändern Sie den Namen des Felds, wird dies berücksichtigt werden sollen, aber der Datenbankadministrator (DBA) möchten nicht, dass die Datenbank zu ändern. Sie können den Namen des ändern die `FirstName` unverändert Eigenschaft im Datenmodell, lassen Sie die Datenbank entspricht.
 
 Klicken Sie im Designer mit der Maustaste **FirstName** in der `Person` Entität, und wählen Sie dann **umbenennen**.
 
-[![Image13](the-entity-framework-and-aspnet-getting-started-part-1/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image45.png)
+[![image13](the-entity-framework-and-aspnet-getting-started-part-1/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image45.png)
 
 Geben Sie den neuen Namen "FirstMidName". Dadurch wird die Möglichkeit, die Sie auf die Spalte im Code verweisen ohne Ändern der Datenbank geändert.
 
-[![Image29](the-entity-framework-and-aspnet-getting-started-part-1/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image47.png)
+[![image29](the-entity-framework-and-aspnet-getting-started-part-1/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image47.png)
 
 Die Model-Browser stellt eine andere Möglichkeit, die Datenbankstruktur, die Modellstruktur Daten und die Zuordnung zwischen ihnen anzuzeigen. Um diese anzuzeigen, mit der rechten Maustaste in eines leeren Bereichs im Entitätsdesigner, und klicken Sie dann auf **Modellbrowser**.
 
-[![Image18](the-entity-framework-and-aspnet-getting-started-part-1/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image49.png)
+[![image18](the-entity-framework-and-aspnet-getting-started-part-1/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image49.png)
 
 Die **Modellbrowser** Bereich wird eine Strukturansicht angezeigt. (Die **Modellbrowser** Bereich angedockt werden kann, mit der **Projektmappen-Explorer** Bereich.) Die **SchoolModel** Knoten darstellt, die Modellstruktur Daten und die **SchoolModel.Store** Knoten darstellt, die Struktur der Datenbank.
 
-[![Image26](the-entity-framework-and-aspnet-getting-started-part-1/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image51.png)
+[![image26](the-entity-framework-and-aspnet-getting-started-part-1/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image51.png)
 
 Erweitern Sie **SchoolModel.Store** um die Tabellen anzuzeigen, erweitern Sie **Tabellen / Sichten** finden in Tabellen, und erweitern dann **Kurs** Spalten innerhalb einer Tabelle angezeigt.
 
-[![Image19](the-entity-framework-and-aspnet-getting-started-part-1/_static/image54.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image53.png)
+[![image19](the-entity-framework-and-aspnet-getting-started-part-1/_static/image54.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image53.png)
 
 Erweitern Sie **SchoolModel**, erweitern Sie **Entitätstypen**, und erweitern Sie dann die **Kurs** Knoten, um die Entitäten und Eigenschaften innerhalb der Entitäten anzuzeigen.
 
-[![Image20](the-entity-framework-and-aspnet-getting-started-part-1/_static/image56.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image55.png)
+[![image20](the-entity-framework-and-aspnet-getting-started-part-1/_static/image56.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image55.png)
 
 In der-Designer oder der **Modellbrowser** Bereich können Sie sehen, wie das Entity Framework die Objekte der beiden Modelle, bezieht. Mit der rechten Maustaste die `Person` Entität, und wählen **Tabelle zuordnen**.
 
-[![Image21](the-entity-framework-and-aspnet-getting-started-part-1/_static/image58.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image57.png)
+[![image21](the-entity-framework-and-aspnet-getting-started-part-1/_static/image58.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image57.png)
 
 Daraufhin wird die **Mappingdetails** Fenster. Beachten Sie, dass in diesem Fenster Sie sehen, die können die Datenbankspalte `FirstName` zugeordnet `FirstMidName`, was Sie es in das Datenmodell umbenannt ist.
 
-[![Image22](the-entity-framework-and-aspnet-getting-started-part-1/_static/image60.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image59.png)
+[![image22](the-entity-framework-and-aspnet-getting-started-part-1/_static/image60.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image59.png)
 
 Das Entity Framework verwendet XML zum Speichern von Informationen zu der Datenbank, das Datenmodell und die Zuordnungen zwischen ihnen. Die *SchoolModel.edmx* Datei ist tatsächlich eine XML-Datei, die diese Informationen enthält. Rendert der Designer die Informationen in einem grafischen Format, aber Sie können auch die Datei im XML-Format anzeigen, indem Sie mit der rechten Maustaste die *EDMX* Datei **Projektmappen-Explorer**auf **Öffnen mit**, auswählen und **XML (Text)-Editor**. (Modell-Datendesigner und XML-Editor sind nur zwei unterschiedliche Arten der Start- und Arbeiten mit der gleichen Datei, damit Sie den Designer zu öffnen, und öffnen Sie die Datei in einem XML-Editor zur gleichen Zeit haben können.)
 
 Sie haben jetzt eine Website, eine Datenbank und ein Datenmodell erstellt. In der nächsten exemplarischen Vorgehensweise beginnen Sie arbeiten mit Daten, die mithilfe des Datenmodells und das ASP.NET `EntityDataSource` Steuerelement.
 
->[!div class="step-by-step"]
-[Nächste](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [Nächste](the-entity-framework-and-aspnet-getting-started-part-2.md)

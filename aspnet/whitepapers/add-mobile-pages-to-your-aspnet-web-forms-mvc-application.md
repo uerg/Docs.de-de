@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: "Gewusst wie: Hinzufügen mobiler Seiten zu Ihren ASP.NET Web Forms-/ MVC-Anwendung | Microsoft Docs"
+title: 'Gewusst wie: Hinzufügen mobiler Seiten zu Ihren ASP.NET Web Forms-/ MVC-Anwendung | Microsoft Docs'
 author: rick-anderson
-description: "Dieser Vorgehensweise beschreibt verschiedene Möglichkeiten, optimierte für mobile Geräte von Ihrer ASP.NET Web Forms Seiten dienen / MVC-Anwendung, und schlägt vor, Architektur und..."
+description: Dieser Vorgehensweise beschreibt verschiedene Möglichkeiten, optimierte für mobile Geräte von Ihrer ASP.NET Web Forms Seiten dienen / MVC-Anwendung, und schlägt vor, Architektur und...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Gewusst wie: Hinzufügen mobiler Seiten zu Ihren ASP.NET Web Forms-/ MVC-Anwendung
 ====================
@@ -185,7 +185,7 @@ Beachten Sie, dass die Formularauthentifizierung von bestimmten Annahmen zu, in 
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- Mit diesem Code wird davon ausgegangen, dass Ihre Seite Anmeldung Serversteuerelement LoginUser, wie der Standardprojektvorlage aufgerufen hat.
+  Mit diesem Code wird davon ausgegangen, dass Ihre Seite Anmeldung Serversteuerelement LoginUser, wie der Standardprojektvorlage aufgerufen hat.
 
 ### <a name="working-with-output-caching"></a>Arbeiten mit Zwischenspeichern der Ausgabe
 
@@ -243,7 +243,7 @@ Beachten Sie, dass von der Anwendung (d. h. mobile derjenige, zusätzlich zu den
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Nun der Fehler beseitigen und die URL http:// geleitet werden*Standortname*/ gelangen, der desktop-Startseite, und http://*Standortname*/mobile/ mobile Homepage erreicht wird.
+Nun der Fehler beseitigen und die URL http:// geleitet werden<em>Standortname</em>/ gelangen, der desktop-Startseite, und http://<em>Standortname</em>/mobile/ mobile Homepage erreicht wird.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Umleiten von mobilen Besuchern an Ihren mobilen Bereich
 

@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2013/release-notes
-title: "ASP.NET und Webtools für Visual Studio 2013-Versionshinweise | Microsoft Docs"
+title: ASP.NET und Webtools für Visual Studio 2013-Versionshinweise | Microsoft Docs
 author: microsoft
-description: "Dieses Dokument beschreibt die Version von ASP.NET und Webtools für Visual Studio 2013."
+description: Dieses Dokument beschreibt die Version von ASP.NET und Webtools für Visual Studio 2013.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET und Webtools für Visual Studio 2013-Versionshinweise
 ====================
@@ -199,16 +199,16 @@ Authentifizierungsfilter sind eine neue Art von Filter in ASP.NET MVC, die vor d
 
 Sie können jetzt Überschreiben der Filter an eine bestimmte Aktion-Methode oder der Controller anwenden, indem Sie einen Außerkraftsetzung Filter angeben. Außerkraftsetzung Filter geben Sie einen Satz von Typen, die für einen bestimmten Bereich (Aktions- oder Controllerebene) nicht ausgeführt werden soll. Dadurch können Sie so konfigurieren Sie Filter, die global angewendet, aber dann Ausschließen bestimmter globale Filter nicht auf bestimmte Aktionen oder Controllern angewendet.
 
-### <a name="attribute-routing"></a>Routing-Attribut
+### <a name="attribute-routing"></a>Attributrouting
 
-ASP.NET MVC unterstützt jetzt die routing-Attribut, Dank einen Beitrag von Tim McCall der Autor [http://attributerouting.net](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Routen angeben, durch Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller.
+ASP.NET MVC unterstützt jetzt die routing-Attribut, Dank einen Beitrag von Tim McCall der Autor [ http://attributerouting.net ](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Routen angeben, durch Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET-Web-API 2
 
-### <a name="attribute-routing"></a>Routing-Attribut
+### <a name="attribute-routing"></a>Attributrouting
 
-ASP.NET Web-API unterstützt jetzt die routing-Attribut, Dank einen Beitrag von Tim McCall der Autor [http://attributerouting.net](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Web-API-Routen Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller wie folgt angeben:
+ASP.NET Web-API unterstützt jetzt die routing-Attribut, Dank einen Beitrag von Tim McCall der Autor [ http://attributerouting.net ](http://attributerouting.net). Mit routing-Attribut können Sie Ihre Web-API-Routen Hinzufügen einer Anmerkung zu Ihrer Aktionen und Controller wie folgt angeben:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -332,7 +332,7 @@ SignalR 2.0 basiert vollständig auf [OWIN (Open Weboberfläche für .NET)](http
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs und MapConnection sind jetzt MapSignalR
 
-Aus Kompatibilitätsgründen mit OWIN-Standards wurden diese Methoden um umbenannt `MapSignalR`. `MapSignalR`wird aufgerufen, ohne Parameter alle Hubs zugeordnet werden kann (als `MapHubs` ist in Version 1.x); um einzelne zuordnen **"persistentconnection"** Objekte, geben Sie die Verbindung als der Typparameter und die URL-Erweiterung für die Verbindung als der Erstes Argument.
+Aus Kompatibilitätsgründen mit OWIN-Standards wurden diese Methoden um umbenannt `MapSignalR`. `MapSignalR` wird aufgerufen, ohne Parameter alle Hubs zugeordnet werden kann (als `MapHubs` ist in Version 1.x); um einzelne zuordnen **"persistentconnection"** Objekte, geben Sie die Verbindung als der Typparameter und die URL-Erweiterung für die Verbindung als der Erstes Argument.
 
 Die `MapSignalR` Methode wird aufgerufen, in einer Owin-Start-Klasse. Visual Studio 2013 enthält eine neue Vorlage für eine Owin-Start-Klasse. Diese Vorlage verwenden möchten, führen Sie folgende Schritte aus:
 
@@ -392,7 +392,7 @@ Der folgende Code veranschaulicht, wie in einem Projekt auf SignalR 2.0 CORS ode
 
 Unterstützung für IOS- und Android mit MonoTouch und MonoDroid Komponenten von Clients wurde der [Xamarin Bibliothek](https://xamarin.com/). Informationen zu ihrer Verwendung finden Sie unter [mithilfe von Xamarin-Komponenten](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Diese Komponenten in stehen die [Xamarin Store](https://store.xamarin.com/) Wenn die SignalR RTW-Version verfügbar ist.
 
-<a id="portable"></a>### Portabler .NET client
+<a id="portable"></a> ### Portabler .NET client
 
 Ermöglichen, eine bessere plattformübergreifende Entwicklung, die Silverlight, WinRT und Windows Phone-Clients mit einem einzelnen portable .NET Client, der die folgenden Plattformen unterstützt ersetzt wurden:
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 enthält die folgenden neuen Features:
 - Unterstützung für die Bearbeitung der Registerkarte ". Preivously, die **Dokument formatieren** Befehl automatisch den Einzug und automatische Formatierung in Visual Studio nicht korrekt funktioniert haben bei Verwendung der **Tabulatoren beibehalten** Option. Diese Änderung behebt Visual Studio, die Formatierung für die Razor-Code für die Registerkarte "formatieren.
 - Unterstützung für URL Rewrite Regeln beim Generieren von Links.
 - Entfernen von Sicherheitsattribut transparent.
- > [!NOTE]
- > Dadurch ist eine wichtige Änderung, und Razor-3 nicht kompatibel mit MVC 4 und früheren Versionen, während der Razor-2 nicht kompatibel mit MVC5 oder Assemblys, die für MVC5 kompiliert wird.
+  > [!NOTE]
+  > Dadurch ist eine wichtige Änderung, und Razor-3 nicht kompatibel mit MVC 4 und früheren Versionen, während der Razor-2 nicht kompatibel mit MVC5 oder Assemblys, die für MVC5 kompiliert wird.
 
 Razor 3 Probleme in Visual Studio 2013 von Vorabversionen verwendbaren [hier](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
@@ -603,7 +603,7 @@ In diesem Abschnitt werden bekannte Probleme und aktueller Änderungen im ASP.NE
 
 ### <a name="aspnet-web-api"></a>ASP.NET-Web-API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`Gibt keinen zurück `IQueryable<T>` immer, wie wir Unterstützung für hinzugefügt `$select` und `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` Gibt keinen zurück `IQueryable<T>` immer, wie wir Unterstützung für hinzugefügt `$select` und `$expand`.
 
     Unsere früheren Beispiele für `ODataQueryOptions<T>` immer die Typumwandlung der Rückgabewert von `ApplyTo` auf `IQueryable<T>`. Dies zuvor bearbeitet werden, da die Abfrageoptionen wir unterstützt zuvor (`$filter`, `$orderby`, `$skip`, `$top`) ändern Sie die Form der Abfrage nicht. Nun, dass wir unterstützen `$select` und `$expand` der Rückgabewert `ApplyTo` nicht `IQueryable<T>` immer.
 
@@ -632,7 +632,7 @@ In diesem Abschnitt werden bekannte Probleme und aktueller Änderungen im ASP.NE
 
     *Serverfehler in '/' Anwendung.*
 
-    *Ein Anspruch des Typs "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" oder "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider" war nicht auf die angegebene "ClaimsIdentity" vorhanden. Überprüfen Sie, der konfigurierten Anspruchsanbieter beider diese Ansprüche in den "ClaimsIdentity"-Instanzen bereitstellt, die sie generiert, um Unterstützung für token fälschungssicherheitssystem auf einen mit anspruchsbasierter Authentifizierung zu aktivieren. Wenn die konfigurierten Anspruchsanbieter einen anderen Anspruchstyp stattdessen als eindeutiger Bezeichner verwendet, können sie mithilfe der statischen Eigenschaft AntiForgeryConfig.UniqueClaimTypeIdentifier konfiguriert werden.*
+    <em>Ein Anspruch des Typs "<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'oder'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' wurde nicht auf die angegebene" ClaimsIdentity "vorhanden. Überprüfen Sie, der konfigurierten Anspruchsanbieter beider diese Ansprüche in den "ClaimsIdentity"-Instanzen bereitstellt, die sie generiert, um Unterstützung für token fälschungssicherheitssystem auf einen mit anspruchsbasierter Authentifizierung zu aktivieren. Wenn die konfigurierten Anspruchsanbieter einen anderen Anspruchstyp stattdessen als eindeutiger Bezeichner verwendet, können sie mithilfe der statischen Eigenschaft AntiForgeryConfig.UniqueClaimTypeIdentifier konfiguriert werden.</em>
 
     **Problemumgehung**:
 
@@ -647,14 +647,14 @@ In diesem Abschnitt werden bekannte Probleme und aktueller Änderungen im ASP.NE
 
     Um den oben aufgeführten Fehler zu beheben, öffnen Sie *alle* die Dateien "Web.config" (einschließlich derjenigen, die im Ordner "Sichten") im Projekt und führen Sie Folgendes:
 
-    1. Aktualisieren Sie alle Vorkommen von "5.0.0.0" Version "4.0.0.0" von "System.Web.Mvc".
-    2. Aktualisieren Sie alle Vorkommen von "System.Web.Helpers", Version "2.0.0.0" &quot;System.Web.WebPages&quot; und &quot;System.Web.WebPages.Razor&quot; auf "3.0.0.0"
+   1. Aktualisieren Sie alle Vorkommen von "5.0.0.0" Version "4.0.0.0" von "System.Web.Mvc".
+   2. Aktualisieren Sie alle Vorkommen von "System.Web.Helpers", Version "2.0.0.0" &quot;System.Web.WebPages&quot; und &quot;System.Web.WebPages.Razor&quot; auf "3.0.0.0"
 
-    Nachdem Sie die oben genannten Änderungen vorgenommen haben, sollten die Assemblybindungen z. B. wie folgt aussehen:
+      Nachdem Sie die oben genannten Änderungen vorgenommen haben, sollten die Assemblybindungen z. B. wie folgt aussehen:
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    Informationen zum Upgrade von MVC 4-Projekte auf MVC 5 finden Sie unter [das Upgrade von einer ASP.NET MVC 4 und Web-API-Projekt auf ASP.NET MVC 5 und Web-API 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+      Informationen zum Upgrade von MVC 4-Projekte auf MVC 5 finden Sie unter [das Upgrade von einer ASP.NET MVC 4 und Web-API-Projekt auf ASP.NET MVC 5 und Web-API 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 3. Wird die clientseitige Validierung mit jQuery unaufdringlichen Validierung verwendet, ist der validierungsmeldung manchmal falsch für ein HTML-Eingabeelement mit Typ = 'Number'. Die Validierungsfehler für einen erforderlichen Wert ("das Altersfeld ist erforderlich") wird angezeigt, wenn eine ungültige Anzahl statt der Nachricht richtig eingegeben werden, dass eine gültige Zahl erforderlich ist.
 
     Dieses Problem wird häufig für ein Modell mit einer Ganzzahleigenschaft für das Erstellen und Bearbeiten von Sichten mit Gerüstbau Code gefunden.
@@ -697,13 +697,13 @@ Problemumgehung:
 - Klicken Sie zum Beheben dieses Fehlers für MVC eine neue Elements mit Gerüst hinzufügen, und wählen Sie MVC 5-Abhängigkeiten (minimale oder vollständige). Dabei werden alle erforderlichen Änderungen zu Ihrem Projekt hinzufügen.
 - So beheben Sie diesen Fehler für die Web-API:
 
-    1. Fügen Sie der Klasse "webapiconfig" zu Ihrem Projekt hinzu.
+  1. Fügen Sie der Klasse "webapiconfig" zu Ihrem Projekt hinzu.
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. Konfigurieren Sie in der Anwendung WebApiConfig.Register\_Start-Methode in "Global.asax" wie folgt:
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. Konfigurieren Sie in der Anwendung WebApiConfig.Register\_Start-Methode in "Global.asax" wie folgt:
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

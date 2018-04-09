@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
-title: "Erstellen eine Geschäftslogikschicht (VB) | Microsoft Docs"
+title: Erstellen eine Geschäftslogikschicht (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm erfahren wir, wie Sie Ihre Geschäftsregeln in einem Business Logic Layer (BLL) zentralisieren, die dient als Mittler für den Datenaustausch zwischen t..."
+description: In diesem Lernprogramm erfahren wir, wie Sie Ihre Geschäftsregeln in einem Business Logic Layer (BLL) zentralisieren, die dient als Mittler für den Datenaustausch zwischen t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 858383203ddbaa9cb895c3368705f90546c8c974
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 150862decbbb69747f3e957a941b71b118b7231c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-business-logic-layer-vb"></a>Erstellen eine Geschäftslogikschicht (VB)
 ====================
@@ -63,13 +63,13 @@ Als Nächstes fügen Sie Methoden auf jede der Klassen, die Methoden definiert, 
 
 Für die `ProductsBLL` Klasse, die wir insgesamt sieben Methoden hinzufügen müssen:
 
-- `GetProducts()`Gibt alle Produkte zurück
-- `GetProductByProductID(productID)`Gibt das Produkt mit der angegebenen Produkt-ID
-- `GetProductsByCategoryID(categoryID)`Gibt alle Produkte aus der angegebenen Kategorie zurück.
-- `GetProductsBySupplier(supplierID)`Gibt alle Produkte aus den angegebenen Lieferanten
-- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)`Fügt ein neues Produkt in der Datenbank mithilfe der Werte ein übergeben eingehend; Gibt die `ProductID` Wert des neu eingefügten Datensatzes
-- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)`aktualisiert ein vorhandenes Produkt mit der übergebenen Werte in der Datenbank an. Gibt `True` wenn genau eine Zeile aktualisiert wurde, `False` andernfalls
-- `DeleteProduct(productID)`Löscht das angegebene Produkt aus der Datenbank
+- `GetProducts()` Gibt alle Produkte zurück
+- `GetProductByProductID(productID)` Gibt das Produkt mit der angegebenen Produkt-ID
+- `GetProductsByCategoryID(categoryID)` Gibt alle Produkte aus der angegebenen Kategorie zurück.
+- `GetProductsBySupplier(supplierID)` Gibt alle Produkte aus den angegebenen Lieferanten
+- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)` Fügt ein neues Produkt in der Datenbank mithilfe der Werte ein übergeben eingehend; Gibt die `ProductID` Wert des neu eingefügten Datensatzes
+- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` aktualisiert ein vorhandenes Produkt mit der übergebenen Werte in der Datenbank an. Gibt `True` wenn genau eine Zeile aktualisiert wurde, `False` andernfalls
+- `DeleteProduct(productID)` Löscht das angegebene Produkt aus der Datenbank
 
 ProductsBLL.vb
 
@@ -207,12 +207,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Liz Shulok, Dennis Patterson Carlos Santos und Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](creating-a-data-access-layer-vb.md)
-[Weiter](master-pages-and-site-navigation-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-data-access-layer-vb.md)
+> [Weiter](master-pages-and-site-navigation-vb.md)

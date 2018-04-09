@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 7 | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 7 | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework. Die beispielanwendung ist...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb84f4f3e130fedb3e2f1a17d630767ff65bfa05
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 7
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -51,7 +51,7 @@ Kopieren Sie die folgenden SQL-Anweisungen, und fügen Sie sie in der gespeicher
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student`Entitäten verfügen über vier Eigenschaften: `PersonID`, `LastName`, `FirstName`, und `EnrollmentDate`. Generiert die Datenbank automatisch den ID-Wert, und die gespeicherte Prozedur akzeptiert Parameter für die anderen drei. Die gespeicherte Prozedur gibt den Wert des Schlüssels für die neue Zeile Datensatz zurück, sodass Entity Framework nachverfolgen, die in der Version der Entität von können, die im Arbeitsspeicher behält.
+`Student` Entitäten verfügen über vier Eigenschaften: `PersonID`, `LastName`, `FirstName`, und `EnrollmentDate`. Generiert die Datenbank automatisch den ID-Wert, und die gespeicherte Prozedur akzeptiert Parameter für die anderen drei. Die gespeicherte Prozedur gibt den Wert des Schlüssels für die neue Zeile Datensatz zurück, sodass Entity Framework nachverfolgen, die in der Version der Entität von können, die im Arbeitsspeicher behält.
 
 Speichern Sie und schließen Sie das Fenster für die gespeicherte Prozedur.
 
@@ -139,6 +139,6 @@ Die Seite nun verwendet der `GetCourses` gespeicherte Prozedur beim Abrufen der 
 
 In den nächsten Lernprogrammen erfahren Sie, wie Dynamic Data-Funktionen zu verwenden, um das Programm und Testen von Formatierung und Validierung Regeln erleichtern. Statt anzugeben, auf jeder Webseite Regeln wie z. B. Formatzeichenfolgen Daten und davon, ob ein Feld erforderlich ist, können Sie diese Regeln in Daten darin enthaltenen Modellmetadaten angeben und sie automatisch auf jeder Seite angewendet werden.
 
->[!div class="step-by-step"]
-[Zurück](the-entity-framework-and-aspnet-getting-started-part-6.md)
-[Weiter](the-entity-framework-and-aspnet-getting-started-part-8.md)
+> [!div class="step-by-step"]
+> [Zurück](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [Weiter](the-entity-framework-and-aspnet-getting-started-part-8.md)

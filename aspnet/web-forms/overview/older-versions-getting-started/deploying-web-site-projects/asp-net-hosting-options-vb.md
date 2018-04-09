@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 title: ASP.NET Hostingoptionen (VB) | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET-Webanwendungen in der Regel dienen, erstellt, und in einer lokalen Entwicklungsumgebung getestet und in einer produktionsumgebung Umgebung o bereitgestellt werden müssen..."
+description: ASP.NET-Webanwendungen in der Regel dienen, erstellt, und in einer lokalen Entwicklungsumgebung getestet und in einer produktionsumgebung Umgebung o bereitgestellt werden müssen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>ASP.NET Hostingoptionen (VB)
 ====================
@@ -61,7 +61,7 @@ Die Konfigurationsinformationen für eine Webanwendung befindet sich in der Rege
 Zusätzlich zu den konfigurationsänderungen für Web-Anwendung möglicherweise in Schritt 1 auch Konfiguration für die Webserver und Datenbank gelten. Z. B. wenn eine ASP.NET-Seite erstellt oder löscht Dateien aus einem Verzeichnis auf dem Webserver muss der Webserver konfiguriert werden, um diese dateisystemänderungen zuzulassen. Möglicherweise gibt es ebenso-Berechtigung oder die Authentication-Einstellungen, die an der Datenbank vorgenommen werden müssen.
 
 
-Schritt 2 umfasst den Satz von wesentlichen ASP.NET-Seiten und Unterstützungsdateien zwischen der Entwicklungs- und produktionsumgebungen zu synchronisieren. Der bestimmten Satz von ASP. NET-bezogene Dateien, zwischen den beiden Umgebungen synchronisiert werden müssen, hängt vom Typ des Projekts, die Sie in Visual Studio erstellt und ist die Erläuterung in den nächsten Lernprogrammen  *[bestimmen was-Dateien müssen bereitgestellt werden,](determining-what-files-need-to-be-deployed-vb.md)*. Die dritte und vierte Lernprogramme -  *[Bereitstellen Ihrer Website mithilfe von FTP](deploying-your-site-using-an-ftp-client-vb.md)*und  *[Bereitstellen Ihrer Website mit Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -untersuchen andere Tools und Techniken zum Synchronisieren von Dateien.
+Schritt 2 umfasst den Satz von wesentlichen ASP.NET-Seiten und Unterstützungsdateien zwischen der Entwicklungs- und produktionsumgebungen zu synchronisieren. Der bestimmten Satz von ASP. NET-bezogene Dateien, zwischen den beiden Umgebungen synchronisiert werden müssen, hängt vom Typ des Projekts, die Sie in Visual Studio erstellt und ist die Erläuterung in den nächsten Lernprogrammen  <em>[bestimmen was-Dateien müssen bereitgestellt werden,](determining-what-files-need-to-be-deployed-vb.md)</em>. Die dritte und vierte Lernprogramme -  <em>[Bereitstellen Ihrer Website mithilfe von FTP](deploying-your-site-using-an-ftp-client-vb.md)</em>und <em>[Bereitstellen Ihrer Website mit Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -untersuchen andere Tools und Techniken zum Synchronisieren von Dateien.
 
 Beim Erstellen eines datengesteuerten Anwendungen bestehen in der Regel zwei Datenbanken, die verwendet wird: eine für Entwicklung und eine für die Produktion. Während der Entwicklung der Entwicklungsdatenbank Schema möglicherweise geändert werden, um neue Tabellen, Spalten, gespeicherten Prozeduren und Triggern enthalten, oder zum Entfernen oder Umbenennen von vorhandenen Datenbankobjekte geändert werden kann. Zwischen dem Zeitpunkt, den diese Änderungen vorgenommen werden und die Zeit, die die Anwendung bis hin zur Produktion bereitgestellt wird, sind die Entwicklungs- und produktionsumgebungen Datenbanken nicht synchronisiert. Diese Asynchronie muss während des Bereitstellungsvorgangs behoben werden. Diese Probleme werden in zukünftigen Lernprogrammen untersucht werden.
 
@@ -95,6 +95,6 @@ Viel Spaß beim Programmieren!
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](users-and-roles-on-the-production-website-cs.md)
-[Weiter](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](users-and-roles-on-the-production-website-cs.md)
+> [Weiter](determining-what-files-need-to-be-deployed-vb.md)

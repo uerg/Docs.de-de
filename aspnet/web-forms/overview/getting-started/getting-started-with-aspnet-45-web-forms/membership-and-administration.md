@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 title: Mitgliedschaft und Administration | Microsoft Docs
 author: Erikre
-description: "Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir..."
+description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>Mitgliedschaft und Verwaltung
 ====================
-Durch [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -47,7 +47,7 @@ Dieses Lernprogramm baut auf dem vorherigen Lernprogramm, mit dem Titel "Auschec
 
 - ASP.NET Identity
 - Konfiguration und Autorisierung
-- Wurden die Modellbindung
+- Modellbindung
 - Unaufdringlichen Überprüfung
 
 ASP.NET Web Forms stellt Mitgliedschaft. Mithilfe der Standardvorlage müssen Sie die der integrierten Mitgliedschaftsfunktionen, die Sie sofort verwenden können, wenn die Anwendung ausgeführt wird. In diesem Lernprogramm wird gezeigt, wie mithilfe von ASP.NET Identity zum Hinzufügen einer benutzerdefinierten Rolle und weisen Sie einen Benutzer, die dieser Rolle. Sie erfahren, wie den Zugriff auf den Ordner Verwaltung einschränken. Sie fügen eine Seite in den Ordner Verwaltung, die ermöglicht es einem Benutzer mit einer benutzerdefinierten Rolle hinzufügen und Entfernen von Produkten und ein Produkt Vorschau anzuzeigen, nachdem er hinzugefügt wurde.
@@ -66,14 +66,14 @@ Mithilfe von ASP.NET Identity, können Sie eine benutzerdefinierte Sicherheitsro
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. Beachten Sie, dass `AddUserAndRole` rot unterstrichen ist. Doppelklicken Sie auf den AddUserAndRole-Code.  
- Der Buchstabe "A" am Anfang der markierten Methode wird unterstrichen.
+   Der Buchstabe "A" am Anfang der markierten Methode wird unterstrichen.
 7. Zeigen Sie auf den Buchstaben "A", und klicken Sie auf der Benutzeroberfläche, die Sie zum Generieren eines Methodenstubs für ermöglicht die `AddUserAndRole` Methode. 
 
     ![Mitgliedschaft und Advministration - Methodenstub generieren](membership-and-administration/_static/image1.png)
 8. Klicken Sie auf die Option mit dem Titel:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Öffnen der *RoleActions.cs* -Datei von der *Logik* Ordner.  
- Die `AddUserAndRole` Methode in der Klassendatei hinzugefügt wurde.
+   Die `AddUserAndRole` Methode in der Klassendatei hinzugefügt wurde.
 10. Ändern der *RoleActions.cs* Datei durch das Entfernen der `NotImplementedeException` und Hinzufügen von Code in gelb hervorgehoben, damit er wie folgt aussieht:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ Als Nächstes erstellen Sie einen Ordner namens *Admin* beispielanwendung für d
 1. Mit der rechten Maustaste des Projektnamens (**Wingtip Toys**) in **Projektmappen-Explorer** , und wählen Sie **hinzufügen**  - &gt; **neuer Ordner**.
 2. Nennen Sie diesen Ordner *Admin*.
 3. Mit der rechten Maustaste die *Admin* Ordner, und wählen Sie dann **hinzufügen**  - &gt; **neues Element**.   
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
-4. Wählen Sie die **Visual C#-** - &gt; **Web** Gruppe "Vorlagen" auf der linken Seite. Wählen Sie aus der Liste mittleren **Webformular mit Gestaltungsvorlage**, nennen Sie sie *AdminPage.aspx***,** und wählen Sie dann **hinzufügen**.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+4. Wählen Sie die <strong>Visual C#-</strong> - &gt; <strong>Web</strong> Gruppe "Vorlagen" auf der linken Seite. Wählen Sie aus der Liste mittleren <strong>Webformular mit Gestaltungsvorlage</strong>, nennen Sie sie <em>AdminPage.aspx</em><strong>,</strong> und wählen Sie dann <strong>hinzufügen</strong>.
 5. Wählen Sie die *Site.Master* als Masterseite, und wählen Sie dann **OK**.
 
 #### <a name="add-a-webconfig-file"></a>Fügen Sie eine Datei "Web.config" hinzu.
@@ -129,8 +129,8 @@ Als Nächstes erstellen Sie einen Ordner namens *Admin* beispielanwendung für d
 Durch Hinzufügen einer *"Web.config"* Datei wird in der *Admin* Ordner, Sie können den Zugriff auf die Seite, die im Ordner enthaltenen.
 
 1. Mit der rechten Maustaste die *Admin* Ordner, und wählen **hinzufügen**  - &gt; **neues Element**.  
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
-2. Wählen Sie in der Liste der Visual c#-internetvorlagen, **Webkonfigurationsdatei**aus mittleren, akzeptieren Sie den Standardnamen der *"Web.config"***,** und wählen Sie dann auf **Hinzufügen**.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+2. Wählen Sie in der Liste der Visual c#-internetvorlagen, <strong>Webkonfigurationsdatei</strong>aus mittleren, akzeptieren Sie den Standardnamen der <em>"Web.config"</em><strong>,</strong> und wählen Sie dann auf <strong>Hinzufügen</strong>.
 3. Ersetzen Sie das vorhandene XML-Inhalt in die *"Web.config"* Datei durch Folgendes:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Bisher haben Sie erstellt die Rolle "CanEdit" und ein "CanEditUser" Benutzer, ei
 In den Code, der eingegebene für die *AdminPage.aspx.cs* Code-Behind-Datei, eine Klasse mit dem Namen `AddProducts` ist die eigentliche Arbeit der Produkte in der Datenbank hinzufügen. Diese Klasse ist nicht noch vorhanden, damit Sie ihn jetzt erstellen werden.
 
 1. In **Projektmappen-Explorer**, mit der rechten Maustaste die *Logik* Ordner, und wählen Sie dann **hinzufügen**  - &gt; **neues Element**.   
- Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
+   Das Dialogfeld **Neues Element hinzufügen** wird angezeigt.
 2. Wählen Sie die **Visual C#-**  - &gt; **Code** Gruppe "Vorlagen" auf der linken Seite. Aktivieren Sie das Kontrollkästchen **Klasse**aus der Mitte aus, und nennen Sie sie *AddProducts.cs*.   
- Die neue Klassendatei wird angezeigt.
+   Die neue Klassendatei wird angezeigt.
 3. Ersetzen Sie den vorhandenen Code durch folgenden Code:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -192,7 +192,7 @@ Der Produktpreis auf die *AdminPage.aspx* Seite überprüft wird, mit einem **Re
 
 Zusätzlich zu den Steuerelementen Eingabe und Überprüfung Hinzufügen der **FileUpload** die Steuerung an die *AdminPage.aspx* Seite. Dieses Steuerelement bietet die Möglichkeit zum Hochladen von Dateien. In diesem Fall sind Sie nur die Bilddateien hochgeladen werden erlauben. In der CodeBehind-Datei (*AdminPage.aspx.cs*), wenn die `AddProductButton` geklickt wird, wird der Code überprüft die `HasFile` Eigenschaft der **FileUpload** Steuerelement. Wenn das Steuerelement verfügt über eine Datei, und wenn der Dateityp (auf der Grundlage der Dateierweiterung) zulässig ist, wird das Bild, um gespeichert die *Bilder* Ordner und die *Bilder/Daumen* Ordner der Anwendung.
 
-#### <a name="model-binding"></a>Wurden die Modellbindung
+#### <a name="model-binding"></a>Modellbindung
 
 Weiter oben in diesem Lernprogramm verwendet Sie wurden die modellbindung zum Auffüllen einer **ListView** -Steuerelement, ein **FormsView** -Steuerelement, ein **GridView** -Steuerelement, und ein  **DetailView** Steuerelement. In diesem Lernprogramm verwenden Sie wurden die modellbindung zum Auffüllen einer **DropDownList** -Steuerelement mit einer Liste von Produktkategorien.
 
@@ -235,15 +235,15 @@ Die `Page_Load` -Ereignishandler den Wert der Abfragezeichenfolge überprüft un
 Sie können die Anwendung jetzt sehen, wie Sie hinzufügen können, löschen und Aktualisieren von Elementen in den Warenkorb ausführen. Die shopping Cart insgesamt wider, die Gesamtkosten für alle Elemente in den Einkaufswagen Sinn macht.
 
 1. Drücken Sie im Projektmappen-Explorer **F5** zum Ausführen der Anwendung des Wingtip Toys-Beispiel.  
- Der Browser wird geöffnet und zeigt die *"default.aspx"* Seite.
+   Der Browser wird geöffnet und zeigt die *"default.aspx"* Seite.
 2. Klicken Sie auf die **melden Sie sich** Link am oberen Rand der Seite. 
 
     ![Mitgliedschaft und Administration - anmelden Link](membership-and-administration/_static/image2.png)
 
- Die *"Login.aspx"* angezeigt wird.
+   Die *"Login.aspx"* angezeigt wird.
 3. Verwenden Sie den folgenden Benutzernamen und Kennwort:  
- Benutzername:canEditUser@wingtiptoys.com  
- Kennwort: Pa$ $word1 
+   Benutzername: canEditUser@wingtiptoys.com  
+   Password: Pa$$word1 
 
     ![Mitgliedschaft und Administration - Anmeldeseite](membership-and-administration/_static/image3.png)
 4. Klicken Sie auf die **melden Sie sich** Schaltfläche am unteren Rand der Seite.
@@ -254,7 +254,7 @@ Sie können die Anwendung jetzt sehen, wie Sie hinzufügen können, löschen und
 
     ![Mitgliedschaft und Verwaltung – Seite "Administrator"](membership-and-administration/_static/image5.png)
 
- Beachten Sie, dass das Pflichtfeld Nachrichten angezeigt werden.
+   Beachten Sie, dass das Pflichtfeld Nachrichten angezeigt werden.
 7. Fügen Sie die Details für ein neues Produkt hinzu, und klicken Sie dann auf die **Produkt hinzufügen** Schaltfläche. 
 
     ![Fügen Sie Mitgliedschaft und Administration - Produkt hinzu.](membership-and-administration/_static/image6.png)
@@ -268,7 +268,7 @@ Sie können die Anwendung jetzt sehen, wie Sie hinzufügen können, löschen und
     ![Mitgliedschaft und Administration - Produkt entfernen](membership-and-administration/_static/image8.png)
 12. Wählen Sie **Produkte** aus dem oberen Navigationsmenü, um zu bestätigen, dass das Produkt entfernt wurden.
 13. Klicken Sie auf **Abmelden** Verwaltungsmodus vorhanden sein.   
- Beachten Sie, die im oberen Navigationsbereich nicht mehr angezeigt wird der **Admin** Menüelement.
+    Beachten Sie, die im oberen Navigationsbereich nicht mehr angezeigt wird der **Admin** Menüelement.
 
 ## <a name="summary"></a>Zusammenfassung
 
@@ -281,6 +281,6 @@ In diesem Lernprogramm hinzugefügt, eine benutzerdefinierte Sicherheitsrolle un
 [Bereitstellen Sie eine sichere ASP.NET Web Forms-App Mitgliedschaft, OAuth und SQL-Datenbank auf einer Azure-Website](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - Testversion](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Zurück](checkout-and-payment-with-paypal.md)
-[Weiter](url-routing.md)
+> [!div class="step-by-step"]
+> [Zurück](checkout-and-payment-with-paypal.md)
+> [Weiter](url-routing.md)
