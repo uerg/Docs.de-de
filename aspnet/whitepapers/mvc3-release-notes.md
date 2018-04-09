@@ -2,21 +2,21 @@
 uid: whitepapers/mvc3-release-notes
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -262,7 +262,7 @@ Beachten Sie, dass frühere Versionen der Browser keine HTML5-spezifische Tags u
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>Neue Projektvorlage: Modernizr 1.7
 
-Modernizr ist eine JavaScript-Bibliothek, die Unterstützung von CSS 3 und HTML5 in Browsern ermöglicht, die noch nicht über diese Funktionen unterstützen. Diese Bibliothek ist als vorinstallierte NuGet-Paket in den Vorlagen für ASP.NET MVC 3-Projekte enthalten. Weitere Information zu Modernizr finden Sie unter [http://www.modernizr.com/](http://www.modernizr.com/).
+Modernizr ist eine JavaScript-Bibliothek, die Unterstützung von CSS 3 und HTML5 in Browsern ermöglicht, die noch nicht über diese Funktionen unterstützen. Diese Bibliothek ist als vorinstallierte NuGet-Paket in den Vorlagen für ASP.NET MVC 3-Projekte enthalten. Weitere Information zu Modernizr finden Sie unter [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Neue Projektvorlagen: aktualisierte Versionen der jQuery, jQuery UI und jQuery Validation
@@ -373,7 +373,7 @@ Dieser Abschnitt beschreibt die Änderungen (neue Features und Fehlerkorrekturen
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Projekt-Vorlagen geändert haben, z. B. jQuery 1.4.4, jQuery-Validierung 1.7 und jQuery UI 1.8.6
 
-Die Projektvorlagen für ASP.NET MVC 3 enthalten jetzt die neuesten Versionen der jQuery, jQuery-Validierung und jQuery UI. jQuery UI ist eine neue Funktion mit die Projektvorlagen und bietet nützliche Benutzer Schnittstelle Widgets. Weitere Informationen zu jQuery UI, finden Sie auf ihrer Startseite: [http://jqueryui.com/](http://jqueryui.com/).
+Die Projektvorlagen für ASP.NET MVC 3 enthalten jetzt die neuesten Versionen der jQuery, jQuery-Validierung und jQuery UI. jQuery UI ist eine neue Funktion mit die Projektvorlagen und bietet nützliche Benutzer Schnittstelle Widgets. Weitere Informationen zu jQuery UI, finden Sie auf ihrer Startseite: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Hinzugefügte "AdditionalMetadataAttribute"-Klasse
@@ -438,7 +438,7 @@ Wenn die *Html.ValidationMessage* Methode zeigt eine validierungsmeldung an, das
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Feste @model Deklaration, um das Dokument keine Leerzeichen hinzugefügt
 
-In früheren Versionen der  *@model*  Deklaration am oberen Rand einer Ansicht der gerenderten HTML-Ausgabe eine leere Zeile hinzugefügt. Dies wurde korrigiert, damit die Deklaration keine Leerzeichen entstehen.
+In früheren Versionen der <em>@model</em> Deklaration am oberen Rand einer Ansicht der gerenderten HTML-Ausgabe eine leere Zeile hinzugefügt. Dies wurde korrigiert, damit die Deklaration keine Leerzeichen entstehen.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Hinzugefügte "FileExtensions"-Eigenschaft, um die Ansichtsmodule zur Unterstützung der Datenbankmodul-spezifischen Dateinamen
@@ -465,7 +465,7 @@ In früheren Versionen, explizite Werte, die übergeben wurden, die *RenderActio
 - In früheren Versionen von ASP.NET MVC erstellt wurden die Aktionsfilter pro Anforderung außer in einigen Fällen. Dieses Verhalten wurde nie ein Verhalten garantiert jedoch lediglich ein Implementierungsdetail, und der Vertrag für Filter sie zustandslose berücksichtigt wurde. Filter werden in ASP.NET MVC 3 genauer zwischengespeichert. Aus diesem Grund können benutzerdefinierten Aktionsfiltern die Instanzstatus nicht ordnungsgemäß speichern unterbrochen werden.
 - Die Ausführungsreihenfolge für Ausnahmefilter wurde geändert, für die Ausnahmefilter, die dieselbe *Reihenfolge* Wert. In ASP.NET MVC 2 und früheren Ausnahmefilter auf dem Controller an, die die gleiche mussten *Reihenfolge* Wert wie denen auf eine Aktionsmethode vor die Ausnahmefilter auf die Aktionsmethode ausgeführt wurden. Dies würde i. d. r. der Fall sein, wenn Ausnahmefilter angewendet wurden ohne angegebenen *Reihenfolge* Wert. In ASP.NET MVC 3 wurde diese Reihenfolge umgekehrt, damit der spezifischste Ausnahmehandler zuerst ausgeführt wird. Wie in früheren Versionen Wenn die *Reihenfolge* explizit angegeben wird, werden die Filter in der angegebenen Reihenfolge ausgeführt werden.
 - Eine neue Eigenschaft mit dem Namen *FileExtensions* wurde hinzugefügt, um die *VirtualPathProviderViewEngine* Basisklasse. Wenn ASP.NET eine Ansicht von Pfad (nicht durch den Namen) sucht, werden nur Ansichten mit der Erweiterung in der Liste, die durch diese neue Eigenschaft angegebene enthaltenen berücksichtigt. Dies ist eine wichtige Änderung in Anwendungen, in denen ein benutzerdefinierte Buildanbieter registriert ist, um eine benutzerdefinierte Erweiterung für Web Form-Ansichten zu aktivieren und der Anbieter diese Sichten mit einem Namen, statt einen vollständigen Pfad verweist. Die problemumgehung besteht darin, Ändern des Werts der *FileExtensions* Eigenschaft, um die benutzerdefinierte Erweiterung einschließen.
-- Implementierungen von benutzerdefinierten Controller-Factory, die direkt implementieren die *IControllerFactory* Schnittstelle muss eine Implementierung der neuen bereitstellen *GetControllerSessionBehavior ** Methode, die hinzugefügt wurde die Schnittstelle, die in dieser Version*. Im Allgemeinen wird empfohlen, dass Sie nicht direkt diese Schnittstelle implementieren und stattdessen eine Klasse von leiten *DefaultControllerFactory*.
+- Implementierungen von benutzerdefinierten Controller-Factory, die direkt implementieren die <em>IControllerFactory</em> Schnittstelle muss eine Implementierung der neuen bereitstellen <em>GetControllerSessionBehavior</em>  <em>Methode, die die Schnittstelle in dieser Version hinzugefügte</em>. Im Allgemeinen wird empfohlen, dass Sie nicht direkt diese Schnittstelle implementieren und stattdessen eine Klasse von leiten <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bekannte Probleme
@@ -629,11 +629,11 @@ Alternativ zum Deaktivieren der anforderungsüberprüfung für jede Eigenschaft 
 
 ASP.NET MVC 3 Beta wurde 6 Oktober 2010 veröffentlicht. Die folgenden Hinweise gelten für die Betaversion und unterliegen alle Updates oder Änderungen, die im obigen Abschnitt zu ASP.NET MVC 3 Release Candidate verwiesen.
 
-## <a id="0.1__Toc274034215"></a>Neue Featuresin ASP.NET MVC 3-Beta
+## <a id="0.1__Toc274034215"></a>  Neue Featuresin ASP.NET MVC 3-Beta
 
 <a id="0.1__Default_validation_system"></a>Dieser Abschnitt beschreibt die Funktionen, die eingeführt wurden in der Betaversion von ASP.NET MVC 3.
 
-### <a id="0.1__Toc274034216"></a>NuGet-Paket-Manager
+### <a id="0.1__Toc274034216"></a>  NuGet-Paket-Manager
 
 ASP.NET MVC 3 enthält NuGet Package Manager, die ein integriertes Paket Verwaltungstool für Hinzufügen von Bibliotheken und Tools für Visual Studio-Projekte ist. Meistens, automatisiert es die Schritte, die Entwickler noch heute zu ergreifen, um eine Bibliothek in ihrer ursprünglichen Struktur abrufen.
 
@@ -641,7 +641,7 @@ Sie können mit NuGet, als ein Befehlszeilentool, wie einer integrierten Konsole
 
 Weitere Informationen zu NuGet finden Sie unter der [NuGet-Dokumentation](https://docs.microsoft.com/nuget/).
 
-### <a id="0.1__Toc274034217"></a>Verbesserte neues Projekt (Dialogfeld)
+### <a id="0.1__Toc274034217"></a>  Verbesserte neues Projekt (Dialogfeld)
 
 Wenn Sie ein neues Projekt erstellen, kann das Dialogfeld "Neues Projekt" jetzt Sie das Ansichtsmodul als auch für eine ASP.NET MVC-Projekttyp angeben.
 
@@ -655,7 +655,7 @@ Leer. Enthält einen minimalen Satz von Dateien für eine ASP.NET MVC-Projekt, z
 
 Internetanwendung. Enthält Beispiel-Funktionen, die den Mitgliedschaftsanbieter in ASP.NET MVC veranschaulicht.
 
-### <a id="0.1__Toc274034218"></a>Vereinfachte Möglichkeit stark angeben typisierte Modelle in Razor-Ansichten
+### <a id="0.1__Toc274034218"></a>  Vereinfachte Möglichkeit stark angeben typisierte Modelle in Razor-Ansichten
 
 Wurde die Möglichkeit, geben Sie den Typ des Modells für stark typisierte Razor-Ansichten mithilfe des neuen vereinfacht @model -Direktive für CSHTML-Ansichten und @ModelType -Direktive für VBHTML-Ansichten. In früheren Versionen von ASP.NET MVC würden Sie angeben, dass ein stark typisiertes Modell für die Razor-Ansichten auf diese Weise:
 
@@ -665,7 +665,7 @@ In dieser Version können Sie die folgende Syntax verwenden:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>Unterstützung für neue ASP.NET Web Pages-Hilfsmethoden
+### <a id="0.1__Toc274034219"></a>  Unterstützung für neue ASP.NET Web Pages-Hilfsmethoden
 
 Die neue ASP.NET Web Pages-Technologie umfasst einen Satz von Hilfsmethoden, die für das Hinzufügen von häufig verwendeten Funktionen, Ansichten und Controllern nützlich sind. ASP.NET MVC 3 unterstützt diese Hilfsmethoden innerhalb der Controller und Ansichten (falls zutreffend). Diese Methoden sind in der Assembly System.Web.Helpers enthalten. Die folgende Tabelle enthält nur einige der ASP.NET Web Pages-Hilfsmethoden.
 
@@ -675,13 +675,13 @@ Die neue ASP.NET Web Pages-Technologie umfasst einen Satz von Hilfsmethoden, die
 | Crypto | Verwendet Hashalgorithmen ordnungsgemäß erstellen Salt-Wert und ein Hashwert erstellt Kennwörter. |
 | WebGrid | Wird eine Auflistung von Objekten (in der Regel Daten aus einer Datenbank) als Raster gerendert. Unterstützt das paging und sortieren. |
 | WebImage | Rendert ein Bild an. |
-| WebMail | Sendet eine e-Mail-Nachricht an. |
+| WebMail | Sendet eine E-Mail. |
 
 Eine Kurzübersicht Thema mit den Hilfsprogrammen und grundlegende Syntax steht als Teil der Dokumentation des ASP.NET Razor-Syntax unter folgender URL:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>Unterstützung für zusätzliche Abhängigkeiten-Injection
+### <a id="0.1__Toc274034220"></a>  Unterstützung für zusätzliche Abhängigkeiten-Injection
 
 Baut auf der Version von ASP.NET MVC 3 Preview 1 und enthält die aktuelle Version Unterstützung für zwei neue Dienste und vier vorhandenen Dienste und verbesserte Unterstützung für Abhängigkeit Auflösung und die Common Service Locator.
 
@@ -732,7 +732,7 @@ Die neue Version umfasst Unterstützung für vollbildauflösung Abhängigkeit f�
 - Der Wertanbieter. Klassen, die ValueProviderFactory implementieren, die in den Abhängigkeitskonfliktlöser registriert werden können, und das System verwendet diese zur Wertanbieter zu erstellen, die vom Controller und während der modellbindung genutzt werden.
 - Modellbinder. Klassen, die IModelBinderProvider implementieren, die in den Abhängigkeitskonfliktlöser registriert werden können, und das System verwendet diese zur Modellbinder erstellen, die vom Modell Bindungssystem genutzt werden.
 
-### <a id="0.1__Toc274034221"></a>Neue Unterstützung für unaufdringliche jQuery-basierte Ajax
+### <a id="0.1__Toc274034221"></a>  Neue Unterstützung für unaufdringliche jQuery-basierte Ajax
 
 ASP.NET MVC umfasst Ajax-Hilfsmethoden, z. B. Folgendes an:
 
@@ -748,7 +748,7 @@ Diese Methoden verwenden JavaScript zum Aufrufen einer Aktionsmethode auf dem Se
 
 Diese Funktion ist standardmäßig in der Datei "Web.config" in der ASP.NET MVC 3-Vorlagen für neuen Projekte aktiviert, aber es ist für vorhandene Projekte standardmäßig deaktiviert. Weitere Informationen finden Sie unter [hinzugefügt anwendungsweite Flags für die Clientvalidierung und unaufdringliches JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) weiter unten in diesem Dokument.
 
-### <a id="0.1__Toc274034222"></a>Neue Unterstützung für unaufdringliche jQuery-Validierung
+### <a id="0.1__Toc274034222"></a>  Neue Unterstützung für unaufdringliche jQuery-Validierung
 
 Standardmäßig verwendet ASP.NET MVC 3 Beta jQuery-Validierung automatisierbar unaufdringlichen aus, um die clientseitige Überprüfung auszuführen. Stellen Sie einen Aufruf wie den folgenden innerhalb einer Ansicht, um unaufdringliche Clientvalidierung zu aktivieren:
 
@@ -768,7 +768,7 @@ Diese Funktion ist standardmäßig in der Datei "Web.config" in Vorlagen für ne
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>Neue anwendungsweite-Flags für die Clientvalidierung und unaufdringliches JavaScript
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Neue anwendungsweite-Flags für die Clientvalidierung und unaufdringliches JavaScript
 
 Sie können aktivieren oder deaktivieren die Clientvalidierung und unaufdringliches JavaScript global über statische Member der HtmlHelper-Klasse, wie im folgenden Beispiel gezeigt:
 
@@ -784,7 +784,7 @@ Da Sie diese Funktionen standardmäßig aktivieren können, wurden neue Überlad
 
 Um Abwärtskompatibilität zu gewährleisten werden beide Funktionen standardmäßig deaktiviert.
 
-### <a id="0.1__Toc274034224"></a>Neue Unterstützung für Code, der vor der Ausführung von Ansichten ausgeführt wird.
+### <a id="0.1__Toc274034224"></a>  Neue Unterstützung für Code, der vor der Ausführung von Ansichten ausgeführt wird.
 
 Sie können jetzt speichern Sie eine Datei mit dem Namen \_viewstart.cshtml (oder \_viewstart.vbhtml) im Verzeichnis "Views" und fügen Sie Code hinzu, die für mehrere Ansichten in diesem Verzeichnis und seinen Unterverzeichnissen freigegeben wird. Sie können z. B. Legen Sie den folgenden Code in die \_viewstart.cshtml Seite im Ordner "~/Views":
 
@@ -794,7 +794,7 @@ Hiermit wird die Seite "Layout" für jede Ansicht in den Ordner Views und alle U
 
 Standardmäßig wird der Code in der \_viewstart.cshtml Datei gilt auch für Sichten in jedem Unterordner. Einzelne Unterordner können jedoch ihre eigene Version der haben die \_viewstart.cshtml Datei; in dieser Fall ist die lokale Version Vorrang. Um Code auszuführen, die auf alle Ansichten für die HomeController gemein sind, z. B. legen eine \_viewstart.cshtml-Datei im Ordner "~/Views/Home".
 
-### <a id="0.1__Toc274034225"></a>Neue Unterstützung für die VBHTML-Razor-Syntax
+### <a id="0.1__Toc274034225"></a>  Neue Unterstützung für die VBHTML-Razor-Syntax
 
 Die vorherigen ASP.NET MVC-Vorschau enthalten Unterstützung für Ansichten mit Razor-Syntax, die basierend auf c#. Diese Sichten verwenden die CSHTML-Erweiterung. Im Rahmen der derzeit ausgeführte Arbeit Razor unterstützen führt die Betaversion von ASP.NET MVC 3-Unterstützung für die Razor-Syntax in Visual Basic, die Erweiterung der vbhtml-Datei wird verwendet.
 
@@ -802,7 +802,7 @@ Eine Einführung zur Verwendung von Visual Basic-Syntax in VBHTML-Seiten finden 
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>Präzisere Kontrolle über "validateinputattribute"
+### <a id="0.1__Toc274034226"></a>  Präzisere Kontrolle über "validateinputattribute"
 
 ASP.NET MVC hat immer die Klasse "validateinputattribute" enthalten, die der ASP.NET Anforderung Überprüfung Kerninfrastruktur um sicherzustellen, dass die eingehende Anforderung keine potenziell schädlicher Eingaben enthält aufruft. Validierung von Benutzereingaben ist standardmäßig aktiviert. Es ist möglich, die Anforderungsvalidierung zu deaktivieren, indem Sie mit dem "validateinputattribute"-Attribut, wie im folgenden Beispiel gezeigt:
 
@@ -814,7 +814,7 @@ Wenn Sie eine Blog-Engine entwickeln, sollten Sie z. B. Markup in den Feldern Te
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>Hilfsprogramme konvertieren Unterstriche, Bindestriche für die Namen der HTML-Attribute mit anonymer Objekte angegeben
+### <a id="0.1__Toc274034227"></a>  Hilfsprogramme konvertieren Unterstriche, Bindestriche für die Namen der HTML-Attribute mit anonymer Objekte angegeben
 
 Hilfsmethoden können Sie ein anonymes Objekt, wie im folgenden Beispiel mit Attribut-Wert-Paare angeben:
 
@@ -830,7 +830,7 @@ Im vorherige Beispiel wird das folgende Markup gerendert, wenn das Hilfsprogramm
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>Fehlerkorrekturen
+## <a id="0.1__Toc274034228"></a>  Fehlerkorrekturen
 
 Objekt Standardvorlage für Hilfsprogramme Vorlage EditorFor und DisplayFor unterstützt jetzt die Reihenfolge in der DisplayAttribute.Order-Eigenschaft angegeben. (In früheren Versionen war die Einstellung für die Reihenfolge nicht verwendet.)
 
@@ -838,11 +838,11 @@ Jetzt Clientvalidierung unterstützt die Überprüfung von außer Kraft gesetzte
 
 JsonValueProviderFactory ist jetzt standardmäßig registriert.
 
-## <a id="0.1__Toc274034229"></a>Wichtige Änderungen
+## <a id="0.1__Toc274034229"></a>  Wichtige Änderungen
 
 Die Ausführungsreihenfolge für Ausnahmefilter wurde für Ausnahmefilter geändert, die über denselben Reihenfolgenwert verfügen. In ASP.NET MVC 2 und früheren filtert Ausnahme auf dem Controller mit der gleichen Reihenfolge wie denen auf eine Aktionsmethode vor die Ausnahmefilter auf die Aktionsmethode ausgeführt wurden. Dies würde i. d. r. der Fall sein, wenn Ausnahmefilter ohne einen Reihenfolgenwert der angegebenen angewendet wurden. In ASP.NET MVC 3 wurde diese Reihenfolge umgekehrt, damit der spezifischste Ausnahmehandler zuerst ausgeführt wird. Wenn die Order-Eigenschaft explizit angegeben wird, werden die Filter wie in früheren Versionen in der angegebenen Reihenfolge ausgeführt.
 
-## <a id="0.1__Toc274034230"></a>Bekannte Probleme
+## <a id="0.1__Toc274034230"></a>  Bekannte Probleme
 
 Während der Installation zeigt im Dialogfeld zum Akzeptieren der LIZENZBEDINGUNGEN die Lizenzbedingungen in einem Fenster, die kleiner als vorgesehen ist.
 
@@ -862,7 +862,7 @@ Es ist ein bekanntes Problem, das führt dazu, dass bei der Formularauthentifizi
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>Haftungsausschluss
+## <a id="0.1__Toc274034231"></a>  Haftungsausschluss
 
 © 2011 Microsoft Corporation. Alle Rechte vorbehalten. Dieses Dokument wird bereitgestellt "als-ist." Informationen und Ansichten, ausgedrückt in diesem Dokument, einschließlich URLs und anderer Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden. Sie tragen das alleinige Verwendungsrisiko.
 

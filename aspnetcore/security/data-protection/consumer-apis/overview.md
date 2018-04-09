@@ -1,7 +1,7 @@
 ---
-title: "Übersicht über die Consumer-APIs"
+title: Übersicht über die Consumer-APIs für ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument enthält eine kurze Übersicht über die verschiedenen Consumer APIs, die innerhalb der ASP.NET Core Data Protection-Bibliothek verfügbar."
+description: Erhalten Sie einen kurzen Überblick über die verschiedenen Consumer APIs, die innerhalb der ASP.NET Core Data Protection-Bibliothek verfügbar.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 3aa0c4bc8d009147dd15571da4d7d63402e4c512
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5d161ed8fbc39bcf4a970644480b4e909810b555
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis-overview"></a>Übersicht über die Consumer-APIs
+# <a name="consumer-apis-overview-for-aspnet-core"></a>Übersicht über die Consumer-APIs für ASP.NET Core
 
 Die `IDataProtectionProvider` und `IDataProtector` sind die grundlegenden Schnittstellen, die über die Consumer die Datenschutzsystem verwenden. Sie sind im Verzeichnis der [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) Paket.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
-Die Provider-Schnittstelle stellt den Stamm der Datenschutzsystem dar. Er kann nicht direkt zu schützen oder Aufheben des Schutzes von Daten verwendet werden. Stattdessen muss der Consumer Abrufen eines Verweises auf ein `IDataProtector` durch Aufrufen von `IDataProtectionProvider.CreateProtector(purpose)`, wobei der Zweck einer Zeichenfolge ist, die die beabsichtigte Consumer Anwendungsfall beschreibt. Finden Sie unter [Zweck Zeichenfolgen](purpose-strings.md) viel mehr Informationen auf der Absicht dieses Parameters und wie Sie einen geeigneten Wert auswählen.
+Die Provider-Schnittstelle stellt den Stamm der Datenschutzsystem dar. Er kann nicht direkt zu schützen oder Aufheben des Schutzes von Daten verwendet werden. Stattdessen muss der Consumer Abrufen eines Verweises auf ein `IDataProtector` durch Aufrufen von `IDataProtectionProvider.CreateProtector(purpose)`, wobei der Zweck einer Zeichenfolge ist, die die beabsichtigte Consumer Anwendungsfall beschreibt. Finden Sie unter [Zweck Zeichenfolgen](xref:security/data-protection/consumer-apis/purpose-strings) viel mehr Informationen auf der Absicht dieses Parameters und wie Sie einen geeigneten Wert auswählen.
 
 ## <a name="idataprotector"></a>IDataProtector
 
@@ -31,18 +31,18 @@ Um Daten zu schützen, übergeben Sie die Daten in die `Protect` Methode. Die gr
 
 Übergeben Sie zum Aufheben des Schutzes von einer zuvor geschützten Datenmenge, die geschützten Daten auf die `Unprotect` Methode. (Es gibt Byte []-basiert und zeichenfolgenbasierte Überladungen der Einfachheit halber Developer.) Wenn die geschützte Nutzlast durch einen früheren Aufruf generiert wurde `Protect` auf diesem gleichen `IDataProtector`, die `Unprotect` Methode wird die ursprüngliche ungeschützte Nutzlast zurück. Wenn die geschützte Nutzlast manipuliert wurde, oder wurde von einem anderen erzeugt `IDataProtector`die `Unprotect` Methode löst CryptographicException.
 
-Das Konzept der gleiche im Vergleich zu anderen `IDataProtector` Verknüpfungen in Bezug auf das Konzept der Zweck zu sichern. Wenn zwei `IDataProtector` Instanzen aus demselben Stamm generiert wurden `IDataProtectionProvider` jedoch über die unterschiedlichen Zweck Zeichenfolgen im Aufruf `IDataProtectionProvider.CreateProtector`, wird sie als betrachtet werden [unterschiedliche Schutzvorrichtungen](purpose-strings.md), einer Lage beim Aufheben des Schutzes Nutzlasten, die von der anderen generiert werden.
+Das Konzept der gleiche im Vergleich zu anderen `IDataProtector` Verknüpfungen in Bezug auf das Konzept der Zweck zu sichern. Wenn zwei `IDataProtector` Instanzen aus demselben Stamm generiert wurden `IDataProtectionProvider` jedoch über die unterschiedlichen Zweck Zeichenfolgen im Aufruf `IDataProtectionProvider.CreateProtector`, wird sie als betrachtet werden [unterschiedliche Schutzvorrichtungen](xref:security/data-protection/consumer-apis/purpose-strings), einer Lage beim Aufheben des Schutzes Nutzlasten, die von der anderen generiert werden.
 
 ## <a name="consuming-these-interfaces"></a>Nutzen diese Schnittstellen
 
 Für eine Komponente DI-fähig ist die beabsichtigte Verwendung, ergreifen die Komponente eine `IDataProtectionProvider` Parameter in seinem Konstruktor, und das System DI automatisch diesen Dienst bereitstellt, wenn die Komponente instanziiert wird.
 
 > [!NOTE]
-> Einige Anwendungen (z. B. konsolenanwendungen oder 4.x ASP.NET-Anwendungen) möglicherweise nicht DI-fähigen daher den Mechanismus beschrieben kann hier verwendet werden. Für diese Szenarien finden Sie in der [nicht bewusst DI-Szenarien](../configuration/non-di-scenarios.md) Dokument Weitere Informationen zum Abrufen einer Instanz von einem `IDataProtection` Anbieter ohne DI durchlaufen.
+> Einige Anwendungen (z. B. konsolenanwendungen oder 4.x ASP.NET-Anwendungen) möglicherweise nicht DI-fähigen daher den Mechanismus beschrieben kann hier verwendet werden. Für diese Szenarien finden Sie in der [nicht bewusst DI-Szenarien](xref:security/data-protection/configuration/non-di-scenarios) Dokument Weitere Informationen zum Abrufen einer Instanz von einem `IDataProtection` Anbieter ohne DI durchlaufen.
 
 Das folgende Beispiel zeigt drei einzelkonzepten:
 
-1. [Hinzufügen der Datenschutzsystem](../configuration/overview.md) dem Dienstcontainer
+1. [Hinzufügen der Datenschutzsystem](xref:security/data-protection/configuration/overview) dem Dienstcontainer
 
 2. Mithilfe der Abhängigkeitsinjektion zum Empfangen von einer Instanz von einem `IDataProtectionProvider`, und
 

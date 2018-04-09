@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: "Erstellen einer Builddefinition, unterstützt die Bereitstellung | Microsoft Docs"
+title: Erstellen einer Builddefinition, unterstützt die Bereitstellung | Microsoft Docs
 author: jrjlee
-description: "Wenn Sie alle Arten von Builds in Team Foundation Server (TFS) 2010 ausführen möchten, müssen Sie eine Builddefinition innerhalb des Teamprojekts zu erstellen. Dieses Thema des..."
+description: Wenn Sie alle Arten von Builds in Team Foundation Server (TFS) 2010 ausführen möchten, müssen Sie eine Builddefinition innerhalb des Teamprojekts zu erstellen. Dieses Thema des...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Erstellen einer Builddefinition, unterstützt die Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Wenn Sie alle Arten von Builds in Team Foundation Server (TFS) 2010 ausführen möchten, müssen Sie eine Builddefinition innerhalb des Teamprojekts zu erstellen. Dieses Thema beschreibt, wie eine neue Builddefinition in TFS erstellt und zur Bereitstellung im Rahmen des Buildprozesses in Team Build steuern.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md)in die erstellungs-und Bereitstellung von zwei Projektdateien & #x 2014 kontrolliert wird; o Ne mit Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in die erstellungs-und Bereitstellung von gesteuert wird zwei Projektdateien&#x2014;eine Buildanweisungen, die für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess gelten "" enthält. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -62,7 +62,7 @@ Die [Vorgesetzten Kontakts](../web-deployment-in-the-enterprise/the-contact-mana
 Der nächste Abschnitt erklärt, wie Sie diesen Prozess zu implementieren, indem Sie eine neue Builddefinition erstellen.
 
 > [!NOTE]
-> Diese Prozedur & #x 2014; in dem ein einzelner automatisierter Prozess erstellt wurde, überprüft, und stellt eine Lösung & #x 2014; ist es wahrscheinlich, dass sich am besten für die Bereitstellung So testen Sie Umgebungen werden. Für die Staging-und produktionsumgebungen können Sie viel wahrscheinlicher zu Inhalten von einem vorherigen Build bereitgestellt, die Sie bereits überprüft haben, und in einer testumgebung überprüft werden soll. Dieser Ansatz wird im nächsten Thema beschrieben [Bereitstellen einer bestimmten Build](deploying-a-specific-build.md).
+> Diese Prozedur&#x2014;in dem ein einzelnes automatisierten Prozess erstellt tests und Bereitstellung einer Lösung&#x2014;ist es wahrscheinlich, dass sich am besten für die Bereitstellung, um Umgebungen zu testen werden. Für die Staging-und produktionsumgebungen können Sie viel wahrscheinlicher zu Inhalten von einem vorherigen Build bereitgestellt, die Sie bereits überprüft haben, und in einer testumgebung überprüft werden soll. Dieser Ansatz wird im nächsten Thema beschrieben [Bereitstellen einer bestimmten Build](deploying-a-specific-build.md).
 
 
 ### <a name="who-performs-this-procedure"></a>Wem diese Prozedur ausgeführt werden?
@@ -133,7 +133,7 @@ Wenn Sie die Builddefinition CI Verwendung konfiguriert haben, können Sie die B
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-So überprüfen den Status und das Ergebnis eines Builds & #x 2014; unabhängig davon, ob er ausgelöst wurde manuell oder automatisch & #x 2014; Doppelklicken Sie auf die Builddefinition ist jetzt in der **Team Explorer** Fenster. Dies öffnet einen **Build Explorer** Registerkarte.
+So überprüfen den Status und das Ergebnis eines Builds&#x2014;unabhängig davon, ob er manuell oder automatisch ausgelöst wurde&#x2014;Doppelklicken Sie auf die Builddefinition ist jetzt in der **Team Explorer** Fenster. Dies öffnet einen **Build Explorer** Registerkarte.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
@@ -161,6 +161,6 @@ In der Reihenfolge für eine automatische Bereitstellung im Rahmen des Buildproz
 
 Weitere Informationen zum Erstellen von Builddefinitionen finden Sie unter [Erstellen einer grundlegenden Builddefinition](https://msdn.microsoft.com/library/ms181716.aspx) und [Buildprozess definieren](https://msdn.microsoft.com/library/ms181715.aspx). Weitere Anleitungen auf queuing Builds finden Sie unter [einen Build zur Warteschlange](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Zurück](configuring-a-tfs-build-server-for-web-deployment.md)
-[Weiter](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-a-tfs-build-server-for-web-deployment.md)
+> [Weiter](deploying-a-specific-build.md)

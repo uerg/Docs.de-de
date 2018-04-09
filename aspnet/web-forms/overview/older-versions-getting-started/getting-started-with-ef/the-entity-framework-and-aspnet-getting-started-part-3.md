@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
-title: "Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 3 | Microsoft Docs"
+title: Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 Web Forms - Teil 3 | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework. Die beispielanwendung ist...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ec8891c4ccf71494389ba562fdfb4b88055d12f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 654f3556af5d05ec186e1811421966bbaffd2e21
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 3
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -33,11 +33,11 @@ Im vorherigen Lernprogramm Sie verwendet die `EntityDataSource` -Steuerelement z
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image1.png)
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image3.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image3.png)
 
-[![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image5.png)
+[![image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image5.png)
 
-[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
+[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
 
 ## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>Mithilfe der EntityDataSource "Where"-Eigenschaft zum Filtern von Daten
 
@@ -79,7 +79,7 @@ Die **Ausdrucks-Editor** Dialogfeld wird angezeigt. Wählen Sie in diesem Dialog
 
 Klicken Sie auf **erweiterte Eigenschaften einblenden**, und klicken Sie in der **Eigenschaften** Fenster von der **Ausdrucks-Editor** ändern Sie im Dialogfeld der `Type` Eigenschaft `Int32`.
 
-[![Image15](the-entity-framework-and-aspnet-getting-started-part-3/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image21.png)
+[![image15](the-entity-framework-and-aspnet-getting-started-part-3/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image21.png)
 
 Wenn Sie fertig sind, klicken Sie auf **OK**.
 
@@ -126,7 +126,7 @@ Fügen Sie das folgende Markup zum Erstellen einer `GridView` Steuerelement zum 
 
 Führen Sie die Seite zum Anzeigen einer Liste, die die Anzahl der Schüler Registrierungsdatum anzeigen.
 
-[![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image27.png)
+[![image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image27.png)
 
 ## <a name="using-the-queryextender-control-for-filtering-and-ordering"></a>Verwenden des QueryExtender-Steuerelements für die Filterung und Sortierung
 
@@ -158,11 +158,11 @@ Die erste Spalte ist eine Vorlagenfeld, das den Abteilungsnamen anzeigt. Gibt an
 
 Führen Sie die Seite. Die ursprüngliche Anzeige zeigt eine Liste aller Kurse in Reihenfolge an, nach Abteilung und dann nach den Titel.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
 
 Geben Sie einem "m", und klicken Sie auf **Suche** alle Kurse anzeigen, deren Namen mit "m" (die Suche wird keine Groß-/ Kleinschreibung) beginnen.
 
-[![Image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
+[![image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
 
 ## <a name="using-the-like-operator-to-filter-data"></a>Verwenden den Operator "Like" zum Filtern von Daten
 
@@ -176,14 +176,14 @@ Dieses Markup ähnelt der was zuvor mit Ausnahme von gesehen der `Where` Eigensc
 
 Führen Sie die Seite. Anfänglich daraufhin aller Studenten, da der Standardwert für die `StudentName` Parameter ist "%".
 
-[![Image13](the-entity-framework-and-aspnet-getting-started-part-3/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image33.png)
+[![image13](the-entity-framework-and-aspnet-getting-started-part-3/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image33.png)
 
 Geben Sie den Buchstaben "g" in das Textfeld ein, und klicken Sie auf **Suche**. Sie sehen eine Liste der Studenten, die ein "g" entweder in den ersten oder letzten Namen aufweisen.
 
-[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
+[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
 
 Sie haben nun angezeigt, aktualisiert, gefiltert, sortiert und gruppiert Daten aus den einzelnen Tabellen. In den nächsten Lernprogrammen beginnen Sie mit verbundenen Daten (Master / Detail-Szenarien) arbeiten.
 
->[!div class="step-by-step"]
-[Zurück](the-entity-framework-and-aspnet-getting-started-part-2.md)
-[Weiter](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [!div class="step-by-step"]
+> [Zurück](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [Weiter](the-entity-framework-and-aspnet-getting-started-part-4.md)

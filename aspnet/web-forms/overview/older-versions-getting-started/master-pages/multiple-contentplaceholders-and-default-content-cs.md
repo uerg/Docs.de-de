@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 title: Mehrere ContentPlaceHolders und Standardinhalt (c#) | Microsoft Docs
 author: rick-anderson
-description: "Überprüft, wie einer Masterseite mehrere Content Platzhaltern hinzugefügt sowie zum Angeben der Standardinhalt in den Inhalten Platzhaltern."
+description: Überprüft, wie einer Masterseite mehrere Content Platzhaltern hinzugefügt sowie zum Angeben der Standardinhalt in den Inhalten Platzhaltern.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 24bfb85b09b8bd5a60e51f57db79544bea7af22b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60017c21b4cf45081893af08e68186009475fd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="multiple-contentplaceholders-and-default-content-c"></a>Mehrere ContentPlaceHolders und Standardinhalt (c#)
 ====================
@@ -179,12 +179,12 @@ Viel Spaß beim Programmieren!
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Zurück](creating-a-site-wide-layout-using-master-pages-cs.md)
-[Weiter](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-a-site-wide-layout-using-master-pages-cs.md)
+> [Weiter](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)

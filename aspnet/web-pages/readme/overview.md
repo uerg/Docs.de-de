@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>WebMatrix-Infodatei
 ====================
@@ -126,7 +126,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 - [Änderungen](#Changes)
 - [Probleme](#Issues)
 
-#### <a id="NewFeatures"></a>Neue Funktionen
+#### <a id="NewFeatures"></a>  Neue Funktionen
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Neu: Konfigurationseinstellung hinzugefügt, um die Paket-Manager zu deaktivieren.
 
@@ -135,14 +135,14 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>Änderungen
+#### <a id="Changes"></a>  Änderungen
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Änderung: "WebPages:AdminFolderVirtualPath" Schlüssel wurde der Begriff "Asp: AdminFolderVirtualPath"
 
 > Die `webPages:AdminFolderVirtualPath` Schlüssel, der hinzugefügt werden kann die *"Web.config"* Datei an den Speicherort des Paket-Managers Verwendung umbenannt wurde die `asp:` -Namespace anstelle des der `webPages` Namespace. Wenn Sie dieses Element verwendet haben, müssen Sie es in der Konfigurationsdatei umbenennen.
 
 
-#### <a id="Issues"></a>Bekannte Probleme
+#### <a id="Issues"></a>  Bekannte Probleme
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Problem: Kennwörtern für Mitgliedschaftsbenutzer, die nicht mehr erkannt.
 
@@ -226,7 +226,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > Wenn Sie .NET Framework, Version 4 deinstallieren und anschließend neu installieren, ist ASP.NET Web Pages mit Razor-Syntax deaktiviert. Seiten mit den *cshtml* Erweiterung werden nicht ordnungsgemäß ausgeführt. ASP.NET Web Pages registriert eine Assembly im Stammverzeichnis Computer *"Web.config"* -Datei, und Entfernen von .NET Framework entfernt diese Datei. Installieren .NET Framework installiert eine neue Version der Konfigurationsdatei, aber den Verweis wird nicht für die ASP.NET Web Pages-Assembly hinzufügen.
 > 
 > **Problemumgehung** installieren Sie nach der Neuinstallation von .NET Framework, ASP.NET Web Pages mit Razor-Syntax. Dadurch wird das folgende Element auf der *"Web.config"* Datei im Stammverzeichnis Computer, i. d. r. an folgendem Speicherort:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problem: URLs ohne Erweiterung.cshtml/.vbhtml Dateien unter IIS 7 oder IIS 7.5 nicht gefunden
 
 > Für IIS 7 oder IIS 7.5 mit einer URL wie die folgende Anforderungen können sich nicht mehr Seiten zu suchen, die *cshtml* oder *vbhtml* Erweiterung:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Das Problem tritt auf, da die URLs nicht standardmäßig für IIS 7 oder IIS 7.5 aktiviert ist. Das likeliest Szenario ist, dass das Problem nicht angezeigt werden, werden Wenn es sich bei Tests lokal mit IIS Express jedoch auftreten, wenn Sie Ihre Website für eine hosting-Website bereitstellen.
 > 
 > **Dieses Problem zu umgehen**
@@ -257,10 +257,11 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > 
 > 1. Kopieren Sie die Datenbank-Engine-Assemblys, die *"bin"* Ordner (und Unterordner) der Anwendung auf dem Zielcomputer:  
 > 
->     - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **to** *\Bin*
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\****to***\Bin\x86*
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to***\Bin\amd64*
+>    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **to** *\Bin*
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
+> 
 > 2. Klicken Sie im Stammordner der Website, erstellen oder öffnen Sie eine *"Web.config"* Datei. (In WebMatrix 1.0 wird dieser Dateityp ist verfügbar, wenn Sie auf **alle** in der **wählen Sie einen Dateityp** (Dialogfeld).)
 > 3. Fügen Sie das folgende Element als untergeordnetes Element von der `<configuration>` Element (befindet sich nicht in der `<system.web>` Element):
 > 
@@ -279,7 +280,7 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 
 #### <a name="issue-applicationpart-resources-are-externally-accessible"></a>Problem: "ApplicationPart" Ressourcen extern zugänglich sind
 
-> Wenn eine Assembly Objekte, die enthält von abgeleitet ist die `ApplicationPart` Klasse, die Ressourcen-Assembly verfügbar gemacht werden, durch die `ResourceRouteHandler` Klasse. Betrachten Sie beispielsweise die folgende URL:  
+> Wenn eine Assembly Objekte, die enthält von abgeleitet ist die `ApplicationPart` Klasse, die Ressourcen-Assembly verfügbar gemacht werden, durch die `ResourceRouteHandler` Klasse. Nehmen wir beispielsweise die folgende URL:  
 >   
 > `~/r.ashx/System.Web.WebPages.Administration/Resources/AdminResources.resources`  
 >   
@@ -412,7 +413,7 @@ SQL Server Compact verfügt über einen eigenen Readme-Datei, die unter folgende
 
 Weitere Informationen zu Problemen, bei denen Installation von SQL Server Compact als Teil von WebMatrix, finden Sie unter [Probleme bei der Installation von WebMatrix](#Known_Issues_Installation) weiter oben in diesem Dokument.
 
-### <a id="Known_Issues_Installing_Applications"></a>Installieren von Anwendungen
+### <a id="Known_Issues_Installing_Applications"></a>  Installieren von Anwendungen
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problem: Installieren einer Anwendung kann sehr lange dauern, wenn Ordner Eigene Dokumente des Benutzers zu einer Netzwerkfreigabe umgeleitet wird
 
@@ -420,7 +421,7 @@ Weitere Informationen zu Problemen, bei denen Installation von SQL Server Compac
 > Keine Die Anwendung möglicherweise einige Zeit dauern zu installieren, jedoch ordnungsgemäß installiert.
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>Veröffentlichen von Anwendungen
+### <a id="Known_Issues_Publishing_Applications"></a>  Veröffentlichen von Anwendungen
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Problem: "verlangt, dass die Berechtigungen können nicht abgerufen werden" Fehler beim Veröffentlichen von SQL Compact-Datenbank
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: "ASP.NET Web-Bereitstellung mit Visual Studio: Transformationen für die Datei \"Web.config\" | Microsoft Docs"
+title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Transformationen für die Datei "Web.config" | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Transformationen für die Datei "Web.config"
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -152,6 +152,6 @@ Im folgenden Lernprogramm Sie müssen der Einrichtung Bereitstellungsaufgaben da
 
 Weitere Informationen zu den von diesem Lernprogramm behandelten Themen finden Sie unter [mithilfe von "Web.config" Transformationen zum Ändern von Einstellungen in der Datei "Web.config" der Zieldatei oder die Datei "App.config" während der Bereitstellung](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) in der Web Content Map für die Bereitstellung Visual Studio und ASP.NET.
 
->[!div class="step-by-step"]
-[Zurück](preparing-databases.md)
-[Weiter](project-properties.md)
+> [!div class="step-by-step"]
+> [Zurück](preparing-databases.md)
+> [Weiter](project-properties.md)

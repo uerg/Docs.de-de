@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 title: Erstellen eine benutzerdefinierte Website mit Datenbank-Driven Kartenanbieter (c#) | Microsoft Docs
 author: rick-anderson
-description: "Der Standardanbieter der Siteübersicht in ASP.NET 2.0 ruft seine Daten aus einer statischen XML-Datei ab. Während der XML-basierte Anbieter so viele kleine und mittlere ößen-ist..."
+description: Der Standardanbieter der Siteübersicht in ASP.NET 2.0 ruft seine Daten aus einer statischen XML-Datei ab. Während der XML-basierte Anbieter so viele kleine und mittlere ößen-ist...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc0de856cb1ae2cf8e1f18a29ae29a3b226c12ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cab1b02dff27e9bacec2f4d4f7facc9f99d76b0a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-a-custom-database-driven-site-map-provider-c"></a>Erstellen eine benutzerdefinierte Website mit Datenbank-Driven Kartenanbieter (c#)
 ====================
@@ -145,7 +145,7 @@ Als Nächstes fügen Sie eine HyperLinkField hinzu, und verschieben Sie sie auf 
 
 ![Hinzufügen einer Ansicht Details HyperLinkField, die auf ProductDetails.aspx verweist](building-a-custom-database-driven-site-map-provider-cs/_static/image10.gif)
 
-**Abbildung 10**: Hinzufügen einer Detailansicht HyperLinkField, die auf verweist`ProductDetails.aspx`
+**Abbildung 10**: Hinzufügen einer Detailansicht HyperLinkField, die auf verweist `ProductDetails.aspx`
 
 
 Nachdem Sie diese Anpassungen vornehmen, sollte die GridView und ObjectDataSource s deklarative Markup folgendermaßen aussehen:
@@ -210,7 +210,7 @@ Wenn die `SiteMap` Klasseneigenschaften s erfolgt, muss die Siteübersichtsstruk
 
 Von allen Anbietern der Siteübersicht abgeleitet werden die [ `SiteMapProvider` Klasse](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), darunter die wichtigen Methoden und Eigenschaften für die Website erforderlich sind Anbieter zuordnen, lässt aber viele Implementierungsdetails. Eine zweite Klasse [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), erweitert der `SiteMapProvider` Klasse und enthält eine robustere Implementierung erforderlichen Funktionen. Intern die `StaticSiteMapProvider` speichert die `SiteMapNode` Instanzen von der Website zuordnen, einer `Hashtable` und bietet Methoden wie `AddNode(child, parent)`, `RemoveNode(siteMapNode),` und `Clear()` , das Hinzufügen und Entfernen von `SiteMapNode` s mit dem internen `Hashtable`. `XmlSiteMapProvider` wird von `StaticSiteMapProvider` abgeleitet.
 
-Beim Erstellen einer benutzerdefinierten Website Kartenanbieter, erweitert `StaticSiteMapProvider`, es gibt zwei abstrakte Methoden, die überschrieben werden müssen: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) und [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, wie der Name schon sagt, ist verantwortlich für das Laden der Siteübersichtsstruktur aus dem permanenten Speicher, und erstellen es im Arbeitsspeicher. `GetRootNodeCore`Gibt den Stammknoten in der Siteübersicht zurück.
+Beim Erstellen einer benutzerdefinierten Website Kartenanbieter, erweitert `StaticSiteMapProvider`, es gibt zwei abstrakte Methoden, die überschrieben werden müssen: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) und [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, wie der Name schon sagt, ist verantwortlich für das Laden der Siteübersichtsstruktur aus dem permanenten Speicher, und erstellen es im Arbeitsspeicher. `GetRootNodeCore` Gibt den Stammknoten in der Siteübersicht zurück.
 
 Die Gültigkeit einer können Anwendung eine Website Kartenanbieter, die sie in der Anwendungskonfiguration s registriert werden muss. Wird standardmäßig die `XmlSiteMapProvider` Klasse registriert ist, mit dem Namen `AspNetXmlSiteMapProvider`. Um zusätzliche Website Zuordnung Anbieter zu registrieren, fügen Sie das folgende Markup zum Rendern `Web.config`:
 
@@ -221,10 +221,10 @@ Die *Namen* Wert weist einen menschenlesbaren Namen für den Anbieter beim *Typ*
 
 Standort Zuordnungsklasse Anbieter instanziiert wird beim ersten über erfolgt die `SiteMap` Klasse und verbleibt im Arbeitsspeicher für die Lebensdauer der Webanwendung. Da es nur eine Instanz des Site-Zuordnung-Anbieters, die über mehrere, gleichzeitige Websitebesuchern aufgerufen werden kann ist, ist es obligatorisch, dass die s-Anbieter-Methoden werden *Thread-sichere*.
 
-Leistung und Skalierbarkeit Gründe es wichtig, dass wir die Website im Arbeitsspeicher Zwischenspeichern ordnen Sie Struktur und zurückgeben, dieser Struktur, anstatt neu erstellt wird jedes Mal zwischengespeichert die `BuildSiteMap` Methode aufgerufen wird. `BuildSiteMap`kann mehrmals pro Anforderung pro Benutzer, je nachdem die Navigationssteuerelemente verwendet, auf der Seite und die Tiefe der Siteübersichtsstruktur Seite aufgerufen werden. In jedem Fall, wenn es nicht in der Siteübersichtsstruktur zwischenspeichern `BuildSiteMap` dann bei jedem Aufruf erfolgte wir müssen das Produkt und die Kategorie der Architektur erneut abrufen von Informationen vom (die in einer Abfrage mit der Datenbank führen würde). Wie in den vorherigen zwischenspeichernden Lernprogrammen erläutert, können die zwischengespeicherte Daten veralten. Um dies zu begegnen, können wir Zeit- oder SQL-Cache Abhängigkeit basierende Cacheobjekte.
+Leistung und Skalierbarkeit Gründe es wichtig, dass wir die Website im Arbeitsspeicher Zwischenspeichern ordnen Sie Struktur und zurückgeben, dieser Struktur, anstatt neu erstellt wird jedes Mal zwischengespeichert die `BuildSiteMap` Methode aufgerufen wird. `BuildSiteMap` kann mehrmals pro Anforderung pro Benutzer, je nachdem die Navigationssteuerelemente verwendet, auf der Seite und die Tiefe der Siteübersichtsstruktur Seite aufgerufen werden. In jedem Fall, wenn es nicht in der Siteübersichtsstruktur zwischenspeichern `BuildSiteMap` dann bei jedem Aufruf erfolgte wir müssen das Produkt und die Kategorie der Architektur erneut abrufen von Informationen vom (die in einer Abfrage mit der Datenbank führen würde). Wie in den vorherigen zwischenspeichernden Lernprogrammen erläutert, können die zwischengespeicherte Daten veralten. Um dies zu begegnen, können wir Zeit- oder SQL-Cache Abhängigkeit basierende Cacheobjekte.
 
 > [!NOTE]
-> Eine Website Kartenanbieter kann optional außer Kraft setzen die [ `Initialize` Methode](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize`wird aufgerufen, wenn der Standort Kartenanbieter zuerst instanziiert wird und alle benutzerdefinierten Attribute, die an den Anbieter in zugewiesen übergeben `Web.config` in der `<add>` Element wie: `<add name="name" type="type" customAttribute="value" />`. Es ist hilfreich, wenn Sie zulassen, den Entwickler einer Seite verschiedene Standort Zuordnung anbieterbezogene Einstellungen angeben, ohne die Anbieter-s-Code ändern zu müssen möchten. Wenn wir die Kategorie und Produkte Daten direkt aus der Datenbank statt über die Architektur, wir d wahrscheinlich lesen wurden z. B. können Sie die Datenbank-Verbindungszeichenfolge durch Angeben der Entwickler der Seite `Web.config` anstatt mit einem hartcodierten der Wert in den Anbietercode s. Überschreibt die benutzerdefinierte Website Kartenanbieter in Schritt 6 erstellen müssen nicht dies `Initialize` Methode. Ein Beispiel der Verwendung der `Initialize` -Methode finden Sie unter [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [Sitemaps in SQL Server speichern](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) Artikel.
+> Eine Website Kartenanbieter kann optional außer Kraft setzen die [ `Initialize` Methode](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize` wird aufgerufen, wenn der Standort Kartenanbieter zuerst instanziiert wird und alle benutzerdefinierten Attribute, die an den Anbieter in zugewiesen übergeben `Web.config` in der `<add>` Element wie: `<add name="name" type="type" customAttribute="value" />`. Es ist hilfreich, wenn Sie zulassen, den Entwickler einer Seite verschiedene Standort Zuordnung anbieterbezogene Einstellungen angeben, ohne die Anbieter-s-Code ändern zu müssen möchten. Wenn wir die Kategorie und Produkte Daten direkt aus der Datenbank statt über die Architektur, wir d wahrscheinlich lesen wurden z. B. können Sie die Datenbank-Verbindungszeichenfolge durch Angeben der Entwickler der Seite `Web.config` anstatt mit einem hartcodierten der Wert in den Anbietercode s. Überschreibt die benutzerdefinierte Website Kartenanbieter in Schritt 6 erstellen müssen nicht dies `Initialize` Methode. Ein Beispiel der Verwendung der `Initialize` -Methode finden Sie unter [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [Sitemaps in SQL Server speichern](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) Artikel.
 
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>Schritt 6: Erstellen der benutzerdefinierten Website Kartenanbieter
@@ -238,13 +238,13 @@ Beginnen Sie mit dieser Klasse untersuchen s können `BuildSiteMap` -Methode, di
 
 Der Klassenebene `SiteMapNode` Variable `root` wird verwendet, um die Siteübersichtsstruktur zwischenzuspeichern. Wenn die Siteübersicht erstellt wird, zum ersten Mal oder zum ersten Mal nach der zugrunde liegenden Daten geändert wurden, `root` werden `null` und die Siteübersichtsstruktur erstellt. Der Stammknoten der Site-Zuordnung s zugewiesen `root` während der Konstruktion Prozess so, dass das nächste Mal, diese Methode aufgerufen wird, `root` nicht `null`. Daher so lange `root` nicht `null` der Siteübersichtsstruktur wird an den Aufrufer zurückgegeben werden, ohne ihn neu erstellen.
 
-Wenn der Stamm ist `null`, die Siteübersichtsstruktur wird anhand des Produkts und Kategorie erstellt. Die Siteübersicht wird erstellt, durch das Erstellen der `SiteMapNode` Instanzen und dann bilden die Hierarchie über Aufrufe an die `StaticSiteMapProvider` Klasse s `AddNode` Methode. `AddNode`führt die internen vertiefen, speichern die zusammengestellte `SiteMapNode` Instanzen in einer `Hashtable`. Bevor wir beginnen, erstellen die Hierarchie, beginnen wir durch Aufrufen der `Clear` -Methode, die die Elemente aus dem internen löscht `Hashtable`. Als Nächstes wird die `ProductsBLL` Klasse s `GetProducts` -Methode und die daraus resultierende `ProductsDataTable` in lokalen Variablen gespeichert werden.
+Wenn der Stamm ist `null`, die Siteübersichtsstruktur wird anhand des Produkts und Kategorie erstellt. Die Siteübersicht wird erstellt, durch das Erstellen der `SiteMapNode` Instanzen und dann bilden die Hierarchie über Aufrufe an die `StaticSiteMapProvider` Klasse s `AddNode` Methode. `AddNode` führt die internen vertiefen, speichern die zusammengestellte `SiteMapNode` Instanzen in einer `Hashtable`. Bevor wir beginnen, erstellen die Hierarchie, beginnen wir durch Aufrufen der `Clear` -Methode, die die Elemente aus dem internen löscht `Hashtable`. Als Nächstes wird die `ProductsBLL` Klasse s `GetProducts` -Methode und die daraus resultierende `ProductsDataTable` in lokalen Variablen gespeichert werden.
 
 Die Site-Zuordnung s-Erstellung beginnt, durch den Stammknoten erstellen und zuweisen zu `root`. Die Überladung von der [ `SiteMapNode` s Konstruktor](https://msdn.microsoft.com/library/system.web.sitemapnode.sitemapnode.aspx) verwendet hier und in diesem `BuildSiteMap` wird übergeben, die folgende Informationen:
 
 - Ein Verweis auf die Website Kartenanbieter (`this`).
 - Die `SiteMapNode` s `Key`. Dies erforderlich Wert muss für jeden eindeutigen `SiteMapNode`.
-- Die `SiteMapNode` s `Url`. `Url`ist optional, aber wenn angegeben, von denen jede `SiteMapNode` s `Url` Wert muss eindeutig sein.
+- Die `SiteMapNode` s `Url`. `Url` ist optional, aber wenn angegeben, von denen jede `SiteMapNode` s `Url` Wert muss eindeutig sein.
 - Die `SiteMapNode` s `Title`, was erforderlich ist.
 
 Die `AddNode(root)` Methodenaufruf fügt die `SiteMapNode` `root` der Sitemap als Stamm. Als Nächstes wird jede `ProductRow` in der `ProductsDataTable` aufgelistet. Wenn es bereits vorhanden ist eine `SiteMapNode` für die aktuelle s Produktkategorie, darauf verwiesen wird. Andernfalls ein neues `SiteMapNode` für die Kategorie erstellt und als untergeordnetes Element hinzugefügt wird die `SiteMapNode``root` über die `AddNode(categoryNode, root)` -Methodenaufruf. Nach der jeweiligen Kategorie `SiteMapNode` Knoten gefunden oder erstellt haben, wurde eine `SiteMapNode` für das aktuelle Produkt erstellt und hinzugefügt werden, als untergeordnetes Element der Kategorie `SiteMapNode` über `AddNode(productNode, categoryNode)`. Beachten Sie, dass die Kategorie `SiteMapNode` s `Url` Eigenschaftswert ist `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` dagegen das Produkt `SiteMapNode` s `Url` -Eigenschaft zugewiesen `~/SiteMapNode/ProductDetails.aspx?ProductID=productID`.
@@ -261,7 +261,7 @@ Nach dem Erstellen der Siteübersicht, ein beliebiges Objekt hinzugefügt wird, 
 
 Die `BuildSiteMap` Methode abgeschlossen wird, indem Sie den Stammknoten der Siteübersicht zurückgeben.
 
-Die restlichen Methoden sind recht einfach. `GetRootNodeCore`ist verantwortlich für die Rückgabe des Stammknotens. Da `BuildSiteMap` gibt das Stammelement, `GetRootNodeCore` gibt einfach auftragsantwortnachrichten zurück `BuildSiteMap` s-Rückgabewert. Die `OnSiteMapChanged` -Methode legt `root` an `null` Wenn das Element im Cache entfernt wird. Mit einem angegebenen Stamm legen wieder auf `null`, das nächste Mal `BuildSiteMap` wird aufgerufen, die Siteübersichtsstruktur wird neu erstellt. Abschließend wird die `CachedDate` Eigenschaft gibt den gespeicherten im Datencache, Datum und Uhrzeit-Wert aus, wenn ein solcher Wert vorhanden ist. Diese Eigenschaft kann von einem Seitenentwickler verwendet werden, um zu bestimmen, wann die Siteübersichtsdaten zuletzt zwischengespeichert wurde.
+Die restlichen Methoden sind recht einfach. `GetRootNodeCore` ist verantwortlich für die Rückgabe des Stammknotens. Da `BuildSiteMap` gibt das Stammelement, `GetRootNodeCore` gibt einfach auftragsantwortnachrichten zurück `BuildSiteMap` s-Rückgabewert. Die `OnSiteMapChanged` -Methode legt `root` an `null` Wenn das Element im Cache entfernt wird. Mit einem angegebenen Stamm legen wieder auf `null`, das nächste Mal `BuildSiteMap` wird aufgerufen, die Siteübersichtsstruktur wird neu erstellt. Abschließend wird die `CachedDate` Eigenschaft gibt den gespeicherten im Datencache, Datum und Uhrzeit-Wert aus, wenn ein solcher Wert vorhanden ist. Diese Eigenschaft kann von einem Seitenentwickler verwendet werden, um zu bestimmen, wann die Siteübersichtsdaten zuletzt zwischengespeichert wurde.
 
 ## <a name="step-7-registering-thenorthwindsitemapprovider"></a>Schritt 7: Registrieren der`NorthwindSiteMapProvider`
 
@@ -362,11 +362,11 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Dave Gardner, Zack Jones Teresa Murphy und Bernadette Leigh. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Nächste](building-a-custom-database-driven-site-map-provider-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](building-a-custom-database-driven-site-map-provider-vb.md)

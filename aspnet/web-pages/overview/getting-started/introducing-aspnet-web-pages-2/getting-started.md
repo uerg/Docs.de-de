@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: "Einführung in ASP.NET Web Pages - erste Schritte | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - erste Schritte | Microsoft Docs
 author: tfitzmac
-description: "WebMatrix wird nicht mehr als eine integrierte Entwicklungsumgebung für ASP.NET Web Pages empfohlen. Verwenden Sie Visual Studio oder Visual Studio-Code. In dieser Anleitung ein..."
+description: WebMatrix wird nicht mehr als eine integrierte Entwicklungsumgebung für ASP.NET Web Pages empfohlen. Verwenden Sie Visual Studio oder Visual Studio-Code. In dieser Anleitung ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5fd67a230f76774e102094f42426b8bb126c0cc6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Einführung in ASP.NET Web Pages - erste Schritte
 ====================
@@ -289,5 +289,5 @@ In der nächsten Lernprogramm dieser Reihe untersuchen Sie ASP.NET Web Pages-Pro
 
 [Erstellen eine ASP.NET-Website von Grund auf Neu](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Dies ist ein Lernprogramm, das speziell zur Verwendung von WebMatrix (nicht ASP.NET Web Pages). Er wechselt in etwas genauer zu einigen der zusätzlichen Features von WebMatrix, die wir in diesem Lernprogramm Satz verdeckt wird.
 
->[!div class="step-by-step"]
-[Nächste](intro-to-web-pages-programming.md)
+> [!div class="step-by-step"]
+> [Nächste](intro-to-web-pages-programming.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: "Bereitstellen von CRUD (erstellen, lesen, aktualisieren und löschen) Daten bilden Eintrag Support | Microsoft Docs"
+title: Bereitstellen von CRUD (erstellen, lesen, aktualisieren und löschen) Daten bilden Eintrag Support | Microsoft Docs
 author: microsoft
-description: "Schritt 5 zeigt, wie durch Aktivieren der Unterstützung für das Bearbeiten, erstellen und Löschen von Abendessen mit als auch die auszuführenden unsere DinnersController-Klasse."
+description: Schritt 5 zeigt, wie durch Aktivieren der Unterstützung für das Bearbeiten, erstellen und Löschen von Abendessen mit als auch die auszuführenden unsere DinnersController-Klasse.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 5a314a1761527d8a2273166a743e3deac012a557
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd906282db5c620476966ffbe09cecb5ade66ee4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Bereitstellen von CRUD (erstellen, lesen, aktualisieren und löschen) Daten bilden Eintrag-Unterstützung
 ====================
@@ -39,22 +39,22 @@ Wir haben eingeführt, Controller und Ansichten und deren Verwendung zum Impleme
 
 Wir zuvor Aktionsmethoden, die Unterstützung für zwei URLs implementiert DinnersController hinzugefügt: */Dinners* und */Dinners/Informationen / [Id]*.
 
-| **URL** | **VERB** | **Zweck** |
+| **URL** | **VERB** | **Purpose** |
 | --- | --- | --- |
 | */Dinners/* | GET | Eine HTML-Liste der bevorstehenden Abendessen angezeigt. |
-| */Dinners/Informationen / [Id]* | GET | Anzeigen von Details zu einem bestimmten Dinner. |
+| */Dinners/Details/[id]* | GET | Anzeigen von Details zu einem bestimmten Dinner. |
 
-Fügen wir jetzt Aktionsmethoden zur Implementierung von drei zusätzliche URLs: */Dinners/bearbeiten / [Id], / Abendessen/Create-,*und*/Dinners/löschen / [Id]*. Diese URLs werden Unterstützung für die Bearbeitung vorhandener Abendessen neue Abendessen erstellen und Löschen von Abendessen aktiviert.
+Fügen wir jetzt Aktionsmethoden zur Implementierung von drei zusätzliche URLs: <em>/Dinners/bearbeiten / [Id], / Abendessen/Create-,</em>und<em>/Dinners/löschen / [Id]</em>. Diese URLs werden Unterstützung für die Bearbeitung vorhandener Abendessen neue Abendessen erstellen und Löschen von Abendessen aktiviert.
 
 Wir unterstützen sowohl HTTP GET und HTTP POST-Verb Interaktionen mit diesen neuen URLs. HTTP-GET-Anforderungen an diese URLs werden die anfängliche HTML-Ansicht der Daten (ein Formular Dinner Daten im Fall von "Bearbeiten", ein leeres Formular im Fall von "erstellen" und eine Delete-Bestätigungsbildschirm im Fall von "Delete") angezeigt. HTTP-POST-Anforderungen an diese URLs werden Speichern/aktualisieren/löschen die Dinner-Daten in unserem DinnerRepository (und von dort auf die Datenbank).
 
-| **URL** | **VERB** | **Zweck** |
+| **URL** | **VERB** | **Purpose** |
 | --- | --- | --- |
-| */Dinners/bearbeiten / [Id]* | GET | Anzeigen eines bearbeitbaren HTML-Formulars mit Dinner Daten aufgefüllt. |
+| */Dinners/Edit/[id]* | GET | Anzeigen eines bearbeitbaren HTML-Formulars mit Dinner Daten aufgefüllt. |
 | BEREITSTELLEN | Speichern Sie die Formular-Änderungen für einen bestimmten Dinner mit der Datenbank. |
-| */ Abendessen/erstellen* | GET | Zeigen Sie ein leeres HTML-Formular, das Benutzern ermöglicht, neue Abendessen definieren. |
+| */Dinners/Create* | GET | Zeigen Sie ein leeres HTML-Formular, das Benutzern ermöglicht, neue Abendessen definieren. |
 | BEREITSTELLEN | Erstellen Sie eine neue Dinner, und speichern Sie sie in der Datenbank. |
-| */Dinners/löschen / [Id]* | GET | Anzeige löschen Bestätigungsbildschirm angezeigt. |
+| */Dinners/Delete/[id]* | GET | Anzeige löschen Bestätigungsbildschirm angezeigt. |
 | BEREITSTELLEN | Löscht die angegebene Dinner aus der Datenbank an. |
 
 ### <a name="edit-support"></a>Bearbeiten-Unterstützung
@@ -107,7 +107,7 @@ Auch wenn Sie feststellen, dass die Anweisung "using" Ansatz für ein Szenario w
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-Html.BeginForm() ohne Parameter aufrufen, führt er ein Formularelement ausgegeben, das die HTTP-POST an die URL der aktuellen Anforderung durchführt. Also warum unser Bearbeitungsansicht generiert eine  *&lt;bilden Aktion = "/ Abendessen/bearbeiten/1"-Methode = "post"&gt;*  Element. Wir konnten Alternativ haben expliziten Parameter an übergeben Html.BeginForm() würden wir zu einer anderen URL bereitstellen.
+Html.BeginForm() ohne Parameter aufrufen, führt er ein Formularelement ausgegeben, das die HTTP-POST an die URL der aktuellen Anforderung durchführt. Also warum unser Bearbeitungsansicht generiert eine *&lt;bilden Aktion = "/ Abendessen/bearbeiten/1"-Methode = "post"&gt;* Element. Wir konnten Alternativ haben expliziten Parameter an übergeben Html.BeginForm() würden wir zu einer anderen URL bereitstellen.
 
 ##### <a name="htmltextbox-helper-method"></a>Html.TextBox()-Hilfsmethode
 
@@ -115,7 +115,7 @@ Unsere Edit.aspx-Sicht verwendet die Hilfsmethode Html.TextBox() zur Ausgabe &lt
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-Die oben genannten Html.TextBox() Methode nimmt einen Parameter – der verwendet wird, um beide Attribute den Id-Namen des geben die &lt;Eingabetyp = "Text" /&gt; Element Ausgabe als auch die Modelleigenschaft zum Auffüllen des Textbox-Wert aus. Beispielsweise das Dinner wir übergebene Objekt in der Bearbeitungsansicht hatte einen Eigenschaftswert "Title" von ".NET Futures", und daher unsere Html.TextBox("Title")-Methodenaufruf Ausgabe:  *&lt;Eingabe-Id = "Title" Name = "Title" Type = "Text" Value = ".NET Futures" /&gt;* .
+Die oben genannten Html.TextBox() Methode nimmt einen Parameter – der verwendet wird, um beide Attribute den Id-Namen des geben die &lt;Eingabetyp = "Text" /&gt; Element Ausgabe als auch die Modelleigenschaft zum Auffüllen des Textbox-Wert aus. Beispielsweise das Dinner wir übergebene Objekt in der Bearbeitungsansicht hatte einen Eigenschaftswert "Title" von ".NET Futures", und daher unsere Html.TextBox("Title")-Methodenaufruf Ausgabe: *&lt;Eingabe-Id = "Title" Name = "Title" Type = "Text" Value = ".NET Futures" /&gt;*.
 
 Alternativ können wir verwenden den ersten Html.TextBox() Parameter geben die Id/Name des Elements, und klicken Sie dann den Wert für die Verwendung als zweiten Parameter explizit übergeben:
 
@@ -141,7 +141,7 @@ Wir beginnen, indem Sie eine überladene Methode für "Bearbeiten" Aktion an uns
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-Wenn das Attribut [AcceptVerbs] für überladene Aktionsmethoden angewendet wird, verarbeitet ASP.NET-MVC automatisch verteilen Anforderungen an die richtige Aktionsmethode abhängig von der eingehenden HTTP-Verb. HTTP POST-Anforderungen an */Dinners/bearbeiten / [Id]* URLs werden die oben dargestellte bearbeiten-Methode, während alle anderen HTTP-Verb Anforderungen zur */Dinners/bearbeiten / [Id]*URLs geht auf die erste bearbeiten-Methode implementiert (die wurde kein [AcceptVerbs]-Attribut).
+Wenn das Attribut [AcceptVerbs] für überladene Aktionsmethoden angewendet wird, verarbeitet ASP.NET-MVC automatisch verteilen Anforderungen an die richtige Aktionsmethode abhängig von der eingehenden HTTP-Verb. HTTP POST-Anforderungen an <em>/Dinners/bearbeiten / [Id]</em> URLs werden die oben dargestellte bearbeiten-Methode, während alle anderen HTTP-Verb Anforderungen zur <em>/Dinners/bearbeiten / [Id]</em>URLs geht auf die erste bearbeiten-Methode implementiert (die wurde kein [AcceptVerbs]-Attribut).
 
 | **Seite Thema: Warum über HTTP-Verben unterscheiden?** |
 | --- |
@@ -231,7 +231,7 @@ Die Hilfsmethode Html.ValidationMessage() unterstützt auch einen zweiten Parame
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Der obige Code gibt:  *&lt;span-Klasse = "Feld-Validierungsfehler"&gt;\*&lt;/span&gt;*anstelle der Fehler Standardtext, wenn ein Fehler. für vorliegt die EventDate-Eigenschaft.
+Der obige Code gibt:  <em>&lt;span-Klasse = "Feld-Validierungsfehler"&gt;\*&lt;/span&gt;</em>anstelle der Fehler Standardtext, wenn ein Fehler. für vorliegt die EventDate-Eigenschaft.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary()-Hilfsmethode
 
@@ -353,7 +353,7 @@ Wir Ausführung von unserem Anwendung und den Zugriff der *"/ Abendessen/lösche
 
 | **Seite Thema: Warum führen wir einen Beitrag?** |
 | --- |
-| Sie Fragen sich vielleicht – Warum erläutern wir, den Aufwand des Erstellens einer &lt;Formular&gt; in unserer Bestätigungsbildschirm löschen? Warum nicht nur einen standardmäßigen Hyperlink zu einer Aktionsmethode eine Verknüpfung mit, die den tatsächlichen Löschvorgang ausführt? Der Grund ist, da Achten Sie darauf, dass Sie zum Schutz vor Webcrawler und Suchmaschinen ermitteln unsere URLs und versehentlich verursacht Daten gelöscht werden, wenn sie die Links entsprechen soll. HTTP-GET-basierten URLs als "sicheren" sind, um den Zugriff/Durchforstung betrachtet, und sie nicht auf HTTP-POST diejenigen folgen soll. Eine gute Regel besteht darin sicherzustellen, immer ablegen destruktiven oder Ändern von Datenvorgängen hinter HTTP-POST-Anforderungen. |
+| Sie Fragen sich vielleicht – Warum erläutern wir, den Aufwand des Erstellens einer &lt;Formular&gt; in unserer Bestätigungsbildschirm löschen? Warum nicht nur einen standardmäßigen Hyperlink zu einer Aktionsmethode eine Verknüpfung mit, die den tatsächlichen Löschvorgang ausführt? Der Grund ist, da Achten Sie darauf, dass Sie zum Schutz vor Webcrawler und Suchmaschinen ermitteln unsere URLs und versehentlich verursacht Daten gelöscht werden, wenn sie die Links entsprechen soll. HTTP-GET based URLs are considered "safe" for them to access/crawl, and they are supposed to not follow HTTP-POST ones. Eine gute Regel besteht darin sicherzustellen, immer ablegen destruktiven oder Ändern von Datenvorgängen hinter HTTP-POST-Anforderungen. |
 
 #### <a name="implementing-the-http-post-delete-action-method"></a>Implementieren der HTTP-POST-Delete-Aktion-Methode
 
@@ -409,7 +409,7 @@ Wir verwenden diese Technik für die Dinner-Klasse in unserer NerdDinner-Anwendu
 
 Beachten Sie, dass wir die Einladung-Auflistung, über die Bindung manipuliert werden nicht zugelassen sind, noch können wir die DinnerID oder HostedBy Eigenschaften über die Bindung festgelegt werden. Aus Sicherheitsgründen müssen wir stattdessen nur diese bestimmten Eigenschaften, die mit expliziten Code in unserer Aktionsmethoden bearbeiten.
 
-### <a name="crud-wrap-up"></a>CRUD-Zusammenfassung
+### <a name="crud-wrap-up"></a>CRUD Wrap-Up
 
 ASP.NET MVC umfasst eine Reihe von integrierten Funktionen, mit deren Hilfe bei der Implementierung von Formular Posten von Beiträgen Szenarien. Eine Vielzahl von diesen Funktionen verwendet, um Unterstützung für CRUD-UI über unsere DinnerRepository bieten.
 
@@ -427,6 +427,6 @@ Wir haben jetzt grundlegende CRUD (Create, Read, Update und Delete) Unterstützu
 
 Jetzt betrachten wie wir ViewData und ViewModel-Klassen verwenden können, auch umfangreichere UI auf unseren Formularen zu aktivieren.
 
->[!div class="step-by-step"]
-[Zurück](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-[Weiter](use-viewdata-and-implement-viewmodel-classes.md)
+> [!div class="step-by-step"]
+> [Zurück](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [Weiter](use-viewdata-and-implement-viewmodel-classes.md)

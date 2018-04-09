@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
-title: "Vorheriges festlegen Listeneinträge mit CascadingDropDown (c#) | Microsoft Docs"
+title: Vorheriges festlegen Listeneinträge mit CascadingDropDown (c#) | Microsoft Docs
 author: wenz
-description: "Das CascadingDropDown-Steuerelement in das AJAX-Steuerelement-Toolkit erweitert ein DropDownList-Steuerelements, damit, dass Änderungen in einer DropDownList lädt Werte in Anoth verknüpft..."
+description: Das CascadingDropDown-Steuerelement in das AJAX-Steuerelement-Toolkit erweitert ein DropDownList-Steuerelements, damit, dass Änderungen in einer DropDownList lädt Werte in Anoth verknüpft...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d86c5887a8b175a60c32a0970482266b7d690162
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d87da6c19f6dbdff70eff410ba7573c3e26884fb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a>Vorheriges festlegen Listeneinträge mit CascadingDropDown (c#)
 ====================
@@ -60,6 +60,6 @@ Beim Laden der Seite im Browser füllt die Dropdown-Liste mit den drei Anbietern
 
 Die Liste aufgefüllt und automatisch vorausgewählt ([klicken Sie hier, um das Bild in voller Größe angezeigt](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](using-cascadingdropdown-with-a-database-cs.md)
-[Weiter](using-auto-postback-with-cascadingdropdown-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](using-cascadingdropdown-with-a-database-cs.md)
+> [Weiter](using-auto-postback-with-cascadingdropdown-cs.md)

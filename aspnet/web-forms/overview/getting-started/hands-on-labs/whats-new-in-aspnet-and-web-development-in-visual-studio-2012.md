@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00b43cc548df44edded925521991a095ed856494
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Was ist neu in ASP.NET und Webentwicklung in Visual Studio 2012
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 > Die neue Version von Visual Studio enthält eine Reihe von Verbesserungen konzentriert sich auf die Leistung und die Leistung verbessern, bei der Arbeit mit Web-Technologien. Visual Studio-Editoren für CSS, JavaScript und HTML haben vollständig überarbeitet, um viele der am häufigsten Bedarf Code Aids, z. B. IntelliSense und automatische Einzug einzuschließen. Bezüglich der Leistung sind Bündelung und Minimierung jetzt integriert, wie integrierte Funktionen zum Seite problemlos reduzieren Mal geladen.
 > 
@@ -32,7 +32,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Diese Übung führt Sie durch die Optimierungen und neuen Funktionen, die zuvor beschriebenen durch Anwenden von kleinere Änderungen auf eine Beispielwebanwendung im Quellordner bereitgestellt.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -147,7 +147,7 @@ In dieser Aufgabe werden Sie feststellen, dass der neuen CSS-Farbauswahl in Visu
     *Farbauswahl Deckkraft*
 
     > [!NOTE]
-    > Die Definition des RGBA (Rot, Grün, Blau, Alpha)-Farbe in CSS3 können Sie die Deckkraft Farbwert für ein einzelnes Element definieren. Im Gegensatz zu **Deckkraft -** ein ähnliches Attribut der CSS-  **-**  RGBA Farben werden auch mit neueren Browsern kompatibel.
+    > Die Definition des RGBA (Rot, Grün, Blau, Alpha)-Farbe in CSS3 können Sie die Deckkraft Farbwert für ein einzelnes Element definieren. Im Gegensatz zu **Deckkraft -** ein ähnliches Attribut der CSS- **-** RGBA Farben werden auch mit neueren Browsern kompatibel.
 
 <a id="Ex1Task3"></a>
 
@@ -156,7 +156,7 @@ In dieser Aufgabe werden Sie feststellen, dass der neuen CSS-Farbauswahl in Visu
 
 In dieser Aufgabe lernen Sie das browserübergreifende kompatibel CSS3 Ausschnitte zu verwenden, um einige Features in Ihrer Website zu implementieren.
 
-1. In der **"Site.CSS" ändern** Datei, suchen Sie nach der **Header** CSS Klassendefinition (.header), und platzieren Sie den Cursor unterhalb der  **/ \*Border-Radius\* /**  Platzhalter sind, einen neuen Ausschnitt hinzufügen. Drücken Sie **EINGABETASTE** zum Anzeigen der IntelliSense-Liste und Typ **Radius** zum Filtern der Liste. Wählen Sie die **Border-Radius** aus der Liste mit einem doppelten Mausklick aus, und drücken Sie dann die **Registerkarte** Schlüssel zum Einfügen des Codeausschnitts. Geben Sie eine Radiusgröße in Pixel, und drücken Sie **EINGABETASTE**. Geben Sie z. B. **15px**.
+1. In der **"Site.CSS" ändern** Datei, suchen Sie nach der **Header** CSS Klassendefinition (.header), und platzieren Sie den Cursor unterhalb der **/ \*Border-Radius\* /** Platzhalter sind, einen neuen Ausschnitt hinzufügen. Drücken Sie **EINGABETASTE** zum Anzeigen der IntelliSense-Liste und Typ **Radius** zum Filtern der Liste. Wählen Sie die **Border-Radius** aus der Liste mit einem doppelten Mausklick aus, und drücken Sie dann die **Registerkarte** Schlüssel zum Einfügen des Codeausschnitts. Geben Sie eine Radiusgröße in Pixel, und drücken Sie **EINGABETASTE**. Geben Sie z. B. **15px**.
 
     Die CSS3-Attribute hinzugefügt werden, indem Sie den Ausschnitt rendert abgerundeten Ränder in den meisten HTML5 Kompatibilität Browsern, einschließlich Mozilla und Browser WebKit-basiert.
 
@@ -260,7 +260,9 @@ Visual Studio aktualisiert den HTML-Code beim Öffnen oder Endtags des Elements,
 1. Auf der **"default.aspx"** Seite, fügen Sie ein **H3** Element mit einem Titel (z. B. Visual Studio 2012 Rocks!).
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
+~~~
 2. Ändern der **H3** Tag, und geben **H2** oder **H1.**
 
     Beachten Sie, dass das Endtag wird automatisch aktualisiert. Sie können auch ändern, dass das Endtag, um festzustellen, ob das Starttag zu entsprechend aktualisiert.
@@ -287,10 +289,12 @@ Visual Studio enthält nun einige HTML5-Codeausschnitte. In dieser Aufgabe verwe
 3. Aktualisieren Sie die audio Quelle auf eine vorhandene Audiodatei verweisen.
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
-    > [!NOTE]
-    > Sie müssen die Audiodatei zur Projektmappe hinzuzufügen.
+> [!NOTE]
+> You will need to add the audio file to the solution.
+~~~
 4. Drücken Sie **F5** zum Ausführen von der Website und das Audio wiedergegeben.
 
     ![Ausführen der Audiosteuerelement](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "mit audio-Steuerelement")
@@ -404,7 +408,7 @@ Diese Aufgabe werden einige der neuen JavaScript-Editor-Funktionen vorgestellt d
 
     *Seitenzähler*
 3. Schließen Sie den Browser, und wechseln Sie zurück zu Visual Studio.
-4. Öffnen der **JavaScript.aspx** Seite, und suchen Sie die  **&lt;Skript&gt;**  Block (siehe unten).
+4. Öffnen der **JavaScript.aspx** Seite, und suchen Sie die **&lt;Skript&gt;** Block (siehe unten).
 
     Der folgende Code verwendet HTML5 lokalen Speicher zum Speichern einer *PageLoadCount* Variable an, wie oft speichert die Seite vom aktuellen Benutzer besucht wurde wurde. Lokaler Speicher ist eine clientseitige Schlüssel-Wert-Datenbank, die mit dem HTML5-Standard eingeführt. Die Daten werden auf dem lokalen Computer, in den Browser des Benutzers gespeichert.
 
@@ -449,8 +453,8 @@ In dieser Aufgabe werden neue JavaScript-Validierung für den Standard ECMAScrip
     ![JavaScript-Überprüfungsfehlermeldung](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "Überprüfungsfehlermeldung JavaScript")
 
     *JavaScript-Überprüfungsfehlermeldung*
-3. Kommentieren Sie Sie aus der  **&quot;verwenden strenge&quot;**  Richtung und beachten Sie, die Fehler nicht mehr angezeigt, aber die Warnungen bleiben.
-4. Schreiben Sie eine beliebige Zeichenfolge wie in der letzten Zeile der Datei  **&quot;testen&quot;**  (einschließlich der Anführungszeichen kennzeichnen, ist als Zeichenfolge). Schreiben Sie einen Punkt neben die Zeichenfolge, die IntelliSense-Liste angezeigt, und wählen Sie die **trim** Option.
+3. Kommentieren Sie Sie aus der **&quot;verwenden strenge&quot;** Richtung und beachten Sie, die Fehler nicht mehr angezeigt, aber die Warnungen bleiben.
+4. Schreiben Sie eine beliebige Zeichenfolge wie in der letzten Zeile der Datei **&quot;testen&quot;** (einschließlich der Anführungszeichen kennzeichnen, ist als Zeichenfolge). Schreiben Sie einen Punkt neben die Zeichenfolge, die IntelliSense-Liste angezeigt, und wählen Sie die **trim** Option.
 
     ECMAScript5-Standard verfügen Zeichenfolgenwerte und Variablen, String-Methoden, die definiert, wie das trim, Großbuchstaben, suchen und ersetzen.
 
@@ -546,28 +550,36 @@ In dieser Aufgabe lernen Sie, das Aktivieren und die gebündelten und verkleiner
     Beachten Sie, dass die neue **Microsoft.Web.Optimization** Namespace am Anfang der Datei auskommentiert ist. Kommentieren Sie die mit Direktive, um die Bündelung und Minimierung Funktionen umfassen.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
+~~~
 4. Suchen Sie die **Anwendung\_starten** Methode.
 
     Kommentieren Sie in dieser Methode den EnableDefaultBundles-Aufruf wie im folgenden Codeausschnitt gezeigt. Dies ermöglicht es, zu der eine gebündelte Auflistung von CSS-Dateien in einem Ordner zu verweisen, indem Sie den Pfad für diesen Ordner sowie die &quot;CSS&quot; oder &quot;JS&quot; Suffix.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
+~~~
 5. Öffnen der **Optimization.aspx** Datei, und suchen Sie das Inhaltssteuerelement für **HeadContent**.
 
     Beachten Sie die CSS-Dateien und die JS-Dateien, die ein einzelnes referenziertes Tag aufweisen.
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
-    > [!NOTE]
-    > Dieser Code wird zu Demonstrationszwecken. Im Idealfall werden Sie die Pakete in die Datei Site.Master verweisen. In diesem Beispielcode werden Sie feststellen, dass gebündelten Dateien auch durch die Datei Site.Master verwiesen werden Bezugnahme dieser letzten redundant.
+> [!NOTE]
+> This code is for demo purposes. Ideally, you will reference the bundles in the Site.Master file. In this sample code, you will find that some of the bundled files are also being referenced by the Site.Master file, making this last reference redundant.
+~~~
 6. Beachten Sie, dass die Links in die bundling Konventionen verwenden die **Href** Attribut, um alle CSS oder JS-Dateien entnommen werden die Formate und Scripts\custom Ordner bzw.
 
     Können Sie den Pfad **Skripts/Custom/JS** wie unten dargestellt, bündeln und verkleinernde die JS-Dateien in einem **Skripts/benutzerdefinierte** Ordner. Dies ist das Standardverhalten, mit der Standard-Pakete.
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
+~~~
 7. Öffnen der **Styles\Site.css** Datei.
 
     Beachten Sie, dass die ursprüngliche CSS-Datei enthält Code eingezogen, Leerzeichen und Kommentare, die die Datei zu vergrößern. (Enthält auch die JavaScript-Datei Leerzeichen und Kommentare).
@@ -609,13 +621,17 @@ In dieser Aufgabe Konfigurieren Sie eine statische Paket um einen bestimmten Sat
     Beachten Sie, dass die Dateien nicht am gleichen Ort befinden. Dies ist ein weiterer Vorteil über die standardmäßige bündeln.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
+~~~
 4. Öffnen der **Optimization.aspx** Datei.
 
     Beachten Sie, dass der Link zum **statische JS-Bundle** wird unter Verwendung des Pfads, die bei der Konfiguration der statischen Pakets in der Datei Global.asax.cs deklariert haben: **/StaticBundle**.
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
+~~~
 5. Drücken Sie **F5** führen Sie die Anwendung, und navigieren Sie zu der **Optimierung** Seite.
 6. Klicken Sie auf die **statische JS-Bundle** Link zum Öffnen der Datei.
 
@@ -641,7 +657,9 @@ In diesem Beispiel erfahren Sie, wie Sie die **DynamicFolderBundle** Klasse, um 
     Definieren Sie eine dynamische ordnerpaket, die verwendet werden die **CoffeeMinify** benutzerdefinierte Minimierung-Prozessor, die nur für Dateien mit den gelten die &quot; **.coffee** &quot; (Erweiterung CoffeeScript-Dateien). Beachten Sie, dass Sie die einem Suchmuster, zum Auswählen der Dateien verwenden können, wie z. B. innerhalb eines Ordners zu bündeln "\*.coffee".
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
+~~~
 3. Öffnen Sie das NuGet-Paket-Manager-Konsole. Zu diesem Zweck verwenden Sie das Menü **Ansicht** | **Weitere Fenster** | **Package Manager Console**.
 4. In der **Paket-Manager-Konsole** Typ **Install-Package CoffeeSharp** , und drücken Sie **EINGABETASTE**.
 5. Klicken Sie auf die **alle Dateien anzeigen** Schaltfläche der **Projektmappen-Explorer** Fenster
@@ -659,7 +677,9 @@ In diesem Beispiel erfahren Sie, wie Sie die **DynamicFolderBundle** Klasse, um 
     Diese Klasse erbt von JsMinify zu verkleinernde der JavaScript-Ausgabe von CoffeeScript-Code-Kompilierung. Ruft den CoffeeScript-Compiler um zunächst den JavaScript-Code zu generieren, und er sendet diese dann an die JsMinify.Process-Methode, die den resultierenden Code verkleinernde.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
+~~~
 8. Öffnen der **Script1.coffee** und **Script2.coffee** Dateien aus dem **Skripts-Bundle** Ordner.
 
     Diese Dateien werden CoffeScript Code kompiliert werden, beim Ausführen der im Lieferumfang der CoffeeMinify-Klasse enthalten.
@@ -677,7 +697,9 @@ In diesem Beispiel erfahren Sie, wie Sie die **DynamicFolderBundle** Klasse, um 
     Beachten Sie, dass der Link zum **dynamische JS-Bundle** verweist auf die **Skripts-Bundle** Ordner mithilfe der **/Kaffee** Suffix, die Sie für das dynamische ordnerpaket konfiguriert.
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
+~~~
 10. Drücken Sie **F5** führen Sie die Anwendung, und navigieren Sie zu der **Optimierung** Seite.
 11. Klicken Sie auf die **dynamische JS-Bundle** klicken, um die generierte Datei zu öffnen.
 
@@ -703,9 +725,9 @@ Durch diese praktische Übungseinheit haben wie die neuen Features und Verbesser
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für das Web
 
-Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
+Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
 
-1. Wechseln Sie zu [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; *Visual Studio Express 2012 für das Web mit Windows Azure SDK*&quot;.
+1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Windows Azure SDK</em>&quot;.
 2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 
@@ -851,14 +873,14 @@ Wenn die Anwendung durchführt, verwenden Sie SQL Server Datenbanken Sie einen S
     *Web deploy-Konfiguration*
 5. Konfigurieren Sie die Verbindung mit der Datenbank wie folgt:
 
-    - In der **Servernamen** Geben Sie Ihre SQL-Datenbank Server-URL unter Verwendung der *Tcp:* Präfix.
-    - In **Benutzername** Geben Sie Ihre Administrator Serveranmeldenamen an.
-    - In **Kennwort** Geben Sie Ihre Server-Administratorkennwort.
-    - Geben Sie einen neuen Datenbanknamen ein, z. B.: *MVC4SampleDB*.
+   - In der **Servernamen** Geben Sie Ihre SQL-Datenbank Server-URL unter Verwendung der *Tcp:* Präfix.
+   - In **Benutzername** Geben Sie Ihre Administrator Serveranmeldenamen an.
+   - In **Kennwort** Geben Sie Ihre Server-Administratorkennwort.
+   - Geben Sie einen neuen Datenbanknamen ein, z. B.: *MVC4SampleDB*.
 
-    ![Konfigurieren von Zielverbindungszeichenfolge](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "Zielverbindungszeichenfolge konfigurieren")
+     ![Konfigurieren von Zielverbindungszeichenfolge](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "Zielverbindungszeichenfolge konfigurieren")
 
-    *Konfigurieren von Ziel-Verbindungszeichenfolge*
+     *Konfigurieren von Ziel-Verbindungszeichenfolge*
 6. Klicken Sie dann auf **OK**. Bei der Aufforderung zum Erstellen des Datenbank auf **Ja**.
 
     ![Erstellen der Datenbank](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "erstellen die Datenbank-Zeichenfolge")

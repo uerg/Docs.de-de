@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work
 title: 'Storefront ASP.NET-MVC, Teil 7: Routing und Aufgaben des UI | Microsoft Docs'
 author: robconery
-description: "Rob finden Sie Informationen zum Einrichten von Routing mit Scott Hanselman, und klicken Sie dann er die Benutzeroberfläche implementiert."
+description: Rob finden Sie Informationen zum Einrichten von Routing mit Scott Hanselman, und klicken Sie dann er die Benutzeroberfläche implementiert.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work
 msc.type: video
-ms.openlocfilehash: 034afc1d1230a4bf7e5ace1ed15c79b2775317ed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 18acf244c29f3b698eb3588640ac1b0491b360b2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-7-routing-and-ui-work"></a>Storefront ASP.NET-MVC, Teil 7: Routing und Aufgaben des UI-
 ====================
@@ -24,8 +24,8 @@ durch [stehlen Conery](https://github.com/robconery)
 
 Rob finden Sie Informationen zum Einrichten von Routing mit Scott Hanselman, und klicken Sie dann er die Benutzeroberfläche implementiert.
 
-[&#9654; Sehen Sie sich an (25 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-7-routing-and-ui-work)
+[&#9654;Sehen Sie sich an (25 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-7-routing-and-ui-work)
 
->[!div class="step-by-step"]
-[Zurück](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
-[Weiter](aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
+> [!div class="step-by-step"]
+> [Zurück](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
+> [Weiter](aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: "Verwenden von AJAX zum Übermitteln von dynamischen | Microsoft Docs"
+title: Verwenden von AJAX zum Übermitteln von dynamischen | Microsoft Docs
 author: microsoft
-description: "Schritt 10 implementiert die Unterstützung für angemeldete Benutzer auf Antwort ihr Interesse an der Teilnahme an einem Essen, mit einem Ajax-basierten Ansatz, der innerhalb der Dinner Detail integriert..."
+description: Schritt 10 implementiert die Unterstützung für angemeldete Benutzer auf Antwort ihr Interesse an der Teilnahme an einem Essen, mit einem Ajax-basierten Ansatz, der innerhalb der Dinner Detail integriert...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Mithilfe von AJAX dynamische Updates bereitstellen
 ====================
@@ -115,9 +115,9 @@ Verwendung von jQuery fügen wir zuerst einen Skriptverweis auf ihn. Da wir jQue
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*Tipp: Stellen Sie sicher, dass Sie den JavaScript-Intellisense-Hotfix für Visual Studio 2008 SP1 installiert haben, die es umfangreichere Intellisense-Unterstützung für JavaScript-Dateien ermöglicht (einschließlich jQuery). Sie können es von herunterladen: http://tinyurl.com/vs2008javascripthotfix*
+*Tipp: Stellen Sie sicher, dass Sie den JavaScript-Intellisense-Hotfix für Visual Studio 2008 SP1 installiert haben, die es umfangreichere Intellisense-Unterstützung für JavaScript-Dateien ermöglicht (einschließlich jQuery). Sie können es herunterladen: http://tinyurl.com/vs2008javascripthotfix*
 
-Unter Verwendung von JQuery häufig geschriebenen Code verwendet eine globale "$ ()" JavaScript-Methode, die eine oder mehrere HTML-Elemente, die mithilfe einer CSS-Auswahl abruft. Beispielsweise *$("#rsvpmsg")* wählt alle HTML-Element mit der Id Rsvpmsg, während *$(".something")* wählen alle Elemente mit CSS "etwas" Klassennamen. Sie können auch noch umfassendere Abfragen wie alle aktivierten Optionsfelder "return" schreiben mithilfe einer Auswahl Abfrage z. B.: *$("Eingabe [@type= Radio] [@checked]")*.
+Unter Verwendung von JQuery häufig geschriebenen Code verwendet eine globale "$ ()" JavaScript-Methode, die eine oder mehrere HTML-Elemente, die mithilfe einer CSS-Auswahl abruft. Beispielsweise <em>$("#rsvpmsg")</em> wählt alle HTML-Element mit der Id Rsvpmsg, während <em>$(".something")</em> wählen alle Elemente mit CSS "etwas" Klassennamen. Sie können auch noch umfassendere Abfragen wie alle aktivierten Optionsfelder "return" schreiben mithilfe einer Auswahl Abfrage z. B.: <em>$("Eingabe [@type= Radio] [@checked]")</em>.
 
 Nachdem Sie die Elemente ausgewählt haben, können Sie Methoden aufrufen, damit Maßnahmen, wie sie verbergen: *$("#rsvpmsg").hide();*
 
@@ -153,6 +153,6 @@ Dadurch wird den Code übersichtlicher zu lesen und zu verwalten.
 
 Jetzt betrachten wie wir noch weiter verwenden von AJAX und interaktive Unterstützung unserer Anwendung hinzufügen können.
 
->[!div class="step-by-step"]
-[Zurück](secure-applications-using-authentication-and-authorization.md)
-[Weiter](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [Zurück](secure-applications-using-authentication-and-authorization.md)
+> [Weiter](use-ajax-to-implement-mapping-scenarios.md)

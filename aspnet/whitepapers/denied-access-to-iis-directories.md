@@ -2,25 +2,25 @@
 uid: whitepapers/denied-access-to-iis-directories
 title: ASP.NET IIS-Verzeichnisse Zugriff verweigert | Microsoft Docs
 author: rick-anderson
-description: "In diesem Whitepaper wird beschrieben, was Sie tun müssen, wenn eine Anforderung an die ASP.NET-Anwendung, der Fehler \"Zugriff verweigert DirectoryName Verzeichnis zurückgegeben. Fehler beim s..."
+description: In diesem Whitepaper wird beschrieben, was Sie tun müssen, wenn eine Anforderung an die ASP.NET-Anwendung, der Fehler "Zugriff verweigert DirectoryName Verzeichnis zurückgegeben. Fehler beim s...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: 64118ac7a5f280775106d2dc7636923b08f28d89
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d95423776a6b58fc67ae6c791685543dadd2480c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET IIS-Verzeichnisse der Zugriff verweigert
 ====================
-> In diesem Whitepaper wird beschrieben, was Sie tun müssen, wenn eine Anforderung an die ASP.NET-Anwendung, den Fehler zurückgegeben "Zugriff auf verweigert *DirectoryName* Verzeichnis. Fehler beim Starten der Überwachung Directory Chaanges."
+> In diesem Whitepaper wird beschrieben, was Sie tun müssen, wenn eine Anforderung an die ASP.NET-Anwendung, den Fehler zurückgegeben "Zugriff auf verweigert *DirectoryName* Verzeichnis. Fehler beim Starten der Überwachung von verzeichnisänderungen."
 > 
 > Gilt für ASP.NET 1.0 und ASP.NET 1.1.
 

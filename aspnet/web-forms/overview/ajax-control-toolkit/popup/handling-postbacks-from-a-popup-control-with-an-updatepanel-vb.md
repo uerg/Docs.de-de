@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 title: Behandlung von Postbacks aus einem Popupsteuerelement mit UpdatePanel (VB) | Microsoft Docs
 author: wenz
-description: "Der Extender PopupControl im AJAX Control Toolkit bietet eine einfache Möglichkeit, um ein Popup auszulösen, wenn es sich bei jedem anderen Steuerelement aktiviert wird. Besondere Sorgfalt hat auszuführende..."
+description: Der Extender PopupControl im AJAX Control Toolkit bietet eine einfache Möglichkeit, um ein Popup auszulösen, wenn es sich bei jedem anderen Steuerelement aktiviert wird. Besondere Sorgfalt hat auszuführende...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4445437f25925429d240b7fe2d019855afc52fe0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 312927e01911ea705d0614eac462cd034820c7b4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>Behandlung von Postbacks aus einem Popupsteuerelement mit UpdatePanel (VB)
 ====================
@@ -61,6 +61,6 @@ Der Kalender wird angezeigt, wenn der Benutzer in das Textfeld klickt ([klicken 
 
 Durch Klicken auf ein Datum in das Textfeld eingefügt ([klicken Sie hier, um das Bild in voller Größe angezeigt](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Zurück](using-multiple-popup-controls-vb.md)
-[Weiter](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](using-multiple-popup-controls-vb.md)
+> [Weiter](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)

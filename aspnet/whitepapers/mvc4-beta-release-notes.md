@@ -2,21 +2,21 @@
 uid: whitepapers/mvc4-beta-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: "Dieses Dokument beschreibt die Version von ASP.NET MVC 4 Beta für Visual Studio 2010."
+description: Dieses Dokument beschreibt die Version von ASP.NET MVC 4 Beta für Visual Studio 2010.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -139,7 +139,7 @@ ASP.NET Web-API unterstützt die folgenden Funktionen:
 - **Code-basierte Konfiguration:** Web-API-Konfiguration erfolgt ausschließlich über Code, verlassen der Config Dateien zu bereinigen.
 - **Selbsthosting:** Web-APIs können in Ihren eigenen Prozess zusätzlich zu den IIS gehostet werden, wobei dennoch die volle Leistung von Routen und anderen Features der Web-API.
 
-Weitere Informationen zu ASP.NET Web-API finden Sie hier [https://www.asp.net/web-api](../web-api/index.md).
+Weitere Informationen zu ASP.NET Web-API finden Sie hier [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
 ### <a name="aspnet-single-page-application"></a>ASP.NET Single-Page-Anwendung
@@ -150,7 +150,7 @@ ASP.NET MVC 4 enthält nun eine frühe Vorschau der die Umgebung zum Erstellen v
 - Zusätzliche Web-API-Komponenten für Komponententests von Arbeit "und" DAL-Unterstützung
 - Eine MVC-Projektvorlage mit Gerüst zum schnellen Einstieg
 
-Weitere Informationen zu den einzelnen Page-Anwendung zu unterstützen, in ASP.NET MVC 4 finden Sie auf [https://www.asp.net/single-page-application](../single-page-application/index.md).
+Weitere Informationen zu den einzelnen Page-Anwendung zu unterstützen, in ASP.NET MVC 4 finden Sie auf [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Verbesserungen an Standardeinstellung-Projektvorlagen
@@ -219,7 +219,7 @@ Eine Konvention für Mobilgeräte optimierte Webseiten besteht darin, einen Link
 
 Wenn Besucher auf den Link klicken, werden sie in der Desktopversion von der gleichen Seite gewechselt.
 
-Da das Layout Ihren desktop eine ansichtumschaltung standardmäßig nicht eingeschlossen werden, keine Besucher eine Möglichkeit, mobile Modus zu erhalten. Um dies zu ermöglichen, fügen Sie den folgenden Verweis auf  *\_ViewSwitcher* auf Ihrem desktop Layout nur innerhalb der  *&lt;Text&gt;*  Element:
+Da das Layout Ihren desktop eine ansichtumschaltung standardmäßig nicht eingeschlossen werden, keine Besucher eine Möglichkeit, mobile Modus zu erhalten. Um dies zu ermöglichen, fügen Sie den folgenden Verweis auf  *\_ViewSwitcher* auf Ihrem desktop Layout nur innerhalb der *&lt;Text&gt;* Element:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
@@ -280,9 +280,9 @@ ASP.NET MVC 4 Beta unterstützt die September 2011 1.5-Version des Windows Azure
     Die Assembly Binding-Element in der geänderten Datei "Web.config" sollte wie folgt aussehen:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **Die Elementvorlage "Controller hinzufügen" in Visual Basic-Projekten generiert einen falschen Namespace beim Aufrufen *** von innerhalb eines Bereichs.** Wenn Sie einen Bereich in einer ASP.NET MVC-Projekt einen Controller, die Visual Basic verwendet hinzufügen, fügt die Elementvorlage falschen Namespace in den Controller. Das Ergebnis ist eine "Datei nicht gefunden"-Fehler auf, wenn Sie auf eine beliebige Aktion im Controller navigieren.  
+- <strong>Die Elementvorlage "Controller hinzufügen" in Visual Basic-Projekten generiert einen falschen Namespace beim Aufrufen</strong><strong>von innerhalb eines Bereichs.</strong> Wenn Sie einen Bereich in einer ASP.NET MVC-Projekt einen Controller, die Visual Basic verwendet hinzufügen, fügt die Elementvorlage falschen Namespace in den Controller. Das Ergebnis ist eine "Datei nicht gefunden"-Fehler auf, wenn Sie auf eine beliebige Aktion im Controller navigieren.  
   
- Der generierte Namespace wird alles, was nach der Stammnamespace ausgelassen. Der generierten Namespace ist z. B. *RootNamespace* , sollte jedoch *RootNamespace.Areas.AreaName.Controllers* .
+  Der generierte Namespace wird alles, was nach der Stammnamespace ausgelassen. Der generierten Namespace ist z. B. *RootNamespace* , sollte jedoch *RootNamespace.Areas.AreaName.Controllers* .
 - **Wichtige Änderungen in der Razor-Ansichtsmodul.** Im Rahmen des eine neue Version von Razor-Parser, wurden die folgenden Typen von entfernt *System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
@@ -290,7 +290,7 @@ ASP.NET MVC 4 Beta unterstützt die September 2011 1.5-Version des Windows Azure
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Die folgenden Methoden wurden ebenfalls entfernt: 
+  Die folgenden Methoden wurden ebenfalls entfernt: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -305,15 +305,15 @@ ASP.NET MVC 4 Beta unterstützt die September 2011 1.5-Version des Windows Azure
 
     **Erforderliche updates**
 
-    1. In der Stammdatei "Web.config", fügen Sie einen neuen  *&lt;"appSettings"&gt;*  Eintrag mit dem Schlüssel *WebPages:Version* und dem Wert *1.0.0.0*.
+  1. In der Stammdatei "Web.config", fügen Sie einen neuen *&lt;"appSettings"&gt;* Eintrag mit dem Schlüssel *WebPages:Version* und dem Wert *1.0.0.0*.
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-    2. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projektnamens, und wählen Sie dann auf Projekt entfernen. Klicken Sie dann mit der rechten Maustaste erneut auf des Namens, und wählen Sie bearbeiten *Projektname*csproj.
-    3. Suchen Sie die folgenden Assemblyverweise aus: 
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
+  2. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projektnamens, und wählen Sie dann auf Projekt entfernen. Klicken Sie dann mit der rechten Maustaste erneut auf des Namens, und wählen Sie bearbeiten *Projektname*csproj.
+  3. Suchen Sie die folgenden Assemblyverweise aus: 
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-        Ersetzen Sie sie wie folgt:
+      Ersetzen Sie sie wie folgt:
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-    4. Speichern Sie die Änderungen zu, schließen Sie die Datei clientprojektdatei (csproj), die Sie wurden bearbeiten, und klicken Sie dann mit der rechten Maustaste des Projekts und wählen Sie erneut laden.
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
+  4. Speichern Sie die Änderungen zu, schließen Sie die Datei clientprojektdatei (csproj), die Sie wurden bearbeiten, und klicken Sie dann mit der rechten Maustaste des Projekts und wählen Sie erneut laden.

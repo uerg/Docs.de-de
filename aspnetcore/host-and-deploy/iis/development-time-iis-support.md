@@ -1,7 +1,7 @@
 ---
-title: "IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core"
+title: IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 author: shirhatti
-description: "Ermitteln Sie die Unterstützung für das Debuggen von ASP.NET Core-apps, wenn IIS unter Windows Server zurückliegt."
+description: Ermitteln Sie die Unterstützung für das Debuggen von ASP.NET Core-apps, wenn IIS unter Windows Server zurückliegt.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 
@@ -24,8 +24,7 @@ Dieser Artikel beschreibt [Visual Studio](https://www.visualstudio.com/vs/) Unte
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-* Visual Studio (2017/Version 15.3 oder höher)
-* ASP.NET und die Workload für die Webentwicklung *ODER* die plattformübergreifende Workload für die .NET Core-Entwicklung
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>Aktivieren von IIS
 
@@ -33,7 +32,7 @@ Aktivieren Sie IIS. Navigieren Sie zu **Systemsteuerung** > **Programme** > **Pr
 
 ![Windows-Features, die das aktivierte Kontrollkästchen der Internetinformationsdienste als schwarzes Quadrat anzeigt (nicht mit einem Häkchen), was angibt, dass einige der IIS-Features aktiviert sind](development-time-iis-support/_static/enable_iis.png)
 
-Wenn die IIS-Installation ein Neustart erforderlich ist, starten Sie das System neu.
+Wenn die IIS-Installation einen Neustart erfordert, starten Sie das System neu.
 
 ## <a name="enable-development-time-iis-support"></a>Aktivieren der Entwicklungszeit-IIS-Unterstützung
 
@@ -45,7 +44,7 @@ Starten Sie Visual Studio-Installer. Wählen Sie die **Entwicklungszeit IIS unte
 
 Erstellen Sie ein neues Startprofil, um die Entwicklungszeit-IIS-Unterstützung hinzuzufügen. Klicken Sie im **Projektmappen-Explorer** von Visual Studio mit der rechten Maustaste auf das Projekt, und wählen Sie dann **Eigenschaften** aus. Klicken Sie auf die Registerkarte **Debuggen**. Wählen Sie **IIS** aus dem Dropdownfeld **Start** aus. Bestätigen Sie, dass die Funktion **Launch browser** (Browser starten) mit der richtigen URL aktiviert ist.
 
-![Fenster „Projekteigenschaften“, in dem die Registerkarte „Debuggen“ ausgewählt ist Die Profil- und Starteinstellungen werden auf IIS festgelegt. Die Funktion „Browser starten“ wird mit der Adresse http://localhost/WebApplication2 aktiviert. Die selbe Adresse wird auch im Feld „App-URL“ des Bereichs für Webservereinstellungen bereitgestellt, und „Anonyme Authentifizierung aktivieren“ ist aktiviert.](development-time-iis-support/_static/project_properties.png)
+![Fenster „Projekteigenschaften“, in dem die Registerkarte „Debuggen“ ausgewählt ist Die Profil- und Starteinstellungen werden auf IIS festgelegt. Die Start-Browser-Funktion aktiviert ist, mit der Adresse http://localhost/WebApplication2. Die selbe Adresse wird auch im Feld „App-URL“ des Bereichs für Webservereinstellungen bereitgestellt, und „Anonyme Authentifizierung aktivieren“ ist aktiviert.](development-time-iis-support/_static/project_properties.png)
 
 Auch manuell hinzufügen ein Profils starten, das die [launchSettings.json](http://json.schemastore.org/launchsettings) Datei in der app:
 

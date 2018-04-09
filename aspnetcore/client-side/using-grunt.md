@@ -1,7 +1,7 @@
 ---
 title: Verwenden von Grunt in ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: c23f170b36ac1b9623835337020f2b5ac9514971
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core 
+# <a name="use-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core
 
 Durch [Noel Reis](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
@@ -129,16 +129,16 @@ Die Pakete für jedes Element DevDependencies werden zusammen mit den Dateien he
 
 Grunt konfiguriert ist, über ein Manifest mit dem Namen *Gruntfile.js* , die definiert, lädt und registriert Sie Aufgaben, die manuell ausführen oder so konfiguriert, dass automatisch basierend auf Ereignisse in Visual Studio ausgeführt werden können.
 
-1.  Mit der rechten Maustaste des Projekts, und wählen Sie **hinzufügen > Neues Element**. Wählen Sie die **Grunt-Konfigurationsdatei** aus, lassen Sie den Standardnamen *Gruntfile.js*, und klicken Sie auf die **hinzufügen** Schaltfläche.
+1. Mit der rechten Maustaste des Projekts, und wählen Sie **hinzufügen > Neues Element**. Wählen Sie die **Grunt-Konfigurationsdatei** aus, lassen Sie den Standardnamen *Gruntfile.js*, und klicken Sie auf die **hinzufügen** Schaltfläche.
 
-    Der anfängliche Code enthält eine Moduldefinition und die `grunt.initConfig()` Methode. Die `initConfig()` dient zum Festlegen der Optionen für jedes Paket und der Rest des Moduls wird laden und Registrieren von Aufgaben.
+   Der anfängliche Code enthält eine Moduldefinition und die `grunt.initConfig()` Methode. Die `initConfig()` dient zum Festlegen der Optionen für jedes Paket und der Rest des Moduls wird laden und Registrieren von Aufgaben.
     
-    ```javascript
-    module.exports = function (grunt) {
-      grunt.initConfig({
-      });
-    };
-    ```
+   ```javascript
+   module.exports = function (grunt) {
+     grunt.initConfig({
+     });
+   };
+   ```
 
 2. Innerhalb der `initConfig()` -Methode, fügen Sie die Optionen für die `clean` Aufgabe wie im Beispiel gezeigt *Gruntfile.js* unten. Die clean-Aufgabe nimmt ein Array von Verzeichniszeichenfolgen. Dieser Task entfernt Dateien aus "Wwwroot" / Lib und das gesamte/temp-Verzeichnis.
 
@@ -207,16 +207,16 @@ Grunt konfiguriert ist, über ein Manifest mit dem Namen *Gruntfile.js* , die de
     > [!NOTE]
     > Die Option "-W069" wird ein Fehler erzeugt, indem Jshint Wenn JavaScript verwendet die Syntax, um eine Eigenschaft anstatt Punktnotation, d. h. zuweisen Klammer `Tastes["Sweet"]` anstelle von `Tastes.Sweet`. Die Option deaktiviert die Warnung, um den Rest des Prozesses zu fortfahren zu ermöglichen.
 
-10.  Hinzufügen der `uglify` Aufgabe mit den folgenden Code.
+10. Hinzufügen der `uglify` Aufgabe mit den folgenden Code.
 
     Der Task verkleinert die *combined.js* -Datei im temporären Verzeichnis gefunden und erstellt die Ergebnisdatei in die standardmäßige Benennungskonvention befolgen "Wwwroot" / Lib  *\<Dateiname\>. min.js*.
     
     ```javascript
     uglify: {
-      all: {
-        src: ['temp/combined.js'],
-        dest: 'wwwroot/lib/combined.min.js'
-      }
+     all: {
+       src: ['temp/combined.js'],
+       dest: 'wwwroot/lib/combined.min.js'
+     }
     },
     ```
 
@@ -241,7 +241,7 @@ Grunt konfiguriert ist, über ein Manifest mit dem Namen *Gruntfile.js* , die de
     ![Nachdem alle Aufgaben auf Projektmappen-explorer](using-grunt/_static/solution-explorer-after-all-tasks.png)
     
     > [!NOTE]
-    > Weitere Informationen zu den Optionen für jedes Paket finden Sie auf [https://www.npmjs.com/](https://www.npmjs.com/) und Suche den Paketnamen in das Suchfeld auf der Hauptseite. Beispielsweise können Sie das Paket Grunt für die Altersvorsorge bereinigen, um einen Link zur Dokumentation abzurufen, der allen Parametern erläutert nachschlagen.
+    > Weitere Informationen zu den Optionen für jedes Paket finden Sie auf [ https://www.npmjs.com/ ](https://www.npmjs.com/) und Suche den Paketnamen in das Suchfeld auf der Hauptseite. Beispielsweise können Sie das Paket Grunt für die Altersvorsorge bereinigen, um einen Link zur Dokumentation abzurufen, der allen Parametern erläutert nachschlagen.
 
 ### <a name="all-together-now"></a>Jetzt alle zusammen
 
@@ -255,7 +255,7 @@ Die neue Aufgabe angezeigt wird, in der Taskausführungs-Explorer unter Alias Au
 
 ![Alias-Grunt-Aufgaben](using-grunt/_static/alias-tasks.png)
 
-## <a name="watching-for-changes"></a>Überwachen von Änderungen
+## <a name="watching-for-changes"></a>Erkennen von Änderungen
 
 Ein `watch` -Task sollten Sie die Dateien und Verzeichnisse. Die Überwachung wird Aufgaben automatisch ausgelöst, wenn Änderungen erkannt wird. InitConfig zu überwachenden Änderungen an den folgenden Code hinzugefügt \*JS-Dateien im Verzeichnis TypeScript. Wenn eine JavaScript-Datei geändert wird, `watch` führt die `all` Aufgabe.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>Die ASP.NET 2.0-Seite-Modells
 ====================
@@ -77,7 +77,7 @@ Das CodeFile-Attribut ist der Ersatz für die CodeBehind-Attribut in Visual Stud
 
 Das CodeFileBaseClass-Attribut wird in Fällen verwendet, in denen mehrere Seiten aus einer einzigen Basisklasse abgeleitet werden soll. Aufgrund der Implementierung der partiellen Klassen in ASP.NET ohne dieses Attribut eine Basisklasse, die freigegebene allgemeine Felder verwendet, um die Steuerelemente in einer ASPX-Seite deklariert verweisen funktioniert nicht ordnungsgemäß da ASP. Netze Kompilierung Modul erstellt automatisch neue Member, die basierend auf Steuerelemente auf der Seite. Aus diesem Grund Wenn Sie eine allgemeine Basisklasse für zwei oder mehr Seiten in ASP.NET möchten, benötigen Sie zum Definieren Ihrer Basisklasse in das CodeFileBaseClass-Attribut angeben, und klicken Sie dann jede Seiten-Klasse ableiten, von dieser Basisklasse. Das CodeFile-Attribut ist auch erforderlich, wenn dieses Attribut verwendet wird.
 
-## <a name="compilationmode"></a>compilationMode
+## <a name="compilationmode"></a>CompilationMode
 
 Dieses Attribut können Sie die Eigenschaft CompilationMode die ASPX-Seite festgelegt. Die CompilationMode-Eigenschaft ist eine Enumeration, die mit den Werten **immer**, **Auto**, und **nie**. Die Standardeinstellung ist **immer**. Die **Auto** Einstellung verhindert, dass ASP.NET dynamisch möglichst Kompilieren der Seite. Ausschließen von Seiten von der dynamischen Kompilierung wird die Leistung erhöht. Jedoch, wenn eine Seite, die ausgeschlossen ist dieser Code, die kompiliert werden muss enthält, wird ein Fehler ausgelöst werden beim Durchsuchen der Seite.
 
@@ -144,11 +144,11 @@ Die folgenden öffentlichen Eigenschaften sind neu in ASP.NET 2.0.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Gibt den anwendungsrelativen Pfad zu der Seite oder ein Steuerelement zurück. Für eine Seite, die am http://app/folder/page.aspx, gibt die Eigenschaft z. B. ~ / Ordner /.
+Gibt den anwendungsrelativen Pfad zu der Seite oder ein Steuerelement zurück. Z. B. für eine Seite, die am http://app/folder/page.aspx, gibt die Eigenschaft ~ / Ordner /.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Gibt den relativen Pfad zu der Seite oder ein Steuerelement zurück. Für eine Seite, die am http://app/folder/page.aspx, z. B. die Eigenschaft zurückgibt ~ / folder/page.aspx.
+Gibt den relativen Pfad zu der Seite oder ein Steuerelement zurück. Beispiel für eine Seite, die am http://app/folder/page.aspx, gibt die Eigenschaft ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
@@ -600,11 +600,13 @@ Verwenden Sie die IsStartupScriptRegistered-Methode, um zu bestimmen, ob ein Skr
 
 Hier sind einige andere nützlicher Methoden der ClientScriptManager-Klasse.
 
-| **GetCallbackEventReference** | Finden Sie unter Skriptrückrufe weiter oben in diesem Modul aus. |
-| --- | --- |
-| **GetPostBackClientHyperlink** | Ruft einen JavaScript-Verweis (Javascript:&lt;Aufrufen&gt;), die verwendet werden kann, um wieder von der ein clientseitiges Ereignis gesendet werden. |
-| **GetPostBackEventReference** | Ruft eine Zeichenfolge, die zum Initiieren einer POST-Anforderung vom Client verwendet werden kann. |
-| **GetWebResourceUrl** | Gibt eine URL auf eine Ressource, die in einer Assembly eingebettet ist. Muss verwendet werden, zusammen mit **RegisterClientScriptResource**. |
-| **RegisterClientScriptResource** | Registriert eine Webressource mit der Seite. Hierbei handelt es sich um Ressourcen in einer Assembly eingebettet und von den neuen "WebResource.axd" Handler behandelt. |
-| **Ausführung** | Registriert ein ausgeblendetes Formularfeld mit der Seite. |
-| **RegisterOnSubmitStatement** | Registriert die clientseitige Code, der ausgeführt wird, wenn das HTML-Formular gesendet wird. |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 Finden Sie unter Skriptrückrufe weiter oben in diesem Modul aus.                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                Ruft einen JavaScript-Verweis (Javascript:&lt;Aufrufen&gt;), die verwendet werden kann, um wieder von der ein clientseitiges Ereignis gesendet werden.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Ruft eine Zeichenfolge, die zum Initiieren einer POST-Anforderung vom Client verwendet werden kann.                                    |
+|      <strong>GetWebResourceUrl</strong>       | Gibt eine URL auf eine Ressource, die in einer Assembly eingebettet ist. Muss verwendet werden, zusammen mit <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Registriert eine Webressource mit der Seite. Hierbei handelt es sich um Ressourcen in einer Assembly eingebettet und von den neuen "WebResource.axd" Handler behandelt.      |
+|     <strong>RegisterHiddenField</strong>      |                                                 Registriert ein ausgeblendetes Formularfeld mit der Seite.                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  Registriert die clientseitige Code, der ausgeführt wird, wenn das HTML-Formular gesendet wird.                                   |
+

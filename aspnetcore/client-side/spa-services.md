@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Verwenden Sie JavaScriptServices zu Single Page Applications in ASP.NET Kern
 
@@ -62,7 +62,7 @@ Erweitern Sie diese Infrastrukturkomponenten zusammen des entwicklungsworkflows 
 
 Zum Arbeiten mit SpaServices installieren Sie die folgenden Schritte aus:
 * [Node.js](https://nodejs.org/) (Version 6 oder höher) mit Npm
-    * Um diese Komponenten installiert sind und verwendbaren zu überprüfen, führen Sie Folgendes über die Befehlszeile ein:
+  * Um diese Komponenten installiert sind und verwendbaren zu überprüfen, führen Sie Folgendes über die Befehlszeile ein:
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ Zum Arbeiten mit SpaServices installieren Sie die folgenden Schritte aus:
 
 Hinweis: Wenn Sie auf ein Azure-Website bereitstellen, Sie brauchen dies hier tun &mdash; Node.js ist installiert und in den serverumgebungen verfügbar.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/core) 1.0 (oder höher)
-    * Wenn Sie auf Windows nutzen, kann dies durch Auswählen von Visual Studio 2017 installiert **.NET Core plattformübergreifende Entwicklung** arbeitsauslastung.
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * Wenn Sie unter Windows mithilfe von Visual Studio 2017 sind, wird das SDK installiert, durch Auswählen der **.NET Core plattformübergreifende Entwicklung** arbeitsauslastung.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet-Paket
 
@@ -262,7 +263,7 @@ Zwei primäre Runtime Konfigurationsmodi vorhanden sind:
     * Schließt Quelle Karten an.
     * Optimiert die clientseitigen Code über Bündelung und Minimierung.
 
-ASP.NET Core verwendet eine Umgebungsvariable namens `ASPNETCORE_ENVIRONMENT` zum Speichern des Konfigurationsmodus. Finden Sie unter  **[Einrichten der Umgebung](xref:fundamentals/environments#setting-the-environment)**  für Weitere Informationen.
+ASP.NET Core verwendet eine Umgebungsvariable namens `ASPNETCORE_ENVIRONMENT` zum Speichern des Konfigurationsmodus. Finden Sie unter **[Einrichten der Umgebung](xref:fundamentals/environments#setting-the-environment)** für Weitere Informationen.
 
 ### <a name="running-with-net-core-cli"></a>Ausführen von mit .NET Core CLI
 

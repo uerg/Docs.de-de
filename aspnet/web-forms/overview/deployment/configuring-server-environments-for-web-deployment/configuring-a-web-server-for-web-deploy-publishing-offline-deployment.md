@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
-title: "Konfigurieren einen Webserver für das Web Deploy-Veröffentlichung (Bereitstellung Offline) | Microsoft Docs"
+title: Konfigurieren einen Webserver für das Web Deploy-Veröffentlichung (Bereitstellung Offline) | Microsoft Docs
 author: jrjlee
-description: "Dieses Thema beschreibt, wie einen IIS-Web-Server zur Unterstützung von offline-Webpublishing und Bereitstellung konfigurieren. Beim Arbeiten mit Internet Information Services (ich..."
+description: Dieses Thema beschreibt, wie einen IIS-Web-Server zur Unterstützung von offline-Webpublishing und Bereitstellung konfigurieren. Beim Arbeiten mit Internet Information Services (ich...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e28bdea26847d4e660d6ee59b15eb38f749d2314
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurieren eines Webservers für Web Deploy-Veröffentlichung (Offline Bereitstellung)
 ====================
@@ -35,7 +35,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Weitere Informationen zu den Hauptfunktionen, Vorteile und Nachteile dieser Ansätze, finden Sie unter [Auswählen der rechts Ansatz für die Webbereitstellung](choosing-the-right-approach-to-web-deployment.md).
 
 
-Ja, wenn die Netzwerk-Infrastruktur oder Sicherheit Einschränkungen Remotebereitstellung verhindern. Dies liegt wahrscheinlich der Fall in produktionsumgebungen Internetzugriff, auf dem Webserver isoliert sind & #x 2014; entweder physisch oder durch Firewalls und Subnetze & #x 2014; vom Rest Ihrer Serverinfrastruktur.
+Ja, wenn die Netzwerk-Infrastruktur oder Sicherheit Einschränkungen Remotebereitstellung verhindern. Dies liegt wahrscheinlich in produktionsumgebungen Internetseite der Fall sein, auf dem Webserver isoliert sind&#x2014;entweder physisch oder durch Firewalls und Subnetze&#x2014;vom Rest Ihrer Serverinfrastruktur.
 
 Dieser Ansatz wird offensichtlich, weniger erwünscht sein, wenn die Webanwendungen in regelmäßigen Abständen aktualisiert werden. Wenn Ihrer Infrastruktur ermöglicht es, möglicherweise möchten Sie Remotebereitstellung, aktivieren Sie ggf. mit der Web-Handler bereitstellen oder dem Web Bereitstellen von Remote-Agent-Dienst.
 
@@ -97,7 +97,7 @@ In diesem Fall müssen Sie Folgendes installieren:
 7. Klicken Sie im Navigationsbereich auf **Server**.
 8. In der **empfohlene Konfiguration von IIS 7** auf **hinzufügen**.
 9. In der **Web Bereitstellung Tool 2.1** auf **hinzufügen**.
-10. Klicken Sie auf **Installieren**. Der Webplattform-Installer erfahren Sie, eine Liste der Produkte & #x 2014; sowie alle zugehörigen Abhängigkeiten Ko & #x 2014; installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
+10. Klicken Sie auf **Installieren**. Zeigen Sie den Webplattform-Installer eine Liste mit Produkten&#x2014;zusammen mit verknüpften Abhängigkeiten&#x2014;installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image2.png)
 11. Überprüfen Sie die Lizenzbedingungen, und wenn Sie den Bedingungen zustimmen, klicken Sie auf **ich stimme**.
@@ -160,7 +160,7 @@ Es gibt zwar keine beenden Sie aus der Bereitstellung von Inhalt auf der Standar
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image6.png)
 
     > [!NOTE]
-    > Der erste Standort Bindung ermöglicht es Ihnen Zugriff auf die Website, die lokal mithilfe von IP-Adresse und Port oder `http://localhost:85`. Die zweite Bindungen pro Website können Sie auf die Website von anderen Computern in der Domäne, die über den Computernamen (z. B. Http://proweb1:85) zugreifen.
+    > Der erste Standort Bindung ermöglicht es Ihnen Zugriff auf die Website, die lokal mithilfe von IP-Adresse und Port oder `http://localhost:85`. Die zweite Bindungen pro Website können Sie Zugriff auf die Website von anderen Computern in der Domäne, die über den Computernamen (z. B. http://proweb1:85).
 13. In der **Sitebindungen** (Dialogfeld), klicken Sie auf **schließen**.
 14. In der **Verbindungen** Bereich, klicken Sie auf **Anwendungspools**.
 15. In der **Anwendungspools** Bereich Maustaste auf den Namen des Anwendungspools, und klicken Sie dann auf **Grundeinstellungen**. Standardmäßig wird der Name der Pool der Anwendung mit dem Namen Ihrer Website übereinstimmen (z. B. **DemoSite**).
@@ -171,11 +171,11 @@ Es gibt zwar keine beenden Sie aus der Bereitstellung von Inhalt auf der Standar
     > [!NOTE]
     > Die beispiellösung erfordert .NET Framework 4.0. Dies ist im Allgemeinen nicht zwingend für Web Deploy.
 
-In der Reihenfolge für Ihre Website Inhalte bereitstellen muss die Identität des Anwendungspools auf den lokalen Ordner Leseberechtigungen verfügen, in dem den Inhalt gespeichert. Führen Sie Anwendungspools in IIS 7.5 und mit einer eindeutigen Identität des Anwendungspools standardmäßig (im Gegensatz zu früheren Versionen von IIS-Anwendungspools in der Regel Ausführungsort würde mit dem NETZWERKDIENST-Konto). Die Identität des Anwendungspools ist kein Konto echte Benutzer ist und nicht auf alle Listen mit Benutzern oder Gruppen & #x 2014 angezeigt; es wird stattdessen erstellt dynamisch beim Start des Anwendungspools. Jede Identität des Anwendungspools wird hinzugefügt, der lokalen **IIS\_IUSRS** Sicherheitsgruppe "als ausgeblendetes Element.
+In der Reihenfolge für Ihre Website Inhalte bereitstellen muss die Identität des Anwendungspools auf den lokalen Ordner Leseberechtigungen verfügen, in dem den Inhalt gespeichert. Führen Sie Anwendungspools in IIS 7.5 und mit einer eindeutigen Identität des Anwendungspools standardmäßig (im Gegensatz zu früheren Versionen von IIS-Anwendungspools in der Regel Ausführungsort würde mit dem NETZWERKDIENST-Konto). Die Identität des Anwendungspools ist kein Konto echte Benutzer ist und nicht auf alle Listen von Benutzern oder Gruppen angezeigt&#x2014;, es wird stattdessen erstellt dynamisch beim Start des Anwendungspools. Jede Identität des Anwendungspools wird hinzugefügt, der lokalen **IIS\_IUSRS** Sicherheitsgruppe "als ausgeblendetes Element.
 
 Um Berechtigungen für eine Anwendungspoolidentität auf eine Datei oder einen Ordner zu gewähren, haben Sie zwei Optionen:
 
-- Zuweisen von Berechtigungen auf die Identität des Anwendungspools direkt unter Verwendung des Formats **IIS AppPool\***[Anwendungspoolname] * (z. B. **IIS AppPool\DemoSite**).
+- Zuweisen von Berechtigungen auf die Identität des Anwendungspools direkt unter Verwendung des Formats <strong>IIS AppPool\</ strong ><em>[Anwendungspoolname]</em>(z. B. <strong>IIS AppPool\DemoSite</strong>).
 - Zuweisen von Berechtigungen für die **IIS\_IUSRS** Gruppe.
 
 Der am häufigsten verwendete Ansatz ist die Zuweisung von Berechtigungen für die lokale **IIS\_IUSRS** gruppieren, da es sich bei diesem Ansatz können Sie Anwendungspools zu ändern, ohne dass eine Neukonfiguration Dateisystemberechtigungen. Im nächste Verfahren wird dieser Ansatz Gruppenbasierte verwendet.
@@ -193,8 +193,8 @@ Der am häufigsten verwendete Ansatz ist die Zuweisung von Berechtigungen für d
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. In der **Benutzer oder Gruppen auswählen** Geben Sie im Dialogfeld **IIS\_IUSRS**, klicken Sie auf **Namen überprüfen**, und klicken Sie dann auf **OK**.
-6. In der **Berechtigungen für *** [Ordnername]* (Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die **lesen &amp; ausführen**, **Ordnerinhalt auflisten**, und **Lesen** Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf **OK**.
-7. Klicken Sie auf **OK** schließen die *[Ordnername] *** Eigenschaften** (Dialogfeld).
+6. In der <strong>Berechtigungen für</strong><em>[Ordnername]</em> (Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die <strong>lesen &amp; ausführen</strong>, <strong>Ordner auflisten Inhalt</strong>, und <strong>lesen</strong> Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf <strong>OK</strong>.
+7. Klicken Sie auf <strong>OK</strong> schließen die <em>[Ordnername]</em><strong>Eigenschaften</strong> (Dialogfeld).
 
 ## <a name="disable-the-remote-agent-service"></a>Deaktivieren Sie den Remote-Agent-Dienst
 
@@ -226,6 +226,6 @@ An diesem Punkt ist Ihrem Webserver für offline Bereitstellung von Paketen bere
 - Besitzt die Identität des Anwendungspools Lesezugriff für den Quellordner für Ihre Website?
 - Haben Sie der Webbereitstellungs-Agent-Dienst angehalten?
 
->[!div class="step-by-step"]
-[Zurück](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-[Weiter](configuring-a-database-server-for-web-deploy-publishing.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [Weiter](configuring-a-database-server-for-web-deploy-publishing.md)

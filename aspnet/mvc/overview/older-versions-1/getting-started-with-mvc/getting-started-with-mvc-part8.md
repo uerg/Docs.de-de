@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
-title: "Hinzufügen einer Spalte mit dem Modell | Microsoft Docs"
+title: Hinzufügen einer Spalte mit dem Modell | Microsoft Docs
 author: shanselman
-description: "Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank."
+description: Dies ist ein Anfänger-Lernprogramm, das die Grundlagen von ASP.NET MVC. Erstellen Sie eine einfache Web-Anwendung, die Lese- und Schreibvorgänge aus einer Datenbank.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a0b64ce00fc5ee6d49990f1d4d93a154c467bf5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Hinzufügen einer Spalte mit dem Modell
 ====================
@@ -77,11 +77,11 @@ Nachdem Sie auf "erstellen" klicken, werden Sie auf der Seite "Index" gesendet, 
 
 Dieses Lernprogramm wurde Ihnen den Einstieg, Controller, Ansichten zuordnen, und übergeben hartcodierte Daten vornehmen. Dann wird erstellt, und eine Datenbank entworfen, und fügen Sie einige Daten in. Wir die Daten aus der Datenbank abgerufen und in einer HTML-Tabelle angezeigt. Klicken Sie dann hinzugefügt wird ein Erstellungsformular, mit denen den Benutzer, die Daten in die Datenbank selbst aus der Web-Anwendung hinzufügen kann. Wir Validierung hinzugefügt, und die Überprüfung auf der Clientseite JavaScript zu verwenden versucht. Schließlich die Datenbank um eine neue Spalte mit Daten enthalten geändert, anschließend führen wir unsere zwei Seiten zum Erstellen und zeigen Sie diese neuen Daten aktualisiert.
 
-Jetzt sollten Sie auf unser Tutorial aus, der Intermediate-Stufe zu verschieben, auf "[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" sowie den zahlreichen Videos und Ressourcen zur [https://asp.net/mvc](https://asp.net/mvc) , sogar noch stärker ASP.NET MVC vertraut zu machen!
+Jetzt sollten Sie auf unser Tutorial aus, der Intermediate-Stufe zu verschieben, auf "[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" sowie den zahlreichen Videos und Ressourcen zur [ https://asp.net/mvc ](https://asp.net/mvc) , sogar noch stärker ASP.NET MVC vertraut zu machen!
 
 Viel Erfolg!
 
-- Scott Hanselman - [http://hanselman.com](http://hanselman.com) und [ @shanselman ](http://twitter.com/shanselman) auf Twitter.
+- Scott Hanselman - [ http://hanselman.com ](http://hanselman.com) und [ @shanselman ](http://twitter.com/shanselman) auf Twitter.
 
->[!div class="step-by-step"]
-[Vorherige](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Vorherige](getting-started-with-mvc-part7.md)

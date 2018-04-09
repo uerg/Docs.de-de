@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
-title: "Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen | Microsoft Docs
 author: tfitzmac
 description: In diesem Lernprogramm wird gezeigt, die Grundlagen der wie ein input-Formular erstellen und die Eingaben des Benutzers bei der Verwendung von ASP.NET Web Pages (Razor) zu behandeln. Und jetzt, die Sie...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen
 ====================
@@ -88,11 +88,11 @@ Die `<form>` Element umschließt HTML-Elementen zur übermittelt werden. (Eine e
 
 Die meisten benutzereingabeelemente sind HTML `<input>` Elemente. Sie sehen, wie `<input type="type" name="name">,` , in denen *Typ* gibt die Art der Eingabe Benutzersteuerelement werden sollen. Diese Elemente sind die gängigsten Einträge:
 
-- Textfeld:`<input type="text">`
-- Kontrollkästchen:`<input type="check">`
-- Optionsfeld:`<input type="radio">`
-- Schaltfläche:`<input type="button">`
-- Schaltfläche zum Absenden:`<input type="submit">`
+- Textfeld: `<input type="text">`
+- Kontrollkästchen: `<input type="check">`
+- Optionsfeld: `<input type="radio">`
+- Schaltfläche: `<input type="button">`
+- Schaltfläche zum Absenden: `<input type="submit">`
 
 Sie können auch die `<textarea>` Element, um ein mehrzeiliges Textfeld erstellen und die `<select>` Element, um eine Dropdown-Liste oder einer bildlauffähigen Liste erstellen. (Weitere Informationen zu HTML Elemente bilden, finden Sie unter [HTML-Formularen und Eingabe](http://www.w3schools.com/html/html_forms.asp) auf der Website W3Schools.)
 
@@ -169,9 +169,9 @@ Dieser Block wird die Phase zum Erstellen einer Abfrage, die den Suchbegriff ver
 > 
 > Die `Request` Objekt macht tatsächlich verschiedene Teilmengen. Zum Beispiel:
 > 
-> - `Request.Form`Gibt Werte von Elementen in der übermittelten `<form>` Element, wenn die Anforderung ist eine `POST` Anforderung.
-> - `Request.QueryString`bietet Ihnen nur die Werte in der URL-Abfragezeichenfolge. (In einer URL wie `http://mysite/myapp/page?searchGenre=action&page=2`die `?searchGenre=action&page=2` Abschnitt der URL ist die Abfragezeichenfolge.)
-> - `Request.Cookies`Sammlung erhalten Sie Zugriff auf Cookies, die der Browser gesendet wurde.
+> - `Request.Form` Gibt Werte von Elementen in der übermittelten `<form>` Element, wenn die Anforderung ist eine `POST` Anforderung.
+> - `Request.QueryString` bietet Ihnen nur die Werte in der URL-Abfragezeichenfolge. (In einer URL wie `http://mysite/myapp/page?searchGenre=action&page=2`die `?searchGenre=action&page=2` Abschnitt der URL ist die Abfragezeichenfolge.)
+> - `Request.Cookies` Sammlung erhalten Sie Zugriff auf Cookies, die der Browser gesendet wurde.
 > 
 > Einen Wert abgerufen, von denen Sie wissen in der übermittelten Form ist, können Sie `Request["name"]`. Alternativ können Sie spezifischeren Versionen `Request.Form["name"]` (für `POST` Anfragen) oder `Request.QueryString["name"]` (für `GET` Anforderungen). Natürlich *Namen* ist der Name des abzurufenden Elements.
 > 
@@ -218,7 +218,7 @@ Wenn Sie alle diese Elemente zusammengestellt, erhalten Sie den folgenden Code:
 
 > [!NOTE] 
 > 
-> **Wichtig!** Mithilfe von Platzhaltern (z. B. `@0`) werden zum Übergeben von Werten an einen SQL-Befehl *äußerst wichtig* für die Sicherheit. Die hier mit Platzhaltern für Variablendaten, sehen besteht die einzige Möglichkeit, die SQL-Befehlen erstellt werden soll.
+> **Wichtig** Mithilfe von Platzhaltern (z. B. `@0`) werden zum Übergeben von Werten an einen SQL-Befehl *äußerst wichtig* für die Sicherheit. Die hier mit Platzhaltern für Variablendaten, sehen besteht die einzige Möglichkeit, die SQL-Befehlen erstellt werden soll.
 > 
 > Erstellen Sie nie eine SQL-Anweisung, indem zusammenstellen (verketten) Literaltext und Werte, die Sie vom Benutzer erhalten. Verketten von Benutzereingaben in einer SQL-Anweisung Öffnet Ihre Website in einem *SQL-Injection-Angriff* ein böswilliger Benutzer übermittelt, in denen Werte auf die Seite, die Ihre Datenbank hack. (Erfahren Sie mehr im Artikel [SQL Injection](https://msdn.microsoft.com/library/ms161953.aspx) der MSDN-Website.)
 
@@ -363,6 +363,6 @@ In den nächsten Lernprogrammen erstellen Sie eine Seite, die einem Formular ver
 - [SQL-WHERE-Klausel](http://www.w3schools.com/sql/sql_where.asp) auf der Website W3Schools
 - [Methodendefinitionen](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) Artikel auf der W3C-Website
 
->[!div class="step-by-step"]
-[Zurück](displaying-data.md)
-[Weiter](entering-data.md)
+> [!div class="step-by-step"]
+> [Zurück](displaying-data.md)
+> [Weiter](entering-data.md)

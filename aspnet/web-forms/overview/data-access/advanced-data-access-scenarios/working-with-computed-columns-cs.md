@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 title: Arbeiten mit berechneten Spalten (c#) | Microsoft Docs
 author: rick-anderson
-description: "Beim Erstellen einer Datenbanktabelle, Microsoft SQL Server können Sie eine berechnete Spalte zu definieren, dessen Wert aus einem Ausdruck berechnet wird, der normalerweise verw..."
+description: Beim Erstellen einer Datenbanktabelle, Microsoft SQL Server können Sie eine berechnete Spalte zu definieren, dessen Wert aus einem Ausdruck berechnet wird, der normalerweise verw...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a67abd2a0c140c0503c07f764549a6d90ef7298
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="working-with-computed-columns-c"></a>Arbeiten mit berechneten Spalten (c#)
 ====================
@@ -51,7 +51,7 @@ Die Northwind-Datenbank besitzt keine berechneten Spalten, sodass wir uns ein hi
 Beachten Sie, dass Zeichenfolgen können, in SQL verkettet werden mit dem `+` Operator. Die `CASE` -Anweisung kann verwendet werden, wie eine bedingte in einer herkömmlichen Programmiersprache Ihrer Wahl. Im obigen Ausdruck der `CASE` Anweisung als gelesen werden kann: Wenn `ContactTitle` ist nicht `NULL` ausgeben der `ContactTitle` durch ein Komma, andernfalls verketteter Wert ausgeben nichts. Weitere Informationen über die Nützlichkeit der der `CASE` -Anweisung finden Sie unter [der SQL-Power `CASE` Anweisungen](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Anstatt eine `CASE` Anweisung hier wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Gibt *CheckExpression* , wenn er nicht NULL ist, anderfalls wird *Ersatzwert*. Entweder während `ISNULL` oder `CASE` funktioniert in dieser Instanz stehen mehr komplizierte Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
+> Anstatt eine `CASE` Anweisung hier wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) Gibt *CheckExpression* , wenn er nicht NULL ist, anderfalls wird *Ersatzwert*. Entweder während `ISNULL` oder `CASE` funktioniert in dieser Instanz stehen mehr komplizierte Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
 
 
 Nach dem Hinzufügen der diese berechnete Spalte sollten Ihren Bildschirm wie im Screenshot in Abbildung 1 aussehen.
@@ -261,12 +261,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Hilton Geisenow und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](adding-additional-datatable-columns-cs.md)
-[Weiter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-additional-datatable-columns-cs.md)
+> [Weiter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)

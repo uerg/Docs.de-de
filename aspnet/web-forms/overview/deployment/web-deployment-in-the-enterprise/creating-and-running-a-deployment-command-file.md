@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: "Erstellen und Ausführen einer Bereitstellung Befehlsdatei | Microsoft Docs"
+title: Erstellen und Ausführen einer Bereitstellung Befehlsdatei | Microsoft Docs
 author: jrjlee
-description: "In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellt, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild)-Projektdateien in einem einzelnen Schritt erneut ausführen..."
+description: In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellt, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild)-Projektdateien in einem einzelnen Schritt erneut ausführen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Erstellen und Ausführen einer Befehlsdatei Bereitstellung
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellt, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild)-Projektdateien einstufiger, wiederholbare ausgeführt wird.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Vorgesetzten Kontakts](the-contact-manager-solution.md) Lösung & #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Vorgesetzten Kontakts](the-contact-manager-solution.md) Lösung&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="process-overview"></a>Übersicht über das
 
@@ -40,7 +40,7 @@ In diesem Thema erfahren Sie, wie zum Erstellen und Ausführen einer Befehlsdate
 
 ## <a name="create-an-msbuild-command"></a>Erstellen Sie einen MSBuild-Befehl
 
-Wie in beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), die Projektdatei umgebungsspezifische & #x 2014; z. B. *Env Dev.proj*& #x 2014; dient für den Import in die Unabhängigkeit von der Umgebung *Publish.proj* Datei während des Buildvorgangs. In Kombination bieten zwei dieser Dateien einen vollständigen Satz von Anweisungen, die MSBuild Bereitstellen von Informationen zum Erstellen und Bereitstellen der Projektmappe.
+Wie in beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), umgebungsspezifische Projektdatei&#x2014;z. B. *Env Dev.proj*&#x2014;dient in der Umgebung Unabhängigkeit importiert werden sollen *Publish.proj* Datei während des Buildvorgangs. In Kombination bieten zwei dieser Dateien einen vollständigen Satz von Anweisungen, die MSBuild Bereitstellen von Informationen zum Erstellen und Bereitstellen der Projektmappe.
 
 Die *Publish.proj* Datei verwendet eine **importieren** Element, um die Umgebung spezifischen-Projektdatei importieren.
 
@@ -92,7 +92,7 @@ Wenn Sie eine Befehlsdatei für Ihre zielumgebung erstellt haben, sollten Sie ei
 5. Wenn dies der erste Mal ist, haben Sie die Lösung für diese Umgebung bereitgestellt, müssen Sie die Test-Web--Servercomputer zum Hinzufügen der **Db\_Datawriter** und **Db\_Datareader**Rollen auf die **ContactManager** Datenbank. Hierin wird beschrieben, [Konfigurieren eines Datenbankservers für Webveröffentlichung bereitstellen](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > Sie müssen nur dieser Berechtigungen zuweisen, wenn Sie die Datenbank erstellen. Standardmäßig die Datenbank auf jeder Bereitstellung & #x 2014, während des Erstellungsprozesses wird nicht neu erstellt; stattdessen wird die vorhandene Datenbank auf das neueste Schema vergleichen und nur die erforderlichen Änderungen vornehmen. Daher müssen Sie nur diesen Datenbankrollen erstmalig ordnen Sie die Projektmappe bereitstellen.
+    > Sie müssen nur dieser Berechtigungen zuweisen, wenn Sie die Datenbank erstellen. Standardmäßig während des Erstellungsprozesses werden nicht neu erstellt die Datenbank bei jeder Bereitstellung&#x2014;stattdessen die vorhandene Datenbank auf das neueste Schema verglichen und nur die erforderlichen Änderungen vornehmen. Daher müssen Sie nur diesen Datenbankrollen erstmalig ordnen Sie die Projektmappe bereitstellen.
 6. Öffnen Sie Internet Explorer, und navigieren Sie zu der URL der Kontakt-Manager-Anwendung (z. B. `http://testweb1:85/ContactManager/`).
 7. Stellen Sie sicher, dass die Anwendung erwartungsgemäß funktioniert, und Sie die Kontakte hinzufügen können.
 
@@ -118,6 +118,6 @@ Eine Befehlsdatei zum Veröffentlichen in einer Stagingumgebung könnte diese MS
 
 Sie können den Buildprozess für jede Umgebung auch anpassen, indem Überschreiben von Eigenschaften oder das Festlegen von verschiedenen anderen Schaltern in MSBuild-Befehl. Weitere Informationen finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
 
->[!div class="step-by-step"]
-[Zurück](deploying-database-projects.md)
-[Weiter](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-database-projects.md)
+> [Weiter](manually-installing-web-packages.md)

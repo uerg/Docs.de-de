@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 title: Grundlegendes zu den Buildprozess | Microsoft Docs
 author: jrjlee
-description: "Dieses Thema enthält eine exemplarische Vorgehensweise eines Enterprise-Skalierung Build- und Bereitstellungsprozess-Prozesses. In diesem Thema beschriebene Ansatz verwendet benutzerdefinierte Microsoft Build Engin..."
+description: Dieses Thema enthält eine exemplarische Vorgehensweise eines Enterprise-Skalierung Build- und Bereitstellungsprozess-Prozesses. In diesem Thema beschriebene Ansatz verwendet benutzerdefinierte Microsoft Build Engin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4544a5e6212ea9b1247062dc35edc135ff7ca354
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-build-process"></a>Grundlegendes zu den Buildprozess
 ====================
@@ -30,9 +30,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > > Im vorherigen Thema [verstehen die Projektdatei](understanding-the-project-file.md)beschrieben Schlüsselkomponenten von MSBuild-Projektdatei angegeben, und das Konzept der Split-Projektdateien zur Unterstützung der Bereitstellung für mehrere zielumgebungen eingeführt. Wenn Sie noch nicht mit diesen Konzepten vertraut sind, lesen Sie [verstehen die Projektdatei](understanding-the-project-file.md) bevor Sie in diesem Thema arbeiten.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="build-and-deployment-overview"></a>Build und Bereitstellung (Übersicht)
 
@@ -50,16 +50,16 @@ Bevor Sie sich diese Dateien im Detail ansehen, werfen wir einen Blick auf die F
 
 ![](understanding-the-build-process/_static/image2.png)
 
-Das erste Ereignis ist, dass die beiden Dateien & #x 2014; Projekt eine mit den universellen Build- und Anweisungen zur Bereitstellung und ein enthält umgebungsspezifische Einstellungen & #x 2014; in einer Projektdatei zusammengeführt. MSBuild kann dann die Anweisungen in der Projektdatei. Jedes der Projekte in der Projektmappe, mit der Projektdatei für jedes Projekt erstellt. Er ruft dann andere Tools, wie das Webbereitstellungstool (MSDeploy.exe) und das Dienstprogramm VSDBCMD Ihre Webinhalte und die Datenbanken in der zielumgebung bereitgestellt.
+Das erste Ereignis ist, dass die beiden Projektdateien&#x2014;, universelle Build- und Bereitstellungsprozess-Anweisungen enthält, und enthält umgebungsspezifische Einstellungen&#x2014;in einer Projektdatei zusammengeführt. MSBuild kann dann die Anweisungen in der Projektdatei. Jedes der Projekte in der Projektmappe, mit der Projektdatei für jedes Projekt erstellt. Er ruft dann andere Tools, wie das Webbereitstellungstool (MSDeploy.exe) und das Dienstprogramm VSDBCMD Ihre Webinhalte und die Datenbanken in der zielumgebung bereitgestellt.
 
 Von Anfang bis Ende führt erstellungs-und Bereitstellung diese Aufgaben aus:
 
 1. Löscht den Inhalt des Ausgabeverzeichnisses als Vorbereitung für eine neue Build.
 2. Es wird jedes Projekt in der Projektmappe erstellt:
 
-    1. Für Webprojekte & #x 2014; in diesem Fall eine ASP.NET MVC-Webanwendung und einen WCF-Dienst & #x 2014; auf der Buildprozess erstellt ein Webbereitstellungspaket für jedes Projekt.
+    1. Für Webprojekte&#x2014;web in diesem Fall eine ASP.NET MVC-Webanwendung und einen WCF-Dienst&#x2014;des Buildprozesses erstellt ein Webbereitstellungspaket für jedes Projekt.
     2. Für Datenbankprojekte wird während des Erstellungsprozesses ein Bereitstellungsmanifest (DEPLOYMANIFEST-Datei) für jedes Projekt erstellt.
-3. Das Hilfsprogramm VSDBCMD.exe verwendet, um jedes Datenbankprojekt in der Projektmappe, die über verschiedene Eigenschaften, die von der Projektdateien & #x 2014; eine Ziel-Verbindungszeichenfolge und einen Datenbanknamen & #x 2014; zusammen mit der Datei DeployManifest bereitstellen.
+3. Verwendet das Hilfsprogramm VSDBCMD.exe bereitzustellende jedes Datenbankprojekt in der Projektmappe, die über verschiedene Eigenschaften von Projektdateien&#x2014;eine Ziel-Verbindungszeichenfolge und einen Datenbanknamen&#x2014;zusammen mit der DEPLOYMANIFEST-Datei.
 4. Das Hilfsprogramm MSDeploy.exe verwendet, um die Bereitstellung jedes Webprojekt in der Projektmappe, die verschiedene Eigenschaften von Projektdateien verwenden, um den Bereitstellungsprozess zu steuern.
 
 Die beispiellösung können Sie diesen Vorgang im Detail verfolgen.
@@ -102,9 +102,9 @@ Das nächste Element, das erkennt MSBuild ist ein einzelnes Elementgruppe enthä
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
 
-MSBuild verarbeitet diese Anweisung erstellen Sie zunächst eine Liste der mit dem Namen **ProjectsToBuild**. In diesem Fall enthält die Elementliste an einen einzelnen Wert & #x 2014; der Pfad und Dateiname der Projektmappendatei.
+MSBuild verarbeitet diese Anweisung erstellen Sie zunächst eine Liste der mit dem Namen **ProjectsToBuild**. In diesem Fall die Elementliste enthält einen einzelnen Wert&#x2014;den Pfad und Dateinamen der Projektmappendatei.
 
-An diesem Punkt werden die übrigen Elemente Ziele. Ziele werden anders verarbeitet, Eigenschaften und Elemente & #x 2014; im wesentlichen Ziele werden nicht verarbeitet, es sei denn, sie werden explizit vom Benutzer angegebenen oder, indem ein anderes Konstrukt in der Projektdatei aufgerufen. Bedenken Sie, dass das öffnende **Projekt** Tag enthält eine **DefaultTargets** Attribut.
+An diesem Punkt werden die übrigen Elemente Ziele. Ziele werden aus den Eigenschaften und Elemente unterschiedlich verarbeitet&#x2014;im wesentlichen Ziele werden nicht verarbeitet, es sei denn, sie werden explizit vom Benutzer angegebenen oder, indem ein anderes Konstrukt in der Projektdatei aufgerufen. Bedenken Sie, dass das öffnende **Projekt** Tag enthält eine **DefaultTargets** Attribut.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
@@ -173,7 +173,7 @@ Wenn Sie untersuchen die **GatherPackagesForPublishing** Ziel, werden Sie festst
 
 Diese Elemente beziehen sich auf die Bereitstellungspakete aus, die erstellt wurden die **BuildProjects** Ziel ausgeführt wurde. Sie konnten nicht definieren diese Elemente statisch in der Projektdatei, da die Dateien, die auf dem die Elemente verweisen bis vorhanden sind, nicht die **BuildProjects** Ziel ausgeführt wird. Stattdessen die Elemente müssen definiert werden dynamisch in ein Ziel, das nicht, erst aufgerufen wird nach der **BuildProjects** Ziel ausgeführt wird.
 
-Die Elemente werden nicht innerhalb dieses Ziel & #x 2014 verwendet; dieses Ziel einfach erstellt werden, die Elemente und die Metadaten jeder Elementwert zugeordnet. Sobald diese Elemente verarbeitet werden, die **PublishPackages** Element enthält zwei Werte und den Pfad zu der *ContactManager.Mvc.deploy.cmd* Datei und den Pfad zu der  *ContactManager.Service.deploy.cmd* Datei. Web Deploy erstellt diese Dateien als Teil der Web-Paket für jedes Projekt, und dies sind die Dateien, die Sie aufrufen müssen auf dem Zielserver, um die Pakete bereitstellen. Wenn Sie eine dieser Dateien zu öffnen, sehen Sie im Grunde einen Befehl "MSDeploy.exe" mit verschiedenen Parameterwerten für die Build-spezifische.
+Die Elemente werden nicht in diesem Ziel verwendet&#x2014;dieses Ziel einfach erstellt werden, die Elemente und die Metadaten jeder Elementwert zugeordnet. Sobald diese Elemente verarbeitet werden, die **PublishPackages** Element enthält zwei Werte und den Pfad zu der *ContactManager.Mvc.deploy.cmd* Datei und den Pfad zu der  *ContactManager.Service.deploy.cmd* Datei. Web Deploy erstellt diese Dateien als Teil der Web-Paket für jedes Projekt, und dies sind die Dateien, die Sie aufrufen müssen auf dem Zielserver, um die Pakete bereitstellen. Wenn Sie eine dieser Dateien zu öffnen, sehen Sie im Grunde einen Befehl "MSDeploy.exe" mit verschiedenen Parameterwerten für die Build-spezifische.
 
 Die **DbPublishPackages** Element enthält einen einzelnen Wert, der den Pfad zu der *ContactManager.Database.deploymanifest* Datei.
 
@@ -199,7 +199,7 @@ Dies ist ein Beispiel der *Batchverarbeitung von Zielen*. In MSBuild-Projektdate
 - Führen Sie das Ziel einmal pro Batch.
 
 > [!NOTE]
-> **Identität** ist eines der [integrierte Metadatenwerte](https://msdn.microsoft.com/library/ms164313.aspx) , die jedes Element bei der Erstellung zugewiesen. Er verweist auf den Wert von der **Include** Attribut in der **Element** -Element & #x 2014; das heißt, den Pfad und Dateinamen des Elements.
+> **Identität** ist eines der [integrierte Metadatenwerte](https://msdn.microsoft.com/library/ms164313.aspx) , die jedes Element bei der Erstellung zugewiesen. Er verweist auf den Wert von der **Include** Attribut in der **Element** Element&#x2014;also den Pfad und den Dateinamen des Elements.
 
 
 In diesem Fall, da es nie mehr als ein Element mit dem gleichen Pfad und Dateiname vorhanden sein sollte, arbeiten es im Wesentlichen mit Batchgrößen eines. Das Ziel wird einmal für jedes Datenbankpaket ausgeführt.
@@ -251,6 +251,6 @@ In diesem Thema bereitgestellten eine exemplarische Vorgehensweise wie Split-Pro
 
 Eine ausführliche Einführung in die Projektdateien und die WPP finden Sie unter [innerhalb der Microsoft Build Engine: Verwenden von MSBuild und Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi und William Bartholomew, ISBN-Nummer: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Zurück](understanding-the-project-file.md)
-[Weiter](building-and-packaging-web-application-projects.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-the-project-file.md)
+> [Weiter](building-and-packaging-web-application-projects.md)

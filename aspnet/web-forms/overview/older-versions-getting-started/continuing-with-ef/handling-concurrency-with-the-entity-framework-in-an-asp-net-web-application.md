@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
-title: "Behandeln von Parallelität mit dem Entity Framework 4.0 in eine ASP.NET 4-Webanwendung | Microsoft Docs"
+title: Behandeln von Parallelität mit dem Entity Framework 4.0 in eine ASP.NET 4-Webanwendung | Microsoft Docs
 author: tdykstra
-description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. ICH...
+description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdcf610458631749531ed1279d27e90572f0371
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f40695270006e4f8b0c9ad8e94049e5239f06e63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Behandeln von Parallelität mit dem Entity Framework 4.0 in eine ASP.NET 4-Webanwendung
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie stellen Sie diese auf die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
 
@@ -37,13 +37,13 @@ Parallelitätskonflikt tritt auf, wenn einem Benutzer, einen Datensatz bearbeite
 
 ### <a name="pessimistic-concurrency-locking"></a>Die eingeschränkte Parallelität (Sperren)
 
-Wenn Ihre Anwendung muss in parallelitätsszenarios versehentliche Datenverluste zu verhindern, ist eine Möglichkeit dazu Datenbanksperren verwenden. Hierbei spricht *eingeschränkte Parallelität*. Bevor Sie eine Zeile aus einer Datenbank lesen, Sie anfordern, z. B. eine Sperre für nur-Lese oder Aktualisierungszugriff. Wenn Sie eine Zeile für Aktualisierungszugriff sperren, dürfen keine anderen Benutzer der Zeile, die entweder für Sperren nur-Lese oder Aktualisierungszugriff, da erhalten sie eine Kopie der Daten, die nicht gerade geändert wird. Wenn Sie eine Zeile für schreibgeschützten Zugriff gesperrt werden, können andere auch für schreibgeschützten Zugriff jedoch nicht für Update gesperrt.
+Wenn Ihre Anwendung versehentliche Datenverluste in Parallelitätsszenarios verhindern muss, ist die Verwendung von Datenbanksperren eine Möglichkeit. Hierbei spricht *eingeschränkte Parallelität*. Bevor Sie zum Beispiel eine Zeile aus einer Datenbank lesen, fordern Sie eine Sperre für den schreibgeschützten Zugriff oder den Aktualisierungszugriff an. Wenn Sie eine Zeile für den Aktualisierungszugriff sperren, kann kein anderer Benutzer diese Zeile für den schreibgeschützten Zugriff oder den Aktualisierungszugriff sperren, da er eine Kopie der Daten erhalten würde, die gerade geändert werden. Wenn Sie eine Zeile für den schreibgeschützten Zugriff sperren, können andere diese Zeile ebenfalls für den schreibgeschützten Zugriff sperren, aber nicht für den Aktualisierungszugriff.
 
-Verwalten von Sperren hat einige Nachteile. Es kann zum Programm komplex sein. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht (d. h. es Skalierung nicht optimal). Aus diesen Gründen unterstützen nicht alle Datenbank-Managementsystemen eingeschränkte Parallelität. Das Entity Framework stellt keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
+Verwalten von Sperren hat einige Nachteile. Es kann komplex sein, sie zu programmieren. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht (d. h. es Skalierung nicht optimal). Aus diesen Gründen unterstützen nicht alle Datenbankverwaltungssysteme die pessimistische Parallelität. Das Entity Framework stellt keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
 
-### <a name="optimistic-concurrency"></a>Vollständige Parallelität
+### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
-Die Alternative für die eingeschränkte Parallelität wird *vollständige Parallelität*. Vollständige Parallelität bedeutet ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann entsprechend reagieren, wenn dies der Fall. John führt z. B. die *Department.aspx* Seite klickt der **bearbeiten** Verknüpfen der Abteilung, Verlauf und verringert die **Budget** Betrag vom 1,000,000.00 $ $ 125,000.00. (John eine konkurrierende Abteilung verwaltet und Geld für sein eigenes Abteilung freigeben möchte.)
+Die Alternative für die eingeschränkte Parallelität wird *vollständige Parallelität*. Die Verwendung der optimistischen Parallelität bedeutet, Nebenläufigkeitskonflikte zu erlauben und entsprechend zu reagieren, wenn diese auftreten. John führt z. B. die *Department.aspx* Seite klickt der **bearbeiten** Verknüpfen der Abteilung, Verlauf und verringert die **Budget** Betrag vom 1,000,000.00 $ $ 125,000.00. (John eine konkurrierende Abteilung verwaltet und Geld für sein eigenes Abteilung freigeben möchte.)
 
 [![Image07](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
@@ -55,15 +55,15 @@ John klickt **Update** zuerst, dann stellt Andrea klickt **Update**. Janes Brows
 
 Einige Aktionen, die Sie, in diesem Szenario ergreifen können umfassen Folgendes:
 
-- Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren. In diesem Beispielszenario würde keine Daten verloren, weil Sie unterschiedliche Eigenschaften von zwei Benutzer aktualisiert wurden. Das nächste Mal eine Person durchsucht die Abteilung Verlauf, sehen sie, 1/1/1999 und $125,000.00. 
+- Sie können nachverfolgen, welche Eigenschaft ein Benutzer geändert hat und nur die entsprechenden Spalten in der Datenbank aktualisieren. Im Beispielszenario würden keine Daten verloren gehen, da verschiedene Eigenschaften von zwei Benutzern aktualisiert wurden. Das nächste Mal eine Person durchsucht die Abteilung Verlauf, sehen sie, 1/1/1999 und $125,000.00. 
 
     Dies ist das Standardverhalten in Entity Framework, und es kann erheblich verringern Sie die Anzahl der Konflikte, die zu Datenverlusten führen kann. Allerdings nicht dieses Verhalten Datenverluste vermeiden, wenn die gleiche Eigenschaft einer Entität konkurrierende geändert werden. Dieses Verhalten nicht darüber hinaus immer möglich. Wenn Sie gespeicherte Prozeduren auf einen Entitätstyp zuordnen, werden alle Eigenschaften einer Entität aktualisiert, wenn Änderungen auf die Entität in der Datenbank vorgenommen werden.
-- Sie können Janes Änderung Peters Änderung überschreiben lassen. Nachdem Andrea klickt **Update**, die **Budget** Betrag wechselt zum $1,000,000.00. Hierbei spricht einen *Client gewinnt* oder *Last in Wins* Szenario. (Der Client-Werte haben Vorrang vor was im Datenspeicher ist.)
-- Sie können verhindern, dass Janes Änderung in der Datenbank aktualisiert wird. In der Regel würden Sie zeigt eine Fehlermeldung an, zeigen sie den aktuellen Zustand der Daten und ermöglicht es ihr Änderungen erneut eingeben, wenn sie noch machen möchte. Weitere konnte Sie diesen Prozess automatisieren, indem Sie ihre Eingabe speichern und ihr Gelegenheit erneut anwenden, ohne ihn erneut ein. Hierbei spricht einen *Store Wins* Szenario. (Der Datenspeicher Werte haben Vorrang vor den Werten, die vom Client gesendet.)
+- Sie können Janes Änderung Peters Änderung überschreiben lassen. Nachdem Andrea klickt **Update**, die **Budget** Betrag wechselt zum $1,000,000.00. Das ist entweder ein *Client gewinnt*- oder ein *Letzter Schreiber gewinnt*-Szenario. (Der Client-Werte haben Vorrang vor was im Datenspeicher ist.)
+- Sie können verhindern, dass Janes Änderung in der Datenbank aktualisiert wird. In der Regel würden Sie zeigt eine Fehlermeldung an, zeigen sie den aktuellen Zustand der Daten und ermöglicht es ihr Änderungen erneut eingeben, wenn sie noch machen möchte. Weitere konnte Sie diesen Prozess automatisieren, indem Sie ihre Eingabe speichern und ihr Gelegenheit erneut anwenden, ohne ihn erneut ein. Dieses Szenario wird *Store Wins* (Speicher gewinnt) genannt. (Die Werte des Datenspeichers haben Vorrang gegenüber den Werten, die vom Client gesendet werden).
 
 ### <a name="detecting-concurrency-conflicts"></a>Erkennen von Konflikten bei der Parallelität
 
-Im Entity Framework können Sie lösen von Konflikten durch behandeln `OptimisticConcurrencyException` Ausnahmen, die das Entity Framework löst. Damit Sie wissen, wann diese Ausnahmen ausgelöst werden soll, muss das Entity Framework zum Erkennen von Konflikten können. Aus diesem Grund müssen Sie die Datenbank und des Datenmodells entsprechend konfigurieren. Einige Optionen zum Aktivieren der konflikterkennung umfassen Folgendes:
+Im Entity Framework können Sie lösen von Konflikten durch behandeln `OptimisticConcurrencyException` Ausnahmen, die das Entity Framework löst. Entity Framework muss dazu in der Lage sein, Konflikte zu erkennen, damit es weiß, wann diese Ausnahmen ausgelöst werden sollen. Aus diesem Grund müssen Sie die Datenbank und das Datenmodell entsprechend konfigurieren. Einige der Optionen für das Aktivieren der Konflikterkennung schließen Folgendes ein:
 
 - Enthalten Sie in der Datenbank eine Tabellenspalte, die verwendet werden kann, um zu bestimmen, wenn eine Zeile geändert wurde. Anschließend konfigurieren Sie das Entity Framework Einbeziehung dieser Spalte in der `Where` -Klausel der SQL `Update` oder `Delete` Befehle.
 
@@ -92,7 +92,7 @@ Implementieren Sie vollständigen Parallelität für die `Department` Entität, 
 
 Open *SchoolModel.edmx*, und im Daten-Modell-Designer mit der Maustaste die `Name` Eigenschaft in der `Department` Entität, und klicken Sie dann auf **Eigenschaften**. In der **Eigenschaften** Ändern der `ConcurrencyMode` Eigenschaft `Fixed`.
 
-[![Image16](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
+[![image16](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
 
 Gehen Sie genauso für die anderen skalaren nicht primären Schlüssel-Eigenschaften (`Budget`, `StartDate`, und `Administrator`.) (Dies für Navigationseigenschaften ist nicht möglich.) Dies gibt an, dass bei jedem Entity Framework generiert einen `Update` oder `Delete` SQL-Befehl zum Aktualisieren der `Department` Entität in der Datenbank, diese Spalten (mit ursprünglichen Werten) enthalten sein müssen der `Where` Klausel. Wenn keine Zeile gefunden wird die `Update` oder `Delete` -Befehl ausführt, die das Entity Framework löst eine Ausnahme durch vollständige Parallelität.
 
@@ -140,27 +140,27 @@ Rufen Sie die neue Methode aus der `Updated` -Ereignishandler, die Sie zuvor hin
 
 Führen Sie die *Departments.aspx* Seite.
 
-[![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
+[![image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
 Klicken Sie auf **bearbeiten** in einer Zeile, und ändern Sie den Wert in der **Budget** Spalte. (Beachten Sie, dass Sie nur bearbeiten, können Datensätze, die Sie für dieses Lernprogramm erstellt haben da die vorhandenen `School` Datenbankdatensätze enthält einige ungültige Daten. Der Datensatz für die Wirtschaftlichkeit Abteilung ist eine sichere experimentieren.)
 
-[![Image18](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
+[![image18](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
 Öffnen Sie ein neues Browserfenster, und führen Sie erneut die Seite (Kopieren Sie die URL aus der ersten Browserfenster Adressfeld auf der zweiten Browserfenster).
 
-[![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
+[![image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
 
 Klicken Sie auf **bearbeiten** in derselben Zeile Sie zuvor bearbeitet, und ändern Sie die **Budget** Wert einem anderen Element.
 
-[![Image19](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
+[![image19](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
 
 Klicken Sie in der zweiten Browserfenster auf **Update**. Die **Budget** Betrag erfolgreich auf diesen neuen Wert geändert wird.
 
-[![Image20](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
+[![image20](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
 
 Klicken Sie in der ersten Browserfenster auf **Update**. Das Update schlägt fehl. Die **Budget** Betrag wird erneut mit dem Wert, die Sie, in der zweiten Browserfenster festlegen angezeigt, und Sie sehen eine Fehlermeldung angezeigt.
 
-[![Image21](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
+[![image21](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
 
 ## <a name="handling-optimistic-concurrency-using-a-tracking-property"></a>Behandeln von Parallelität mithilfe einer Überwachung-Eigenschaft
 
@@ -237,27 +237,27 @@ Fügen Sie die folgenden `Page_Init` -Methode, die Dynamic Data-Funktionen kann.
 
 Führen Sie die *OfficeAssignments.aspx* Seite.
 
-[![Image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image32.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image31.png)
+[![image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image32.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image31.png)
 
 Klicken Sie auf **bearbeiten** in einer Zeile, und ändern Sie den Wert in der **Speicherort** Spalte.
 
-[![Image11](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image34.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image33.png)
+[![image11](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image34.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image33.png)
 
 Öffnen Sie ein neues Browserfenster, und führen Sie erneut die Seite (Kopieren Sie die URL aus dem ersten Browserfenster auf den zweiten Browserfenster).
 
-[![Image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image36.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image35.png)
+[![image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image36.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image35.png)
 
 Klicken Sie auf **bearbeiten** in derselben Zeile Sie zuvor bearbeitet, und ändern Sie die **Speicherort** Wert einem anderen Element.
 
-[![Image12](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image38.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image37.png)
+[![image12](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image38.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image37.png)
 
 Klicken Sie in der zweiten Browserfenster auf **Update**.
 
-[![Image13](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image40.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image39.png)
+[![image13](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image40.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image39.png)
 
 Wechseln Sie zu den ersten Browserfenster, und klicken Sie auf **Update**.
 
-[![Image15](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image42.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image41.png)
+[![image15](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image42.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image41.png)
 
 Sie sehen eine Fehlermeldung und der **Speicherort** Wert wurde aktualisiert, um den Wert anzuzeigen, es in der zweiten Browserfenster geändert.
 
@@ -280,7 +280,7 @@ Als Nächstes konfigurieren Sie die *Courses.aspx* Seite (verwendet eine `Entity
 
 Führen Sie die Seite, und erstellen Sie eine Konflikt Situation ein, wie zuvor in der Seite "Abteilungen". Führen Sie die Seite in zwei Browserfenstern, klicken Sie auf **bearbeiten** in der gleichen Zeile in jedem Fenster aus, und stellen Sie eine andere Änderung in jeder Kategorie. Klicken Sie auf **Update** in einem Fenster, und klicken Sie dann auf **Update** in die anderen Fenster. Beim Klicken auf **Update** bei der zweiten Fehlerseite wird angezeigt, die, die durch eine nicht behandelte Parallelitätsausnahme entsteht.
 
-[![Image22](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image44.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image43.png)
+[![image22](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image44.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image43.png)
 
 Sie behandeln dieser Fehler in einer Weise ähnelt, wie Sie es für behandelt die `ObjectDataSource` Steuerelement. Öffnen der *Courses.aspx* Seite, und klicken Sie in der `CoursesEntityDataSource` -Steuerelement, geben Sie die Handler für die `Deleted` und `Updated` Ereignisse. Das Anfangstag des Steuerelements sieht nun wie im folgende Beispiel:
 
@@ -300,10 +300,10 @@ Der einzige Unterschied zwischen diesem Code und was Sie getan haben, für die `
 
 Führen Sie die Seite, und erstellen Sie einen Parallelitätskonflikt neu. Dieses Mal wird eine Fehlermeldung angezeigt:
 
-[![Image23](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image46.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image45.png)
+[![image23](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image46.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image45.png)
 
-Dies schließt die Einführung in die Behandlung von Parallelitätskonflikten. Die nächste Lernprogramm bieten Anweisungen zum Verbessern der Leistung in einer Web-Anwendung, die das Entity Framework verwendet.
+Damit ist die Einführung in die Behandlung von Nebenläufigkeitskonflikten abgeschlossen. Die nächste Lernprogramm bieten Anweisungen zum Verbessern der Leistung in einer Web-Anwendung, die das Entity Framework verwendet.
 
->[!div class="step-by-step"]
-[Zurück](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
-[Weiter](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Zurück](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [Weiter](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

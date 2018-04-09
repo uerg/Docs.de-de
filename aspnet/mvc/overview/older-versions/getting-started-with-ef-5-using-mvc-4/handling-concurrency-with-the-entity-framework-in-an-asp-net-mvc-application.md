@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Behandeln von Parallelität mit Entity Framework in einer ASP.NET MVC-Anwendung (7 von 10) | Microsoft Docs"
+title: Behandeln von Parallelität mit Entity Framework in einer ASP.NET MVC-Anwendung (7 von 10) | Microsoft Docs
 author: tdykstra
 description: Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio erstellen...
 ms.author: aspnetcontent
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 87bb08a4d16965a10112a42c4e9318c32f192c04
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 609f493845f1d00a47d175a1b623a7f4866d191e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Behandeln von Parallelität mit Entity Framework in einer ASP.NET MVC-Anwendung (7 von 10)
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen über die Reihe von Lernprogrammen finden Sie unter [im ersten Lernprogramm, in der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First und Visual Studio 2012. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Sie können die Reihe von Lernprogrammen vom Anfang starten oder [Herunterladen eines Startprojekts für dieses Kapitel](building-the-ef5-mvc4-chapter-downloads.md) und beginnen Sie hier.
 > 
 > > [!NOTE] 
 > > 
@@ -39,17 +39,17 @@ In den vorherigen zwei Lernprogramme, die Sie mit verknüpften Daten gearbeitet 
 
 ## <a name="concurrency-conflicts"></a>Parallelitätskonflikte
 
-Parallelitätskonflikt tritt auf, wenn ein Benutzer eine Entität Daten angezeigt, um ihn zu bearbeiten und ein anderer Benutzer aktualisiert dann die gleiche Entität Daten, bevor die erste Änderung des Benutzers in die Datenbank geschrieben wird. Wenn Sie die Erkennung von Konflikte dieser Art nicht aktivieren, muss jede Person zur Aktualisierung der Datenbank zuletzt des anderen Benutzers werden Änderungen überschrieben. In vielen Anwendungen dieses Risiko ist akzeptabel: Wenn nur wenige Benutzer oder einige Updates vorhanden sind oder nicht wirklich wichtig, wenn einige Änderungen überschrieben werden, kann die Kosten für die Programmierung für die Parallelität die Vorteile überwiegen. In diesem Fall müssen Sie die Anwendung zur Handhabung von Parallelitätskonflikten zu konfigurieren.
+Ein Parallelitätskonflikt tritt auf, wenn ein Benutzer die Daten einer Entität anzeigt, um diese zu bearbeiten, und ein anderer Benutzer eben diese Entitätsdaten aktualisiert, bevor die Änderungen des ersten Benutzers in die Datenbank geschrieben wurden. Wenn Sie die Erkennung solcher Konflikte nicht aktivieren, überschreibt das letzte Update der Datenbank die Änderungen des anderen Benutzers. In vielen Anwendungen ist dieses Risiko akzeptabel: Wenn es nur wenige Benutzer bzw. wenige Updates gibt, oder wenn es nicht schlimm ist, dass Änderungen überschrieben werden können, ist es den Aufwand, für die Parallelität zu programmieren, möglicherweise nicht wert. In diesem Fall müssen Sie für die Anwendung keine Behandlung von Nebenläufigkeitskonflikten konfigurieren.
 
 ### <a name="pessimistic-concurrency-locking"></a>Die eingeschränkte Parallelität (Sperren)
 
-Wenn Ihre Anwendung muss in parallelitätsszenarios versehentliche Datenverluste zu verhindern, ist eine Möglichkeit dazu Datenbanksperren verwenden. Hierbei spricht *eingeschränkte Parallelität*. Bevor Sie eine Zeile aus einer Datenbank lesen, Sie anfordern, z. B. eine Sperre für nur-Lese oder Aktualisierungszugriff. Wenn Sie eine Zeile für Aktualisierungszugriff sperren, dürfen keine anderen Benutzer der Zeile, die entweder für Sperren nur-Lese oder Aktualisierungszugriff, da erhalten sie eine Kopie der Daten, die nicht gerade geändert wird. Wenn Sie eine Zeile für schreibgeschützten Zugriff gesperrt werden, können andere auch für schreibgeschützten Zugriff jedoch nicht für Update gesperrt.
+Wenn Ihre Anwendung versehentliche Datenverluste in Parallelitätsszenarios verhindern muss, ist die Verwendung von Datenbanksperren eine Möglichkeit. Hierbei spricht *eingeschränkte Parallelität*. Bevor Sie zum Beispiel eine Zeile aus einer Datenbank lesen, fordern Sie eine Sperre für den schreibgeschützten Zugriff oder den Aktualisierungszugriff an. Wenn Sie eine Zeile für den Aktualisierungszugriff sperren, kann kein anderer Benutzer diese Zeile für den schreibgeschützten Zugriff oder den Aktualisierungszugriff sperren, da er eine Kopie der Daten erhalten würde, die gerade geändert werden. Wenn Sie eine Zeile für den schreibgeschützten Zugriff sperren, können andere diese Zeile ebenfalls für den schreibgeschützten Zugriff sperren, aber nicht für den Aktualisierungszugriff.
 
-Verwalten von Sperren hat Nachteile. Es kann zum Programm komplex sein. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht (d. h. es Skalierung nicht optimal). Aus diesen Gründen unterstützen nicht alle Datenbank-Managementsystemen eingeschränkte Parallelität. Das Entity Framework stellt keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
+Das Verwalten von Sperren hat Nachteile. Es kann komplex sein, sie zu programmieren. Erfordert erhebliche Datenbankressourcen für Verwaltung, und es kann zu Leistungsproblemen führen, als die Anzahl der Benutzer einer Anwendung erhöht (d. h. es Skalierung nicht optimal). Aus diesen Gründen unterstützen nicht alle Datenbankverwaltungssysteme die pessimistische Parallelität. Das Entity Framework stellt keine integrierte Unterstützung dafür, und dieses Lernprogramms nicht zeigen, wie sie implementiert.
 
 ### <a name="optimistic-concurrency"></a>Optimistische Nebenläufigkeit
 
-Die Alternative für die eingeschränkte Parallelität wird *vollständige Parallelität*. Vollständige Parallelität bedeutet ermöglicht Parallelitätskonflikte durchgeführt werden soll, und klicken Sie dann entsprechend reagieren, wenn dies der Fall. John führt z. B. die Seite Abteilungen bearbeiten, ändert sich die **Budget** Betrag für die englischen Abteilung von $350,000.00 0,00.
+Die Alternative für die eingeschränkte Parallelität wird *vollständige Parallelität*. Die Verwendung der optimistischen Parallelität bedeutet, Nebenläufigkeitskonflikte zu erlauben und entsprechend zu reagieren, wenn diese auftreten. John führt z. B. die Seite Abteilungen bearbeiten, ändert sich die **Budget** Betrag für die englischen Abteilung von $350,000.00 0,00.
 
 ![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
@@ -57,19 +57,19 @@ Bevor John klickt **speichern**, Andrea führt die gleiche Seite und Änderungen
 
 ![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-John klickt **speichern** First und seine ändern, wenn der Browser an die Indexseite, dann stellt Andrea zurückgibt klickt sieht **speichern**. Was daraufhin geschieht richtet sich nach der Behandlung von Parallelitätskonflikten. Einige der Optionen umfassen Folgendes:
+John klickt **speichern** First und seine ändern, wenn der Browser an die Indexseite, dann stellt Andrea zurückgibt klickt sieht **speichern**. Was daraufhin geschieht, ist abhängig davon, wie Sie Nebenläufigkeitskonflikte behandeln. Einige der Optionen schließen Folgendes ein:
 
-- Sie können Nachverfolgen von ein Benutzer geändert hat, dessen Eigenschaft und nur die entsprechenden Spalten in der Datenbank zu aktualisieren. In diesem Beispielszenario würde keine Daten verloren, weil Sie unterschiedliche Eigenschaften von zwei Benutzer aktualisiert wurden. Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie Peters und Janes Änderungen – ein Startdatum des 8/8/2013 und das Budget für 0 (null) Dollar.
+- Sie können nachverfolgen, welche Eigenschaft ein Benutzer geändert hat und nur die entsprechenden Spalten in der Datenbank aktualisieren. Im Beispielszenario würden keine Daten verloren gehen, da verschiedene Eigenschaften von zwei Benutzern aktualisiert wurden. Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie Peters und Janes Änderungen – ein Startdatum des 8/8/2013 und das Budget für 0 (null) Dollar.
 
-    Diese Methode zur Aktualisierung reduzieren die Anzahl der Konflikte, die zu Datenverlusten führen können, aber es kann nicht Datenverluste vermeiden, wenn die gleiche Eigenschaft einer Entität konkurrierende geändert werden. Ob das Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Update Code implementieren. Es ist häufig nicht praktikabel ist, in einer Web-Anwendung, da erforderlich, große Mengen des Zustands zu verwalten, um nachzuverfolgen, um alle ursprünglichen Eigenschaftswerte für eine Entität sowie die neuen Werte. Verwalten von großen Datenmengen Zustand kann die Anwendungsleistung beeinträchtigen, da es Serverressourcen erfordert oder auf der Webseite selbst (z. B. in ausgeblendeten Feldern) enthalten sein muss.
-- Sie können Janes Änderung Peters Änderung überschreiben lassen. Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie 8/8/2013 und die wiederhergestellten $350,000.00-Wert. Hierbei spricht einen *Client gewinnt* oder *Last in Wins* Szenario. (Der Client-Werte haben Vorrang vor was im Datenspeicher ist.) Wie in der Einführung zu diesem Abschnitt erwähnt, wenn Sie die Codierung für Parallelitätsbehandlung nicht tun, erfolgt dies automatisch.
-- Sie können verhindern, dass Janes Änderung in der Datenbank aktualisiert wird. In der Regel würden Sie zeigt eine Fehlermeldung an, zeigen sie den aktuellen Zustand der Daten und ermöglicht es ihr Änderungen erneut angewendet, wenn sie noch machen möchte. Hierbei spricht einen *Store Wins* Szenario. (Der Datenspeicher Werte haben Vorrang vor den Werten, die vom Client gesendet.) In diesem Lernprogramm implementieren Sie die Wins-Store-Szenario. Diese Methode wird sichergestellt, dass keine Änderungen, ohne dass ein Benutzer wird gewarnt überschrieben werden, was geschieht.
+    Diese Methode der Aktualisierung kann die Anzahl von Konflikten reduzieren, die zu Datenverlusten führen können. Sie kann Datenverluste jedoch nicht verhindern, wenn konkurrierende Änderungen an der gleichen Eigenschaft einer Entität vorgenommen werden. Ob Entity Framework auf diese Weise funktioniert, hängt davon ab, wie Sie Ihren Aktualisierungscode implementieren. Oft ist dies in Webanwendungen nicht praktikabel, da es erforderlich sein kann, viele Zustände zu verwalten, um alle ursprünglichen Eigenschaftswerte einer Entität und die neuen Werte im Auge zu behalten. Verwalten von großen Datenmengen Zustand kann die Anwendungsleistung beeinträchtigen, da es Serverressourcen erfordert oder auf der Webseite selbst (z. B. in ausgeblendeten Feldern) enthalten sein muss.
+- Sie können Janes Änderung Peters Änderung überschreiben lassen. Das nächste Mal eine Person durchsucht die englische Abteilung, sehen sie 8/8/2013 und die wiederhergestellten $350,000.00-Wert. Das ist entweder ein *Client gewinnt*- oder ein *Letzter Schreiber gewinnt*-Szenario. (Der Client-Werte haben Vorrang vor was im Datenspeicher ist.) Wie in der Einführung dieses Abschnitts beschrieben, geschieht dies automatisch, wenn Sie für die Behandlung der Parallelität keinen Code schreiben.
+- Sie können verhindern, dass Janes Änderung in der Datenbank aktualisiert wird. In der Regel würden Sie zeigt eine Fehlermeldung an, zeigen sie den aktuellen Zustand der Daten und ermöglicht es ihr Änderungen erneut angewendet, wenn sie noch machen möchte. Dieses Szenario wird *Store Wins* (Speicher gewinnt) genannt. (Die Werte des Datenspeichers haben Vorrang vor den Werten, die vom Client gesendet werden.) In diesem Tutorial implementieren Sie das Szenario „Speicher gewinnt“. Diese Methode stellt sicher, dass keine Änderung überschrieben wird, ohne dass ein Benutzer darüber benachrichtigt wird.
 
 ### <a name="detecting-concurrency-conflicts"></a>Erkennen von Konflikten bei der Parallelität
 
-Lösen von Konflikten durch behandeln [OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Ausnahmen, die das Entity Framework löst. Damit Sie wissen, wann diese Ausnahmen ausgelöst werden soll, muss das Entity Framework zum Erkennen von Konflikten können. Aus diesem Grund müssen Sie die Datenbank und des Datenmodells entsprechend konfigurieren. Einige Optionen zum Aktivieren der konflikterkennung umfassen Folgendes:
+Lösen von Konflikten durch behandeln [OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Ausnahmen, die das Entity Framework löst. Entity Framework muss dazu in der Lage sein, Konflikte zu erkennen, damit es weiß, wann diese Ausnahmen ausgelöst werden sollen. Aus diesem Grund müssen Sie die Datenbank und das Datenmodell entsprechend konfigurieren. Einige der Optionen für das Aktivieren der Konflikterkennung schließen Folgendes ein:
 
-- Enthalten Sie in der Datenbanktabelle eine Überwachung-Spalte, die verwendet werden kann, um zu bestimmen, wenn eine Zeile geändert wurde. Anschließend konfigurieren Sie das Entity Framework Einbeziehung dieser Spalte in der `Where` -Klausel der SQL `Update` oder `Delete` Befehle.
+- Fügen Sie eine Änderungsverfolgungsspalte in die Datenbanktabelle ein, die verwendet werden kann, um zu bestimmen, wenn eine Änderung an einer Zeile vorgenommen wurde. Anschließend konfigurieren Sie das Entity Framework Einbeziehung dieser Spalte in der `Where` -Klausel der SQL `Update` oder `Delete` Befehle.
 
     Der Datentyp der Spalte Überwachung ist in der Regel [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx). Die [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) Wert ist eine sequenzielle Zahl, die jedes Mal erhöht ist die Zeile aktualisiert wird. In einer `Update` oder `Delete` Befehl, der `Where` -Klausel enthält den ursprünglichen Wert des Nachverfolgungsspalte (die ursprüngliche Zeilenversion). Wenn Sie die aktualisierte Zeile bereits durch den Wert in einen anderen Benutzer geändert wurde die `rowversion` Spalte unterscheidet sich von den ursprünglichen Wert also die `Update` oder `Delete` Anweisung zu aufgrund der zu aktualisierenden Zeile kann nicht gefunden werden die `Where` Klausel. Wenn Entity Framework findet, dass keine Zeilen von aktualisiert wurden die `Update` oder `Delete` Befehl (d. h., wenn die Anzahl der betroffenen Zeilen auf 0 (null) ist), die als Parallelitätskonflikt interpretiert.
 - Konfigurieren Sie das Entity Framework, um die ursprünglichen Werte der jede Spalte in der Tabelle enthalten den `Where` -Klausel der `Update` und `Delete` Befehle.
@@ -90,7 +90,7 @@ Die [Zeitstempel](https://msdn.microsoft.com/library/system.componentmodel.dataa
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Durch Hinzufügen einer Eigenschaft wird das Datenbankmodell geändert, daher Sie einen anderen Migration ausführen müssen. Geben Sie in der Paket-Manager-Konsole (PMC) die folgenden Befehle ein:
+Durch das Hinzufügen einer Eigenschaft ändern Sie das Datenbankmodell, daher müssen Sie eine weitere Migration durchführen. Geben Sie die folgenden Befehle in die Paket-Manager-Konsole ein:
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
@@ -126,7 +126,7 @@ Eine längere Fehlermeldung wird erklärt, was geschehen ist, und was wird:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-Schließlich der Code legt die `RowVersion` Wert, der die `Department` Objekt, das den neuen Wert aus der Datenbank abgerufen. Diese neue `RowVersion` Wert wird in das ausgeblendete Feld gespeichert werden, wenn die Seite wird erneut bearbeiten und das nächste die benutzeraufrufen Mal **speichern**, nur Parallelitätsfehlern, die auftreten, da es sich bei der erneuten Anzeige Bearbeitungsseite abgefangen wird.
+Schließlich der Code legt die `RowVersion` Wert, der die `Department` Objekt, das den neuen Wert aus der Datenbank abgerufen. Dieser neue `RowVersion`-Wert wird in dem ausgeblendeten Feld gespeichert, wenn die Seite „Bearbeiten“ erneut angezeigt wird. Das nächste Mal, wenn der Benutzer auf **Speichern** klickt, werden nur Parallelitätsfehler abgefangen, die nach dem erneuten Anzeigen der Seite „Bearbeiten“ aufgetreten sind.
 
 In *Views\Department\Edit.cshtml*, fügen Sie ein ausgeblendetes Feld zum Speichern der `RowVersion` Eigenschaftswert, der unmittelbar hinter das ausgeblendete Feld für die `DepartmentID` Eigenschaft:
 
@@ -150,7 +150,7 @@ Klicken Sie mit der rechten Maustaste auf die **bearbeiten** Hyperlink für Kim 
 
 ![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-Der Browser zeigt die Indexseite mit den geänderten Wert an.
+Der Browser zeigt die Indexseite mit dem geänderten Wert an.
 
 ![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
@@ -158,29 +158,29 @@ Der Browser zeigt die Indexseite mit den geänderten Wert an.
 
 ![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-Klicken Sie auf **speichern** im zweiten Browserfenster. Sie sehen eine Fehlermeldung angezeigt:
+Klicken Sie auf **speichern** im zweiten Browserfenster. Folgende Fehlermeldung wird angezeigt:
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
-Klicken Sie auf **speichern** erneut aus. Der Wert in der zweiten Browser eingegebene wird zusammen mit den ursprünglichen Wert der Daten gespeichert, die Sie in der ersten Browser ändern. Die gespeicherten Werte wird angezeigt, wenn die Indexseite angezeigt wird.
+Klicken Sie erneut auf **Speichern**. Der Wert in der zweiten Browser eingegebene wird zusammen mit den ursprünglichen Wert der Daten gespeichert, die Sie in der ersten Browser ändern. Die gespeicherten Werte werden Ihnen auf der Indexseite angezeigt.
 
 ![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
 
 ## <a name="updating-the-delete-page"></a>Aktualisieren die Seite "löschen"
 
-Für die Seite "löschen" erkennt das Entity Framework Parallelitätskonflikte zurückzuführen, dass jemand die ansonsten die Abteilung auf ähnliche Weise bearbeiten. Wenn die `HttpGet` `Delete` Methode zeigt, die Bestätigung an, die Ansicht enthält die ursprüngliche `RowVersion` Wert in ein ausgeblendetes Feld. Dieser Wert dann zur Verfügung, um wird die `HttpPost` `Delete` -Methode, die aufgerufen wird, wenn der Benutzer den Löschvorgang bestätigt. Wenn Entity Framework erstellt SQL `DELETE` Befehl, er enthält eine `WHERE` -Klausel mit der ursprünglichen `RowVersion` Wert. Wenn die Ergebnisse von Befehlen in 0 Zeilen betroffen (d. h. die Zeile geändert wurde, nach die Bestätigungsseite löschen angezeigt wurde), wird eine Parallelitätsausnahme ausgelöst, und die `HttpGet Delete` -Methode aufgerufen wird und ein Kennzeichen "Fehler" auf `true` um Kostenoptionen der Bestätigungsseite mit einer Fehlermeldung. Es ist auch möglich, dass 0 Zeilen betroffen sind, da die Zeile von einem anderen Benutzer gelöscht wurde, damit in diesem Fall eine andere Fehlermeldung angezeigt wird.
+Bei der Seite „Löschen“ entdeckt Entity Framework Nebenläufigkeitskonflikte, die durch die Bearbeitung einer Abteilung ausgelöst wurden, auf ähnliche Weise. Wenn die `HttpGet` `Delete` Methode zeigt, die Bestätigung an, die Ansicht enthält die ursprüngliche `RowVersion` Wert in ein ausgeblendetes Feld. Dieser Wert dann zur Verfügung, um wird die `HttpPost` `Delete` -Methode, die aufgerufen wird, wenn der Benutzer den Löschvorgang bestätigt. Wenn Entity Framework erstellt SQL `DELETE` Befehl, er enthält eine `WHERE` -Klausel mit der ursprünglichen `RowVersion` Wert. Wenn die Ergebnisse von Befehlen in 0 Zeilen betroffen (d. h. die Zeile geändert wurde, nach die Bestätigungsseite löschen angezeigt wurde), wird eine Parallelitätsausnahme ausgelöst, und die `HttpGet Delete` -Methode aufgerufen wird und ein Kennzeichen "Fehler" auf `true` um Kostenoptionen der Bestätigungsseite mit einer Fehlermeldung. Es ist auch möglich, dass 0 Zeilen betroffen sind, da die Zeile von einem anderen Benutzer gelöscht wurde, damit in diesem Fall eine andere Fehlermeldung angezeigt wird.
 
 In *DepartmentController.cs*, ersetzen Sie die `HttpGet` `Delete` -Methode durch folgenden Code:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
-Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler wird erneut angezeigt wird. Wenn dieses Flag ist `true`, eine Fehlermeldung wird gesendet, um die Ansicht mit einem `ViewBag` Eigenschaft.
+Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler erneut angezeigt wird. Wenn dieses Flag ist `true`, eine Fehlermeldung wird gesendet, um die Ansicht mit einem `ViewBag` Eigenschaft.
 
 Ersetzen Sie den Code in der `HttpPost` `Delete` Methode (mit dem Namen `DeleteConfirmed`) durch den folgenden Code:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-In den scaffolded Code, den Sie soeben ersetzt, akzeptiert diese Methode nur eine Datensatz-ID:
+In dem eingerüsteten Code, den Sie soeben ersetzt haben, akzeptiert diese Methode nur eine Datensatz-ID:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs)]
 
@@ -188,9 +188,9 @@ Sie geändert haben, diesen Parameter, um eine `Department` Entitätsinstanz ers
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 
-Sie haben auch den Methodennamen Aktion von geändert `DeleteConfirmed` auf `Delete`. Der scaffolded Code mit dem Namen der `HttpPost` `Delete` Methode `DeleteConfirmed` so erteilen Sie die `HttpPost` Methode eine eindeutige Signatur. (Die CLR erfordert überladene Methoden zum anderen Methodenparameter angegeben haben.) Nun, dass die Signaturen eindeutig sind, können Sie mit der MVC-Konvention einhalten und den gleichen Namen für die `HttpPost` und `HttpGet` Löschmethoden.
+Ebenfalls haben Sie den Namen der Aktionsmethode `DeleteConfirmed` auf `Delete` geändert. Der scaffolded Code mit dem Namen der `HttpPost` `Delete` Methode `DeleteConfirmed` so erteilen Sie die `HttpPost` Methode eine eindeutige Signatur. (Die CLR erfordert überladene Methoden, um verschiedene Methodenparameter zu enthalten.) Nun, dass die Signaturen eindeutig sind, können Sie mit der MVC-Konvention einhalten und den gleichen Namen für die `HttpPost` und `HttpGet` Löschmethoden.
 
-Wenn ein Parallelitätsfehler abgefangen wird, wird der Code erneut an die Bestätigungsseite löschen und bietet ein Flag, das darauf eine Fehlermeldung Parallelität angezeigt werden soll.
+Wenn ein Parallelitätsfehler abgefangen wird, zeigt der Code erneut die Bestätigungsseite „Löschen“ an, und stellt ein Flag bereit, das angibt, dass eine Fehlermeldung für die Parallelität angezeigt werden soll.
 
 In *Views\Department\Delete.cshtml*, ersetzen die scaffolded Code durch den folgenden Code, der Teil der Formatierung ermöglicht ändert und fügt ein Nachrichtenfeld Fehler. Die Änderungen werden hervorgehoben.
 
@@ -222,18 +222,18 @@ Klicken Sie im zweiten Fenster auf **löschen**.
 
 ![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
-Die Parallelität Fehlermeldung angezeigt, und die Department-Werte werden aktualisiert, was derzeit in der Datenbank ist.
+Ihnen wird eine Fehlermeldung zur Parallelität angezeigt, und die Abteilungswerte werden mit den aktuellen Werten der Datenbank aktualisiert.
 
 ![Department_Delete_confirmation_page_with_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-Wenn Sie auf **löschen** erneut, sind Sie auf die Indexseite, der anzeigt, dass die Abteilung gelöscht wurde umgeleitet.
+Wenn Sie erneut auf **Löschen** klicken, werden Sie auf die Indexseite weitergeleitet, die anzeigt, dass die Abteilung gelöscht wurde.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Dies schließt die Einführung in die Behandlung von Parallelitätskonflikten. Informationen zu anderen Methoden zum Behandeln von verschiedenen Parallelitätsszenarien finden Sie unter [optimistische Parallelität Muster](https://blogs.msdn.com/b/adonet/archive/2011/02/03/using-dbcontext-in-ef-feature-ctp5-part-9-optimistic-concurrency-patterns.aspx) und [arbeiten mit Eigenschaftswerten](https://blogs.msdn.com/b/adonet/archive/2011/01/30/using-dbcontext-in-ef-feature-ctp5-part-5-working-with-property-values.aspx) im Entity Framework-Team-Blog. Im nächste Lernprogramm veranschaulicht das Implementieren von Tabelle pro Hierarchie Vererbung für den `Instructor` und `Student` Entitäten.
+Damit ist die Einführung in die Behandlung von Nebenläufigkeitskonflikten abgeschlossen. Informationen zu anderen Methoden zum Behandeln von verschiedenen Parallelitätsszenarien finden Sie unter [optimistische Parallelität Muster](https://blogs.msdn.com/b/adonet/archive/2011/02/03/using-dbcontext-in-ef-feature-ctp5-part-9-optimistic-concurrency-patterns.aspx) und [arbeiten mit Eigenschaftswerten](https://blogs.msdn.com/b/adonet/archive/2011/01/30/using-dbcontext-in-ef-feature-ctp5-part-5-working-with-property-values.aspx) im Entity Framework-Team-Blog. Im nächste Lernprogramm veranschaulicht das Implementieren von Tabelle pro Hierarchie Vererbung für den `Instructor` und `Student` Entitäten.
 
 Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Zurück](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Weiter](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Zurück](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Weiter](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

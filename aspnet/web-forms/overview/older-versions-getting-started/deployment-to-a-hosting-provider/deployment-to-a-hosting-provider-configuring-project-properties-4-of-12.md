@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Konfigurieren von Projekteigenschaften - 4 12 | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5632b801586c13084f887c4c414fc8686731094c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8352c1832ffc79db93b6324dd673afaff6b0d74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Konfigurieren von Projekteigenschaften - 4 12
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -70,6 +70,6 @@ In **Projektmappen-Explorer**, mit der rechten Maustaste die *Elmah* Ordner wäh
 
 Sie haben jetzt alle die Bereitstellungsaufgaben für die Einrichtung abgeschlossen. In den nächsten Lernprogrammen Sie den Contoso-University Standort in der testumgebung bereitstellen und Testen sie dort.
 
->[!div class="step-by-step"]
-[Zurück](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
-[Weiter](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
+> [!div class="step-by-step"]
+> [Zurück](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [Weiter](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)

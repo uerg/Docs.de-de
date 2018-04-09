@@ -1,5 +1,5 @@
 ---
-title: "Antwort Komprimierung Middleware für ASP.NET Core"
+title: Antwort Komprimierung Middleware für ASP.NET Core
 author: guardrex
 description: Informationen Sie zur Antwort Komprimierung sowie zum Antwort Komprimierung Middleware in ASP.NET Core-apps verwenden.
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: d05256af4e62834b8d43689786a7b8bb3a5e58fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bde0522de0c70be637b903c3bbced8c0be814c31
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Antwort Komprimierung Middleware für ASP.NET Core
 
@@ -81,16 +81,13 @@ Um die Middleware in Ihrem Projekt einzuschließen, fügen Sie einen Verweis auf
 ## <a name="configuration"></a>Konfiguration
 Der folgende Code zeigt, wie die Antwort Komprimierung Middleware für Standard-MIME-Typen und die standardmäßige Gzip-Komprimierung zu aktivieren.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
----
-
+* * *
 > [!NOTE]
 > Verwenden Sie ein Tool wie [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), oder [Postman](https://www.getpostman.com/) festzulegende der `Accept-Encoding` Anforderungsheader und zu untersuchen, das die Antwortheader, Größe und Text.
 
@@ -115,16 +112,13 @@ Die Gzip-Komprimierung-Anbieter wird standardmäßig auf die höchste Komprimier
 | `CompressionLevel.Optimal`       | Antworten sollten optimal komprimiert werden, auch wenn die Komprimierung mehr Zeit in Anspruch nimmt.                |
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
----
-
+* * *
 ## <a name="mime-types"></a>MIME-Typen
 Die Middleware gibt eine Reihe von MIME-Typen für die Komprimierung an:
 * `text/plain`
@@ -138,35 +132,29 @@ Die Middleware gibt eine Reihe von MIME-Typen für die Komprimierung an:
 
 Sie können ersetzen oder MIME-Typen mit den Optionen für die Antwort Komprimierung Middleware angefügt werden soll. Beachten Sie diese Platzhalter-MIME-Typen, z. B. `text/*` werden nicht unterstützt. Die Beispiel-app Fügt einen MIME-Typ für `image/svg+xml` und komprimiert und dient der ASP.NET Core Bannerbild (*banner.svg*).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
----
-
+* * *
 ### <a name="custom-providers"></a>Benutzerdefinierte Anbieter
 Sie können benutzerdefinierte Komprimierung Implementierungen mit erstellen `ICompressionProvider`. Die `EncodingName` steht für die Codierung, die von dieser Inhalte `ICompressionProvider` erzeugt. Die Middleware verwendet diese Informationen, die anhand der Liste, die im angegebenen Anbieter auswählen die `Accept-Encoding` -Header der Anforderung.
 
 Verwenden die Beispiel-app, sendet der Client eine Anforderung mit der `Accept-Encoding: mycustomcompression` Header. Die Middleware verwendet die Implementierung von benutzerdefinierten Komprimierung und gibt die Antwort mit einer `Content-Encoding: mycustomcompression` Header. Der Client muss dekomprimiert die benutzerdefinierte Codierung in der Reihenfolge für die Implementierung eines benutzerdefinierten Komprimierung arbeiten können.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
----
-
+* * *
 Übermitteln eine Anforderung an die Beispiel-app mit der `Accept-Encoding: mycustomcompression` Header und beobachten Sie die Antwortheader. Die `Vary` und `Content-Encoding` Header in der Antwort vorhanden sind. Der Antworttext (nicht dargestellt) ist nicht im Beispiel komprimiert. Es ist nicht in eine Implementierung von Komprimierung der `CustomCompressionProvider` -Klasse des Beispiels. Allerdings wird im Beispiel, in dem Sie solche ein Komprimierungsalgorithmus implementiert würde.
 
 ![Fiddler-Fenster, Ergebnis der Anforderung mit den Accept-Encoding-Header und Wert Mycustomcompression anzeigt. Die Vary und Content-Encoding-Header werden in der Antwort hinzugefügt.](response-compression/_static/request-custom-compression.png)

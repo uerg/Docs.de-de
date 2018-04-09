@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
-title: "Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (Visual Basic) | Microsoft Docs"
+title: Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (Visual Basic) | Microsoft Docs
 author: tfitzmac
-description: "In diesem Anhang werden Ihnen einen Überblick über die Programmierung mit ASP.NET Web Pages in Visual Basic mit der Razor-Syntax."
+description: In diesem Anhang werden Ihnen einen Überblick über die Programmierung mit ASP.NET Web Pages in Visual Basic mit der Razor-Syntax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (Visual Basic)
 ====================
@@ -73,7 +73,7 @@ Das Ergebnis in einem Browser angezeigt:
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. Sie setzen die Codeblöcke mit Code... End-Code
 
-Ein Codeblock enthält eine oder mehrere codeanweisungen und wird mit den Schlüsselwörtern eingeschlossen `Code` und `End Code`. Platzieren Sie das öffnende `Code` Schlüsselwort unmittelbar nach der `@` Zeichen &#8212; es kann nicht Leerzeichen dazwischen.
+Ein Codeblock enthält eine oder mehrere codeanweisungen und wird mit den Schlüsselwörtern eingeschlossen `Code` und `End Code`. Platzieren Sie das öffnende `Code` Schlüsselwort unmittelbar nach der `@` Zeichen &#8212; dazwischen können keine Leerzeichen vorhanden sein.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample2.vbhtml)]
 
@@ -125,7 +125,7 @@ Das Ergebnis in einem Browser angezeigt:
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Viele der Codierung umfasst das Arbeiten mit Objekten
 
-Ein Objekt darstellt, die Sie programmieren können, mit etwas &#8212; eine Seite, ein Textfeld, eine Datei, ein Bild, einer webanforderung, eine e-Mail-Nachricht, einen Kundendatensatz (Datenbankzeile) usw. Objekte verfügen über Eigenschaften, die beschreiben, ihre Eigenschaften &#8212; ein Text-Box-Objekt verfügt über eine `Text` Eigenschaft Request-Objekt hat eine `Url` -Eigenschaft, um eine e-Mail-Nachricht wurde ein `From` -Eigenschaft und eine Customer-Objekt hat eine `FirstName` Eigenschaft. Objekte verfügen außerdem über Methoden, die die &quot;Verben&quot; ausführen. Beispiele für ein Objekt "Datei" `Save` -Methode, ein Image-Objekt `Rotate` -Methode, und ein e-Mail-Objekt `Send` Methode.
+Ein Objekt darstellt, die Sie programmieren können, mit etwas &#8212; eine Seite, ein Textfeld, eine Datei, ein Bild, einer webanforderung, eine e-Mail-Nachricht, einen Kundendatensatz (Datenbankzeile) usw. Objekte verfügen über Eigenschaften, die ihren Merkmalen beschreiben &#8212; ein Text-Box-Objekt verfügt über eine `Text` Eigenschaft Request-Objekt hat eine `Url` -Eigenschaft, um eine e-Mail-Nachricht wurde ein `From` -Eigenschaft und eine Customer-Objekt hat eine `FirstName` Diese Eigenschaft. Objekte verfügen außerdem über Methoden, die die &quot;Verben&quot; ausführen. Beispiele für ein Objekt "Datei" `Save` -Methode, ein Image-Objekt `Rotate` -Methode, und ein e-Mail-Objekt `Send` Methode.
 
 Arbeiten Sie werden häufig mit der `Request` -Objekt, das Sie die Informationen wie die Werte des Formulars erhalten Felder auf der Seite (Textfelder, usw.), welche Art von Browser, die URL der Seite, die Identität des Benutzers usw. angefordert. In diesem Beispiel wird gezeigt, wie Eigenschaften für den Zugriff auf die `Request` -Objekt und das Aufrufen der `MapPath` Methode der `Request` -Objekt, das Sie den absoluten Pfad der Seite auf dem Server erhalten:
 
@@ -180,11 +180,11 @@ Dieses Verfahren wird gezeigt, wie eine Seite zu erstellen, die grundlegende Pro
 
 ## <a name="visual-basic-language-and-syntax"></a>Visual Basic-Sprache und Syntax
 
-Zuvor haben Sie gesehen ein einfaches Beispiel zum Erstellen einer ASP.NET-Webseite und wie Sie HTML-Markup Servercode hinzufügen können. Hier erfahren Sie die Grundlagen der Verwendung von Visual Basic ASP.NET Servercode mithilfe der Razor-Syntax &#8212;schreiben; d. h. die Programmierung Sprachregeln.
+Zuvor haben Sie gesehen ein einfaches Beispiel zum Erstellen einer ASP.NET-Webseite und wie Sie HTML-Markup Servercode hinzufügen können. Hier erfahren Sie die Grundlagen der Verwendung von Visual Basic ASP.NET Servercode mithilfe der Razor-Syntax schreiben &#8212; , also programming Sprachregeln.
 
 Wenn Sie bereits Erfahrung mit Programmierung (insbesondere, wenn Sie C, C++, c#, Visual Basic oder JavaScript verwendet haben), werden viele der hier Sie lesen vertraut sein. Sie benötigen wahrscheinlich nur mit wie Markup in WebMatrix-Code hinzugefügt wird vertraut *vbhtml* Dateien.
 
-### <a id="BM_CombiningTextMarkupAndCode"></a>Kombinieren von Text, Markup und Code in Codeblöcken
+### <a id="BM_CombiningTextMarkupAndCode"></a>  Kombinieren von Text, Markup und Code in Codeblöcken
 
 In Server-Codeblöcke sollten Sie häufig zur Ausgabe von Text und Markup auf der Seite. Wenn ein servercodeblock Text enthält, die sich nicht Code und, stattdessen gerendert werden soll, ist, muss ASP.NET Code, in die Text unterscheiden können. Dafür stehen verschiedene Möglichkeiten zur Verfügung:
 
@@ -207,7 +207,7 @@ In Server-Codeblöcke sollten Sie häufig zur Ausgabe von Text und Markup auf de
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample14.vbhtml)]
 
     > [!NOTE]
-    > Wenn Sie Text Ausgabe wie in diesem Abschnitt &#8212;dargestellt; ein HTML-Element mit dem `@:` -Operator, oder die `<text>` -Element &#8212; ASP.NET die Ausgabe nicht HTML-codiert. (Wie bereits erwähnt, wird die Ausgabe der Codeausdrücke Server und Server Codeblöcke, die vorangestellt werden von ASP.NET codiert `@`, außer in die Sonderfälle, in diesem Abschnitt erwähnt wurden.)
+    > Wenn Sie Text ausgeben, wie in diesem Abschnitt dargestellt &#8212; mithilfe eines HTML-Elements der `@:` -Operator, oder die `<text>` Element &#8212; ASP.NET die Ausgabe nicht HTML-codiert. (Wie bereits erwähnt, wird die Ausgabe der Codeausdrücke Server und Server Codeblöcke, die vorangestellt werden von ASP.NET codiert `@`, außer in die Sonderfälle, in diesem Abschnitt erwähnt wurden.)
 
 ### <a name="whitespace"></a>Whitespace
 
@@ -275,31 +275,33 @@ Um die Werte zu einer ganzen Zahl zu konvertieren, rufen Sie die `AsInt` Methode
 
 Die folgende Tabelle enthält einige allgemeine Konvertierung und Test-Methoden für die Variablen an.
 
-| **Methode** | **Beschreibung** | **Beispiel** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | Konvertiert eine Zeichenfolge, die eine ganze Zahl darstellt (z. B. &quot;593&quot;) in eine ganze Zahl. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-| `AsBool(), IsBool()` | Konvertiert eine Zeichenfolge wie &quot;"true"&quot; oder &quot;"false"&quot; zu einem Boolean-Typ. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-| `AsFloat(), IsFloat()` | Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Gleitkommazahl. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-| `AsDecimal(), IsDecimal()` | Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Dezimalzahl. (In ASP.NET ist eine Dezimalzahl genauer als eine Gleitkommazahl.) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` | Konvertiert eine Zeichenfolge, die einen Wert für Datum und Uhrzeit der ASP.NET darstellt `DateTime` Typ. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-| `ToString()` | Konvertiert von einem beliebigen anderen Datentyp in eine Zeichenfolge. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+
+|   <strong>Methode</strong>    |                                                                              <strong>Beschreibung</strong>                                                                              |                     <strong>Beispiel</strong>                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                 Konvertiert eine Zeichenfolge, die eine ganze Zahl darstellt (z. B. &quot;593&quot;) in eine ganze Zahl.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
+|     `AsBool(), IsBool()`     |                                                    Konvertiert eine Zeichenfolge wie &quot;"true"&quot; oder &quot;"false"&quot; zu einem Boolean-Typ.                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
+|    `AsFloat(), IsFloat()`    |                                    Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Gleitkommazahl.                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
+|  `AsDecimal(), IsDecimal()`  | Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Dezimalzahl. (In ASP.NET ist eine Dezimalzahl genauer als eine Gleitkommazahl.) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
+| `AsDateTime(), IsDateTime()` |                                                Konvertiert eine Zeichenfolge, die einen Wert für Datum und Uhrzeit der ASP.NET darstellt `DateTime` Typ.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
+|         `ToString()`         |                                                                       Konvertiert von einem beliebigen anderen Datentyp in eine Zeichenfolge.                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
 
 ## <a name="operators"></a>Operatoren
 
 Ein Operator ist ein Schlüsselwort oder ein Zeichen, die ASP.NET, welche Art von Befehl zum Ausführen in einem Ausdruck mitteilt. Visual Basic unterstützt viele Operatoren, jedoch müssen Sie nur wenige für den Einstieg in die Entwicklung von ASP.NET Web Pages zu erkennen. In der folgenden Tabelle werden die am häufigsten verwendeten Operatoren zusammengefasst.
 
-| **Operator** | **Beschreibung** | **Beispiele** |
-| --- | --- | --- |
-| `+ - * /` | Mathematische Operatoren, die in numerischen Ausdrücken verwendet. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)] |
-| `=` | Zuweisung und auf Gleichheit. Je nach Kontext entweder weist den Wert auf der rechten Seite einer Anweisung mit dem Objekt auf der linken Seite oder die Werte hinsichtlich ihrer Gleichheit überprüft. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)] |
-| `<>` | Ungleichheit. Gibt `True` , wenn die Werte nicht gleich sind. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)] |
-| `< > <= >=` | Kleiner als, größer als, kleiner als oder gleich und größer als oder gleich. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)] |
-| `&` | Verkettung verwendet wird, um Zeichenfolgen zu verknüpfen. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-| `+= -=` | Die Inkrement- und Dekrement-Operatoren, die Addition und Subtraktion 1 (bzw.) aus einer Variablen. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)] |
-| `.` | Punkt. Verwendet, um Objekte und ihre Eigenschaften und Methoden zu unterscheiden. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)] |
-| `()` | Klammern. Verwendet, um gruppenausdrücken zum Übergeben von Parametern zu Methoden und den Zugriff auf Member des Arrays und Sammlungen. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-| `Not` | Nicht. Kehrt einen true-Wert auf "false" und umgekehrt. In der Regel als eine schnelle Möglichkeit zum Testen verwendet `False` (d. h. für nicht `True`). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)] |
-| `AndAlso OrElse` | Logisches AND und Bedingungen, die verwendet werden, um die Verknüpfung zusammen. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)] |
+
+| <strong>Operator</strong> |                                                                        <strong>Beschreibung</strong>                                                                         |                         <strong>Beispiele</strong>                         |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+|         `+ - * /`         |                                                                Mathematische Operatoren, die in numerischen Ausdrücken verwendet.                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
+|            `=`            | Zuweisung und auf Gleichheit. Je nach Kontext entweder weist den Wert auf der rechten Seite einer Anweisung mit dem Objekt auf der linken Seite oder die Werte hinsichtlich ihrer Gleichheit überprüft. |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
+|           `<>`            |                                                           Ungleichheit. Gibt `True` , wenn die Werte nicht gleich sind.                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
+|        `< > <= >=`        |                                                   Kleiner als, größer als, kleiner als oder gleich und größer als oder gleich.                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
+|            `&`            |                                                                Verkettung verwendet wird, um Zeichenfolgen zu verknüpfen.                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
+|          `+= -=`          |                                       Die Inkrement- und Dekrement-Operatoren, die Addition und Subtraktion 1 (bzw.) aus einer Variablen.                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
+|            `.`            |                                                     Punkt. Verwendet, um Objekte und ihre Eigenschaften und Methoden zu unterscheiden.                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
+|           `()`            |                           Klammern. Verwendet, um gruppenausdrücken zum Übergeben von Parametern zu Methoden und den Zugriff auf Member des Arrays und Sammlungen.                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
+|           `Not`           |                    Nicht. Kehrt einen true-Wert auf "false" und umgekehrt. In der Regel als eine schnelle Möglichkeit zum Testen verwendet `False` (d. h. für nicht `True`).                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
+|     `AndAlso OrElse`      |                                                       Logisches AND und Bedingungen, die verwendet werden, um die Verknüpfung zusammen.                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Arbeiten mit Datei- und Ordnerpfade in Code
 
@@ -443,7 +445,7 @@ Sie werden häufig in Auflistungen mit Daten arbeiten. Zwei allgemeine Auflistun
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample52.vbhtml)]
 
-Bei Arrays, Sie deklarieren einen bestimmten Datentyp z. B. `String`, `Integer`, oder `DateTime`. Um anzugeben, dass die Variable kann ein Array enthalten, Sie fügen Sie dem Variablennamen in der Deklaration Klammern (z. B. `Dim myVar() As String`). Sie erreichen die Elemente in einem Array mit ihrer Position (Index) oder mithilfe der `For Each` Anweisung. Array Indizes sind nullbasiert &#8212; Das heißt, das erste Element ist an position 0, das zweite Element ist an Position 1 und So weiter.
+Bei Arrays, Sie deklarieren einen bestimmten Datentyp z. B. `String`, `Integer`, oder `DateTime`. Um anzugeben, dass die Variable kann ein Array enthalten, Sie fügen Sie dem Variablennamen in der Deklaration Klammern (z. B. `Dim myVar() As String`). Sie erreichen die Elemente in einem Array mit ihrer Position (Index) oder mithilfe der `For Each` Anweisung. Arrayindizes sind nullbasiert &#8212; , also das erste Element ist an position 0, das zweite Element ist an Position 1 und So weiter.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample53.vbhtml)]
 
@@ -475,7 +477,7 @@ Wie Sie weiter oben in diesem Artikel gesehen haben, verfügen über die Objekte
 
 Diese Methode gibt den physischen Pfad auf dem Server, der entspricht einem angegebenen virtuellen Pfad zurück. Die drei Parameter für die Methode sind `virtualPath`, `baseVirtualDir`, und `allowCrossAppMapping`. (Beachten Sie, dass in der Deklaration der Parameter mit den Datentypen der Daten aufgeführt sind, die sie akzeptieren.) Wenn Sie diese Methode aufrufen, müssen Sie Werte für alle drei Parameter angeben.
 
-Wenn Sie Visual Basic mit Razor-Syntax verwenden, stehen Ihnen zwei Optionen zum Übergeben von Parametern an eine Methode: *Positionsparameter* oder *benannte Parameter*. Zum Aufrufen einer Methode mit positionelle Parameter übergeben Sie die Parameter in einer festen Reihenfolge, die in der Deklaration der Methode angegeben ist. (Sie würden diese Reihenfolge in der Regel wissen, lesen Sie die Dokumentation für die Methode.) Sie müssen die Reihenfolge einhalten, und Sie können nicht fortfahren, einen der Parameter &#8212; Wenn es sich bei Bedarf können Sie eine leere Zeichenfolge übergeben (`""`) oder null für einen positionelle Parameter, die Sie für einen Wert besitzen.
+Wenn Sie Visual Basic mit Razor-Syntax verwenden, stehen Ihnen zwei Optionen zum Übergeben von Parametern an eine Methode: *Positionsparameter* oder *benannte Parameter*. Zum Aufrufen einer Methode mit positionelle Parameter übergeben Sie die Parameter in einer festen Reihenfolge, die in der Deklaration der Methode angegeben ist. (Sie würden diese Reihenfolge in der Regel wissen, lesen Sie die Dokumentation für die Methode.) Führen Sie die Reihenfolge, und Sie können nicht fortfahren, einen der Parameter &#8212; Wenn erforderlich, eine leere Zeichenfolge übergeben (`""`) oder null für einen positionelle Parameter, die Sie für einen Wert besitzen.
 
 Im folgende Beispiel wird angenommen, Sie haben einen Ordner namens *Skripts* auf Ihrer Website. Der Code Ruft die `Request.MapPath` -Methode auf und übergibt Werte für die drei Parameter in der richtigen Reihenfolge. Anschließend wird den resultierenden zugeordneten Pfad angezeigt.
 

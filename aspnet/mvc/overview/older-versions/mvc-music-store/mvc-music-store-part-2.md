@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: bdafd751e996e759d516d0fa25b09eff21241ed7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-controllers"></a>Teil 2: Controller
 ====================
@@ -63,7 +63,7 @@ Die Methode sollte jetzt wie folgt aussehen:
 Jetzt führen Sie zunächst den Standort. Wir können unsere Webserver starten und probieren Sie die Website mit einer der folgenden::
 
 - Wählen Sie das Debuggen starten Menüelement für Debug ⇨
-- Klicken Sie auf der grünen Pfeilschaltfläche auf der Symbolleiste![](mvc-music-store-part-2/_static/image2.jpg)
+- Klicken Sie auf der grünen Pfeilschaltfläche auf der Symbolleiste ![](mvc-music-store-part-2/_static/image2.jpg)
 - Verwenden Sie die Tastenkombination F5.
 
 Mit einer der oben genannten Schritte werden unsere Projekt kompilieren und dann führen den ASP.NET Development Server, die erstellt in Visual Web Developer gestartet wird. Eine Benachrichtigung erscheint in der unteren Ecke des Bildschirms, um anzugeben, dass ASP.NET Development Server gestartet wurde, und zeigt der Portnummer an, dass er unter ausgeführt wird.
@@ -102,9 +102,9 @@ Beginnen wir unsere StoreController Implementierung durch Ändern der theIndex()
 
 Führen Sie das Projekt erneut aus, und Durchsuchen Sie die folgenden URLs:
 
-- / Store
-- / Store/durchsuchen
-- / Store/Details
+- /Store
+- /Store/Browse
+- /Store/Details
 
 Zugriff auf diese URLs wird Aufrufen der Aktionsmethoden in unserer Controller und Antworten Zeichenfolge zurückzugeben:
 
@@ -141,6 +141,6 @@ Wir kurz zusammengefasst, bisher Fertigstellung:
 - Wir haben Aktionsmethoden unserer Domänencontroller hinzugefügt, das auf URL-Anforderungen reagieren und Text an den Browser zurück.
 
 
->[!div class="step-by-step"]
-[Zurück](mvc-music-store-part-1.md)
-[Weiter](mvc-music-store-part-3.md)
+> [!div class="step-by-step"]
+> [Zurück](mvc-music-store-part-1.md)
+> [Weiter](mvc-music-store-part-3.md)

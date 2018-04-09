@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 title: Programmgesteuertes Festlegen von Parameterwerten "das ObjectDataSource" (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm lernen wir Hinzufügen einer Methode zu unserer DAL und BLL, die einen einzelnen Eingabeparameter akzeptiert und gibt Daten zurück. Im Beispiel wird dieser Parameter festgelegt..."
+description: In diesem Lernprogramm lernen wir Hinzufügen einer Methode zu unserer DAL und BLL, die einen einzelnen Eingabeparameter akzeptiert und gibt Daten zurück. Im Beispiel wird dieser Parameter festgelegt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aa4afbf2200e1167c9f66aeaddb4273e710394b4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac53d651601829b6e7d2ce312a084618a8afbb61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>Programmgesteuertes Festlegen von Parameterwerten "das ObjectDataSource" (VB)
 ====================
@@ -124,7 +124,7 @@ Um diesen Wert programmgesteuert festzulegen, müssen wir einen Ereignishandler 
 **Abbildung 9**: Klicken Sie auf das Blitzsymbol im Eigenschaftenfenster in der Liste ein Websteuerelement-Ereignisse
 
 
-Alle drei Ansätze fügen Sie einen neuen Ereignishandler für das ObjectDataSource `Selecting` Ereignis auf der Seite Code-Behind-Klasse. In diesem Ereignishandler können wir lesen und Schreiben in die Parameterwerte mit `e.InputParameters(parameterName)`, wobei  *`parameterName`*  ist der Wert des der `Name` Attribut in der `<asp:Parameter>` Tag (die `InputParameters` Auflistung kann auch sein Ordnungszahl, wie in indizierten `e.InputParameters(index)`). Festlegen der `month` Parameter auf den aktuellen Monat, fügen Sie Folgendes an der `Selecting` Ereignishandler:
+Alle drei Ansätze fügen Sie einen neuen Ereignishandler für das ObjectDataSource `Selecting` Ereignis auf der Seite Code-Behind-Klasse. In diesem Ereignishandler können wir lesen und Schreiben in die Parameterwerte mit `e.InputParameters(parameterName)`, wobei *`parameterName`* ist der Wert des der `Name` Attribut in der `<asp:Parameter>` Tag (die `InputParameters` Auflistung kann auch sein Ordnungszahl, wie in indizierten `e.InputParameters(index)`). Festlegen der `month` Parameter auf den aktuellen Monat, fügen Sie Folgendes an der `Selecting` Ereignishandler:
 
 
 [!code-vb[Main](programmatically-setting-the-objectdatasource-s-parameter-values-vb/samples/sample3.vb)]
@@ -147,11 +147,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](declarative-parameters-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](declarative-parameters-vb.md)

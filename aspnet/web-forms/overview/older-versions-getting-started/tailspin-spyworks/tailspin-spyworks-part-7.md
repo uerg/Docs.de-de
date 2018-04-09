@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: "Teil 7: Hinzufügen von Funktionen | Microsoft Docs"
+title: 'Teil 7: Hinzufügen von Funktionen | Microsoft Docs'
 author: JoeStagner
-description: "Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 7 fügt zusätzliche Funktionen, z. B. übe Konto..."
+description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 7 fügt zusätzliche Funktionen, z. B. übe Konto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5280de44b3e75f9d1ae85e0248bc3ef6d5444f6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17f068155f6726047901e2f7d580d375a4e07c87
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-adding-features"></a>Teil 7: Hinzufügen von Funktionen
 ====================
@@ -27,7 +27,7 @@ durch [Joe Stagner](https://github.com/JoeStagner)
 > Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 7 fügt zusätzliche Funktionen wie Konto überprüfen, produktprüfungen, und "gängige Elemente" und "auch erworbenen" Benutzersteuerelemente hinzu.
 
 
-## <a id="_Toc260221673"></a>Hinzufügen von Funktionen
+## <a id="_Toc260221673"></a>  Hinzufügen von Funktionen
 
 Wenn Benutzer unsere Katalog durchsuchen können, platzieren Sie Elemente im Einkaufswagen, und abgeschlossen Sie des Auscheckvorgangs, stehen Sie eine Reihe unterstützen Funktionen, wir aufnimmt, um unsere Website zu verbessern.
 
@@ -40,7 +40,7 @@ Wenn Benutzer unsere Katalog durchsuchen können, platzieren Sie Elemente im Ein
 7. Hinzufügen einer zu Seite.
 8. Globaler Fehler
 
-## <a id="_Toc260221674"></a>Account-Überprüfung
+## <a id="_Toc260221674"></a>  Account-Überprüfung
 
 Erstellen Sie zwei ASPX-Seiten, die einen benannten OrderList.aspx und die anderen benannten OrderDetails.aspx im Ordner "Konto"
 
@@ -56,7 +56,7 @@ Beachten Sie auch diese Parameter in der HyperlinkField der GridView ein:
 
 Dazu geben Sie den Link, um die Reihenfolge Detailansicht für jedes Produkt, das Feld "OrderID" als eine QueryString-Parameter auf der Seite "OrderDetails.aspx" angeben.
 
-## <a id="_Toc260221675"></a>OrderDetails.aspx
+## <a id="_Toc260221675"></a>  OrderDetails.aspx
 
 Die Aufträge und eine FormView zum Anzeigen der Auftragsdaten und anderen EntityDataSource mit GridView zum Anzeigen der Zeilenelemente für alle der Reihenfolge zuzugreifen, verwenden Sie ein EntityDataSource-Steuerelement.
 
@@ -72,7 +72,7 @@ Wir müssen auch zu berechnen und die Gesamtsumme aus die Einzelposten des Auftr
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>Auf der Startseite
+## <a id="_Toc260221676"></a>  Auf der Startseite
 
 Fügen Sie einige statische Inhalte auf der Seite "default.aspx" ein.
 
@@ -82,7 +82,7 @@ Fügen Sie das folgende Markup hinzu, in den Platzhalter unteren Rand der Seite 
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>Produktübersicht
+## <a id="_Toc260221677"></a>  Produktübersicht
 
 Zunächst fügen eine Schaltfläche mit einem Link zu einem Formular wir, die es verwenden können, um eine produktprüfung einzugeben.
 
@@ -94,7 +94,7 @@ Beachten Sie, dass wir die "ProductID" in der Abfragezeichenfolge übergeben wer
 
 Nächste fügen Sie die Seite mit dem Namen ReviewAdd.aspx
 
-Diese Seite wird das ASP.NET AJAX-Steuerelement-Toolkit verwenden. Wenn Sie noch nicht getan haben, damit Sie es aus herunterladen [DevExpress](http://devexpress.com/act) besteht die Anleitung zum Einrichten des Toolkits für die Verwendung mit Visual Studio hier [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Diese Seite wird das ASP.NET AJAX-Steuerelement-Toolkit verwenden. Wenn Sie noch nicht getan haben, damit Sie es aus herunterladen [DevExpress](http://devexpress.com/act) besteht die Anleitung zum Einrichten des Toolkits für die Verwendung mit Visual Studio hier [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
 
 Ziehen Sie im Entwurfsmodus Steuerelemente und Validierungssteuerelemente aus der Toolbox, und erstellen Sie ein Format wie die folgende.
 
@@ -114,7 +114,7 @@ Die Anwendung jetzt ausführen und das Navigieren zu einem Produkt zeigt die Pro
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>Gängige Elementsteuerelement (Benutzersteuerelemente erstellen)
+## <a id="_Toc260221678"></a>  Gängige Elementsteuerelement (Benutzersteuerelemente erstellen)
 
 Um auf Ihrer Website Umsatz steigern, werden wir eine Reihe von Funktionen zu "vorgeschlagene Sell" gängigen oder verwandte Produkte hinzufügen.
 
@@ -156,7 +156,7 @@ Zeigt die am häufigsten verwendeten Elemente jetzt Wenn wir unsere Anwendung au
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>"Auch gekauft" steuern (Benutzersteuerelemente mit Parametern)
+## <a id="_Toc260221679"></a>  "Auch gekauft" steuern (Benutzersteuerelemente mit Parametern)
 
 Dauert vorgeschlagenen Verkauf an die nächste Ebene durch Hinzufügen von Kontext Besonderheit der zweites Benutzersteuerelement, das wir erstellen müssen.
 
@@ -236,6 +236,6 @@ Wenn wir erstellen, und jetzt auszuführen, und navigieren Sie zu einem Produkt 
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 
->[!div class="step-by-step"]
-[Zurück](tailspin-spyworks-part-6.md)
-[Weiter](tailspin-spyworks-part-8.md)
+> [!div class="step-by-step"]
+> [Zurück](tailspin-spyworks-part-6.md)
+> [Weiter](tailspin-spyworks-part-8.md)

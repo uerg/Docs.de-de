@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: "Einführung in die Arbeit mit einer Datenbank in der ASP.NET Web Pages (Razor) Standorte | Microsoft Docs"
+title: Einführung in die Arbeit mit einer Datenbank in der ASP.NET Web Pages (Razor) Standorte | Microsoft Docs
 author: tfitzmac
 description: In diesem Kapitel wird beschrieben, wie auf Daten aus einer Datenbank zugreifen, und zeigen Sie es mithilfe von ASP.NET Web Pages wird.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Einführung in die Arbeit mit einer Datenbank in der ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -361,7 +361,7 @@ In diesem Abschnitt wird gezeigt, wie können Benutzer löschen Sie ein Produkt 
 6. Klicken Sie auf die **löschen** Link, um eines der Produkte. Die *DeleteProduct.cshtml* Seite wird angezeigt, um sicherzustellen, dass Sie diesen Datensatz löschen möchten.
 7. Klicken Sie auf die **löschen** Schaltfläche. Produktdatensatz wird gelöscht, und die Seite wird mit einer aktualisierten Produktliste aktualisiert.
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>Herstellen einer Verbindung mit einer Datenbank

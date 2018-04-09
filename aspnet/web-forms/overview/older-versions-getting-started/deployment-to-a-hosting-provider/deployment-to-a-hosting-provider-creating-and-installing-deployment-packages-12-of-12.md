@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Problembehandlung (12 12) | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2a8342f026498a7cf3ff4a3c158ed177c15b7111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Problembehandlung (12 12)
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -290,7 +290,7 @@ Publishing schlägt fehl mit Fehler, der angibt berechtigt nicht, Berechtigungen
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für den Standortordner auf Ihre Richtigkeit, und müssen nicht festgelegt werden, deaktivieren Sie dieses Verhalten durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
+Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für den Standortordner auf Ihre Richtigkeit, und müssen nicht festgelegt werden, deaktivieren Sie dieses Verhalten durch Hinzufügen von **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>"Zugriff verweigert" Fehler, wenn die Anwendung versucht, in einen Anwendungsordner zu schreiben
 
@@ -300,7 +300,7 @@ Ihre Anwendungsfehler beim Erstellen oder Bearbeiten einer Datei in einem Anwend
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung Schreibzugriff auf ein Unterordner benötigt, können Sie Berechtigungen für diesen Ordner festlegen, entsprechend der [Einstellung Ordnerberechtigungen](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) und [in der Produktionsumgebung bereitstellen](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) Lernprogramme. Wenn Ihre Anwendung Schreibzugriff auf den Stammordner der Website benötigt, müssen Sie verhindern, dass nur-Lese-Zugriff auf den Stammordner festlegen, durch Hinzufügen von  **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;**  die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
+Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung Schreibzugriff auf ein Unterordner benötigt, können Sie Berechtigungen für diesen Ordner festlegen, entsprechend der [Einstellung Ordnerberechtigungen](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) und [in der Produktionsumgebung bereitstellen](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) Lernprogramme. Wenn Ihre Anwendung Schreibzugriff auf den Stammordner der Website benötigt, müssen Sie verhindern, dass nur-Lese-Zugriff auf den Stammordner festlegen, durch Hinzufügen von **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Fehler bei der Konfiguration - TargetFramework-Attributs verweist auf eine Version, die höher als die installierte Version von .NET Framework ist
 
@@ -320,5 +320,5 @@ Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbiete
 
 Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für ein Ziel-Framework, aber Sie können nicht das Problem beheben, indem Sie nur ändern, die von **.NET Framework 4.5** auf **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt verfügen weiterhin über Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell die Verweise ändern oder Erstellen eines neuen Projekts, das .NET Framework 4 oder früher ausgerichtet ist. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Vorherige](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Vorherige](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

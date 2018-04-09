@@ -1,7 +1,7 @@
 ---
-title: Kennwort-Hashing
+title: Hash-Kennwörtern in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument erläutert, wie Kennwörter, die mit der ASP.NET Core-Datenschutz APIs Hash."
+description: Erfahren Sie, wie Kennwörter, die mithilfe der ASP.NET Core Data Protection-APIs zu hashen.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 8e2796108be14ef382f46e6deb3d584517120d27
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 63348da144e84d614f274b5d816cbecb020dcab4
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="password-hashing"></a>Kennwort-Hashing
+# <a name="hash-passwords-in-aspnet-core"></a>Hash-Kennwörtern in ASP.NET Core
 
 Die Data Protection Codebasis enthält ein Paket *Microsoft.AspNetCore.Cryptography.KeyDerivation* die kryptografischen Schlüssel Ableitung Funktionen enthält. Dieses Paket ist eine eigenständige Komponente und ist völlig unabhängig von der Rest des Systems Schutz Daten. Es kann vollständig unabhängig verwendet werden. Die Quelle, die zusammen mit den Data Protection Codebasis als Annehmlichkeit vorhanden ist.
 

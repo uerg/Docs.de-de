@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
 title: Erstellen der JavaScript-Client | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b397c5a413ae213c9b79da1c0e0626efe21c7e21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29d50e448e6d282c7db06b9d1946ac221347e1ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-javascript-client"></a>Erstellen der JavaScript-Client
 ====================
@@ -58,8 +58,8 @@ Fügen Sie eine JavaScript-Datei mit dem Namen "App.js", um den Ordner "Skripts"
 
 In Knockout die `observable` Klasse ermöglicht die Datenbindung. Wenn der Inhalt der Observable-Objekt ändern, benachrichtigt der Observable-Objekt alle datengebundenen Steuerelemente, damit selbst aktualisiert werden können. (Die `observableArray` Klasse ist die Array-Version des *Observable*.) Zunächst weist unsere Ansichtsmodell zwei Wahrnehmbare Elemente:
 
-- `books`enthält die Liste der Bücher an.
-- `error`enthält eine Fehlermeldung, wenn ein AJAX-Aufruf ein Fehler auftritt.
+- `books` enthält die Liste der Bücher an.
+- `error` enthält eine Fehlermeldung, wenn ein AJAX-Aufruf ein Fehler auftritt.
 
 Die `getAllBooks` Methode ist einen AJAX-Aufruf zum Abrufen der Liste von Büchern. Und es sich um das Ergebnis auf verlagert die `books` Array.
 
@@ -73,6 +73,6 @@ Bundling ist ein Feature in ASP.NET 4.5, die ganz einfach kombinieren oder mehre
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 
->[!div class="step-by-step"]
-[Zurück](part-5.md)
-[Weiter](part-7.md)
+> [!div class="step-by-step"]
+> [Zurück](part-5.md)
+> [Weiter](part-7.md)

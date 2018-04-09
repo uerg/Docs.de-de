@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b85645eebf2822b33df944692736ea9d9b69b9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Maximieren der Leistung mit Entity Framework 4.0 in eine ASP.NET 4-Webanwendung
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie stellen Sie diese auf die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
 
@@ -54,11 +54,11 @@ Um das Lernprogramm zu starten, starten Sie Visual Studio, und öffnen Sie die C
 
 Es gibt mehrere Möglichkeiten, das Entity Framework in die Navigationseigenschaften einer Entität verknüpfte Daten geladen werden können:
 
-- *Verzögertes Laden*. Wenn die Entität zuerst gelesen wird, ist nicht verbundene Daten abgerufen. Allerdings werden beim ersten Versuch, auf eine Navigationseigenschaft, für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten, die für die Entität verknüpft abgerufen werden muss. 
+- *Lazy Loading (verzögertes Laden)*. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten, die für die Entität verknüpft abgerufen werden muss. 
 
     [![Image05](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image2.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image1.png)
 
-*Unverzüglichem Laden*. Wenn die Entität gelesen wird, werden darin verknüpfte Daten abgerufen. Dies führt normalerweise zu einer einzelnen Join-Abfrage, die alle Daten abruft, die erforderlich ist. Geben Sie unverzüglichem Laden mithilfe der `Include` -Methode, wie Sie haben bereits gesehen in diesen Lernprogrammen.
+*Eager Loading (vorzeitiges Laden)*. Wenn die Entität gelesen wird, werden ihre verwandten Daten mit ihr abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. Geben Sie unverzüglichem Laden mithilfe der `Include` -Methode, wie Sie haben bereits gesehen in diesen Lernprogrammen.
 
 [![Image07](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image4.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image3.png)
 
@@ -76,7 +76,7 @@ Im Allgemeinen sollten Sie benötigen Sie verknüpfte Daten für jede Entität, 
 
 In einer Webanwendung verzögertes Laden von relativ kleinen Wert trotzdem, möglicherweise daran, dass Benutzeraktionen, die sich auf die Notwendigkeit von verknüpften Daten im Browser stattfinden, die keine Verbindung mit dem Objektkontext verfügt, die die Seite gerendert. Andererseits, wenn Sie Databind ein Steuerelement Sie in der Regel, welche Daten wissen Sie benötigen, und daher im Allgemeinen es ist am besten auf unverzüglichem Laden oder verzögertes Laden basierend auf eignet sich wie in jedem Szenario.
 
-Darüber hinaus können einem datengebundenen Steuerelement auf ein Entitätsobjekt, nach der Objektkontext verworfen wird. In diesem Fall würde ein Versuch, eine Navigationseigenschaft-verzögerte Laden fehl. Die Fehlermeldung, die ausgehändigt ist eindeutig:&quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+Darüber hinaus können einem datengebundenen Steuerelement auf ein Entitätsobjekt, nach der Objektkontext verworfen wird. In diesem Fall würde ein Versuch, eine Navigationseigenschaft-verzögerte Laden fehl. Die Fehlermeldung, die ausgehändigt ist eindeutig: &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
 Die `EntityDataSource` Steuerelement verzögertes Laden standardmäßig deaktiviert. Für die `ObjectDataSource` Steuerelement, dass Sie für das aktuelle Lernprogramm verwenden (oder wenn Sie den Objektkontext von Seitencode zugreifen), es gibt mehrere Möglichkeiten, die möglich verzögerten Laden, die standardmäßig deaktiviert. Wenn Sie einen Objektkontext instanziieren, können Sie es deaktivieren. Sie können z. B. die folgende Zeile hinzufügen, an die Konstruktormethode des der `SchoolRepository` Klasse:
 
@@ -187,11 +187,11 @@ Wiederherstellen des ursprünglichen Codes in der `GetDepartmentsByName` -Method
 
 Wählen Sie in Visual Studio die **Debuggen** klicken Sie dann im Menü **IntelliTrace**, und klicken Sie dann **IntelliTrace-Ereignisse**.
 
-[![Image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
+[![image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
 In der **IntelliTrace** Fenster, klicken Sie auf **alle unterbrechen**.
 
-[![Image12](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
+[![image12](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
 Die **IntelliTrace** Fenster zeigt eine Liste der aktuellsten Ereignisse:
 
@@ -199,7 +199,7 @@ Die **IntelliTrace** Fenster zeigt eine Liste der aktuellsten Ereignisse:
 
 Klicken Sie auf die **ADO.NET** Zeile. Es wird erweitert, um Sie den Befehlstext anzeigen:
 
-[![Image10](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
+[![image10](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
 
 Sie können den gesamten Text Befehlszeichenfolge kopieren, in die Zwischenablage aus der **"lokal"** Fenster.
 
@@ -211,11 +211,11 @@ Versuchen Sie es z. B. mit dem Ändern des Codes in der `GetDepartmentsByName` M
 
 Führen Sie die *Departments.aspx* Seite im Debugger aus, und überprüfen Sie die **IntelliTrace** Fenster wieder wie gewohnt. Jetzt, obwohl Sie eine einzelne Abfrage vor dem vorhanden war, sehen Sie eine lange Abfolge von ihnen.
 
-[![Image13](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
+[![image13](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
 
 Klicken Sie auf der ersten **ADO.NET** Zeile, um Näheres zu komplexen Abfrage Sie wurde zuvor angezeigt.
 
-[![Image14](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
+[![image14](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
 
 Die Abfrage von Abteilungen geworden ist eine einfache `Select` Abfragen ohne `Join` -Klausel, aber es folgt eine eigene Abfrage, die verwandte Kurse und ein Administrator abrufen, die ursprüngliche zurückgegebenes mithilfe eines Satzes von zwei Abfragen für jede Abteilung Abfrage.
 
@@ -266,6 +266,6 @@ Dies schließt die Einführung zum Verbessern der Leistung in einer ASP.NET Web-
 
 Überprüft die des nächsten Lernprogramms zu den wichtigen Verbesserungen zu Entity Framework, die neu in Version 4.
 
->[!div class="step-by-step"]
-[Zurück](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
-[Weiter](what-s-new-in-the-entity-framework-4.md)
+> [!div class="step-by-step"]
+> [Zurück](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [Weiter](what-s-new-in-the-entity-framework-4.md)

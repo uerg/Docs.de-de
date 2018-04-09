@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
-title: "Zuweisen von Rollen für Benutzer (c#) | Microsoft Docs"
+title: Zuweisen von Rollen für Benutzer (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden zwei ASP.NET-Seiten zur Unterstützung beim Verwalten, welche Benutzer gehören, welche Rollen erstellen. Die erste Seite enthält Funktionen zum sehen..."
+description: In diesem Lernprogramm werden zwei ASP.NET-Seiten zur Unterstützung beim Verwalten, welche Benutzer gehören, welche Rollen erstellen. Die erste Seite enthält Funktionen zum sehen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d2b427e6fccfc82eab535200ba6878ab41b72e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0518cd04f6b7f055a413b2b236712965451839c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="assigning-roles-to-users-c"></a>Zuweisen von Rollen an Benutzer (c#)
 ====================
@@ -231,7 +231,7 @@ Zusammen mit Benutzern aus der ausgewählten Rolle entfernen, sollte der Besuche
 
 Für diese Seite verwenden wir eine sehr einfache Schnittstelle, die unabhängig von der Anzahl von Benutzerkonten in das System arbeitet. D. h., verwenden wir ein Textfeld, und den Besucher den Benutzernamen des Benutzers eingeben, den sie der ausgewählten Rolle hinzufügen möchte aufgefordert. Wenn kein Benutzer mit diesem Namen vorhanden ist oder wenn der Benutzer bereits ein Mitglied der Rolle ist, es wird eine Meldung, in angezeigt `ActionStatus` Bezeichnung. Aber wenn der Benutzer vorhanden ist, und es kein Mitglied der Rolle ist, wir der Serverrolle hinzugefügt und das Raster zu aktualisieren.
 
-Fügen Sie einem Textfeld und einer Schaltfläche unterhalb der GridView hinzu. Legen Sie des Textfelds `ID` auf `UserNameToAddToRole` und legen Sie der Schaltfläche `ID` und `Text` Eigenschaften `AddUserToRoleButton` und "Hinzufügen zu Benutzerrolle" bzw.
+Fügen Sie einem Textfeld und einer Schaltfläche unterhalb der GridView hinzu. Legen Sie des Textfelds `ID` auf `UserNameToAddToRole` und legen Sie der Schaltfläche `ID` und `Text` Eigenschaften `AddUserToRoleButton` und "Hinzufügen zu Benutzerrolle" bzw..
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample17.aspx)]
 
@@ -275,7 +275,7 @@ Auf ähnliche Weise wird die GridView in der Schnittstelle "von der Rolle" aktua
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample20.cs)]
 
-Mit diesen kleinere Änderungen am Code der "von Benutzer" und "Rolle" jetzt Schnittstellen richtig Cross-Update. Um dies zu überprüfen, besuchen Sie die Seite über einen Browser, und wählen Sie Tito und Abteilungsleiter aus der `UserList` und `RoleList` DropDownLists, bzw. Beachten Sie, wie Sie die Rolle "Abteilungsleiter" für Tito aus Repeater in der Schnittstelle "von Benutzer" deaktivieren, Tito automatisch aus der GridView in der Schnittstelle "von der Rolle" entfernt werden. Der Vorgesetzte Kontrollkästchen in der Schnittstelle "von Benutzer" Hinzufügen von Tito zurück an die Rolle "Abteilungsleiter" von der Schnittstelle "von der Rolle" automatisch erneut überprüft werden.
+Mit diesen kleinere Änderungen am Code der "von Benutzer" und "Rolle" jetzt Schnittstellen richtig Cross-Update. Um dies zu überprüfen, besuchen Sie die Seite über einen Browser, und wählen Sie Tito und Abteilungsleiter aus der `UserList` und `RoleList` DropDownLists, bzw.. Beachten Sie, wie Sie die Rolle "Abteilungsleiter" für Tito aus Repeater in der Schnittstelle "von Benutzer" deaktivieren, Tito automatisch aus der GridView in der Schnittstelle "von der Rolle" entfernt werden. Der Vorgesetzte Kontrollkästchen in der Schnittstelle "von Benutzer" Hinzufügen von Tito zurück an die Rolle "Abteilungsleiter" von der Schnittstelle "von der Rolle" automatisch erneut überprüft werden.
 
 ## <a name="step-4-customizing-the-createuserwizard-to-include-a-specify-roles-step"></a>Schritt 4: Anpassen der CreateUserWizard Einbeziehung von einem Schritt "geben Sie Rollen"
 
@@ -362,12 +362,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird * [Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an...
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](creating-and-managing-roles-cs.md)
-[Weiter](role-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-and-managing-roles-cs.md)
+> [Weiter](role-based-authorization-cs.md)

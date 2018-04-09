@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sortieren, paging und Filtern von Daten mit modellbindung und WebForms
 ====================
@@ -72,7 +72,7 @@ Wurden die modellbindung fügt mehrere Attribute, die Sie festlegen, wie Sie den
 - RouteData
 - Sitzung
 - UserProfile
-- "ViewState" Speichern
+- ViewState
 
 In diesem Lernprogramm verwenden Sie den Wert eines Steuerelements um zu filtern, welche Datensätze in die GridView angezeigt werden. Fügen Sie der **Steuerelement** -Attribut auf die Abfragemethode, die Sie zuvor erstellt hatten. In einem [später](using-query-string-values-to-retrieve-data.md) Lernprogramm übernehmen Sie die **QueryString** -Attribut auf einen Parameter, um anzugeben, dass der Wert des Parameters einen Wert der Abfragezeichenfolge stammen.
 
@@ -94,12 +94,12 @@ Führen Sie die Webanwendung, und wählen Sie unterschiedliche Werte aus der Dro
 
 ![Filter Studenten](sorting-paging-and-filtering-data/_static/image6.png)
 
-## <a name="conclusion"></a>Schlussfolgerung
+## <a name="conclusion"></a>Schlussbemerkung
 
 In diesem Lernprogramm ermöglichte Sortierung und Auslagerung der Daten. Sie wird aktiviert, Filtern von Daten durch den Wert eines Steuerelements.
 
 In der nächsten [Lernprogramm](integrating-jquery-ui.md) Sie werden die Benutzeroberfläche erhöhen, indem das Integrieren von einem JQuery UI-Widget in der dynamic Data-Vorlage.
 
->[!div class="step-by-step"]
-[Zurück](updating-deleting-and-creating-data.md)
-[Weiter](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Zurück](updating-deleting-and-creating-data.md)
+> [Weiter](integrating-jquery-ui.md)

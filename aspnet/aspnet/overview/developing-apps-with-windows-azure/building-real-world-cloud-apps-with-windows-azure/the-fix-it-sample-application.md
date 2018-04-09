@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 title: 'Anhang: Die Korrektur es Beispielanwendung (Real-World Cloud Apps with Azure erstellen) | Microsoft Docs'
 author: MikeWasson
-description: "Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können..."
+description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Anhang: Die Korrektur es Beispielanwendung (Real-World Cloud Apps with Azure erstellen)
 ====================
@@ -245,18 +245,18 @@ Es gibt zwei Möglichkeiten zum Ausführen der app zu beheben:
 
     Verwenden von Visual Studio 2013:
 
-    1. Drücken Sie F5, um das Projekt FixIt auszuführen.
-    2. In **Projektmappen-Explorer**mit der rechten Maustaste auf das MyFixItCloudService-Projekt, und klicken Sie dann auf **Debuggen** -- **neue Instanz starten**.
+   1. Drücken Sie F5, um das Projekt FixIt auszuführen.
+   2. In **Projektmappen-Explorer**mit der rechten Maustaste auf das MyFixItCloudService-Projekt, und klicken Sie dann auf **Debuggen** -- **neue Instanz starten**.
 
-    Verwenden von Visual Studio 2013 Express für Web:
+      Verwenden von Visual Studio 2013 Express für Web:
 
-    1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste der FixIt-Projektmappe, und wählen **Eigenschaften**.
-    2. Wählen Sie **mehrere Startprojekte**...
-    3. In der **Aktion** wählen Sie die Dropdownliste unter MyFixIt und MyFixItCloudService, **starten**.
-    4. Klicken Sie auf **OK**.
-    5. Drücken Sie F5, um beide Projekte auszuführen.
+   3. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste der FixIt-Projektmappe, und wählen **Eigenschaften**.
+   4. Wählen Sie **mehrere Startprojekte**...
+   5. In der **Aktion** wählen Sie die Dropdownliste unter MyFixIt und MyFixItCloudService, **starten**.
+   6. Klicken Sie auf **OK**.
+   7. Drücken Sie F5, um beide Projekte auszuführen.
 
-    Wenn Sie das Projekt MyFixItCloudService ausführen, startet Visual Studio Azure-Serveremulator. Abhängig von Ihrer Firewallkonfiguration müssen Sie den Emulator über die Firewall zulassen.
+      Wenn Sie das Projekt MyFixItCloudService ausführen, startet Visual Studio Azure-Serveremulator. Abhängig von Ihrer Firewallkonfiguration müssen Sie den Emulator über die Firewall zulassen.
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Bereitstellen von der Basis-app auf Azure App Service-Web-Apps mithilfe von Windows PowerShell-Skripts
@@ -285,7 +285,7 @@ Diese Anweisungen wird angenommen, Sie haben bereits heruntergeladen und lokal a
     Diese Anmeldeinformationen laufen nach einer Zeitspanne ab und muss erneut ausgeführt werden. die `Add-AzureAccount` Cmdlet. Wie diese e-Book geschrieben wird, ist das Zeitlimit überschreiten, bevor die Anmeldeinformationen ablaufen 12 Stunden an.
 5. Wenn Sie mehrere Abonnements verfügen, verwenden Sie das Cmdlet "Select-AzureSubscription" an das Abonnement, in die testumgebung erstellt werden soll.
 6. Importieren Sie ein Verwaltungszertifikat für die gleichen Azure-Abonnement mithilfe der `Get-AzurePublishSettingsFile` und `Import-AzurePublishSettingsFile` Cmdlets. Die erste dieser Cmdlets downloads einer Zertifikatsdatei, und in dem zweiten Ausdruck geben Sie den Speicherort dieser Datei, um es zu importieren. > [!IMPORTANT]
- > Halten Sie die heruntergeladene Datei an einem sicheren Ort oder löschen Sie, wenn Sie mithilfe dieser Option fertig sind, da sie ein Zertifikat enthält, die zum Verwalten Ihrer Azure-Dienste verwendet werden kann.
+   > Halten Sie die heruntergeladene Datei an einem sicheren Ort oder löschen Sie, wenn Sie mithilfe dieser Option fertig sind, da sie ein Zertifikat enthält, die zum Verwalten Ihrer Azure-Dienste verwendet werden kann.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -399,5 +399,5 @@ Ersetzen Sie im MyFixItCloudService\ServiceConfiguration.Cloud.cscfg die gleiche
 
 Jetzt sind Sie bereit für die Bereitstellung von Cloud-Dienst. Klicken Sie im Projektmappen-Explorer, mit der rechten Maustaste des MyFixItCloudService-Projekts, und wählen **veröffentlichen**. Weitere Informationen finden Sie unter "[Bereitstellen der Anwendung in Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", also in Teil 2 von [dieses Lernprogramms](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
->[!div class="step-by-step"]
-[Vorherige](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Vorherige](more-patterns-and-guidance.md)

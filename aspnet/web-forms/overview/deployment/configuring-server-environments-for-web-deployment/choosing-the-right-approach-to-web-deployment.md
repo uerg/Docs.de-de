@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
-title: "Auswählen des richtigen Ansatzes zu Web Deploy | Microsoft Docs"
+title: Auswählen des richtigen Ansatzes zu Web Deploy | Microsoft Docs
 author: jrjlee
-description: "Wenn Sie mit dem Internet Information Services (IIS) Webbereitstellungstool (Web Deploy) 2.0 oder höher arbeiten, stehen die drei wichtigsten Ansätze, die Sie, zum Abrufen verwenden können..."
+description: Wenn Sie mit dem Internet Information Services (IIS) Webbereitstellungstool (Web Deploy) 2.0 oder höher arbeiten, stehen die drei wichtigsten Ansätze, die Sie, zum Abrufen verwenden können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Auswählen des richtigen Ansatzes zur Webbereitstellung
 ====================
@@ -118,7 +118,7 @@ Im Fall von nicht-Administratorbenutzer wird der Web-Verwaltungsdienst (WMSvc) n
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-Angenommen Sie, dass ein Buildprozess konfiguriert ist, um automatisch eine Webanwendung in einer Stagingumgebung nach jedem erfolgreichen Build bereitstellen. Wenn Sie den remote-Agent-Ansatz verwendet haben, müssen Sie der Build-Prozess-ID einen Administrator auf Ihrem Zielserver vornehmen. Im Gegensatz dazu kann mit dem Web bereitstellen Handler Ansatz zu einem Benutzer ohne Administratorrechte & #x 2014 führen; **FABRIKAM\stagingdeployer** in diesem Fall & #x 2014; die Berechtigung für einen bestimmten IIS-Website und während des Erstellungsprozesses kann diese Anmeldeinformationen zum Bereitstellen des Webpakets angeben.
+Angenommen Sie, dass ein Buildprozess konfiguriert ist, um automatisch eine Webanwendung in einer Stagingumgebung nach jedem erfolgreichen Build bereitstellen. Wenn Sie den remote-Agent-Ansatz verwendet haben, müssen Sie der Build-Prozess-ID einen Administrator auf Ihrem Zielserver vornehmen. Im Gegensatz dazu mit dem Web bereitstellen Handler Ansatz Sie einen Benutzer ohne Administratorrechte erhalten&#x2014;**FABRIKAM\stagingdeployer** in diesem Fall&#x2014;Berechtigung für einen bestimmten IIS-Website und im Buildprozess bieten diese Anmeldeinformationen für die Webpaket bereitgestellt werden.
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Weitere Informationen zu Befehlszeilenoperationen Web Deploy und deren Syntax fi
 
 Allgemeineren Leitfaden für die verschiedenen Möglichkeiten, in dem Sie Webpaketen von einem Remotecomputer bereitstellen können, finden Sie unter [mithilfe von Web Deploy über eine Remoteverbindung](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Weitere Informationen zur Verwendung von Web Deploy bei Bedarf finden Sie unter [Web Deploy bei Bedarf](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
->[!div class="step-by-step"]
-[Zurück](configuring-server-environments-for-web-deployment.md)
-[Weiter](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](configuring-server-environments-for-web-deployment.md)
+> [Weiter](scenario-configuring-a-test-environment-for-web-deployment.md)

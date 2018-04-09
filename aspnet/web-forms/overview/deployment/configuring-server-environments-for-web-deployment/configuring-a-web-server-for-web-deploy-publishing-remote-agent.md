@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
-title: "Konfigurieren einen Webserver für das Web Deploy-Veröffentlichung (Remote-Agent) | Microsoft Docs"
+title: Konfigurieren einen Webserver für das Web Deploy-Veröffentlichung (Remote-Agent) | Microsoft Docs
 author: jrjlee
-description: "Dieses Thema beschreibt, wie ein Webserver (Internet Information Services, IIS) zur Unterstützung von Webpublishing und Bereitstellung mit der IIS-Web-Bereitstellung konfigurieren..."
+description: Dieses Thema beschreibt, wie ein Webserver (Internet Information Services, IIS) zur Unterstützung von Webpublishing und Bereitstellung mit der IIS-Web-Bereitstellung konfigurieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Konfigurieren eines Webservers für Web Deploy-Veröffentlichung (Remote-Agent)
 ====================
@@ -102,7 +102,7 @@ In diesem Fall müssen Sie Folgendes installieren:
 7. Klicken Sie im Navigationsbereich auf **Server**.
 8. In der **empfohlene Konfiguration von IIS 7** auf **hinzufügen**.
 9. In der **Web Bereitstellung Tool 2.1** auf **hinzufügen**.
-10. Klicken Sie auf **Installieren**. Der Webplattform-Installer erfahren Sie, eine Liste der Produkte & #x 2014; sowie alle zugehörigen Abhängigkeiten Ko & #x 2014; installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
+10. Klicken Sie auf **Installieren**. Zeigen Sie den Webplattform-Installer eine Liste mit Produkten&#x2014;zusammen mit verknüpften Abhängigkeiten&#x2014;installiert werden und werden Sie aufgefordert, die Lizenzbedingungen zu akzeptieren.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. Überprüfen Sie die Lizenzbedingungen, und wenn Sie den Bedingungen zustimmen, klicken Sie auf **ich stimme**.
@@ -165,7 +165,7 @@ Es gibt zwar keine beenden Sie aus der Bereitstellung von Inhalt auf der Standar
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > Der erste Standort Bindung ermöglicht es Ihnen Zugriff auf die Website, die lokal mithilfe von IP-Adresse und Port oder `http://localhost:85`. Die zweite Bindungen pro Website können Sie auf die Website von anderen Computern in der Domäne, die über den Computernamen (z. B. Http://testweb1:85) zugreifen.
+    > Der erste Standort Bindung ermöglicht es Ihnen Zugriff auf die Website, die lokal mithilfe von IP-Adresse und Port oder `http://localhost:85`. Die zweite Bindungen pro Website können Sie Zugriff auf die Website von anderen Computern in der Domäne, die über den Computernamen (z. B. http://testweb1:85).
 13. In der **Sitebindungen** (Dialogfeld), klicken Sie auf **schließen**.
 14. In der **Verbindungen** Bereich, klicken Sie auf **Anwendungspools**.
 15. In der **Anwendungspools** Bereich Maustaste auf den Namen des Anwendungspools, und klicken Sie dann auf **Grundeinstellungen**. Standardmäßig wird der Name der Pool der Anwendung mit dem Namen Ihrer Website übereinstimmen (z. B. **DemoSite**).
@@ -176,11 +176,11 @@ Es gibt zwar keine beenden Sie aus der Bereitstellung von Inhalt auf der Standar
     > [!NOTE]
     > Die beispiellösung erfordert .NET Framework 4.0. Dies ist im Allgemeinen nicht zwingend für Web Deploy.
 
-In der Reihenfolge für Ihre Website Inhalte bereitstellen muss die Identität des Anwendungspools auf den lokalen Ordner Leseberechtigungen verfügen, in dem den Inhalt gespeichert. Führen Sie Anwendungspools in IIS 7.5 und mit einer eindeutigen Identität des Anwendungspools standardmäßig (im Gegensatz zu früheren Versionen von IIS-Anwendungspools in der Regel Ausführungsort würde mit dem NETZWERKDIENST-Konto). Die Identität des Anwendungspools ist kein Konto echte Benutzer ist und nicht auf alle Listen mit Benutzern oder Gruppen & #x 2014 angezeigt; es wird stattdessen erstellt dynamisch beim Start des Anwendungspools. Jede Identität des Anwendungspools wird hinzugefügt, der lokalen **IIS\_IUSRS** Sicherheitsgruppe "als ausgeblendetes Element.
+In der Reihenfolge für Ihre Website Inhalte bereitstellen muss die Identität des Anwendungspools auf den lokalen Ordner Leseberechtigungen verfügen, in dem den Inhalt gespeichert. Führen Sie Anwendungspools in IIS 7.5 und mit einer eindeutigen Identität des Anwendungspools standardmäßig (im Gegensatz zu früheren Versionen von IIS-Anwendungspools in der Regel Ausführungsort würde mit dem NETZWERKDIENST-Konto). Die Identität des Anwendungspools ist kein Konto echte Benutzer ist und nicht auf alle Listen von Benutzern oder Gruppen angezeigt&#x2014;, es wird stattdessen erstellt dynamisch beim Start des Anwendungspools. Jede Identität des Anwendungspools wird hinzugefügt, der lokalen **IIS\_IUSRS** Sicherheitsgruppe "als ausgeblendetes Element.
 
 Um Berechtigungen für eine Anwendungspoolidentität auf eine Datei oder einen Ordner zu gewähren, haben Sie zwei Optionen:
 
-- Zuweisen von Berechtigungen auf die Identität des Anwendungspools direkt unter Verwendung des Formats **IIS AppPool\***[Anwendungspoolname] * (z. B. **IIS AppPool\DemoSite**).
+- Zuweisen von Berechtigungen auf die Identität des Anwendungspools direkt unter Verwendung des Formats <strong>IIS AppPool\</ strong ><em>[Anwendungspoolname]</em>(z. B. <strong>IIS AppPool\DemoSite</strong>).
 - Zuweisen von Berechtigungen für die **IIS\_IUSRS** Gruppe.
 
 Der am häufigsten verwendete Ansatz ist die Zuweisung von Berechtigungen für die lokale **IIS\_IUSRS** gruppieren, da es sich bei diesem Ansatz können Sie Anwendungspools zu ändern, ohne dass eine Neukonfiguration Dateisystemberechtigungen. Im nächste Verfahren wird dieser Ansatz Gruppenbasierte verwendet.
@@ -198,8 +198,8 @@ Der am häufigsten verwendete Ansatz ist die Zuweisung von Berechtigungen für d
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. In der **Benutzer oder Gruppen auswählen** Geben Sie im Dialogfeld **IIS\_IUSRS**, klicken Sie auf **Namen überprüfen**, und klicken Sie dann auf **OK**.
-6. In der **Berechtigungen für *** [Ordnername]*(Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die **lesen &amp; ausführen**, **Ordnerinhalt auflisten**, und **Lesen** Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf **OK**.
-7. Klicken Sie auf **OK** schließen die *[Ordnername] *** Eigenschaften** (Dialogfeld).
+6. In der <strong>Berechtigungen für</strong><em>[Ordnername]</em>(Dialogfeld), beachten Sie, die die neue Gruppe zugewiesen wurden die <strong>lesen &amp; ausführen</strong>, <strong>Ordner auflisten Inhalt</strong>, und <strong>lesen</strong> Berechtigungen standardmäßig. Lassen Sie Sie unverändert, und klicken Sie auf <strong>OK</strong>.
+7. Klicken Sie auf <strong>OK</strong> schließen die <em>[Ordnername]</em><strong>Eigenschaften</strong> (Dialogfeld).
 
 Eine letzte Aufgabe bevor Sie versuchen, alle Webpakete auf Ihrem Server bereitstellen sollten Sie sicherstellen, dass der Webbereitstellungs-Agent-Dienst ausgeführt wird. Wenn Sie ein Paket von einem Remotecomputer bereitstellen, ist der Webbereitstellungs-Agent-Dienst zum Extrahieren und installieren den Inhalt des Pakets verantwortlich. Der Dienst wird standardmäßig gestartet, wenn Sie das Webbereitstellungstool installieren und unter der Identität Network Service ausgeführt wird.
 
@@ -217,7 +217,7 @@ Sie können überprüfen, ob ein Dienst ausgeführt wird, mehrere verschiedene M
 
 Standardmäßig lauscht der Remote-Agent-Dienst auf TCP-Port 80, unter der folgenden URL:
 
-http:// [*Servernamen*] / MSDEPLOYAGENTSERVICE
+http:// [<em>Servernamen</em>] / MSDEPLOYAGENTSERVICE
 
 In den meisten Fällen müssen Sie wird keine zusätzlichen Firewall-Regeln für den Remote-Agent-Dienst konfiguriert werden, da Webserver in der Regel für HTTP-Anforderungen an Port 80 lauscht. Wenn Sie die Installation für einen nicht standardmäßigen Port Lauschen angepasst haben, müssen Sie Firewallausnahmen nach Bedarf konfiguriert werden.
 
@@ -233,6 +233,6 @@ An diesem Punkt ist Ihrem Webserver zu akzeptieren und installieren Webpakete vo
 
 Anleitungen zum Konfigurieren von benutzerdefinierter Microsoft Build Engine (MSBuild)-Projektdateien zum Bereitstellen von Webpaketen an den Remote-Agent-Dienst finden Sie unter [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Zurück](scenario-configuring-a-production-environment-for-web-deployment.md)
-[Weiter](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [Zurück](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [Weiter](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

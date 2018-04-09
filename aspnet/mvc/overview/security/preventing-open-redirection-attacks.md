@@ -2,7 +2,7 @@
 uid: mvc/overview/security/preventing-open-redirection-attacks
 title: Verhindern von Angriffen von Open Umleitung (c#) | Microsoft Docs
 author: jongalloway
-description: "In diesem Lernprogramm wird erläutert, wie Sie in Ihrer ASP.NET MVC-Anwendung öffnen Umleitung Angriffe verhindern können. In diesem Lernprogramm wird erläutert, die Änderungen, die vorgenommen wurden..."
+description: In diesem Lernprogramm wird erläutert, wie Sie in Ihrer ASP.NET MVC-Anwendung öffnen Umleitung Angriffe verhindern können. In diesem Lernprogramm wird erläutert, die Änderungen, die vorgenommen wurden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Verhindern von Angriffen von Open Umleitung (c#)
 ====================
@@ -39,7 +39,7 @@ Im folgenden Screenshot sehen wir, dass eine Umleitung Versuch, den Zugriff auf 
 
 **Abbildung 01**: Anmeldeseite mit einem geöffneten Umleitung
 
-Da ReturnUrl Querystring-Parameter nicht überprüft wird, kann ein Angreifer, um eine beliebige URL-Adresse in der Parameter für die Durchführung ein Angriffs öffnen Umleitung einfügen ändern. Um dies zu demonstrieren, können wir den ReturnUrl-Parameter, um ändern [http://bing.com](http://bing.com), sodass die resultierenden Anmelde-URL/Account/LogOn? ReturnUrl = http://www.bing.com/. Nach der Anmeldung wurde erfolgreich an den Standort, werden wir umgeleitet [http://bing.com](http://bing.com). Da diese Umleitung nicht überprüft wird, konnte er stattdessen auf eine bösartige Website verweisen, die versucht, den Benutzer zu bringen.
+Da ReturnUrl Querystring-Parameter nicht überprüft wird, kann ein Angreifer, um eine beliebige URL-Adresse in der Parameter für die Durchführung ein Angriffs öffnen Umleitung einfügen ändern. Um dies zu demonstrieren, können wir den ReturnUrl-Parameter, um ändern [ http://bing.com ](http://bing.com), damit die resultierende Anmelde-URL/Account/LogOn werden? ReturnUrl =<http://www.bing.com/>. Nach der Anmeldung wurde erfolgreich an den Standort, werden wir umgeleitet [ http://bing.com ](http://bing.com). Da diese Umleitung nicht überprüft wird, konnte er stattdessen auf eine bösartige Website verweisen, die versucht, den Benutzer zu bringen.
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Eine komplexere öffnen Umleitung-Angriff
 
@@ -55,7 +55,7 @@ Beachten Sie, dass die Rückgabe-URL verweist auf nerddiner.com, der eine "n" fe
 
 **Abbildung 02**: NerdDinner-Anmeldeseite mit einem geöffneten Umleitung
 
-Wenn es sich ordnungsgemäß anmelden, leitet der ASP.NET MVC-AccountController Anmeldung Aktion uns an die URL, die in der ReturnUrl Querystring-Parameter angegeben. In diesem Fall entspricht Sie der URL, mit denen der Angreifer hat, also [http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn). Wenn wir äußerst weiter sind, es ist sehr wahrscheinlich, dass wir hierzu bemerken, vor allem, da Sie vorsichtig, um sicherzustellen, dass der Angreifer wurde sieht ihre gefälschte Seite genau der legitime Anmeldeseite. Diese Anmeldeseite enthält Fehler anfordern, dass wir erneut anmelden. Grammatik einer us, haben wir müssen das Kennwort falsch eingegeben.
+Wenn es sich ordnungsgemäß anmelden, leitet der ASP.NET MVC-AccountController Anmeldung Aktion uns an die URL, die in der ReturnUrl Querystring-Parameter angegeben. In diesem Fall entspricht Sie der URL, mit denen der Angreifer hat, also [ http://nerddiner.com/Account/LogOn ](http://nerddiner.com/Account/LogOn). Wenn wir äußerst weiter sind, es ist sehr wahrscheinlich, dass wir hierzu bemerken, vor allem, da Sie vorsichtig, um sicherzustellen, dass der Angreifer wurde sieht ihre gefälschte Seite genau der legitime Anmeldeseite. Diese Anmeldeseite enthält Fehler anfordern, dass wir erneut anmelden. Grammatik einer us, haben wir müssen das Kennwort falsch eingegeben.
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
@@ -67,13 +67,13 @@ Wenn wir unsere Benutzernamen und das Kennwort erneut ein, wird die gefälschten
 
 Der Code für die Anmeldung Aktion in einer ASP.NET MVC 2-Anwendung wird unten gezeigt. Beachten Sie, dass nach einer erfolgreichen Anmeldung der Controller eine Umleitung an den ReturnUrl aus zurückgibt. Sie können sehen, dass keine Validierung wird anhand der ReturnUrl Parameter ausgeführt wird.
 
-**Auflisten von 1 – ASP.NET MVC 2-Anmeldung in Aktion`AccountController.cs`**
+**Auflisten von 1 – ASP.NET MVC 2-Anmeldung in Aktion `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
 Jetzt sehen wir uns die Änderungen an der Anmeldung für ASP.NET MVC 3-Aktion. Dieser Code wurde geändert, um der ReturnUrl-Parameter zu überprüfen, indem Sie eine neue Methode aufrufen, in der System.Web.Mvc.Url Hilfsklasse, die mit dem Namen `IsLocalUrl()`.
 
-**Auflisten von 2 – ASP.NET MVC 3-Anmeldung in Aktion`AccountController.cs`**
+**Auflisten von 2 – ASP.NET MVC 3-Anmeldung in Aktion `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
@@ -85,7 +85,7 @@ Wir können die ASP.NET MVC 3-Änderungen in unseren vorhandenen ASP.NET MVC 1,0
 
 Die UrlHelper IsLocalUrl()-Methode, die tatsächlich nur Aufrufe in einer Methode in System.Web.WebPages, als diese Überprüfung wird auch von ASP.NET Web Pages-Anwendungen verwendet werden.
 
-**3 – der IsLocalUrl()-Methode aus der ASP.NET MVC 3-UrlHelper auflisten`class`**
+**3 – der IsLocalUrl()-Methode aus der ASP.NET MVC 3-UrlHelper auflisten `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
@@ -107,7 +107,7 @@ Nun, dass die Methode IsLocalUrl() vorhanden ist, können wir über unser Anmeld
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Wir können jetzt Angriff öffnen Umleitung testen, indem versucht wird, melden Sie sich mit einem externen Rückgabe-URL. Let's use /Account/LogOn?ReturnUrl=http://www.bing.com/ again.
+Wir können jetzt Angriff öffnen Umleitung testen, indem versucht wird, melden Sie sich mit einem externen Rückgabe-URL. Ermöglicht die Verwendung /Account/LogOn? ReturnUrl =<http://www.bing.com/> erneut aus.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

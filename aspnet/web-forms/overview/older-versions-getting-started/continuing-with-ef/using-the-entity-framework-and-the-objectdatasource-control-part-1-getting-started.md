@@ -12,19 +12,19 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6584767418c898913777b3b1549a816679c8430d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 1: Erste Schritte
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework 4.0](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird.
 > 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. Es umfasst Funktionen wie Student Zulassung, Kurs Erstellung und Instructor-Zuweisungen.
+> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET Web Forms-Anwendungen, die mit dem Entity Framework 4.0 und Visual Studio 2010. Die beispielanwendung ist eine Website für eine fiktive Contoso-Universität. Sie enthält Funktionen wie die Zulassung von Studenten, die Erstellung von Kursen und Aufgaben von Dozenten.
 > 
 > Im Lernprogramm werden Beispiele für in c#. Die [herunterladbaren Beispiel](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) enthält Code in c# und Visual Basic.
 > 
@@ -134,7 +134,7 @@ Klicken Sie auf **Fertig stellen**.
 
 Im Designer angezeigt, dass das Tool erstellt eine `vInstructorName` Entität und eine neue Zuordnung zwischen der `Department` und `Person` Entitäten.
 
-[![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image19.png)
+[![image13](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image19.png)
 
 > [!NOTE]
 > In der **Ausgabe** und **Fehlerliste** Windows möglicherweise eine Warnung darüber informiert, dass das Tool automatisch, einen primären erstellt Schlüssel für die neue `vInstructorName` anzeigen. Dabei handelt es sich um ein erwartetes Verhalten.
@@ -144,11 +144,11 @@ Bei Verweisen auf die neue `vInstructorName` Entität im Code, nicht die Datenba
 
 Öffnen der **Model-Browser**. Sie finden Sie unter `vInstructorName` als Entitätstyp und einer Ansicht aufgeführt.
 
-[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image21.png)
+[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image21.png)
 
 Klicken Sie unter **SchoolModel** (nicht **SchoolModel.Store**), mit der rechten Maustaste **vInstructorName** , und wählen Sie **Eigenschaften**. In der **Eigenschaften** Ändern der **Namen** -Eigenschaft auf "InstructorName", und Ändern der **Entitätsname festgelegt** -Eigenschaft auf "InstructorNames".
 
-[![Image15](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image24.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image23.png)
+[![image15](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image24.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image23.png)
 
 Speichern und schließen Sie das Datenmodell, und klicken Sie dann das Projekt neu.
 
@@ -252,7 +252,7 @@ Geben Sie Werte für eine andere neue Abteilung ein. Geben Sie eine Zahl größe
 
 Klicken Sie auf **einfügen**, und Sie sehen die Fehlermeldung angezeigt, indem die `ValidationSummary` Steuerelement am unteren Rand der Seite.
 
-[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image32.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image31.png)
+[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image32.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image31.png)
 
 Als Nächstes den Browser schließen und öffnen Sie die *Departments.aspx* Seite. Delete-Funktion zum Hinzufügen der *Departments.aspx* Seite durch Hinzufügen einer `DeleteMethod` -Attribut auf die `ObjectDataSource` -Steuerelement, und ein `DataKeyNames` -Attribut auf die `GridView` Steuerelement. Die öffnenden Tags für diese Steuerelemente werden jetzt im folgende Beispiel ähneln:
 
@@ -311,10 +311,10 @@ Der Handler für das `Init` Ereignis speichert einen Verweis auf die `DropDownLi
 Verwenden der *DepartmentsAdd.aspx* Seite, um eine neue Abteilung hinzuzufügen, und führen Sie die *Departments.aspx* Seite, und klicken Sie auf **bearbeiten** auf die Zeile, die Sie hinzugefügt haben.
 
 > [!NOTE]
-> Sie werden nicht in der Lage, Bearbeiten von Zeilen, die Sie nicht hinzugefügt haben (d. h., die bereits in der Datenbank wurden), aufgrund ungültiger Daten in der Datenbank; die Administratoren für die Zeilen, die mit der Datenbank erstellt wurden, sind Studenten. Wenn Sie versuchen, eine davon zu bearbeiten, erhalten eine Fehlerseite Sie, die einen Fehler wie meldet`'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> Sie werden nicht in der Lage, Bearbeiten von Zeilen, die Sie nicht hinzugefügt haben (d. h., die bereits in der Datenbank wurden), aufgrund ungültiger Daten in der Datenbank; die Administratoren für die Zeilen, die mit der Datenbank erstellt wurden, sind Studenten. Wenn Sie versuchen, eine davon zu bearbeiten, erhalten eine Fehlerseite Sie, die einen Fehler wie meldet `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 
-[![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
+[![image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 
 Bei der Eingabe eines ungültiges **Budget** Betrag, und klicken Sie dann auf **Update**, sehen die gleichen Sternchen und eine Fehlermeldung angezeigt, die Sie in gesehen haben die *Departments.aspx* Seite.
 
@@ -324,5 +324,5 @@ Bei der Eingabe eines ungültiges **Budget** Betrag, und klicken Sie dann auf **
 
 Dies schließt die Einführung in die Verwendung der `ObjectDataSource` -Steuerelement für grundlegende CRUD (erstellen, lesen, aktualisieren und löschen) Vorgänge mit dem Entity Framework. Sie haben eine einfache n-Tier-Anwendung erstellt, aber die Geschäftslogik Ebene ist immer noch eng verbunden, der Datenzugriffs--Ebene, die automatisierte Komponententests etwas komplizierter macht. Im folgenden Lernprogramm sehen Sie zum Implementieren des Repositorymusters, um Komponententests zu ermöglichen.
 
->[!div class="step-by-step"]
-[Nächste](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [!div class="step-by-step"]
+> [Nächste](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

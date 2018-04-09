@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 title: Bereitstellen von Webanwendungen in Enterprise-Szenarios, die mit Visual Studio 2010 | Microsoft Docs
 author: jrjlee
-description: "Diese Reihe von Lernprogrammen beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie optimal nutzen..."
+description: Diese Reihe von Lernprogrammen beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie optimal nutzen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 99bab371dd34b30f3554843e49bbec7f57c3f96c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Bereitstellen von Webanwendungen in Enterprise-Szenarios, die mit Visual Studio 2010
 ====================
@@ -36,7 +36,7 @@ durch [Jason Lee](https://github.com/jrjlee)
 > > Während diese Lernprogramme für die Verwendung von TFS als CI-Server die Beschreibung ist die Anweisungen auf den CI leicht angepasst. Ein fundiertes Wissen TFS zu verstehen und nutzen die Lernprogramme erforderlich nicht.
 > 
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="about-the-authors"></a>Über die Autoren
@@ -58,7 +58,7 @@ Die exemplarischen Vorgehensweisen, und führen Sie die Aufgaben, die diese Lern
 - .NET Framework 3.5 mit Servicepack 1
 - ASP.NET MVC 3.0
 - IIS 7.5 Express
-- SQLServer Express 2008 R2
+- SQL Server Express 2008 R2
 
 Um die in diesen exemplarischen Vorgehensweisen beschriebenen Schritte zur Bereitstellung auszuführen, müssen Sie zum Beispiel Web Application-bereitstellungsumgebungen zugreifen. Optimale Ergebnisse zu erzielen sollte diese Umgebungen Bereitstellungsmuster für Ihre Organisation Unternehmen entsprechen. Sie können dann die exemplarischen Vorgehensweisen in dieser Dokumentation die bereitstellungsumgebungen und die Anforderungen Ihrer Organisation entsprechend ändern.
 
@@ -80,5 +80,5 @@ Die Serie umfasst vier Tutorial Sätze. Jede konzentriert sich auf verschiedene 
 
 Diese Reihe von Lernprogrammen verwendet eine beispiellösung mit einer realistischen Maß an Komplexität, zusammen mit einem fiktiven Unternehmen-Bereitstellungsszenario, um eine referenzimplementierung bereitzustellen und um die Aufgaben und exemplarische Vorgehensweisen für einen allgemeinen Kontext zu gewähren. Im nächsten Thema [Web Unternehmensbereitstellung: Szenarioübersicht](enterprise-web-deployment-scenario-overview.md), werden das Szenario und der Beispielprojektmappe eingeführt. Von dort aus können Sie arbeiten über den Lernprogrammen und Themen, die Ihren Anforderungen am ehesten entsprechen.
 
->[!div class="step-by-step"]
-[Nächste](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Nächste](enterprise-web-deployment-scenario-overview.md)

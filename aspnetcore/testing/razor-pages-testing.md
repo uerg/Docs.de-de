@@ -1,7 +1,7 @@
 ---
-title: "Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core"
+title: Razor-Seiten Einheit und Integration Tests in ASP.NET Core
 author: guardrex
-description: "Erfahren Sie, wie Komponententests und die Integration von Tests für Razor-Seiten-apps erstellen."
+description: Erfahren Sie, wie Komponententests und die Integration von Tests für Razor-Seiten-apps erstellen.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Einheit für Razor-Seiten und Integrationstests zu legen, die in ASP.NET Core
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>Razor-Seiten Einheit und Integration Tests in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
@@ -59,9 +59,9 @@ Die Nachrichten-app ist ein einfaches Razor-Seiten Nachrichtensystem, das mit de
 * Die app enthält einen Datenzugriffsebene (DAL) in seiner Datenbank Context-Klasse `AppDbContext` (*Data/AppDbContext.cs*). Die DAL-Methoden werden markiert `virtual`, dadurch wird die Methoden für die Verwendung in den Tests imitieren.
 * Wenn die Datenbank auf app-Starts leer ist, wird der Nachrichtenspeicher mit drei Nachrichten initialisiert. Diese *Seeding Nachrichten* werden auch in Tests verwendet.
 
-&#8224;Das Thema EF [Testen mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank, die für Tests mit MSTest verwendet. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Testen Konzepte und Test-Implementierungen in anderen Testframeworks sind ähnlich, aber nicht identisch.
+&#8224;Das Thema EF [Test mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank, die für Tests mit MSTest verwendet. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Testen Konzepte und Test-Implementierungen in anderen Testframeworks sind ähnlich, aber nicht identisch.
 
-Auch wenn die app nicht verwendet die [Repositorymusters](http://martinfowler.com/eaaCatalog/repository.html) ist ein Beispiel für effektive nicht die [Arbeitseinheit (UoW) Muster](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor-Seiten unterstützt diese Muster der Entwicklung. Weitere Informationen finden Sie unter [Entwerfen der Infrastruktur Persistenzebene](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementieren das Repository und die Einheit der Arbeit Muster in einer ASP.NET MVC-Anwendung](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), und [testen Controllerlogik](/aspnet/core/mvc/controllers/testing) (im Beispiel wird das Repositorymuster implementiert).
+Auch wenn die app nicht verwendet die [Repositorymusters](http://martinfowler.com/eaaCatalog/repository.html) ist ein Beispiel für effektive nicht die [Arbeitseinheit (UoW) Muster](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor-Seiten unterstützt diese Muster der Entwicklung. Weitere Informationen finden Sie unter [Entwerfen der Infrastruktur Persistenzebene](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementieren das Repository und die Einheit der Arbeit Muster in einer ASP.NET MVC-Anwendung](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), und [Testcontroller Logik](/aspnet/core/mvc/controllers/testing) (im Beispiel wird das Repositorymuster implementiert).
 
 ## <a name="test-app-organization"></a>Testen von app-Organisation
 

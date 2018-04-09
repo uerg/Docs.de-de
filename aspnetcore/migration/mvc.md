@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
+# <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), und [Scott Addie](https://scottaddie.com)
 
@@ -48,7 +48,7 @@ Erstellen Sie ein neues *leere* ASP.NET Core Web-app mit dem gleichen Namen wie 
 
 * Installieren der `Microsoft.AspNetCore.Mvc` und `Microsoft.AspNetCore.StaticFiles` NuGet-Pakete.
 
-  `Microsoft.AspNetCore.Mvc` ist das ASP.NET-MVC-Framework Core. `Microsoft.AspNetCore.StaticFiles` ist der Handler für statische Dateien. Die ASP.NET-Laufzeit ist modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen (finden Sie unter [arbeiten mit statischen Dateien](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` ist das ASP.NET-MVC-Framework Core. `Microsoft.AspNetCore.StaticFiles` ist der Handler für statische Dateien. Die ASP.NET-Laufzeit ist modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen (finden Sie unter [zusammenarbeiten, um statische Dateien](../fundamentals/static-files.md)).
 
 * Öffnen der *csproj* Datei (mit der rechten Maustaste des Projekts im **Projektmappen-Explorer** , und wählen Sie **bearbeiten WebApp1.csproj**) und fügen eine `PrepareForPublish` Ziel:
 
@@ -220,7 +220,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Finden Sie unter **Developer Ausnahme auf der Dienstkontoseite** in [Fehlerbehandlung](../fundamentals/error-handling.md) für Weitere Informationen.
+Finden Sie unter **Developer Ausnahme auf der Dienstkontoseite** in [Fehler behandeln](../fundamentals/error-handling.md) für Weitere Informationen.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

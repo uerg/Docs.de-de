@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 title: Neuigkeiten in Web Forms in ASP.NET 4.5 | Microsoft Docs
 author: rick-anderson
-description: "Die neue Version der ASP.NET Web Forms stellt eine Reihe von Verbesserungen konzentriert sich auf die benutzererfahrung verbessern, bei der Arbeit mit Daten. In früheren Versionen von..."
+description: Die neue Version der ASP.NET Web Forms stellt eine Reihe von Verbesserungen konzentriert sich auf die benutzererfahrung verbessern, bei der Arbeit mit Daten. In früheren Versionen von...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Was ist neu in WebForms in ASP.NET 4.5
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 > Die neue Version der ASP.NET Web Forms stellt eine Reihe von Verbesserungen konzentriert sich auf die benutzererfahrung verbessern, bei der Arbeit mit Daten.
 > 
@@ -42,7 +42,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > In der offiziellen ASP.NET-Portal finden Sie weitere Beispiele für die neuen Funktionen in ASP.NET Web Forms 4.5: [Neuigkeiten in ASP.NET 4.5 und Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ In dieser Aufgabe werden neue stark typisierte Bindungen in ASP.NET 4.5 verfügb
 
 1. Öffnen der **beginnen** Lösung finden Sie unter **Quell-/Ex1-ModelBinding/Begin/** Ordner.
 
-    1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Öffnen der **Customers.aspx** Seite. Platzieren Sie eine nicht nummerierte Liste im Haupt-Steuerelement, und enthalten Sie einen Repeater innerhalb für jeden Kunden auflisten. Legen Sie den Namen des wiederholungsmoduls auf **CustomersRepeater** wie im folgenden Code gezeigt.
 
     In früheren Versionen von Web Forms Wenn die Datenbindung verwenden, zum Ausgeben von des Wert eines Elements in einem Objekt du Datenbindung, würden Sie einen Datenbindungsausdruck zusammen mit einem Aufruf der Eval-Methode übergeben den Namen der Member verwenden, als Zeichenfolge.
@@ -212,7 +212,7 @@ Wurden die modellbindung nicht nur ermöglicht es Ihnen, benutzerdefinierte Meth
 - Steuerelemente auf der Seite "
 - Abfragezeichenfolgen-Werte
 - Anzeigen von Daten
-- Sitzungsstatus
+- Sitzungszustand
 - Cookies
 - Gesendete Formulardaten.
 - Ansichtszustand
@@ -341,12 +341,12 @@ Aktivieren Sie in diesem Abschnitt unaufdringlichen Validierung in ASP.NET, die 
 
 1. Öffnen Sie **Visual Studio 2012** , und öffnen Sie die **beginnen** Projektmappe befindet sich in der **Source\Ex2 Validation\Begin** Ordner dieser Anleitung. Alternativ können Sie Ihre Arbeit auf Ihre vorhandene Lösung aus der vorherigen Übung fortsetzen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie dazu im Projektmappen-Explorer klicken Sie auf die **WebFormsLab** Projekt **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie dazu im Projektmappen-Explorer klicken Sie auf die **WebFormsLab** Projekt **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Drücken Sie **F5** zum Starten der Webanwendung. Wechseln Sie zu den Kunden Seite, und klicken Sie auf die **fügen Sie einen neuen Kunden** Link.
 3. Mit der rechten Maustaste auf die Seite "Browser", und wählen Sie **Quelltext anzeigen** Option, um die von der Anwendung generierten HTML-Code zu öffnen.
 
@@ -535,12 +535,12 @@ In dieser Aufgabe aktualisieren Sie die Produktseite für die Details zum zulass
 
 1. Open **Visual Studio 2012** und laden die **beginnen** Projektmappe befindet sich im **Source\Ex3 Async\Begin** aus dieser Übungseinheit-Ordner. Alternativ können Sie auf Ihre vorhandene Lösung aus den früheren Übungen Ihre Arbeit fortsetzen.
 
-    1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie dazu im Projektmappen-Explorer klicken Sie auf die **WebFormsLab** Projekt, und wählen Sie **NuGet-Pakete verwalten**.
-    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-    3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie dazu im Projektmappen-Explorer klicken Sie auf die **WebFormsLab** Projekt, und wählen Sie **NuGet-Pakete verwalten**.
+   2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
+   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
-    > [!NOTE]
-    > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > [!NOTE]
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Öffnen der **ProductDetails.aspx** Seite Datenquelle und Hinzufügen eines Felds in die FormView ItemTemplate zum Anzeigen des Bilds Produkt.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ In dieser Aufgabe aktualisieren Sie die Produktseite für die Details zum zulass
     (Codeausschnitt - *Web Forms Lab - Ex03 - UpdateProductImage Aufruf*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Führen Sie die Anwendung, und versuchen Sie, ein Bild für ein Produkt hochladen. Sie können z. B. die folgenden Bild-URL aus Office Clip Arts: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Führen Sie die Anwendung, und versuchen Sie, ein Bild für ein Produkt hochladen. Beispielsweise können Sie die folgenden Bild-URL aus Office Clip Arts: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Festlegen eines Bilds für ein Produkt](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "Festlegen eines Bilds für ein Produkt")
 
@@ -580,7 +580,9 @@ Zeitaufwändige Operationen auf der Website sind gute Kandidaten für die asynch
 1. Öffnen der **ProductDetails.aspx** Seite. Hinzufügen der **Async** Attribut in der **Seite** Element, und legen Sie es auf **"true"**. Dieses Attribut weist ASP.NET für die-Schnittstelle implementiert.
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. Fügen Sie eine Bezeichnung am unteren Rand der Seite, um die Details der Threads mit der Seite angezeigt.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -636,9 +638,9 @@ In dieser praktischen Übungseinheit haben die folgenden Konzepte behandelt vera
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für das Web
 
-Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
+Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
 
-1. Wechseln Sie zu [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; *Visual Studio Express 2012 für das Web mit Azure SDK*&quot;.
+1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Azure SDK</em>&quot;.
 2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 
@@ -782,14 +784,14 @@ Wenn die Anwendung durchführt, verwenden Sie SQL Server Datenbanken Sie einen S
     *Web deploy-Konfiguration*
 5. Konfigurieren Sie die Verbindung mit der Datenbank wie folgt:
 
-    - In der **Servernamen** Geben Sie Ihre SQL-Datenbank Server-URL unter Verwendung der *Tcp:* Präfix.
-    - In **Benutzername** Geben Sie Ihre Administrator Serveranmeldenamen an.
-    - In **Kennwort** Geben Sie Ihre Server-Administratorkennwort.
-    - Geben Sie einen neuen Datenbanknamen ein.
+   - In der **Servernamen** Geben Sie Ihre SQL-Datenbank Server-URL unter Verwendung der *Tcp:* Präfix.
+   - In **Benutzername** Geben Sie Ihre Administrator Serveranmeldenamen an.
+   - In **Kennwort** Geben Sie Ihre Server-Administratorkennwort.
+   - Geben Sie einen neuen Datenbanknamen ein.
 
-    ![Konfigurieren von Zielverbindungszeichenfolge](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Zielverbindungszeichenfolge konfigurieren")
+     ![Konfigurieren von Zielverbindungszeichenfolge](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Zielverbindungszeichenfolge konfigurieren")
 
-    *Konfigurieren von Ziel-Verbindungszeichenfolge*
+     *Konfigurieren von Ziel-Verbindungszeichenfolge*
 6. Klicken Sie dann auf **OK**. Bei der Aufforderung zum Erstellen des Datenbank auf **Ja**.
 
     ![Erstellen der Datenbank](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "erstellen die Datenbank-Zeichenfolge")

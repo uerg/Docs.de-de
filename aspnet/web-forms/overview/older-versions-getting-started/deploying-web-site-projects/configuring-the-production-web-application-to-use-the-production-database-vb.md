@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 title: Konfigurieren der Produktions-Webanwendung mithilfe die Produktionsdatenbank (VB) | Microsoft Docs
 author: rick-anderson
-description: "Wie in früheren Lernprogrammen erläutert wird, ist es nicht ungewöhnlich, dass Informationen zu den Entwicklungs- und produktionsumgebungen Umgebungen unterscheiden. Dies ist es..."
+description: Wie in früheren Lernprogrammen erläutert wird, ist es nicht ungewöhnlich, dass Informationen zu den Entwicklungs- und produktionsumgebungen Umgebungen unterscheiden. Dies ist es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b1741807fe02b4e60db7098cfd46922d3ba50ccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Konfigurieren der Produktions-Webanwendung mithilfe die Produktionsdatenbank (VB)
 ====================
@@ -71,7 +71,7 @@ Geben Sie anschließend die verschiedenen Datenbank-Verbindungsinformationen (si
 
 Die Umgebung Produktionsdatenbank sollte jetzt im Server-Explorer aufgeführt. Wählen Sie die Datenbank im Server-Explorer, und wechseln Sie zum Fenster Eigenschaften. Dort finden Sie eine Eigenschaft mit dem Namen Verbindungszeichenfolge mit der Datenbank-s-Verbindungszeichenfolge. Vorausgesetzt, dass Sie eine Microsoft SQL Server-Datenbank auf Produktions- und dem SqlClient-Anbieter verwenden, sollte Ihre Verbindungszeichenfolge ähnlich der folgenden aussehen:
 
-**Datenquelle =*ServerName*; Initial Catalog =*DatabaseName*; Persist Security Info = True; Benutzer-ID =*Benutzername*; Kennwort = * Kennwort***
+<strong>Datenquelle =<em>ServerName</em>; Initial Catalog =<em>DatabaseName</em>; Persist Security Info = True; Benutzer-ID =<em>Benutzername</em>; Kennwort =*Kennwort</strong>*
 
 Wobei *ServerName*, *DatabaseName*, *Benutzername*, und *Kennwort* sind mit den Werten für den Datenbank-Servernamen der Datenbank Namen und den Benutzernamen und Kennwort, die Ihnen von Ihrem Web Host Unternehmen bereitgestellt.
 
@@ -152,6 +152,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Verschieben Sie die Datei "Web.config" mit Standardeinstellungen](http://www.asp101.com/tips/index.asp?id=154)
 - [Technische Dokumentation für die &lt;ConnectionStrings&gt; Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[Zurück](deploying-a-database-vb.md)
-[Weiter](configuring-a-website-that-uses-application-services-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-a-database-vb.md)
+> [Weiter](configuring-a-website-that-uses-application-services-vb.md)

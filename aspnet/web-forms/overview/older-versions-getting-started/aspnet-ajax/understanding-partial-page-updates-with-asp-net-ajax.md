@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 title: Grundlegendes zu Teilseite mit ASP.NET-AJAX aktualisiert | Microsoft Docs
 author: scottcate
-description: "Die sichtbarste-Funktion von ASP.NET AJAX-Erweiterungen wird eventuell die Möglichkeit, eine Seite teilweise oder inkrementelle Updates ausführen, ohne dass auf diese Weise eines komplettes Postbacks zum t..."
+description: Die sichtbarste-Funktion von ASP.NET AJAX-Erweiterungen wird eventuell die Möglichkeit, eine Seite teilweise oder inkrementelle Updates ausführen, ohne dass auf diese Weise eines komplettes Postbacks zum t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 1d8d3009df0a264e466d3f7decfb65978d8ae7a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 91a98bf1c9a71ae84c569f7ae40930422cb652e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Grundlegendes zu Teilseite aktualisiert mit ASP.NET-AJAX
 ====================
@@ -52,9 +52,9 @@ Die Möglichkeit, Integrieren von Teilrendering von Seiten ist mit minimalen Än
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Exemplarische Vorgehensweise: Teilweises Rendern in ein vorhandenes Projekt integrieren
 
 
-1. Erstellen Sie ein neues ASP.NET-Websiteprojekt in Microsoft Visual Studio 2008, navigieren Sie zu *Datei*  *- &gt; neu*  *- &gt; Website* , und wählen im Dialogfeld ASP.NET-Website. Name kann sich auf einen beliebigen Namen, und kann entweder im Dateisystem oder in Internet Information Services (IIS) installieren.
+1. Erstellen Sie ein neues ASP.NET-Websiteprojekt in Microsoft Visual Studio 2008, navigieren Sie zu <em>Datei</em>  <em>- &gt; neu</em>  <em>- &gt; Website</em> , und wählen im Dialogfeld ASP.NET-Website. Name kann sich auf einen beliebigen Namen, und kann entweder im Dateisystem oder in Internet Information Services (IIS) installieren.
 2. Es wird mit der leeren Standardseite mit grundlegenden ASP.NET-Markup angezeigt werden (ein Formular für die serverseitige und ein `@Page` Richtlinie). Löschen Sie eine Bezeichnung namens `Label1` und eine Schaltfläche namens `Button1` auf die Seite in Form-Elements. Sie können deren Texteigenschaften auf einen beliebigen Namen festlegen.
-3. Doppelklicken Sie in der Entwurfsansicht auf `Button1` um einen Code-Behind-Ereignishandler zu generieren. Legen Sie innerhalb dieser Ereignishandler `Label1.Text` auf die Schaltfläche geklickt haben! .
+3. Doppelklicken Sie in der Entwurfsansicht auf `Button1` um einen Code-Behind-Ereignishandler zu generieren. Legen Sie innerhalb dieser Ereignishandler `Label1.Text` auf die Schaltfläche geklickt haben! sein.
 
 **Auflisten von 1: Markup für "default.aspx", bevor das Teilrendering aktiviert ist**
 
@@ -73,11 +73,11 @@ Die Möglichkeit, Integrieren von Teilrendering von Seiten ist mit minimalen Än
 ([Klicken Sie hier, um das Bild in voller Größe angezeigt](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
 
 
-1. *Bekanntes Problem:*bei der Installation von Visual Studio 2008 auf einem Computer, die bereits Visual Studio 2005 mit ASP.NET 2.0 AJAX-Erweiterungen installiert wurde, wird Visual Studio 2008 Toolboxelemente AJAX-Erweiterungen importiert. Sie können bestimmen, ob dies der Fall ist, mithilfe der QuickInfo der Komponenten; Sie sollten Version 3.5.0.0 angenommen. Wenn sie z. Version 2.0.0.0 b. dann Ihre alten Toolboxelemente importiert haben, und müssen manuell mit das Dialogfeld "Toolboxelemente auswählen" in Visual Studio importieren. Sie werden zum Hinzufügen von Version 2-Steuerelementen über den Designer.
+1. <em>Bekanntes Problem:</em>bei der Installation von Visual Studio 2008 auf einem Computer, die bereits Visual Studio 2005 mit ASP.NET 2.0 AJAX-Erweiterungen installiert wurde, wird Visual Studio 2008 Toolboxelemente AJAX-Erweiterungen importiert. Sie können bestimmen, ob dies der Fall ist, mithilfe der QuickInfo der Komponenten; Sie sollten Version 3.5.0.0 angenommen. Wenn sie z. Version 2.0.0.0 b. dann Ihre alten Toolboxelemente importiert haben, und müssen manuell mit das Dialogfeld "Toolboxelemente auswählen" in Visual Studio importieren. Sie werden zum Hinzufügen von Version 2-Steuerelementen über den Designer.
 
-1. Bevor Sie die `<asp:Label>` Tag beginnt, erstellen Sie eine Zeile an Leerzeichen und doppelklicken Sie auf das UpdatePanel-Steuerelement in der Toolbox. Beachten Sie, dass ein neues `@Register` Richtlinie ist enthalten, am oberen Rand der Seite, gibt an, dass Steuerelemente innerhalb des System.Web.UI Namespaces importiert werden soll, mithilfe der `asp:` Präfix.
-2. Ziehen Sie das schließende `</asp:UpdatePanel>` kennzeichnen das Ende der Button-Element, sodass das Element mit der Bezeichnung und Schaltflächen-Steuerelementen, die umschlossen wohlgeformt ist.
-3. Nach der öffnenden `<asp:UpdatePanel>` zu kennzeichnen, öffnen ein neues Tag zu beginnen. Beachten Sie, dass IntelliSense Sie mit beiden Optionen dazu aufgefordert werden. In diesem Fall erstellen Sie eine `<ContentTemplate>` Tag. Achten Sie darauf, dass Sie dieses Tag, um die Bezeichnung und eine Schaltfläche zu umschließen, damit das Markup wohlgeformt ist.
+2. Bevor Sie die `<asp:Label>` Tag beginnt, erstellen Sie eine Zeile an Leerzeichen und doppelklicken Sie auf das UpdatePanel-Steuerelement in der Toolbox. Beachten Sie, dass ein neues `@Register` Richtlinie ist enthalten, am oberen Rand der Seite, gibt an, dass Steuerelemente innerhalb des System.Web.UI Namespaces importiert werden soll, mithilfe der `asp:` Präfix.
+3. Ziehen Sie das schließende `</asp:UpdatePanel>` kennzeichnen das Ende der Button-Element, sodass das Element mit der Bezeichnung und Schaltflächen-Steuerelementen, die umschlossen wohlgeformt ist.
+4. Nach der öffnenden `<asp:UpdatePanel>` zu kennzeichnen, öffnen ein neues Tag zu beginnen. Beachten Sie, dass IntelliSense Sie mit beiden Optionen dazu aufgefordert werden. In diesem Fall erstellen Sie eine `<ContentTemplate>` Tag. Achten Sie darauf, dass Sie dieses Tag, um die Bezeichnung und eine Schaltfläche zu umschließen, damit das Markup wohlgeformt ist.
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
@@ -114,32 +114,32 @@ Visual Studio 2008 wird nicht angezeigt, auf die im Lieferumfang einer vordefini
 
 Eigenschaften von Markup aktiviert:
 
-| **Eigenschaftenname** | **Typ** | **Beschreibung** |
+| **Eigenschaftenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
-| AllowCustomErrors-Umleitung | Bool | Gibt an, ob der benutzerdefinierte Fehlerabschnitt der Datei "Web.config" zu verwenden, um Fehler zu behandeln. |
-| AsyncPostBackError-Nachricht | Zeichenfolge | Ruft ab oder legt die Fehlermeldung an den Client gesendet werden, wenn ein Fehler ausgelöst wird. |
+| AllowCustomErrors-Redirect | Bool | Gibt an, ob der benutzerdefinierte Fehlerabschnitt der Datei "Web.config" zu verwenden, um Fehler zu behandeln. |
+| AsyncPostBackError-Message | Zeichenfolge | Ruft ab oder legt die Fehlermeldung an den Client gesendet werden, wenn ein Fehler ausgelöst wird. |
 | AsyncPostBack-Timeout | Int32 | Ruft ab oder legt die Standarddauer ein, die ein Client, für die asynchrone Anforderung warten soll abgeschlossen. |
-| EnableScript Globalisierung | Bool | Ruft ab oder legt fest, ob das Skript Globalisierung aktiviert ist. |
-| EnableScript Lokalisierung | Bool | Ruft ab oder legt fest, ob das Skript Lokalisierung aktiviert ist. |
+| EnableScript-Globalization | Bool | Ruft ab oder legt fest, ob das Skript Globalisierung aktiviert ist. |
+| EnableScript-Localization | Bool | Ruft ab oder legt fest, ob das Skript Lokalisierung aktiviert ist. |
 | ScriptLoadTimeout | Int32 | Bestimmt die Anzahl der Sekunden, die zum Laden von Skripts in den Client zulässig |
 | ScriptMode | Enum (Auto, Debuggen, freigeben, erben) | Ruft ab oder legt ihn fest, ob gerendert werden Releaseversionen von Skripts |
 | ScriptPath | Zeichenfolge | Ruft ab oder legt den Root-Pfad zum Speicherort der Skriptdateien, die an den Client gesendet werden. |
 
 Eigenschaften von reinen:
 
-| **Eigenschaftenname** | **Typ** | **Beschreibung** |
+| **Eigenschaftenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService-Manager | Ruft Details zu den ASP.NET-Authentifizierungsdienst-Proxy, der an den Client gesendet werden sollen. |
 | IsDebuggingEnabled | Bool | Ruft ab, ob Skripts und zu Codedebuggen ist aktiviert. |
 | IsInAsyncPostback | Bool | Ruft ab, ob die Seite derzeit in eine asynchrone Postback Anforderung ist. |
 | ProfileService | ProfileService-Manager | Ruft Details zu den ASP.NET-Dienst Profiling-Proxy, der an den Client gesendet werden sollen. |
-| Skripts | Auflistung&lt;Skriptverweis&gt; | Ruft eine Auflistung von Skriptverweisen, die an den Client gesendet werden sollen. |
+| Skripts | Collection&lt;Script-Reference&gt; | Ruft eine Auflistung von Skriptverweisen, die an den Client gesendet werden sollen. |
 | Dienste | Auflistung&lt;Dienstverweis&gt; | Ruft eine Auflistung von Web Service Proxyverweisen, die an den Client gesendet werden sollen. |
 | SupportsPartialRendering | Bool | Ruft ab, ob der aktuelle Client Teilrendering unterstützt. Wenn diese Eigenschaft gibt **"false"**, und klicken Sie dann alle Seitenanforderungen standard Postbacks werden. |
 
 Methoden in öffentlichen Code:
 
-| **Methodenname** | **Typ** | **Beschreibung** |
+| **Methodenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
 | SetFocus(string) | Void | Legt den Fokus des Clients zu einem bestimmten Steuerelement fest, wenn die Anforderung abgeschlossen wurde. |
 
@@ -150,9 +150,9 @@ Markup Nachfolger:
 | &lt;AuthenticationService&gt; | Enthält Details über den Proxy auf den Authentifizierungsdienst ASP.NET. |
 | &lt;ProfileService&gt; | Stellt Details über den Proxy an den Dienst für die ASP.NET-PROFILERSTELLUNG bereit. |
 | &lt;Skripts&gt; | Bietet zusätzliche Skriptverweise. |
-| &lt;ASP: ScriptReference&gt; | Gibt einen bestimmten Skriptverweis an. |
+| &lt;asp:ScriptReference&gt; | Gibt einen bestimmten Skriptverweis an. |
 | &lt;Dienst&gt; | Enthält zusätzliche Webdienst-Verweise die Proxyklassen generiert haben. |
-| &lt;ASP: ServiceReference&gt; | Gibt einen bestimmten Webdienst-Verweis an. |
+| &lt;asp:ServiceReference&gt; | Gibt einen bestimmten Webdienst-Verweis an. |
 
 Die ScriptManager-Steuerelement wird der grundlegende Kern des ASP.NET AJAX-Erweiterungen. Es ermöglicht den Zugriff auf den Skriptbibliothek (einschließlich das Typsystem umfangreiche clientseitigem Skript), unterstützt teilweises Rendern und bietet umfangreiche Unterstützung für zusätzliche ASP.NET-Dienste (z. B. Authentifizierung und die profilerstellung, sondern auch andere Webdienste). Die ScriptManager-Steuerelement bietet auch Unterstützung von Globalisierung und Lokalisierung für die Clientskripts.
 
@@ -188,7 +188,7 @@ Die ScriptManager-Steuerelement bietet umfangreiche Unterstützung für die Loka
 
 Eigenschaften von Markup aktiviert:
 
-| **Eigenschaftenname** | **Typ** | **Beschreibung** |
+| **Eigenschaftenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | Gibt an, ob die untergeordneten Steuerelemente automatisch aktualisieren beim Postback aufrufen. |
 | RenderMode | Enum ("blockieren", "Inline") | Gibt an, wie der Inhalt visuell angezeigt werden. |
@@ -196,7 +196,7 @@ Eigenschaften von Markup aktiviert:
 
 Eigenschaften von reinen:
 
-| **Eigenschaftenname** | **Typ** | **Beschreibung** |
+| **Eigenschaftenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | Ruft ab, ob die UpdatePanel Teilrendering für die aktuelle Anforderung unterstützt wird. |
 | ContentTemplate | ITemplate | Ruft das Markup-Vorlage für die updateanforderung ab. |
@@ -205,7 +205,7 @@ Eigenschaften von reinen:
 
 Methoden in öffentlichen Code:
 
-| **Methodenname** | **Typ** | **Beschreibung** |
+| **Methodenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
 | Update() | Void | Der angegebene UpdatePanel aktualisiert programmgesteuert. Ermöglicht es eine Anforderung einer teilweise Rendern von UpdatePanel andernfalls untriggered auslösen. |
 
@@ -214,9 +214,9 @@ Markup Nachfolger:
 | **Tag** | **Beschreibung** |
 | --- | --- |
 | &lt;ContentTemplate&gt; | Gibt das Markup zum Rendern verwendet werden, um das Teilrendering Ergebnis zu rendern. Untergeordnetes Element des &lt;Asp: UpdatePanel&gt;. |
-| &lt;Trigger&gt; | Gibt eine Auflistung von  *n*  Kontrollen hinsichtlich dieser UpdatePanel aktualisieren. Untergeordnetes Element des &lt;Asp: UpdatePanel&gt;. |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Gibt einen Trigger, der für den angegebenen UpdatePanel-Teilseite Rendern aufruft. Dies kann oder ein Steuerelement darf nicht als ein Nachfolger des fraglichen UpdatePanel sein. Genau ist, um den Namen des Ereignisses. Untergeordnetes Element des &lt;Trigger&gt;. |
-| &lt;ASP PostBackTrigger:&gt; | Gibt ein Steuerelement, das bewirkt, die gesamte Seite dass zu aktualisieren. Dies kann oder ein Steuerelement darf nicht als ein Nachfolger des fraglichen UpdatePanel sein. Genau ist, um das Objekt. Untergeordnetes Element des &lt;Trigger&gt;. |
+| &lt;Trigger&gt; | Gibt eine Auflistung von *n* Kontrollen hinsichtlich dieser UpdatePanel aktualisieren. Untergeordnetes Element des &lt;Asp: UpdatePanel&gt;. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Gibt einen Trigger, der für den angegebenen UpdatePanel-Teilseite Rendern aufruft. Dies kann oder ein Steuerelement darf nicht als ein Nachfolger des fraglichen UpdatePanel sein. Genau ist, um den Namen des Ereignisses. Untergeordnetes Element des &lt;Trigger&gt;. |
+| &lt;asp:PostBackTrigger&gt; | Gibt ein Steuerelement, das bewirkt, die gesamte Seite dass zu aktualisieren. Dies kann oder ein Steuerelement darf nicht als ein Nachfolger des fraglichen UpdatePanel sein. Genau ist, um das Objekt. Untergeordnetes Element des &lt;Trigger&gt;. |
 
 Die `UpdatePanel` ist das Steuerelement, das den Inhalt für die serverseitige begrenzt, die die Teilrendering Funktionalität der AJAX-Erweiterungen teilnimmt. Besteht keine Einschränkung auf die Anzahl der UpdatePanel-Steuerelemente, die auf einer Seite befinden können, und können geschachtelt sein. Jede UpdatePanel ist isoliert und hat, damit jeweils unabhängig voneinander arbeiten kann (Sie können zwei UpdatePanels zur gleichen Zeit ausgeführt wird, die verschiedene Teile der Seite, unabhängig von der Seite Postback Rendern haben).
 
@@ -283,9 +283,9 @@ Wenn eine Anwendung erfordert, dass UpdatePanels verwendet werden, sollte die fo
 
 Eigenschaften von Markup aktiviert:
 
-| **Eigenschaftenname** | **Typ** | **Beschreibung** |
+| **Eigenschaftenname** | **Type** | **Beschreibung** |
 | --- | --- | --- |
-| AssociatedUpdate PanelID | Zeichenfolge | Gibt die ID des UpdatePanel, die auf diese UpdateProgress gemeldet werden sollen. |
+| AssociatedUpdate-PanelID | Zeichenfolge | Gibt die ID des UpdatePanel, die auf diese UpdateProgress gemeldet werden sollen. |
 | DisplayAfter | Int | Gibt das Timeout in Millisekunden, bevor dieses Steuerelement angezeigt wird, nach dem Beginn der asynchronen Anforderung. |
 | DynamicLayout | bool | Gibt an, ob der Status dynamisch gerendert wird. |
 
@@ -317,5 +317,5 @@ Diese Tools zusammen unterstützen, erstellen eine umfangreiche und eine nahtlos
 
 Scott Cate arbeitet mit Microsoft-Web-Technologien seit 1997 und Präsidenten des myKB.com ist ([www.myKB.com](http://www.myKB.com)), in dem er zum Schreiben von ASP.NET spezialisiert-basierten Anwendungen, die Wissensdatenbank softwarelösungen konzentriert. Scott hergestellt werden kann, per e-Mail an [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) oder seinen Blog unter [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Nächste](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [!div class="step-by-step"]
+> [Nächste](understanding-asp-net-ajax-updatepanel-triggers.md)

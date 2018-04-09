@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 title: Grundlegendes zu ASP.NET AJAX-Lokalisierung | Microsoft Docs
 author: scottcate
-description: "Lokalisierung ist der Prozess beim Entwerfen und Integrieren von Unterstützung für eine bestimmte Sprache und Kultur in eine Anwendung oder eine Anwendungskomponente. Der Mic..."
+description: Lokalisierung ist der Prozess beim Entwerfen und Integrieren von Unterstützung für eine bestimmte Sprache und Kultur in eine Anwendung oder eine Anwendungskomponente. Der Mic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Grundlegendes zu ASP.NET AJAX-Lokalisierung
 ====================
@@ -64,9 +64,9 @@ Die folgende Tabelle fasst den Dateinamenskonventionen mit Beispielen:
 | Dateiname | Bedeutung |
 | --- | --- |
 | Script.js | Ein Release-Version kulturneutrale-Skript. |
-| Script.Debug.js | Skript kulturneutrale der Debug-Version. |
-| Script.en US.js | Version Englisch, USA Skript der Version. |
-| Script.Debug.es CO.js | Debug-Spanisch, Columbia Skript der Version. |
+| Script.debug.js | Skript kulturneutrale der Debug-Version. |
+| Script.en-US.js | Version Englisch, USA Skript der Version. |
+| Script.debug.es-CO.js | Debug-Spanisch, Columbia Skript der Version. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Exemplarische Vorgehensweise: Erstellen eines lokalisierten, eingebetteten Skripts
 
@@ -149,10 +149,10 @@ Webanwendungen wachsen eine größere Zielgruppe erreichen, wird die Notwendigke
 
 .NET Framework unterstützt systemintern ein Framework umfangreiche Lokalisierung dazu werden Satellitenassemblys und XML-Ressourcendateien (.resx), um eine einheitliche Methode zur Suche nach Ressourcenzeichenfolgen und Bilder zu präsentieren. ASP.NET AJAX-Erweiterungen, einschließlich der Microsoft AJAX-Framework und Microsoft AJAX-Skript-Bibliothek bieten Unterstützung für dieses Programmiermodell zu clientseitigen Code einfach Zeichenfolge Ressourcensuchen aktivieren. Satellitenassemblys unterstützen die automatische Einbindung Skriptressourcen (tatsächliche JS-Dateien) über ScriptResource.axd, solange die Dateinamen einem bestimmten Benennungsschema folgen. Dank dieser Unterstützung vereinfachen den ASP.NET AJAX-Erweiterungen, die Lokalisierung von Skripts und die Globalisierung von Anwendungen.
 
-## <a name="bio"></a>*Lebenslauf*
+## <a name="bio"></a>*Bio*
 
 Scott Cate arbeitet mit Microsoft-Web-Technologien seit 1997 und Präsidenten des myKB.com ist ([www.myKB.com](http://www.myKB.com)), in dem er zum Schreiben von ASP.NET spezialisiert-basierten Anwendungen, die Wissensdatenbank softwarelösungen konzentriert. Scott hergestellt werden kann, per e-Mail an [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) oder seinen Blog unter [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Zurück](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[Weiter](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [Weiter](understanding-asp-net-ajax-web-services.md)

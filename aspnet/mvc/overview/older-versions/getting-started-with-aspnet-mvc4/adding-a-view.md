@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
-title: "Hinzufügen einer Ansicht | Microsoft Docs"
+title: Hinzufügen einer Ansicht | Microsoft Docs
 author: Rick-Anderson
-description: "Hinweis: Eine aktualisierte Version dieses Lernprogramms ist hier verfügbar, die ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher zu verfolgen und demo..."
+description: 'Hinweis: Eine aktualisierte Version dieses Lernprogramms ist hier verfügbar, die ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher zu verfolgen und demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 60374ddc6754f7e312ad08b420268308a9935bb4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61a93c1430e9e39543c69b84901a50ceb710a5ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Eine aktualisierte Version dieses Lernprogramms steht [hier](../../getting-started/introduction/getting-started.md) , ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist sicherer, viel einfacher, führen und weitere Funktionen veranschaulicht.
@@ -116,7 +116,7 @@ Controller sind verantwortlich für das Bereitstellen von den Daten oder Objekte
 
 Derzeit die `Welcome` Aktionsmethode in der `HelloWorldController` -Klasse akzeptiert eine `name` und ein `numTimes` übergeben wird und Ausgaben die Werte direkt an den Browser. Anstatt den Controller, die dieser Antwort als Zeichenfolge Rendern nutzen zu können, Ändern des Controllers, um stattdessen verwenden Sie eine Vorlage anzeigen. Die Ansichtsvorlage generiert eine dynamische Antwort. Das bedeutet, dass Sie die entsprechenden Datenelemente vom Controller an die Ansicht übergeben müssen, um die Antwort zu generieren. Hierzu können Sie durch die Verwendung des Controllers, die die dynamic Data (Parameter) zu konzentrieren, die in der Vorlage anzeigen muss ein `ViewBag` -Objekt, das die Ansicht klicken Sie dann auf Sie zugreifen können.
 
-Zurück zu der *HelloWorldController.cs* Datei und ändern Sie die `Welcome` -Methode zum Hinzufügen einer `Message` und `NumTimes` -Wert an die `ViewBag` Objekt. `ViewBag`ist ein dynamisches Objekt, d. h. Sie beliebig ihm aufnehmen können. die `ViewBag` Objekt verfügt über keine definierten Eigenschaften aus, bis Sie etwas darin einfügen. Die [Bindungssystem für ASP.NET MVC-Modell](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) ordnet automatisch die benannten Parameter (`name` und `numTimes`) aus der Abfragezeichenfolge in der Adressleiste den Parametern der Methode. Die vollständige Datei *HelloWorldController.cs* sieht wie folgt aus:
+Zurück zu der *HelloWorldController.cs* Datei und ändern Sie die `Welcome` -Methode zum Hinzufügen einer `Message` und `NumTimes` -Wert an die `ViewBag` Objekt. `ViewBag` ist ein dynamisches Objekt, d. h. Sie beliebig ihm aufnehmen können. die `ViewBag` Objekt verfügt über keine definierten Eigenschaften aus, bis Sie etwas darin einfügen. Die [Bindungssystem für ASP.NET MVC-Modell](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) ordnet automatisch die benannten Parameter (`name` und `numTimes`) aus der Abfragezeichenfolge in der Adressleiste den Parametern der Methode. Die vollständige Datei *HelloWorldController.cs* sieht wie folgt aus:
 
 [!code-csharp[Main](adding-a-view/samples/sample7.cs)]
 
@@ -148,6 +148,6 @@ Im obigen Beispiel wird ein `ViewBag` Objekt, das Daten auf dem Controller an ei
 
 Nun, das eine Art wurde von einer &quot;M&quot; Modell, aber nicht die Art der Datenbank. Lassen Sie uns das Gelernte umsetzen und eine Filmdatenbank erstellen.
 
->[!div class="step-by-step"]
-[Zurück](adding-a-controller.md)
-[Weiter](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Zurück](adding-a-controller.md)
+> [Weiter](adding-a-model.md)

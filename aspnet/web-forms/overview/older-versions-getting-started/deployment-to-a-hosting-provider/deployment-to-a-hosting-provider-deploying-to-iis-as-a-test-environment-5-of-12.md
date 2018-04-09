@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von IIS als Testumgebung - 5, 12 | Microsoft Docs'
 author: tdykstra
-description: "Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das..."
+description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16050455c161c8ced1f954bfce9c2d9a44c522b4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von IIS als Testumgebung - 5, 12
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -250,6 +250,6 @@ Informationen zum Ausführen von IIS oder IIS Express in Visual Studio finden Si
 
 Informationen darüber, welche Probleme auftreten kann, wenn Ihre Anwendung in mittlerer Vertrauenswürdigkeit ausgeführt wird, finden Sie unter [Hosten von ASP.NET-Anwendungen im mittlere Vertrauensebene](http://www.4guysfromrolla.com/articles/100307-1.aspx) auf die 4 Guys von Rolla-Website.
 
->[!div class="step-by-step"]
-[Zurück](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
-[Weiter](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [!div class="step-by-step"]
+> [Zurück](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+> [Weiter](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 title: Erstellen eine numerische nach oben/unten Steuerelement mit einer Web-Service-Backend (VB) | Microsoft Docs
 author: wenz
-description: "Anstatt einen Benutzer aus, geben Sie einen Wert in ein Kontrollkästchen konnte eine numerische-Steuerelement (das unter Windows und anderen Betriebssystemen vorhanden ist) nach oben/unten als weitere c nachweisen..."
+description: Anstatt einen Benutzer aus, geben Sie einen Wert in ein Kontrollkästchen konnte eine numerische-Steuerelement (das unter Windows und anderen Betriebssystemen vorhanden ist) nach oben/unten als weitere c nachweisen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5ceefd6c18761c2abe3f3a4298d340642a0951d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 690fd89c552407ec5d77419aae2488e4832efe44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Erstellen einen numerischen Steuerelements nach oben/unten mit einem Web-Service-Backend (VB)
 ====================
@@ -45,10 +45,10 @@ Für dieses Beispiel soll der numerischen Wert nach oben/unten Steuerelement Wer
 
 Abschließend erstellen Sie eine neue ASP.NET-Seite. Wie üblich, Sie müssen eine `ScriptManager` -Steuerelement, ein `TextBox` Steuerelement und ein `NumericUpDownExtender` Steuerelement. Für die letztgenannte Aufgabe müssen Sie die Webdienstinformationen angeben:
 
-- `ServiceDownMethod`Name des der aus-Webmethode oder Seite Methode
-- `ServiceDownPath`der Pfad zu den Webdienst mit der nach-unten Dienstmethode; Lassen Sie bei Verwendung von einer Seitenmethode
-- `ServiceUpMethod`Name der auf--Webmethode oder Seite Methode
-- `ServiceUpPath`der Pfad zu den Webdienst mit dem Stand Dienstmethode; Lassen Sie bei Verwendung von einer Seitenmethode
+- `ServiceDownMethod` Name des der aus-Webmethode oder Seite Methode
+- `ServiceDownPath` der Pfad zu den Webdienst mit der nach-unten Dienstmethode; Lassen Sie bei Verwendung von einer Seitenmethode
+- `ServiceUpMethod` Name der auf--Webmethode oder Seite Methode
+- `ServiceUpPath` der Pfad zu den Webdienst mit dem Stand Dienstmethode; Lassen Sie bei Verwendung von einer Seitenmethode
 
 Hier ist das vollständige Markup für die Seite an:
 
@@ -61,5 +61,5 @@ Wenn Sie auf der Seite "ausführen, beachten Sie, wie der Wert in das Textfeld i
 
 Nur Ziffern, die eine Potenz von 2 angezeigt werden ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Zurück](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
+> [!div class="step-by-step"]
+> [Vorherige](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)

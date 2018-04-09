@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
-title: "Bereitstellen von Datenbank-Rollenmitgliedschaften für Testumgebungen | Microsoft Docs"
+title: Bereitstellen von Datenbank-Rollenmitgliedschaften für Testumgebungen | Microsoft Docs
 author: jrjlee
-description: "Dieses Thema beschreibt, wie Benutzerkonten Datenbankrollen als Teil einer Bereitstellung von Projektmappen in einer testumgebung hinzufügen. Beim Bereitstellen einer Lösung mit..."
+description: Dieses Thema beschreibt, wie Benutzerkonten Datenbankrollen als Teil einer Bereitstellung von Projektmappen in einer testumgebung hinzufügen. Beim Bereitstellen einer Lösung mit...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4f635153213b0695d7d4b64d09adefaf8ee8e892
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Bereitstellen von Datenbank-Rollenmitgliedschaften für Testumgebungen
 ====================
@@ -37,9 +37,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > Der wichtigste Faktor ist, dass dieser Vorgang angehören soll bedingten basierend auf der zielumgebung. Wenn Sie auf einem Staging- oder in einer produktiven Umgebung bereitstellen, möchten Sie überspringen Sie den Vorgang. Wenn Sie dem Entwickler bereitstellen oder Umgebung testen, sollten Sie Rollenmitgliedschaften ohne weiteren Eingriff bereitzustellen. In diesem Thema wird beschrieben, ein Ansatz besteht darin, die Sie verwenden können, um dieser Herausforderung zu begegnen.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="task-overview"></a>Übersicht über den Task
 
@@ -94,7 +94,7 @@ Bevor Sie diesen Befehl in einer MSBuild-Ziel einbetten, müssen Sie berücksich
 
 - Die Zieldatenbank muss vorhanden sein, bevor Sie die Rollenmitgliedschaften ändern. Daher müssen Sie dieses Skript ausführen *nach* der datenbankbereitstellung.
 - Sie müssen eine Bedingung enthalten, sodass das Skript nur für testumgebungen ausgeführt wird.
-- Wenn Sie eine "Was-wäre-wenn" Bereitstellung & #x 2014; ausführen, mit anderen Worten, darf nicht Wenn Sie Bereitstellungsskripts generieren aber nicht tatsächlich ausgeführt wird, diese & #x 2014; Sie das SQL-Skript ausführen.
+- Wenn Sie eine "Was-wäre-wenn" Bereitstellung ausführen&#x2014;heißt, wenn Sie Bereitstellungsskripts generieren aber nicht tatsächlich ressourcenaufwändig&#x2014;Sie darf nicht das SQL-Skript ausführen.
 
 Bei Verwendung in beschriebenen Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), wie der Kontakt-Manager-Beispielprojektmappe zeigt, können Sie in den erstellungsanweisungen aufteilen, für das SQL-Skript wie folgt:
 
@@ -132,6 +132,6 @@ In diesem Thema beschrieben eine Möglichkeit, in dem Sie hinzufügen können Da
 
 Weitere Informationen zur Verwendung von VSDBCMD Datenbankprojekte bereitstellen, finden Sie unter [Datenbankprojekte bereitstellen](../web-deployment-in-the-enterprise/deploying-database-projects.md). Anleitungen zum Anpassen von Datenbank-Bereitstellungen für unterschiedliche zielumgebungen finden Sie unter [Anpassen von Datenbank-Bereitstellungen für mehrere Umgebungen](customizing-database-deployments-for-multiple-environments.md). Weitere Informationen finden Sie unter benutzerdefinierte MSBuild-Projektdateien um den Bereitstellungsprozess zu steuern, finden Sie unter [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md) und [Verständnis des Build-Prozesses](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Weitere Informationen zu Befehlszeilenoptionen von "Sqlcmd", finden Sie unter [Hilfsprogramms "Sqlcmd"](https://msdn.microsoft.com/library/ms162773.aspx).
 
->[!div class="step-by-step"]
-[Zurück](customizing-database-deployments-for-multiple-environments.md)
-[Weiter](deploying-membership-databases-to-enterprise-environments.md)
+> [!div class="step-by-step"]
+> [Zurück](customizing-database-deployments-for-multiple-environments.md)
+> [Weiter](deploying-membership-databases-to-enterprise-environments.md)

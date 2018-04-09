@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 title: Verbessern der Leistung mit Output Zwischenspeichern (c#) | Microsoft Docs
 author: microsoft
-description: "In diesem Lernprogramm erfahren Sie, wie Sie die Leistung Ihrer ASP.NET MVC-Webanwendungen deutlich verbessern können, durch Zwischenspeichern der Ausgabe nutzen. Sie..."
+description: In diesem Lernprogramm erfahren Sie, wie Sie die Leistung Ihrer ASP.NET MVC-Webanwendungen deutlich verbessern können, durch Zwischenspeichern der Ausgabe nutzen. Sie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 47f0aa976c5876991ccc2406fb8f7402e59ec556
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8958caa5a0ccad669ca861bed261102625be5cb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-c"></a>Verbessern der Leistung mit Ausgabecaching (c#)
 ====================
@@ -39,7 +39,7 @@ Sie aktivieren das Zwischenspeichern der Ausgabe von einer einzelnen Controllera
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample1.cs)]
 
-Die Beta-Versionen von ASP.NET MVC, Ausgabecaching funktioniert nicht für eine URL wie [http://www.MySite.com/](http://www.mysite.com/). Stattdessen geben Sie eine URL wie [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index). 
+Die Beta-Versionen von ASP.NET MVC, Ausgabecaching funktioniert nicht für eine URL wie [ http://www.MySite.com/ ](http://www.mysite.com/). Stattdessen geben Sie eine URL wie [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index). 
 
 Im Codebeispiel 1 wird die Ausgabe des Index() für 10 Sekunden zwischengespeichert. Falls gewünscht, können Sie eine wesentlich länger Cachedauer angeben. Z. B. wenn die Ausgabe eine Controlleraktion für einen Tag zwischengespeichert werden sollen können Sie angeben einer Cachedauer 86400 Sekunden (60 Sekunden \* 60 Minuten \* 24 Stunden).
 
@@ -132,7 +132,7 @@ Es ist wichtig zu wissen, dass mit den Ergebnissen des VaryByParam-Eigenschaft i
 
 Sie können die VaryByParam-Eigenschaft auf die folgenden Werte festgelegt:
 
-> \*= Erstellen Sie eine andere zwischengespeicherte Version aus, wenn ein Formular oder Abfragezeichenfolgen-Parameters variieren.
+> \* = Erstellen Sie eine andere zwischengespeicherte Version aus, wenn ein Formular oder Abfragezeichenfolgen-Parameters variieren.
 > 
 > None = nie verschiedene zwischengespeicherte Versionen erstellen
 > 
@@ -165,6 +165,6 @@ Wenn Sie die Index()-Aktion, die von der Controller im Codebeispiel 7 verfügbar
 
 Ausgabe-caching bietet Ihnen eine sehr einfache Methode zum erhebliche Steigerung der Leistung Ihrer ASP.NET MVC-Anwendungen. In diesem Lernprogramm haben Sie gelernt, wie Sie das Attribut [OutputCache] zu verwenden, um die Ausgabe des Controlleraktionen zwischenzuspeichern. Außerdem haben Sie gelernt, Ändern der Eigenschaften des Attributs [OutputCache], wie die Duration "und" VaryByParam-Eigenschaften zu ändern, wie der Inhalt zwischengespeichert ruft. Schließlich haben Sie gelernt, wie Cacheprofile in der Konfigurationsdatei definiert.
 
->[!div class="step-by-step"]
-[Zurück](understanding-action-filters-cs.md)
-[Weiter](adding-dynamic-content-to-a-cached-page-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](understanding-action-filters-cs.md)
+> [Weiter](adding-dynamic-content-to-a-cached-page-cs.md)

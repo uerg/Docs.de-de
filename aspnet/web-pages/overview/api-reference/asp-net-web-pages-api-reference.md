@@ -2,7 +2,7 @@
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
 title: ASP.NET Web Pages (Razor) Quick-API-Referenz | Microsoft Docs
 author: tfitzmac
-description: "Diese Seite enthält eine Liste mit kurzen Beispielen für die am häufigsten verwendeten Objekten, Eigenschaften und Methoden zur Programmierung von ASP.NET Web Pages mit Razor-Syntax."
+description: Diese Seite enthält eine Liste mit kurzen Beispielen für die am häufigsten verwendeten Objekten, Eigenschaften und Methoden zur Programmierung von ASP.NET Web Pages mit Razor-Syntax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 35f91f4dbea4881d9dabc4ab7c6b96dbb6a01ea2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor)-API-Kurzübersicht
 ====================
@@ -158,13 +158,13 @@ Ruft die Dateien, die in der aktuellen Anforderung hochgeladen wurden.
 
 ### `Request.Form[key]`
 
-Ruft die Daten, die in einem Formular (als Zeichenfolgen) zurückgesendet wurde. `Request[key]`überprüft die `Request.Form` und `Request.QueryString` Sammlungen.
+Ruft die Daten, die in einem Formular (als Zeichenfolgen) zurückgesendet wurde. `Request[key]` überprüft die `Request.Form` und `Request.QueryString` Sammlungen.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-Ruft die Daten, die in der URL-Abfragezeichenfolge angegeben wurde. `Request[key]`überprüft die `Request.Form` und `Request.QueryString` Sammlungen.
+Ruft die Daten, die in der URL-Abfragezeichenfolge angegeben wurde. `Request[key]` überprüft die `Request.Form` und `Request.QueryString` Sammlungen.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
@@ -686,13 +686,13 @@ Legt das Kennwort für den SMTP-Server an. Normalerweise legen Sie diese Eigensc
 ### `WebMail.Send(to, subject, body [, from] [, cc] [, filesToAttach] [, isBodyHtml]`  
  `[, additionalHeaders])`
 
-Sendet eine e-Mail-Nachricht an.
+Sendet eine E-Mail.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample104.css)]
 
 ### `WebMail.SmtpServer`
 
-Legt den Namen des SMTP-Server. Normalerweise legen Sie diese Eigenschaft der*\_AppStart* Seite.
+Legt den Namen des SMTP-Server. Normalerweise legen Sie diese Eigenschaft der<em>\_AppStart</em> Seite.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

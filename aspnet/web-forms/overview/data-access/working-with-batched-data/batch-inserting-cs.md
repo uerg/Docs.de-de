@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
-title: "Batch eingefügt (c#) | Microsoft Docs"
+title: Batch eingefügt (c#) | Microsoft Docs
 author: rick-anderson
-description: "Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann..."
+description: Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8995592d9206fb17a7769414212369946304c54
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-c"></a>Batch eingefügt (c#)
 ====================
@@ -33,7 +33,7 @@ In der [BatchUpdates](batch-updating-cs.md) Lernprogramm erläutert, Anpassen de
 
 Dieses Konzept kann auch angewendet werden, wenn Sie Datensätze hinzufügen. Stellen Sie sich vor, die hier bei Northwind Traders wir häufig erhalten Lieferungen von Lieferanten, die eine Anzahl von Produkten für eine bestimmte Kategorie enthalten. Beispielsweise können wir eine Lieferung von sechs verschiedenen Tee und Kaffee Produkte aus Tokio Traders erhalten. Wenn der Benutzer die sechs Produkte eine jeweils über ein DetailsView-Steuerelement ein, haben Sie viele der gleichen Werte immer wieder auswählen: müssen die gleiche Kategorie (Getränke), die demselben Lieferanten (Tokyo Traders) auswählen, den gleichen Wert (nicht mehr unterstützt "False"), und den gleichen Einheiten auf Reihenfolgenwert (0). Dieser Eintrag repetitiven Daten ist nicht nur zeitaufwändig jedoch fehleranfällig ist.
 
-Mit ein wenig Aufwand kann erstellt werden, einen Batch, die Schnittstelle, die mit der Benutzer wählen die Supplier "und" Kategorie einmal, geben Sie eine Reihe von Produktnamen und einem Stückpreis, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen neuer Produkte in der Datenbank einfügen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder ein eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus den DropDownLists auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, die hartcodierte Werte des `false` und 0 (null) bzw..
+Mit ein wenig Aufwand kann erstellt werden, einen Batch, die Schnittstelle, die mit der Benutzer wählen die Supplier "und" Kategorie einmal, geben Sie eine Reihe von Produktnamen und einem Stückpreis, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen neuer Produkte in der Datenbank einfügen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder ein eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus den DropDownLists auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, die hartcodierte Werte des `false` und 0 (null) bzw.
 
 
 [![Die Batch-einfügen-Schnittstelle](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
@@ -203,7 +203,7 @@ Als Nächstes erstellen Sie Ereignishandler für die Produkte hinzufügen von St
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample5.cs)]
 
-Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir den hinzufügen-Produkten aus Lieferung zurückkehren `Click` -Ereignishandler in Schritt 4 und Code hinzufügen, um die Produkte zu speichern. `ReturnToDisplayInterface`beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownLists ihre erste "Optionen". Die beiden Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endwerten Steuerelement Index benennen den Namen und die Einheit Produktpreis Textfelder einfügen Schnittstelle und werden verwendet, in die Grenzen des verwendet die `for` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Bereiche `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende Schnittstelle ausgeblendet ist und die Anzeigenschnittstelle dargestellt.
+Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir den hinzufügen-Produkten aus Lieferung zurückkehren `Click` -Ereignishandler in Schritt 4 und Code hinzufügen, um die Produkte zu speichern. `ReturnToDisplayInterface` beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownLists ihre erste "Optionen". Die beiden Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endwerten Steuerelement Index benennen den Namen und die Einheit Produktpreis Textfelder einfügen Schnittstelle und werden verwendet, in die Grenzen des verwendet die `for` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Bereiche `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende Schnittstelle ausgeblendet ist und die Anzeigenschnittstelle dargestellt.
 
 Nehmen Sie einen Moment Zeit, um diese Seite in einem Browser zu testen. Beim ersten Seite besuchen sollte die Anzeigenschnittstelle angezeigt werden, wie in Abbildung 5 gezeigt wurde. Klicken Sie auf die Schaltfläche mit den Prozess mit dem Produktversand. Die Seite wird postback und die einfügende-Schnittstelle sollte jetzt angezeigt werden, wie in Abbildung 12 dargestellt. Klicken entweder die Produkte hinzufügen von Schaltflächen Lieferung oder "Abbrechen" zurück auf die Anzeigenschnittstelle.
 
@@ -229,7 +229,7 @@ Der Ereignishandler gestartet wird, indem sichergestellt wird, die die `Page.IsV
 
 Anschließend wird eine neue `ProductsDataTable` Instanz erstellt wird (`products`). Ein `for` Schleife wird verwendet, um den Namen und die Einheit Produktpreis Textfelder durchlaufen und die `Text` Eigenschaften werden in der lokalen Variablen gelesen `productName` und `unitPrice`. Wenn der Benutzer einen Wert für den Einzelpreis jedoch nicht für den Namen des entsprechenden Produkts eingegeben hat die `StatusLabel` zeigt die Meldung, wenn Sie eine Einheit Preis können Sie angeben, auch muss den Namen des Produkts enthalten, und der Ereignishandler beendet wird.
 
-Wenn ein Produktname, ein neues angegeben wurde `ProductsRow` Instanz wird erstellt, mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` Eigenschaftensatz für das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften der DropDownLists im einfügende Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben hat, ihm zugewiesenen der `ProductsRow` s-Instanz `UnitPrice` Eigenschafts-hingegen die Eigenschaft ist nicht zugewiesen, links, der verursacht eine `NULL` Wert für `UnitPrice` in der Datenbank. Schließlich die `Discontinued` und `UnitsOnOrder` zugewiesenen Eigenschaften werden die hartcodierten Werte `false` und 0 (null) bzw..
+Wenn ein Produktname, ein neues angegeben wurde `ProductsRow` Instanz wird erstellt, mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` Eigenschaftensatz für das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften der DropDownLists im einfügende Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben hat, ihm zugewiesenen der `ProductsRow` s-Instanz `UnitPrice` Eigenschafts-hingegen die Eigenschaft ist nicht zugewiesen, links, der verursacht eine `NULL` Wert für `UnitPrice` in der Datenbank. Schließlich die `Discontinued` und `UnitsOnOrder` zugewiesenen Eigenschaften werden die hartcodierten Werte `false` und 0 (null) bzw.
 
 Nachdem Sie die Eigenschaften zugewiesen wurden die `ProductsRow` Instanz es hinzugefügt wird die `ProductsDataTable`.
 
@@ -269,12 +269,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Führen Sie Prüfer für dieses Lernprogramm Hilton Giesenow und S Ren Jacob Lauritsen wurden. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](batch-deleting-cs.md)
-[Weiter](wrapping-database-modifications-within-a-transaction-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](batch-deleting-cs.md)
+> [Weiter](wrapping-database-modifications-within-a-transaction-vb.md)

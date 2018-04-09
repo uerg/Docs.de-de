@@ -1,7 +1,7 @@
 ---
-title: Core-kryptografieerweiterbarkeit
+title: Core-kryptografieerweiterbarkeit in ASP.NET Core
 author: rick-anderson
-description: "Erläutert das IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer sowie der obersten Ebene Factory."
+description: Informationen Sie zur IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor IAuthenticatedEncryptorDescriptorDeserializer und der obersten Ebene Factory.
 manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: ead4012236244d88cff0b0520d000d89f93f3355
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="core-cryptography-extensibility"></a>Core-kryptografieerweiterbarkeit
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>Core-kryptografieerweiterbarkeit in ASP.NET Core
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
@@ -123,7 +123,7 @@ Der Hauptunterschied zwischen IAuthenticatedEncryptor und IAuthenticatedEncrypto
 
 Der Deskriptor kann über seine ExportToXml Routine serialisiert werden. Diese Routine gibt eine XmlSerializedDescriptorInfo enthält zwei Eigenschaften: die "XElement"-Darstellung des Deskriptors und den Typ der darstellt ein [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) erfolgen kann zum Aufrufen dieses Deskriptors erhält die entsprechenden "XElement" verwendet.
 
-Der serialisierte Deskriptor enthalten möglicherweise vertrauliche Informationen wie z. B. kryptografischen schlüsselmaterialien. Die Datenschutzsystem verfügt über integrierte Unterstützung für die Verschlüsselung von Informationen, bevor sie in den Speicher beibehalten wurde. Davon profitieren, kennzeichnen der Deskriptor das Element, das sensible Informationen mit den Namen des Attributs ""RequiresEncryption "" (Xmlns "http://schemas.asp.net/2015/03/dataProtection"), Wert "True" enthält.
+Der serialisierte Deskriptor enthalten möglicherweise vertrauliche Informationen wie z. B. kryptografischen schlüsselmaterialien. Die Datenschutzsystem verfügt über integrierte Unterstützung für die Verschlüsselung von Informationen, bevor sie in den Speicher beibehalten wurde. Davon profitieren, sollte Deskriptors markieren Sie das Element, das vertrauliche Informationen mit dem Attribut namens "" RequiresEncryption"" enthält (Xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), Wert "true".
 
 >[!TIP]
 > Für das Festlegen dieses Attributs ist ein Hilfs-API. Rufen Sie die Erweiterungsmethode XElement.MarkAsRequiresEncryption() im Namespace Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel befindet.
@@ -161,7 +161,7 @@ Sichereres AlgorithmConfiguration der obersten Ebene Factory. Die Konfiguration 
 
 Wenn CreateNewDescriptor aufgerufen wird, neue Schlüsselmaterial wird ausschließlich für diesen Aufruf erstellt, und eine neue IAuthenticatedEncryptorDescriptor erstellt umschließt die dieser Schlüsselmaterial sowie die algorithmische Informationen erforderlich, um das Material zu verwenden. Das Schlüsselmaterial konnte in der Software erstellt (und im Speicher gehalten werden), erstellt und innerhalb einer HSM usw. werden konnte. Der wichtige Punkt ist, dass zwei Aufrufe CreateNewDescriptor nie entsprechende IAuthenticatedEncryptorDescriptor-Instanzen erstellen soll.
 
-Der Typ AlgorithmConfiguration fungiert als Einstiegspunkt für die schlüsselerstellung Routinen wie z. B. [automatische Schlüssel parallelen](../implementation/key-management.md#key-expiration-and-rolling). Um die Implementierung für alle zukünftigen Schlüssel ändern zu können, legen Sie die Eigenschaft AuthenticatedEncryptorConfiguration in KeyManagementOptions.
+Der Typ AlgorithmConfiguration fungiert als Einstiegspunkt für die schlüsselerstellung Routinen wie z. B. [automatische Schlüssel parallelen](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Um die Implementierung für alle zukünftigen Schlüssel ändern zu können, legen Sie die Eigenschaft AuthenticatedEncryptorConfiguration in KeyManagementOptions.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -173,6 +173,6 @@ Sichereres IAuthenticatedEncryptorConfiguration der obersten Ebene Factory. Die 
 
 Wenn CreateNewDescriptor aufgerufen wird, neue Schlüsselmaterial wird ausschließlich für diesen Aufruf erstellt, und eine neue IAuthenticatedEncryptorDescriptor erstellt umschließt die dieser Schlüsselmaterial sowie die algorithmische Informationen erforderlich, um das Material zu verwenden. Das Schlüsselmaterial konnte in der Software erstellt (und im Speicher gehalten werden), erstellt und innerhalb einer HSM usw. werden konnte. Der wichtige Punkt ist, dass zwei Aufrufe CreateNewDescriptor nie entsprechende IAuthenticatedEncryptorDescriptor-Instanzen erstellen soll.
 
-Der Typ IAuthenticatedEncryptorConfiguration fungiert als Einstiegspunkt für die schlüsselerstellung Routinen wie z. B. [automatische Schlüssel parallelen](../implementation/key-management.md#key-expiration-and-rolling). Um die Implementierung für alle zukünftigen Schlüssel zu ändern, registrieren Sie einen Singleton-IAuthenticatedEncryptorConfiguration im Dienstcontainer.
+Der Typ IAuthenticatedEncryptorConfiguration fungiert als Einstiegspunkt für die schlüsselerstellung Routinen wie z. B. [automatische Schlüssel parallelen](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Um die Implementierung für alle zukünftigen Schlüssel zu ändern, registrieren Sie einen Singleton-IAuthenticatedEncryptorConfiguration im Dienstcontainer.
 
 ---

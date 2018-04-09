@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 title: Entsperren und Genehmigen von Benutzerkonten (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer Webseite für Administratoren zur Verwaltung des Benutzers gesperrt, und Status genehmigt. Wir sehen auch neue Benutzer o genehmigen..."
+description: In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer Webseite für Administratoren zur Verwaltung des Benutzers gesperrt, und Status genehmigt. Wir sehen auch neue Benutzer o genehmigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f4444e566a760ef3beda4af5fba62dd349a8bba9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 977ed9d1e68e635eadd7aa8339670f5a5d209a7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a>Entsperren und Genehmigen von Benutzerkonten (VB)
 ====================
@@ -208,11 +208,11 @@ Viel Spaß beim Programmieren!
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an...
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Vorherige](recovering-and-changing-passwords-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](recovering-and-changing-passwords-vb.md)

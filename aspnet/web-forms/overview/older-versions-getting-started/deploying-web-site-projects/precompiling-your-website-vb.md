@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7cc487aa5276c601fed632e82d7b6d32d1b53b58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7296808480fa48b4afd0b308cd27707378519747
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="precompiling-your-website-vb"></a>Vorkompilieren von Ihrer Website (VB)
 ====================
@@ -97,7 +97,7 @@ Navigieren Sie nach der Vorkompilierung der Website an zu den Zielspeicherort an
 
 [![](precompiling-your-website-vb/_static/image5.png)](precompiling-your-website-vb/_static/image4.png)
 
-**Abbildung 2**: enthält das Projektverzeichnis `.aspx` und `.aspx.cs` Dateien; die `Bin` Ordner enthält nur`Elmah.dll`  
+**Abbildung 2**: enthält das Projektverzeichnis `.aspx` und `.aspx.cs` Dateien; die `Bin` Ordner enthält nur `Elmah.dll`  
  ([Klicken Sie hier, um das Bild in voller Größe angezeigt](precompiling-your-website-vb/_static/image6.png))
 
 **Abbildung 3** zeigt den Zielort, deren Inhalt vom Tool ASP.NET Kompilierung erstellt wurden. Dieser Ordner enthält keine Code-Behind-Dateien. Darüber hinaus führt dieser Ordner `Bin` Verzeichnis enthält mehrere Assemblys und zwei `.compiled` Dateien zusätzlich zu den `Elmah.dll` Assembly.
@@ -190,6 +190,6 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [Vorkompilierung in ASP.NET](http://www.odetocode.com/Articles/417.aspx)
 - [Vorkompilierte Website Optionen in ASP.NET](http://www.dotnetperls.com/precompiled)
 
->[!div class="step-by-step"]
-[Zurück](logging-error-details-with-elmah-vb.md)
-[Weiter](users-and-roles-on-the-production-website-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](logging-error-details-with-elmah-vb.md)
+> [Weiter](users-and-roles-on-the-production-website-vb.md)

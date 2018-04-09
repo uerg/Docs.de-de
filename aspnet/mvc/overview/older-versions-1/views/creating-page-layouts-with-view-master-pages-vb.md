@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
-title: "Erstellen von Seitenlayouts mit Masterseiten für Ansichten (VB) | Microsoft Docs"
+title: Erstellen von Seitenlayouts mit Masterseiten für Ansichten (VB) | Microsoft Docs
 author: microsoft
-description: "In diesem Lernprogramm erfahren Sie, wie ein gebräuchliches Seitenlayout für mehrere Seiten in der Anwendung zu erstellen, durch die Nutzung der Ansicht Masterseiten. Sie können ein..."
+description: In diesem Lernprogramm erfahren Sie, wie ein gebräuchliches Seitenlayout für mehrere Seiten in der Anwendung zu erstellen, durch die Nutzung der Ansicht Masterseiten. Sie können ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5466ea8a33bd2ccfe36c0f01b6b474bbb8d540a3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5208cedd8d24a290a0227bdcbaa84ae6210cd969
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a>Erstellen von Seitenlayouts mit Masterseiten für Ansichten (VB)
 ====================
@@ -51,7 +51,7 @@ Eine Masterseite Sicht sucht sehr ähnlich wie eine Standardansicht für ASP.NET
 
 Die Ansicht Gestaltungsvorlage in Codebeispiel 1 definiert z. B. einem zweispalten Layout. Es enthält zwei `<contentplaceholder>` Tags. Eine `<ContentPlaceHolder>` für jede Spalte.
 
-**Auflisten von 1 –`Views\Shared\Site.master`**
+**Auflisten von 1 – `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample1.aspx)]
 
@@ -83,7 +83,7 @@ Nachdem Sie die Schaltfläche "hinzufügen" klicken, wird ein neuer Dialog angez
 
 Nach der Erstellung einer neuen Ansicht Inhaltsseite basierend auf der Stammwebsite erhalten Sie die Datei im 2 aufgelistet.
 
-**Auflisten von 2 –`Views\Home\Index.aspx`**
+**Auflisten von 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample2.aspx)]
 
@@ -97,7 +97,7 @@ Sie müssen nicht außer Kraft setzen alle `<asp:ContentPlaceHolder>` Tag von ei
 
 Die geänderte Indexansicht auflisten 3 enthält z. B. nur zwei `<asp:Content>` Tags. Jede der `<asp:Content>` Tags enthält Text.
 
-**Auflisten von 3:`Views\Home\Index.aspx (modified)`**
+**Auflisten von 3: `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -127,7 +127,7 @@ Es ist eine wichtige Anforderung, die eine Masteransichtsseite, in der Reihenfol
 
 Eine alternative Methode zum Ändern der Masterseite Inhalt aus einer einzelnen ansichtsinhaltsseite ist, um den Bereich zu umschließen, die Sie ändern möchten eine `<asp:ContentPlaceHolder>` Tag. Nehmen Sie z. B., dass Sie nicht nur den Titel, sondern auch die Meta-Tags gerendert werden, indem Sie eine Masteransichtsseite ändern möchten. Enthält die Masteransichtsseite 4 Auflisten einer `<asp:ContentPlaceHolder>` tag innerhalb seiner `<head>` Tag.
 
-**Auflisten von 4 –`Views\Shared\Site2.master`**
+**Auflisten von 4 – `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample5.aspx)]
 
@@ -135,7 +135,7 @@ Beachten Sie, dass die `<asp:ContentPlaceHolder>` Tag 4 auflisten enthält Stand
 
 Die Inhaltsansicht Seite 5 auflisten überschreibt die `<asp:ContentPlaceHolder>` Tag um einen benutzerdefinierten Titel und benutzerdefinierte Metatags anzuzeigen.
 
-**Auflisten von 5 –`Views\Home\Index2.aspx`**
+**Auflisten von 5 – `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample6.aspx)]
 
@@ -143,6 +143,6 @@ Die Inhaltsansicht Seite 5 auflisten überschreibt die `<asp:ContentPlaceHolder>
 
 In diesem Lernprogramm werden Sie mit eine grundlegende Einführung in Masterseiten anzeigen sowie Inhaltsseiten bereitgestellt. Sie haben gelernt, wie neue Ansicht erstellen, Masterseiten und erstellen basierende auf deren Inhalt Ansichtsseiten. Es wird untersucht, wie Sie den Inhalt einer Sicht Masterseite von einer bestimmten ansichtsinhaltsseite ändern können.
 
->[!div class="step-by-step"]
-[Zurück](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
-[Weiter](passing-data-to-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
+> [Weiter](passing-data-to-view-master-pages-vb.md)

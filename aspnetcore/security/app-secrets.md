@@ -1,7 +1,7 @@
 ---
-title: "Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core"
+title: Sichere Speicherung von geheime app-Schlüssel in der Entwicklung in ASP.NET Core
 author: rick-anderson
-description: "Zeigt, wie sichere Speichern von geheimen Schlüsseln während der Entwicklung"
+description: Zeigt, wie sichere Speichern von geheimen Schlüsseln während der Entwicklung
 manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Sichere Speicherung von app-Kennwörter während der Entwicklung in ASP.NET Core
+# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Sichere Speicherung von geheime app-Schlüssel in der Entwicklung in ASP.NET Core
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), und [Scott Addie](https://scottaddie.com) 
 
@@ -34,15 +34,14 @@ Z. B. Wenn Sie eine neue ASP.NET Core-Web-app mit einzelner Benutzerkonten erste
 
 ## <a name="secret-manager"></a>Geheime Schlüssel-Manager
 
-Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklungen außerhalb der Projektstruktur. Das Schlüssel-Manager-Tool ist ein Verwaltungstool, das verwendet werden kann, Speichern von geheimen Schlüsseln für eine [.NET Core](https://www.microsoft.com/net/core) Projekt während der Entwicklung. Mit dem geheimen Schlüssel-Manager-Tool können Sie ein bestimmtes Projekt geheime app-Schlüssel zuordnen und diese projektübergreifend freigeben.
+Das Schlüssel-Manager-Tool speichert die sensible Daten für andere Entwicklungen außerhalb der Projektstruktur. Das Schlüssel-Manager-Tool ist ein Verwaltungstool, das zum Speichern von geheimen Schlüssel für ein Projekt .NET Core während der Entwicklung verwendet werden kann. Mit dem geheimen Schlüssel-Manager-Tool können Sie ein bestimmtes Projekt geheime app-Schlüssel zuordnen und diese projektübergreifend freigeben.
 
 >[!WARNING]
 > Der geheime Schlüssel-Manager-Tool nicht die gespeicherten geheimen Schlüssel zum Verschlüsseln und sollte nicht als vertrauenswürdigen Speicher behandelt werden. Es ist nur für Entwicklungszwecke. Die Schlüssel und Werte werden in einer JSON-Konfigurationsdatei im Verzeichnis Benutzers-Profil gespeichert.
 
 ## <a name="installing-the-secret-manager-tool"></a>Installieren den geheimen Schlüssel-Manager
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **bearbeiten \<Project_name\>csproj** aus dem Kontextmenü. Fügen Sie die hervorgehobene Zeile auf die *csproj* Datei, und speichern, um das zugehörige NuGet-Paket wiederherstellen:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -59,8 +58,7 @@ Speichern der geänderten *csproj* Datei auch öffnet eine `secrets.json` Datei 
 }
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 Hinzufügen `Microsoft.Extensions.SecretManager.Tools` auf die *csproj* , und führen Sie [Dotnet Wiederherstellung](/dotnet/core/tools/dotnet-restore). Die gleichen Schritte können Sie um das für die Befehlszeile mit Schlüssel-Manager-Tool zu installieren.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -89,15 +87,14 @@ dotnet user-secrets set MySecret ValueOfMySecret
 ```
 
 Sie können das Schlüssel-Manager-Tool ausführen, aus anderen Verzeichnissen, aber Sie müssen die `--project` Option aus, um den Pfad zum Übergeben der *csproj* Datei:
- 
+
 ```console
 dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
 ```
 
 Sie können auch das Tool Secret-Manager angezeigt wird, entfernen und app-Kennwörter zu löschen.
 
------
-
+* * *
 ## <a name="accessing-user-secrets-via-configuration"></a>Zugreifen auf vertrauliche Benutzerdaten über die Konfiguration
 
 Sie können die geheimen Schlüssel-Manager über das Konfigurationssystem zugreifen. Hinzufügen der `Microsoft.Extensions.Configuration.UserSecrets` Verpacken und ausführen [Dotnet Wiederherstellung](/dotnet/core/tools/dotnet-restore).

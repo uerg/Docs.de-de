@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: "Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix | Microsoft Docs"
+title: Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix | Microsoft Docs
 author: tfitzmac
-description: "Dieses Lernprogramm ist der letzte Teil in der Tutorial Menge, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie Ihre Website t veröffentlichen..."
+description: Dieses Lernprogramm ist der letzte Teil in der Tutorial Menge, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie Ihre Website t veröffentlichen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix
 ====================
@@ -32,7 +32,7 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Zum Veröffentlichen Ihrer Website
 
-Bis jetzt haben Sie Ihre Arbeit auf einem lokalen Computer, z. B. Ihre Seiten testen. Zum Ausführen Ihrer*cshtml* Seiten die, Sie verwendet haben, den Webserver, die in WebMatrix, nämlich IIS Express integriert ist. Aber natürlich kein können finden Sie unter der Website, die Sie außer dass Sie erstellt haben. Damit um andere Benutzer mit Ihrer Website arbeiten zu können, müssen Sie ihn mit dem Internet zu veröffentlichen.
+Bis jetzt haben Sie Ihre Arbeit auf einem lokalen Computer, z. B. Ihre Seiten testen. Zum Ausführen Ihrer<em>cshtml</em> Seiten die, Sie verwendet haben, den Webserver, die in WebMatrix, nämlich IIS Express integriert ist. Aber natürlich kein können finden Sie unter der Website, die Sie außer dass Sie erstellt haben. Damit um andere Benutzer mit Ihrer Website arbeiten zu können, müssen Sie ihn mit dem Internet zu veröffentlichen.
 
 Sofern nicht bereits Zugriff auf einen öffentlichen Webserver veröffentlichen bedeutet, dass Sie ein Konto mit einem *Cloudplattform* oder ein *Hostinganbieter*. Eine Cloud-Plattform, z. B. Microsoft Azure bietet bei Bedarf-Infrastruktur für Ihre Anwendungen. Hosting-Anbieter ist ein Unternehmen, die öffentlich zugängliche Webserver besitzt und wird, die Sie vermieten, Speicherplatz, der für Ihre Website. Hosten von Plänen von wenige Dollar pro Monat ausführen (oder sogar kostenlos) für kleine Standorte zu vielen Hunderten Dollar pro Monat für hohes Volumen kommerziellen Websites.
 
@@ -53,7 +53,7 @@ Dieses Lernprogramm enthält vier Teilbereiche:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Die Standardseite einrichten
 
-Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für Ihre Website für den Benutzer angezeigt. Beispielsweise, wenn als Standardseite für den Standort am www.contoso.com "default.htm" festgelegt ist, und dann weiter navigieren **www.contoso.com** ist identisch mit Navigieren zu **www.contoso.com/Default.htm**.
+Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für Ihre Website für den Benutzer angezeigt. Beispielsweise, wenn als Standardseite für den Standort am www.contoso.com "default.htm" festgelegt ist, und dann weiter navigieren <strong>www.contoso.com</strong> ist identisch mit Navigieren zu <strong>www.contoso.com/Default.htm</strong>.
 
 Die Website derzeit verwendet **Default.cshtml** als die Standardseite. Diese Seite ist gut für die Standardseite, aber in diesem Lernprogramm nicht hinzugefügt haben alle Inhalte, die diese Seite, damit sie eine leere Seite angezeigt wird. Öffnen Sie Default.cshtml, und Ersetzen Sie den Inhalt durch folgenden Code.
 
@@ -219,5 +219,5 @@ Wechseln Sie zu der live-Standort (Sie können den Link in der bestätigungsmeld
 
 - [ASP.NET WebMatrix ASP.NET Web Pages-Forum](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), ein hervorragender Ausgangspunkt veröffentlichen Fragen und Antworten.
 
->[!div class="step-by-step"]
-[Zurück](layouts.md)
+> [!div class="step-by-step"]
+> [Vorherige](layouts.md)

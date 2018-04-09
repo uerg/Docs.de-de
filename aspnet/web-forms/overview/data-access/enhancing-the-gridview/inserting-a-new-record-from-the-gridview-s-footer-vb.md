@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
-title: "Einfügen eines neuen Datensatzes aus der GridView Fußzeile (VB) | Microsoft Docs"
+title: Einfügen eines neuen Datensatzes aus der GridView Fußzeile (VB) | Microsoft Docs
 author: rick-anderson
-description: "Während des GridView-Steuerelements keine integrierten Unterstützung für das Einfügen eines neuen Datensatzes Datenmengen bereitstellen, wird in diesem Lernprogramm gezeigt, wie erweitern, die GridView einschließen einer..."
+description: Während des GridView-Steuerelements keine integrierten Unterstützung für das Einfügen eines neuen Datensatzes Datenmengen bereitstellen, wird in diesem Lernprogramm gezeigt, wie erweitern, die GridView einschließen einer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4d452e15ced52fd9dcac8201598146cb9ef38d7b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32f3cb23805813135bf463720e7479f5f819deb7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>Einfügen eines neuen Datensatzes aus der GridView Fußzeile (VB)
 ====================
@@ -140,18 +140,18 @@ Um die Bearbeitung Schnittstelle zu erstellen, wählen Sie die Vorlagen bearbeit
 
 Die folgenden Aufzählung Listet die GridView-Felder, die das Einfügen von Schnittstelle hinzuzufügende angeben:
 
-- `ProductID`None.
-- `ProductName`Fügen Sie ein Textfeld hinzu, und legen Sie dessen `ID` auf `NewProductName`. Fügen Sie ein RequiredFieldValidator-Steuerelement hinzu, um sicherzustellen, dass der Benutzer einen Wert für den neuen Produktnamen s eingibt.
-- `SupplierID`None.
-- `CategoryID`None.
-- `QuantityPerUnit`Fügen Sie ein Textfeld, das Festlegen seiner `ID` auf `NewQuantityPerUnit`.
-- `UnitPrice`Fügen Sie ein Textfeld mit dem Namen `NewUnitPrice` und eine CompareValidator, die wird sichergestellt, den eingegebene Wert dass ist ein Currency-Wert größer als oder gleich 0 (null).
-- `UnitsInStock`Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewUnitsInStock`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
-- `UnitsOnOrder`Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewUnitsOnOrder`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
-- `ReorderLevel`Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewReorderLevel`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
-- `Discontinued`Fügen Sie ein Kontrollkästchen, das Festlegen seiner `ID` auf `NewDiscontinued`.
-- `CategoryName`Fügen Sie einer DropDownList hinzu, und legen Sie dessen `ID` auf `NewCategoryID`. Binden Sie es an eine neue ObjectDataSource mit dem Namen `CategoriesDataSource` und konfigurieren es für das Verwenden der `CategoriesBLL` Klasse s `GetCategories()` Methode. Der DropDownList s haben `ListItem` s Anzeige der `CategoryName` Daten-Felds mithilfe der `CategoryID` Feld "Daten" als ihre Werte.
-- `SupplierName`Fügen Sie einer DropDownList hinzu, und legen Sie dessen `ID` auf `NewSupplierID`. Binden Sie es an eine neue ObjectDataSource mit dem Namen `SuppliersDataSource` und konfigurieren es für das Verwenden der `SuppliersBLL` Klasse s `GetSuppliers()` Methode. Der DropDownList s haben `ListItem` s Anzeige der `CompanyName` Daten-Felds mithilfe der `SupplierID` Feld "Daten" als ihre Werte.
+- `ProductID` None.
+- `ProductName` Fügen Sie ein Textfeld hinzu, und legen Sie dessen `ID` auf `NewProductName`. Fügen Sie ein RequiredFieldValidator-Steuerelement hinzu, um sicherzustellen, dass der Benutzer einen Wert für den neuen Produktnamen s eingibt.
+- `SupplierID` None.
+- `CategoryID` None.
+- `QuantityPerUnit` Fügen Sie ein Textfeld, das Festlegen seiner `ID` auf `NewQuantityPerUnit`.
+- `UnitPrice` Fügen Sie ein Textfeld mit dem Namen `NewUnitPrice` und eine CompareValidator, die wird sichergestellt, den eingegebene Wert dass ist ein Currency-Wert größer als oder gleich 0 (null).
+- `UnitsInStock` Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewUnitsInStock`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
+- `UnitsOnOrder` Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewUnitsOnOrder`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
+- `ReorderLevel` Verwenden Sie ein Textfeld, deren `ID` festgelegt ist, um `NewReorderLevel`. Einschließen einer CompareValidator, der sicherstellt, dass der eingegebene Wert einen ganzzahligen Wert größer als oder gleich 0 (null) ist.
+- `Discontinued` Fügen Sie ein Kontrollkästchen, das Festlegen seiner `ID` auf `NewDiscontinued`.
+- `CategoryName` Fügen Sie einer DropDownList hinzu, und legen Sie dessen `ID` auf `NewCategoryID`. Binden Sie es an eine neue ObjectDataSource mit dem Namen `CategoriesDataSource` und konfigurieren es für das Verwenden der `CategoriesBLL` Klasse s `GetCategories()` Methode. Der DropDownList s haben `ListItem` s Anzeige der `CategoryName` Daten-Felds mithilfe der `CategoryID` Feld "Daten" als ihre Werte.
+- `SupplierName` Fügen Sie einer DropDownList hinzu, und legen Sie dessen `ID` auf `NewSupplierID`. Binden Sie es an eine neue ObjectDataSource mit dem Namen `SuppliersDataSource` und konfigurieren es für das Verwenden der `SuppliersBLL` Klasse s `GetSuppliers()` Methode. Der DropDownList s haben `ListItem` s Anzeige der `CompanyName` Daten-Felds mithilfe der `SupplierID` Feld "Daten" als ihre Werte.
 
 Für die einzelnen Validierungssteuerelemente, löschen, die `ForeColor` Eigenschaft, damit die `FooterStyle` anstelle des standardmäßigen red weißen Vordergrundfarbe für CSS-Klasse verwendet werden. Auch die `ErrorMessage` jedoch eine ausführliche Beschreibung Eigenschaftensatz die `Text` Eigenschaft auf ein Sternchen. Um zu verhindern, dass die Überprüfung Steuerelementtext s verursacht die einfügende-Schnittstelle, um zwei Zeilen zu umschließen, legen Sie die `FooterStyle` s `Wrap` Eigenschaft auf "false" für jede der `FooterTemplate` s, die ein Validierungssteuerelement verwenden. Schließlich fügen ein ValidationSummary Steuerelement unterhalb des GridView und seine `ShowMessageBox` Eigenschaft, um `True` und seine `ShowSummary` Eigenschaft, um `False`.
 
@@ -234,7 +234,7 @@ In diesem Lernprogramm verwendete GridView gilt nicht keine Sortierreihenfolge f
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
-`SendUserToLastPage`eine boolesche Seitenebene-Variable, die anfänglich ist einen Wert zugewiesen `False`. In der GridView s `DataBound` Ereignishandler, d. h. wenn `SendUserToLastPage` lautet "false", die `PageIndex` Eigenschaft wird aktualisiert, damit um der Benutzer zur letzten Seite zu senden.
+`SendUserToLastPage` eine boolesche Seitenebene-Variable, die anfänglich ist einen Wert zugewiesen `False`. In der GridView s `DataBound` Ereignishandler, d. h. wenn `SendUserToLastPage` lautet "false", die `PageIndex` Eigenschaft wird aktualisiert, damit um der Benutzer zur letzten Seite zu senden.
 
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
@@ -262,11 +262,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Bernadette Leigh. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](adding-a-gridview-column-of-checkboxes-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](adding-a-gridview-column-of-checkboxes-vb.md)

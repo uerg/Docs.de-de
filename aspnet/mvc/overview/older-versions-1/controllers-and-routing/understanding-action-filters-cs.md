@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 title: Grundlegendes zu Aktionsfiltern (c#) | Microsoft Docs
 author: microsoft
-description: "Das Ziel dieses Lernprogramms ist zur Erläuterung der Aktionsfilter verwendet werden. Ein Aktionsfilter wird ein Attribut, das Sie auf eine Controlleraktion – oder eine gesamte Controller anwenden können..."
+description: Das Ziel dieses Lernprogramms ist zur Erläuterung der Aktionsfilter verwendet werden. Ein Aktionsfilter wird ein Attribut, das Sie auf eine Controlleraktion – oder eine gesamte Controller anwenden können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d68933297329370e227f524c4b96ed7e259ef833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-c"></a>Grundlegendes zu Aktionsfiltern (c#)
 ====================
@@ -45,7 +45,7 @@ Ein Aktionsfilter ist ein Attribut. Sie können die meisten Aktionsfilter auf ei
 
 Der Controller Daten im Codebeispiel 1 macht z. B. eine Aktion, die mit dem Namen `Index()` , die die aktuelle Uhrzeit zurückgibt. Diese Aktion ist mit ergänzt die `OutputCache` Aktionsfilter. Dieser Filter führt dazu, dass der Rückgabewert von der Aktion für 10 Sekunden zwischengespeichert werden soll.
 
-**Auflisten von 1 –`Controllers\DataController.cs`**
+**Auflisten von 1 – `Controllers\DataController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample1.cs)]
 
@@ -103,7 +103,7 @@ Im nächsten Abschnitt sehen wir, wie Sie jede dieser anderen Methoden implement
 
 Um zu veranschaulichen, wie Sie eine benutzerdefinierte Aktionsfilter erstellen können, erstellen wir ein benutzerdefinierten Aktionsfilters, das die Phasen der Verarbeitung einer Controlleraktion der Visual Studio-Ausgabefenster protokolliert. Unsere `LogActionFilter` auflisten 2 enthalten ist.
 
-**Auflisten von 2 –`ActionFilters\LogActionFilter.cs`**
+**Auflisten von 2 – `ActionFilters\LogActionFilter.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample2.cs)]
 
@@ -117,7 +117,7 @@ Auflisten von 2 die `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecut
 
 Der Home-Controller im Codebeispiel 3 wird veranschaulicht, wie Sie die Protokoll-Action-Filter auf eine gesamte Controllerklasse anwenden können. Sobald die Aktionen, die verfügbar gemacht werden, indem Sie den Home-Controller aufgerufen werden – entweder die `Index()` Methode oder die `About()` Methode – die Phasen der Verarbeitung die Aktion in einer Visual Studio-Ausgabefenster protokolliert werden.
 
-**Auflisten von 3:`Controllers\HomeController.cs`**
+**Auflisten von 3: `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample3.cs)]
 
@@ -127,6 +127,6 @@ In diesem Lernprogramm wurden Sie zu ASP.NET MVC-Aktionsfilter eingeführt. Sie 
 
 Schließlich haben Sie gelernt, wie Sie einen einfachen Aktionsfilter zu implementieren. Es erstellt einen Protokoll Action-Filter, der die Phasen der Verarbeitung einer Controlleraktion der Visual Studio-Ausgabefenster protokolliert.
 
->[!div class="step-by-step"]
-[Zurück](asp-net-mvc-routing-overview-cs.md)
-[Weiter](improving-performance-with-output-caching-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](asp-net-mvc-routing-overview-cs.md)
+> [Weiter](improving-performance-with-output-caching-cs.md)

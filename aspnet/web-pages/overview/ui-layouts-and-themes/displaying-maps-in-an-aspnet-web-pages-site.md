@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 title: Anzeigen von Zuordnungen in einer ASP.NET Web Pages (Razor) Standort | Microsoft Docs
 author: tfitzmac
-description: "In diesem Artikel wird erläutert, wie interaktive Karten auf Seiten in einer ASP.NET Web Pages (Razor) Website anhand der Zuordnung von Bing, Google, Ma bereitgestellten Dienste anzeigen..."
+description: In diesem Artikel wird erläutert, wie interaktive Karten auf Seiten in einer ASP.NET Web Pages (Razor) Website anhand der Zuordnung von Bing, Google, Ma bereitgestellten Dienste anzeigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Anzeigen von Maps an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -89,9 +89,9 @@ Das folgende Beispiel zeigt, wie eine Seite zu erstellen, die eine Zuordnung bas
         > [!NOTE]
         > Wenn Sie eine andere Version von jQuery-Bibliothek verwenden, achten Sie darauf, dass Sie ordnungsgemäß auf diese Version Zeigt sind.
     - Der Aufruf der `@Maps.GetGoogleHtml` im Text der Seite. Um eine Adresse zuordnen, müssen Sie eine Adresszeichenfolge übergeben. Die Methoden für die andere Module der Karte funktionieren auf ähnliche Weise (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
-- Führen Sie die Seite, und geben Sie eine Adresse. Die Seite zeigt eine Zuordnung, basierend auf Google Maps, die den Speicherort zeigt, den Sie angegeben haben.
+3. Führen Sie die Seite, und geben Sie eine Adresse. Die Seite zeigt eine Zuordnung, basierend auf Google Maps, die den Speicherort zeigt, den Sie angegeben haben.
 
-    ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Erstellen einer Zuordnung basierend auf den Breiten- und Längengrad Koordinaten (über Bing)
 
@@ -103,12 +103,12 @@ In diesem Beispiel wird gezeigt, wie zum Erstellen einer Zuordnung basierend auf
 2. Ersetzen Sie `your-key-here` mit dem Bing Maps-Schlüssel, die Sie zuvor generiert.
 3. Führen Sie die *MapCoordinates.cshtml* Seite Geben Sie die Breiten-und Längenkoordinaten, und klicken Sie dann auf die **Map It!** Schaltfläche. (Wenn Sie nicht, dass alle Koordinaten wissen, versuchen Sie Folgendes. Dies ist ein Speicherort in das Microsoft in Redmond wurde auf.)
 
-    - Breitengrad: 47.6781005859375
-    - Longitude: -122.158317565918
+   - Breitengrad: 47.6781005859375
+   - Longitude: -122.158317565918
 
-    Die Seite wird angezeigt, über die Koordinaten, die Sie angegeben haben.
+     Die Seite wird angezeigt, über die Koordinaten, die Sie angegeben haben.
 
-    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen

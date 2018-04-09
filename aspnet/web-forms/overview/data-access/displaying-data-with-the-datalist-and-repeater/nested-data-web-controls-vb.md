@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 title: Geschachtelte Daten Websteuerelemente (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm aus, die wir untersuchen ein anderes Repeater geschachtelt wie einen Repeater verwenden. In den Beispielen werden die inneren Repeater beide d Auffüllen veranschaulichen..."
+description: In diesem Lernprogramm aus, die wir untersuchen ein anderes Repeater geschachtelt wie einen Repeater verwenden. In den Beispielen werden die inneren Repeater beide d Auffüllen veranschaulichen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 944f208d6fe4f9fde13b530fb236ecc69ff5e9cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8bb5eae2003273fa8d8a06cc4adaa959378f1e2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-vb"></a>Geschachtelte Daten Web Controls (VB)
 ====================
@@ -93,14 +93,14 @@ Die Daten zum Binden an die innere Wiederholungsmodul-Steuerelement können entw
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>Zugreifen auf die Daten deklarativ mit einem ObjectDataSource-Steuerelement und dem`ItemDataBound`-Ereignishandler
 
-Ve verwendet das ObjectDataSource umfassend in der gesamten dieser Reihe von Lernprogrammen, die am häufigsten gute Wahl für den Datenzugriff für dieses Beispiel besteht darin, mit der ObjectDataSource bleiben, da wir. Die `ProductsBLL` -Klasse verfügt über eine `GetProductsByCategoryID(categoryID)` Methode, die Informationen zu diesen Produkten zurückgibt, die in den angegebenen gehören  *`categoryID`* . Daher können wir eine ObjectDataSource zum Hinzufügen der `CategoryList` Repeater s `ItemTemplate` , und konfigurieren sie den Zugriff auf die Daten aus dieser Klasse s-Methode.
+Ve verwendet das ObjectDataSource umfassend in der gesamten dieser Reihe von Lernprogrammen, die am häufigsten gute Wahl für den Datenzugriff für dieses Beispiel besteht darin, mit der ObjectDataSource bleiben, da wir. Die `ProductsBLL` -Klasse verfügt über eine `GetProductsByCategoryID(categoryID)` Methode, die Informationen zu diesen Produkten zurückgibt, die in den angegebenen gehören *`categoryID`*. Daher können wir eine ObjectDataSource zum Hinzufügen der `CategoryList` Repeater s `ItemTemplate` , und konfigurieren sie den Zugriff auf die Daten aus dieser Klasse s-Methode.
 
 Leider die Repeater ist nicht zulassen ihre Vorlagen in der Entwurfsansicht bearbeitet werden, damit wir die deklarative Syntax für das ObjectDataSource-Steuerelement manuell hinzufügen müssen. Die folgende Syntax zeigt die `CategoryList` Repeater s `ItemTemplate` nach dem Hinzufügen dieses neue ObjectDataSource (`ProductsByCategoryDataSource`):
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
-Bei Verwendung des Ansatzes ObjectDataSource müssen wir Festlegen der `ProductsByCategoryList` Repeater s `DataSourceID` Eigenschaft, um die `ID` der ObjectDataSource (`ProductsByCategoryDataSource`). Beachten Sie auch, die unsere ObjectDataSource verfügt über eine `<asp:Parameter>` Element, das angibt der  *`categoryID`*  -Wert, der an übergeben werden die `GetProductsByCategoryID(categoryID)` Methode. Aber wie wir diesen Wert angeben? Im Idealfall werden wir d kann nur festgelegt, die `DefaultValue` Eigenschaft von der `<asp:Parameter>` Element mit Databinding-Syntax wie folgt:
+Bei Verwendung des Ansatzes ObjectDataSource müssen wir Festlegen der `ProductsByCategoryList` Repeater s `DataSourceID` Eigenschaft, um die `ID` der ObjectDataSource (`ProductsByCategoryDataSource`). Beachten Sie auch, die unsere ObjectDataSource verfügt über eine `<asp:Parameter>` Element, das angibt der *`categoryID`* -Wert, der an übergeben werden die `GetProductsByCategoryID(categoryID)` Methode. Aber wie wir diesen Wert angeben? Im Idealfall werden wir d kann nur festgelegt, die `DefaultValue` Eigenschaft von der `<asp:Parameter>` Element mit Databinding-Syntax wie folgt:
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
@@ -133,7 +133,7 @@ Anstatt ein ObjectDataSource zum Abrufen von Produkten für die aktuelle Kategor
 
 Die Repeater s `DataSource` Eigenschaft verwendet die Databinding-Syntax, um anzugeben, dass die Daten stammen die `GetProductsInCategory(categoryID)` Methode. Da `Eval("CategoryID")` gibt einen Wert vom Typ `Object`, wir wandeln Sie das Objekt um eine `Integer` vor der Übergabe in die `GetProductsInCategory(categoryID)` Methode. Beachten Sie, dass die `CategoryID` zugegriffen hier über dem Datenbindung Syntax wird der `CategoryID` in der *äußeren* Repeater (`CategoryList`), der s gebunden, um die Datensätze in der `Categories` Tabelle. Daher wir wissen, `CategoryID` nicht mit eine Datenbank `NULL` Wert, der angibt, warum wir Blind umgewandelt werden kann die `Eval` Methode ohne überprüft, ob wir re Umgang mit einer `DBNull`.
 
-Bei diesem Ansatz müssen wir erstellen die `GetProductsInCategory(categoryID)` Methode und die geeignete Reihe der erhält die angegebenen Produkte abrufen  *`categoryID`* . Wir erreichen dies durch eine einfache Rückkehr der `ProductsDataTable` zurückgegebenes der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode. S erstellen lassen die `GetProductsInCategory(categoryID)` Methode in der CodeBehind-Klasse für unsere `NestedControls.aspx` Seite. Dazu verwenden Sie den folgenden Code:
+Bei diesem Ansatz müssen wir erstellen die `GetProductsInCategory(categoryID)` Methode und die geeignete Reihe der erhält die angegebenen Produkte abrufen *`categoryID`*. Wir erreichen dies durch eine einfache Rückkehr der `ProductsDataTable` zurückgegebenes der `ProductsBLL` Klasse s `GetProductsByCategoryID(categoryID)` Methode. S erstellen lassen die `GetProductsInCategory(categoryID)` Methode in der CodeBehind-Klasse für unsere `NestedControls.aspx` Seite. Dazu verwenden Sie den folgenden Code:
 
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]
@@ -179,11 +179,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Zack Jones und Liz Shulok. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

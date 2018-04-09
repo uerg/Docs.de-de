@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 title: Paging von Berichtsdaten in einem DataList oder Wiederholungsmodul-Steuerelement (c#) | Microsoft Docs
 author: rick-anderson
-description: "Beim weder DataList noch Repeater Angebot automatische Paging oder sortierungsunterstützung veranschaulicht dieses Lernprogramms zum Hinzufügen von Unterstützung der Paginierung zur DataList oder Repeater..."
+description: Beim weder DataList noch Repeater Angebot automatische Paging oder sortierungsunterstützung veranschaulicht dieses Lernprogramms zum Hinzufügen von Unterstützung der Paginierung zur DataList oder Repeater...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 43b1370e1411858cef02bca534d082a3c105e51e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Paging von Berichtsdaten in einem DataList oder Wiederholungsmodul-Steuerelement (c#)
 ====================
@@ -100,10 +100,10 @@ Die `ProductsBLL` -Klasse verfügt derzeit über eine Methode zum Zurückgeben v
 
 Hinzufügen einer Methode zur der `ProductsBLL` Klasse mit dem Namen `GetProductsAsPagedDataSource` akzeptiert, die zwei ganzzahlige Eingabeparameter entgegen:
 
-- `pageIndex`der Index der Seite, um anzuzeigen, auf 0 (null), indiziert und
-- `pageSize`die Anzahl der Datensätze pro Seite angezeigt werden sollen.
+- `pageIndex` der Index der Seite, um anzuzeigen, auf 0 (null), indiziert und
+- `pageSize` die Anzahl der Datensätze pro Seite angezeigt werden sollen.
 
-`GetProductsAsPagedDataSource`beginnt mit dem Abrufen von *alle* Datensätze aus `GetProducts()`. Sie erstellt dann eine `PagedDataSource` Objekt, und legen seine `CurrentPageIndex` und `PageSize` Eigenschaften mit den Werten der übergebenen `pageIndex` und `pageSize` Parameter. Die Methode abgeschlossen ist, wird durch diese Konfiguration zurückgeben `PagedDataSource`:
+`GetProductsAsPagedDataSource` beginnt mit dem Abrufen von *alle* Datensätze aus `GetProducts()`. Sie erstellt dann eine `PagedDataSource` Objekt, und legen seine `CurrentPageIndex` und `PageSize` Eigenschaften mit den Werten der übergebenen `pageIndex` und `pageSize` Parameter. Die Methode abgeschlossen ist, wird durch diese Konfiguration zurückgeben `PagedDataSource`:
 
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
@@ -275,11 +275,11 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Liz Shulok Ken Pespisa und Bernadette Leigh. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Nächste](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](sorting-data-in-a-datalist-or-repeater-control-cs.md)

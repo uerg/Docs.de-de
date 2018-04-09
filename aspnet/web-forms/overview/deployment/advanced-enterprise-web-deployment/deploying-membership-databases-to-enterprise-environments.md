@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 title: Bereitstellen von Datenbanken Mitgliedschaft in Enterprise-Umgebungen | Microsoft Docs
 author: jrjlee
-description: "Dieser Artikel beschreibt die wichtigsten Überlegungen und Herausforderungen, die Sie benötigen, zu umgehen, wenn Sie ASP.NET Anwendung-Services-Datenbanken (üblicher... bereitstellen"
+description: Dieser Artikel beschreibt die wichtigsten Überlegungen und Herausforderungen, die Sie benötigen, zu umgehen, wenn Sie ASP.NET Anwendung-Services-Datenbanken (üblicher... bereitstellen
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b783fcf57759f2a431480eec6902105f6d683408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Bereitstellen von Datenbanken Mitgliedschaft in Enterprise-Umgebungen
 ====================
@@ -27,9 +27,9 @@ durch [Jason Lee](https://github.com/jrjlee)
 > In diesem Thema wird erläutert, die wichtige Überlegungen und Herausforderungen, die Sie vermeiden, wenn Sie ASP.NET-Anwendung Datenbanken (häufiger Mitgliedschaft Datenbanken genannt) in Test-, Staging- oder produktionsumgebung Umgebungen für Bereitstellungsdienste benötigen. Es beschreibt auch Ansätze, die Sie verwenden können, um diese Auflagen erfüllt werden.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Diese Reihe von Lernprogrammen verwendet eine Beispielprojektmappe & #x 2014; die [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; zum Darstellen einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Kontakt-Manager-Lösung](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird Projekt zwei Dateien & #x 2014; eine enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf in beschriebene Ansatz der Teilung Projekt Datei [verstehen die Projektdatei](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
 
 ## <a name="what-are-the-issues-when-you-deploy-a-membership-database"></a>Was sind die Probleme, wenn Sie eine Mitgliedschaftsdatenbank bereitstellen?
 
@@ -45,13 +45,13 @@ Leider wurde für ASP.NET Membership Datenbanken bestimmten Herausforderungen, d
 Verwenden Sie diese Richtlinien, wenn Sie eine Mitgliedschaftsdatenbank in einer Server-unternehmensumgebung bereitstellen auswählen:
 
 - Nach Möglichkeit sollten Sie die Mitgliedschaft Datenbanken nicht bereitstellen. Erstellen Sie stattdessen die Mitgliedschaftsdatenbank manuell auf dem Zielserver für die Datenbank. Wenn Sie das Datenbankschema Mitgliedschaft angepasst haben, können Sie einfach erstellen ein neues Konto in situ auf dem Ziel mithilfe der [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
-- Keine Option jedoch auf bereitstellen, eine Mitgliedschaftsdatenbank & #x 2014; haben z. B. Wenn Sie das Datenbankschema & #x 2014; eine umfangreiche Änderungen vorgenommen haben Sie sollten eine Schema only Bereitstellung Ausführen der Mitgliedschaftsdatenbank Benutzerkontodaten, ausschließen und Führen Sie ein Skript nach der Bereitstellung, um alle erforderlichen Konfigurationsdaten hinzuzufügen. Umfassende Anleitung finden Sie auf diese Ansätze in [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
+- Wenn keine Möglichkeit besteht jedoch zum Bereitstellen einer Mitgliedschaftsdatenbank&#x2014;z. B., wenn Sie eine umfangreiche Änderungen am Datenbankschema vorgenommen haben&#x2014;sollten Sie eine Schema only Bereitstellung der Mitgliedschaftsdatenbank auszuschließende Benutzerkontodaten, ausführen und dann Führen Sie ein Skript nach der Bereitstellung erforderlichen Konfigurationsdaten hinzufügen. Umfassende Anleitung finden Sie auf diese Ansätze in [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
-Es ist wichtig zu beachten, dass *das Schema der Mitgliedschaftsdatenbank ist wahrscheinlich relativ statisch sein*. Auch wenn Sie die Mitgliedschaftsdatenbank angepasst haben, ist es unwahrscheinlich, dass Sie zum Aktualisieren des Schemas auf eine regelmäßige & #x 2014 müssen; es ist nicht mit der gleichen Häufigkeit wie der Code in einer Webanwendung oder ein Datenbankprojekt ändern möchten. Daher müssen Sie darf kein automatisierte oder einstufiger-bereitstellungstechnologien die Mitgliedschaftsdatenbank einschließt.
+Es ist wichtig zu beachten, dass *das Schema der Mitgliedschaftsdatenbank ist wahrscheinlich relativ statisch sein*. Auch wenn Sie die Mitgliedschaftsdatenbank angepasst haben, es ist sehr unwahrscheinlich, müssen Sie zum Aktualisieren des Schemas in regelmäßigen Abständen&#x2014;es ist nicht mit der gleichen Häufigkeit wie der Code in einer Webanwendung oder ein Datenbankprojekt ändern möchten. Daher müssen Sie darf kein automatisierte oder einstufiger-bereitstellungstechnologien die Mitgliedschaftsdatenbank einschließt.
 
 ## <a name="using-vsdbcmd-to-update-a-membership-database-schema"></a>Verwenden VSDBCMD ein Datenbankschema Mitgliedschaft aktualisieren
 
-Wenn Sie die Struktur Ihrer Mitgliedschaftsdatenbank nach der ersten Bereitstellung ändern, möchten Sie möglicherweise nicht die Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy) zu verwenden, um die Datenbank erneut bereitzustellen. Die Datenbank neue Bereitstellungsfunktion in Web Deploy ist nicht die Möglichkeit, stellen differenzielle Updates zu einer Zieldatenbank & #x 2014 enthalten; stattdessen löschen und Neuerstellen die Datenbank muss Web Deploy. Dies bedeutet, dass alle vorhandenen Benutzer Kontodaten verloren gehen, die wodurch die in der Regel in der Staging-oder produktionsumgebung nicht erwünscht ist.
+Wenn Sie die Struktur Ihrer Mitgliedschaftsdatenbank nach der ersten Bereitstellung ändern, möchten Sie möglicherweise nicht die Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy) zu verwenden, um die Datenbank erneut bereitzustellen. Die Datenbank neue Bereitstellungsfunktion in Web Deploy ist nicht die Möglichkeit, stellen differenzielle Updates zu einer Zieldatenbank enthalten&#x2014;stattdessen löschen und Neuerstellen die Datenbank muss Web Deploy. Dies bedeutet, dass alle vorhandenen Benutzer Kontodaten verloren gehen, die wodurch die in der Regel in der Staging-oder produktionsumgebung nicht erwünscht ist.
 
 Die Alternative ist die Verwendung des Hilfsprogramms VSDBCMD um das Schema der Zieldatenbank zu aktualisieren. VSDBCMD umfasst zwei wichtige Funktionen. Zunächst können sie das Schema einer vorhandenen Datenbank in eine DBSCHEMA-Datei importieren. Zweitens können sie eine DBSCHEMA-Datei zu einer vorhandenen Datenbank als eine differenzielle Updates bereitstellen d. h. es werden nur Änderungen erforderlich, um die Zieldatenbank, die auf dem neuesten Stand zu bringen und Sie verlieren Sie keine Daten.
 
@@ -68,6 +68,6 @@ In diesem Thema beschriebenen einige der Herausforderungen, die Sie möglicherwe
 
 Weitere Hinweise und Beispiele zur Verwendung von VSDBCMD finden Sie unter [Command-Line Reference for VSDBCMD. EXE-Datei (Bereitstellung und Schemaimport)](https://msdn.microsoft.com/library/dd193283.aspx) und [Vorgehensweise: Importieren eines Schemas von einer Eingabeaufforderung](https://msdn.microsoft.com/library/dd172135.aspx). Weitere Informationen zur Verwendung von Aspnet\_regsql.exe zum Erstellen von Datenbanken von Mitgliedschaft, finden Sie unter [ASP.NET SQL Server-Registrierungstool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Allgemeineren Leitfaden zum Bereitstellen von Mitgliedschaft Datenbanken finden Sie unter [Vorgehensweise: Bereitstellen der ASP.NET Membership ohne einschließlich Datenbankbenutzerkonten](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Zurück](deploying-database-role-memberships-to-test-environments.md)
-[Weiter](excluding-files-and-folders-from-deployment.md)
+> [!div class="step-by-step"]
+> [Zurück](deploying-database-role-memberships-to-test-environments.md)
+> [Weiter](excluding-files-and-folders-from-deployment.md)
