@@ -1,26 +1,26 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-tools
-title: "Praktische Übungseinheit: Visual Studio 2013-Webtools | Microsoft Docs"
+title: 'Praktische Übungseinheit: Visual Studio 2013-Webtools | Microsoft Docs'
 author: rick-anderson
-description: "Visual Studio ist eine ausgezeichnete Entwicklungsumgebung für. NET-basierten Windows und Webprojekte. Er enthält einen leistungsstarke Text-Editor, der auf einfache Weise verwendet werden kann..."
+description: Visual Studio ist eine ausgezeichnete Entwicklungsumgebung für. NET-basierten Windows und Webprojekte. Er enthält einen leistungsstarke Text-Editor, der auf einfache Weise verwendet werden kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
 ms.openlocfilehash: ef8ab82f9043ef9da3a3e6a146a97f083149534d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Praktische Übungseinheit: Visual Studio 2013-Webtools
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 [Herunterladen von Web-Lager Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -30,7 +30,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Alle von dieser Power steht auch für Erweiterungen, einfach die Editoren leistungsstarke neue Features nach Ihren Bedürfnissen zu erweitern. Web Essentials ist eine Auflistung von (größtenteils) Web-bezogene Erweiterungen für Visual Studio. Er umfasst viele neue IntelliSense Beendigungen (insbesondere für CSS), neue Browserlink-Funktionen, automatische JSHint für JavaScript-Dateien, die neue Warnungen für HTML, CSS und viele weitere Funktionen, die für moderne Webentwicklung unverzichtbar sind.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -144,7 +144,7 @@ In dieser Übung verwenden Sie die Codierung Zen-Funktion von Web Essentials ber
 
 1. Wechseln Sie zurück zu Visual Studio.
 2. Öffnen der **Index.cshtml** -Datei die **Ansichten** | **Home** Ordner.
-3. Ersetzen Sie die  **&lt;!--TODO: Hier--Optionen hinzufügen&gt;**  Kommentar mit dem folgenden Code, und drücken Sie **Registerkarte**.
+3. Ersetzen Sie die **&lt;!--TODO: Hier--Optionen hinzufügen&gt;** Kommentar mit dem folgenden Code, und drücken Sie **Registerkarte**.
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
 4. Der Code sollte HTML erweitert werden.
@@ -180,7 +180,7 @@ In dieser Übung verwenden Sie die Codierung Zen-Funktion von Web Essentials ber
     *Lorem Ipsum automatisch generierten*
 
     > [!NOTE]
-    > Im Rahmen des Zen codieren können Sie jetzt Lorem Ipsum Code direkt im HTML-Editor generieren. Geben Sie einfach **Lorem** und klicken Sie **Registerkarte** und eine 30 word Lorem Ipsum Text eingefügt werden. Z. B. *lorem10* fügt 10 Lorem Ipsum Wörter.
+    > Im Rahmen des Zen codieren können Sie jetzt Lorem Ipsum Code direkt im HTML-Editor generieren. Geben Sie einfach **Lorem** und klicken Sie **Registerkarte** und eine 30 word Lorem Ipsum Text eingefügt werden. Beispiel: *lorem10* fügt 10 Lorem Ipsum Wörter.
 10. Fügen Sie ein Logo am oberen Rand die Frage mit der eine weitere neue Funktion in Web Essentials aufgerufen **Lorem Pixel Generator**. Fügen Sie den folgenden Code als das erste untergeordnete Element von der **Div** Element mit **Container** als **Klasse** Wert, und drücken Sie **Registerkarte**.
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample3.css)]
@@ -307,7 +307,7 @@ In dieser Aufgabe verwenden Sie den Browserlink **Entwurfsmodus** Feature bearbe
     ![Frage bearbeitet](visual-studio-2013-web-tools/_static/image29.png "Frage bearbeitet")
 
     *Frage bearbeitet*
-4. Wechseln Sie zurück zu Visual Studio und öffnen **Index.cshtml**, sofern nicht bereits geöffnet. Beachten Sie, dass der innere Text des der  **&lt;p&gt;**  Element aktualisiert wurde.
+4. Wechseln Sie zurück zu Visual Studio und öffnen **Index.cshtml**, sofern nicht bereits geöffnet. Beachten Sie, dass der innere Text des der **&lt;p&gt;** Element aktualisiert wurde.
 
     ![Aktualisierte Frage in das HTML-Seite](visual-studio-2013-web-tools/_static/image30.png "aktualisierte Frage in das HTML-Seite")
 
@@ -323,7 +323,7 @@ In dieser Aufgabe verwenden Sie den Browserlink **Entwurfsmodus** Feature bearbe
     ![In der Sicht Fehlerliste Menü](visual-studio-2013-web-tools/_static/image31.png "Fehlerliste im Menü "Ansicht"")
 
     *Fehler in der Sicht im Menü angezeigt.*
-2. Beachten Sie, dass ein SEO-Warnung benachrichtigt, die eine  **&lt;Meta&gt;**  tag für die Beschreibung für die Seite fehlt. Doppelklicken Sie auf den Eintrag SEO Warnung, um dies zu beheben.
+2. Beachten Sie, dass ein SEO-Warnung benachrichtigt, die eine **&lt;Meta&gt;** tag für die Beschreibung für die Seite fehlt. Doppelklicken Sie auf den Eintrag SEO Warnung, um dies zu beheben.
 
     ![Fehlerliste (Fenster)](visual-studio-2013-web-tools/_static/image32.png "Fenster "Fehlerliste"")
 
@@ -333,7 +333,7 @@ In dieser Aufgabe verwenden Sie den Browserlink **Entwurfsmodus** Feature bearbe
     ![Dialogfeld für Web Essentials](visual-studio-2013-web-tools/_static/image33.png "Web Essentials (Dialogfeld)")
 
     *Essentials (Dialogfeld)*
-4. Der Editor für  **\_Layout.cshtml** wird geöffnet und die  **&lt;Meta&gt;**  Tag wird automatisch hinzugefügt, die **Head** Teil der HTML-Datei.
+4. Der Editor für  **\_Layout.cshtml** wird geöffnet und die **&lt;Meta&gt;** Tag wird automatisch hinzugefügt, die **Head** Teil der HTML-Datei.
 
     ![Meta-Tag _Layout auf der Seite automatisch hinzugefügt](visual-studio-2013-web-tools/_static/image34.png "Meta-Tag _Layout auf der Seite automatisch hinzugefügt.")
 
@@ -354,7 +354,7 @@ In dieser Aufgabe erstellen Sie ein neues HTML-Formular-Element enthält eine Be
 
 1. Open **Visual Studio Express 2013 für Web** und die **Begin.sln** Projektmappe befindet sich in der **Quell-/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/Anfang** Ordner. Alternativ können Sie die Projektmappe fortsetzen, dass Sie im vorherigen Schritt abgerufen haben.
 2. In **Projektmappen-Explorer**öffnen die **Index.cshtml** -Datei die **Ansichten** | **Home** Ordner.
-3. Hinzufügen der folgenden Form innerhalb der  **&lt;Abschnitt&gt;**  Element.
+3. Hinzufügen der folgenden Form innerhalb der **&lt;Abschnitt&gt;** Element.
 
     (Codeausschnitt - *VisualStudio2013WebTooling* - *Ex2* - *Formular*)
 
@@ -362,19 +362,19 @@ In dieser Aufgabe erstellen Sie ein neues HTML-Formular-Element enthält eine Be
 4. Eine Bezeichnung mit der Beschreibung des Felds sollte die Eingabetag vorangestellt werden. Fügen Sie der folgenden Beschriftung vor der Eingabetag hinzu.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. Die **für** Attribut von einem  **&lt;Bezeichnung&gt;**  gibt an, welche Form-Elements eine Beschriftung an gebunden ist. Der Wert des Attributs sollte die Id des verknüpften Elements gleich sein. Hinzufügen der **für** -Attribut auf die  **&lt;Bezeichnung&gt;**  Element. Wie in der folgenden Abbildung gezeigt den &quot;Namen&quot; Wert eingeblendet, in das Feld IntelliSense anhand der Id der Elemente innerhalb desselben Gültigkeitsbereichs (einschließenden  **&lt;Formular&gt;**).
+5. Die **für** Attribut von einem **&lt;Bezeichnung&gt;** gibt an, welche Form-Elements eine Beschriftung an gebunden ist. Der Wert des Attributs sollte die Id des verknüpften Elements gleich sein. Hinzufügen der **für** -Attribut auf die **&lt;Bezeichnung&gt;** Element. Wie in der folgenden Abbildung gezeigt den &quot;Namen&quot; Wert eingeblendet, in das Feld IntelliSense anhand der Id der Elemente innerhalb desselben Gültigkeitsbereichs (einschließenden  **&lt;Formular&gt;**).
 
     ![Die Id in IntelliSense angezeigt](visual-studio-2013-web-tools/_static/image35.png "mit der Id in IntelliSense")
 
     *Die Id wird in IntelliSense angezeigt.*
-6. Löschen Sie die zuletzt hinzugefügte  **&lt;Formular&gt;**  Element und dessen Inhalt.
+6. Löschen Sie die zuletzt hinzugefügte **&lt;Formular&gt;** Element und dessen Inhalt.
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2---using-html-code-snippets"></a>Aufgabe 2 – mit HTML-Codeausschnitte
 
 HTML5 wurden mehr als 25 neuen semantischen Tags eingeführt. Visual Studio hat bereits die IntelliSense-Unterstützung für diese Tags, aber Visual Studio 2013 ist es schneller und einfacher Markup zu schreiben, indem Sie neue Codeausschnitte hinzufügen. Obwohl diese Tags nicht kompliziert sind, kommen sie mit wenigen kleine Besonderheiten, z. B. das Hinzufügen der richtigen Codec Zugriffe für die *audio* Tag. In dieser Aufgabe wird die HTML-Codeausschnitte für das audio Tag angezeigt.
 
-1. In der **Index.cshtml** Datei, geben Sie  **&lt;Aud** innerhalb der  **&lt;Abschnitt&gt;**  Element wie in der folgenden Abbildung dargestellt.
+1. In der **Index.cshtml** Datei, geben Sie  **&lt;Aud** innerhalb der **&lt;Abschnitt&gt;** Element wie in der folgenden Abbildung dargestellt.
 
     ![Einfügen von audio-Element](visual-studio-2013-web-tools/_static/image36.png "Einfügen von audio-Element")
 
@@ -385,7 +385,7 @@ HTML5 wurden mehr als 25 neuen semantischen Tags eingeführt. Visual Studio hat 
 
     > [!NOTE]
     > Durch Drücken der **Registerkarte** Schlüssel und der Codeausschnitt eingefügt wird. Der audio-Codeausschnitt zeigt das Standardverfahren für die *audio* -Tag entspricht, durch zwei Quelldateien für verbesserte Unterstützung.
-3. Die zweite Zeile löschen und aktualisieren Sie die Quelle der ersten Zeile mit dem folgenden Link anzuzeigende WebCampsTV Katana: [http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Der resultierende Code wird unten gezeigt.
+3. Die zweite Zeile löschen und aktualisieren Sie die Quelle der ersten Zeile mit dem folgenden Link anzuzeigende WebCampsTV Katana: [ http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3 ](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Der resultierende Code wird unten gezeigt.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample7.html)]
 
@@ -465,7 +465,7 @@ Mit Web Essentials 2013 die HTML-Seiten und Stylesheets, erzeugen die einer List
     ![Anzeigen von IntelliSense für die Methode GetElementByTagName](visual-studio-2013-web-tools/_static/image45.png "zeigt IntelliSense für die GetElementByTagName-Methode")
 
     *Anzeigen von IntelliSense für die GetElementsByTagName-Methode*
-13. Wählen Sie  **&quot;audio&quot;**  aus der Liste aus und drücken Sie **EINGABETASTE**. Das Ergebnis ist in der folgenden Abbildung dargestellt.
+13. Wählen Sie **&quot;audio&quot;** aus der Liste aus und drücken Sie **EINGABETASTE**. Das Ergebnis ist in der folgenden Abbildung dargestellt.
 
     ![Abrufen von Audio Elementen](visual-studio-2013-web-tools/_static/image46.png "Audio Elemente abrufen")
 

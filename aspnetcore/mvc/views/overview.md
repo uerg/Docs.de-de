@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten in ASP.NET Core MVC
 
 Von [Steve Smith](https://ardalis.com/) und [Luke Latham](https://github.com/guardrex)
 
-In diesem Artikel werden die Ansichten erläutert, die in ASP.NET Core MVC-Anwendungen verwendet werden. Informationen zu Razor-Seiten finden Sie unter [Introduction to Razor Pages (Einführung in Razor-Seiten)](xref:mvc/razor-pages/index).
+In diesem Artikel werden die Ansichten erläutert, die in ASP.NET Core MVC-Anwendungen verwendet werden. Informationen zu Razor Pages finden Sie unter [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index).
 
 Im Muster **M**odel-**V**iew-**C**ontroller (MVC) verarbeitet die *Ansicht* die Darstellung der App-Daten und der Benutzerinteraktion. Bei einer Ansicht handelt es sich um eine HTML-Vorlage mit eingebettetem [Razor-Markup](xref:mvc/views/razor). Bei einem Razor-Markup handelt es sich um Code, der mit einem HTML-Markup interagiert, um eine Webseite herzustellen, die an den Client gesendet wird.
 
@@ -48,7 +48,7 @@ Verwenden Sie [Layouts](xref:mvc/views/layout), damit die Abschnitte der Webseit
 
 Ansichten, die nur für bestimmte Controller erstellt werden, werden im Ordner *Views/[NamedesControllers]* erstellt. Ansichten, die von mehreren Controllern verwendet werden können, werden im Ordner *Views/Shared* gespeichert. Wenn Sie eine Ansicht erstellen möchten, fügen Sie eine neue Datei hinzu, und geben Sie ihr denselben Namen wie der zugehörigen Controlleraktion mit der Erweiterung *.cshtml*. Wenn Sie eine Ansicht erstellen möchten, die mit der Aktion *Hilfe* im *Basis*-Controller übereinstimmt, erstellen Sie eine *About.cshtml*-Datei im Ordner *Views/Home*:
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 Das *Razor*-Markup beginnt mit dem Symbol `@`. Führen Sie C#-Anweisungen aus, indem Sie C#-Code in den [Razor-Codeblocks](xref:mvc/views/razor#razor-code-blocks) speichern, die von geschweiften Klammern (`{ ... }`) umgeben sind. Weitere Informationen finden Sie im obenstehenden Beispiel für die Zuweisung von „Hilfe“ zu `ViewData["Title"]`. Sie können Werte innerhalb von HTML-Code angeben, indem Sie auf den Wert mit dem Symbol `@` verweisen. Weitere Informationen finden Sie in den Inhalten der obenstehenden Elemente `<h2>` und `<h3>`.
 
@@ -60,7 +60,7 @@ Ansichten werden in der Regel von Aktionen als [ViewResult](/aspnet/core/api/mic
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 Wenn diese Aktion zurückgegeben wird, wird die im letzten Abschnitt angezeigte *About.cshtml*-Ansicht als die folgende Webseite gerendert:
 
@@ -92,7 +92,7 @@ Standardmäßig gibt die `View`-Methode (`return View();`) eine Ansicht zurück,
 
 Es macht keinen Unterschied, ob Sie implizit `ViewResult` mit `return View();` zurückgeben, oder den Ansichtsnamen mit `return View("<ViewName>");` explizit an die `View`-Methode übergeben. In beiden Fällen sucht die Ansichtsermittlung nach einer passenden Ansichtsdatei in diesem Ordner:
 
-   1. *Views/\[NamedesControllers]\[NamederAnsicht].cshtml*
+   1. *Ansichten /\[ControllerName] /\[ViewName] cshtml*
    1. *Views/Shared/\[Ansichtsname].cshtml*
 
 Anstelle eines Ansichtsnamens kann auch ein Pfad zu einer Ansichtsdatei verwendet werden. Wenn Sie einen absoluten Pfad im Stammverzeichnis der App verwenden (der mit „/“ oder „~/“ beginnt), muss die Erweiterung *.cshtml* angegeben sein:
@@ -186,7 +186,7 @@ namespace WebApplication1.ViewModels
 
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Schwach typisierte Daten („ViewData“ und „ViewBag“)
 
-Hinweis: `ViewBag` ist für die Razor-Seiten nicht verfügbar.
+Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
 
 Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern auch auf *schwach typisierte* (auch als *lose typisiert* bezeichnet). Im Gegensatz zu starken Typen werden bei *schwachen Typen* (oder *losen Typen*) nicht explizit die Datentypen deklariert, die Sie verwenden. Sie können die Sammlung von schwach typisierten Daten verwenden, um kleinere Datenmengen an Controller und Ansichten zu übergeben oder sie ihnen zu entnehmen.
 
@@ -245,7 +245,7 @@ Arbeiten Sie mit den Daten in einer Ansicht:
 
 **ViewBag**
 
-Hinweis: `ViewBag` ist für die Razor-Seiten nicht verfügbar.
+Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
 
 Bei `ViewBag` handelt es sich um ein [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)-Objekt, das den dynamischen Zugriff auf die in `ViewData` gespeicherten Objekte ermöglicht. Es ist angenehmer, mit `ViewBag` zu arbeiten, da keine Umwandlung erforderlich ist. Im Folgenden finden Sie ein Beispiel, in dem dargestellt wird, wie Sie mit `ViewBag` das gleiche Ergebnis wie mit `ViewData` erzielen:
 
@@ -278,7 +278,7 @@ public IActionResult SomeAction()
 
 **Gleichzeitiges Verwenden von „ViewData“ and „ViewBag“**
 
-Hinweis: `ViewBag` ist für die Razor-Seiten nicht verfügbar.
+Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
 
 Da `ViewData` und `ViewBag` beide auf dieselbe zugrunde liegende `ViewData`-Sammlung verweisen, können Sie sowohl `ViewData` als auch `ViewBag` verwenden, und zwischen beiden Elementen wechseln, wenn Sie Werte schreiben und lesen.
 
@@ -318,7 +318,7 @@ Sie können `ViewData` und `ViewBag` gleichzeitig verwenden und zwischen dem Les
 
 **Zusammenfassung der Unterschiede zwischen „ViewData“ und „ViewBag“**
 
- `ViewBag` ist für die Razor-Seiten nicht verfügbar.
+ `ViewBag` ist für die Razor Pages nicht verfügbar.
 
 * `ViewData`
   * Wird von [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) abgeleitet und verfügt daher über Wörterbucheigenschaften wie `ContainsKey`, `Add`, `Remove` und `Clear`, die nützlich sein können.

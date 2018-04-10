@@ -1,22 +1,22 @@
 ---
 uid: overview
-title: "Übersicht über ASP.NET | Microsoft Docs"
+title: Übersicht über ASP.NET | Microsoft Docs
 author: rick-anderson
-description: "Einführung in ASP.NET ist ein kostenloses Framework zum Erstellen von Websites, Webanwendungen und Web-APIs."
+description: Einführung in ASP.NET ist ein kostenloses Framework zum Erstellen von Websites, Webanwendungen und Web-APIs.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2010
 ms.topic: article
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-msc.legacyurl: 
+msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 0ba7814d4004b17e678eab9a2a41a6d6f34773e1
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="aspnet-overview"></a>Übersicht über ASP.NET
 
@@ -40,7 +40,7 @@ Es folgt eine Übersicht der einzelnen Frameworks und einige Ideen zur Vorgehens
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web Forms | Win Forms, WPF und .NET | Schnelle Entwicklung über eine umfangreiche Bibliothek von Steuerelementen, die HTML-Markup zu kapseln. | Mittleren Ebene, erweiterte RAD |
 | MVC       | Ruby Schienen .NET  | Vollständige Kontrolle über die HTML-Markup, Code und Markup getrennt und leicht zu Tests schreiben. Die beste Wahl für mobile und Einzelseiten-Anwendungen (SPA). | Mittleren Ebene, erweitert |
-| Webseiten  | Klassische ASP PHP     | HTML-Markup und Code in der gleichen Datei zusammen | Neue, mittleren Ebene |
+| Webseiten  | Classic ASP, PHP     | HTML-Markup und Code in der gleichen Datei zusammen | Neue, mittleren Ebene |
 
 ### <a name="web-forms"></a>Web Forms
 

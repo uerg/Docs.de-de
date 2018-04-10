@@ -16,7 +16,7 @@ ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Grundlegendes zu ASP.NET AJAX-Lokalisierung
 ====================
@@ -65,7 +65,7 @@ Die folgende Tabelle fasst den Dateinamenskonventionen mit Beispielen:
 | --- | --- |
 | Script.js | Ein Release-Version kulturneutrale-Skript. |
 | Script.debug.js | Skript kulturneutrale der Debug-Version. |
-| Script.en-US.js | Version Englisch, USA Skript der Version. |
+| Script.en US.js | Version Englisch, USA Skript der Version. |
 | Script.debug.es-CO.js | Debug-Spanisch, Columbia Skript der Version. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Exemplarische Vorgehensweise: Erstellen eines lokalisierten, eingebetteten Skripts

@@ -2,7 +2,7 @@
 uid: mvc/overview/releases/mvc51-release-notes
 title: Neues in ASP.NET MVC 5.1 | Microsoft Docs
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/mvc51-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: be10486c9fd39738f44cdda4fedb409058017601
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whats-new-in-aspnet-mvc-51"></a>Was ist neu in ASP.NET MVC 5.1
 ====================
@@ -54,7 +54,7 @@ Installieren und für die veröffentlichten NuGet-Pakete über NuGet-Paket-Manag
 <a id="documentation"></a>
 ## <a name="documentation"></a>Dokumentation
 
-Lernprogramme und Weitere Informationen zu ASP.NET MVC 5.1 RTM sind von der Website für ASP.NET (https://www.asp.net) verfügbar. 
+Lernprogramme und Weitere Informationen zu ASP.NET MVC 5.1 RTM stehen auf der Website für ASP.NET ( https://www.asp.net). 
 
 <a id="new-features"></a>
 ## <a name="new-features-in-aspnet-mvc-51"></a>Neue Funktionen in ASP.NET MVC 5.1

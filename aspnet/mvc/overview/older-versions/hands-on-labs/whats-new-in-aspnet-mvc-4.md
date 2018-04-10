@@ -16,7 +16,7 @@ ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Was ist neu in ASP.NET MVC 4
 
@@ -639,7 +639,7 @@ Now you have 3 layouts in your ASP.NET MVC 4 application:
 7. Drücken Sie **F5** führen Sie die Anwendung, und suchen den Standort in der **Windows Phone-Emulator**.
 8. Öffnen einer **iPhone-Simulator** (finden Sie unter [Anhang C](#AppendixC) Anweisungen zum Installieren und konfigurieren einen iPhone-Simulator), und wechseln Sie zur Website zu. Beachten Sie, dass die betreffende Vorlage jedes Telefon verwendet.
 
-    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-Views-for-each-Mobile-Device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Verwenden verschiedene Ansichten für jedes mobile Gerät*
 
@@ -889,9 +889,9 @@ Um Ihre Website in einem simulierten iPhone-Gerät ausführen können Sie die We
 2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 
-    ![Installieren von WebMatrix 2](whats-new-in-aspnet-mvc-4/_static/image49.png "WebMatrix 2 installieren")
+    ![Install WebMatrix 2](whats-new-in-aspnet-mvc-4/_static/image49.png "Install WebMatrix 2")
 
-    *Installieren von WebMatrix 2*
+    *Install WebMatrix 2*
 4. Lesen Sie die Produkte, Lizenzen und Begriffe, und klicken Sie auf **ich stimme** um den Vorgang fortzusetzen.
 
     ![Akzeptieren der Lizenzbedingungen](whats-new-in-aspnet-mvc-4/_static/image50.png "akzeptieren der Lizenzbedingungen")
@@ -934,7 +934,7 @@ Um Ihre Website in einem simulierten iPhone-Gerät ausführen können Sie die We
 
     ![WebMatrix-Erweiterung EULA](whats-new-in-aspnet-mvc-4/_static/image56.png "WebMatrix-Erweiterung EULA")
 
-    *WebMatrix extension EULA*
+    *WebMatrix-Erweiterung EULA*
 6. Jetzt können Sie Ihre Website von WebMatrix ausführen, mit der iPhone-Simulator-Option.
 
     ![Führen Sie mithilfe von iPhone](whats-new-in-aspnet-mvc-4/_static/image57.png "mit iPhone ausgeführt")
@@ -1020,7 +1020,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Windows Azure websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](whats-new-in-aspnet-mvc-4/_static/image67.png "der Website herunterladen eines Veröffentlichungsprofils")
 

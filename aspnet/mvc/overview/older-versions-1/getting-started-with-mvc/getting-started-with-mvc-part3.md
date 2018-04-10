@@ -16,7 +16,7 @@ ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-view"></a>Hinzufügen einer Ansicht
 ====================
@@ -83,7 +83,7 @@ Jetzt sehen wir ändern Sie den Titel der Indexseite.
 
 Ausführen der app, und besuchen Sie /Movies. Beachten Sie, dass der Titel des Browsers, die Überschrift der primären und sekundären Überschriften geändert haben. Es ist einfach, Ihrer Ansicht big Änderungen in Ihrer app mit kleinere Änderungen vornehmen.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Film List – Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 Unsere wenig "Daten" (in diesem Fall die "Hello World!" Nachricht) war schwierig zwar codiert. Wir haben V (Views), und wir haben C (Domänencontroller), aber noch keine M (Modell). Wir werden in Kürze exemplarisch erklärt, wie eine Datenbank erstellen und das Modelldaten daraus abrufen.
 

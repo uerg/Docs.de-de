@@ -16,7 +16,7 @@ ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 - [Hinweise zur installationsnachbereitung](#_Toc303253802)
 - [Dokumentation](#_Toc303253803)
-- [Unterstützung](#_Toc303253804)
+- [Support](#_Toc303253804)
 - [Softwareanforderungen](#_Toc303253805)
 - [Aktualisieren eines ASP.NET MVC 3-Projekts zu ASP.NET MVC 4](#_Toc303253806)
 - [Neue Funktionen in ASP.NET MVC 4 Beta](#_Toc303253807)

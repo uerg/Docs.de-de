@@ -2,7 +2,7 @@
 uid: web-pages/overview/data/working-with-files
 title: Arbeiten mit Dateien an einem Standort der ASP.NET Web Pages (Razor) | Microsoft Docs
 author: tfitzmac
-description: "In diesem Kapitel wird erläutert, wie lesen, schreiben, anfügen, löschen und Hochladen von Dateien."
+description: In diesem Kapitel wird erläutert, wie lesen, schreiben, anfügen, löschen und Hochladen von Dateien.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Arbeiten mit Dateien an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -133,9 +133,9 @@ Dieses Verfahren wird gezeigt, wie zum Lesen und Anzeigen der Daten, die Sie im 
 
     Der Code dazu befindet sich innerhalb einer `if` Anweisung. Wenn Sie eine Datei zu lesen möchten, ist es eine gute Idee, verwenden Sie die `File.Exists` Methode, um zunächst zu bestimmen, ob die Datei verfügbar ist. Der Code überprüft außerdem, ob die Datei leer ist.
 
-    Der Text der Seite enthält zwei `foreach` Schleifen, die andere geschachtelten. Die äußere `foreach` Schleife Ruft eine Zeile zu einem Zeitpunkt aus der Datendatei. In diesem Fall werden die Zeilen durch Zeilenumbrüche in die Datei &#8212;definiert. d. h. wird jedes Datenelement in einer eigenen Zeile ein. Die äußere Schleife erstellt ein neues Element (`<li>` Element) in eine geordnete Liste (`<ol>` Element).
+    Der Text der Seite enthält zwei `foreach` Schleifen, die andere geschachtelten. Die äußere `foreach` Schleife Ruft eine Zeile zu einem Zeitpunkt aus der Datendatei. In diesem Fall werden die Zeilen durch Zeilenumbrüche in der Datei definiert &#8212; also ist jedes Datenelement in einer eigenen Zeile. Die äußere Schleife erstellt ein neues Element (`<li>` Element) in eine geordnete Liste (`<ol>` Element).
 
-    Die innere Schleife teilt jede Datenzeile in Elemente (Felder) mit einem Komma als Trennzeichen. (Basierend auf dem vorhergehenden Beispiel, das bedeutet, dass jede Zeile drei Felder &#8212;enthält; der Vorname, Nachname und e-Mail-Adresse ist jede durch ein Komma getrennt.) Die innere Schleife erstellt außerdem eine `<ul>` Liste und zeigt eine Liste Element für jedes Feld in der Datenzeile.
+    Die innere Schleife teilt jede Datenzeile in Elemente (Felder) mit einem Komma als Trennzeichen. (Basierend auf dem vorhergehenden Beispiel, das bedeutet, dass jede Zeile drei Felder enthält &#8212; der Vorname, Nachname und e-Mail-Adresse, jeweils durch ein Komma getrennt.) Die innere Schleife erstellt außerdem eine `<ul>` Liste und zeigt eine Liste Element für jedes Feld in der Datenzeile.
 
     Der Code wird veranschaulicht, wie zwei Typen von Daten, ein Array verwenden und die `char` -Datentyp. Das Array ist erforderlich, da die `File.ReadAllLines` -Methode Daten als Array zurückgibt. Die `char` -Datentyp ist erforderlich, da die `Split` Methode gibt ein `array` in dem jedes Element des Typs ist `char`. (Weitere Informationen zu Arrays finden Sie unter [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
 3. Führen Sie die Seite in einem Browser aus. Die Daten für den vorherigen Beispielen eingegebene werden angezeigt. 
@@ -194,7 +194,7 @@ Die `FileUpload` -Hilfsobjekt ermöglicht Benutzern, die Dateien auf Ihre Websit
 
     Die Eigenschaften, die Sie, für festlegen die `FileUpload` Helper angeben, dass Sie ein einzelnes Kontrollkästchen für die Datei hochladen möchten, und dass die Schaltfläche "Absenden" gelesen werden soll **hochladen**. (Sie werden später in diesem Artikel weitere Felder hinzufügen.)
 
-    Wenn der Benutzer klickt **hochladen**, der Code am oberen Rand der Seite ruft die Datei ab und speichert es. Die `Request` -Objekt, das Sie normalerweise verwenden, um das Abrufen von Werten aus Formularfelder verfügt auch über eine `Files` Array, das die Datei (oder Dateien) enthält, die hochgeladen worden sein. Sie können einzelne Dateien aus bestimmten Positionen im Array &#8212;abrufen; um die erste hochgeladene Datei abrufen, erhalten Sie z. B. `Request.Files[0]`, um die zweite Datei abrufen erhalten Sie `Request.Files[1]`und so weiter. (Beachten Sie, dass bei der Programmierung zählen in der Regel auf 0 (null) beginnt.)
+    Wenn der Benutzer klickt **hochladen**, der Code am oberen Rand der Seite ruft die Datei ab und speichert es. Die `Request` -Objekt, das Sie normalerweise verwenden, um das Abrufen von Werten aus Formularfelder verfügt auch über eine `Files` Array, das die Datei (oder Dateien) enthält, die hochgeladen worden sein. Sie können einzelne Dateien aus bestimmten Positionen im Array abrufen &#8212; zum Abrufen der ersten hochgeladenen Datei erhalten Sie z. B. `Request.Files[0]`, um die zweite Datei abzurufen erhalten Sie `Request.Files[1]`und so weiter. (Beachten Sie, dass bei der Programmierung zählen in der Regel auf 0 (null) beginnt.)
 
     Wenn Sie eine hochgeladene Datei abzurufen, Sie fügen Sie ihn in einer Variablen (hier `uploadedFile`), damit Sie diese bearbeiten können. Den Namen der hochgeladenen Datei ermitteln möchten, erhalten Sie nur seine `FileName` Eigenschaft. Jedoch, wenn der Benutzer wird eine Datei hochgeladen, `FileName` enthält den Namen des Benutzers ursprünglichen, darunter den vollständigen Pfad. Es kann wie folgt aussehen:
 
@@ -238,7 +238,7 @@ Im vorherigen Beispiel können Sie Benutzer, die eine Datei hochladen. Sie könn
 
     ![[Image]](working-with-files/_static/image11.jpg)
 
-    Zum Verarbeiten der Dateien, die der Benutzer hochgeladen wird, verwendet der Code das gleiche grundlegende Verfahren, das Sie im vorherigen Beispiel &#8212;verwendet; Abrufen einer Datei aus `Request.Files` und speichern Sie sie. (Einschließlich verschiedene Dinge müssen Sie tun können, um den richtigen Dateinamen und Pfad.) Die Innovation diesmal ist, dass der Benutzer möglicherweise mehrerer Dateien hochladen und viele nicht kennen. Um herauszufinden, erhalten Sie `Request.Files.Count`.
+    Um die Dateien zu verarbeiten, die der Benutzer hochgeladen, der Code verwendet das gleiche grundlegende Verfahren, die Sie im vorherigen Beispiel verwendet &#8212; Abrufen einer Datei aus `Request.Files` und speichern Sie sie. (Einschließlich verschiedene Dinge müssen Sie tun können, um den richtigen Dateinamen und Pfad.) Die Innovation diesmal ist, dass der Benutzer möglicherweise mehrerer Dateien hochladen und viele nicht kennen. Um herauszufinden, erhalten Sie `Request.Files.Count`.
 
     Mit dieser Nummer in Hand, können Sie eine Schleife über `Request.Files`, jede Datei wiederum abrufen und speichern Sie sie. Wenn eine bekannte Anzahl von Malen durch eine Auflistung in einer Schleife werden sollen, können Sie eine `for` Schleife wie folgt:
 

@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 title: Konfigurations- und Instrumentation | Microsoft Docs
 author: microsoft
-description: "Es gibt wichtige Änderungen an der Konfiguration und Instrumentation in ASP.NET 2.0. Die neue API zum ASP.NET Konfiguration ermöglicht Änderungen an der Konfiguration erfolgen Pr..."
+description: Es gibt wichtige Änderungen an der Konfiguration und Instrumentation in ASP.NET 2.0. Die neue API zum ASP.NET Konfiguration ermöglicht Änderungen an der Konfiguration erfolgen Pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
 ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuration-and-instrumentation"></a>Konfiguration und -Instrumentation
 ====================
@@ -80,11 +80,11 @@ Viele Configuration-Klassen und Methoden sind einander ähnlich. Die folgende Ta
 | --- | --- |
 | ["System.Configuration"](https://msdn.microsoft.com/library/system.configuration.aspx) Namespace | Enthält die wichtigsten Konfigurationsklassen für alle .NET Framework-Clientanwendungen. Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. Diese zwei Methoden sind nicht statisch. |
 | "System.Configuration.Configuration"-Klasse | Stellt einen Satz von Konfigurationsdaten für einen Computer, Anwendung, Webverzeichnis oder einer sonstigen Ressource dar. Diese Klasse enthält nützliche Methoden, z. B. GetSection und GetSectionGroup, zum Aktualisieren von Konfigurationseinstellungen und Verweise auf Abschnitte und Abschnittsgruppen abrufen. Diese Klasse wird als Rückgabetyp für Methoden verwendet, die zur Entwurfszeit Konfigurationsdaten, wie die Methoden der Klassen WebConfigurationManager und ConfigurationManager abrufen. |
-| System.Web.Configuration-namespace | Der Abschnitt Handler-Klassen enthält, für die Konfigurationsabschnitte ASP.NET auf definiert [ASP.NET-Konfigurationseinstellungen](https://msdn.microsoft.com/library/b5ysx397.aspx). Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. |
+| System.Web.Configuration namespace | Der Abschnitt Handler-Klassen enthält, für die Konfigurationsabschnitte ASP.NET auf definiert [ASP.NET-Konfigurationseinstellungen](https://msdn.microsoft.com/library/b5ysx397.aspx). Abschnitt Handler Klassen werden verwendet, um Konfigurationsdaten für einen Abschnitt aus Methoden wie GetSection und GetSectionGroup abzurufen. |
 | System.Web.Configuration.WebConfigurationManager class | Stellt nützliche Methoden zum Abrufen von Verweisen auf Konfigurationseinstellungen, die zur Laufzeit und Entwurfszeit bereit. Diese Methoden verwenden die Klasse "System.Configuration.Configuration" als Rückgabetyp an. Sie können die statische GetSection Methode dieser Klasse oder die nicht statische GetSection-Methode der Klasse System.Configuration.ConfigurationManager Synonym verwenden. Für Web-Anwendungskonfigurationen wird die System.Web.Configuration.WebConfigurationManager-Klasse anstelle der Klasse System.Configuration.ConfigurationManager empfohlen. |
 | [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) Namespace | Bietet eine Möglichkeit zum Anpassen und erweitern den Konfigurationsanbieter. Dies ist die Basisklasse für alle Anbieterklassen im Konfigurationssystem. |
-| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) Namespace | Enthält Klassen und Schnittstellen für die Verwaltung und Überwachung der Integrität von Webanwendungen. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. Z. B. ist Ablaufverfolgung und Auslösen des Ereignisses durch die Klassen in diesem Namespace erreicht. |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) Namespace | Stellt die Klassen, die für die Instrumentierung von Anwendungen, deren Verwaltungsinformationen und-Ereignisse über die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) potenziellen Consumern verfügbar zu machen. ASP.NET-Systemüberwachung verwendet WMI, um Ereignisse zu übermitteln. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) namespace | Enthält Klassen und Schnittstellen für die Verwaltung und Überwachung der Integrität von Webanwendungen. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. Z. B. ist Ablaufverfolgung und Auslösen des Ereignisses durch die Klassen in diesem Namespace erreicht. |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) namespace | Stellt die Klassen, die für die Instrumentierung von Anwendungen, deren Verwaltungsinformationen und-Ereignisse über die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) potenziellen Consumern verfügbar zu machen. ASP.NET-Systemüberwachung verwendet WMI, um Ereignisse zu übermitteln. Streng genommen ist dieser Namespace nicht als Teil der Konfigurations-API betrachtet. |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>Das Lesen aus ASP.NET-Konfigurationsdateien
 
@@ -148,10 +148,10 @@ Die &lt;HealthMonitoring&gt; Teil der globalen Datei "Web.config" stellt Konfigu
 
 Die &lt;HealthMonitoring&gt; Teil der globalen Datei "Web.config" enthält die folgenden Elemente:
 
-| **providers** | Enthält die Anbieter für die Ereignisanzeige, WMI und SQL Server eingerichtet. |
+| **Anbieter** | Enthält die Anbieter für die Ereignisanzeige, WMI und SQL Server eingerichtet. |
 | --- | --- |
 | **eventMappings** | Enthält Zuordnungen für die verschiedenen WebBase-Klassen. Sie können diese Liste erweitern, wenn Sie eine eigene Ereignisklasse generieren. Generieren eine eigene Klasse des Ereignisses erhalten Sie eine geringere Granularität auf die Anbieter, die, denen Sie Informationen zu senden. Beispielsweise können Sie nicht behandelte Ausnahmen an SQL-Server gesendet werden, während des Sendens von eigenen benutzerdefinierten Ereignisse auf e-Mail konfigurieren. |
-| **rules** | Links EventMappings an den Anbieter. |
+| **Regeln** | Links EventMappings an den Anbieter. |
 | **buffering** | Mit SQL Server und e-Mail-Anbieter verwendet, um zu bestimmen, wie oft die Ereignisse an den Anbieter zu leeren. |
 
 Im folgenden finden Sie ein Codebeispiel aus der globalen Datei "Web.config".
@@ -330,7 +330,7 @@ In der folgenden Tabelle wird beschrieben, wie die ASP.NET-Kompilierung verschie
 
 | **Dateityp** | **Compilerfehler-Aktion** |
 | --- | --- |
-| .ascx, .aspx, .master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys kompiliert, deren Namen, die von einem Hashalgorithmus abgeleitet sind, und die Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den  **&lt; %**  und  **% &gt;**  Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Neue Dateien mit dem gleichen Namen wie die Quelldateien werden erstellt, um das Markup enthalten und in die entsprechenden Ausgabeverzeichnisse eingefügt. |
+| .ascx, .aspx, .master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys kompiliert, deren Namen, die von einem Hashalgorithmus abgeleitet sind, und die Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den **&lt; %** und **% &gt;** Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Neue Dateien mit dem gleichen Namen wie die Quelldateien werden erstellt, um das Markup enthalten und in die entsprechenden Ausgabeverzeichnisse eingefügt. |
 | .ashx, .asmx | Diese Dateien werden nicht kompiliert und in die Ausgabeverzeichnisse ist und nicht kompiliert verschoben werden. Wenn Sie den Ereignishandler Code kompiliert haben möchten, fügen Sie den Code in Quellcodedateien in der App\_Code (Verzeichnis). |
 | cs,. vb, .jsl, cpp (mit Code-Behind-Dateien für die zuvor aufgelisteten Dateitypen) | Diese Dateien werden kompiliert und als Ressource in Assemblys, die auf die Handles verweisen enthalten. Quelldateien werden nicht in das Ausgabeverzeichnis kopiert. Wenn eine Codedatei nicht verwiesen wird, wird er nicht kompiliert. |
 | Benutzerdefinierte Dateitypen | Diese Dateien werden nicht kompiliert. Diese Dateien werden in die entsprechenden Ausgabeverzeichnisse kopiert. |
@@ -344,7 +344,7 @@ In der folgenden Tabelle wird beschrieben, wie die ASP.NET-Kompilierung verschie
 
 | **Dateityp** | **Compilerfehler-Aktion** |
 | --- | --- |
-| aspx, ASMX, .ashx,. Master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys, deren Namen kompiliert, die von einem Hashalgorithmus abgeleitet sind. Der resultierenden Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den  **&lt; %**  und  **% &gt;**  Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Der Compiler erstellt neue Dateien, um das Markup mit dem gleichen Namen wie die Quelldateien enthalten. Diese resultierenden Dateien befinden sich im Verzeichnis "bin". Der Compiler erstellt auch Dateien mit dem gleichen Namen wie die Quelldateien, aber mit der Erweiterung. COMPILED, die Zuordnungsinformationen zu enthalten. Die. KOMPILIERTE Dateien werden in die entsprechende am ursprünglichen Speicherort der Quelldateien Ausgabeverzeichnisse platziert. |
+| aspx, ASMX, .ashx,. Master | Diese Dateien werden in Markup und Quellcode, einschließlich der Code-Behind-Dateien und jeglicher Code, der in eingeschlossen ist geteilt &lt;Skript Runat = "Server"&gt; Elemente. Quellcode wird in Assemblys, deren Namen kompiliert, die von einem Hashalgorithmus abgeleitet sind. Der resultierenden Assemblys befinden sich im Verzeichnis "bin". Inlinecode, also, Code eingeschlossen, zwischen den **&lt; %** und **% &gt;** Klammern, ist im Lieferumfang von Markup und wird nicht kompiliert. Der Compiler erstellt neue Dateien, um das Markup mit dem gleichen Namen wie die Quelldateien enthalten. Diese resultierenden Dateien befinden sich im Verzeichnis "bin". Der Compiler erstellt auch Dateien mit dem gleichen Namen wie die Quelldateien, aber mit der Erweiterung. COMPILED, die Zuordnungsinformationen zu enthalten. Die. KOMPILIERTE Dateien werden in die entsprechende am ursprünglichen Speicherort der Quelldateien Ausgabeverzeichnisse platziert. |
 | .ascx | Diese Dateien werden in Markup und Quellcode geteilt. Quellcode wird in Assemblys kompiliert und platziert in das Verzeichnis "bin" mit Namen, die von einem Hashalgorithmus abgeleitet sind. Es werden keine Markupdateien generiert. |
 | cs,. vb, .jsl, cpp (mit Code-Behind-Dateien für die zuvor aufgelisteten Dateitypen) | Quellcode, die von .ascx, .ashx oder ASPX-Dateien generierten Assemblys verwiesen wird ist in Assemblys kompiliert und in das Verzeichnis "bin" eingefügt. Es werden keine Quelldateien kopiert. |
 | Benutzerdefinierte Dateitypen | Diese Dateien werden wie dynamische Dateien kompiliert. Je nach Typ der Datei, auf denen sie basieren, kann der Compiler Zuordnungsdateien in die Ausgabeverzeichnisse platzieren. |

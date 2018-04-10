@@ -16,7 +16,7 @@ ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 und Visual Studio 2010 Web Development (Übersicht)
 ====================
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/06/2018
 [One-Click-Veröffentlichung für Webanwendungen](#0.2__Toc253429296 "_Toc253429296")  
 [Resources](#0.2__Toc253429297 "_Toc253429297")
 
-**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
+**[Haftungsausschluss](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -579,7 +579,7 @@ Der Code im Beispiel ordnet die Route zu einer physischen Seite (in der ersten R
 
 Die *MapPageRoute* Methode unterstützt die folgenden methodenüberladungen:
 
-- *MapPageRoute (RouteName Zeichenfolge, Zeichenfolge RouteUrl, PhysicalFile String, Bool CheckPhysicalUrlAccess)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess)*
 - *MapPageRoute (Zeichenfolge RouteName, Zeichenfolge RouteUrl, PhysicalFile String, Bool CheckPhysicalUrlAccess, RouteValueDictionary Standardwerte)*
 - *MapPageRoute (Zeichenfolge RouteName, Zeichenfolge RouteUrl, PhysicalFile String, Bool CheckPhysicalUrlAccess, RouteValueDictionary Standardwerte, RouteValueDictionary Einschränkungen)*
 
@@ -722,7 +722,7 @@ Persistente Auswahl wurde anfänglich nur in Dynamic Data-Projekten in .NET Fram
 
 <a id="0.2__Toc253429263"></a><a id="0.2__Toc243304637"></a>
 
-### <a name="aspnet-chart-control"></a>ASP.NET Chart Control
+### <a name="aspnet-chart-control"></a>ASP.NET Chart-Steuerelement
 
 Die ASP.NET *Diagramm* -Steuerelement nach unten erweitert die datenvisualisierung Angebote in .NET Framework. Mithilfe der *Diagramm* -Steuerelement können Sie ASP.NET-Seiten denen intuitive und grafisch anspruchsvollen Diagrammen für komplexe statistische oder finanzielle Analysen erstellen. Die ASP.NET *Diagramm* Steuerelement wurde als Add-on auf der Version von .NET Framework Version 3.5 SP1 eingeführt und ist Bestandteil der .NET Framework 4-Version.
 
@@ -985,7 +985,7 @@ Sie können eine CSS-Klasse, die gilt nur dann definieren die *ausgeblendete* El
 Standardmäßig werden die folgenden ASP.NET Web-Server-Steuerelemente, die Vorlagen unterstützen automatisch in einer äußeren Tabelle umschlossen, die verwendet wird, um Inlineformatvorlagen anzuwenden:
 
 - *FormView*
-- *Login*
+- *Anmeldung*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Assistenten*

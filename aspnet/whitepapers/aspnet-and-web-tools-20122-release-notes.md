@@ -2,21 +2,21 @@
 uid: whitepapers/aspnet-and-web-tools-20122-release-notes
 title: ASP.NET und Tools 2012.2 Versionshinweise | Microsoft Docs
 author: rick-anderson
-description: "Versionshinweise für ASP.NET und Web Tools 2012.2."
+description: Versionshinweise für ASP.NET und Web Tools 2012.2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2013
 ms.topic: article
 ms.assetid: bdb18d02-9f61-4676-836d-6fdea94f9282
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
 ms.openlocfilehash: 52559a47f86e572f873d4eaaab50e87eb51722fd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>Anmerkungen zur Version von ASP.NET und Webtools 2012.2
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/24/2018
 
 - [Hinweise zur installationsnachbereitung](#_Installation)
 - [Dokumentation](#_Documentation)
-- [Unterstützung](#_Support)
+- [Support](#_Support)
 - [Softwareanforderungen](#_Software_Requirements)
 - [Neue Funktionen in ASP.NET und Webtools 2012.2](#_New_Features_in)
 
@@ -53,12 +53,12 @@ Sie können ASP.NET und Web Tools 2012.2 auch manuell installieren. Sie benötig
 5. Aufforderung zur Eingabe klicken Sie bei der Ausführung. Sie können auch die Datei zur späteren Ausführung speichern.
 
 > [!NOTE]
-> ASP.NET und Web Tools 2012.2 Version umfasst SQL Server Data Tools nicht. SQL Server und Windows Azure SQL-Datenbanken enthält einen umfassenderen Satz an-Datenbanktools einschließlich Offlineentwicklung Projekt gesichert, Schemavergleich und verbesserte Funktionen zur Bereitstellung. Weitere Informationen zum Installieren von SQL Server Data Tools finden [https://go.microsoft.com/fwlink/?LinkID=237127](https://go.microsoft.com/fwlink/?LinkID=237127).
+> ASP.NET und Web Tools 2012.2 Version umfasst SQL Server Data Tools nicht. SQL Server und Windows Azure SQL-Datenbanken enthält einen umfassenderen Satz an-Datenbanktools einschließlich Offlineentwicklung Projekt gesichert, Schemavergleich und verbesserte Funktionen zur Bereitstellung. Weitere Informationen zum Installieren von SQL Server Data Tools finden [ https://go.microsoft.com/fwlink/?LinkID=237127 ](https://go.microsoft.com/fwlink/?LinkID=237127).
 
 <a id="_Documentation"></a>
 ## <a name="documentation"></a>Dokumentation
 
-Lernprogramme und Weitere Informationen zu ASP.NET und Web Tools 2012.2 sind ASP.NET-Website (https://www.asp.net) verfügbar.
+Lernprogramme und Weitere Informationen zu ASP.NET und Web Tools 2012.2 über ASP.NET Web-Website verfügbar sind ( https://www.asp.net).
 
 <a id="_Support"></a>
 ## <a name="support"></a>Unterstützung
@@ -104,10 +104,10 @@ Dieser Abschnitt beschreibt die Funktionen, die in der ASP.NET und Web Tools 201
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>ASP.NET MVC-Vorlagen
 
-- Die neue Facebook-Anwendungsvorlage erleichtert das Schreiben von Facebook Canvas Anwendungen einfach. In wenigen einfachen Schritten können Sie eine Facebook-Anwendung erstellen, die Ruft Daten von einem angemeldeten Benutzer und ihre Freunde integriert. Die Vorlage enthält eine neue Bibliothek, die abnimmt sind bei der Erstellung einer Facebook-app, einschließlich der Authentifizierung, Berechtigungen, die Zugriff auf Facebook-Daten und vieles mehr kümmern. Weitere Informationen zur Verwendung der Vorlage der Facebook-Anwendung finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921).
-- Eine neue Vorlage für die einzelnen Seite Anwendung MVC ermöglicht Entwicklern das Erstellen von interaktiven clientseitigen webapps mit HTML 5, CSS 3 und den beliebten Knockout- und jQuery JavaScript-Bibliotheken über ASP.NET Web-API. Die Vorlage enthält eine "Todo" List-Anwendung, die gängige Praktiken zum Erstellen einer JavaScript HTML5-Anwendung, die eine RESTful-Server-API verwendet veranschaulicht. Weitere Informationen finden Sie unter [https://www.asp.net/single-page-application](../single-page-application/index.md).
+- Die neue Facebook-Anwendungsvorlage erleichtert das Schreiben von Facebook Canvas Anwendungen einfach. In wenigen einfachen Schritten können Sie eine Facebook-Anwendung erstellen, die Ruft Daten von einem angemeldeten Benutzer und ihre Freunde integriert. Die Vorlage enthält eine neue Bibliothek, die abnimmt sind bei der Erstellung einer Facebook-app, einschließlich der Authentifizierung, Berechtigungen, die Zugriff auf Facebook-Daten und vieles mehr kümmern. Weitere Informationen zur Verwendung der Vorlage der Facebook-Anwendung finden Sie unter [ https://go.microsoft.com/fwlink/?LinkID=269921 ](https://go.microsoft.com/fwlink/?LinkID=269921).
+- Eine neue Vorlage für die einzelnen Seite Anwendung MVC ermöglicht Entwicklern das Erstellen von interaktiven clientseitigen webapps mit HTML 5, CSS 3 und den beliebten Knockout- und jQuery JavaScript-Bibliotheken über ASP.NET Web-API. Die Vorlage enthält eine "Todo" List-Anwendung, die gängige Praktiken zum Erstellen einer JavaScript HTML5-Anwendung, die eine RESTful-Server-API verwendet veranschaulicht. Weitere Informationen finden Sie unter [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 - Sie können jetzt eine VSIX erstellen, die neue Vorlagen zum Dialogfeld "neues ASP.NET MVC-Projekt" hinzufügt. Erfahren Sie, wie hier: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
-- FixedDisplayModes Paket &#8211; MVC-Projektvorlagen wurden aktualisiert, um das neue "FixedDisplayModes" NuGet-Paket enthalten, das eine problemumgehung für einen Programmfehler in MVC 4 enthält. Weitere Informationen über die im Paket enthaltenen Korrektur finden Sie in diesem Blogbeitrag ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) vom MVC-Team.
+- FixedDisplayModes Paket &#8211; MVC-Projektvorlagen wurden aktualisiert, um das neue "FixedDisplayModes" NuGet-Paket enthalten, die eine problemumgehung für einen Programmfehler in MVC 4 enthält. Weitere Informationen über die im Paket enthaltenen Korrektur finden Sie in diesem Blogbeitrag ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) vom MVC-Team.
 
 <a id="_ASP.NET_Web_API"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET-Web-API
@@ -148,33 +148,33 @@ ASP.NET Web API OData unterstützt derzeit die folgenden Funktionen:
 - OData-Aktionen.
 - Auf der gleichen Grundlage wie WCF Data Services, nämlich ODataLib basiert ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
 
-Weitere Informationen zu ASP.NET Web API OData finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141).
+Weitere Informationen zu ASP.NET Web API OData finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=271141 ](https://go.microsoft.com/fwlink/?LinkId=271141).
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API Tracing
 
 ASP.NET Web API Tracing integriert .NET Tracing Ablaufverfolgungsdaten aus der Web-APIs. Es ist jetzt in der Web-API-Projektvorlage standardmäßig aktiviert. Protokollierungsdaten für Ihre Web-APIs wird gesendet, um das Fenster "Ausgabe" und mit IntelliTrace verfügbar gemacht. ASP.NET Web API Tracing können Sie Ablaufverfolgungsinformationen zu Ihrer Web-API beim Hosten in Windows Azure durch die Integration mit [Windows Azure-Diagnose](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Sie können außerdem installieren und Aktivieren von ASP.NET Web API Tracing in jeder Anwendung, die mithilfe des ASP.NET Web API Tracing NuGet-Pakets ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
-Weitere Informationen zum Konfigurieren und Verwenden von ASP.NET Web API Tracing finden Sie unter [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
+Weitere Informationen zum Konfigurieren und Verwenden von ASP.NET Web API Tracing finden Sie unter [ https://go.microsoft.com/fwlink/?LinkID=269874 ](https://go.microsoft.com/fwlink/?LinkID=269874).
 
 #### <a name="aspnet-web-api-help-page"></a>ASP.NET Web API Help Page
 
 Die ASP.NET Web API-Hilfeseite ist jetzt standardmäßig in der Web-API-Projektvorlage enthalten. Die ASP.NET Web API-Hilfeseite generiert automatisch die Dokumentation für die Web-APIs, die die HTTP-Endpunkte, die unterstützten HTTP-Methoden, Parameter und Beispiel-Anforderung und Antwort Nutzlasten für Nachrichten einschließlich. Dokumentation automatisch von den Kommentaren im Code per Pull abgerufen wird. Sie können auch die ASP.NET Web API-Hilfeseite für jede Anwendung, die mithilfe des ASP.NET Web API Hilfe Page NuGet-Pakets hinzufügen ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
 
-Weitere Informationen zum Einrichten und anpassen den ASP.NET Web API-Hilfeseite finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
+Weitere Informationen zum Einrichten und anpassen den ASP.NET Web API-Hilfeseite finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 ASP.NET SignalR vereinfacht echtzeitweb-Funktionen hinzufügen, um Ihre ASP.NET-Anwendung mithilfe von WebSockets, falls verfügbar und automatisch Fallback auf andere Techniken, wenn dies nicht der Fall.
 
-Weitere Informationen zur Verwendung von ASP.NET SignalR finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271).
+Weitere Informationen zur Verwendung von ASP.NET SignalR finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET Friendly URLs
 
 ASP.NET FriendlyURLs erleichtert für Web Forms-Entwickler zum Generieren von URLs cleaner (ohne die ASPX-Erweiterung) gesucht. Er erfordert nur wenig zu keine Konfiguration und kann mit vorhandenen ASP.NET v4. 0-Anwendungen verwendet werden. Die Funktion FriendlyURLs erleichtert auch die für Entwickler mobiler Unterstützung für ihre Anwendungen hinzufügen, durch die Unterstützung der Wechsel zwischen den Ansichten "desktop" und mobile.
 
-Weitere Informationen zum Installieren und Verwenden von Friendly URLs von ASP.NET finden Sie unter [http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
+Weitere Informationen zum Installieren und Verwenden von Friendly URLs von ASP.NET finden Sie unter [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Bekannte Probleme und aktueller Änderungen
@@ -247,7 +247,7 @@ Wenn Benutzer mit abweichender Groß-/Kleinschreibung auf Javascript clientseiti
 
 #### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Standardmäßige OData-Konventionen routing unterstützt keine POST/PUT für Navigationseigenschaft.
 
-Standardmäßige OData-Konventionen routing unterstützt keine POST/PUT für Navigationseigenschaft. Finden Sie unter Workitem [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366). Wir werden diese häufig verwendete Konvention in Standardkonventionen fehlt.
+Standardmäßige OData-Konventionen routing unterstützt keine POST/PUT für Navigationseigenschaft. Finden Sie unter Workitem [ http://aspnetwebstack.codeplex.com/workitem/366 ](http://aspnetwebstack.codeplex.com/workitem/366). Wir werden diese häufig verwendete Konvention in Standardkonventionen fehlt.
 
 Dieses Problem, zu umgehen müssen Benutzer neue routing-Konvention für eine Unterstützung zu erweitern.
 
@@ -259,7 +259,7 @@ Wählen Sie in der Dropdownliste "Framework" im Dialogfeld "Neues Projekt" auf d
 
 #### <a name="real-time-update-controller"></a>Echtzeit-Update-Controller
 
-Die Facebook-Anwendungsvorlage kann Benutzer problemlos erstellen Sie eine Web-API-Controller um echtzeitupdates von Facebook zu behandeln. Wenn der Entwicklungscomputer hinter NAT ist, funktioniert möglicherweise Ihr Controller nicht ohne weitere Konfiguration des Netzwerks. Details finden Sie hier: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
+Die Facebook-Anwendungsvorlage kann Benutzer problemlos erstellen Sie eine Web-API-Controller um echtzeitupdates von Facebook zu behandeln. Wenn der Entwicklungscomputer hinter NAT ist, funktioniert möglicherweise Ihr Controller nicht ohne weitere Konfiguration des Netzwerks. Details, finden Sie hier: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
 
 #### <a name="query-string-values-conflict-with-facebook-oauth-parameters"></a>Abfrage-Zeichenfolgenwerte mit Facebook OAuth-Parameter in Konflikt stehen
 
@@ -275,7 +275,7 @@ Sie können nicht die Page Inspector-Funktion in Visual Studio 2012 verwenden, b
 
 Mit JQuery 1.9/Knockout 2.2.1 aktualisieren, bei der Ausführung von MVC SPA Standardprojekt neue TODO-Element bearbeiten Geben Sie nicht mehr den Fokus an das neue Feld "TODO-Element bearbeiten" nach der Eingabe des neuen TODO-Elements der TODO-Liste.
 
-Um Abhilfe Verweis [http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html), und stellen Sie den folgenden Beispielcode ähnliche Fix:
+Um Abhilfe Verweis [ http://knockoutjs.com/documentation/hasfocus-binding.html ](http://knockoutjs.com/documentation/hasfocus-binding.html), und stellen Sie den folgenden Beispielcode ähnliche Fix:
 
 Datei todo.model.js  
  todolist(data)-Funktion, fügen Sie folgenden:  
@@ -287,5 +287,5 @@ todoList.prototype.addTodo-Funktion, fügen Sie den folgenden blacked Text hinzu
 
 Datei index.cshtml, fügen Sie den folgenden blacked Text hinzu:  
  &lt;bilden Sie Data-Bind =&quot;übermitteln: AddTodo&quot;&gt;  
- &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
+ &lt;Geben Sie die Klasse =&quot;AddTodo&quot; Typ =&quot;Text&quot; Data-Bind =&quot;Wert: NewTodoTitle, Platzhalter: "Typ hier hinzufügen", BlurOnEnter: "true" **Hasfocus: IsSelected**, Ereignis: {Weichzeichnen: AddTodo}&quot; /&gt;  
  &lt;/form&gt;

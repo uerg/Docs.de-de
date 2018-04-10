@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Arbeiten mit HTML-Formularen in ASP.NET Web Pages (Razor)-Websites | Microsoft Docs
 author: tfitzmac
-description: "Ein Formular ist, einen Abschnitt eines HTML-Dokuments, in denen Benutzereingaben-Steuerelemente, z. B. Textfelder, Kontrollkästchen, Optionsfelder und Pull-Dropdownlisten abgelegt, wird. Verwenden Sie Formulare geringer..."
+description: Ein Formular ist, einen Abschnitt eines HTML-Dokuments, in denen Benutzereingaben-Steuerelemente, z. B. Textfelder, Kontrollkästchen, Optionsfelder und Pull-Dropdownlisten abgelegt, wird. Verwenden Sie Formulare geringer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Arbeiten mit HTML-Formularen in ASP.NET Web Pages (Razor)-Websites
 ====================
@@ -73,7 +73,7 @@ Um das Formular zu verarbeiten, fügen Sie Code, der die übermittelten Feldwert
 
     ![Screenshot, der zeigt die Werte, die Sie eingegeben haben, auf der Seite angezeigt.](4-working-with-forms/_static/image2.jpg)
 
-    Betrachten Sie den Code für die Seite aus. Verwenden Sie zunächst die `IsPost` Methode, um zu bestimmen, ob die Seite zurückgesendet wird wird & #8212, d. h., ob ein Benutzer klicken auf die **Absenden** Schaltfläche. Ist dies ein Post `IsPost` "Wahr" zurückgegeben. Dies ist die Standardmethode in ASP.NET Web Pages zu bestimmen, ob Sie eine ursprüngliche Anforderung (eine GET-Anforderung) oder ein Postback (eine POST-Anforderung) verwenden. (Weitere Informationen zu GET und POST, finden Sie in der Randleiste "HTTP-GET und POST und die IsPost-Eigenschaft" in [Einführung in ASP.NET Web Pages Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Betrachten Sie den Code für die Seite aus. Verwenden Sie zunächst die `IsPost` Methode, um zu bestimmen, ob die Seite zurückgesendet wird, wird &#8212; d. h., ob ein Benutzer geklickt hat die **Absenden** Schaltfläche. Ist dies ein Post `IsPost` "Wahr" zurückgegeben. Dies ist die Standardmethode in ASP.NET Web Pages zu bestimmen, ob Sie eine ursprüngliche Anforderung (eine GET-Anforderung) oder ein Postback (eine POST-Anforderung) verwenden. (Weitere Informationen zu GET und POST, finden Sie in der Randleiste "HTTP-GET und POST und die IsPost-Eigenschaft" in [Einführung in ASP.NET Web Pages Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
     Anschließend rufen Sie die Werte, die der Benutzer von ausgefüllt werden, in der `Request.Form` -Objekt, und fügen Sie sie Variablen für die spätere. Die `Request.Form` Objekt enthält alle Werte, die auf der Seite gesendet wurden, jeweils mit einem Schlüssel identifiziert. Der Schlüssel ist die Entsprechung der `name` Attribut des Formularfelds, die Sie lesen möchten. Z. B. zum Lesen der `companyname` Feld (Textfeld), verwenden Sie `Request.Form["companyname"]`.
 
@@ -89,7 +89,7 @@ Um das Formular zu verarbeiten, fügen Sie Code, der die übermittelten Feldwert
 > 
 > HTML-Codierung ersetzt diesen reservierten Zeichen durch ein Code, den Browser als das richtige Symbol interpretiert werden soll. Z. B. die `<` Zeichen wird durch ersetzt `&lt;` und `>` Zeichen wird durch ersetzt `&gt;`. Der Browser rendert diese Ersatzzeichenfolgen als eines der Zeichen, die Sie anzeigen möchten.
 > 
-> Es ist eine gute Idee, die HTML-Codierung jederzeit anzeigen von Zeichenfolgen verwendet (Eingabe), dass Sie von einem Benutzer erhalten haben. Wenn Sie dies nicht tun, versucht ein Benutzer kann die Webseite ein böswilliges Skript ausführen oder ein anderes Element abrufen, die Ihre Websitesicherheit kompromittiert oder einfach nicht gewünscht ist. (Dies ist besonders wichtig, wenn Sie schalten Benutzereingaben an Unbekannter speichern, und klicken Sie dann später &#8212;anzeigen; z. B. einen Blogkommentar Benutzer zu überprüfen, oder etwas installieren möchten,).
+> Es ist eine gute Idee, die HTML-Codierung jederzeit anzeigen von Zeichenfolgen verwendet (Eingabe), dass Sie von einem Benutzer erhalten haben. Wenn Sie dies nicht tun, versucht ein Benutzer kann die Webseite ein böswilliges Skript ausführen oder ein anderes Element abrufen, die Ihre Websitesicherheit kompromittiert oder einfach nicht gewünscht ist. (Dies ist besonders wichtig, wenn Sie Benutzereingaben an Unbekannter speichern, und zeigen Sie es später &#8212; z. B. einen Blogkommentar, überprüfen Sie die Benutzer oder etwa,.)
 > 
 > Um zu verhindern, diese Probleme zu ASP.NET Web Pages automatisch HTML-codiert Text Inhalte, die Sie aus dem Code ausgegeben. Wenn Sie z. B. den Inhalt einer Variablen oder einem Ausdruck mit Code wie anzeigen `@MyVar`, ASP.NET Web Pages codiert automatisch die Ausgabe.
 

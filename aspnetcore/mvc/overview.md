@@ -1,5 +1,5 @@
 ---
-title: "Übersicht über ASP.NET Core MVC"
+title: Übersicht über ASP.NET Core MVC
 author: ardalis
 description: Informationen zu ASP.NET Core MVC als umfangreiches Framework zum Erstellen von Web-Apps und APIs mithilfe des Model-View-Controller-Entwurfsmusters
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -179,19 +179,19 @@ Mit [Filtern](controllers/filters.md) können Entwickler übergreifende Belange 
 
 ### <a name="areas"></a>Bereiche
 
-[Bereiche](controllers/areas.md) sind eine Möglichkeit, eine große ASP.NET Core MVC-Web-App in kleinere funktionale Gruppierungen aufzuteilen. Ein Bereich ist eine MVC-Struktur innerhalb einer Anwendung. In einem MVC-Projekt sind logische Komponenten wie Modell, Controller und Ansicht in verschiedenen Ordnern gespeichert. MVC nutzt Namenskonventionen zum Erstellen einer Beziehung zwischen diesen Komponenten. Bei einer großen App kann es von Vorteil sein, die App in mehrere Bereiche mit hoher Funktionalität aufzuteilen. Dies gilt z.B. für eine E-Commerce-App mit mehreren Geschäftseinheiten, wie Auftragsabschluss, Abrechnung und Suche usw. Jede dieser Einheiten hat ihre eigenen logischen Komponentenansichten, Controller und Modelle.
+[Bereiche](controllers/areas.md) sind eine Möglichkeit, eine große ASP.NET Core MVC-Web-App in kleinere funktionale Gruppierungen aufzuteilen. Ein Bereich ist eine MVC-Struktur innerhalb einer Anwendung. In einem MVC-Projekt sind logische Komponenten wie Modell, Controller und Ansicht in verschiedenen Ordnern gespeichert. MVC nutzt Namenskonventionen zum Erstellen einer Beziehung zwischen diesen Komponenten. Bei einer großen App kann es von Vorteil sein, die App in mehrere Bereiche mit hoher Funktionalität aufzuteilen. Z. B. eine e-Commerce-app mit mehreren Geschäftsbereichen, z. B. Auschecken, Abrechnung und Suche usw. Jede dieser Einheiten hat ihre eigenen logischen Komponentenansichten, Controller und Modelle.
 
 ### <a name="web-apis"></a>Web-APIs
 
 Als umfangreiche Plattform zum Erstellen von Websites verfügt ASP.NET Core MVC außerdem über umfassende Unterstützung für das Erstellen von Web-APIs. Sie können Dienste für eine breit gefächerte Palette von Clients erstellen, darunter auch Browser und mobile Geräte.
 
-Das Framework beinhaltet Unterstützung für die Aushandlung von HTTP-Inhalt mit integrierter Unterstützung für das [Formatieren von Daten](models/formatting.md) als JSON oder XML. Sie können [benutzerdefinierte Formatierungsprogramme](advanced/custom-formatters.md) schreiben, um Unterstützung für Ihre eigenen Formate hinzuzufügen.
+Das Framework bietet Unterstützung für HTTP-Inhalt-Aushandlung mit integrierter Unterstützung zum [Daten formatieren,](xref:web-api/advanced/formatting) als JSON oder XML. Sie können [benutzerdefinierte Formatierungsprogramme](xref:web-api/advanced/custom-formatters) schreiben, um Unterstützung für Ihre eigenen Formate hinzuzufügen.
 
 Außerdem können Sie mit der Linkgenerierung Unterstützung für Hypermedia aktivieren. Aktivieren Sie auf einfache Weise Unterstützung für die [Ressourcenfreigabe zwischen verschiedenen Ursprüngen (CORS)](http://www.w3.org/TR/cors/), damit Ihre Web-APIs für mehrere Webanwendungen freigegeben werden.
 
 ### <a name="testability"></a>Testfähigkeit
 
-Durch die Verwendung von Schnittstellen und Dependency Injection eignet sich das Framework besonders gut für Komponententests. Es enthält Features (wie etwa einen TestHost- und InMemory-Anbieter für Entity Framework), mit denen auch [Integrationstests](../testing/integration-testing.md) schnell und einfach durchgeführt werden können. Informationen zum [Testen von Controllerlogik](controllers/testing.md) finden Sie hier.
+Das Framework Schnittstellen und Abhängigkeitsinjektion nutzen Es eignet sich besonders gut für Komponententests und das Framework enthält Barrierefreiheitsfunktionen (z. B. ein TestHost und InMemory-Anbieter für Entity Framework) [Integrationstests](../testing/integration-testing.md) schnelle und einfache als auch. Erfahren Sie mehr über [zum Testen der Controllerlogik](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Razor-Ansichtsengine
 

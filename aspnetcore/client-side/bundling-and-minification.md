@@ -15,7 +15,7 @@ ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Paket und Minifiy statische Objekte in ASP.NET Core
 
@@ -77,13 +77,13 @@ Geben Sie die Razor-Seiten und MVC-Projektvorlagen einen *bundleconfig.json* Kon
 
 Konfigurationsoptionen sind verfügbar:
 
-* `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **required**
+* `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **Erforderlich**
 * `inputFiles`: Ein Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
-* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optionale**, *Standard: `minify: { enabled: true }`*
+* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optional**, *default - `minify: { enabled: true }`*
   * Konfigurationsoptionen sind pro Datei Ausgabetyp verfügbar.
-    * [CSS-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [HTML-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Flag gibt an, ob die generierte Dateien zur Projektdatei hinzufügen. **optionale**, *Standard - "false"*
 * `sourceMap`: Flag gibt an, ob eine quellzuordnung für die gebündelte Datei zu generieren. **optionale**, *Standard - "false"*
 * `sourceMapRootPath`: Der Pfad des Anwendungsstamms für das Speichern der generierten Quelldatei für die Zuordnung.

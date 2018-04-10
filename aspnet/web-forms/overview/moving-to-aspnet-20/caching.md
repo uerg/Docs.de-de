@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>Zwischenspeicherung
 ====================
@@ -75,17 +75,17 @@ Die folgende Befehlszeile registriert die Products-Tabelle in der Northwind-Date
 
 Im folgenden finden eine Erläuterung der Befehlszeilenoptionen, die im obigen Befehl verwendet:
 
-| **Befehlszeilenschalter** | **Purpose** |
+| **Befehlszeilenschalter** | **Zweck** |
 | --- | --- |
 | -S *server* | Gibt den Servernamen an. |
-| -ed | Gibt an, dass die Datenbank für SQL-Cacheabhängigkeit aktiviert werden sollen. |
+| -Ed | Gibt an, dass die Datenbank für SQL-Cacheabhängigkeit aktiviert werden sollen. |
 | -d: *Datenbank\_Name* | Gibt den Namen der Datenbank, der für SQL-Cacheabhängigkeit aktiviert werden sollen. |
 | -E | Gibt an, Aspnet\_Regsql sollten Windows-Authentifizierung verwenden, beim Verbinden mit der Datenbank. |
 | -et | Gibt an, dass wir eine Datenbanktabelle für SQL-Cacheabhängigkeit aktiviert ist. |
 | t - *Tabelle\_Name* | Gibt den Namen der Datenbanktabelle an, für die SQL-Cacheabhängigkeit aktiviert werden. |
 
 > [!NOTE]
-> Es stehen anderen Schaltern für Aspnet\_regsql.exe. For a complete list, run aspnet\_regsql.exe -? über die Befehlszeile.
+> Es stehen anderen Schaltern für Aspnet\_regsql.exe. Führen Sie eine vollständige Liste Aspnet\_regsql.exe-? über die Befehlszeile.
 
 
 Beim Ausführen von mit diesem Befehl werden die folgenden Änderungen an SQL Server-Datenbank vorgenommen:

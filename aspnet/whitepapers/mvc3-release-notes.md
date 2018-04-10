@@ -16,7 +16,7 @@ ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/06/2018
 - [Hinweise zur installationsnachbereitung](#installation-notes)
 - [Softwareanforderungen](#software-requirements)
 - [Dokumentation](#documentation)
-- [Unterstützung](#support)
+- [Support](#support)
 - [Aktualisieren eines ASP.NET MVC 2-Projekts zu ASP.NET MVC Update 3 Tools](#upgrading)
 - [ASP.NET MVC 3 Tools Update (12. April 2011)](#tu-changes)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/06/2018
 - [ASP IST. MVC 3 notiert Beta (6 Oktober 2010)](#TOC_ASP_NET_3_Beta)
 
     - [Neue Funktionen in ASP.NET MVC 3-Beta](#0.1__Toc274034215)
-    - [NuPack Package Manager](#0.1__Toc274034216)
+    - [NuPack-Paket-Manager](#0.1__Toc274034216)
     - [Verbesserte neues Projekt (Dialogfeld)](#0.1__Toc274034217)
     - [Vereinfachte Möglichkeit stark angeben typisierte Modelle in Razor-Ansichten](#0.1__Toc274034218)
     - [Unterstützung für neue ASP.NET Web Pages-Hilfsmethoden](#0.1__Toc274034219)

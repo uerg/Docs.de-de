@@ -16,7 +16,7 @@ ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Teil 7: Erstellen den Hauptknoten Seite
 ====================
@@ -86,7 +86,7 @@ Diese Produkte Array durchläuft und zeigt den Namen und den Preis. Die Schaltfl
 
 Schaltfläche "Hinzufügen, Order" ruft `addItemToCart` auf die `ProductViewModel` Instanz für das Produkt. Dies beweist, dass ein nützliches Feature der Knockout.js: bei einem Ansichtsmodell andere Modelle anzeigen enthält, können Sie die Bindungen auf das interne Modell anwenden. In diesem Beispiel die Bindungen innerhalb der `foreach` gelten für jede der `ProductViewModel` Instanzen. Dieser Ansatz ist wesentlich übersichtlicher als einfügen alle Funktionen in einem einzelnen Modell anzeigen.
 
-**Cart**
+**Einkaufswagen**
 
 Hier werden die Bindungen für den Einkaufswagen:
 
@@ -117,7 +117,7 @@ In diesem Lernprogramm erstellt Sie eine Anwendung, die Entity Framework verwend
 Zusätzliche Ressourcen:
 
 - [ASP.NET Data Access-Inhaltszuordnung](https://msdn.microsoft.com/library/6759sth4.aspx)
-- [Entity Framework Developer Center](https://msdn.microsoft.com/data/ef)
+- [Entity Framework-Developer Center](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
 > [Vorherige](using-web-api-with-entity-framework-part-6.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-pages/readme/overview
-title: WebMatrix-Infodatei | Microsoft Docs
+title: WebMatrix Readme | Microsoft Docs
 author: rick-anderson
 description: WebMatrix und ASP.NET Web Pages (Razor) Version 1.0-Infodatei
 ms.author: aspnetcontent
@@ -16,9 +16,9 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
-<a name="webmatrix-readme"></a>WebMatrix-Infodatei
+<a name="webmatrix-readme"></a>WebMatrix Readme
 ====================
 13 Januar 2011
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/06/2018
 - [Gewusst wie: Veröffentlichen von Anwendungen](#InstructionsForPublishingApplications)
 - [Änderungen und Probleme](#ChangesAndIssues)
 
-    - [WebMatrix 1.0-Installation](#Known_Issues_Installation)
+    - [WebMatrix 1.0 Installation](#Known_Issues_Installation)
     - [ASP.NET-Webseiten 2](#Known_Issues_ASPNET)
     - [WebMatrix](#Known_Issues_WebMatrix)
     - [IIS Express](#Known_Issues_IISExpress)
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/06/2018
 
 <a id="Known_Issues_Installation"></a>
 
-### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1.0-Installationsprobleme
+### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1.0 Installation Issues
 
 #### <a name="issue-webmatrix-10-is-available-only-on-platforms-that-support-microsoft-net-framework-4"></a>Problem: WebMatrix 1.0 steht nur für Plattformen, die Microsoft .NET Framework 4 zu unterstützen
 
@@ -258,9 +258,9 @@ Dieser Abschnitt des Dokuments Beschreibt neue Funktionen, Änderungen und bekan
 > 1. Kopieren Sie die Datenbank-Engine-Assemblys, die *"bin"* Ordner (und Unterordner) der Anwendung auf dem Zielcomputer:  
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->        **to** *\Bin*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
+>        **um** *\Bin*
+>    - Kopie <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>auf</em></strong>\Bin\x86*
+>    - Kopie <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>auf</strong><em>\Bin\amd64</em>
 > 
 > 2. Klicken Sie im Stammordner der Website, erstellen oder öffnen Sie eine *"Web.config"* Datei. (In WebMatrix 1.0 wird dieser Dateityp ist verfügbar, wenn Sie auf **alle** in der **wählen Sie einen Dateityp** (Dialogfeld).)
 > 3. Fügen Sie das folgende Element als untergeordnetes Element von der `<configuration>` Element (befindet sich nicht in der `<system.web>` Element):

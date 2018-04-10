@@ -16,7 +16,7 @@ ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Zugriff auf das Modell Daten aus einem Controller
 ====================
@@ -49,7 +49,7 @@ Klicken Sie auf Hinzufügen, und das System generiert automatisch den Code für 
 
 Führen Sie die Anwendung, und besuchen Sie /Movies in der Adressleiste. Jetzt haben wir werden Daten aus der Datenbank mithilfe einer einfachen Abfrage innerhalb der Controller abgefragt und die Daten an eine Ansicht, die über Filme weiß zurückgegeben. Diese Sicht wird dann durch die Liste von Filmen stößt und eine Tabelle mit Daten für uns erstellt.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Film List – Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 Es wird nicht implementieren bearbeiten "," Details "und" Delete-Funktionalität mit dieser Anwendung - daher die Standardlinks brauchen wir, die die Vorlage Gerüst für uns erstellt. Öffnen Sie die /Movies/Index.aspx-Datei, und entfernen Sie sie.
 
@@ -59,7 +59,7 @@ Hier ist der Quellcode für wie unsere aktualisierte Ansichtenvorlage aussehen s
 
 Es wird Links, die wir nicht brauchen, erstellen, sodass wir in diesem Beispiel gelöscht werden. Wir behält unsere Link neu erstellen, weiter darin! Hier sieht unsere app mit dieser Spalte entfernt.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Film List – Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Wir haben jetzt eine einfache Liste von unseren Filmdaten. Jedoch wenn wir den Link "Neu erstellen" klicken, wird einen Fehler erhalten, da er nicht verknüpft ist! Wir implementieren Sie eine Create Action-Methode, und ermöglichen einem Benutzer, geben neue Kinofilmen in die Datenbank.
 

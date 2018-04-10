@@ -16,7 +16,7 @@ ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Einführung in ASP.NET MVC
 ====================
@@ -39,7 +39,7 @@ Hier sind zwei Screenshots der Anwendung, die Sie erstellen müssen. Sie müssen
 
 Und Sie müssen ein Formular erstellen, damit Filme zur Liste hinzugefügt werden können.
 
-[![Erstellen Sie einen Film - Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![Create a Movie - Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>Fähigkeiten, die Sie erfahren
 

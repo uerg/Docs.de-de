@@ -16,11 +16,11 @@ ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Auschecken "und" Payment mit PayPal
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -391,7 +391,7 @@ Die **DetailsView** Steuerelement wird verwendet, um die Auftragsdetails anzeige
 > 
 > **Tipps**
 > 
-> Im Markup der *CheckoutReview.aspx* Seite, beachten Sie, dass die `<ItemStyle>` Tag wird verwendet, um das Format der Elemente im Ändern der **DetailsView** Steuerelement am unteren Rand der Seite. Durch Anzeigen der Seite in **Entwurfsansicht** (durch Auswahl **Entwurf** in der unteren linken Ecke von Visual Studio), wählen Sie dann die **DetailsView** steuern und die auswählen** Smarttag** (das Pfeilsymbol am oberen Rand des Steuerelements nach rechts), werden können, finden Sie unter der **DetailsView-Aufgaben**.
+> Im Markup der *CheckoutReview.aspx* Seite, beachten Sie, dass die `<ItemStyle>` Tag wird verwendet, um das Format der Elemente im Ändern der **DetailsView** Steuerelement am unteren Rand der Seite. Durch Anzeigen der Seite in **Entwurfsansicht** (durch Auswahl **Entwurf** in der unteren linken Ecke von Visual Studio), wählen Sie dann die **DetailsView** steuern und die auswählen **Smarttag** (das Pfeilsymbol am oberen Rand des Steuerelements nach rechts), werden können, finden Sie unter der **DetailsView-Aufgaben**.
 > 
 > ![Auschecken "und" Payment PayPal - Bearbeiten Felder](checkout-and-payment-with-paypal/_static/image18.png)
 > 
@@ -425,7 +425,7 @@ Wenn der Benutzer entscheidet, den Kaufvorgang zu stornieren, sie geleitet werde
 
 ### <a name="handle-purchase-errors"></a>Kauf Fehler behandeln
 
-Fehler während des Kaufvorgangs werden vom behandelt die *CheckoutError.aspx* Seite. Der Code-Behind von der *CheckoutStart.aspx* Seite der *CheckoutReview.aspx* Seite und die *CheckoutComplete.aspx* Seite jedes weitergeleitet wird, die * CheckoutError.aspx* Seite, wenn ein Fehler auftritt.
+Fehler während des Kaufvorgangs werden vom behandelt die *CheckoutError.aspx* Seite. Der Code-Behind von der *CheckoutStart.aspx* Seite der *CheckoutReview.aspx* Seite und die *CheckoutComplete.aspx* Seite jedes weitergeleitet wird, die  *CheckoutError.aspx* Seite, wenn ein Fehler auftritt.
 
 1. Öffnen Sie die Seite mit dem Namen *CheckoutError.aspx* in der *Auschecken* Ordner.
 2. Ersetzen Sie das vorhandene Markup durch Folgendes:   
@@ -502,7 +502,7 @@ Führen Sie die Anwendung zu erfahren, wie Produkte zu kaufen. Beachten Sie, das
 10. Überprüfen Sie die `OrderId` und `Username` Werte in der **OrderDetails** Tabelle. Beachten Sie, die diese Werte entsprechen den `OrderId` und `Username` in enthaltenen Werte der **Aufträge** Tabelle.
 11. Schließen der **OrderDetails** Tabellenfensters.
 12. Mit der rechten Maustaste der Wingtip Toys-Datenbankdatei (*Wingtiptoys.mdf*), und wählen Sie **enge Verbindung**.
-13. Wenn Sie nicht angezeigt werden die **Projektmappen-Explorer** Fenster, klicken Sie auf **Projektmappen-Explorer** am unteren Rand der **Server-Explorer** Fenster zum Anzeigen der **Projektmappen-Explorer ** erneut aus.
+13. Wenn Sie nicht angezeigt werden die **Projektmappen-Explorer** Fenster, klicken Sie auf **Projektmappen-Explorer** am unteren Rand der **Server-Explorer** Fenster zum Anzeigen der **Projektmappen-Explorer**  erneut aus.
 
 ## <a name="summary"></a>Zusammenfassung
 

@@ -16,11 +16,11 @@ ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="membership-and-administration"></a>Mitgliedschaft und Verwaltung
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -243,7 +243,7 @@ Sie können die Anwendung jetzt sehen, wie Sie hinzufügen können, löschen und
    Die *"Login.aspx"* angezeigt wird.
 3. Verwenden Sie den folgenden Benutzernamen und Kennwort:  
    Benutzername: canEditUser@wingtiptoys.com  
-   Password: Pa$$word1 
+   Kennwort: Pa$ $word1 
 
     ![Mitgliedschaft und Administration - Anmeldeseite](membership-and-administration/_static/image3.png)
 4. Klicken Sie auf die **melden Sie sich** Schaltfläche am unteren Rand der Seite.

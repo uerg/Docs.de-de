@@ -16,7 +16,7 @@ ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Erstellen einer MVC 3-Anwendung mit Razor und Unaufdringlichem JavaScript
 ====================
@@ -54,7 +54,7 @@ In diesem Lernprogramm werden Sie nicht den ASP.NET-Mitgliedschaftsanbieter verw
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Bearbeiten der  <em>\_Layout.cshtml</em> -Datei und Ersetzen Sie das Markup der `<div>` Element mit dem Namen `logindisplay` mit der Meldung <em>&quot;</em>Anmeldung deaktiviert&quot;. Das folgende Beispiel zeigt das neue Markup:
+Bearbeiten der <em> \_Layout.cshtml</em> -Datei und Ersetzen Sie das Markup der `<div>` Element mit dem Namen `logindisplay` mit der Meldung <em> &quot; </em>Anmeldung deaktiviert&quot;. Das folgende Beispiel zeigt das neue Markup:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -166,7 +166,7 @@ Festlegen von `ClientValidationEnabled` auf "true" ermöglicht die clientseitige
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample13.cs)]
 
-Sie müssen auch einige JavaScript-Dateien in der gerenderten Ansicht enthalten. Eine einfache Möglichkeit, die in allen Ansichten der JavaScript-Code enthalten ist, zum Hinzufügen der *Views\Shared\\_Layout.cshtml* Datei. Ersetzen Sie die `<head>` Element von der  *\_Layout.cshtml* Datei durch den folgenden Code:
+Sie müssen auch einige JavaScript-Dateien in der gerenderten Ansicht enthalten. Eine einfache Möglichkeit, die in allen Ansichten der JavaScript-Code enthalten ist, zum Hinzufügen der *Views\Shared\\_Layout.cshtml* Datei. Ersetzen Sie die `<head>` Element von der * \_Layout.cshtml* Datei durch den folgenden Code:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample14.cshtml)]
 

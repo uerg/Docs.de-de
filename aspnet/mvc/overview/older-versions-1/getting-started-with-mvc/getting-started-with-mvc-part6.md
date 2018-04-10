@@ -16,7 +16,7 @@ ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Hinzufügen einer Create-Methode und die Ansicht erstellen
 ====================
@@ -61,7 +61,7 @@ Sehen wir uns die zweite Erstellungsmethode aus unserem MoviesController erneut.
 
 Dieses Movie-Objekt klicken Sie dann auf die Version [HttpPost] unsere erstellen Aktionsmethode übergeben wurde, und wir es in der Datenbank gespeichert und anschließend den Benutzer umgeleitet, an die Aktionsmethode Index(), die das gespeicherte Ergebnis in der Filmliste angezeigt:
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Film List – Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 Wir werden nicht überprüft, ob unsere Filme richtig angegeben, obwohl sind und die Datenbank wird nicht es uns ermöglichen, einen Film mit ohne Titel zu speichern. Es wäre schön, wenn wir den Benutzer informieren könnte, der vor der Datenbank einen Fehler ausgelöst hat. Wir müssen dies als Nächstes durchführen, indem validierungsunterstützung unsere Anwendung hinzufügen.
 
