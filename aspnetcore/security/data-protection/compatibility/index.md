@@ -1,7 +1,7 @@
 ---
-title: "Kompatibilität in ASP.NET Core"
+title: Kompatibilität in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zur Kompatibilität im Rahmen des Schutzes von Daten in ASP.NET Core."
+description: Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zur Kompatibilität im Rahmen des Schutzes von Daten in ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/compatibility/index
-ms.openlocfilehash: 4f60f399c724a5f88e7fba3caa2c48f5cec6b137
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 765ab157f97417d6e6654a172b2aebb170a2f5eb
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="compatibility-in-aspnet-core"></a>Kompatibilität in ASP.NET Core
 
-* [Ersetzen von \<MachineKey > in ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
+* [Ersetzen von ASP.NET \<machineKey> in ASP.NET Core](xref:security/data-protection/compatibility/replacing-machinekey)

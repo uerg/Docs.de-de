@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core-Middleware
 author: rick-anderson
-description: "Erfahren Sie mehr über ASP.NET Core-Middleware und die Anforderungspipeline."
+description: Erfahren Sie mehr über ASP.NET Core-Middleware und die Anforderungspipeline.
 manager: wpickett
 ms.author: riande
 ms.date: 01/22/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -30,9 +30,9 @@ Middleware ist Software, die zu einer Anwendungspipeline zusammengesetzt wird, u
 
 Anforderungsdelegaten werden verwendet, um die Anforderungspipeline zu erstellen. Die Anforderungsdelegaten behandeln jede HTTP-Anforderung.
 
-Sie werden mit [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions)-, [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions)- und [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions)-Erweiterungsmethoden konfiguriert. Ein einzelner Anforderungsdelegat kann inline als anonyme Methode angegeben werden (sogenannte Inline-Middleware), oder er kann in einer wiederverwendbaren Klasse definiert werden. Diese wiederverwendbaren Klassen und anonymen Inline-Methoden sind *Middleware* oder *Middlewarekomponenten*. Jede Middlewarekomponente in der Anforderungspipeline ist für das Aufrufen der jeweils nächsten Komponente in der Pipeline oder für das Kurzschließen der Kette, wenn nötig, zuständig.
+Sie werden mit [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions)-, [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions)- und [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions)-Erweiterungsmethoden konfiguriert. Ein einzelner Anforderungsdelegat kann inline als anonyme Methode angegeben werden (sogenannte Inline-Middleware), oder er kann in einer wiederverwendbaren Klasse definiert werden. Diese wiederverwendbaren Klassen und anonymen Inline-Methoden sind *Middleware* oder *Middlewarekomponenten*. Jede Middlewarekomponente in der Anforderungspipeline ist für das Aufrufen der jeweils nächsten Komponente in der Pipeline oder, wenn nötig, für das Kurzschließen der Kette zuständig.
 
-Unter [Migrating HTTP Modules to Middleware (Migrieren von HTTP-Modulen zu Middleware)](xref:migration/http-modules) wird der Unterschied zwischen Anforderungspipelines in ASP.NET Core und ASP.NET 4.x erklärt. Außerdem werden dort weitere Beispiele für Middleware gegeben.
+Unter [Migrieren von HTTP-Modulen zu Middleware](xref:migration/http-modules) wird der Unterschied zwischen Anforderungspipelines in ASP.NET Core und ASP.NET 4.x erklärt. Außerdem werden dort weitere Beispiele für Middleware gegeben.
 
 ## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Erstellen einer Middlewarepipeline mit IApplicationBuilder
 
@@ -109,7 +109,7 @@ public void Configure(IApplicationBuilder app)
 
 Im obenstehenden Code ist `UseExceptionHandler` die erste zur Pipeline hinzugefügte Middlewarekomponente. Deshalb fängt sie alle Ausnahmen ab, die in späteren Aufrufen ausgelöst werden.
 
-Die Middeware für statische Dateien wird am Anfang der Pipeline aufgerufen, damit sie Anforderungen und Kurzschlüsse verarbeiten kann, ohne dass die verbleibenden Komponenten durchlaufen werden müssen. Die Middleware für statische Dateien stellt **keine** Autorisierungsüberprüfungen bereit. Alle Dateien, die von ihr bearbeitet werden, Dateien unter *wwwroot* inbegriffen, sind öffentlich verfügbar. Unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files) erfahren Sie, wie Sie statische Dateien sichern können.
+Die Middeware für statische Dateien wird am Anfang der Pipeline aufgerufen, damit sie Anforderungen und Kurzschlüsse verarbeiten kann, ohne dass die verbleibenden Komponenten durchlaufen werden müssen. Die Middleware für statische Dateien stellt **keine** Autorisierungsüberprüfungen bereit. Alle Dateien, die von ihr bearbeitet werden, Dateien unter *wwwroot* inbegriffen, sind öffentlich verfügbar. Unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files) erfahren Sie, wie Sie statische Dateien schützen können.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -261,7 +261,7 @@ public class MyMiddleware
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Migrating HTTP Modules to Middleware (Migration von HTTP-Modulen zu Middleware)](xref:migration/http-modules)
+* [Migrieren von HTTP-Modulen zu Middleware](xref:migration/http-modules)
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Erforderliche Funktionen](xref:fundamentals/request-features)
 * [Factorybezogene Middlewareaktivierung](xref:fundamentals/middleware/extensibility)

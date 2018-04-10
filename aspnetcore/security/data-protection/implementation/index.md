@@ -1,7 +1,7 @@
 ---
-title: Implementierung
+title: Implementierung des Schutzes von Daten in ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zur Implementierung des Schutzes von Daten in ASP.NET Core."
+description: Lesen Sie die verschiedenen Themen zur Implementierung des Schutzes von Daten in ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,28 +9,28 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/index
-ms.openlocfilehash: a464e961c0df1eb5f3def40d2a8c306454ed02d8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ac891077342bb60cf321b96ba6d55df1a90655cd
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="implementation"></a>Implementierung
+# <a name="aspnet-core-data-protection-implementation"></a>Implementierung des Schutzes von Daten in ASP.NET Core
 
-* [Authentifizierte Verschlüsselungsdetails](authenticated-encryption-details.md)
+* [Authentifizierte Verschlüsselungsdetails](xref:security/data-protection/implementation/authenticated-encryption-details)
 
-* [Unterschlüsselableitung und authentifizierte Verschlüsselung](subkeyderivation.md)
+* [Unterschlüsselableitung und authentifizierte Verschlüsselung](xref:security/data-protection/implementation/subkeyderivation)
 
-* [Kontextheader](context-headers.md)
+* [Kontextheader](xref:security/data-protection/implementation/context-headers)
 
-* [Schlüsselverwaltung](key-management.md)
+* [Schlüsselverwaltung](xref:security/data-protection/implementation/key-management)
 
-* [Schlüsselspeicheranbieter](key-storage-providers.md)
+* [Schlüsselspeicheranbieter](xref:security/data-protection/implementation/key-storage-providers)
 
-* [Ruhende Verschlüsselung von Schlüsseln](key-encryption-at-rest.md)
+* [Ruhende Verschlüsselung von Schlüsseln](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-* [Unveränderlichkeit von Schlüsseln und Ändern von Einstellungen](key-immutability.md)
+* [Schlüsselunveränderlichkeit und -einstellungen](xref:security/data-protection/implementation/key-immutability)
 
-* [Schlüsselspeicherformat](key-storage-format.md)
+* [Schlüsselspeicherformat](xref:security/data-protection/implementation/key-storage-format)
 
-* [Kurzlebige Datenschutzanbieter](key-storage-ephemeral.md)
+* [Kurzlebige Datenschutzanbieter](xref:security/data-protection/implementation/key-storage-ephemeral)

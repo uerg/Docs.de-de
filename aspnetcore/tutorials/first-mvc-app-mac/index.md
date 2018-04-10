@@ -1,7 +1,7 @@
 ---
-title: Erstellen einer Web-App mit ASP.NET Core MVC unter macOS
+title: Erstellen einer Web-App mit ASP.NET Core MVC unter macOS mit Visual Studio für Mac
 author: rick-anderson
-description: "Erstellen einer ASP.NET Core MVC/Entity Framework-App mit Visual Studio für Mac"
+description: Erstellen einer ASP.NET Core MVC/Entity Framework-App mit Visual Studio für Mac
 manager: wpickett
 ms.author: riande
 ms.date: 06/26/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: 51d62043592fbb7e1edd377c4f3ef3c1693b666a
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 417f5c49a026348a62ef1bff0ed3611578e8d111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>Erstellen einer Web-App mit ASP.NET Core MVC und Visual Studio für Mac
+# <a name="create-a-web-app-with-aspnet-core-mvc-on-macos-with-visual-studio-for-mac"></a>Erstellen einer Web-App mit ASP.NET Core MVC unter macOS mit Visual Studio für Mac
 
 Diese Tutorialreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Core MVC-Web-App mithilfe von Visual Studio für Mac. 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 1. [Erste Schritte](xref:tutorials/first-mvc-app-mac/start-mvc)
 1. [Hinzufügen eines Controllers](xref:tutorials/first-mvc-app-mac/adding-controller)

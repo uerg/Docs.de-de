@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: f6646a92e75b79d2193e9cbca7fa8ac8e26dc429
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 12a179287ec302994380e0faf4b843596f8c2f4e
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Hosten von ASP.NET Core in Docker-Containern
 
@@ -40,3 +40,6 @@ Erfahren Sie mehr über die Unterstützung für das Erstellen, Debuggen und Ausf
 
 [Veröffentlichen in einem Docker-Image](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
 Erfahren Sie, wie Sie die Erweiterung Visual Studio-Tools für Docker verwenden, um mithilfe von PowerShell eine ASP.NET Core-App für einen Docker-Host in Azure bereitzustellen.
+
+[Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer)  
+Möglicherweise ist zusätzliche Konfiguration für Apps erforderlich, die hinter Proxyservern und Lastenausgleichsmodulen (Load Balancer) gehostet werden. Ein Übergeben von Anforderungen über einen Proxy verschleiert häufig Informationen über die ursprüngliche Anforderung, z. B. das Schema und die Client-IP. Er kann erforderlich sein, dass einige Informationen über die Anforderung manuell an die App weitergeleitet werden.

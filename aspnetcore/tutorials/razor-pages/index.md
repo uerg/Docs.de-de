@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: a437d98c2229e69bd2b66a7c9c868bf221aea94a
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 9325eafeedd3e78629d6ced29e0c4122c6b394ad
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Erstellen einer Razor Pages-Web-App mit ASP.NET Core
 
@@ -21,10 +21,10 @@ In dieser Reihe werden die Grundlagen der Erstellung einer Razor Pages-Web-App m
 
 1. [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 1. [Hinzufügen eines Modells zu einer Razor Pages-App](xref:tutorials/razor-pages/model)
-1. [Gerüstbau mit Razor Pages](xref:tutorials/razor-pages/page)
-1. [Working with SQL Server LocalDB (Arbeiten mit SQL Server und LocalDB)](xref:tutorials/razor-pages/sql)
+1. [Scaffolded Razor Pages (Gerüstbau mit Razor Pages)](xref:tutorials/razor-pages/page)
+1. [Arbeiten mit SQL Server LocalDB](xref:tutorials/razor-pages/sql)
 1. [Updating the pages (Aktualisieren der Seiten)](xref:tutorials/razor-pages/da1)
-1. [Adding search (Hinzufügen der Suche)](xref:tutorials/razor-pages/search)
-1. [Adding a new field (Hinzufügen eines neuen Felds)](xref:tutorials/razor-pages/new-field)
-1. [Adding validation (Hinzufügen der Validierung)](xref:tutorials/razor-pages/validation)
+1. [Hinzufügen der Suche](xref:tutorials/razor-pages/search)
+1. [Hinzufügen eines neuen Felds](xref:tutorials/razor-pages/new-field)
+1. [Hinzufügen der Validierung](xref:tutorials/razor-pages/validation)
 1. [Hochladen von Dateien](xref:tutorials/razor-pages/uploading-files)

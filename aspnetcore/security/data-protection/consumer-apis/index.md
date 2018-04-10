@@ -1,7 +1,7 @@
 ---
-title: Consumer-APIs
+title: Consumer-APIs für ASP.NET Core
 author: rick-anderson
-description: "Dieses Dokument dient als Inhaltsverzeichnis für die verschiedenen Themen zu ASP.NET Core-Consumer-APIs für den Schutz von Daten."
+description: Lesen Sie die verschiedenen Themen zu ASP.NET Core-Consumer-APIs für den Schutz von Daten.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,22 +9,22 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: a36dbaa7c34ed0cd99bfb2b27a9d59b81ffccbcf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d7ca1104b0a14a330df8d13be58425b3371bff73
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis"></a>Consumer-APIs
+# <a name="consumer-apis-for-aspnet-core"></a>Consumer-APIs für ASP.NET Core
 
-* [Übersicht über Consumer-APIs](overview.md)
+* [Übersicht über Consumer-APIs](xref:security/data-protection/consumer-apis/overview)
 
-* [Zweckzeichenfolgen](purpose-strings.md)
+* [Zweckzeichenfolgen](xref:security/data-protection/consumer-apis/purpose-strings)
 
-* [Zweckhierarchie und Mehrinstanzenfähigkeit](purpose-strings-multitenancy.md)
+* [Zweckhierarchie und Mehrinstanzenfähigkeit](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-* [Kennwort-Hashing](password-hashing.md)
+* [Hasherstellung für Kennwörter](xref:security/data-protection/consumer-apis/password-hashing)
 
-* [Beschränken der Lebensdauer von geschützten Nutzlasten](limited-lifetime-payloads.md)
+* [Beschränken der Lebensdauer von geschützten Payloads](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-* [Aufheben des Schutzes von Nutzlasten, deren Schlüssel gesperrt wurden](dangerous-unprotect.md)
+* [Aufheben des Schutzes von Payloads, deren Schlüssel gesperrt wurden](xref:security/data-protection/consumer-apis/dangerous-unprotect)

@@ -1,5 +1,5 @@
 ---
-title: "Einführung in Razor Pages in ASP.NET Core"
+title: Einführung in Razor Pages in ASP.NET Core
 author: Rick-Anderson
 description: Erfahren Sie, wie Razor Pages in ASP.NET Core codierungsseitige Szenarios einfacher und produktiver gestalten als MVC.
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -25,16 +25,9 @@ Ein Tutorial, in dem der Model-View-Controller-Ansatz verwendet wird, finden Sie
 
 Dieses Dokument bietet eine Einführung in Razor Pages. Es handelt sich nicht um ein Schritt-für-Schritt-Tutorial. Wenn es Ihnen Probleme bereitet, die Ausführungen in einigen Abschnitten nachzuvollziehen, lesen Sie [Erste Schritte mit Razor-Seiten in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start). Eine Übersicht über ASP.NET Core finden Sie unter [Einführung in ASP.NET Core](xref:index).
 
-<a name="prerequisites"></a>
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-## <a name="aspnet-core-20-prerequisites"></a>Anforderungen von ASP.NET Core 2.0
-
-Installieren Sie [.NET Core](https://www.microsoft.com/net/core) 2.0.0 oder höher.
-
-Wenn Sie Visual Studio verwenden, installieren Sie [Visual Studio](https://www.visualstudio.com/vs/) 2017 Version 15.3 oder höher mit folgenden Workloads:
-
-* **ASP.NET und Webentwicklung**
-* **Plattformübergreifende .NET Core-Entwicklung**
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 <a name="rpvs17"></a>
 
@@ -44,7 +37,7 @@ Wenn Sie Visual Studio verwenden, installieren Sie [Visual Studio](https://www.v
 
 Ausführliche Informationen zum Erstellen eines Projekts mit Razor-Seiten mithilfe von Visual Studio finden Sie unter [Erste Schritte mit Razor-Seiten](xref:tutorials/razor-pages/razor-pages-start).
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
 
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
@@ -54,7 +47,7 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli) 
 
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
@@ -175,7 +168,11 @@ Die Datei *Pages/Edit.cshtml*:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-Die erste Zeile enthält die `@page "{id:int}"`-Anweisung. Die Routingbeschränkung `"{id:int}"` weist die Seite an, die Anforderungen für die Seite zu akzeptieren, die `int`-Routingdaten enthalten. Wenn eine Anforderung an die Seite bestimmte Routingdaten nicht enthält, die in einen `int` konvertiert werden können, gibt die Runtime einen Fehler vom Typ „HTTP 404: Nicht gefunden“ zurück.
+Die erste Zeile enthält die `@page "{id:int}"`-Anweisung. Die Routingbeschränkung `"{id:int}"` weist die Seite an, die Anforderungen für die Seite zu akzeptieren, die `int`-Routingdaten enthalten. Wenn eine Anforderung an die Seite bestimmte Routingdaten nicht enthält, die in einen `int` konvertiert werden können, gibt die Runtime einen Fehler vom Typ „HTTP 404: Nicht gefunden“ zurück. Um die ID optional zu machen, fügen Sie `?` an die Routeneinschränkung an:
+
+ ```cshtml
+@page "{id:int?}"
+```
 
 Die Datei *Pages/Edit.cshtml.cs*:
 
@@ -317,7 +314,7 @@ Die URL-Generierung für Seiten unterstützt relative Namen. In der folgenden Ta
 | RedirectToPage("../Index") | *Pages/Index* |
 | RedirectToPage("Index")  | *Pages/Customers/Index* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")` und `RedirectToPage("../Index")` sind *relative Namen*. Der `RedirectToPage`-Parameter wird mit dem Pfad der aktuellen Seite *kombiniert*, um den Namen der Zielseite zu berechnen.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")` und `RedirectToPage("../Index")` sind <em>relative Namen</em>. Der `RedirectToPage`-Parameter wird mit dem Pfad der aktuellen Seite <em>kombiniert</em>, um den Namen der Zielseite zu berechnen.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
 
 Das Verknüpfen relativer Namen eignet sich beim Erstellen von Websites mit einer komplexen Struktur. Wenn Sie relative Namen verwenden, um Seiten in einem Ordner zu verknüpfen, können Sie diesen Ordner umbenennen. Alle Links funktionieren weiterhin, da sie nicht den Namen des Ordners enthalten.
 

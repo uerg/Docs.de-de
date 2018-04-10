@@ -1,41 +1,32 @@
 ---
 title: Webserverimplementierungen in ASP.NET Core
 author: tdykstra
-description: "Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr zu einem Webserver und dessen Verwendung mit einem Reverseproxyserver."
+description: Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr über das Auswählen eines Servers und darüber, wann ein Reverseproxyserver zu verwenden ist.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 08/03/2017
+ms.custom: mvc
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: b9a7fa4e33c56a5973b4bc35f88ca0ebb3d67101
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cdf6fafce644f424d3cd58395e1fa91e5e6fa2cb
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
 Von [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73) und [Chris Ross](https://github.com/Tratcher)
 
-Eine ASP.NET Core-Anwendung wird über eine In-Process-Implementierung eines HTTP-Servers ausgeführt. Die Serverimplementierung lauscht auf HTTP-Anforderungen und leitet diese als [Anforderungsfunktionen](https://docs.microsoft.com/aspnet/core/fundamentals/request-features), die in einem `HttpContext` zusammengefasst werden, an die Anwendung weiter.
+Eine ASP.NET Core-App wird über eine In-Process-Implementierung eines HTTP-Servers ausgeführt. Die Serverimplementierung lauscht auf HTTP-Anforderungen und leitet diese als [Anforderungsfunktionen](xref:fundamentals/request-features), die in einem [HttpContext](/dotnet/api/system.web.httpcontext) zusammengefasst werden, an die App weiter.
 
 ASP.NET Core stellt zwei Serverimplementierungen zur Verfügung:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+* [Kestrel](xref:fundamentals/servers/kestrel) ist ein plattformübergreifender HTTP-Server, der auf der plattformübergreifenden asynchronen E/A-Bibliothek [libuv](https://github.com/libuv/libuv) basiert.
 
-* [Kestrel](kestrel.md) ist ein plattformübergreifender HTTP-Server, der auf der plattformübergreifenden asynchronen E/A-Bibliothek [libuv](https://github.com/libuv/libuv) basiert.
-
-* [HTTP.sys](httpsys.md) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber ](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-* [Kestrel](kestrel.md) ist ein plattformübergreifender HTTP-Server, der auf der plattformübergreifenden asynchronen E/A-Bibliothek [libuv](https://github.com/libuv/libuv) basiert.
-
-* [WebListener](weblistener.md) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber ](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert.
-
----
+* [HTTP.sys](xref:fundamentals/servers/httpsys) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber und der HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert. (HTTP.sys wird in ASP.NET Core 1.x als [WebListener](xref:fundamentals/servers/weblistener) bezeichnet.)
 
 ## <a name="kestrel"></a>Kestrel
 
@@ -43,7 +34,7 @@ Kestrel ist der Webserver, der standardmäßig in ASP.NET Core in Vorlagen für 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Sie können Kestrel als eigenständigen Webserver oder mit einem *Reverseproxyserver* wie IIS, Nginx oder Apache verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter.
+Kestrel kann eigenständig oder mit einem *Reverseproxyserver* wie IIS, Nginx oder Apache verwendet werden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese nach einer vorbereitenden Verarbeitung an Kestrel weiter.
 
 ![Kestrel kommuniziert direkt und ohne Reverseproxyserver mit dem Internet](kestrel/_static/kestrel-to-internet2.png)
 
@@ -51,94 +42,82 @@ Sie können Kestrel als eigenständigen Webserver oder mit einem *Reverseproxyse
 
 Jede der beiden Konfigurationen &mdash;, egal ob mit oder ohne Reverseproxyserver &mdash;, kann auch dann verwendet werden, wenn Kestrel nur in einem internen Netzwerk verfügbar gemacht wird.
 
-Informationen zur sinnvollen Verwendung von Kestrel mit einem Reverseproxy finden Sie unter [Introduction to Kestrel (Einführung in Kestrel)](kestrel.md).
+Weitere Informationen finden Sie unter [Verwenden von Kestrel mit einem Reverseproxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wenn Ihre Anwendung nur Anforderungen aus einem internen Netzwerk akzeptiert, können Sie Kestrel als eigenständigen Webserver verwenden.
+Wenn die App nur Anforderungen aus einem internen Netzwerk akzeptiert, kann Kestrel eigenständig verwendet werden.
 
-![Kestrel kommuniziert direkt mit Ihrem internen Netzwerk](kestrel/_static/kestrel-to-internal.png)
+![Kestrel kommuniziert direkt mit dem internen Netzwerk.](kestrel/_static/kestrel-to-internal.png)
 
-Wenn Sie Ihre Anwendung im Internet verfügbar machen, müssen Sie IIS, Nginx oder Apache als *Reverseproxyserver* verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese wie im folgenden Diagramm dargestellt nach einer vorbereitenden Verarbeitung an Kestrel weiter.
+Wenn die App für das Internet verfügbar gemacht ist, muss Kestrel IIS, Nginx oder Apache als *Reverseproxyserver* verwenden. Ein Reverseproxyserver empfängt HTTP-Anforderungen aus dem Internet und leitet diese wie im folgenden Diagramm dargestellt nach einer vorbereitenden Verarbeitung an Kestrel weiter:
 
 ![Kestrel kommuniziert indirekt mit dem Internet über einen Reverseproxyserver wie IIS, Nginx oder Apache](kestrel/_static/kestrel-to-internet.png)
 
-Der wichtigste Grund für die Verwendung eines Reverseproxys für Edge-Bereitstellungen, die im Internet verfügbar gemacht werden, ist die IT-Sicherheit. Die Kestrel-Versionen 1.x besitzen keine umfassenden Schutzmaßnahmen gegenüber Angriffen. Geeignete Timeouts und Größenlimits sowie eine Beschränkung der Anzahl gleichzeitiger Verbindungen sind beispielsweise nicht vorhanden.
+Der wichtigste Grund für die Verwendung eines Reverseproxys für Edge-Bereitstellungen, die im Internet verfügbar gemacht werden, ist die IT-Sicherheit. Die 1.x-Versionen von Kestrel haben keine wesentlichen Sicherheitsfeatures zum Schutz vor Angriffen aus dem Internet. So sind z. B. keine geeigneten Timeouts, Größenlimits für Anforderungen sowie Beschränkungen der Anzahl gleichzeitiger Verbindungen vorhanden.
 
-Informationen zur sinnvollen Verwendung von Kestrel mit einem Reverseproxy finden Sie unter [Introduction to Kestrel (Einführung in Kestrel)](kestrel.md).
+Weitere Informationen finden Sie unter [Verwenden von Kestrel mit einem Reverseproxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 ---
 
-Sie können IIS, Nginx oder Apache nicht ohne Kestrel oder eine [benutzerdefinierte Serverimplementierung](#custom-servers) verwenden. ASP.NET Core wurde entwickelt, um in einem eigenen Prozess ausgeführt werden zu können, sodass plattformübergreifend konsistentes Verhalten gewährleistet wird. IIS, Nginx und Apache legen ihren eigenen Startprozess und ihre eigene Umgebung fest. Zur direkten Verwendung dieser Webserver müsste ASP.NET Core an die jeweilige Webserversoftware angepasst werden. Durch eine Webserverimplementierung wie Kestrel kann ASP.NET Core den Startprozess und die Umgebung steuern. Sie müssen daher nicht ASP.NET Core an IIS, Nginx oder Apache anpassen, sondern die Webserver nur so einrichten, dass sie als Proxy Anforderungen an Kestrel weiterleiten. Mit dieser Konfiguration können fast identische `Program.Main`- und `Startup`-Klassen unabhängig vom Bereitstellungsszenario verwendet werden.
+IIS, Nginx oder Apache können nicht ohne Kestrel oder eine [benutzerdefinierte Serverimplementierung](#custom-servers) verwendet werden. ASP.NET Core wurde entwickelt, um in einem eigenen Prozess ausgeführt werden zu können, sodass plattformübergreifend konsistentes Verhalten gewährleistet wird. IIS, Nginx und Apache geben ihre eigene Startprozedur und Umgebung vor. Um diese Servertechnologien direkt nutzen zu können, muss ASP.NET Core an die Anforderungen jedes Servers angepasst werden. Durch eine Webserverimplementierung wie Kestrel kann ASP.NET Core den Startprozess und die Umgebung steuern, wenn es auf anderen Servertechnologien gehostet wird.
 
 ### <a name="iis-with-kestrel"></a>IIS und Kestrel
 
-Wenn Sie IIS oder IIS Express als Reverseproxy für ASP.NET Core verwenden, wird die ASP.NET Core-Anwendung in einem Prozess ausgeführt, der vom IIS-Workerprozess getrennt ist. Im IIS-Prozess wird ein spezielles IIS-Modul ausgeführt, das die Beziehung zum Reverseproxy steuert.  Hierbei handelt es sich um das *ASP.NET Core-Modul*. Die Hauptfunktionen des ASP.NET Core-Moduls bestehen darin, die ASP.NET Core-Anwendung zu starten, bei einem Absturz neu zu starten und HTTP-Datenverkehr an sie weiterzuleiten. Weitere Informationen finden Sie unter [ASP.NET Core Module (ASP.NET Core-Modul)](aspnet-core-module.md). 
+Wenn [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) oder [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) als Reverseproxy für ASP.NET Core verwendet wird, wird die ASP.NET Core-App in einem Prozess ausgeführt, der vom IIS-Workerprozess getrennt ist. Im IIS-Prozess steuert das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) die Beziehung zum Reverseproxy. Die Hauptfunktionen des ASP.NET Core-Moduls bestehen darin, die ASP.NET Core-App zu starten, die App nach einem Absturz neu zu starten und HTTP-Datenverkehr an die App weiterzuleiten. Weitere Informationen finden Sie unter [ASP.NET Core Module (ASP.NET Core-Modul)](xref:fundamentals/servers/aspnet-core-module). 
 
 ### <a name="nginx-with-kestrel"></a>Nginx und Kestrel
 
-Informationen zur Verwendung von Nginx unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx).
+Informationen dazu, wie Nginx unter Linux als Reverseproxyserver für Kestrel verwendet wird, finden Sie unter [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx).
 
 ### <a name="apache-with-kestrel"></a>Apache und Kestrel
 
-Informationen zur Verwendung von Apache unter Linux als Reverseproxyserver für Kestrel finden Sie unter [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache).
+Informationen dazu, wie Apache unter Linux als Reverseproxyserver für Kestrel verwendet wird, finden Sie unter [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache).
 
 ## <a name="httpsys"></a>HTTP.sys
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Wenn Sie eine ASP.NET Core-Anwendung unter Windows ausführen, ist HTTP.sys eine Alternative zu Kestrel. Sie können HTTP.sys in Szenarios einsetzen, in denen Sie Ihre Anwendung über das Internet verfügbar machen und HTTP.sys-Funktionen benötigen, die Kestrel nicht unterstützt. 
+Wenn ASP.NET Core-Apps unter Windows ausgeführt werden, ist HTTP.sys eine Alternative zu Kestrel. Grundsätzlich empfiehlt sich Kestrel, um die beste Leistung zu erzielen. HTTP.sys kann in Szenarien verwendet werden, in denen die App dem Internet verfügbar gemacht ist und Funktionen erfordert, die von HTTP.sys, aber nicht von Kestrel unterstützt werden. Informationen zu HTTP.sys-Funktionen finden Sie unter [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 ![HTTP.sys kommuniziert direkt mit dem Internet](httpsys/_static/httpsys-to-internet.png)
 
-Außerdem kann HTTP.sys auch bei Anwendungen zum Einsatz kommen, die nur in einem internen Netzwerk verfügbar gemacht werden. 
+Außerdem kann HTTP.sys auch bei Apss zum Einsatz kommen, die nur in einem internen Netzwerk verfügbar gemacht werden. 
 
-![HTTP.sys kommuniziert direkt mit Ihrem internen Netzwerk](httpsys/_static/httpsys-to-internal.png)
-
-Für Szenarios mit einem internen Netzwerk wird im Allgemeinen Kestrel für eine optimale Leistung empfohlen. In einigen Szenarios sollten Sie jedoch eine Funktion verwenden, die nur HTTP.sys zur Verfügung stellt. Informationen zu HTTP.sys-Funktionen finden Sie unter [HTTP.sys](httpsys.md).
+![HTTP.sys kommuniziert direkt mit dem internen Netzwerk](httpsys/_static/httpsys-to-internal.png)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-HTTP.sys wird in ASP.NET Core 1.x WebListener genannt. Wenn Sie eine ASP.NET Core-Anwendung unter Windows ausführen, können Sie alternativ WebListener in Szenarios verwenden, in denen Sie Ihre Anwendung über das Internet verfügbar machen möchten, jedoch nicht IIS verwenden können.
+HTTP.sys wird in ASP.NET Core 1.x [WebListener](xref:fundamentals/servers/weblistener) genannt. Wenn ASP.NET Core-Apps unter Windows ausgeführt werden, ist WebListener eine Alternative für Szenarien, in denen Apps nicht von IIS gehostet werden können.
 
 ![WebListener kommuniziert direkt mit dem Internet](weblistener/_static/weblistener-to-internet.png)
 
-WebListener kann auch anstelle von Kestrel für Anwendungen verwendet werden, die nur in einem internen Netzwerk verfügbar gemacht werden, wenn Sie WebListener-Funktionen benötigen, die Kestrel nicht unterstützt. 
+WebListener kann auch anstelle von Kestrel für Apps verwendet werden, die nur in einem internen Netzwerk verfügbar gemacht werden, wenn erforderliche Funktionen durch WebListener, aber nicht durch Kestrel unterstützt werden. Informationen zu WebListener-Funktionen finden Sie unter [WebListener](xref:fundamentals/servers/weblistener).
 
-![WebListener kommuniziert direkt mit Ihrem internen Netzwerk](weblistener/_static/weblistener-to-internal.png)
-
-Für Szenarios mit einem interne Netzwerk wird im Allgemeinen Kestrel für eine optimale Leistung empfohlen. In einigen Szenarios sollten Sie jedoch eine Funktion verwenden, die nur WebListener zur Verfügung stellt. Informationen zu WebListener-Funktionen finden Sie unter [WebListener](weblistener.md).
+![WebListener kommuniziert direkt mit dem internen Netzwerk](weblistener/_static/weblistener-to-internal.png)
 
 ---
 
-## <a name="notes-about-aspnet-core-server-infrastructure"></a>Hinweise zur ASP.NET Core-Serverinfrastruktur
+## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core-Serverinfrastruktur
 
-Die Schnittstelle [`IApplicationBuilder`](/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder), die in der `Startup`-Klasse in der `Configure`-Methode vorhanden ist, macht die Eigenschaft `ServerFeatures` vom Typ [`IFeatureCollection`](/aspnet/core/api/microsoft.aspnetcore.http.features.ifeaturecollection) verfügbar. Kestrel und WebListener machen nur die Funktion [`IServerAddressesFeature`](/aspnet/core/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) verfügbar. Unterschiedliche Serverimplementierungen können jedoch möglicherweise zusätzliche Funktionalitäten verfügbar machen.
+Die [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder)-Schnittstelle, sie in der `Startup.Configure`-Methode verfügbar ist, macht die [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures)-Eigenschaft des Typs [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection) verfügbar. Kestrel und HTTP.sys (WebListener in ASP.NET Core 1.x) machen nur jeweils eine einzelne Funktion, [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), verfügbar, andere Serverimplementierungen machen jedoch möglicherweise weitere Funktionalität verfügbar.
 
 Mit `IServerAddressesFeature` kann ermittelt werden, an welchen Port die Serverimplementierung zur Laufzeit gebunden ist.
 
 ## <a name="custom-servers"></a>Benutzerdefinierte Server
 
-Wenn die integrierten Server Ihren Anforderungen nicht gerecht werden, können Sie eine benutzerdefinierte Serverimplementierung erstellen. In der [Anleitung zu Open Web Interface for .NET (OWIN)](../owin.md) wird erläutert, wie eine auf [Nowin](https://github.com/Bobris/Nowin) basierende [IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver)-Implementierung erstellt wird. Sie haben selbstverständlich die Möglichkeit, nur die Funktionsschnittstellen zu implementieren, die für Ihre Anwendung erforderlich sind. [IHttpRequestFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) und [IHttpResponseFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) müssen jedoch auf jeden Fall unterstützt werden.
+Wenn die integrierten Server nicht den Anforderungen der App entsprechen, kann eine benutzerdefinierte Serverimplementierung erstellt werden. In der [Anleitung zu Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) wird erläutert, wie eine auf [Nowin](https://github.com/Bobris/Nowin) basierende [IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver)-Implementierung erstellt wird. Nur die Feature-Schnittstellen, die von der App verwendet werden, erfordern Implementierung , wobei mindestens [IHttpRequestFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttprequestfeature) und [IHttpResponseFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) unterstützt werden müssen.
 
-## <a name="next-steps"></a>Nächste Schritte
+## <a name="server-startup"></a>Serverstart
 
-Weitere Informationen finden Sie in den folgenden Ressourcen:
+Wenn [Visual Studio](https://www.visualstudio.com/vs/), [Visual Studio für Mac](https://www.visualstudio.com/vs/mac/) oder [Visual Studio Code](https://code.visualstudio.com/) verwendet wird, wird der Server gestartet, wenn die App durch die integrierte Entwicklungsumgebung gestartet wird. In Visual Studio unter Windows können Startprofile verwendet werden, um die App und den Server mit [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) oder mit der Konsole zu starten. In Visual Studio Code werden die App und der Server durch [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode) gestartet, das den CoreCLR-Debugger aktiviert. Wird Visual Studio für Mac verwendet, werden die App und der Server durch den [Mono Soft-Mode Debugger](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) gestartet.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Wird eine App über eine Eingabeaufforderung im Ordner des Projekts gestartet, startet [dotnet run](/dotnet/core/tools/dotnet-run) die App und den Server (nur Kestrel und HTTP.sys). Die Konfiguration wird durch die Option `-c|--configuration` angegeben, die entweder auf `Debug` (Standardwert) oder `Release` festgelegt ist. Sind in der Datei *launchSettings.json* Startprofile vorhanden, verwenden Sie die Option `--launch-profile <NAME>`, um das Startprofil festzulegen (z. B. `Development` oder `Production`). Weitere Informationen hierzu finden Sie in den Themen [dotnet run](/dotnet/core/tools/dotnet-run) und [Verpacken einer Verteilung von .NET Core](/dotnet/core/build/distribution-packaging).
 
-- [Kestrel](kestrel.md)
-- [Kestrel with IIS (Kestrel und IIS)](aspnet-core-module.md)
-- [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
-- [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
-- [HTTP.sys](httpsys.md)
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-- [Kestrel](kestrel.md)
-- [Kestrel with IIS (Kestrel und IIS)](aspnet-core-module.md)
-- [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
-- [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
-- [WebListener](weblistener.md)
-
----
+* [Kestrel](xref:fundamentals/servers/kestrel)
+* [Kestrel with IIS (Kestrel und IIS)](xref:fundamentals/servers/aspnet-core-module)
+* [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
+* [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
+* [HTTP.sys](xref:fundamentals/servers/httpsys) (für ASP.NET Core 1.x siehe [WebListener](xref:fundamentals/servers/weblistener))

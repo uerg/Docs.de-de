@@ -1,7 +1,7 @@
 ---
 title: Arbeiten mit Daten in ASP.NET Core
 author: rick-anderson
-description: "Stellt Links zu Artikeln über das Arbeiten mit Daten bereit. In vielen Fällen wird Entity Framework Core verwendet."
+description: Stellt Links zu Artikeln über das Arbeiten mit Daten bereit. In vielen Fällen wird Entity Framework Core verwendet.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: data/index
-ms.openlocfilehash: 6cdd8b2889a2a53c2767e5a5ebb170c31d2c31a4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 068c70c15acc8d8da6759020725e48a77946c53e
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="working-with-data-in-aspnet-core"></a>Arbeiten mit Daten in ASP.NET Core 
+# <a name="work-with-data-in-aspnet-core"></a>Arbeiten mit Daten in ASP.NET Core
 
-* [Erste Schritte mit Razor-Seiten und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/index)
+* [Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/index)
 
-   * [Erste Schritte mit Razor-Seiten und EF](xref:data/ef-rp/intro)
+   * [Erste Schritte mit Razor Pages und EF](xref:data/ef-rp/intro)
    * [Create-, Read-, Update- und Delete-Vorgänge (CRUD)](xref:data/ef-rp/crud)
    * [Sortieren, Filtern, Paginieren und Gruppieren](xref:data/ef-rp/sort-filter-page)
    * [Migrationen](xref:data/ef-rp/migrations)
