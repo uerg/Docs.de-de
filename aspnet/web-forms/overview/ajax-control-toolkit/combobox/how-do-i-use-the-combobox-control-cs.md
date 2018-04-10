@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 title: Verwendung der ComboBox-Steuerelement (C#) | Microsoft Docs
 author: microsoft
-description: "Kombinationsfeld-Steuerelement ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität eines Textfelds mit einer Liste von Optionen kombiniert, in dem Benutzer auswählen können."
+description: Kombinationsfeld-Steuerelement ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität eines Textfelds mit einer Liste von Optionen kombiniert, in dem Benutzer auswählen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7913affb73c1c314944782ff80cf6c5558502ee9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20afd7334437a021f6f68216f84406eef5ea65c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-combobox-control-c"></a>Verwendung der ComboBox-Steuerelement (C#)
 ====================
@@ -172,5 +172,5 @@ Sie verwenden die ComboBox AutoCompleteMode-Eigenschaft, um anzugeben, was passi
 
 In diesem Lernprogramm haben Sie gelernt, wie das ComboBox-Steuerelement zu verwenden, um einen festen Satz von Elementen anzuzeigen. Wir gebunden ComboBox-Steuerelement, um einen statischen Satz von Elementen und in einer Datenbanktabelle. Schließlich haben Sie gelernt, wie das Verhalten der ComboBox zu ändern, indem Sie ihre DropDownStyle und AutoCompleteMode Eigenschaften festlegen.
 
->[!div class="step-by-step"]
-[Nächste](how-do-i-use-the-combobox-control-vb.md)
+> [!div class="step-by-step"]
+> [Nächste](how-do-i-use-the-combobox-control-vb.md)

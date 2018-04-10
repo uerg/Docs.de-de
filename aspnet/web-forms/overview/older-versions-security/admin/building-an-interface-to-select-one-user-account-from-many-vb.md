@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
-title: "Erstellen eine Schnittstelle bereit, wählen Sie ein Benutzerkonto aus vielen (VB) | Microsoft Docs"
+title: Erstellen eine Schnittstelle bereit, wählen Sie ein Benutzerkonto aus vielen (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm wird eine Benutzeroberfläche mit einem ausgelagerten, filterable Raster erstellen. Insbesondere wird eine Reihe von LinkButtons für unsere Benutzeroberfläche bestehen..."
+description: In diesem Lernprogramm wird eine Benutzeroberfläche mit einem ausgelagerten, filterable Raster erstellen. Insbesondere wird eine Reihe von LinkButtons für unsere Benutzeroberfläche bestehen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f0339578291c536a474f1c7314b28668a6519c8c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 56f4d72993bfcb9629d6b4cd08efe0da6dea2486
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Erstellen eine Schnittstelle bereit, wählen Sie ein Benutzerkonto aus vielen (VB)
 ====================
@@ -148,7 +148,7 @@ Aktualisieren Sie als Nächstes die `BindUserAccounts` Methode, damit der Aufruf
 
 Festlegen, um nur für diese Benutzer anzuzeigen, deren Benutzername mit dem Buchstaben A beginnt, die `UsernameToMatch` Eigenschaft, um ein, und rufen Sie anschließend `BindUserAccounts` Dies führt zu einem Aufruf von `Membership.FindUsersByName("A%")`, dem alle Benutzer zurückgegeben wird, deren Benutzername mit A. ebenso zurückzugebenden startet*alle* Zuweisen von Benutzern, eine leere Zeichenfolge, die `UsernameToMatch` Eigenschaft, damit die `BindUserAccounts` Methode wird aufgerufen `Membership.FindUsersByName("%")`, wodurch alle Benutzerkonten zurückgeben.
 
-Erstellen Sie einen Ereignishandler für das Repeater `ItemCommand` Ereignis. Dieses Ereignis wird ausgelöst, wenn eine des Filters LinkButtons geklickt wird; die angeklickte LinkButton übergeben `CommandName` Wert über die `RepeaterCommandEventArgs` Objekt. Wir müssen die entsprechenden Wert zuzuweisen der `UsernameToMatch` -Eigenschaft, und rufen Sie dann die `BindUserAccounts` Methode. Wenn die `CommandName` alle "," ist eine leere Zeichenfolge zum Zuweisen `UsernameToMatch` so, dass alle Benutzerkonten angezeigt werden. Ordnen Sie andernfalls die `CommandName` Wert`UsernameToMatch`
+Erstellen Sie einen Ereignishandler für das Repeater `ItemCommand` Ereignis. Dieses Ereignis wird ausgelöst, wenn eine des Filters LinkButtons geklickt wird; die angeklickte LinkButton übergeben `CommandName` Wert über die `RepeaterCommandEventArgs` Objekt. Wir müssen die entsprechenden Wert zuzuweisen der `UsernameToMatch` -Eigenschaft, und rufen Sie dann die `BindUserAccounts` Methode. Wenn die `CommandName` alle "," ist eine leere Zeichenfolge zum Zuweisen `UsernameToMatch` so, dass alle Benutzerkonten angezeigt werden. Ordnen Sie andernfalls die `CommandName` Wert `UsernameToMatch`
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample10.vb)]
 
@@ -256,12 +256,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Alicja Maziarz. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise
 
->[!div class="step-by-step"]
-[Zurück](unlocking-and-approving-user-accounts-cs.md)
-[Weiter](recovering-and-changing-passwords-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](unlocking-and-approving-user-accounts-cs.md)
+> [Weiter](recovering-and-changing-passwords-vb.md)

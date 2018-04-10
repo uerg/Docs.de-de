@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
-title: "Master/Detail-Filterung über zwei Seiten (VB) | Microsoft Docs"
+title: Master/Detail-Filterung über zwei Seiten (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm implementieren wir dieses Muster mit GridView, die Lieferanten in der Datenbank aufzulisten. Jede Zeile Lieferanten in der GridView enthält eine Vie..."
+description: In diesem Lernprogramm implementieren wir dieses Muster mit GridView, die Lieferanten in der Datenbank aufzulisten. Jede Zeile Lieferanten in der GridView enthält eine Vie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d8d43475ae2f05d83d51c53d76de4f07db70ca7a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8250c0f8d1befacf66d6be517514aad8bc31b09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Master/Detail-Filterung über zwei Seiten (VB)
 ====================
@@ -35,7 +35,7 @@ In diesem Lernprogramm implementieren wir dieses Muster mit GridView, die Liefer
 
 ## <a name="step-1-addingsupplierlistmasteraspxandproductsforsupplierdetailsaspxpages-to-thefilteringfolder"></a>Schritt 1: Hinzufügen von`SupplierListMaster.aspx`und`ProductsForSupplierDetails.aspx`Seiten auf den`Filtering`Ordner
 
-Beim Definieren des Seitenlayouts in das dritte Lernprogramm hinzugefügt wir eine Anzahl von Startseiten von "" in der `BasicReporting`, `Filtering`, und `CustomFormatting` Ordner. Allerdings haben wir eine Seite "Starter" nicht für dieses Lernprogramm hinzugefügt, zu diesem Zeitpunkt sind, können Sie einen Moment Zeit, um zwei neue Seiten zum Hinzufügen der `Filtering` Ordner: `SupplierListMaster.aspx` und `ProductsForSupplierDetails.aspx`. `SupplierListMaster.aspx`Listet die "master" Datensätze (Suppliers) beim `ProductsForSupplierDetails.aspx` werden die Produkte für den ausgewählten Lieferanten angezeigt.
+Beim Definieren des Seitenlayouts in das dritte Lernprogramm hinzugefügt wir eine Anzahl von Startseiten von "" in der `BasicReporting`, `Filtering`, und `CustomFormatting` Ordner. Allerdings haben wir eine Seite "Starter" nicht für dieses Lernprogramm hinzugefügt, zu diesem Zeitpunkt sind, können Sie einen Moment Zeit, um zwei neue Seiten zum Hinzufügen der `Filtering` Ordner: `SupplierListMaster.aspx` und `ProductsForSupplierDetails.aspx`. `SupplierListMaster.aspx` Listet die "master" Datensätze (Suppliers) beim `ProductsForSupplierDetails.aspx` werden die Produkte für den ausgewählten Lieferanten angezeigt.
 
 Wenn diese zwei neue Seiten erstellen werden sicher, dass diese mit Zuordnen der `Site.master` Masterseite.
 
@@ -87,7 +87,7 @@ Die HyperLinkField kann so konfiguriert werden, dass verwenden den gleichen Text
 **Abbildung 5**: Legen Sie die HyperLinkField `Text` Eigenschaft, um Produkte anzeigen ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image13.png))
 
 
-Der Text oder die URL-Werte auf der Grundlage der zugrunde liegenden Daten, die auf die Zeile GridView gebunden festlegen möchten, geben die Datenfelder des Texts oder die URL-Werte vom abgerufen werden sollen die `DataTextField` oder `DataNavigateUrlFields` Eigenschaften. `DataTextField`kann nur für ein einzelnes Datenfeld festgelegt werden. `DataNavigateUrlFields`, jedoch kann eine durch Trennzeichen getrennte Liste der Datenfelder festgelegt werden. Wir müssen häufig die Text oder die URL für eine Kombination der aktuellen Zeile Datenfeldwert auch einige statische Markup basieren. In diesem Lernprogramm angenommen, wir möchten die URL des Links für die HyperLinkField werden `ProductsForSupplierDetails.aspx?SupplierID=supplierID`, wobei  *`supplierID`*  ist jede GridView-Zeile `SupplierID` Wert. Beachten Sie, dass wir sowohl statische benötigen und datengesteuerte hier Werte: die `ProductsForSupplierDetails.aspx?SupplierID=` Teil der URL des Links wird statisch, während die  *`supplierID`*  Teil wird von datengesteuerten entspricht der Wert jeder Zeile des eigenen `SupplierID` Wert.
+Der Text oder die URL-Werte auf der Grundlage der zugrunde liegenden Daten, die auf die Zeile GridView gebunden festlegen möchten, geben die Datenfelder des Texts oder die URL-Werte vom abgerufen werden sollen die `DataTextField` oder `DataNavigateUrlFields` Eigenschaften. `DataTextField` kann nur für ein einzelnes Datenfeld festgelegt werden. `DataNavigateUrlFields`, jedoch kann eine durch Trennzeichen getrennte Liste der Datenfelder festgelegt werden. Wir müssen häufig die Text oder die URL für eine Kombination der aktuellen Zeile Datenfeldwert auch einige statische Markup basieren. In diesem Lernprogramm angenommen, wir möchten die URL des Links für die HyperLinkField werden `ProductsForSupplierDetails.aspx?SupplierID=supplierID`, wobei *`supplierID`* ist jede GridView-Zeile `SupplierID` Wert. Beachten Sie, dass wir sowohl statische benötigen und datengesteuerte hier Werte: die `ProductsForSupplierDetails.aspx?SupplierID=` Teil der URL des Links wird statisch, während die *`supplierID`* Teil wird von datengesteuerten entspricht der Wert jeder Zeile des eigenen `SupplierID` Wert.
 
 Um eine Kombination aus statischen und datengesteuerte Werte anzugeben, verwenden Sie die `DataTextFormatString` und `DataNavigateUrlFormatString` Eigenschaften. Diese Eigenschaften geben Sie das statische Markup nach Bedarf, und verwenden Sie dann die Markierung `{0}` , in dem den Wert des Felds im angegebenen sollen die `DataTextField` oder `DataNavigateUrlFields` Eigenschaften angezeigt werden. Wenn die `DataNavigateUrlFields` Eigenschaft verfügt über mehrere Felder angegebene Verwendung `{0}` , Sie möchten, dass den Wert des ersten Felds eingefügt, `{1}` für den zweiten Wert des Felds und So weiter.
 
@@ -132,12 +132,12 @@ An diesem Punkt der `SupplierListMaster.aspx` Seite sendet Benutzer `ProductsFor
 **Abbildung 10**: haben Sie die ObjectDataSource Aufrufen der `GetProductsBySupplierID(supplierID)` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image28.png))
 
 
-Der letzte Schritt des Assistenten zum Konfigurieren von Datenquellen gefragt werden, geben Sie die Quelle des der `GetProductsBySupplierID(supplierID)` Methode  *`supplierID`*  Parameter. Um die Querystring-Wert zu verwenden, legen Sie die Parameter-Quelle auf QueryString, und geben Sie den Namen der Querystring-Wert, der in das Textfeld QueryStringField verwenden (`SupplierID`).
+Der letzte Schritt des Assistenten zum Konfigurieren von Datenquellen gefragt werden, geben Sie die Quelle des der `GetProductsBySupplierID(supplierID)` Methode *`supplierID`* Parameter. Um die Querystring-Wert zu verwenden, legen Sie die Parameter-Quelle auf QueryString, und geben Sie den Namen der Querystring-Wert, der in das Textfeld QueryStringField verwenden (`SupplierID`).
 
 
 [![Füllen Sie die SupplierID Parameterwert aus dem SupplierID Querystring-Wert](master-detail-filtering-across-two-pages-vb/_static/image30.png)](master-detail-filtering-across-two-pages-vb/_static/image29.png)
 
-**Abbildung 11**: Auffüllen der  *`supplierID`*  Parameterwert aus dem `SupplierID` Querystring-Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image31.png))
+**Abbildung 11**: Auffüllen der *`supplierID`* Parameterwert aus dem `SupplierID` Querystring-Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image31.png))
 
 
 Das ist alles vorhanden ist! Abbildung 12 zeigt die `ProductsForSupplierDetails.aspx` Startseite bei besucht haben, indem Sie auf den Link Tokyo Traders aus `SupplierListMaster.aspx`.
@@ -165,12 +165,12 @@ Durch hinzufügen einen FormView über die Produkte GridView starten. Erstellen 
 **Abbildung 14**: haben Sie die ObjectDataSource Aufrufen der `GetSupplierBySupplierID(supplierID)` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image40.png))
 
 
-Wie bei der `ProductsBySupplierDataSource`, haben die  *`supplierID`*  Parameter der Wert zugewiesen. die `SupplierID` Querystring-Wert.
+Wie bei der `ProductsBySupplierDataSource`, haben die *`supplierID`* Parameter der Wert zugewiesen. die `SupplierID` Querystring-Wert.
 
 
 [![Füllen Sie die SupplierID Parameterwert aus dem SupplierID Querystring-Wert](master-detail-filtering-across-two-pages-vb/_static/image42.png)](master-detail-filtering-across-two-pages-vb/_static/image41.png)
 
-**Abbildung 15**: Auffüllen der  *`supplierID`*  Parameterwert aus dem `SupplierID` Querystring-Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image43.png))
+**Abbildung 15**: Auffüllen der *`supplierID`* Parameterwert aus dem `SupplierID` Querystring-Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](master-detail-filtering-across-two-pages-vb/_static/image43.png))
 
 
 Beim Binden von FormView an das ObjectDataSource in der Entwurfsansicht, Visual Studio erstellt automatisch die FormView `ItemTemplate`, `InsertItemTemplate`, und `EditItemTemplate` mit der Bezeichnung und TextBox-Web-Steuerelemente für die einzelnen Datenfelder zurückgegebenes der ObjectDataSource. Da wir nur die Lieferanten Informationen gerne entfernen anzeigen möchten die `InsertItemTemplate` und `EditItemTemplate`. Als Nächstes ItemTemplate bearbeiten, sodass es zeigt, dass der Lieferant Unternehmensname in einer `<h3>` Element und die Adresse, City, Country und Telefonnummer unterhalb des Unternehmens an. Alternativ können Sie manuell die FormView festlegen `DataSourceID` , und erstellen Sie die `ItemTemplate` Markup, wie es wieder in die "[Anzeigen von Daten mit der ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)" Lernprogramm.
@@ -212,7 +212,7 @@ Standardmäßig geben alle Lieferanten in der Employees-Datenbank mindestens ein
 
 Während der Master und die Detaildatensätze auf einer einzelnen Seite Master/Detail-Berichte angezeigt werden können, werden auf vielen Websites sie über zwei Webseiten ausgelagert. In diesem Lernprogramm erläutert wir, wie solche einen Master/Detail-Bericht implementiert wird, dass die Lieferanten, die in einem GridView in der "master" Webseite aufgeführt und die zugehörigen Produkte aufgeführt, die auf der Seite "Details". Jede Zeile Lieferanten in der master-Webseite enthalten einen Link zu der Detailseite, die der Zeile übergeben `SupplierID` Wert. Solche Verknüpfungen zeilenspezifische können problemlos mit der GridView HyperLinkField hinzugefügt werden.
 
-In der Seite "Details" Abrufen von dieser Produkte für den angegebenen Lieferanten wurde durchgeführt, durch den Aufruf der `ProductsBLL` Klasse `GetProductsBySupplierID(supplierID)` Methode. Die  *`supplierID`*  Parameterwert wurde deklarativ mithilfe der Abfragezeichenfolge als Parameterquelle für den angegeben. Wir haben uns auch an, wie in der Seite Details zum Verwenden eines FormView der Lieferanten-Details anzeigen.
+In der Seite "Details" Abrufen von dieser Produkte für den angegebenen Lieferanten wurde durchgeführt, durch den Aufruf der `ProductsBLL` Klasse `GetProductsBySupplierID(supplierID)` Methode. Die *`supplierID`* Parameterwert wurde deklarativ mithilfe der Abfragezeichenfolge als Parameterquelle für den angegeben. Wir haben uns auch an, wie in der Seite Details zum Verwenden eines FormView der Lieferanten-Details anzeigen.
 
 Unsere [nächsten Lernprogramm](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) ist der letzte Auftrag für Master-/Detail-Berichte. Betrachten wir eine Liste der Produkte in einer GridView anzeigen, in dem jede Zeile eine Schaltfläche auswählen aufweist. Durch Klicken auf die Schaltfläche auswählen, wird das Produkt Details in einem DetailsView-Steuerelement auf derselben Seite angezeigt.
 
@@ -220,12 +220,12 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](master-detail-filtering-with-two-dropdownlists-vb.md)
-[Weiter](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](master-detail-filtering-with-two-dropdownlists-vb.md)
+> [Weiter](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)

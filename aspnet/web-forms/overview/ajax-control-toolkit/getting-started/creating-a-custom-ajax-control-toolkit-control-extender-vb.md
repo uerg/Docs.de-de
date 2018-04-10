@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 title: Erstellen einen benutzerdefinierte AJAX steuern Toolkit Extendersteuerelement (VB) | Microsoft Docs
 author: microsoft
-description: "Benutzerdefinierte Extender ermöglichen es Ihnen, anpassen und erweitern die Funktionen der ASP.NET-Steuerelementen, ohne neue Klassen erstellen zu müssen."
+description: Benutzerdefinierte Extender ermöglichen es Ihnen, anpassen und erweitern die Funktionen der ASP.NET-Steuerelementen, ohne neue Klassen erstellen zu müssen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e8fceb3c7570aa1bf085c8e1037736254e74ef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06950770bf788fff4a03e9d41fd448ea675a8bce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Erstellen eine benutzerdefinierte AJAX-Steuerelement-Toolkit Extendersteuerelement (VB)
 ====================
@@ -198,7 +198,7 @@ Als Nächstes müssen wir eine neue ASP.NET-Seite zu erstellen. Führen Sie folg
 2. Ziehen Sie ein ScriptManager auf der Seite "ein.
 3. Ziehen Sie ein TextBox-Steuerelement auf der Seite "ein.
 4. Ziehen Sie ein Button-Steuerelement auf der Seite "ein.
-5. Ändern Sie im Fenster Eigenschaften die Schaltfläche ID-Eigenschaft auf den Wert *hinzu* und der Text-Eigenschaft auf den Wert *speichern\**.
+5. Ändern Sie im Fenster Eigenschaften die Schaltfläche ID-Eigenschaft auf den Wert <em>hinzu</em> und der Text-Eigenschaft auf den Wert *speichern\**.
   
 
 Wir haben eine Seite mit einem Standardsteuerelement ASP.NET Textfeld und Schaltfläche erstellt.
@@ -238,5 +238,5 @@ Wenn Sie die Seite "(durch Drücken von F5) ausführen, ist anfangs das Schaltfl
 
 Das Ziel dieses Lernprogramms wurde zur Erläuterung, wie Sie das AJAX-Steuerelement-Toolkit mit benutzerdefinierten Extendersteuerelementen erweitern können. In diesem Lernprogramm haben wir eine einfache DisabledButton Extendersteuerelement erstellt. Wir implementiert diesen Extender durch Erstellen einer DisabledButtonExtender-Klasse, ein DisabledButtonBehavior JavaScript-Verhalten und einer DisabledButtonDesigner-Klasse. Sie führen Sie eine ähnliche Reihe von Schritten, wenn Sie einen benutzerdefiniertes Steuerelement Extender erstellen.
 
->[!div class="step-by-step"]
-[Zurück](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Vorherige](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
-title: "Effizient Paging durch große Mengen von Daten (VB) | Microsoft Docs"
+title: Effizient Paging durch große Mengen von Daten (VB) | Microsoft Docs
 author: rick-anderson
-description: "Die Standardoption für die Auslagerungsdatei des Steuerelements eine Präsentation ist nicht geeignet, bei der Arbeit mit großen Datenmengen Daten wie die zugrunde liegenden Daten Source Control Retriev..."
+description: Die Standardoption für die Auslagerungsdatei des Steuerelements eine Präsentation ist nicht geeignet, bei der Arbeit mit großen Datenmengen Daten wie die zugrunde liegenden Daten Source Control Retriev...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9a1b7fbb1e60c9f1bc6a26ccaeb7d14b4c95219d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00057f9bfd9b1c479e500ac591db694388a5d358
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Effizient Paging durch große Mengen von Daten (VB)
 ====================
@@ -122,9 +122,9 @@ Es gibt zwei allgemeine Techniken verwendet, um einen Zeilenindex mit den Daten 
 - **Mit SQL Server 2005 s `ROW_NUMBER()` Schlüsselwort** noch nicht mit SQL Server 2005, die `ROW_NUMBER()` Schlüsselwort ordnet einen Rang jeder zurückgegebenen Datensatz basierend auf Sortierung. Diese Rangfolge kann als ein Zeilenindex für jede Zeile verwendet werden.
 - **Eine Tabellenvariable mit und `SET ROWCOUNT`**  SQL Server-s [ `SET ROWCOUNT` Anweisung](https://msdn.microsoft.com/library/ms188774.aspx) können verwendet werden, um wie viele Datensätze insgesamt Geben Sie eine Abfrage sollte vor der Beendigung; verarbeiten [Tabellenvariablen](http://www.sqlteam.com/item.asp?ItemID=9454) sind lokale T-SQL-Variablen, die Tabellendaten, akin zum aufnehmen können [temporäre Tabellen](http://www.sqlteam.com/item.asp?ItemID=2029). Dieser Ansatz funktioniert ebenso gut mit Microsoft SQL Server 2005 und SQL Server 2000 (während der `ROW_NUMBER()` Ansatz funktioniert nur mit SQL Server 2005).  
   
- Die Idee ist, um eine Tabellenvariable zu erstellen, verfügt ein `IDENTITY` Spalten- und Spalten für die Primärschlüssel der Tabelle, deren Daten über ausgelagert wird werden. Als Nächstes wird der Inhalt der Tabelle, deren Daten über ausgelagerte, ausgegeben, in der Tabellenvariablen, wodurch zuordnen einen sequenziellen Zeilenindex (über die `IDENTITY` Spalte) für jeden Datensatz in der Tabelle. Nachdem die Tabellenvariable aufgefüllt wurde, eine `SELECT` Anweisung auf die Tabellenvariable mit der zugrunde liegenden Tabelle verknüpft, um die bestimmter Datensätze herausziehen ausgeführt werden kann. Die `SET ROWCOUNT` Anweisung wird verwendet, um die Anzahl der Datensätze Intelligent zu beschränken, die in der Tabellenvariablen gesichert werden müssen.  
+  Die Idee ist, um eine Tabellenvariable zu erstellen, verfügt ein `IDENTITY` Spalten- und Spalten für die Primärschlüssel der Tabelle, deren Daten über ausgelagert wird werden. Als Nächstes wird der Inhalt der Tabelle, deren Daten über ausgelagerte, ausgegeben, in der Tabellenvariablen, wodurch zuordnen einen sequenziellen Zeilenindex (über die `IDENTITY` Spalte) für jeden Datensatz in der Tabelle. Nachdem die Tabellenvariable aufgefüllt wurde, eine `SELECT` Anweisung auf die Tabellenvariable mit der zugrunde liegenden Tabelle verknüpft, um die bestimmter Datensätze herausziehen ausgeführt werden kann. Die `SET ROWCOUNT` Anweisung wird verwendet, um die Anzahl der Datensätze Intelligent zu beschränken, die in der Tabellenvariablen gesichert werden müssen.  
   
- Dieser Ansatz s Effizienz basiert darauf, dass die Seitenzahl angefordert wird, als die `SET ROWCOUNT` Wert wird den Wert der Zeile startIndex sowie die maximale Zeilenanzahl zugewiesen. Dieser Ansatz ist sehr effizient, wenn paging durch niedrig nummerierten Seiten, z. B. das erste Paar Datenseiten. Allerdings weist es standardmäßig Paging-ähnliche Leistung beim Abrufen einer Seite in der Nähe des.
+  Dieser Ansatz s Effizienz basiert darauf, dass die Seitenzahl angefordert wird, als die `SET ROWCOUNT` Wert wird den Wert der Zeile startIndex sowie die maximale Zeilenanzahl zugewiesen. Dieser Ansatz ist sehr effizient, wenn paging durch niedrig nummerierten Seiten, z. B. das erste Paar Datenseiten. Allerdings weist es standardmäßig Paging-ähnliche Leistung beim Abrufen einer Seite in der Nähe des.
 
 Dieses Lernprogramm implementiert nur benutzerdefinierte Paging mithilfe der `ROW_NUMBER()` Schlüsselwort. Weitere Informationen zur Verwendung der Tabellenvariablen und `SET ROWCOUNT` Technik, finden Sie unter [eine weitere effiziente Methode zum Paging durch große Resultsets](http://www.4guysfromrolla.com/webtech/042606-1.shtml).
 
@@ -133,7 +133,7 @@ Die `ROW_NUMBER()` Schlüsselwort jeder Datensatz über eine bestimmte Sortierun
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample3.sql)]
 
-`ROW_NUMBER()`Gibt einen numerischen Wert, der angibt, den Rang für jeden Datensatz im Hinblick auf die angegebene Reihenfolge zurück. Beispielsweise könnten um den Rang für jedes Produkt, geordnet von den am stärksten finden Sie unter zum am wenigsten aufwändige wir die folgende Abfrage verwenden:
+`ROW_NUMBER()` Gibt einen numerischen Wert, der angibt, den Rang für jeden Datensatz im Hinblick auf die angegebene Reihenfolge zurück. Beispielsweise könnten um den Rang für jedes Produkt, geordnet von den am stärksten finden Sie unter zum am wenigsten aufwändige wir die folgende Abfrage verwenden:
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample4.sql)]
@@ -147,7 +147,7 @@ Abbildung 5 zeigt diese Abfrage s Ergebnisse, wenn Sie über das Fenster "Abfrag
 
 
 > [!NOTE]
-> `ROW_NUMBER()`ist nur eine der vielen neuen Rangfolgefunktionen in SQL Server 2005 verfügbar. Eine ausführlichere Erläuterung der `ROW_NUMBER()`, zusammen mit den anderen Rangfolgefunktionen lesen [aufgelisteten Ergebnisse zurückgeben, mit Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
+> `ROW_NUMBER()` ist nur eine der vielen neuen Rangfolgefunktionen in SQL Server 2005 verfügbar. Eine ausführlichere Erläuterung der `ROW_NUMBER()`, zusammen mit den anderen Rangfolgefunktionen lesen [aufgelisteten Ergebnisse zurückgeben, mit Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
 
 
 Wenn die Ergebnisse mit der angegebenen Rangfolge `ORDER BY` Spalte in der `OVER` -Klausel (`UnitPrice`, im obigen Beispiel), SQL Server müssen die Ergebnisse zu sortieren. Dies ist ein schneller Vorgang, wenn es ein gruppierter Index über die Spalte(n), die die Ergebnisse werden ist nach, sortiert wird oder wenn es einem abdeckenden index jedoch andernfalls mehr teuer sein kann. Zur Verbesserung der Leistung für ausreichend große Abfragen erwägen Sie einen nicht gruppierten Index für die Spalte mit der die Ergebnisse geordnet sind. Finden Sie unter [Rangfolge Funktionen und Leistung in SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) für eine detaillierte Darstellung der Leistungsaspekte.
@@ -163,7 +163,7 @@ Erweitern dieses Konzept etwas weiter, kann dieser Ansatz zum Abrufen einer best
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Wie wir später in diesem Lernprogramm sehen werden die  *`StartRowIndex`*  vom ObjectDataSource ist indiziert, beginnend mit 0 (null), wohingegen die `ROW_NUMBER()` von SQL Server 2005 zurückgegebene Wert ist indiziert, beginnend mit 1. Aus diesem Grund die `WHERE` -Klausel gibt die Datensätze zurück, in denen `PriceRank` ist streng größer als  *`StartRowIndex`*  und kleiner oder gleich  *`StartRowIndex`*   +  *`MaximumRows`*.
+> Wie wir später in diesem Lernprogramm sehen werden die *`StartRowIndex`* vom ObjectDataSource ist indiziert, beginnend mit 0 (null), wohingegen die `ROW_NUMBER()` von SQL Server 2005 zurückgegebene Wert ist indiziert, beginnend mit 1. Aus diesem Grund die `WHERE` -Klausel gibt die Datensätze zurück, in denen `PriceRank` ist streng größer als *`StartRowIndex`* und kleiner oder gleich *`StartRowIndex`*  +  *`MaximumRows`*.
 
 
 Jetzt, dass wir haben erläutert, wie `ROW_NUMBER()` können werden verwendet, um eine bestimmte Seite mit Daten anhand des Zeilenindex starten und die maximale Anzahl der Zeilen abrufen, jetzt müssen wir diese Logik als Methoden in der DAL und BLL implementieren.
@@ -188,7 +188,7 @@ Nehmen Sie einen Moment Zeit, um es zu testen, nach dem Erstellen der gespeicher
 
 ![Geben Sie einen Wert für die @startRowIndex und @maximumRows Parameter](efficiently-paging-through-large-amounts-of-data-vb/_static/image7.png)
 
-**Abbildung 7**: Geben Sie einen Wert für die @startRowIndex und @maximumRows Parameter
+<strong>Abbildung 7</strong>: Geben Sie einen Wert für die @startRowIndex und @maximumRows Parameter
 
 
 Nach dem Auswählen dieser Parametern Eingabewerte, die Fenster "Ausgabe" zeigt die Ergebnisse. Abbildung 8 zeigt die Ergebnisse bei der Übergabe von 10 für beide die `@startRowIndex` und `@maximumRows` Parameter.
@@ -276,7 +276,7 @@ Die GridView ist nicht vorhanden, da das ObjectDataSource derzeit für beide 0 a
 Zur Behebung des Problems, müssen wir die ObjectDataSource benutzerdefiniertes Paging Verwendung konfigurieren. Dies kann in den folgenden Schritten erfolgen:
 
 1. **Legen Sie das ObjectDataSource-s `EnablePaging` Eigenschaft `true`**  Dies gibt an, um das ObjectDataSource, die an ihn übergeben werden muss die `SelectMethod` zwei zusätzliche Parameter: einen zur Angabe der Zeilenindex starten ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)), und geben Sie die maximale Zeilenanzahl ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
-2. **Legen Sie das ObjectDataSource-s `StartRowIndexParameterName` und `MaximumRowsParameterName` Eigenschaften entsprechend** der `StartRowIndexParameterName` und `MaximumRowsParameterName` -Eigenschaften geben die Namen der Eingabeparameter übergebenen der `SelectMethod` für benutzerdefinierte Paging Zwecke . Standardmäßig sind diese Parameternamen `startIndexRow` und `maximumRows`, daher, beim Erstellen der `GetProductsPaged` Methode in der BLL diese Werte für die Eingabeparameter verwendet. Wenn Sie ausgewählt haben, verwenden Sie unterschiedliche Parameternamen für BLL s `GetProductsPaged` Methode z. B. `startIndex` und `maxRows`für Beispiel müssen Sie das ObjectDataSource-s festgelegt `StartRowIndexParameterName` und `MaximumRowsParameterName` Eigenschaften entsprechend (z. B. StartIndex für `StartRowIndexParameterName` und MaxRows für `MaximumRowsParameterName`).
+2. **Legen Sie das ObjectDataSource-s `StartRowIndexParameterName` und `MaximumRowsParameterName` Eigenschaften entsprechend** der `StartRowIndexParameterName` und `MaximumRowsParameterName` -Eigenschaften geben die Namen der Eingabeparameter übergebenen der `SelectMethod` für benutzerdefinierte Paging Zwecke. Standardmäßig sind diese Parameternamen `startIndexRow` und `maximumRows`, daher, beim Erstellen der `GetProductsPaged` Methode in der BLL diese Werte für die Eingabeparameter verwendet. Wenn Sie ausgewählt haben, verwenden Sie unterschiedliche Parameternamen für BLL s `GetProductsPaged` Methode z. B. `startIndex` und `maxRows`für Beispiel müssen Sie das ObjectDataSource-s festgelegt `StartRowIndexParameterName` und `MaximumRowsParameterName` Eigenschaften entsprechend (z. B. StartIndex für `StartRowIndexParameterName` und MaxRows für `MaximumRowsParameterName`).
 3. **Legen Sie die s ObjectDataSource [ `SelectCountMethod` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) auf den Namen der Methode, die insgesamt Anzahl der Datensätze werden ausgelagerten über zurückgibt (`TotalNumberOfProducts`)** Bedenken Sie, dass die `ProductsBLL` Klasse s `TotalNumberOfProducts`Methode gibt die Gesamtzahl der Datensätze, die ausgelagerte durch eine DAL-Methode, die ausgeführt wird mithilfe einer `SELECT COUNT(*) FROM Products` Abfrage. Diese Informationen werden von der ObjectDataSource benötigt, um die Auslagerungsschnittstelle ordnungsgemäß zu rendern.
 4. **Entfernen Sie die `startRowIndex` und `maximumRows` `<asp:Parameter>` Elemente aus der ObjectDataSource s deklarativem Markup** beim Konfigurieren der ObjectDataSource über den Assistenten hinzugefügt Visual Studio automatisch zwei `<asp:Parameter>` Elemente für die `GetProductsPaged` Methode s Eingabeparameter. Durch Festlegen von `EnablePaging` auf `true`, diese Parameter automatisch weitergegeben werden; Wenn sie auch in die deklarative Syntax angezeigt werden, versucht das ObjectDataSource Übergabe *vier* Parameter für die `GetProductsPaged` Methode und die zwei Parameter an die `TotalNumberOfProducts` Methode. Wenn Sie vergessen, entfernen Sie diese `<asp:Parameter>` Elemente, wenn Sie die Seite über einen Browser besuchen Sie eine Fehlermeldung wie erhalten: *ObjectDataSource "ObjectDataSource1" konnte nicht gefunden werden eine nicht generische Methode "TotalNumberOfProducts", die aufweist Parameter: StartRowIndex MaximumRows*.
 
@@ -326,7 +326,7 @@ Wenn Sie Funktionen in eine GridView, deren Daten werden mithilfe von benutzerde
 Beim Löschen des letzten Produkts, die GridView *sollten* automatisch zur Seite "achte" wechseln, und solche Funktionen mit Standardnavigation ausgestellt wird. Mit benutzerdefinierten Paging verschwindet jedoch nach dem Löschen dieses letzten Produkts auf der letzten Seite GridView einfach aus dem Bildschirm vollständig. Die genaue Ursache *warum* in diesem Fall ist vom Datentyp bit den Rahmen dieses lehrprogramms sprengen; Siehe [löschen den letzten Datensatz auf der letzten Seite aus eine GridView, für das benutzerdefinierte Paging](http://scottonwriting.net/sowblog/posts/7326.aspx) für die Details auf niedriger Ebene, auf die Quelle der Dieses Problem. Zusammenfassend es s aufgrund der folgenden Schrittfolge, die durch die GridView ausgeführt werden, wenn auf die Schaltfläche "löschen" geklickt wird:
 
 1. Datensatz löschen
-2. Erhalten Sie die entsprechenden Einträge für den angegebenen anzuzeigende `PageIndex` und`PageSize`
+2. Erhalten Sie die entsprechenden Einträge für den angegebenen anzuzeigende `PageIndex` und `PageSize`
 3. Kontrollkästchen, um sicherzustellen, dass die `PageIndex` Wenn es automatisch die GridView s Verringern der Fall ist, nicht die Anzahl der Datenseiten in der Datenquelle überschreitet `PageIndex` Eigenschaft
 4. Binden Sie die entsprechende Seite der Daten an die GridView unter Verwendung der Datensätze, die in Schritt2 abgerufen
 
@@ -377,8 +377,8 @@ Viel Spaß beim Programmieren!
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Zurück](paging-and-sorting-report-data-vb.md)
-[Weiter](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](paging-and-sorting-report-data-vb.md)
+> [Weiter](sorting-custom-paged-data-vb.md)

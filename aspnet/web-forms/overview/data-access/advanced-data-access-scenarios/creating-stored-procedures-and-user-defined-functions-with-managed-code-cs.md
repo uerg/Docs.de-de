@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 title: Erstellen von gespeicherten Prozeduren und benutzerdefinierten Funktionen mit verwaltetem Code (c#) | Microsoft Docs
 author: rick-anderson
-description: "Microsoft SQL Server 2005 wird in der .NET Common Language Runtime ermöglichen Entwicklern das Erstellen von Datenbankobjekten durch verwalteten Code integriert. In diesem Lernprogramm..."
+description: Microsoft SQL Server 2005 wird in der .NET Common Language Runtime ermöglichen Entwicklern das Erstellen von Datenbankobjekten durch verwalteten Code integriert. In diesem Lernprogramm...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5a860c8ab6ad7ff04de2175900491d532db782d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Erstellen gespeicherter Prozeduren und benutzerdefinierte Funktionen mit verwaltetem Code (c#)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 S für Microsoft SQL Server 2005-Datenbanken verwenden den [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) zum Einfügen, ändern und Abrufen von Daten. Die meisten Datenbanksysteme enthalten Konstrukte zum Gruppieren einer Reihe von SQL-Anweisungen, die dann als einzelne, wiederverwendbare Einheit ausgeführt werden können. Gespeicherte Prozeduren sind ein Beispiel. Ein weiterer Vorteil ist *benutzerdefinierte Funktionen*(UDFs), ein Konstrukt, das Untersuchen wir ausführlich in Schritt 9.
 
-Im Kern dient SQL zum Arbeiten mit Datasets. Die `SELECT`, `UPDATE`, und `DELETE` Anweisungen grundsätzlich gelten für alle Datensätze in der entsprechenden Tabelle und sind nur über eingeschränkte durch ihre `WHERE` Klauseln. Es gibt noch zahlreiche Sprachfunktionen zum Arbeiten mit einem Datensatz zu einem Zeitpunkt und zum Bearbeiten von skalaren Daten. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) für eine Gruppe von Datensätzen looped über jeweils einzeln zu ermöglichen. String-Funktionen zur Zeichenfolgenmanipulation wie `LEFT`, `CHARINDEX`, und `PATINDEX` funktionieren mit skalaren Daten. SQL enthält auch Anweisungen für die ablaufsteuerung wie `IF` und `WHILE`.
+Im Kern dient SQL zum Arbeiten mit Datasets. Die `SELECT`, `UPDATE`, und `DELETE` Anweisungen grundsätzlich gelten für alle Datensätze in der entsprechenden Tabelle und sind nur über eingeschränkte durch ihre `WHERE` Klauseln. Es gibt noch zahlreiche Sprachfunktionen zum Arbeiten mit einem Datensatz zu einem Zeitpunkt und zum Bearbeiten von skalaren Daten. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) für eine Gruppe von Datensätzen looped über jeweils einzeln zu ermöglichen. String-Funktionen zur Zeichenfolgenmanipulation wie `LEFT`, `CHARINDEX`, und `PATINDEX` funktionieren mit skalaren Daten. SQL enthält auch Anweisungen für die ablaufsteuerung wie `IF` und `WHILE`.
 
 Vor der Microsoft SQL Server 2005 können gespeicherte Prozeduren und benutzerdefinierten Funktionen nur als eine Auflistung von T-SQL-Anweisungen definiert werden. SQL Server 2005, jedoch wurde entworfen, um Integration mit Bereitstellen der [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), also die Laufzeit verwendet, die von allen .NET Assemblys. Daher können die gespeicherten Prozeduren und benutzerdefinierten Funktionen in einer SQL Server 2005-Datenbank erstellt werden mithilfe von verwaltetem Code. D. h., können Sie eine gespeicherte Prozedur oder benutzerdefinierten Funktion als Methode in einer C#-Klasse erstellen. Dadurch werden diese gespeicherten Prozeduren und benutzerdefinierten Funktionen aus, die die Funktionalität in .NET Framework und eigene benutzerdefinierte Klassen.
 
@@ -424,8 +424,8 @@ Nachdem die verwaltete benutzerdefinierte Funktion erstellt wurde, können wir f
 
 Nachdem Sie das Projekt bereitgestellt haben, zurück zu SQL Server Management Studio, und aktualisieren Sie den Ordner Skalarwertfunktionen. Nun sollten zwei Einträge angezeigt werden:
 
-- `dbo.udf_ComputeInventoryValue`-die T-SQL-UDF erstellt in Schritt 9 und
-- `dbo.udf ComputeInventoryValue_Managed`-die verwaltete benutzerdefinierte Funktion erstellt in Schritt 10, die gerade bereitgestellt wurde.
+- `dbo.udf_ComputeInventoryValue` -die T-SQL-UDF erstellt in Schritt 9 und
+- `dbo.udf ComputeInventoryValue_Managed` -die verwaltete benutzerdefinierte Funktion erstellt in Schritt 10, die gerade bereitgestellt wurde.
 
 Um diese verwaltete benutzerdefinierte Funktion zu testen, führen Sie die folgende Abfrage aus in Management Studio:
 
@@ -569,12 +569,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde S Ren Jacob Lauritsen. Neben den diesem Artikel, S Ren auch erstellt, das in diesem Artikel s-Download für die verwalteten Datenbankobjekte manuell kompilieren enthaltenen Visual c# Express Edition-Projekt. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](debugging-stored-procedures-cs.md)
-[Weiter](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](debugging-stored-procedures-cs.md)
+> [Weiter](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)

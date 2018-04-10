@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
-title: "ASP.NET MVC-Ansichten (Übersicht) (c#) | Microsoft Docs"
+title: ASP.NET MVC-Ansichten (Übersicht) (c#) | Microsoft Docs
 author: StephenWalther
-description: "Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet sie von einer HTML-Seite? In diesem Lernprogramm Stephen Walther Ansichten erläutert und veranschaulicht, wie können Sie t..."
+description: Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet sie von einer HTML-Seite? In diesem Lernprogramm Stephen Walther Ansichten erläutert und veranschaulicht, wie können Sie t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9de095b0621af3b6166a2e1cbcb1c63c26a88aa2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5217994168ebac32a4a9754ae09e63e120804813
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC-Ansichten (Übersicht) (c#)
 ====================
@@ -41,11 +41,11 @@ Auflisten von 1 enthält einen einfachen Controller mit dem Namen der HomeContro
 
 Sie können die erste Aktion, die Aktion Index() aufrufen, indem Sie die folgende URL in der Adressleiste des Browsers eingeben:
 
-/ Home/Index
+/Home/Index
 
 Sie können die zweite Aktion, die Aktion Details() aufrufen, indem Sie diese Adresse in Ihren Browser eingeben:
 
-/ Home/Details
+/Home/Details
 
 Die Aktion Index() gibt eine Ansicht zurück. Die meisten Aktionen, die Sie erstellen werden Sichten zurückgegeben. Sie können jedoch eine Aktion andere Arten von Aktionsergebnisse zurückgeben. Die Details()-Aktion gibt z. B. eine RedirectToActionResult, die eingehende Anforderung an die Aktion Index() umleitet.
 
@@ -78,7 +78,7 @@ Eine Sicht ist ein Standard (X) HTML-Dokument, die Skripts enthalten kann. Sie k
 
 Beispielsweise zeigt die Ansicht im Codebeispiel 2 das aktuelle Datum und die Uhrzeit.
 
-**Auflisten von 2 – \Views\Home\Index.aspx**
+**Listing 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample2.aspx)]
 
@@ -102,7 +102,7 @@ Hinzufügen von Inhalt zu einer Sicht zu vereinfachen, profitieren Sie von so ge
 
 Beispielsweise die Ansicht im Codebeispiel 4 nutzt drei HTML-Hilfsmethoden--bilden die Hilfsprogramme BeginForm(), TextBox() und Password() – um eine Anmeldung zu generieren (siehe Abbildung 1).
 
-**Auflisten von 4 – \Views\Home\Login.aspx**
+**Listing 4 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
@@ -118,7 +118,7 @@ Beachten Sie, dass Sie die Skript-Trennzeichen verwenden &lt;% = "und" %&gt; bei
 
 Mit HTML-Hilfsmethoden ist optional. Sie Ihnen das Leben erleichtern durch Reduzieren der HTML- und Skripts, die Sie schreiben müssen. Die Ansicht im Codebeispiel 5 rendert die genaue dasselbe Format wie die Ansicht im Codebeispiel 4 ohne Verwendung von HTML-Hilfsmethoden.
 
-**Auflisten von 5 – \Views\Home\Login.aspx**
+**Listing 5 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample5.aspx)]
 
@@ -136,7 +136,7 @@ Der Controller ViewData-Eigenschaft stellt eine Auflistung von Name-Wert-Paaren 
 
 Die Ansicht im Codebeispiel 7 Ruft die Nachricht aus den Ansichtsdaten ab und rendert die Nachricht an den Browser.
 
-**Auflisten von 7 – \Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
@@ -152,5 +152,5 @@ Sie haben auch die Möglichkeit, stark typisierten Ansichtsdaten aus einem Contr
 
 In diesem Lernprogramm bereitgestellten eine kurze Einführung in ASP.NET MVC-Ansichten, Anzeigen von Daten und HTML-Hilfsmethoden. Im ersten Abschnitt haben Sie gelernt, wie neue Ansichten zu Ihrem Projekt hinzugefügt wird. Sie haben gelernt, dass Sie eine Ansicht und den richtigen Ordner hinzufügen, um über einen bestimmten Controller aufrufen. Als Nächstes besprochen haben wir das Thema des HTML-Hilfsmethoden. Sie haben gelernt, wie HTML-Hilfsmethoden einfach generiert werden standard-HTML-Inhalt aktivieren. Schließlich haben Sie gelernt, wie das Nutzen von Anzeigedaten, um Daten von einem Controller an eine Ansicht zu übergeben.
 
->[!div class="step-by-step"]
-[Nächste](creating-custom-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](creating-custom-html-helpers-cs.md)
