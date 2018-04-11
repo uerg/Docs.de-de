@@ -30,7 +30,7 @@ In diesem Lernprogramm wird eine Client-app, die die folgenden Web-API nutzt ges
 | Aktion | HTTP-Methode | Relativer URI |
 | --- | --- | --- |
 | Abrufen eines Produkts nach ID | GET | /api/products/*id* |
-| Erstellen eines neuen Produkts | BEREITSTELLEN | /api/products |
+| Erstellen eines neuen Produkts | POST | /api/products |
 | Aktualisieren eines Produkts | PUT | /api/products/*id* |
 | Löschen eines Produkts | DELETE | /api/products/*id* |
 
