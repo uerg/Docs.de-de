@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 title: Erstellen eines standortweite Layouts mit Masterseiten (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden die Grundlagen der Masterseite angezeigt. Nämlich, was Masterseiten, sind wie zu, ist eine Erstellen einer Masterseite, worauf Content Platzhaltern, wie ein Cr ist..."
+description: In diesem Lernprogramm werden die Grundlagen der Masterseite angezeigt. Nämlich, was Masterseiten, sind wie zu, ist eine Erstellen einer Masterseite, worauf Content Platzhaltern, wie ein Cr ist...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8061a2aff318d397116cbc0bc0a8ce24ef35c7fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 72f870e07a4f7754e352dc3478d9c86d4cb43994
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Erstellen eines standortweite Layouts mit Masterseiten (c#)
 ====================
@@ -34,7 +34,7 @@ Ein Attribut einer gut entworfenen Website wird eine konsistente standortweite S
 
 [![Die Website www.asp.net verwendet ein einheitliches Erscheinungsbild für alle Seiten](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
-**Abbildung 01**: die www.asp.net Website verwendet wird, ein konsistentes Aussehen und über alle Seiten den Eindruck ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
+<strong>Abbildung 01</strong>: die www.asp.net Website verwendet wird, ein konsistentes Aussehen und über alle Seiten den Eindruck ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
 
 
 Ein anderes Attribut einer gut entworfenen Website ist die Einfachheit, mit der Darstellung des Standorts geändert werden kann. Abbildung 1 zeigt die Startseite der www.asp.net ab März 2008, aber zwischen sofort aus, und Veröffentlichung in diesem Lernprogramm, das Aussehen und Verhalten möglicherweise geändert. Möglicherweise werden die Menüelemente entlang der Oberkante erweitert, um einen neuen Abschnitt für das MVC-Framework umfassen. Oder vielleicht ein brandneues Design mit verschiedenen Farben, Schriftarten und Layout unveiled werden. Solche Änderungen anwenden, um den gesamten Standort sollte ein schneller und einfacher Prozess sein, der Ändern von Tausenden von Webseiten, aus denen die Website nicht erforderlich ist.
@@ -87,7 +87,7 @@ Nach eine Masterseite definiert wurde, kann es an neue ASP.NET-Seiten, bis der T
 Nun, da wir haben erläutert, wie von Masterseiten, werfen wir einen Blick auf das Erstellen einer Masterseite und zugehörigen Content-Seiten, die mit Visual Web Developer.
 
 > [!NOTE]
-> Um die größtmögliche Zielgruppe erreichen, wir, in der gesamten dieser Reihe von Lernprogrammen erstellen, ASP.NET-Website erstellt werden Microsofts kostenlose Version von Visual Studio 2008 mit ASP.NET 3.5 [Visual Web Developer 2008.](https://www.microsoft.com/express/vwd/). Wenn Sie noch nicht auf ASP.NET 3.5 aktualisiert keine Sorge - gut in diese Lernprogramme arbeiten erörterten Konzepte genauso mit ASP.NET 2.0 und Visual Studio 2005. Allerdings können einige Demo-Anwendungen neue Funktionen in .NET Framework, Version 3.5 verwenden; Bei der 3.5-spezifischen Funktionen verwendet werden, umfassen ich eine Anmerkung, die erläutert, wie ähnliche Funktionalität wie in Version 2.0 implementiert. Führen Sie bedenken, die die Demo für Anwendungen verfügbar von jedes Lernprogramm Ziel .NET Framework, Version 3.5, herunterladen Vortäuschen einer `Web.config` -Datei, umfasst der 3.5-spezifischen Konfigurationselementen und Verweise auf 3.5-spezifischen Namespaces in, der `using` Anweisungen in Code-Behind-Klassen ASP.NET-Seiten. Kurz gesagt, wenn Sie noch installieren Sie .NET 3.5 auf dem Computer dann zum Herunterladen der Anwendung funktioniert nicht ohne die zuvor entfernt der 3.5-spezifischer Markups aus `Web.config`. Finden Sie unter [unterzogen, wodurch ASP.NET Version 3.5 des `Web.config` Datei](http://www.4guysfromrolla.com/articles/121207-1.aspx) für Weitere Informationen zu diesem Thema. Sie müssen auch zum Entfernen der `using` Anweisungen, die 3.5-spezifischen Namespaces verweisen.
+> Um die größtmögliche Zielgruppe erreichen, wir, in der gesamten dieser Reihe von Lernprogrammen erstellen, ASP.NET-Website erstellt werden Microsofts kostenlose Version von Visual Studio 2008 mit ASP.NET 3.5 [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Wenn Sie noch nicht auf ASP.NET 3.5 aktualisiert keine Sorge - gut in diese Lernprogramme arbeiten erörterten Konzepte genauso mit ASP.NET 2.0 und Visual Studio 2005. Allerdings können einige Demo-Anwendungen neue Funktionen in .NET Framework, Version 3.5 verwenden; Bei der 3.5-spezifischen Funktionen verwendet werden, umfassen ich eine Anmerkung, die erläutert, wie ähnliche Funktionalität wie in Version 2.0 implementiert. Führen Sie bedenken, die die Demo für Anwendungen verfügbar von jedes Lernprogramm Ziel .NET Framework, Version 3.5, herunterladen Vortäuschen einer `Web.config` -Datei, umfasst der 3.5-spezifischen Konfigurationselementen und Verweise auf 3.5-spezifischen Namespaces in, der `using` Anweisungen in Code-Behind-Klassen ASP.NET-Seiten. Kurz gesagt, wenn Sie noch installieren Sie .NET 3.5 auf dem Computer dann zum Herunterladen der Anwendung funktioniert nicht ohne die zuvor entfernt der 3.5-spezifischer Markups aus `Web.config`. Finden Sie unter [unterzogen, wodurch ASP.NET Version 3.5 des `Web.config` Datei](http://www.4guysfromrolla.com/articles/121207-1.aspx) für Weitere Informationen zu diesem Thema. Sie müssen auch zum Entfernen der `using` Anweisungen, die 3.5-spezifischen Namespaces verweisen.
 
 
 ## <a name="step-1-creating-a-master-page"></a>Schritt 1: Erstellen einer Masterseite
@@ -281,11 +281,11 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Nächste](multiple-contentplaceholders-and-default-content-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](multiple-contentplaceholders-and-default-content-cs.md)

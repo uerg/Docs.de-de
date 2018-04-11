@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: "Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (c#) | Microsoft Docs"
+title: Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht..."
+description: In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 484a0f16265ee2d887ee08f6ae7ada47047f1f04
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (c#)
 ====================
@@ -39,9 +39,9 @@ In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des
 
 Für Websites, die Formularauthentifizierung verwenden, meldet einen Benutzer auf der Website besuchen einer Anmeldeseite, und geben ihre Anmeldeinformationen. Diese Anmeldeinformationen werden dann mit den Speicher des Benutzers verglichen. Wenn sie gültig sind, wird der Benutzer ein Formularauthentifizierungsticket gewährt, ein Sicherheitstoken, die die Identität und die Authentizität des Besuchers angibt.
 
-Verwenden Sie zum Überprüfen von eines Benutzers für das Framework für die Mitgliedschaft der `Membership` Klasse [ `ValidateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). Die `ValidateUser` -Methode übernimmt zwei Eingabeparameter -  *`username`*  und  *`password`*  - und gibt einen booleschen Wert, der angibt, ob die Anmeldeinformationen gültig sind. Wie Sie mit der `CreateUser` Methode, die im vorherigen Lernprogramm untersucht die `ValidateUser` Methode delegiert die tatsächliche Validierung an den konfigurierten Mitgliedschaftsanbieter.
+Verwenden Sie zum Überprüfen von eines Benutzers für das Framework für die Mitgliedschaft der `Membership` Klasse [ `ValidateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). Die `ValidateUser` -Methode übernimmt zwei Eingabeparameter - *`username`* und *`password`* - und gibt einen booleschen Wert, der angibt, ob die Anmeldeinformationen gültig sind. Wie Sie mit der `CreateUser` Methode, die im vorherigen Lernprogramm untersucht die `ValidateUser` Methode delegiert die tatsächliche Validierung an den konfigurierten Mitgliedschaftsanbieter.
 
-Die `SqlMembershipProvider` überprüft die angegebenen Anmeldeinformationen erhalten Sie das angegebene Kennwort des Benutzers über die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur. Bedenken Sie, dass die `SqlMembershipProvider` speichert von Benutzerkennwörtern, die mit einer der drei Formate: Clear, verschlüsselt oder ein Hashwert erstellt. Die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur gibt das Kennwort im raw-Format zurück. Für verschlüsselte oder eine verschlüsselte Kennwörter der `SqlMembershipProvider` transformiert die  *`password`*  übergebenen Wert die `ValidateUser` in die entsprechende Methode verschlüsselt oder Status gehasht und vergleicht ihn dann mit der Rückgabe aus der die Datenbank. Wenn das Kennwort in der Datenbank gespeichert, das formatierte, vom Benutzer eingegebene Kennwort übereinstimmt, sind die Anmeldeinformationen gültig.
+Die `SqlMembershipProvider` überprüft die angegebenen Anmeldeinformationen erhalten Sie das angegebene Kennwort des Benutzers über die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur. Bedenken Sie, dass die `SqlMembershipProvider` speichert von Benutzerkennwörtern, die mit einer der drei Formate: Clear, verschlüsselt oder ein Hashwert erstellt. Die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur gibt das Kennwort im raw-Format zurück. Für verschlüsselte oder eine verschlüsselte Kennwörter der `SqlMembershipProvider` transformiert die *`password`* übergebenen Wert die `ValidateUser` in die entsprechende Methode verschlüsselt oder Status gehasht und vergleicht ihn dann mit der Rückgabe aus der die Datenbank. Wenn das Kennwort in der Datenbank gespeichert, das formatierte, vom Benutzer eingegebene Kennwort übereinstimmt, sind die Anmeldeinformationen gültig.
 
 Wir aktualisieren unsere Anmeldeseite (~ /`Login.aspx`), damit sie die angegebenen Anmeldeinformationen für den Speicher des Benutzers Mitgliedschaft Framework überprüft. Wir diese Anmeldeseite erstellt zurück in die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-cs.md) Lernprogramm erstellen eine Schnittstelle mit zwei Textfelder für den Benutzernamen und das Kennwort, eine Kontrollkästchen, und eine Anmeldeschaltfläche speichern (siehe Abbildung 1). Der Code überprüft die eingegebenen Anmeldeinformationen für eine vorprogrammierte Liste von Benutzername und Kennwort-Paaren (Scott/Kennwort, Jisun/Kennwort und Sam/Kennwort). In der <a id="Tutorial03"> </a> [ *Konfiguration der Formularauthentifizierung und erweiterte Themen* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) Lernprogramm wir aktualisiert, die Anmeldeseite Code aus, um zusätzliche Informationen in den Formen zu speichern. der Authentifizierungsticket `UserData` Eigenschaft.
 
@@ -71,8 +71,8 @@ Wenn ein Besucher die Anmeldeseite erreicht und übermittelt ihre Anmeldeinforma
 
 Um solche Brute-Force-Angriffe zu verhindern, sperrt das Framework der Mitgliedschaft eines Benutzers, wenn eine bestimmte Anzahl von nicht erfolgreichen Anmeldeversuche innerhalb einer bestimmten Zeitspanne vorhanden sind. Die genauen Parameter können über die folgenden zwei Mitgliedschaft Anbieter Konfigurationseinstellungen konfiguriert werden:
 
-- `maxInvalidPasswordAttempts`-Gibt an, wie viele wurde ein ungültiges Kennwort Versuche dürfen für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt ist. Der Standardwert ist 5.
-- `passwordAttemptWindow`-Gibt den Zeitraum in Minuten, während dessen die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
+- `maxInvalidPasswordAttempts` -Gibt an, wie viele wurde ein ungültiges Kennwort Versuche dürfen für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt ist. Der Standardwert ist 5.
+- `passwordAttemptWindow` -Gibt den Zeitraum in Minuten, während dessen die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
 
 Wenn ein Benutzer gesperrt wurde, kann nicht er sich erst anmelden, ein Administrator ihr Konto entsperrt. Wenn ein Benutzer gesperrt ist die `ValidateUser` Methode wird *immer* zurückgeben `false`, selbst wenn Sie gültige Anmeldeinformationen angegeben werden. Während dieses Verhalten die Wahrscheinlichkeit, die ein Hacker durch Brute-Force-Methoden in Ihrer Website unterbrochen wird verringert, kann er ein gültiger Benutzer, einfach das Kennwort vergessen hat oder versehentlich die FESTSTELLTASTE aktiviert ist, auf oder hat einen ungültigen Eingabe Tag, Sperrung annehmen.
 
@@ -110,10 +110,10 @@ Und wir sind fertig! Bei der Anmeldung des Steuerelements anmelden Schaltfläche
 
 Das Steuerelement für die Anmeldung verwendet vier Faktoren, die entsprechende Seite zum Umleiten des Benutzers, um nach einer erfolgreichen Anmeldung festzulegen:
 
-- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der Definition von `loginUrl` ist der Standardwert für diese Einstellung festlegen, in die Konfiguration der Formularauthentifizierung;`Login.aspx`
+- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der Definition von `loginUrl` ist der Standardwert für diese Einstellung festlegen, in die Konfiguration der Formularauthentifizierung; `Login.aspx`
 - Das Vorhandensein einer `ReturnUrl` Querystring-Parameter
 - Der Wert des Steuerelements für die Anmeldung [ `DestinationUrl` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- Die `defaultUrl` Wert, der in den Formularen Konfigurationseinstellungen für die Authentifizierung angegeben; der Standardwert für diese Einstellung ist`Default.aspx`
+- Die `defaultUrl` Wert, der in den Formularen Konfigurationseinstellungen für die Authentifizierung angegeben; der Standardwert für diese Einstellung ist `Default.aspx`
 
 Abbildung 4 zeigt, wie das Steuerelement für die Anmeldung verwendet diese vier Parameter, die entsprechende Seite Entscheidung ankommen.
 
@@ -226,11 +226,11 @@ Um unsere benutzerdefinierte Authentifizierungslogik einbinden, müssen wir erst
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample3.cs)]
 
-Wie Sie sehen können, die `Authenticate` übergebene Ereignishandler wird ein Objekt des Typs [ `AuthenticateEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) als der zweite Eingabeparameter. Die `AuthenticateEventArgs` Klasse enthält eine boolesche Eigenschaft namens `Authenticated` , verwendet, um anzugeben, ob die angegebenen Anmeldeinformationen gültig sind. Unsere Aufgabe ist dann hier Code schreiben, der bestimmt, ob die angegebenen Anmeldeinformationen gültig sind, und Festlegen der `e.Authenticate` Eigenschaft entsprechend.
+Wie Sie sehen können, die `Authenticate` übergebene Ereignishandler wird ein Objekt des Typs [`AuthenticateEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) als der zweite Eingabeparameter. Die `AuthenticateEventArgs` Klasse enthält eine boolesche Eigenschaft namens `Authenticated` , verwendet, um anzugeben, ob die angegebenen Anmeldeinformationen gültig sind. Unsere Aufgabe ist dann hier Code schreiben, der bestimmt, ob die angegebenen Anmeldeinformationen gültig sind, und Festlegen der `e.Authenticate` Eigenschaft entsprechend.
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Bestimmen und die angegebenen Anmeldeinformationen überprüft.
 
-Verwenden Sie das Anmelde-Steuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebenen Benutzernamens und Kennworts-Anmeldeinformationen. Um die Werte in jeder zusätzlichen Websteuerelemente eingegeben bestimmen (wie z. B. die `Email` Textfeld wir im vorherigen Schritt hinzugefügt haben), verwenden Sie  *`LoginControlID`*  `.FindControl`(" *`controlID`* ") zum Abrufen eines programmgesteuerten Verweis auf das Websteuerelement in der Vorlage, deren `ID` -Eigenschaft gleich  *`controlID`* . Beispielsweise, um das Abrufen eines Verweises auf die `Email` TextBox, verwenden Sie den folgenden Code:
+Verwenden Sie das Anmelde-Steuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebenen Benutzernamens und Kennworts-Anmeldeinformationen. Um die Werte in jeder zusätzlichen Websteuerelemente eingegeben bestimmen (wie z. B. die `Email` Textfeld wir im vorherigen Schritt hinzugefügt haben), verwenden Sie *`LoginControlID`* `.FindControl`("*`controlID`*") zum Abrufen eines programmgesteuerten Verweis auf das Websteuerelement in der Vorlage, deren `ID` -Eigenschaft gleich *`controlID`*. Beispielsweise, um das Abrufen eines Verweises auf die `Email` TextBox, verwenden Sie den folgenden Code:
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,12 +310,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Teresa Murphy und Michael Olivero. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Zurück](creating-user-accounts-cs.md)
-[Weiter](user-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-user-accounts-cs.md)
+> [Weiter](user-based-authorization-cs.md)
