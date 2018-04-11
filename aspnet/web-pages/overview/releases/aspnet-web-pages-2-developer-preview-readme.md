@@ -2,7 +2,7 @@
 uid: web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
 title: ASP.NET Web Pages 2 Developer Preview Infodatei | Microsoft Docs
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/14/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
 msc.type: authoredcontent
-ms.openlocfilehash: 119265c62abb3f3110cdc7f0b94a7c9b16b4251c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a43b2b12af9cd223d8a3622239743f7c431f617
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-2-developer-preview-readme"></a>ASP.NET Web Pages 2 Developer Preview-Infodatei
 ====================
@@ -28,7 +28,7 @@ durch [Microsoft](https://github.com/microsoft)
 
 ### <a name="contents"></a>Inhalt
 
-#### <a id="_Toc303701284"></a>Hinweise zur installationsnachbereitung
+#### <a id="_Toc303701284"></a>  Hinweise zur installationsnachbereitung
 
 Um die Web Pages 2 Developer Preview installieren, müssen Sie diese Optionen:
 
@@ -38,15 +38,15 @@ Um die Web Pages 2 Developer Preview installieren, müssen Sie diese Optionen:
 
 ASP.NET Web Pages 2 Developer Preview installiert werden kann und Seite-an-Seite ausführen können mit ASP.NET Web Pages-1. <a id="a"></a>Weitere Informationen finden Sie im Abschnitt "Ausführen Webseiten Anwendungen Seite-an-Seite" in [der Top-Funktionen in Web Pages 2-Entwicklervorschau](https://go.microsoft.com/fwlink/?LinkID=227824).
 
-#### <a id="_Toc303701285"></a>Dokumentation
+#### <a id="_Toc303701285"></a>  Dokumentation
 
 Lernprogramme und Weitere Informationen zu ASP.NET Web Pages stehen für die Web Pages-Seite der ASP.NET-Website ([https://www.asp.net/web-pages/](../../index.md)). Informationen zu neuen Features und Verbesserungen in Web Pages 2 finden Sie unter [der Top-Funktionen in Web Pages 2-Entwicklervorschau](https://go.microsoft.com/fwlink/?LinkID=227824).
 
-#### <a id="_Toc303701286"></a>Unterstützung
+#### <a id="_Toc303701286"></a>  Unterstützung
 
-<a id="_Toc209852135"></a><a id="_Toc255833657"></a>Dies wird als Vorschauversion verfügbar und wird offiziell nicht unterstützt. Falls Sie Fragen zum Arbeiten mit dieser Version haben, stellen Sie diese in der ASP.NET Web Pages-Forum ([https://forums.asp.net/1224.aspx/1?WebMatrix](https://forums.asp.net/1224.aspx/1?WebMatrix) ), in denen Mitglieder der ASP.NET-Community informelle Unterstützung leisten häufig können sind.
+<a id="_Toc209852135"></a><a id="_Toc255833657"></a> Dies wird als Vorschauversion verfügbar und wird offiziell nicht unterstützt. Falls Sie Fragen zum Arbeiten mit dieser Version haben, stellen Sie diese in der ASP.NET Web Pages-Forum ([ https://forums.asp.net/1224.aspx/1?WebMatrix ](https://forums.asp.net/1224.aspx/1?WebMatrix) ), in denen Mitglieder der ASP.NET-Community informelle Unterstützung leisten häufig können sind.
 
-#### <a id="_Toc303701287"></a>Softwareanforderungen
+#### <a id="_Toc303701287"></a>  Softwareanforderungen
 
 ASP.NET Web Pages 2 erfordert .NET Framework 4. Es funktioniert auch mit der .NET Framework 4.5 Developer Preview-Version.
 
@@ -62,16 +62,16 @@ ASP.NET Web Pages 2 erfordert .NET Framework 4. Es funktioniert auch mit der .NE
     [!code-cshtml[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample1.cshtml)]
 
     Dieser Code würde zuvor aufgelöst Images/Logo.jpg, die für eine Ajax-Anforderung zu dieser Seite unzulässig sein würde. Löst jetzt auf den Stamm der (/ MySite/Images/Logo.jpg).
-- **Die HttpContext.RedirectLocal-Methode hat sich geändert.**. Diese Methode akzeptiert jetzt nur mit URLs, die relativ zur aktuellen Anwendung sind. Voll qualifiziert, werden URLs abgelehnt werden.
+- **Die HttpContext.RedirectLocal-Methode hat sich geändert**. Diese Methode akzeptiert jetzt nur mit URLs, die relativ zur aktuellen Anwendung sind. Voll qualifiziert, werden URLs abgelehnt werden.
 - **Die Methode ModelState.IsValid jetzt erfordert, dass Sie rufen Sie zuerst überprüfen**. Wenn Sie die Anwendung verwendet die neuen Methoden für die Validierung von Benutzereingaben konvertieren und Aufrufen der *ModelState.IsValid* -Methode, müssen Sie jetzt Aufrufen *Validation.Validate* im voraus. Beispielsweise müssen Sie jetzt diesem Muster folgen: 
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample2.cs)]
 
- Wir empfehlen jedoch, wenn Sie die neuen Methoden für die Validierung von Benutzereingaben verwenden keine verwenden *ModelState.IsValid*. Strukturieren Sie stattdessen Code wie folgt aus: 
+  Wir empfehlen jedoch, wenn Sie die neuen Methoden für die Validierung von Benutzereingaben verwenden keine verwenden *ModelState.IsValid*. Strukturieren Sie stattdessen Code wie folgt aus: 
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample3.cs)]
 - **Internet Explorer 7 und Internet Explorer 8, die clientseitige Validierung funktioniert nicht**. Die clientseitige Validierung funktioniert nicht aufgrund von Inkompatibilitäten mit jQuery 1.6.2, die mit der Standardprojektvorlage enthalten ist. (Eine serverseitige Validierung funktioniert.).
 
-#### <a id="_Toc303701289"></a>Haftungsausschluss
+#### <a id="_Toc303701289"></a>  Haftungsausschluss
 
 © 2011 Microsoft Corporation. Alle Rechte vorbehalten. Dieses Dokument wird bereitgestellt "als-ist." Informationen und Ansichten, ausgedrückt in diesem Dokument, einschließlich URLs und anderer Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden. Sie tragen das alleinige Verwendungsrisiko.

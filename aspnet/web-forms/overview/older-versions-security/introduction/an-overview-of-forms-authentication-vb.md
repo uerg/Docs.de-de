@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
-title: "Einen Überblick über die Formularauthentifizierung (VB) | Microsoft Docs"
+title: Einen Überblick über die Formularauthentifizierung (VB) | Microsoft Docs
 author: rick-anderson
 description: In diesem Lernprogramm wird von reinen Diskussion Implementierung Aktualisierungsfehler; insbesondere, betrachten wir Formularauthentifizierung implementieren. Die Web-Anwendung w...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 90bcff91d0642e6af66f43fd807b253cc516d277
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6482b10a470b50a1fc6f163ee2d59682e83f5a2b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-vb"></a>Einen Überblick über die Formularauthentifizierung (VB)
 ====================
@@ -80,7 +80,7 @@ Lange Story kurz in Versionen vor IIS 7, nur Formularauthentifizierung können S
 
 ## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>Schritt 1: Erstellen einer ASP.NET-Website für diese Reihe von Lernprogrammen
 
-Um die größtmögliche Zielgruppe erreichen, wir erstellen in der gesamten diese Reihe von, ASP.NET-Website mit Microsofts kostenlose Version von Visual Studio 2008 erstellt [Visual Web Developer 2008.](https://www.microsoft.com/express/vwd/). Implementieren wir im Benutzerspeicher SqlMembershipProvider in einem [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) Datenbank. Wenn Sie Visual Studio 2005 oder eine andere Edition von Visual Studio 2008 oder SQL Server verwenden, keine Sorge: die Schritte werden fast identisch, und keine bedeutenden Unterschiede werden darauf hingewiesen werden.
+Um die größtmögliche Zielgruppe erreichen, wir erstellen in der gesamten diese Reihe von, ASP.NET-Website mit Microsofts kostenlose Version von Visual Studio 2008 erstellt [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Implementieren wir im Benutzerspeicher SqlMembershipProvider in einem [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) Datenbank. Wenn Sie Visual Studio 2005 oder eine andere Edition von Visual Studio 2008 oder SQL Server verwenden, keine Sorge: die Schritte werden fast identisch, und keine bedeutenden Unterschiede werden darauf hingewiesen werden.
 
 Bevor wir die Formularauthentifizierung konfigurieren können, benötigen wir zuerst eine ASP.NET-Website. Durch das Erstellen einer neuen systembasierten ASP.NET-Website starten. Um dies zu erreichen, starten Sie Visual Web Developer, wechseln Sie zum Menü Datei, und klicken Sie neue Website, die das Dialogfeld "neue Website" anzuzeigen. Wählen Sie die Vorlage ASP.NET-Website, legen Sie die Dropdown-Liste im Dateisystem, wählen Sie einen Ordner der Website an und legen Sie die Sprache auf VB dar. Dadurch wird eine neue Website erstellt, mit einer ASP.NET-Seite von "default.aspx", eine App\_Datenordner, und eine Datei "Web.config".
 
@@ -103,7 +103,7 @@ Als Nächstes fügen Sie eine neue Master-Seite, auf der Website in das Stammver
 **Abbildung 03**: Fügen Sie einem Site.master mit dem Namen eines Master Seite auf der Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-forms-authentication-vb/_static/image9.png))
 
 
-Definieren Sie die standortweite Seitenlayout hier in der Masterseite. Können Sie mithilfe die Entwurfsansicht und Hinzufügen von beliebigen Layout oder Web-Steuerelemente Sie müssen, oder Sie können das Markup manuell in der Datenquellensicht manuell hinzufügen. Ich meine Masterseite Layout imitieren, die das Layout in strukturierten meine  *[arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)*  Reihe von Lernprogrammen (siehe Abbildung 4). Die Gestaltungsvorlage verwendet [cascading Stylesheets](http://www.w3schools.com/css/default.asp) zum Positionieren und Formatvorlagen mit den CSS-Einstellungen in der Datei Style.css (das im zugehörigen Download für dieses Lernprogramm enthalten ist) definiert. Die CSS-Regeln werden definiert, während Sie nicht aus dem unten gezeigten Markup erkennen können, sodass die Navigation &lt;Div&gt;des Inhalt ist absolut positioniert, sodass er auf der linken Seite angezeigt und verfügt über eine feste Breite von 200 Pixel.
+Definieren Sie die standortweite Seitenlayout hier in der Masterseite. Können Sie mithilfe die Entwurfsansicht und Hinzufügen von beliebigen Layout oder Web-Steuerelemente Sie müssen, oder Sie können das Markup manuell in der Datenquellensicht manuell hinzufügen. Ich meine Masterseite Layout imitieren, die das Layout in strukturierten meine *[arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)* Reihe von Lernprogrammen (siehe Abbildung 4). Die Gestaltungsvorlage verwendet [cascading Stylesheets](http://www.w3schools.com/css/default.asp) zum Positionieren und Formatvorlagen mit den CSS-Einstellungen in der Datei Style.css (das im zugehörigen Download für dieses Lernprogramm enthalten ist) definiert. Die CSS-Regeln werden definiert, während Sie nicht aus dem unten gezeigten Markup erkennen können, sodass die Navigation &lt;Div&gt;des Inhalt ist absolut positioniert, sodass er auf der linken Seite angezeigt und verfügt über eine feste Breite von 200 Pixel.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample1.aspx)]
 
@@ -221,7 +221,7 @@ Jetzt müssen wir Implementieren von Aufgabe 2 in den Schaltflächen-Klickereign
 
 Vor dem ASP.NET 2.0 wurden Entwickler verantwortlich für das Implementieren von sowohl ihre eigenen Speicher des Benutzers und das Schreiben des Codes, um die angegebenen Anmeldeinformationen für den Speicher zu überprüfen. Die meisten Entwickler würde den Speicher des Benutzers in einer Datenbank implementieren, erstellen eine Tabelle namens Benutzer mit Spalten, z. B. Benutzername, Kennwort, e-Mail-, LastLoginDate usw. Diese Tabelle würde dann, einen Datensatz pro Benutzerkonto verfügen. Überprüfen die angegebenen Anmeldeinformationen des Benutzers, würde das Abfragen der Datenbank zum Abgleichen des Benutzernamens ein, und klicken Sie dann sichergestellt, dass das Kennwort in der Datenbank auf das angegebene Kennwort entsprach.
 
-Mit ASP.NET 2.0 sollte einer der Mitgliedschaftsanbieter Entwicklerseite um Speicher des Benutzers zu verwalten. In diesem Lernprogramm Reihe werden die SqlMembershipProvider verwendet die SQL Server-Datenbank für den Speicher des Benutzers verwendet. Bei Verwendung der SqlMembershipProvider muss einem bestimmten Datenbankschema zu implementieren, die die Tabellen, Sichten und gespeicherte Prozeduren, die vom Anbieter erwartet enthält. Untersuchen wir zum Implementieren dieses Schema in der  *[erstellen das Schema für die Mitgliedschaft in SQL Server](../membership/creating-the-membership-schema-in-sql-server-vb.md)*  Lernprogramm. Mit der Mitgliedschaftsanbieter vorhanden, überprüfen die Anmeldeinformationen des Benutzers ist so einfach wie das Aufrufen der [Mitgliedschaftsklasse](https://msdn.microsoft.com/library/system.web.security.membership.aspx)des [ValidateUser (*Benutzername*, *Kennwort*) Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), dem ein boolescher Wert, der zurückgegeben, ob die Gültigkeit der *Benutzername* und *Kennwort* Kombination. Sehen, wie wir die SqlMembershipProvider Benutzerspeicher noch nicht implementiert wurde, können wir keine der Mitgliedschaft Klassenmethode ValidateUser zu diesem Zeitpunkt.
+Mit ASP.NET 2.0 sollte einer der Mitgliedschaftsanbieter Entwicklerseite um Speicher des Benutzers zu verwalten. In diesem Lernprogramm Reihe werden die SqlMembershipProvider verwendet die SQL Server-Datenbank für den Speicher des Benutzers verwendet. Bei Verwendung der SqlMembershipProvider muss einem bestimmten Datenbankschema zu implementieren, die die Tabellen, Sichten und gespeicherte Prozeduren, die vom Anbieter erwartet enthält. Untersuchen wir zum Implementieren dieses Schema in der *[erstellen das Schema für die Mitgliedschaft in SQL Server](../membership/creating-the-membership-schema-in-sql-server-vb.md)* Lernprogramm. Mit der Mitgliedschaftsanbieter vorhanden, überprüfen die Anmeldeinformationen des Benutzers ist so einfach wie das Aufrufen der [Mitgliedschaftsklasse](https://msdn.microsoft.com/library/system.web.security.membership.aspx)des [ValidateUser (*Benutzername*, *Kennwort*) Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), dem ein boolescher Wert, der zurückgegeben, ob die Gültigkeit der *Benutzername* und *Kennwort* Kombination. Sehen, wie wir die SqlMembershipProvider Benutzerspeicher noch nicht implementiert wurde, können wir keine der Mitgliedschaft Klassenmethode ValidateUser zu diesem Zeitpunkt.
 
 Anstatt Zeit in Anspruch nehmen die zum Erstellen von eigenen benutzerdefinierten Benutzer Datenbanktabelle (der veraltet wäre Nachdem wir die SqlMembershipProvider implementiert), lassen Sie uns stattdessen hartcodieren Seite die gültigen Anmeldeinformationen innerhalb der Anmeldename selbst. Klicken Sie in der LoginButton Click-Ereignishandler, fügen Sie den folgenden Code hinzu:
 
@@ -249,7 +249,7 @@ Da wir melden Sie sich des Benutzers, und diese an die entsprechende Seite umlei
 
 FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked)
 
-Authentifizierungsticket für die Erstellung der Forms verwenden wir die UserName TextBox Text-Eigenschaft für das Formularauthentifizierungsticket *Benutzername* Parameter und der Aktivierungszustand der RememberMe CheckBox für die  *PersistCookie* Parameter.
+Authentifizierungsticket für die Erstellung der Forms verwenden wir die UserName TextBox Text-Eigenschaft für das Formularauthentifizierungsticket *Benutzername* Parameter und der Aktivierungszustand der RememberMe CheckBox für die *PersistCookie* Parameter.
 
 Um die Anmeldeseite zu testen, besuchen Sie es in einem Browser aus. Ungültige Anmeldeinformationen, z. B. Nope Benutzername und Kennwort falsch eingeben starten. Wenn Sie auf die Schaltfläche "Login" ein Postback auftreten wird und die InvalidCredentialsMessage-Bezeichnung angezeigt.
 
@@ -270,7 +270,7 @@ Wenn der Benutzer ihre Anmeldeinformationen eingibt und das Anmeldeformular Seit
 Es sei denn, Ihre Website vertrauliche Informationen enthalten, müssen Sie nur verwenden Sie SSL auf der Anmeldeseite und auf anderen Seiten, in denen würde das Kennwort des Benutzers andernfalls unverschlüsselt als nur-Text gesendet werden. Sie müssen keine Gedanken machen, sichern die Formulare Authentifizierungsticket, da in der Standardeinstellung wird sowohl verschlüsselt und signiert (um Manipulationen zu verhindern). Eine ausführlichere Beschreibung auf Formulare Ticket Authentifizierungssicherheit wird im folgenden Lernprogramm angezeigt.
 
 > [!NOTE]
-> Viele Finanz- und medizinischen Websites sind so konfiguriert, dass die Verwendung von SSL auf *alle* Seiten zugegriffen werden kann, um authentifizierte Benutzer. Wenn Sie einer solchen Website erstellen können Sie Formulare-Authentifizierungssystem konfigurieren, damit das Formularauthentifizierungsticket nur über eine sichere Verbindung übertragen wird. Betrachten wir die verschiedenen Optionen zur Authentifizierung Formulare in den nächsten Lernprogrammen  *[Konfiguration der Formularauthentifizierung und erweiterte Themen](../membership/creating-the-membership-schema-in-sql-server-vb.md)*.
+> Viele Finanz- und medizinischen Websites sind so konfiguriert, dass die Verwendung von SSL auf *alle* Seiten zugegriffen werden kann, um authentifizierte Benutzer. Wenn Sie einer solchen Website erstellen können Sie Formulare-Authentifizierungssystem konfigurieren, damit das Formularauthentifizierungsticket nur über eine sichere Verbindung übertragen wird. Betrachten wir die verschiedenen Optionen zur Authentifizierung Formulare in den nächsten Lernprogrammen *[Konfiguration der Formularauthentifizierung und erweiterte Themen](../membership/creating-the-membership-schema-in-sql-server-vb.md)*.
 
 
 ## <a name="step-4-detecting-authenticated-visitors-and-determining-their-identity"></a>Schritt 4: Erkennen von authentifizierten Besucher und ermitteln ihre Identität
@@ -470,12 +470,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm enthalten Alicja Maziarz, John Suru und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Zurück](security-basics-and-asp-net-support-vb.md)
-[Weiter](forms-authentication-configuration-and-advanced-topics-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](security-basics-and-asp-net-support-vb.md)
+> [Weiter](forms-authentication-configuration-and-advanced-topics-vb.md)

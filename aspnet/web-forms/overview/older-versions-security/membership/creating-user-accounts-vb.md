@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 title: Erstellen von Benutzerkonten (VB) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm wird untersucht, mithilfe von Mitgliedschaft Framework (über die SqlMembershipProvider) neue Benutzerkonten erstellen. Wir sehen uns neu zu erstellen..."
+description: In diesem Lernprogramm wird untersucht, mithilfe von Mitgliedschaft Framework (über die SqlMembershipProvider) neue Benutzerkonten erstellen. Wir sehen uns neu zu erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 61621ffaae98ac74c16b2ff014ba9d85c2c10b3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d665e7ba43401da76a88a904c10a587aa4576d4b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-user-accounts-vb"></a>Erstellen von Benutzerkonten (VB)
 ====================
@@ -31,7 +31,7 @@ durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 In der <a id="_msoanchor_1"> </a> [vorherigen Lernprogramm](creating-the-membership-schema-in-sql-server-vb.md) wir installiert das Schema der Anwendung Dienste in einer Datenbank, die die Tabellen, Sichten, hinzugefügt und gespeicherte Prozeduren, die erforderlich sind, indem Sie die `SqlMembershipProvider` und `SqlRoleProvider`. Dies erstellt die Infrastruktur, die wir für den Rest der Lernprogramme in dieser Serie benötigen. In diesem Lernprogramm wird untersucht, mit dem Framework Mitgliedschaft (über die `SqlMembershipProvider`) neue Benutzerkonten erstellen. Es wird zum Erstellen neuer Benutzer programmgesteuert und in ASP angezeigt. NET integriertes CreateUserWizard-Steuerelement.
 
-Zusätzlich zu wissen, wie Sie neue Benutzerkonten erstellen, es müssen auch die Demo-Website aktualisieren wir zuerst erstellt, in haben der  *<a id="_msoanchor_2"> </a> [eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)*  Lernprogramm, und klicken Sie dann in verbessert die  *<a id="_msoanchor_3"> </a> [Konfiguration der Formularauthentifizierung und erweiterte Themen](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  Lernprogramm. Unsere Demo-Webanwendung verfügt über eine Anmeldeseite an, die Benutzer-Anmeldeinformationen mit hartcodierten Benutzernamen/Kennwort-Paare überprüft. Darüber hinaus `Global.asax` enthält Code, der benutzerdefinierten erstellt `IPrincipal` und `IIdentity` Objekte für authentifizierte Benutzer. Die Login-Seite, um Anmeldeinformationen für das Framework für die Mitgliedschaft von Benutzern zu überprüfen, und entfernen die benutzerdefinierte Logik für Haupt- und Identitätsobjekte werden aktualisiert.
+Zusätzlich zu wissen, wie Sie neue Benutzerkonten erstellen, es müssen auch die Demo-Website aktualisieren wir zuerst erstellt, in haben der *<a id="_msoanchor_2"></a>[eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)* Lernprogramm, und klicken Sie dann in verbessert die *<a id="_msoanchor_3"></a>[Konfiguration der Formularauthentifizierung und erweiterte Themen](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* Lernprogramm. Unsere Demo-Webanwendung verfügt über eine Anmeldeseite an, die Benutzer-Anmeldeinformationen mit hartcodierten Benutzernamen/Kennwort-Paare überprüft. Darüber hinaus `Global.asax` enthält Code, der benutzerdefinierten erstellt `IPrincipal` und `IIdentity` Objekte für authentifizierte Benutzer. Die Login-Seite, um Anmeldeinformationen für das Framework für die Mitgliedschaft von Benutzern zu überprüfen, und entfernen die benutzerdefinierte Logik für Haupt- und Identitätsobjekte werden aktualisiert.
 
 Fangen wir an!
 
@@ -39,8 +39,8 @@ Fangen wir an!
 
 Bevor wir mit der das Framework Mitgliedschaft beginnen, werfen wir einen Moment Zeit, die wichtige Schritte zu überprüfen, die wir ausgeführt haben, um diesen Punkt zu erreichen. Bei Verwendung der Mitgliedschaft-Framework mit der `SqlMembershipProvider` in einem Szenario formularbasierte Authentifizierung müssen die folgenden Schritte vor der Implementierung der Funktionalität der Mitgliedschaft in der Webanwendung ausgeführt werden:
 
-1. **Aktivieren Sie die formularbasierte Authentifizierung.** Wie in erläutert  *<a id="_msoanchor_4"> </a> [eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)*, Formularauthentifizierung wird aktiviert, indem Sie die Bearbeitung `Web.config` verwendet wird und die `<authentication>` Elements `mode` -Attribut `Forms`. Bei der Formularauthentifizierung aktiviert wird untersucht jede eingehende Anforderung für eine *bildet Authentifizierungsticket*, falls vorhanden, identifiziert den Requestor.
-2. **Fügen Sie die Anwendung Dienstschema, mit der entsprechenden Datenbank.** Bei Verwendung der `SqlMembershipProvider` müssen wir das Schema der Anwendung Dienste in einer Datenbank zu installieren. In der Regel wird dieses Schema auf dieselbe Datenbank hinzugefügt, das Datenmodell für die Anwendung enthält. Die  *<a id="_msoanchor_5"> </a> [erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  Lernprogramm erläutert, mit der `aspnet_regsql.exe` Tool, um dies zu erreichen.
+1. **Aktivieren Sie die formularbasierte Authentifizierung.** Wie in erläutert *<a id="_msoanchor_4"></a>[eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)*, Formularauthentifizierung wird aktiviert, indem Sie die Bearbeitung `Web.config` verwendet wird und die `<authentication>` Elements `mode` -Attribut `Forms`. Bei der Formularauthentifizierung aktiviert wird untersucht jede eingehende Anforderung für eine *bildet Authentifizierungsticket*, falls vorhanden, identifiziert den Requestor.
+2. **Fügen Sie die Anwendung Dienstschema, mit der entsprechenden Datenbank.** Bei Verwendung der `SqlMembershipProvider` müssen wir das Schema der Anwendung Dienste in einer Datenbank zu installieren. In der Regel wird dieses Schema auf dieselbe Datenbank hinzugefügt, das Datenmodell für die Anwendung enthält. Die *<a id="_msoanchor_5"></a>[erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* Lernprogramm erläutert, mit der `aspnet_regsql.exe` Tool, um dies zu erreichen.
 3. **Passen Sie die Webanwendung aus Schritt 2 die Datenbank verweisen.** Die *erstellen das Schema für die Mitgliedschaft in SQL Server* Lernprogramm wurde gezeigt, zwei Methoden zum Konfigurieren der Webanwendung, damit die `SqlMembershipProvider` würde die Datenbank, die in Schritt 2 ausgewählten verwenden: durch Ändern der `LocalSqlServer` Verbindungszeichenfolgenname; oder durch einen neuen registrierten Anbieter der Liste der Framework-Mitgliedschaftsanbieter hinzufügen und Anpassen von dieser neuen Anbieter Verwendung die Datenbank aus Schritt 2.
 
 Beim Erstellen von Webanwendungen verwendet die `SqlMembershipProvider` und formularbasierte Authentifizierung, müssen Sie diese drei Schritte vor der Verwendung der `Membership` Klasse oder die Anmeldung von ASP.NET-Webseiten-Steuerelemente. Da wir diese Schritte bereits im vorherigen Lernprogrammen ausgeführt, können wir mithilfe des Frameworks Mitgliedschaft beginnen!
@@ -69,7 +69,7 @@ Jede Seite sollte, an diesem Punkt haben, die zwei Inhaltssteuerelemente, jeweil
 
 [!code-aspx[Main](creating-user-accounts-vb/samples/sample1.aspx)]
 
-Bedenken Sie, dass die `LoginContent` ContentPlaceHolders Standardmarkup zeigt einen Link zum Anmelden oder Abmelden von der Website, je nachdem, ob der Benutzer authentifiziert wird. Das Vorhandensein der `Content2` Inhaltssteuerelement, überschreibt jedoch Standardmarkup für die Gestaltungsvorlage. Wie in erläutert  *<a id="_msoanchor_6"> </a> [eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)*  Lernprogramm, dies ist hilfreich bei Seiten, in denen es sollten keine Anmeldeoptionen in der linken Spalte anzuzeigen.
+Bedenken Sie, dass die `LoginContent` ContentPlaceHolders Standardmarkup zeigt einen Link zum Anmelden oder Abmelden von der Website, je nachdem, ob der Benutzer authentifiziert wird. Das Vorhandensein der `Content2` Inhaltssteuerelement, überschreibt jedoch Standardmarkup für die Gestaltungsvorlage. Wie in erläutert *<a id="_msoanchor_6"></a>[eine Übersicht der Formularauthentifizierung](../introduction/an-overview-of-forms-authentication-vb.md)* Lernprogramm, dies ist hilfreich bei Seiten, in denen es sollten keine Anmeldeoptionen in der linken Spalte anzuzeigen.
 
 Für diese fünf Seiten jedoch wir anzuzeigenden Standardmarkup für die Gestaltungsvorlage der `LoginContent` ContentPlaceHolder. Daher sollten Sie entfernen das deklarative Markup für die `Content2` Inhaltssteuerelement. Nach der Anmeldung sollte jede der fünf Seitenmarkup nur einem Inhaltssteuerelement enthalten.
 
@@ -107,7 +107,7 @@ Die oben aufgeführten Website Zuordnung Markup definiert die Hierarchie, die in
 
 ASP.NET umfasst eine Reihe von Navigation bezogene Web Kontrollmechanismen für das Entwerfen einer Benutzeroberfläche. Dazu gehören das Menü, TreeView und SiteMapPath-Steuerelemente. Die Menü- und TreeView-Steuerelemente Rendern der Siteübersichtsstruktur in einem Menü oder einer Struktur bzw. während der SiteMapPath Breadcrumb ausgibt, die den aktuellen Knoten besuchte sowie seiner übergeordneten Elemente anzeigt. Die Siteübersichtsdaten zu anderen Daten, die mithilfe der SiteMapDataSource Websteuerelemente gebunden werden kann und programmgesteuert zugegriffen werden kann, über die `SiteMap` Klasse.
 
-Da ist eine ausführliche Beschreibung der Siteübersicht-Framework und die Navigationssteuerelemente Gegenstand dieser Reihe von Lernprogrammen, sondern als eingesparten Zeit, die wir Erstellen von eigenen Benutzeroberfläche für die Navigation stattdessen leihen verwendet meinem  *[ Arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)*  Reihe von Lernprogrammen, die Wiederholungsmodul-Steuerelement verwendet eine zwei-Deep Aufzählung der Navigationslinks, anzeigen, wie in Abbildung 4 dargestellt.
+Da ist eine ausführliche Beschreibung der Siteübersicht-Framework und die Navigationssteuerelemente Gegenstand dieser Reihe von Lernprogrammen, sondern als eingesparten Zeit, die wir Erstellen von eigenen Benutzeroberfläche für die Navigation stattdessen leihen verwendet meinem *[ Arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)* Reihe von Lernprogrammen, die Wiederholungsmodul-Steuerelement verwendet eine zwei-Deep Aufzählung der Navigationslinks, anzeigen, wie in Abbildung 4 dargestellt.
 
 ### <a name="adding-a-two-level-list-of-links-in-the-left-column"></a>Eine Liste zwei Ebenen von Links hinzufügen in der linken Spalte
 
@@ -143,7 +143,7 @@ Abbildung 5 zeigt die Ausgabe der SiteMapPath aus, wenn das Unternehmen besuchen
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>Schritt 4: Entfernen der benutzerdefinierten Prinzipal und der Identität Logik
 
-In der  *<a id="_msoanchor_7"> </a> [Konfiguration der Formularauthentifizierung und erweiterte Themen](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  Lernprogramm wurde erläutert, wie benutzerdefinierte Haupt- und Identitätsobjekte Objekte dem authentifizierten Benutzer verknüpfen. Wir erreicht dies durch Erstellen eines ereignishandlers in `Global.asax` für der Anwendungsverzeichnis `PostAuthenticateRequest` Ereignis, das ausgelöst, nachdem wird die `FormsAuthenticationModule` den Benutzer authentifiziert hat. In diesem Ereignishandler ersetzt die `GenericPrincipal` und `FormsIdentity` Objekte hinzugefügt, indem die `FormsAuthenticationModule` mit der `CustomPrincipal` und `CustomIdentity` Objekte wir in diesem Lernprogramm erstellt haben.
+In der *<a id="_msoanchor_7"></a>[Konfiguration der Formularauthentifizierung und erweiterte Themen](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* Lernprogramm wurde erläutert, wie benutzerdefinierte Haupt- und Identitätsobjekte Objekte dem authentifizierten Benutzer verknüpfen. Wir erreicht dies durch Erstellen eines ereignishandlers in `Global.asax` für der Anwendungsverzeichnis `PostAuthenticateRequest` Ereignis, das ausgelöst, nachdem wird die `FormsAuthenticationModule` den Benutzer authentifiziert hat. In diesem Ereignishandler ersetzt die `GenericPrincipal` und `FormsIdentity` Objekte hinzugefügt, indem die `FormsAuthenticationModule` mit der `CustomPrincipal` und `CustomIdentity` Objekte wir in diesem Lernprogramm erstellt haben.
 
 Während benutzerdefinierte Haupt- und Identitätsobjekte Objekte in bestimmten Szenarien, in den meisten Fällen werden die `GenericPrincipal` und `FormsIdentity` Objekte sind ausreichend. Folglich Meinung meiner nach lohnende wieder das Standardverhalten wäre. Diese Änderung vornehmen, indem Sie entweder entfernen oder Auskommentieren der `PostAuthenticateRequest` Ereignishandler oder durch Löschen der `Global.asax` Datei vollständig.
 
@@ -164,17 +164,17 @@ Die `CreateUser` Methode verfügt über vier Überladungen, jeweils eine andere 
 
 Diese vier Überladungen unterscheiden sich von der Menge der gesammelten Informationen. Die erste Überladung erfordert z. B. Benutzername und Kennwort für das neue Benutzerkonto an, während das zweite Argument auch die e-Mail-Adresse des Benutzers erfordert.
 
-Diese Überladungen sind vorhanden, da die benötigten Informationen zum Erstellen eines neuen Benutzerkontos auf den Mitgliedschaftsanbieter Konfigurationseinstellungen abhängig ist. In der  *<a id="_msoanchor_8"> </a> [erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  Angabe Mitgliedschaft Konfigurationseinstellungen im untersucht Lernprogramm `Web.config`. Tabelle 2 enthalten eine vollständige Liste der Konfigurationseinstellungen.
+Diese Überladungen sind vorhanden, da die benötigten Informationen zum Erstellen eines neuen Benutzerkontos auf den Mitgliedschaftsanbieter Konfigurationseinstellungen abhängig ist. In der *<a id="_msoanchor_8"></a>[erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* Angabe Mitgliedschaft Konfigurationseinstellungen im untersucht Lernprogramm `Web.config`. Tabelle 2 enthalten eine vollständige Liste der Konfigurationseinstellungen.
 
 Eine Konfiguration dieser Art Mitgliedschaft Anbieter festlegen, wirkt sich auf was `CreateUser` Überladungen können verwendet werden, ist die `requiresQuestionAndAnswer` Einstellung. Wenn `requiresQuestionAndAnswer` festgelegt ist, um `true` (Standard), und klicken Sie dann wir beim Erstellen eines neuen Benutzerkontos eine Sicherheitsfrage und eine Antwort angeben müssen. Diese Informationen werden später verwendet werden, wenn der Benutzer zurücksetzen oder sein Kennwort ändern muss. Insbesondere zu diesem Zeitpunkt werden sie die Sicherheitsfrage angezeigt, und sie müssen die richtige Antwort zum Zurücksetzen oder ändern ihr Kennwort eingeben. Daher, wenn die `requiresQuestionAndAnswer` auf festgelegt ist `true` und dann entweder die ersten beiden Aufrufen `CreateUser` Überladungen zu einer Ausnahme, da die Sicherheitsfrage und-Antwort fehlen. Da unsere Anwendung derzeit konfiguriert ist, um eine Sicherheitsfrage und eine Antwort erforderlich sind, müssen wir eine der letzten zwei Überladungen für die Erstellung des Benutzers programmgesteuert verwenden.
 
 Um zu veranschaulichen, mit der `CreateUser` -Methode, erstellen wir eine Benutzeroberfläche, in denen wir den Benutzer ihren Namen, Kennwörter, e-Mail und eine Antwort auf eine vordefinierte Sicherheitsfrage auffordern. Öffnen der `CreatingUserAccounts.aspx` auf der Seite der `Membership` Ordner, und fügen Sie die folgenden Web-Steuerelementen an das Inhaltssteuerelement hinzu:
 
-- Ein Textfeld mit dem Namen`Username`
-- Ein Textfeld mit dem Namen `Password`, dessen `TextMode` Eigenschaft auf festgelegt ist`Password`
-- Ein Textfeld mit dem Namen`Email`
+- Ein Textfeld mit dem Namen `Username`
+- Ein Textfeld mit dem Namen `Password`, dessen `TextMode` Eigenschaft auf festgelegt ist `Password`
+- Ein Textfeld mit dem Namen `Email`
 - Eine Bezeichnung mit dem Namen `SecurityQuestion` mit seiner `Text` Eigenschaft gelöscht
-- Ein Textfeld mit dem Namen`SecurityAnswer`
+- Ein Textfeld mit dem Namen `SecurityAnswer`
 - Eine Schaltfläche mit dem Namen `CreateAccountButton` , deren `Text` Eigenschaft so erstellen Sie das Benutzerkonto festgelegt ist
 - Ein Bezeichnungsfeld-Steuerelement mit dem Namen `CreateAccountResults` mit seiner `Text` Eigenschaft gelöscht
 
@@ -196,7 +196,7 @@ Als Nächstes erstellen Sie einen Ereignishandler für das `CreateAccountButton'
 
 [!code-vb[Main](creating-user-accounts-vb/samples/sample6.vb)]
 
-Die `Click` Ereignishandler beginnt mit dem Definieren einer Variablen mit dem Namen `createStatus` des Typs [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus`ist eine Enumeration, die den Status der gibt an, die `CreateUser` Vorgang. Angenommen, wenn das resultierende das Benutzerkonto erfolgreich erstellt wurde `MembershipCreateStatus` -Instanzensatz auf einen Wert von `Success;` andererseits, wenn der Vorgang fehlschlägt, da bereits einen Benutzer mit dem gleichen Benutzernamen vorhanden ist, wird festgelegt auf einen Wert von `DuplicateUserName`. In der `CreateUser` Überladung, die wir verwenden, müssen wir übergeben einer `MembershipCreateStatus` -Instanz in der Methode. Dieser Parameter festgelegt ist, auf den entsprechenden Wert in der `CreateUser` -Methode, und es untersuchen den Wert nach dem Aufruf der Methode, um zu bestimmen, ob das Benutzerkonto erfolgreich erstellt wurde.
+Die `Click` Ereignishandler beginnt mit dem Definieren einer Variablen mit dem Namen `createStatus` des Typs [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus` ist eine Enumeration, die den Status der gibt an, die `CreateUser` Vorgang. Angenommen, wenn das resultierende das Benutzerkonto erfolgreich erstellt wurde `MembershipCreateStatus` -Instanzensatz auf einen Wert von `Success;` andererseits, wenn der Vorgang fehlschlägt, da bereits einen Benutzer mit dem gleichen Benutzernamen vorhanden ist, wird festgelegt auf einen Wert von `DuplicateUserName`. In der `CreateUser` Überladung, die wir verwenden, müssen wir übergeben einer `MembershipCreateStatus` -Instanz in der Methode. Dieser Parameter festgelegt ist, auf den entsprechenden Wert in der `CreateUser` -Methode, und es untersuchen den Wert nach dem Aufruf der Methode, um zu bestimmen, ob das Benutzerkonto erfolgreich erstellt wurde.
 
 Nach dem Aufruf `CreateUser`, und übergeben Sie `createStatus`, `Select Case` Anweisung wird verwendet, um die Ausgabe einer entsprechenden Meldung abhängig von den zugewiesenen Wert `createStatus`. Abbildung 7 zeigt die Ausgabe an, wenn ein neuer Benutzer erfolgreich erstellt wurde. Abbildungen 8 und 9 zeigen die Ausgabe auf, wenn das Benutzerkonto nicht erstellt wurde. In Abbildung 8: eingegeben Besucher eine fünfstellige ein Kennwort nicht die Stärke, wie folgt buchstabiert in der Mitgliedschaftsanbieter Konfigurationseinstellungen kennwortanforderungen erfüllt. In Abbildung 9: versucht der Besucher, erstellen Sie ein Benutzerkonto mit einem vorhandenen Benutzernamen (die gerade erstellt, die in Abbildung 7).
 
@@ -228,10 +228,10 @@ Nachdem einige Benutzerkonten erstellt haben, stellen Sie sicher, dass die Konte
 **Abbildung 10**: Es gibt zwei Benutzer im Benutzerspeicher Mitgliedschaft: Tito und Bruce ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-user-accounts-vb/_static/image30.png))
 
 
-Während der Mitgliedschaft Benutzerspeicher jetzt Bruce und des Tito Kontoinformationen enthält, müssen wir noch Funktionalität zu implementieren, die Bruce oder Tito melden Sie sich an den Standort zulässt. Derzeit `Login.aspx` überprüft die Anmeldeinformationen des Benutzers anhand eines Satzes hartcodierten Benutzernamen/Kennwort-Paare - dies der Fall ist *nicht* überprüft die angegebenen Anmeldeinformationen für das Framework Mitgliedschaft. Sehen Sie jetzt neue Benutzerkonten in der `aspnet_Users` und `aspnet_Membership` Tabellen müssen ausreichen. In den nächsten Lernprogrammen  *<a id="_msoanchor_9"> </a> [überprüft die Benutzer Anmeldeinformationen für die Mitgliedschaft Benutzer speichern](validating-user-credentials-against-the-membership-user-store-vb.md)*, aktualisieren wir die Anmeldeseite für den Speicher für die Mitgliedschaft überprüft.
+Während der Mitgliedschaft Benutzerspeicher jetzt Bruce und des Tito Kontoinformationen enthält, müssen wir noch Funktionalität zu implementieren, die Bruce oder Tito melden Sie sich an den Standort zulässt. Derzeit `Login.aspx` überprüft die Anmeldeinformationen des Benutzers anhand eines Satzes hartcodierten Benutzernamen/Kennwort-Paare - dies der Fall ist *nicht* überprüft die angegebenen Anmeldeinformationen für das Framework Mitgliedschaft. Sehen Sie jetzt neue Benutzerkonten in der `aspnet_Users` und `aspnet_Membership` Tabellen müssen ausreichen. In den nächsten Lernprogrammen *<a id="_msoanchor_9"></a>[überprüft die Benutzer Anmeldeinformationen für die Mitgliedschaft Benutzer speichern](validating-user-credentials-against-the-membership-user-store-vb.md)*, aktualisieren wir die Anmeldeseite für den Speicher für die Mitgliedschaft überprüft.
 
 > [!NOTE]
-> Wenn Sie keinen Benutzern angezeigt werden Ihre `SecurityTutorials.mdf` Datenbank möglicherweise daran, dass die Webanwendung den Standardmitgliedschaftsanbieter verwendet wird `AspNetSqlMembershipProvider`, verwendet der `ASPNETDB.mdf` Datenbank als seine Benutzerspeicher. Um festzustellen, ob dies der Fall ist, klicken Sie auf die Schaltfläche "Aktualisieren" im Projektmappen-Explorer. Wenn eine Datenbank mit dem Namen `ASPNETDB.mdf` wurde hinzugefügt, um die `App_Data` Ordner, dies ist das Problem. Zurück zu Schritt 4 der  *<a id="_msoanchor_10"> </a> [erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  Tutorial Anleitungen zum ordnungsgemäßen Konfigurieren der Mitgliedschaftsanbieter.
+> Wenn Sie keinen Benutzern angezeigt werden Ihre `SecurityTutorials.mdf` Datenbank möglicherweise daran, dass die Webanwendung den Standardmitgliedschaftsanbieter verwendet wird `AspNetSqlMembershipProvider`, verwendet der `ASPNETDB.mdf` Datenbank als seine Benutzerspeicher. Um festzustellen, ob dies der Fall ist, klicken Sie auf die Schaltfläche "Aktualisieren" im Projektmappen-Explorer. Wenn eine Datenbank mit dem Namen `ASPNETDB.mdf` wurde hinzugefügt, um die `App_Data` Ordner, dies ist das Problem. Zurück zu Schritt 4 der *<a id="_msoanchor_10"></a>[erstellen das Schema für die Mitgliedschaft in SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* Tutorial Anleitungen zum ordnungsgemäßen Konfigurieren der Mitgliedschaftsanbieter.
 
 
 Erstellen Sie in den meisten Benutzer Konto Szenarien, die Besucher erhält eine Oberfläche, geben ihren Benutzernamen, Kennwörter, e-Mail und andere wichtige Informationen, die an diesem Punkt ein neues Konto erstellt wird. In diesem Schritt wird erläutert, erstellen eine solche Schnittstelle per hand katalogisiert wird und dann wurde erläutert, wie mithilfe der `Membership.CreateUser` Methode, um das neue Benutzerkonto programmgesteuert hinzufügen auf der Grundlage von Eingaben des Benutzers. Getesteten Codes erstellt jedoch nur das neue Benutzerkonto an. Es nachverfolgung Aktionen, wie der Benutzer an den Standort unter dem gerade erstellten Benutzerkonto anmelden oder senden eine e-Mail zur kaufbestätigung, für den Benutzer nicht ausgeführt werden. Diese zusätzlichen Schritte, müsste zusätzlichen Code auf der Schaltfläche `Click` -Ereignishandler.
@@ -350,7 +350,7 @@ Abbildung 15 zeigt einen Screenshot der `CreatingUserAccounts.aspx` bei der Eing
 
 
 > [!NOTE]
-> Sehen wir ein Beispiel der Verwendung des Steuerelements CreateUserWizard `CreatedUser` Ereignis in der  *<a id="_msoanchor_11"> </a> [zusätzliche Benutzerinformationen speichern](storing-additional-user-information-vb.md)*  Lernprogramm.
+> Sehen wir ein Beispiel der Verwendung des Steuerelements CreateUserWizard `CreatedUser` Ereignis in der *<a id="_msoanchor_11"></a>[zusätzliche Benutzerinformationen speichern](storing-additional-user-information-vb.md)* Lernprogramm.
 
 
 ## <a name="summary"></a>Zusammenfassung
@@ -367,7 +367,7 @@ Viel Spaß beim Programmieren!
 
 Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
 
-- [`CreateUser`Technische Dokumentation](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
+- [`CreateUser` Technische Dokumentation](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
 - [Übersicht über CreateUserWizard-Steuerelement](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/createuserwizard.aspx)
 - [Erstellen eine Datei systembasierten Standort Kartenanbieter](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)
 - [Erstellen eine schrittweise Benutzeroberfläche mit dem ASP.NET 2.0-Assistent-Steuerelement](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
@@ -377,12 +377,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Zurück](creating-the-membership-schema-in-sql-server-vb.md)
-[Weiter](validating-user-credentials-against-the-membership-user-store-vb.md)
+> [!div class="step-by-step"]
+> [Zurück](creating-the-membership-schema-in-sql-server-vb.md)
+> [Weiter](validating-user-credentials-against-the-membership-user-store-vb.md)

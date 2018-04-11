@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: "Einen Überblick über die Formularauthentifizierung (c#) | Microsoft Docs"
+title: Einen Überblick über die Formularauthentifizierung (c#) | Microsoft Docs
 author: rick-anderson
 description: Erstellen von benutzerdefinierten Routen
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d386a3b6328675fe21f989f8fd36bfc91fc08b32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f64384d403f3cf81ffa3327a81b635bc71e2b44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Einen Überblick über die Formularauthentifizierung (c#)
 ====================
@@ -43,8 +43,8 @@ Wenn die ASP.NET-Laufzeit eine Anforderung für eine ASP.NET-Ressource, z. B. ei
 
 *HTTP-Module* verwaltete Klassen, deren Code wird als Reaktion auf ein bestimmtes Ereignis am Anforderungslebenszyklus ausgeführt, werden. Im Lieferumfang von ASP.NET sind einer Anzahl von HTTP-Module, die wichtige Aufgaben im Hintergrund ausführen. Zwei integrierte HTTP-Module, die für unsere Diskussion besonders relevant sind, sind:
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**– authentifiziert den Benutzer durch Überprüfen das Formularauthentifizierungsticket, das in die Auflistung der Cookies des Benutzers in der Regel enthalten ist. Wenn keine Formularauthentifizierungsticket vorhanden ist, ist der Benutzer anonym.
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**– Legt fest, ob der aktuelle Benutzer, beim Zugriff auf die angeforderte URL berechtigt ist. Dieses Modul ermittelt die Autorität für die indem Sie die Autorisierungsregeln, die in den Anwendungskonfigurationsdateien angegeben. ASP.NET enthält außerdem die [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) , der Autorität für die von der angeforderten Dateien ACLs consulting bestimmt.
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** – authentifiziert den Benutzer durch Überprüfen das Formularauthentifizierungsticket, das in die Auflistung der Cookies des Benutzers in der Regel enthalten ist. Wenn keine Formularauthentifizierungsticket vorhanden ist, ist der Benutzer anonym.
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** – Legt fest, ob der aktuelle Benutzer, beim Zugriff auf die angeforderte URL berechtigt ist. Dieses Modul ermittelt die Autorität für die indem Sie die Autorisierungsregeln, die in den Anwendungskonfigurationsdateien angegeben. ASP.NET enthält außerdem die [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) , der Autorität für die von der angeforderten Dateien ACLs consulting bestimmt.
 
 Die `FormsAuthenticationModule` versucht, die zur Authentifizierung des Benutzers vor der `UrlAuthorizationModule` (und `FileAuthorizationModule`) ausführen. Wenn der anfordernde Benutzer Zugriff auf die angeforderte Ressource nicht autorisiert ist, das Autorisierungsmodul die Anforderung beendet und gibt ein [HTTP 401 Unauthorized](http://www.checkupdown.com/status/E401.html) Status. In Szenarien für Windows-Authentifizierung wird der HTTP 401-Status an den Browser zurückgegeben. Dieser Statuscode bewirkt, dass der Browser fordert den Benutzer zur Eingabe ihrer Anmeldeinformationen über ein modales Dialogfeld. Bei der Formularauthentifizierung jedoch der Status der HTTP 401 Unauthorized wird nie an den Browser gesendet die FormsAuthenticationModule erkennt diese Status und dahingehend verändert, um den Benutzer zur Anmeldeseite umzuleiten (über eine [HTTP 302-Umleitung](http://www.checkupdown.com/status/E302.html) Status).
 
@@ -76,7 +76,7 @@ Lange Story kurz in Versionen vor IIS 7, nur Formularauthentifizierung können S
 
 ## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>Schritt 1: Erstellen einer ASP.NET-Website für diese Reihe von Lernprogrammen
 
-Um die größtmögliche Zielgruppe erreichen, wir erstellen in der gesamten diese Reihe von, ASP.NET-Website mit Microsofts kostenlose Version von Visual Studio 2008 erstellt [Visual Web Developer 2008.](https://www.microsoft.com/express/vwd/). Implementieren wir die `SqlMembershipProvider` Benutzerspeichers in einer [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) Datenbank. Wenn Sie Visual Studio 2005 oder eine andere Edition von Visual Studio 2008 oder SQL Server verwenden, keine Sorge: die Schritte werden fast identisch, und keine bedeutenden Unterschiede werden darauf hingewiesen werden.
+Um die größtmögliche Zielgruppe erreichen, wir erstellen in der gesamten diese Reihe von, ASP.NET-Website mit Microsofts kostenlose Version von Visual Studio 2008 erstellt [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Implementieren wir die `SqlMembershipProvider` Benutzerspeichers in einer [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) Datenbank. Wenn Sie Visual Studio 2005 oder eine andere Edition von Visual Studio 2008 oder SQL Server verwenden, keine Sorge: die Schritte werden fast identisch, und keine bedeutenden Unterschiede werden darauf hingewiesen werden.
 
 > [!NOTE]
 > Die Demo-Webanwendung, die in jedem Lernprogramm verwendet steht als Download zur Verfügung. Diese herunterladbare Anwendung wurde in Visual Web Developer 2008 als Ziel für .NET Framework, Version 3.5 erstellt. Da die Anwendung für .NET 3.5 ausgerichtet ist, enthält die Datei "Web.config" zusätzliche, 3.5-spezifischen Konfigurationselementen. Kurz gesagt, wenn Sie noch installieren Sie .NET 3.5 auf dem Computer dann zum Herunterladen der Anwendung ist nicht möglich, ohne zuvor die 3.5-spezifischer Markups aus Datei "Web.config" entfernt.
@@ -103,7 +103,7 @@ Als Nächstes fügen Sie eine neue Master-Seite, auf der Website in das Stammver
 **Abbildung 3**: Fügen Sie einem Site.master mit dem Namen eines Master Seite auf der Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-forms-authentication-cs/_static/image7.png))
 
 
-Definieren Sie die standortweite Seitenlayout hier in der Masterseite. Können Sie mithilfe die Entwurfsansicht und Hinzufügen von beliebigen Layout oder Web-Steuerelemente Sie müssen, oder Sie können das Markup manuell in der Datenquellensicht manuell hinzufügen. Ich meine Masterseite Layout imitieren, die das Layout in strukturierten meine  *[arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)*  Reihe von Lernprogrammen (siehe Abbildung 4). Die Gestaltungsvorlage verwendet [cascading Stylesheets](http://www.w3schools.com/css/default.asp) zum Positionieren und Formatvorlagen mit den CSS-Einstellungen in der Datei Style.css (das im zugehörigen Download für dieses Lernprogramm enthalten ist) definiert. Die CSS-Regeln werden definiert, während Sie nicht aus dem unten gezeigten Markup erkennen können, sodass die Navigation &lt;Div&gt;des Inhalt ist absolut positioniert, sodass er auf der linken Seite angezeigt und verfügt über eine feste Breite von 200 Pixel.
+Definieren Sie die standortweite Seitenlayout hier in der Masterseite. Können Sie mithilfe die Entwurfsansicht und Hinzufügen von beliebigen Layout oder Web-Steuerelemente Sie müssen, oder Sie können das Markup manuell in der Datenquellensicht manuell hinzufügen. Ich meine Masterseite Layout imitieren, die das Layout in strukturierten meine *[arbeiten mit Daten in ASP.NET 2.0](../../data-access/index.md)* Reihe von Lernprogrammen (siehe Abbildung 4). Die Gestaltungsvorlage verwendet [cascading Stylesheets](http://www.w3schools.com/css/default.asp) zum Positionieren und Formatvorlagen mit den CSS-Einstellungen in der Datei Style.css (das im zugehörigen Download für dieses Lernprogramm enthalten ist) definiert. Die CSS-Regeln werden definiert, während Sie nicht aus dem unten gezeigten Markup erkennen können, sodass die Navigation &lt;Div&gt;des Inhalt ist absolut positioniert, sodass er auf der linken Seite angezeigt und verfügt über eine feste Breite von 200 Pixel.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample1.aspx)]
 
@@ -459,7 +459,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 - [ASP.NET Anmeldesteuerelementen](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [Professionelle ASP.NET 2.0 Sicherheit, Mitgliedschaft und Rollenverwaltung](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
 - [Die `<authentication>` Element](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [Die `<forms>` -Element`<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [Die `<forms>` -Element `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Lehrvideos auf die Themen in diesem Lernprogramm
 
@@ -467,12 +467,12 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ## <a name="about-the-author"></a>Informationen zum Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an...
 
 Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde in diesem Lernprogramm aus, die Reihe von viele nützliche Bearbeiter überprüft wurde. Lead Prüfer für dieses Lernprogramm enthalten Alicja Maziarz, John Suru und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Zurück](security-basics-and-asp-net-support-cs.md)
-[Weiter](forms-authentication-configuration-and-advanced-topics-cs.md)
+> [!div class="step-by-step"]
+> [Zurück](security-basics-and-asp-net-support-cs.md)
+> [Weiter](forms-authentication-configuration-and-advanced-topics-cs.md)
