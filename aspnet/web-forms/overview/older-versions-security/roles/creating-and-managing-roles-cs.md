@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 title: Erstellen und Verwalten von Rollen (c#) | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm werden die erforderlichen Schritte zum Konfigurieren des Rollen-Framework untersucht. Danach werden Webseiten zum Erstellen und Löschen Rollen erstellen."
+description: In diesem Lernprogramm werden die erforderlichen Schritte zum Konfigurieren des Rollen-Framework untersucht. Danach werden Webseiten zum Erstellen und Löschen Rollen erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2b13a2a3b242877060aaec2257b2a742ac8d674
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a4ea7e76e023cd436d1d8ac52307a3ac17267fef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-and-managing-roles-c"></a>Erstellen und Verwalten von Rollen (c#)
 ====================
@@ -96,8 +96,8 @@ Des Anbieters `connectionStringName` Attribut gibt an, der rollenspeicher, der v
 
 Daher, wenn wir das Framework Rollen einfach aktivieren, ohne alle Anbieterinformationen in der vorliegenden Anwendungsverzeichnis `Web.config` Datei, die Anwendung verwendet die registrierten Rollen Standardanbieter, `AspNetSqlRoleProvider`. Wenn die `~/App_Data/aspnet.mdf` Datenbank ist nicht vorhanden, den die ASP.NET-Laufzeit automatisch erstellt, und fügen Sie die Anwendung Dienstschema hinzu. Allerdings möchten wir verwenden die `aspnet.mdf` Datenbank; stattdessen verwendet werden soll die `SecurityTutorials.mdf` Datenbank, die wir bereits erstellt und die Anwendung Dienstschema hinzugefügt haben. Diese Änderung kann auf zwei Arten erfolgen:
 
-- **Geben Sie einen Wert für die ***`LocalSqlServer`*** Verbindungszeichenfolgenname in ***`Web.config`***.** Durch Überschreiben der `LocalSqlServer` Zeichenfolge Verbindungswert in `Web.config`, verwenden wir den Standardanbieter für registrierte Rollen (`AspNetSqlRoleProvider`) und haben sie die korrekte Arbeitsweise mit der `SecurityTutorials.mdf` Datenbank. Weitere Informationen zu dieser Technik finden Sie unter [Scott Guthrie](https://weblogs.asp.net/scottgu/)des Blogbeitrag [Konfigurieren von ASP.NET 2.0-Anwendungsdienste für Verwenden von SQL Server 2000 oder SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Hinzufügen eines neues registriertes Anbieters des Typs ***`SqlRoleProvider`*** und konfigurieren Sie die ***`connectionStringName`*** Einstellung aus, um zu zeigen die ***`SecurityTutorials.mdf`*** Datenbank.** Dies ist der Ansatz ich empfohlen und verwendet die <a id="_msoanchor_7"> </a> [ *erstellen das Schema für die Mitgliedschaft in SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) Lernprogramm und ist der Ansatz ich verwende die in diesem Lernprogramm auch.
+- <strong>Geben Sie einen Wert für die</strong><strong>`LocalSqlServer`</strong><strong>Verbindungszeichenfolgenname in</strong><strong>`Web.config`</strong><strong>.</strong> Durch Überschreiben der `LocalSqlServer` Zeichenfolge Verbindungswert in `Web.config`, verwenden wir den Standardanbieter für registrierte Rollen (`AspNetSqlRoleProvider`) und haben sie die korrekte Arbeitsweise mit der `SecurityTutorials.mdf` Datenbank. Weitere Informationen zu dieser Technik finden Sie unter [Scott Guthrie](https://weblogs.asp.net/scottgu/)des Blogbeitrag [Konfigurieren von ASP.NET 2.0-Anwendungsdienste für Verwenden von SQL Server 2000 oder SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Hinzufügen einen neuen registrierten Anbieter vom Typ</strong><strong>`SqlRoleProvider`</strong><strong>und konfigurieren Sie die</strong><strong>`connectionStringName`</strong><strong>Einstellung aus, um auf dieverweisen</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>Datenbank.</strong> Dies ist der Ansatz ich empfohlen und verwendet die <a id="_msoanchor_7"> </a> [ *erstellen das Schema für die Mitgliedschaft in SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) Lernprogramm und ist der Ansatz ich verwende die in diesem Lernprogramm auch.
 
 Das folgende Markup der Rollen-Konfiguration zum Hinzufügen der `Web.config` Datei. Dieses Markup registriert einen neuen Anbieter mit dem Namen `SecurityTutorialsSqlRoleProvider`.
 
@@ -215,8 +215,8 @@ Jetzt bei der Benutzer fügt eine neue Rolle die `RoleList` GridView zeigt den g
 
 An diesem Punkt ein Benutzer eine neue Rolle erstellen und Anzeigen von vorhandenen Rollen aus der `ManageRoles.aspx` Seite. Wir ermöglichen Benutzern Rollen zu löschen. Die `Roles.DeleteRole` Methode verfügt über zwei Überladungen:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx)-Löscht die Rolle *RoleName*. Eine Ausnahme wird ausgelöst, wenn die Rolle ein oder mehrere Elemente enthält.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx)-Löscht die Rolle *RoleName*. Wenn *ThrowOnPopulateRole* ist `true`, und klicken Sie dann eine Ausnahme ausgelöst wird, wenn die Rolle ein oder mehrere Elemente enthält. Wenn *ThrowOnPopulateRole* ist `false`, und klicken Sie dann die Rolle gelöscht wird, ob es alle Elemente enthält. Intern können die `DeleteRole(roleName)` Methodenaufrufe `DeleteRole(roleName, true)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -Löscht die Rolle *RoleName*. Eine Ausnahme wird ausgelöst, wenn die Rolle ein oder mehrere Elemente enthält.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -Löscht die Rolle *RoleName*. Wenn *ThrowOnPopulateRole* ist `true`, und klicken Sie dann eine Ausnahme ausgelöst wird, wenn die Rolle ein oder mehrere Elemente enthält. Wenn *ThrowOnPopulateRole* ist `false`, und klicken Sie dann die Rolle gelöscht wird, ob es alle Elemente enthält. Intern können die `DeleteRole(roleName)` Methodenaufrufe `DeleteRole(roleName, true)`.
 
 Die `DeleteRole` Methode löst auch eine Ausnahme aus, wenn *RoleName* ist `null` oder eine leere Zeichenfolge oder, wenn *RoleName* ein Komma enthält. Wenn *RoleName* ist nicht im System vorhanden `DeleteRole` fehlschlägt, im Hintergrund, ohne eine Ausnahme auszulösen.
 
@@ -263,11 +263,11 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm enthalten Alicja Maziarz Suchi Banerjee und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm enthalten Alicja Maziarz Suchi Banerjee und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Nächste](assigning-roles-to-users-cs.md)
+> [!div class="step-by-step"]
+> [Nächste](assigning-roles-to-users-cs.md)
