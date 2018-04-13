@@ -580,7 +580,7 @@ In dieser Aufgabe aktualisieren Sie den desktop Layout zum ansichtumschaltung-en
     ![Der Darstellung in der Desktopansicht gerendert](whats-new-in-aspnet-mvc-4/_static/image32.png "Ansichtumschaltung in desktop-Ansicht gerendert")
 
     *In der Desktopansicht gerendert Ansichtumschaltung*
-7. Wechseln Sie zur mobilen Ansicht erneut aus, und navigieren Sie zu <strong>zu</strong> Seite (http://localhost[Port] / Home/zu). Beachten Sie, dass, selbst wenn Sie eine Ansicht About.Mobile.cshtml erstellt haben, mit der mobilen Layout der Seite "Info" angezeigt wird (\_Layout.Mobile.cshtml).
+7. Wechseln Sie zur mobilen Ansicht erneut aus, und navigieren Sie zu <strong>zu</strong> Seite (http://localhost[Port]/Home/About). Beachten Sie, dass, selbst wenn Sie eine Ansicht About.Mobile.cshtml erstellt haben, mit der mobilen Layout der Seite "Info" angezeigt wird (\_Layout.Mobile.cshtml).
 
     ![Zu den Seiten](whats-new-in-aspnet-mvc-4/_static/image33.png "zu Seiten")
 
