@@ -1,7 +1,7 @@
 ---
-title: "Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Windows"
+title: Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Windows
 author: rick-anderson
-description: "Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Windows"
+description: Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Windows
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -51,7 +51,7 @@ Wählen Sie im Dialogfeld **ASP.NET Core-Webanwendung – TodoAPI** die Vorlage 
 
 ### <a name="launch-the-app"></a>Starten der App
 
-Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei *port* eine zufällig ausgewählte Portnummer ist. Chrome, Edge und Firefox zeigen die folgende Ausgabe an:
+Drücken Sie in Visual Studio STRG+F5 zum Starten der App. Visual Studio startet einen Browser und navigiert zu `http://localhost:port/api/values`, wobei *port* eine zufällig ausgewählte Portnummer ist. Chrome, Microsoft Edge und Firefox zeigen die folgende Ausgabe an:
 
 ```
 ["value1","value2"]

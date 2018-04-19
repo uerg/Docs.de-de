@@ -1,7 +1,7 @@
 ---
 title: 'Razor-Seiten: Routen- und App-Konventionsfeatures in ASP.NET Core'
 author: guardrex
-description: "Erfahren Sie, wie Konventionsfeatures für Routen- und App-Modellanbieter Sie beim Steuern von Seitenrouting, Ermittlung und Verarbeitung unterstützen können."
+description: Erfahren Sie, wie Konventionsfeatures für Routen- und App-Modellanbieter Sie beim Steuern von Seitenrouting, Ermittlung und Verarbeitung unterstützen können.
 manager: wpickett
 ms.author: riande
 ms.date: 10/23/2017
@@ -127,7 +127,7 @@ Beachten Sie, dass die URL, die für den Link **Kontakt** in der gerenderten Sei
 
 Sie können die Kontaktseite entweder über deren übliche Route, `/Contact`, oder über die benutzerdefinierte Route, `/TheContactPage`, besuchen. Wenn Sie ein zusätzliches `text`-Routensegment bereitstellen, wird dieses HTML-codierte Segment auf der Seite angezeigt:
 
-![Beispiel für das Bereitstellen eines optionalen „Text“-Routensegments mit „TextValue“ in der URL in der Ansicht des Edge-Browsers Die gerenderte Seite zeigt den Segmentwert „Text“ an.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![Beispiel für das Bereitstellen eines optionalen „Text“-Routensegments mit „TextValue“ in der URL in der Ansicht des Microsoft Edge-Browsers Die gerenderte Seite zeigt den Segmentwert „Text“ an.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Konventionen für Seitenmodellaktionen
 

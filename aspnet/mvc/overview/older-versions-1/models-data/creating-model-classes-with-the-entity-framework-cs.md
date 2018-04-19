@@ -193,7 +193,7 @@ Die zweite Edit() Aktion startet durch Abrufen des Film-Datensatzes aus der Date
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample7.cs)]
 
-Als Nächstes wird die TryUpdateModel()-Methode verwendet, die Werte der Felder der HTML-Formular an den Eigenschaften der Entität Film zugewiesen. Beachten Sie, dass eine weiße Liste bereitgestellt wird, um die genaue Eigenschaften aktualisieren anzugeben.
+Als Nächstes wird die TryUpdateModel()-Methode verwendet, die Werte der Felder der HTML-Formular an den Eigenschaften der Entität Film zugewiesen. Beachten Sie, dass eine Zulassungsliste bereitgestellt wird, um die genaue Eigenschaften aktualisieren anzugeben.
 
 Als Nächstes wird einige einfache Überprüfung ausgeführt, um sicherzustellen, dass der Filmtitel und die Director Eigenschaften Werte aufweisen. Wenn entweder Eigenschaft einen Wert vorhanden ist, klicken Sie dann eine Validierungsfehlermeldung angezeigt wird ModelState hinzugefügt, und ModelState.IsValid gibt den Wert "false" zurück.
 
