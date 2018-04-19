@@ -11,7 +11,7 @@ ms.topic: article
 uid: mvc/views/overview
 ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
 ---
@@ -64,7 +64,7 @@ Ansichten werden in der Regel von Aktionen als [ViewResult](/aspnet/core/api/mic
 
 Wenn diese Aktion zurückgegeben wird, wird die im letzten Abschnitt angezeigte *About.cshtml*-Ansicht als die folgende Webseite gerendert:
 
-![Hilfe-Seite in Edge gerendert](overview/_static/about-page.png)
+![Hilfe-Seite in Microsoft Edge gerendert](overview/_static/about-page.png)
 
 Für die `View`-Hilfsprogrammmethode gibt es einige Überladungen. Sie können bei Bedarf folgende Elemente angeben:
 

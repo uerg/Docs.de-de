@@ -115,7 +115,7 @@ Die vollständige `Movie` -Klasse sieht wie der folgende Code:
 
 Erstellen Sie die Anwendung (STRG + UMSCHALT + B).
 
-Da Sie ein neues Feld hinzugefügt haben die `Movie` -Klasse, müssen Sie auch die Bindung zu aktualisieren *weiße Liste* , damit diese neue Eigenschaft eingeschlossen werden. Update der `bind` -Attribut für `Create` und `Edit` Aktionsmethoden enthalten die `Rating` Eigenschaft:
+Da Sie ein neues Feld hinzugefügt haben die `Movie` -Klasse, müssen Sie auch die Bindung zu aktualisieren *Zulassungsliste* , damit diese neue Eigenschaft eingeschlossen werden. Update der `bind` -Attribut für `Create` und `Edit` Aktionsmethoden enthalten die `Rating` Eigenschaft:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs?highlight=1)]
 
