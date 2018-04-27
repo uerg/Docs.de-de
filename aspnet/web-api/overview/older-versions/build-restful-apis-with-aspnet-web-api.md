@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Erstellen von RESTful-APIs mit ASP.NET Web-API
 ====================
@@ -25,7 +25,7 @@ Durch [Web Lager Team](https://twitter.com/webcamps)
 > In den vergangenen Jahren hat es klar sein, dass HTTP nicht ist nur für HTML-Seiten bedient. Es ist auch eine leistungsstarke Plattform zum Erstellen von Web-APIs, mit ein paar Verben (GET, POST usw.) sowie einige einfache Konzepte wie *URIs* und *Header*. ASP.NET-Web-API ist eine Reihe von Komponenten, die HTTP-Programmiermodell zu vereinfachen. Da es auf Grundlage der ASP.NET MVC-Laufzeit erstellt wurde, verarbeitet Web-API automatisch die Transportdetails auf niedriger Ebene HTTP. Zur gleichen Zeit macht das HTTP-Programmiermodell natürlich von Web-API verfügbar. Tatsächlich ist eines der Ziele von Web-API zum *nicht* Abstraktion für die Verwendung von HTTP. Deshalb ist Web-API flexibel und einfach zu erweitern. In dieser praktischen Übungseinheit verwenden Sie die Web-API, um eine einfache REST-API für einen Kontakt-Manager-Anwendung zu erstellen. Erstellen Sie auch einen Client für die API nutzen. Architektonische REST-Stil hat eine effektive Möglichkeit für die HTTP - genutzt werden zwar sicherlich nicht der einzige gültige Ansatz in HTTP-erwiesen. Der Kontakte-Manager wird die RESTful zum Auflisten, hinzufügen und Entfernen von Kontakten, u. a. verfügbar machen. In dieser Umgebung erfordert ein grundlegendes Verständnis von HTTP, REST, und setzt voraus, dass Sie über grundlegende Kenntnisse von HTML, JavaScript und jQuery haben.
 > 
 > > [!NOTE]
-> > Die ASP.NET-Website verfügt über einen speziellen Bereich für die ASP.NET Web API-Framework unter [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Dieser Standort wird weiterhin bereitstellen, hochaktuelle Informationen, Beispiele und Nachrichten, die im Zusammenhang mit der Web-API so checken Sie es häufig, wenn Sie tiefer in die Kunst zum Erstellen von benutzerdefinierten Web-APIs auf praktisch jedem Gerät oder einer Entwicklungsumgebung Framework vertiefen möchten.
+> > Die ASP.NET-Website verfügt über einen speziellen Bereich für die ASP.NET Web API-Framework unter [ https://asp.net/web-api ](https://asp.net/web-api). Dieser Standort wird weiterhin bereitstellen, hochaktuelle Informationen, Beispiele und Nachrichten, die im Zusammenhang mit der Web-API so checken Sie es häufig, wenn Sie tiefer in die Kunst zum Erstellen von benutzerdefinierten Web-APIs auf praktisch jedem Gerät oder einer Entwicklungsumgebung Framework vertiefen möchten.
 > > 
 > > ASP.NET Web-API, ähnlich wie in ASP.NET MVC 4 hat hohe Flexibilität im Hinblick auf die Dienstebene trennen, durch den Controller, und Sie können einige der verfügbaren Abhängigkeitsinjektion Frameworks relativ einfach zu verwenden. Es ist ein gutes Beispiel in MSDN, die zeigt, wie Ninject für Abhängigkeitsinjektion in ASP.NET Web-API-Projekt, das Sie ihn von herunterladen können [hier](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 
@@ -588,7 +588,7 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Azure-Portal erstel
 7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einem von Azure für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express for Web** and **Microsoft Visual Studio 2012** support reading publish profiles to automate configuration of these programs for publishing web applications to Azure.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einem von Azure für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen in Azure.
 
     ![Herunterladen der Website-Veröffentlichungsprofil](build-restful-apis-with-aspnet-web-api/_static/image45.png "der Website herunterladen eines Veröffentlichungsprofils")
 

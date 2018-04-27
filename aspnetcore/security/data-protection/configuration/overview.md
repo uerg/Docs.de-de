@@ -9,19 +9,27 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurieren von ASP.NET Core Datenschutz
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Wenn das System den Datenschutz initialisiert wird, gilt es [Standardeinstellungen](xref:security/data-protection/configuration/default-settings) basierend auf der betriebsumgebung. Diese Einstellungen sind im Allgemeinen geeignet für apps, die auf einem einzelnen Computer ausgeführt. Es gibt Fälle, in denen ein Entwickler möchten vielleicht die Standardeinstellungen geändert werden, da es sich bei ihrer app auf mehrere Computer oder aus Compliance-Gründen verteilt wird. Für die folgenden Szenarien bietet das Data Protection-System eine umfangreiche Konfigurations-API.
+Wenn das System den Datenschutz initialisiert wird, gilt es [Standardeinstellungen](xref:security/data-protection/configuration/default-settings) basierend auf der betriebsumgebung. Diese Einstellungen sind im Allgemeinen geeignet für apps, die auf einem einzelnen Computer ausgeführt. Es gibt Fälle, in denen ein Entwickler sollten, um die Standardeinstellungen zu ändern:
 
-Es ist eine Erweiterungsmethode [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) zurückgibt ein [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` macht Erweiterungsmethoden, dass Sie miteinander Optionen verketten können so konfigurieren Sie den Schutz von Daten an.
+* Die app wird auf mehrere Computer verteilt.
+* Aus Compliance-Gründen.
+
+Für die folgenden Szenarien bietet das Data Protection-System eine umfangreiche Konfigurations-API.
+
+> [!WARNING]
+> Ähnlich wie bei den Konfigurationsdateien sollte der Data Protection Schlüssel Ring geschützt werden mit entsprechenden Berechtigungen. Sie können ruhende Verschlüsselung, aber dadurch nicht verhindert, dass Angreifer das Erstellen neuer Schlüssel. Folglich wird die Sicherheit Ihrer app beeinträchtigt. Der Speicherort, die mit Data Protection konfiguriert müssen den Zugriff auf die app selbst, ähnlich wie die Konfigurationsdateien zu schützen, ist beschränkt. Wenn Ihr Schlüssel Ring auf dem Datenträger gespeichert werden soll, verwenden Sie z. B. Dateisystemberechtigungen. Stellen Sie sicher nur die Identität unter Leseberechtigungen der Ihre Web-app ausgeführt wird, schreiben und Zugriff auf dieses Verzeichnis zu erstellen. Bei Verwendung von Azure-Tabellenspeicher sollte nur die Web-app haben die Möglichkeit zum Lesen, schreiben oder neue Einträge in den Tabellenspeicher usw. erstellen.
+>
+> Die Erweiterungsmethode [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) gibt eine [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` macht Erweiterungsmethoden, dass Sie miteinander Optionen verketten können so konfigurieren Sie den Schutz von Daten an.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

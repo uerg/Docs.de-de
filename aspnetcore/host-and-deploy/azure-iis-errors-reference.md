@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Allgemeine Referenz zu Fehlern für Azure App Service und IIS mit ASP.NET Core
 
@@ -42,7 +42,7 @@ Vergleichen Sie die Informationen zu den folgenden allgemeinen Fehlermeldungen a
 
 Problembehandlung:
 
-* Verfügt das System während der Installation des Server Hosting-Pakets nicht über Zugriff auf das Internet, tritt diese Ausnahme auf, wenn das Installationsprogramm *Microsoft Visual C++ 2015 Redistributable* nicht abrufen kann. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Wenn das Installationsprogramm schlägt fehl, kann der Server nicht die .NET Core-Laufzeit, die zum Hosten einer Bereitstellung Framework abhängiges (Diskettenlaufwerk) erforderlich empfängt. Ein Diskettenlaufwerk hosten zu können, stellen Sie sicher, dass die Common Language Runtime, in Programmen installiert ist &amp; Funktionen. Bei Bedarf erhalten Sie einen Runtime-Installer aus [.NET alle Downloads](https://www.microsoft.com/net/download/all). Starten Sie nach dem Installieren der Runtime das System neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
+* Wenn das System Zugriff auf das Internet nicht während der Installation von Paket hosten, diese Ausnahme tritt beim Abrufen der Installer verhindert wird. die *Microsoft Visual C++ 2015 Redistributable*. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Wenn das Installationsprogramm schlägt fehl, kann der Server nicht die .NET Core-Laufzeit, die zum Hosten einer Bereitstellung Framework abhängiges (Diskettenlaufwerk) erforderlich empfängt. Ein Diskettenlaufwerk hosten zu können, stellen Sie sicher, dass die Common Language Runtime, in Programmen installiert ist &amp; Funktionen. Bei Bedarf erhalten Sie einen Runtime-Installer aus [.NET alle Downloads](https://www.microsoft.com/net/download/all). Starten Sie nach dem Installieren der Runtime das System neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>Durch ein Upgrade des Betriebssystems wird das ASP.NET Core-Modul (32-Bit) entfernt
 
@@ -50,7 +50,7 @@ Problembehandlung:
 
 Problembehandlung:
 
-* Nicht zum Betriebssystem gehörende Dateien im Verzeichnis **C:\Windows\SysWOW64\inetsrv** werden während eines Betriebssystemupgrades nicht beibehalten. Wenn ASP.NET Core-Modul installiert ist, vor einem Betriebssystemupgrade, und klicken Sie dann alle AppPool wird nach einem Betriebssystemupgrade in 32-Bit-Modus ausgeführt werden, dieser Fehler tritt. Reparieren Sie nach einem Betriebssystemupgrade das ASP.NET Core-Modul. Siehe [Installieren des Pakets „.NET Core Windows Server Hosting“](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Wählen Sie **Reparatur** Wenn das Installationsprogramm ausgeführt wird.
+* Nicht zum Betriebssystem gehörende Dateien im Verzeichnis **C:\Windows\SysWOW64\inetsrv** werden während eines Betriebssystemupgrades nicht beibehalten. Wenn ASP.NET Core-Modul installiert ist, vor einem Betriebssystemupgrade, und klicken Sie dann alle AppPool wird nach einem Betriebssystemupgrade in 32-Bit-Modus ausgeführt werden, dieser Fehler tritt. Reparieren Sie nach einem Betriebssystemupgrade das ASP.NET Core-Modul. Finden Sie unter [installieren Sie das Paket für das Hosten von .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Wählen Sie **Reparatur** Wenn das Installationsprogramm ausgeführt wird.
 
 ## <a name="platform-conflicts-with-rid"></a>Plattformkonflikte mit RID
 
@@ -114,11 +114,11 @@ Problembehandlung:
 
 * Vergewissern Sie sich, dass die richtige Rolle aktiviert ist. Siehe [IIS-Konfiguration](xref:host-and-deploy/iis/index#iis-configuration).
 
-* Überprüfen Sie unter **Programme und Features**, ob das **Microsoft ASP.NET Core-Modul** installiert wurde. Wenn das **Microsoft ASP.NET Core-Modul** in der Liste der installierten Programme nicht vorhanden ist, installieren Sie das Modul. Siehe [Installieren des Pakets „.NET Core Windows Server Hosting“](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
+* Überprüfen Sie unter **Programme und Features**, ob das **Microsoft ASP.NET Core-Modul** installiert wurde. Wenn das **Microsoft ASP.NET Core-Modul** in der Liste der installierten Programme nicht vorhanden ist, installieren Sie das Modul. Finden Sie unter [das Kernfeature .NET Hosting Bundle](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Stellen Sie sicher, dass die **Anwendungspool** > **Prozessmodell** > **Identität** festgelegt ist, um **ApplicationPoolIdentity** oder die benutzerdefinierte Identität verfügt über die erforderlichen Berechtigungen zum Bereitstellungsordner für die app zugreifen.
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Falscher processPath-Wert, fehlende PATH-Variable, Hostingpaket nicht installiert, System/IIS wird nicht neu gestartet, VC++ Redistributable nicht installiert oder dotnet.exe-Zugriffsverletzung
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Enthaltenem "falsch", fehlende Pfadvariable, Hosting-Paket nicht installiert, System/IIS nicht neu gestartet, VC++-Redistributable nicht installiert oder zugriffsverletzung dotnet.exe
 
 * **Browser:** HTTP-Fehler 502.5: Prozessfehler
 
@@ -138,7 +138,7 @@ Problembehandlung:
 
 * Ein Diskettenlaufwerk wurden bereitgestellt und .NET Core ohne Neustarten von IIS installiert. Starten Sie den Server neu, oder starten Sie IIS neu, indem Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung ausführen.
 
-* Ein Diskettenlaufwerk ist möglicherweise bereitgestellt wurde ohne die .NET Core-Laufzeit installieren, auf dem Hostsystem. Wenn die .NET Core-Laufzeit wurde nicht installiert wurde, führen Sie die **Paket-Installer .NET Core Windows Server-Hosting** auf dem System. Siehe [Installieren des Pakets „.NET Core Windows Server Hosting“](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Wenn es sich bei dem Versuch, die .NET Core-Laufzeit auf einem System ohne Internetverbindung installieren, erhalten Sie die Laufzeit von [.NET alle Downloads](https://www.microsoft.com/net/download/all) und führen Sie den hosting Paket-Installer zum Installieren des ASP.NET Core-Moduls. Schließen Sie die Installation ab, indem Sie das System oder IIS neu starten. Führen Sie dazu **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus.
+* Ein Diskettenlaufwerk ist möglicherweise bereitgestellt wurde ohne die .NET Core-Laufzeit installieren, auf dem Hostsystem. Wenn die .NET Core-Laufzeit wurde nicht installiert wurde, führen Sie die **.NET Core-Hosting-Paket-Installer** auf dem System. Finden Sie unter [das Kernfeature .NET Hosting Bundle](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Wenn es sich bei dem Versuch, die .NET Core-Laufzeit auf einem System ohne Internetverbindung installieren, erhalten Sie die Laufzeit von [.NET alle Downloads](https://www.microsoft.com/net/download/all) und führen Sie den Hosting-Paket-Installer zum Installieren des ASP.NET Core-Moduls. Schließen Sie die Installation ab, indem Sie das System oder IIS neu starten. Führen Sie dazu **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus.
 
 * Ein Diskettenlaufwerk wurden bereitgestellt und die *Microsoft Visual C++ 2015 Redistributable (x64)* ist nicht auf dem System installiert. Abrufen ein Installationsprogramms aus der [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 

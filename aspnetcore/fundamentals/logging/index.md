@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4cb2cf5b22ed9f5b84638b5f8c4b07d99a17ce1c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -487,37 +487,6 @@ Eine gute Möglichkeit zum Erfassen und Anzeigen von Protokollen ist die Verwend
 Um PerfView für das Erfassen von Ereignissen zu konfigurieren, die von diesem Anbieter protokolliert wurden, fügen Sie die Zeichenfolge `*Microsoft-Extensions-Logging` zur Liste **Zusätzliche Anbieter** hinzu. (Vergessen Sie nicht das Sternchen am Anfang der Zeichenfolge.)
 
 ![Zusätzliche PerfView-Anbieter](index/_static/perfview-additional-providers.png)
-
-Das Erfassen von Ereignissen unter Nano Server erfordert eine zusätzliche Einrichtung:
-
-* Stellen Sie eine PowerShell-Remotingverbindung mit der Nano Server-Instanz her:
-
-  ```powershell
-  Enter-PSSession [name]
-  ```
-
-* Erstellen Sie eine ETW-Sitzung:
-
-  ```powershell
-  New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
-  ```
-
-* Fügen Sie ETW-Anbieter für [CLR](/dotnet/framework/performance/clr-etw-providers), ASP.NET Core und (nach Bedarf) weitere hinzu. Die ASP.NET Core-Anbieter-GUID lautet `3ac73b97-af73-50e9-0822-5da4367920d0`. 
-
-  ```powershell
-  Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
-  Add-EtwTraceProvider -Guid "{3ac73b97-af73-50e9-0822-5da4367920d0}" -SessionName MyAppTrace
-  ```
-
-* Führen Sie die Website und alle Aktionen aus, für Sie die Ablaufverfolgungsinformationen benötigen.
-
-* Beenden Sie die Ablaufverfolgungssitzung, wenn Sie fertig sind:
-
-  ```powershell
-  Stop-EtwTraceSession -Name "MyAppTrace"
-  ```
-
-Die Ergebnisdatei *C:\trace.etl* kann mit PerfView wie auf anderen Editionen von Windows analysiert werden.
 
 <a id="eventlog"></a>
 ### <a name="the-windows-eventlog-provider"></a>Der EventLog-Anbieter von Windows

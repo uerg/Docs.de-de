@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a11ed13c709830795ebfd0e658d3f2fd2fd5a458
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Erstellen Sie ansprechender, reaktionsfähiger-Sites mit Bootstrap und ASP.NET Core
 
@@ -81,7 +81,7 @@ Die Standardvorlage verwendet eine Reihe von `<div>` Elemente zum Rendern einem 
 </button>
 ```
 
-Darüber hinaus den Anwendungsnamen, die in der oberen linken Ecke angezeigt wird. Das Navigationsmenü im Hauptbereich gerendert wird die `<ul>` Element innerhalb der zweiten Div und enthält Links zur Startseite, etwa, und wenden Sie sich an. Zusätzliche Links für Registrierung und Anmeldung werden durch die Linie _LoginPartial in Zeile 29 hinzugefügt. Unter der Navigationsleiste wird Hauptteil Rand jeder Seite gerendert, in einer anderen `<div>`mit den Klassen "Container" und "Text-Inhalt" markiert. In der hier gezeigten einfachen Standardwert _Layout-Datei, den Inhalt der Seite von dem jeweiligen Ansichtstyp zugeordnet, die Seite, und klicken Sie dann einen einfachen gerendert werden `<footer>` wird hinzugefügt, bis zum Ende der `<div>` Element. Sie können sehen, wie die integrierte zu den Seiten mit angezeigt wird diese Vorlage:
+Darüber hinaus den Anwendungsnamen, die in der oberen linken Ecke angezeigt wird. Das Navigationsmenü im Hauptbereich gerendert wird die `<ul>` Element innerhalb der zweiten Div und enthält Links zur Startseite, etwa, und wenden Sie sich an. Unter der Navigationsleiste wird Hauptteil Rand jeder Seite gerendert, in einer anderen `<div>`mit den Klassen "Container" und "Text-Inhalt" markiert. In der hier gezeigten einfachen Standardwert _Layout-Datei, den Inhalt der Seite von dem jeweiligen Ansichtstyp zugeordnet, die Seite, und klicken Sie dann einen einfachen gerendert werden `<footer>` wird hinzugefügt, bis zum Ende der `<div>` Element. Sie können sehen, wie die integrierte zu den Seiten mit angezeigt wird diese Vorlage:
 
 ![Zu den Seiten](bootstrap/_static/about-page-wide.png)
 
@@ -117,8 +117,8 @@ Präfix der CSS-Klasse | Geräte-Ebene | Breite
 :---: | :---: | :---:
 col-xs- | Telefone | < 768px
 col-sm- | Tablet-PCs | > = 768px
-col-md- | Desktops | > = 992px
-col-lg- | Größere Desktop zeigt | > = 1200px
+Col-Md - | Desktops | > = 992px
+Col-Lg - | Größere Desktop zeigt | > = 1200px
 
 Wenn Sie beide zwei Spalten mit "Col-Md-6" das resultierende Layout, werden zwei Spalten mit desktop Auflösung jedoch diese beiden Spalten vertikal gestapelt, beim Rendern auf kleinen Geräten (oder ein schmaler Browserfenster auf einen Desktop), es den Benutzern zur schnellen Ansicht angeben der Inhalt ohne die Notwendigkeit, einen horizontalen Bildlauf durchführen.
 
@@ -146,7 +146,7 @@ Die Standard-Schaltfläche-Klassen und deren Farben werden in der folgenden Abbi
 
 ### <a name="badges"></a>Signale
 
-Signale finden Sie in kleinen, in der Regel numerischen Legenden neben ein Navigationselement. Sie können eine Anzahl von Nachrichten oder Benachrichtigungen, die darauf warten, oder das Vorhandensein von Updates hinweisen. Angeben von solchen Signale ist so einfach wie das Hinzufügen einer <span> mit dem Text, mit der Klasse "Badge":
+Signale finden Sie in kleinen, in der Regel numerischen Legenden neben ein Navigationselement. Sie können eine Anzahl von Nachrichten oder Benachrichtigungen, die darauf warten, oder das Vorhandensein von Updates hinweisen. Angeben von solchen Signale ist so einfach wie das Hinzufügen einer `<span>` mit dem Text, mit der Klasse "Badge":
 
 ![Designs Signale](bootstrap/_static/theme-badges.png)
 
@@ -158,7 +158,7 @@ Sie müssen möglicherweise eine Art von Benachrichtigungen, Warnung oder Fehler
 
 ### <a name="navbars-and-menus"></a>Ansprechend und Menüs
 
-Unsere Layout enthält bereits einen standard-Navigationsleiste, aber das Bootstrap-Design unterstützt zusätzliche Gestaltungsoptionen. Wir können ggf. auch einfach die Navigationsleiste werden vertikal, sondern horizontal Wenn, die bevorzugte hat, ebenfalls Hinzufügen von untergeordneten Navigationsleiste im Dropdown-Menüs Elemente angezeigt. Einfache Navigationsmenüs, z. B. Registerkarte leisten, basieren auf der Basis von <ul> Elemente. Diese können erstellt werden, sehr einfach, indem sie einfach mit der CSS-Klassen "Nav" und "Nav-Registerkarten" bereitstellen:
+Unsere Layout enthält bereits einen standard-Navigationsleiste, aber das Bootstrap-Design unterstützt zusätzliche Gestaltungsoptionen. Wir können ggf. auch einfach die Navigationsleiste werden vertikal, sondern horizontal Wenn, die bevorzugte hat, ebenfalls Hinzufügen von untergeordneten Navigationsleiste im Dropdown-Menüs Elemente angezeigt. Einfache Navigationsmenüs, z. B. Registerkarte leisten, basieren auf der Basis von `<ul>` Elemente. Diese können erstellt werden, sehr einfach, indem sie einfach mit der CSS-Klassen "Nav" und "Nav-Registerkarten" bereitstellen:
 
 ![Designs Seitenübersichten](bootstrap/_static/theme-tabstrips.png)
 

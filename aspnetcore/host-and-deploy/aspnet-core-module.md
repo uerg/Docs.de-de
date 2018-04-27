@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core-Modul Konfigurationsverweis
 
@@ -65,6 +65,7 @@ Finden Sie unter [untergeordnete Anwendung Konfiguration](xref:host-and-deploy/i
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attribute des-Elements aspNetCore
 
+::: moniker range="<= aspnetcore-2.0"
 | Attribut | Beschreibung | Standard |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p>| |
@@ -72,11 +73,26 @@ Finden Sie unter [untergeordnete Anwendung Konfiguration](xref:host-and-deploy/i
 | `forwardWindowsAuthToken` | True oder False.</p><p>Bei "true", wird das Token an den untergeordneten Prozess gelauscht. "% ASPNETCORE_PORT" als Header "MS-ASPNETCORE-WINAUTHTOKEN" pro Anforderung weitergeleitet. Es liegt die Verantwortung des entsprechenden Prozesses CloseHandle dieses Token pro Anforderung aufgerufen werden.</p> | `true` |
 | `processPath` | <p>Erforderliches Zeichenfolgenattribut.</p><p>Pfad zur ausführbaren Datei, die einen HTTP-Anforderungen Lauschen Prozess startet. Relative Pfade werden unterstützt. Wenn der Pfad mit beginnt `.`, gilt der Pfad relativ zum Stammverzeichnis Website sein.</p> | |
 | `rapidFailsPerMinute` | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, beendet das Modul mit dem Starten des Prozesses für den Rest der Minute.</p> | `10` |
-| `requestTimeout` | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul auf eine Antwort vom Prozess "% ASPNETCORE_PORT" lauscht wartet.</p><p>Die `requestTimeout` muss angegeben werden in ganzen Minuten nur, andernfalls wird standardmäßig auf 2 Minuten.</p> | `00:02:00` |
+| `requestTimeout` | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul auf eine Antwort vom Prozess "% ASPNETCORE_PORT" lauscht wartet.</p><p>In Versionen von ASP.NET Core-Modul, das im Lieferumfang der Version von ASP.NET Core 2.0 oder früher, die `requestTimeout` muss angegeben werden in ganzen Minuten nur, andernfalls wird standardmäßig auf 2 Minuten.</p> | `00:02:00` |
 | `shutdownTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden, die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet, wenn die *app_offline.htm* Datei erkannt wird.</p> | `10` |
 | `startupTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul wartet, bis die ausführbare Datei Starten eines Prozesses, der Port überwacht. Wenn dieses Zeitlimit überschritten wird, beendet das Modul den Prozess an. Das Modul versucht, den Prozess neu starten, wenn eine neue Anforderung erhält und versucht weiterhin, den Prozess bei nachfolgenden eingehenden Anforderungen neu starten, es sei denn, die app nicht gestartet **RapidFailsPerMinute** -Mal in den letzten Paralleles Minute an.</p> | `120` |
 | `stdoutLogEnabled` | <p>Optionales boolesches Attribut.</p><p>Bei "true", **"stdout"** und **"stderr"** für den Prozess, der im angegebenen **ProcessPath** an die angegebene Datei umgeleitet werden **"stdoutlogfile"**.</p> | `false` |
 | `stdoutLogFile` | <p>Optionales Zeichenfolgeattribut.</p><p>Gibt an, der relative oder absolute Pfad für die **"stdout"** und **"stderr"** aus dem Prozess, der im angegebenen **ProcessPath** werden protokolliert. Relative Pfade sind relativ zum Stamm des Standorts. Jeder Pfad beginnend mit `.` sind relativ zur Website Stamm und alle anderen Pfade als absolute Pfade behandelt werden. Alle Ordner im Pfad angegeben, müssen in der Reihenfolge für das Modul zum Erstellen der Protokolldatei vorhanden sein. Mithilfe des Unterstrich Trennzeichen, Timestamp, Prozess-ID, und die Erweiterung (*.log*) hinzukommen bis zum letzten Segment der **"stdoutlogfile"** Pfad. Wenn `.\logs\stdout` angegeben wird als ein Wert wird als ein Beispiel für "stdout" Protokoll gespeichert *stdout_20180205194132_1934.log* in der *Protokolle* Ordner, wenn auf 2/5/2018 um 19:41:32 mit 1934 Prozess-ID gespeichert.</p> | `aspnetcore-stdout` |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Attribut | Beschreibung | Standard |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>Optionales Zeichenfolgeattribut.</p><p>Argumente für die ausführbare Datei im angegebenen **ProcessPath**.</p>| |
+| `disableStartUpErrorPage` | True oder False.</p><p>Bei "true", die **502.5 - Prozessfehler** Seite unterdrückt wird, und die Status 502-Codepage konfiguriert wird, der *"Web.config"* hat Vorrang vor.</p> | `false` |
+| `forwardWindowsAuthToken` | True oder False.</p><p>Bei "true", wird das Token an den untergeordneten Prozess gelauscht. "% ASPNETCORE_PORT" als Header "MS-ASPNETCORE-WINAUTHTOKEN" pro Anforderung weitergeleitet. Es liegt die Verantwortung des entsprechenden Prozesses CloseHandle dieses Token pro Anforderung aufgerufen werden.</p> | `true` |
+| `processPath` | <p>Erforderliches Zeichenfolgenattribut.</p><p>Pfad zur ausführbaren Datei, die einen HTTP-Anforderungen Lauschen Prozess startet. Relative Pfade werden unterstützt. Wenn der Pfad mit beginnt `.`, gilt der Pfad relativ zum Stammverzeichnis Website sein.</p> | |
+| `rapidFailsPerMinute` | <p>Optionales Ganzzahlattribut.</p><p>Gibt die Anzahl der Wiederholungsversuche, die vom Prozess angegeben wird, in **ProcessPath** zum Absturz (Crash) pro Minute zulässig ist. Wenn dieses Limit überschritten wird, beendet das Modul mit dem Starten des Prozesses für den Rest der Minute.</p> | `10` |
+| `requestTimeout` | <p>Optionales Timespan-Attribut.</p><p>Gibt die Dauer für die ASP.NET Core-Modul auf eine Antwort vom Prozess "% ASPNETCORE_PORT" lauscht wartet.</p><p>In Versionen von ASP.NET Core-Modul, das im Lieferumfang der Version von ASP.NET Core 2.1 oder höher, die `requestTimeout` wird in Stunden, Minuten und Sekunden angegeben.</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden, die das Modul für die ausführbare Datei ordnungsgemäß schließen wartet, wenn die *app_offline.htm* Datei erkannt wird.</p> | `10` |
+| `startupTimeLimit` | <p>Optionales Ganzzahlattribut.</p><p>Dauer in Sekunden an, denen das Modul wartet, bis die ausführbare Datei Starten eines Prozesses, der Port überwacht. Wenn dieses Zeitlimit überschritten wird, beendet das Modul den Prozess an. Das Modul versucht, den Prozess neu starten, wenn eine neue Anforderung erhält und versucht weiterhin, den Prozess bei nachfolgenden eingehenden Anforderungen neu starten, es sei denn, die app nicht gestartet **RapidFailsPerMinute** -Mal in den letzten Paralleles Minute an.</p> | `120` |
+| `stdoutLogEnabled` | <p>Optionales boolesches Attribut.</p><p>Bei "true", **"stdout"** und **"stderr"** für den Prozess, der im angegebenen **ProcessPath** an die angegebene Datei umgeleitet werden **"stdoutlogfile"**.</p> | `false` |
+| `stdoutLogFile` | <p>Optionales Zeichenfolgeattribut.</p><p>Gibt an, der relative oder absolute Pfad für die **"stdout"** und **"stderr"** aus dem Prozess, der im angegebenen **ProcessPath** werden protokolliert. Relative Pfade sind relativ zum Stamm des Standorts. Jeder Pfad beginnend mit `.` sind relativ zur Website Stamm und alle anderen Pfade als absolute Pfade behandelt werden. Alle Ordner im Pfad angegeben, müssen in der Reihenfolge für das Modul zum Erstellen der Protokolldatei vorhanden sein. Mithilfe des Unterstrich Trennzeichen, Timestamp, Prozess-ID, und die Erweiterung (*.log*) hinzukommen bis zum letzten Segment der **"stdoutlogfile"** Pfad. Wenn `.\logs\stdout` angegeben wird als ein Wert wird als ein Beispiel für "stdout" Protokoll gespeichert *stdout_20180205194132_1934.log* in der *Protokolle* Ordner, wenn auf 2/5/2018 um 19:41:32 mit 1934 Prozess-ID gespeichert.</p> | `aspnetcore-stdout` |
+::: moniker-end
 
 ### <a name="setting-environment-variables"></a>Festlegen von Umgebungsvariablen
 
@@ -113,11 +129,15 @@ Wenn ASP.NET Core-Modul ein Fehler auftritt, starten Sie den Back-End-Prozess od
 
 ## <a name="log-creation-and-redirection"></a>Umleitung und protokollerstellung
 
-ASP.NET Core-Modul leitet `stdout` und `stderr` Protokolle, wenn auf den Datenträger der `stdoutLogEnabled` und `stdoutLogFile` Attribute der `aspNetCore` Element festgelegt werden. Alle Ordner in der `stdoutLogFile` Pfad muss vorhanden sein, in der Reihenfolge für das Modul zum Erstellen der Protokolldatei. Sinnvolles Zeitstempel und der Datei werden automatisch hinzugefügt, wenn die Protokolldatei erstellt wird. Protokolle werden nicht gedreht werden, es sei denn, der Prozess wiederverwendet/Neustart stattfindet. Es ist die Zuständigkeit für den Hoster den Speicherplatz zu begrenzen, die, den die Protokolle zu nutzen. Mithilfe der `stdout` Protokoll wird nur für die Fehlerbehebung bei Startproblemen app empfohlen. Verwenden Sie das Protokoll "stdout" nicht zur Protokollierung allgemeiner app. Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
+ASP.NET Core-Modul leitet "stdout" und "stderr" Protokolle, wenn auf den Datenträger der `stdoutLogEnabled` und `stdoutLogFile` Attribute der `aspNetCore` Element festgelegt werden. Alle Ordner in der `stdoutLogFile` Pfad muss vorhanden sein, in der Reihenfolge für das Modul zum Erstellen der Protokolldatei. Die app-Pool muss über Schreibzugriff verfügen, zu dem Speicherort, in dem die Protokolle geschrieben werden (verwenden Sie `IIS AppPool\<app_pool_name>` Schreibberechtigung bereitstellen).
 
-Besteht aus der Protokolldateinamen durch Anhängen der Zeitstempel, die Prozess-ID und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout"*) getrennt durch Unterstriche enthalten. Wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokoll für eine app mit einem PID des 1934 auf 2/5/2018 erstellt werden, um 19:42:32 wurde der Dateiname *stdout_20180205194132_1934.log*.
+Protokolle werden nicht gedreht werden, es sei denn, der Prozess wiederverwendet/Neustart stattfindet. Es ist die Zuständigkeit für den Hoster den Speicherplatz zu begrenzen, die, den die Protokolle zu nutzen.
 
-Im folgenden Beispiel `aspNetCore` Element konfiguriert `stdout` Protokollierung für eine app in Azure App Service gehostet. Ein lokaler Pfad oder Netzwerkfreigabepfad ist akzeptabel, für die lokale Anmeldung. Vergewissern Sie sich, dass die Identität des AppPool-Benutzers über die Berechtigung zum Schreiben in den angegebenen Pfad verfügt.
+Verwenden das Protokoll "stdout" ist nur für die Fehlerbehebung bei Startproblemen app empfohlen. Verwenden Sie das Protokoll "stdout" nicht zur Protokollierung allgemeiner app. Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-app, eine Protokollierung-Bibliothek, die Protokolldateigröße beschränkt und die Protokolle dreht. Weitere Informationen finden Sie unter [eines Drittanbieters Protokollanbieter](xref:fundamentals/logging/index#third-party-logging-providers).
+
+Sinnvolles Zeitstempel und der Datei werden automatisch hinzugefügt, wenn die Protokolldatei erstellt wird. Besteht aus der Protokolldateinamen durch Anhängen der Zeitstempel, die Prozess-ID und die Dateierweiterung (*.log*) auf das letzte Segment des der `stdoutLogFile` Pfad (in der Regel *"stdout"*) getrennt durch Unterstriche enthalten. Wenn die `stdoutLogFile` Pfad endet mit *"stdout"*, ein Protokoll für eine app mit einem PID des 1934 auf 2/5/2018 erstellt werden, um 19:42:32 wurde der Dateiname *stdout_20180205194132_1934.log*.
+
+Im folgenden Beispiel `aspNetCore` Element konfiguriert "stdout" Protokollierung für eine app in Azure App Service gehostet. Ein lokaler Pfad oder Netzwerkfreigabepfad ist akzeptabel, für die lokale Anmeldung. Vergewissern Sie sich, dass die Identität des AppPool-Benutzers über die Berechtigung zum Schreiben in den angegebenen Pfad verfügt.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -144,7 +164,7 @@ Das Installationsprogramm von ASP.NET Core ausgeführt wird, mit den Berechtigun
 1. Exportieren Sie die aktualisierte *"applicationHost.config"* Datei auf die Freigabe.
 1. Reaktivieren Sie den IIS-Freigabekonfiguration.
 
-## <a name="module-version-and-hosting-bundle-installer-logs"></a>Version des Moduls und Hosten von Paket-Installer-Protokolle
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>Version des Moduls und Hosting-Paket-Installer-Protokolle
 
 Die Version des installierten ASP.NET Core Moduls zu ermitteln:
 
@@ -153,7 +173,7 @@ Die Version des installierten ASP.NET Core Moduls zu ermitteln:
 1. Mit der rechten Maustaste in der das, und wählen Sie **Eigenschaften** aus dem Kontextmenü.
 1. Wählen Sie die **Details** Registerkarte. Die **Dateiversion** und **Produktversion** die installierte Version des Moduls darstellen.
 
-Das Hosting mit Windows Server Paket-Installer-Protokolle für das Modul finden Sie unter *"c:"\\Benutzer\\%UserName%\\AppData\\lokale\\Temp*. Die Datei heißt *Dd_DotNetCoreWinSvrHosting__\<Zeitstempel > _000_AspNetCoreModule_x64.log*.
+Die Hosting-Paket-Installer-Protokolle für das Modul finden Sie unter *"c:"\\Benutzer\\%UserName%\\AppData\\lokale\\Temp*. Die Datei heißt *Dd_DotNetCoreWinSvrHosting__\<Zeitstempel > _000_AspNetCoreModule_x64.log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Dateispeicherorte für Module, Schema und Konfiguration
 
@@ -165,7 +185,7 @@ Das Hosting mit Windows Server Paket-Installer-Protokolle für das Modul finden 
 
    * %windir%\SysWOW64\inetsrv\aspnetcore.dll
 
-**IIS Express (x86/amd64):**
+**IIS Express (X86/amd64):**
 
    * %ProgramFiles%\IIS Express\aspnetcore.dll
 

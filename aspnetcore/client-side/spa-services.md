@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Verwenden Sie JavaScriptServices zu Single Page Applications in ASP.NET Kern
 
@@ -144,7 +144,7 @@ Die `postList` Array definiert, die innerhalb der `globals` Objekt wird an des B
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
-* [aspnet-webpack](https://www.npmjs.com/package/aspnet-webpack) npm package:
+* [ASPNET-Webpaketdatei](https://www.npmjs.com/package/aspnet-webpack) Npm-Paket:
 
     ```console
     npm i -D aspnet-webpack
@@ -166,7 +166,7 @@ Die *webpack.config.js* Datei `output.publicPath` -Eigenschaft teilt die Middlew
 
 ## <a name="hot-module-replacement"></a>Ersetzen eines Moduls im laufenden Systembetrieb
 
-Denken Sie an der Webpaketdatei [Hot Austausch eines Controllermoduls](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) (HMR)-Funktion als Weiterentwicklung der [Webpaketdatei Dev Middleware](#webpack-dev-middleware). HMR führt dieselben Vorteile, aber es weiter optimiert des entwicklungsworkflows durch automatisches Aktualisieren der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies mit einer Aktualisierung des Browsers, die mit dem aktuellen im Speicher enthaltenen Status und die Debugsitzung von der SPA beeinträchtigen würde. Es ist ein Livelink zwischen der Webpaketdatei Dev Middleware-Dienst und den Browser, was bedeutet, dass Änderungen an den Browser per Push übertragen werden.
+Denken Sie an der Webpaketdatei [Hot Austausch eines Controllermoduls](https://webpack.js.org/concepts/hot-module-replacement/) (HMR)-Funktion als Weiterentwicklung der [Webpaketdatei Dev Middleware](#webpack-dev-middleware). HMR führt dieselben Vorteile, aber es weiter optimiert des entwicklungsworkflows durch automatisches Aktualisieren der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies mit einer Aktualisierung des Browsers, die mit dem aktuellen im Speicher enthaltenen Status und die Debugsitzung von der SPA beeinträchtigen würde. Es ist ein Livelink zwischen der Webpaketdatei Dev Middleware-Dienst und den Browser, was bedeutet, dass Änderungen an den Browser per Push übertragen werden.
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -226,7 +226,7 @@ Tipp: Routen werden in der Reihenfolge ausgewertet, in denen sie konfiguriert si
 
 ## <a name="creating-a-new-project"></a>Erstellen eines neuen Projekts
 
-JavaScriptServices bietet vorkonfiguriert, dass Anwendungsvorlagen. SpaServices wird in dieser Vorlagen in Verbindung mit verschiedenen Frameworks und Bibliotheken wie Angular, Aurelia Knockout, reagieren und Vue verwendet.
+JavaScriptServices bietet vorkonfiguriert, dass Anwendungsvorlagen. SpaServices wird in dieser Vorlagen in Verbindung mit anderen Frameworks und Bibliotheken, wie z. B. Angular reagieren und Redux verwendet.
 
 Diese Vorlagen können über die .NET Core-CLI installiert werden, durch den folgenden Befehl ausführen:
 
@@ -238,12 +238,9 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 
 | Vorlagen                                 | Kurzname | Sprache | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC ASP.NET Core mit Angular             | angular    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core mit Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core mit Knockout.js         | Knockout   | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core mit React.js            | react      | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core mit Vue.js              | VUE        | [C#]     | Web/MVC/SPA | 
+| MVC ASP.NET Core mit Angular             | angular    | [C#]     | MVC/Web/SPA |
+| MVC ASP.NET Core mit React.js            | react      | [C#]     | MVC/Web/SPA |
+| MVC ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | MVC/Web/SPA |
 
 Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen enthalten die **Kurzname** der Vorlage in der [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC für die Serverseite konfiguriert:
 
@@ -295,7 +292,7 @@ Verwendung der Angular-Anwendung als Beispiel zwei Jasmintee Testfälle sind ber
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Öffnen Sie die Eingabeaufforderung im Stammverzeichnis des Projekts, und führen Sie den folgenden Befehl aus:
+Öffnen Sie die Eingabeaufforderung in das *ClientApp* Verzeichnis. Führen Sie den folgenden Befehl aus:
 
 ```console
 npm test
