@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a3527b54d1936bc14e32a1828ac3a2be625107ba
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Erste Schritte mit ASP.NET 4.5 WebForms und Visual Studio 2013
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -60,7 +60,7 @@ Die Zielgruppe dieses Reihe von Lernprogrammen wird erfahrenen Entwickler, die A
 Wenn Sie interessiert, überprüfen die oben aufgeführten Bereiche sind, erwägen Sie, überprüfen den folgenden Inhalt:
 
 - [Erste Schritte mit Visual c#](https://msdn.microsoft.com/library/a72418yk.aspx)
-- [Web Development](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP, JQuery](http://w3schools.com/)
+- [Webentwicklung](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP und JQuery](http://w3schools.com/)
 - [Relationale Datenbank](http://en.wikipedia.org/wiki/Relational_database)
 - [Multi-Tier-Architektur](http://en.wikipedia.org/wiki/Multitier_architecture)
 
@@ -179,7 +179,7 @@ Nach der Installation der erforderlichen Komponenten können Sie beginnen, erste
 
 Der Download ist eine <em>ZIP</em> Datei. Anzeigen des abgeschlossenen Projekts, die diese Reihe von Lernprogrammen erstellt, suchen und wählen Sie die <em>c#</em>Ordner in der <em>ZIP</em> Datei. Speichern Sie die <em>c#</em> den Ordner aus dem Ordner, die Sie zum Arbeiten mit Visual Studio 2013-Projekte verwenden. Standardmäßig lautet der Ordner von Visual Studio 2013-Projekte wie folgt:
 
-<strong>C:\Users\</ strong ><strong><em>&lt;Benutzername&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
+<strong>C:\Users&#92;</strong><strong><em>&lt;Benutzername&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 Benennen Sie die ***c#*** Ordner ***WingtipToys***.
 
