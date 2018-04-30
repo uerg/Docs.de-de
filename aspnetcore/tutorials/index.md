@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core-Tutorials
 
@@ -32,55 +32,54 @@ Die folgenden detaillierten Anleitungen für die Entwicklung von ASP.NET Core-An
 
 * Erstellen einer ASP.NET Core-MVC-Web-App
 
-   * [Web-App mit Visual Studio für Windows](first-mvc-app/index.md)
-   * [Web-App mit Visual Studio für Mac](first-mvc-app-mac/index.md)
-   * [Web-App mit Visual Studio Code unter macOS oder Linux](first-mvc-app-xplat/index.md)
+   * [Web-App mit Visual Studio für Windows](xref:tutorials/first-mvc-app/index)
+   * [Web-App mit Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/index)
+   * [Web-App mit Visual Studio Code unter macOS oder Linux](xref:tutorials/first-mvc-app-xplat/index)
 
-* [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
-* [Erstellen von Taghilfsprogrammen](../mvc/views/tag-helpers/authoring.md)
-* [Erstellen einer einfachen Ansichtskomponente](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [Entwickeln von ASP.NET Core-Apps mit dotnet watch](dotnet-watch.md)
+* [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](xref:data/ef-mvc/index)
+* [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring)
+* [Erstellen einer einfachen Ansichtskomponente](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
+* [Entwickeln von ASP.NET Core-Apps mit dotnet watch](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Erstellen von Web-APIs
 * Erstellen einer Web-API mit ASP.NET Core
 
-  * [Web-API mit Visual Studio für Windows](first-web-api.md)
+  * [Web-API mit Visual Studio für Windows](xref:tutorials/first-web-api)
   * [Web-API mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
-  * [Web-API mit Visual Studio Code](web-api-vsc.md)
+  * [Web-API mit Visual Studio Code](xref:tutorials/web-api-vsc)
 
 * [ASP.NET Core-Web-API-Hilfeseiten mit Swagger](xref:tutorials/web-api-help-pages-using-swagger)
   * [Erste Schritte mit NSwag](xref:tutorials/get-started-with-nswag)
   * [Erste Schritte mit Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
 
-* [Erstellen von Back-End-Webdiensten für native mobile Apps](../mobile/native-mobile-backend.md)
+* [Erstellen von Back-End-Webdiensten für native mobile Apps](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Datenzugriff und -speicherung
 * [Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
-* [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](../data/ef-mvc/index.md)
-* [ASP.NET Core MVC mit Entity Framework Core: neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [ASP.NET Core MVC mit Entity Framework Core: bestehende Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Erste Schritte mit ASP.NET Core MVC und Entity Framework Core mithilfe von Visual Studio](xref:data/ef-mvc/index)
+* [ASP.NET Core MVC mit Entity Framework Core: neue Datenbank](/ef/core/get-started/aspnetcore/new-db)
+* [ASP.NET Core MVC mit Entity Framework Core: bestehende Datenbank](/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Authentifizierung und Autorisierung
-* [Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern](../security/authentication/social/index.md)
-* [Kontobestätigung und Kennwortwiederherstellung](../security/authentication/accconfirm.md)
-* [Zweistufige Authentifizierung mit SMS](../security/authentication/2fa.md)
+* [Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern](xref:security/authentication/social/index)
+* [Kontobestätigung und Kennwortwiederherstellung](xref:security/authentication/accconfirm)
+* [Zweistufige Authentifizierung mit SMS](xref:security/authentication/2fa)
 
 ## <a name="client-side-development"></a>Clientseitige Entwicklung
-* [Verwenden von Gulp](../client-side/using-gulp.md)
-* [Verwenden von Grunt](../client-side/using-grunt.md)
-* [Verwalten von clientseitigen Paketen mit Bower](../client-side/bower.md)
-* [Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap](../client-side/bootstrap.md)
+* [Verwenden von Gulp](xref:client-side/using-gulp)
+* [Verwenden von Grunt](xref:client-side/using-grunt)
+* [Verwalten von clientseitigen Paketen mit Bower](xref:client-side/bower)
+* [Erstellen ansprechender, reaktionsfähiger Websites mit Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Test
-* [Komponententests in .NET Core mit dotnet-test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Komponententests in .NET Core mit dotnet-test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publish-and-deploy"></a>Veröffentlichen und Bereitstellen
-* [Bereitstellen einer ASP.NET Core-Web-App in Azure mit Visual Studio](publish-to-azure-webapp-using-vs.md)
-* [Bereitstellen einer ASP.NET Core-Web-App in Azure über die Befehlszeile](publish-to-azure-webapp-using-cli.md)
+## <a name="host-and-deploy"></a>Hosten und Bereitstellen
+* [Bereitstellen einer ASP.NET Core-Web-App in Azure mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
+* [Bereitstellen einer ASP.NET Core-Web-App in Azure über die Befehlszeile](xref:tutorials/publish-to-azure-webapp-using-cli)
 * [Veröffentlichen in einer Azure-Web-App mit Continuous Deployment](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-* [Bereitstellen eines ASP.NET-Containers mit einem Docker-Remotehost](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
-* [ASP.NET Core auf Nano Server](nano-server.md)
-* [ASP.NET Core und Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)
+* [Bereitstellen eines ASP.NET-Containers mit einem Docker-Remotehost](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+* [ASP.NET Core und Azure Service Fabric](/azure/service-fabric/service-fabric-add-a-web-frontend)
 
 <a name="download"></a> 
 ## <a name="how-to-download-a-sample"></a>Herunterladen eines Beispiels

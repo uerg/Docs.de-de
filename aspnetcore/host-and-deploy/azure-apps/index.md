@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -95,14 +95,13 @@ Weitere Informationen finden Sie unter [Schlüsselspeicheranbieter](xref:securit
 
 ASP.NET Core-Vorschau-Apps können mit den folgenden Vorgehensweisen für Azure App Service bereitgestellt werden:
 
-* [Installieren der Vorschau-Website-Erweiterung](#site-x)
-* [Bereitstellen der App als eigenständige App](#self)
-* [Verwenden von Docker mit Web-Apps für Container](#docker)
+* [Installieren der Websiteerweiterung (Vorschau)](#install-the-preview-site-extension)
+* [Bereitstellung der App als eigenständige App](#deploy-the-app-self-contained)
+* [Verwenden von Docker mit Web-Apps für Container](#use-docker-with-web-apps-for-containers)
 
-Sollten Sie ein Problem mit dem Verwenden der Vorschau-Websiteerweiterung haben, öffnen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftreten, erstellen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>Installieren der Vorschau-Websiteerweiterung
+### <a name="install-the-preview-site-extension"></a>Installieren der Websiteerweiterung (Vorschau)
 
 * Navigieren Sie im Azure-Portal zum Blatt „App Service“.
 * Geben Sie „er“ in das Suchfeld ein.
@@ -111,10 +110,10 @@ Sollten Sie ein Problem mit dem Verwenden der Vorschau-Websiteerweiterung haben,
 
 ![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/x1.png)
 
-* Wählen Sie **ASP.NET Core Runtime Extensions** aus.
-* Wählen Sie **OK** > **OK** aus.
+* Wählen Sie zwischen der **ASP.NET Core 2.1-Runtime (x86)** und der **ASP.NET Core 2.1-Runtime (x64)**.
+* Klicken Sie auf **OK**. Klicken Sie erneut auf **OK**.
 
-Nach Abschluss der Hinzufügevorgänge wird die neueste .NET Core 2.1-Vorschauversion installiert. Sie können die Installation überprüfen, indem Sie `dotnet --info` in der Konsole ausführen. Auf dem Blatt „App Service“:
+Nach Abschluss der Hinzufügevorgänge wird die neueste .NET Core 2.1-Vorschauversion installiert. Überprüfen Sie, ob die Installation erfolgreich war, indem Sie `dotnet --info` in der Konsole ausführen. Führen Sie Folgendes auf dem Blatt **App Service** durch:
 
 * Geben Sie „kon“ in das Suchfeld ein.
 * Wählen Sie **Konsole** aus.
@@ -126,26 +125,24 @@ Die vorherige Abbildung war aktuell zu der Zeit, als dieser Text geschrieben wur
 
 `dotnet --info` zeigt den Pfad zu der Websiteerweiterung an, wo die Vorschauversion installiert wurde. Es ist zu sehen, dass die App aus der Websiteerweiterung statt aus dem Standardspeicherort *ProgramFiles* ausgeführt wird. Wenn *ProgramFiles* angezeigt wird, starten Sie die Website neu, und führen Sie `dotnet --info` aus.
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Verwenden Vorschau-Websiteerweiterung mit einer ARM-Vorlage
+**Verwenden der Vorschau-Websiteerweiterung mit einer ARM-Vorlage**
 
 Wenn Sie eine ARM-Vorlage zum Erstellen und Bereitstellen von Anwendungen verwenden, können Sie den Ressourcentyp `siteextensions` verwenden, um die Websiteerweiterung zu einer Web-App hinzuzufügen. Zum Beispiel:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
 ### <a name="deploy-the-app-self-contained"></a>Bereitstellen der App als eigenständige App
 
-Sie können eine [eigenständige App](/dotnet/core/deploying/#self-contained-deployments-scd) bereitstellen, die die Vorschau-Runtime enthält, wenn sie bereitgestellt wird. Wenn Sie eine eigenständige App bereitstellen, gilt Folgendes:
+Eine [eigenständige App](/dotnet/core/deploying/#self-contained-deployments-scd), die die Vorschau-Runtime während der Bereitstellung enthält, kann bereitgestellt werden. Wenn Sie eine eigenständige App bereitstellen, gilt Folgendes:
 
-* Sie müssen Ihre Website nicht vorbereiten.
-* Sie müssen Ihre Anwendung anders veröffentlichen, als dies der Fall wäre, wenn Sie eine App bereitstellen, nachdem das SDK auf dem Server installiert ist.
+* Die Website muss nicht vorbereitet werden.
+* Die App muss anders als beim Veröffentlichen für eine frameworkabhängige Bereitstellung mit der freigegebenen Runtime und dem Host auf dem Server bereitgestellt werden.
 
-Eigenständige Apps sind eine Option für alle .NET Core-Anwendungen.
+Eigenständige Apps sind eine Option für alle ASP.NET Core-Anwendungen.
 
-<a name="docker"></a>
 ### <a name="use-docker-with-web-apps-for-containers"></a>Verwenden von Docker mit Web-Apps für Container
 
-Der [Docker-Hub](https://hub.docker.com/r/microsoft/aspnetcore/) enthält die neuesten Images für 2.1-Vorschau-Docker. Sie können diese als Basisimages verwenden und ganz normal in Web-Apps für Container bereitstellen.
+Der [Docker-Hub](https://hub.docker.com/r/microsoft/aspnetcore/) enthält die neuesten Images für 2.1-Vorschau-Docker. Die Images können als Basisimage verwendet werden. Verwenden Sie das Image, und führen Sie wie gewohnt eine Bereitstellung für Web-Apps für Container durch.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

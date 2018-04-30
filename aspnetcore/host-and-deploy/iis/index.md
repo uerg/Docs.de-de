@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 9f164b6e1f3cc520b704cbb5ffdaadb99cebdc57
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -25,9 +25,7 @@ Von [Luke Latham](https://github.com/guardrex) und [Rick Anderson](https://twitt
 Die folgenden Betriebssysteme werden unterstützt:
 
 * Windows 7 oder höher
-* Windows Server 2008 R2 oder höher&#8224;
-
-&#8224;Vom Konzept her gilt die in diesem Dokument beschriebene IIS-Konfiguration auch für das Hosten von ASP.NET Core-Apps mit IIS unter Nano Server. Die Anweisungen für Nano Server finden Sie im Tutorial [ASP.NET Core mit IIS auf Nano Server](xref:tutorials/nano-server).
+* Windows Server 2008 R2 oder höher
 
 Der [HTTP.SYS-Server](xref:fundamentals/servers/httpsys) (zuvor [WebListener](xref:fundamentals/servers/weblistener) genannt) funktioniert nicht in einer Reverseproxykonfiguration mit IIS. Verwenden Sie den [Kestrel-Server](xref:fundamentals/servers/kestrel).
 
@@ -45,7 +43,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Das ASP.NET Core-Modul generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://locahost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls` oder [Kestrels Listen-API](xref:fundamentals/servers/kestrel#endpoint-configuration). Aus diesem Grund sind Aufrufe von `UseUrls` oder der `Listen`-API von Kestrel nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` oder `Listen` aufgerufen wird, lauscht Kestrel auf den Port, der bei der bei Ausführung der App ohne den IIS angegeben wird.
+Das ASP.NET Core-Modul generiert einen dynamischen Port, der dem Back-End-Prozess zugewiesen wird. Die `UseIISIntegration`-Methode übernimmt diesen dynamischen Port und konfiguriert Kestrel zum Lauschen von `http://localhost:{dynamicPort}/`. Dies überschreibt andere URL-Konfigurationen, z.B. Aufrufe von `UseUrls` oder [Kestrels Listen-API](xref:fundamentals/servers/kestrel#endpoint-configuration). Aus diesem Grund sind Aufrufe von `UseUrls` oder der `Listen`-API von Kestrel nicht erforderlich, wenn das Modul verwendet wird. Wenn `UseUrls` oder `Listen` aufgerufen wird, lauscht Kestrel auf den Port, der bei der bei Ausführung der App ohne den IIS angegeben wird.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -169,15 +167,15 @@ Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
 
 ---
 
-## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installieren des Pakets „.NET Core Windows Server Hosting“
+## <a name="install-the-net-core-hosting-bundle"></a>Installieren des .NET Core Hosting-Pakets
 
-1. Installieren Sie das *Paket „.NET Core Windows Server Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Windows Server Hosting“ installieren.
+1. Installieren Sie das *Paket „.NET Core Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Hosting“ installieren.
 
    1. Navigieren Sie zu der [.NET-Seite „All Downloads“](https://www.microsoft.com/net/download/all).
    1. Wählen Sie die neueste Nicht-Vorschau-.NET Core-Runtime in der Liste aus (**.NET Core** > **Runtime** > **.NET Core-Runtime x.y.z**). Sofern Sie nicht mit Preview-Software (Vorschausoftware) arbeiten möchten, sollten Sie Runtimes vermeiden, in deren Linktext das Wort „preview“ vorhanden ist.
-   1. Wählen Sie auf der Downloadseite von .NET Core-Runtime unter **Windows** den Link **Server Hosting Installer** aus, um das *Paket „.NET Core Windows Server Hosting“* herunterzuladen.
+   1. Wählen Sie auf der Downloadseite der .NET Core-Runtime unter **Windows** den Link zum **Installer des Hosting-Pakets** aus, um das Paket *.NET Core Hosting* herunterzuladen.
 
-   **Wichtig** Wenn das Hostingpaket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut das Hostingpaket aus.
+   **Wichtig** Wenn das Hosting-Paket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut den Installer des Hosting-Pakets aus.
    
    Damit das Installationsprogramm in einem x64-Betriebssystem keine x86-Pakete installiert, führen Sie das Installationsprogramm über eine Administratoreingabeaufforderung mit dem Switch `OPT_NO_X86=1` aus.
 
@@ -196,7 +194,8 @@ Wenn Sie Apps auf Servern mit [Web Deploy](/iis/publish/using-web-deploy/introdu
 
 1. Erstellen Sie innerhalb des neuen Ordners einen Ordner *Protokolle*, um darin stdout-Protokolle von ASP.NET Core zu speichern, wenn die stdout-Protokollierung aktiviert ist. Wenn die App mit einem Ordner *Protokolle* in der Payload bereitgestellt wird, können Sie diesen Schritt überspringen. Anweisungen zum Aktivieren von MSBuild zum automatischen Erstellen des Ordners *Protokolle* bei der Erstellung des lokalen Projekts finden Sie im Thema zur [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
 
-   **Wichtig** Verwenden Sie das stdout-Protokoll, um Probleme beim App-Start zu behandeln. Verwenden Sie die stdout-Protokollierung nicht für die routinemäßige App-Protokollierung. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt. Weitere Informationen zum stdout-Protokoll finden Sie im Thema zur [Protokollerstellung und Umleitung](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Informationen zur Protokollierung in einer ASP.NET Core-App finden Sie im Thema [Protokollierung](xref:fundamentals/logging/index).
+   > [!IMPORTANT]
+   > Verwenden Sie das stdout-Protokoll, um Probleme beim App-Start zu behandeln. Verwenden Sie die stdout-Protokollierung nicht für die routinemäßige App-Protokollierung. Für die Protokollgröße oder die Anzahl von erstellten Protokolldateien ist kein Grenzwert festgelegt. Der App-Pool muss über Schreibberechtigungen für den Speicherort verfügen, an dem die Protokolle geschrieben werden. Alle Ordner im Pfad des Protokollspeicherorts müssen vorhanden sein. Weitere Informationen zum stdout-Protokoll finden Sie im Thema zur [Protokollerstellung und Umleitung](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Informationen zur Protokollierung in einer ASP.NET Core-App finden Sie im Thema [Protokollierung](xref:fundamentals/logging/index).
 
 1. Öffnen Sie im **IIS-Manager** den Serverknoten im Bereich **Verbindungen**. Klicken Sie mit der rechten Maustaste auf den Ordner **Websites**. Klicken Sie im Kontextmenü auf **Website hinzufügen**.
 
@@ -242,6 +241,8 @@ Informationen zum Erstellen eines Veröffentlichungsprofils zur Verwendung mit W
 
 Verwenden Sie eine der folgenden Methoden, um die App zum Hostingsystem zu migrieren: manuelles Kopieren, XCopy, Robocopy oder PowerShell.
 
+Weitere Informationen zum Bereitstellen von ASP.NET Core in IIS finden Sie im nachfolgenden Abschnitt [Bereitstellungsressourcen für IIS-Administratoren](#deployment-resources-for-iis-administrators).
+
 ## <a name="browse-the-website"></a>Navigieren auf der Website
 
 ![Der Microsoft Edge-Browser hat die IIS-Startseite geladen.](index/_static/browsewebsite.png)
@@ -250,7 +251,7 @@ Verwenden Sie eine der folgenden Methoden, um die App zum Hostingsystem zu migri
 
 Die Dateien im Bereitstellungsordner werden gesperrt, wenn die App ausgeführt wird. Gesperrte Dateien können während der Bereitstellung nicht überschrieben werden. Um gesperrte Dateien in einer Bereitstellung freizugeben, beenden Sie den App-Pool mit **einer** der folgenden Methoden:
 
-* Verwenden Sie Web Deploy, und verweisen Sie auf `Microsoft.NET.Sdk.Web` in der Projektdatei. Eine Datei namens *app_offline.htm* befindet sich im Stammverzeichnis des Web-App-Verzeichnisses. Wenn die Datei vorhanden ist, fährt das ASP.NET Core Module die App ordnungsgemäß herunter und verarbeitet die Datei *app_offline.htm* während der Bereitstellung. Weitere Informationen finden Sie unter [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module#appofflinehtm).
+* Verwenden Sie Web Deploy, und verweisen Sie auf `Microsoft.NET.Sdk.Web` in der Projektdatei. Eine Datei namens *app_offline.htm* befindet sich im Stammverzeichnis des Web-App-Verzeichnisses. Wenn die Datei vorhanden ist, fährt das ASP.NET Core Module die App ordnungsgemäß herunter und verarbeitet die Datei *app_offline.htm* während der Bereitstellung. Weitere Informationen finden Sie unter [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module#app_offlinehtm).
 * Beenden Sie den App-Pool im IIS-Manager auf dem Server manuell.
 * Verwenden Sie PowerShell, um den App-Pool zu beenden und neu zu starten (erfordert PowerShell 5 oder höher):
 
@@ -409,13 +410,34 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 Weitere Informationen finden Sie im Thema [icacls](/windows-server/administration/windows-commands/icacls).
 
+## <a name="deployment-resources-for-iis-administrators"></a>Bereitstellungsressourcen für IIS-Administratoren
+
+Ausführliche Informationen zu IIS erhalten Sie in der IIS-Dokumentation.  
+[IIS-Dokumentation](/iis)
+
+Erfahren Sie mehr über .NET Core-App-Bereitstellungsmodelle.  
+[.NET Core-Anwendungsbereitstellung](/dotnet/core/deploying/)
+
+Erfahren Sie, wie der Kestrel-Webserver durch das ASP.NET Core-Modul IIS oder IIS Express als Reverseproxyserver zu verwenden.  
+[ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module)
+
+Erfahren Sie, wie Sie das ASP.NET Core-Modul so konfigurieren, dass es ASP.NET Core-Apps hosten kann.  
+[Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module)
+
+Erfahren Sie mehr über die Verzeichnisstruktur veröffentlichter ASP.NET Core-Apps.  
+[Verzeichnisstruktur](xref:host-and-deploy/directory-structure)
+
+Lernen Sie aktive und inaktive IIS-Module für ASP.NET Core-Apps kennen, und erfahren Sie, wie Sie diese verwalten können.  
+[IIS-Module](xref:host-and-deploy/iis/troubleshoot)
+
+Erfahren Sie, wie Sie Probleme mit IIS-Bereitstellungen von ASP.NET Core-Apps diagnostizieren können.  
+[Problembehandlung](xref:host-and-deploy/iis/troubleshoot)
+
+Erfahren Sie, wie Sie häufige Fehler beim Hosten von ASP.NET Core-Apps in IIS erkennen.  
+[Referenz zu häufigen Fehlern bei Azure App Service und IIS](xref:host-and-deploy/azure-iis-errors-reference)
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Problembehandlung bei ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot)
-* [Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
-* [Einführung in das ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module)
-* [Konfigurationsreferenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module)
-* [IIS-Module mit ASP.NET Core](xref:host-and-deploy/iis/modules)
-* [Einführung in ASP.NET Core](../index.md)
+* [Einführung in ASP.NET Core](xref:index)
 * [Die offizielle Microsoft IIS-Website](https://www.iis.net/)
-* [Microsoft TechNet-Bibliothek: Windows Server](/windows-server/windows-server-versions)
+* [Bibliothek mit technischem Inhalt zu Windows Server](/windows-server/windows-server)
