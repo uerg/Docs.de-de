@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Verwenden von Gulp in ASP.NET Core
 
@@ -29,7 +29,7 @@ In einer typischen moderne Web-app möglicherweise während des Erstellungsproze
 
 Ein *Task Runner* ist ein Tool, das diese Routine Entwicklungsaufgaben und vieles mehr automatisiert. Visual Studio bietet integrierte Unterstützung für zwei gängige JavaScript-basierten Task Runner: [Gulp](https://gulpjs.com/) und [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>Gulp
+## <a name="gulp"></a>gulp
 
 Gulp ist ein JavaScript-basierten streaming Build Toolkit für clientseitigen Code. Er wird häufig verwendet, um die clientseitige Dateien über eine Reihe von Prozessen zu streamen, wenn ein bestimmtes Ereignis in einer Buildumgebung ausgelöst wird. Z. B. Gulp dienen zum Automatisieren [Bündelung und Minimierung](bundling-and-minification.md) oder die Bereinigung einer Entwicklungsumgebung, bevor Sie einen neuen Build.
 
@@ -64,7 +64,7 @@ Der obige Code gibt an, welche Knoten Module erforderlich sind. Die `require` Fu
 | gulp        | Gulp streaming Buildsystems. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Ein Modul, Knoten löschen. Weitere Informationen finden Sie unter [Rimraf](https://www.npmjs.com/package/rimraf). |
 | Gulp concat | Ein Modul, das verkettet Dateien auf Grundlage des Betriebssystems Zeilenendemarke enthält. Weitere Informationen finden Sie unter [Gulp Concat](https://www.npmjs.com/package/gulp-concat). |
-| gulp-cssmin | Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| Gulp cssmin | Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp Cssmin](https://www.npmjs.com/package/gulp-cssmin). |
 | Gulp uglify | Ein Modul, das verkleinert *js* Dateien. Weitere Informationen finden Sie unter [Gulp uglify](https://www.npmjs.com/package/gulp-uglify). |
 
 Nachdem die erforderlichen Module importiert wurden, können die Aufgaben angegeben werden. Hier sind sechs Aufgaben registriert haben, durch den folgenden Code dargestellt:
@@ -104,7 +104,7 @@ Die folgende Tabelle enthält eine Erklärung der Aufgaben, die im obigen Code a
 |clean:js|Eine Aufgabe, die das Rimraf Knoten löschen-Modul verwendet, um die verkleinerte Version der Datei site.js zu entfernen.|
 |Bereinigen: Css|Eine Aufgabe, die das Rimraf Knoten löschen-Modul verwendet, um die verkleinerte Version der Datei "Site.CSS" ändern zu entfernen.|
 |Bereinigen|Eine Aufgabe, die Aufrufe der `clean:js` Aufgabe, gefolgt von der `clean:css` Aufgabe.|
-|min:js|Eine Aufgabe, die verkleinert und alle JS-Dateien in den Ordner "Js" verkettet. Die. min.js Dateien ausgeschlossen sind.|
+|Min:js|Eine Aufgabe, die verkleinert und alle JS-Dateien in den Ordner "Js" verkettet. Die. min.js Dateien ausgeschlossen sind.|
 |Min:CSS|Eine Aufgabe, die verkleinert und alle CSS-Dateien in der Css-Ordner verkettet. Die. min.css Dateien ausgeschlossen sind.|
 |Min.|Eine Aufgabe, die Aufrufe der `min:js` Aufgabe, gefolgt von der `min:css` Aufgabe.|
 
@@ -267,7 +267,7 @@ IntelliSense bietet codevervollständigung, parameterbeschreibungen und andere F
 
 ![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Weitere Informationen zu IntelliSense finden Sie unter [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
+Weitere Informationen zu IntelliSense finden Sie unter [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Entwicklungs-, Staging-und produktionsumgebungen
 

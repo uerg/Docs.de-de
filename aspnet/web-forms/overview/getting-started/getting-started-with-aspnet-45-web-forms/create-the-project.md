@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="create-the-project"></a>Erstellen des Projekts
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -52,7 +52,10 @@ In diesem Lernprogramm erstellen, überprüfen und führen Sie das Standardproje
 
     > [!NOTE]
     > Der Name des Projekts in diesem Lernprogramm Reihe ist **WingtipToys**. Es wird empfohlen, dass Sie diese Option verwenden *genaue* Projektname, sodass der Code in der gesamten Reihe von Lernprogrammen Funktionen wie erwartet bereitgestellt.
-6. Wählen Sie als Nächstes die **Web Forms** Vorlage, und wählen Sie die **Projekt erstellen** Schaltfläche.  
+
+6. Klicken Sie auf die **Authentifizierung ändern** Schaltfläche. Wählen Sie **einzelne Benutzerkonten** , und klicken Sie auf die **OK** Schaltfläche.
+
+7. Wählen Sie die **Web Forms** Vorlage, und klicken Sie auf die **OK** Schaltfläche.
 
     ![Erstellen des Projekts - neue Projektvorlage](create-the-project/_static/image3.png)
 
@@ -93,11 +96,11 @@ In Visual Studio die **Projektmappen-Explorer** -Fenster können Sie die Dateien
 
 Visual Studio erstellt, einige ursprünglichen Ordner und Dateien für das Projekt. Die erste Dateien, die Sie später in diesem Lernprogramm arbeiten, sind die folgenden:
 
-| **Datei** | **Purpose** |
+| **Datei** | **Zweck** |
 | --- | --- |
-| *Default.aspx* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
+| *"default.aspx"* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
 | *Site.Master* | Eine Seite, die Ihnen ermöglicht, ein konsistentes Layout und die Verwendung-Standardverhalten für Seiten in Ihrer Anwendung zu erstellen. |
-| *Global.asax* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Module enthält. |
+| *"Global.asax"* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Module enthält. |
 | *Web.config* | Die Konfigurationsdaten für eine Anwendung. |
 
 ### <a name="running-the-default-web-application"></a>Die Standard-Web-Anwendung ausführen
