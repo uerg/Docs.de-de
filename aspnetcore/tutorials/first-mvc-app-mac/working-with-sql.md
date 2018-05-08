@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/working-with-sql
-ms.openlocfilehash: 45a308744525fa19c032736f327192b7ce701aad
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e8085f64b22eee54e5f61a217420785019af2c5c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/sql.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/sql.md)]
 
->[!div class="step-by-step"]
-<span data-ttu-id="893ec-103">[Zurück: Hinzufügen eines Modells](adding-model.md)
-[Weiter: Controllermethoden und Ansichten](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="893ec-103">[Previous - Add a model](adding-model.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="f5e0c-103">[Zurück: Hinzufügen eines Modells](adding-model.md)
+> [Weiter: Controllermethoden und Ansichten](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="f5e0c-103">[Previous - Add a model](adding-model.md)
 [Next - Controller methods and views](controller-methods-views.md)</span></span>

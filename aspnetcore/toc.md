@@ -132,6 +132,7 @@
 ### [HTTP.sys](fundamentals/servers/httpsys.md)
 ## [Globalisierung und Lokalisierung](xref:fundamentals/localization)
 ### [Konfigurieren der Lokalisierung portabler Objekte](xref:fundamentals/portable-object-localization)
+## [Initiieren von HTTP-Anforderungen](xref:fundamentals/http-requests)
 ## [Anforderungsfeatures](fundamentals/request-features.md)
 ## [Hintergrundaufgaben mit gehosteten Diensten](xref:fundamentals/hosted-services)
 ## [Primitive](xref:fundamentals/primitives/index)
@@ -143,9 +144,11 @@
 ## [Auswählen zwischen ASP.NET und ASP.NET Core](choose-aspnet-framework.md)
 
 # [Razor Pages](xref:mvc/razor-pages/index)
-## [Routen und Features der App-Konvention](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Filtermethoden für Razor-Seiten](xref:mvc/razor-pages/filter)
+## [Erstellen einer Razor-Klassenbibliothek](xref:mvc/razor-pages/ui-class)
+## [Routen und Features der App-Konvention](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Razor SDK](xref:mvc/razor-pages/sdk)
+
 
 # [MVC](mvc/overview.md)
 ## [Modellbindung](mvc/models/model-binding.md)
@@ -355,7 +358,7 @@
 ## [ASP.NET Core 1.x zu 2.0](xref:migration/1x-to-2x/index)
 ### [Authentifizierung und Identität](xref:migration/1x-to-2x/identity-2x)
 
-# [API-Referenz](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
+# [API-Referenz](/dotnet/api/?view=aspnetcore-2.0)
 
 # [2.0 – Anmerkungen zu dieser Version](aspnetcore-2.0.md)
 ## [1.1 – Anmerkungen zu dieser Version](aspnetcore-1.1.md)
