@@ -1,10 +1,10 @@
-Der oben hervorgehobene Code zeigt den dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) (in der Datei *Startup.cs*) hinzugefügten Filmdatenbankkontext. `services.AddDbContext<MvcMovieContext>(options =>` gibt die zu verwendende Datenbank und die Verbindungszeichenfolge an. `=>` ist ein [Lambdaoperator](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Der oben hervorgehobene Code zeigt den dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) (in der Datei *Startup.cs*) hinzugefügten Filmdatenbankkontext. `services.AddDbContext<MvcMovieContext>(options =>` gibt die zu verwendende Datenbank und die Verbindungszeichenfolge an. `=>` ist ein [Lambdaoperator](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Öffnen Sie die Datei *Controllers/MoviesController.cs*, und überprüfen Sie den Konstruktor:
 
 <!-- l.. Make copy of Movies controller because we comment out the initial index method and update it later  -->
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
 
 Der Konstruktor verwendet die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`MvcMovieContext `) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet.
 
@@ -18,7 +18,7 @@ MVC bietet außerdem die Möglichkeit, stark typisierte Modellobjekte an eine An
 
 Untersuchen Sie die generierte `Details`-Methode in der Datei *Controllers/MoviesController.cs*:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
 
 Der `id`-Parameter wird im Allgemeinen als Routendaten übergeben. `http://localhost:5000/movies/details/1` legt beispielsweise Folgendes fest:
 
@@ -30,9 +30,9 @@ Sie können die `id` auch mithilfe einer Abfragezeichenfolge übergeben:
 
 `http://localhost:1234/movies/details?id=1`
 
-Der `id`-Parameter wird als [Nullable-Typ](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) für den Fall definiert, dass kein ID-Wert angegeben wird.
+Der `id`-Parameter wird als [Nullable-Typ](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) für den Fall definiert, dass kein ID-Wert angegeben wird.
 
-Ein [Lambdaausdruck](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) wird an `SingleOrDefaultAsync` übergeben, um Filmentitäten auszuwählen, die mit den Routendaten oder dem Wert der Abfragezeichenfolge übereinstimmen.
+Ein [Lambdaausdruck](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) wird an `SingleOrDefaultAsync` übergeben, um Filmentitäten auszuwählen, die mit den Routendaten oder dem Wert der Abfragezeichenfolge übereinstimmen.
 
 ```csharp
 var movie = await _context.Movie
@@ -47,7 +47,7 @@ return View(movie);
 
 Untersuchen Sie den Inhalt der Datei *Views/Movies/Details.cshtml*:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/DetailsOriginal.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/DetailsOriginal.cshtml)]
 
 Durch Einschließen einer `@model`-Anweisung am Anfang der Ansichtsdatei können Sie den Typ des Objekts angeben, den die Ansicht erwartet. Beim Erstellen des „Movies“-Controllers hat Visual Studio automatisch die folgende `@model`-Anweisung am Anfang der Datei *Details.cshtml* hinzugefügt:
 
@@ -59,16 +59,16 @@ Diese `@model`-Direktive ermöglicht Ihnen den Zugriff auf den Film, den der Con
 
 Überprüfen Sie die Datei *Index.cshtml* und die `Index`-Methode im „Movies“-Controller. Beachten Sie, wie der Code beim Aufrufen der `View`-Methode ein `List`-Objekt erstellt. Der Code übergibt diese Liste `Movies` aus der Aktionsmethode `Index` an die Ansicht:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_index)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_index)]
 
 Beim Erstellen des „Movies“-Controllers hat der Gerüstbau automatisch die folgende `@model`-Anweisung am Anfang der Datei *Index.cshtml* hinzugefügt:
 
 <!-- Copy Index.cshtml to IndexOriginal.cshtml -->
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?range=1)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?range=1)]
 
 Diese `@model`-Direktive ermöglicht Ihnen den Zugriff auf die Liste der Filme, die der Controller an die Ansicht übergeben hat, indem ein stark typisiertes `Model`-Objekt verwendet wird. In der Ansicht *Index.cshtml* durchläuft der Code z.B. die Filme mithilfe einer `foreach`-Anweisung für das stark typisierte `Model`-Objekt:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
 
 Da das `Model`-Objekt stark typisiert ist (als ein `IEnumerable<Movie>`-Objekt), wird jedes Element in der Schleife als `Movie` typisiert. Neben anderen Vorteilen bedeutet dies, dass Sie eine Überprüfung des Codes zur Kompilierzeit erhalten:

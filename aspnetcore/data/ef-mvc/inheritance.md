@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 25d4292e325e208ee08f4a7bb8d06580809f9e40
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Vererbung: Tutorial zu EF Core mit ASP.NET Core MVC (9 von 10)
+# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC mit EF Core: Vererbung (9 von 10)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -60,23 +60,23 @@ Dieses Tutorial veranschaulicht die Implementierung der TPH-Vererbung. TPH ist d
 
 Erstellen Sie im Ordner „Models“ (Modelle) die Datei „Person.cs“ und ersetzen Sie den Vorlagencode durch folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
+[!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
 ## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Veranlassen der Vererbung von der Klasse „Person“ an die Klassen „Student“ und „Instructor“
 
 Leiten Sie in der Datei *Instructor.cs* die Klasse „Instructor“ von der Klasse „Person“ ab, und entfernen Sie Schlüssel- und Namensfelder. Der Code sieht aus wie im folgenden Beispiel:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
 Nehmen Sie an der Datei *Student.cs* die gleichen Änderungen vor.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
 ## <a name="add-the-person-entity-type-to-the-data-model"></a>Hinzufügen des Entitätstyps „Person“ zum Datenmodell
 
 Fügen Sie den Entitätstyp „Person“ zur Datei *SchoolContext.cs* hinzu. Die neuen Zeilen werden hervorgehoben.
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
 Das ist alles, was Entity Framework für die Konfiguration der „Tabelle pro Hierarchie“-Vererbung benötigt. Sie werden feststellen, dass die Datenbank nach ihrer Aktualisierung statt der Tabellen „Student“ und „Instructor“ eine Person-Tabelle enthält.
 
@@ -92,7 +92,7 @@ Führen Sie noch nicht den Befehl `database update` aus. Die Ausführung dieses 
 
 Öffnen Sie *Migrations/\<timestamp>_Inheritance.cs*, und ersetzen Sie die Methode `Up` durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
+[!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
 Dieser Code übernimmt folgende Tasks für Datenbankaktualisierungen:
 
@@ -143,6 +143,6 @@ Klicken Sie mit der rechten Maustaste auf die Tabelle „Person“, und klicken 
 
 Sie haben die „Tabelle pro Hierarchie“-Vererbung für die Klassen `Person`, `Student` und `Instructor` implementiert. Weitere Informationen zur Vererbung in Entity Framework Core finden Sie unter [Vererbung](https://docs.microsoft.com/ef/core/modeling/inheritance). Im nächsten Tutorial erfahren Sie, wie Sie eine Vielzahl von Entity Framework-Szenarios auf fortgeschrittenem Niveau verarbeiten können.
 
->[!div class="step-by-step"]
-[Zurück](concurrency.md)
-[Weiter](advanced.md)  
+> [!div class="step-by-step"]
+> [Zurück](concurrency.md)
+> [Weiter](advanced.md)  

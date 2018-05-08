@@ -4,4 +4,4 @@ Dieses Tutorial vermittelt Informationen zur ASP.NET Core MVC-Webentwicklung mit
 * Ist einfacher zu befolgen.
 * Behandelt mehr Features.
 
-Wenn Sie dieses Tutorial über die [Razor Pages](xref:tutorials/razor-pages/razor-pages-start)-Version auswählen, bitten wir Sie, in einem Hinweis den Grund dafür zu nennen.
+Wenn Sie dieses Tutorial über die [Razor Pages](xref:tutorials/razor-pages/razor-pages-start)-Version auswählen, nennen Sie uns unter [diesem GitHub-Problem](https://github.com/aspnet/Docs/issues/6146) den Grund dafür.

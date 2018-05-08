@@ -1,5 +1,5 @@
 ---
-title: "Taghilfsprogramm für verteilten Cache in ASP.NET Core"
+title: Taghilfsprogramm für verteilten Cache in ASP.NET Core
 author: pkellner
 description: Veranschaulicht die Arbeit mit dem Cache-Taghilfsprogramm
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 710477732b865e2e3821102d34545bbd4e0a5919
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 929156633048b8ee68a66290f44b12026a08c8c9
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="distributed-cache-tag-helper"></a>Taghilfsprogramm für verteilten Cache
+# <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Taghilfsprogramm für verteilten Cache in ASP.NET Core
 
 Von [Peter Kellner](http://peterkellner.net) 
 
@@ -43,7 +43,7 @@ Definitionen finden Sie im Cache-Taghilfsprogramm. Das Taghilfsprogramm für ver
 |----------------   |----------------   |
 | Zeichenfolge    | „my-distributed-cache-unique-key-101“     |
 
-Das erforderliche `name`-Attribut wird als Schlüssel für den Cache verwendet, der für jede Instanz eines Taghilfsprogramms für verteilten Cache gespeichert wird.  Im Gegensatz zum Cache-Taghilfsprogramm, das jeder Instanz des Cache-Taghilfsprogramms basierend auf dem Namen der Razor-Seite und dem Speicherort des Taghilfsprogramms auf der Razor-Seite einen Schlüssel zuweist, basieren die Schlüssel des Taghilfsprogramms für verteilten Cache nur auf dem Attribut `name`.
+Das erforderliche `name`-Attribut wird als Schlüssel für den Cache verwendet, der für jede Instanz eines Taghilfsprogramms für verteilten Cache gespeichert wird.  Im Gegensatz zum Cache-Taghilfsprogramm, das jeder Instanz des Cache-Taghilfsprogramms basierend auf dem Namen der Razor Page und dem Speicherort des Taghilfsprogramms auf der Razor Page einen Schlüssel zuweist, basieren die Schlüssel des Taghilfsprogramms für verteilten Cache nur auf dem Attribut `name`.
 
 Beispiel für die Verwendung:
 

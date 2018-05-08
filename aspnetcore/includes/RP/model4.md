@@ -1,6 +1,6 @@
 Die folgende Tabelle zeigt die Details der Parameter des Codegenerators von ASP.NET:
 
-| Parameter               | Beschreibung|
+| Parameter               | description|
 | ----------------- | ------------ |
 | -m  | Der Name des Modells. |
 | -dc  | Der Datenkontext. |
@@ -19,7 +19,7 @@ dotnet aspnet-codegenerator razorpage -h
 * Führen Sie die App aus, und fügen Sie `/Movies` an die URL im Browser an (`http://localhost:port/movies`).
 * Testen Sie den Link **Create** (Erstellen).
 
- ![Seite „Create“](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Seite „Create“](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

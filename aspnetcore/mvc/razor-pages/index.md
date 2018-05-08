@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -207,6 +207,38 @@ Die `OnPostDeleteAsync`-Methode:
 * Wenn der Kundenkontakt gefunden wird, wird er aus der Liste der Kundenkontakte entfernt. Die Datenbank wurde aktualisiert.
 * Ruft `RedirectToPage` auf, um die Stammindexseite (`/Index`) umzuleiten.
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="manage-head-requests-with-the-onget-handler"></a>Verwalten von HEAD-Anforderungen mit dem OnGet-Handler
+
+Normalerweise wird ein HEAD-Handler erstellt und für HEAD-Anforderungen aufgerufen:
+
+```csharp
+public void OnHead()
+{
+    HttpContext.Response.Headers.Add("HandledBy", "Handled by OnHead!");
+}
+```
+
+Wenn kein HEAD-Handler (`OnHead`) definiert ist, greift Razor Pages in ASP.NET Core 2.1 oder höher auf das Aufrufen des GET-Seitenhandlers (`OnGet`) zurück. Aktivieren Sie dieses Verhalten mit der [SetCompatibilityVersion-Methode](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) in `Startup.Configure` für ASP.NET Core 2.1 bis 2.x:
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+```
+
+Tatsächlich setzt `SetCompatibilityVersion` die Razor Pages-Option `AllowMappingHeadRequestsToGetHandler` auf `true`. Dieses Verhalten ist bis zur Veröffentlichung von ASP.NET Core 3.0 Preview 1 oder höher aktiviert. Jede Hauptversion von ASP.NET Core nimmt jedes Patchreleaseverhalten der früheren Version an.
+
+Global aktiviertes Verhalten für Patchreleases 2.1 bis 2.x kann mit einer App-Konfiguration vermieden werden, die HEAD-Anforderungen dem GET-Handler zugeordnet. Setzen Sie die Razor Pages-Option `AllowMappingHeadRequestsToGetHandler` auf `true`, ohne `SetCompatibilityVersion` in `Startup.Configure` aufzurufen:
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        options.AllowMappingHeadRequestsToGetHandler = true;
+    });
+```
+::: moniker-end
+
 <a name="xsrf"></a>
 
 ## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF und Razor Pages
@@ -321,7 +353,7 @@ Das Verknüpfen relativer Namen eignet sich beim Erstellen von Websites mit eine
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core macht die Eigenschaft [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) auf einem [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller) verfügbar. Diese Eigenschaft speichert Daten, bis sie gelesen wurden. Die Methoden `Keep` und `Peek` können verwendet werden, um die Daten zu überprüfen, ohne sie zu löschen. `TempData` eignet sich für die Weiterleitung, wenn Daten für mehr als eine Anforderung benötigt werden.
+ASP.NET Core macht die Eigenschaft [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) auf einem [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller) verfügbar. Diese Eigenschaft speichert Daten, bis sie gelesen wurden. Die Methoden `Keep` und `Peek` können verwendet werden, um die Daten zu überprüfen, ohne sie zu löschen. `TempData` eignet sich für die Weiterleitung, wenn Daten für mehr als eine Anforderung benötigt werden.
 
 Das `[TempData]`-Attribut ist neu in ASP.NET Core 2.0 und wird auf Domänencontrollern und Seiten unterstützt.
 
@@ -364,6 +396,8 @@ Der vorherige Code verwendet *benannte Handlermethoden*. Benannte Handlermethode
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
 Mit dem vorherigen Code lautet der URL-Pfad, der an `OnPostJoinListAsync` übermittelt, `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Der URL-Pfad, der an `OnPostJoinListUCAsync` übermittelt, lautet `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
+
+
 
 ## <a name="customizing-routing"></a>Anpassen des Routings
 

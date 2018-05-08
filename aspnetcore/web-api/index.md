@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/index
-ms.openlocfilehash: 017bcc1ed65b1baa92408db07201d1c7bab2849d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: f0368258d078673ab5eab21c5ce07f2437cb8ea4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Erstellen von Web-APIs mit ASP.NET Core
 
@@ -74,6 +74,9 @@ Ein Bindungsquellenattribut definiert den Speicherort, an dem der Wert eines Akt
 |**[[FromQuery]](/dotnet/api/microsoft.aspnetcore.mvc.fromqueryattribute)**   | Abfragezeichenfolge-Parameter der Anforderung |
 |**[[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute)**   | Routendaten aus aktuellen Anforderungen |
 |**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | Der als Aktionsparameter eingefügte Anforderungsdienst. |
+
+> [!NOTE]
+> Verwenden Sie **nicht** `[FromRoute]`, wenn Werte möglicherweise `%2f` (d.h. `/`) enthalten, da `%2f` nicht durch Entfernen von Escapezeichen zu `/` gemacht wird. Verwenden Sie `[FromQuery]`, wenn der Wert `%2f` enthalten könnte.
 
 Ohne das `[ApiController]`-Attribut werden Bindungsquellattribute explizit definiert. Im folgenden Beispiel gibt das `[FromQuery]`-Attribut an, dass der Parameterwert `discontinuedOnly` in der Abfragezeichenfolge der Anforderungs-URL bereitgestellt wird:
 

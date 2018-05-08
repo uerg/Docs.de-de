@@ -1,20 +1,20 @@
 ---
 title: 'ASP.NET Core MVC mit EF Core: Sortieren, Filtern, Paging (3 von 10)'
 author: tdykstra
-description: "In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu."
+description: In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu.
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortieren, Filtern, Paging und Gruppieren: Tutorial für EF Core mit ASP.NET Core MVC (3 von 10)
+# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC mit EF Core: Sortieren, Filtern, Paging (3 von 10)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,7 +34,7 @@ Die folgende Abbildung zeigt, wie die Seite am Ende aussehen wird. Die Spaltenü
 
 Ersetzen Sie in *StudentsController.cs* die `Index`-Methode durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 Dieser Code empfängt einen `sortOrder`-Parameter aus der Abfragezeichenfolge in der URL. Der Wert der Abfragezeichenfolge wird von ASP.NET Core MVC als Parameter an die Aktionsmethode übergeben. Der Parameter ist eine Zeichenfolge, entweder „Name“ oder „Date“, optional gefolgt von einem Unterstrich und der Zeichenfolge „desc“, die die absteigende Reihenfolge angibt. Standardmäßig wird eine aufsteigende Sortierreihenfolge verwendet.
 
@@ -42,18 +42,18 @@ Bei der ersten Anforderung der Indexseite gibt es keine Abfragezeichenfolge. Die
 
 Die beiden `ViewData`-Elemente (NameSortParm und DateSortParm) werden von der Ansicht verwendet, um die Links der Spaltenüberschriften mit den entsprechenden Abfragezeichenfolgenwerten zu konfigurieren.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Hierbei handelt es sich um ternäre Anweisungen. Die erste gibt an, dass wenn der `sortOrder`-Parameter gleich 0 (null) oder leer ist, „NameSortParm“ auf „name_desc“ festgelegt werden soll. Andernfalls soll er auf eine leere Zeichenfolge festgelegt werden. Diese beiden Anweisungen ermöglichen der Ansicht das Festlegen der Links für Spaltenüberschriften wie folgt:
 
-|  Aktuelle Sortierreihenfolge  | Link Nachname | Link Datum |
+|  Aktuelle Sortierreihenfolge  | Hyperlink „Nachname“ | Hyperlink „Datum“ |
 |:--------------------:|:-------------------:|:--------------:|
-| Nachname: Aufsteigend  | descending          | ascending      |
-| Nachname: Absteigend | ascending           | ascending      |
-| Datum: Aufsteigend       | ascending           | descending     |
-| Datum: Absteigend      | ascending           | ascending      |
+| Nachname (aufsteigend)  | descending          | ascending      |
+| Nachname (absteigend) | ascending           | ascending      |
+| Datum (aufsteigend)       | ascending           | descending     |
+| Datum (absteigend)      | ascending           | ascending      |
 
-Die Methode verwendet LINQ to Entities, um die Spalte anzugeben, nach der sortiert werden soll. Der Code erstellt vor der Switch-Anweisung eine `IQueryable`-Variable, ändert sie in der Switch-Anweisung und ruft die `ToListAsync`-Methode nach der `switch`-Anweisung auf. Es wir keine Abfrage an die Datenbank gesendet, wenn Sie die `IQueryable`-Variablen erstellen und ändern. Die Abfrage wird nicht ausgeführt, bis Sie das `IQueryable`-Objekt in eine Sammlung konvertieren, indem Sie eine Methode aufrufen, z.B. die `ToListAsync`-Methode. Aus diesem Grund führt dieser Code zu einer einzelnen Abfrage, die bis zur `return View`-Anweisung nicht ausgeführt wird.
+Die Methode gibt über LINQ to Entities die Spalte an, nach der sortiert werden soll. Der Code erstellt vor der Switch-Anweisung eine `IQueryable`-Variable, ändert sie in der Switch-Anweisung und ruft die `ToListAsync`-Methode nach der `switch`-Anweisung auf. Es wir keine Abfrage an die Datenbank gesendet, wenn Sie die `IQueryable`-Variablen erstellen und ändern. Die Abfrage wird nicht ausgeführt, bis Sie das `IQueryable`-Objekt in eine Sammlung konvertieren, indem Sie eine Methode aufrufen, z.B. die `ToListAsync`-Methode. Aus diesem Grund führt dieser Code zu einer einzelnen Abfrage, die bis zur `return View`-Anweisung nicht ausgeführt wird.
 
 Dieser Code könnte mit einer großen Anzahl von Spalten ausführlich werden. [Das letzte Tutorial dieser Reihe](advanced.md#dynamic-linq) zeigt, wie Sie Code schreiben, mit dem Sie den Namen der `OrderBy`-Spalte an eine Zeichenfolgenvariablen übergeben können.
 
@@ -77,7 +77,7 @@ Wenn Sie eine Filterfunktion zur Studentenindexseite hinzufügen möchten, dann 
 
 Ersetzen Sie in *StudentsController.cs* die `Index`-Methode durch den folgenden Code (die Änderungen sind hervorgehoben).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Sie haben einen `searchString`-Parameter zur `Index`-Methode hinzugefügt. Der Zeichenfolgenwert für die Suche wird aus einem Textfeld empfangen, das Sie zur Indexansicht hinzufügen. Sie haben ebenfalls eine Where-Klausel zur LINQ-Anweisung hinzugefügt, die nur Studenten auswählt, deren Vor- oder Nachnamen die zu suchende Zeichenfolge enthält. Die Anweisung, die die Where-Klausel hinzufügt, wird nur ausgeführt, wenn nach einem Wert gesucht wird.
 
@@ -116,7 +116,7 @@ Um die Pagingfunktionen zur Studentenindexseite hinzuzufügen, erstellen Sie ein
 
 Erstellen Sie `PaginatedList.cs` im Projektordner. Ersetzen Sie den Vorlagencode dann durch den folgenden Code.
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 Die `CreateAsync`-Methode in diesem Code akzeptiert die Seitengröße und die Seitenzahl und wendet die entsprechenden `Skip`- und `Take`-Anweisungen auf `IQueryable` an. Wenn `ToListAsync` auf `IQueryable` aufgerufen wird, wird eine Liste zurückgegeben, die nur die angeforderte Seite enthält. Die Eigenschaften `HasPreviousPage` und `HasNextPage` dienen zum Aktivieren oder Deaktivieren der Pagingschaltflächen **Zurück** und **Weiter**.
 
@@ -126,7 +126,7 @@ Ein `CreateAsync`-Methode wird anstelle eines Konstruktors verwendet, um das `Pa
 
 Ersetzen Sie in *StudentsController.cs* die `Index`-Methode mit dem folgenden Code.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 Dieser Code fügt ein Parameter für die Seitenanzahl, die aktuelle Sortierreihenfolge und den aktuellen Filter zur Methodensignatur hinzu.
 
@@ -213,21 +213,21 @@ Erstellen Sie im Ordner *Models* (Modelle) den Ordner *SchoolViewModels*.
 
 Fügen Sie im neuen Ordner die Klassendatei *EnrollmentDateGroup.cs* hinzu. Ersetzen Sie den Vorlagencode durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Ändern des Home-Controllers
 
 Fügen Sie in *HomeController.cs* am Anfang der Datei die folgenden Anweisungen hinzu:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 Fügen Sie eine Klassenvariable für den Datenbankkontext hinzu, unmittelbar nachdem Sie die geschweifte Klammer für die Klasse geöffnet haben. Rufen Sie eine Instanz des Kontexts von ASP.NET Core DI auf:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 Ersetzen Sie die `About`-Methode durch folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 Die LINQ-Anweisung gruppiert die Studentenentitäten nach Anmeldedatum, berechnet die Anzahl der Entitäten in jeder Gruppe und speichert die Ergebnisse in einer Sammlung von `EnrollmentDateGroup`-Ansichtsmodellobjekten.
 > [!NOTE] 
@@ -241,12 +241,12 @@ Ersetzen Sie den Code in der *Views/Home/About.cshtml*-Datei durch den folgenden
 
 Führen Sie die Anwendung aus, und wechseln Sie zur Infoseite. Die Anzahl der Studenten für jedes Anmeldedatum wird in einer Tabelle angezeigt.
 
-![Infoseite](sort-filter-page/_static/about.png)
+![Seite „Info“](sort-filter-page/_static/about.png)
 
 ## <a name="summary"></a>Zusammenfassung
 
 In diesem Tutorial haben Sie das Sortieren, Filtern, Paging und Gruppieren gelernt. Im nächsten Tutorial lernen Sie, wie Sie mithilfe von Migrationen Datenmodelländerungen verarbeiten.
 
->[!div class="step-by-step"]
-[Zurück](crud.md)
-[Weiter](migrations.md)  
+> [!div class="step-by-step"]
+> [Zurück](crud.md)
+> [Weiter](migrations.md)  

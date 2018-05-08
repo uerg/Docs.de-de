@@ -4,13 +4,13 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In diesem Tutorial fügen Sie der Tabelle `Movies` ein neues Feld hinzu. Wenn wir das Schema ändern (durch Hinzufügen eines neuen Felds), löschen wir die Datenbank und erstellen eine neue. Dieser Workflow funktioniert in der Frühphase der Entwicklung gut, wenn es noch keine aufzubewahrenden Produktionsdaten gibt.
 
-Nachdem Ihre App bereitgestellt wurde und Sie über aufzubewahrende Daten verfügen, können Sie die Datenbank nicht löschen, wenn Sie das Schema ändern müssen. Mithilfe von Entity Framework [Code First-Migrationen](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) können Sie Ihr Schema aktualisieren und die Datenbank ohne Datenverlust migrieren. Migrationen sind bei Verwendung von SQL Server ein beliebtes Feature, doch von SQLlite werden nicht viele Vorgänge für die Schemamigration unterstützt. Daher sind nur sehr einfache Migrationsvorgänge möglich. Weitere Informationen finden Sie unter [SQLite-Einschränkungen](https://docs.microsoft.com/ef/core/providers/sqlite/limitations).
+Nachdem Ihre App bereitgestellt wurde und Sie über aufzubewahrende Daten verfügen, können Sie die Datenbank nicht löschen, wenn Sie das Schema ändern müssen. Mithilfe von Entity Framework [Code First-Migrationen](/ef/core/get-started/aspnetcore/new-db) können Sie Ihr Schema aktualisieren und die Datenbank ohne Datenverlust migrieren. Migrationen sind bei Verwendung von SQL Server ein beliebtes Feature, doch von SQLlite werden nicht viele Vorgänge für die Schemamigration unterstützt. Daher sind nur sehr einfache Migrationsvorgänge möglich. Weitere Informationen finden Sie unter [SQLite-Einschränkungen](/ef/core/providers/sqlite/limitations).
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Hinzufügen einer Rating-Eigenschaft zum Movie-Modell
 
 Öffnen Sie die Datei *Models/Movie.cs*, und fügen Sie eine `Rating`-Eigenschaft hinzu:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 Da Sie der `Movie`-Klasse ein neues Feld hinzugefügt haben, müssen Sie auch die Positivliste für die Bindung aktualisieren, damit diese neue Eigenschaft eingeschlossen wird. Aktualisieren Sie in *MoviesController.cs* das `[Bind]`-Attribut für die Aktionsmethoden `Create` und `Edit` so, dass die `Rating`-Eigenschaft eingeschlossen wird:
 
@@ -22,7 +22,7 @@ Sie müssen auch die Ansichtsvorlagen aktualisieren, um die neue `Rating`-Eigens
 
 Bearbeiten Sie die Datei */Views/Movies/Index.cshtml*, und fügen Sie das Feld `Rating` hinzu:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 Aktualisieren Sie die Datei */Views/Movies/Create.cshtml* mit dem Feld `Rating`.
 
@@ -48,7 +48,7 @@ In diesem Tutorial löschen wir die Datenbank und erstellen Sie neu, sobald sich
 
 Aktualisieren Sie die `SeedData`-Klasse so, dass sie einen Wert für die neue Spalte bereitstellt. Eine Beispieländerung wird nachstehend gezeigt, aber Sie sollten diese Änderung für jedes `new Movie`-Element vornehmen.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Fügen Sie das Feld `Rating` den Ansichten `Edit`, `Details` und `Delete` hinzu.
 

@@ -10,4 +10,4 @@ Für den Anfang ist die Movie-App schon recht ansprechend, doch es gibt Raum fü
 
 Öffnen Sie die Datei *Models/Movie.cs*, und fügen Sie die im folgenden Code gezeigten markierten Zeilen hinzu:
 
-[!code-csharp[Main](code/Models/Movie.cs?highlight=2,11-12)]
+[!code-csharp[](code/Models/Movie.cs?highlight=2,11-12)]

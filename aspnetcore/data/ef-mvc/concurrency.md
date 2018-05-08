@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC mit EF Core – Parallelität (8 von 10)"
+title: ASP.NET Core MVC mit EF Core – Parallelität (8 von 10)
 author: tdykstra
-description: "In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren."
+description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Behandeln von Nebenläufigkeitskonflikten – Tutorial zu EF Core mit ASP.NET Core MVC (8 von 10)
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC mit EF Core – Parallelität (8 von 10)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -89,7 +89,7 @@ Im weiteren Verlauf dieses Tutorials fügen Sie der Fachbereichsentität die Än
 
 Fügen Sie der Datei *Models/Department.cs* eine Nachverfolgungseigenschaft namens „RowVersion“ hinzu:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 Das Attribut `Timestamp` gibt an, dass diese Spalte in die Where-Klausel der Befehle „Update“ und „Delete“ einbezogen wird, die an die Datenbank gesendet werden. Das Attribut wird `Timestamp` genannt, weil vorherige Versionen von SQL Server einen SQL-`timestamp`-Datentyp verwendet haben, bevor er durch SQL-`rowversion` ersetzt wurde. Der .NET-Typ für `rowversion` ist ein Bytearray.
 
@@ -120,7 +120,7 @@ Erstellen Sie einen Abteilungscontroller und Ansichten, wie Sie es vorher bereit
 
 Ändern Sie in der Datei *DepartmentsController.cs* „FirstMidName“ an jeder Stelle in „FullName“, damit die Dropdownliste für Abteilungsadministratoren den vollen Namen des Dozenten enthält und nicht nur den Nachnamen.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Aktualisieren der Indexansicht für Abteilungen
 
@@ -128,7 +128,7 @@ Die Engine für den Gerüstbau hat eine RowVersion-Spalte in der Indexansicht er
 
 Ersetzen Sie den Code in der Datei *Views/Departments/Index.cshtml* durch folgenden Code:
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Damit wird die Überschrift in „Abteilungen“ geändert, die Spalte „RowVersion“ gelöscht und der vollständige Name des Administrators wird anstelle des Vornamens angezeigt.
 
@@ -136,11 +136,11 @@ Damit wird die Überschrift in „Abteilungen“ geändert, die Spalte „RowVer
 
 Fügen Sie in den HttpGet-Methoden `Edit` und `Details` `AsNoTracking` hinzu. Fügen Sie in der HttpGet-Methode `Edit` für den Administrator Eager Loading hinzu.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 Ersetzen Sie den vorhandenen Code für die HttpPost-Methode `Edit` durch folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 Der Code versucht zunächst die Abteilung zu lesen, die aktualisiert werden soll. Wenn die Methode `SingleOrDefaultAsync` NULL zurückgibt, wurde die Abteilung von einem anderen Benutzer gelöscht. In diesem Fall verwendet der Code die bereitgestellten Formularwerte zum Erstellen einer Abteilungsentität, damit die Seite „Bearbeiten“ mit einer Fehlermeldung erneut angezeigt werden kann. Alternativ müssen Sie die Abteilungsentität nicht erneut erstellen, wenn Sie nur eine Fehlermeldung anzeigen, ohne die Abteilungsfelder erneut anzuzeigen.
 
@@ -154,19 +154,19 @@ Wenn Entity Framework dann den SQL-Befehl „Update“ erstellt, enthält dieser
 
 Der Code im Catch-Block für diese Ausnahme ruft die betroffene Abteilungsentität ab, die die aktualisierten Werte der Eigenschaft `Entries` auf dem Ausnahmeobjekt enthält.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 Die Auflistung `Entries` hat nur ein `EntityEntry`-Objekt.  Sie können dieses Objekt verwenden, um die aktuellen Datenbankwerte und die neuen Werte abzurufen, die von dem Benutzer eingegeben wurden.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 Der Code fügt eine benutzerdefinierte Fehlermeldung für jede Spalte mit Datenbankwerten hinzu, die von den Werten abweichen, die der Benutzer auf der Seite „Bearbeiten“ eingegeben hat (zugunsten der Übersichtlichkeit wird hier nur ein Feld angezeigt).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Schließlich legt der Code den Wert `RowVersion` von `departmentToUpdate` auf den neuen Wert fest, der aus der Datenbank abgerufen wurde. Dieser neue `RowVersion`-Wert wird in dem ausgeblendeten Feld gespeichert, wenn die Seite „Bearbeiten“ erneut angezeigt wird. Das nächste Mal, wenn der Benutzer auf **Speichern** klickt, werden nur Parallelitätsfehler abgefangen, die nach dem erneuten Anzeigen der Seite „Bearbeiten“ aufgetreten sind.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 Die Anweisung `ModelState.Remove` ist erforderlich, da `ModelState` über den alten `RowVersion`-Wert verfügt. In der Ansicht hat der Wert `ModelState` Vorrang vor den Modelleigenschaftswerten, wenn beide vorhanden sind.
 
@@ -178,7 +178,7 @@ Nehmen Sie folgende Änderungen in der Datei *Views/Departments/Edit.cshtml* vor
 
 * Fügen Sie der Dropdownliste die Option „Select Administrator“ hinzu.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Überprüfen von Nebenläufigkeitskonflikten in der Seite „Bearbeiten“
 
@@ -208,13 +208,13 @@ Bei der Seite „Löschen“ entdeckt Entity Framework Nebenläufigkeitskonflikt
 
 Ersetzen Sie in der Datei *DepartmentsController.cs* die HttpGet-Methode `Delete` durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler erneut angezeigt wird. Wenn dieses Flag auf TRUE festgelegt ist, und die angegebene Abteilung nicht mehr vorhanden ist, wurde sie von einem anderen Benutzer gelöscht. In diesem Fall leitet der Code an eine Indexseite weiter.  Wenn dieses Flag auf TRUE festgelegt ist, und die Abteilung vorhanden ist, wurde sie von einem anderen Benutzer geändert. In diesem Fall sendet der Code mithilfe von `ViewData` eine Fehlermeldung an die Ansicht.  
 
 Ersetzen Sie den Code in der HttpPost-Methode `Delete` (namens `DeleteConfirmed`) durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 In dem eingerüsteten Code, den Sie soeben ersetzt haben, akzeptiert diese Methode nur eine Datensatz-ID:
 
@@ -239,7 +239,7 @@ Wenn ein Parallelitätsfehler abgefangen wird, zeigt der Code erneut die Bestät
 
 Ersetzen Sie den eingerüsteten Code in der Datei *Views/Departments/Delete.cshtml* durch den folgenden Code, der ein Feld für die Fehlermeldung und ausgeblendete Felder für die Eigenschaften „DepartmentID“ und „RowVersion“ hinzufügt. Die Änderungen werden hervorgehoben.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 Dadurch werden folgende Änderungen vorgenommen:
 
@@ -269,16 +269,16 @@ Optional können Sie den eingerüsteten Code in den Ansichten „Details“ und 
 
 Ersetzen Sie den Code in der Datei *Views/Departments/Details.cshtml*, um die Spalte „RowVersion“ zu löschen und den vollständigen Namen des Administrators anzuzeigen.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Ersetzen Sie den Code in der Datei *Views/Departments/Create.cshtml*, um der Dropdownliste eine Select-Option hinzuzufügen.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Zusammenfassung
 
 Damit ist die Einführung in die Behandlung von Nebenläufigkeitskonflikten abgeschlossen. Weitere Informationen zum Behandeln der Parallelität in EF Core finden Sie unter [Concurrency conflicts (Nebenläufigkeitskonflikte)](https://docs.microsoft.com/ef/core/saving/concurrency). Das nächste Tutorial zeigt Ihnen, wie Sie die „Tabelle pro Hierarchie“-Vererbung für die Entitäten Instructor und Student implementieren.
 
->[!div class="step-by-step"]
-[Zurück](update-related-data.md)
-[Weiter](inheritance.md)  
+> [!div class="step-by-step"]
+> [Zurück](update-related-data.md)
+> [Weiter](inheritance.md)  

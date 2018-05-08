@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC mit EF Core – Lesen verwandter Daten (6 von 10)"
+title: ASP.NET Core MVC mit EF Core – Lesen verwandter Daten (6 von 10)
 author: tdykstra
-description: "In diesem Tutorial lesen Sie verwandte Daten und zeigen sie an – d.h., die Daten, die Entity Framework in Navigationseigenschaften lädt."
+description: In diesem Tutorial lesen Sie verwandte Daten und zeigen sie an – d.h., die Daten, die Entity Framework in Navigationseigenschaften lädt.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 6ee4b0db5bf4d1781ce44f1aff8331680ca8686c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lesen verwandter Daten – EF Core mit ASP.NET Core MVC-Tutorial (6 von 10)
+# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC mit EF Core – Lesen verwandter Daten (6 von 10)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -65,7 +65,7 @@ Erstellen Sie einen Controller mit dem Namen CoursesController für den Kursenti
 
 Ersetzen Sie die `Index`-Methode durch den folgenden Code, der einen geeigneteren Namen für `IQueryable` verwendet, der Kursentitäten (`courses` anstelle von `schoolContext`) zurückgibt:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Öffnen Sie *Views/Courses/Index.cshtml*. Ersetzen Sie den Vorlagencode durch den folgenden Code. Die Änderungen werden hervorgehoben:
 
@@ -107,7 +107,7 @@ Die Dozentenseite zeigt Daten aus drei verschiedenen Tabellen. Aus diesem Grund 
 
 Erstellen Sie im Ordner *SchoolViewModels* *InstructorIndexData.cs*, und ersetzen Sie den bestehenden Code durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Erstellen der Dozentencontroller und -ansichten
 
@@ -117,31 +117,31 @@ Erstellen Sie einen Dozentencontroller mit EF-Lese-/Schreibaktionen, wie in der 
 
 Öffnen Sie *InstructorsController.cs*. Fügen Sie eine Using-Anweisung für den Namespace ViewModels hinzu:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Ersetzen Sie die Indexmethode durch den folgenden Code, um Eager Loading verwandter Daten durchzuführen und ihn in das Ansichtsmodell einzufügen.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolgenparameter (`courseID`), die die ID-Werte des ausgewählten Dozenten und Kurses bereitstellen. Die Parameter werden durch die **Auswählen**-Links auf der Seite bereitgestellt.
 
 Der Code erstellt zuerst eine Instanz des Ansichtsmodells und fügt die Dozentenliste ein. Der Code gibt Eager Loading für die `Instructor.OfficeAssignment`- und `Instructor.CourseAssignments`-Navigationseigenschaften an. Innerhalb der `CourseAssignments`-Eigenschaft wird die `Course`-Eigenschaft geladen, und innerhalb dieser werden die `Enrollments`- und `Department`-Eigenschaften geladen, und innerhalb jeder `Enrollment`-Entität wird die `Student`-Eigenschaft geladen.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Da die Ansicht immer die OfficeAssignment-Entität erfordert, ist es effizienter, sie in derselben Abfrage abzurufen. Kursentitäten sind erforderlich, wenn auf der Webseite ein Dozent ausgewählt ist. Somit ist eine einzelne Abfrage nur besser als mehrere Abfragen, wenn die Seite häufiger mit einem ausgewählten Kurs als ohne angezeigt wird.
 
 Der Code wiederholt `CourseAssignments` und `Course`, da Sie zwei Eigenschaften aus `Course` benötigen. Die erste Zeichenfolge der `ThenInclude`-Abrufe erhält `CourseAssignment.Course`, `Course.Enrollments` und `Enrollment.Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 An diesem Punkt im Code wäre eine andere `ThenInclude` für Navigationseigenschaften von `Student`, die Sie nicht benötigen. Aber ein Aufruf von `Include` beginnt mit `Instructor`-Eigenschaften neu. Daher müssen Sie den Vorgang erneut durchlaufen und `Course.Department` anstelle von `Course.Enrollments` angeben.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 Der folgende Code wird ausgeführt, wenn ein Dozent ausgewählt wurde. Der ausgewählte Dozent wird aus der Liste der Dozenten im Ansichtsmodell abgerufen. Die `Courses`-Eigenschaft des Ansichtsmodells wird dann mit den Kursentitäten aus der `CourseAssignments`-Navigationseigenschaft dieses Dozenten geladen.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 Die `Where`-Methode gibt eine Sammlung zurück. Aber in diesem Fall resultieren die an diese Methode übergebenen Kriterien nur in einer einzigen zurückgegebenen Instructor-Entität. Die `Single`-Methode konvertiert die Sammlung in eine einzelne Instructor-Entität, die Ihnen Zugriff auf die `CourseAssignments`-Eigenschaft dieser Entität gibt. Die `CourseAssignments`-Eigenschaft enthält `CourseAssignment`-Entitäten, aus der Sie nur die verwandten `Course`-Entitäten benötigen.
 
@@ -159,7 +159,7 @@ anstelle von:
 
 Wenn ein Kurs ausgewählt wurde, wird der ausgewählte Kurs aus der Kursliste im Ansichtsmodell abgerufen. Die `Enrollments`-Eigenschaft des Ansichtsmodells wird dann mit den Registrierungsentitäten aus der `Enrollments`-Navigationseigenschaft dieses Kurses geladen.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Ändern der Dozentenindexansicht
 
@@ -231,7 +231,7 @@ Wenn Sie die Liste der Dozenten aus *InstructorsController.cs* abrufen, haben Si
 
 Angenommen, Sie haben erwartet, dass Benutzer nur selten Registrierungen für einen ausgewählten Dozenten und Kurs angezeigt haben möchten. In diesem Fall möchten Sie die Registrierungsdaten möglicherweise nur laden, wenn diese angefordert werden. Ersetzen Sie die `Index`-Methode durch folgenden Code, um ein Beispiel für Eager Loading zu sehen. Dieser Code entfernt das Eager Loading für Registrierungen und lädt diese Eigenschaft explizit. Die Codeänderungen werden hervorgehoben.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 Der neue Code löscht die *ThenInclude*-Methodenaufrufe für Registrierungsdaten aus dem Code, der Instructor-Entitäten abruft. Wenn ein Dozent und Kurs ausgewählt werden, ruft der hervorgehobene Code Registrierungsentitäten für den ausgewählten Kurs und Studentenentitäten für jede Registrierung ab.
 

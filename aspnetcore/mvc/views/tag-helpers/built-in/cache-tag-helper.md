@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Taghilfsprogramm im ASP.NET Core MVC
 
@@ -60,10 +60,9 @@ Beispiel:
 
 ### <a name="expires-on"></a>expires-on 
 
-| Attributtyp    | Beispielwert     |
-|----------------   |----------------   |
-| DateTimeOffset    | "@new DateTime(2025,1,29,17,02,0)"    |
-
+| Attributtyp |           Beispielwert            |
+|----------------|------------------------------------|
+| DateTimeOffset | "@new DateTime(2025,1,29,17,02,0)" |
 
 Legt die absolute Ablaufzeit fest. Im folgenden Beispiel werden die Inhalte des Cache-Taghilfsprogramms bis zum 29. Januar 2025 um 17:02 Uhr zwischengespeichert.
 
@@ -79,10 +78,9 @@ Beispiel:
 
 ### <a name="expires-after"></a>expires-after
 
-| Attributtyp    | Beispielwert     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
-
+| Attributtyp |        Beispielwert         |
+|----------------|------------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(120)" |
 
 Legt die Zeitspanne ab der ersten Anforderungszeit fest, um die Inhalte zwischenzuspeichern. 
 
@@ -98,10 +96,9 @@ Beispiel:
 
 ### <a name="expires-sliding"></a>expires-sliding
 
-| Attributtyp    | Beispielwert     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
-
+| Attributtyp |        Beispielwert        |
+|----------------|-----------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(60)" |
 
 Legt die Zeit fest, nach der ein Cacheeintrag gelöscht werden soll, wenn niemand auf diesen zugegriffen hat.
 
@@ -169,7 +166,7 @@ routes.MapRoute(
     name: "default",
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
-  
+
 *Index.cshtml*
 
 ```cshtml
@@ -224,10 +221,9 @@ Wenn Sie dieses Attribut verwenden, werden die Inhalte im Cache über einen Anme
 
 ### <a name="vary-by"></a>vary-by
 
-| Attributtyp    | Beispielwerte                |
-|----------------   |----------------               |
-| Zeichenfolge             | "@Model"                 |
-
+| Attributtyp | Beispielwerte |
+|----------------|----------------|
+|     Zeichenfolge     |    "@Model"    |
 
 Über dieses Attribut können Sie festlegen, welche Daten zwischengespeichert werden sollen. Wenn das Objekt verändert wird, auf das der Zeichenfolgenwert des Attributs verweist, wird der Inhalt des Cache-Hilfsprogramms aktualisiert. Häufig wird eine Zeichenfolgenverkettung von Modellwerten diesem Attribut zugewiesen.  D.h., dass der Cache ungültig wird, wenn ein Update an einem der verketteten Werte vorgenommen wird.
 
@@ -283,5 +279,5 @@ Das Cache-Taghilfsprogramm ist vom [Arbeitsspeicher Cache Service](xref:performa
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Zwischenspeicherung im Speicher](xref:performance/caching/memory)
+* [Zwischenspeichern in Speicher](xref:performance/caching/memory)
 * [Einführung in Identity](xref:security/authentication/identity)

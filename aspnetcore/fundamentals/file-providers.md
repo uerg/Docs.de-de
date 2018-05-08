@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: 06197f967e111d75531e9c3bcbcbdb971cb9f99b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dateianbieter in ASP.NET Core
 
@@ -50,15 +50,15 @@ Sie können die Verzeichnisinhalte durchlaufen oder die Informationen für eine 
 
 Zur Anbieteranforderung von einem Controller müssen Sie ihn im Konstruktor des Controllers angeben und einem lokalen Feld zuweisen. Verwenden Sie die lokale Instanz aus Ihren Aktionsmethoden:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
 
 Erstellen Sie dann den Anbieter in der `Startup`-Anwendungsklasse:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
 
 Durchlaufen Sie in der *Index.cshtml*-Ansicht die bereitgestellten `IDirectoryContents`:
 
-[!code-html[Main](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
 
 Das Ergebnis:
 
@@ -68,7 +68,7 @@ Das Ergebnis:
 
 Der `EmbeddedFileProvider` wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Betten Sie Ihre Dateien in .NET Core mit dem `<EmbeddedResource>`-Element in der *CSPROJ*-Datei in eine Assembly ein:
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 Sie können [Globmuster](#globbing-patterns) verwenden, wenn Sie Dateien für die Einbettung in der Assembly angeben. Diese Muster können verwendet werden, um eine oder mehrere Dateien zuzuordnen.
 
@@ -97,7 +97,7 @@ Das Aktualisieren der Beispielanwendung für die Verwendung eines `EmbeddedFileP
 
 Der `CompositeFileProvider` kombiniert `IFileProvider`-Instanzen, die eine einzelne Schnittstelle zum Arbeiten mit Dateien von mehreren Anbietern verfügbar machen. Beim Erstellen des `CompositeFileProvider` übergeben Sie eine oder mehrere `IFileProvider`-Instanzen an seinen Konstruktor:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
 
 Aktualisieren die Beispielanwendung für die Verwendung eines `CompositeFileProvider`. Hier sind zuvor konfigurierte physische und eingebettete Anbieter enthalten. Daraus ergibt sich die folgende Ausgabe:
 
@@ -109,7 +109,7 @@ Die `IFileProvider` `Watch`-Methode bietet eine Möglichkeit, eine oder mehrere 
 
 Im Beispiel dieses Artikels wird eine Konsolenanwendung konfiguriert, damit sie bei einer Änderung einer Textdatei eine Meldung anzeigt:
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 Das Ergebnis nach mehrmaligem Speichern der Datei:
 

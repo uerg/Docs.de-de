@@ -1,16 +1,16 @@
-# <a name="working-with-sqlite-in-and-razor-pages"></a>Arbeiten mit SQLite und Razor-Seiten
+# <a name="working-with-sqlite-in-and-razor-pages"></a>Arbeiten mit SQLite und Razor Pages
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Das `MovieContext`-Objekt übernimmt die Aufgabe der Herstellung der Verbindung mit der Datenbank und Zuordnung von `Movie`-Objekten zu Datensätzen in der Datenbank. Der Datenbankkontext wird mit dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) in der Methode `ConfigureServices` in der Datei *Startup.cs* registriert:
 
-[!code-csharp[Main](code/Startup.cs?name=snippet2&highlight=6-8)]
+[!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
 
 ## <a name="sqlite"></a>SQLite
 
 Auf der [SQLite](https://www.sqlite.org/)-Website ist zu lesen:
 
-> SQLite ist ein eigenständiges, sehr zuverlässiges, eingebettetes, genehmigungsfreies SQL-Datenbankmodul mit vollen Funktionsumfang. SQLite ist das weltweit am häufigsten verwendete Datenbankmodul.
+> SQLite ist eine eigenständige, sehr zuverlässige, eingebettete, genehmigungsfreie SQL-Datenbank-Engine mit vollem Funktionsumfang. SQLite ist die weltweit am häufigsten verwendete Datenbank-Engine.
 
 Es gibt viele Tools von Drittanbietern, die Sie herunterladen können, um eine SQLite-Datenbank zu verwalten und anzuzeigen. Die folgende Abbildung stammt aus [DB Browser for SQLite](http://sqlitebrowser.org/). Wenn Sie ein bestimmtes SQLite-Tool bevorzugen, geben Sie bitte in einem Kommentar dessen Vorteile an.
 
@@ -20,7 +20,7 @@ Es gibt viele Tools von Drittanbietern, die Sie herunterladen können, um eine S
 
 Erstellen Sie im Ordner *Models* die neue Klasse `SeedData`. Ersetzen Sie den generierten Code durch den folgenden:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](code/Models/SeedData.cs)]
 
 Wenn in der Datenbank Filme vorhanden sind, wird der Initialisierer des Seedings zurückgegeben.
 
@@ -36,10 +36,10 @@ if (context.Movie.Any())
 
 Fügen Sie den Initialisierer des Seedings in der Datei *Program.cs* zur `Main`-Methode hinzu:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 ### <a name="test-the-app"></a>Testen der App
 
 Löschen Sie alle Datensätze in der Datenbank (damit die Seed-Methode ausgeführt wird). Beenden und starten Sie die App, um das Seeding der Datenbank auszuführen.
-   
+
 Die App zeigt die per Seeding hinzugefügten Daten.

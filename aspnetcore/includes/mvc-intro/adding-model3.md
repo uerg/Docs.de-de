@@ -12,7 +12,7 @@
 
 * In manchen Gebietsschemas müssen Sie das Datumsformat angeben. Betrachten Sie den unten markierten Code.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
 
 Mit `DataAnnotations` beschäftigen wir uns später im Tutorial.
 
