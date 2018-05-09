@@ -2,7 +2,7 @@
 uid: mvc/videos/index
 title: Videos | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2011

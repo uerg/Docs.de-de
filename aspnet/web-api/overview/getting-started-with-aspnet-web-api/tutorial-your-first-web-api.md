@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Erste Schritte mit ASP.NET Web API 2 (c#)
 author: MikeWasson
-description: "HTTP ist nicht nur für Webseiten bereitstellen. Es ist auch eine leistungsstarke Plattform zum Erstellen von APIs, die Dienste und Daten verfügbar machen. HTTP ist einfacher, flexibler, und Ubiq..."
+description: HTTP ist nicht nur für Webseiten bereitstellen. Es ist auch eine leistungsstarke Plattform zum Erstellen von APIs, die Dienste und Daten verfügbar machen. HTTP ist einfacher, flexibler, und Ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ In diesem Lernprogramm verwenden Sie ASP.NET Web-API, um eine Web-API zu erstell
 
 Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite. Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**. Nennen Sie das Projekt "ProductsApp", und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**. Nennen Sie das Projekt "ProductsApp", und klicken Sie auf **OK**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 

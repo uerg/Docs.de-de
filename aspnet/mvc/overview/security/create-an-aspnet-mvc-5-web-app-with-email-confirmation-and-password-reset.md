@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: "Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, ein e-Mail-Bestätigung und das Kennwort zurücksetzen (c#) | Microsoft Docs"
+title: Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, ein e-Mail-Bestätigung und das Kennwort zurücksetzen (c#) | Microsoft Docs
 author: Rick-Anderson
-description: "In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 5-Web-app mit e-Mail-Bestätigung und das Kennwort zurückzusetzen, verwenden das Mitgliedschaftssystem ASP.NET Identity zu erstellen. Sie Zertifizierungsstelle..."
+description: In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 5-Web-app mit e-Mail-Bestätigung und das Kennwort zurückzusetzen, verwenden das Mitgliedschaftssystem ASP.NET Identity zu erstellen. Sie Zertifizierungsstelle...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015

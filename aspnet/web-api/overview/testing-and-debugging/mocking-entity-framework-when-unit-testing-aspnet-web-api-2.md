@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
-title: "Simulieren von Entity Framework bei Komponententests für ASP.NET Web API 2 | Microsoft Docs"
+title: Simulieren von Entity Framework bei Komponententests für ASP.NET Web API 2 | Microsoft Docs
 author: tfitzmac
-description: "Diese Anleitung und die Anwendung wird gezeigt, wie Komponententests für Ihre Web-API 2-Anwendung erstellen, die das Entity Framework verwendet. Es zeigt die Vorgehensweise beim Ändern der..."
+description: Diese Anleitung und die Anwendung wird gezeigt, wie Komponententests für Ihre Web-API 2-Anwendung erstellen, die das Entity Framework verwendet. Es zeigt die Vorgehensweise beim Ändern der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013

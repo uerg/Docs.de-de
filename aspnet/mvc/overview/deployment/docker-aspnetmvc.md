@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/deployment/docker
 title: Migrieren von ASP.NET MVC-Anwendungen zu Windows-Containern
-description: "Erfahren Sie, wie Sie eine vorhandene ASP.NET MVC-Anwendung in einem Windows Docker-Container ausführen können."
+description: Erfahren Sie, wie Sie eine vorhandene ASP.NET MVC-Anwendung in einem Windows Docker-Container ausführen können.
 keywords: Windows-Containers,Docker,ASP.NET MVC
 author: BillWagner
 ms.author: wiwagn

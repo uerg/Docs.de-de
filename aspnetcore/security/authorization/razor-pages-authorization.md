@@ -1,7 +1,7 @@
 ---
 title: Razor-Seiten Autorisierung Konventionen in ASP.NET Core
 author: guardrex
-description: "Informationen Sie zum Zugriff auf den Seiten mit den Konventionen zu steuern, die Autorisierung von Benutzern und ermöglichen anonyme Benutzern den Zugriff auf Seiten oder Ordner von Seiten."
+description: Informationen Sie zum Zugriff auf den Seiten mit den Konventionen zu steuern, die Autorisierung von Benutzern und ermöglichen anonyme Benutzern den Zugriff auf Seiten oder Ordner von Seiten.
 manager: wpickett
 ms.author: riande
 ms.date: 10/27/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: bbef653c6cf968527e753df9c853f5972640cc03
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2fd8cd444b1d774c387dc6426af5914bde9b8ae7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Razor-Seiten Autorisierung Konventionen in ASP.NET Core
 
@@ -79,5 +79,5 @@ Die notwendige Autorisierung auf der Seite "Private" funktioniert nicht, da bei 
 
 ## <a name="see-also"></a>Siehe auch
 
-* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor-Seiten](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:mvc/razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) Klasse

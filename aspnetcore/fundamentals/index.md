@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 223b1906ef9941084e18e0698f007d9564e81f09
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -107,7 +107,7 @@ Informationen zur Verwendung von `IHttpClientFactory` für den Zugriff auf `Http
 
 Umgebungen wie „Entwicklung“ und „Produktion“ sind in ASP.NET Core von besonderer Bedeutung und können über Umgebungsvariablen festgelegt werden.
 
-Weitere Informationen finden Sie unter [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments).
+Weitere Informationen finden Sie unter [Verwenden mehrerer Umgebungen](xref:fundamentals/environments).
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -143,7 +143,7 @@ Weitere Informationen finden Sie unter [Dateianbieter](xref:fundamentals/file-pr
 
 Middleware für statische Dateien kümmert sich um statische Dateien wie etwa HTML, CSS, Image und JavaScript.
 
-Weitere Informationen finden Sie unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files).
+Weitere Informationen finden Sie im Artikel zu [statischen Dateien](xref:fundamentals/static-files).
 
 ## <a name="hosting"></a>Hosting
 

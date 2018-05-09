@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Paket und Minifiy statische Objekte in ASP.NET Core
 
@@ -79,7 +79,7 @@ Konfigurationsoptionen sind verfügbar:
 
 * `outputFileName`: Der Name der Ausgabe der Paketdatei. Einen relativen Pfad darf das *bundleconfig.json* Datei. **Erforderlich**
 * `inputFiles`: Ein Array von Dateien bündeln. Hierbei handelt es sich um relative Pfade in der Konfigurationsdatei. **optionale**, * führt ein leerer Wert eine leere Ausgabedatei. [Globmodus](http://www.tldp.org/LDP/abs/html/globbingref.html) Muster werden unterstützt.
-* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optional**, *default - `minify: { enabled: true }`*
+* `minify`: Die Minimierung-Optionen für die Ausgabe geben. **optionale**, *Standard: `minify: { enabled: true }`*
   * Konfigurationsoptionen sind pro Datei Ausgabetyp verfügbar.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript-Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -313,5 +313,5 @@ Alternativ kann der Task Runner-Explorer von Visual Studio verwendet werden, Gul
 
 * [Verwenden von Gulp](xref:client-side/using-gulp)
 * [Verwenden von Grunt](xref:client-side/using-grunt)
-* [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
+* [Verwenden Sie mehrere Umgebungen](xref:fundamentals/environments)
 * [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)

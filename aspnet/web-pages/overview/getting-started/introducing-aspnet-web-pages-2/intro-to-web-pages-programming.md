@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 60115dd06a27bf856427953de29e993194afb991
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Einführung in ASP.NET Web Pages - Grundlagen der Programmierung
 ====================
@@ -207,7 +207,7 @@ Führen Sie die Seite, und klicken Sie auf **Absenden**. Diesmal sehen Sie nicht
 
 ### <a name="testing-the-value-of-a-query-string"></a>Testen den Wert der Abfragezeichenfolge
 
-Eine weitere Tests. Diesmal, fügen Sie eine If-Block, der testet, einen Wert mit dem Namen anzeigen, die in der Abfragezeichenfolge übergeben werden kann. (Wie folgt: "http://localhost:43097/TestRazorPart2.cshtml`?show=true`) ändern Sie die Seite, damit die Nachricht Sie angezeigt wurde haben ("This is erstmalig...", usw.) wird nur angezeigt, wenn der Wert des anzeigen auf" true "festgelegt ist.
+Eine weitere Tests. Diesmal, fügen Sie eine If-Block, der testet, einen Wert mit dem Namen anzeigen, die in der Abfragezeichenfolge übergeben werden kann. (Wie folgt: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) ändern Sie die Seite, damit die Nachricht Sie angezeigt wurde haben ("This is erstmalig...", usw.) wird nur angezeigt, wenn der Wert des anzeigen auf "true" festgelegt ist.
 
 An die untere (jedoch inneren) der Codeblock am oberen Rand der Seite "Folgendes ein:
 

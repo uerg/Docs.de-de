@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: f9215767bf9a7c8b43b474848ba7dff7c3ddaf24
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cf63766dc4ae94d784190d6dbc7b5beb57342f42
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität auf ASP.NET Core
 
@@ -49,7 +49,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
-   Wenn Sie die .NET Core-Befehlszeilenschnittstelle verwenden zu können, erstellen Sie das neue Projekt mit ``dotnet new mvc --auth Individual``. Dieser Befehl erstellt ein neues Projekt mit der gleichen Identität Vorlagencode, die, den Visual Studio erstellt.
+   Wenn Sie die .NET Core-Befehlszeilenschnittstelle verwenden zu können, erstellen Sie das neue Projekt mit `dotnet new mvc --auth Individual`. Dieser Befehl erstellt ein neues Projekt mit der gleichen Identität Vorlagencode, die, den Visual Studio erstellt.
 
    Das Projekt enthält die `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Paket, d. h. die Identitätsdaten und das Schema mit SQL Server weiterhin [Entity Framework Core](https://docs.microsoft.com/ef/).
 
@@ -88,30 +88,30 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
 
    ![Anwenden von Migrationen-Webseite](identity/_static/apply-migrations.png)
 
-   Alternativ können Sie testen, mithilfe von ASP.NET Core Identity mit Ihrer app ohne einen persistenten Datenbank mithilfe einer in-Memory-Datenbank. Um eine Datenbank im Arbeitsspeicher zu verwenden, fügen die ``Microsoft.EntityFrameworkCore.InMemory`` auf Ihre app Packen und ändern Sie Ihre app Aufruf ``AddDbContext`` in ``ConfigureServices`` wie folgt:
+   Alternativ können Sie testen, mithilfe von ASP.NET Core Identity mit Ihrer app ohne einen persistenten Datenbank mithilfe einer in-Memory-Datenbank. Um eine Datenbank im Arbeitsspeicher zu verwenden, fügen die `Microsoft.EntityFrameworkCore.InMemory` auf Ihre app Packen und ändern Sie Ihre app Aufruf `AddDbContext` in `ConfigureServices` wie folgt:
 
    ```csharp
    services.AddDbContext<ApplicationDbContext>(options =>
        options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
    ```
 
-   Wenn der Benutzer klickt der **registrieren** Link, der ``Register`` Aktion wird aufgerufen, auf ``AccountController``. Die ``Register`` Aktion erstellt Benutzer durch Aufrufen von `CreateAsync` auf die `_userManager` Objekt (bereitgestellt, um ``AccountController`` von Abhängigkeitsinjektion):
+   Wenn der Benutzer klickt der **registrieren** Link, der `Register` Aktion wird aufgerufen, auf `AccountController`. Die `Register` Aktion erstellt Benutzer durch Aufrufen von `CreateAsync` auf die `_userManager` Objekt (bereitgestellt, um `AccountController` von Abhängigkeitsinjektion):
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
-   Wenn der Benutzer erfolgreich erstellt wurde, wird der Anmeldung des Benutzers durch den Aufruf von ``_signInManager.SignInAsync``.
+   Wenn der Benutzer erfolgreich erstellt wurde, wird der Anmeldung des Benutzers durch den Aufruf von `_signInManager.SignInAsync`.
 
    **Hinweis:** finden Sie unter [Konto Bestätigung](xref:security/authentication/accconfirm#prevent-login-at-registration) Schritte zum sofortigen Anmeldung bei der Registrierung zu verhindern.
 
 4. Anmelden.
 
-   Benutzer können sich anmelden, indem Sie auf die **melden Sie sich** Link am oberen Rand der Website oder möglicherweise der Anmeldeseite navigiert werden, wenn Benutzer versuchen, ein Teil des Standorts, auf dem Autorisierung erforderlich ist. Wenn der Benutzer das Formular auf der Anmeldeseite sendet die ``AccountController`` ``Login`` Aktion aufgerufen wird.
+   Benutzer können sich anmelden, indem Sie auf die **melden Sie sich** Link am oberen Rand der Website oder möglicherweise der Anmeldeseite navigiert werden, wenn Benutzer versuchen, ein Teil des Standorts, auf dem Autorisierung erforderlich ist. Wenn der Benutzer das Formular auf der Anmeldeseite sendet die `AccountController` `Login` Aktion aufgerufen wird.
 
-   Die ``Login`` Aktion Aufrufe ``PasswordSignInAsync`` auf die ``_signInManager`` Objekt (bereitgestellt, um ``AccountController`` von Abhängigkeitsinjektion).
+   Die `Login` Aktion Aufrufe `PasswordSignInAsync` auf die `_signInManager` Objekt (bereitgestellt, um `AccountController` von Abhängigkeitsinjektion).
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
 
-   Die Basis ``Controller`` Klasse macht ein ``User`` -Eigenschaft, die Sie über Controllermethoden zugreifen können. Sie können z. B. auflisten `User.Claims` und autorisierungsentscheidungen. Weitere Informationen finden Sie unter [Autorisierung](xref:security/authorization/index).
+   Die Basis `Controller` Klasse macht ein `User` -Eigenschaft, die Sie über Controllermethoden zugreifen können. Sie können z. B. auflisten `User.Claims` und autorisierungsentscheidungen. Weitere Informationen finden Sie unter [Autorisierung](xref:security/authorization/index).
 
 5. Melden Sie sich ab.
 
@@ -149,7 +149,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
 
     Die Standardeinstellung *ASP.NET-Webanwendung für Core* -Projektvorlage kann Benutzer eine Aktion in der Anwendung ohne zugreifen, die Anmeldung. Um sicherzustellen, dass ASP.NET Identity funktioniert, fügen eine`[Authorize]` -Attribut auf die `About` Aktion von der `Home` Controller.
 
-    ```cs
+    ```csharp
     [Authorize]
     public IActionResult About()
     {
@@ -166,7 +166,7 @@ In diesem Thema werden Sie erfahren, wie ASP.NET Core Identity zu verwenden, um 
 
     Öffnen Sie ein Befehlsfenster, und navigieren Sie zum Stamm des Projekts, das Verzeichnis enthält die `.csproj` Datei. Führen Sie die [Dotnet ausführen](/dotnet/core/tools/dotnet-run) Befehl aus, um die app ausführen:
 
-    ```cs
+    ```csharp
     dotnet run 
     ```
 

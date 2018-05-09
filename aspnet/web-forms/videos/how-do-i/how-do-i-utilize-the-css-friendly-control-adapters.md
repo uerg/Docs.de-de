@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
 title: '[Gewusst wie:] Nutzen Sie die CSS-Friendly Steuerelementadapter? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "Der Steuerelementadapter der CSS-Anzeigenamen können Sie den HTML-Code ändern, die von einem Standardsteuerelement des ASP.NET 2.0-Server gerendert wird. In diesem Video erfahren Sie, die die Stan..."
+description: Der Steuerelementadapter der CSS-Anzeigenamen können Sie den HTML-Code ändern, die von einem Standardsteuerelement des ASP.NET 2.0-Server gerendert wird. In diesem Video erfahren Sie, die die Stan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007

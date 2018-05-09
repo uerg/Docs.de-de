@@ -12,20 +12,17 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9b2dc05089126fd5f4c1b0a0bd85b8a39f3041dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Entwickeln von ASP.NET-Apps mit Azure Active Directory
 ====================
 durch [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Microsoft ASP.NET tools für Azure Active Directory-Authentifizierung für auf gehostete Webanwendungen aktivieren problemlos [Azure](https://www.windowsazure.com/home/features/web-sites/). Sie können Azure-Authentifizierung verwenden, Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihrer eigenen benutzerdefinierten Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
-> 
->  Dieses Lernprogramm wurde von Rick Anderson geschrieben. [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-
+Microsoft ASP.NET tools für Azure Active Directory Aktivieren der Authentifizierung für Web-apps auf gehostete vereinfacht [Azure](https://www.windowsazure.com/home/features/web-sites/). Sie können Azure-Authentifizierung verwenden, Office 365-Benutzer aus Ihrer Organisation, Unternehmenskonten aus Ihrem lokalen Active Directory synchronisiert oder in Ihrer eigenen benutzerdefinierten Azure Active Directory-Domäne erstellten Benutzer zu authentifizieren. Aktivieren von Windows Azure-Authentifizierung konfiguriert Ihre Anwendung zum Authentifizieren von Benutzern, die mit einem einzigen [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Mandanten.
 
 In diesem Lernprogramm erfahren Sie, wie Sie eine ASP.NET-Anwendung erstellen, die für die Anmeldung bei konfiguriert ist [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Außerdem erfahren Sie, wie der Graph-API zum Abrufen von Informationen über den derzeit angemeldeten Benutzer aufrufen und die Anwendung in Azure bereitzustellen.
 

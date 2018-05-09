@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: "ASP.NET MVC 4 praktische Übungen | Microsoft Docs"
+title: ASP.NET MVC 4 praktische Übungen | Microsoft Docs
 author: rick-anderson
 description: Informationen Sie zur Entwicklung mit ASP.NET MVC mit diese Zeiger-auf-Labs
 ms.author: aspnetcontent

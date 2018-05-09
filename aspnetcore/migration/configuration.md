@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: 5bb89401ac54b54810fe5724b293ae8ed7e5afef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ead4f96aa0041cd919caa972d3bb05bd94a857b3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Migrieren der Konfiguration zu ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/) und [Scott Addie](https://scottaddie.com)
 
-In der vorherigen Artikel wir begann [migrieren ein ASP.NET MVC-Projekts zu ASP.NET Core MVC](mvc.md). In diesem Artikel wir die Konfiguration migrieren.
+In der vorherigen Artikel wir begann [migrieren ein ASP.NET MVC-Projekts zu ASP.NET Core MVC](xref:migration/mvc). In diesem Artikel wir die Konfiguration migrieren.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
@@ -29,9 +29,9 @@ ASP.NET Core wird nicht mehr verwendet, die *"Global.asax"* und *"Web.config"* D
 
 Die *"Web.config"* Datei auch in ASP.NET Core ersetzt wurde. Konfiguration selbst kann nun konfiguriert werden, und als Teil der Schritte beim Starten einer Anwendung in beschriebenen *Startup.cs*. Konfiguration kann XML-Dateien weiterhin nutzen, sondern in der Regel ASP.NET Core Projekte werden platzieren Konfigurationswerte in einer JSON-formatierten Datei wie z. B. *appsettings.json*. ASP.NET-Core-Konfigurationssystem erreichen Umgebungsvariablen, die bereitstellen, können auch einfach einen [mehr sicherer und robuster Speicherort](xref:security/app-secrets) für umgebungsspezifische Werte. Dies ist besonders für geheime Schlüssel, wie z. B. Verbindungszeichenfolgen und API-Schlüssel, die in die quellcodeverwaltung eingecheckt werden, darf nicht "true". Finden Sie unter [Konfiguration](xref:fundamentals/configuration/index) Weitere Informationen zur Konfiguration in ASP.NET Core.
 
-Für diesen Artikel beginnen wir mit dem teilweise migriert ASP.NET Core-Projekt aus [vorherigen Artikel](mvc.md). Zum Einrichten des Konfiguration fügen die folgenden Konstruktor und die Eigenschaft, um die *Startup.cs* Datei befindet sich im Stammverzeichnis des Projekts:
+Für diesen Artikel beginnen wir mit dem teilweise migrierten ASP.NET Core-Projekt aus [vorherigen Artikel](xref:migration/mvc). Zum Einrichten des Konfiguration fügen die folgenden Konstruktor und die Eigenschaft, um die *Startup.cs* Datei befindet sich im Stammverzeichnis des Projekts:
 
-[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
+[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-16)]
 
 Beachten Sie, dass an diesem Punkt der *Startup.cs* Datei nicht kompiliert werden, da wir benötigen Sie Folgendes hinzufügen `using` Anweisung:
 
@@ -45,10 +45,9 @@ Hinzufügen einer *appsettings.json* Datei im Stammverzeichnis des Projekts mit 
 
 ## <a name="migrate-configuration-settings-from-webconfig"></a>Migrieren von Konfigurationseinstellungen aus der Datei "Web.config"
 
-Unsere ASP.NET MVC-Projekt enthielt, die erforderliche Datenbank-Verbindungszeichenfolge in *"Web.config"*in die `<connectionStrings>` Element. In unserem Projekt ASP.NET Core Kegel zum Speichern dieser Informationen in den *appsettings.json* Datei. Open *appsettings.json*, und beachten Sie, dass sie bereits die Folgendes umfasst:
+Unsere ASP.NET MVC-Projekt enthielt, die erforderliche Datenbank-Verbindungszeichenfolge in *"Web.config"* in die `<connectionStrings>` Element. In unserem Projekt ASP.NET Core Kegel zum Speichern dieser Informationen in den *appsettings.json* Datei. Open *appsettings.json*, und beachten Sie, dass sie bereits die Folgendes umfasst:
 
 [!code-json[](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
-
 
 In der markierten Zeile in der oben dargestellten, ändern Sie den Namen der Datenbank von **_CHANGE_ME** auf den Namen der Datenbank.
 

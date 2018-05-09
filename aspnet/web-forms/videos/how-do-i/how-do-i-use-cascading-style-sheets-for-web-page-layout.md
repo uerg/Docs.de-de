@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: "[Gewusst wie:] Verwenden Cascading Stylesheets für die Webseitenlayout? | Microsoft-Dokumentation"
+title: '[Gewusst wie:] Verwenden Cascading Stylesheets für die Webseitenlayout? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "In diesem Video erfahren Sie, wie verwenden &amp;Lt; Div&amp;Gt; Elemente in Kombination mit cascading Stylesheets (CSS) robuster und höhere Leistung Web p erstellen..."
+description: In diesem Video erfahren Sie, wie verwenden &amp;Lt; Div&amp;Gt; Elemente in Kombination mit cascading Stylesheets (CSS) robuster und höhere Leistung Web p erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007

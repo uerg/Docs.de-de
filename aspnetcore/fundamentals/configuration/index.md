@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b1c2b734a2e9b274792b597bfd222c31e661b0d7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -105,13 +105,13 @@ Wenn die Umgebung auf `Staging` festgelegt ist, liest die folgende `Configure`-M
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-Die Umgebung ist in der Regel auf `Development`, `Staging` oder `Production` festgelegt. Weitere Informationen finden Sie unter [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments).
+Die Umgebung ist in der Regel auf `Development`, `Staging` oder `Production` festgelegt. Weitere Informationen finden Sie unter [Verwenden mehrerer Umgebungen](xref:fundamentals/environments).
 
 Überlegungen zur Konfiguration:
 
 * [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) kann Konfigurationsdaten erneut laden, wenn sich diese ändern.
 * Bei Konfigurationsschlüsseln wird die Groß-/Kleinschreibung **nicht** beachtet.
-* Speichern Sie **niemals** Kennwörter oder andere sensible Daten im Konfigurationsanbietercode oder in Nur-Text-Konfigurationsdateien. Verwenden Sie keine Produktionsgeheimnisse in Entwicklungs- oder Testumgebungen. Geben Sie Geheimnisse außerhalb des Projekts an, damit sie nicht versehentlich in ein Quellcoderepository übernommen werden können. Erfahren Sie mehr zum [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments) und einer [sicheren Speicherung von App-Geheimnissen bei der Entwicklung](xref:security/app-secrets).
+* Speichern Sie **niemals** Kennwörter oder andere sensible Daten im Konfigurationsanbietercode oder in Nur-Text-Konfigurationsdateien. Verwenden Sie keine Produktionsgeheimnisse in Entwicklungs- oder Testumgebungen. Geben Sie Geheimnisse außerhalb des Projekts an, damit sie nicht versehentlich in ein Quellcoderepository übernommen werden können. Erfahren Sie mehr zum [Verwenden mehrerer Umgebungen](xref:fundamentals/environments) und zu einer [sicheren Speicherung von App-Geheimnissen bei der Entwicklung](xref:security/app-secrets).
 * Für hierarchische Konfigurationswerte, die in Umgebungsvariablen angegeben sind, funktioniert ein Doppelpunkt (`:`) möglicherweise nicht auf allen Plattformen. Ein doppelter Unterstrich (`__`) wird auf allen Plattformen unterstützt.
 * Wird mit der Konfigurations-API interagiert, funktioniert ein Doppelpunkt (`:`) auf allen Plattformen.
 
@@ -413,6 +413,10 @@ Eine Datei namens *Web.config* ist erforderlich, wenn Sie die App in IIS oder II
 
 Beispiele für den Zugriff auf die Konfigurationen in `ConfigureServices` oder `Configure` während des Starts finden Sie im Artikel zum [Start der Anwendung](xref:fundamentals/startup).
 
+## <a name="adding-configuration-from-an-external-assembly"></a>Hinzufügen von Konfigurationen aus einer externen Assembly
+
+Mit einer [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup)-Implementierung können einer App beim Start von einer externen Assemblys aus, die sich außerhalb der `Startup`-Klasse der App befindet, Erweiterungen hinzugefügt werden Weitere Informationen finden Sie im Artikel zum [Erweitern einer App von einer externen Assembly aus](xref:fundamentals/configuration/platform-specific-configuration).
+
 ## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Zugreifen auf die Konfiguration auf einer Razor-Seite oder in einer MVC-Ansicht
 
 Um auf die Konfigurationseinstellungen auf einer Razor Pages-Seite oder in einer MVC-Ansicht zuzugreifen, fügen Sie eine [using-Direktive](xref:mvc/views/razor#using) ([C#-Referenz: using-Direktive](/dotnet/csharp/language-reference/keywords/using-directive)) für den [Microsoft.Extensions.Configuration-Namespace ](/dotnet/api/microsoft.extensions.configuration) hinzu, und fügen Sie [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) auf der Seite oder in der Ansicht ein.
@@ -468,7 +472,7 @@ In einer MVC-Ansicht:
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Optionen](xref:fundamentals/configuration/options)
-* [Arbeiten mit mehreren Umgebungen](xref:fundamentals/environments)
+* [Verwenden mehrerer Umgebungen](xref:fundamentals/environments)
 * [Sicheres Speichern geheimer App-Schlüssel in der Entwicklung](xref:security/app-secrets)
 * [Einrichten eines Hosts](xref:fundamentals/hosting)
 * [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection)

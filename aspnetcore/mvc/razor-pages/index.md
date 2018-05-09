@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Ryan Nowak](https://github.com/rynowak)
 
-Razor Pages ist ein neues Feature von ASP.NET Core MVC, mit dem codierungsseitige Szenarios einfacher und produktiver werden.
+Razor Pages ist ein neuer Bestandteil von ASP.NET Core MVC, mit dem codierungsseitige Szenarios einfacher und produktiver werden.
 
 Ein Tutorial, in dem der Model-View-Controller-Ansatz verwendet wird, finden Sie unter [Erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
@@ -92,7 +92,7 @@ Notizen:
 
 ## <a name="writing-a-basic-form"></a>Schreiben eines einfachen Formulars
 
-Features von Razor Pages erstellen allgemeine Muster, die einfach mit Webbrowsern verwendet werden können. Die [Modellbindung](xref:mvc/models/model-binding), [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) und alle HTML-Hilfsprogramme *funktionieren nur* mit den Eigenschaften, die in einer Klasse der Razor Pages definiert wurden. Nehmen wir z.B. eine Seite, die ein allgemeines Kontaktformular für das `Contact`-Modell implementiert:
+Razor Pages ist darauf ausgelegt, allgemeine Muster, die mit Webbrowsern verwendet werden können, beim Erstellen einer App leichter implementieren zu können. Die [Modellbindung](xref:mvc/models/model-binding), [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) und alle HTML-Hilfsprogramme *funktionieren nur* mit den Eigenschaften, die in einer Klasse der Razor Pages definiert wurden. Nehmen wir z.B. eine Seite, die ein allgemeines Kontaktformular für das `Contact`-Modell implementiert:
 
 Für die Beispiele in diesem Dokument wird `DbContext` in der Datei [Startup.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) initialisiert.
 
@@ -147,7 +147,7 @@ Die Eigenschaft `Customer` verwendet das `[BindProperty]`-Attribut, um die Model
 Razor Pages binden Eigenschaften standardmäßig nur an Nicht-GET-Verben. Durch die Bindung an Eigenschaften können Sie den Umfang von Codes reduzieren, den Sie schreiben müssen. Die Bindung reduziert den Code mithilfe der gleichen Eigenschaft, um Formularfelder (`<input asp-for="Customer.Name" />`) zu rendern und die Eingabe zu akzeptieren.
 
 > [!NOTE]
-> Aus Sicherheitsgründen müssen Sie Daten von GET-Anforderungen in die Seitenmodelleigenschaften einbinden. Überprüfen Sie die Benutzereingaben, bevor Sie sie den Eigenschaften zuordnen. Die Entscheidung für dieses Verhalten ist von Vorteil, wenn Sie Features erstellen, die von Abfragezeichenfolgen oder von Werten für Routen abhängig sind.
+> Aus Sicherheitsgründen müssen Sie Daten von GET-Anforderungen in die Seitenmodelleigenschaften einbinden. Überprüfen Sie die Benutzereingaben, bevor Sie sie den Eigenschaften zuordnen. Die Entscheidung für dieses Verhalten ist von Vorteil, wenn Sie auf Szenarios eingehen, die von Abfragezeichenfolgen oder von Werten für Routen abhängig sind.
 >
 > Legen Sie die `[BindProperty]`-Attribute der Eigenschaft `SupportsGet` auf `true`: `[BindProperty(SupportsGet = true)]` fest, um eine Eigenschaft an GET-Anforderungen zu binden.
 
@@ -248,9 +248,9 @@ Sie müssen keinen Code für die [Antifälschungsvalidierung](xref:security/anti
 <a name="layout"></a>
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Verwenden von Layouts, Teilansichten, Vorlagen und Taghilfsprogrammen mit Razor Pages
 
-Razor Pages funktionieren mit allen Funktionen des Razor-Anzeigemoduls. Layouts, Teilansichten, Vorlagen, Taghilfsprogramme, *_ViewStart.cshtml*, *_ViewImports.cshtml* funktionieren auf die gleiche Weise wie für herkömmliche Razor-Ansichten.
+Razor Pages beinhaltet alle Funktionen der Razor-Anzeige-Engine. Layouts, Teilansichten, Vorlagen, Taghilfsprogramme, *_ViewStart.cshtml*, *_ViewImports.cshtml* funktionieren auf die gleiche Weise wie für herkömmliche Razor-Ansichten.
 
-Lassen Sie uns diese Seite mithilfe einiger dieser Funktionen entwirren.
+Strukturieren Sie diese Seite mit einigen dieser praktischen Funktionen.
 
 Fügen Sie einer *Pages/_Layout.cshtml* eine [Layoutseite](xref:mvc/views/layout) hinzu:
 
@@ -336,7 +336,7 @@ Die Seiten *Pages/Customers/Create.cshtml* und *Pages/Customers/Edit.cshtml* lei
 * `<a asp-page="/Index">My Index Page</a>`
 * `RedirectToPage("/Index")`
 
-Der Seitenname ist der Pfad zu der Seite vom Stammordner */Pages* (einschließlich eines vorangestellten `/`, z.B. `/Index`). Die vorherigen Beispiele für die URL-Generierung sind viel umfangreicher an Features als eine einfache hartcodierte URL. Bei der URL-Generierung wird [Routing](xref:mvc/controllers/routing) verwendet. Außerdem können damit Parameter generiert und entsprechend der Definition der Route im Zielpfad codiert werden.
+Der Seitenname ist der Pfad zu der Seite vom Stammordner */Pages* (einschließlich eines vorangestellten `/`, z.B. `/Index`). Die oben stehenden Beispiele für eine URL-Generierung bieten erweiterte Optionen und Funktionen, durch die Sie URLs nicht mehr hartcodieren müssen. Bei der URL-Generierung wird [Routing](xref:mvc/controllers/routing) verwendet. Außerdem können damit Parameter generiert und entsprechend der Definition der Route im Zielpfad codiert werden.
 
 Die URL-Generierung für Seiten unterstützt relative Namen. In der folgenden Tabelle wird dargestellt, welche Indexseite für verschiedene `RedirectToPage`-Parameter aus *Pages/Customers/Create.cshtml* ausgewählt wird:
 
@@ -455,5 +455,5 @@ services.AddMvc()
 * [Razor-Syntax](xref:mvc/views/razor)
 * [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Autorisierungskonventionen für Razor Pages](xref:security/authorization/razor-pages-authorization)
-* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:mvc/razor-pages/razor-pages-conventions)
 * [Unit- und Integrationstests für Razor Pages](xref:testing/razor-pages-testing)
