@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 64093b9fcfa9047145de8f8b142f72fa1515f248
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosten von ASP.NET Core unter Linux mit Nginx
 
@@ -95,7 +95,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Wenn kein [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) werden angegeben, um die Middleware, die Standardheader zum Weiterleiten sind `None`.
 
-Zusätzliche Konfiguration kann für apps, die hinter dem Proxyserver und Lastenausgleichsmodule gehostet erforderlich sein. Weitere Informationen finden Sie unter [konfigurieren ASP.NET Core zum Arbeiten mit Proxyservern und load balancer](xref:host-and-deploy/proxy-load-balancer).
+Möglicherweise ist zusätzliche Konfiguration für Apps erforderlich, die hinter Proxyservern und Lastenausgleichsmodulen (Load Balancer) gehostet werden. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-nginx"></a>Installieren von Nginx
 
@@ -184,6 +184,13 @@ WantedBy=multi-user.target
 
 **Hinweis:** Wenn der Benutzer *Www-Daten* verwendet, wird nicht durch die Konfiguration der benutzerdefinierten zuerst erstellt und ordnungsgemäße den Besitz für Dateien angegeben werden muss.
 **Hinweis:** Linux verfügt über ein Dateisystem für die Groß-/Kleinschreibung beachtet. Festlegen ASPNETCORE_ENVIRONMENT "Produktion" in der Konfigurationsdatei gesucht *"appSettings". Production.JSON*, nicht *appsettings.production.json*.
+
+> [!NOTE]
+> Einige Werte (z. B. SQL-Verbindungszeichenfolgen) müssen für den Konfigurationsanbieter, lesen die Umgebungsvariablen mit Escapezeichen versehen werden. Verwenden Sie den folgenden Befehl aus, um einen ordnungsgemäß mit Escapezeichen versehene Wert für die Verwendung in der Konfigurationsdatei zu generieren:
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 Speichern Sie die Datei, und aktivieren Sie den Dienst.
 

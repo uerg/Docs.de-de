@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac3a9e00edfd4c736ee1e7d5c0c724c3e52d0b6b
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Integrationstests im ASP.NET Core
 
@@ -43,7 +43,7 @@ Um bis zur Integrationstests zu legen zu erhalten, müssen Sie ein Testprojekt e
 
 ### <a name="the-test-host"></a>Testhost
 
-ASP.NET Core umfasst einen Testhost, der Integration Testprojekte hinzugefügt werden kann und zum Hosten von verwendeten ASP.NET Core Anwendungen bedient Test fordert, ohne die Notwendigkeit einer echten Webhost. Das bereitgestellte Beispiel enthält ein Integrationstestprojekt die konfiguriert wurde, verwenden Sie [xUnit](https://xunit.github.io) und dem Host zu testen. Er verwendet die `Microsoft.AspNetCore.TestHost` NuGet-Paket.
+ASP.NET Core umfasst einen Testhost, der Integration Testprojekte hinzugefügt werden kann und zum Hosten von verwendeten ASP.NET Core Anwendungen bedient Test fordert, ohne die Notwendigkeit einer echten Webhost. Das bereitgestellte Beispiel enthält ein Integrationstestprojekt die konfiguriert wurde, verwenden Sie [xUnit](https://xunit.github.io) und dem Host zu testen. Er verwendet die [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/) NuGet-Paket.
 
 Einmal die `Microsoft.AspNetCore.TestHost` Paket im Projekt enthalten ist, können zum Erstellen und Konfigurieren einer `TestServer` in den Tests. Der folgende Test zeigt, wie sicherzustellen, dass eine Anforderung auf den Stamm eines Standorts "Hello World!" zurückgibt und sollte ausgeführt wurde erfolgreich gegen die Standardeinstellung ASP.NET Core leere Web-Vorlage, die von Visual Studio erstellt haben.
 

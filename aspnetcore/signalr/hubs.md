@@ -11,17 +11,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: d9e06c75692b68c4147b775e5eb77ef000578b2e
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4810b3a1978f05eb0608320750f31b8bb95d71fd
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Verwenden von Hubs in SignalR für ASP.NET Core
 
 Durch [Rachel Appel](https://twitter.com/rachelappel) und [Kevin Griffin](https://twitter.com/1kevgriff)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(Gewusst wie: herunterladen)](xref:tutorials/index#how-to-download-a-sample)
 
@@ -33,7 +31,7 @@ Die SignalR-Hubs-API können Sie Methoden für verbundene Clients vom Server auf
 
 Die SignalR-Middleware erfordert einige Dienste, die durch den Aufruf konfiguriert werden `services.AddSignalR`.
 
-[!code-csharp[Configure service](hubs/sample/startup.cs?range=37)]
+[!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
 Wenn eine app ASP.NET Core SignalR-Funktionalität hinzufügen, richten Sie SignalR Routen durch Aufrufen `app.UseSignalR` in die `Startup.Configure` Methode.
 

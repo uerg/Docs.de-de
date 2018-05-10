@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 5a8a035ff3f127d01655888d4f83a871645b0bf5
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosten von ASP.NET Core unter Linux mit Apache
 
@@ -79,7 +79,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Wenn kein [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) werden angegeben, um die Middleware, die Standardheader zum Weiterleiten sind `None`.
 
-Zusätzliche Konfiguration kann für apps, die hinter dem Proxyserver und Lastenausgleichsmodule gehostet erforderlich sein. Weitere Informationen finden Sie unter [konfigurieren ASP.NET Core zum Arbeiten mit Proxyservern und load balancer](xref:host-and-deploy/proxy-load-balancer).
+Möglicherweise ist zusätzliche Konfiguration für Apps erforderlich, die hinter Proxyservern und Lastenausgleichsmodulen (Load Balancer) gehostet werden. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-apache"></a>Installieren von Apache
 
@@ -189,6 +189,13 @@ WantedBy=multi-user.target
 
 > [!NOTE]
 > **Benutzer** &mdash; Wenn der Benutzer *Apache* verwendet, wird nicht durch die Konfiguration der Benutzer zunächst erstellt und ordnungsgemäße den Besitz für Dateien angegeben werden muss.
+
+> [!NOTE]
+> Einige Werte (z. B. SQL-Verbindungszeichenfolgen) müssen für den Konfigurationsanbieter, lesen die Umgebungsvariablen mit Escapezeichen versehen werden. Verwenden Sie den folgenden Befehl aus, um einen ordnungsgemäß mit Escapezeichen versehene Wert für die Verwendung in der Konfigurationsdatei zu generieren:
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 Speichern Sie die Datei, und aktivieren Sie den Dienst:
 

@@ -6,22 +6,20 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 04/06/2018
+ms.date: 05/09/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/javascript-client
-ms.openlocfilehash: d2530fe3c4b47687d3ef4015624499d96fea2d7b
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1701d9ac5222bf64f9690c1cecdf54ef95fe4a49
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript-client
 
 Von [Rachel Appel](http://twitter.com/rachelappel)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 Die ASP.NET Core SignalR JavaScript-Clientbibliothek ermöglicht Entwicklern das Aufrufen der serverseitigen hubmethode Code.
 
@@ -58,7 +56,7 @@ In der Regel laden Browsern Verbindungen aus der gleichen Domäne wie die angefo
 
 Um zu verhindern, dass eine bösartige Website lesen vertrauliche Daten von einem anderen Standort [Cross-Origin-Verbindungen](xref:security/cors) sind standardmäßig deaktiviert. Um eine Cross-Origin-Anforderung zu ermöglichen, aktivieren Sie ihn in die `Startup` Klasse.
 
-[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-34,55)]
+[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-35,56)]
 
 ## <a name="call-hub-methods-from-client"></a>Aufruf von hubmethoden vom client
 
@@ -100,9 +98,9 @@ Setup-Protokoll für die clientseitige Protokollierung durch Übergeben einer Pr
 * `signalR.LogLevel.Information` : Status Nachrichten ohne Fehler. Protokolle `Information`, `Warning`, und `Error` Nachrichten.
 * `signalR.LogLevel.Trace` : Verfolgen von Nachrichten. Protokolliert alle Elemente einschließlich Daten, die zwischen Nabe -zu-Client transportiert.
 
-Verwenden der `configureLogging` Methode `HubConnectionBuilder` so konfigurieren Sie die Protokollebene. Nachrichten werden an die Browser-Konsole protokolliert.
+Verwenden der `configureLogging` Methode `HubConnectionBuilder` so konfigurieren Sie die Protokollebene. Nachrichten werden an die Browserkonsole protokolliert.
 
-[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=11)]
+[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ## <a name="related-resources"></a>Weitere Informationen
 
