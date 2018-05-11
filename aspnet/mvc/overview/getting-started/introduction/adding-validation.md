@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 <a name="adding-validation"></a>Hinzufügen der Validierung
 ====================
@@ -134,7 +134,7 @@ Falls Sie die Validierungslogik später ändern möchten, Sie können dazu genau
 
 Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute werden nur Hinweise für das Ansichtsmodul formatieren die Daten bereitstellen (und geben Sie Attribute wie z. B. `<a>` für URLs und `<a href="mailto:EmailAddress.com">` zum Abrufen von e-Mails. Sie können die [der reguläre Ausdruck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) Attribut, um das Format der Daten zu überprüfen. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut wird verwendet, um einen Datentyp angeben, die als Datenbank systeminternen Typ genauer bestimmt ist, sind sie ***nicht*** Validierungsattribute. In diesem Fall soll nur das Datum verfolgt werden, nicht das Datum und die Zeit. Die [DataType-Enumeration](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) bietet für viele Datentypen, wie z. B. *Date "," Time "," PhoneNumber "," Währung "," EmailAddress* und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Z. B. eine `mailto:` Link erstellt werden kann, für [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), und ein Datum Selektor kann bereitgestellt werden, für die [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) in Browsern mit Unterstützung [HTML5](http://html5.org/). Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute ausgibt HTML 5 [Data -](http://ejohn.org/blog/html-5-data-attributes/) (ausgesprochen *Daten Dash*) Attribute, die HTML 5-Browser zu bringen. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute bieten keine Validierung.
 
-`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server angezeigt[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server angezeigt [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 
@@ -147,17 +147,17 @@ Die `ApplyFormatInEditMode` Einstellung gibt an, dass die angegebene Formatierun
 Können Sie die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut von selbst, aber es ist im Allgemeinen empfiehlt sich, verwenden Sie die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) auch Attribut. Die `DataType` Attribut vermittelt die *Semantik* der Daten als dagegen spricht, wie er auf dem Bildschirm gerendert werden, und bietet die folgenden Vorteile, die Sie nicht mit erhalten `DisplayFormat`:
 
 - Der Browser kann die HTML5-Funktionen (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail usw.).
-- Standardmäßig wird der Browser Rendern von Daten über das richtige Format auf Grundlage Ihrer[Gebietsschema](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- Die[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut kann MVC auf das Feld nach rechts-Vorlage zum Rendern der Daten auswählen, aktivieren (die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) verwendeten selbst die Zeichenfolge Vorlage verwendet). Weitere Informationen finden Sie in Brad Wilsons[ASP.NET MVC 2-Vorlagen](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Obwohl für MVC 2 geschrieben, gilt dieses Artikels noch auf die aktuelle Version von ASP.NET MVC.)
+- Standardmäßig wird der Browser Rendern von Daten über das richtige Format auf Grundlage Ihrer [Gebietsschema](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut kann MVC auf das Feld nach rechts-Vorlage zum Rendern der Daten auswählen, aktivieren (die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) verwendeten selbst die Zeichenfolge Vorlage verwendet). Weitere Informationen finden Sie in Brad Wilsons [ASP.NET MVC 2-Vorlagen](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Obwohl für MVC 2 geschrieben, gilt dieses Artikels noch auf die aktuelle Version von ASP.NET MVC.)
 
 Bei Verwendung der `DataType` Attribut mit einem Datumsfeld müssen Sie angeben der `DisplayFormat` Attribut auch, um sicherzustellen, dass das Feld in Chrome-Browsern ordnungsgemäß gerendert wird. Weitere Informationen finden Sie unter [dieser Thread StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
 > [!NOTE]
-> jQuery-Validierung funktioniert nicht mit der[Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Bei folgendem Code wird z.B. stets ein clientseitiger Validierungsfehler angezeigt, auch wenn sich das Datum im angegebenen Bereich befindet:
+> jQuery-Validierung funktioniert nicht mit der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Bei folgendem Code wird z.B. stets ein clientseitiger Validierungsfehler angezeigt, auch wenn sich das Datum im angegebenen Bereich befindet:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> Sie benötigen zum Deaktivieren der Validierung von jQuery Datum verwendet die [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) -Attribut mit["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Es ist im Allgemeinen nicht empfohlen, kompilieren Sie feste Datumsangaben in Ihren Modellen, die mit der[Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx) wird abgeraten.
+> Sie benötigen zum Deaktivieren der Validierung von jQuery Datum verwendet die [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) -Attribut mit ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Es ist im Allgemeinen nicht empfohlen, kompilieren Sie feste Datumsangaben in Ihren Modellen, die mit der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx) wird abgeraten.
 
 
 Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
