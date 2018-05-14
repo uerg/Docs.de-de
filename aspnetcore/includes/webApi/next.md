@@ -1,7 +1,7 @@
-## <a name="next-steps"></a><span data-ttu-id="838b4-101">Nächste Schritte</span><span class="sxs-lookup"><span data-stu-id="838b4-101">Next steps</span></span>
+## <a name="next-steps"></a>Nächste Schritte
 
-* [<span data-ttu-id="838b4-102">ASP.NET Core-Web-API-Hilfeseiten mit Swagger</span><span class="sxs-lookup"><span data-stu-id="838b4-102">ASP.NET Core Web API Help Pages using Swagger</span></span>](xref:tutorials/web-api-help-pages-using-swagger)
-* [<span data-ttu-id="838b4-103">Routing to Controller Actions (Routing zu Controlleraktionen)</span><span class="sxs-lookup"><span data-stu-id="838b4-103">Routing to Controller Actions</span></span>](xref:mvc/controllers/routing)
-* <span data-ttu-id="838b4-104">Weitere Informationen zum Bereitstellen einer API (auch in Azure App Service) finden Sie unter [Host and Deploy (Hosten und Bereitstellen)](xref:host-and-deploy/index).</span><span class="sxs-lookup"><span data-stu-id="838b4-104">For information about deploying an API, including to Azure App Service, see [Host and deploy](xref:host-and-deploy/index).</span></span>
-* <span data-ttu-id="838b4-105">[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)</span><span class="sxs-lookup"><span data-stu-id="838b4-105">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).</span></span> <span data-ttu-id="838b4-106">Informationen [zum Herunterladen](xref:tutorials/index#how-to-download-a-sample).</span><span class="sxs-lookup"><span data-stu-id="838b4-106">See [how to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
-* [<span data-ttu-id="838b4-107">Postman</span><span class="sxs-lookup"><span data-stu-id="838b4-107">Postman</span></span>](https://www.getpostman.com/)
+* [ASP.NET Core-Web-API-Hilfeseiten mit Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+* [Routing to Controller Actions (Routing zu Controlleraktionen)](xref:mvc/controllers/routing)
+* Weitere Informationen zum Bereitstellen einer API (auch in Azure App Service) finden Sie unter [Host and Deploy (Hosten und Bereitstellen)](xref:host-and-deploy/index).
+* [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) Informationen [zum Herunterladen](xref:tutorials/index#how-to-download-a-sample).
+* [Postman](https://www.getpostman.com/)

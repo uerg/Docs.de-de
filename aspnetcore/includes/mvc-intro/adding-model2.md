@@ -1,8 +1,8 @@
-## <a name="add-initial-migration-and-update-the-database"></a><span data-ttu-id="a0e21-101">Hinzufügen der anfänglichen Migration und Aktualisierung der Datenbank</span><span class="sxs-lookup"><span data-stu-id="a0e21-101">Add initial migration and update the database</span></span>
+## <a name="add-initial-migration-and-update-the-database"></a>Hinzufügen der anfänglichen Migration und Aktualisierung der Datenbank
 
-* <span data-ttu-id="a0e21-102">Öffnen Sie ein Eingabeaufforderungsfenster, und navigieren Sie zum Projektverzeichnis.</span><span class="sxs-lookup"><span data-stu-id="a0e21-102">Open a command prompt and navigate to the project directory.</span></span> <span data-ttu-id="a0e21-103">(Das Verzeichnis mit den *Startup.cs* Datei).</span><span class="sxs-lookup"><span data-stu-id="a0e21-103">(The directory containing the *Startup.cs* file).</span></span>
+* Öffnen Sie ein Eingabeaufforderungsfenster, und navigieren Sie zum Projektverzeichnis. (Das Verzeichnis mit den *Startup.cs* Datei).
 
-* <span data-ttu-id="a0e21-104">Führen Sie an der Eingabeaufforderung die folgenden Befehle aus:</span><span class="sxs-lookup"><span data-stu-id="a0e21-104">Run the following commands in the command prompt:</span></span>
+* Führen Sie an der Eingabeaufforderung die folgenden Befehle aus:
 
   ```console
   dotnet restore
@@ -10,10 +10,10 @@
   dotnet ef database update
   ```
   
-  <span data-ttu-id="a0e21-105">[.NET Core](https://docs.microsoft.com/dotnet/core/tools/index) ist eine plattformübergreifende Implementierung von .NET.</span><span class="sxs-lookup"><span data-stu-id="a0e21-105">[.NET Core](https://docs.microsoft.com/dotnet/core/tools/index) is a cross-platform implementation of .NET.</span></span> <span data-ttu-id="a0e21-106">Hier ist diesen Befehlen:</span><span class="sxs-lookup"><span data-stu-id="a0e21-106">Here is what these commands do:</span></span>
+  [.NET Core](https://docs.microsoft.com/dotnet/core/tools/index) ist eine plattformübergreifende Implementierung von .NET. Hier ist diesen Befehlen:
 
-  * <span data-ttu-id="a0e21-107">`dotnet restore`: Lädt die NuGet-Pakete, die im angegebenen der *csproj* Datei.</span><span class="sxs-lookup"><span data-stu-id="a0e21-107">`dotnet restore`: Downloads the NuGet packages specified in the *.csproj* file.</span></span>
-  * <span data-ttu-id="a0e21-108">`dotnet ef migrations add Initial`Führt das Entity Framework .NET Core CLI Migrationen--Befehl aus, und die anfängliche Migration erstellt.</span><span class="sxs-lookup"><span data-stu-id="a0e21-108">`dotnet ef migrations add Initial` Runs the Entity Framework .NET Core CLI migrations command and creates the initial migration.</span></span> <span data-ttu-id="a0e21-109">Der Parameter nach "hinzufügen" ist ein Name, der Sie die Migration zuweisen.</span><span class="sxs-lookup"><span data-stu-id="a0e21-109">The parameter after "add" is a name that you assign to the migration.</span></span> <span data-ttu-id="a0e21-110">Hier sind Sie die Migration "Initial" benannt, da es sich um die ursprüngliche Datenbankmigration ist.</span><span class="sxs-lookup"><span data-stu-id="a0e21-110">Here you're naming the migration "Initial" because it's the initial database migration.</span></span> <span data-ttu-id="a0e21-111">Dieser Vorgang erstellt die *Datenmigration / /\<Datum / Uhrzeit > _Initial.cs* Datei mit der Migration-Befehlen zum Hinzufügen der *Film* Tabelle in der Datenbank.</span><span class="sxs-lookup"><span data-stu-id="a0e21-111">This operation creates the *Data/Migrations/\<date-time>_Initial.cs* file containing the migration commands to add the *Movie* table to the database.</span></span>
-  * <span data-ttu-id="a0e21-112">`dotnet ef database update`Aktualisiert die Datenbank mit der Migration, die wir gerade erstellt haben.</span><span class="sxs-lookup"><span data-stu-id="a0e21-112">`dotnet ef database update`  Updates the database with the migration we just created.</span></span>
+  * `dotnet restore`: Lädt die NuGet-Pakete, die im angegebenen der *csproj* Datei.
+  * `dotnet ef migrations add Initial`Führt das Entity Framework .NET Core CLI Migrationen--Befehl aus, und die anfängliche Migration erstellt. Der Parameter nach "hinzufügen" ist ein Name, der Sie die Migration zuweisen. Hier sind Sie die Migration "Initial" benannt, da es sich um die ursprüngliche Datenbankmigration ist. Dieser Vorgang erstellt die *Datenmigration / /\<Datum / Uhrzeit > _Initial.cs* Datei mit der Migration-Befehlen zum Hinzufügen der *Film* Tabelle in der Datenbank.
+  * `dotnet ef database update`Aktualisiert die Datenbank mit der Migration, die wir gerade erstellt haben.
 
-<span data-ttu-id="a0e21-113">Sie erfahren über die Datenbank und der Verbindung-Zeichenfolge in den nächsten Lernprogrammen.</span><span class="sxs-lookup"><span data-stu-id="a0e21-113">You'll learn about the database and connection string in the next tutorial.</span></span> <span data-ttu-id="a0e21-114">Erfahren Sie datenmodelländerungen in der [Hinzufügen eines Felds](xref:tutorials/first-mvc-app/new-field) Lernprogramm.</span><span class="sxs-lookup"><span data-stu-id="a0e21-114">You'll learn about data model changes in the [Add a field](xref:tutorials/first-mvc-app/new-field) tutorial.</span></span>
+Sie erfahren über die Datenbank und der Verbindung-Zeichenfolge in den nächsten Lernprogrammen. Erfahren Sie datenmodelländerungen in der [Hinzufügen eines Felds](xref:tutorials/first-mvc-app/new-field) Lernprogramm.

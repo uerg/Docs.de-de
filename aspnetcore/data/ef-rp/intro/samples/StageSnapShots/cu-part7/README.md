@@ -1,5 +1,5 @@
-<span data-ttu-id="c2a49-101">Die endgültigen Versionen „../cu“ und „../cuFinal“ enthalten mehr vollständigen Code.</span><span class="sxs-lookup"><span data-stu-id="c2a49-101">The final version ../cu and ../cuFinal contain more completed code.</span></span>
+Die endgültigen Versionen „../cu“ und „../cuFinal“ enthalten mehr vollständigen Code.
 
-<span data-ttu-id="c2a49-102">Kopieren Sie „wwwroot“ aus „../cu/“ oder einem neuen Razor-Seiten-Projekt.</span><span class="sxs-lookup"><span data-stu-id="c2a49-102">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
+Kopieren Sie „wwwroot“ aus „../cu/“ oder einem neuen Razor-Seiten-Projekt.
 
-<span data-ttu-id="c2a49-103">Ausführen von `dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="c2a49-103">Run `dotnet ef database update`</span></span>
+Ausführen von `dotnet ef database update`

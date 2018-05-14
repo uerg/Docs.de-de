@@ -7,3 +7,5 @@
 * Die Datenbank zu aktualisieren:
 
     `dotnet ef database update`
+
+* Aktivieren Sie SSL im Projekt

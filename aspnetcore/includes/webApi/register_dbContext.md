@@ -1,12 +1,12 @@
-## <a name="register-the-database-context"></a><span data-ttu-id="9a5d3-101">Registrieren des Datenbankkontexts</span><span class="sxs-lookup"><span data-stu-id="9a5d3-101">Register the database context</span></span>
+## <a name="register-the-database-context"></a>Registrieren des Datenbankkontexts
 
-<span data-ttu-id="9a5d3-102">In diesem Schritt wird der Datenbankkontext beim Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) registriert.</span><span class="sxs-lookup"><span data-stu-id="9a5d3-102">In this step, the database context is registered with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="9a5d3-103">Dienste (z. B. der Datenbankkontext), die beim Abhängigkeitsinjektionscontainer (DI) registriert sind, sind für Controller verfügbar.</span><span class="sxs-lookup"><span data-stu-id="9a5d3-103">Services (such as the DB context) that are registered with the dependency injection (DI) container are available to the controllers.</span></span>
+In diesem Schritt wird der Datenbankkontext beim Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) registriert. Dienste (z. B. der Datenbankkontext), die beim Abhängigkeitsinjektionscontainer (DI) registriert sind, sind für Controller verfügbar.
 
-<span data-ttu-id="9a5d3-104">Registrieren Sie den Datenbankkontext mithilfe der integrierten Unterstützung der [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) beim Dienstcontainer.</span><span class="sxs-lookup"><span data-stu-id="9a5d3-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="9a5d3-105">Ersetzen Sie den Inhalt der Datei *Startup.cs* durch den folgenden Code:</span><span class="sxs-lookup"><span data-stu-id="9a5d3-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
+Registrieren Sie den Datenbankkontext mithilfe der integrierten Unterstützung der [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) beim Dienstcontainer. Ersetzen Sie den Inhalt der Datei *Startup.cs* durch den folgenden Code:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
 
-<span data-ttu-id="9a5d3-106">Der vorangehende Code:</span><span class="sxs-lookup"><span data-stu-id="9a5d3-106">The preceding code:</span></span>
+Der vorangehende Code:
 
-* <span data-ttu-id="9a5d3-107">Entfernt den Code, der nicht verwendet wird.</span><span class="sxs-lookup"><span data-stu-id="9a5d3-107">Removes the code that's not used.</span></span>
-* <span data-ttu-id="9a5d3-108">Gibt an, dass eine In-Memory Database in den Dienstcontainer eingefügt wird.</span><span class="sxs-lookup"><span data-stu-id="9a5d3-108">Specifies an in-memory database is injected into the service container.</span></span>
+* Entfernt den Code, der nicht verwendet wird.
+* Gibt an, dass eine In-Memory Database in den Dienstcontainer eingefügt wird.
