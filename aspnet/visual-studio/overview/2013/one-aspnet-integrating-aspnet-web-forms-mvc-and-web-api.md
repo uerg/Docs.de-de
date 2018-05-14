@@ -1,6 +1,6 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "Praktische Übungseinheiten: One ASP.NET\": Integrieren von ASP.NET Web Forms, MVC und Web-API | Microsoft Docs"
+title: 'Praktische Übungseinheiten: One ASP.NET": Integrieren von ASP.NET Web Forms, MVC und Web-API | Microsoft Docs'
 author: rick-anderson
 description: ASP.NET ist ein Framework zum Erstellen von Websites, apps und Dienste, die spezielle Technologien wie MVC, Web-API und andere. Mit der Erweiterung ASP.NET h...
 ms.author: aspnetcontent
@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -161,7 +161,7 @@ Sie wird in dieser Aufgabe führen Sie die Projektmappe generierte, untersuchen 
     *Friendly URLs*
 
     > [!NOTE]
-    > Wie Sie sehen können, ändert sich die URL in **/wenden Sie sich an**. Beginnend mit **ASP.NET 4**, URL-routing-Funktionen wurden hinzugefügt, um Web Forms, damit Sie schreiben können, wie URLs  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  statt  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Weitere Informationen finden Sie unter [URL-Routing](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Wie Sie sehen können, ändert sich die URL in **/wenden Sie sich an**. Beginnend mit **ASP.NET 4**, URL-routing-Funktionen wurden hinzugefügt, um Web Forms, damit Sie schreiben können, wie URLs *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* statt  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Weitere Informationen finden Sie unter [URL-Routing](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Untersuchen Sie nun die Authentifizierungsablauf in die Anwendung integriert. Klicken Sie hierzu auf **registrieren** in der oberen rechten Ecke der Seite.
 
     ![Registrieren eines neuen Benutzers](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
