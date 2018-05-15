@@ -2,7 +2,7 @@
 uid: web-api/overview/security/authentication-filters
 title: Authentifizierungsfilter in der ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: "Ein Authentifizierungsfilter ist eine Komponente, die eine HTTP-Anforderung authentifiziert. Web-API 2 und MVC 5 unterstützen sowohl Authentifizierungsfilter, aber sie unterscheiden sich geringfügig..."
+description: Ein Authentifizierungsfilter ist eine Komponente, die eine HTTP-Anforderung authentifiziert. Web-API 2 und MVC 5 unterstützen sowohl Authentifizierungsfilter, aber sie unterscheiden sich geringfügig...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/25/2014

@@ -3,7 +3,7 @@ uid: signalr/overview/performance/using-signalr-performance-counters-in-an-azure
 title: SignalR-Leistungsindikatoren in einer Azure-Webrolle mit | Microsoft Docs
 author: guardrex
 description: Informationen zum Installieren und Verwenden von SignalR-Leistungsindikatoren in einer Azure-Webrolle.
-keywords: "ASP.NET,SignalR,Performance Zähler, Azure-Webrolle"
+keywords: ASP.NET,SignalR,Performance Zähler, Azure-Webrolle
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2017

@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Erste Schritte mit ASP.NET Web API 2 (c#)
 author: MikeWasson
-description: "HTTP ist nicht nur für Webseiten bereitstellen. Es ist auch eine leistungsstarke Plattform zum Erstellen von APIs, die Dienste und Daten verfügbar machen. HTTP ist einfacher, flexibler, und Ubiq..."
+description: HTTP ist nicht nur für Webseiten bereitstellen. Es ist auch eine leistungsstarke Plattform zum Erstellen von APIs, die Dienste und Daten verfügbar machen. HTTP ist einfacher, flexibler, und Ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="c6ef5-121">Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-121">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="c6ef5-122">Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="c6ef5-123">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c6ef5-124">Klicken Sie unter **Visual C#-**Option **Web**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="c6ef5-125">Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="c6ef5-126">Nennen Sie das Projekt "ProductsApp", und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-126">Name the project "ProductsApp" and click **OK**.</span></span>
+<span data-ttu-id="c6ef5-123">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c6ef5-124">Klicken Sie unter **Visual C#-** Option **Web**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="c6ef5-125">Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="c6ef5-126">Nennen Sie das Projekt "ProductsApp", und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="c6ef5-126">Name the project "ProductsApp" and click **OK**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 

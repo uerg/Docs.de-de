@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: "Aktivieren von CRUD-Vorgänge in ASP.NET Web-API 1 | Microsoft Docs"
+title: Aktivieren von CRUD-Vorgänge in ASP.NET Web-API 1 | Microsoft Docs
 author: MikeWasson
-description: "Dieses Lernprogramm zeigt, wie zur Unterstützung von CRUD-Vorgänge in einen HTTP-Dienst mithilfe der ASP.NET Web API. Softwareversionen, in dem Lernprogramm Visual Studio 2012 Web Zugriffspunkt verwendet..."
+description: Dieses Lernprogramm zeigt, wie zur Unterstützung von CRUD-Vorgänge in einen HTTP-Dienst mithilfe der ASP.NET Web API. Softwareversionen, in dem Lernprogramm Visual Studio 2012 Web Zugriffspunkt verwendet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2012
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/12/2018
 
 <span data-ttu-id="8df54-162">Starten Sie durch Ausführen von Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite.</span><span class="sxs-lookup"><span data-stu-id="8df54-162">Start by running Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="8df54-163">Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.</span><span class="sxs-lookup"><span data-stu-id="8df54-163">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="8df54-164">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="8df54-164">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="8df54-165">Klicken Sie unter **Visual C#-**Option **Web**.</span><span class="sxs-lookup"><span data-stu-id="8df54-165">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="8df54-166">Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**.</span><span class="sxs-lookup"><span data-stu-id="8df54-166">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="8df54-167">Nennen Sie das Projekt &quot;ProductStore&quot; , und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="8df54-167">Name the project &quot;ProductStore&quot; and click **OK**.</span></span>
+<span data-ttu-id="8df54-164">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="8df54-164">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="8df54-165">Klicken Sie unter **Visual C#-** Option **Web**.</span><span class="sxs-lookup"><span data-stu-id="8df54-165">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="8df54-166">Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**.</span><span class="sxs-lookup"><span data-stu-id="8df54-166">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="8df54-167">Nennen Sie das Projekt &quot;ProductStore&quot; , und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="8df54-167">Name the project &quot;ProductStore&quot; and click **OK**.</span></span>
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 

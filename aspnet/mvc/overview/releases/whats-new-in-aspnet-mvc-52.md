@@ -2,7 +2,7 @@
 uid: mvc/overview/releases/whats-new-in-aspnet-mvc-52
 title: Neues in ASP.NET MVC 5.2 | Microsoft Docs
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014

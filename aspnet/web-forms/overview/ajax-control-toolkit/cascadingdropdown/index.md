@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
 title: CascadingDropdown | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie die CascadingDropDown-Steuerelement zum Erstellen von verknüpften Dropdown-Listet das Update aus, wenn Benutzer eine Auswahl treffen."
+description: Dieses Lernprogramm zeigt, wie die CascadingDropDown-Steuerelement zum Erstellen von verknüpften Dropdown-Listet das Update aus, wenn Benutzer eine Auswahl treffen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
