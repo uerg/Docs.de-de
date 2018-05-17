@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 title: Model-Validierung in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 409a91eceb8baa48a7dded1b850d59a27cec2c60
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>Modellvalidierung in ASP.NET Web-API
 ====================
@@ -26,7 +26,7 @@ Wenn ein Client Daten an Ihre Web-API sendet, möchten Sie häufig zum Überprü
 
 ## <a name="data-annotations"></a>Datenanmerkungen
 
-In ASP.NET Web-API können Sie Attribute aus der [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Namespace Überprüfungsregeln für Eigenschaften für das Modell festlegen. Betrachten Sie das folgende Modell:
+In ASP.NET Web-API können Sie Attribute aus der [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) Namespace Überprüfungsregeln für Eigenschaften für das Modell festlegen. Betrachten Sie das folgende Modell:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 

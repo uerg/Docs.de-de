@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
+# <a name="test-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
 
@@ -40,20 +40,20 @@ Typische Aufgaben des Controllers:
 
 ## <a name="unit-testing"></a>Unittest
 
-Ein [Komponententest](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) beinhaltet das Testen einer App-Komponente isoliert von ihrer Infrastruktur und ihren Abhängigkeiten. Bei einem Komponententest der Controllerlogik werden nur die Inhalte einer einzelnen Aktion getestet, nicht das Verhalten ihrer Abhängigkeiten oder des Frameworks selbst. Konzentrieren Sie sich bei der Durchführung eines Komponententests für Ihre Controlleraktionen daher nur auf deren Verhalten. Bei einem Komponententest des Controllers werden z.B. [Filter](filters.md), [Routing](../../fundamentals/routing.md), [Modellbindung](../models/model-binding.md) o.Ä. vermieden. Durch die Fokussierung auf nur einen Aspekt sind Komponententests in der Regel einfach zu schreiben und schnell in der Ausführung. Gut geschriebene Komponententests können häufig ohne großen Mehraufwand ausgeführt werden. Komponententests erkennen jedoch keine Probleme bei der Interaktion zwischen den Komponenten. Dazu dienen [Integrationstests](xref:mvc/controllers/testing#integration-testing).
+Ein [Komponententest](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) beinhaltet das Testen einer App-Komponente isoliert von ihrer Infrastruktur und ihren Abhängigkeiten. Bei einem Komponententest der Controllerlogik werden nur die Inhalte einer einzelnen Aktion getestet, nicht das Verhalten ihrer Abhängigkeiten oder des Frameworks selbst. Konzentrieren Sie sich bei der Durchführung eines Komponententests für Ihre Controlleraktionen daher nur auf deren Verhalten. Bei einem Komponententest des Controllers werden z.B. [Filter](filters.md), [Routing](../../fundamentals/routing.md), [Modellbindung](../models/model-binding.md) o.Ä. vermieden. Durch die Fokussierung auf nur einen Aspekt sind Komponententests in der Regel einfach zu schreiben und schnell in der Ausführung. Gut geschriebene Komponententests können häufig ohne großen Mehraufwand ausgeführt werden. Komponententests erkennen jedoch keine Probleme bei der Interaktion zwischen den Komponenten. Dazu dienen [Integrationstests](xref:mvc/controllers/testing#integration-testing).
 
 Wenn Sie benutzerdefinierte Filter, Routen usw. schreiben, sollten Sie für diese einen Komponententest durchführen. Er sollte jedoch nicht Bestandteil eines Tests für eine bestimmte Controlleraktion sein. Die Tests sollten vielmehr isoliert ausgeführt werden.
 
 > [!TIP]
-> [Erstellen und Ausführen von Komponententests mit Visual Studio](https://docs.microsoft.com/visualstudio/test/unit-test-your-code).
+> [Erstellen und Ausführen von Komponententests mit Visual Studio](/visualstudio/test/unit-test-your-code).
 
 Überprüfen Sie den folgenden Controller, um Komponententests zu veranschaulichen. Es wird eine Liste von Brainstormingsitzungen angezeigt. Außerdem können neue Brainstormingsitzungen mit einer POST-Anforderung erstellt werden:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 Der Controller befolgt das [Prinzip der expliziten Abhängigkeiten](http://deviq.com/explicit-dependencies-principle/). Es wird Dependency Injection erwartet, wodurch dem Controller eine Instanz von `IBrainstormSessionRepository` bereitgestellt wird. Dadurch kann der Test relativ leicht mithilfe eines Pseudoobjektframeworks, wie z.B. [Moq](https://www.nuget.org/packages/Moq/), ausgeführt werden. Die `HTTP GET Index`-Methode verfügt weder über Schleifen noch über Verzweigungen und ruft nur eine Methode auf. Zum Testen der `Index`-Methode muss überprüft werden, ob ein `ViewResult` zurückgegeben wird, mit einem `ViewModel` aus der `List`-Methode des Repositorys.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 Mit der `HomeController`-`HTTP POST Index`-Methode (siehe oben) sollte Folgendes überprüft werden:
 
@@ -63,7 +63,7 @@ Mit der `HomeController`-`HTTP POST Index`-Methode (siehe oben) sollte Folgendes
 
 Ein ungültiger Modellstatus kann getestet werden, indem mithilfe von `AddModelError` wie im ersten Test unten gezeigt Fehler hinzugefügt werden.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 Im ersten Test wird bestätigt, dass bei ungültigem `ModelState` das gleiche `ViewResult` zurückgegeben wird wie für eine `GET`-Anforderung. Beachten Sie, dass der Test für ein ungültiges Modell gar nicht erfolgreich durchgeführt werden soll. Da die Modellbindung nicht ausgeführt wird, wäre dies ohnehin nicht möglich (obwohl bei einem [Integrationstest](xref:mvc/controllers/testing#integration-testing) eine Trainingsmodellbindung verwendet wird). In diesem Fall wird nicht die Modellbindung getestet. Bei diesen Komponententests wird nur das Verhalten des Codes in der Aktionsmethode getestet.
 
@@ -74,23 +74,23 @@ Im zweiten Test wird überprüft, ob bei gültigem `ModelState` eine neue `Brain
 
 Ein anderer Controller in der App zeigt Informationen zu einer bestimmten Brainstormingsitzung an. Er verfügt auch über Programmlogik für den Umgang mit ungültigen ID-Werten:
 
-[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Die Controlleraktion verfügt über drei Fälle, die getestet werden können, und zwar einen für jede `return`-Anweisung:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 Die App stellt Funktionen als Web-API bereit (eine Liste mit Ideen, die einer Brainstormingsitzung zugeordnet werden, sowie eine Methode zum Hinzufügen von neuen Ideen zu einer Sitzung):
 
 <a name="ideas-controller"></a>
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 Die `ForSession`-Methode gibt eine Liste von `IdeaDTO`-Typen zurück. Geben Sie Ihre Geschäftsdomänenentitäten nicht direkt über API-Aufrufe zurück, da sie häufig mehr Daten enthalten, als die Client-API anfordert. Außerdem verknüpfen sie unnötigerweise das interne Domänenmodell Ihrer App mit der extern zur Verfügung gestellten API. Die Zuordnung zwischen Domänenentitäten und den Typen, die Sie über das Netzwerk zurückgeben, kann manuell ausgeführt werden (wie hier gezeigt mithilfe von LINQ-`Select`) oder mithilfe einer Bibliothek wie etwa [AutoMapper](https://github.com/AutoMapper/AutoMapper).
 
 Die Komponententests für die API-Methoden `Create` und `ForSession`:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 Fügen Sie wie bereits erwähnt dem Controller einen Modellfehler als Teil des Tests hinzu, um das Verhalten der Methode bei ungültigem `ModelState` zu testen. Testen Sie in den Komponententests nicht die Modellvalidierung oder -bindung. Testen Sie nur das Verhalten Ihrer Aktionsmethode bei einem bestimmten `ModelState`-Wert.
 
@@ -112,7 +112,7 @@ In dieser Beispielanwendung wird die Unterstützung der InMemoryDatabase von Ent
 
 Die `Startup`-Klasse:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 Die in Integrationstests häufig verwendete `GetTestSession`-Methode wird weiter unten gezeigt.
 
@@ -127,11 +127,11 @@ The view 'Index' wasn't found. The following locations were searched:
 
 Zum Beheben dieses Problems müssen Sie das Inhaltsstammverzeichnis des Servers so konfigurieren, dass es die Ansichten für das getestete Projekt finden kann. Rufen Sie hierzu wie folgt `UseContentRoot` in der `TestFixture`-Klasse auf:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 Die `TestFixture`-Klasse dient zum Konfigurieren und Erstellen des `TestServer` sowie zum Einrichten eines `HttpClient` zur Kommunikation mit dem `TestServer`. Jeder Integrationstest verwendet die `Client`-Eigenschaft, um eine Verbindung zum Testserver herzustellen und eine Anforderung zu senden.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 Im ersten Test weiter oben enthält `responseString` den tatsächlich gerenderten HTML-Code aus der Ansicht. Dieser kann überprüft werden, um sicherzustellen, dass er die erwarteten Ergebnisse enthält.
 
@@ -143,7 +143,7 @@ Stellt Ihrer App Web-APIs bereit, sollten Sie mit automatisierten Tests bestäti
 
 Die folgenden Tests beziehen sich auf die `Create`-Methode in der oben gezeigten [IdeasController](xref:mvc/controllers/testing#ideas-controller)-Klasse:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 Im Gegensatz zu den Integrationstests für Aktionen, die HTML-Ansichten zurückgeben, können Web-API-Methoden, die Ergebnisse zurückgeben, in der Regel wie im letzten Test oben gezeigt als stark typisierte Objekte deserialisiert werden. In diesem Fall deserialisiert der Test das Ergebnis in eine `BrainstormSession`-Instanz und bestätigt, dass die Idee der Liste von Ideen korrekt hinzugefügt wurde.
 

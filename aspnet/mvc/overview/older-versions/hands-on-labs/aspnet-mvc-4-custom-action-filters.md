@@ -107,7 +107,7 @@ Erweitern Sie der Filter **ActionFilterAttributeClass** und überschreiben **OnA
 
 Diese Lösung Music Store hat eine neue Datentabelle Modell für die Website Protokollierung **ActionLog**, mit den folgenden Feldern: Name des Controllers, die eine Anforderung, die aufgerufene Aktion, die Client-IP und die Zeitstempel erhalten haben.
 
-![Entity Data Model. ActionLog-Tabelle. ] (aspnet-mvc-4-custom-action-filters/_static/image1.png "Datenmodell. ActionLog-Tabelle.")
+![Entity Data Model. ActionLog-Tabelle. ](aspnet-mvc-4-custom-action-filters/_static/image1.png "Datenmodell. ActionLog-Tabelle.")
 
 *Datenmodell - ActionLog-Tabelle*
 

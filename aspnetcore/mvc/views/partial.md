@@ -1,23 +1,23 @@
 ---
-title: Teilansichten
+title: Verwenden von Teilansichten in ASP.NET Core
 author: ardalis
-description: Verwenden von Teilansichten in ASP.NET Core MVC
+description: Erfahren Sie, wie eine Teilansicht zu einer Ansicht werden kann, die innerhalb einer anderen Ansicht gerendert wird, und wann diese in ASP.NET Core-Apps verwendet werden sollten.
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: 169948e5d7dc8068463ed61114666148b785b217
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3deaaeb666e5443d0784f2ac6977e58e1b25d711
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/20/2018
 ---
-# <a name="partial-views"></a>Teilansichten
+# <a name="partial-views-in-aspnet-core"></a>Verwenden von Teilansichten in ASP.NET Core
 
-Von [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend) und [Rick Anderson](https://twitter.com/RickAndMSFT)
+Von [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Sauber](https://twitter.com/scottsauber)
 
 ASP.NET Core MVC unterstützt Teilansichten. Diese sind nützlich, wenn Sie über wiederverwendbare Teile von Webseiten verfügen, die Sie für verschiedene Ansichten freigeben möchten.
 
@@ -41,19 +41,17 @@ Teilansichten werden auf dieselbe Weise wie andere Ansichten erstellt: Erstellen
 
 ## <a name="referencing-a-partial-view"></a>Verweisen auf eine Teilansicht
 
-Es gibt mehrere Möglichkeiten, Teilansichten auf Ansichtsseiten zu rendern. Am einfachsten ist es, `Html.Partial` zu verwenden, wodurch eine `IHtmlString` zurückgegeben wird, auf die verwiesen werden kann, indem dem Aufruf `@` vorangestellt wird:
+Es gibt mehrere Möglichkeiten, Teilansichten auf Ansichtsseiten zu rendern. Am Besten ist es, `Html.PartialAsync` zu verwenden, wodurch eine `IHtmlString` zurückgegeben wird, auf die verwiesen werden kann, indem dem Aufruf `@` vorangestellt wird:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
-Die `PartialAsync`-Methode ist für Teilansichten verfügbar, die asynchronen Code enthalten (obwohl Code in Ansichten in der Regel nicht empfohlen ist):
+Sie können Teilansichten mithilfe von `RenderPartialAsync` rendern. Diese Methode gibt kein Ergebnis zurück, sondern streamt die gerenderte Ausgabe direkt an die Antwort. Da sie kein Ergebnis zurückgibt, muss sie in einem Razor-Codeblock aufgerufen werden:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=11-13)]
 
-Sie können Teilansichten mithilfe von `RenderPartial` rendern. Diese Methode gibt kein Ergebnis zurück, sondern streamt die gerenderte Ausgabe direkt an die Antwort. Da sie kein Ergebnis zurückgibt, muss sie in einem Razor-Codeblock aufgerufen werden. Sie können aber falls nötig auch `RenderPartialAsync` aufrufen:
+Da die Methode das Ergebnis direkt streamt, ist die Leistung von `RenderPartialAsync` in einigen Szenarios besser. Es wird jedoch empfohlen, `PartialAsync` zu verwenden.
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
-
-Da die Methode das Ergebnis direkt streamt, ist die Leistung von `RenderPartial` und `RenderPartialAsync` in einigen Szenarios besser. In den meisten Fällen wird allerdings empfohlen, dass Sie `Partial` und `PartialAsync` verwenden.
+Obwohl es synchrone Entsprechungen von `Html.PartialAsync` (`Html.Partial`) und `Html.RenderPartialAsync` (`Html.RenderPartial`) gibt, sollten Sie diese synchronen Entsprechungen nicht verwenden, da in manchen Szenarios ein Deadlock auftreten könnte. Synchrone Methoden werden in zukünftigen Versionen nicht mehr verfügbar sein.
 
 > [!NOTE]
 > Wenn Ihre Ansichten Code ausführen müssen, wird empfohlen, dass Sie anstelle von Teilansichten [Ansichtskomponenten](view-components.md) verwenden.
@@ -62,21 +60,21 @@ Da die Methode das Ergebnis direkt streamt, ist die Leistung von `RenderPartial`
 
 Es gibt verschiedene Möglichkeiten, um auf den Speicherort einer Teilansicht zu verweisen:
 
-```text
+```cshtml
 // Uses a view in current folder with this name
 // If none is found, searches the Shared folder
-@Html.Partial("ViewName")
+@await Html.PartialAsync("ViewName")
 
 // A view with this name must be in the same folder
-@Html.Partial("ViewName.cshtml")
+@await Html.PartialAsync("ViewName.cshtml")
 
 // Locate the view based on the application root
 // Paths that start with "/" or "~/" refer to the application root
-@Html.Partial("~/Views/Folder/ViewName.cshtml")
-@Html.Partial("/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("~/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("/Views/Folder/ViewName.cshtml")
 
 // Locate the view using relative paths
-@Html.Partial("../Account/LoginPartial.cshtml")
+@await Html.PartialAsync("../Account/LoginPartial.cshtml")
 ```
 
 Sie können verschiedene Teilansichten mit demselben Namen in unterschiedlichen Ordnern verwenden. Wenn Sie auf die Namen der Ansichten (ohne Erweiterung) verweisen, verwenden die Ansichten in jedem Ordner die Teilansichten, die sich im selben Ordner befinden. Sie können auch eine Standardteilansicht festlegen, die verwendet werden soll, und sie im Ordner *Freigegeben* ablegen. Die freigegebene Teilansicht wird dann in allen Ansichten verwendet, die über keine eigene Version der Teilansicht verfügen. Sie können über eine Standardteilansicht verfügen (im Ordner *Freigegeben*), die von einer Teilansicht überschrieben wird, die denselben Namen wie die übergeordnete Ansicht hat und sich im selben Ordner wie diese befindet.
@@ -92,31 +90,31 @@ Wenn eine Teilansicht instanziiert wird, erhält sie eine Kopie des `ViewData`-W
 
 Sie können eine Instanz von `ViewDataDictionary` an die Teilansicht übergeben:
 
-```csharp
-@Html.Partial("PartialName", customViewData)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", customViewData)
+```
 
-Außerdem können Sie ein Modell an eine Teilansicht übergeben. Dabei kann es sich um das Ansichtsmodell einer Seite, um einen Teil der Seite oder um ein benutzerdefiniertes Objekt handeln. Sie können ein Modell an `Partial`, `PartialAsync`, `RenderPartial` oder `RenderPartialAsync` übergeben:
+Außerdem können Sie ein Modell an eine Teilansicht übergeben. Dabei kann es sich um das Ansichtsmodell einer Seite oder ein benutzerdefiniertes Objekt handeln. Sie können ein Modell an `PartialAsync` oder `RenderPartialAsync` übergeben:
 
-```csharp
-@Html.Partial("PartialName", viewModel)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", viewModel)
+```
 
 Sie können eine Instanz von `ViewDataDictionary` und ein Ansichtsmodell an eine Teilansicht übergeben:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 Das nachfolgende Markup stellt die *Views/Articles/Read.cshtml*-Ansicht dar, die zwei Teilansichten enthält. Die zweite Teilansicht übergibt ein Modell und `ViewData` an die Teilansicht. Sie können ein neues `ViewData`-Wörterbuch übergeben und gleichzeitig das vorhandene `ViewData` behalten, wenn Sie die Konstruktorüberladung des nachfolgend markierten `ViewDataDictionary` verwenden:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Views/Shared/AuthorPartial*:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 Die *ArticleSection*-Teilausführung:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 Die Teilausführungen werden zur Laufzeit in der übergeordneten Ansicht gerendert, die wiederum in *_Layout.cshtml* freigegeben wird.
 

@@ -5,18 +5,18 @@ description: Informationen zu Taghilfsprogrammen und deren Verwendung in ASP.NET
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 7/14/2017
+ms.date: 2/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Einführung in Taghilfsprogramme in ASP.NET Core 
+# <a name="tag-helpers-in-aspnet-core"></a>Taghilfsprogramme in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -32,19 +32,32 @@ Taghilfsprogramme ermöglichen serverseitigem Code das Mitwirken am Erstellen un
 
 **Produktiveres Arbeiten und Erstellen von stabilerem, zuverlässigerem und verwaltbarem Code mithilfe von Informationen, die nur auf dem Server verfügbar sind** Beispielsweise galt in der Vergangenheit für das Aktualisieren von Bildern, dass auch der Name des Bildes geändert werden muss, wenn das Bild geändert wurde. Bilder sollten zur Verbesserung der Leistung immer zwischengespeichert werden, denn wenn Sie nicht den Namen des Bildes ändern, kann es sein, dass Clients veraltete Kopien erhalten. In der Vergangenheit musste der Name des Bildes immer geändert werden, wenn dieses bearbeitet wurde, und jeder Verweis auf das Bild in der Web-App musste aktualisiert werden. Dies ist nicht nur ein sehr aufwendiges Verfahren, sondern auch eins, bei dem Fehler entstehen können. Sie könnten z.B. einen Verweis übersehen oder aus Versehen die falsche Zeichenfolge eingeben. Der integrierte `ImageTagHelper` führt dieses Verfahren automatisch durch. Das `ImageTagHelper`-Taghilfsprogramm kann eine Versionsnummer an den Bildnamen anfügen. Das bedeutet, dass der Server bei jeder Änderung eine neue eindeutige Version für das Bild generiert. Clients erhalten dann immer das aktuelle Bild. Die Verwendung des `ImageTagHelper` ist grundsätzlich kostenlos, bietet mehr Stabilität, und Sie sparen Zeit.
 
-Die meisten integrierten Taghilfsprogramme sind für vorhandene HTML-Elemente konzipiert und stellen serverseitige Attribute für die jeweiligen Elemente bereit. Beispielsweise enthält das `<input>`-Element, das in vielen Ansichten im *Views/Account*-Konto verwendet wird, das `asp-for`-Element, das den Namen der angegebenen Modelleigenschaft in die gerenderte HTML extrahiert. Das folgende Razor-Markup
+Die meisten integrierten Taghilfsprogramme sind für HTML-Standardelemente konzipiert und stellen serverseitige Attribute für die jeweiligen Elemente bereit. Das `<input>`-Element, das in vielen Ansichten im Ordner *Views/Accounts* (Ansichten/Konten) verwendet wird, enthält beispielsweise das `asp-for`-Attribut. Dieses Attribut extrahiert den Namen der angegebenen Modelleigenschaft, und fügt diesen in die gerenderte HTML-Seite ein. Gehen Sie von einer Razor-Ansicht mit folgendem Modell aus:
 
-```cshtml
-<label asp-for="Email"></label>
+```csharp
+public class Movie
+{
+    public int ID { get; set; }
+    public string Title { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public string Genre { get; set; }
+    public decimal Price { get; set; }
+}
 ```
 
-generiert den folgenden HTML-Code:
+Das folgende Razor-Markup
 
 ```cshtml
-<label for="Email">Email</label>
+<label asp-for="Movie.Title"></label>
 ```
 
-Das `asp-for`-Attribut wird von der `For`-Eigenschaft im `LabelTagHelper`-Taghilfsprogramm zur Verfügung gestellt. Weitere Informationen finden Sie unter [Erstellen von Taghilfsprogrammen](authoring.md).
+wird der folgende HTML-Code generiert:
+
+```html
+<label for="Movie_Title">Title</label>
+```
+
+Das `asp-for`-Attribut wird von der `For`-Eigenschaft von [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0) zur Verfügung gestellt. Weitere Informationen finden Sie unter [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring).
 
 ## <a name="managing-tag-helper-scope"></a>Verwalten des Taghilfsprogrammbereichs
 
@@ -56,13 +69,13 @@ Der Taghilfsprogrammbereich wird über eine Kombination aus `@addTagHelper`, `@r
 
 Wenn Sie eine neue ASP.NET Core-Web-App mit dem Namen *AuthoringTagHelpers* erstellen (ohne Authentifizierung), wird die folgende *Views/_ViewImports.cshtml*-Datei Ihrem Projekt hinzugefügt:
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 Über die `@addTagHelper`-Anweisung werden Taghilfsprogramme in der Ansicht zur Verfügung gestellt. In diesem Fall ist *Views/_ViewImports.cshtml* die Ansichtsdatei, die standardmäßig von allen Ansichtsdateien im *Ansichten*-Ordner und den Unterverzeichnissen geerbt wird. Dadurch werden Taghilfsprogramme zur Verfügung gestellt. Im obenstehenden Code wird die Platzhaltersyntax („\*“) verwendet, um anzugeben, dass alle in der Assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) festgelegten Taghilfsprogramme für alle Ansichtsdateien im *Ansichten*-Verzeichnis bzw. -Unterverzeichnis verfügbar sind. Über den ersten Parameter nach `@addTagHelper` wird das Taghilfsprogramm geladen („\*“ wird für alle Taghilfsprogramme verwendet), und über den zweiten Parameter „Microsoft.AspNetCore.Mvc.TagHelpers“ wird die Assembly angegeben, die die Taghilfsprogramme enthält. Bei *Microsoft.AspNetCore.Mvc.TagHelpers* handelt es sich um die Assembly für die integrierten ASP.NET Core-Taghilfsprogramme.
 
 Verwenden Sie folgenden Code, wenn Sie alle Taghilfsprogramme in diesem Projekt zur Verfügung stellen wollen. Dadurch wird eine Assembly mit dem Namen *AuthoringTagHelpers* erstellt:
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 Wenn Ihr Projekt ein `EmailTagHelper`-Taghilfsprogramm mit einem Standardnamespace (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) verwendet, können Sie den vollqualifizierten Namen Ihres Taghilfsprogramms zur Verfügung stellen:
 
@@ -148,7 +161,7 @@ Wenn ein Taghilfsprogrammattribut eingegeben wird, ändern sich die Schriftarten
 
 ![Bild](intro/_static/labelaspfor2.png)
 
-Sie können die Visual Studio-Verknüpfung *CompleteWord* verwenden ([standardmäßig](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) STRG+LEERTASTE in doppelten Anführungszeichen (""), und jetzt befinden Sie sich genauso wie in einer C#-Klasse in C#). IntelliSense zeigt alle Methoden und Eigenschaften auf dem Seitenmodell an. Die Methoden und Eigenschaften sind verfügbar, weil der Eigenschaftentyp `ModelExpression` ist. Im nachfolgenden Beispiel wird die `Register`-Ansicht bearbeitet, damit das `RegisterViewModel` verfügbar ist.
+Sie können die Visual Studio-Verknüpfung *CompleteWord* verwenden ([standardmäßig](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) STRG+LEERTASTE in doppelten Anführungszeichen (""), und jetzt befinden Sie sich genauso wie in einer C#-Klasse in C#). IntelliSense zeigt alle Methoden und Eigenschaften auf dem Seitenmodell an. Die Methoden und Eigenschaften sind verfügbar, weil der Eigenschaftentyp `ModelExpression` ist. Im nachfolgenden Beispiel wird die `Register`-Ansicht bearbeitet, damit das `RegisterViewModel` verfügbar ist.
 
 ![Bild](intro/_static/intellemail.png)
 
@@ -166,13 +179,13 @@ Taghilfsprogramme werden an HTML-Elemente in Razor-Ansichten angefügt. [HTML-Hi
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-Das `@`-Symbol teilt Razor mit, dass es sich um den Beginn des Codes handelt. Bei den nächsten beiden Parametern („FirstName“ und „First Name:“) handelt es sich um Zeichenfolgen. Daher kann [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) nicht helfen. Das letzte Argument:
+Das `@`-Symbol teilt Razor mit, dass es sich um den Beginn des Codes handelt. Bei den nächsten beiden Parametern („FirstName“ und „First Name:“) handelt es sich um Zeichenfolgen. Daher kann [IntelliSense](/visualstudio/ide/using-intellisense) nicht helfen. Das letzte Argument:
 
 ```cshtml
 new {@class="caption"}
 ```
 
-Dabei handelt es sich um ein anonymes Objekt, das verwendet wird, um Attribute darzustellen. Da es sich bei **class** um ein reserviertes Schlüsselwort in C# handelt, sollten Sie das `@`-Symbol verwenden, um C# zu zwingen, „@class=“ als Symbol (Eigenschaftenname) zu interpretieren. Front-End-Designern (also Entwickler, die mit HTML, CSS oder JavaScript und anderen Clients vertraut sind, sich aber nicht mit C# und Razor auskennen) ist diese Zeile wahrscheinlich nicht bekannt. Die gesamte Zeile muss ohne Hilfe von IntelliSense erstellt werden.
+Dabei handelt es sich um ein anonymes Objekt, das verwendet wird, um Attribute darzustellen. Da es sich bei <strong>class</strong> um ein reserviertes Schlüsselwort in C# handelt, sollten Sie das `@`-Symbol verwenden, um C# zu zwingen, „@class=“ als Symbol (Eigenschaftenname) zu interpretieren. Front-End-Designern (also Entwickler, die mit HTML, CSS oder JavaScript und anderen Clients vertraut sind, sich aber nicht mit C# und Razor auskennen) ist diese Zeile wahrscheinlich nicht bekannt. Die gesamte Zeile muss ohne Hilfe von IntelliSense erstellt werden.
 
 Wenn Sie das `LabelTagHelper`-Taghilfsprogramm verwenden, kann dasselbe Markup wie folgt geschrieben sein:
 
@@ -220,7 +233,7 @@ Das Markup ist viel deutlicher und kann einfacher gelesen, bearbeitet und verwal
 
 Sehen Sie sich die *Email*-Gruppe an:
 
-[!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
+[!code-csharp[](intro/sample/Register.cshtml?range=12-18)]
 
 Alle asp-Attribute enthalten den Wert „Email“. „Email“ ist allerdings keine Zeichenfolge. In diesem Kontext ist „Email“ die C#-Modellausdruckseigenschaft für das `RegisterViewModel`.
 
@@ -236,13 +249,13 @@ Mithilfe des Visual Studio-Editors können Sie das **gesamte** Markup im Taghilf
 
 * Webserversteuerelemente umfassen die Browsererkennung nicht. Taghilfsprogramme haben keine Kenntnisse über den Browser.
 
-* Mehrere Taghilfsprogramme können gleichzeitig auf dasselbe Element wirken (weitere Informationen finden Sie unter [Avoiding Tag Helper conflicts (Vermeiden von Konflikten mit Taghilfsprogrammen)](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts)). Sie können hingegen in der Regel keine Webserversteuerelemente erstellen.
+* Mehrere Taghilfsprogramme können gleichzeitig auf dasselbe Element wirken (weitere Informationen finden Sie unter [Avoiding Tag Helper conflicts (Vermeiden von Konflikten mit Taghilfsprogrammen)](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts)). Sie können hingegen in der Regel keine Webserversteuerelemente erstellen.
 
 * Taghilfsprogramme können das Tag und den Inhalt von HTML-Elementen verändern, dem sie zugeordnet sind. Ansonsten nehmen Sie keine Änderungen an der Seite vor. Der Funktionsbereich von Webserversteuerelementen ist weniger spezifisch. Sie können Aktionen ausführen, die andere Teile Ihrer Seite beeinflussen, wodurch Nebenwirkungen entstehen, die nicht vorgesehen sind.
 
 * Webserversteuerelemente verwenden Typkonverter, um Zeichenfolgen in Objekte zu konvertieren. Mit Taghilfsprogrammen arbeiten Sie auf native Weise in C#, weshalb Sie keine Typkonvertierung durchführen müssen.
 
-* Webserversteuerelemente verwenden [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel), um das Verhalten von Komponenten und Steuerelementen zur Laufzeit und Entwurfszeit zu implementieren. `System.ComponentModel` enthält die Basisklassen und Schnittstellen zum Implementieren von Attributen und Typkonvertern, die Datenquellen binden und Komponenten lizenzieren. Im Gegensatz dazu stehen Taghilfsprogramme, die in der Regel von `TagHelper` abgeleitet sind. Die `TagHelper`-Basisklasse stellt nur zwei Methoden zur Verfügung: `Process` und `ProcessAsync`.
+* Webserversteuerelemente verwenden [System.ComponentModel](/dotnet/api/system.componentmodel), um das Verhalten von Komponenten und Steuerelementen zur Laufzeit und Entwurfszeit zu implementieren. `System.ComponentModel` enthält die Basisklassen und Schnittstellen zum Implementieren von Attributen und Typkonvertern, die Datenquellen binden und Komponenten lizenzieren. Im Gegensatz dazu stehen Taghilfsprogramme, die in der Regel von `TagHelper` abgeleitet sind. Die `TagHelper`-Basisklasse stellt nur zwei Methoden zur Verfügung: `Process` und `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Anpassen der Elementschriftart des Taghilfsprogramms
 
@@ -255,4 +268,3 @@ Sie können die Schriftart und die Farben über **Extras** > **Optionen** > **Um
 * [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring)
 * [Arbeiten mit Formularen](xref:mvc/views/working-with-forms)
 * Auf der Seite [Beispiele für Taghilfsprogramme unter GitHub](https://github.com/dpaquette/TagHelperSamples) finden Sie Beispiele für Taghilfsprogramme, die Sie für die Arbeit mit [Bootstrap](http://getbootstrap.com/) verwenden können.
-* [Arbeiten mit Formularen](xref:mvc/views/working-with-forms)

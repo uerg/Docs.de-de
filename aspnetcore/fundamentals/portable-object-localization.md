@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren der Lokalisierung portabler Objekte
+title: Konfigurieren der Lokalisierung portabler Objekte in ASP.NET Core
 author: sebastienros
-description: "Dieser Artikel führt portable Objektdateien ein und erläutert die Schritte zu ihrer Verwendung in einer ASP.NET Core-Anwendung mit dem Framework Orchard Core."
+description: Dieser Artikel führt portable Objektdateien ein und erläutert die Schritte zu ihrer Verwendung in einer ASP.NET Core-Anwendung mit dem Framework Orchard Core.
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/26/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: fbf2afd6fbc07c8068a21be15816aa45618f28d6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurieren der Lokalisierung portabler Objekte mit Orchard Core
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>Konfigurieren der Lokalisierung portabler Objekte in ASP.NET Core
 
 Von [Sébastien Ros](https://github.com/sebastienros) und [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -70,25 +70,25 @@ Dieses Beispiel beruht auf einer ASP.NET Core MVC-Anwendung, die aus einer Visua
 
 ### <a name="referencing-the-package"></a>Verweisen auf das Paket
 
-Fügen Sie einen Verweis auf das NuGet-Paket `OrchardCore.Localization.Core` hinzu. Es ist auf [MyGet](https://www.myget.org/) unter der folgenden Paketquelle verfügbar: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
+Fügen Sie einen Verweis auf das NuGet-Paket `OrchardCore.Localization.Core` hinzu. Dieses ist auf [MyGet](https://www.myget.org/) unter der Paketquelle https://www.myget.org/F/orchardcore-preview/api/v3/index.json verfügbar.
 
 Die *CSPROJ*-Datei enthält nun eine Zeile, die der folgenden Zeile ähnelt (die Versionsnummer kann davon abweichen):
 
-[!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
+[!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
 ### <a name="registering-the-service"></a>Registrieren des Diensts
 
 Fügen Sie die erforderlichen Dienste zur `ConfigureServices`-Methode von *Startup.cs* hinzu:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
 Fügen Sie die erforderliche Middleware zur `Configure`-Methode von *Startup.cs* hinzu:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
 Fügen Sie den folgenden Code zur Razor-Ansicht Ihrer Wahl hinzu. In diesem Beispiel wird *About.cshtml* verwendet.
 
-[!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
 Eine `IViewLocalizer`-Instanz wird eingefügt und zum Übersetzen des Texts „Hello world!“ verwendet.
 
@@ -96,7 +96,7 @@ Eine `IViewLocalizer`-Instanz wird eingefügt und zum Übersetzen des Texts „H
 
 Erstellen Sie eine Datei mit dem Namen *<culture code>.po* im Stammordner Ihrer Anwendung. In diesem Beispiel lautet der Dateiname *fr.po*, weil die französische Sprache verwendet wird:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 Diese Datei speichert die zu übersetzende Zeichenfolge sowie die französische Zeichenfolge. Übersetzungen stellen ihre übergeordnete Kultur wieder her, wenn erforderlich. In diesem Beispiel wird die *fr.po*-Datei verwendet, wenn die angeforderte Kultur `fr-FR` oder `fr-CA` ist.
 
@@ -133,7 +133,7 @@ Nicht alle Sprachen verfügen über die gleichen Regeln. Tschechisch verfügt be
 
 Erstellen Sie die `cs.po`-Datei wie folgt, und beachten Sie die drei verschiedenen Übersetzungen der Pluralformen:
 
-[!code-text[Main](localization/sample/POLocalization/cs.po)]
+[!code-text[](localization/sample/POLocalization/cs.po)]
 
 Fügen Sie für die Annahme der tschechischen Lokalisierungen `"cs"` zur Liste der unterstützten Kulturen in der `ConfigureServices`-Methode hinzu:
 
@@ -206,7 +206,7 @@ Wenn `msgctxt` festgelegt ist, wird bei der Navigation zu `/Home/About?culture=f
 
 Wenn kein bestimmter Eintrag mit einem bestimmten Dateikontext abgeglichen wird, sucht der Fallbackmechanismus von Orchard Core nach einer entsprechenden PO-Datei ohne Kontext. Vorausgesetzt, dass kein bestimmter Dateikontext für *Views/Home/Contact.cshtml* definiert ist, lädt eine Navigation zu `/Home/Contact?culture=fr-FR` eine PO-Datei, wie beispielsweise:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 ### <a name="changing-the-location-of-po-files"></a>Ändern des Speicherorts für PO-Dateien
 

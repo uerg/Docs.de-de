@@ -1,6 +1,6 @@
 ---
 title: Webserverimplementierungen in ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr über das Auswählen eines Servers und darüber, wann ein Reverseproxyserver zu verwenden ist.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: cdf6fafce644f424d3cd58395e1fa91e5e6fa2cb
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 38af9d0206d66ac7fd2dc13a5a8245e8f66df41e
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
@@ -24,13 +24,12 @@ Eine ASP.NET Core-App wird über eine In-Process-Implementierung eines HTTP-Serv
 
 ASP.NET Core stellt zwei Serverimplementierungen zur Verfügung:
 
-* [Kestrel](xref:fundamentals/servers/kestrel) ist ein plattformübergreifender HTTP-Server, der auf der plattformübergreifenden asynchronen E/A-Bibliothek [libuv](https://github.com/libuv/libuv) basiert.
-
+* [Kestrel](xref:fundamentals/servers/kestrel) ist der plattformübergreifende HTTP-Standardserver für ASP.NET Core.
 * [HTTP.sys](xref:fundamentals/servers/httpsys) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber und der HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert. (HTTP.sys wird in ASP.NET Core 1.x als [WebListener](xref:fundamentals/servers/weblistener) bezeichnet.)
 
 ## <a name="kestrel"></a>Kestrel
 
-Kestrel ist der Webserver, der standardmäßig in ASP.NET Core in Vorlagen für neue Projekte enthalten ist. 
+Kestrel ist der Standardwebserver, der in ASP.NET Core-Projektvorlagen enthalten ist.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

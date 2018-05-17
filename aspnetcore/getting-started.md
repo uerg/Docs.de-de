@@ -1,7 +1,7 @@
 ---
-title: Erste Schritte mit ASP.NET Core 2.0
+title: Erste Schritte mit ASP.NET Core
 author: rick-anderson
-description: "Kurztutorial, in dem eine einfache Hello World-App mit ASP.NET Core erstellt und ausgeführt wird."
+description: Kurztutorial, in dem eine einfache Hello World-App mit ASP.NET Core erstellt und ausgeführt wird.
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: eb1fd748029743ca6991927cc95b612ed1975338
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>Erste Schritte mit ASP.NET Core
 
 > [!NOTE]
-> Diese Anweisungen gelten für die neueste Version von ASP.NET Core. Suchen Sie zum Einstieg eine frühere Version? Siehe die [Version 1.1 dieses Tutorials](xref:getting-started-1.1).
+> Diese Anweisungen gelten für die neueste Version von ASP.NET Core. Die Version 1.1. dieses Dokuments finden Sie unter [Erste Schritte mit ASP.NET Core 1.1](xref:getting-started-1.1).
 
-1. Installieren Sie [.NET Core](https://www.microsoft.com/net/core/).
+1. Installieren Sie [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
 2. Erstellen Sie ein neues .NET Core-Projekt.
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/30/2018
     dotnet new razor -o aspnetcoreapp
     ```
     
-4. Führen Sie die App aus.
+3. Führen Sie die App aus.
 
     Verwenden Sie die folgenden Befehle, um die App auszuführen:
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 01/30/2018
     dotnet run
     ```
 
-5. Wechseln Sie dann zu [http://localhost:5000](http://localhost:5000).
+4. Wechseln Sie zu [http://localhost:5000](http://localhost:5000).
 
-6. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server beträgt @DateTime.Now ":
+5. Öffnen Sie <em>Pages/About.cshtml</em>, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server beträgt @DateTime.Now ":
 
-    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-7. Navigieren Sie zu [http://localhost:5000/About](http://localhost:5000/About), und überprüfen Sie die Änderungen.
+6. Wechseln Sie zu [http://localhost:5000/About](http://localhost:5000/About), und bestätigen Sie die Änderungen.
 
 ### <a name="next-steps"></a>Nächste Schritte
 

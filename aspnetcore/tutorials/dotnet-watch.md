@@ -1,7 +1,7 @@
 ---
 title: Entwickeln von ASP.NET Core-Apps mit dotnet watch
 author: rick-anderson
-description: "Dieses Tutorial erläutert, wie Sie das Datei-Watcher-Tool (dotnet watch) der .NET Core-CLI in einer ASP.NET Core-Anwendung verwenden."
+description: Dieses Tutorial erläutert, wie Sie das Datei-Watcher-Tool (dotnet watch) der .NET Core-CLI in einer ASP.NET Core-Anwendung verwenden.
 manager: wpickett
 ms.author: riande
 ms.date: 10/05/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c3ece3a5b936b2ea7b7772eee10e598cb557b361
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Entwickeln von ASP.NET Core-Apps mit dotnet watch
+# <a name="develop-aspnet-core-apps-using-dotnet-watch"></a>Entwickeln von ASP.NET Core-Apps mit dotnet watch
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
@@ -95,7 +95,7 @@ Vergewissern Sie sich, dass `http://localhost:<port number>/api/math/product?a=4
 
 1. Ändern Sie `Product`-Methode von *MathController.cs* so, dass wieder die Summe zurückgegeben wird, und speichern Sie die Datei.
 1. Navigieren Sie in einer Befehlsshell zum Ordner *WebAppTests*.
-1. Führen Sie aus `dotnet restore`.
+1. Führen Sie [dotnet restore](/dotnet/core/tools/dotnet-restore) aus.
 1. Führen Sie aus `dotnet watch test`. In der Ausgabe wird angezeigt, dass ein Test fehlgeschlagen ist und Watcher auf Dateiänderungen wartet:
 
      ```console

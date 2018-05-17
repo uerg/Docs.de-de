@@ -10,8 +10,6 @@ In diesem Tutorial wird die folgende API erstellt:
 |PUT /api/todo/{id} | Vorhandenes Element aktualisieren &nbsp; | To-do-Element | Keiner |
 |DELETE /api/todo/{id} &nbsp; &nbsp; | Löschen eines Elements &nbsp; &nbsp; | Keiner | Keiner|
 
-<br>
-
 Das folgende Diagramm zeigt den Grundentwurf der App.
 
 ![Der Client wird von einem Feld auf der linken Seite dargestellt. Er sendet eine Anforderung und erhält von der Anwendung (Feld auf der rechten Seite) eine Antwort. Im Anwendungsfeld stellen drei Felder den Controller, das Modell und die Datenzugriffsschicht dar. Die Anforderung geht im Controller der Anwendung ein, und Lese-/Schreibvorgänge erfolgen zwischen Controller und Datenzugriffsschicht. Das Modell wird serialisiert und in der Antwort an den Client zurückgegeben.](../../tutorials/first-web-api/_static/architecture.png)

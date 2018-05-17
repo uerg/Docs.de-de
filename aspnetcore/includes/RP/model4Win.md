@@ -12,7 +12,7 @@ Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Öffnen Sie eine Befehlsshell im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs* und *CSPROJ*-Dateien).
+Der zuvor beschriebene Fehler tritt auf, wenn Sie sich im falschen Verzeichnis befinden. Öffnen Sie eine Befehlsshell im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs* und *CSPROJ*-Dateien), und führen Sie den zuvor aufgeführten Befehl aus.
 
 Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
   ```

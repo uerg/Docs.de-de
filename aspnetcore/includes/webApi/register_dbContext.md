@@ -4,9 +4,9 @@ In diesem Schritt wird der Datenbankkontext beim Container [Abhängigkeitsinjekt
 
 Registrieren Sie den Datenbankkontext mithilfe der integrierten Unterstützung der [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) beim Dienstcontainer. Ersetzen Sie den Inhalt der Datei *Startup.cs* durch den folgenden Code:
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
 
 Der vorangehende Code:
 
-* Entfernt den Code, der nicht verwendet wird.
+* Entfernt nicht verwendeten Code.
 * Gibt an, dass eine In-Memory Database in den Dienstcontainer eingefügt wird.

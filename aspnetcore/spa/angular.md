@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Verwenden Sie die Angular-Projektvorlage, mit ASP.NET Core
 
@@ -39,12 +39,14 @@ cd my-new-app
 
 Führen Sie die app aus Visual Studio oder .NET Core CLI:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Öffnen Sie die generierte *csproj* Datei, und führen Sie die app als normale von dort aus.
 
 Während des Erstellungsprozesses stellt Npm Abhängigkeiten bei der ersten Ausführung, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
 
-#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli/)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli/)
+
 Sicherzustellen, dass Sie über eine Umgebungsvariable namens `ASPNETCORE_Environment` mit einem Wert von `Development`. Führen Sie für Windows (in nicht-PowerShell-Anweisungen), `SET ASPNETCORE_Environment=Development`. Führen Sie unter Linux oder MacOS `export ASPNETCORE_Environment=Development`.
 
 Führen Sie [Dotnet Build](/dotnet/core/tools/dotnet-build) um zu überprüfen, ob die Anwendung richtig erstellt. Bei der ersten Ausführung stellt während des Erstellungsprozesses Npm Abhängigkeiten, die dies einige Minuten dauern kann, wieder her. Nachfolgende Builds sind wesentlich schneller.
@@ -57,9 +59,10 @@ Now listening on: http://localhost:<port>
 
 Navigieren Sie zu dieser URL in einem Browser.
 
-Die app startet eine Instanz des Servers Angular CLI im Hintergrund. Es wird eine Meldung ähnlich der folgenden protokolliert: <em>NG Live Development Server Lauscht auf "localhost":&lt;Otherport&gt;, öffnen Sie in Ihrem Browser auf http://localhost: &lt;Otherport&gt; /</em> . Diese Meldung ignorieren&mdash;kann <strong>nicht</strong> die URL für die kombinierte ASP.NET Core und Angular-CLI-app.
+Die app startet eine Instanz des Servers Angular CLI im Hintergrund. Es wird eine Meldung ähnlich der folgenden protokolliert: <em>NG Live Development Server Lauscht auf "localhost":&lt;Otherport&gt;, öffnen Sie in Ihrem Browser auf http://localhost:&lt; Otherport&gt; /</em>  . Diese Meldung ignorieren&mdash;kann <strong>nicht</strong> die URL für die kombinierte ASP.NET Core und Angular-CLI-app.
 
-* * *
+---
+
 Die Projektvorlage erstellt eine ASP.NET Core-app und einer Angular-app. Die app ASP.NET Core soll für den Datenzugriff, Autorisierung und Bedenken serverseitige verwendet werden. Die Angular-app in den die *ClientApp* Unterverzeichnis für alle Aspekte der Benutzeroberfläche verwendet werden soll.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Fügen Sie Seiten, Bilder, Stile, Module, usw. an.

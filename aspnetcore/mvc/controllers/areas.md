@@ -1,7 +1,7 @@
 ---
-title: Bereiche
+title: Bereiche in ASP.NET Core
 author: rick-anderson
-description: Veranschaulicht das Arbeiten mit Bereichen.
+description: Erfahren Sie mehr über Bereiche, ein Feature von ASP.NET MVC, das für die Organisation von verwandten Funktionalitäten in einer Gruppe als separater Namespace (für Routing) und Ordnerstruktur (für Ansichten) verwendet wird.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: 1ade49de3f6c58edc4ea7b06bc593b3db797081c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 61527eb350b5aba9cb37b1de5acdeae1287bf073
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="areas"></a>Bereiche
+# <a name="areas-in-aspnet-core"></a>Bereiche in ASP.NET Core
 
 Von [Dhananjay Kumar](https://twitter.com/debug_mode) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -125,7 +125,7 @@ Sobald Sie eine Ordnerhierarchie definiert haben, müssen Sie MVC mitteilen, das
    }
    ```
 
-Richten Sie eine Routendefinition ein, die mit Ihren neu erstellten Bereichen funktioniert. Der Artikel [Routing to Controller Actions (Routing zu Controlleraktionen)](routing.md) enthält weitere Details dazu, wie Sie Routendefinitionen erstellen, inklusive der Verwendung konventioneller Routen im Vergleich zu Attributrouten. In diesem Beispiel wird eine konventionelle Route verwendet. Öffnen Sie hierzu die Datei *Startup.cs* und ändern Sie sie, indem Sie die unten genannte Routendefinition `areaRoute` hinzufügen.
+Richten Sie eine Routendefinition ein, die mit Ihren neu erstellten Bereichen funktioniert. Der Artikel [Routing to Controller Actions (Routing zu Controlleraktionen)](routing.md) enthält weitere Details dazu, wie Sie Routendefinitionen erstellen, darunter die Verwendung konventioneller Routen im Vergleich zu Attributrouten. In diesem Beispiel wird eine konventionelle Route verwendet. Öffnen Sie hierzu die Datei *Startup.cs* und ändern Sie sie, indem Sie die unten genannte Routendefinition `areaRoute` hinzufügen.
 
 ```csharp
 ...

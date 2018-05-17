@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
 title: Arbeiten mit Bildern an einem Standort der ASP.NET Web Pages (Razor) | Microsoft Docs
 author: tfitzmac
-description: "Das Kapitel zeigt, wie Sie hinzufügen, anzeigen und Bearbeiten von Bildern (Größe ändern, spiegeln und Hinzufügen von Wasserzeichen) in Ihrer Website."
+description: Das Kapitel zeigt, wie Sie hinzufügen, anzeigen und Bearbeiten von Bildern (Größe ändern, spiegeln und Hinzufügen von Wasserzeichen) in Ihrer Website.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -58,7 +58,7 @@ Wenn ein Image bereits auf Ihrer Website verfügbar ist, und Sie nur auf einer S
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-In einigen Fällen müssen Sie jedoch in der Lage, Anzeige von Bildern dynamisch sein &#8212; d. h. wissen nicht Sie, welches Bild angezeigt, bis die Seite ausgeführt wird.
+In einigen Fällen müssen Sie jedoch in der Lage, Anzeige von Bildern dynamisch sein & #8212; d. h. wissen nicht Sie, welches Bild angezeigt, bis die Seite ausgeführt wird.
 
 Die Verfahren in diesem Abschnitt wird gezeigt, wie ein Bild im Handumdrehen angezeigt, in dem Benutzer den Bilddateinamen aus einer Liste der imagenamen angeben, wird. Benutzer den Namen des Bilds aus einer Dropdownliste auswählen, und wenn sie die Seite senden, wird das Bild, das sie ausgewählt angezeigt.
 
@@ -109,7 +109,7 @@ Im vorherige Beispiel wurde gezeigt, wie ein Bild angezeigt wird, dynamisch, abe
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    Sie möchten schließlich nicht alle dieser Pfadinformationen, obwohl &#8212; Sie möchten nur den tatsächlichen Dateinamen (*SamplePhoto1.jpg*). Sie müssen nur die Datei aus einem Pfad entfernen können, mithilfe der `Path.GetFileName` -Methode, wie folgt:
+    Sie möchten schließlich nicht alle dieser Pfadinformationen, obwohl & #8212; Sie möchten nur den tatsächlichen Dateinamen (*SamplePhoto1.jpg*). Sie müssen nur die Datei aus einem Pfad entfernen können, mithilfe der `Path.GetFileName` -Methode, wie folgt:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 

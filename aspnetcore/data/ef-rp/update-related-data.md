@@ -1,7 +1,7 @@
 ---
-title: 'Razor-Seiten mit Entity Framework Core (EF Core): Aktualisieren verwandter Daten (7 von 8)'
+title: 'Razor-Seiten mit EF Core in ASP.NET Core: Aktualisieren verwandter Daten (7 von 8)'
 author: rick-anderson
-description: "In diesem Tutorial aktualisieren Sie verwandte Daten, indem Sie Felder mit Fremdschlüsseln sowie Navigationseigenschaften aktualisieren."
+description: Mithilfe dieses Tutorials führen Sie Updates für verwandte Daten aus, indem Sie Felder mit Fremdschlüsseln sowie Navigationseigenschaften aktualisieren.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 5c91c91ab938f3aa4abc55049c54f399469f6163
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Aktualisieren verwandter Daten: Razor-Seiten mit EF Core (7 von 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Aktualisieren verwandter Daten (7 von 8)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In diesem Tutorial wird veranschaulicht, wie verwandte Daten aktualisiert werden. Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendung für diese Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part7) herunter.
 
@@ -34,9 +34,9 @@ In den folgenden Abbildungen werden einige der abgeschlossenen Seiten dargestell
 
 Auf den Seiten „Courses/Create“ (Kurse/Erstellen) und „Courses/Edit“ (Kurse/Bearbeiten) ist jeweils eine Liste mit Abteilungsnamen erforderlich. Erstellen Sie die Basisklasse *Pages/Courses/DepartmentNamePageModel.cshtml.cs* für die Seiten „Create“ (Erstellen) und „Edit“ (Bearbeiten):
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-Der vorangehende Code erstellt eine [SelectList](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0), in der die Liste der Abteilungsnamen enthalten sein soll. Wenn `selectedDepartment` angegeben ist, wird diese Abteilung in `SelectList` ausgewählt.
+Der vorangehende Code erstellt eine [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0), in der die Liste der Abteilungsnamen enthalten sein soll. Wenn `selectedDepartment` angegeben ist, wird diese Abteilung in `SelectList` ausgewählt.
 
 Die Modellklassen der Seiten „Create“ (Erstellen) und „Edit“ (Bearbeiten) werden von `DepartmentNamePageModel` abgeleitet.
 
@@ -48,7 +48,7 @@ Wenn eine neue Kursentität erstellt wird, muss diese in Beziehung zu einer vorh
 
 Aktualisieren Sie das Seitenmodell „Create“ (Erstellen) mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
 
 Der vorangehende Code:
 
@@ -62,7 +62,7 @@ Der vorangehende Code:
 
 Aktualisieren Sie *Pages/Courses/Create.cshtml* mit folgendem Markup:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
 
 Das oben stehende Markup führt die folgenden Änderungen durch:
 
@@ -71,9 +71,9 @@ Das oben stehende Markup führt die folgenden Änderungen durch:
 * Fügt die Option „Abteilung auswählen“ hinzu. Durch diese Änderung wird anstelle der ersten Abteilung die Option „Abteilung auswählen“ gerendert.
 * Fügt eine Validierungsmeldung hinzu, wenn die Abteilung nicht ausgewählt wird.
 
-Die Razor-Seite verwendet die Option [Select Tag Helper](xref:mvc/views/working-with-forms#the-select-tag-helper) (Taghilfsprogramm auswählen):
+Die Razor Page verwendet die Option [Select Tag Helper](xref:mvc/views/working-with-forms#the-select-tag-helper) (Taghilfsprogramm auswählen):
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
 
 Testen Sie die Seite „Create“ (Erstellen). Auf der Seite „Create“ (Erstellen) wird anstelle der Abteilungs-ID der Abteilungsname angezeigt.
 
@@ -81,13 +81,13 @@ Testen Sie die Seite „Create“ (Erstellen). Auf der Seite „Create“ (Erste
 
 Aktualisieren Sie das Seitenmodell „Edit“ (Bearbeiten) mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
 Die Änderungen ähneln den im Seitenmodell „Create“ (Erstellen) vorgenommenen Änderungen. Im vorangehenden Code wird `PopulateDepartmentsDropDownList` an die Abteilungs-ID übergeben, wodurch die in der Dropdownliste angegebene Abteilung ausgewählt wird.
 
 Aktualisieren Sie *Pages/Courses/Edit.cshtml* mit folgendem Markup:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
 
 Das oben stehende Markup führt die folgenden Änderungen durch:
 
@@ -103,19 +103,19 @@ Testen Sie den aktualisierten Code. Erstellen, bearbeiten und löschen Sie einen
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Hinzufügen von „AsNoTracking“ zu den Seitenmodellen „Details“ und „Delete“ (Löschen)
 
-Durch [AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) kann die Leistung verbessert werden, wenn keine Nachverfolgung erforderlich ist. Fügen Sie `AsNoTracking` zu den Seitenmodellen „Delete“ (Löschen) und „Details“ (Details) hinzu. Im folgenden Code wird das aktualisierte Seitenmodell „Delete“ (Löschen) dargestellt:
+Durch [AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) kann die Leistung verbessert werden, wenn keine Nachverfolgung erforderlich ist. Fügen Sie `AsNoTracking` zu den Seitenmodellen „Delete“ (Löschen) und „Details“ (Details) hinzu. Im folgenden Code wird das aktualisierte Seitenmodell „Delete“ (Löschen) dargestellt:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
 Aktualisieren Sie die Methode `OnGetAsync` in der Datei *Pages/Courses/Details.cshtml.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
 
 ### <a name="modify-the-delete-and-details-pages"></a>Ändern der Seiten „Delete“ (Löschen) und „Details“
 
-Aktualisieren Sie die Razor-Seite „Delete“ (Löschen) mit folgendem Markup:
+Aktualisieren Sie die Razor Page „Delete“ (Löschen) mit folgendem Markup:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
 
 Nehmen Sie auf der Seite „Details“ die gleichen Änderungen vor.
 
@@ -137,7 +137,7 @@ Bei der Bearbeitung eines Datensatzes für Dozenten sollten Sie auch die Bürozu
 
 Aktualisieren Sie das Seitenmodell „Edit“ (Bearbeiten) für Dozenten mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
 
 Der vorangehende Code:
 
@@ -149,7 +149,7 @@ Der vorangehende Code:
 
 Aktualisieren Sie *Pages/Instructors/Edit.cshtml* mit dem Bürostandort:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
 
 Stellen Sie sicher, dass Sie den Bürostandort eines Dozenten ändern können.
 
@@ -170,27 +170,27 @@ Dozenten können eine beliebige Anzahl von Kursen unterrichten. In diesem Abschn
 
 Erstellen Sie *SchoolViewModels/AssignedCourseData.cs* mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 Die `AssignedCourseData`-Klasse enthält Daten zur Erstellung der Kontrollkästchen für durch einen Dozenten zugewiesene Kurse.
 
 Erstellen Sie die Basisklasse *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-Bei `InstructorCoursesPageModel` handelt es sich um die Basisklasse, die Sie für die Seitenmodelle „Edit“ (Bearbeiten) und „Create“ (Erstellen) verwenden. `PopulateAssignedCourseData` liest alle `Course`-Entitäten, mit denen `AssignedCourseDataList` aufgefüllt werden soll. Für jeden Kurs legt der Code die `CourseID` und den Titel fest. Zudem legt er fest, ob der Dozent einem Kurs zugewiesen ist. Mit einem [HashSet](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) werden effiziente Suchvorgänge erstellt.
+Bei `InstructorCoursesPageModel` handelt es sich um die Basisklasse, die Sie für die Seitenmodelle „Edit“ (Bearbeiten) und „Create“ (Erstellen) verwenden. `PopulateAssignedCourseData` liest alle `Course`-Entitäten, mit denen `AssignedCourseDataList` aufgefüllt werden soll. Für jeden Kurs legt der Code die `CourseID` und den Titel fest. Zudem legt er fest, ob der Dozent einem Kurs zugewiesen ist. Mit einem [HashSet](/dotnet/api/system.collections.generic.hashset-1) werden effiziente Suchvorgänge erstellt.
 
 ### <a name="instructors-edit-page-model"></a>Seitenmodell „Edit“ (Bearbeiten) für Dozenten
 
 Aktualisieren Sie das Seitenmodell „Edit“ (Bearbeiten) für Dozenten mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
 
 Der vorangehende Code behandelt an Bürozuweisungen vorgenommene Änderungen.
 
 Aktualisieren Sie die Razor-Ansicht des Dozenten:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
 
 <a id="notepad"></a>
 > [!NOTE]
@@ -208,13 +208,13 @@ Hinweis: Der hier gewählte Ansatz für die Bearbeitung der Kursdaten von Dozent
 
 Aktualisieren Sie das Seitenmodell „Create“ (Erstellen) für Dozenten mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
 
 Der vorangehende Code ähnelt dem Code *Pages/Instructors/Edit.cshtml.cs*.
 
-Aktualisieren Sie die Razor-Seite „Create“ (Erstellen) für Dozenten mit folgendem Markup:
+Aktualisieren Sie die Razor Page „Create“ (Erstellen) für Dozenten mit folgendem Markup:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
 
 Testen Sie die Dozentenseite „Create“ (Erstellen).
 
@@ -222,7 +222,7 @@ Testen Sie die Dozentenseite „Create“ (Erstellen).
 
 Aktualisieren Sie das Seitenmodell „Delete“ (Löschen) mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
 
 Durch den vorangehenden Code werden folgende Änderungen vorgenommen:
 
@@ -230,6 +230,6 @@ Durch den vorangehenden Code werden folgende Änderungen vorgenommen:
 
 * Wenn der zu löschende Dozent als Administrator einer beliebigen Abteilung zugewiesen ist, wird die Dozentenzuweisung aus diesen Abteilungen entfernt.
 
->[!div class="step-by-step"]
-[Zurück](xref:data/ef-rp/read-related-data)
-[Weiter](xref:data/ef-rp/concurrency)
+> [!div class="step-by-step"]
+> [Zurück](xref:data/ef-rp/read-related-data)
+> [Weiter](xref:data/ef-rp/concurrency)

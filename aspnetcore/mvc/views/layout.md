@@ -1,7 +1,7 @@
 ---
-title: Layout
+title: Layout in ASP.NET Core
 author: ardalis
-description: 
+description: Erfahren Sie, wie man gängige Layouts verwendet, Anweisungen von mehreren Ansichten gemeinsam nutzen lässt und Programmcode vor dem Rendern der Ansichten in einer ASP.NET Core-App ausführt.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8e89c8e6cf18c47abb6bf432cdc6bb6b97e8aeb0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="layout"></a>Layout
+# <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
 
@@ -37,13 +37,13 @@ Dieses Layout definiert eine übergeordnete Vorlage für die Ansichten einer App
 
 Ein Beispiel-`_Layout.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Festlegen eines Layouts
 
 Razor-Ansichten verfügen über eine `Layout` -Eigenschaft. Durch Festlegen dieser Eigenschaft wird das Layout der jeweiligen Ansicht bestimmt:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 Das Layout kann mit seinem vollständigen Pfad (Beispiel: `/Views/Shared/_Layout.cshtml`) oder über einen Teil seines Namens angegeben werden (Beispiel: `_Layout`). Wird ein Teil des Namens angegeben, dann durchsucht die Razor-Ansichts-Engine die Layoutdatei unter Verwendung des standardmäßigen Ermittlungsprozesses. Zuerst wird der dem Controller zugeordnete Ordner durchsucht, gefolgt vom Ordner `Shared`. Dieser Ermittlungsprozess ist identisch mit dem Prozess zum Auffinden von [Teilansichten](partial.md).
 
@@ -73,7 +73,7 @@ Standardmäßig müssen der Text und die Abschnitte einer Inhaltsseite alle von 
 
 Rufen Sie die Methoden `IgnoreBody` und `IgnoreSection` auf, um die Ansichtsengine anzuweisen, den Text oder die Abschnitte zu ignorieren.
 
-Der Text und jeder Abschnitt einer Razor-Seite müssen entweder gerendert oder ignoriert werden.
+Der Text und jeder Abschnitt einer Razor Page müssen entweder gerendert oder ignoriert werden.
 
 <a name="viewimports"></a>
 
@@ -99,7 +99,7 @@ Die Datei unterstützt keine anderen Razor-Features wie Funktionen und Abschnitt
 
 Eine `_ViewImports.cshtml`-Beispieldatei:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 Die `_ViewImports.cshtml`-Datei für eine ASP.NET Core MVC-App befindet sich normalerweise im `Views`-Ordner. Eine `_ViewImports.cshtml`-Datei kann auch in einen anderen Ordner verschoben werden. In diesem Fall wird sie nur auf die Ansichten in diesem Ordner und in dessen Unterordnern angewendet. `_ViewImports`-Dateien werden von der Stammebene aus verarbeitet. Dann wird jeder Ordner verarbeitet, der sich auf dem Weg zur Ansicht befindet. Das bedeutet, dass Einstellungen der Stammebene auf der Ordnerebene außer Kraft gesetzt werden.
 
@@ -127,7 +127,7 @@ Wenn es Code gibt, der vor jeder Ansicht ausgeführt werden muss, sollte dieser 
 
 Eine `_ViewStart.cshtml`-Beispieldatei:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Die oben stehende Datei gibt an, dass alle Ansichten das `_Layout.cshtml`-Layout verwenden.
 

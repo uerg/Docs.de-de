@@ -1,7 +1,7 @@
 ---
 title: Globalisierung und Lokalisierung in ASP.NET Core
 author: rick-anderson
-description: "Erfahren Sie, wie ASP.NET Core Dienste und Middleware für das Lokalisieren von Inhalten in verschiedene Sprachen und Kulturen anbietet."
+description: Erfahren Sie, wie ASP.NET Core Dienste und Middleware für das Lokalisieren von Inhalten in verschiedene Sprachen und Kulturen anbietet.
 manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 766cec5dd00b7b464eef31a3bc1721f522697608
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -21,7 +21,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://tw
 
 Wenn Sie eine mehrsprachige Website mit ASP.NET Core erstellen, können Sie mit Ihrer Website ein breiteres Publikum erreichen. ASP.NET Core bietet Dienste und Middleware zur Lokalisierung in verschiedene Sprachen und Kulturen.
 
-Die Internationalisierung umfasst die[Globalisierung](https://docs.microsoft.com/dotnet/api/system.globalization) und die [Lokalisierung](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Globalisierung bezeichnet das Entwerfen von Anwendungen, die verschiedene Kulturen unterstützen. Durch die Globalisierung wird die Unterstützung von Eingabe, Anzeige und Ausgabe mehrerer definierter Sprachskripts hinzugefügt, die zu bestimmten geografischen Bereichen gehören.
+Die Internationalisierung umfasst die[Globalisierung](/dotnet/api/system.globalization) und die [Lokalisierung](/dotnet/standard/globalization-localization/localization). Globalisierung bezeichnet das Entwerfen von Anwendungen, die verschiedene Kulturen unterstützen. Durch die Globalisierung wird die Unterstützung von Eingabe, Anzeige und Ausgabe mehrerer definierter Sprachskripts hinzugefügt, die zu bestimmten geografischen Bereichen gehören.
 
 Durch die Lokalisierung wird eine globalisierte App, die bereits auf Lokalisierbarkeit vorbereitet wurde, auf eine bestimmte Kultur bzw. ein bestimmtes Gebietsschema angepasst. Weitere Informationen finden Sie unter **Begriffe für die Globalisierung und Lokalisierung** am Ende dieses Dokuments.
 
@@ -35,37 +35,37 @@ Die Lokalisierung von Apps umfasst die folgenden Aufgaben:
 
 ## <a name="make-the-apps-content-localizable"></a>Stellen Sie sicher, dass der Inhalt der App lokalisierbar ist.
 
-`IStringLocalizer` und `IStringLocalizer<T>` wurden mit ASP.NET Core eingeführt und zur Förderung der Produktivität bei der Entwicklung von lokalisierten Apps entwickelt. `IStringLocalizer` nutzt [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) und [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader), um kulturspezifische Ressourcen zur Laufzeit bereitzustellen. Die einfache Schnittstelle besitzt einen Indexer und `IEnumerable` für die Rückgabe von lokalisierten Zeichenfolgen. `IStringLocalizer` erfordert nicht, dass Sie die Zeichenfolgen der Standardsprache in einer Ressourcendatei speichern. Sie können eine App entwickeln, die für die Lokalisierung ausgelegt ist, und müssen in den frühen Entwicklungsphasen keine Ressourcendateien erstellen. Im folgenden Codebeispiel wird dargestellt, wie die Zeichenfolge „About Title“ für die Lokalisierung umschlossen wird.
+`IStringLocalizer` und `IStringLocalizer<T>` wurden mit ASP.NET Core eingeführt und zur Förderung der Produktivität bei der Entwicklung von lokalisierten Apps entwickelt. `IStringLocalizer` nutzt [ResourceManager](/dotnet/api/system.resources.resourcemanager) und [ResourceReader](/dotnet/api/system.resources.resourcereader), um kulturspezifische Ressourcen zur Laufzeit bereitzustellen. Die einfache Schnittstelle besitzt einen Indexer und `IEnumerable` für die Rückgabe von lokalisierten Zeichenfolgen. `IStringLocalizer` erfordert nicht, dass Sie die Zeichenfolgen der Standardsprache in einer Ressourcendatei speichern. Sie können eine App entwickeln, die für die Lokalisierung ausgelegt ist, und müssen in den frühen Entwicklungsphasen keine Ressourcendateien erstellen. Im folgenden Codebeispiel wird dargestellt, wie die Zeichenfolge „About Title“ für die Lokalisierung umschlossen wird.
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
+[!code-csharp[](localization/sample/Localization/Controllers/AboutController.cs)]
 
 Im obigen Codebeispiel stammt die Implementierung von `IStringLocalizer<T>` aus [Dependency Injection](dependency-injection.md). Wenn kein lokalisierter Wert von „About Title“ gefunden wird, wird der Indexerschlüssel zurückgegeben, d.h. die Zeichenfolge „About Title“. Sie können die Literalzeichenfolgen der App in der Standardsprache beibehalten und diese in der Lokalisierung umschließen, damit Sie sich auf die Entwicklung der App konzentrieren können. Entwickeln Sie Ihre App mit Ihrer Standardsprache, und bereiten Sie sie auf die Lokalisierung vor, ohne zuerst eine Standardressourcendatei zu erstellen. Alternativ können Sie das herkömmliche Verfahren verwenden und einen Schlüssel zum Abrufen der Zeichenfolge in der Standardsprache angeben. Der neue Workflow, der keine Standardsprache in der *RESX*-Datei verwendet und die Literalzeichenfolgen einfach umschließt, kann für viele Entwickler den Aufwand beim Lokalisieren einer App reduzieren. Andere Entwickler bevorzugen weiterhin den herkömmlichen Workflow, weil es dabei einfacher ist, mit längeren Literalzeichenfolgen zu arbeiten und lokalisierte Zeichenfolgen zu aktualisieren.
 
 Verwenden Sie die Implementierung von `IHtmlLocalizer<T>` für Ressourcen, die HTML enthalten. Mit `IHtmlLocalizer` werden Argumente HTML-codiert, die in der Ressourcenzeichenfolge formatiert sind. Die Ressourcenzeichenfolgen werden jedoch nicht HTML-codiert. Im folgenden Beispiel wird hervorgehoben, dass nur der Wert des Parameters `name` HTML-codiert ist.
 
-[!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
+[!code-csharp[](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
 **Hinweis:** Normalerweise sollten Sie nur den Text lokalisieren, nicht den HTML-Code.
 
 Auf der untersten Ebene können Sie `IStringLocalizerFactory` aus [Dependency Injection](dependency-injection.md) abrufen:
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
+[!code-csharp[](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
 
 Im obigen Codebeispiel werden beide factory.Create-Methoden veranschaulicht.
 
 Sie können Ihre lokalisierten Zeichenfolgen in Steuerelemente und Bereiche aufteilen oder nur einen Container verwenden. In der Beispiel-App wird eine Dummyklasse namens `SharedResource` für freigegebene Ressourcen verwendet.
 
-[!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
+[!code-csharp[](localization/sample/Localization/Resources/SharedResource.cs)]
 
 Einige Entwickler verwenden die Klasse `Startup`, damit globale oder freigegebene Zeichenfolgen enthalten sind. Im folgenden Beispiel werden die Lokalisierer `InfoController` und `SharedResource` verwendet:
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
+[!code-csharp[](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
 ## <a name="view-localization"></a>Lokalisierung der Ansicht
 
-Der Dienst `IViewLocalizer` gibt lokalisierte Zeichenfolgen für eine [Ansicht](https://docs.microsoft.com/aspnet/core) an. Die Klasse `ViewLocalizer` implementiert diese Schnittstelle und sucht den Speicherort der Ressource über den Dateipfad der Ansicht. Im folgenden Codebeispiel wird die Verwendung der Standardimplementierung von `IViewLocalizer` veranschaulicht:
+Der Dienst `IViewLocalizer` gibt lokalisierte Zeichenfolgen für eine [Ansicht](xref:mvc/views/overview) an. Die Klasse `ViewLocalizer` implementiert diese Schnittstelle und sucht den Speicherort der Ressource über den Dateipfad der Ansicht. Im folgenden Codebeispiel wird die Verwendung der Standardimplementierung von `IViewLocalizer` veranschaulicht:
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/Localization/Views/Home/About.cshtml)]
 
 Die Standardimplementierung von `IViewLocalizer` sucht die Ressourcendatei über den Dateinamen der Ansicht. Es gibt keine Option zur Nutzung einer globalen freigegebenen Ressourcendatei. `ViewLocalizer` implementiert den Lokalisierer mithilfe von `IHtmlLocalizer`, damit Razor die lokalisierte Zeichenfolge nicht HTML-codiert. Sie können Ressourcenzeichenfolgen parametrisieren, und `IViewLocalizer` codiert die Parameter mit HTML, aber nicht die Ressourcenzeichenfolgen. Beachten Sie das folgende Razor-Markup:
 
@@ -85,16 +85,16 @@ Die gerenderte Ansicht würde das HTML-Markup der Ressourcendatei enthalten.
 
 Fügen Sie `IHtmlLocalizer<T>` ein, um eine freigegebene Ressourcendatei in einer Ansicht zu verwenden:
 
-[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>Lokalisierung von DataAnnotations
 
 Fehlermeldungen über DataAnnotations werden mit `IStringLocalizer<T>` lokalisiert. Durch Verwendung der Option `ResourcesPath = "Resources"` können die Fehlermeldungen in `RegisterViewModel` unter einem der folgenden Pfade gespeichert werden:
 
-* Resources/ViewModels.Account.RegisterViewModel.fr.resx
-* Resources/ViewModels/Account/RegisterViewModel.fr.resx
+* *Resources/ViewModels.Account.RegisterViewModel.fr.resx*
+* *Resources/ViewModels/Account/RegisterViewModel.fr.resx*
 
-[!code-csharp[Main](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
+[!code-csharp[](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
 In ASP.NET Core MVC 1.1.0 und höher werden Attribute lokalisiert, die keine Validierungsattribute darstellen. ASP.NET Core MVC 1.0 sucht **nicht** nach lokalisierten Zeichenfolgen für Attribute, die keine Validierungsattribute darstellen.
 
@@ -114,13 +114,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Im obigen Codebeispiel bezeichnet `SharedResource` die Klasse, die der RESX-Datei entspricht, in der Ihre Validierungsmeldungen gespeichert sind. DataAnnotations verwendet bei diesem Ansatz nur `SharedResource` anstelle der Ressource für jede Klasse. 
+Im obigen Codebeispiel bezeichnet `SharedResource` die Klasse, die der RESX-Datei entspricht, in der Ihre Validierungsmeldungen gespeichert sind. DataAnnotations verwendet bei diesem Ansatz nur `SharedResource` anstelle der Ressource für jede Klasse.
 
-## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Stellen Sie die lokalisierten Ressourcen für die unterstützten Sprachen und Kulturen bereit.  
+## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Stellen Sie die lokalisierten Ressourcen für die unterstützten Sprachen und Kulturen bereit.
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures und SupportedUICultures
 
-ASP.NET Core ermöglicht Ihnen, zwei Werte für die Kultur anzugeben: `SupportedCultures` und `SupportedUICultures`. Das Objekt [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) für `SupportedCultures` bestimmt die Ergebnisse von kulturabhängigen Funktionen, wie z.B. das Format von Datumswerten, Uhrzeiten, Zahlen und Währungen. `SupportedCultures` bestimmt auch die Sortierreihenfolge von Texten, Groß-/Kleinschreibungskonventionen und Zeichenfolgenvergleichen. Weitere Informationen darüber, wie der Server die Kultur abruft, finden Sie unter [CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture). `SupportedUICultures` bestimmt, welche übersetzten Zeichenfolgen (aus den *RESX*-Dateien) von [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) abgerufen werden. Die `ResourceManager`-Klasse sucht nach kulturspezifischen Zeichenfolgen, die durch `CurrentUICulture` bestimmt werden. Jeder Thread in .NET enthält die Objekte `CurrentCulture` und `CurrentUICulture`. ASP.NET Core überprüft diese Werte beim Rendern von kulturspezifischen Funktionen. Wenn die Kultur des aktuellen Threads zum Beispiel auf „en-US“ (Englisch, USA) festgelegt ist, gibt `DateTime.Now.ToLongDateString()` „Thursday, February 18, 2016“ aus, wenn `CurrentCulture` jedoch auf „es-ES“ (Spanisch, Spanien) festgelegt ist, wird „jueves, 18 de febrero de 2016“ ausgegeben.
+ASP.NET Core ermöglicht Ihnen, zwei Werte für die Kultur anzugeben: `SupportedCultures` und `SupportedUICultures`. Das Objekt [CultureInfo](/dotnet/api/system.globalization.cultureinfo) für `SupportedCultures` bestimmt die Ergebnisse von kulturabhängigen Funktionen, wie z.B. das Format von Datumswerten, Uhrzeiten, Zahlen und Währungen. `SupportedCultures` bestimmt auch die Sortierreihenfolge von Texten, Groß-/Kleinschreibungskonventionen und Zeichenfolgenvergleichen. Weitere Informationen darüber, wie der Server die Kultur abruft, finden Sie unter [CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture). `SupportedUICultures` bestimmt, welche übersetzten Zeichenfolgen (aus den *RESX*-Dateien) von [ResourceManager](/dotnet/api/system.resources.resourcemanager) abgerufen werden. Die `ResourceManager`-Klasse sucht nach kulturspezifischen Zeichenfolgen, die durch `CurrentUICulture` bestimmt werden. Jeder Thread in .NET enthält die Objekte `CurrentCulture` und `CurrentUICulture`. ASP.NET Core überprüft diese Werte beim Rendern von kulturspezifischen Funktionen. Wenn die Kultur des aktuellen Threads zum Beispiel auf „en-US“ (Englisch, USA) festgelegt ist, gibt `DateTime.Now.ToLongDateString()` „Thursday, February 18, 2016“ aus, wenn `CurrentCulture` jedoch auf „es-ES“ (Spanisch, Spanien) festgelegt ist, wird „jueves, 18 de febrero de 2016“ ausgegeben.
 
 ## <a name="resource-files"></a>Ressourcendateien
 
@@ -172,23 +172,31 @@ Wenn Sie nicht die Option `ResourcesPath` verwenden, befindet sich die *RESX*-Da
 
 ## <a name="culture-fallback-behavior"></a>Kulturfallbackverhalten
 
+Bei der Suche nach einer Ressource initiiert die Lokalisierung „Kulturfallbackverhalten“. Wenn die angeforderte Kultur nicht gefunden wird, setzt sie diese Kultur auf die übergeordnete Kultur zurück. Die Eigenschaft [CultureInfo.Parent](/dotnet/api/system.globalization.cultureinfo.parent) stellt übrigens die übergeordnete Kultur dar. Das bedeutet in der Regel (aber nicht immer), dass der nationale Bezeichner aus der ISO entfernt wird. Beispielsweise ist der in Mexiko gesprochene spanische Dialekt „es-MX“. „es“&mdash;Spanisch ist das übergeordnete Element und bezieht sich nicht auf ein einzelnes Land.
+
+Nehmen Sie an, dass Ihre Website eine Anforderung für eine Willkommensressource mit der Kultur „fr-CA“ erhält. Das Lokalisierungssystem sucht der Reihenfolge nach nach der folgenden Ressource und wählt die erste Übereinstimmung aus:
+
+* *Welcome.fr-CA.resx*
+* *Welcome.fr.resx*
+* *Welcome.resx* (wenn `NeutralResourcesLanguage` „fr-CA“ ist)
+
 Wenn Sie beispielsweise den Kulturkennzeichner „.fr“ entfernen und die Kultur auf „Französisch“ festgelegt ist, wird die Standardressourcendatei gelesen, und Zeichenfolgen werden lokalisiert. Der Ressourcen-Manager kennzeichnet eine Standard- oder Fallbackressource, wenn keine Entsprechung für die angeforderte Kultur gefunden wird. Wenn Sie nur den Schlüssel zurückgeben möchten, während eine Ressource für die angefragte Kultur fehlt, darf keine Standardressourcendatei festgelegt sein.
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Erstellen von Ressourcendateien mit Visual Studio
 
-Wenn Sie eine Ressourcendatei in Visual Studio erstellen, ohne eine Kultur im Dateinamen (z.B. *Welcome.resx*) festzulegen, erstellt Visual Studio eine C#-Klasse mit einer Eigenschaft für jede Zeichenfolge. Dies entspricht nicht der üblichen Verwendungsweise von ASP.NET Core, denn in der Regel gibt es keine Standard-*RESX*-Ressourcendatei (eine *RESX*-Datei ohne den Kulturnamen). Es wird empfohlen, dass Sie eine *RESX*-Datei mit einem Kulturnamen erstellen (z.B. *Welcome.fr.resx*). Wenn Sie eine *RESX*-Datei mit einem Kulturnamen erstellen, erstellt Visual Studio keine Klassendatei. Es wird davon ausgegangen, dass viele Entwickler **keine** Ressourcendatei in einer Standardsprache erstellen.
+Wenn Sie eine Ressourcendatei in Visual Studio erstellen, ohne eine Kultur im Dateinamen (z.B. *Welcome.resx*) festzulegen, erstellt Visual Studio eine C#-Klasse mit einer Eigenschaft für jede Zeichenfolge. Das ist in der Regel nicht das, was Sie mit ASP.NET Core erreichen wollen. In der Regel gibt es keine Standard-*RESX*-Ressourcendatei (eine *RESX*-Datei ohne den Kulturnamen). Es wird empfohlen, dass Sie eine *RESX*-Datei mit einem Kulturnamen erstellen (z.B. *Welcome.fr.resx*). Wenn Sie eine *RESX*-Datei mit einem Kulturnamen erstellen, erstellt Visual Studio keine Klassendatei. Es wird davon ausgegangen, dass viele Entwickler keine Ressourcendatei in einer Standardsprache erstellen.
 
 ### <a name="add-other-cultures"></a>Hinzufügen von anderen Kulturen
 
-Jede Kombination von Sprache und Kultur (mit Ausnahme der Standardsprache) erfordert eine eindeutige Ressourcendatei. Sie erstellen Ressourcendateien für verschiedene Kulturen und Gebietsschemas, indem Sie neue Ressourcendateien erstellen, in denen ISO-Sprachcodes im Dateinamen enthalten sind (z.B. **en-us** **fr-ca**, und **en-gb**). Diese ISO-Codes werden zwischen dem Dateinamen und der Erweiterung *.resx* platziert, z.B. *Welcome.es-MX.resx* (Spanisch/Mexiko). Entfernen Sie den Ländercode, um eine kulturunabhängige Sprache anzugeben (`MX` im vorherigen Beispiel). Der kulturunabhängige Ressourcendateiname für Spanisch ist *Welcome.es.resx*.
+Jede Kombination von Sprache und Kultur (mit Ausnahme der Standardsprache) erfordert eine eindeutige Ressourcendatei. Sie erstellen Ressourcendateien für verschiedene Kulturen und Gebietsschemas, indem Sie neue Ressourcendateien erstellen, in denen ISO-Sprachcodes im Dateinamen enthalten sind (z.B. **en-us** **fr-ca**, und **en-gb**). Diese ISO-Codes werden zwischen dem Dateinamen und der Erweiterung *.resx* platziert, z.B. *Welcome.es-MX.resx* (Spanisch/Mexiko).
 
-## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementieren Sie eine Strategie zum Auswählen der Sprache bzw. Kultur für jede Anforderung.  
+## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementieren Sie eine Strategie zum Auswählen der Sprache bzw. Kultur für jede Anforderung.
 
 ### <a name="configure-localization"></a>Konfigurieren der Lokalisierung
 
 Die Lokalisierung wird über die Methode `ConfigureServices` konfiguriert:
 
-[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
 
 * `AddLocalization` fügt die Lokalisierungsdienste dem Dienstcontainer zu. Im obigen Codebeispiel wird der Ressourcenpfad auf „Resources“ festgelegt.
 
@@ -200,7 +208,7 @@ Die Lokalisierung wird über die Methode `ConfigureServices` konfiguriert:
 
 Die aktuell angefragte Kultur wird in der [Middleware](xref:fundamentals/middleware/index) für die Lokalisierung festgelegt. Die Middleware für die Lokalisierung wird in der `Configure`-Methode aktiviert. Die Lokalisierungsmiddleware muss vor Middleware konfiguriert werden, die möglicherweise die Anforderungskultur prüft (z.B. `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
 
 `UseRequestLocalization` initialisiert ein `RequestLocalizationOptions`-Objekt. Bei jeder Anforderung wird die Liste von `RequestCultureProvider` in `RequestLocalizationOptions` aufgelistet und der erste Anbieter, der erfolgreich die Anforderungskultur bestimmen kann, wird verwendet. Die Standardanbieter stammen aus der Klasse `RequestLocalizationOptions`:
 
@@ -285,15 +293,16 @@ Verwenden Sie `RequestLocalizationOptions`, um Lokalisierungsanbieter hinzuzufü
 
 Das Beispielprojekt **Localization.StarterWeb** auf [GitHub](https://github.com/aspnet/entropy) enthält eine Benutzeroberfläche zum Festlegen von `Culture`. Die Datei *Views/Shared/_SelectLanguagePartial.cshtml* ermöglicht Ihnen das Auswählen der Kultur aus der Liste von unterstützten Kulturen:
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+
+[!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 Die Datei *Views/Shared/_SelectLanguagePartial.cshtml* wird dem Abschnitt `footer` der Layoutdatei hinzugefügt, damit sie für alle Ansichten verfügbar ist:
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 Die Methode `SetLanguage` legt das Kulturcookie fest.
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
+[!code-csharp[](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
 Sie können *_SelectLanguagePartial.cshtml* dem Beispielcode für dieses Projekt nicht hinzufügen. Das Projekt **Localization.StarterWeb** auf [GitHub](https://github.com/aspnet/entropy) enthält Code, der `RequestLocalizationOptions` durch den Container von [Dependency Injection](dependency-injection.md) an eine Razor-Teilansicht übermittelt.
 
@@ -301,7 +310,7 @@ Sie können *_SelectLanguagePartial.cshtml* dem Beispielcode für dieses Projekt
 
 Der Lokalisierungsprozess für Ihre App erfordert ein grundlegendes Verständnis von relevanten Zeichensätzen, die häufig in der modernen Softwareentwicklung verwendet werden, und von den Problemen, die mit ihnen zusammenhängen. Obwohl alle Computer Text als Zahlen (Codes) speichern, speichern verschiedene Systeme denselben Text mit anderen Zahlen. Der Lokalisierungsprozess bezieht sich auf das Übersetzen der Benutzeroberfläche (UI) der App für eine spezifische Kultur bzw. ein bestimmtes Gebietsschema.
 
-[Lokalisierbarkeit](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review) ist ein Zwischenschritt zum Überprüfen, ob eine globalisierte App bereit für die Lokalisierung ist.
+[Lokalisierbarkeit](/dotnet/standard/globalization-localization/localizability-review) ist ein Zwischenschritt zum Überprüfen, ob eine globalisierte App bereit für die Lokalisierung ist.
 
 Das Format [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) für den Kulturnamen ist `<languagecode2>-<country/regioncode2>`, wobei `<languagecode2>` der Sprachcode und `<country/regioncode2>` der Unterkulturcode. Zum Beispiel steht `es-CL` für Spanisch (Chile), `en-US` für Englisch (USA) und `en-AU` für Englisch (Australien). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) ist eine Kombination der ISO 639, bei der zwei Kleinbuchstaben den Kulturcode beschreiben, der einer Sprache zugeordnet ist, und der ISO 3166, bei der zwei Großbuchstaben den Unterkulturcode beschreiben, der einem Land oder einer Region zugeordnet ist. Weitere Informationen finden Sie unter [Language Culture Name (Sprachen- und Kulturbezeichnungen)](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
 
@@ -321,5 +330,6 @@ Begriffe:
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Localization.StarterWeb-Projekt](https://github.com/aspnet/entropy) wird im Artikel verwendet.
-* [Ressourcendateien in Visual Studio](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
-* [Ressourcen in RESX-Dateien](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)
+* [Ressourcendateien in Visual Studio](/cpp/windows/resource-files-visual-studio)
+* [Ressourcen in RESX-Dateien](/dotnet/framework/resources/working-with-resx-files-programmatically)
+* [Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)

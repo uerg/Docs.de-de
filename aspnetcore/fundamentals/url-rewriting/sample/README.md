@@ -35,9 +35,11 @@ PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurren
 ## <a name="secure-redirection-extensions"></a>Sichere Umleitungserweiterungen
 Dieses Beispiel enthält eine `WebHostBuilder`-Konfiguration für die App zur Verwendung von URLs (**https://localhost:5001**, **https://localhost**) und ein Testzertifikat (**testCert.pfx**) als Unterstützung beim Erkunden dieser Umleitungsmethoden. Fügen Sie diese zum `RewriteOptions()`-Konstruktor in **Startup.cs** hinzu, um deren Verhalten zu untersuchen.
 
-Methode | Statuscode | Port
---- | :---: | :---:
-`.AddRedirectToHttpsPermanent()` | 301 | NULL (465)
-`.AddRedirectToHttps()` | 302 | NULL (465)
-`.AddRedirectToHttps(301)` | 301 | NULL (465)
-`.AddRedirectToHttps(301, 5001)` | 301 | 5001
+
+|              Methode              | Statuscode |    Port    |
+|----------------------------------|:-----------:|:----------:|
+| `.AddRedirectToHttpsPermanent()` |     301     | NULL (465) |
+|     `.AddRedirectToHttps()`      |     302     | NULL (465) |
+|    `.AddRedirectToHttps(301)`    |     301     | NULL (465) |
+| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
+

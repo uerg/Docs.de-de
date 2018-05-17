@@ -1,7 +1,7 @@
 ---
 title: Routing in ASP.NET Core
 author: ardalis
-description: "In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird."
+description: In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -22,13 +22,13 @@ Von [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/
 Mithilfe der Routingfunktionalität wird einem Routenhandler eine eingehende Anforderung zugeordnet. Routen werden in der ASP.NET-App definiert und beim Start der App konfiguriert. Eine Route kann optional Werte aus der URL extrahieren, die in der Anforderung enthalten ist. Diese Werte können anschließend für die Verarbeitung der Anforderung verwendet werden. Mit Routeninformationen aus der ASP.NET-App lassen sich über die Routingfunktionalität URLs generieren, die Routenhandlern zugeordnet werden. So kann durch Routing entweder ein Routenhandler auf der Grundlage einer URL ermittelt oder mithilfe von Routenhandlerinformationen eine URL bestimmt werden, die einem bestimmten Routenhandler zugeordnet ist.
 
 >[!IMPORTANT]
-> In diesem Artikel wird das Low-Level-Routing in ASP.NET Core beschrieben. Einen Überblick über MVC-Routing in ASP.NET Core finden Sie unter [Routing to Controller Actions (Routing zu Controlleraktionen)](../mvc/controllers/routing.md)
+> In diesem Artikel wird das Low-Level-Routing in ASP.NET Core beschrieben. Einen Überblick über MVC-Routing in ASP.NET Core finden Sie unter [Route to controller actions (Routen zu Controlleraktionen)](../mvc/controllers/routing.md).
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Routinggrundlagen
 
-Beim Routing werden *Routen* (Implementierungen von [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) für Folgendes verwendet:
+Beim Routing werden *Routen* (Implementierungen von [IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter)) für Folgendes verwendet:
 
 * Zuordnen von eingehenden Anforderungen zu *Routenhandlern*
 
@@ -88,7 +88,7 @@ Für die Routingfunktionalität wird die `Route`-Klasse als Standardimplementier
 
 Die meisten Anwendungen erstellen Routen, indem sie `MapRoute` oder eine ähnliche Erweiterungsmethode aufrufen, die in `IRouteBuilder` definiert ist. All diese Methoden erstellen eine Instanz von `Route` und fügen dieser der Routenauflistung hinzu.
 
-Hinweis: `MapRoute` akzeptiert keinen Routenhandlerparameter und fügt nur Routen hinzu, die von `DefaultHandler` verarbeitet werden. Da der Standardhandler ein `IRouter`-Objekt ist, verarbeitet dieser die Anforderung eventuell nicht. Beispielsweise ist ASP.NET MVC üblicherweise als Standardhandler konfiguriert, der nur Anforderungen verarbeitet, die mit einem verfügbaren Controller und einer Aktion übereinstimmen. Weitere Informationen zum Routing zu MVC finden Sie unter [Routing to Controller Actions (Routing zu Controlleraktionen)](../mvc/controllers/routing.md).
+Hinweis: `MapRoute` akzeptiert keinen Routenhandlerparameter und fügt nur Routen hinzu, die von `DefaultHandler` verarbeitet werden. Da der Standardhandler ein `IRouter`-Objekt ist, verarbeitet dieser die Anforderung eventuell nicht. Beispielsweise ist ASP.NET MVC üblicherweise als Standardhandler konfiguriert, der nur Anforderungen verarbeitet, die mit einem verfügbaren Controller und einer Aktion übereinstimmen. Weitere Informationen zum Routing zu MVC finden Sie unter [Route to controller actions (Routen zu Controlleraktionen)](../mvc/controllers/routing.md).
 
 Im folgenden Beispiel wird `MapRoute` innerhalb einer typischen ASP.NET MVC-Routendefinition aufgerufen:
 
@@ -187,7 +187,7 @@ Fügen Sie zuerst das NuGet-Paket „Microsoft.AspNetCore.Routing“ hinzu.
 
 Fügen Sie anschließend dem Dienstcontainer in *Startup.cs* die Routingfunktionalität hinzu:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Routen müssen in der `Configure`-Methode der `Startup`-Klasse konfiguriert werden. Für das nächste Beispiel werden folgende APIs verwendet:
 
@@ -321,7 +321,7 @@ In der folgenden Tabelle werden mehrere Routeneinschränkungen und deren Verhalt
 
 ## <a name="regular-expressions"></a>Reguläre Ausdrücke 
 
-Im ASP.NET Core-Framework wird dem Konstruktor für reguläre Ausdrücke `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` hinzugefügt. Informationen zu diesen Membern finden Sie unter [RegexOptions Enumeration (RegexOptions-Enumeration)](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions).
+Im ASP.NET Core-Framework wird dem Konstruktor für reguläre Ausdrücke `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` hinzugefügt. Informationen zu diesen Membern finden Sie unter [RegexOptions Enumeration (RegexOptions-Enumeration)](/dotnet/api/system.text.regularexpressions.regexoptions).
 
 In regulären Ausdrücken werden Trennzeichen und Token verwendet, die auch beim Routing und in der Programmiersprache C# in ähnlicher Weise verwendet werden. Token, die reguläre Ausdrücke enthalten, müssen mit einem Escapezeichen versehen werden. Wenn Sie beispielsweise den regulären Ausdruck `^\d{3}-\d{2}-\d{4}$` mit der Routingfunktionalität verwenden möchten, muss das Zeichen `\` in der C#-Quelldatei in der Form `\\` eingegeben werden, damit die Funktion des Escapezeichens `\` aufgehoben wird (falls keine [ausführlichen Zeichenfolgenliterale](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string) verwendet werden). Die Zeichen `{`, `}`, „[“ und „]“ müssen durch Verdopplung mit einem Escapezeichen versehen werden. Dadurch werden die Trennzeichen der Routingparameter nicht berücksichtigt.  In der folgenden Tabelle werden reguläre Ausdrücke und Ausdrücke mit den entsprechenden Escapezeichen aufgeführt:
 
@@ -351,7 +351,7 @@ Einen regulären Ausdruck können Sie verwenden, um einen Parameter auf zulässi
 
 Im folgenden Beispiel wird gezeigt, wie Sie einen Link zu einer Route unter Berücksichtigung eines vorhandenen Wörterbuchs mit Routenwerten und einem `RouteCollection`-Objekt erstellen.
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 Das `VirtualPath`-Objekt, das im obigen Beispiel im unteren Bereich generiert wird, besitzt den Wert `/package/create/123`.
 

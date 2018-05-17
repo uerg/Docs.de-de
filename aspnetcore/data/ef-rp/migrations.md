@@ -1,7 +1,7 @@
 ---
-title: 'Razor-Seiten mit EF Core: Migrationen (4 von 8)'
+title: 'Razor-Seiten mit EF Core in ASP.NET Core: Migrationen (4 von 8)'
 author: rick-anderson
-description: "In diesem Tutorial verwenden Sie zunächst das EF Core-Migrationsfeature für die Verwaltung von Datenmodelländerungen in einer ASP.NET Core MVC-App."
+description: In diesem Tutorial verwenden Sie zunächst das EF Core-Migrationsfeature für die Verwaltung von Datenmodelländerungen in einer ASP.NET Core MVC-App.
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrationen: Tutorial zu EF-Core mit Razor-Seiten (4 von 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Migrationen (4 von 8)
 
 Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.com/thereformedprog) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In diesem Tutorial wird das EF Core-Migrationsfeature zur Verwaltung von Datenmodelländerungen verwendet.
 
@@ -52,7 +52,7 @@ Die Versionsnummern im vorgehenden Beispiel waren zum Zeitpunkt der Verfassung d
 
 Ändern Sie in der Datei *appsettings.json* den Namen der Datenbank in der Verbindungszeichenfolge in „ContosoUniversity2“.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Durch das Ändern des Datenbanknamens in der Verbindungszeichenfolge wird bei der ersten Migration eine neue Datenbank erstellt. Es wird eine neue Datenbank erstellt, da keine Datenbank mit diesem Namen vorhanden ist. Die Verbindungszeichenfolge muss für die ersten Schritte mit Migrationen nicht geändert werden.
 
@@ -100,13 +100,13 @@ Wenn die Fehlermeldung „Fehler beim Buildvorgang.“ angezeigt wird, führen S
 
 Der EF Core-Befehl `migrations add` hat Code generiert, aus dem die Datenbank erstellt werden soll. Dieser Migrationscode ist in der Datei *Migrations\<timestamp>_InitialCreate.cs* enthalten. Die Methode `Up` der Klasse `InitialCreate` erstellt die Datenbanktabellen, die den Datenmodellentitätenmengen entsprechen. Die Methode `Down` löscht diese, wie im folgenden Beispiel dargestellt:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
 Die Migrationsfunktion ruft die Methode `Up` auf, um die Datenmodelländerungen für eine Migration zu implementieren. Wenn Sie einen Befehl eingeben, um ein Rollback für das Update auszuführen, ruft die Migrationsfunktion die Methode `Down` auf.
 
 Der vorangehende Code ist für die ursprüngliche Migration bestimmt. Dieser Code wurde bei der Ausführung des Befehls `migrations add InitialCreate` erstellt. Der Parameter für den Migrationsnamen (in dem Beispiel „InitialCreate“) wird für den Dateinamen verwendet. Der Migrationsname kann ein beliebiger gültiger Dateiname sein. Es wird empfohlen, ein Wort oder einen Ausdruck auszuwählen, durch das bzw. den der Hintergrund der Migration widergespiegelt wird. Eine Migration, bei der eine Tabelle mit Fachbereichen hinzugefügt wurde, könnte beispielsweise als „AddDepartmentTable“ bezeichnet werden.
 
-Wenn die ursprüngliche Migration erstellt wird und die Datenbank beendet wird:
+Wenn die ursprüngliche Migration erstellt wird und die Datenbank vorhanden ist:
 
 * Wird der Code für die Datenbankerstellung generiert.
 * Muss der Code für die Datenbankerstellung nicht ausgeführt werden, da die Datenbank bereits mit dem Datenmodell übereinstimmt. Wenn der Code für die Datenbankerstellung ausgeführt wird, werden keine Änderungen vorgenommen, da die Datenbank bereits mit dem Datenmodell übereinstimmt.
@@ -115,15 +115,13 @@ Wenn die App in einer neuen Umgebung bereitgestellt wird, muss der Code für die
 
 Zuvor wurde die Verbindungszeichenfolge geändert, damit ein neuer Name für die Datenbank verwendet werden kann. Die angegebene Datenbank ist nicht vorhanden, daher wird die Datenbank bei der Migration erstellt.
 
-### <a name="examine-the-data-model-snapshot"></a>Momentaufnahme: Überprüfen des Datenmodells
+### <a name="the-data-model-snapshot"></a>Die Momentaufnahme des Datenmodells
 
-Bei der Migration wird in *Migrations/SchoolContextModelSnapshot.cs* eine *Momentaufnahme* des aktuellen Datenbankschemas erstellt:
+Die Migrationsfunktion erstellt unter *Migrations/SchoolContextModelSnapshot.cs* eine *Momentaufnahme* des aktuellen Datenbankschemas. Wenn Sie eine Migration hinzufügen, bestimmt EF die vorgenommenen Änderungen, indem das Datenmodell mit der Momentaufnahmedatei verglichen wird.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Verwenden Sie den Befehl [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove), wenn Sie eine Migration löschen. `dotnet ef migrations remove` löscht die Migration und stellt sicher, dass die Momentaufnahme ordnungsgemäß zurückgesetzt wird.
 
-Da das aktuelle Datenbankschema in Code dargestellt wird, muss EF Core zur Erstellung von Migrationen nicht mit der Datenbank interagieren. Wenn Sie eine Migration hinzufügen, bestimmt EF Core die vorgenommenen Änderungen, indem es das Datenmodell mit der Momentaufnahmedatei vergleicht. EF Core interagiert nur dann mit der Datenbank, wenn diese aktualisiert werden muss.
-
-Die Momentaufnahmedatei muss mit den Migrationen synchron sein, über die diese erstellt wurde. Eine Migration kann nicht durch Löschen der Datei *\<timestamp>_\<migrationname>.cs* entfernt werden. Wenn diese Datei gelöscht wird, sind die übrigen Migrationen mit der Momentaufnahmedatei der Datenbank nicht synchron. Verwenden Sie den Befehl [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove), um die letzte hinzugefügte Migration zu löschen.
+Weitere Informationen dazu, wie die Momentaufnahmedatei verwendet wird, finden Sie unter [EF Core Migrations in Team Environments (EF Core-Migrationen in Teamumgebungen)](/ef/core/managing-schemas/migrations/teams).
 
 ## <a name="remove-ensurecreated"></a>Entfernen von EnsureCreated
 
@@ -181,15 +179,15 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Wenn diese Detailebene in Protokollnachrichten nicht angezeigt werden soll, können Sie die Protokollebene in der Datei *appsettings.Development.json* ändern. Weitere Informationen finden Sie unter [Einführung in die Protokollierung](xref:fundamentals/logging/index).
+Wenn diese Detailebene in Protokollnachrichten nicht angezeigt werden soll, ändern Sie die Protokollebene in der Datei *appsettings.Development.json*. Weitere Informationen finden Sie unter [Introduction to Logging (Einführung in die Protokollierung)](xref:fundamentals/logging/index).
 
 Verwenden Sie den **SQL Server-Objekt-Explorer** zur Untersuchung der Datenbank. Beachten Sie die zusätzliche Tabelle`__EFMigrationsHistory`. In der Tabelle `__EFMigrationsHistory` wird nachverfolgt, welche Migrationen auf die Datenbank angewendet wurden. Wenn Sie die Daten in der Tabelle `__EFMigrationsHistory` anzeigen, wird eine Zeile für die erste Migration angezeigt. Im letzten Protokoll im vorherigen Beispiel der CLI-Ausgabe wird die INSERT-Anweisung angezeigt, mit der diese Zeile erstellt wird.
 
 Führen Sie die App aus, und überprüfen Sie, ob alles funktioniert.
 
-## <a name="appling-migrations-in-production"></a>Anwenden von Migrationen in der Produktionsumgebung
+## <a name="applying-migrations-in-production"></a>Anwenden von Migrationen in der Produktionsumgebung
 
-Es wird empfohlen, dass Produktions-Apps [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart **nicht** aufrufen. `Migrate` sollte in der Serverfarm nicht über eine App aufgerufen werden. Beispielsweise wenn die App über eine Cloud mit horizontaler Skalierung bereitgestellt wurde (mehrere Instanzen der App werden ausgeführt).
+Es wird empfohlen, dass Produktions-Apps [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) beim Anwendungsstart **nicht** aufrufen. `Migrate` sollte in der Serverfarm nicht über eine App aufgerufen werden. Beispielsweise wenn die App über eine Cloud mit horizontaler Skalierung bereitgestellt wurde (mehrere Instanzen der App werden ausgeführt).
 
 Die Datenbankmigration sollte im Rahmen der Bereitstellung und auf kontrollierte Weise erfolgen. Zu den Ansätzen für die Migration von Produktionsdatenbanken zählen die folgenden:
 
@@ -224,7 +222,7 @@ https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/S
 Die App generiert folgende Ausnahme:
 
 ```text
-`SqlException: Cannot open database "ContosoUniversity" requested by the login.
+SqlException: Cannot open database "ContosoUniversity" requested by the login.
 The login failed.
 Login failed for user 'user name'.
 ```
@@ -236,6 +234,6 @@ Wenn der Befehl `update` den Fehler „Fehler beim Buildvorgang“ zurückgibt:
 * Führen Sie den Befehl erneut aus.
 * Hinterlassen Sie unten auf der Seite eine Nachricht.
 
->[!div class="step-by-step"]
-[Zurück](xref:data/ef-rp/sort-filter-page)
-[Weiter](xref:data/ef-rp/complex-data-model)
+> [!div class="step-by-step"]
+> [Zurück](xref:data/ef-rp/sort-filter-page)
+> [Weiter](xref:data/ef-rp/complex-data-model)

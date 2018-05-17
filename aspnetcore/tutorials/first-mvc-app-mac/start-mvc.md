@@ -1,7 +1,7 @@
 ---
-title: "Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac"
+title: Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac
 author: rick-anderson
-description: Erste Schritte mit ASP.NET Core MVC und Visual Studio
+description: Hier finden Sie Informationen zum Einstieg in ASP.NET Core MVC und Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 05a2323851c58c95667066a74c11f1d015405e6f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Dieses Tutorial vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Core MVC-Web-App mithilfe von [Visual Studio für Mac](https://www.visualstudio.com/vs/visual-studio-mac/). 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Es gibt drei Versionen dieses Tutorials:
 
@@ -31,12 +31,7 @@ Es gibt drei Versionen dieses Tutorials:
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Dieses Tutorial erfordert das [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher.
-
-Installieren Sie Folgendes:
-
-- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) oder höher
-- [Visual Studio für Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-a-web-app"></a>Erstellen einer Web-App
 
@@ -67,5 +62,5 @@ Die Standardvorlage bietet Ihnen Links für **Startseite, Info** und **Kontakt**
 
 Im nächsten Teil dieses Tutorials erfahren Sie mehr über MVC und beginnen mit dem Schreiben von Code.
 
->[!div class="step-by-step"]
-[Nächste](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Nächste](adding-controller.md)  

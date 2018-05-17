@@ -1,7 +1,7 @@
 ---
 title: Verarbeiten von Anforderungen mit Controllern in ASP.NET Core MVC
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Verarbeiten von Anforderungen mit Controllern in ASP.NET Core MVC
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Verarbeiten von Anforderungen mit Controllern in ASP.NET Core MVC
 
 Von [Steve Smith](https://ardalis.com/) und [Scott Addie](https://github.com/scottaddie)
 
@@ -40,7 +40,7 @@ Controller sollten dem [Prinzip der expliziten Abhängigkeiten](http://deviq.com
 
 Im Muster **M**odel-**V**iew-**C**ontroller ist ein Controller für die erste Verarbeitung der Anforderung und die Instanziierung des Modells zuständig. Für gewöhnlich sollten Unternehmensentscheidungen innerhalb des Modell getroffen werden.
 
-Der Controller nimmt das Ergebnis der Verarbeitung des Modells (falls es ein Ergebnis gibt) an und gibt entweder die geeignete Ansicht mit den verknüpften Ansichtsdaten oder das Ergebnis des API-Aufrufs zurück. In folgenden Artikeln erfahren Sie mehr: [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [Erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
+Der Controller nimmt das Ergebnis der Verarbeitung des Modells (falls es ein Ergebnis gibt) an und gibt entweder die geeignete Ansicht mit den verknüpften Ansichtsdaten oder das Ergebnis des API-Aufrufs zurück. In den folgenden Artikeln erfahren Sie mehr: [Übersicht über ASP.NET Core MVC](xref:mvc/overview) und [Erste Schritte mit ASP.NET Core MVC und Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
 Der Controller ist eine Abstraktion *auf Ebene der Benutzeroberfläche*. Er ist dafür zuständig, die Gültigkeit von Anfragedaten zu gewährleisten und die zurückzugebende Ansicht auszuwählen. In gut gestalteten Apps schließt er nicht direkt Datenzugriff oder Geschäftslogik ein. Stattdessen delegiert der Controller an Dienste, die an diesen Stellen zuständig sind.
 
@@ -54,7 +54,7 @@ Aktionen können ein beliebiges Element zurückgeben. Häufig geben Sie jedoch e
 
 ### <a name="controller-helper-methods"></a>Hilfsmethoden von Controllern
 
-Controller erben üblicherweise von [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), auch wenn dies nicht erforderlich ist. Das Ableiten von `Controller` ermöglicht den Zugriff auf drei verschiedene Arten von Hilfsmethoden:
+Controller erben üblicherweise von [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), auch wenn dies nicht erforderlich ist. Das Ableiten von `Controller` ermöglicht den Zugriff auf drei verschiedene Arten von Hilfsmethoden:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Methoden, die einen leeren Antworttext zur Folge haben
 
@@ -76,7 +76,7 @@ Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: Redirect (Umleit
 
 Die meisten Hilfsmethoden in dieser Kategorie beinhalten eine `ContentType`-Eigenschaft, mit der Sie den Antwortheader `Content-Type` festlegen können, um den Antworttext zu beschreiben.
 
-Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: [View](xref:mvc/views/overview) (Ansicht) und [Formatted Response](xref:mvc/models/formatting) (Formatierte Antwort).
+Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: [View](xref:mvc/views/overview) (Ansicht) und [Formatted Response](xref:web-api/advanced/formatting) (Formatierte Antwort).
 
 * **Ansicht**
 
@@ -90,7 +90,7 @@ Innerhalb dieser Kategorie gibt es wiederum zwei Ergebnistypen: [View](xref:mvc/
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Methoden, die einen nicht leeren Antworttext in einem mit dem Client ausgehandelten Inhaltsformat zur Folge haben
 
-Diese Kategorie wird auch als **Inhaltsaushandlung** bezeichnet. Die [Inhaltsaushandlung](xref:mvc/models/formatting#content-negotiation) wird dann angewendet, wenn eine Aktion einen [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult)-Typ oder ein anderes Objekt, das keine [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult)-Implementierung ist, zurückgibt. Eine Aktion, die eine Implementierung zurückgibt, die nicht `IActionResult` ist (z.B. `object`), gibt auch eine formatierte Antwort zurück.
+Diese Kategorie wird auch als **Inhaltsaushandlung** bezeichnet. Die [Inhaltsaushandlung](xref:web-api/advanced/formatting#content-negotiation) wird dann angewendet, wenn eine Aktion einen [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult)-Typ oder ein anderes Objekt, das keine [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult)-Implementierung ist, zurückgibt. Eine Aktion, die eine Implementierung zurückgibt, die nicht `IActionResult` ist (z.B. `object`), gibt auch eine formatierte Antwort zurück.
 
 Weitere Hilfsmethoden dieses Typs sind `BadRequest`, `CreatedAtRoute` und `Ok`. `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` und `return Ok(value);` sind Beispiele für diese Methoden. Beachten Sie, dass `BadRequest` und `Ok` Inhaltsaushandlungen nur dann durchführen, wenn ein Wert an sie übergeben wird. Wenn kein Wert übergeben wird, fungieren Sie als Ergebnistypen vom Typ HTTP-Statuscode. Andererseits führt die `CreatedAtRoute`-Methode immer Inhaltsaushandlungen durch, da ihre Überladungen alle das Übergeben eines Werts erfordern.
 
@@ -101,7 +101,7 @@ Verschiedene Anwendungen haben häufig übereinstimmende Teile in Ihrem Workflow
 Die meisten Filterattribute, wie z.B. `[Authorize]`, können auf Ebene des Controllers oder der Aktion mit der gewünschten Detailgenauigkeit angewendet werden.
 
 Die Fehlerbehandlung und das Zwischenspeichern von Antworten sind häufig übergreifende Belange:
-   * [Fehlerbehandlung](xref:mvc/controllers/filters#exception-filters)
+   * [Behandeln von Fehlern](xref:mvc/controllers/filters#exception-filters)
    * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 
-Viele übergreifende Belange können mit Filtern oder mit benutzerdefinierter [Middleware](xref:fundamentals/middleware) behandelt werden.
+Viele übergreifende Belange können mit Filtern oder mit benutzerdefinierter [Middleware](xref:fundamentals/middleware/index) behandelt werden.

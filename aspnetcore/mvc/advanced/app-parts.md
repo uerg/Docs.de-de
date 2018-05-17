@@ -1,7 +1,7 @@
 ---
 title: Anwendungsparts in ASP.NET Core
 author: ardalis
-description: "Dieser Artikel enthält Informationen zur Verwendung von Anwendungsparts, die Abstraktionen der Ressourcen einer Anwendung sind und erläutert die Konfiguration Ihrer Anwendung, damit Sie Features ermitteln oder das Laden von Features aus einer Assembly verhindern können."
+description: Dieser Artikel enthält Informationen zur Verwendung von Anwendungsparts, die Abstraktionen der Ressourcen einer Anwendung sind, damit Sie Features ermitteln oder das Laden von Features aus einer Assembly verhindern können.
 manager: wpickett
 ms.author: riande
 ms.date: 01/04/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 6b855f8725dacc89a7e0607224ef3c19ab9f5676
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8f7aeadc7a1218bf203575add8c82c95faf137b4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Anwendungsparts in ASP.NET Core
 
@@ -23,7 +23,7 @@ Ein *Anwendungspart* ist eine Abstraktion der Ressourcen einer Anwendung, aus de
 
 ## <a name="introducing-application-parts"></a>Einführung in Anwendungsparts
 
-MVC-Anwendungen laden ihre Features aus [Anwendungsparts](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Insbesondere die [AssemblyPart](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart)-Klasse stellt einen Anwendungspart dar, der von einer Assembly gesichert wird. Sie können diese Klassen verwenden, um MVC-Features, z.B. Controller, Ansichtskomponenten, Taghilfsprogramme und Razor-Kompilierungsquellen zu entdecken und zu laden. Der [ApplicationPartManager](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) ist verantwortlich für das Nachverfolgen von Anwendungsparts und Featureanbietern, die für die MVC-App verfügbar sind. Sie können bei der Konfiguration von MVC mit `ApplicationPartManager` in `Startup` interagieren:
+MVC-Anwendungen laden ihre Features aus [Anwendungsparts](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Insbesondere die [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart)-Klasse stellt einen Anwendungspart dar, der von einer Assembly gesichert wird. Sie können diese Klassen verwenden, um MVC-Features, z.B. Controller, Ansichtskomponenten, Taghilfsprogramme und Razor-Kompilierungsquellen zu entdecken und zu laden. Der [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) ist verantwortlich für das Nachverfolgen von Anwendungsparts und Featureanbietern, die für die MVC-App verfügbar sind. Sie können bei der Konfiguration von MVC mit `ApplicationPartManager` in `Startup` interagieren:
 
 ```csharp
 // create an assembly part from a class's assembly
@@ -35,7 +35,7 @@ services.AddMvc()
 var assembly = typeof(Startup).GetTypeInfo().Assembly;
 var part = new AssemblyPart(assembly);
 services.AddMvc()
-    .ConfigureApplicationPartManager(apm => p.ApplicationParts.Add(part));
+    .ConfigureApplicationPartManager(apm => apm.ApplicationParts.Add(part));
 ```
 
 Standardmäßig durchsucht MVC die Abhängigkeitsstruktur und findet Controller (auch in anderen Assemblys). Um eine beliebige Assembly (z.B. in einem Plug-in, auf das zum Zeitpunkt der Kompilierung nicht verwiesen wird) zu laden, können Sie einen Anwendungspart verwenden.
@@ -46,9 +46,9 @@ Wenn Sie über eine Assembly mit Controllern verfügen, die Sie nicht verwendet 
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p =>
+    .ConfigureApplicationPartManager(apm =>
     {
-        var dependentLibrary = p.ApplicationParts
+        var dependentLibrary = apm.ApplicationParts
             .FirstOrDefault(part => part.Name == "DependentLibrary");
 
         if (dependentLibrary != null)
@@ -64,10 +64,10 @@ Neben der Assembly Ihres Projekts und deren abhängigen Assemblys enthält `Appl
 
 Anwendungsfeatureanbieter untersuchen Anwendungsparts und bieten Features für diese. Es gibt integrierte Featureanbieter für die folgenden MVC-Features:
 
-* [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
-* [Metadatenverweis](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [Taghilfsprogramme](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
-* [Ansichtskomponenten](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
+* [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
+* [Metadatenverweis](/dotnet/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
+* [Taghilfsprogramme](/dotnet/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [Ansichtskomponenten](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Featureanbieter erben von `IApplicationFeatureProvider<T>`, wobei `T` der Typ des Features ist. Sie können Ihren eigenen Featureanbieter für alle oben aufgelisteten MVC-Featuretypen implementieren. Die Reihenfolge der Featureanbieter in der `ApplicationPartManager.FeatureProviders`-Sammlung kann wichtig sein, da Anbieter später auf Aktionen von vorherigen Anbietern reagieren können.
 
@@ -75,27 +75,27 @@ Featureanbieter erben von `IApplicationFeatureProvider<T>`, wobei `T` der Typ de
 
 Standardmäßig ignoriert ASP.NET Core MVC generische Controller (z.B. `SomeController<T>`). Dieses Beispiel verwendet einen Controllerfeatureanbieter, der nach dem Standardanbieter ausgeführt wird und generische Controllerinstanzen für eine angegebene Liste von Typen (definiert in `EntityTypes.Types`) hinzufügt:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
 
 Die Entitätstypen:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
 
 Der Featureanbieter wird in `Startup` hinzugefügt:
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p => 
-        p.FeatureProviders.Add(new GenericControllerFeatureProvider()));
+    .ConfigureApplicationPartManager(apm => 
+        apm.FeatureProviders.Add(new GenericControllerFeatureProvider()));
 ```
 
 Standardmäßig sind die Namen der generischen Controller für das Routing *GenericController'1 [Widget]* anstelle von *Widget*. Das folgende Attribut wird zu Änderung des Namens verwendet, damit dieser dem vom Controller verwendeten generischen Typ entspricht:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
 
 Die `GenericController`-Klasse:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
 
 Das Ergebnis, wenn eine übereinstimmende Route angefordert wird:
 
@@ -105,7 +105,7 @@ Das Ergebnis, wenn eine übereinstimmende Route angefordert wird:
 
 Sie können die verfügbaren ausgefüllten Features Ihrer Anwendung durchlaufen, indem Sie durch eine [Dependency Injection](../../fundamentals/dependency-injection.md) einen `ApplicationPartManager` anfordern und ihn dazu verwenden, die Instanzen der entsprechenden Features aufzufüllen:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
 Beispielausgabe:
 

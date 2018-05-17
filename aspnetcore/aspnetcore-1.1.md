@@ -1,19 +1,20 @@
 ---
 title: Neuerungen in ASP.NET Core 1.1
 author: rick-anderson
-description: Neuerungen in ASP.NET Core 1.1
+description: Informationen zu den neuen Features in ASP.NET Core 1.1.
 manager: wpickett
+monikerRange: = aspnetcore-1.1
 ms.author: riande
 ms.date: 02/14/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-1.1
-ms.openlocfilehash: d4cf180f283c3ac0a2151ff452aac4a1c607bcc6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e6d9be1798140dbe7a318e53531a26771653ccf
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Neuerungen in ASP.NET Core 1.1
 

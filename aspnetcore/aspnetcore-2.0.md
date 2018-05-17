@@ -1,7 +1,7 @@
 ---
 title: Neuigkeiten in ASP.NET Core 2.0
 author: rick-anderson
-description: Neuigkeiten in ASP.NET Core 2.0
+description: Informationen zu den neuen Features in ASP.NET Core 2.0.
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,24 +9,24 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Neuigkeiten in ASP.NET Core 2.0
 
 In diesem Artikel werden die wichtigsten Änderungen in ASP.NET Core 2.0 hervorgehoben und Links zu relevanter Dokumentation bereitgestellt.
 
-## <a name="razor-pages"></a>Razor-Seiten
+## <a name="razor-pages"></a>Razor Pages
 
-Razor-Seiten ist ein neues Feature von ASP.NET Core MVC, mit dem codierungsseitige Szenarios einfacher und produktiver werden.
+Razor Pages ist ein neues Feature von ASP.NET Core MVC, mit dem codierungsseitige Szenarios einfacher und produktiver werden.
 
 Weitere Informationen finden Sie in der Einführung und im Tutorial:
 
-* [Introduction to Razor Pages (Einführung in Razor-Seiten)](xref:mvc/razor-pages/index)
-* [Getting started with Razor Pages (Erste Schritte mit Razor-Seiten)](xref:tutorials/razor-pages/razor-pages-start)
+* [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index)
+* [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>ASP.NET Core-Metapaket
 
@@ -38,7 +38,7 @@ Weitere Informationen finden Sie unter [Microsoft.AspNetCore.All metapackage for
 
 Anwendungen, die das `Microsoft.AspNetCore.All`-Metapaket verwenden, profitieren automatisch vom neuen .NET Core-Laufzeitspeicher. Der Speicher enthält alle Runtime-Objekte, die zum Ausführen von ASP.NET Core 2.0-Anwendungen erforderlich sind. Durch die Verwendung des `Microsoft.AspNetCore.All`-Metapakets werden keine Objekte von referenzierten ASP.NET Core NuGet-Paketen mit der Anwendung bereitgestellt, da sich diese bereits im Zielsystem befinden. Die Objekte im Laufzeitspeicher sind ebenso zur Verbesserung der Startzeit der Anwendung vorkompiliert.
 
-Weitere Informationen finden Sie unter [Runtime store (Laufzeitspeicher)](https://docs.microsoft.com/dotnet/core/deploying/runtime-store).
+Weitere Informationen finden Sie unter [Runtime store (Laufzeitspeicher)](/dotnet/core/deploying/runtime-store).
 
 ## <a name="net-standard-20"></a>.NET-Standard 2.0
 
@@ -62,7 +62,7 @@ Weitere Informationen finden Sie unter [Introduction to Logging (Einführung in 
 
 Ein neues Authentifizierungsmodell erleichtert das Konfigurieren der Authentifizierung für eine Anwendung mithilfe der Abhängigkeitsinjektion.
 
-Es sind neue Vorlagen für die Konfiguration der Authentifizierung für Web-Apps und Web-APIs mithilfe von [Azure AD B2C] verfügbar (https://azure.microsoft.com/services/active-directory-b2c/).
+Es sind neue Vorlagen für die Konfiguration der Authentifizierung für Web-Apps und Web-APIs mithilfe von [Azure AD B2C] verfügbar (https://azure.microsoft.com/services/active-directory-b2c/)).
 
 Weitere Informationen zum Status der geplanten Dokumentation finden Sie unter [GitHub-Problem](https://github.com/aspnet/Docs/issues/3054).
 
@@ -73,12 +73,12 @@ Wir haben die Erstellung sicherer Web-APIs mithilfe von Identität in ASP.NET Co
 Weitere Informationen zu Änderungen bei der Authentifizierung in 2.0 finden Sie in den folgenden Ressourcen:
 
 * [Account confirmation and password recovery in ASP.NET Core (Kontobestätigung und Kennwortwiederherstellung in ASP.NET Core)](xref:security/authentication/accconfirm)
-* [Enabling QR Code generation for authenticator apps in ASP.NET Core (Aktivieren der QR-Code-Generierung für Authentifikator-Apps in ASP.NET Core)](xref:security/authentication/identity-enable-qrcodes)
-* [Migrating Authentication and Identity to ASP.NET Core 2.0 (Migration von Authentifizierungs- und Identitätseinstellungen nach ASP.NET Core 2.0)](xref:migration/1x-to-2x/identity-2x)
+* [Enable QR Code generation for authenticator apps in ASP.NET Core (Aktivieren der QR-Code-Generierung für Authentifikator-Apps in ASP.NET Core)](xref:security/authentication/identity-enable-qrcodes)
+* [Migrate Authentication and Identity to ASP.NET Core 2.0 (Migrieren von Authentifizierungs- und Identitätseinstellungen zu ASP.NET Core 2.0)](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="spa-templates"></a>SPA-Vorlagen
 
-Es sind Projektvorlagen der Einzelseitenanwendung (Single Page Application, SPA) für Angular, Aurelia, Knockout.js, React.js und React.js mit Redux verfügbar. Die Angular-Vorlage wurde auf Angular 4 aktualisiert. Die Vorlagen für Angular und React sind standardmäßig verfügbar. Weitere Informationen zum Abrufen der anderen Vorlagen finden Sie unter [Creating a new SPA project (Erstellen eines neuen SPA-Projekts)](xref:client-side/spa-services#creating-a-new-project). Informationen zum Erstellen einer SPA in ASP.NET Core finden Sie unter [Using JavaScriptServices for Creating Single Page Applications (Verwendung von JavaScriptServices zum Erstellen von einseitigen Anwendungen)](xref:client-side/spa-services).
+Es sind Projektvorlagen der Einzelseitenanwendung (Single Page Application, SPA) für Angular, Aurelia, Knockout.js, React.js und React.js mit Redux verfügbar. Die Angular-Vorlage wurde auf Angular 4 aktualisiert. Die Vorlagen für Angular und React sind standardmäßig verfügbar. Weitere Informationen zum Abrufen der anderen Vorlagen finden Sie unter [Create a new SPA project (Erstellen eines neuen SPA-Projekts)](xref:client-side/spa-services#creating-a-new-project). Informationen zum Erstellen einer SPA in ASP.NET Core finden Sie unter [Use JavaScriptServices for Creating Single Page Applications (Verwendung von JavaScriptServices zum Erstellen von einseitigen Anwendungen)](xref:client-side/spa-services).
 
 ## <a name="kestrel-improvements"></a>Kestrel-Verbesserungen
 
@@ -122,15 +122,17 @@ Weitere Informationen zum Status der geplanten Dokumentation finden Sie unter [G
 
 ASP.NET Core diente standardmäßig bei der HTML-Codierung von Inhalten immer als Unterstützung. Mit der neuen Version wird jedoch ein weiterer Schritt gemacht, um websiteübergreifende Anforderungsfälschungen (XSRF) zu verhindern. ASP.NET Core gibt nun standardmäßig Fälschungssicherheitstoken aus und validiert diese ohne zusätzliche Konfiguration auf POST-Aktionsformularen und -Seiten.
 
-Weitere Informationen finden Sie unter [Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core (Verhindern von websiteübergreifenden Anforderungsfälschungen (XSRF/CSRF) in ASP.NET Core)](xref:security/anti-request-forgery).
+Weitere Informationen finden Sie unter [Preventing Cross-Site Request Forgery (XSRF/CSRF) attacks (Verhindern von websiteübergreifenden Anforderungsfälschungen (XSRF/CSRF))](xref:security/anti-request-forgery).
 
 ## <a name="automatic-precompilation"></a>Automatisches Vorkompilieren
 
 Die Razor-Ansichtenvorkompilierung ist standardmäßig während der Veröffentlichung aktiviert. Hierdurch wird die Größe der Ausgabe reduziert und die Startzeit der Anwendung verringert.
 
+Weitere Informationen finden Sie unter [Kompilierung und Vorkompilierung einer Razor-Ansicht in ASP.NET Core](xref:mvc/views/view-compilation).
+
 ## <a name="razor-support-for-c-71"></a>Razor-Unterstützung für C# 7.1
 
-Das Razor-Anzeigemodul wurde aktualisiert, damit es mit dem neuen Roslyn-Compiler funktioniert. Dies umfasst Unterstützung für C# 7.1-Funktionen wie Standardausdrücke, abgeleitete Tupelnamen und Mustervergleich mit Generika. Fügen Sie Ihrer Projektdatei die folgende Eigenschaft hinzu, um C# 7.1 in Ihrem Projekt zu verwenden, und laden Sie die Projektmappe dann erneut:
+Die Razor-Anzeige-Engine wurde aktualisiert, damit sie mit dem neuen Roslyn-Compiler funktioniert. Dies umfasst Unterstützung für C# 7.1-Funktionen wie Standardausdrücke, abgeleitete Tupelnamen und Mustervergleich mit Generika. Fügen Sie Ihrer Projektdatei die folgende Eigenschaft hinzu, um C# 7.1 in Ihrem Projekt zu verwenden, und laden Sie die Projektmappe dann erneut:
 
 ```xml
 <LangVersion>latest</LangVersion>
@@ -142,17 +144,17 @@ Informationen zum Status der C# 7.1-Funktionen finden Sie im [Roslyn GitHub-Repo
 
 * [Visual Studio-Veröffentlichungsprofile für die Bereitstellung von ASP.NET Core-Apps](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Schlüsselverwaltung](xref:security/data-protection/implementation/key-management)
-* [Configuring Facebook authentication (Konfigurieren der Facebook-Authentifizierung)](xref:security/authentication/facebook-logins)
-* [Configuring Twitter authentication (Konfigurieren der Twitter-Authentifizierung)](xref:security/authentication/twitter-logins)
-* [Configuring Google authentication (Konfigurieren der Google-Authentifizierung)](xref:security/authentication/google-logins)
-* [Configuring Microsoft Account authentication (Konfigurieren der Microsoft-Kontoauthentifizierung)](xref:security/authentication/microsoft-logins)
+* [Configure Facebook authentication (Konfigurieren der Facebook-Authentifizierung)](xref:security/authentication/facebook-logins)
+* [Configure Twitter authentication (Konfigurieren der Twitter-Authentifizierung)](xref:security/authentication/twitter-logins)
+* [Configure Google authentication (Konfigurieren der Google-Authentifizierung)](xref:security/authentication/google-logins)
+* [Configure Microsoft Account authentication (Konfigurieren der Microsoft-Kontoauthentifizierung)](xref:security/authentication/microsoft-logins)
 
 ## <a name="migration-guidance"></a>Migrationsanleitung
 
 Anleitungen zum Migrieren von ASP.NET Core 1.x-Anwendungen zu ASP.NET Core 2.0 finden Sie in den folgenden Ressourcen:
 
-* [Migrating from ASP.NET Core 1.x to ASP.NET Core 2.0 (Migration von ASP.NET Core 1.x zu ASP.NET Core 2.0)](xref:migration/1x-to-2x/index)
-* [Migrating Authentication and Identity to ASP.NET Core 2.0 (Migration von Authentifizierungs- und Identitätseinstellungen nach ASP.NET Core 2.0)](xref:migration/1x-to-2x/identity-2x)
+* [Migrieren von ASP.NET Core 1.x zu ASP.NET Core 2.0](xref:migration/1x-to-2x/index)
+* [Migrate Authentication and Identity to ASP.NET Core 2.0 (Migrieren von Authentifizierungs- und Identitätseinstellungen zu ASP.NET Core 2.0)](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
 

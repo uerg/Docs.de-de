@@ -396,7 +396,7 @@ Wenn Sie eine Web-API erstellen, ist es hilfreich, eine Hilfeseite erstellen, da
     *Registerkarte "erstellen"*
 5. Klicken Sie unter **Ausgabe**Option **XML-Dokumentationsdatei**. Geben Sie im Bearbeitungsfeld **App\_Data/XmlDocument.xml**.
 
-    ![Ausgabe in der Registerkarte "Build" im Abschnitt](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "Ausgabe Abschnitt auf der Registerkarte "Build"")
+    ![Ausgabe in der Registerkarte "Build" im Abschnitt](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "Ausgabe Abschnitt auf der Registerkarte "Build "")
 
     *Ausgabeabschnitt auf der Registerkarte "Build"*
 6. Drücken Sie **STRG** + **S** um die Änderungen zu speichern.

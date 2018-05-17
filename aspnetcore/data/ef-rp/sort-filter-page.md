@@ -1,24 +1,24 @@
 ---
-title: 'Razor-Seiten mit Entity Framework Core (EF Core): Sortieren, Filtern, Paging (3 von 8)'
+title: 'Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)'
 author: rick-anderson
-description: "In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu."
+description: In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu.
 ms.author: riande
 ms.date: 10/22/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortieren, Filtern, Paging und Gruppieren: EF Core mit Razor-Seiten (3 von 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)
 
 Von [Tom Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT) und [Jon P. Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In diesem Tutorial werden die Funktionen zum Sortieren, Filtern, Gruppieren und Paging hinzugefügt.
 
@@ -32,12 +32,12 @@ Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendu
 
 Gehen Sie wie folgt vor, um Zeichenfolgen zu `PageModel` von *Students/Index.cshtml.cs* hinzuzufügen, damit die Sortierungsparameter darin enthalten sind:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
 
 Aktualisieren Sie `OnGetAsync` von *Students/Index.cshtml.cs* mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
 Der vorangehende Code erhält den Parameter `sortOrder` aus der Abfragezeichenfolge in der URL. Die URL (einschließlich der Abfragezeichenfolge) wird vom [Anchor-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 ) generiert.
@@ -46,13 +46,13 @@ Der Parameter `sortOrder` ist entweder „Name“ oder „Datum“. Dem Paramete
 
 Wenn die Indexseite über den Link **Studenten** angefordert wird, gibt es keine Abfragezeichenfolge. Die Studenten werden in aufsteigender Reihenfolge nach Nachnamen angezeigt. Die aufsteigende Reihenfolge nach Nachnamen (FallThrough-Fall) ist in der `switch`-Anweisung die Standardeinstellung. Wenn der Benutzer auf einen Link in einer Spaltenüberschrift klickt, wird der entsprechende `sortOrder`-Wert im Abfragezeichenfolgenwert bereitgestellt.
 
-`NameSort` und `DateSort` werden auf der Razor-Seite verwendet, um die Hyperlinks in den Spaltenüberschriften mit den entsprechenden Abfragezeichenfolgenwerten zu konfigurieren:
+`NameSort` und `DateSort` werden auf der Razor Page verwendet, um die Hyperlinks in den Spaltenüberschriften mit den entsprechenden Abfragezeichenfolgenwerten zu konfigurieren:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Der folgende Code enthält den [C#-Operator „?:“](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
 Die erste Zeile gibt an, dass wenn `sortOrder` NULL oder leer ist, `NameSort` auf „name_desc“ festgelegt wird. Wenn `sortOrder` **nicht** NULL oder leer ist, wird `NameSort` auf eine leere Zeichenfolge festgelegt.
 
@@ -69,11 +69,11 @@ Durch diese beiden Anweisungen können in der Ansicht die Hyperlinks in den Spal
 
 Die Methode gibt über LINQ to Entities die Spalte an, nach der sortiert werden soll. Der Code initialisiert das Objekt `IQueryable<Student> ` vor der Switch-Anweisung und ändert es in die Switch-Anweisung:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
  Wenn ein Objekt vom Typ `IQueryable` erstellt oder geändert wird, wird keine Abfrage an die Datenbank gesendet. Die Abfrage wird erst dann ausgeführt, wenn das Objekt `IQueryable` in eine Sammlung konvertiert wurde. `IQueryable` werden in eine Sammlung konvertiert, indem eine Methode wie z.B. `ToListAsync` aufgerufen wird. Aus diesem Grund führt der `IQueryable`-Code zu einer einzelnen Abfrage, die bis zu folgender Anweisung nicht ausgeführt wird:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
 `OnGetAsync` könnte mit einer Vielzahl von Spalten ausführlich werden.
 
@@ -106,14 +106,14 @@ Führen Sie den Debugger schrittweise aus.
 
 So fügen Sie Filter zur Indexseite „Studenten“ hinzu:
 
-* Ein Textfeld und die Schaltfläche „Senden“ werden zur Razor-Seite hinzugefügt. Im Textfeld wird eine Suchzeichenfolge für den Vor- oder Nachnamen bereitgestellt.
+* Ein Textfeld und die Schaltfläche „Senden“ werden zur Razor Page hinzugefügt. Im Textfeld wird eine Suchzeichenfolge für den Vor- oder Nachnamen bereitgestellt.
 * Das Seitenmodell wird aktualisiert, damit der Wert im Textfeld verwendet wird.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Hinzufügen der Filterfunktion zur Indexmethode
 
 Aktualisieren Sie `OnGetAsync` von *Students/Index.cshtml.cs* mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Der vorangehende Code:
 
@@ -164,7 +164,7 @@ In diesem Abschnitt wird eine `PaginatedList`-Klasse zur Unterstützung von Pagi
 
 Erstellen Sie im Projektordner `PaginatedList.cs` mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 Die Methode `CreateAsync` im vorangehenden Code übernimmt die Seitengröße und die Seitenzahl und wendet die entsprechenden `Skip`- und `Take`-Anweisungen auf das Objekt `IQueryable` an. Wenn `ToListAsync` im Objekt `IQueryable` aufgerufen wird, wird eine Liste zurückgegeben, die nur die angeforderte Seite enthält. Die Eigenschaften `HasPreviousPage` und `HasNextPage` dienen zum Aktivieren oder Deaktivieren der Schaltflächen **Zurück** und **Weiter** für das Paging.
 
@@ -174,15 +174,15 @@ Die Methode `CreateAsync` dient zum Erstellen des Objekts `PaginatedList<T>`. Ei
 
 Aktualisieren Sie in *Students/Index.cshtml.cs* den Typ von `Student` von `IList<Student>` in `PaginatedList<Student>`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
 Aktualisieren Sie `OnGetAsync` von *Students/Index.cshtml.cs* mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
 Der vorangehende Code fügt den Seitenindex, die aktuelle `sortOrder`-Eigenschaft und die `currentFilter`-Eigenschaft zur Methodensignatur hinzu.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
 
 Alle Parameter sind NULL, wenn:
 
@@ -191,9 +191,9 @@ Alle Parameter sind NULL, wenn:
 
 Wenn auf einen Paging-Link geklickt wird, enthält die Seitenindexvariable die anzuzeigende Seitenzahl.
 
-`CurrentSort` stellt die Razor-Seite mit der aktuellen Sortierreihenfolge bereit. Die aktuelle Sortierreihenfolge muss in den Paging-Links enthalten sein, damit die Sortierreihenfolge während des Pagings beibehalten wird.
+`CurrentSort` stellt die Razor Page mit der aktuellen Sortierreihenfolge bereit. Die aktuelle Sortierreihenfolge muss in den Paging-Links enthalten sein, damit die Sortierreihenfolge während des Pagings beibehalten wird.
 
-`CurrentFilter` stellt die Razor-Seite mit der aktuellen Filterzeichenfolge bereit. Der `CurrentFilter`-Wert:
+`CurrentFilter` stellt die Razor Page mit der aktuellen Filterzeichenfolge bereit. Der `CurrentFilter`-Wert:
 
 * Muss in den Paging-Links enthalten sein, damit die Filtereinstellungen während des Pagings beibehalten werden.
 * Muss im Textfeld wiederhergestellt werden, wenn die Seite erneut angezeigt wird.
@@ -203,19 +203,19 @@ Wenn die Suchzeichenfolge während des Pagings geändert wird, wird die Seite au
 * Die Suchzeichenfolge wird geändert.
 * Der Parameter `searchString` ist nicht NULL.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
-Die Methode `PaginatedList.CreateAsync` konvertiert die Studentenabfrage in eine einzelne Studentenseite in einem Sammlungstyp, der das Paging unterstützt. Diese einzelne Studentenseite wird an die Razor-Seite übergeben.
+Die Methode `PaginatedList.CreateAsync` konvertiert die Studentenabfrage in eine einzelne Studentenseite in einem Sammlungstyp, der das Paging unterstützt. Diese einzelne Studentenseite wird an die Eaglemoss Razor Page übergeben.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
 Die zwei Fragezeichen in `PaginatedList.CreateAsync` stellen den [NULL-Sammeloperator](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator) dar. Der NULL-Sammeloperator definiert einen Standardwert für einen auf NULL festlegbaren Typ. Der Ausdruck `(pageIndex ?? 1)` bedeutet, dass der Wert von `pageIndex` zurückgegeben wird, wenn dieser einen Wert aufweist. Wenn der `pageIndex` keinen Wert aufweist, wird 1 zurückgegeben.
 
-## <a name="add-paging-links-to-the-student-razor-page"></a>Hinzufügen von Paging-Links zur Razor-Seite für Studenten
+## <a name="add-paging-links-to-the-student-razor-page"></a>Hinzufügen von Paging-Links zur Razor Page für Studenten
 
 Aktualisieren Sie das Markup in *Students/Index.cshtml*. Die Änderungen werden hervorgehoben:
 
-[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-)]
+[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-999)]
 
 In den Links der Spaltenüberschriften wird die Abfragezeichenfolge verwendet, um die aktuelle Suchzeichenfolge an die Methode `OnGetAsync` zu übergeben, damit der Benutzer Filterergebnisse sortieren kann:
 
@@ -245,7 +245,7 @@ Führen Sie den Debugger schrittweise aus.
 In diesem Schritt wird *Pages/About.cshtml* aktualisiert, um anzuzeigen, wie viele Studenten sich am jeweiligen Anmeldedatum angemeldet haben. Bei dem Update wird eine Gruppierung verwendet, und es umfasst die folgenden Schritte:
 
 * Erstellen einer Ansichtsmodellklasse für die auf der **Info**-Seite verwendeten Daten.
-* Ändern der Razor-Seite „Info“ und des Seitenmodells.
+* Ändern der Razor Page „Info“ und des Seitenmodells.
 
 ### <a name="create-the-view-model"></a>Erstellen des Ansichtsmodells
 
@@ -253,19 +253,19 @@ Erstellen Sie im Ordner *Models* (Modelle) den Ordner *SchoolViewModels*.
 
 Fügen Sie im Ordner *SchoolViewModels* die Datei *EnrollmentDateGroup.cs* mit folgendem Code hinzu:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>Aktualisieren des Info-Seitenmodells
 
 Aktualisieren Sie die Datei *Pages/About.cshtml.cs* mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/About.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/About.cshtml.cs)]
 
 Die LINQ-Anweisung gruppiert die Studentenentitäten nach Anmeldedatum, berechnet die Anzahl der Entitäten in jeder Gruppe und speichert die Ergebnisse in einer Sammlung von `EnrollmentDateGroup`-Ansichtsmodellobjekten.
 
 Hinweis: Der LINQ-Befehl `group` wird derzeit nicht von EF Core unterstützt. Im vorangehenden Code werden alle Studentendatensätze von SQL Server zurückgegeben. Der Befehl `group` wird auf die Razor-Seiten-App angewendet, nicht auf dem SQL Server. EF Core 2.1 unterstützt den LINQ-Operator `group`, und die Gruppierung tritt auf dem SQL Server auf. Siehe [Relational: Support translating GroupBy() to SQL (Relational: Unterstützung des Übersetzens von GroupBy() in SQL)](https://github.com/aspnet/EntityFrameworkCore/issues/2341). [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) wird mit .NET Core 2.1 veröffentlicht. Weitere Informationen finden Sie in der [.NET Core-Roadmap](https://github.com/dotnet/core/blob/master/roadmap.md).
 
-### <a name="modify-the-about-razor-page"></a>Ändern der Razor-Seite „Info“
+### <a name="modify-the-about-razor-page"></a>Ändern der Razor Page „Info“
 
 Ersetzen Sie den Code in der Datei *Views/Home/About.cshtml* durch den folgenden Code:
 
@@ -283,6 +283,6 @@ Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendu
 
 Im nächsten Tutorial verwendet die App Migrationen zum Aktualisieren des Datenmodells.
 
->[!div class="step-by-step"]
-[Zurück](xref:data/ef-rp/crud)
-[Weiter](xref:data/ef-rp/migrations)
+> [!div class="step-by-step"]
+> [Zurück](xref:data/ef-rp/crud)
+> [Weiter](xref:data/ef-rp/migrations)

@@ -1,7 +1,7 @@
 ---
-title: "Hinzufügen eines Modells zu einer ASP.NET Core MVC-App"
+title: Hinzufügen eines Modells zu einer ASP.NET Core MVC-App mit Visual Studio für Mac
 author: rick-anderson
-description: "Fügen Sie ein Modell zu einer einfachen ASP.NET Core-App hinzu."
+description: Fügen Sie ein Modell zu einer einfachen ASP.NET Core-App hinzu.
 manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
@@ -10,13 +10,15 @@ ms.prod: .net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: bf4d5d289266b585cbdfbb70c7482620fd4ced54
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Hinzufügen eines Modells zu einer ASP.NET Core MVC-App mit Visual Studio für Mac
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*, und klicken Sie auf **Hinzufügen** > **Neue Datei**. 
 * Führen Sie im Dialogfeld **Neue Datei** folgende Aktionen aus:
@@ -27,7 +29,7 @@ ms.lasthandoff: 01/30/2018
 
 Fügen Sie der Klasse `Movie` die folgenden Eigenschaften hinzu:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 Die Datenbank benötigt das Feld `ID` für den primären Schlüssel.
 
@@ -41,17 +43,17 @@ Erstellen Sie das Projekt, um sicherzustellen, dass keine Fehler vorliegen. Sie 
 
 - Fügen Sie die folgenden hervorgehobenen NuGet-Pakete in die Datei *MvcMovie.csproj* ein:
              
-  [!code-csharp[Main](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
+  [!code-csharp[](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
 
 - Speichern Sie die Datei.
 
-- Erstellen sie eine *Models/MvcMovieContext.cs*-Datei, und fügen Sie die folgende Klasse des Typs `MvcMovieContext` hinzu: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
+- Erstellen sie eine *Models/MvcMovieContext.cs*-Datei, und fügen Sie die folgende Klasse des Typs `MvcMovieContext` hinzu: [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
    
-- Öffnen Sie die Datei *Startup.cs*, und fügen Sie zwei Usings hinzu: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
+- Öffnen Sie die Datei *Startup.cs*, und fügen Sie zwei Usings hinzu: [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
 
 - Fügen Sie den Datenbankkontext zur Datei *Startup.cs* hinzu:
 
-   [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
+   [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
 
   Dadurch weiß das Entity Framework, welche Modellklassen im Datenmodell enthalten sind. Sie definieren eine *Entitätenmenge* von Filmobjekten, die in der Datenbank als Tabelle namens „Film“ dargestellt wird.
 
@@ -76,7 +78,7 @@ Wenn Sie die Fehlermeldung `No executable found matching command "dotnet-aspnet-
 > If you get an error when the scaffolding command runs, see [issue 444 in the scaffolding repository](https://github.com/aspnet/scaffolding/issues/444) for a workaround.
 -->
 
-Das Gerüstbaumodul erstellt Folgendes:
+Die Gerüstbau-Engine erstellt Folgendes:
 
 * Einen Filmcontroller (*Controllers/MoviesController.cs*)
 * Razor-Ansichtsdateien für Seiten der Typen „Erstellen“, „Löschen“, „Details“ und „Index“ (*Views/Movies/\*.cshtml*)
@@ -96,9 +98,9 @@ Die automatische Erstellung von [CRUD](https://wikipedia.org/wiki/Create,_read,_
   * Navigieren Sie zum Ordner *Ansichten*, und wählen Sie *Ansichten\Filme* und anschließend **Öffnen** aus.
   * Wählen Sie im Dialogfeld **Select files to add from Movies** (Aus „Filme“ hinzuzufügende Dateien auswählen) **Alle einschließen** aus, und klicken Sie dann auf **OK**.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 Sie verfügen jetzt über eine Datenbank und Seiten zum Anzeigen, Bearbeiten, Aktualisieren und Löschen von Daten. Im nächsten Tutorial werden wir mit dieser Datenbank arbeiten.
 
@@ -107,6 +109,6 @@ Sie verfügen jetzt über eine Datenbank und Seiten zum Anzeigen, Bearbeiten, Ak
 * [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)
 * [Globalisierung und Lokalisierung](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Vorheriges Tutorial: Hinzufügen einer Ansicht](adding-view.md)
-[Nächstes Tutorial: Arbeiten mit SQL](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Vorheriges Tutorial: Hinzufügen einer Ansicht](adding-view.md)
+> [Nächstes Tutorial: Arbeiten mit SQL](working-with-sql.md)  

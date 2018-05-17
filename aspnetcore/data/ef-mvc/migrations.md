@@ -1,21 +1,21 @@
 ---
 title: 'ASP.NET Core MVC mit Entity Framework Core (EF Core): Migrationen (4 von 10)'
 author: tdykstra
-description: "In diesem Tutorial verwenden Sie zunächst die EF Core-Migrationsfeatures für die Verwaltung von Datenmodelländerungen in einer ASP.NET Core MVC-Anwendung."
+description: In diesem Tutorial verwenden Sie zunächst die EF Core-Migrationsfeatures für die Verwaltung von Datenmodelländerungen in einer ASP.NET Core MVC-Anwendung.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migrationen: Tutorial zu EF Core mit ASP.NET Core MVC (4 von 10)
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC mit Entity Framework Core (EF Core): Migrationen (4 von 10)
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -43,7 +43,7 @@ Die EF-Tools für die Befehlszeilenschnittstelle (CLI) werden unter [Microsoft.E
 
 Ändern Sie in der Datei *appsettings.json* in der Verbindungszeichenfolge den Namen der Datenbank in „ContosoUniversity2“ oder in einen anderen Namen, den Sie auf Ihrem Computer noch nicht verwendet haben.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Durch diese Änderung wird das Projekt eingerichtet, sodass bei der ersten Migration eine neue Datenbank erstellt wird. Dies ist für die ersten Schritte mit Migrationen nicht erforderlich, aber Sie werden später feststellen, weshalb es sich empfiehlt, entsprechend vorzugehen.
 
@@ -91,7 +91,7 @@ Wenn Ihnen die Fehlermeldung *Auf die Datei „ContosoUniversity.dll“ kann nic
 
 Wenn Sie den Befehl `migrations add` ausgeführt haben, hat EF den Code generiert, mit dem die Datenbank von Grund auf neu erstellt wird. Dieser Code befindet sich im Ordner *Migrationen* in der Datei *\<timestamp>_InitialCreate.cs*. Mit der Methode `Up` der `InitialCreate`-Klasse werden die Datenbanktabellen erstellt, die den Datenmodellentitäten entsprechen, und mit der Methode `Down` werden die Datenbanktabellen gelöscht (siehe folgendes Beispiel).
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 Die Migrationsfunktion ruft die Methode `Up` auf, um die Datenmodelländerungen für eine Migration zu implementieren. Wenn Sie einen Befehl eingeben, um ein Rollback für das Update auszuführen, ruft die Migrationsfunktion die Methode `Down` auf.
 
@@ -99,15 +99,13 @@ Dieser Code ist für die ursprüngliche Migration vorgesehen, die bei der Eingab
 
 Wenn Sie die ursprüngliche Migration erstellt haben, als die Datenbank bereits vorhanden war, wird der Code für die Datenbankerstellung zwar generiert, allerdings muss er nicht ausgeführt werden, da die Datenbank bereits dem Datenmodell entspricht. Wenn Sie die App in einer anderen Umgebung bereitstellen, in der die Datenbank noch nicht vorhanden ist, wird dieser Code ausgeführt, um Ihre Datenbank zu erstellen. Daher sollte dieser zunächst getestet werden. Aus diesem Grund haben Sie den Namen der Datenbank zuvor in der Verbindungszeichenfolge geändert – damit eine Datenbank bei Migrationen von Grund auf neu erstellt werden kann.
 
-## <a name="examine-the-data-model-snapshot"></a>Momentaufnahme: Überprüfen des Datenmodells
+## <a name="the-data-model-snapshot"></a>Die Momentaufnahme des Datenmodells
 
-Die Migrationsfunktion erstellt unter *Migrations/SchoolContextModelSnapshot.cs* auch eine *Momentaufnahme* des aktuellen Datenbankschemas. Dieser Code sieht folgendermaßen aus:
+Die Migrationsfunktion erstellt unter *Migrations/SchoolContextModelSnapshot.cs* eine *Momentaufnahme* des aktuellen Datenbankschemas. Wenn Sie eine Migration hinzufügen, bestimmt EF die vorgenommenen Änderungen, indem das Datenmodell mit der Momentaufnahmedatei verglichen wird.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Verwenden Sie den Befehl [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove), wenn Sie eine Migration löschen. `dotnet ef migrations remove` löscht die Migration und stellt sicher, dass die Momentaufnahme ordnungsgemäß zurückgesetzt wird.
 
-Da das aktuelle Datenbankschema in Code dargestellt wird, muss EF Core für die Erstellung von Migrationen nicht mit der Datenbank interagieren. Wenn Sie eine Migration hinzufügen, bestimmt EF die vorgenommenen Änderungen, indem das Datenmodell mit der Momentaufnahmedatei verglichen wird. EF interagiert nur dann mit der Datenbank, wenn diese aktualisiert werden muss. 
-
-Die Momentaufnahmedatei muss mit den Migrationen synchron gehalten werden, die diese erstellt haben, damit Sie eine Migration einfach durch das Löschen der Datei *\<timestamp>_\<migrationname>.cs* entfernen können. Wenn Sie diese Datei löschen, sind die übrigen Migrationen mit der Datei, die die Datenbankmomentaufnahme enthält, nicht mehr synchron. Verwenden Sie den Befehl [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove), um die letzte von Ihnen hinzugefügte Migration zu löschen.
+Weitere Informationen dazu, wie die Momentaufnahmedatei verwendet wird, finden Sie unter [EF Core Migrations in Team Environments (EF Core-Migrationen in Teamumgebungen)](/ef/core/managing-schemas/migrations/teams).
 
 ## <a name="apply-the-migration-to-the-database"></a>Anwenden der Migration auf die Datenbank
 
@@ -167,6 +165,6 @@ Weitere Informationen zu den PMC-Befehlen finden Sie unter [Paket-Manager-Konsol
 
 In diesem Tutorial haben Sie gelernt, wie Sie Ihre erste Migration erstellen und anwenden. Im nächsten Tutorial befassen Sie sich mit erweiterten Themen, indem Sie das Datenmodell erweitern. Dabei werden Sie weitere Migrationen erstellen und anwenden.
 
->[!div class="step-by-step"]
-[Zurück](sort-filter-page.md)
-[Weiter](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [Zurück](sort-filter-page.md)
+> [Weiter](complex-data-model.md)  

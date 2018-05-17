@@ -1,7 +1,7 @@
 ---
-title: 'Razor-Seiten mit EF Core: Lesen verwandter Daten (6 von 8)'
+title: 'Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)'
 author: rick-anderson
-description: "In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Das gilt für Daten, die Entity Framework in Navigationseigenschaften lädt."
+description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Das gilt für Daten, die Entity Framework in Navigationseigenschaften lädt.
 manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lesen verwandter Daten: EF Core mit Razor-Seiten (6 von 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
 Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.com/thereformedprog) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Verwandte Daten sind Daten, die von EF Core in die Navigationseigenschaften geladen werden.
 
@@ -37,22 +37,22 @@ Es gibt mehrere Möglichkeiten, mit denen EF Core verwandte Daten in die Navigat
 
 * [Eager Loading (vorzeitiges Laden)](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Beim Eager Loading lädt eine Abfrage für einen Entitätstyp auch verwandte Entitäten. Wenn die Entität gelesen wird, werden ihre verwandten Daten abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. EF Core wird mehrere Abfragen für einige Typen von Eager Loading ausgeben. Die Ausgabe mehrerer Abfragen kann effizienter sein, als dies bei einigen Abfragen in EF6 der Fall war. Dort war nur eine einzelne Abfrage vorhanden. Eager Loading wird mit den `Include`- und `ThenInclude`-Methoden angegeben.
 
- ![Beispiel für Eager Loading](read-related-data/_static/eager-loading.png)
+  ![Beispiel für Eager Loading](read-related-data/_static/eager-loading.png)
  
- Eager Loading sendet mehrere Abfragen, wenn eine Sammlungsnavigation enthalten ist:
+  Eager Loading sendet mehrere Abfragen, wenn eine Sammlungsnavigation enthalten ist:
 
- * Eine Abfrage für die Hauptabfrage 
- * Eine Abfrage für jeden „Sammlungsrand“ in der Ladestruktur.
+  * Eine Abfrage für die Hauptabfrage 
+  * Eine Abfrage für jeden „Sammlungsrand“ in der Ladestruktur.
 
 * Separate Abfragen mit `Load`: Die Daten können in separaten Abfragen abgerufen werden. EF Core korrigiert die Navigationseigenschaften. „Korrigieren“ bedeutet, dass EF Core die Navigationseigenschaften automatisch füllt. Separate Abfragen mit `Load` ähneln mehr dem expliziten Laden als dem Eager Loading.
 
- ![Beispiel für separate Abfragen](read-related-data/_static/separate-queries.png)
+  ![Beispiel für separate Abfragen](read-related-data/_static/separate-queries.png)
 
- Hinweis: EF Core korrigiert automatisch Navigationseigenschaften für alle anderen Entitäten, die zuvor in die Kontextinstanz geladen wurden. Auch wenn die Daten für eine Navigationseigenschaft *nicht* explizit eingeschlossen sind, kann die Eigenschaft immer noch aufgefüllt werden, wenn einige oder alle verwandten Entitäten zuvor geladen wurden.
+  Hinweis: EF Core korrigiert automatisch Navigationseigenschaften für alle anderen Entitäten, die zuvor in die Kontextinstanz geladen wurden. Auch wenn die Daten für eine Navigationseigenschaft *nicht* explizit eingeschlossen sind, kann die Eigenschaft immer noch aufgefüllt werden, wenn einige oder alle verwandten Entitäten zuvor geladen wurden.
 
 * [Explizites Laden](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Es muss Code geschrieben werden, um die verwandten Daten bei Bedarf abzurufen. Explizites Laden mit separaten Abfragen führt zu mehreren Abfragen, die an die Datenbank gesendet werden. Mit explizitem Laden gibt der Code die zu ladenden Navigationseigenschaften an. Verwenden Sie für explizites Laden die `Load`-Methode. Zum Beispiel:
 
- ![Beispiel für explizites Laden](read-related-data/_static/explicit-loading.png)
+  ![Beispiel für explizites Laden](read-related-data/_static/explicit-loading.png)
 
 * [Lazy Loading (verzögertes Laden)](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core unterstützt das Lazy Loading derzeit nicht](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, wird jedes Mal eine Abfrage an die Datenbank geschickt.
 
@@ -76,9 +76,9 @@ So zeigen Sie den Namen der zugewiesenen Abteilung in einer Kursliste an:
 * Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
 * Führen Sie den folgenden Befehl aus:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
+  ```
 
 Der vorherige Befehl erstellt ein Gerüst für das `Course`-Modell. Öffnen Sie das Projekt in Visual Studio.
 
@@ -97,7 +97,7 @@ Führen Sie die Anwendung aus, und klicken Sie auf den Link **Kurse**. Die Abtei
 
 Aktualisieren Sie die `OnGetAsync`-Methode mit folgendem Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
 Der vorangehende Code fügt `AsNoTracking` hinzu. `AsNoTracking` verbessert die Leistung, da die zurückgegebenen Entitäten nicht nachverfolgt werden. Die Entitäten werden nicht nachverfolgt, da sie nicht im aktuellen Kontext aktualisiert werden.
 
@@ -124,17 +124,17 @@ Führen Sie die Anwendung aus. Wählen Sie die Registerkarte **Kurse** aus, um d
 
 Die `OnGetAsync`-Methode lädt verwandte Daten mit der `Include`-Methode:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-Der `Select`-Operator lädt nur die erforderlichen verwandten Daten. Für die einzelnen Elemente wie `Department.Name` wird ein INNER JOIN von SQL verwendet. Für Sammlungen wird ein anderer Zugriff auf die Datenbank verwendet, aber Gleiches gilt für den `Include`- Operator für Sammlungen.
+Der `Select`-Operator lädt nur die erforderlichen verwandten Daten. Für die einzelnen Elemente wie `Department.Name` wird ein INNER JOIN von SQL verwendet. Für Sammlungen wird ein anderer Zugriff auf die Datenbank verwendet, aber Gleiches gilt für den `Include`-Operator für Sammlungen.
 
 Der folgende Code lädt verwandte Daten mit der `Select`-Methode:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 Die `CourseViewModel`:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
 Ein vollständiges Beispiel finden Sie unter [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) und [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs).
 
@@ -157,7 +157,7 @@ Die Dozentenseite zeigt Daten aus drei verschiedenen Tabellen. Es wird ein Ansic
 
 Erstellen Sie im Ordner *SchoolViewModels* die Datei *InstructorIndexData.cs* mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>Gerüstbau für das Dozentenmodell
 
@@ -165,9 +165,9 @@ Erstellen Sie im Ordner *SchoolViewModels* die Datei *InstructorIndexData.cs* mi
 * Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
 * Führen Sie den folgenden Befehl aus:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
+  ```
 
 Der vorherige Befehl erstellt ein Gerüst für das `Instructor`-Modell. Öffnen Sie das Projekt in Visual Studio.
 
@@ -179,13 +179,13 @@ Führen Sie die Anwendung aus, und navigieren Sie zur Dozentenseite.
 
 Ersetzen Sie *Pages/Instructors/Index.cshtml.cs* durch den folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 Die `OnGetAsync`-Methode akzeptiert optional Routendaten für die ID des ausgewählten Dozenten.
 
 Untersuchen Sie die Abfrage auf der Seite *Pages/Instructors/Index.cshtml*:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
 Die Abfrage enthält zwei Dinge:
 
@@ -201,7 +201,7 @@ Aktualisieren Sie *Pages/Instructors/Index.cshtml* mit folgendem Markup:
 
 Das oben stehende Markup führt die folgenden Änderungen durch:
 
-* Aktualisiert die `page`-Anweisung von `@page` auf `@page "{id:int?}"`. `"{id:int?}"` ist eine Routenvorlage. Die Routenvorlage ändert ganzzahlige Abfragezeichenfolgen in der URL in Routendaten. Klicken Sie beispielsweise auf den Link **Auswählen** für einen Dozenten, wenn die Seitenanweisung eine URL wie die folgende erzeugt:
+* Aktualisiert die `page`-Anweisung von `@page` auf `@page "{id:int?}"`. `"{id:int?}"` ist eine Routenvorlage. Die Routenvorlage ändert ganzzahlige Abfragezeichenfolgen in der URL in Routendaten. Klicken Sie beispielsweise auf den Link **Auswählen** für einen Dozenten, wenn nur die `@page`-Anweisung eine URL wie die folgende erzeugt:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -219,7 +219,7 @@ Das oben stehende Markup führt die folgenden Änderungen durch:
   }
   ```
 
-* Es wurde eine **Kurse**-Spalte hinzugefügt, die die Kurse eines jeden Dozenten anzeigt. Weitere Informationen zu dieser Razor-Syntax finden Sie unter [Explizite Zeilenübergänge mit `@:`](xref:mvc/views/razor#explicit-line-transition-with-).
+* Es wurde eine **Kurse**-Spalte hinzugefügt, die die Kurse eines jeden Dozenten anzeigt. Weitere Informationen über diese Razor-Syntax finden Sie unter [Explizite Zeilenübergänge mit `@:`](xref:mvc/views/razor#explicit-line-transition-with-).
 
 * Es wurde Code hinzugefügt, der `class="success"` dynamisch zum `tr`-Element des ausgewählten Dozenten hinzufügt. Hiermit wird eine Hintergrundfarbe mit einer Bootstrapklasse für die ausgewählte Zeile hinzugefügt.
 
@@ -248,17 +248,17 @@ Klicken Sie auf den Link **Auswählen**. Der Zeilenstil verändert sich.
 
 Aktualisieren Sie die `OnGetAsync`-Methode in *Pages/Instructors/Index.cshtml.cs* mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Überprüfen Sie die aktualisierte Abfrage:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 Die vorhergehende Abfrage fügt die `Department`-Entitäten hinzu.
 
 Der folgende Code wird ausgeführt, wenn ein Dozent ausgewählt wird (`id != null`). Der ausgewählte Dozent wird aus der Liste der Dozenten im Ansichtsmodell abgerufen. Die `Courses`-Eigenschaft des Ansichtsmodells wird mit den `Course`-Entitäten aus der `CourseAssignments`-Navigationseigenschaft dieses Dozenten geladen.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
 Die `Where`-Methode gibt eine Sammlung zurück. In der vorherigen `Where`-Methode wird nur eine einzige `Instructor`-Entität zurückgegeben. Die `Single`-Methode konvertiert die Sammlung in eine einzelne `Instructor`-Entität. Die `Instructor`-Entität ermöglicht Zugriff auf die `CourseAssignments`-Eigenschaft. `CourseAssignments` ermöglicht Zugriff auf die verwandten `Course`-Entitäten.
 
@@ -271,11 +271,11 @@ Die `Single`-Methode wird für eine Sammlung verwendet, wenn die Sammlung nur ei
 
 Wenn ein Kurs ausgewählt ist, füllt der folgende Code die `Enrollments`-Eigenschaft des Ansichtsmodells:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-Fügen Sie das folgende Markup zum Ende der Razor-Seite *Pages/Courses/Index.cshtml* hinzu:
+Fügen Sie das folgende Markup zum Ende der Razor Page *Pages/Courses/Index.cshtml* hinzu:
 
-[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-)]
+[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
 Das vorhergehende Markup zeigt eine Liste der Kurse eines bestimmten Dozenten an, wenn einer ausgewählt wird.
 
@@ -289,7 +289,7 @@ In diesem Abschnitt wird die Anwendung aktualisiert, um die Studentendaten für 
 
 Aktualisieren Sie die Abfrage in der `OnGetAsync`-Methode in *Pages/Instructors/Index.cshtml.cs* mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Aktualisieren Sie *Pages/Instructors/Index.cshtml*. Fügen Sie dem Dateiende das folgende Markup hinzu:
 
@@ -305,7 +305,7 @@ Aktualisieren Sie die Seite. Wählen Sie einen Dozenten aus. Wählen Sie einen K
 
 Die `Single`-Methode kann die `Where`-Bedingung übergehen, anstatt die `Where`-Methode separat aufzurufen:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
 Der vorangehende `Single`-Ansatz bietet keine Vorteile gegenüber `Where`. Einige Entwickler bevorzugen einfach den `Single`-Ansatz.
 
@@ -313,13 +313,13 @@ Der vorangehende `Single`-Ansatz bietet keine Vorteile gegenüber `Where`. Einig
 
 Der aktuelle Code gibt Eager Loading für `Enrollments` und `Students` an:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Angenommen, Benutzer möchten Registrierungen für einen Kurs nur selten anzeigen lassen. In diesem Fall wäre es eine Optimierung, die Registrierungsdaten nur dann zu laden, wenn diese angefordert werden. In diesem Abschnitt wird die `OnGetAsync` aktualisiert, um das explizite Laden von `Enrollments` und `Students` zu verwenden.
 
 Aktualisieren Sie `OnGetAsync` mit dem folgenden Code:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 Der vorangehende Code löscht die *ThenInclude*-Methodenaufrufe für Registrierung und Studentendaten. Wenn ein Kurs ausgewählt ist, ruft der hervorgehobene Code Folgendes ab:
 
