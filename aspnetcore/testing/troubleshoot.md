@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3bba085c69ee96b5725331b14dcf15350d66e4a4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Problembehandlung bei ASP.NET Core-Projekten
 
@@ -66,3 +66,15 @@ Diese Warnung wird angezeigt, wenn die Umgebungsvariable `PATH` zeigt nicht auf 
 
 * Installieren, oder stellen Sie sicher, dass die .NET Core SDK installiert ist.
 * Überprüfen Sie die `PATH` -Umgebungsvariable zeigt auf den Speicherort, die das SDK installiert ist. Normalerweise legt der Installer die `PATH`.
+
+::: moniker range=">= aspnetcore-2.1"
+
+### <a name="use-of-ihtmlhelperpartial-may-result-in-application-deadlocks"></a>Verwendung von IHtmlHelper.Partial möglicherweise zu anwendungsdeadlocks führen.
+
+In ASP.NET Core 2.1 und höher Aufrufen `Html.Partial` führt zu einer Warnung Analyzer aufgrund der Möglichkeit von Deadlocks. Die Warnung angezeigt wird:
+
+*Verwendung von IHtmlHelper.Partial kann in der anwendungsdeadlocks führen. Erwägen Sie `<partial>` Tag Helper oder `IHtmlHelper.PartialAsync`.*
+
+Aufrufe von `@Html.Partial` ersetzt werden sollte, indem `@await Html.PartialAsync` oder das Hilfsprogramm writeid `<partial name="_Partial" />`.
+
+::: moniker-end
