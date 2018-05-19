@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -155,7 +155,7 @@ Weitere Informationen finden Sie im Artikel zu [statischen Dateien](xref:fundame
 
 ASP.NET Core-Apps konfigurieren und starten einen *Host*, der für das Starten der App und das Verwalten deren Lebensdauer verantwortlich ist.
 
-Weitere Informationen finden Sie unter [Hosting](xref:fundamentals/hosting).
+Weitere Informationen finden Sie unter [Hosten in ASP.NET Core](xref:fundamentals/host/index).
 
 ## <a name="session-and-application-state"></a>Sitzungs- und Anwendungszustand
 
@@ -189,7 +189,7 @@ Weitere Informationen finden Sie unter [Request Features (Anforderungsfeatures)]
 
 Hintergrundaufgaben werden als *gehostete Dienste* implementiert. Ein gehosteter Dienst ist eine Klasse mit Logik für Hintergrundaufgaben, die die Schnittstelle [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) implementiert.
 
-Weitere Informationen finden Sie unter [Hintergrundaufgaben mit gehosteten Diensten](xref:fundamentals/hosted-services).
+Weitere Informationen finden Sie unter [Hintergrundaufgaben mit gehosteten Diensten](xref:fundamentals/host/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 

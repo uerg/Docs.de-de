@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: afff36ffc232b00389c52d9e751ae398555c9656
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -478,6 +478,6 @@ In einer MVC-Ansicht:
 * [Optionen](xref:fundamentals/configuration/options)
 * [Verwenden mehrerer Umgebungen](xref:fundamentals/environments)
 * [Sicheres Speichern geheimer App-Schlüssel in der Entwicklung](xref:security/app-secrets)
-* [Einrichten eines Hosts](xref:fundamentals/hosting)
+* [Hosten in ASP.NET Core](xref:fundamentals/host/index)
 * [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection)
 * [Azure Key Vault-Konfigurationsanbieter](xref:security/key-vault-configuration)
