@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 88b4ee9a963543f8cc97cb66271628a14fe657de
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Sichere Speicherung von geheime app-Schlüssel in der Entwicklung in ASP.NET Core
 
@@ -55,8 +55,25 @@ Das Schlüssel-Manager-Tool speichert vertrauliche Daten während der Entwicklun
 
 Das Schlüssel-Manager-Tool abstrahiert die Implementierungsdetails, z. B., wo und wie die Werte gespeichert werden. Sie können das Tool verwenden, ohne diese Implementierungsdetails. Die Werte werden gespeichert, einem [JSON](https://json.org/) Konfigurationsdatei in einem System geschütztem Benutzerprofilordner auf dem lokalen Computer:
 
-* Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
-* Linux & MacOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+-Pfad:
+
+`%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+-Pfad:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+-Pfad:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+---
 
 Klicken Sie in den vorherigen Dateipfade, ersetzen Sie `<user_secrets_id>` mit der `UserSecretsId` Wert in der *csproj* Datei.
 
@@ -133,17 +150,33 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp
 
 ## <a name="set-multiple-secrets"></a>Legen Sie mehrere geheime Schlüssel
 
-Ein Batch von geheimen Schlüsseln kann festgelegt werden, indem piping JSON in der `set` Befehl. Im folgenden Beispiel die *input.json* Dateiinhalt sind über die Pipeline an das `set` Befehl unter Windows:
+Ein Batch von geheimen Schlüsseln kann festgelegt werden, indem piping JSON in der `set` Befehl. Im folgenden Beispiel die *input.json* Dateiinhalt sind über die Pipeline an das `set` Befehl.
 
-```console
-type .\input.json | dotnet user-secrets set
-```
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-Verwenden Sie den folgenden Befehl auf MacOS und Linux:
+Öffnen Sie eine Befehlsshell, und führen Sie den folgenden Befehl aus:
 
-```console
-cat ./input.json | dotnet user-secrets set
-```
+  ```console
+  type .\input.json | dotnet user-secrets set
+  ```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Öffnen Sie eine Befehlsshell, und führen Sie den folgenden Befehl aus:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Öffnen Sie eine Befehlsshell, und führen Sie den folgenden Befehl aus:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+---
 
 ## <a name="access-a-secret"></a>Zugriff auf einen geheimen Schlüssel
 

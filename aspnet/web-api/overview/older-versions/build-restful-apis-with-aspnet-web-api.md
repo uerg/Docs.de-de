@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: cb02288e93be801a1e55852741ed1443d8d3617d
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Erstellen von RESTful-APIs mit ASP.NET Web-API
 ====================
@@ -113,7 +113,7 @@ In dieser Aufgabe erstellen Sie die Controllerklassen in denen API-Methoden gesp
     *Hinzufügen eines neuen Controllers zum Projekt*
 3. In der **Controller hinzufügen** Dialogfeld, das angezeigt wird, wählen Sie **leerer API-Controller** aus dem Menü Vorlage. Benennen Sie die Controllerklasse **ContactController**. Klicken Sie auf **hinzufügen.**
 
-    ![Verwenden das Dialogfeld "Controller hinzufügen" zum Erstellen eines neuen Web-API-Controllers](build-restful-apis-with-aspnet-web-api/_static/image4.png "verwenden das Dialogfeld "Controller hinzufügen" zum Erstellen eines neuen Web-API-Controllers")
+    ![Verwenden das Dialogfeld "Controller hinzufügen" zum Erstellen eines neuen Web-API-Controllers](build-restful-apis-with-aspnet-web-api/_static/image4.png "verwenden das Dialogfeld \"Controller hinzufügen\" zum Erstellen eines neuen Web-API-Controllers")
 
     *Verwenden das Dialogfeld "Controller hinzufügen" zum Erstellen eines neuen Web-API-Controllers*
 4. Fügen Sie folgenden Code, der **ContactController**.
@@ -128,7 +128,7 @@ In dieser Aufgabe erstellen Sie die Controllerklassen in denen API-Methoden gesp
     *Die Standardstartseite einer ASP.NET Web-API-Anwendung*
 6. Drücken Sie in Internet Explorer-Fenster die **F12** Schlüssel zum Öffnen der **Entwicklertools** Fenster. Klicken Sie auf die **Netzwerk** Registerkarte, und klicken Sie dann auf die **starten erfassen** zu beginnen, Erfassen von Netzwerkdatenverkehr in das Fenster.
 
-    ![Öffnen die Registerkarte "Netzwerk" und das Initiieren von netzwerkerfassung](build-restful-apis-with-aspnet-web-api/_static/image6.png "öffnen die Registerkarte "Netzwerk" und das Initiieren von netzwerkerfassung")
+    ![Öffnen die Registerkarte "Netzwerk" und das Initiieren von netzwerkerfassung](build-restful-apis-with-aspnet-web-api/_static/image6.png "öffnen die Registerkarte \"Netzwerk\" und das Initiieren von netzwerkerfassung")
 
     *Öffnen die Registerkarte "Netzwerk" und das Initiieren von netzwerkerfassung*
 7. Fügen Sie die URL in die Adressleiste des Browsers, mit **/api/Kontakte** und drücken Sie die EINGABETASTE. Die Übertragung wird im Fenster erfassen Netzwerks angezeigt werden. Beachten Sie, dass die Antwort MIME-Typ **Application/Json**. Dies zeigt, wie das Standardausgabeformat JSON ist.
@@ -171,10 +171,7 @@ In dieser Aufgabe erstellen Sie die Controllerklassen in denen API-Methoden gesp
 
     (Codeausschnitt - *Web-API-Lab - Ex01 - Kontakt Klasse*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
 4. In der **ContactController** Klasse, wählen Sie das Wort **Zeichenfolge** in der Definition des der **abrufen** -Methode, und geben Sie das Wort *Kontakt*. Sobald das Wort im eingegeben wurde, erscheint ein Indikator am Anfang des Worts **Kontakt**. Entweder halten Sie die **STRG** -Taste und drücken Sie die Taste Punkt (.) oder klicken Sie auf das Symbol mit der Maus, um das Dialogfeld "Hilfe" im Code-Editor automatisch ausfüllen zu öffnen die **mit** Richtlinie für die Modelle Namespace.
 
     ![Verwenden von Intellisense-Unterstützung für Namespacedeklarationen](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -207,12 +204,12 @@ Diese Aufgabe zeigen, wie Funktionen in einer Dienstebene zu erleichtern Entwick
 
 1. Erstellen Sie einen neuen Ordner im Projektmappen-Stammverzeichnis und nennen sie **Services**. Zu diesem Zweck Maustaste **ContactManager** -Projekt, wählen **hinzufügen** | **neuer Ordner**, nennen Sie sie *Services*.
 
-    ![Erstellen der Ordner "Dienste"](build-restful-apis-with-aspnet-web-api/_static/image14.png "Ordner "Dienste erstellen"")
+    ![Erstellen der Ordner "Dienste"](build-restful-apis-with-aspnet-web-api/_static/image14.png "Ordner \"Dienste erstellen\"")
 
     *Erstellen Ordner "Dienste"*
 2. Mit der rechten Maustaste die **Services** Ordner, und wählen **hinzufügen | Klasse...**  aus dem Kontextmenü.
 
-    ![Eine neue Klasse hinzufügen, um den Ordner "Dienste"](build-restful-apis-with-aspnet-web-api/_static/image15.png "eine neue Klasse hinzufügen, um den Ordner "Dienste"")
+    ![Eine neue Klasse hinzufügen, um den Ordner "Dienste"](build-restful-apis-with-aspnet-web-api/_static/image15.png "eine neue Klasse hinzufügen, um den Ordner \"Dienste\"")
 
     *Eine neue Klasse hinzufügen, um den Ordner "Dienste"*
 3. Wenn die **neues Element hinzufügen** Dialogfeld angezeigt wird, benennen Sie die neue Klasse **ContactRepository** , und klicken Sie auf **hinzufügen**.
@@ -222,10 +219,7 @@ Diese Aufgabe zeigen, wie Funktionen in einer Dienstebene zu erleichtern Entwick
     *Erstellen eine Klassendatei, um den Code für die Dienstebene Kontakt Repository enthalten*
 4. Fügen Sie eine using-Direktive hinzu der **ContactRepository.cs** Datei, die den Modellen-Namespace enthalten.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
 5. Fügen Sie den folgenden hervorgehobenen Code in die **ContactRepository.cs** Datei GetAllContacts Methode implementiert.
 
     (Codeausschnitt - *Web-API-Lab - Ex01 - Kontaktrepository*)
@@ -234,10 +228,7 @@ Diese Aufgabe zeigen, wie Funktionen in einer Dienstebene zu erleichtern Entwick
 6. Öffnen Sie die **ContactController.cs** Datei, sofern dieser nicht bereits geöffnet ist.
 7. Fügen Sie die folgende Anweisung verwenden, mit dem Namespace-Deklaration-Abschnitt der Datei.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
 8. Fügen Sie den folgenden hervorgehobenen Code in die **ContactController.cs** Klasse, um ein privates Feld für die Darstellung der Instanz des Repositorys, hinzuzufügen, sodass der Rest der Klasse, die Mitglieder ausführen können mithilfe der dienstimplementierung.
 
     (Codeausschnitt - *Web-API-Lab - Ex01 - Kontakt Controller*)
@@ -272,7 +263,7 @@ Diese Aufgabe zeigen, wie Funktionen in einer Dienstebene zu erleichtern Entwick
 19. Klicken Sie auf die **wechseln Sie zur detaillierten Ansicht** Schaltfläche.
 20. Klicken Sie auf die **Antworttext** Registerkarte. Beachten Sie die JSON-Ausgabe der API-Aufruf, und wie die beiden Kontakte abgerufen, indem die Dienstebene dar.
 
-    ![Anzeigen von JSON-Ausgabe aus der Web-API in das Fenster "Developer"](build-restful-apis-with-aspnet-web-api/_static/image20.png "die JSON-Ausgabe aus der Web-API in das Fenster "Developer" anzeigen")
+    ![Anzeigen von JSON-Ausgabe aus der Web-API in das Fenster "Developer"](build-restful-apis-with-aspnet-web-api/_static/image20.png "die JSON-Ausgabe aus der Web-API in das Fenster \"Developer\" anzeigen")
 
     *Die JSON-Ausgabe aus der Web-API anzeigen in das Fenster "Developer"*
 
@@ -356,16 +347,10 @@ In dieser Aufgabe ändern Sie die Standardansicht des Index der Webanwendung, di
 3. Öffnen der **Index.cshtml** Datei **Ansichten/Start** Ordner.
 4. Ersetzen Sie den HTML-Code innerhalb des Div-Elements mit der Id **Text** , damit sie den folgenden Code ähnelt.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
 5. Fügen Sie den folgenden Javascript-Code am Ende der Datei zum Ausführen der HTTP-Anforderung an die Web-API.
 
-
-~~~
-[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
 6. Öffnen Sie die **ContactController.cs** Datei, sofern dieser nicht bereits geöffnet ist.
 7. Fügen Sie einen Haltepunkt auf der **abrufen** Methode der **ContactController** Klasse.
 
@@ -400,17 +385,11 @@ In dieser Aufgabe werden Sie weiterhin die Indexansicht MVC-Anwendung zu ändern
 
     (Codeausschnitt - *Web-API-Lab - Ex03 - Post-Methode*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
 3. Öffnen Sie die **Index.cshtml** Datei in Visual Studio, wenn er nicht bereits geöffnet ist.
 4. Fügen Sie den folgenden HTML-Code in die Datei direkt hinter dem ungeordnete Liste, die Sie in der vorherigen Aufgabe hinzugefügt.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
 5. Fügen Sie in das Script-Element am unteren Rand des Dokuments um Schaltfläche – Click-Ereignisse zu behandeln, die die Daten an die Web-API bereitstellen werden, über eine HTTP POST-Aufruf die folgenden hervorgehobenen Code hinzu.
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]

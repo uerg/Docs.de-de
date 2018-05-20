@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7887d81366cc166ad89308b22ad7cc6af0263111
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC-Ressourcen empfohlen
 ====================
@@ -42,7 +42,6 @@ durch [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="new-featured-content"></a>Neue ausgewählte Inhalte
 
 - [Auswählen von Kulturen für die Lokalisierung in ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [Schachtelung Layouts in MVC](http://astutelogic.com/nesting-layouts-in-mvc/) von Peter Waite
 - [Erstellen Sie eine ASP.NET MVC 5-App mit Facebook und Google "oauth2" anmelden](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Grundlegendes zu ASP.NET MVC-Filter und Attribute](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Lebenszyklus einer ASP.NET MVC 5-Anwendung](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
@@ -325,7 +324,7 @@ durch [Rick Anderson](https://github.com/Rick-Anderson)
 - [Testen von ASP.NET MVC-Ansichten von Neues Projekt mit dem Build-Server](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (video)
 - [Schnellstart: Testgesteuerte Entwicklung](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(video)
 - [Testen von ASP.NET MVC Driving](https://channel9.msdn.com/Events/aspConf/aspConf/Test-Driving-ASP-NET-MVC) (video)
-- [Integrationstests im Hinblick SpecsFor.Mvc – ASP.NET MVC-Tests auf Sofortkommunikation!](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (video)
+- [Integrationstests im Hinblick SpecsFor.Mvc – ASP.NET MVC-Tests auf Sofortkommunikation!](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (Video)
 - [Erstellen von testbaren Anwendungen Einheit in ASP.NET MVC - Lernprogramm für Anfänger](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [Exemplarische Vorgehensweise: Verwenden der testgesteuerten Entwicklung mit ASP.NET MVC](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx) (MVC 3)
 - [Freigeben von SocialGoal - Verweis-Web-App für ASP.NET MVC 5, EF 6 Code First, AutoMapper, Autofac, TDD und DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)

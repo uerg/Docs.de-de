@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d44a8f607df3a45ef312820f85f269c7a2c9c1e
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Erstellen einer einfachen ASP.NET Forms 4.5 Web Seite in Visual Studio 2013
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 In dieser exemplarischen Vorgehensweise bietet Ihnen eine Einführung in die Web-Entwicklungsumgebung in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) und [Microsoft Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). Diese exemplarische Vorgehensweise führt Sie durch Erstellen einer einfachen ASP.NET Web Forms-Seite und veranschaulicht die grundlegenden Techniken zum Erstellen einer neuen Seite, Hinzufügen von Steuerelementen und Code schreiben.
 
@@ -95,13 +95,13 @@ Bevor Sie fortfahren, indem Sie die Seite ändern, ist es hilfreich, sich mit de
 - **Eigenschaften** Fenster. Können Sie Einstellungen für die Seite, HTML-Elemente, Steuerelemente und andere Objekte zu ändern.
 - Anzeigen von Registerkarten. Stellen Sie mit anderen Ansichten des gleichen Dokuments. **Entwurf** Ansicht ist eine WYSIWYG Bearbeitungsoberfläche. **Quelle** ist der HTML-Editor für die Seite. **Split** zeigt sowohl den **Entwurf** anzeigen und die **Quelle** Ansicht für das Dokument. Arbeiten Sie mit der **Entwurf** und **Quelle** Ansichten weiter unten in dieser exemplarischen Vorgehensweise. Wenn Sie es vorziehen, Öffnen von Webseiten in **Entwurf** anzuzeigen, die **Tools** im Menü klicken Sie auf **Optionen**, wählen die **HTML-Designer** Knoten, und Ändern der **Seiten starten In** Option.
 - **ToolBox**. Stellt Steuerelemente und HTML-Elemente, die Sie auf der Seite ziehen können. **Toolbox** durch common-Funktion die Elemente gruppiert sind.
-- S **erver Explorer**. Zeigt die Verbindungen mit der Datenbank. Wenn Server-Explorer nicht sichtbar ist, klicken Sie im Menü Ansicht auf Server-Explorer.
+- S **Erver Explorer**. Zeigt die Verbindungen mit der Datenbank. Wenn Server-Explorer nicht sichtbar ist, klicken Sie im Menü Ansicht auf Server-Explorer.
 
 
 ### <a name="creating-a-new-aspnet-web-forms-page"></a>Erstellen einer neuen ASP.NET Web Forms-Seite
 
 
-Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"*sowie mehrere andere Dateien und Ordner ab. Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung. Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.
+Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"* sowie mehrere andere Dateien und Ordner ab. Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung. Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Die Webanwendung eine Seite hinzu
 
@@ -315,15 +315,12 @@ In diesem Abschnitt programmieren Sie die [Kalender](https://msdn.microsoft.com/
     Ein neuen Ereignishandler erstellt und angezeigt, in der Code-Behind-Datei mit dem Namen *FirstWebPage.aspx.cs*.
 2. Fertig stellen die [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) -Ereignishandler durch den folgenden Code.
 
-
-~~~
-[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
-~~~
+    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 
- Der obige Code wird der Text des Label-Steuerelements auf das ausgewählte Datum Rand des Kalendersteuerelements an.
+    Der obige Code wird der Text des Label-Steuerelements auf das ausgewählte Datum Rand des Kalendersteuerelements an.
 
 
 ### <a name="running-the-page"></a>Ausführen der Seite

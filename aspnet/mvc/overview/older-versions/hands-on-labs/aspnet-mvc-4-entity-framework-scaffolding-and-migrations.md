@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 42a12ee39223a06054382dbe9b4784196a706216
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework Gerüstbau und Migrationen
 
@@ -108,10 +108,7 @@ In dieser Übung erfahren Sie, wie mit ASP.NET MVC 4-Gerüstbau mit Code zuerst 
 
     (Codeausschnitt - *ASP.NET MVC 4 und Entity Framework Migrationen - Ex1 Person Eigenschaften*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
 6. Klicken Sie auf **erstellen | Projektmappe** zum Speichern der Änderungen, und erstellen Sie das Projekt.
 
     ![Erstellen der Anwendung](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "Erstellen der Anwendung")
@@ -196,16 +193,10 @@ In dieser Aufgabe aktualisieren Sie die Datenbank mithilfe von Entity Framework 
     *Ordner*
 3. Öffnen der **"Configuration.cs"** -Datei in den Ordner. Suchen Sie den Klassenkonstruktor, und Ändern der **AutomaticMigrationsEnabled** Wert *"true"*.
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
 4. Öffnen Sie die Person-Klasse, und fügen Sie ein Attribut für den Vornamen der Person. Mit diesem neuen Attribut ändern Sie das Modell.
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
 5. Wählen Sie **erstellen | Projektmappe** auf das Menü zum Erstellen der Anwendung.
 
     ![Erstellen der Anwendung](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "Erstellen der Anwendung")
