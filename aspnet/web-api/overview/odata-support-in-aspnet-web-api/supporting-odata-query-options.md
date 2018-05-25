@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: "Unterstützung von OData-, in der ASP.NET Web API 2 Abfrageoptionen | Microsoft Docs"
+title: Unterstützung von OData-, in der ASP.NET Web API 2 Abfrageoptionen | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/04/2013
@@ -26,7 +26,7 @@ OData definiert die Parameter, die zum Ändern einer OData-Abfrage verwendet wer
 
 `http://localhost/Products?$orderby=Name`
 
-Die OData-Spezifikation ruft diese Parameter *Abfrageoptionen*. Sie können OData-Abfrageoptionen für alle Web-API-Controller in Ihrem Projekt &#8212;aktivieren. der Controller muss kein OData-Endpunkt sein. Dies bietet Ihnen eine einfache Möglichkeit zum Hinzufügen von Features wie z. B. Filter- und Sortiereigenschaften für jede Web-API-Anwendung.
+Die OData-Spezifikation ruft diese Parameter *Abfrageoptionen*. Sie können OData-Abfrageoptionen für alle Web-API-Controller in Ihrem Projekt & #8212 aktivieren. der Controller muss kein OData-Endpunkt sein. Dies bietet Ihnen eine einfache Möglichkeit zum Hinzufügen von Features wie z. B. Filter- und Sortiereigenschaften für jede Web-API-Anwendung.
 
 Vor der Aktivierung von Abfrageoptionen, lesen Sie bitte das Thema [OData-Sicherheitsrichtlinien](odata-security-guidance.md).
 

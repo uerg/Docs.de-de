@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)
 
@@ -58,7 +58,7 @@ Die erste Zeile gibt an, dass wenn `sortOrder` NULL oder leer ist, `NameSort` au
 
 `?: operator` ist auch als ternärer Operator bekannt.
 
-Durch diese beiden Anweisungen können in der Ansicht die Hyperlinks in den Spaltenüberschriften wie folgt festgelegt werden:
+Durch diese beiden Anweisungen können auf der Seite die Hyperlinks in den Spaltenüberschriften wie folgt festgelegt werden:
 
 | Aktuelle Sortierreihenfolge | Hyperlink „Nachname“ | Hyperlink „Datum“ |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ Die Methode gibt über LINQ to Entities die Spalte an, nach der sortiert werden 
 
 `OnGetAsync` könnte mit einer Vielzahl von Spalten ausführlich werden.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Hinzufügen von Hyperlinks in Spaltenüberschriften zur Studentenindexansicht
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Hinzufügen von Hyperlinks auf Spaltenüberschriften zur Studentenindexseite
 
 Ersetzen Sie den Code in *Students/Index.cshtml* durch folgenden hervorgehobenen Code:
 
@@ -133,9 +133,9 @@ Der vorangehende Code würde sicherstellen, dass die Groß-/Kleinschreibung bei 
 
 Beim Aufrufen von `ToUpper` kommt es zu Leistungseinbußen. Der `ToUpper`-Code in der WHERE-Klausel der TSQL SELECT-Anweisung eine Funktion hinzu. Durch die hinzugefügte Funktion wird verhindert, dass der Optimierer einen Index verwendet. Da in SQL die Groß-/Kleinschreibung beachtet wird, sollte `ToUpper` möglichst nicht aufgerufen werden, wenn dies nicht notwendig ist.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Hinzufügen eines Suchfelds zur Studentenindexansicht
+### <a name="add-a-search-box-to-the-student-index-page"></a>Hinzufügen eines Suchfelds zur Studentenindexseite
 
-Fügen Sie folgenden hervorgehobenen Code in *Views/Student/Index.cshtml* hinzu, um die Schaltfläche **Suchen** und sortiertes Chrom zu erstellen.
+Fügen Sie folgenden hervorgehobenen Code zu *Pages/Students/Index.cshtml* hinzu, um die Schaltfläche **Suchen** und sortiertes Chrom zu erstellen.
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -267,7 +267,7 @@ Hinweis: Der LINQ-Befehl `group` wird derzeit nicht von EF Core unterstützt. Im
 
 ### <a name="modify-the-about-razor-page"></a>Ändern der Razor Page „Info“
 
-Ersetzen Sie den Code in der Datei *Views/Home/About.cshtml* durch den folgenden Code:
+Ersetzen Sie den Code in der Datei *Pages/About.cshtml* durch den folgenden Code:
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

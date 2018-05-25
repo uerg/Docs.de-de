@@ -90,7 +90,7 @@ Starten Sie Visual Studio 2013 wählen **neues Projekt** von der Startseite. Ode
 
 [![](external-authentication-services/_static/image6.png "Klicken Sie hier, um das Bild zu erweitern.")](external-authentication-services/_static/image5.png)
 
-Wenn die **neues Projekt** im Dialogfeld angezeigt wird, wählen Sie **installiert** **Vorlagen** und erweitern Sie **Visual C#-**. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**. Geben Sie einen Namen für das Projekt, und klicken Sie auf **OK**.
+Wenn die **neues Projekt** im Dialogfeld angezeigt wird, wählen Sie **installiert** **Vorlagen** und erweitern Sie **Visual C#-**. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET-Webanwendung**. Geben Sie einen Namen für das Projekt, und klicken Sie auf **OK**.
 
 [![](external-authentication-services/_static/image8.png "Klicken Sie hier, um das Bild zu erweitern.")](external-authentication-services/_static/image7.png)
 

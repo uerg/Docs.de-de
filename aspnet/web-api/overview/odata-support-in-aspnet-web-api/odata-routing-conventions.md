@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 title: Routingkonventionen in der ASP.NET Web API 2 Odata | Microsoft Docs
 author: MikeWasson
-description: "Dieser Artikel beschreibt die routingkonventionen, die Web-API für OData-Endpunkte verwendet."
+description: Dieser Artikel beschreibt die routingkonventionen, die Web-API für OData-Endpunkte verwendet.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/31/2013
@@ -147,7 +147,7 @@ Die integrierten Konventionen behandelt derzeit nicht alle möglichen OData-URIs
 
 Für beide Methoden Wenn die Konvention nicht für diese Anforderung gelten sollte die Methode null zurück.
 
-Die **OData-Pfad** Parameter darstellt, die analysierten OData Ressourcenpfad. Er enthält eine Liste von  **[OData-Pfadsegment dar](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  -Instanzen und eine für jedes Segment der Pfad der Ressource. **OData-Pfadsegment dar** ist eine abstrakte Klasse; jedes Segment-Typ wird durch eine Klasse, die abgeleitet dargestellt **OData-Pfadsegment dar**.
+Die **OData-Pfad** Parameter darstellt, die analysierten OData Ressourcenpfad. Er enthält eine Liste von **[OData-Pfadsegment dar](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** -Instanzen und eine für jedes Segment der Pfad der Ressource. **OData-Pfadsegment dar** ist eine abstrakte Klasse; jedes Segment-Typ wird durch eine Klasse, die abgeleitet dargestellt **OData-Pfadsegment dar**.
 
 Die **ODataPath.TemplatePath** -Eigenschaft ist eine Zeichenfolge, die die Verkettung darstellt aller Pfadsegmente. Wenn der URI ist z. B. `/Products(1)/Supplier`, ist die pfadvorlage &quot;~/entityset/key/navigation&quot;. Beachten Sie, dass die Segmente direkt URI-Segmenten entsprechen nicht. Der Entitätsschlüssel (1) wird beispielsweise dargestellt, als eigene **OData-Pfadsegment dar**.
 
@@ -169,7 +169,7 @@ Notizen:
 
 1. Ich abgeleitet **EntitySetRoutingConvention**, da die **SelectController** Methode in dieser Klasse eignet sich für dieses neue routing-Konvention. Das bedeutet, dass ich möchte nicht erneut implementieren **SelectController**.
 2. Die Konvention gilt nur für die GET-Anforderungen, und nur, wenn die pfadvorlage ist &quot;~/entityset/key/navigation/key&quot;.
-3. Der Aktionsname ist &quot;abrufen {EntityType}&quot;, wobei *{EntityType}* ist der Typ der Navigation-Auflistung. Beispielsweise &quot;GetSupplier&quot;. Sie können eine Benennungskonvention, die Ihnen gefällt &#8212; Achten Sie einfach Ihre Controlleraktionen übereinstimmen.
+3. Der Aktionsname ist &quot;abrufen {EntityType}&quot;, wobei *{EntityType}* ist der Typ der Navigation-Auflistung. Beispielsweise &quot;GetSupplier&quot;. Sie können eine Benennungskonvention, die Ihnen gefällt & #8212; Achten Sie einfach Ihre Controlleraktionen übereinstimmen.
 4. Die Aktion akzeptiert zwei Parameter, die mit dem Namen *Schlüssel* und *RelatedKey*. (Eine Liste der einige vordefinierte Parameternamen, finden Sie unter [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Der nächste Schritt besteht darin, die Liste der routingkonventionen neue Konvention hinzuzufügen. Dies geschieht bei der Konfiguration, wie im folgenden Code gezeigt:

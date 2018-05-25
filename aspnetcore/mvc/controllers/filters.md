@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 24e754daa68d5247fa444e87ba733891c908d32c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="filters-in-aspnet-core"></a>Filter in ASP.NET Core
 
@@ -22,7 +22,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 In ASP.Net Core MVC ermöglichen *Filter* Ihnen, Code vor oder nach bestimmten Stufen der Anforderungsverarbeitungspipeline auszuführen.
 
 > [!IMPORTANT]
-> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In der Vorschauversion von ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filter methods for Razor Pages (Filtermethoden für Razor-Seiten)](xref:mvc/razor-pages/filter).
+> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filter methods for Razor Pages (Filtermethoden für Razor-Seiten)](xref:mvc/razor-pages/filter).
 
  Integrierte Filter sind für folgende Aufgaben zuständig:
  
@@ -181,7 +181,7 @@ Sie können die Filterpipeline jederzeit kurzschließen, indem Sie die Eigenscha
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
-Im folgenden Code verwenden sowohl der Filter `ShortCircuitingResourceFilter` und der Filter `AddHeader` die Aktionsmethode `SomeResource` als Ziel. Für `ShortCircuitingResourceFilter` gilt Folgendes:
+Im folgenden Code verwenden sowohl der Filter `ShortCircuitingResourceFilter` und der Filter `AddHeader` die Aktionsmethode `SomeResource` als Ziel. Die `ShortCircuitingResourceFilter`:
 
 * Der Filter wird zuerst ausgeführt, da es sich um einen Ressourcenfilter handelt und `AddHeader` ein Aktionsfilter ist.
 * Der Filter unterbricht alle verbleibenden Pipelineschritte.
@@ -259,7 +259,7 @@ Sie sollten innerhalb von Autorisierungsfiltern keine Ausnahmen auslösen, da di
 
 Weitere Informationen finden Sie unter [Autorisierung](../../security/authorization/index.md).
 
-## <a name="resource-filters"></a>Für Ressourcenfilter gilt Folgendes:
+## <a name="resource-filters"></a>Ressourcenfilter
 
 * Sie implementieren entweder die Schnittstelle `IResourceFilter` oder `IAsyncResourceFilter`.
 * Ihre Ausführung umschließt die meisten Pipelineschritte. 
@@ -341,7 +341,7 @@ Sie sollten bei der Ausnahmebehandlung vorzugsweise Middleware verwenden. Verwen
 
 `ExceptionFilterAttribute` kann als Unterklasse verwendet werden. 
 
-## <a name="result-filters"></a>Für Ergebnisfilter gilt:
+## <a name="result-filters"></a>Ergebnisfilter
 
 * Sie implementieren entweder die Schnittstelle `IResultFilter` oder `IAsyncResultFilter`.
 * Ihre Ausführung umfasst die Ausführung von Aktionsergebnissen. 

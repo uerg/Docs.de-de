@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten in ASP.NET Core MVC
 
@@ -21,7 +21,7 @@ Von [Steve Smith](https://ardalis.com/) und [Luke Latham](https://github.com/gua
 
 In diesem Artikel werden die Ansichten erläutert, die in ASP.NET Core MVC-Anwendungen verwendet werden. Informationen zu Razor Pages finden Sie unter [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index).
 
-Im Muster **M**odel-**V**iew-**C**ontroller (MVC) verarbeitet die *Ansicht* die Darstellung der App-Daten und der Benutzerinteraktion. Bei einer Ansicht handelt es sich um eine HTML-Vorlage mit eingebettetem [Razor-Markup](xref:mvc/views/razor). Bei einem Razor-Markup handelt es sich um Code, der mit einem HTML-Markup interagiert, um eine Webseite herzustellen, die an den Client gesendet wird.
+Im Muster Model-View-Controller (MVC) verarbeitet die *Ansicht* die Darstellung der App-Daten und der Benutzerinteraktion. Bei einer Ansicht handelt es sich um eine HTML-Vorlage mit eingebettetem [Razor-Markup](xref:mvc/views/razor). Bei einem Razor-Markup handelt es sich um Code, der mit einem HTML-Markup interagiert, um eine Webseite herzustellen, die an den Client gesendet wird.
 
 In ASP.NET Core MVC sind Ansichten *.cshtml*-Dateien, die die [Programmiersprache C#](/dotnet/csharp/) im Razor-Markup verwenden. In der Regel werden Ansichtsdateien in Ordnern gruppiert, die für jeden [Controller](xref:mvc/controllers/actions) der App benannt werden. Die Ordner werden in *Ansichten*-Ordnern im Stammverzeichnis der App gespeichert:
 
@@ -37,7 +37,7 @@ Verwenden Sie [Layouts](xref:mvc/views/layout), damit die Abschnitte der Webseit
 
 ## <a name="benefits-of-using-views"></a>Vorteile der Verwendung von Ansichten
 
-Über Ansichten kann in einer MVC-App ein [**S**eparation **o**f **C**oncerns-Design](http://deviq.com/separation-of-concerns/) (SoC) erstellt werden, indem das Markup der Benutzeroberfläche von anderen Bestandteilen der App getrennt wird. Das SoC-Design macht Ihre App modularer. Dies hat folgende Vorteile:
+Über Ansichten kann in einer MVC-App ein [Separation of Concerns-Design (SoC)](http://deviq.com/separation-of-concerns/) erstellt werden, indem das Markup der Benutzeroberfläche von anderen Bestandteilen der App getrennt wird. Das SoC-Design macht Ihre App modularer. Dies hat folgende Vorteile:
 
 * Die App kann einfacher verwaltet werden, da sie besser organisiert ist. Ansichten werden in der Regel nach App-Features gruppiert. Dadurch können Sie zugehörige Ansichten leichter finden, wenn Sie an einem Feature arbeiten.
 * Die Bestandteile der App sind lose miteinander verknüpft. Sie können die Ansichten der App getrennt von der Geschäftslogik und den Datenzugriffskomponenten erstellen und aktualisieren. Sie können die Ansichten der App verändern, müssen dafür aber nicht unbedingt andere Bestandteile der App aktualisieren.
@@ -123,7 +123,16 @@ Halten Sie sich an die bewährten Methoden zum Organisieren der Dateistruktur Ih
 
 ## <a name="passing-data-to-views"></a>Übergeben von Daten an Ansichten
 
-Sie können Daten über verschiedene Ansätze an Ansichten übergeben. Wenn Sie Stabilität wünschen, sollten Sie einen [Modell](xref:mvc/models/model-binding)-Typen in der Ansicht angeben. Das Modell wird häufig als *Ansichtsmodell* bezeichnet. Übergeben Sie eine Instanz des Ansichtsmodelltyps an die Ansicht aus der Aktion.
+Übergeben Sie Daten über verschiedene Ansätze an Ansichten:
+
+* Stark typisierte Daten: viewmodel
+* Schwach typisierte Daten
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>Stark typisierte Daten (viewmodel)
+
+Wenn Sie Stabilität wünschen, sollten Sie einen [Modell](xref:mvc/models/model-binding)-Typen in der Ansicht angeben. Das Modell wird häufig als *Ansichtsmodell* bezeichnet. Übergeben Sie eine Instanz des Ansichtsmodelltyps an die Ansicht aus der Aktion.
 
 Wenn Sie ein Ansichtsmodell verwenden, um eine Ansicht zu übergeben, kann die Ansicht die Vorteile der *starken* Typüberprüfung nutzen. Man spricht von *starker Typisierung* (oder *stark typisiert* als Adjektiv), wenn es für jede Variable und jede Konstante einen explizit definierten Typ gibt, z.B. `string`, `int` oder `DateTime`. Die Gültigkeit der in der Ansicht verwendeten Typen wird zur Kompilierzeit überprüft.
 
@@ -162,7 +171,7 @@ public IActionResult Contact()
 }
 ```
 
-Es gibt keine Einschränkungen der Modelltypen, die in einer Ansicht enthalten sein sollten. Es wird empfohlen, **P**lain **O**ld **C**LR **O**bject (POCO)-Ansichtsmodelle mit wenigen oder gar keinen definierten Methoden zu verwenden. In der Regel werden Ansichtsmodellklassen weder im Ordner *Modelle* noch in einem separaten *Ansichtsmodelle*-Ordner im Stammverzeichnis der App gespeichert. Bei dem im zuvor genannten Beispiel verwendeten *Adresse*-Ansichtsmodell handelt es sich um ein POCO-Ansichtsmodell, das in einer Datei mit dem Namen *Address.cs* gespeichert ist:
+Es gibt keine Einschränkungen der Modelltypen, die in einer Ansicht enthalten sein sollten. Es wird empfohlen, Plain Old CLR Object-Ansichtsmodelle (POCO) mit wenigen oder gar keinen definierten Methoden zu verwenden. In der Regel werden Ansichtsmodellklassen weder im Ordner *Modelle* noch in einem separaten *Ansichtsmodelle*-Ordner im Stammverzeichnis der App gespeichert. Bei dem im zuvor genannten Beispiel verwendeten *Adresse*-Ansichtsmodell handelt es sich um ein POCO-Ansichtsmodell, das in einer Datei mit dem Namen *Address.cs* gespeichert ist:
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> Es ist möglich, für die Ansichtsmodelltypen und Unternehmensmodelltypen dieselben Klassen zu verwenden. Wenn Sie allerdings unterschiedliche Modelle verwenden, können Ihre Ansichten unabhängig von der Geschäftslogik und den Bestandteilen zum Datenzugriff Ihrer App variieren. Wenn Sie Modelle und Ansichtsmodelle trennen, wird mehr Sicherheit geboten, wenn Modelle die [Modellbindung](xref:mvc/models/model-binding) und die [Validierung](xref:mvc/models/validation) von Daten verwenden, die vom Benutzer an die App gesendet werden.
-
+Es ist möglich, für die Ansichtsmodelltypen und Unternehmensmodelltypen dieselben Klassen zu verwenden. Wenn Sie allerdings unterschiedliche Modelle verwenden, können Ihre Ansichten unabhängig von der Geschäftslogik und den Bestandteilen zum Datenzugriff Ihrer App variieren. Wenn Sie Modelle und Ansichtsmodelle trennen, wird mehr Sicherheit geboten, wenn Modelle die [Modellbindung](xref:mvc/models/model-binding) und die [Validierung](xref:mvc/models/validation) von Daten verwenden, die vom Benutzer an die App gesendet werden.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Schwach typisierte Daten („ViewData“ und „ViewBag“)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Schwach typisierte Daten (ViewData, ViewData-Attribut und ViewBag)
 
-Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
+`ViewBag` *ist für die Razor-Seiten nicht verfügbar.*
 
 Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern auch auf *schwach typisierte* (auch als *lose typisiert* bezeichnet). Im Gegensatz zu starken Typen werden bei *schwachen Typen* (oder *losen Typen*) nicht explizit die Datentypen deklariert, die Sie verwenden. Sie können die Sammlung von schwach typisierten Daten verwenden, um kleinere Datenmengen an Controller und Ansichten zu übergeben oder sie ihnen zu entnehmen.
 
@@ -199,7 +206,6 @@ Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern 
 Auf diese Sammlung kann entweder über die Eigenschaft `ViewData` oder über die Eigenschaft `ViewBag` auf Controller und Ansichten verwiesen werden. Die `ViewData`-Eigenschaft stellt ein Wörterbuch dar, das aus schwach typisierten Objekten besteht. Bei der `ViewBag`-Eigenschaft handelt es sich um einen Wrapper um `ViewData`, der dynamische Eigenschaften für die zugrunde liegende `ViewData`-Sammlung bereitstellt.
 
 `ViewData` und `ViewBag` werden zur Laufzeit dynamisch aufgelöst. Da in diesen Elementen keine Typüberprüfung zur Kompilierzeit enthalten sind, sind beide in der Regel fehleranfälliger als Ansichtsmodelle. Aus diesem Grund verwenden Entwickler `ViewData` und `ViewBag` selten oder nie.
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ Arbeiten Sie mit den Daten in einer Ansicht:
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**ViewData-Attribut**
+
+Ein anderer Ansatz zur Verwendung von [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) ist das [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute)-Attribut. Die Werte der Eigenschaften auf Controllern oder Razor-Seiten-Modellen, die mit `[ViewData]` versehen sind, werden in dem Verzeichnis gespeichert und daraus geladen.
+
+Im folgenden Beispiel enthält der Home-Controller die Eigenschaft `Title`, die mit `[ViewData]` versehen ist. Die `About`-Methode legt den Titel der Infoansicht fest:
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+Greifen Sie auf der Infoansicht auf die Eigenschaft `Title` als Modelleigenschaft zu:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+Im Layout wird der Titel aus dem ViewData-Wörterbuch gelesen:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **ViewBag**
 
-Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
+`ViewBag` *ist für die Razor-Seiten nicht verfügbar.*
 
 Bei `ViewBag` handelt es sich um ein [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)-Objekt, das den dynamischen Zugriff auf die in `ViewData` gespeicherten Objekte ermöglicht. Es ist angenehmer, mit `ViewBag` zu arbeiten, da keine Umwandlung erforderlich ist. Im Folgenden finden Sie ein Beispiel, in dem dargestellt wird, wie Sie mit `ViewBag` das gleiche Ergebnis wie mit `ViewData` erzielen:
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **Gleichzeitiges Verwenden von „ViewData“ and „ViewBag“**
 
-Hinweis: `ViewBag` ist für die Razor Pages nicht verfügbar.
+`ViewBag` *ist für die Razor-Seiten nicht verfügbar.*
 
 Da `ViewData` und `ViewBag` beide auf dieselbe zugrunde liegende `ViewData`-Sammlung verweisen, können Sie sowohl `ViewData` als auch `ViewBag` verwenden, und zwischen beiden Elementen wechseln, wenn Sie Werte schreiben und lesen.
 

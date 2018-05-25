@@ -4,23 +4,23 @@ author: rick-anderson
 description: Kurztutorial, in dem eine einfache Hello World-App mit ASP.NET Core erstellt und ausgeführt wird.
 manager: wpickett
 ms.author: riande
-ms.date: 10/18/2017
+ms.custom: mvc
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e814277663ff5a964171a71ebb6e0f094e0ddc60
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>Erste Schritte mit ASP.NET Core
 
-> [!NOTE]
-> Diese Anweisungen gelten für die neueste Version von ASP.NET Core. Die Version 1.1. dieses Dokuments finden Sie unter [Erste Schritte mit ASP.NET Core 1.1](xref:getting-started-1.1).
+::: moniker range=">= aspnetcore-2.0"
 
-1. Installieren Sie [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
+1. Installieren Sie [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].
 
 2. Erstellen Sie ein neues .NET Core-Projekt.
 
@@ -29,10 +29,8 @@ ms.lasthandoff: 04/06/2018
     ```terminal
     dotnet new razor -o aspnetcoreapp
     ```
-    
-3. Führen Sie die App aus.
 
-    Verwenden Sie die folgenden Befehle, um die App auszuführen:
+3. Führen Sie die App mit den folgenden Befehlen aus:
 
     ```terminal
     cd aspnetcoreapp
@@ -41,16 +39,57 @@ ms.lasthandoff: 04/06/2018
 
 4. Wechseln Sie zu [http://localhost:5000](http://localhost:5000).
 
-5. Öffnen Sie <em>Pages/About.cshtml</em>, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server beträgt @DateTime.Now ":
+5. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server ist @DateTime.Now" :
 
-    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 6. Wechseln Sie zu [http://localhost:5000/About](http://localhost:5000/About), und bestätigen Sie die Änderungen.
 
-### <a name="next-steps"></a>Nächste Schritte
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end
 
-Tutorials für die ersten Schritte finden Sie unter [ASP.NET Core-Tutorials](tutorials/index.md).
+::: moniker range="<= aspnetcore-1.1"
 
-Eine Einführung in ASP.NET Core-Konzepte und -Architektur finden Sie unter [Einführung in ASP.NET Core](index.md) und [ASP.NET Core – Grundlagen](fundamentals/index.md).
+1. Installieren Sie den .NET Core **SDK Installer** für SDK 1.0.4 von der .NET Core-Seite [Alle Downloads](https://www.microsoft.com/net/download/all).
 
-Eine ASP.NET Core-App kann die .NET Core oder .NET Framework-Basisklassenbibliothek und -Laufzeit verwenden. Weitere Informationen finden Sie unter [Wahl zwischen .NET Core und .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
+2. Erstellen Sie einen Ordner für das neue .NET Core-Projekt.
+
+   Öffnen Sie unter macOS und Linux ein Terminalfenster. Öffnen Sie unter Windows eine Eingabeaufforderung.
+
+   ```terminal
+   mkdir aspnetcoreapp
+   cd aspnetcoreapp
+   ```
+
+3. Wenn Sie eine höhere Version des SDK auf Ihrem Computer installiert haben, erstellen Sie die Datei *global.json*, und wählen Sie das SDK 1.0.4 aus.
+
+   ```json
+   {
+     "sdk": { "version": "1.0.4" }
+   }
+   ```
+
+4. Erstellen Sie ein neues .NET Core-Projekt.
+
+   ```terminal
+   dotnet new web
+   ```
+
+5. Stellen Sie die Pakete wieder her.
+
+    ```terminal
+    dotnet restore
+    ```
+
+6. Führen Sie die App aus.
+
+   ```terminal
+   dotnet run
+   ```
+
+   Mit dem Befehl [dotnet run](/dotnet/core/tools/dotnet-run) wird die App bei Bedarf zunächst erstellt.
+
+7. Wechseln Sie zu `http://localhost:5000`.
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end

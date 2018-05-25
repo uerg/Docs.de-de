@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -351,13 +351,15 @@ Beachten Sie folgende Empfehlungen bei der Arbeit mit Dependency Injection:
 
 * Vermeiden Sie statischen Zugriff auf `HttpContext`.
 
-> [!NOTE]
-> Wie bei allen Empfehlungen treffen Sie möglicherweise auf Situationen, in denen eine der Empfehlungen ignoriert werden muss. Es gibt nur wenige Ausnahmen, die sich meistens auf ganz besondere Fälle innerhalb des Frameworks selbst beziehen.
+Wie bei allen Empfehlungen treffen Sie möglicherweise auf Situationen, in denen eine der Empfehlungen ignoriert werden muss. Es gibt nur wenige Ausnahmen, die sich meistens auf ganz besondere Fälle innerhalb des Frameworks selbst beziehen.
 
-Beachten Sie, dass es sich bei Dependency Injection um eine *Alternative* zu statischen bzw. globalen Objektzugriffsmustern handelt. Sie werden keinen Nutzen aus der Dependency Injection ziehen können, wenn Sie diese mit dem Zugriff auf statische Objekte kombinieren.
+Dependency Injection stellt eine *Alternative* zu statischen bzw. globalen Objektzugriffsmustern dar. Sie werden keinen Nutzen aus der Dependency Injection ziehen können, wenn Sie diese mit dem Zugriff auf statische Objekte kombinieren.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* [Abhängigkeitsinjektion in Ansichten](xref:mvc/views/dependency-injection)
+* [Abhängigkeitsinjektion in Controller](xref:mvc/controllers/dependency-injection)
+* [Abhängigkeitsinjektion in Anforderungshandlern](xref:security/authorization/dependencyinjection)
 * [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
 * [Testen und Debuggen](xref:testing/index)
 * [Factorybezogene Middlewareaktivierung](xref:fundamentals/middleware/extensibility)

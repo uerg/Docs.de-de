@@ -71,7 +71,7 @@ Sie können das Tutorial-Projekt mit Visual Web Developer Express oder die Vollv
 
 Aus der **starten** auf **neues Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt "ProductStore", und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt "ProductStore", und klicken Sie auf **OK**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

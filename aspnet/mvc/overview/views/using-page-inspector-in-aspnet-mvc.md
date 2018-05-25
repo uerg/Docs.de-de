@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
-title: "Verwenden der Seitenprüfung in ASP.NET MVC | Microsoft Docs"
+title: Verwenden der Seitenprüfung in ASP.NET MVC | Microsoft Docs
 author: rick-anderson
-description: "Page Inspector in Visual Studio 2012 ist ein Webentwicklungstool mit einem integrierten Browser. Wählen Sie jedes Element im integrierten Browser und Page Inspector i..."
+description: Page Inspector in Visual Studio 2012 ist ein Webentwicklungstool mit einem integrierten Browser. Wählen Sie jedes Element im integrierten Browser und Page Inspector i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -58,7 +58,7 @@ Seitenprüfung ist mit Microsoft Web Developer Tools enthalten. Die neueste Vers
 
 ## <a name="create-a-web-application"></a>Erstellen Sie eine Webanwendung
 
-Erstellen Sie zunächst eine Webanwendung, der Seitenprüfung mit verwendet werden. Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-**Option **Web**, und wählen Sie dann **ASP.NET MVC 4-Webanwendung**.
+Erstellen Sie zunächst eine Webanwendung, der Seitenprüfung mit verwendet werden. Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-** Option **Web**, und wählen Sie dann **ASP.NET MVC 4-Webanwendung**.
 
 ![Neues ASP.NET MVC-Anwendung](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
@@ -202,7 +202,7 @@ Jetzt ändern Sie den Wert für `background-color` auf "Rot". Die Änderung wird
 
 CSS-Editor in Visual Studio 2012 verfügt über ein Farbwähler, der es einfach, wählen aus, und legen Sie Farben. Die Farbauswahl enthält eine Standardpalette mit Farben, unterstützt standardfarbnamen, Hashcodes, RGB-, RGBA-HSL- und HSLA Farben und verwaltet eine Liste der Farben, die Sie im Dokument zuletzt verwendet haben.
 
-Im vorherigen Abschnitt den Wert geändert die `background-color` Eigenschaft. Um die Farbauswahl aufzurufen, platzieren Sie die Einfügemarke nach dem Eigenschaftsnamen und geben  **#**  oder **Rgb (**.
+Im vorherigen Abschnitt den Wert geändert die `background-color` Eigenschaft. Um die Farbauswahl aufzurufen, platzieren Sie die Einfügemarke nach dem Eigenschaftsnamen und geben **#** oder **Rgb (**.
 
 ![Die CSS-Auswahl Farbleiste](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 
@@ -243,7 +243,7 @@ Mit Version 1.3 können Page Inspector Elemente zuordnen, die auf der Seite wied
 > Die Vorlage SPA erfordert die [ASP.NET und Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650) aktualisieren.
 
 
-Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-**Option **Web**, und wählen Sie dann **ASP.NET MVC 4-Webanwendung**. Klicken Sie auf **OK**.
+Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-** Option **Web**, und wählen Sie dann **ASP.NET MVC 4-Webanwendung**. Klicken Sie auf **OK**.
 
 In der **neues ASP.NET MVC 4-Projekt** wählen Sie im Dialogfeld **einseitigen Anwendung**.
 

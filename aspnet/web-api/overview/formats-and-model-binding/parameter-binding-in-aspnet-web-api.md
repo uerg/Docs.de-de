@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 title: Parameterbindung in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2013

@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc
-title: "Verwenden der Seitenprüfung in ASP.NET MVC | Microsoft Docs"
+title: Verwenden der Seitenprüfung in ASP.NET MVC | Microsoft Docs
 author: rick-anderson
-description: "Die Videos wird die Verwendung der Seitenprüfung in ASP.NET MVC-Webanwendungen erklärt. Lesen Sie das Lernprogramm"
+description: Die Videos wird die Verwendung der Seitenprüfung in ASP.NET MVC-Webanwendungen erklärt. Lesen Sie das Lernprogramm
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2012
@@ -24,4 +24,4 @@ von Tim Ammann
 
 Die Videos wird die Verwendung der Seitenprüfung in ASP.NET MVC-Webanwendungen erklärt. [Lesen Sie das Lernprogramm](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[&#9654; Sehen Sie sich an (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[& #9654; Sehen Sie sich an (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: bfa5d52019be81374c7a544e255ab7ffb301fa7b
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, ein e-Mail-Bestätigung und das Kennwort zurücksetzen (c#)
 ====================
@@ -62,7 +62,7 @@ In der Regel möchten verhindern, dass neue Benutzer keine Daten zu Ihrer Websit
 
 Obwohl dieses Lernprogramm zeigt nur zum Hinzufügen von e-Mail-Benachrichtigung über [SendGrid](http://sendgrid.com/), können Sie e-Mail-Nachrichten mithilfe von SMTP und andere Mechanismen senden (finden Sie unter [zusätzliche Ressourcen](#addRes)).
 
-1. Geben Sie den folgenden, in der Paket-Manager-Konsole den folgenden Befehl aus: 
+1. Geben Sie in der Paket-Manager-Konsole den folgenden Befehl aus: 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
 2. Wechseln Sie zu der [Azure SendGrid-Anmeldeseite](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) und registrieren Sie sich für ein kostenloses SendGrid-Konto. SendGrid konfigurieren, indem Sie Code ähnlich dem folgenden in *App_Start/IdentityConfig.cs*:
@@ -78,7 +78,7 @@ Um dieses Beispiel einfach zu halten, speichern wir die Appeinstellungen in der 
 [!code-xml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample4.xml)]
 
 > [!WARNING]
-> Sicherheit – sensible Daten nie im Quellcode speichern. Das Konto und die Anmeldeinformationen werden in der AppSetting gespeichert. Sie können auf Azure sicher diese Werte speichern, auf die  **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Registerkarte im Azure-Portal. Finden Sie unter [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Sicherheit – sensible Daten nie im Quellcode speichern. Das Konto und die Anmeldeinformationen werden in der AppSetting gespeichert. Sie können auf Azure sicher diese Werte speichern, auf die **[konfigurieren](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Registerkarte im Azure-Portal. Finden Sie unter [bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>Aktivieren von e-Mail-Bestätigung im Konto-controller
@@ -108,7 +108,7 @@ Erstellen Sie eine `Views\Shared\Info.cshtml` Datei, und fügen Sie das folgende
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-Hinzufügen der [Authorize-Attribut](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) auf die `Contact` Aktionsmethode des Home-Controllers. Sie können klicken Sie auf der **wenden Sie sich an** Link, um zu überprüfen, ob anonyme Benutzer haben keinen Zugriff und authentifizierte Benutzer haben Zugriff.
+Hinzufügen der [Authorize-Attribut](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) auf die `Contact` Aktionsmethode des Home-Controllers. Klicken Sie auf die **Kontakt** Link, um zu überprüfen, ob anonyme Benutzer haben keinen Zugriff und authentifizierte Benutzer haben Zugriff.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -148,18 +148,18 @@ Aktualisieren Sie die Register-Methode, um das neue Hilfsobjekt verwenden:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-Aktualisieren Sie die Login-Methode, um das Kennwort erneut zu senden bei, wenn das Benutzerkonto nicht bestätigt wurde:
+Aktualisieren Sie die Login-Methode, um das Kennwort erneut zu senden, wenn das Benutzerkonto nicht bestätigt wurde:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
 ## <a name="combine-social-and-local-login-accounts"></a>Kombinieren von sozialen und lokalen Anmeldekonten
 
-Lokale und soziale Konten können durch Klicken auf die e-Mail-Link kombiniert werden. In der folgenden Reihenfolge  **RickAndMSFT@gmail.com**  wird zuerst als eine lokale Anmeldung erstellt, aber Sie können erstellen Sie das Konto als sozialen Protokoll zuerst und anschließend fügen Sie eine lokale Anmeldung hinzu.
+Lokale und soziale Konten können durch Klicken auf die e-Mail-Link kombiniert werden. In der folgenden Reihenfolge **RickAndMSFT@gmail.com** wird zuerst als eine lokale Anmeldung erstellt, aber Sie können erstellen Sie das Konto als sozialen Protokoll zuerst und anschließend fügen Sie eine lokale Anmeldung hinzu.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-Klicken Sie auf die **verwalten** Link. Beachten Sie die externen 0 (social Anmeldungen) diesem Konto zugewiesen.
+Klicken Sie auf die **verwalten** Link. Beachten Sie die **externer Anmeldungen: 0** diesem Konto zugewiesen.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 

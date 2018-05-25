@@ -4,16 +4,16 @@ author: rick-anderson
 description: Erfahren Sie, wie Sie zwischen ASP.NET und ASP.NET Core auswählen.
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2018
+ms.date: 05/11/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: e6ac9f54ef623895b81eea33d90791e5f0ad5120
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 0c6924d40b7327d2032a0278c56a0b4fa41d15a1
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="choose-between-aspnet-and-aspnet-core"></a>Wählen zwischen ASP.NET und ASP.NET Core
 
@@ -25,14 +25,16 @@ ASP.NET Core ist ein plattformübergreifendes Open-Source-Framework zum Erstelle
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET ist ein ausgereiftes Framework, das sämtliche Dienste bietet, die zum Erstellen serverbasierter Web-Apps unter Windows für Unternehmen erforderlich sind.
+ASP.NET ist ein ausgereiftes Framework, das sämtliche Dienste bietet, die zum Erstellen erstklassiger serverbasierter Web-Apps unter Windows für Unternehmen erforderlich sind.
 
-## <a name="which-one-is-right-for-me"></a>Was ist für mich das Richtige?
+## <a name="framework-selection"></a>Auswahl des Frameworks
+
+Sehen Sie sich die nachfolgende Tabelle an, um zu ermitteln, welches Framework sich am besten für Sie eignet.
 
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Entwickeln für Windows, macOS oder Linux|Entwickeln für Windows|
-|[Razor-Seiten](xref:mvc/razor-pages/index) werden für das Erstellen einer Webbenutzeroberfläche mit ASP.NET Core 2.x empfohlen. Weitere Informationen finden Sie unter [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api) und [SignalR](xref:signalr/introduction).|Verwenden von [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/) oder [Web Pages](/aspnet/web-pages)|
+|[Razor-Seiten](xref:mvc/razor-pages/index) werden für das Erstellen einer Webbenutzeroberfläche mit ASP.NET Core 2.x empfohlen. Weitere Informationen finden Sie unter [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api) und [SignalR](xref:signalr/introduction).|Verwenden von [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/) oder [WebHooks](/aspnet/webhooks/) oder [Web Pages](/aspnet/web-pages)|
 |Mehrere Versionen pro Computer|Eine Version pro Computer|
 |Entwickeln mit Visual Studio, [Visual Studio für Mac](https://www.visualstudio.com/vs/visual-studio-mac/) oder [Visual Studio Code](https://code.visualstudio.com/) unter Verwendung von C# oder F#|Entwickeln mit Visual Studio unter Verwendung von C#, VB oder F#|
 |Höhere Leistung als ASP.NET|Gute Leistung|
@@ -40,7 +42,6 @@ ASP.NET ist ein ausgereiftes Framework, das sämtliche Dienste bietet, die zum E
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core-Szenarien
 
-<!-- update link to Razor Pages mvc movie series when done -->
 * [Razor-Seiten](xref:mvc/razor-pages/index) werden für das Erstellen einer Webbenutzeroberfläche mit ASP.NET Core 2.x empfohlen.
 * [Websites](xref:tutorials/first-mvc-app/index)
 * [APIs](xref:tutorials/first-web-api)

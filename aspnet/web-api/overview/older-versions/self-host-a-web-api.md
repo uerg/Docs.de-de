@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/self-host-a-web-api
 title: Selbsthosting ASP.NET Web-API 1 (c#) | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web-API erfordert keine IIS. Eine Web-API können in Ihren eigenen Hostprozess selbst gehostet werden. In diesem Lernprogramm wird gezeigt, wie eine Web-API in einer Konsole applic hosten wird..."
+description: ASP.NET Web-API erfordert keine IIS. Eine Web-API können in Ihren eigenen Hostprozess selbst gehostet werden. In diesem Lernprogramm wird gezeigt, wie eine Web-API in einer Konsole applic hosten wird...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 
 Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite. Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Windows**. Wählen Sie in der Liste der Projektvorlagen **Konsolenanwendung**. Nennen Sie das Projekt &quot;SelfHost&quot; , und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Windows**. Wählen Sie in der Liste der Projektvorlagen **Konsolenanwendung**. Nennen Sie das Projekt &quot;SelfHost&quot; , und klicken Sie auf **OK**.
 
 ![](self-host-a-web-api/_static/image1.png)
 

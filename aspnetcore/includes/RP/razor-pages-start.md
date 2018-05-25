@@ -10,7 +10,7 @@ Die folgende Tabelle listet die Dateien und Ordner im Projekt auf. In diesem Tut
 
 | Datei oder Ordner              | Zweck |
 | ----------------- | ------------ | 
-| wwwroot | Enthält statische Dateien. Weitere Informationen finden Sie unter [Arbeiten mit statischen Dateien](xref:fundamentals/static-files). |
+| wwwroot | Enthält statische Dateien. Weitere Informationen finden Sie unter [Statische Dateien](xref:fundamentals/static-files). |
 | Seiten | Ordner für [Razor Pages](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Konfiguration](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Hostet](xref:fundamentals/hosting) die ASP.NET Core-App.|

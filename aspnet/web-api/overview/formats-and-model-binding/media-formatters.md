@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/media-formatters
 title: Medienformatierer in der ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,24 +12,24 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1cb1c7e0f832a0a0160276fbd41facc017e2ae3e
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Medienformatierer in der ASP.NET Web API 2
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-In diesem Lernprogramm werden unterstützen zusätzliche Media-Formate wie in ASP.NET Web-API.
+In diesem Lernprogramm wird gezeigt, wie zusätzliche Medienformate in ASP.NET Web-API unterstützt.
 
 ## <a name="internet-media-types"></a>Internet-Medientypen
 
 Ein Medientyp, der eine MIME-Typ, gibt das Format der Daten. Bei HTTP beschreiben Medientypen das Format des Nachrichtentexts. Ein Medientyp besteht aus zwei Zeichenfolgen, die einen Typ und Untertyp. Zum Beispiel:
 
 - Text/html
-- image/png
+- Image/png
 - application/json
 
 Wenn eine HTTP-Nachricht über einen Entitätskörper enthält, gibt der Content-Type-Header das Format des Nachrichtentexts. Dieser Wert ermöglicht dem Empfänger, Analysieren des Inhalts des Nachrichtentexts.

@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 title: Routing und Aktionsauswahl in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012
@@ -152,7 +152,7 @@ Hier ist der Aktion Auswahl-Algorithmus, mit diesen Hintergrund.
     4. Wenn mehr, einer Aktion diese Kriterien erfüllt, wählen Sie das Laufwerk mit der meisten Parameter entspricht.
 4. Ignorieren von Aktionen mit den **[NonAction]** Attribut.
 
-Schritt &#3; ist der am häufigsten verwirrend. Die Grundidee ist, dass ein Parameter den Wert entweder aus dem URI, aus dem Anforderungstext oder aus einer benutzerdefinierten Bindung abrufen kann. Für Parameter, die aus dem URI stammen, möchten wir stellen Sie sicher, dass der URI tatsächlich einen Wert für diesen Parameter, die in den Pfad (über des Routenwörterbuchs) oder in der Abfragezeichenfolge enthält.
+Schritt 3 # ist der am häufigsten verwirrend. Die Grundidee ist, dass ein Parameter den Wert entweder aus dem URI, aus dem Anforderungstext oder aus einer benutzerdefinierten Bindung abrufen kann. Für Parameter, die aus dem URI stammen, möchten wir stellen Sie sicher, dass der URI tatsächlich einen Wert für diesen Parameter, die in den Pfad (über des Routenwörterbuchs) oder in der Abfragezeichenfolge enthält.
 
 Betrachten Sie beispielsweise die folgende Aktion aus:
 

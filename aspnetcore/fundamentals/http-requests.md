@@ -11,17 +11,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 30ac239a38376feecffc3010387ec5e0009b6db6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="initiate-http-requests"></a>Initiieren von HTTP-Anforderungen
 
 Von [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), und [Steve Gordon](https://github.com/stevejgordon)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 `IHttpClientFactory` kann registriert und zum Konfigurieren und Erstellen von [HttpClient](/dotnet/api/system.net.http.httpclient)-Instanzen in einer App verwendet werden. Dies hat folgende Vorteile:
 
@@ -77,7 +75,7 @@ Ein typisierter Client akzeptiert einen `HttpClient`-Parameter in seinem Konstru
 
 [!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Im vorangehenden Code wird die Konfiguration in den typisierten Client verschoben. Das `HttpClient`-Objekt wird als öffentliche Eigenschaft zur Verfügung gestellt. Es ist möglich, API-spezifische Methoden zu definieren, die die `HttpClient`-Funktionalität zur Verfügung stellen. Die Methode `GetLatestDocsIssue` kapselt den Code, der für die Abfrage und Analyse des neuesten Problems aus dem GitHub-Repository erforderlich ist.
+Im vorangehenden Code wird die Konfiguration in den typisierten Client verschoben. Das `HttpClient`-Objekt wird als öffentliche Eigenschaft zur Verfügung gestellt. Es ist möglich, API-spezifische Methoden zu definieren, die die `HttpClient`-Funktionalität zur Verfügung stellen. Die Methode `GetAspNetDocsIssues` kapselt den Code, der für die Abfrage und Analyse des neuesten offenen Problems aus dem GitHub-Repository erforderlich ist.
 
 Zum Registrieren eines typisierten Clients kann die generische Erweiterungsmethode `AddHttpClient` innerhalb von `ConfigureServices` verwendet werden, die die typisierte Klasse angeben:
 

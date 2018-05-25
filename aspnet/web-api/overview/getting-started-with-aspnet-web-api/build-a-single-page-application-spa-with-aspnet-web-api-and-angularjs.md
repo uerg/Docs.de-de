@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: "Praktische Übungseinheiten: Erstellen eine einzelnen Seite Anwendung (SPA) mit ASP.NET Web-API und Angular.js | Microsoft Docs"
+title: 'Praktische Übungseinheiten: Erstellen eine einzelnen Seite Anwendung (SPA) mit ASP.NET Web-API und Angular.js | Microsoft Docs'
 author: rick-anderson
-description: "In herkömmlichen Webanwendungen initiiert der Client (Browser) die Kommunikation mit dem Server durch die Anforderung einer Seite. Der Server verarbeitet dann die Anforderung..."
+description: In herkömmlichen Webanwendungen initiiert der Client (Browser) die Kommunikation mit dem Server durch die Anforderung einer Seite. Der Server verarbeitet dann die Anforderung...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2015
@@ -153,13 +153,13 @@ In dieser Aufgabe starten Sie erstellen ein neues ASP.NET MVC-Projekt mit Unters
 
     > [!NOTE]
     > Die **autorisieren** Filtern prüft, ob der Benutzer authentifiziert ist. Wenn der Benutzer nicht authentifiziert ist, gibt die HTTP-Statuscode 401 (nicht autorisiert) ohne Aufrufen der Aktion zurück. Sie können den Filter, die Global auf Controllerebene, oder klicken Sie auf der Ebene der einzelnen Aktionen anwenden.
-9. Sie werden nun das Layout von Webseiten und das branding anpassen. Öffnen Sie hierzu die  **\_Layout.cshtml** Datei innerhalb der **Ansichten | Freigegebene** Ordner und aktualisieren Sie den Inhalt der  **&lt;Titel&gt;**  Element durch Ersetzen *meine ASP.NET-Anwendung* mit *Meister Quiz* .
+9. Sie werden nun das Layout von Webseiten und das branding anpassen. Öffnen Sie hierzu die  **\_Layout.cshtml** Datei innerhalb der **Ansichten | Freigegebene** Ordner und aktualisieren Sie den Inhalt der **&lt;Titel&gt;** Element durch Ersetzen *meine ASP.NET-Anwendung* mit *Meister Quiz* .
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
 10. Aktualisieren Sie die Navigationsleiste in der gleichen Datei durch das Entfernen der *zu* und *Kontakt* Links und Umbenennen von der *Home* Verknüpfen mit *wiedergeben*. Benennen Sie die *Anwendungsname* Verknüpfen mit *Meister Quiz*. Der HTML-Code für die Navigationsleiste sollte den folgenden Code ähneln.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Die Fußzeile der Seite "Layout" aktualisieren, indem Sie ersetzen *meine ASP.NET-Anwendung* mit *Meister Quiz*. Ersetzen Sie dazu den Inhalt der  **&lt;Fußzeile&gt;**  Element mit den folgenden hervorgehobenen Code.
+11. Die Fußzeile der Seite "Layout" aktualisieren, indem Sie ersetzen *meine ASP.NET-Anwendung* mit *Meister Quiz*. Ersetzen Sie dazu den Inhalt der **&lt;Fußzeile&gt;** Element mit den folgenden hervorgehobenen Code.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
@@ -266,7 +266,7 @@ In dieser Aufgabe überprüfen Sie, dass der Web-API-Dienst in der vorhergehende
     *Registrieren eines neuen Benutzers*
 3. In der **registrieren** geben eine **Benutzername** und **Kennwort**, und klicken Sie dann auf **registrieren**.
 
-    ![Seite "registrieren"](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "Seite "Register"")
+    ![Seite "registrieren"](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "Seite Register")
 
     *Seite "registrieren"*
 4. Die Anwendung registriert das neue Konto und der Benutzer authentifiziert und zurück zur Startseite umgeleitet wird.
@@ -421,7 +421,7 @@ In dieser Aufgabe verwenden Sie CSS3-Eigenschaften zum Ausführen von umfangreic
 5. Suchen Sie die **Rückseite Bereich auszublenden, während die Flip** Kommentar. Das Format unter diesem Kommentar Blendet clientseitige zurück auf den Flächen aus, wenn sie durch Festlegen von Viewer auseinandersetzen müssen die **rückwärtige Sichtbarkeit** CSS-Eigenschaft, um *ausgeblendete*.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Öffnen der **BundleConfig.cs** Datei innerhalb der **App\_starten** Ordner und fügen Sie den Verweis auf die **Flip.css** in der Datei die  **&quot;~/Content/css&quot;**  Style-Paket
+6. Öffnen der **BundleConfig.cs** Datei innerhalb der **App\_starten** Ordner und fügen Sie den Verweis auf die **Flip.css** in der Datei die **&quot;~/Content/css&quot;** Style-Paket
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
 7. Drücken Sie **F5** zum Ausführen von Projektmappen und melden Sie sich mit Ihren Anmeldeinformationen.

@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "Versionshinweise für ASP.NET und Webtools 2013.1 für Visual Studio 2012 | Microsoft Docs"
+title: Versionshinweise für ASP.NET und Webtools 2013.1 für Visual Studio 2012 | Microsoft Docs
 author: microsoft
-description: "Dieses Dokument beschreibt die Version von ASP.NET und 2013.1 für Web-Tools für Visual Studio 2012."
+description: Dieses Dokument beschreibt die Version von ASP.NET und 2013.1 für Web-Tools für Visual Studio 2012.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Nach dieser Änderung, die in das Stammverzeichnis der Anwendung navigiert F5 au
 
 Nach dem Upgrade auf ASP.NET Razor-3 oder ASP.NET MVC 5, kann die Notation tilde(~) nicht mehr ordnungsgemäß funktioniert, bei Verwendung von URL-schreibt. Der URL-Rewrite beeinflusst die tilde(~) Notation in HTML-Elementen wie &lt;A /&gt;, &lt;Skript /&gt;, &lt;LINK /&gt;, und daher die Tilde nicht mehr in das Stammverzeichnis zugeordnet ist.
 
-Angenommen, Sie schreiben Sie Anforderungen für **asp.net/content** auf **asp.net**, Href-Attribut im &lt;A Href = "~/content/" /&gt; löst in **/content/ Inhalt /** anstelle von  **/** . Um diese Änderung zu unterdrücken, legen Sie die **IIS\_WasUrlRewritten** Kontext auf "false" in jeder Webseite oder in **Anwendung\_BeginRequest** in "Global.asax".
+Angenommen, Sie schreiben Sie Anforderungen für **asp.net/content** auf **asp.net**, Href-Attribut im &lt;A Href = "~/content/" /&gt; löst in **/content/ Inhalt /** anstelle von **/**. Um diese Änderung zu unterdrücken, legen Sie die **IIS\_WasUrlRewritten** Kontext auf "false" in jeder Webseite oder in **Anwendung\_BeginRequest** in "Global.asax".
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Vorlagen

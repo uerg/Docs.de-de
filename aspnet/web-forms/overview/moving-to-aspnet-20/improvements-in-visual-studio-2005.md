@@ -445,7 +445,7 @@ Visual Studio 2005 enthaltenen Weve bereits erläutert mit einem Webserver, der 
 
 Der ASP.NET Development Server ist eine eingeschränkte Webserver. Lässt keine Remoteverbindungen, ermöglicht es keine Anforderungen von anderer Benutzer als der Benutzer, die der Web-Server gestartet wurde. Es verfügt auch nicht über die Fähigkeit ASP-Seiten bedient. Nur die Ressourcen für ASP.NET und HTML-Ressourcen (z. B. Bilder, CSS-Dateien usw.) verarbeitet werden.
 
-Der ASP.NET Development Server über die Befehlszeile gestartet werden kann, durch Ausführen der Datei WebDev.WebServer.exe c:/Windows/Microsoft.NET/Framework/v2.0./ */*  /  */*/*. Das folgende Dialogfeld zeigt die Parameter, die verfügbar sind.
+Der ASP.NET Development Server über die Befehlszeile gestartet werden kann, durch Ausführen der Datei WebDev.WebServer.exe c:/Windows/Microsoft.NET/Framework/v2.0./*/* /  */*/*. Das folgende Dialogfeld zeigt die Parameter, die verfügbar sind.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

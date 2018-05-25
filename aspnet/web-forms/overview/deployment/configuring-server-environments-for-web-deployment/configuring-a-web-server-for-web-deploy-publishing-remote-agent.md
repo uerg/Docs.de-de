@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Konfigurieren eines Webservers für Web Deploy-Veröffentlichung (Remote-Agent)
 ====================
@@ -217,7 +217,7 @@ Sie können überprüfen, ob ein Dienst ausgeführt wird, mehrere verschiedene M
 
 Standardmäßig lauscht der Remote-Agent-Dienst auf TCP-Port 80, unter der folgenden URL:
 
-http:// [<em>Servernamen</em>] / MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 In den meisten Fällen müssen Sie wird keine zusätzlichen Firewall-Regeln für den Remote-Agent-Dienst konfiguriert werden, da Webserver in der Regel für HTTP-Anforderungen an Port 80 lauscht. Wenn Sie die Installation für einen nicht standardmäßigen Port Lauschen angepasst haben, müssen Sie Firewallausnahmen nach Bedarf konfiguriert werden.
 

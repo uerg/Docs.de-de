@@ -206,7 +206,7 @@ Wenn Sie Ihre Website Bilder hinzufügen, empfiehlt es sich, ein Wasserzeichen a
 
 Anstelle von Text für ein Wasserzeichen verwenden, können Sie ein anderes Bild. Personen Bilder, z. B. ein Unternehmenslogo manchmal als Wasserzeichen verwenden, oder sie verwenden ein Wasserzeichenbild anstelle von Text aus, für die copyright-Informationen.
 
-![[Image] ] (9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![[Image] ](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
 
 1. Fügen Sie eine neue Seite mit dem Namen *ImageWatermark.cshtml*.
 2. Hinzufügen eines Bilds auf der *Bilder* Ordner, in dem Sie können als ein Logo aus, und benennen Sie das Bild *MyCompanyLogo.jpg*. Dieses Bild muss ein Bild, das Sie deutlich erkennen können, wenn er auf 80 Pixel breit und 20 Pixel hoch festgelegt ist.

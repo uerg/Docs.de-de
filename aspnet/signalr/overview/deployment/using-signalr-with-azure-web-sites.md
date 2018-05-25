@@ -2,7 +2,7 @@
 uid: signalr/overview/deployment/using-signalr-with-azure-web-sites
 title: Web-Apps in Azure App Service SignalR mit | Microsoft Docs
 author: pfletcher
-description: "Dieses Dokument beschreibt, wie eine SignalR-Anwendung zu konfigurieren, die auf Microsoft Azure ausgeführt wird. Versionen der Software, die im Lernprogramm verwendet werden, Visual Studio 2013 oder Vis...."
+description: Dieses Dokument beschreibt, wie eine SignalR-Anwendung zu konfigurieren, die auf Microsoft Azure ausgeführt wird. Versionen der Software, die im Lernprogramm verwendet werden, Visual Studio 2013 oder Vis....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2015

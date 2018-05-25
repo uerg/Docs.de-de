@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
@@ -21,9 +21,11 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Einführung: Ansichtskomponenten
+## <a name="view-components"></a>Ansichtskomponenten
 
-Ansichtskomponenten sind einer neuer Bestandteil von ASP.NET Core MVC. Sie ähneln Teilansichten, sind aber wesentlich leistungsstärker. Ansichtskomponenten verwenden keine Modellbindungen und sind nur von den Daten abhängig, die bei ihrem Aufruf bereitgestellt werden. Eine Ansichtskomponente:
+Ansichtskomponenten ähneln zwar den Teilansichten, sind aber wesentlich leistungsstärker. Ansichtskomponenten verwenden keine Modellbindungen und sind nur von den Daten abhängig, die bei ihrem Aufruf bereitgestellt werden. Für diesen Artikel wurde ASP.NET Core-MVC verwendet. Es funktionieren aber auch Ansichtskomponenten zusammen mit Razor-Seiten.
+
+Eine Ansichtskomponente:
 
 * Rendert nur einen Block statt einer gesamten Antwort.
 * Umfasst die gleiche Trennung von Belangen und Vorzüge der Testbarkeit, die auch zwischen einem Controller und einer Ansicht bestehen.

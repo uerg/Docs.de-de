@@ -1,7 +1,7 @@
 ---
-title: Kompilierung und Vorkompilierung einer Razor-Ansicht
+title: Kompilierung und Vorkompilierung einer Razor-Ansicht in ASP.NET Core
 author: rick-anderson
-description: "Dies ist ein Referenzdokument, in dem erklärt wird, wie Sie die Kompilierung und Vorkompilierung von MVC-Razor-Ansichten in ASP.NET Core-Anwendungen aktivieren."
+description: Erfahren Sie, wie Sie die Kompilierung und Vorkompilierung einer MVC-Razor-Ansicht in ASP.NET Core-Apps aktivieren.
 manager: wpickett
 ms.author: riande
 ms.date: 12/13/2017
@@ -9,20 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: bd3f4470035b0375fc79aa7caa73b60ba6fc4f53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 013ca0d149c6415b5e6825aa5a48e93ae48f6728
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Kompilierung und Vorkompilierung einer Razor-Ansicht in ASP.NET Core
+# <a name="razor-file-cshtml-compilation-in-aspnet-core"></a>Kompilieren einer Razor-Datei (CSHTML) in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor-Ansichten werden zur Laufzeit kompiliert, wenn die Ansicht aufgerufen wird. ASP.NET Core 1.1.0 und höher kann optional Razor-Ansichten kompilieren und diese mit der App bereitstellen &mdash; dieser Prozess wird als Vorkompilierung bezeichnet. Die ASP.NET Core 2.x-Projektvorlagen aktivieren die Vorkompilierung standardmäßig.
+Razor-Ansichten werden zur Laufzeit kompiliert, wenn die Ansicht aufgerufen wird. Mit ASP.NET Core 2.1.0 oder höher können Sie Ansichten zum Zeitpunkt der Erstellung und Veröffentlichung mithilfe vom [Razor SDK](/aspnetcore/mvc/razor-pages/sdk) kompilieren. Mithilfe des Tools für die Vorkompilierung können Ansichten in ASP.NET Core 1.1 und ASP.NET Core 2.0 optional zur Veröffentlichung oder Bereitstellung mit der App kompiliert werden. 
 
-> [!IMPORTANT]
-> Die Vorkompilierung von Razor-Ansichten steht aktuell beim Durchführen einer [eigenständigen Bereitstellung (Self-Contained Deployment, SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0 nicht zur Verfügung. Mit Release 2.1 wird dieses Feature für SCDs verfügbar. Weitere Informationen finden Sie unter [View compilation fails when cross-compiling for Linux on Windows (Die Ansichtskompilierung schlägt bei der übergreifenden Kompilierung für Linux unter Windows fehl)](https://github.com/aspnet/MvcPrecompilation/issues/102).
+
 
 Was vor der Kompilierung beachtet werden muss:
 
@@ -31,7 +30,13 @@ Was vor der Kompilierung beachtet werden muss:
 
 So stellen Sie vorkompilierte Ansichten bereit:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-21tabaspnetcore21"></a>[ASP.NET Core 2.1](#tab/aspnetcore21/)
+Die Kompilierung zur Erstellung und Veröffentlichung von Razor-Dateien wird standardmäßig vom Razor SDK aktiviert. Das Bearbeiten von Razor-Dateien, nachdem sie aktualisiert wurden, wird zum Zeitpunkt der Erstellung unterstützt. Standardmäßig wird nur die kompilierte *Views.dll*, ohne CSHTML-Dateien, mit Ihrer Anwendung bereitgestellt. 
+    
+> [!IMPORTANT]
+> Das Razor SDK ist nur wirksam, wenn keine für die Vorkompilierung spezifischen Eigenschaften in Ihrer Projektdatei festgelegt sind. Das Razor SDK wird beispielsweise deaktiviert, wenn Sie in Ihrer *CSPROJ*-Datei `MvcRazorCompileOnPublish` festlegen.
+
+# <a name="aspnet-core-20tabaspnetcore20"></a>[ASP.NET Core 2.0](#tab/aspnetcore20/)
 
 Wenn Ihr Projekt .NET Framework als Ziel verwendet, beziehen Sie einen Paketverweis auf [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) mit ein:
 
@@ -41,19 +46,12 @@ Wenn Ihr Projekt .NET Framework als Ziel verwendet, beziehen Sie einen Paketverw
 
 Wenn Ihr Paket für .NET Core gedacht ist, sind keine Änderungen erforderlich.
 
-Die ASP.NET Core 2.x-Projektvorlagen legen `MvcRazorCompileOnPublish` standardmäßig implizit auf `true` fest. Dies bedeutet, dass dieser Knoten sicher aus der *CSPROJ*-Datei entfernt werden kann. Wenn Sie das explizite Festlegen vorziehen, können Sie die `MvcRazorCompileOnPublish`-Eigenschaft auch auf `true` festlegen. Das folgende *CSPROJ*-Beispiel veranschaulicht diese Eigenschaft:
+Die ASP.NET Core 2.x-Projektvorlagen legen `MvcRazorCompileOnPublish` standardmäßig implizit auf `true` fest. Dies bedeutet, dass dieser Knoten sicher aus der *CSPROJ*-Datei entfernt werden kann.
+    
+> [!IMPORTANT]
+> Die Vorkompilierung von Razor-Ansichten steht beim Durchführen einer [eigenständigen Bereitstellung (Self-Contained Deployment, SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0 nicht zur Verfügung. 
 
-[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=5)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Legen Sie `MvcRazorCompileOnPublish` auf `true` fest, und ziehen Sie einen Paketverweis auf `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation` ein. Das folgende *CSPROJ*-Beispiel veranschaulicht diese Einstellungen:
-
-[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
-
----
-
-Bereiten Sie die App auf eine [frameworkabhängige Bereitstellung](/dotnet/core/deploying/#framework-dependent-deployments-fdd) vor, indem Sie einen Befehl wie den folgenden am Projektstamm ausführen:
+Bereiten Sie die App mit dem [Veröffentlichungsbefehl der .NET Core-CLI](/dotnet/core/tools/dotnet-publish) für eine [Framework-abhängige Bereitstellung](/dotnet/core/deploying/#framework-dependent-deployments-fdd) vor. Führen Sie z. B. den folgenden Befehl auf der Stammebene des Projekts aus:
 
 ```console
 dotnet publish -c Release
@@ -62,3 +60,12 @@ dotnet publish -c Release
 Die Datei *<projektname>.PrecompiledViews.dll*, die die kompilierten Razor-Ansichten enthält, wird erzeugt, wenn die Vorkompilierung erfolgreich abgeschlossen wurde. Der unten stehende Screenshot zeigt beispielsweise den Inhalt von *Index.cshtml* innerhalb von *WebApplication1.PrecompiledViews.dll*:
 
 ![Razor-Ansichten in einer DLL](view-compilation/_static/razor-views-in-dll.png)
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
+Legen Sie `MvcRazorCompileOnPublish` auf `true` fest, und ziehen Sie einen Paketverweis auf `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation` ein. Das folgende *CSPROJ*-Beispiel veranschaulicht diese Einstellungen:
+
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+
+---
+

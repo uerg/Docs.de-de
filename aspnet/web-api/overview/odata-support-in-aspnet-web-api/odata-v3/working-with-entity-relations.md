@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
-title: "Unterstützen von Entitätsbeziehungen in OData v3 mit Web-API 2 | Microsoft Docs"
+title: Unterstützen von Entitätsbeziehungen in OData v3 mit Web-API 2 | Microsoft Docs
 author: MikeWasson
-description: "Die meisten Datasets definieren die Beziehungen zwischen Entitäten: Kunden Bestellungen; haben. Bücher weisen Autoren; Produkte wurden Lieferanten. Verwendung von OData können Clients über navigieren..."
+description: 'Die meisten Datasets definieren die Beziehungen zwischen Entitäten: Kunden Bestellungen; haben. Bücher weisen Autoren; Produkte wurden Lieferanten. Verwendung von OData können Clients über navigieren...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,7 +68,7 @@ Um diese Anforderung zu unterstützen, fügen Sie die folgende Methode, die die 
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-Die *Schlüssel* Parameter ist der Schlüssel des Produkts. Die Methode gibt die verknüpfte Entität &#8212;in diesem Fall eine `Supplier` Instanz. Der Methodenname und Parameternamen sind wichtig. Wenn die Navigationseigenschaft "X" benannt wird, müssen Sie im Allgemeinen eine Methode mit dem Namen "GetX" hinzufügen. Die Methode muss einen Parameter namens annehmen "*Schlüssel*", die den Datentyp der Schlüssel des übergeordneten Elements entspricht.
+Die *Schlüssel* Parameter ist der Schlüssel des Produkts. Die Methode gibt die verknüpfte Entität & #8212 in diesem Fall eine `Supplier` Instanz. Der Methodenname und Parameternamen sind wichtig. Wenn die Navigationseigenschaft "X" benannt wird, müssen Sie im Allgemeinen eine Methode mit dem Namen "GetX" hinzufügen. Die Methode muss einen Parameter namens annehmen "*Schlüssel*", die den Datentyp der Schlüssel des übergeordneten Elements entspricht.
 
 Es ist auch wichtig, enthalten die **[FromOdataUri]** Attribut in der *Schlüssel* Parameter. Dieses Attribut weist Web API OData-Syntaxregeln verwenden, wenn es sich um den Schlüssel vom Anforderungs-URI analysiert werden.
 

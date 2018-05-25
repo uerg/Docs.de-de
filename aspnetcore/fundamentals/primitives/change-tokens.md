@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Erkennen von Änderungen mit Änderungstoken in ASP.NET Core
 
@@ -108,7 +108,7 @@ Der Konstruktor der implementierten `ConfigurationMonitor`-Klasse registriert ei
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` stellt das Token bereit. `InvokeChanged` ist die Rückrufmethode. Der `state` in dieser Instanz ist eine Zeichenfolge, die den Überwachungsstatus beschreibt. Es werden zwei Eigenschaften verwendet:
+`config.GetReloadToken()` stellt das Token bereit. `InvokeChanged` ist die Rückrufmethode. In dieser Instanz stellt `state` einen Verweis auf die `IConfigurationMonitor`-Instanz dar, die verwendet wird, um auf den Überwachungsstatus zuzugreifen. Es werden zwei Eigenschaften verwendet:
 
 * `MonitoringEnabled` gibt an, ob der Rückruf seinen benutzerdefinierten Codes ausführen soll.
 * `CurrentState` beschreibt den aktuellen Überwachungsstatus für die Verwendung in der Benutzeroberfläche.
@@ -116,7 +116,6 @@ Der Konstruktor der implementierten `ConfigurationMonitor`-Klasse registriert ei
 Die `InvokeChanged`-Methode ist vergleichbar mit dem früheren Ansatz, außer dass sie:
 
 * Den Code nicht ausführt, es sei denn, `MonitoringEnabled` ist `true`.
-* Die `CurrentState`-Eigenschaftszeichenfolge auf eine beschreibenden Nachricht festlegt, die die Zeit aufzeichnet, zu der der Code ausgeführt wurde.
 * Den aktuellen `state` in seiner `WriteConsole`-Ausgabe berücksichtigt.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -201,7 +200,6 @@ var compositeChangeToken =
 
 * [Zwischenspeichern in Speicher](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
 * [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

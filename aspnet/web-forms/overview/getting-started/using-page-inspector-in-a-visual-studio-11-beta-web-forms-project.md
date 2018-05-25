@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: "Mit Page Inspector für Visual Studio 2012 in der ASP.NET Web Forms | Microsoft Docs"
+title: Mit Page Inspector für Visual Studio 2012 in der ASP.NET Web Forms | Microsoft Docs
 author: rick-anderson
-description: "Page Inspector für Visual Studio 2012 ist ein Webentwicklungstool mit einem integrierten Browser. Wählen Sie jedes Element im integrierten Browser und Page Inspector..."
+description: Page Inspector für Visual Studio 2012 ist ein Webentwicklungstool mit einem integrierten Browser. Wählen Sie jedes Element im integrierten Browser und Page Inspector...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -63,7 +63,7 @@ Seitenprüfung ist mit Microsoft Web Developer Tools enthalten. Die neueste Vers
 
 ## <a name="create-a-web-application"></a>Erstellen Sie eine Webanwendung
 
-Zunächst erstellen Sie eine Webanwendung, der Seitenprüfung mit verwendet werden. Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-**Option **Web**, und wählen Sie dann **ASP.NET Web Forms-Anwendung**.
+Zunächst erstellen Sie eine Webanwendung, der Seitenprüfung mit verwendet werden. Wählen Sie in Visual Studio **Datei** &gt; **neues Projekt**. Erweitern Sie auf der linken Seite **Visual C#-** Option **Web**, und wählen Sie dann **ASP.NET Web Forms-Anwendung**.
 
 ![Neue Web Forms-Anwendung](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
@@ -249,7 +249,7 @@ Wenn Sie das erste Zeichen jedes Worts in einen Bindestrich getrennte Eigenschaf
 
 ![IntelliSense gefiltert Werte](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Geben Sie nun einen Doppelpunkt. In diesem Fall wird der vollständige Hintergrundfarbe Eigenschaftsname eingefügt. Typ  **#**  oder **Rgb (**, und die Auswahl einer Farbleiste angezeigt wird:
+Geben Sie nun einen Doppelpunkt. In diesem Fall wird der vollständige Hintergrundfarbe Eigenschaftsname eingefügt. Typ **#** oder **Rgb (**, und die Auswahl einer Farbleiste angezeigt wird:
 
 ![Die CSS-Auswahl Farbleiste](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 
