@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'Lernprogramm: Erste Schritte mit SignalR 2 und MVC 5 | Microsoft Docs'
 author: pfletcher
-description: "Dieses Lernprogramm zeigt, wie ASP.NET SignalR 2 eine Echtzeit-Chat-Anwendung erstellen. Fügen SignalR zu einer MVC 5-Anwendung und erstellen Sie eine Ansicht Chat..."
+description: Dieses Lernprogramm zeigt, wie ASP.NET SignalR 2 eine Echtzeit-Chat-Anwendung erstellen. Fügen SignalR zu einer MVC 5-Anwendung und erstellen Sie eine Ansicht Chat...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

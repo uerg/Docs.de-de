@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/self-host-a-web-api
 title: Selbsthosting ASP.NET Web-API 1 (c#) | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web-API erfordert keine IIS. Eine Web-API können in Ihren eigenen Hostprozess selbst gehostet werden. In diesem Lernprogramm wird gezeigt, wie eine Web-API in einer Konsole applic hosten wird..."
+description: ASP.NET Web-API erfordert keine IIS. Eine Web-API können in Ihren eigenen Hostprozess selbst gehostet werden. In diesem Lernprogramm wird gezeigt, wie eine Web-API in einer Konsole applic hosten wird...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="c19a1-116">Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite.</span><span class="sxs-lookup"><span data-stu-id="c19a1-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="c19a1-117">Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="c19a1-118">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="c19a1-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c19a1-119">Klicken Sie unter **Visual C#-**Option **Windows**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="c19a1-120">Wählen Sie in der Liste der Projektvorlagen **Konsolenanwendung**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="c19a1-121">Nennen Sie das Projekt &quot;SelfHost&quot; , und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="c19a1-118">In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten.</span><span class="sxs-lookup"><span data-stu-id="c19a1-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c19a1-119">Klicken Sie unter **Visual C#-** Option **Windows**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="c19a1-120">Wählen Sie in der Liste der Projektvorlagen **Konsolenanwendung**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="c19a1-121">Nennen Sie das Projekt &quot;SelfHost&quot; , und klicken Sie auf **OK**.</span><span class="sxs-lookup"><span data-stu-id="c19a1-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 

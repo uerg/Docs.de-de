@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 title: Grundlegendes zu Modellen, Ansichten und Controllern (c#) | Microsoft Docs
 author: StephenWalther
-description: "Informationen zu Modellen, Ansichten und Controllern verwechselt? In diesem Lernprogramm führt Sie Stephen Walther auf verschiedene Teile einer ASP.NET MVC-Anwendung."
+description: Informationen zu Modellen, Ansichten und Controllern verwechselt? In diesem Lernprogramm führt Sie Stephen Walther auf verschiedene Teile einer ASP.NET MVC-Anwendung.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008

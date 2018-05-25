@@ -2,7 +2,7 @@
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 title: ASP.NET SignalR-Hubs-API-Handbuch - JavaScript-Client | Microsoft Docs
 author: pfletcher
-description: "Dieses Dokument enthält eine Einführung zur Verwendung der API-Hubs für SignalR Version 2 im JavaScript-Clients, z. B. Browsern und Windows Store (WinJS) Application..."
+description: Dieses Dokument enthält eine Einführung zur Verwendung der API-Hubs für SignalR Version 2 im JavaScript-Clients, z. B. Browsern und Windows Store (WinJS) Application...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2015

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/troubleshooting
-title: "Problembehandlung für SignalR | Microsoft Docs"
+title: Problembehandlung für SignalR | Microsoft Docs
 author: pfletcher
-description: "Dieser Artikel beschreibt häufig auftretende Probleme mit der Entwicklung von SignalR-Anwendungen."
+description: Dieser Artikel beschreibt häufig auftretende Probleme mit der Entwicklung von SignalR-Anwendungen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

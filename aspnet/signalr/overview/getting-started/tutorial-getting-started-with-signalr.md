@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
 title: 'Lernprogramm: Erste Schritte mit SignalR 2 | Microsoft Docs'
 author: pfletcher
-description: "Dieses Tutorial zeigt, wie Sie mithilfe von SignalR eine Chatanwendung mit Echtzeitfunktionalität erstellen. Sie werden eine leere ASP.NET-Webanwendung SignalR hinzu, und erstellen eine HTML-Pa..."
+description: Dieses Tutorial zeigt, wie Sie mithilfe von SignalR eine Chatanwendung mit Echtzeitfunktionalität erstellen. Sie werden eine leere ASP.NET-Webanwendung SignalR hinzu, und erstellen eine HTML-Pa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

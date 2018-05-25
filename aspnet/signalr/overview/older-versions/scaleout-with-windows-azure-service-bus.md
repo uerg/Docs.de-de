@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 title: SignalR mit horizontaler Skalierung mit Azure Servicebus (SignalR 1.x) | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
