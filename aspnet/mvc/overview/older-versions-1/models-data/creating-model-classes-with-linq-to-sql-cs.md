@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9a56ceb9eab5774906ecc89ce9da570d4f691a82
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/27/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Erstellen von Modellklassen mit LINQ to SQL (c#)
 ====================
@@ -149,7 +149,7 @@ Nach dem Hinzufügen von einigen Datenbank-Datensätze auf den `tblMovies` Tabel
 
 ## <a name="using-the-repository-pattern"></a>Verwendung des Repositorymusters
 
-Im vorherigen Abschnitt haben wir die LINQ to SQL-Klassen direkt innerhalb eine Controlleraktion verwendet. Es verwendet die `MovieDataContex` t-Klasse direkt aus der `Index()` Controlleraktion. Es ist nichts dies bei einer einfachen Anwendung. Das direkte Arbeiten mit LINQ to SQL in einer Controllerklasse erstellt jedoch Probleme, wenn Sie eine komplexere Anwendung erstellen möchten.
+Im vorherigen Abschnitt haben wir die LINQ to SQL-Klassen direkt innerhalb eine Controlleraktion verwendet. Es verwendet die `MovieDataContext` -Klasse direkt aus der `Index()` Controlleraktion. Es ist nichts dies bei einer einfachen Anwendung. Das direkte Arbeiten mit LINQ to SQL in einer Controllerklasse erstellt jedoch Probleme, wenn Sie eine komplexere Anwendung erstellen möchten.
 
 Mit LINQ to SQL innerhalb einer Controllerklasse erschwert die Technologien für den Datenzugriff in der Zukunft zu wechseln. Sie könnten z. B. Microsoft LINQ to SQL Verwendung von Microsoft Entity Framework als Ihre datenzugriffstechnologie wechseln. In diesem Fall müssten Sie jede Controller neu zu schreiben, der Zugriff auf die Datenbank innerhalb der Anwendung.
 

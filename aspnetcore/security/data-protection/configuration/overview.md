@@ -4,16 +4,17 @@ author: rick-anderson
 description: Informationen Sie zum Datenschutz in ASP.NET Core konfigurieren.
 manager: wpickett
 ms.author: riande
+ms.custom: mvc
 ms.date: 07/17/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 803b81f5f69496900791ca1d1976f70f8c266f29
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurieren von ASP.NET Core Datenschutz
 
@@ -30,6 +31,33 @@ Für die folgenden Szenarien bietet das Data Protection-System eine umfangreiche
 > Ähnlich wie bei den Konfigurationsdateien sollte der Data Protection Schlüssel Ring geschützt werden mit entsprechenden Berechtigungen. Sie können ruhende Verschlüsselung, aber dadurch nicht verhindert, dass Angreifer das Erstellen neuer Schlüssel. Folglich wird die Sicherheit Ihrer app beeinträchtigt. Der Speicherort, die mit Data Protection konfiguriert müssen den Zugriff auf die app selbst, ähnlich wie die Konfigurationsdateien zu schützen, ist beschränkt. Wenn Ihr Schlüssel Ring auf dem Datenträger gespeichert werden soll, verwenden Sie z. B. Dateisystemberechtigungen. Stellen Sie sicher nur die Identität unter Leseberechtigungen der Ihre Web-app ausgeführt wird, schreiben und Zugriff auf dieses Verzeichnis zu erstellen. Bei Verwendung von Azure-Tabellenspeicher sollte nur die Web-app haben die Möglichkeit zum Lesen, schreiben oder neue Einträge in den Tabellenspeicher usw. erstellen.
 >
 > Die Erweiterungsmethode [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) gibt eine [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` macht Erweiterungsmethoden, dass Sie miteinander Optionen verketten können so konfigurieren Sie den Schutz von Daten an.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="protectkeyswithazurekeyvault"></a>ProtectKeysWithAzureKeyVault
+
+Zum Speichern von Schlüsseln in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), konfigurieren Sie das System mit [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) in die `Startup` Klasse:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToAzureBlobStorage(new Uri("<blobUriWithSasToken>"))
+        .ProtectKeysWithAzureKeyVault("<keyIdentifier>", "<clientId>", "<clientSecret>");
+}
+```
+
+Legen Sie den Schlüssel Ring-Speicherort (z. B. [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Der Speicherort muss festgelegt werden, da Aufrufen `ProtectKeysWithAzureKeyVault` implementiert eine [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) , von denen Daten automatisch schutzeinstellungen, einschließlich den Schlüsselbund Speicherort deaktiviert. Im vorherige Beispiel verwendet Azure Blob-Speicher, den Schlüssel Ring beizubehalten. Weitere Informationen finden Sie unter [Key Storage Provider: Azure und Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Sie können auch den Schlüssel Ring lokal mit beibehalten [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+
+Die `keyIdentifier` schlüsseltresor-Schlüsselbezeichner, die für die Verschlüsselung verwendet wird (z. B. `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+
+`ProtectKeysWithAzureKeyVault` Überladungen:
+
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder KeyVaultClient, String)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_Microsoft_Azure_KeyVault_KeyVaultClient_System_String_) erlaubt die Verwendung einer [KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient) So aktivieren Sie die Datenschutzsystem schlüsseltresor verwenden.
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder, String, String, X509Certificate2)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_Security_Cryptography_X509Certificates_X509Certificate2_) erlaubt die Verwendung einer `ClientId` und [X509Certificate](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) So aktivieren Sie die Datenschutzsystem schlüsseltresor verwenden.
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder, String, String, String)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_String_) erlaubt die Verwendung einer `ClientId` und `ClientSecret` So aktivieren Sie die Datenschutzsystem schlüsseltresor verwenden.
+
+::: moniker-end
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 
