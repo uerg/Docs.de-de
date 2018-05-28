@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -113,7 +113,7 @@ Wenn die Transformation der Datei durch das Web-SDK deaktiviert wird, müssen di
 
 ### <a name="webconfig-file-location"></a>Speicherort der Datei „web.config“
 
-.NET Core-Apps werden in einem Reverseproxy zwischen IIS und dem Kestrel-Server gehostet. Zum Erstellen des Reverseproxys muss die Datei *web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *Web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
+Zum Erstellen des Reverseproxys zwischen IIS und dem Kestrel-Server muss die Datei *web.config* im Stammpfad des Inhalts (normalerweise dem App-Basispfad) der bereitgestellten App vorhanden sein. Dies ist der physische Pfad der Website, der in IIS bereitgestellt wurde. Die Datei *Web.config* wird im Stammverzeichnis der App benötigt, um die Veröffentlichung mehrerer Apps mit Web Deploy zu ermöglichen.
 
 Im physischen Pfad der App sind vertrauliche Dateien vorhanden, wie z.B. *\<assembly_name>.runtimeconfig.json*, *\<assembly_name>.xml* (XML-Dokumentationskommentare) und *\<assembly_name>.deps.json*. Wenn die Datei *web.config* vorhanden ist und die Website normal startet, werden diese vertraulichen Dateien von IIS bei Anforderung nicht offengelegt. Wenn die Datei *web.config* fehlt, falsch benannt wurde oder die Website nicht für den normalen Start konfigurieren kann, macht IIS vertrauliche Dateien möglicherweise öffentlich verfügbar.
 
@@ -172,7 +172,7 @@ Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
 1. Installieren Sie das *Paket „.NET Core Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Hosting“ installieren.
 
    1. Navigieren Sie zu der [.NET-Seite „All Downloads“](https://www.microsoft.com/net/download/all).
-   1. Wählen Sie die neueste Nicht-Vorschau-.NET Core-Runtime in der Liste aus (**.NET Core** > **Runtime** > **.NET Core-Runtime x.y.z**). Sofern Sie nicht mit Preview-Software (Vorschausoftware) arbeiten möchten, sollten Sie Runtimes vermeiden, in deren Linktext das Wort „preview“ vorhanden ist.
+   1. Wählen Sie die neueste Nicht-Vorschau-.NET Core-Runtime in der Liste aus (**.NET Core** > **Runtime** > **.NET Core-Runtime x.y.z**). Vermeiden Sie eine im Linktext mit „preview“ oder „rc“ (Release Candidate) gekennzeichnete Runtime, wenn Sie nicht mit Vorschausoftware arbeiten möchten.
    1. Wählen Sie auf der Downloadseite der .NET Core-Runtime unter **Windows** den Link zum **Installer des Hosting-Pakets** aus, um das Paket *.NET Core Hosting* herunterzuladen.
 
    **Wichtig** Wenn das Hosting-Paket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut den Installer des Hosting-Pakets aus.

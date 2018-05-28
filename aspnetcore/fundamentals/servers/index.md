@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: 38af9d0206d66ac7fd2dc13a5a8245e8f66df41e
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: c9ed385208df083f631174c7071ca31ed2114350
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
@@ -39,9 +39,7 @@ Kestrel kann eigenständig oder mit einem *Reverseproxyserver* wie IIS, Nginx od
 
 ![Kestrel kommuniziert indirekt mit dem Internet über einen Reverseproxyserver wie IIS, Nginx oder Apache](kestrel/_static/kestrel-to-internet.png)
 
-Jede der beiden Konfigurationen &mdash;, egal ob mit oder ohne Reverseproxyserver &mdash;, kann auch dann verwendet werden, wenn Kestrel nur in einem internen Netzwerk verfügbar gemacht wird.
-
-Weitere Informationen finden Sie unter [Verwenden von Kestrel mit einem Reverseproxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+Jede der beiden Konfigurationen &mdash;mit oder ohne einen Reverseproxyserver&mdash; ist eine gültige und unterstützte Hostingkonfiguration für ASP.NET Core 2.0 oder neuere Apps. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -55,7 +53,7 @@ Wenn die App für das Internet verfügbar gemacht ist, muss Kestrel IIS, Nginx o
 
 Der wichtigste Grund für die Verwendung eines Reverseproxys für Edge-Bereitstellungen, die im Internet verfügbar gemacht werden, ist die IT-Sicherheit. Die 1.x-Versionen von Kestrel haben keine wesentlichen Sicherheitsfeatures zum Schutz vor Angriffen aus dem Internet. So sind z. B. keine geeigneten Timeouts, Größenlimits für Anforderungen sowie Beschränkungen der Anzahl gleichzeitiger Verbindungen vorhanden.
 
-Weitere Informationen finden Sie unter [Verwenden von Kestrel mit einem Reverseproxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 ---
 

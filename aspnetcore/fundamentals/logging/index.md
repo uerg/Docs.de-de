@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -583,21 +583,22 @@ Der Anbieter funktioniert nur, wenn Ihr Projekt in der Azure-Umgebung ausgeführ
 
 ## <a name="third-party-logging-providers"></a>Protokollierungsanbieter von Drittanbietern
 
-Nachfolgend werden einige Protokollierungsframeworks von Drittanbietern aufgeführt, die mit ASP.NET Core funktionieren:
+Protokollierungsframeworks von Drittanbietern aufgeführt, die mit ASP.NET Core funktionieren:
 
-* [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging): Anbieter für den Elmah.lo-Dienst
+* [elmah.io](https://elmah.io/) ([GitHub-Repository](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [JSNLog](http://jsnlog.com/) ([GitHub-Repository](https://github.com/mperdeck/jsnlog))
+* [Loggr](http://loggr.net/) ([GitHub-Repository](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](http://nlog-project.org/) ([GitHub-Repository](https://github.com/NLog/NLog.Extensions.Logging))
+* [Serilog](https://serilog.net/) ([GitHub-Repository](https://github.com/serilog/serilog-extensions-logging))
 
-* [JSNLog](http://jsnlog.com): Protokolliert JavaScript-Ausnahmen und andere clientseitige Ereignisse in Ihrem serverseitigen Protokoll.
+Einige Drittanbieterframeworks können eine [semantische Protokollierung (auch als strukturierte Protokollierung bezeichnet)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) ausführen.
 
-* [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging): Anbieter für den Loggr-Dienst
+Die Verwendung eines Frameworks von Drittanbietern ist ähnlich wie die Verwendung eines integrierten Anbieters:
 
-* [NLog](https://github.com/NLog/NLog.Extensions.Logging): Anbieter für den NLog-Dienst
+1. Fügen Sie Ihrem Paket ein NuGet-Paket hinzu.
+1. Rufen Sie eine Erweiterungsmethode für `ILoggerFactory` auf.
 
-* [Serilog](https://github.com/serilog/serilog-extensions-logging): Anbieter für den Serilog-Dienst
-
-Einige Drittanbieterframeworks unterstützen eine [semantische Protokollierung (auch als strukturierte Protokollierung bezeichnet)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
-
-Die Verwendung eines Drittanbieterframeworks ist vergleichbar mit der Verwendung eines integrierten Anbieters: Fügen Sie Ihrem Projekt ein NuGet-Paket hinzu, und rufen Sie eine Erweiterungsmethode für `ILoggerFactory` auf. Weitere Informationen finden Sie in der Dokumentation zum jeweiligen Framework.
+Weitere Informationen finden Sie in der Dokumentation zum jeweiligen Framework.
 
 ## <a name="azure-log-streaming"></a>Azure-Protokollstreaming
 
