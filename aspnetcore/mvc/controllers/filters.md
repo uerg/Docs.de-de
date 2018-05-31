@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555403"
 ---
 # <a name="filters-in-aspnet-core"></a>Filter in ASP.NET Core
 
@@ -22,7 +23,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 In ASP.Net Core MVC ermöglichen *Filter* Ihnen, Code vor oder nach bestimmten Stufen der Anforderungsverarbeitungspipeline auszuführen.
 
 > [!IMPORTANT]
-> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filter methods for Razor Pages (Filtermethoden für Razor-Seiten)](xref:mvc/razor-pages/filter).
+> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filtermethoden für Razor-Seiten](xref:mvc/razor-pages/filter).
 
  Integrierte Filter sind für folgende Aufgaben zuständig:
  
@@ -66,7 +67,7 @@ Synchrone Filter, die Code sowohl vor als auch nach ihrer Pipeline ausführen k�
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet1)]
 
-Asynchrone Filter definieren eine einzelne On*Stage*ExecutionAsync-Methode. Diese Methode verwendet einen *FilterType*ExecutionDelegate-Delegaten, der die Pipelinestufe des Filters ausführt. Zum Beispiel ruft `ActionExecutionDelegate` die Aktionsmethode auf, und Sie können Code ausführen, bevor oder nachdem Sie sie aufrufen.
+Asynchrone Filter definieren eine einzelne On*Stage*ExecutionAsync-Methode. Diese Methode verwendet einen *FilterType*ExecutionDelegate-Delegaten, der die Pipelinestufe des Filters ausführt. Zum Beispiel ruft `ActionExecutionDelegate` die Aktionsmethode oder den nächsten Aktionsfilter auf, und Sie können Code ausführen, bevor oder nachdem Sie sie aufrufen.
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 

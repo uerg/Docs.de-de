@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555351"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Arbeiten mit dem Anwendungsmodell in ASP.NET Core
 
@@ -168,7 +169,7 @@ Im nachfolgenden Beispiel wird diese Konvention auf Routen angewendet, die kein 
 ASP.NET Core MVC verwendet andere Konventionen aus ASP.NET-Web-API 2. Mithilfe von benutzerdefinierten Konventionen können Sie das Verhalten einer ASP.NET Core-MVC-App so ändern, dass es mit dem einer Web-API-App konsistent ist. Microsoft liefert die [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) speziell für diesen Zweck aus.
 
 > [!NOTE]
-> Hier finden Sie weitere Informationen zum [Migrieren von der ASP.NET-Web-API](xref:migration/webapi).
+> Hier finden Sie weitere Informationen zum [Migrieren der ASP.NET-Web-API](xref:migration/webapi).
 
 Für die Verwendung der Web-API-Kompatibilitätsshim müssen Sie das Paket zu Ihrem Projekt und anschließend die Konventionen zu MVC hinzufügen, indem Sie `AddWebApiConventions`unter `Startup` aufrufen:
 
