@@ -1,4 +1,4 @@
 > [!IMPORTANT]
-> **Beachten Sie, dass für die Verwendung von ASP.NET Core 2.1 Preview-Versionen**
+> **Hinweis zur Verwendung von ASP.NET Core 2.1-Vorschauausgaben**
 >
-> Finden Sie unter [bereitstellen ASP.NET Core Preview-Version nach Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service).
+> Siehe [Bereitstellen der ASP.NET Core-Vorschauausgabe für Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service).

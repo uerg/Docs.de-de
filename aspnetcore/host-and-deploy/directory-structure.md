@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core-Verzeichnisstruktur
+title: Verzeichnisstruktur für ASP.NET Core
 author: guardrex
 description: Erfahren Sie mehr über die Verzeichnisstruktur veröffentlichter ASP.NET Core-Apps.
 manager: wpickett
@@ -12,31 +12,32 @@ ms.topic: article
 uid: host-and-deploy/directory-structure
 ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838435"
 ---
-# <a name="aspnet-core-directory-structure"></a>ASP.NET Core-Verzeichnisstruktur
+# <a name="aspnet-core-directory-structure"></a>Verzeichnisstruktur für ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-In ASP.NET Core, im Verzeichnis der veröffentlichten Anwendung *veröffentlichen*, besteht der Anwendungsdateien, Konfigurationsdateien, statische Bestand, Pakete und die Common Language Runtime (für [eigenständige Bereitstellungen](/dotnet/core/deploying/#self-contained-deployments-scd)).
+In ASP.NET Core besteht das veröffentlichte Anwendungsverzeichnis, *publish*, aus Anwendungsdateien, Konfigurationsdateien, statischen Objekten, Paketen und der Runtime (bei [eigenständigen Bereitstellungen](/dotnet/core/deploying/#self-contained-deployments-scd)).
 
 
 | App-Typ | Verzeichnisstruktur |
 | -------- | ------------------- |
-| [Framework-abhängige-Bereitstellung](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Veröffentlichen&dagger;<ul><li>Protokolle&dagger; (Dies ist optional, es sei denn, die zum Empfangen von Protokollen für "stdout" erforderlich)</li><li>Sichten&dagger; (MVC-apps; Wenn Ansichten vorkompiliert werden nicht)</li><li>Seiten&dagger; (Razor-Seiten oder MVC-apps; Wenn Seiten vorkompiliert werden nicht)</li><li>"Wwwroot"&dagger;</li><li>*\.DLL-Dateien</li><li>\<Assembly-Name >. deps.json</li><li>\<Assembly-Name > .dll</li><li>\<Assembly-Name > PDB-Datei</li><li>\<Assembly-Name >. PrecompiledViews.dll</li><li>\<Assembly-Name >. PrecompiledViews.pdb</li><li>\<Assembly-Name >. runtimeconfig.json</li><li>"Web.config" (IIS-Bereitstellungen)</li></ul></li></ul> |
-| [Eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Veröffentlichen&dagger;<ul><li>Protokolle&dagger; (Dies ist optional, es sei denn, die zum Empfangen von Protokollen für "stdout" erforderlich)</li><li>Refs&dagger;</li><li>Sichten&dagger; (MVC-apps; Wenn Ansichten vorkompiliert werden nicht)</li><li>Seiten&dagger; (Razor-Seiten oder MVC-apps; Wenn Seiten vorkompiliert werden nicht)</li><li>"Wwwroot"&dagger;</li><li>\*DLL-Dateien</li><li>\<Assembly-Name >. deps.json</li><li>\<Assembly-Name > .exe</li><li>\<Assembly-Name > PDB-Datei</li><li>\<Assembly-Name >. PrecompiledViews.dll</li><li>\<Assembly-Name >. PrecompiledViews.pdb</li><li>\<Assembly-Name >. runtimeconfig.json</li><li>"Web.config" (IIS-Bereitstellungen)</li></ul></li></ul> |
+| [Framework-abhängige Bereitstellung](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (optional, es sei denn, es müssen stdout-Protokolle empfangen werden)</li><li>Ansichten&dagger; (MVC-Apps, wenn Ansichten nicht vorkompiliert sind)</li><li>Seiten&dagger; (MVC- oder Razor Pages-Apps, wenn Seiten nicht vorkompiliert sind)</li><li>wwwroot&dagger;</li><li>*\.DLL-Dateien</li><li>\<assembly-name>.deps.json</li><li>\<assembly-name>.dll</li><li>\<assembly-name>.pdb</li><li>\<assembly-name>.PrecompiledViews.dll</li><li>\<assembly-name>.PrecompiledViews.pdb</li><li>\<assembly-name>.runtimeconfig.json</li><li>web.config (IIS-Bereitstellungen)</li></ul></li></ul> |
+| [Eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (optional, es sei denn, es müssen stdout-Protokolle empfangen werden)</li><li>refs&dagger;</li><li>Ansichten&dagger; (MVC-Apps, wenn Ansichten nicht vorkompiliert sind)</li><li>Seiten&dagger; (MVC- oder Razor Pages-Apps, wenn Seiten nicht vorkompiliert sind)</li><li>wwwroot&dagger;</li><li>\*DLL-Dateien</li><li>\<assembly-name>.deps.json</li><li>\<assembly-name>.exe</li><li>\<assembly-name>.pdb</li><li>\<assembly-name>.PrecompiledViews.dll</li><li>\<assembly-name>.PrecompiledViews.pdb</li><li>\<assembly-name>.runtimeconfig.json</li><li>web.config (IIS-Bereitstellungen)</li></ul></li></ul> |
 
 &dagger;Gibt ein Verzeichnis an
 
-Die *veröffentlichen* Verzeichnis darstellt der *Content Stammpfad*auch Namens der *Anwendungsbasispfads*, der Bereitstellung. Auf einen beliebigen Namen gewährt wird die *veröffentlichen* Verzeichnis die bereitgestellte app auf dem Server, dessen Speicherort dient, mit dem physischen Pfad des Servers für die gehostete app.
+Das Verzeichnis *publish* stellt den *Pfad des Inhaltsstammverzeichnisses* (auch als *Pfad der Anwendungsbasis* bekannt) der Bereitstellung dar. Unabhängig vom Namen des Verzeichnisses *publish* der auf dem Server bereitgestellten App dient der Speicherort des Verzeichnisses als physischer Pfad des Servers für die gehostete App.
 
-Die *"Wwwroot"* Verzeichnis, falls vorhanden, enthält nur statische Objekte.
+Das Verzeichnis *wwwroot* enthält, sofern vorhanden, nur statische Objekte.
 
-Die "stdout" *Protokolle* Verzeichnis erstellt werden kann, für die Bereitstellung mit einer der beiden folgenden Methoden:
+Das stdout-Verzeichnis *logs* kann mit einem der folgenden beiden Ansätze für die Bereitstellung erstellt werden:
 
-* Fügen Sie die folgenden `<Target>` Element an der Projektdatei:
+* Fügen Sie das folgende `<Target>`-Element zur Projektdatei hinzu:
 
    ```xml
    <Target Name="CreateLogsFolder" AfterTargets="Publish">
@@ -49,8 +50,8 @@ Die "stdout" *Protokolle* Verzeichnis erstellt werden kann, für die Bereitstell
    </Target>
    ```
 
-   Die `<MakeDir>` Element erstellt ein leeres *Protokolle* Ordner in der veröffentlichten Ausgabe. Das Element verwendet die `PublishDir` -Eigenschaft können Sie den Zielspeicherort für die Ordner erstellen, zu bestimmen. Mehrere Bereitstellungsmethoden zur Verfügung, z. B. Webbereitstellung, überspringen Sie leere Ordner während der Bereitstellung. Die `<WriteLinesToFile>` Element erzeugt eine Datei in die *Protokolle* Ordner, in dem Bereitstellung des Ordners mit dem Server gewährleistet. Beachten Sie, dass Ordner erstellen noch fehlschlagen, wenn der Arbeitsprozess Schreibzugriff in den Zielordner keine.
+   Mit dem `<MakeDir>`-Element wird in der veröffentlichten Ausgabe ein leerer *Logs*-Ordner erstellt. Das Element bestimmt mithilfe der Eigenschaft `PublishDir` den Zielspeicherort für die Erstellung des Ordners. Mehrere Bereitstellungsmethoden, wie z.B. Web Deploy, überspringen leere Ordner während der Bereitstellung. Das Element `<WriteLinesToFile>` generiert im Ordner *Logs* eine Datei, die eine Bereitstellung des Ordners auf dem Server garantiert. Beachten Sie, dass die Ordnererstellung weiterhin fehlschlagen kann, wenn der Workerprozess keinen Schreibzugriff auf den Zielordner hat.
 
-* Erstellen Sie physisch die *Protokolle* -Verzeichnisses auf dem Server in der Bereitstellung.
+* Erstellen Sie das Verzeichnis *Logs* physisch auf dem Server in der Bereitstellung.
 
-Das Bereitstellungsverzeichnis erfordert Lese-/Execute-Berechtigungen. Die *Protokolle* Directory erfordert Lese-/Schreibberechtigungen. Weitere Verzeichnisse, in Dateien geschrieben werden, erfordern Lese-/Schreibberechtigungen.
+Für das Bereitstellungsverzeichnis sind Lese-/Ausführungsberechtigungen erforderlich. Für das Verzeichnis *Logs* sind Lese-/Schreibberechtigungen erforderlich. Für weitere Verzeichnisse, in die Dateien geschrieben werden, sind Lese-/Schreibberechtigungen erforderlich.

@@ -1,7 +1,7 @@
 ---
 title: IIS-Module mit ASP.NET Core
 author: guardrex
-description: Aktive und inaktive IIS-Module für ASP.NET Core-apps und zum Verwalten von IIS-Module zu ermitteln.
+description: Lernen Sie aktive und inaktive IIS-Module für ASP.NET Core-Apps kennen, und erfahren Sie, wie Sie diese verwalten können.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -12,87 +12,88 @@ ms.topic: article
 uid: host-and-deploy/iis/modules
 ms.openlocfilehash: e88526d997618658f58488adb37ae1e519ea3f59
 ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483431"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>IIS-Module mit ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core-apps werden in einer reverse-Proxy-Konfiguration von IIS gehostet. Einige der systemeigenen IIS-Module und allen Modulen verwaltet IIS nicht zur Verarbeitung von Anforderungen für ASP.NET Core-apps verfügbar. In vielen Fällen bietet ASP.NET Core Alternative zu den Funktionen von IIS-Module für systemeigenen und verwalteten.
+ASP.NET Core-Apps werden von IIS in einer Reverseproxykonfiguration gehostet. Einige der nativen IIS-Module und sämtliche der IIS-verwalteten Module stehen für die Verarbeitung von Anforderungen für ASP.NET Core-Apps nicht zur Verfügung. In vielen Fällen bietet ASP.NET Core eine Alternative zu den Features der nativen IIS-Module und der IIS-verwalteten Module.
 
-## <a name="native-modules"></a>Systemeigene Module
+## <a name="native-modules"></a>Native Module
 
-Die Tabelle zeigt die systemeigene IIS-Module, die für reverse-Proxy-Anforderungen an ASP.NET Core apps funktionsfähig sind.
+Die Tabelle enthält native IIS-Module, die bei Reverseproxyanforderungen an ASP.NET Core-Apps funktionsfähig sind.
 
-| Modul | Mit ASP.NET Core apps funktionsfähig | ASP.NET Core-Option |
+| Modul | Funktionsfähig mit ASP.NET Core-Apps | ASP.NET Core-Option |
 | ------ | :-------------------------------: | ------------------- |
 | **Anonyme Authentifizierung**<br>`AnonymousAuthenticationModule` | Ja | |
 | **Standardauthentifizierung**<br>`BasicAuthenticationModule` | Ja | |
-| **Client-Zertifizierung Clientzertifikatzuordnung-Authentifizierung**<br>`CertificateMappingAuthenticationModule` | Ja | |
+| **Authentifizierung durch Clientzertifikatszuordnung**<br>`CertificateMappingAuthenticationModule` | Ja | |
 | **CGI**<br>`CgiModule` | Nein | |
-| **Überprüfung der Konfiguration**<br>`ConfigurationValidationModule` | Ja | |
-| **HTTP-Fehler**<br>`CustomErrorModule` | Nein | [Status Code Seiten Middleware](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **Konfigurationsvalidierung**<br>`ConfigurationValidationModule` | Ja | |
+| **HTTP-Fehler**<br>`CustomErrorModule` | Nein | [Middleware für Statuscodeseiten](xref:fundamentals/error-handling#configuring-status-code-pages) |
 | **Benutzerdefinierte Protokollierung**<br>`CustomLoggingModule` | Ja | |
-| **Standarddokument**<br>`DefaultDocumentModule` | Nein | [Standardmäßig Dateien Middleware](xref:fundamentals/static-files#serve-a-default-document) |
-| **Die Digest-Authentifizierung**<br>`DigestAuthenticationModule` | Ja | |
-| **Verzeichnissuche**<br>`DirectoryListingModule` | Nein | [Verzeichnis durchsuchen Middleware](xref:fundamentals/static-files#enable-directory-browsing) |
-| **Die dynamische Komprimierung**<br>`DynamicCompressionModule` | Ja | [Antworten komprimierende Middleware](xref:performance/response-compression) |
+| **Standarddokument**<br>`DefaultDocumentModule` | Nein | [Middleware für Standarddateien](xref:fundamentals/static-files#serve-a-default-document) |
+| **Hashwertauthentifizierung**<br>`DigestAuthenticationModule` | Ja | |
+| **Verzeichnissuche**<br>`DirectoryListingModule` | Nein | [Middleware für Verzeichnissuche](xref:fundamentals/static-files#enable-directory-browsing) |
+| **Dynamische Komprimierung**<br>`DynamicCompressionModule` | Ja | [Antworten komprimierende Middleware](xref:performance/response-compression) |
 | **Ablaufverfolgung**<br>`FailedRequestsTracingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index#the-tracesource-provider) |
-| **Zwischenspeicherung von Dateien**<br>`FileCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
-| **HTTP-Caching**<br>`HttpCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
+| **Dateizwischenspeicherung**<br>`FileCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
+| **HTTP-Zwischenspeicherung**<br>`HttpCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
 | **HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 | **HTTP-Umleitung**<br>`HttpRedirectionModule` | Ja | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
-| **IIS-Clientzertifikatzuordnung-Authentifizierung**<br>`IISCertificateMappingAuthenticationModule` | Ja | |
+| **Authentifizierung durch IIS-Clientzertifikatszuordnung**<br>`IISCertificateMappingAuthenticationModule` | Ja | |
 | **IP- und Domäneneinschränkungen**<br>`IpRestrictionModule` | Ja | |
 | **ISAPI-Filter**<br>`IsapiFilterModule` | Ja | [Middleware](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule` | Ja | [Middleware](xref:fundamentals/middleware/index) |
 | **Protokollunterstützung**<br>`ProtocolSupportModule` | Ja | |
-| **Anforderungsfilterung**<br>`RequestFilteringModule` | Ja | [URL umschreiben Middleware `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Anforderungsfilterung**<br>`RequestFilteringModule` | Ja | [URL-umschreibende Middleware`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Anforderungsüberwachung**<br>`RequestMonitorModule` | Ja | |
-| **URLs**<br>`RewriteModule` | Ja&#8224; | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
-| **Serverseitige Include-Dateien**<br>`ServerSideIncludeModule` | Nein | |
-| **Komprimierung statischer**<br>`StaticCompressionModule` | Nein | [Antworten komprimierende Middleware](xref:performance/response-compression) |
+| **URL-Umschreibung**<br>`RewriteModule` | Ja&#8224; | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
+| **Serverseitige Includedateien**<br>`ServerSideIncludeModule` | Nein | |
+| **Statische Komprimierung**<br>`StaticCompressionModule` | Nein | [Antworten komprimierende Middleware](xref:performance/response-compression) |
 | **Statischer Inhalt**<br>`StaticFileModule` | Nein | [Middleware für statische Dateien](xref:fundamentals/static-files) |
-| **Das Zwischenspeichern von Token**<br>`TokenCacheModule` | Ja | |
-| **URI-Cache**<br>`UriCacheModule` | Ja | |
-| **URL-Autorisierung**<br>`UrlAuthorizationModule` | Ja | [ASP.NET Core Identität](xref:security/authentication/identity) |
+| **Token-Zwischenspeicherung**<br>`TokenCacheModule` | Ja | |
+| **URI-Zwischenspeicherung**<br>`UriCacheModule` | Ja | |
+| **URL-Autorisierung**<br>`UrlAuthorizationModule` | Ja | [ASP.NET Core-Identität](xref:security/authentication/identity) |
 | **Windows-Authentifizierung**<br>`WindowsAuthenticationModule` | Ja | |
 
-&#8224;Das URL Rewrite-Modul des `isFile` und `isDirectory` Übereinstimmungstypen nicht unterstützt, mit ASP.NET Core apps aufgrund der Änderungen in [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
+&#8224;Die Übereinstimmungstypen `isFile` und `isDirectory` des URL-Rewrite-Moduls können aufgrund der Änderungen in der [Verzeichnisstruktur](xref:host-and-deploy/directory-structure) nicht in ASP.NET Core-Apps ausgeführt werden.
 
 ## <a name="managed-modules"></a>Verwaltete Module
 
-Verwaltete Module sind *nicht* mit gehosteten ASP.NET Core-apps, wenn die app-Pool .NET CLR-Version festgelegt ist funktionsfähig **kein verwalteter Code**. ASP.NET Core bietet Middleware Alternativen für mehrere Fälle.
+Verwaltete Module sind mit gehosteten ASP.NET Core-Apps *nicht* funktionsfähig, wenn die .NET CLR-Version des App-Pools auf **Kein verwalteter Code** festgelegt ist. ASP.NET Core bietet in verschiedenen Fällen Alternativen für Middleware an.
 
 | Modul                  | ASP.NET Core-Option |
 | ----------------------- | ------------------- |
 | AnonymousIdentification | |
 | DefaultAuthentication   | |
 | FileAuthorization       | |
-| FormsAuthentication     | [Cookie-authentifizierungsmiddleware beziehen.](xref:security/authentication/cookie) |
+| FormsAuthentication     | [Middleware für Cookieauthentifizierung](xref:security/authentication/cookie) |
 | OutputCache             | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
 | Profile                 | |
 | RoleManager             | |
-| ScriptModule 4.0        | |
-| Sitzung                 | [Sitzung Middleware](xref:fundamentals/app-state) |
-| Dateiautorisierung        | |
+| ScriptModule-4.0        | |
+| Sitzung                 | [Middleware für Sitzungen](xref:fundamentals/app-state) |
+| UrlAuthorization        | |
 | UrlMappingsModule       | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
-| 4.0-UrlRoutingModule fest    | [ASP.NET Core Identität](xref:security/authentication/identity) |
+| UrlRoutingModule-4.0    | [ASP.NET Core-Identität](xref:security/authentication/identity) |
 | WindowsAuthentication   | |
 
-## <a name="iis-manager-application-changes"></a>IIS-Manager-anwendungsänderungen
+## <a name="iis-manager-application-changes"></a>IIS Manager-Anwendungsänderungen
 
-Verwendung von IIS-Manager zum Konfigurieren von Einstellungen, die *"Web.config"* -Datei der app geändert wird. Wenn eine app bereitstellen und einschließlich *"Web.config"*, alle mit IIS-Manager vorgenommenen Änderungen überschrieben werden durch die bereitgestellte *"Web.config"* Datei. Wenn Änderungen an des Servers vorgenommen werden *"Web.config"* Datei, kopieren Sie die aktualisierte *"Web.config"* Datei auf dem Server sofort auf dem lokalen Projekt.
+Bei Verwendung von IIS Manager für die Konfiguration von Einstellungen wurde die Datei *web.config* der App geändert. Wenn eine App bereitgestellt und *web.config* einbezogen wird, werden sämtliche mit IIS Manager vorgenommene Änderungen von der bereitgestellten Datei *web.config* überschrieben. Wenn Änderungen an der Datei *web.config* des Servers vorgenommen werden, kopieren Sie die aktualisierte Datei *web.config* auf dem Server direkt in das lokale Projekt.
 
-## <a name="disabling-iis-modules"></a>Deaktivieren die IIS-Module
+## <a name="disabling-iis-modules"></a>Deaktivieren von IIS-Modulen
 
-Wenn eine IIS-Modul auf Serverebene konfiguriert ist, die für eine app, die eine Ergänzung der app muss deaktiviert werden *"Web.config"* Datei kann das Modul deaktivieren. Belassen Sie das Modul vorhanden und deaktivieren Sie es über eine Konfigurationseinstellung (falls verfügbar) oder entfernen Sie das Modul aus der app.
+Wenn ein IIS-Modul auf Serverebene konfiguriert wird und für eine App deaktiviert werden muss, ist dies durch eine Erweiterung der Datei *web.config* der App möglich. Lassen Sie das Modul an der Stelle und deaktivieren Sie es mit einer Konfigurationseinstellung (falls verfügbar), oder entfernen Sie das Modul aus der App.
 
-### <a name="module-deactivation"></a>Deaktivierung des Moduls
+### <a name="module-deactivation"></a>Deaktivierung von Modulen
 
-Viele Module bieten eine Konfigurationseinstellung, die deaktiviert werden, ohne dass das Modul aus der app entfernt werden können. Dies ist die einfachste und schnellste Möglichkeit, ein Modul zu deaktivieren. Beispielsweise kann der HTTP-Umleitung Modul deaktiviert werden, mit der  **\<HttpRedirect >** Element im *"Web.config"*:
+Viele Module bieten eine Konfigurationseinstellung, mit der sie deaktiviert werden können, ohne aus der App entfernt werden zu müssen. Dies ist der einfachste und schnellste Weg zur Deaktivierung eines Moduls. Das HTTP-Umleitungsmodul kann beispielsweise mit dem Element **\<httpRedirect>** in *web.config* deaktiviert werden:
 
 ```xml
 <configuration>
@@ -102,19 +103,19 @@ Viele Module bieten eine Konfigurationseinstellung, die deaktiviert werden, ohne
 </configuration>
 ```
 
-Weitere Informationen zu Modulen mit Konfigurationseinstellungen zu deaktivieren, führen Sie die Links in der *Unterelemente* Abschnitt [IIS \<"System.Webserver" >](/iis/configuration/system.webServer/).
+Für weitere Informationen zum Deaktivieren von Modulen mit Konfigurationseinstellungen folgen Sie den Links im Abschnitt *Untergeordnete Elemente* von [IIS \<system.webServer>](/iis/configuration/system.webServer/).
 
-### <a name="module-removal"></a>Entfernen des Moduls
+### <a name="module-removal"></a>Entfernen von Modulen
 
-Wenn die Entscheidung zum Entfernen eines Moduls mit einer Einstellung in *"Web.config"*, entsperren Sie das Modul und Entsperren der  **\<Module >** Abschnitt *"Web.config"* erste:
+Wenn Sie ein Modul mit einer Einstellung in der Datei *web.config* entfernen können, entsperren Sie das Modul, und entsperren Sie zunächst den Abschnitt **\<modules>** in der Datei *web.config*:
 
-1. Entsperren Sie das Modul auf Serverebene. Wählen Sie den IIS-Server im IIS-Manager **Verbindungen** Randleiste. Öffnen der **Module** in der **IIS** Bereich. Wählen Sie das Modul in der Liste aus. In der **Aktionen** wählen Sie auf der rechten Seite Randleiste **Unlock**. Entsperren Sie so viele Module, wie Sie aufheben möchten *"Web.config"* später erneut.
+1. Entsperren Sie das Modul auf Serverebene. Wählen Sie den IIS-Server in der IIS-Manager-Sidebar **Verbindungen** aus. Öffnen Sie **Module** im Bereich **IIS**. Wählen Sie das Modul aus der Liste aus. Wählen Sie in der Sidebar **Aktionen** auf der rechten Seite die Option **Entsperren** aus. Entsperren Sie alle Module, die Sie später aus *web.config* entfernen möchten.
 
-2. Bereitstellen die app ohne einen  **\<Module >** im Abschnitt *"Web.config"*. Wenn eine app bereitgestellt wurde, mit einer *"Web.config"* , enthält der  **\<Module >** Abschnitt, ohne dass entsperrt werden im Abschnitt zuerst im IIS-Manager, den Konfigurations-Manager löst eine Ausnahme aus. Beim Versuch, den Abschnitt zu entsperren. Aus diesem Grund bereitstellen die app ohne einen  **\<Module >** Abschnitt.
+2. Stellen Sie die App ohne den Abschnitt **\<modules>** in der Datei *web.config* bereit. Wenn eine App bereitgestellt wird, in der die Datei *web.config* den Abschnitt **\<modules>** enthält, ohne dass der Abschnitt zuvor im IIS-Manager entsperrt wurde, löst der Configuration Manager bei dem Versuch, den Abschnitt zu entsperren, eine Ausnahme aus. Daher sollten Sie die App ohne den Abschnitt **\<modules>** bereitstellen.
 
-3. Entsperren der  **\<Module >** Abschnitt *"Web.config"*. In der **Verbindungen** Randleiste, wählen Sie die Website im **Sites**. In der **Management** öffnen Sie im Bereich der **Dienstkonfigurations-Editor**. Verwenden Sie die Navigationssteuerelemente Auswählen der `system.webServer/modules` Abschnitt. In der **Aktionen** Randleiste auf der rechten Seite auswählen, um **Unlock** Abschnitt.
+3. Entsperren Sie den Abschnitt **\<modules>** in der Datei *web.config*. Wählen Sie in der Sidebar **Verbindungen** unter **Sites** die Website aus. Öffnen Sie im Bereich **Verwaltung** den **Konfigurations-Editor**. Wählen Sie mithilfe der Navigationssteuerelemente den Abschnitt `system.webServer/modules` aus. Wählen Sie in der Seitenleiste **Aktionen** auf der rechten Seite die Option **Entsperren** für den Abschnitt aus.
 
-4. An diesem Punkt ein  **\<Module >** Abschnitt hinzugefügt werden kann die *"Web.config"* -Datei mit einem  **\<entfernen >** Element So entfernen Sie das Modul aus die app. Mehrere  **\<entfernen >** -Elemente hinzugefügt werden können, um mehrere Module zu entfernen. Wenn *"Web.config"* Änderungen auf dem Server vorgenommen werden, nehmen Sie die gleichen Änderungen sofort auf des Projekts *"Web.config"* lokal. Entfernen eines Moduls, das auf diese Weise wird nicht die Verwendung des Moduls mit anderen apps auf dem Server betreffen.
+4. An diesem Punkt kann der Abschnitt **\<modules>** zur Datei *web.config* mit dem Element **\<remove>** hinzugefügt werden, um das Modul aus der App zu entfernen. Es können mehrere Elemente vom Typ **\<remove>** hinzugefügt werden, um mehrere Module zu entfernen. Wenn auf dem Server Änderungen an der Datei *web.config* vorgenommen werden, nehmen Sie sofort lokal die gleichen Änderungen an der Datei *web.config* des Projekts vor. Wenn ein Modul auf diese Weise entfernt wird, hat dies keine Auswirkungen auf die Verwendung des Moduls mit anderen Apps auf dem Server.
 
    ```xml
    <configuration> 
@@ -126,32 +127,32 @@ Wenn die Entscheidung zum Entfernen eines Moduls mit einer Einstellung in *"Web.
    </configuration>
    ```
 
-Ein IIS-Modul kann auch entfernt werden, mit *Appcmd.exe*. Geben Sie die `MODULE_NAME` und `APPLICATION_NAME` im Befehl:
+Ein IIS-Modul kann auch mit *Appcmd.exe* entfernt werden. Geben Sie `MODULE_NAME` und `APPLICATION_NAME` im Befehl an:
 
 ```console
 Appcmd.exe delete module MODULE_NAME /app.name:APPLICATION_NAME
 ```
 
-Entfernen Sie z. B. die `DynamicCompressionModule` aus Default Web Site:
+Entfernen Sie beispielsweise `DynamicCompressionModule` aus „Default Web Site“ (Standardwebsite):
 
 ```console
 %windir%\system32\inetsrv\appcmd.exe delete module DynamicCompressionModule /app.name:"Default Web Site"
 ```
 
-## <a name="minimum-module-configuration"></a>Minimalen Modulkonfiguration
+## <a name="minimum-module-configuration"></a>Modulmindestkonfiguration
 
-Nur Module zum Ausführen einer app ASP.NET Core erforderlich sind, die anonyme Authentifizierung-Modul und ASP.NET Core-Modul.
+Die einzigen Module, die für die Ausführung einer ASP.NET Core-App erforderlich sind, sind das anonyme Authentifizierungsmodul und das ASP.NET Core-Modul.
 
-![IIS-Manager öffnen, um Module mit der minimalen Modulkonfiguration angezeigt](modules/_static/modules.png)
+![Bereich „Modules“ (Module) im IIS-Manager mit der angezeigten Modulmindestkonfiguration](modules/_static/modules.png)
 
-Das URI-Caching-Modul (`UriCacheModule`) kann IIS-Website Cachekonfiguration auf den URL-Ebene. Ohne dieses Modul muss IIS lesen und Analysieren der Konfiguration bei jeder Anforderung auch, wenn die gleiche URL wiederholt angefordert wird. Analyse der Konfiguration führt jede Anforderung eine erhebliche Leistungseinbußen. *Obwohl das URI-Caching-Modul nicht zwingend erforderlich, damit eine gehostete ASP.NET Core app ausgeführt wird, wird empfohlen, dass das Modul für die URI-Zwischenspeichern aktiviert sein, damit alle ASP.NET Core-Bereitstellungen.*
+Mit dem URI-Zwischenspeicherungsmodul (`UriCacheModule`) kann IIS die Websitekonfiguration auf URL-Ebene zwischenspeichern. Ohne dieses Modul muss IIS die Konfiguration bei der Anforderung lesen und analysieren, selbst dann, wenn wiederholt die gleiche URL angefordert wird. Das Analysieren der Konfiguration bei jeder Anforderung führt zu erheblichen Leistungseinbußen. *Auch wenn das URI-Zwischenspeicherungsmodul grundsätzlich nicht für die Ausführung einer gehosteten ASP.NET Core-App erforderlich ist, wird empfohlen, das URI-Zwischenspeicherungsmodul für sämtliche ASP.NET Core-Bereitstellungen zu aktivieren.*
 
-Das HTTP-Caching-Modul (`HttpCacheModule`) implementiert, die IIS-Ausgabecache sowie die Logik zum Zwischenspeichern von Elementen in der HTTP.sys-Caches. Ohne dieses Modul Inhalte nicht mehr im Kernelmodus zwischengespeichert und Cacheprofile werden ignoriert. Entfernen das HTTP-Caching-Modul in der Regel hat nachteilige Auswirkungen auf Leistung und ressourcennutzung. *Obwohl vom HTTP-Caching-Modul nicht zwingend erforderlich, damit eine gehostete ASP.NET Core app ausgeführt wird, wird empfohlen, dass vom HTTP-Modul Zwischenspeichern aktiviert sein, damit alle ASP.NET Core-Bereitstellungen.*
+Das HTTP-Zwischenspeicherungsmodul (`HttpCacheModule`) implementiert den IIS-Ausgabecache und die Logik für das Zwischenspeichern von Elementen im HTTP.sys-Cache. Ohne dieses Modul werden Inhalte nicht mehr im Kernelmodus zwischengespeichert, und Cacheprofile werden ignoriert. Das Entfernen des HTTP-Zwischenspeicherungsmoduls hat in der Regel negative Auswirkungen auf Leistung und Ressourcennutzung. *Auch wenn das HTTP-Zwischenspeicherungsmodul grundsätzlich nicht für die Ausführung einer gehosteten ASP.NET Core-App erforderlich ist, wird empfohlen, das HTTP-Zwischenspeicherungsmodul für sämtliche ASP.NET Core-Bereitstellungen zu aktivieren.*
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Hosten unter Windows mit IIS](xref:host-and-deploy/iis/index)
 * [Einführung in IIS-Architekturen: Module in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
-* [Übersicht über die IIS-Module](/iis/get-started/introduction-to-iis/iis-modules-overview)
-* [Anpassen von IIS 7.0-Rollen und Module](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)
+* [Übersicht über IIS-Module](/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Anpassen von IIS 7.0-Rollen und -Modulen](https://technet.microsoft.com/library/cc627313.aspx)
+* [IIS`<system.webServer>`](/iis/configuration/system.webServer/)

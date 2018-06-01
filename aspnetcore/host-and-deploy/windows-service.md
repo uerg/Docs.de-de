@@ -1,7 +1,7 @@
 ---
-title: Hosten von ASP.NET Core in einem Windowsdienst
+title: Hosten von ASP.NET Core in einem Windows-Dienst
 author: rick-anderson
-description: Erfahren Sie, wie eine ASP.NET Core-app in einem Windows-Dienst zu hosten.
+description: Erfahren Sie, wie eine ASP.NET Core-App in einem Windows-Dienst gehostet wird.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -12,39 +12,40 @@ ms.topic: article
 uid: host-and-deploy/windows-service
 ms.openlocfilehash: 29f83ee585c73aeb57a09f70ea8e28650c05ce69
 ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153528"
 ---
-# <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windowsdienst
+# <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
 Von [Tom Dykstra](https://github.com/tdykstra)
 
-Die empfohlene Methode, um eine ASP.NET Core-app unter Windows zu hosten, ohne mit IIS ist die Ausführung in einem [Windowsdienst](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Wenn als Windows-Dienst gehostet wird, kann die app automatisch nach dem Start neu gestartet und ohne Benutzereingriff stürzt ab.
+Wenn Sie eine ASP.NET Core-App unter Windows ohne Verwendung von IIS hosten möchten, wird empfohlen, diese in einem [Windows-Dienst](/dotnet/framework/windows-services/introduction-to-windows-service-applications) auszuführen. Wird die App als Windows-Dienst gehostet, kann sie nach Neustarts und Abstürzen automatisch gestartet werden, ohne dass manuelles Eingreifen erforderlich wird.
 
-[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)). Anweisungen zum Ausführen der Beispiel-app finden Sie im Beispiels *README.md* Datei.
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)). Anweisungen zum Ausführen der Beispiel-App finden Sie in der Datei *README.md* des Beispiels.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-* In der .NET Framework-Laufzeit muss die app auszuführen. In der *csproj* Datei, geben Sie entsprechende Werte für [TargetFramework](/nuget/schema/target-frameworks) und [RuntimeIdentifier](/dotnet/articles/core/rid-catalog). Im Folgenden ein Beispiel:
+* Die App muss in der .NET Framework-Runtime ausgeführt werden. Geben Sie in der *CSPROJ*-Datei entsprechende Werte für [TargetFramework](/nuget/schema/target-frameworks) und [RuntimeIdentifier](/dotnet/articles/core/rid-catalog) an. Im Folgenden ein Beispiel:
 
   [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
 
-  Verwenden Sie beim Erstellen eines Projekts in Visual Studio die **Core ASP.NET-Anwendung ((.NET Framework)** Vorlage.
+  Verwenden Sie bei der Erstellung eines Projekts in Visual Studio die Vorlage **ASP.NET Core-Anwendung (.NET Framework)**.
 
-* Wenn die app aus dem Internet (nicht nur über ein internes Netzwerk) Anforderungen empfängt, verwenden sie die [HTTP.sys](xref:fundamentals/servers/httpsys) Webserver (früher bekannt als [WebListener](xref:fundamentals/servers/weblistener) für ASP.NET Core 1.x-apps) anstatt [Kestrel](xref:fundamentals/servers/kestrel). IIS ist für die Verwendung als reverse-Proxy-Server mit Kestrel für Edge-Bereitstellungen empfohlen. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+* Wenn die App Anforderungen über das Internet empfängt (nicht nur über ein internes Netzwerk), muss Sie den [HTTP.sys](xref:fundamentals/servers/httpsys)-Webserver (früher bekannt als [WebListener](xref:fundamentals/servers/weblistener) für ASP.NET Core 1.x-Apps) anstelle von [Kestrel](xref:fundamentals/servers/kestrel) verwenden. Für die Verwendung als Reverseproxyserver mit Kestrel für Edge-Bereitstellungen wird IIS empfohlen. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 ## <a name="get-started"></a>Erste Schritte
 
-In diesem Abschnitt wird erläutert, die minimale Änderungen erforderlich, um ein vorhandenes Projekt für ASP.NET Core einrichten, um in einem Dienst ausgeführt wird.
+In diesem Abschnitt wird erläutert, welche minimalen Änderungen für die Einrichtung eines vorhandenen ASP.NET Core-Projekts zur Ausführung in einem Dienst erforderlich sind.
 
 1. Installieren Sie das NuGet-Paket [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 
-2. Nehmen Sie die folgenden Änderungen in `Program.Main`:
+2. Nehmen Sie in `Program.Main` die folgenden Änderungen vor:
 
-   * Rufen Sie `host.RunAsService` anstelle von `host.Run`.
+   * Rufen Sie `host.RunAsService` statt `host.Run` auf.
 
-   * Wenn der Code ruft `UseContentRoot`, verwenden Sie einen Pfad an den Veröffentlichungsort anstelle von `Directory.GetCurrentDirectory()`.
+   * Wenn der Code `UseContentRoot` aufruft, verwenden Sie anstelle von `Directory.GetCurrentDirectory()` einen Pfad zum Ort der Veröffentlichung.
 
    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -56,28 +57,28 @@ In diesem Abschnitt wird erläutert, die minimale Änderungen erforderlich, um e
 
    ---
 
-3. Veröffentlichen Sie die app in einem Ordner. Verwendung [Dotnet veröffentlichen](/dotnet/articles/core/tools/dotnet-publish) oder ein [Visual Studio das Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles) , die in einen Ordner veröffentlicht.
+3. Veröffentlichen Sie die App in einem Ordner. Verwenden Sie [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) oder ein [Visual Studio-Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles) für die Veröffentlichung in einem Ordner.
 
-4. Testen von erstellen und den Dienst zu starten.
+4. Führen Sie einen Test durch, indem Sie den Dienst erstellen und starten.
 
-   Öffnen Sie eine Befehlsshell mit Administratorrechten verwendet die [sc.exe](https://technet.microsoft.com/library/bb490995) Befehlszeilentool zum Erstellen und Starten eines Diensts. Wenn der Dienst "MyService" benannt ist, veröffentlicht `c:\svc`, und mit dem Namen AspNetCoreService, die Befehle sind:
+   Öffnen Sie eine Befehlsshell mit Administratorrechten, um das Befehlszeilentool [sc.exe](https://technet.microsoft.com/library/bb490995) zum Erstellen und Starten eines Diensts zu verwenden. Wenn der Dienst den Namen „MyService“ trägt, in `c:\svc` veröffentlicht wird und den Namen „AspNetCoreService“ erhält, lauten die Befehle wie folgt:
 
    ```console
    sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
    sc start MyService
    ```
 
-   Die `binPath` Wert ist der Pfad zur ausführbaren Datei die app, die den Namen der ausführbaren Datei enthält.
+   Der Wert `binPath` ist der Pfad zu der ausführbaren Datei der App, der den Namen der ausführbaren Datei enthält.
 
-   ![Konsolenfenster erstellen und starten Beispiel](windows-service/_static/create-start.png)
+   ![Beispiel zum Erstellen und Starten im Konsolenfenster](windows-service/_static/create-start.png)
 
-   Wenn diese Befehle abgeschlossen haben, navigieren Sie zu dem gleichen Pfad wie bei Ausführung als eine Konsolen-app (standardmäßig `http://localhost:5000`):
+   Navigieren Sie nach Abschluss dieser Befehle zu dem gleichen Pfad wie bei der Ausführung als Konsolen-App (standardmäßig `http://localhost:5000`):
 
-   ![In einem Dienst ausgeführt wird](windows-service/_static/running-in-service.png)
+   ![Ausführung in einem Dienst](windows-service/_static/running-in-service.png)
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a>Bieten Sie eine Möglichkeit, die außerhalb eines Diensts ausführen
+## <a name="provide-a-way-to-run-outside-of-a-service"></a>Bieten einer Möglichkeit zur Ausführung außerhalb eines Diensts
 
-Es ist einfacher, testen und Debuggen außerhalb von einem Dienst ausgeführt wird, daher ist es üblich, So fügen Sie Code hinzu, die aufruft `RunAsService` nur unter bestimmten Bedingungen. Beispielsweise kann die app auszuführen, als eine Konsolen-app mit einer `--console` Befehlszeilenargument oder wenn der Debugger angefügt ist:
+Das Testen und Debuggen ist bei der Ausführung außerhalb eines Diensts einfacher. Daher ist es üblich, dass Code hinzugefügt wird, der `RunAsService` nur unter bestimmten Bedingungen aufruft. Beispielsweise kann die App als Konsolen-App mit dem Befehlszeilenargument `--console` ausgeführt werden oder wenn der Debugger angefügt wird:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -89,19 +90,19 @@ Es ist einfacher, testen und Debuggen außerhalb von einem Dienst ausgeführt wi
 
 ---
 
-## <a name="handle-stopping-and-starting-events"></a>Behandeln von Ereignissen starten und beenden
+## <a name="handle-stopping-and-starting-events"></a>Behandeln des Stoppens und Startens von Ereignissen
 
-Behandeln `OnStarting`, `OnStarted`, und `OnStopping` Ereignisse, die folgenden zusätzliche Änderungen vornehmen:
+Nehmen Sie die folgenden zusätzlichen Änderungen vor, um Ereignisse vom Typ `OnStarting`, `OnStarted` und `OnStopping` zu verarbeiten:
 
-1. Erstellen Sie eine Klasse, die abgeleitet `WebHostService`:
+1. Erstellen Sie eine von `WebHostService` abgeleitete Klasse:
 
    [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=NoLogging)]
 
-2. Erstellen Sie eine Erweiterungsmethode für `IWebHost` , die die benutzerdefinierte übergibt `WebHostService` auf `ServiceBase.Run`:
+2. Erstellen Sie eine Erweiterungsmethode für `IWebHost`, die den benutzerdefinierten `WebHostService` an `ServiceBase.Run` übergibt:
 
    [!code-csharp[](windows-service/sample/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-3. In `Program.Main`, rufen Sie die neue Erweiterungsmethode `RunAsCustomService`, anstelle von `RunAsService`:
+3. Rufen Sie in `Program.Main` anstelle von `RunAsService` die neue Erweiterungsmethode `RunAsCustomService` auf:
 
    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -113,17 +114,17 @@ Behandeln `OnStarting`, `OnStarted`, und `OnStopping` Ereignisse, die folgenden 
 
    ---
 
-Wenn die benutzerdefinierte `WebHostService` Code erfordert einen Dienst aus abhängigkeiteneinschleusung (z. B. eine Protokollierung), erhalten sie über die `Services` Eigenschaft `IWebHost`:
+Wenn für den benutzerdefinierten `WebHostService`-Code ein Dienst aus der Abhängigkeitsinjektion erforderlich ist (z.B. eine Protokollierung), rufen Sie diese über die `Services`-Eigenschaft von `IWebHost` ab:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxyserver und Lastenausgleichsszenarien
 
-Dienste, die Anforderungen aus dem Internet oder einem Unternehmensnetzwerk interagieren und werden hinter einem Proxy oder den load Balancer möglicherweise zusätzliche Konfiguration erforderlich ist. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
+Dienste, die mit Anforderungen aus dem Internet oder einem Unternehmensnetzwerk interagieren und hinter einem Proxy oder Lastenausgleich ausgeführt werden, erfordern möglicherweise zusätzliche Konfigurationen. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="acknowledgments"></a>Danksagungen
 
-In diesem Artikel wurde mithilfe von veröffentlichten Datenquellen geschrieben:
+Dieser Artikel wurde mithilfe von veröffentlichten Quellen geschrieben:
 
 * [Hosten von ASP.NET Core als Windows-Dienst](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
-* [Wie Ihre ASP.NET Core in einem Windows-Dienst gehostet wird.](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+* [Hosten Ihres ASP.NET Core in einem Windows-Dienst](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
