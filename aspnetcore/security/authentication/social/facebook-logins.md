@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: a0b96f480aaa3941cf63b25780c5a1d9d4b2dbb0
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: cabb5acc6e593c02c20b3403b39c601ce26a4d99
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688982"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Facebook externe Anmeldung Setup in ASP.NET Core
 
@@ -23,7 +24,7 @@ Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem 
 
 ## <a name="create-the-app-in-facebook"></a>Erstellen Sie die app in Facebook
 
-*  Navigieren Sie zu der [app von Facebook | Entwickler](https://developers.facebook.com/apps/) Seite, und melden Sie sich. Wenn Sie eine Facebook-Konto noch nicht haben, verwenden Sie die **registrieren Sie sich für Facebook** Link auf der Anmeldeseite um eines zu erstellen.
+* Navigieren Sie zu der [app von Facebook | Entwickler](https://developers.facebook.com/apps/) Seite, und melden Sie sich. Wenn Sie eine Facebook-Konto noch nicht haben, verwenden Sie die **registrieren Sie sich für Facebook** Link auf der Anmeldeseite um eines zu erstellen.
 
 * Tippen Sie auf die **Hinzufügen einer neuen App** Schaltfläche in der oberen rechten Ecke zum Erstellen einer neuen App-ID
 
@@ -87,6 +88,8 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 ```
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
+
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 

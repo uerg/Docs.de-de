@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: dc1724e8a78c25d3697d14ad784ce853737681f2
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 92a7000f4f8e4c2097065cb530fe106ef0e98545
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688626"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Europa allgemeine Daten Schutz vor (GDPR)-Unterstützung in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core bietet APIs und Vorlagen, um einige der erfüllen die [UE allgemeine Daten Schutz vor (GDPR)](https://www.eugdpr.org/) Anforderungen:
+ASP.NET Core bietet APIs und Vorlagen, um einige der erfüllen die [Europa allgemeine Daten Schutz vor (GDPR)](https://www.eugdpr.org/) Anforderungen:
 
 * Die Projektvorlagen enthalten Erweiterungspunkte und gekürzte Markup, das Sie mit Ihren Datenschutz und Cookies verwenden Gruppenrichtlinien ersetzen können.
 * Ein Cookie Zustimmung-Feature können Sie seine Zustimmung bitten (und Nachverfolgen) Ihre Benutzer zum Speichern von persönlichen Informationen. Wenn ein Benutzer nicht, um die Datensammlung zugestimmt hat und die app mit festgelegt ist [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded?view=aspnetcore-2.1#Microsoft_AspNetCore_Builder_CookiePolicyOptions_CheckConsentNeeded) zu `true`, unbedeutende Cookies werden nicht an den Browser gesendet werden.
@@ -38,7 +39,7 @@ Razor-Seiten und MVC-Projekte mit den Projektvorlagen erstellt umfassen die folg
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-2.0) und [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_CookiePolicyAppBuilderExtensions_UseCookiePolicy_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in festgelegt sind `Startup`.
 * Die *_CookieConsentPartial.cshtml* [Teilansicht](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* Die *Pages/Privacy.cshtml* oder *Home/rivacy.cshtml* Ansicht bietet eine Seite, um die Datenschutzrichtlinie des Standorts ausführlich beschrieben. Die *_CookieConsentPartial.cshtml* Datei wird einen Link zur Seite "Datenschutz" generiert.
+* Die *Pages/Privacy.cshtml* oder *Home/Privacy.cshtml* Ansicht bietet eine Seite, um die Datenschutzrichtlinie des Standorts ausführlich beschrieben. Die *_CookieConsentPartial.cshtml* Datei wird einen Link zur Seite "Datenschutz" generiert.
 * Für Anwendungen mit Konten einzelner Benutzer erstellt wurde, enthält der Seite "verwalten" Links zum Herunterladen und Löschen von [persönlicher Benutzerdaten](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions und UseCookiePolicy
