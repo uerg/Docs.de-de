@@ -3,6 +3,7 @@ title: Verwenden der Angular-Projektvorlage mit ASP.NET Core
 author: SteveSandersonMS
 description: Erfahren Sie, wie Sie sich mit der Projektvorlage für die Einzelseitenanwendung (Single-Page Application, SPA) von ASP.NET Core für Angular und die Angular-CLI vertraut machen.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,17 +12,21 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094297"
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555429"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Verwenden der Angular-Projektvorlage mit ASP.NET Core
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > Diese Dokumentation befasst sich nicht mit der in ASP.NET Core 2.0 enthaltenen Angular-Projektvorlage. Sie befasst sich mit der neueren Angular-Vorlage, die manuell aktualisiert werden kann. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.
+
+::: moniker-end
 
 Die aktualisierte Angular-Projektvorlage stellt einen geeigneten Anfangspunkt für ASP.NET Core-Apps dar, die Angular und die Angular-CLI für die Implementierung einer umfangreichen, clientseitigen Benutzerschnittstelle (User Interface, UI) verwenden.
 
@@ -38,7 +43,7 @@ dotnet new angular -o my-new-app
 cd my-new-app
 ```
 
-Führen Sie die App über Visual Studio oder über die .NET Core-CLI aus:
+Führen Sie die App über Visual Studio oder die .NET Core CLI aus:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -60,7 +65,7 @@ Now listening on: http://localhost:<port>
 
 Navigieren Sie in einem Browser zu dieser URL.
 
-Die App startet im Hintergrund eine Instanz des Angular-CLI-Servers. Eine der folgenden ähnelnde Meldung wird protokolliert: <em>NG Live-Entwicklungsserver lauscht an localhost:&lt;otherport&gt;, öffnen Sie http://localhost:&lt;otherport&gt; /</em> in Ihrem Browser. Ignorieren Sie die Meldung&mdash;Es handelt sich <strong>nicht</strong> um die URL für die kombinierte ASP.NET Core und Angular-LI-App.
+Die App startet im Hintergrund eine Instanz des Angular-CLI-Servers. Eine der folgenden ähnelnde Meldung wird protokolliert: *NG Live-Entwicklungsserver lauscht an localhost:&lt;otherport&gt;, öffnen Sie http://localhost:&lt;otherport&gt; /* in Ihrem Browser. Ignorieren Sie die Meldung&mdash;Es handelt sich **nicht** um die URL für die kombinierte ASP.NET Core und Angular-LI-App.
 
 ---
 
@@ -138,7 +143,7 @@ Fügen Sie in der *Startup*-Klasse *nach* der Zeile, die `spa.Options.SourcePath
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-Im Entwicklungsmodus versucht dieser Code das SSR-Paket durch Ausführen des Skripts `build:ssr` zu erstellen, das in *ClientApp\package.json* definiert ist. Dies erstellt eine Angular-App namens `ssr`, die noch nicht definiert ist. 
+Im Entwicklungsmodus versucht dieser Code das SSR-Paket durch Ausführen des Skripts `build:ssr` zu erstellen, das in *ClientApp\package.json* definiert ist. Dies erstellt eine Angular-App namens `ssr`, die noch nicht definiert ist.
 
 Am Ende des `apps`-Arrays *ClientApp/.angular-cli.json* definieren Sie eine zusätzliche App mit dem Namen `ssr`. Verwenden Sie folgende Optionen:
 
@@ -150,7 +155,7 @@ Fügen Sie eine neue Datei namens *tsconfig.server.json* in *ClientApp/Src* (neb
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
 
-Diese Datei konfiguriert den AOT-Compiler von Angular so, dass er das Modul `app.server.module` sucht. Fügen Sie dies hinzu, indem Sie eine neue Datei in *ClientApp/src/app/app.server.module.ts* (neben der vorhandenen Datei *app.module.ts*) erstellen, die Folgendes enthält: 
+Diese Datei konfiguriert den AOT-Compiler von Angular so, dass er das Modul `app.server.module` sucht. Fügen Sie dies hinzu, indem Sie eine neue Datei in *ClientApp/src/app/app.server.module.ts* (neben der vorhandenen Datei *app.module.ts*) erstellen, die Folgendes enthält:
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
 
@@ -160,7 +165,7 @@ Bedenken Sie, dass der neue Eintrag `ssr` in *.angular cli.json* auf die Einstie
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
-Der Code dieser Datei wird von ASP.NET Core für jede Anforderung bei der Ausführung der `UseSpaPrerendering`-Middleware ausgeführt, die Sie der *Startup*-Klasse hinzugefügt haben. Dabei werden `params` aus dem .NET-Code empfangen (z.B. die URL, die angefordert wird) und Aufrufe von Angular-SSR-APIs durchgeführt, um das resultierende HTML abzurufen. 
+Der Code dieser Datei wird von ASP.NET Core für jede Anforderung bei der Ausführung der `UseSpaPrerendering`-Middleware ausgeführt, die Sie der *Startup*-Klasse hinzugefügt haben. Dabei werden `params` aus dem .NET-Code empfangen (z.B. die URL, die angefordert wird) und Aufrufe von Angular-SSR-APIs durchgeführt, um das resultierende HTML abzurufen.
 
 Genau genommen reicht dies aus, um das SSR im Entwicklungsmodus zu aktivieren. Es ist von grundlegender Bedeutung, dass eine letzte Änderung vorgenommen wird, sodass Ihre App bei der Veröffentlichung ordnungsgemäß funktioniert. Setzen Sie in der *csproj*-Hauptdatei der App den Eigenschaftswert `BuildServerSideRenderer` auf `true`:
 

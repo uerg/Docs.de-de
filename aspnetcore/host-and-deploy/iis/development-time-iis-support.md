@@ -1,7 +1,7 @@
 ---
 title: IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 author: shirhatti
-description: Ermitteln Sie die Unterstützung für das Debuggen von ASP.NET Core-apps, wenn IIS unter Windows Server zurückliegt.
+description: Informationen zur Unterstützung für das Debuggen von ASP.NET Core-Apps, wenn diese hinter IIS unter Windows Server ausgeführt werden.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -12,15 +12,16 @@ ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
 ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
 ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34233078"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 
-Durch [Sourabh Shirhatti](https://twitter.com/sshirhatti) und [Luke Latham](https://github.com/guardrex)
+Von [Sourabh Shirhatti](https://twitter.com/sshirhatti) und [Luke Latham](https://github.com/guardrex)
 
-Dieser Artikel beschreibt [Visual Studio](https://www.visualstudio.com/vs/) Unterstützung für das Debuggen von ASP.NET Core-apps, die hinter IIS unter Windows Server ausgeführt. Dieses Thema führt Sie durch die Aktivierung dieser Funktion und Einrichten eines Projekts.
+In diesem Artikel wird die Unterstützung für [Visual Studio](https://www.visualstudio.com/vs/) für das Debuggen von ASP.NET Core-Apps beschrieben, die hinter IIS unter Windows Server ausgeführt werden. Dieses Thema führt Sie durch die Aktivierung dieses Features und die Einrichtung eines Projekts.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -29,44 +30,44 @@ Dieser Artikel beschreibt [Visual Studio](https://www.visualstudio.com/vs/) Unte
 ## <a name="enable-iis"></a>Aktivieren von IIS
 
 1. Navigieren Sie zu **Systemsteuerung** > **Programme** > **Programme und Features** > **Windows-Features aktivieren oder deaktivieren** (links auf dem Bildschirm).
-1. Wählen Sie die **Internetinformationsdienste (IIS)** Kontrollkästchen.
+1. Aktivieren Sie das Kontrollkästchen **Internetinformationsdienste**.
 
-![Windows-Features mit Internetinformationsdienste (IIS) das Kontrollkästchen aktiviert als schwarze Quadrat (nicht mit einem Häkchen), der angibt, dass einige der IIS-Funktionen aktiviert sind](development-time-iis-support/_static/enable_iis.png)
+![Windows-Features, die das aktivierte Kontrollkästchen „Internetinformationsdienste“ als schwarzes Quadrat anzeigen (ohne Häkchen); dies deutet darauf hin, dass einige der IIS-Features aktiviert sind](development-time-iis-support/_static/enable_iis.png)
 
-Die IIS-Installation möglicherweise einen Neustart des Systems erforderlich.
+Für die IIS-Installation ist möglicherweise ein Neustart des Systems erforderlich.
 
 ## <a name="configure-iis"></a>Konfigurieren von IIS
 
-IIS muss es sich um eine Website wie folgt konfiguriert sein:
+Für IIS muss eine Website mit Folgendem konfiguriert sein:
 
-* Hostname für ein Hostnamen an, der die app-Start-Profil-URL entspricht.
-* Die Bindung für Port 443 mit einem zugeordneten Zertifikat.
+* Einem Hostnamen, der dem URL-Hostnamen des Startprofils der App entspricht.
+* Einer Bindung für Port 443 mit zugewiesenem Zertifikat.
 
-Z. B. die **Hostnamen** für eine zusätzliche Website auf "Localhost" (das Start-Profil verwenden ebenfalls "Localhost" weiter unten in diesem Thema) festgelegt ist. Der Port ist auf "443" (HTTPS) festgelegt. Die **IIS Express Entwicklungszertifikat** funktioniert auf die Website, aber ein gültiges Zertifikat zugewiesen:
+Beispiel: Der **Hostname** für eine hinzugefügte Website ist auf „localhost“ festgelegt (im Startprofil wird später in diesem Abschnitt auch „localhost“ verwendet). Der Port ist auf „443“ (HTTPS) festgelegt. Das **IIS Express-Entwicklungszertifikat** wird der Website zugewiesen, es kann jedoch jedes gültige Zertifikat eingesetzt werden:
 
-![Fügen Sie Fenster in IIS mit den Satz der Bindung für "localhost" über Port 443 mit einem Zertifikat zugeordnet.](development-time-iis-support/_static/add-website-window.png)
+![Fenster „Website hinzufügen“ in IIS, in dem der Bindungssatz für „localhost“ an Port 443 mit einem zugewiesenen Zertifikat dargestellt wird.](development-time-iis-support/_static/add-website-window.png)
 
-Verfügt die IIS-Installation bereits eine **Default Web Site** mit einem Hostnamen, die Hostnamen für die app starten Profil-URL entspricht:
+Wenn die IIS-Installation bereits über eine **Standardwebsite** mit einem Hostnamen verfügt, der dem URL-Hostnamen des Startprofils der App entspricht:
 
-* Fügen Sie eine portbindung für Port 443 (HTTPS) hinzu.
-* Weisen Sie ein gültiges Zertifikat der Website an.
+* Fügen Sie eine Portbindung für Port 443 (HTTPS) hinzu.
+* Weisen Sie der Website ein gültiges Zertifikat zu.
 
-## <a name="enable-development-time-iis-support-in-visual-studio"></a>Aktivieren Sie die Entwicklungszeit IIS-Unterstützung in Visual Studio
+## <a name="enable-development-time-iis-support-in-visual-studio"></a>Aktivieren von IIS-Unterstützung in Visual Studio zur Entwicklungszeit
 
-1. Starten Sie Visual Studio-Installer.
-1. Wählen Sie die **Entwicklungszeit IIS unterstützen** Komponente. Die Komponente aufgelistet, als optional in der **Zusammenfassung** Bereich für die **ASP.NET und zur Webentwicklung** arbeitsauslastung. Die Komponente installiert den [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module), dies ist ein systemeigenes IIS-Modul, das zum Ausführen von ASP.NET Core apps hinter IIS in einer reverse-Proxy-Konfiguration erforderlich.
+1. Starten Sie den Visual Studio-Installer.
+1. Wählen Sie die Komponente **IIS-Unterstützung zur Entwicklungszeit** aus. Die Komponente wird im Bereich **Zusammenfassung** für die Workload **ASP.NET und Webentwicklung** als optional aufgeführt. Die Komponente installiert das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Dies ist ein natives IIS-Modul, das für die Ausführung von ASP.NET Core-Apps hinter IIS in einer Reverseproxykonfiguration erforderlich ist.
 
-![Ändern von Visual Studio-Features: Die Registerkarte „Workloads“ ist ausgewählt. Im Bereich „Web und Cloud“ ist der Bereich „ASP.NET und Webentwicklung“ ausgewählt. Auf der rechten Seite im optionalen Bereich der Bereiche "Zusammenfassung" vorliegt ein Kontrollkästchen für Entwicklungszeit, IIS zu unterstützen.](development-time-iis-support/_static/development_time_support.png)
+![Ändern von Visual Studio-Features: Die Registerkarte „Workloads“ ist ausgewählt. Im Bereich „Web und Cloud“ ist der Bereich „ASP.NET und Webentwicklung“ ausgewählt. Auf der rechten Seite des Bereichs „Optional“ im Bereich „Zusammenfassung“ befindet sich ein Kontrollkästchen für „IIS-Unterstützung zur Entwicklungszeit“.](development-time-iis-support/_static/development_time_support.png)
 
 ## <a name="configure-the-project"></a>Konfigurieren des Projekts
 
 ### <a name="https-redirection"></a>HTTPS-Umleitung
 
-Für ein neues Projekt, wählen Sie dieses Kontrollkästchen, um **für HTTPS konfigurieren** in der **neue ASP.NET-Webanwendung für Core** Fenster:
+Aktivieren Sie für ein neues Projekt das Kontrollkästchen bei **Configure for HTTPS** (Für HTTPS konfigurieren) im Fenster **Neue ASP.NET Core-Webanwendung**:
 
-![Neue ASP.NET Core Web Application-Fenster mit der für HTTPS-Kontrollkästchen konfigurieren.](development-time-iis-support/_static/new-app.png)
+![Fenster „Neue ASP.NET Core-Webanwendung“ mit aktiviertem Kontrollkästchen bei „Configure for HTTPS“ (Für HTTPS konfigurieren).](development-time-iis-support/_static/new-app.png)
 
-Verwenden Sie in einem vorhandenen Projekt HTTPS-Umleitung Middleware in `Startup.Configure` durch Aufrufen der [UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection) Erweiterungsmethode:
+Verwenden Sie in einem vorhandenen Projekt in `Startup.Configure` Middleware für HTTPS-Umleitung, indem Sie die Erweiterungsmethode [UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection) aufrufen:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -89,20 +90,20 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="iis-launch-profile"></a>Starten Sie IIS Profil
+### <a name="iis-launch-profile"></a>IIS-Startprofil
 
-Erstellen Sie ein neues Launch-Profil Entwicklungszeit IIS-Unterstützung hinzuzufügen:
+So erstellen Sie ein neues Startprofil, um IIS-Unterstützung zur Entwicklungszeit hinzuzufügen:
 
-1. Für **Profil**, wählen die **neu** Schaltfläche. Nennen Sie das Profil "IIS" im Popup-Fenster. Wählen Sie **OK** zum Erstellen des Profils.
-1. Für die **starten** wählen Sie die Einstellung **IIS** aus der Liste.
-1. Wählen Sie das Kontrollkästchen für **starten Browser** , und geben Sie die Endpunkt-URL. Verwenden Sie das HTTPS-Protokoll. In diesem Beispiel wird `https://localhost/WebApplication1` verwendet.
-1. In der **Umgebungsvariablen** Abschnitt der **hinzufügen** Schaltfläche. Geben Sie eine Umgebungsvariable mit dem Schlüssel `ASPNETCORE_ENVIRONMENT` und den Wert `Development`.
-1. In der **Webservereinstellungen** legen Sie im Bereich der **App-URL**. In diesem Beispiel wird `https://localhost/WebApplication1` verwendet.
-1. Speichern Sie das Profil ein.
+1. Klicken Sie für **Profil** auf die Schaltfläche **Neu**. Geben Sie dem Profil im Popupfenster den Namen „IIS“. Klicken Sie auf **OK**, um das Profil zu erstellen.
+1. Wählen Sie bei der Einstellung **Start** den Eintrag **IIS** aus der Liste aus.
+1. Aktivieren Sie das Kontrollkästchen bei **Browser starten**, und geben Sie die Endpunkt-URL an. Verwenden Sie das HTTPS-Protokoll. In diesem Beispiel wird `https://localhost/WebApplication1` verwendet.
+1. Klicken Sie im Abschnitt **Umgebungsvariablen** auf die Schaltfläche **Hinzufügen**. Geben Sie eine Umgebungsvariable mit einem `ASPNETCORE_ENVIRONMENT`-Schlüssel und einem Wert von `Development` an.
+1. Legen Sie im Bereich **Webservereinstellungen** die **App-URL** fest. In diesem Beispiel wird `https://localhost/WebApplication1` verwendet.
+1. Speichern Sie den Profilnamen.
 
-![Fenster „Projekteigenschaften“, in dem die Registerkarte „Debuggen“ ausgewählt ist Die Profil- und Starteinstellungen werden auf IIS festgelegt. Die Start-Browser-Funktion aktiviert ist, mit der Adresse https://localhost/WebApplication1. Die gleiche Adresse wird auch im Feld "App-URL" des Web-servereinstellungen Bereichs bereitgestellt.](development-time-iis-support/_static/project_properties.png)
+![Fenster „Projekteigenschaften“, in dem die Registerkarte „Debuggen“ ausgewählt ist Die Profil- und Starteinstellungen werden auf IIS festgelegt. Das Feature „Browser starten“ wird mit der Adresse https://localhost/WebApplication1 aktiviert. Die gleiche Adresse wird auch im Feld „App-URL“ im Bereich „Webservereinstellungen“ angegeben.](development-time-iis-support/_static/project_properties.png)
 
-Auch manuell hinzufügen ein Profils starten, das die [launchSettings.json](http://json.schemastore.org/launchsettings) Datei in der app:
+Alternativ können Sie in der App manuell ein Startprofil zur Datei [launchSettings.json](http://json.schemastore.org/launchsettings) hinzufügen:
 
 ```json
 {
@@ -127,15 +128,15 @@ Auch manuell hinzufügen ein Profils starten, das die [launchSettings.json](http
 }
 ```
 
-## <a name="run-the-project"></a>Führen Sie das Projekt
+## <a name="run-the-project"></a>Ausführen des Projekts
 
-Legen Sie die Schaltfläche "ausführen" in der Visual Studio-Benutzeroberfläche, auf die **IIS** Profil, und wählen Sie die Schaltfläche, um die app zu starten:
+Legen Sie auf der VS-UI die Schaltfläche „Ausführen“ auf das Profil **IIS** fest, und klicken Sie zum Starten der App auf die Schaltfläche:
 
-![Führen Sie Schaltfläche aus "" in der Visual Studio-Symbolleiste auf das Profil "IIS" festgelegt.](development-time-iis-support/_static/toolbar.png)
+![Auf das Profil „IIS“ festgelegte Schaltfläche „Ausführen“ in der VS-Symbolleiste.](development-time-iis-support/_static/toolbar.png)
 
-Visual Studio möglicherweise einen Neustart aufgefordert, wenn Sie nicht als Administrator ausführen. Wenn Sie dazu aufgefordert werden, starten Sie Visual Studio neu.
+Visual Studio fordert möglicherweise zu einem Neustart auf, wenn das Profil nicht als Administrator ausgeführt wird. Wenn Sie dazu aufgefordert werden, starten Sie Visual Studio neu.
 
-Wenn eine nicht vertrauenswürdige Entwicklungszertifikat verwendet wird, der Browser benötigen Sie möglicherweise zum Erstellen einer Ausnahme für das Zertifikat nicht vertrauenswürdig.
+Bei Verwendung eines nicht vertrauenswürdigen Entwicklungszertifikats müssen Sie für den Browser möglicherweise eine Ausnahme für das nicht vertrauenswürdige Zertifikat erstellen.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
-ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34233455"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -72,7 +73,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>Verwenden von im Framework bereitgestellten Diensten
 
-Die Methode `ConfigureServices` in der `Startup`-Klasse ist verantwortlich für das Definieren der von der Anwendung verwendeten Dienste. Dies beinhaltet Plattformfeatures wie Entity Framework Core und ASP.NET Core MVC. Zunächst enthält die in `ConfigureServices` bereitgestellte `IServiceCollection` folgende definierten Dienste (abhängig von der [Vorgehensweise bei der Konfiguration des Hosts](xref:fundamentals/hosting)):
+Die Methode `ConfigureServices` in der `Startup`-Klasse ist verantwortlich für das Definieren der von der Anwendung verwendeten Dienste. Dies beinhaltet Plattformfeatures wie Entity Framework Core und ASP.NET Core MVC. Zunächst enthält die in `ConfigureServices` bereitgestellte `IServiceCollection` folgende definierten Dienste (abhängig von der [Vorgehensweise bei der Konfiguration des Hosts](xref:fundamentals/host/index)):
 
 | Diensttyp | Lebensdauer |
 | ----- | ------- |
@@ -235,7 +236,7 @@ Der Stammdienstanbieter wird erstellt, wenn [BuildServiceProvider](/dotnet/api/m
 
 Bereichsbezogene Dienste werden von dem Container verworfen, der sie erstellt hat. Wenn ein bereichsbezogener Dienst im Stammcontainer erstellt wird, wird die Lebensdauer effektiv auf Singleton heraufgestuft, da er nur vom Stammcontainer verworfen wird, wenn die App/der Server heruntergefahren wird. Die Überprüfung bereichsbezogener Dienste erfasst diese Situationen, wenn `BuildServiceProvider` aufgerufen wird.
 
-Weitere Informationen finden Sie unter [Bereichsvalidierung im Thema „Hosting“](xref:fundamentals/hosting#scope-validation).
+Weitere Informationen finden Sie unter [Bereichsvalidierung im Artikel zu „Webhost“](xref:fundamentals/host/web-host#scope-validation).
 
 ## <a name="request-services"></a>Anfordern von Diensten
 
@@ -245,7 +246,7 @@ Die Dienste, die innerhalb einer ASP.NET-Anforderung von `HttpContext` verfügba
 
 Anforderungsdienste stellen die Dienste dar, die Sie als Teil Ihrer Anwendung konfigurieren und anfordern. Wenn Ihre Objekte Abhängigkeiten angeben, werden diese von den in `RequestServices`, nicht in `ApplicationServices`, gefundenen Typen erfüllt.
 
-Im Allgemeinen sollten Sie diese Eigenschaften nicht direkt verwenden. Fordern Sie stattdessen lieber die Typen der erforderlichen Klassen über den Konstruktor Ihrer Klasse an, und lassen Sie diese Abhängigkeiten über das Framework einfügen. Dadurch werden Klassen angehalten, die leichter getestet werden können (siehe [Testen und Debuggen](../testing/index.md)) und loser gekoppelt sind.
+Im Allgemeinen sollten Sie diese Eigenschaften nicht direkt verwenden. Fordern Sie stattdessen lieber die Typen der erforderlichen Klassen über den Konstruktor Ihrer Klasse an, und lassen Sie diese Abhängigkeiten über das Framework einfügen. Dadurch werden Klassen angehalten, die leichter getestet werden können (siehe [Testen und Debuggen](xref:testing/index)) und loser gekoppelt sind.
 
 > [!NOTE]
 > Fordern Sie für den Zugriff auf die `RequestServices`-Sammlung Abhängigkeiten lieber als Konstruktorparameter an.

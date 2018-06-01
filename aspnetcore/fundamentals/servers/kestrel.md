@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a1162da01fad67f3e8ccb1e70bd646b39c38997f
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 251385b268e75cfadb815c293be52176297ed3e4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34233468"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementierung des Webservers Kestrel in ASP.NET Core
 
@@ -276,7 +277,7 @@ Verwenden Sie Folgendes zum Angeben der URLs:
 * Den Hostkonfigurationsschlüssel `urls`
 * Die Erweiterungsmethode `UseUrls`
 
-Weitere Informationen finden Sie unter [Server-URLs](xref:fundamentals/hosting#server-urls) und [Außerkraftsetzen der Konfiguration](xref:fundamentals/hosting#overriding-configuration).
+Weitere Informationen finden Sie unter [Server-URLs](xref:fundamentals/host/web-host#server-urls) und [Außerkraftsetzen der Konfiguration](xref:fundamentals/host/web-host#override-configuration).
 
 Der Wert, der mit diesen Ansätzen angegeben wird, kann mindestens ein HTTP- oder HTTPS-Endpunkt sein (HTTPS wenn ein Standardzertifikat verfügbar ist). Konfigurieren Sie den Wert als eine durch Semikolons getrennte Liste (z.B. `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
@@ -489,7 +490,7 @@ Standardmäßig ist ASP.NET Core an `http://localhost:5000` gebunden. Konfigurie
 * Hostkonfigurationsschlüssel `urls`
 * ASP.NET Core-Konfigurationssystem, einschließlich der Umgebungsvariable `ASPNETCORE_URLS`
 
-Weitere Informationen zu diesen Methoden finden Sie unter [Hosting](xref:fundamentals/hosting).
+Weitere Informationen zu diesen Methoden finden Sie unter [Hosting](xref:fundamentals/host/index).
 
 **IIS-Endpunktkonfiguration**
 

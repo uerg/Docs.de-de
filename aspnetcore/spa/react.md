@@ -3,6 +3,7 @@ title: Verwenden der React-Projektvorlage mit ASP.NET Core
 author: SteveSandersonMS
 description: Erfahren Sie, wie Sie sich mit der Projektvorlage für die Einzelseitenanwendung (Single-Page Application, SPA) von ASP.NET Core für React und create-react-app vertraut machen.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,17 +12,21 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c88320c628f219652a2cb63a16b494661c481ffb
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077801"
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555338"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Verwenden der React-Projektvorlage mit ASP.NET Core
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > Diese Dokumentation befasst sich nicht mit der in ASP.NET Core 2.0 enthaltenen React-Projektvorlage. Sie befasst sich mit der neueren React-Vorlage, die manuell aktualisiert werden kann. Die Vorlage ist standardmäßig in ASP.NET Core 2.1 enthalten.
+
+::: moniker-end
 
 Die aktualisierte React-Projektvorlage stellt einen geeigneten Anfangspunkt für ASP.NET Core-Apps dar, die React und CRA-Konventionen ([create-react-app](https://github.com/facebookincubator/create-react-app)) für die Implementierung einer umfangreichen, clientseitigen Benutzerschnittstelle (User Interface, UI) verwenden.
 
