@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729180"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Verwenden asynchroner Methoden in ASP.NET MVC 4
 ====================
@@ -43,7 +44,7 @@ Dies möglicherweise kein Problem, da der Threadpool groß genug für viele ausg
 
 ## <a name="processing-asynchronous-requests"></a>Verarbeiten von asynchronen Anforderungen
 
-In Webanwendungen, die eine große Anzahl gleichzeitiger Anforderungen beim Start erkennt oder einer bursty Auslastung (wobei plötzlich nimmt die Parallelität), wird die Webdienstaufrufe diese asynchrone die Reaktionsfähigkeit der Anwendung erhöhen. Eine asynchrone Anforderung hat die gleiche Menge an Zeit als eine asynchrone Anforderung verarbeitet. Beispielsweise wenn eine Anforderung über einen Webdienst aufrufen sendet erfordert zwei Sekunden auf den Abschluss der Anforderung akzeptiert zwei Sekunden, ob sie synchron oder asynchron ausgeführt werden. Allerdings wird während eines asynchronen Aufrufs ein Thread nicht blockiert für andere Anforderungen reagieren, während er darauf wartet, dass die erste Anforderung abgeschlossen. Deshalb verhindern asynchrone Anforderungen Anforderung queuing und Thread-Pool-Wachstum, wenn es gibt viele gleichzeitige Anforderungen, die lang ausgeführter Vorgänge aufrufen.
+In Webanwendungen, die noch eine bursty Last (wobei plötzlich nimmt die Parallelität) finden Sie eine große Anzahl gleichzeitiger Anforderungen beim Start, erhöht Webdienstaufrufe diese asynchrone die Reaktionsfähigkeit der Anwendung. Eine asynchrone Anforderung hat die gleiche Menge an Zeit als eine asynchrone Anforderung verarbeitet. Beispielsweise wenn eine Anforderung über einen Webdienst aufrufen sendet erfordert zwei Sekunden auf den Abschluss der Anforderung akzeptiert zwei Sekunden, ob sie synchron oder asynchron ausgeführt werden. Allerdings wird während eines asynchronen Aufrufs ein Thread nicht blockiert für andere Anforderungen reagieren, während er darauf wartet, dass die erste Anforderung abgeschlossen. Deshalb verhindern asynchrone Anforderungen Anforderung queuing und Thread-Pool-Wachstum, wenn es gibt viele gleichzeitige Anforderungen, die lang ausgeführter Vorgänge aufrufen.
 
 ## <a id="ChoosingSyncVasync"></a>  Auswählen von synchronen oder asynchronen Aktionsmethoden
 
@@ -61,7 +62,7 @@ Im Allgemeinen verwenden Sie synchrone Methoden, für die folgenden Bedingungen:
 - Die Vorgänge sind netzwerkgebunden oder e/A-gebundene nicht CPU-gebunden.
 - Parallelverarbeitung ist wichtiger als die Einfachheit des Codes.
 - Sie möchten einen Mechanismus bereit, mit dem Benutzer eine lang ausgeführte Anforderung abbrechen können.
-- Wenn der Vorteil der Wechsel von Threads, die Kosten der Kontextwechsel gewichtet. Im Allgemeinen sollten Sie eine Methode asynchron, wenn die synchrone Methode auf die ASP.NET-Anforderungsthreads wartet, während keine Aktionen ausführt. Durch Aufruf der asynchronen, wurde die ASP.NET-Anforderungsthreads nicht unterbrochen, keine Aktionen ausführt, während er darauf wartet, dass der Dienst webanforderung abgeschlossen.
+- Wenn überwiegen der Vorteil, dass Threads wechseln die Kosten der Kontextwechsel. Im Allgemeinen sollten Sie eine Methode asynchron, wenn die synchrone Methode auf die ASP.NET-Anforderungsthreads wartet, während keine Aktionen ausführt. Durch Aufruf der asynchronen, wurde die ASP.NET-Anforderungsthreads nicht unterbrochen, keine Aktionen ausführt, während er darauf wartet, dass der Dienst webanforderung abgeschlossen.
 - Testen der zeigt, dass die blockierenden Vorgänge einen Engpass bei der websiteleistung sind und dass IIS mehr Anforderungen mithilfe von asynchronen Methoden für diese blockierenden Aufrufe bedienen kann.
 
   Im herunterladbare Beispiel wird gezeigt, wie asynchrone Aktionsmethoden effektiv verwendet werden. Das bereitgestellte Beispiel wurde entworfen, um eine einfache Veranschaulichung der asynchronen Programmierung in ASP.NET MVC 4 mithilfe von .NET 4.5 bereitzustellen. Das Beispiel dient nicht als bezugsarchitektur für die asynchrone Programmierung in ASP.NET MVC. Das Beispielprogramm ruft [ASP.NET-Web-API](../../../web-api/index.md) Methoden, die wiederum rufen [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) langer Webdienstaufrufe zu simulieren. Die meisten Produktionsanwendungen zeigt nicht die Verwendung asynchroner Aktionsmethoden offensichtliche Vorteile.   
@@ -163,13 +164,13 @@ Um die Vorteile einer asynchronen Web-Anwendung nutzen zu können, müssen Sie �
 
 - Windows 7, Windows Vista und alle Windows-Clientbetriebssysteme höchstens 10 gleichzeitige Anforderungen. Sie benötigen ein Betriebssystem Windows Server, um die Vorteile der asynchronen Methoden verursacht bei hoher Auslastung anzuzeigen.
 - Registrieren Sie .NET 4.5 bei IIS, eine Eingabeaufforderung mit erhöhten Rechten:  
-  %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_regiis -i  
+  %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_Regiis -i  
   Finden Sie unter [ASP.NET IIS Registration-Tool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - Sie müssen u. u. erhöhen die [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) Limit für die Warteschlange von der Standardwert von 1.000 bis 5.000. Wenn die Einstellung zu niedrig ist, werden möglicherweise [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) ablehnen von Anforderungen mit einem HTTP 503-Status. So ändern Sie die Begrenzung der HTTP.sys-Warteschlange:
 
     - Öffnen Sie den IIS-Manager, und navigieren Sie in den Bereich des Anwendungspools.
     - Klicken Sie mit der rechten Maustaste auf den Ziel-Anwendungspool, und wählen Sie **Erweiterte Einstellungen**.  
-        ![advanced](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![Erweiterte](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - In der **Erweiterte Einstellungen** ändern Sie im Dialogfeld *Warteschlangenlänge* von 1.000 5.000.  
         ![Warteschlangenlänge](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   

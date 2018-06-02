@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 7527d3c075fd845ac804d4cfd56469a0679ed7e8
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: a43b7bbaf1f90d3373b3846bc3f4f32be6b80bd4
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729609"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Gerüst Identität in ASP.NET Core-Projekten
 
@@ -26,7 +27,7 @@ Anwendungen, die **nicht** enthalten Authentifizierung kann die Scaffolder zum H
 
 Obwohl die Scaffolder Großteil der erforderliche Code generiert, müssen Sie Ihrem Projekt zum Abschließen des Vorgangs aktualisieren. Dieses Dokument erläutert die Schritte zum Abschließen eines Identität Gerüstbau Updates erforderlich sind.
 
-Wenn die Identität Scaffolder ausgeführt wird, eine *ScaffoldingReadme.txt* Datei ist im Projektverzeichnis erstellt. Die *ScaffoldingReadme.txt* -Datei enthält allgemeine Anweisungen müssen was hat die Aktualisierung der Identität des Gerüstbaus abzuschließen. Dieses Dokument enthält ausführlichere Anweisungen als das Lesen der *ScaffoldingReadme.txt* Datei.
+Wenn die Identität Scaffolder ausgeführt wird, eine *ScaffoldingReadme.txt* Datei ist im Projektverzeichnis erstellt. Die *ScaffoldingReadme.txt* -Datei enthält allgemeine Anweisungen auf, was erforderlich ist, um die Identität des Gerüstbaus Aktualisierung abgeschlossen ist. Dieses Dokument enthält ausführlichere Anweisungen als das Lesen der *ScaffoldingReadme.txt* Datei.
 
 Es wird empfohlen, mit einem Quellcodeverwaltungssystem, die die Unterschiede zwischen und bietet die Möglichkeit, außerhalb des gültigen Änderungen sichern. Überprüfen Sie die Änderungen nach dem Ausführen der Identität Scaffolder.
 
@@ -47,7 +48,7 @@ Fügen Sie die folgenden hervorgehobenen Aufrufe an die `Startup` Klasse:
 <!--
 set projNam=RPnoAuth
 set projType=razor
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -76,12 +77,13 @@ Optional: Fügen Sie der partiellen Anmeldung hinzu (`_LoginPartial`) in der Lay
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-individual-authorization"></a>Gerüst Identität in einer Razor-Projekt mit einzelnen Autorisierung
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Gerüst Identität in einer Razor-Projekt mit Autorisierung
 
 <!--
-dotnet new razor -au Individual -o RPauth
+Use >=2.1: dotnet new webapp -au Individual -o RPauth
+Use = 2.0: dotnet new razor -au Individual -o RPauth
 cd RPauth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files Account.Register
 -->
@@ -94,7 +96,7 @@ Einige identitätsoptionen im konfiguriert sind *Areas/Identity/IdentityHostingS
 <!--
 set projNam=MvcNoAuth
 set projType=mvc
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -123,12 +125,12 @@ Rufen Sie [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/micros
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-individual-authorization"></a>Gerüst Identität in einer MVC-Projekt mit einzelnen Autorisierung
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Gerüst Identität in einer MVC-Projekt mit Autorisierung
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
 cd MvcAuth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --files Account.Register
 -->
