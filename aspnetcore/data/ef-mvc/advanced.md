@@ -1,6 +1,6 @@
 ---
 title: 'ASP.NET Core MVC mit EF Core: Erweitert (10 von 10)'
-author: tdykstra
+author: rick-anderson
 description: In diesem Tutorial werden wichtige Themen eingeführt, um Grundkenntnisse der Entwicklung von ASP.NET Core-Web-Apps, die Entity Framework Core verwenden, zu erweitern.
 manager: wpickett
 ms.author: tdykstra
@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 655f60116cbfe1dd81b7e2855906446b919b6489
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: fffb78e4d66c8a798d5f952ba9e4506c8cb666ca
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566931"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC mit EF Core: Erweitert (10 von 10)
 
@@ -147,9 +148,9 @@ Viele Entwickler schreiben Code, um das Repository- und Arbeitseinheitsmuster al
 
 * EF enthält Features zur TDD-Implementierung ohne Repository-Code zu schreiben.
 
-Weitere Informationen zur Implementierung der Repository- und Arbeitseinheitsmuster finden Sie in der [Version Entity Framework 5 dieser Tutorialreihe](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
+Weitere Informationen zur Implementierung der Repository- und Arbeitseinheitsmuster finden Sie in der [Version Entity Framework 5 dieser Tutorialreihe](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Core implementiert einen speicherinternen Datenbankanbieter, der für Tests verwendet werden kann. Weitere Informationen finden Sie unter [Test with InMemory (Testen mit InMemory)](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Core implementiert einen speicherinternen Datenbankanbieter, der für Tests verwendet werden kann. Weitere Informationen finden Sie unter [Test with InMemory (Testen mit InMemory)](/ef/core/miscellaneous/testing/in-memory).
 
 ## <a name="automatic-change-detection"></a>Automatische Änderungserkennung
 

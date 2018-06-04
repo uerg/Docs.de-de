@@ -1,14 +1,14 @@
 Ersetzen Sie den Inhalt der Razor-Ansichtsdatei *Views/HelloWorld/Index.cshtml* durch Folgendes:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Navigieren Sie zu `http://localhost:xxxx/HelloWorld`. Die `Index`-Methode im `HelloWorldController` hatte nicht viel zu tun. Sie diente zum Ausführen der Anweisung `return View();`, die angab, dass die Methode eine Ansichtsvorlagendatei zum Rendern einer Antwort im Browser verwenden sollte. Da Sie den Namen der Ansichtsvorlagendatei nicht explizit angegeben haben, verwendete MVC standardmäßig die Ansichtsdatei *Index.cshtml* im Ordner */Views/HelloWorld*. Die folgende Abbildung zeigt die Zeichenfolge "Hello from our View Template!“, die in der Ansicht hartcodiert ist.
 
-![Browserfenster](../../tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![Browserfenster](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
 Wenn Ihr Browserfenster zu klein ist (z.B. auf einem Mobilgerät), müssen Sie ggf. rechts oben auf die Navigationsschaltfläche mit den [drei horizontalen Linien](http://getbootstrap.com/components/#navbar) tippen, um die Links **Home**, **About** und **Contact** anzuzeigen.
 
-![Browserfenster mit Hervorhebung der Navigationsschaltfläche mit den drei horizontalen Linien](../../tutorials/first-mvc-app/adding-view/_static/1.png)
+![Browserfenster mit Hervorhebung der Navigationsschaltfläche mit den drei horizontalen Linien](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
 ## <a name="changing-views-and-layout-pages"></a>Ändern von Ansichten und Layoutseiten
 
@@ -20,16 +20,21 @@ Tippen Sie auf die Menülinks (**MvcMovie**, **Home**, **About**). Auf jeder Sei
 
 Ändern Sie im title-Element `MvcMovie` in `Movie App`. Ändern Sie wie unten hervorgehoben den Ankertext in der Layoutvorlage von `MvcMovie` in `Movie App` und den Controller von `Home` in `Movies`:
 
-Hinweis: Die Version 2.0 von ASP.NET Core ist etwas anders. Es enthält weder `@inject ApplicationInsights` noch `@Html.Raw(JavaScriptSnippet.FullScript)`.
+::: moniker range="<= aspnetcore-2.0"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+::: moniker-end
 
 >[!WARNING]
 > Wir haben den Controller `Movies` noch nicht implementiert, sodass beim Klicken auf diesen Link der Fehler 404 (Nicht gefunden) zurückgegeben wird.
 
 Speichern Sie Ihre Änderungen, und tippen Sie auf den Link **About**. Wie Sie sehen, wird der Titel der Browserregisterkarte nun als **About - Movie App** anstatt als **About - Mvc Movie** angezeigt: 
 
-![Über die Registerkarte](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
+![Über die Registerkarte](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
 Tippen Sie auf den Link **Kontakt**, und beachten Sie, dass der Text für den Titel und den Anker ebenfalls **Movie App** anzeigt. Wir haben also eine Änderung des Texts und Titels in der Layoutvorlage einmalig vorgenommen, die von der gesamten Website übernommen wird.
 
@@ -75,7 +80,7 @@ Speichern Sie die Änderung, und navigieren Sie zu `http://localhost:xxxx/HelloW
 
 Beachten Sie außerdem, wie der Inhalt der Ansichtsvorlage *Index.cshtml* mit der Ansichtsvorlage *Views/Shared/_Layout.cshtml* zusammengeführt und eine einzelne HTML-Antwort an den Browser gesendet wurde. Layoutvorlagen erleichtern ungemein das Vornehmen von Änderungen an allen Seiten in Ihrer Anwendung. Weitere Informationen dazu finden Sie unter [Layout](xref:mvc/views/layout).
 
-![Ansicht mit Filmliste](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Ansicht mit Filmliste](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
 Unser kleiner Beitrag zu den „Daten“ (in diesem Fall die Meldung "Hello from our View Template!") ist jedoch hartcodiert. Die MVC-Anwendung weist ein „V“ (View [Ansicht]) auf, und Sie verfügen über ein „C“ (Controller), aber noch nicht über ein „M“ (Modell).
 
@@ -89,7 +94,7 @@ Derzeit verwendet die `Welcome`-Methode in der `HelloWorldController`-Klasse die
 
 Kehren Sie zur Datei *HelloWorldController.cs* zurück, und ändern Sie die `Welcome`-Methode so, dass die Werte `Message` und `NumTimes` dem Wörterbuch `ViewData` hinzugefügt werden. Das Wörterbuch `ViewData` ist ein dynamisches Objekt, was bedeutet, dass Sie ihm einfach die gewünschten Inhalte hinzufügen können. Das `ViewData`-Objekt weist erst dann definierte Eigenschaften auf, nachdem Sie ihm etwas hinzugefügt haben. Das [MVC-Modellbindungssystem](xref:mvc/models/model-binding) ordnet automatisch die benannten Parameter (`name` und `numTimes`) aus der Abfragezeichenfolge auf der Adressleiste den Parametern der Methode zu. Die vollständige Datei *HelloWorldController.cs* sieht wie folgt aus:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 Das Wörterbuchobjekt `ViewData` enthält Daten, die an die Ansicht übergeben werden. 
 
@@ -97,7 +102,7 @@ Erstellen Sie die Ansichtsvorlage für die Begrüßung namens *Views/HelloWorld/
 
 Erstellen Sie eine Schleife in der Ansichtsvorlage *Welcome.cshtml*, die „Hello“ `NumTimes` anzeigt. Ersetzen Sie den Inhalt von *Views/HelloWorld/Welcome.cshtml* durch Folgendes:
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Speichern Sie die Änderungen, und navigieren Sie zur folgenden URL:
 
@@ -105,7 +110,7 @@ Speichern Sie die Änderungen, und navigieren Sie zur folgenden URL:
 
 Daten werden der URL entnommen und mithilfe der [MVC-Modellbindung](xref:mvc/models/model-binding) an den Controller übergeben. Der Controller packt die Daten in einem `ViewData`-Wörterbuch und übergibt das Objekt an die Ansicht. Die Ansicht rendert dann die Daten im HTML-Format im Browser.
 
-![Die Ansicht „About“ mit der Beschriftung „Welcome“ und der viermal gezeigten Wortfolge „Hello Rick“](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![Die Ansicht „About“ mit der Beschriftung „Welcome“ und der viermal gezeigten Wortfolge „Hello Rick“](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 Im obigen Beispiel haben wir das Wörterbuch `ViewData` zum Übergeben von Daten vom Controller an eine Ansicht verwendet. Später in diesem Tutorial verwenden wir eine Ansichtsmodell, um Daten von einem Controller an eine Ansicht zu übergeben. Der Ansatz mit dem Ansichtsmodell für das Übergeben von Daten ist im Allgemeinen dem Ansatz mit dem Wörterbuch `ViewData` vorzuziehen. Weitere Informationen finden Sie unter [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc).
 

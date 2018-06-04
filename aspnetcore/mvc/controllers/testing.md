@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0073e4de361c37a6854ceaf54ffd9eaea4837d4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567048"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
@@ -74,7 +75,7 @@ Im zweiten Test wird überprüft, ob bei gültigem `ModelState` eine neue `Brain
 
 Ein anderer Controller in der App zeigt Informationen zu einer bestimmten Brainstormingsitzung an. Er verfügt auch über Programmlogik für den Umgang mit ungültigen ID-Werten:
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Die Controlleraktion verfügt über drei Fälle, die getestet werden können, und zwar einen für jede `return`-Anweisung:
 
@@ -100,7 +101,7 @@ Im letzten Test wird überprüft, ob die `Update`-Methode des Repositorys aufger
 
 ## <a name="integration-testing"></a>Integrationstests
 
-Mit [Integrationstests](../../testing/integration-testing.md) soll sichergestellt werden, dass die separaten Module innerhalb einer App korrekt zusammenarbeiten. Alle Aspekte, die Sie mit einem Komponententest testen können, können in der Regel auch mit einem Integrationstest getestet werden. Umgekehrt gilt diese Aussage jedoch nicht. Integrationstests sind jedoch meist viel langsamer als Komponententests. Daher sollten Sie wann immer möglich Komponententests durchführen und Integrationstests nur für Szenarios verwenden, an denen mehrere Mitwirkende beteiligt sind.
+Mit [Integrationstests](xref:test/integration-tests) soll sichergestellt werden, dass die separaten Module innerhalb einer App korrekt zusammenarbeiten. Alle Aspekte, die Sie mit einem Komponententest testen können, können in der Regel auch mit einem Integrationstest getestet werden. Umgekehrt gilt diese Aussage jedoch nicht. Integrationstests sind jedoch meist viel langsamer als Komponententests. Daher sollten Sie wann immer möglich Komponententests durchführen und Integrationstests nur für Szenarios verwenden, an denen mehrere Mitwirkende beteiligt sind.
 
 Auch wenn sie manchmal nützlich sein können, werden Pseudoobjekte selten in Integrationstests verwendet. In Komponententests kann mit Pseudoobjekten effektiv überprüft werden, wie sich Mitwirkende außerhalb der getesteten Komponente zu Testzwecken verhalten sollten. In einem Integrationstest sollen echte Mitwirkende bestätigen, dass das gesamte Subsystem korrekt zusammenarbeitet.
 

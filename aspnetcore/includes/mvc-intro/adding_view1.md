@@ -8,6 +8,6 @@ Sie erstellen eine Ansichtsvorlagendatei mithilfe von Razor. Razor-basierte Ansi
 
 Derzeit gibt die `Index`-Methode eine Zeichenfolge mit der Meldung zurück, die in der Controllerklasse hartcodiert ist. Ersetzen Sie in der `HelloWorldController`-Klasse die `Index`-Methode durch den folgenden Code:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
 Der vorangehende Code gibt ein `View`-Objekt zurück. Er verwendet eine Ansichtsvorlage zum Generieren einer HTML-Antwort an den Browser. Controllermethoden (auch Aktionsmethoden genannt), wie z. B. die `Index`-Methode oben, geben in der Regel ein [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (oder eine von `ActionResult` abgeleitete Klasse) und keinen Typ wie „string“ zurück.

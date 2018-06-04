@@ -11,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 9bd54319b312e18e6114cd800231c47e1fa22894
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 618cb4349dcff696db37012af3aee844b82974f2
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729050"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Erweitern einer App mit einer externen Assembly in ASP.NET Core mit IHostingStartup
 
@@ -37,7 +38,7 @@ Die Beispiel-App liest den [HostingStartupAssembliesKey](/dotnet/api/microsoft.a
 
 Es gibt zwei Möglichkeiten zum Deaktivieren des automatischen Ladens von Hostingstartassemblys:
 
-* Festlegen der Hostkonfigurationseinstellung [Verhindern des Hostingstarts](xref:fundamentals/hosting#prevent-hosting-startup).
+* Festlegen der Hostkonfigurationseinstellung [Verhindern des Hostingstarts](xref:fundamentals/host/web-host#prevent-hosting-startup).
 * Festlegen der Umgebungsvariable `ASPNETCORE_PREVENTHOSTINGSTARTUP`.
 
 Wenn entweder die Hosteinstellung oder die Umgebungsvariable auf `true` oder `1` festgelegt ist, werden Hostingstartassemblys nicht automatisch geladen. Wenn beide festgelegt sind, wird das Verhalten durch die Hosteinstellung gesteuert.
@@ -68,7 +69,7 @@ Nur ein Teil der Datei wird angezeigt. `StartupEnhancement` ist der Name der Ass
 
 ### <a name="update-the-dependencies-file"></a>Aktualisieren der Abhängigkeitsdatei
 
-Der Runtime-Speicherort wird in der *\*.deps.json*-Datei angegeben. Das `runtime`-Element muss den Speicherort der Runtime-Assembly der Erweiterung angeben, um die Erweiterung zu aktivieren. Setzen Sie dem `runtime`-Speicherort `lib/netcoreapp2.0/` voran:
+Der Runtime-Speicherort wird in der *\*.deps.json*-Datei angegeben. Das `runtime`-Element muss den Speicherort der Runtime-Assembly der Erweiterung angeben, um die Erweiterung zu aktivieren. Setzen Sie dem `runtime`-Speicherort `lib/<TARGET_FRAMEWORK_MONIKER>/` voran:
 
 [!code-json[](platform-specific-configuration/snapshot_sample/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
 
@@ -83,13 +84,13 @@ Die Assemblydatei der `IHostingStartup`-Implementierung muss über *bin* in der 
 Platzieren Sie die Assembly im Laufzeitspeicher des Benutzerprofils für die Verwendung pro Benutzer unter:
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Users\<USER>\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Platzieren Sie die Assembly im Laufzeitspeicher in der .NET Core-Installation für die globale Verwendung unter:
 
 ```
-<DRIVE>\Program Files\dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Program Files\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Beim Bereitstellen der Assembly in den Laufzeitspeicher kann die Symboldatei ebenfalls bereitgestellt werden, was jedoch nicht erforderlich ist, damit die Erweiterung funktioniert.
@@ -101,16 +102,16 @@ Die *\*.deps.json*-Datei der Implementierung muss sich an einem erreichbaren Spe
 Platzieren Sie die Datei im `additonalDeps`-Ordner der `.dotnet`-Einstellung des Benutzerprofils für die Verwendung pro Benutzer: 
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
 Platzieren Sie die Datei im `additonalDeps`-Ordner der .NET Core-Installation für die globale Verwendung:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
-Beachten Sie, dass die Version `2.0.0` die Version der freigegebenen Runtime angibt, die die Ziel-App verwendet. Die freigegebene Runtime wird in der *\*.runtimeconfig.json*-Datei angezeigt. In der Beispiel-App wird die freigegebene Runtime in der Datei *HostingStartupSample.runtimeconfig.json* angegeben.
+Beachten Sie, dass die Version `2.1.0` die Version der freigegebenen Runtime angibt, die die Ziel-App verwendet. Die freigegebene Runtime wird in der *\*.runtimeconfig.json*-Datei angezeigt. In der Beispiel-App wird die freigegebene Runtime in der Datei *HostingStartupSample.runtimeconfig.json* angegeben.
 
 **Festlegen von Umgebungsvariablen**
 
@@ -120,7 +121,7 @@ ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
 
 Nur Hostingstartassemblys werden auf `HostingStartupAttribute` überprüft. Der Assemblyname der Implementierung wird in dieser Umgebungsvariable bereitgestellt. In der Beispiel-App wird dieser Wert auf `StartupDiagnostics` festgelegt.
 
-Der Wert kann auch mithilfe der Hostkonfigurationseinstellung [Hostingstartassemblys](xref:fundamentals/hosting#hosting-startup-assemblies) festgelegt werden.
+Der Wert kann auch mithilfe der Hostkonfigurationseinstellung [Hostingstartassemblys](xref:fundamentals/host/web-host#hosting-startup-assemblies) festgelegt werden.
 
 DOTNET\_ADDITIONAL\_DEPS
 
@@ -135,7 +136,7 @@ Wenn die Datei im *DOTNET*-Ordner des Benutzerprofils für die Verwendung pro Be
 Wenn die Datei in der .NET Core-Installation für die globale Verwendung platziert wird, geben Sie den vollständigen Pfad zur Datei an:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
 ```
 
 In der Beispiel-App wird dieser Wert auf Folgendes festgelegt:

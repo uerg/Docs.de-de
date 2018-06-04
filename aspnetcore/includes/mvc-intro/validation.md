@@ -16,7 +16,12 @@ Die von MVC und Entity Framework Core Code First angebotene Unterstützung der V
 
 Aktualisieren Sie die `Movie`-Klasse, um die integrierten Validierungsattribute `Required`, `StringLength`, `RegularExpression` und `Range` zu nutzen.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
 
 Die Validierungsattribute geben das Verhalten an, das Sie in den Modelleigenschaften erzwingen möchten, auf die sie angewendet werden. Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft einen Wert haben muss. Ein Benutzer kann allerdings ein Leerzeichen eingeben, um diese Validierung zu erfüllen. Das Attribut `RegularExpression` wird verwendet, um einzuschränken, welche Zeichen eingegeben werden dürfen. Im oben angegebenen Code sind für `Genre` und `Rating` nur Buchstaben (keine Leerzeichen, Zahlen und Sonderzeichen) erlaubt. Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein. Mit dem Attribut `StringLength` können Sie die maximale Länge einer Zeichenfolgeneigenschaft und optional die minimale Länge festlegen. Werttypen (wie `decimal`, `int`, `float`, `DateTime`) sind grundsätzlich erforderlich und benötigen nicht das Attribut `[Required]`.
 
@@ -28,7 +33,7 @@ Führen Sie die App aus, und navigieren Sie zum Movies-Controller.
 
 Tippen Sie auf den Link **Neu erstellen**, um einen neuen Film hinzuzufügen. Füllen Sie das Formular mit einigen ungültigen Werten aus. Wenn die clientseitige jQuery-Validierung den Fehler erkennt, wird eine Fehlermeldung angezeigt.
 
-![Ansichtsformular „Movie“ mit mehreren clientseitigen jQuery-Validierungsfehlern](../../tutorials/first-mvc-app/validation/_static/val.png)
+![Ansichtsformular „Movie“ mit mehreren clientseitigen jQuery-Validierungsfehlern](~/tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
 > Sie können unter Umständen in das Feld `Price` keine Kommas als Dezimaltrennzeichen eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) für nicht englische Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englische Datums- und Uhrzeitformate müssen Sie Schritte zur Globalisierung Ihrer App ausführen. In diesem [GitHub-Problem 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) finden Sie Anweisungen zum Hinzufügen von Kommas als Dezimaltrennzeichen. 
@@ -43,7 +48,7 @@ Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine
 
 Sie fragen sich vielleicht, wie die Benutzeroberfläche für die Validierung ohne Aktualisierungen von Code im Controller oder in Ansichten generiert wurde. Der folgende Code zeigt die beiden `Create`-Methoden.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
 Die erste `Create`-Aktionsmethode (HTTP GET) zeigt das erste Formular „Create“ an. Die zweite Version (`[HttpPost]`) verarbeitet die Formularbereitstellung. Die zweite `Create`-Methode (die `[HttpPost]`-Version) ruft `ModelState.IsValid` auf, um zu überprüfen, ob der Film Validierungsfehler aufweist. Beim Aufrufen dieser Methode werden alle Validierungsattribute ausgewertet, die auf das Objekt angewendet wurden. Wenn das Objekt Validierungsfehler enthält, zeigt die `Create`-Methode das Formular erneut an. Wenn keine Fehler vorliegen, speichert die Methode den neuen Film in der Datenbank. In unserem Movie-Beispiel wird das Formular nicht an den Server gesendet, wenn Validierungsfehler auf der Clientseite erkannt werden. Die zweite `Create`-Methode wird nicht aufgerufen, wenn clientseitige Validierungsfehler vorhanden sind. Wenn Sie JavaScript in Ihrem Browser deaktivieren, wird die Clientvalidierung deaktiviert, und Sie können die HTTP-POST-`Create`-Methode testen und mit `ModelState.IsValid` Validierungsfehler finden.
 
@@ -51,19 +56,19 @@ Sie können einen Haltepunkt in der `[HttpPost] Create`-Methode festlegen und ü
 
 Die folgende Abbildung zeigt, wie JavaScript im Firefox-Browser deaktiviert wird.
 
-![Firefox: Deaktivieren Sie auf der Registerkarte „Inhalt“ unter „Optionen“ das Kontrollkästchen „Javascript aktivieren“.](../../tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: Deaktivieren Sie auf der Registerkarte „Inhalt“ unter „Optionen“ das Kontrollkästchen „Javascript aktivieren“.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 Die folgende Abbildung zeigt, wie JavaScript im Chrome-Browser deaktiviert wird.
 
-![Google Chrome: Wählen Sie im JavaScript-Abschnitt der Inhaltseinstellungen die Option „Ausführung von JavaScript für keine Webseite zulassen“ aus.](../../tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: Wählen Sie im JavaScript-Abschnitt der Inhaltseinstellungen die Option „Ausführung von JavaScript für keine Webseite zulassen“ aus.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
 Nachdem Sie JavaScript deaktiviert haben, senden Sie ungültige Daten, und gehen Sie den Debugger durch.
 
-![Während des Debuggens von ungültigen Daten zeigt IntelliSense für „ModelState.IsValid“ an, dass der Wert falsch ist.](../../tutorials/first-mvc-app/validation/_static/ms.png)
+![Während des Debuggens von ungültigen Daten zeigt IntelliSense für „ModelState.IsValid“ an, dass der Wert falsch ist.](~/tutorials/first-mvc-app/validation/_static/ms.png)
 
 Im Folgenden ist ein Teil der Ansichtsvorlage *Create.cshtml* dargestellt, deren Gerüst Sie zuvor im Tutorial erstellt haben. Sie wird von den oben erläuterten Aktionsmethoden zum Anzeigen des anfänglichen Formulars und zum erneuten Anzeigen des Formulars bei einem Fehler verwendet.
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
 Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) verwendet die Attribute von [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) und generiert HTML-Attribute, die auf der Clientseite für die jQuery-Validierung erforderlich sind. Das [Hilfsprogramm für Validierungstags](xref:mvc/views/working-with-forms#the-validation-tag-helpers) zeigt Validierungsfehler. Weitere Informationen finden Sie unter [Validierung](xref:mvc/models/validation).
 
@@ -75,7 +80,7 @@ Wenn Sie Validierungslogik ändern müssen, können Sie dies auch an genau einer
 
 Öffnen Sie die Datei *Movie.cs*, und überprüfen Sie die Klasse `Movie`. Der Namespace `System.ComponentModel.DataAnnotations` stellt zusätzlich zu der integrierten Gruppe von Validierungsattributen Formatierungsattribute bereit. Wir haben bereits einen `DataType`-Enumerationswert auf die Felder mit dem Veröffentlichungsdatum und dem Preis angewendet. Der folgende Code zeigt die Eigenschaften `ReleaseDate` und `Price` mit dem entsprechenden `DataType`-Attribut.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 Die `DataType`-Attribute geben der Anzeige-Engine nur Hinweise zum Formatieren der Daten (und liefern Elemente bzw. Attribute wie `<a>` für URLs und `<a href="mailto:EmailAddress.com">` für E-Mail). Sie können das `RegularExpression`-Attribut verwenden, um das Format der Daten zu validieren. Das `DataType`-Attribut wird verwendet, um einen Datentyp anzugeben, der spezifischer als der datenbankinterne Typ ist. Dabei handelt es sich nicht um Validierungsattribute. In diesem Fall möchten wir nur das Datum verfolgen, nicht die Zeit. Die `DataType`-Enumeration stellt viele Datentypen bereit, wie z.B. „Date“, „Time“, „PhoneNumber“, „Currency“, „EmailAddress“ usw. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Beispielsweise kann ein `mailto:`-Link für `DataType.EmailAddress` erstellt werden, und eine Datumsauswahl kann in Browsern mit Unterstützung für HTML5 für `DataType.Date` bereitgestellt werden. Die `DataType`-Attribute geben `data-`-Attribute (ausgesprochen „Datadash“) von HTML5 aus, die HTML5-Browser nutzen können. Die `DataType`-Attribute bieten **keine** Validierung.
 
@@ -109,7 +114,14 @@ Sie müssen die jQuery-Datumsvalidierung deaktivieren, um das `Range`-Attribut m
 
 Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
 
 Im nächsten Teil der Reihe überprüfen wir die Anwendung und nehmen einige Verbesserungen an den automatisch generierten Methoden `Details` und `Delete` vor.
 

@@ -1,6 +1,6 @@
 Ersetzen Sie den Inhalt von *Controllers/HelloWorldController.cs* durch Folgendes:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 Jede `public`-Methode in einem Controller kann als HTTP-Endpunkt aufgerufen werden. Im obigen Beispiel geben beide Methoden eine Zeichenfolge zurück.  Beachten Sie die Kommentare vor jeder Methode.
 
@@ -10,7 +10,7 @@ Der erste Kommentar besagt, dass es sich dabei um eine [HTTP GET](https://www.w3
 
 Führen Sie die App im Nicht-Debugmodus aus, und fügen Sie „HelloWorld“ an den Pfad in der Adressleiste an. Die `Index`-Methode gibt eine Zeichenfolge zurück.
 
-![Browserfenster mit der Anwendungsantwort „This is my default action“](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+![Browserfenster mit der Anwendungsantwort „This is my default action“](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
 MVC ruft Controllerklassen (und darin enthaltene Aktionsmethoden) abhängig von der eingehenden URL auf. Die von MVC verwendete standardmäßige [URL-Routinglogik](xref:mvc/controllers/routing) befolgt ein Format wie dieses, um den aufzurufenden Code zu bestimmen:
 
@@ -18,7 +18,7 @@ MVC ruft Controllerklassen (und darin enthaltene Aktionsmethoden) abhängig von 
 
 Sie legen das Format für das Routing in der `Configure`-Methode in der Datei *Startup.cs* fest.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Wenn Sie die App auszuführen und keine URL-Segmente angeben, werden standardmäßig der Controller „Home“ und die Methode „Index“ verwendet, die in der oben hervorgehobenen Vorlagenzeile angegeben ist.
 
@@ -26,11 +26,11 @@ Das erste URL-Segment bestimmt die auszuführende Controllerklasse. Daher wird `
 
 Wechseln Sie zu `http://localhost:xxxx/HelloWorld/Welcome`. Die `Welcome`-Methode wird ausgeführt und gibt die Zeichenfolge „This is the Welcome action method...“ zurück. Bei dieser URL ist `HelloWorld` der Controller und `Welcome` die Aktionsmethode. Sie haben den Teil `[Parameters]` der URL noch nicht verwendet.
 
-![Browserfenster mit der Anwendungsantwort „This is the Welcome action method“](../../tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+![Browserfenster mit der Anwendungsantwort „This is the Welcome action method“](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
 Ändern Sie den Code so, dass Parameterinformationen von der URL an den Controller übergeben werden. Beispielsweise `/HelloWorld/Welcome?name=Rick&numtimes=4`. Ändern Sie `Welcome`-Methode so, dass zwei Parameter, wie im folgenden Code gezeigt, einbezogen werden. 
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Der vorangehende Code:
 
@@ -44,20 +44,20 @@ Führen Sie die App aus, und navigieren Sie zu:
 
 (Ersetzen Sie xxxx durch Ihre Portnummer.) Sie können für `name` und `numtimes` in der URL verschiedene Werte ausprobieren. Das MVC-[Modellbindungssystem](xref:mvc/models/model-binding) ordnet automatisch die benannten Parameter aus der Abfragezeichenfolge auf der Adressleiste den Parametern der Methode zu. Weitere Informationen finden Sie unter [Modellbindung](xref:mvc/models/model-binding).
 
-![Browserfenster mit der Anwendungsantwort „Hello Rick, NumTimes is: 4“](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Browserfenster mit der Anwendungsantwort „Hello Rick, NumTimes is: 4“](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 In der obigen Abbildung wird das URL-Segment (`Parameters`) nicht verwendet, und die Parameter `name` und `numTimes` werden als [Abfragezeichenfolgen](https://wikipedia.org/wiki/Query_string) übergeben. Das Fragezeichen (`?`) in der obigen URL ist ein Trennzeichen, auf das die Abfragezeichenfolgen folgen. Das Zeichen `&` trennt Abfragezeichenfolgen.
 
 Ersetzen Sie die `Welcome`-Methode durch folgenden Code:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
 Führen Sie die App aus, und geben Sie die folgende URL ein: `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
-![Browserfenster mit der Anwendungsantwort „Hello Rick, ID 3“](../../tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
+![Browserfenster mit der Anwendungsantwort „Hello Rick, ID 3“](~/tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
 
 Dieses Mal hat das dritte URL-Segment mit dem Routenparameter `id` übereingestimmt. Die `Welcome`-Methode enthält den Parameter `id`, der mit der URL-Vorlage in der `MapRoute`-Methode übereinstimmt. Das nachfolgende `?` (in `id?`) gibt an, dass der Parameter `id` optional ist.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 In diesen Beispielen hat der Controller den „VC“-Teil von MVC übernommen, d.h. die Aufgaben von „View“ (Ansicht) und „Controller“. Der Controller gibt HTML direkt zurück. Im Allgemeinen sollen Controller HTML nicht direkt zurückgeben, da dies sehr aufwändig zu programmieren und pflegen ist. Stattdessen verwenden Sie in der Regel eine separate Razor-Ansichtsvorlagendatei, um die HTML-Antwort zu generieren. Dies lernen Sie im nächsten Tutorial.
