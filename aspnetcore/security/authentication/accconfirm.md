@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: b6dbe234973431448c18d3cc82a6ac98d4f53a3b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688969"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34730450"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
@@ -110,7 +110,7 @@ Finden Sie unter [HTTPS erforderlich](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>E-Mail-Bestätigung
 
-Es wird empfohlen, die e-Mail-Adresse eines eine neue benutzerregistrierung zu bestätigen. E-Mail-Bestätigung hilft Ihnen bei der überprüfen, haben sie keinen Identitätswechsel eine andere Person (d. h., sie noch nicht registriert mit einer anderen Person e-Mail-Adresse). Angenommen, ein Diskussionsforum mussten, und Sie möchten, um zu verhindern, dass "yli@example.com"aus der Registrierung als"nolivetto@contoso.com." Ohne e-Mail-Bestätigung "nolivetto@contoso.com" erhalten Sie unerwünschten e-Mail konnte aus Ihrer app. Angenommen, das der Benutzer versehentlich als registriert "ylo@example.com" und hadn't bemerkt, dass die falsche Schreibweise des "Yli". Sie wäre nicht kennwortwiederherstellung verwenden, da die app ihre korrekte e-Mail-Adresse hat. E-Mail-Bestätigung enthält nur begrenzt Schutz von Bots. E-Mail-Bestätigung stellt keinen Schutz vor böswilligen Benutzern viele e-Mail-Konten.
+Es wird empfohlen, die e-Mail-Adresse eines eine neue benutzerregistrierung zu bestätigen. E-Mail-Bestätigung hilft Ihnen bei der überprüfen, haben sie keinen Identitätswechsel eine andere Person (d. h., sie noch nicht registriert mit einer anderen Person e-Mail-Adresse). Angenommen, ein Diskussionsforum mussten, und Sie möchten, um zu verhindern, dass "yli@example.com"aus der Registrierung als"nolivetto@contoso.com". Ohne e-Mail-Bestätigung "nolivetto@contoso.com" erhalten Sie unerwünschten e-Mail konnte aus Ihrer app. Angenommen, das der Benutzer versehentlich als registriert "ylo@example.com" und hadn't bemerkt, dass die falsche Schreibweise des "Yli". Sie wäre nicht kennwortwiederherstellung verwenden, da die app ihre korrekte e-Mail-Adresse hat. E-Mail-Bestätigung enthält nur begrenzt Schutz von Bots. E-Mail-Bestätigung stellt keinen Schutz vor böswilligen Benutzern viele e-Mail-Konten.
 
 In der Regel möchten verhindern, dass neue Benutzer keine Daten zu Ihrer Website bereitstellen, bevor sie eine bestätigte e-Mail-Adresse aufweisen.
 
@@ -307,7 +307,7 @@ Die beiden Konten wurden kombiniert. Sie können mit entweder Konto anmelden. Si
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Aktivieren Sie kontobestätigung, nachdem an einem Standort Benutzer gelten.
 
-Aktivieren des kontobestätigung an einem Standort mit Benutzern sperrt alle vorhandenen Benutzer. Vorhandene Benutzer werden gesperrt, da ihre Konten bestätigt werden nicht. Beenden Benutzersperre umgehen, verwenden Sie eine der folgenden Vorgehensweisen:
+Aktivieren des kontobestätigung an einem Standort mit Benutzern sperrt alle vorhandenen Benutzer. Vorhandene Benutzer werden gesperrt, da ihre Konten bestätigt werden nicht. Um vorhandene Benutzersperre zu umgehen, verwenden Sie einen der folgenden Ansätze:
 
-* Aktualisieren der Datenbank, um als bestätigt werden alle vorhandenen Benutzer zu markieren.
+* Aktualisieren Sie die Datenbank, um markieren Sie alle vorhandenen Benutzer als bestätigt wird.
 * Bestätigen Sie vorhandene Benutzer. Beispielsweise Batch-Send-e-Mails mit Bestätigung Links.
