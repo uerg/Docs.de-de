@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530149"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Arbeiten mit Bildern an einem Standort der ASP.NET Web Pages (Razor)
 ====================
@@ -62,7 +63,7 @@ In einigen Fällen müssen Sie jedoch in der Lage, Anzeige von Bildern dynamisch
 
 Die Verfahren in diesem Abschnitt wird gezeigt, wie ein Bild im Handumdrehen angezeigt, in dem Benutzer den Bilddateinamen aus einer Liste der imagenamen angeben, wird. Benutzer den Namen des Bilds aus einer Dropdownliste auswählen, und wenn sie die Seite senden, wird das Bild, das sie ausgewählt angezeigt.
 
-![[Image] ] (9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![[Image]](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
 
 1. Erstellen Sie eine neue Website in WebMatrix.
 2. Fügen Sie eine neue Seite mit dem Namen *DynamicImage.cshtml*.
@@ -92,7 +93,7 @@ Die Verfahren in diesem Abschnitt wird gezeigt, wie ein Bild im Handumdrehen ang
 
 Im vorherige Beispiel wurde gezeigt, wie ein Bild angezeigt wird, dynamisch, aber es funktioniert nur mit Bildern, die bereits auf Ihrer Website waren. Dieses Verfahren veranschaulicht, wie Benutzer ein Image hochladen, die dann auf der Seite angezeigt werden können. In ASP.NET können Sie Bearbeiten von Bildern auf einfache Weise mithilfe der `WebImage` Helper, verfügt über Methoden, mit denen Sie erstellen, bearbeiten und Speichern von Bildern. Die `WebImage` Helper unterstützt alle die allgemeine Web Bilddateitypen, einschließlich *jpg*, *PNG*, und *.bmp*. Verwenden Sie in diesem Artikel *jpg* Bilder, aber Sie können den Image-Typen verwenden.
 
-![[Image] ] (9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![[Image]](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
 
 1. Fügen Sie eine neue Seite hinzu, und nennen Sie sie *UploadImage.cshtml*.
 2. Ersetzen Sie den vorhandenen Inhalt auf der Seite mit den folgenden: 
@@ -144,7 +145,7 @@ Wenn Ihre Website Abbilder von einem Benutzer annimmt, empfiehlt es sich, die Bi
 
 Dieses Verfahren veranschaulicht das Ändern der Größe eines hochgeladenen Images zum Erstellen einer Miniaturansicht und speichern Sie dann die Miniaturansicht und das ursprüngliche Bild auf der Website. Sie die Miniaturansicht auf der Seite anzeigen und verwenden einen Link, um Benutzer umzuleiten, auf das Bild in voller Größe.
 
-![[Image] ] (9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![[Image]](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
 
 1. Fügen Sie eine neue Seite mit dem Namen *Thumbnail.cshtml*.
 2. In der *Bilder* Ordner einen Unterordner mit dem Namen *Daumen*.
@@ -165,7 +166,7 @@ Dieses Verfahren veranschaulicht das Ändern der Größe eines hochgeladenen Ima
 
 Die `WebImage` Hilfsprogramm können Sie auch kippen und Drehen von Bildern. Dieses Verfahren wird gezeigt, wie ein Bild vom Server abrufen, spiegeln das Bild stehend (vertikal), speichern Sie sie und klicken Sie dann das gespiegelte Bild auf der Seite angezeigt wird. In diesem Beispiel verwenden Sie nur eine Datei, die Sie bereits, auf dem Server verfügen (*Photo2.jpg*). In einer echten Anwendung würden Sie wahrscheinlich ein Bild Blättern, deren Namen Sie dynamisch, erhalten wie Sie in den vorherigen Beispielen ausgeführt haben.
 
-![[Image] ] (9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![[Image]](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
 
 1. Fügen Sie eine neue Seite mit dem Namen *FlipImage.cshtml*.
 2. Ersetzen Sie den vorhandenen Inhalt auf der Seite mit den folgenden: 
@@ -189,7 +190,7 @@ Um ein Bild zu wechseln, verwenden Sie den gleichen Code, außer dass statt der 
 
 Wenn Sie Ihre Website Bilder hinzufügen, empfiehlt es sich, ein Wasserzeichen auf das Abbild hinzufügen, bevor Sie speichern oder auf einer Seite anzeigen. Benutzer verwenden häufig Wasserzeichen copyright-Informationen zu einem Bild hinzuzufügen oder um ihre Geschäftsnamen ankündigen.
 
-![[Image] ] (9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![[Image]](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
 
 1. Fügen Sie eine neue Seite mit dem Namen *Watermark.cshtml*.
 2. Ersetzen Sie den vorhandenen Inhalt auf der Seite mit den folgenden: 
