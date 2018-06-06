@@ -3,39 +3,41 @@ title: Antwort zwischenspeichern Middleware in ASP.NET Core
 author: guardrex
 description: Informationen Sie zum Konfigurieren und Verwenden von Antwort zwischenspeichern Middleware in ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734496"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
 Durch [Luke Latham](https://github.com/guardrex) und [John Luo](https://github.com/JunTaoLuo)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von ASP.NET Core 2.1 Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample))
 
 In diesem Artikel erläutert die Antwort zwischenspeichern Middleware in einer ASP.NET Core-app zu konfigurieren. Die Middleware wird bestimmt, wenn Antworten zwischengespeichert sind, speichert Antworten und fungiert Antworten aus dem Cache. Eine Einführung in die HTTP-caching und die `ResponseCache` -Attribut angegeben wird, finden Sie unter [Zwischenspeichern von Antworten](xref:performance/caching/response).
 
 ## <a name="package"></a>Package
 
-Um die Middleware in einem Projekt einzuschließen, fügen Sie einen Verweis auf die [ `Microsoft.AspNetCore.ResponseCaching` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) Verpacken, oder verwenden Sie die [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) Paket (ASP.NET Core 2.0 oder höher, wenn .NET Core als Ziel).
+Um die Middleware in Ihrem Projekt einzuschließen, fügen Sie einen Verweis auf die [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) Verpacken, oder verwenden Sie die [Microsoft.AspNetCore.App Metapackage](xref:fundamentals/metapackage-app), steht für die Verwendung in ASP.NET Core 2.1 oder höher.
 
 ## <a name="configuration"></a>Konfiguration
 
 In `ConfigureServices`, die Auflistung die Middleware hinzugefügt.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=9)]
 
 Die app so konfigurieren, verwenden Sie die Middleware mit der `UseResponseCaching` Erweiterungsmethode, die die Middleware die Anforderungsverarbeitungspipeline hinzufügt. Die Beispiel-app Fügt eine [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) Header in die Antwort, die zwischengespeichert werden Antworten für bis zu 10 Sekunden zwischengespeichert. Das Beispiel sendet ein [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) Header so konfigurieren Sie die Middleware zum Verarbeiten einer zwischengespeicherten Antwort nur, wenn die [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) -Header der nachfolgenden Anforderungen entspricht, die der ursprünglichen Anforderung. Im Codebeispiel, das folgt, [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) und [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) erfordern eine `using` -Anweisung für die [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) Namespace.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=17,21-28)]
 
 Antwort zwischenspeichern Middleware werden lediglich die Reaktionen, die ein Statuscode "200 (OK)" führen. Andere Antworten, einschließlich [Fehlerseiten](xref:fundamentals/error-handling), werden von der Middleware ignoriert.
 
@@ -46,10 +48,10 @@ Antwort zwischenspeichern Middleware werden lediglich die Reaktionen, die ein St
 
 Die Middleware bietet drei Optionen zum Steuern des Zwischenspeichern von Antworten.
 
-| Option                | Standardwert |
-| --------------------- | ------------- |
-| UseCaseSensitivePaths | Bestimmt, ob die Groß-/Kleinschreibung Pfade Antworten zwischengespeichert werden.</p><p>Der Standardwert ist `false`. |
-| MaximumBodySize       | Die größte zwischenspeicherbaren Größe des Antworttexts in Bytes.</p>Der Standardwert ist `64 * 1024 * 1024` (64 MB). |
+| Option                | Beschreibung |
+| --------------------- | ----------- |
+| UseCaseSensitivePaths | Bestimmt, ob die Groß-/Kleinschreibung Pfade Antworten zwischengespeichert werden. Der Standardwert ist `false`. |
+| MaximumBodySize       | Die größte zwischenspeicherbaren Größe des Antworttexts in Bytes. Der Standardwert ist `64 * 1024 * 1024` (64 MB). |
 | SizeLimit             | Die maximale Größe für die Antwort-Cache-Middleware in Bytes. Der Standardwert ist `100 * 1024 * 1024` (100 MB). |
 
 Das folgende Beispiel konfiguriert die Middleware hinzu:

@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
-ms.translationtype: HT
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729180"
+ms.locfileid: "34734535"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Verwenden asynchroner Methoden in ASP.NET MVC 4
 ====================
@@ -44,7 +44,7 @@ Dies möglicherweise kein Problem, da der Threadpool groß genug für viele ausg
 
 ## <a name="processing-asynchronous-requests"></a>Verarbeiten von asynchronen Anforderungen
 
-In Webanwendungen, die noch eine bursty Last (wobei plötzlich nimmt die Parallelität) finden Sie eine große Anzahl gleichzeitiger Anforderungen beim Start, erhöht Webdienstaufrufe diese asynchrone die Reaktionsfähigkeit der Anwendung. Eine asynchrone Anforderung hat die gleiche Menge an Zeit als eine asynchrone Anforderung verarbeitet. Beispielsweise wenn eine Anforderung über einen Webdienst aufrufen sendet erfordert zwei Sekunden auf den Abschluss der Anforderung akzeptiert zwei Sekunden, ob sie synchron oder asynchron ausgeführt werden. Allerdings wird während eines asynchronen Aufrufs ein Thread nicht blockiert für andere Anforderungen reagieren, während er darauf wartet, dass die erste Anforderung abgeschlossen. Deshalb verhindern asynchrone Anforderungen Anforderung queuing und Thread-Pool-Wachstum, wenn es gibt viele gleichzeitige Anforderungen, die lang ausgeführter Vorgänge aufrufen.
+In eine Web-app, die eine große Anzahl gleichzeitiger Anforderungen beim Start erkennt oder einer bursty Auslastung (wobei plötzlich nimmt die Parallelität) erhöht Webdienstaufrufe asynchron die Reaktionsfähigkeit der app aus. Eine asynchrone Anforderung hat die gleiche Menge an Zeit als eine asynchrone Anforderung verarbeitet. Wenn eine Anforderung über einen Webdienst aufrufen sendet erfordert zwei Sekunden auf den Abschluss der Anforderung erfordert zwei Sekunden, ob sie synchron oder asynchron ausgeführt werden. Jedoch wird nicht während eines asynchronen Aufrufs ein Thread blockiert, für andere Anforderungen reagieren, während er darauf wartet, dass die erste Anforderung abgeschlossen. Deshalb verhindern asynchrone Anforderungen Anforderung queuing und Thread-Pool-Wachstum, wenn es gibt viele gleichzeitige Anforderungen, die lang ausgeführter Vorgänge aufrufen.
 
 ## <a id="ChoosingSyncVasync"></a>  Auswählen von synchronen oder asynchronen Aktionsmethoden
 

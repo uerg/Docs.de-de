@@ -8,20 +8,21 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734509"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
 Durch [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), und [Luke Latham](https://github.com/guardrex)
 
 > [!NOTE]
-> Zwischenspeichern von Antworten [wird nicht unterstützt in Razor-Seiten mit ASP.NET Core 2.0](https://github.com/aspnet/Mvc/issues/6437). Diese Funktion wird in unterstützt die [Version 2.1 von ASP.NET Core](https://github.com/aspnet/Home/wiki/Roadmap).
-  
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+> Zwischenspeichern von Antworten in Razor-Seiten wird in ASP.NET Core 2.1 oder höher verfügbar.
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Zwischenspeichern von Antworten verringert die Anzahl der Anforderungen, die ein Client oder Proxy auf einem Webserver vornimmt. Zwischenspeichern von Antworten auch reduziert die Menge der Arbeit der Webserver durchführt, um eine Antwort zu generieren. Zwischenspeichern von Antworten wird durch Header gesteuert, die angeben, wie der Client und Proxy-Middleware zum Zwischenspeichern von Antworten soll.
 
@@ -37,9 +38,9 @@ Allgemeine `Cache-Control` Direktiven sind in der folgenden Tabelle gezeigt.
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Ein Cache möglicherweise die Antwort zu speichern. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Die Antwort muss von einem geteilten Datencache nicht gespeichert werden. Ein privater Cache möglicherweise speichern und wiederverwenden die Antwort. |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Der Client wird nicht als eine Antwort nicht akzeptiert, deren Alter größer als die angegebene Anzahl von Sekunden ist. Beispiele: `max-age=60` (60 Sekunden), `max-age=2592000` (1 Monat) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Für Anforderungen**: ein Caches muss nicht gespeicherte Antwort zum Erfüllen der Anforderung verwenden. Hinweis: Ursprungsservers wird erneut die Antwort für den Client generiert und die Middleware aktualisiert die gespeicherte Antwort in seinem Cache.<br><br>**Auf Antworten**: die Antwort dürfen nicht für eine nachfolgende Anforderung ohne Überprüfung auf dem Ursprungsserver verwendet werden. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Für Anforderungen**: Speichern ein Caches muss nicht die Anforderung.<br><br>**Auf Antworten**: ein Caches muss einen beliebigen Teil der Antwort nicht speichern. |
+| [Max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Der Client wird nicht als eine Antwort nicht akzeptiert, deren Alter größer als die angegebene Anzahl von Sekunden ist. Beispiele: `max-age=60` (60 Sekunden), `max-age=2592000` (1 Monat) |
+| [ohne-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Für Anforderungen**: ein Caches muss nicht gespeicherte Antwort zum Erfüllen der Anforderung verwenden. Hinweis: Ursprungsservers wird erneut die Antwort für den Client generiert und die Middleware aktualisiert die gespeicherte Antwort in seinem Cache.<br><br>**Auf Antworten**: die Antwort dürfen nicht für eine nachfolgende Anforderung ohne Überprüfung auf dem Ursprungsserver verwendet werden. |
+| [ohne-Speicher](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Für Anforderungen**: Speichern ein Caches muss nicht die Anforderung.<br><br>**Auf Antworten**: ein Caches muss einen beliebigen Teil der Antwort nicht speichern. |
 
 Andere Cacheheader, die eine Rolle am caching spielen sind in der folgenden Tabelle gezeigt.
 
@@ -48,7 +49,7 @@ Andere Cacheheader, die eine Rolle am caching spielen sind in der folgenden Tabe
 | [ALTER](https://tools.ietf.org/html/rfc7234#section-5.1)     | Eine Schätzung der die Zeitdauer in Sekunden seit die Antwort generiert wurde, oder auf dem Ausgangsserver erfolgreich überprüft. |
 | [Läuft ab](https://tools.ietf.org/html/rfc7234#section-5.3) | Das Datum/Uhrzeit, nach dem die Antwort als veraltet angesehen wird. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Vorhanden ist, für die Kompatibilität mit HTTP/1.0 Abwärtskompatibilität Einstellung zwischenspeichert `no-cache` Verhalten. Wenn die `Cache-Control` Header vorhanden ist, ist die `Pragma` -Header wird ignoriert. |
-| [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
+| [variieren](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP-basierte Zwischenspeichern Hinsicht anfordern cachesteuerungsdirektiven
 
@@ -113,7 +114,17 @@ Die `ResponseCacheAttribute` dient zum Erstellen und konfigurieren Sie (über `I
 
 Dieser Header wird nur geschrieben, wenn die `VaryByHeader` festgelegt wird. Es wird festgelegt, um die `Vary` den Wert der Eigenschaft. Das folgende Beispiel verwendet die `VaryByHeader` Eigenschaft:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
 
 Sie können die Antwortheadern mit Ihrem Browser Netzwerktools anzeigen. Die folgende Abbildung zeigt die Ausgabe auf Edge F12 der **Netzwerk** Registerkarte, wenn die `About2` Aktionsmethode aktualisiert wird:
 
@@ -130,7 +141,17 @@ Wenn `NoStore` ist `false` und `Location` ist `None`, `Cache-Control` und `Pragm
 
 Legen Sie Sie in der Regel `NoStore` auf `true` auf Fehlerseiten. Zum Beispiel:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
 
 Daraus ergibt sich die folgenden Header:
 
@@ -148,7 +169,17 @@ So aktivieren Sie das Zwischenspeichern, `Duration` muss auf einen positiven Wer
 
 Im folgenden ein Beispiel für die Header erstellt wird, durch Festlegen von `Duration` und lassen die Standardeinstellung `Location` Wert:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
 
 Dies erzeugt die folgende Kopfzeile:
 
@@ -162,11 +193,31 @@ Anstelle von duplizieren `ResponseCache` Einstellungen auf viele Aktion Attribut
 
 Einrichten von ein Cacheprofil:
 
-[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 Verweisen auf ein Cacheprofil aus:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
 
 Die `ResponseCache` Attribut kann auf Aktionen (Methoden) und auf Domänencontrollern (Klassen) angewendet werden. Methodenebene Attribute überschreiben die Attribute auf Klassenebene festgelegten Einstellungen.
 
@@ -182,7 +233,7 @@ Cache-Control: public,max-age=60
 
 * [Das Speichern von Antworten in Caches](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [In-Memory-Cache](xref:performance/caching/memory)
+* [Zwischenspeichern in Speicher](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
 * [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
 * [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
