@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819096"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Erstellen einer ASP.NET MVC 5-App mit Facebook, Twitter, LinkedIn und Google "oauth2" Sign-on (c#)
 ====================
@@ -174,7 +175,7 @@ Für die Facebook OAuth2-Authentifizierung müssen Sie dem Projekt einige Einste
     ![Neue app erstellen](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Geben Sie eine **Anwendungsnamen** und **Kategorie**, klicken Sie dann auf **erstellen App**.
 
-    Dies muss innerhalb der Facebook eindeutig sein. Die <strong>App Namespace</strong> ist der Teil der URL, die zum Zugriff auf die Facebook-Anwendung für die Authentifizierung Ihrer App verwenden (z. B. https://apps.facebook.com/{App Namespace}). Wenn Sie nicht angeben einer <strong>App Namespace</strong>, die <strong>App-ID</strong> für die URL verwendet werden. Die <strong>App-ID</strong> ist eine lange vom System generierte Zahl, die Sie im nächsten Schritt sehen.
+    Die <strong>App Namespace</strong> ist der Teil der URL, die zum Zugriff auf die Facebook-Anwendung für die Authentifizierung Ihrer App verwenden (z. B. Https\://apps.facebook.com/{App Namespace}). Wenn Sie nicht angeben einer <strong>App Namespace</strong>, die <strong>App-ID</strong> für die URL verwendet werden. Die <strong>App-ID</strong> ist eine lange vom System generierte Zahl, die Sie im nächsten Schritt sehen.
 
     ![Neuen App-Dialogfeld "erstellen"](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Senden Sie die Standardsicherheit Kontrollkästchen.

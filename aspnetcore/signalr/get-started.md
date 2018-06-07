@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ba1db640e5608fd9f5e7fa024283a651bf7772c2
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729498"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819057"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Erste Schritte mit SignalR für ASP.NET Core
 
@@ -75,7 +75,7 @@ Visual Studio enthält die `Microsoft.AspNetCore.SignalR` -Paket mit der zugehö
     npm install @aspnet/signalr
     ```     
 
-4. Erstellen Sie einen neuen Ordner namens "Signalr" innerhalb der *Lib* Ordner des Projekts. Kopieren Sie dann die *signalr.js* aus der Datei *Node_modules\\ @aspnet\signalr\dist\browser*  in diesen Ordner.
+4. Erstellen Sie einen neuen Ordner namens "Signalr" innerhalb der *Lib* Ordner des Projekts. Kopieren der *signalr.js* aus der Datei *Node_modules\\ @aspnet\signalr\dist\browser*  in diesen Ordner.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -92,7 +92,7 @@ Visual Studio enthält die `Microsoft.AspNetCore.SignalR` -Paket mit der zugehö
     npm install @aspnet/signalr
     ```
 
-3. Kopieren der *signalr.js* aus der Datei *Node_modules\\ @aspnet\signalr\dist\browser*  auf die *Lib* Ordner des Projekts.
+3. Erstellen Sie einen neuen Ordner namens "Signalr" innerhalb der *Lib* Ordner des Projekts. Kopieren der *signalr.js* aus der Datei *Node_modules\\ @aspnet\signalr\dist\browser*  in diesen Ordner.
 
 -----
 
@@ -140,15 +140,16 @@ Die SignalR-Server muss konfiguriert werden, damit dieser weiß, dass Anforderun
 
 ## <a name="create-the-signalr-client-code"></a>Erstellen Sie den SignalR-Clientcode
 
-1. Ersetzen Sie den Inhalt in *Pages\Index.cshtml* durch den folgenden Code:
+1. Fügen Sie eine JavaScript-Datei, mit dem Namen *chat.js*, zu der *Wwwroot\js* Ordner. Fügen Sie ihr folgenden Code hinzu:
+
+   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
+
+2. Ersetzen Sie den Inhalt in *Pages\Index.cshtml* durch den folgenden Code:
 
    [!code-cshtml[Index](get-started/sample/Pages/Index.cshtml)]
 
    Die vorangehende HTML zeigt Name und Nachrichtenfelder sowie eine Schaltfläche "Absenden". Beachten Sie die Skriptverweise im unteren Bereich: ein Verweis auf SignalR und *chat.js*.
 
-2. Fügen Sie eine JavaScript-Datei, mit dem Namen *chat.js*, zu der *Wwwroot\js* Ordner. Fügen Sie ihr folgenden Code hinzu:
-
-   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
 
 ## <a name="run-the-app"></a>Ausführen der App
 

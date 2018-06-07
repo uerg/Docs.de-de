@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 23fd792c0d93c038f31ce947e7885ad6e36d119e
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: cc7b29499e9db702cab70be7c15eac53373d450d
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758780"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819070"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Hinzufügen, herunterladen und Löschen von benutzerdefinierten Benutzerdaten Identität in einem Projekt auf ASP.NET Core
 
@@ -116,7 +116,7 @@ Update der `IdentityUser` abgeleitete Klasse mit benutzerdefinierten Eigenschaft
 
 Eigenschaften mit ergänzt die [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) Attribut sind:
 
-* Werden gelöscht, wenn die *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor-Seite ruft `UserManager.Delete`.
+* Gelöscht, sobald die *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor-Seite ruft `UserManager.Delete`.
 * Enthalten in der heruntergeladenen Daten durch die *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor-Seite.
 
 ### <a name="update-the-accountmanageindexcshtml-page"></a>Die Seite Account/Manage/Index.cshtml "Aktualisieren"

@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: f84d69f84cb0b80418bbb6de6bfcd7e2172f65ef
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 82f826bbc2bb19339851d5e25c539ea2c03acfb3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734613"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819109"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Cookie-Authentifizierung ohne ASP.NET Core Identität verwenden
 
@@ -22,7 +22,7 @@ Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Luke Latham](https:/
 
 Wie Sie in den früheren Authentifizierungsthemen gesehen haben [ASP.NET Core Identity](xref:security/authentication/identity) ist ein vollständige, voll ausgestatteten Authentifizierungsanbieter zum Erstellen und Verwalten von Anmeldungen. Allerdings sollten Sie Ihre eigenen benutzerdefinierten Authentifizierungslogik mit Zeiten Cookie-basierte Authentifizierung zu verwenden. Sie können als eigenständige Authentifizierungsanbieter ohne ASP.NET Core Identity Cookie-basierte Authentifizierung verwenden.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Zu Demonstrationszwecken in der Beispiel-app ist das Benutzerkonto für den Benutzer hypothetischen Maria Rodriguez, in der Anwendung hartcodiert. Verwenden Sie die e-Mail-Benutzernamens "maria.rodriguez@contoso.com" und einem Kennwort zur Anmeldung des Benutzers. Der Benutzer wird authentifiziert, der `AuthenticateUser` Methode in der *Pages/Account/Login.cshtml.cs* Datei. In einem realen Beispiel würde der Benutzer für eine Datenbank authentifiziert werden.
 

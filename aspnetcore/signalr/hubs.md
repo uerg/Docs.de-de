@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 5c477dd64c4cf8b7d6da1f121a290b00f3864f45
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819083"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Verwenden von Hubs in SignalR für ASP.NET Core
 
@@ -63,12 +64,12 @@ Darüber hinaus `Hub.Clients` enthält die folgenden Methoden:
 | `AllExcept` | Ruft eine Methode auf alle verbundenen Clients mit Ausnahme der angegebenen Verbindungen. |
 | `Client` | Ruft eine Methode auf einem bestimmten verbundenen client |
 | `Clients` | Ruft eine Methode auf bestimmte verbundene clients |
-| `Group` | Sendet eine Nachricht an alle Verbindungen in der angegebenen Gruppe  |
-| `GroupExcept` | Sendet eine Nachricht an alle Verbindungen in der angegebenen Gruppe ist, mit Ausnahme der angegebenen Verbindungen. |
-| `Groups` | Sendet eine Nachricht in mehrere Gruppen von Verbindungen  |
-| `OthersInGroup` | Sendet eine Nachricht an eine Gruppe von Verbindungen mit Ausnahme des Clients, der die hubmethode aufgerufen hat  |
-| `User` | Sendet eine Nachricht an alle Verbindungen, die einem bestimmten Benutzer zugeordnet |
-| `Users` | Sendet eine Nachricht an alle Verbindungen, die die angegebenen Benutzer zugeordneten |
+| `Group` | Ruft eine Methode für alle Verbindungen in der angegebenen Gruppe  |
+| `GroupExcept` | Ruft eine Methode für alle Verbindungen in der angegebenen Gruppe ist, mit Ausnahme der angegebenen Verbindungen. |
+| `Groups` | Ruft eine Methode in mehrere Gruppen von Verbindungen  |
+| `OthersInGroup` | Ruft eine Methode für eine Gruppe von Verbindungen mit Ausnahme des Clients, der die hubmethode aufgerufen hat  |
+| `User` | Ruft eine Methode für alle Verbindungen, die einem bestimmten Benutzer zugeordnet |
+| `Users` | Ruft eine Methode für alle Verbindungen, die die angegebenen Benutzer zugeordneten |
 
 Jede Eigenschaft oder Methode in den vorherigen Tabellen gibt ein Objekt mit einer `SendAsync` Methode. Die `SendAsync` Methode können Sie den Namen und den Parametern der aufzurufenden Clientmethode bereitzustellen.
 

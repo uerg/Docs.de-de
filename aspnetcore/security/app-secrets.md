@@ -5,16 +5,17 @@ description: Informationen Sie zum Speichern und Abrufen von vertraulichen Infor
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 9e9b548e5572da2c347bc874c473a02d8691e738
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: fd5cf5cdffd7281d7f4e0d96e8230b60be64a7c3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819135"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Sichere Speicherung von geheime app-Schlüssel in der Entwicklung in ASP.NET Core
 
@@ -48,7 +49,7 @@ Das Schlüssel-Manager-Tool speichert vertrauliche Daten während der Entwicklun
 
 ## <a name="how-the-secret-manager-tool-works"></a>Wie funktioniert das Schlüssel-Manager-tool
 
-Das Schlüssel-Manager-Tool abstrahiert die Implementierungsdetails, z. B., wo und wie die Werte gespeichert werden. Sie können das Tool verwenden, ohne diese Implementierungsdetails. Die Werte werden gespeichert, einem [JSON](https://json.org/) Konfigurationsdatei in einem System geschütztem Benutzerprofilordner auf dem lokalen Computer:
+Das Schlüssel-Manager-Tool abstrahiert die Implementierungsdetails, z. B., wo und wie die Werte gespeichert werden. Sie können das Tool verwenden, ohne diese Implementierungsdetails. Die Werte werden in einer JSON-Konfigurationsdatei in einem System geschütztem Benutzerprofilordner auf dem lokalen Computer gespeichert:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -77,9 +78,18 @@ Schreiben Sie Code, der abhängig von der Speicherort oder das Format der Daten,
 ::: moniker range="<= aspnetcore-2.0"
 ## <a name="install-the-secret-manager-tool"></a>Installieren Sie den geheimen Schlüssel-Manager
 
-Das Schlüssel-Manager-Tool wird mit der .NET Core-CLI in .NET Core SDK 2.1 gebündelt. Für .NET Core SDK 2.0 und früheren Versionen ist das Tool-Installationsordner erforderlich.
+Das Schlüssel-Manager-Tool wird mit der .NET Core CLI ab .NET Core SDK 2.1.300 gebündelt. Für .NET Core SDK-Versionen vor 2.1.300 ist ein Tool-Installationsordner erforderlich.
 
-Installieren der [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) NuGet-Paket im Projekt ASP.NET Core:
+> [!TIP]
+> Führen Sie `dotnet --version` aus eine Befehlsshell, die Anzahl der installierten .NET Core SDK-Version finden Sie unter.
+
+Wenn die .NET Core SDK verwendet das Tool enthält, wird eine Warnung angezeigt:
+
+```console
+The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
+```
+
+Installieren der [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) NuGet-Paket im Projekt ASP.NET Core. Zum Beispiel:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
@@ -205,7 +215,7 @@ Vertrauliche Benutzerdaten abgerufen werden können, über die `Configuration` A
 
 ## <a name="string-replacement-with-secrets"></a>Zeichenfolgenersetzungen mit geheimen Schlüsseln
 
-Es ist riskant, Speichern von Kennwörtern als nur-Text. Z. B. eine Datenbankverbindungszeichenfolge, die in gespeicherten *appsettings.json* eventuell ein Kennwort für den angegebenen Benutzer:
+Speichern von Kennwörtern als nur-Text ist unsicher. Z. B. eine Datenbankverbindungszeichenfolge, die in gespeicherten *appsettings.json* eventuell ein Kennwort für den angegebenen Benutzer:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
@@ -215,17 +225,17 @@ Ein sicherer Ansatz besteht darin, das Kennwort als ein geheimer Schlüssel zu s
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-Ersetzen Sie das Kennwort in *appsettings.json* durch einen Platzhalter. Im folgenden Beispiel `{0}` dient als Platzhalter in Form einer [zusammengesetzte Formatzeichenfolge](/dotnet/standard/base-types/composite-formatting#composite-format-string).
+Entfernen Sie die `Password` Schlüssel-Wert-Paar aus der Verbindungszeichenfolge in *appsettings.json*. Zum Beispiel:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Der Schlüssel-Wert kann in den Platzhalter zum Abschließen der Verbindungszeichenfolge eingegeben werden:
+Der Schlüssel-Wert kann festgelegt werden, auf eine ["SqlConnectionStringBuilder"](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder) des Objekts [Kennwort](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password) Eigenschaft die Verbindungszeichenfolge abgeschlossen:
 
 ::: moniker range="<= aspnetcore-1.1"
-[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=26-29)]
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.0"
-[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-17)]
 ::: moniker-end
 
 ## <a name="list-the-secrets"></a>Liste der geheime Schlüssel
