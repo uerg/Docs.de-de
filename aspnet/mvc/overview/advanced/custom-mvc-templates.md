@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034606"
 ---
 <a name="custom-mvc-template"></a>Benutzerdefinierte MVC-Vorlage
 ====================
@@ -67,9 +68,9 @@ Die **Bestand** Registerkarte wird verwendet, um alle Inhaltsdateien VSIX-Projek
 
 &lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
 
-&lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
+&lt;IncludeInVSIX&gt;"true"&lt;/IncludeInVSIX&gt;
 
-&lt;/Content&gt;
+&lt;/ Content&gt;
 
 Wenn dies nicht der Fall ist, wird die IDE versucht, kompilieren den Inhalt der Vorlage aus, wenn Sie die VSIX-Pakete erstellen und ein Fehler wird wahrscheinlich angezeigt. Codedateien in Vorlagen enthalten häufig spezielle [Vorlagenparameter](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) von Visual Studio verwendet werden, wenn die Projektvorlage instanziiert wird und kann daher nicht in der IDE kompiliert werden.
 
@@ -79,23 +80,23 @@ Schließen Sie die VSIX-Designer, und klicken Sie mit der rechten Maustaste auf 
 
 ![Mit dem Dialogfeld Öffnen](custom-mvc-templates/_static/image7.jpg)
 
-Erstellen einer  **&lt;Bestand&gt;**  Element und Hinzufügen einer  **&lt;Asset&gt;**  -Element für jede Datei, die in VSIX-Projekt enthalten sein muss. Die **Typ** -Attribut der einzelnen  **&lt;Asset&gt;**  Element muss festgelegt werden, um **Microsoft.VisualStudio.Mvc.Template**. Dies ist ein benutzerdefinierter Namespace, den nur in der MVC-Projekt-Assistent versteht. Finden Sie in der VSIX-Schema für 2.0-Dokumentation für Weitere Informationen über die Struktur und das Layout der Manifestdatei.
+Erstellen einer **&lt;Bestand&gt;** Element und Hinzufügen einer **&lt;Asset&gt;** -Element für jede Datei, die in VSIX-Projekt enthalten sein muss. Die **Typ** -Attribut der einzelnen **&lt;Asset&gt;** Element muss festgelegt werden, um **Microsoft.VisualStudio.Mvc.Template**. Dies ist ein benutzerdefinierter Namespace, den nur in der MVC-Projekt-Assistent versteht. Finden Sie in der VSIX-Schema für 2.0-Dokumentation für Weitere Informationen über die Struktur und das Layout der Manifestdatei.
 
-Nur die Dateien der VSIX hinzufügen reicht nicht aus, um die Vorlagen mit dem Assistenten für MVC zu registrieren. Sie müssen Informationen wie Namen, Beschreibung, unterstützten Ansichtsmodule und Programmiersprache für die MVC-Assistenten bereitstellen. Diese Informationen in benutzerdefinierten Attributen zugeordneten durchgeführt wird die  **&lt;Asset&gt;**  -Element für jede **Vstemplate** Datei.
+Nur die Dateien der VSIX hinzufügen reicht nicht aus, um die Vorlagen mit dem Assistenten für MVC zu registrieren. Sie müssen Informationen wie Namen, Beschreibung, unterstützten Ansichtsmodule und Programmiersprache für die MVC-Assistenten bereitstellen. Diese Informationen in benutzerdefinierten Attributen zugeordneten durchgeführt wird die **&lt;Asset&gt;** -Element für jede **Vstemplate** Datei.
 
-&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset-D:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
 Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-d:Source=&quot;File&quot;
+D:Source =&quot;Datei&quot;
 
 Path =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
 ProjectType=&quot;MVC&quot;
 
-Language=&quot;C#&quot;
+Language =&quot;c#&quot;
 
-ViewEngine=&quot;Aspx&quot;
+Viewengine mit =&quot;Aspx&quot;
 
 TemplateId =&quot;MyMvcApplication&quot;
 
@@ -114,7 +115,7 @@ Es folgt eine Erklärung der benutzerdefinierten Attribute, die vorhanden sein m
 - **Titel** kennzeichnet die kurze Beschreibung im MVC-Assistenten unter jede Projektvorlage angezeigt.
 - **Beschreibung** kennzeichnet eine detailliertere Beschreibung der Vorlage.
 
-Nachdem Sie alle Dateien, der dem Manifest hinzugefügt haben und die Datei gespeichert ist, Sie, dass feststellen werden die **Bestand** -Registerkarte im Designer werden alle Dateien angezeigt, jedoch nicht den benutzerdefinierten Attributen Sie hinzugefügt, die  **&lt;Asset&gt;**  Elemente für die **Vstemplate** Dateien.
+Nachdem Sie alle Dateien, der dem Manifest hinzugefügt haben und die Datei gespeichert ist, Sie, dass feststellen werden die **Bestand** -Registerkarte im Designer werden alle Dateien angezeigt, jedoch nicht den benutzerdefinierten Attributen Sie hinzugefügt, die **&lt;Asset&gt;** Elemente für die **Vstemplate** Dateien.
 
 ![Projekt-Designer-Objekte](custom-mvc-templates/_static/image8.jpg)
 
@@ -122,7 +123,7 @@ Alle jetzt bleibt das VSIX-Projekt zu kompilieren und installieren es.
 
 Stellen Sie sicher, dass alle Instanzen von Visual Studio geschlossen sind, auf dem Computer, auf dem Sie die VSIX-Erweiterung zu testen möchten. Visual Studio sucht nach neuen Erweiterungen während des Starts, daher, wenn die IDE geöffnet ist, während der Installation von einer VSIX Sie Visual Studio neu starten müssen. Im Explorer, klicken Sie mit der Doppelklicken auf die VSIX-Datei zum Starten der **VSIX-Installationsprogramm**, klicken Sie auf **installieren** , und starten Sie Visual Studio.
 
-![VSIX Installer](custom-mvc-templates/_static/image9.jpg)
+![VSIX-Installationsprogramm](custom-mvc-templates/_static/image9.jpg)
 
 Wählen Sie in der Menüleiste **Tools > Erweiterungen und Updates** zu bestätigen, dass die Erweiterung installiert wurde. Das VSIX-Installationsprogramm Fehler während der Installation der Erweiterung gemeldet können Sie das VSIX-Installationsprogramm-Protokoll für Weitere Informationen anzeigen. Das Protokoll wird in der Regel erstellt, der **"% Temp%"** Ordner des Benutzers, der die Erweiterung, z. B. installiert **C:\Users\Bob\AppData\Local\Temp**.
 

@@ -2,7 +2,7 @@
 uid: mvc/mvc3
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: "(April 2011 umfasst Tools Update) ASP.NET MVC 3 ist ein Framework zum Erstellen von skalierbaren, standardbasierte Windows-Webanwendungen, die über gut eingeführte Entwurfsmuster..."
+description: (April 2011 umfasst Tools Update) ASP.NET MVC 3 ist ein Framework zum Erstellen von skalierbaren, standardbasierte Windows-Webanwendungen, die über gut eingeführte Entwurfsmuster...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2010
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034736"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -128,8 +129,8 @@ ASP.NET MVC 3 enthält ein neues Anzeigemodul, die mit dem Namen Razor, die folg
 
 Einige neuen Razor-Funktionen umfassen Folgendes:
 
-- `@model`Die Syntax zum Angeben des Typs an die Ansicht übergeben wird.
-- `@* *@`Kommentarsyntax.
+- `@model` Die Syntax zum Angeben des Typs an die Ansicht übergeben wird.
+- `@* *@` Kommentarsyntax.
 - Die Möglichkeit, Standardwerte anzugeben (z. B. `layoutpage`) einmal für die gesamte Website.
 - Die `Html.Raw` Methode für die Anzeige von Text ohne HTML-Codierung es.
 - Unterstützung für das Freigeben von Code für mehrere Ansichten (*\_viewstart.cshtml* oder  *\_viewstart.vbhtml* Dateien).
@@ -140,7 +141,7 @@ Razor enthält auch neue HTML-Hilfsmethoden, z. B. Folgendes an:
 - `WebGrid` Rendert ein Datenraster, paging und Sortieren von Funktionen an.
 - `Crypto` Verwendet Hashalgorithmen ordnungsgemäß erstellen Salt-Wert und ein Hashwert erstellt Kennwörter.
 - `WebImage` Rendert ein Bild an.
-- `WebMail` Sendet eine e-Mail-Nachricht an.
+- `WebMail` Sendet eine E-Mail.
 
 Weitere Informationen zu Razor finden Sie unter den folgenden Ressourcen:
 

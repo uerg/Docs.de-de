@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: "Erstellen von Hilfeseiten für ASP.NET Web-API | Microsoft Docs"
+title: Erstellen von Hilfeseiten für ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037902"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Erstellen von Hilfeseiten für ASP.NET Web-API
 ====================
@@ -60,9 +61,9 @@ Sie können Hilfeseiten zu einem vorhandenen Web-API-Projekt mithilfe von NuGet-
 
 Aus der **Tools** klicken Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **Package Manager Console**. In der [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) Fenster, geben Sie einen der folgenden Befehle aus:
 
-Für eine **c#** Anwendung:`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+Für eine **c#** Anwendung: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-Für eine **Visual Basic** Anwendung:`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+Für eine **Visual Basic** Anwendung: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 Es gibt zwei Pakete, für C#- und eine für Visual Basic. Stellen Sie sicher, dass die zu verwenden, die Ihr Projekt entspricht.
 
@@ -107,7 +108,7 @@ Die Hilfeseite liest die Zeichenfolgen aus der XML-Datei zur Laufzeit. (Wenn Sie
 Die Hilfeseiten basieren auf der Basis von der **ApiExplorer** Klasse, die Teil des Web-API-Framework ist. Die **ApiExplorer** Klasse bietet das Material für eine Hilfeseite erstellen. Für jede API **ApiExplorer** enthält ein **ApiDescription** , beschreibt die API. Zu diesem Zweck wird eine "API" als Kombination aus HTTP-Methode und der relativen URI definiert. Hier sind z. B. einige distinct-APIs:
 
 - /Api/Products abrufen
-- GET /api/Products/{id}
+- Abrufen Sie/API/Produkte / {Id}
 - Bereitstellen Sie/api /-Produkte
 
 Wenn eine Controlleraktion mehrere HTTP-Methoden unterstützt die **ApiExplorer** behandelt jede Methode als eine distinct-API.

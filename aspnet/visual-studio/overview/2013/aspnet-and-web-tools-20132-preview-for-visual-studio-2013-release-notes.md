@@ -1,22 +1,23 @@
 ---
 uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
-title: "ASP.NET und Tools für Visual Studio 2013-Versionshinweise 2013.2 | Microsoft Docs"
+title: ASP.NET und Tools für Visual Studio 2013-Versionshinweise 2013.2 | Microsoft Docs
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2014
 ms.topic: article
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036023"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET und Webtools 2013.2 für Versionshinweisen zu Visual Studio 2013
 ====================
@@ -49,7 +50,7 @@ Die folgenden Abschnitte beschreiben die Funktionen, die in der Version eingefü
 - [NuGet 2.8.1](#nuget)
 - [ASP.NET Web Forms](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
-- [ASP.NET Web API 2.1.2](#webapi)
+- [ASP.NET Web-API 2.1.2](#webapi)
 - [ASP.NET Web Pages 3.1.2](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)
@@ -99,7 +100,7 @@ Firefox verwendet einen eigenen Zertifikatspeicher an, damit sie eine Warnung an
 
     IntelliSense unterstützt jetzt auch [JSON-Schema](http://json-schema.org/) v3 und v4. Es ist ein Schema Kombinationsfeld vorhandenen Schemas auswählen, bearbeiten die lokalen Schemapfad oder einfach Drag & drop eine JSON-Projektdatei, um den relativen Pfad abzurufen.
 
-    ![JSON Intellisense](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON-Schema-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
+    ![JSON-Intellisense](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON-Schema-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
 - **Editor für neues Sass (SCSS)**: weniger VS2013 RTM hinzugefügt, und wir verfügen jetzt über ein Projektelement Sass und -Editor. Sass-Editor-Funktionen sind vergleichbar mit dem LESS-Editor, und schließen farbliche Kennzeichnung, Variablen und Mixins IntelliSense, Kommentar/kommentieren, QuickInfo, Formatierung, syntaxüberprüfung, Gliederung, Gehe zu Definition, Farbauswahl, tools usw. Festlegen der Option.
 
     ![Neues Element hinzufügen: SCSS-Stylesheet](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image9.png)    ![Formatvorlagen-editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image10.png)
@@ -213,7 +214,7 @@ NuGet 2.8.1, die im April 2014 RTM veröffentlicht wird. Hier werden die wichtig
 - Verschiedene [Fehlerkorrekturen](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=MVC&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 
 <a id="webapi"></a>
-### <a name="aspnet-web-api-212"></a>ASP.NET Web API 2.1.2
+### <a name="aspnet-web-api-212"></a>ASP.NET Web-API 2.1.2
 
 - [Globale Fehlerbehandlung](../../../web-api/overview/releases/whats-new-in-aspnet-web-api-21.md#global-error)
 - [-Attribut routing Erweiterungen](../../../web-api/overview/releases/whats-new-in-aspnet-web-api-21.md#attribute-routing)

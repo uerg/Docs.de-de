@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036163"
 ---
 <a name="working-with-ssl-in-web-api"></a>Arbeiten mit SSL in Web-API
 ====================
@@ -80,7 +81,7 @@ MakeCert fordert Sie zur Eingabe eines Kennworts für den privaten Schlüssel.
 
 Fügen Sie anschließend das Zertifikat mit dem Test, des Servers "Vertrauenswürdige Stammzertifizierungsstellen" gespeichert werden, wie folgt:
 
-1. Open MMC.
+1. Öffnen Sie die MMC.
 2. Klicken Sie unter **Datei**Option **Snap-In hinzufügen/entfernen**.
 3. Wählen Sie **Computerkonto**.
 4. Wählen Sie **Sicherheitszertifikate** und schließen Sie den Assistenten ab.

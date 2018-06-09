@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: b8352c1832ffc79db93b6324dd673afaff6b0d74
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30887199"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Konfigurieren von Projekteigenschaften - 4 12
 ====================
@@ -41,7 +42,7 @@ In **Projektmappen-Explorer**, mit der rechten Maustaste die **ContosoUniversity
 
 ![Package_Publish_Web_tab](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image1.png)
 
-Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für unabhängig davon, welche Buildkonfiguration für die Projektmappe derzeit aktiv ist. Wenn die **Konfiguration** Feld gibt keine **aktiv (Release)**Option **Version** um Einstellungen für die Releasekonfiguration Build anzuzeigen. Sie müssen sowohl der Test-und produktionsumgebungen Releasebuilds bereitstellen.
+Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für unabhängig davon, welche Buildkonfiguration für die Projektmappe derzeit aktiv ist. Wenn die **Konfiguration** Feld gibt keine **aktiv (Release)** Option **Version** um Einstellungen für die Releasekonfiguration Build anzuzeigen. Sie müssen sowohl der Test-und produktionsumgebungen Releasebuilds bereitstellen.
 
 ![Package_Publish_Web_tab_selecting_Release](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image2.png)
 

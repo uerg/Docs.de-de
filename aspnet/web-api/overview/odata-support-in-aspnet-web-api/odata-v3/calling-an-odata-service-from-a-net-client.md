@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
 ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28042393"
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>Aufrufen eines OData-Diensts aus einem .NET-Client (c#)
 ====================
@@ -31,7 +32,7 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (funktioniert mit Visual Studio 2012)
 > - [WCF Data Services-Clientbibliothek](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Web API 2. (Im Beispiel OData-Dienst wird mithilfe von Web-API 2 erstellt, aber die Clientanwendung hängt nicht von Web-API.)
+> - Web-API 2. (Im Beispiel OData-Dienst wird mithilfe von Web-API 2 erstellt, aber die Clientanwendung hängt nicht von Web-API.)
 
 
 In diesem Lernprogramm durchgehen ich Erstellen einer Clientanwendung, die einen OData-Dienst aufruft. Die OData-Dienst macht die folgenden Elemente:

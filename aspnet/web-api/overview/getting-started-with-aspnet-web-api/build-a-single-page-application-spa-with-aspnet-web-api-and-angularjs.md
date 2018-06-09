@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507259"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Praktische Übungseinheiten: Erstellen einer einzelnen Seite Anwendung (SPA) mit ASP.NET Web-API und Angular.js
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 [Herunterladen von Web-Lager Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -32,7 +33,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > In dieser Übung Hand-on-gelangen Sie, diese Technologien Meister Quiz, eine faszinierende-Website, die basierend auf dem Konzept SPA implementieren. Implementieren Sie zuerst die Dienstschicht mit ASP.NET Web-API, um die erforderlichen Endpunkte zum Abrufen der Quizfragen und speichern die Antworten. Anschließend erstellen Sie eine umfangreiche und reaktionsschnelle-Benutzeroberfläche mithilfe von AngularJS- und CSS3-Transformation Effekten.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Übersicht
@@ -307,7 +308,7 @@ In dieser Aufgabe verwenden Sie **AngularJS** auf die Clientseite der Meister Qu
 Sie werden gestartet, indem Sie AngularJS von Visual Studio-Paket-Manager-Konsole installieren. Anschließend erstellen Sie den Controller, um das Verhalten der app Meister Quiz sowie die zu den Quizfragen und Antworten, die mithilfe der AngularJS-Vorlagenmodul zu rendernde Ansicht bereitzustellen.
 
 > [!NOTE]
-> Weitere Informationen zu AngularJS finden Sie unter [ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/).
+> Weitere Informationen zu AngularJS finden Sie unter [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
 
 
 1. Öffnen Sie **Visual Studio Express 2013 für Web** , und öffnen Sie die **GeekQuiz.sln** Projektmappe befindet sich in der **Quell-/Ex2-CreatingASPAInterface/Anfang** Ordner. Alternativ können Sie die Projektmappe fortsetzen, dass Sie im vorherigen Schritt abgerufen haben.

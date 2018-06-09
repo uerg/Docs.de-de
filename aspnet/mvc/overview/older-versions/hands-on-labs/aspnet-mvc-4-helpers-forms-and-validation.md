@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30878177"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4-Hilfsprogrammen, Formulare und Überprüfung
 
@@ -120,7 +121,7 @@ In dieser Aufgabe erstellen Sie einen neuen Domänencontroller aufgerufen **Stor
       > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Fügen Sie einen neuen Domänencontroller hinzu. Zu diesem Zweck Maustaste die **Controller** Ordner im Projektmappen-Explorer, wählen Sie **hinzufügen** und dann die **Controller** Befehl. Ändern der **Controller** **Namen** auf **StoreManagerController** und stellen Sie sicher, dass die Option **MVC-Controller mit leeren Lese-/schreibaktionen**ausgewählt ist. Klicken Sie auf **Hinzufügen**.
 
-    ![Dialogfeld "Controller hinzufügen"](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "Controller "hinzufügen"")
+    ![Dialogfeld "Controller hinzufügen"](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "Controller \"hinzufügen\"")
 
     *Controller-Dialogfeld "hinzufügen"*
 
@@ -605,7 +606,7 @@ Sie können die Anwendung durch Hinzufügen von Datenanmerkungen zu Ihrer Modell
 
 In dieser Aufgabe fügen Sie Datenanmerkungen dem Album-Modell, die die Seite "erstellen und Bearbeiten von" vornehmen, werden validierungsmeldungen gegebenenfalls angezeigt.
 
-Für eine einfache Modellklasse, Hinzufügen einer Anmerkung Daten nur erfolgt durch Hinzufügen einer **mit** -Anweisung für **System.ComponentModel.DataAnnotation**, platzieren dann eine **[erforderlich]**Attribut in der entsprechenden Eigenschaften. Im folgende Beispiel würde machen die **Namen** Eigenschaft ein erforderliches Feld in der Ansicht.
+Für eine einfache Modellklasse, Hinzufügen einer Anmerkung Daten nur erfolgt durch Hinzufügen einer **mit** -Anweisung für **System.ComponentModel.DataAnnotation**, platzieren dann eine **[erforderlich]** Attribut in der entsprechenden Eigenschaften. Im folgende Beispiel würde machen die **Namen** Eigenschaft ein erforderliches Feld in der Ansicht.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 
@@ -650,7 +651,7 @@ In dieser Aufgabe testen Sie, dass die Seiten erstellen und Bearbeiten von Felde
 2. Das Projekt wird auf der Startseite gestartet. Ändern Sie die URL zum **/StoreManager/Create**. Stellen Sie sicher, dass die Anzeigenamen der in der partiellen Klasse entspricht (z. B. **Album Art URL** anstelle von **AlbumArtUrl**)
 3. Klicken Sie auf **erstellen**, ohne das Formular auszufüllen. Stellen Sie sicher, dass Sie die entsprechenden validierungsmeldungen erhalten.
 
-    ![Überprüft die Felder in der Seite "erstellen"](aspnet-mvc-4-helpers-forms-and-validation/_static/image18.png "überprüft die Felder in der Seite "erstellen"")
+    ![Überprüft die Felder in der Seite "erstellen"](aspnet-mvc-4-helpers-forms-and-validation/_static/image18.png "überprüft die Felder in der Seite \"erstellen\"")
 
     *Überprüfte Felder in der Seite "erstellen"*
 4. Sie können überprüfen, ob das gleiche mit geschieht die **bearbeiten** Seite. Ändern Sie die URL zum **/StoreManager/Edit/1** und stellen Sie sicher, dass die Anzeigenamen der in der partiellen Klasse entspricht (z. B. **Album Art URL** anstelle von **AlbumArtUrl**). Leere der **Titel** und **Preis** Felder, und klicken Sie auf **speichern**. Stellen Sie sicher, dass Sie die entsprechenden validierungsmeldungen erhalten.
@@ -702,14 +703,14 @@ In dieser Aufgabe führen Sie die Anwendung vor dem Einfügen von jQuery damit b
 
 In dieser Aufgabe aktivieren Sie jQuery **unaufdringliche Clientvalidierung** aus **"Web.config"** -Datei, die standardmäßig auf "false" in allen neuen ASP.NET MVC 4-Projekten festgelegt ist. Fügen Sie außerdem, dass die erforderlichen Verweise zur jQuery unaufdringlichen Clientvalidierung Arbeit stellen Skripts.
 
-1. Open **"Web.config"** Projekt Stammverzeichnis der Datei, und stellen Sie sicher, dass die **ClientValidationEnabled** und **UnobtrusiveJavaScriptEnabled** SchlüsselWertefestgelegtsind**"true"**.
+1. Open **"Web.config"** Projekt Stammverzeichnis der Datei, und stellen Sie sicher, dass die **ClientValidationEnabled** und **UnobtrusiveJavaScriptEnabled** SchlüsselWertefestgelegtsind **"true"**.
 
     [!code-xml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample21.xml)]
 
     > [!NOTE]
     > Sie können auch die Clientvalidierung durch Code am Global.asax.cs dieselben Ergebnisse abrufen aktivieren:
     > 
-    > **HtmlHelper.ClientValidationEnabled = true;**
+    > **HtmlHelper.ClientValidationEnabled = True;**
     > 
     > Darüber hinaus können Sie ClientValidationEnabled-Attributs in jedem Controller haben Sie ein benutzerdefiniertes Verhalten zuweisen.
 2. Open **Create.cshtml** am **Views\StoreManager**.

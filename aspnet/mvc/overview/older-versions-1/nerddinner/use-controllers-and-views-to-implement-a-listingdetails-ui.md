@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875733"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Verwenden von Controller und Ansichten zum Implementieren einer Auflistung/Detail-Benutzeroberflächenautomatisierungs
 ====================
@@ -59,10 +60,10 @@ Es wird auch von der neuen DinnersController Klasse innerhalb der Code-Editor ge
 
 Wir möchten Besuchern, die die Anwendung eine Liste der bevorstehenden Abendessen durchsuchen und ermöglicht es ihnen, klicken auf alle Dinner in der Liste, um bestimmte Details dazu finden Sie unter aktivieren. Dazu müssen wir die folgenden URLs aus der Anwendung zu veröffentlichen:
 
-| **URL** | **Purpose** |
+| **URL** | **Zweck** |
 | --- | --- |
 | */Dinners/* | Eine HTML-Liste von bevorstehenden Abendessen anzeigen |
-| */Dinners/Details/[id]* | Anzeigen von Details zu einer bestimmten Dinner, angegeben durch ein "Id"-Parameter, die in der die DinnerID von der Dinner in der Datenbank übereinstimmen, wird der URL eingebettet. Zum Beispiel: /Dinners/Details/2 würde eine HTML-Seite mit den Details der Dinner DinnerID, dessen Wert 2 angezeigt. |
+| */Dinners/Informationen / [Id]* | Anzeigen von Details zu einer bestimmten Dinner, angegeben durch ein "Id"-Parameter, die in der die DinnerID von der Dinner in der Datenbank übereinstimmen, wird der URL eingebettet. Zum Beispiel: /Dinners/Details/2 würde eine HTML-Seite mit den Details der Dinner DinnerID, dessen Wert 2 angezeigt. |
 
 Durch Hinzufügen von zwei öffentlichen "Aktionsmethoden"-Klasse DinnersController wie unten veröffentlichen wir anfängliche Implementierungen der folgenden URLs:
 
@@ -96,10 +97,10 @@ Im folgenden finden Sie eine Tabelle, die veranschaulicht, wie eine Vielzahl von
 
 | **URL** | **Controller-Klasse** | **Action-Methode** | **Übergebenen Parameter** |
 | --- | --- | --- | --- |
-| */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
-| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
+| */ Abendessen/Informationen/2* | DinnersController | Details(ID) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(ID) | ID = 5 |
 | */Dinners/Create* | DinnersController | Eine Signatures-Auflistung | Nicht zutreffend |
-| */Dinners* | DinnersController | Index() | Nicht zutreffend |
+| */ Abendessen* | DinnersController | Index() | Nicht zutreffend |
 | */Home* | HomeController | Index() | Nicht zutreffend |
 | */* | HomeController | Index() | Nicht zutreffend |
 

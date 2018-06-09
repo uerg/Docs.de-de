@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: "Ändern der Primärschlüssel für Benutzer in ASP.NET Identity | Microsoft Docs"
+title: Ändern der Primärschlüssel für Benutzer in ASP.NET Identity | Microsoft Docs
 author: tfitzmac
-description: "In Visual Studio 2013 verwendet die standardwebanwendung einen Zeichenfolgenwert für den Schlüssel für Benutzerkonten an. ASP.NET Identity ermöglicht es Ihnen, den Typ des Ändern der..."
+description: In Visual Studio 2013 verwendet die standardwebanwendung einen Zeichenfolgenwert für den Schlüssel für Benutzerkonten an. ASP.NET Identity ermöglicht es Ihnen, den Typ des Ändern der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26498229"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>Primärschlüssel für Benutzer in ASP.NET Identity ändern
 ====================
@@ -276,6 +277,6 @@ Wenn Sie zuvor die ASP.NET-Identität Tabellen mit einem anderen primären Schl�
 ## <a name="other-resources"></a>Weitere Ressourcen
 
 - [Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [Migration von einer vorhandenen Website von SQL-Mitgliedschaft zu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Migrieren einer vorhandenen Website von einem SQL-Mitgliedschaftsanbieter nach ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 - [Migrieren von universellen Anbieterdaten Mitgliedschaft und zu ASP.NET Identity Benutzerprofile](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [Beispielanwendung](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) mit geänderten Primärschlüssel

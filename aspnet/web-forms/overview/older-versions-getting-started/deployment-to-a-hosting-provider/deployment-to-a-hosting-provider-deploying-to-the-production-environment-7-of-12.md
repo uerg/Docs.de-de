@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30889682"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellung in der Produktionsumgebung - 7 von 12
 ====================
@@ -190,7 +191,7 @@ In der **Datei**/**Ordnerberechtigungen** wählen die **lesen** und **schreiben*
 
 Stellen sicher, dass Elmah Schreibzugriff auf die *Elmah* Ordner verursacht einen Fehler, und klicken Sie dann zum Anzeigen des Fehlerberichts Elmah. Fordern Sie eine ungültige URL wie *Studentsxxx.aspx*. Wie bereits zuvor können Sie sehen die *GenericErrorPage.aspx* Seite. Klicken Sie auf die **Abmelden** verknüpfen, und führen Sie *Elmah.axd*. Sie erhalten die **anmelden** Seite zuerst, die überprüft, ob der *"Web.config"* Transformation erfolgreich Elmah Autorisierung hinzugefügt. Nachdem Sie sich anmelden, sehen Sie den Bericht, der der Fehler angezeigt wird, den Sie soeben verursacht.
 
-[![Elmah.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
+[![ELMAH.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
 
 ## <a name="testing-in-the-production-environment"></a>In der Produktionsumgebung testen
 

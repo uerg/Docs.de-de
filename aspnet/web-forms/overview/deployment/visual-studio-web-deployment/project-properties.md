@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
 ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30879880"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Projekteigenschaften
 ====================
@@ -39,7 +40,7 @@ In **Projektmappen-Explorer**, mit der rechten Maustaste die **ContosoUniversity
 
 ![Registerkarte "Web packen/veröffentlichen"](project-properties/_static/image1.png)
 
-Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für unabhängig davon, welche Buildkonfiguration für die Projektmappe derzeit aktiv ist. Wenn die **Konfiguration** Feld gibt keine **aktiv (Release)**Option **Version** um Einstellungen für die Releasekonfiguration Build anzuzeigen. Sie müssen sowohl der Test-und produktionsumgebungen Releasebuilds bereitstellen.
+Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für unabhängig davon, welche Buildkonfiguration für die Projektmappe derzeit aktiv ist. Wenn die **Konfiguration** Feld gibt keine **aktiv (Release)** Option **Version** um Einstellungen für die Releasekonfiguration Build anzuzeigen. Sie müssen sowohl der Test-und produktionsumgebungen Releasebuilds bereitstellen.
 
 ![Auswählen der Releasebuildkonfiguration](project-properties/_static/image2.png)
 

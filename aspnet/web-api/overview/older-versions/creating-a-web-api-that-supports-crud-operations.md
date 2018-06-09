@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "29153007"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Aktivieren von CRUD-Vorgänge in ASP.NET Web-API 1
 ====================
@@ -44,7 +45,7 @@ Die API-Produkte werden folgende Methoden verfügbar machen.
 | Abrufen einer Liste aller Produkte | GET | /api/products |
 | Abrufen eines Produkts nach ID | GET | /api/products/*id* |
 | Abrufen eines Produkts nach Kategorie | GET | /api/products?category=*category* |
-| Erstellen eines neuen Produkts | BEREITSTELLEN | /api/products |
+| Erstellen eines neuen Produkts | POST | /api/products |
 | Aktualisieren eines Produkts | PUT | /api/products/*id* |
 | Löschen eines Produkts | DELETE | /api/products/*id* |
 
@@ -165,7 +166,7 @@ Um die Liste aller Produkte abzurufen, fügen Sie diese Methode, um die `Product
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-Der Name der Methode beginnt mit &quot;abrufen&quot;, so, dass gemäß der Konvention sie GET-Anforderungen zugeordnet. Ordnet auch dann, da die Methode keine Parameter hat, es ein URI, der keine enthält ein  *&quot;Id&quot;*  Segment im Pfad.
+Der Name der Methode beginnt mit &quot;abrufen&quot;, so, dass gemäß der Konvention sie GET-Anforderungen zugeordnet. Ordnet auch dann, da die Methode keine Parameter hat, es ein URI, der keine enthält ein *&quot;Id&quot;* Segment im Pfad.
 
 Um ein Produkt nach ID zu erhalten, fügen Sie diese Methode, um die `ProductsController` Klasse:
 

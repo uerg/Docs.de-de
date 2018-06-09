@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507119"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Praktische Übungseinheiten: One ASP.NET": Integrieren von ASP.NET Web Forms, MVC und Web-API
 ====================
-durch [Web Lager Team](https://twitter.com/webcamps)
+Durch [Web Lager Team](https://twitter.com/webcamps)
 
 [Herunterladen von Web-Lager Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -28,7 +29,7 @@ durch [Web Lager Team](https://twitter.com/webcamps)
 > 
 > Visual Studio 2013 führt ein neues einheitliche Projektsystem können Sie eine Anwendung erstellen und verwenden die ASP.NET-Technologien in einem Projekt ein. Dieses Feature entfällt die Notwendigkeit, eine Technologie zu Beginn eines Projekts und mit dem sie auswählen, und stattdessen empfiehlt die Verwendung mehrerer ASP.NET Frameworks in einem Projekt.
 > 
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -161,7 +162,7 @@ Sie wird in dieser Aufgabe führen Sie die Projektmappe generierte, untersuchen 
     *Friendly URLs*
 
     > [!NOTE]
-    > Wie Sie sehen können, ändert sich die URL in **/wenden Sie sich an**. Beginnend mit **ASP.NET 4**, URL-routing-Funktionen wurden hinzugefügt, um Web Forms, damit Sie schreiben können, wie URLs *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* statt  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Weitere Informationen finden Sie unter [URL-Routing](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Wie Sie sehen können, ändert sich die URL in **/wenden Sie sich an**. Beginnend mit **ASP.NET 4**, URL-routing-Funktionen wurden hinzugefügt, um Web Forms, damit Sie schreiben können, wie URLs *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* anstelle von  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Weitere Informationen finden Sie unter [URL-Routing](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Untersuchen Sie nun die Authentifizierungsablauf in die Anwendung integriert. Klicken Sie hierzu auf **registrieren** in der oberen rechten Ecke der Seite.
 
     ![Registrieren eines neuen Benutzers](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)

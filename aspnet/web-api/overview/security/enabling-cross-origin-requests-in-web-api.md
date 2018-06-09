@@ -2,7 +2,7 @@
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
 title: Aktivieren von Cross-Origin-Anforderungen in der ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: "Zeigt, wie in ASP.NET Web-API-Cross-Origin Resource Sharing (CORS) unterstützen."
+description: Zeigt, wie in ASP.NET Web-API-Cross-Origin Resource Sharing (CORS) unterstützen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/15/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508379"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Cross-Origin-Anforderungen in der ASP.NET Web API 2 aktivieren
 ====================
@@ -51,10 +52,10 @@ Diese beiden URLs haben die gleichen Ursprungs:
 
 Diese URLs haben unterschiedliche Ursprünge als den vorherigen zwei:
 
-- `http://example.net`-Der anderen Domäne
-- `http://example.com:9000/foo.html`-Anschluss
-- `https://example.com/foo.html`-Anderes Schema
-- `http://www.example.com/foo.html`-Andere Unterdomäne
+- `http://example.net` -Der anderen Domäne
+- `http://example.com:9000/foo.html` -Anschluss
+- `https://example.com/foo.html` -Anderes Schema
+- `http://www.example.com/foo.html` -Andere Unterdomäne
 
 > [!NOTE]
 > Den Port wird von Internet Explorer nicht berücksichtigt werden, für den Vergleich von Ursprüngen.

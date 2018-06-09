@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30888928"
 ---
 <a name="aspnet-error-handling"></a>ASP.NET-Fehlerbehandlung
 ====================
-by [Erik Reitan](https://github.com/Erikre)
+durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -341,16 +342,16 @@ Ich möchte die vielen Dank, dass die folgenden Personen, die bedeutende Beiträ
 - Apurva Joshi, Microsoft
 - [Bojan Vrhovnik, Slowenien](http://twitter.com/bvrhovnik)
 - [Bruno Sonnino, Brasilien](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
-- [Carlos dos Santos, Brazil](http://www.carloscds.net/)
+- [Carlos Dos Santos, Brasilien](http://www.carloscds.net/)
 - [Dave Campbell, USA](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
 - [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Michael Doppelkreuze, USA](http://www.930solutions.com/) (twitter: [ @mrsharps ](http://twitter.com/mrsharps))
 - Mike PPPoE
 - [Mitchel Verkäufer, USA](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
-- [Paulo Morgado, Portugal](http://paulomorgado.net/)
+- [Paulo Morgado Portugal](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
-- [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
+- [TIM Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## <a name="community-contributions"></a>Beiträge aus der Community

@@ -1,26 +1,27 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: "Bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure App Service | Microsoft Docs"
+title: Bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure App Service | Microsoft Docs
 author: Rick-Anderson
-description: "In diesem Lernprogramm wird gezeigt, wie der Code sicher zu speichern und Zugriff auf sichere Informationen. Der wichtigste Punkt ist, dass Sie niemals Kennwörter oder andere Sen speichern..."
+description: In diesem Lernprogramm wird gezeigt, wie der Code sicher zu speichern und Zugriff auf sichere Informationen. Der wichtigste Punkt ist, dass Sie niemals Kennwörter oder andere Sen speichern...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033020"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure App Service
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In diesem Lernprogramm wird gezeigt, wie der Code sicher zu speichern und Zugriff auf sichere Informationen. Der wichtigste Punkt ist, sollten Sie niemals Kennwörter oder andere vertraulichen Daten im Quellcode speichern und Produktion geheime Schlüssel verwenden, im Modus für Entwicklung und Tests keine.
 > 
@@ -90,7 +91,7 @@ Die *"App.config"* vom eine Konsolen-app verwendete Datei relative Pfade unterst
 
 Wenn Sie Ihre Web-app in Azure, Bereitstellen der *AppSettingsSecrets.config* (das gewünschte) Datei wird nicht bereitgestellt werden. Konnte zur der [Azure-Verwaltungsportal](https://azure.microsoft.com/services/management-portal/) und richten Sie sie manuell, um dies vorzunehmen:
 
-1. Wechseln Sie zu [https://portal.azure.com](https://portal.azure.com), und melden Sie sich mit Ihrem Azure-Anmeldeinformationen.
+1. Wechseln Sie zu [ https://portal.azure.com ](https://portal.azure.com), und melden Sie sich mit Ihrem Azure-Anmeldeinformationen.
 2. Klicken Sie auf **Durchsuchen &gt; Web-Apps**, klicken Sie dann auf den Namen des Web-app.
 3. Klicken Sie auf **alle Einstellungen &gt; Anwendungseinstellungen**.
 

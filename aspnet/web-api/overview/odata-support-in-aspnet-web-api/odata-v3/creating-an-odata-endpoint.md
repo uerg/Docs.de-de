@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874628"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Erstellen einen OData-v3-Endpunkt mit Web-API 2
 ====================
@@ -33,7 +34,7 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web-API 2
-> - OData Version 3
+> - OData-Version 3
 > - Entity Framework 6
 > - [Fiddler Web Debugging-Proxy (Optional)](http://www.fiddler2.com)
 > 
@@ -57,7 +58,7 @@ In diesem Lernprogramm erstellen Sie einen OData-Endpunkt, der grundlegende CRUD
 
 Starten Sie Visual Studio, und wählen Sie **neues Projekt** von der Startseite. Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie den Visual C#-Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie **ASP.NET-Webanwendung** Vorlage.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie den Visual C#-Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie **ASP.NET-Webanwendung** Vorlage.
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 

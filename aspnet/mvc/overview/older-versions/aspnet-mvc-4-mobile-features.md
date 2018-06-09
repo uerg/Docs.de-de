@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
 ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30876838"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4-Funktionen für mobile Geräte
 ====================
@@ -215,7 +216,7 @@ Der folgende Code zeigt die vollständige *"Global.asax"* Datei.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Wenn Sie Internet Explorer 9 verwenden und nicht angezeigt werden die `BundleMobileConfig` Zeile oben in gelb hervorheben, klicken Sie auf die [Kompatibilitätssicht Schaltfläche](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert)") in Internet Explorer auf das Symbol, das Ändern von Konturen stellen ![Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert) ") auf eine Volltonfarbe ![Bild der Schaltfläche-kompatibilitätssicht angezeigt (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "Bild der Schaltfläche-kompatibilitätssicht angezeigt (on)"). Alternativ können Sie dieses Lernprogramm in Firefox- oder Chrome anzeigen.
+> Wenn Sie Internet Explorer 9 verwenden und nicht angezeigt werden die `BundleMobileConfig` Zeile oben in gelb hervorheben, klicken Sie auf die [Kompatibilitätssicht Schaltfläche](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Überblick über die Schaltfläche \"Kompatibilität anzeigen\" (deaktiviert)") in Internet Explorer auf das Symbol, das Ändern von Konturen stellen ![Überblick über die Schaltfläche "Kompatibilität anzeigen" (deaktiviert)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "Überblick über die Schaltfläche \"Kompatibilität anzeigen\" (deaktiviert) ") auf eine Volltonfarbe ![Bild der Schaltfläche-kompatibilitätssicht angezeigt (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "Bild der Schaltfläche-kompatibilitätssicht angezeigt (on)"). Alternativ können Sie dieses Lernprogramm in Firefox- oder Chrome anzeigen.
 
 
 Öffnen der *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* Datei, und fügen Sie das folgende Markup direkt nach der `Html.Partial` aufrufen:

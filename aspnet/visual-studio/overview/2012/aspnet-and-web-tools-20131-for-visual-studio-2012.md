@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036426"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Versionshinweise für ASP.NET und Webtools 2013.1 für Visual Studio 2012
 ====================
@@ -39,7 +40,7 @@ durch [Microsoft](https://github.com/microsoft)
         - [Elementvorlagen](#itemtemplate)
     - [Entity Framework 6](#ef6)
     - [ASP.NET Gerüstbau](#scaffold)
-    - [Razor Editor](#razor)
+    - [Razor-Editor](#razor)
     - [NuGet 2.7](#nuget)
 - Bekannte Probleme und aktueller Änderungen
 
@@ -111,7 +112,7 @@ Unterstützung für asynchrone Controller Gerüstbau verwendet die neue asynchro
 Weitere Informationen und Lernprogramme finden Sie unter [Gerüstbau-Übersicht über ASP.NET](../2013/aspnet-scaffolding-overview.md). In diesen Lernprogrammen erfahren Gerüstbau mit Visual Studio 2013, aber sie gelten auch für ASP.NET und 2013.1 von Web Tools für Visual Studio 2012.
 
 <a id="razor"></a>
-### <a name="razor-editor"></a>Razor Editor
+### <a name="razor-editor"></a>Razor-Editor
 
 Mit diesem Update unterstützt Visual Studio 2012 jetzt 3 Razor-Tools/bearbeiten.
 
@@ -168,7 +169,7 @@ Um dieses Problem zu beheben, konfigurieren Sie Visual Studio Express mit MSIL-I
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Anzeigen von Cshtml-Datei WithBrowse WithorF5causes eines Serverfehlers
 
-Beim Erstellen einer MVC 5-Projekt in Visual Studio 2012 (oder öffnen Sie in Visual Studio 2012 ein MVC 5-Projekt, das in Visual Studio 2013 erstellt wurde) und versucht, eine Cshtml-Datei mithilfe von Browserauswahl oder F5 anzeigen, wird eine Fehlermeldung, die besagt - **Serverfehler in '/' Anwendung**. Der Server versucht, zu navigieren`http://localhost:XXXX/Views/../XXXX.cshtml`
+Beim Erstellen einer MVC 5-Projekt in Visual Studio 2012 (oder öffnen Sie in Visual Studio 2012 ein MVC 5-Projekt, das in Visual Studio 2013 erstellt wurde) und versucht, eine Cshtml-Datei mithilfe von Browserauswahl oder F5 anzeigen, wird eine Fehlermeldung, die besagt - **Serverfehler in '/' Anwendung**. Der Server versucht, zu navigieren `http://localhost:XXXX/Views/../XXXX.cshtml`
 
 Um dieses Problem zu beheben, ändern Sie die **Startaktion** in Ihrem Projekt zum Festlegen von **bestimmte Seite**. Sie müssen nicht auf einen Wert für die Seite bereitstellen.
 

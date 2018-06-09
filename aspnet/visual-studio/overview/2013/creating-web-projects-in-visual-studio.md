@@ -2,25 +2,26 @@
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
 title: Erstellen von ASP.NET Web-in Visual Studio 2013 Projekte | Microsoft Docs
 author: tdykstra
-description: "In diesem Thema wird erläutert, dass die Optionen zum Erstellen von ASP.NET-Webprojekten in Visual Studio 2013 mit Update 3 hier sind einige der neuen Features für Web Development c..."
+description: In diesem Thema wird erläutert, dass die Optionen zum Erstellen von ASP.NET-Webprojekten in Visual Studio 2013 mit Update 3 hier sind einige der neuen Features für Web Development c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038864"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Erstellen von ASP.NET-Webprojekten in Visual Studio 2013
 ====================
-Durch [Tom Dykstra](https://github.com/tdykstra)
+durch [Tom Dykstra](https://github.com/tdykstra)
 
 > In diesem Thema wird erläutert, die Optionen zum Erstellen von ASP.NET-Webprojekten in Visual Studio 2013 mit Update 3
 > 
@@ -243,7 +244,7 @@ Schränken Sie das Fenster etwas mehr, und aktiviert die horizontale Hauptmenü 
 
 Der Bootstrap-Designumgebung-Funktion können auch einfach eine Änderung in der Anwendung aussehen und Verhalten wirksam. Beispielsweise können Sie die folgenden Schritte aus, um das Design ändern tun.
 
-1. Wechseln Sie in Ihrem Browser zur [http://Bootswatch.com](http://Bootswatch.com), wählen Sie ein Design aus, und klicken Sie dann auf **herunterladen**. (Dadurch werden *bootstrap.min.css* standardmäßig; abgerufen werden sollen, wenn Sie den CSS-Code zu untersuchen möchten, *bootstrap.css* anstelle der verkleinerte Version.)
+1. Wechseln Sie in Ihrem Browser zur [ http://Bootswatch.com ](http://Bootswatch.com), wählen Sie ein Design aus, und klicken Sie dann auf **herunterladen**. (Dadurch werden *bootstrap.min.css* standardmäßig; abgerufen werden sollen, wenn Sie den CSS-Code zu untersuchen möchten, *bootstrap.css* anstelle der verkleinerte Version.)
 2. Kopieren Sie den Inhalt der heruntergeladenen CSS-Datei.
 3. Erstellen Sie in Visual Studio ein neues **Stylesheet** Datei mit dem Namen *Bootstrap-theme.css* in der *Content* Ordner, und fügen Sie das heruntergeladene CSS-code hinein.
 4. Open *App\_Start/Bundle.config* , und ändern Sie *bootstrap.css* auf *Bootstrap-theme.css*.
@@ -321,7 +322,7 @@ ASP.NET Identity ist eine gute Wahl, wenn Sie eine Internet-Website erstellen, d
 
 Weitere Informationen zu den einzelnen Benutzerkonten finden Sie unter den folgenden Ressourcen:
 
-- [www.asp.net/identity](../../../identity/index.md). Dokumentation zu ASP.NET Identity auf der ASP.NET-Website.
+- [www.ASP.NET/Identity](../../../identity/index.md). Dokumentation zu ASP.NET Identity auf der ASP.NET-Website.
 - [Erstellen einer ASP.NET MVC 5-App mit Facebook und Google "oauth2" und OpenID-Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Zeigt außerdem das Benutzerprofildaten anpassen.
 - [Web-API - externen Authentifizierungsdienste](../../../web-api/overview/security/external-authentication-services.md)
 - [Hinzufügen externer Anmeldungen an die ASP.NET-Anwendung in Visual Studio 2013](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -384,7 +385,7 @@ Um die Anwendung in Azure AD bereitstellen, oder verbinden das Projekt für eine
 
 Informationen zum Erstellen von Anwendungen, mit denen **Cloud – einzelne Organisation** -Authentifizierung finden Sie unter den folgenden Ressourcen:
 
-- [Azure Authentication](../2012/windows-azure-authentication.md)
+- [Azure-Authentifizierung](../2012/windows-azure-authentication.md)
 - [Hinzufügen von einmaligem Anmelden für Ihre Webanwendung mithilfe von Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
 - [Entwickeln von ASP.NET-Apps mit Azure Active Directory](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
 - [Sichern von ASP.NET Web-API bei Azure AD und Microsoft owin-Komponenten](https://msdn.microsoft.com/magazine/dn463788.aspx)
@@ -426,4 +427,4 @@ Geben Sie einen eindeutigen URI ein, mit denen AD kann diese Anwendung zu identi
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Nächste Schritte
 
-Dieses Dokument hat einige grundlegende Hilfe für das Erstellen eines neuen ASP.NET Web-Projekts in Visual Studio 2013 bereitgestellt. Weitere Informationen zur Verwendung von für die Webentwicklung für Visual Studio finden Sie unter [https://www.asp.net/visual-studio/](../../index.md).
+Dieses Dokument hat einige grundlegende Hilfe für das Erstellen eines neuen ASP.NET Web-Projekts in Visual Studio 2013 bereitgestellt. Weitere Informationen zur Verwendung von für die Webentwicklung für Visual Studio finden Sie unter [ https://www.asp.net/visual-studio/ ](../../index.md).

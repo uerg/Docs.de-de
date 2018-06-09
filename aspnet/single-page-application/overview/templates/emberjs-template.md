@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1fb7633aee288be648d4f9681b43c8911b7dbab9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506799"
 ---
 <a name="emberjs-template"></a>EmberJS-Vorlage
 ====================
@@ -43,7 +44,7 @@ Auf dem Server, die Vorlage EmberJS ist fast identisch mit der [KnockoutJS SPA-V
 
 Herunterladen Sie und installieren Sie die Vorlage, indem Sie auf die Schaltfläche "herunterladen" oben. Sie müssen möglicherweise Visual Studio neu starten.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
 
 ![](emberjs-template/_static/image2.png)
 
@@ -134,7 +135,7 @@ TodoListRoute.js lädt Daten für die TodoListRoute durch Überschreiben der Set
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember verwendet Konventionen zur Namensgebung mit URLs, Routennamen, Controller und Vorlagen übereinstimmen. Weitere Informationen finden Sie unter [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) der EmberJS-Dokumentation.
+Ember verwendet Konventionen zur Namensgebung mit URLs, Routennamen, Controller und Vorlagen übereinstimmen. Weitere Informationen finden Sie unter [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) der EmberJS-Dokumentation.
 
 ## <a name="templates"></a>Vorlagen
 
@@ -146,7 +147,7 @@ Der Vorlagen-Ordner enthält vier Vorlagen:
 - todoList.hbs: die Vorlage für die "/ Todo" Route.
 - \_navbar.hbs: die Vorlage definiert, im Navigationsmenü.
 
-Die Anwendungsvorlage verhält sich wie eine Gestaltungsvorlage. Es enthält einen Header, Footer und eine "{{an}}" zum Einfügen von anderen Vorlagen in abhängig von der Route. Weitere Informationen zu Vorlagen in der Anwendung in Ember, finden Sie unter [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
+Die Anwendungsvorlage verhält sich wie eine Gestaltungsvorlage. Es enthält einen Header, Footer und eine "{{an}}" zum Einfügen von anderen Vorlagen in abhängig von der Route. Weitere Informationen zu Vorlagen in der Anwendung in Ember, finden Sie unter [ http://guides.emberjs.com/v1.10.0/templates/the-application-template// ](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
 
 Die "/" Todolist "" Vorlage enthält zwei schleifenausdrücke. Die äußere Schleife ist `{{#each controller}}`, und der inneren Schleife ist `{{#each todos}}`. Der folgende Code zeigt eine integrierte `Ember.Checkbox` anzuzeigen, eine benutzerdefinierte `App.TodoItemEditView`, sowie einen Link mit einem `deleteTodo` Aktion.
 

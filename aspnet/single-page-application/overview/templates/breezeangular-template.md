@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 03/08/2013
 ms.topic: article
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
 ms.openlocfilehash: faf28a510a83b7fa07585904344176601c2e1f34
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506689"
 ---
 <a name="breezeangular-template"></a>Kinderspiel/Angular-Vorlage
 ====================
@@ -43,7 +44,7 @@ Auf dieser Seite wird ein Ausführungsprotokoll Ereignisse während der aktuelle
 
 - Paging. Beachten Sie die Erstellung des Todo-Controller am #2 und #7 ein.
 - Remoteabfragen (3) und lokalen Cache-Abfragen (#7).
-- Neue speichern (5, &#6;) und (4) Entitäten geändert.
+- Neue speichern (5, 6 #) und (4) Entitäten geändert.
 - Änderungen, die auf dem Client (9), damit der Benutzer Fehler behoben werden kann, vor dem Ausführen eines Commits für Änderungen in der Datenbank überprüft.
 
 Es besteht jedoch in dieser Vorlage untersuchen einschließlich:
@@ -62,7 +63,7 @@ Fangen wir also an.
 
 Herunterladen Sie und installieren Sie die Vorlage, indem Sie auf die Schaltfläche "herunterladen" oben. Die Vorlage wird als Visual Studio-Erweiterung (VSIX)-Datei verpackt. Sie müssen möglicherweise Visual Studio neu starten.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
 
 In der **neues Projekt** Assistenten **Kinderspiel Angular SPA**.
 

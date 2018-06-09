@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506679"
 ---
 <a name="backbone-template"></a>Backbone-Vorlage
 ====================
@@ -39,7 +40,7 @@ Anforderungen:
 
 Herunterladen Sie und installieren Sie die Vorlage, indem Sie auf die Schaltfläche "herunterladen" oben. Die Vorlage wird als Visual Studio-Erweiterung (VSIX)-Datei verpackt. Sie müssen möglicherweise Visual Studio neu starten.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
 
 ![](backbonejs-template/_static/image1.png)
 
@@ -61,7 +62,7 @@ Wir beginnt mit der Clientseite. Die Client-Anwendungskripts befinden sich im Or
 
 **Anwendung**
 
-`Application`wird in application.ts definiert. Dieses Objekt die Anwendung initialisiert und fungiert als Stamm-Namespace. Es enthält Informationen zur Konfiguration und Status, die für die Anwendung freigegeben ist, z. B., ob der Benutzer angemeldet ist.
+`Application` wird in application.ts definiert. Dieses Objekt die Anwendung initialisiert und fungiert als Stamm-Namespace. Es enthält Informationen zur Konfiguration und Status, die für die Anwendung freigegeben ist, z. B., ob der Benutzer angemeldet ist.
 
 Die `application.start` Methode erstellt den modalen Ansichten verwendet werden, und fügt Sie Ereignishandler für Ereignisse auf Anwendungsebene, wie z. B. Benutzer anmelden. Als Nächstes den Standard-Router erstellt und überprüft, ob alle Client-Side-URL angegeben wurde. Wenn nicht, um die Standard-Url leitet (#! /).
 

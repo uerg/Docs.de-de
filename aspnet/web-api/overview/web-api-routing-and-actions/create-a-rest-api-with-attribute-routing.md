@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223261"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Erstellen Sie eine REST-API mit Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -26,10 +27,10 @@ Web-API 2 unterstützt einen neuen Typ wird aufgerufen, Routing, *routing-Attrib
 
 | Aktion | Beispiel-URI |
 | --- | --- |
-| Ruft eine Liste aller Bücher. | /api/books |
+| Ruft eine Liste aller Bücher. | / api/Bücher |
 | Ein Buch-ID abrufen | /api/books/1 |
-| Abrufen von Details eines Buchs. | /api/books/1/details |
-| Abrufen einer Liste von Büchern von "Genre". | /api/books/fantasy |
+| Abrufen von Details eines Buchs. | /API/Books/1/Details |
+| Abrufen einer Liste von Büchern von "Genre". | /API/Books/Fantasy |
 | Abrufen einer Liste von Büchern nach Veröffentlichungsdatum. | /api/books/date/2013-02-16 /api/books/date/2013/02/16 (alternate form) |
 | Ruft eine Liste von Büchern von einem bestimmten Autor. | /api/authors/1/books |
 
@@ -39,7 +40,7 @@ Für die Datenschicht verwenden wir Entity Framework. Datensätze müssen die fo
 
 - Id
 - Titel
-- Genre
+- "Genre"
 - Veröffentlichungsdatum
 - Preis
 - Beschreibung
@@ -55,7 +56,7 @@ Für die meisten Anforderungen gibt die API jedoch eine Teilmenge dieser Daten (
 
 Starten von Visual Studio ausgeführt wird. Aus der **Datei** klicken Sie im Menü **neu** und wählen Sie dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt &quot;BooksAPI&quot;.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
@@ -168,7 +169,7 @@ Die routenvorlage für jede Controllermethode ist das Präfix sowie der angegebe
 | Methode | Routenvorlage | Beispiel-URI |
 | --- | --- | --- |
 | `GetBooks` | "-api/Books" | `http://localhost/api/books` |
-| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
+| `GetBook` | "-api/Books / {Id: Int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Abrufen von Details für das Offlineadressbuch
 
