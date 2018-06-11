@@ -1,8 +1,10 @@
-In diesem Tutorial erfahren Sie die Grundlagen zu ASP.NET Core MVS und Entity Framework Core mit Controllern und Ansichten. Razor-Seiten sind eine neue Alternative in ASP.NET Core 2.0: Ein seitenbasiertes Programmiermodell, mit dem das Erstellen einer Webbenutzeroberfläche einfacher und produktiver wird. Es wird empfohlen, das Tutorial zu den [Razor-Seiten](xref:data/ef-rp/intro) vor dem Tutorial zu MVC anzusehen. Das Tutorial zu Razor-Seiten:
+<span data-ttu-id="614a5-101">In diesem Tutorial erfahren Sie die Grundlagen zu ASP.NET Core MVS und Entity Framework Core mit Controllern und Ansichten.</span><span class="sxs-lookup"><span data-stu-id="614a5-101">This tutorial teaches ASP.NET Core MVC and Entity Framework Core with controllers and views.</span></span> <span data-ttu-id="614a5-102">Razor Pages sind eine neue Alternative in ASP.NET Core 2.0: Ein seitenbasiertes Programmiermodell, mit dem das Erstellen einer Webbenutzeroberfläche einfacher und produktiver wird.</span><span class="sxs-lookup"><span data-stu-id="614a5-102">Razor Pages is a new alternative in ASP.NET Core 2.0, a page-based programming model that makes building web UI easier and more productive.</span></span> <span data-ttu-id="614a5-103">Es wird empfohlen, das Tutorial zu den [Razor Pages](xref:data/ef-rp/intro) vor dem Tutorial zu MVC anzusehen.</span><span class="sxs-lookup"><span data-stu-id="614a5-103">We recommend the [Razor Pages](xref:data/ef-rp/intro) tutorial over the MVC version.</span></span> <span data-ttu-id="614a5-104">Das Tutorial zu Razor Pages:</span><span class="sxs-lookup"><span data-stu-id="614a5-104">The Razor Pages tutorial:</span></span>
 
-* Ist einfacher zu befolgen.
-* Bietet mehr bewährte Methoden für Entity Framework Core.
-* Verwendet effizientere Abfragen.
-* Passt zur aktuellen API.
-* Behandelt mehr Features.
-* Ist die bevorzugte Methode für die Entwicklung neuer Anwendungen.
+* <span data-ttu-id="614a5-105">Ist einfacher zu befolgen.</span><span class="sxs-lookup"><span data-stu-id="614a5-105">Is easier to follow.</span></span>
+* <span data-ttu-id="614a5-106">Bietet mehr bewährte Methoden für Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="614a5-106">Provides more EF Core best practices.</span></span>
+* <span data-ttu-id="614a5-107">Verwendet effizientere Abfragen.</span><span class="sxs-lookup"><span data-stu-id="614a5-107">Uses more efficient queries.</span></span>
+* <span data-ttu-id="614a5-108">Passt besser zur aktuellen API.</span><span class="sxs-lookup"><span data-stu-id="614a5-108">Is more current with the latest API.</span></span>
+* <span data-ttu-id="614a5-109">Behandelt mehr Features.</span><span class="sxs-lookup"><span data-stu-id="614a5-109">Covers more features.</span></span>
+* <span data-ttu-id="614a5-110">Ist die bevorzugte Methode für die Entwicklung neuer Anwendungen.</span><span class="sxs-lookup"><span data-stu-id="614a5-110">Is the preferred approach for new application development.</span></span>
+
+<span data-ttu-id="614a5-111">Wenn Sie dieses Tutorial über die Version der [Razor-Seiten](xref:data/ef-rp/intro) auswählen, nennen Sie uns unter [diesem GitHub-Problem](https://github.com/aspnet/Docs/issues/6146) den Grund dafür.</span><span class="sxs-lookup"><span data-stu-id="614a5-111">If you choose this tutorial over the [Razor Pages](xref:data/ef-rp/intro) version, let us know why in [this GitHub issue](https://github.com/aspnet/Docs/issues/6146).</span></span>
