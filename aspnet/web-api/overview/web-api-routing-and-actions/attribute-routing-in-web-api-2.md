@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 title: Routing in ASP.NET Web API 2-Attribut | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038048"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing in ASP.NET Web API 2-Attribut
 ====================
@@ -135,7 +136,7 @@ Sie können diese Konvention überschreiben werden, indem die Methode mit die fo
 - **[HttpDelete]**
 - **[HttpGet]**
 - **[HttpHead]**
-- **[HttpOptions]**
+- **["HttpOptions"]**
 - **[HttpPatch]**
 - **[HttpPost]**
 - **[HttpPut]**
@@ -188,14 +189,14 @@ Die folgende Tabelle enthält die Einschränkungen, die unterstützt werden.
 | float | Entspricht einem 32-Bit-Gleitkommawert. | {x:float} |
 | guid | Entspricht einen GUID-Wert. | {x:guid} |
 | int | Entspricht einem 32-Bit-Ganzzahl-Wert. | {x:int} |
-| Länge | Entspricht einer Zeichenfolge mit der angegebenen Länge oder innerhalb eines bestimmten Bereichs Länge. | {x:length(6)} {x:length(1,20)} |
+| Länge | Entspricht einer Zeichenfolge mit der angegebenen Länge oder innerhalb eines bestimmten Bereichs Länge. | {X: length(6)} {X: length(1,20)} |
 | long | Entspricht einem 64-Bit-Ganzzahl-Wert. | {x:long} |
 | max | Entspricht einer ganzen Zahl mit einem Maximalwert. | {x:max(10)} |
 | MaxLength | Entspricht einer Zeichenfolge mit einer maximalen Länge. | {X: maxlength(10)} |
-| Min. | Entspricht einer ganzen Zahl mit einem Mindestwert. | {x:min(10)} |
+| Min. | Entspricht einer ganzen Zahl mit einem Mindestwert. | {X: min(10)} |
 | "minLength" | Mit einer Zeichenfolge mit einer minimalen Länge überein. | {X: minlength(10)} |
-| range | Entspricht einer ganzen Zahl innerhalb eines Bereichs von Werten. | {x:range(10,50)} |
-| regex | Mit einem regulären Ausdruck übereinstimmt. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| range | Entspricht einer ganzen Zahl innerhalb eines Bereichs von Werten. | {X: range(10,50)} |
+| regex | Mit einem regulären Ausdruck übereinstimmt. | {X: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Beachten Sie, dass einige Einschränkungen, wie z. B. &quot;min&quot;, Argumente in Klammern. Sie können mehrere Einschränkungen auf einen Parameter, die durch einen Doppelpunkt getrennt anwenden.
 
@@ -271,7 +272,7 @@ Mit diesen Routen werden folgendermaßen sortiert.
 
 1. Aufträge/details
 2. Aufträge / {Id}
-3. orders/{customerName}
+3. Aufträge / {Kundenname}
 4. Aufträge / {\*Date}
 5. Aufträge / ausstehend
 
