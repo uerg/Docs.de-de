@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 1048554c78e3810206b1261371ae7c41485c436a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252125"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -36,7 +37,7 @@ Jeder Konfigurationswert ist einem Zeichenfolgenschlüssel zugeordnet. Für die 
 
 Das Optionsmuster stellt anhand von Optionsklassen Gruppen von zusammengehörigen Einstellungen dar. Weitere Informationen zur Verwendung des Optionsmusters finden Sie im Thema [Optionen](xref:fundamentals/configuration/options).
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="json-configuration"></a>JSON-Konfiguration
 
@@ -230,7 +231,7 @@ key3=value_from_json_3
 
 Der [CommandLine-Konfigurationsanbieter](/dotnet/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) erhält Schlüssel/Wert-Paare der Befehlszeilenargumente für die Konfiguration zur Runtime.
 
-[Beispiel für den CommandLine-Konfigurationsanbieter anzeigen oder herunterladen](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/index/sample/CommandLine)
+[Beispiel für den CommandLine-Konfigurationsanbieter anzeigen oder herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample/CommandLine)
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Einrichten und Verwenden des CommandLine-Konfigurationsanbieters
 
