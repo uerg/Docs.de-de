@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
-ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
+ms.openlocfilehash: c8611ef9218711410cde9e142202fa25c3e51862
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729457"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -40,17 +41,47 @@ Ausführliche Informationen zum Erstellen eines Projekts mit Razor-Seiten mithil
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
 
+::: moniker range=">= aspnetcore-2.1"
+
+Führen Sie `dotnet new webapp` über die Befehlszeile aus.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
+
+::: moniker-end
 
 Öffnen Sie die generierte Datei *.csproj* aus Visual Studio für Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Führen Sie `dotnet new webapp` über die Befehlszeile aus.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
+
+::: moniker-end
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Führen Sie `dotnet new webapp` über die Befehlszeile aus.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Führen Sie `dotnet new razor` über die Befehlszeile aus.
+
+::: moniker-end
 
 ---
 
@@ -116,7 +147,7 @@ Das Seitenmodell *Pages/Create.cshtml.cs*:
 
 Die `PageModel` -Klasse heißt standardmäßig `<PageName>Model` und befindet sich im selben Namespace wie die Seite.
 
-Mit der Klasse `PageModel` kann die Logik einer Seite von deren Darstellung getrennt werden. Sie definiert Seitenhandler für Anforderungen, die an die Seite geschickt wurden, und für zum Rendern der Seite verwendete Daten. Durch diese Trennung können Sie Seitenabhängigkeiten durch [Abhängigkeiteneinschleusung](xref:fundamentals/dependency-injection) verwalten und [Komponententests](xref:testing/razor-pages-testing) für die Seiten durchführen.
+Mit der Klasse `PageModel` kann die Logik einer Seite von deren Darstellung getrennt werden. Sie definiert Seitenhandler für Anforderungen, die an die Seite geschickt wurden, und für zum Rendern der Seite verwendete Daten. Durch diese Trennung können Sie Seitenabhängigkeiten durch [Abhängigkeiteneinschleusung](xref:fundamentals/dependency-injection) verwalten und [Komponententests](xref:test/razor-pages-tests) für die Seiten durchführen.
 
 Die Seite hat eine `OnPostAsync`-*Handlermethode*, die auf `POST`-Anforderungen ausgeführt wird (wenn ein Benutzer das Formular sendet). Sie können Handlermethoden für alle HTTP-Verben hinzufügen. Die am häufigsten verwendeten Handler sind:
 
@@ -502,4 +533,4 @@ services.AddMvc()
 * [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Autorisierungskonventionen für Razor Pages](xref:security/authorization/razor-pages-authorization)
 * [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:mvc/razor-pages/razor-pages-conventions)
-* [Unit- und Integrationstests für Razor Pages](xref:testing/razor-pages-testing)
+* [Komponententests für Razor-Seiten](xref:test/razor-pages-tests)
