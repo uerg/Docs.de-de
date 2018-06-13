@@ -4,12 +4,8 @@
 
 <span data-ttu-id="0aed1-104">Registrieren Sie den Datenbankkontext mithilfe der integrierten Unterstützung der [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) beim Dienstcontainer.</span><span class="sxs-lookup"><span data-stu-id="0aed1-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="0aed1-105">Ersetzen Sie den Inhalt der Datei *Startup.cs* durch den folgenden Code:</span><span class="sxs-lookup"><span data-stu-id="0aed1-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
 
-::: moniker range="<= aspnetcore-2.0"
-<span data-ttu-id="0aed1-106">[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]</span><span class="sxs-lookup"><span data-stu-id="0aed1-106">[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]</span></span>
-::: moniker-end
-::: moniker range=">= aspnetcore-2.1"
-<span data-ttu-id="0aed1-107">[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]</span><span class="sxs-lookup"><span data-stu-id="0aed1-107">[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]</span></span>
-::: moniker-end
+::: moniker range="<= aspnetcore-2.0" [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)] ::: moniker-end  
+::: moniker range=">= aspnetcore-2.1" [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)] ::: moniker-end  
 
 <span data-ttu-id="0aed1-108">Der vorangehende Code:</span><span class="sxs-lookup"><span data-stu-id="0aed1-108">The preceding code:</span></span>
 
