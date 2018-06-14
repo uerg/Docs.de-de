@@ -6,16 +6,17 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 05/09/2018
+ms.date: 05/29/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/javascript-client
-ms.openlocfilehash: 1701d9ac5222bf64f9690c1cecdf54ef95fe4a49
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 6ff888d3337bb53d435744009f4cc24b327ebcda
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341937"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript-client
 
@@ -78,7 +79,7 @@ Zum Empfangen von Nachrichten vom Hub definieren Sie eine Methode mithilfe der `
 
 Der vorangehende Code in `connection.on` ausgeführt wird, wenn serverseitige Code aufgerufen wird, mithilfe der `SendAsync` Methode.
 
-[!code-javascript[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
+[!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 SignalR bestimmt, welche Clientmethode aufgerufen werden entsprechend dem Methodennamen und Argumente definiert, `SendAsync` und `connection.on`.
 
@@ -104,5 +105,7 @@ Verwenden der `configureLogging` Methode `HubConnectionBuilder` so konfigurieren
 
 ## <a name="related-resources"></a>Weitere Informationen
 
-* [ASP.NET Core SignalR-Hubs](xref:signalr/hubs)
+* [Hubs](xref:signalr/hubs)
+* [.NET-Client](xref:signalr/dotnet-client)
+* [Veröffentlichen in Azure](xref:signalr/publish-to-azure-web-app)
 * [Aktivieren Sie Cross-Origin-Anforderungen (CORS) in ASP.NET Core](xref:security/cors)

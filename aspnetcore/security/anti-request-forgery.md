@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341859"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>-Angriffe zu verhindern, dass Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung in ASP.NET Core
 
@@ -43,11 +44,13 @@ Ein Beispiel von CSRF-Angriffen:
 1. Der Benutzer wählt die Schaltfläche "Absenden". Der Browser sendet die Anforderung und schließt automatisch das Authentifizierungscookie für die angeforderte Domäne `www.good-banking-site.com`.
 1. Die Anforderung ausgeführt wird, auf die `www.good-banking-site.com` Server mit dem Kontext des Benutzers Authentifizierung und alle Aktionen, die ein authentifizierter Benutzer ausführen darf ausführen können.
 
-Wenn der Benutzer die Schaltfläche zum Senden des Formulars auswählt, kann die bösartige Website:
+Zusätzlich zu dem Szenario, in dem der Benutzer die Schaltfläche zum Senden des Formulars auswählt, können die bösartige Website:
 
 * Führen Sie ein Skript, das automatisch auf das Formular sendet.
-* Sendet eine Formularübermittlung als eine AJAX-Anforderung. 
-* Verwenden Sie ein ausgeblendetes Formular mit CSS ein. 
+* Senden Sie der Übermittlung des Formulars als eine AJAX-Anforderung.
+* Blenden Sie das Formular mithilfe der CSS.
+
+Diese alternativen Szenarien erfordern keine Aktion kein(e) Eingaben des Benutzers als anfänglich die bösartige Website besuchen.
 
 Verwendung von HTTPS nicht zu verhindern, dass eine CSRF-Angriffen. Kann die bösartige Website senden ein `https://www.good-banking-site.com/` anfordern genauso einfach wie eine unsichere Anforderung senden können.
 

@@ -10,12 +10,12 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734496"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341703"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -27,7 +27,7 @@ In diesem Artikel erläutert die Antwort zwischenspeichern Middleware in einer A
 
 ## <a name="package"></a>Package
 
-Um die Middleware in Ihrem Projekt einzuschließen, fügen Sie einen Verweis auf die [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) Verpacken, oder verwenden Sie die [Microsoft.AspNetCore.App Metapackage](xref:fundamentals/metapackage-app), steht für die Verwendung in ASP.NET Core 2.1 oder höher.
+Um die Middleware in Ihrem Projekt einzuschließen, fügen Sie einen Verweis auf die [Microsoft.AspNetCore.ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) Verpacken, oder verwenden Sie die [Microsoft.AspNetCore.App Metapackage](xref:fundamentals/metapackage-app), der für die Verwendung in ASP verfügbar ist. NET Core 2.1 oder höher.
 
 ## <a name="configuration"></a>Konfiguration
 
