@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252073"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652187"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Erzwingen von HTTPS in ASP.NET Core
 
@@ -48,8 +48,8 @@ Der folgende code ruft [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.bu
 
 Die vorangehenden hervorgehobenen Code hinzu:
 
-* Legt [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
-* Legt den HTTPS-Port auf 5001 fest.
+* Legt [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) zu `Status307TemporaryRedirect`, dies ist der Standardwert. Produktion apps sollten Aufrufen [UseHsts](#hsts).
+* Legt den HTTPS-Port auf 5001 fest. Der Standardwert ist 443.
 
 Die folgenden Mechanismen legen Sie den Port automatisch:
 
@@ -77,6 +77,11 @@ Wenn kein Port festgelegt ist:
 * Anforderungen werden nicht umgeleitet.
 * Die Middleware protokolliert eine Warnung.
 
+> [!NOTE]
+> Eine Alternative zur Verwendung von HTTPS-Umleitung Middleware (`UseHttpsRedirection`) ist die Verwendung der Neuerstellen von URL-Middleware (`AddRedirectToHttps`). `AddRedirectToHttps` können den Statuscode und den Port auch festlegen, wenn die Umleitung ausgeführt wird. Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting).
+>
+> Umleiten von ohne zusätzliche umleitungs-Regeln auf HTTPS, empfehlen wir Ihnen mithilfe von HTTPS-Umleitung Middleware (`UseHttpsRedirection`) in diesem Thema beschrieben.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
@@ -89,7 +94,7 @@ Die vorherige hervorgehobene Code erfordert, verwenden alle Anforderungen `HTTPS
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting).
+Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting). Die Middleware ermöglicht darüber hinaus die app den Statuscode oder den Statuscode und den Port festlegen, wenn die Umleitung ausgeführt wird.
 
 Das globale Erzwingen der Verwendung von HTTPS (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Dieser Ansatz gilt im Vergleich zur Anwendung des `[RequireHttps]` -Attributs auf alle Controller und Razor Pages als sicherer. denn Sie können nicht gewährleisten, dass das `[RequireHttps]` -Attribut angewendet wird, wenn neue Controller oder Razor Pages hinzugefügt werden.
 
