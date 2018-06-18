@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 878c0b16e24f48a0ee84f93393af67af1728e284
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689034"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725964"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Google externe Anmeldung Setup in ASP.NET Core
 
@@ -61,7 +61,10 @@ Dieses Lernprogramm veranschaulicht das Ihren Benutzern zur Anmeldung mit ihrem 
 
 * Da wir eine Google +-Projekt, mit nur einem Feature (Anmelden) erstellen, können wir geben Sie den gleichen **Namen** für die OAuth 2.0-Client-ID als diejenige, die wir für das Projekt verwendet.
 
-* Geben Sie die Entwicklung URI mit */signin-google* angefügt, die in der **autorisierte umleitungs-URIs** Feld (z. B.: `https://localhost:44320/signin-google`). Die Google-Authentifizierung konfiguriert, die weiter unten in diesem Lernprogramm behandelt automatisch Anforderungen, die bei */signin-google* Route zum Implementieren des OAuth-Fluss.
+* Geben Sie die Entwicklung URI mit `/signin-google` angefügt, die in der **autorisierte umleitungs-URIs** Feld (z. B.: `https://localhost:44320/signin-google`). Die Google-Authentifizierung konfiguriert, die weiter unten in diesem Lernprogramm behandelt automatisch Anforderungen, die bei `/signin-google` Route zum Implementieren des OAuth-Fluss.
+
+> [!NOTE]
+> Das URI-Segment `/signin-google` als den standardrückruf des Google-Authentifizierungsanbieter festgelegt ist. Sie können den standardrückruf-URI ändern, während der Konfiguration der Google-Authentifizierung-Middleware über die geerbte [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) Eigenschaft von der [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) Klasse.
 
 * Drücken Sie TAB, um das Hinzufügen der **autorisierte umleitungs-URIs** Eintrag.
 

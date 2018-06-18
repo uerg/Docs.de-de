@@ -6,7 +6,7 @@ In diesem Beispiel wird die Verwendung von benutzerdefinierten Routen- und Seite
 
 | Szenario | Beispieldemo |
 | -------- | ----------- |
-| [Model conventions (Modellkonventionen)](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#model-conventions) | Fügen ein Routenattribut und einen Header zu den Seiten der App hinzu. |
-| [Verwenden von „AddPageRoute“ zum Hinzufügen einer Seitenroute](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Fügt die angegebene Route der angegebenen Seite hinzu. |
-| [Konventionen für Seitenmodellaktionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Fügen einen Header zu Seiten in einem Ordner bzw. einen Header zu einer Einzelseite hinzu und konfigurieren eine Filterzuordnungsinstanz, um einen Header zu den Seiten einer App hinzuzufügen. |
-| [Ersetzen der Standardanbieter für Modelle für Seitenanwendungen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Ändern die Konventionen für die Benennung von Handlern. |
+| [Model conventions (Modellkonventionen)](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#model-conventions) | Fügen ein Routenattribut und einen Header zu den Seiten der App hinzu. |
+| [Verwenden von „AddPageRoute“ zum Hinzufügen einer Seitenroute](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#configure-a-page-route) | Fügt die angegebene Route der angegebenen Seite hinzu. |
+| [Konventionen für Seitenmodellaktionen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#page-model-action-conventions) | Fügen einen Header zu Seiten in einem Ordner bzw. einen Header zu einer Einzelseite hinzu und konfigurieren eine Filterzuordnungsinstanz, um einen Header zu den Seiten einer App hinzuzufügen. |
+| [Ersetzen der Standardanbieter für Modelle für Seitenanwendungen](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#replace-the-default-page-app-model-provider) | Ändern die Konventionen für die Benennung von Handlern. |

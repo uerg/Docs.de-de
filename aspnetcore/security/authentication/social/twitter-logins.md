@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688995"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725990"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Externe Anmeldung Setup mit ASP.NET Core Twitter
 
@@ -32,7 +32,10 @@ Diesem Lernprogramm erfahren Sie, wie Sie Ihren Benutzern ermöglichen [melden S
 
 ![Erstellen einer Anwendungsseite](index/_static/TwitterCreate.png)
 
-* Geben Sie die Entwicklung URI mit */signin-twitter* angefügt, die in der **gültige OAuth-Umleitungs-URIs** Feld (z. B.: `https://localhost:44320/signin-twitter`). Verarbeiten der Twitter-Authentifizierungsschema, die weiter unten in diesem Lernprogramm konfiguriert automatisch Anforderungen, die bei */signin-twitter* Route zum Implementieren des OAuth-Fluss.
+* Geben Sie die Entwicklung URI mit `/signin-twitter` angefügt, die in der **gültige OAuth-Umleitungs-URIs** Feld (z. B.: `https://localhost:44320/signin-twitter`). Verarbeiten der Twitter-Authentifizierungsschema, die weiter unten in diesem Lernprogramm konfiguriert automatisch Anforderungen, die bei `/signin-twitter` Route zum Implementieren des OAuth-Fluss.
+
+> [!NOTE]
+> Das URI-Segment `/signin-twitter` ist als der standardrückruf der Twitter-Authentifizierungsanbieter festgelegt. Sie können den standardrückruf-URI ändern, während der Konfiguration der Twitter-authentifizierungsmiddleware über die geerbte [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) Eigenschaft von der [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) -Klasse.
 
 * Füllen Sie den Rest des Formulars, und tippen Sie auf **die Twitter-Anwendung erstellen**. Anwendungsdetails des neuen werden angezeigt:
 

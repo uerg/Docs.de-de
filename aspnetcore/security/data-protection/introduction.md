@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56876f43ed48b577f4d870825fd9230f526baec3
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725951"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core Datenschutz
 
 Webanwendungen müssen häufig sicherheitsrelevante Daten zu speichern. Windows DPAPI für desktopanwendungen bietet, aber dies ist nicht für Webanwendungen. ASP.NET Core Data Protection Stapel bieten eine einfache, einfach zu verwendende cryptographic API, die ein Entwickler zum Schützen von Daten, einschließlich der schlüsselverwaltung und Drehung verwenden kann.
 
-ASP.NET Core Data Protection Stapel dient als der langfristige Ersatz für dienen der <machineKey> Element in ASP.NET 1.x - 4.x. Es wurde für viele der Mängel bei der ALTER cryptographic Stapel und gleichzeitig eine Out-of-Box-Lösung für die meisten modernen Anwendungen auftretenden sind Anwendungsfälle behandeln ausgelegt.
+ASP.NET Core Data Protection Stapel dient als der langfristige Ersatz für dienen der &lt;MachineKey&gt; Element in ASP.NET 1.x - 4.x. Es wurde für viele der Mängel bei der ALTER cryptographic Stapel und gleichzeitig eine Out-of-Box-Lösung für die meisten modernen Anwendungen auftretenden sind Anwendungsfälle behandeln ausgelegt.
 
 ## <a name="problem-statement"></a>Problemerläuterung
 
@@ -69,12 +70,12 @@ Die Datenschutzsystem ist in fünf main Pakete unterteilt. Verschiedene Aspekte 
 
 Der Data Protection Stapel besteht aus fünf Paketen.
 
-* Microsoft.AspNetCore.DataProtection.Abstractions contains the basic IDataProtectionProvider and IDataProtector interfaces. Es enthält auch nützliche Erweiterungsmethoden, die beim Arbeiten mit diesen Typen (z. B. Überladungen der IDataProtector.Protect) unterstützen. Finden Sie unter der Consumer Schnittstellen-Abschnitt, um weitere Informationen. Wenn eine andere Person verantwortlich ist für die Instanziierung der Datenschutzsystem, und Sie einfach die APIs nutzen, sollten Sie Verweis Microsoft.AspNetCore.DataProtection.Abstractions.
+* Microsoft.AspNetCore.DataProtection.Abstractions enthält die grundlegenden IDataProtectionProvider und IDataProtector-Schnittstellen. Es enthält auch nützliche Erweiterungsmethoden, die beim Arbeiten mit diesen Typen (z. B. Überladungen der IDataProtector.Protect) unterstützen. Finden Sie unter der Consumer Schnittstellen-Abschnitt, um weitere Informationen. Wenn eine andere Person verantwortlich ist für die Instanziierung der Datenschutzsystem, und Sie einfach die APIs nutzen, sollten Sie Verweis Microsoft.AspNetCore.DataProtection.Abstractions.
 
 * Microsoft.AspNetCore.DataProtection enthält die basisimplementierung von Datenschutzsystem, einschließlich der wichtigsten kryptografischen Vorgänge, schlüsselverwaltung, Konfiguration und Erweiterbarkeit. Wenn Sie zum Instanziieren der Datenschutzsystem verantwortlich sind (z. B. hinzufügen, eine IServiceCollection) oder ändern, oder erweitern das Verhalten, müssen Sie Verweis Microsoft.AspNetCore.DataProtection möchten.
 
-* Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Dieses Paket enthält z. B. eine einfache "Instanziieren des Systems, zeigen Sie auf einem bestimmten-Speicherverzeichnis keine Dependency Injection-Setup"-API (Weitere Informationen). Es enthält auch die Erweiterungsmethoden für die Lebensdauer des geschützten Nutzlasten (Weitere Informationen) beschränken.
+* Microsoft.AspNetCore.DataProtection.Extensions enthält zusätzliche APIs, die Entwickler möglicherweise interessant sein, aber die nicht in das Hauptpaket gehören. Dieses Paket enthält z. B. eine einfache "Instanziieren des Systems, zeigen Sie auf einem bestimmten-Speicherverzeichnis keine Dependency Injection-Setup"-API (Weitere Informationen). Es enthält auch die Erweiterungsmethoden für die Lebensdauer des geschützten Nutzlasten (Weitere Informationen) beschränken.
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb installiert werden kann, in eine vorhandene ASP.NET 4.x-Anwendung zum Umleiten der <machineKey> Vorgänge stattdessen die neuen Data Protection Stapel verwenden. Finden Sie unter [Kompatibilität](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) für Weitere Informationen.
+* Microsoft.AspNetCore.DataProtection.SystemWeb installiert werden kann, in eine vorhandene ASP.NET 4.x-Anwendung zum Umleiten der &lt;MachineKey&gt; Vorgänge stattdessen die neuen Data Protection Stapel verwenden. Finden Sie unter [Kompatibilität](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) für Weitere Informationen.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Finden Sie unter [Hashing von Kennwörtern](xref:security/data-protection/consumer-apis/password-hashing) für Weitere Informationen.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation stellt eine Implementierung von der Routine Kennworthashs PBKDF2 und kann von Systemen, bei denen Benutzerkennwörter sicher behandeln müssen verwendet werden. Finden Sie unter [Hashing von Kennwörtern](xref:security/data-protection/consumer-apis/password-hashing) für Weitere Informationen.
