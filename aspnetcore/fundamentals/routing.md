@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341781"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -262,7 +263,6 @@ Eine Literalzeichenfolge, die nicht den Routenparametern entspricht (z.B. `{id}`
 Bei einem URL-Muster, durch das ein Dateiname mit einer optionalen Erweiterung erfasst werden soll, sind noch weitere Aspekte zu berücksichtigen. Wenn beispielsweise die Vorlage `files/{filename}.{ext?}` verwendet wird und sowohl `filename` als auch `ext` vorhanden sind, werden für beide Parameter Werte aufgefüllt. Wenn nur `filename` in der URL vorhanden ist, wird für die Route eine Übereinstimmung ermittelt, da der nachstehende Punkt (`.`) optional ist. Die folgenden URLs würden mit der Route übereinstimmen:
 
 * `/files/myFile.txt`
-* `/files/myFile.`
 * `/files/myFile`
 
 Sie können das `*`-Zeichen als Präfix für einen Routenparameter verwenden, um damit eine Bindung zum verbleibenden Teil des URI herzustellen. Dies wird als *Catch-All*-Parameter bezeichnet. Durch `blog/{*slug}` würde beispielsweise jeder URI ermittelt, der mit `/blog` beginnt und dahinter einen beliebigen Wert aufweist (der dann dem `slug`-Routenwert zugeordnet wird). Durch Catch-All-Parameter können auch leere Zeichenfolgen gefunden werden.
