@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
 title: Kapselung in OData v4 mithilfe von Web-API 2.2 | Microsoft Docs
 author: rick-anderson
-description: "Bisher konnte eine Entität nur zugegriffen werden, wenn es in einer Entitätenmenge gekapselt wurden. OData v4 bietet zwei zusätzliche Optionen Singleton und Con jedoch..."
+description: Bisher konnte eine Entität nur zugegriffen werden, wenn es in einer Entitätenmenge gekapselt wurden. OData v4 bietet zwei zusätzliche Optionen Singleton und Con jedoch...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26507999"
 ---
 <a name="containment-in-odata-v4-using-web-api-22"></a><span data-ttu-id="4683a-104">Kapselung in OData v4 mithilfe von Web-API 2.2</span><span class="sxs-lookup"><span data-stu-id="4683a-104">Containment in OData v4 Using Web API 2.2</span></span>
 ====================

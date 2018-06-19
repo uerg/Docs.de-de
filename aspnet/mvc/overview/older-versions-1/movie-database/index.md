@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/movie-database/index
 title: Film-Datenbank | Microsoft Docs
 author: rick-anderson
-description: "Wie eine Anwendung für eine Film innerhalb von 15 Minuten erstellt."
+description: Wie eine Anwendung für eine Film innerhalb von 15 Minuten erstellt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/movie-database
 msc.type: chapter
 ms.openlocfilehash: df2781ae848ed2196fd5cd2451d20aaac91a2e2b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500709"
 ---
 <a name="movie-database"></a><span data-ttu-id="1932e-103">Film-Datenbank</span><span class="sxs-lookup"><span data-stu-id="1932e-103">Movie Database</span></span>
 ====================

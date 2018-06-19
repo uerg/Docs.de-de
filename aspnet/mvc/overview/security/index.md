@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/security
 msc.type: chapter
 ms.openlocfilehash: ae6cee1fcccc080c9865f618f162e5f2acdcb620
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503209"
 ---
 <a name="security-authentication-and-authorization-with-aspnet-mvc"></a><span data-ttu-id="4267a-103">Sicherheit, Authentifizierung und Autorisierung mit ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="4267a-103">Security, Authentication, and Authorization with ASP.NET MVC</span></span>
 ====================

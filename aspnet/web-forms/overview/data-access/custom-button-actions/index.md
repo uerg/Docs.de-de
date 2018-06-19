@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-button-actions/index
 title: Benutzerdefinierte Aktionen | Microsoft Docs
 author: rick-anderson
-description: "Diese kurze Reihe von Lernprogrammen wird gezeigt, wie zum Hinzufügen von Schaltflächen an die GridView oder DetailsView-Steuerelement, die keine Aktionen ausführen können, die Ihre Anwendung benötigt werden."
+description: Diese kurze Reihe von Lernprogrammen wird gezeigt, wie zum Hinzufügen von Schaltflächen an die GridView oder DetailsView-Steuerelement, die keine Aktionen ausführen können, die Ihre Anwendung benötigt werden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/custom-button-actions
 msc.type: chapter
 ms.openlocfilehash: 5da10542b7797a90f6019df2f3c94603be7276f3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512629"
 ---
 <a name="custom-button-actions"></a><span data-ttu-id="fc5bb-103">Benutzerdefinierte Aktionen</span><span class="sxs-lookup"><span data-stu-id="fc5bb-103">Custom Button Actions</span></span>
 ====================

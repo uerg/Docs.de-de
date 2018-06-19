@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-application-level-events-in-aspnet
 title: '[Gewusst wie:]  Erstellen und Verwenden von Ebene Anwendungsereignisse in ASP.NET | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie eine Anwendung-Klassendatei (\"Global.asax\") zu erstellen, die Anwendung auf Ereignishandler wie z. B. Application_S enthält..."
+description: In diesem video Chris Pels zeigt, wie eine Anwendung-Klassendatei ("Global.asax") zu erstellen, die Anwendung auf Ereignishandler wie z. B. Application_S enthält...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521179"
 ---
 <a name="how-do-i--create-and-use-application-level-events-in-aspnet"></a><span data-ttu-id="a42f9-103">[Gewusst wie:]  Erstellen und Verwenden von Ebene Anwendungsereignisse in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="a42f9-103">[How Do I:]  Create and Use Application Level Events in ASP.NET</span></span>
 ====================
