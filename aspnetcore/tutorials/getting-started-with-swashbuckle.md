@@ -86,10 +86,15 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 Fügen Sie den Swagger-Generator zu der services-Sammlung in der `Startup.ConfigureServices`-Methode hinzu:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=8-11)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
+
 ::: moniker-end
 
 Importieren Sie den folgenden Namespace zur Verwendung der `Info`-Klasse:
@@ -158,10 +163,14 @@ Sie können Warnungen unterdrücken, indem Sie in der *CSPROJ*-Datei eine Liste 
 Konfigurieren Sie Swagger, um die generierte XML-Datei verwenden. Bei Linux oder anderen Betriebssystemen als Windows können bei Dateinamen und -pfaden Groß-/Kleinbuchstaben berücksichtigt werden. Die Datei *TodoApi.XML* ist beispielsweise unter Windows, nicht aber unter CentOS gültig.
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=30-32)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
+
 ::: moniker-end
 
 Im vorangehenden Codeausschnitt wurde durch [Reflektion](/dotnet/csharp/programming-guide/concepts/reflection) ein XML-Dateiname erstellt, der dem Namen des Web-API-Projekts entspricht. Durch diesen Ansatz wird sichergestellt, dass der generierte XML-Dateiname dem Namen des Projekts entspricht. Die [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory)-Eigenschaft wird verwendet, um einen Pfad zu der XML-Datei zu erstellen.
@@ -206,10 +215,15 @@ Die Benutzeroberfläche wird durch das generierte JSON-Schema gesteuert:
 Fügen Sie der Dokumentation der `Create`-Aktionsmethode ein [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks)-Element hinzu. Dieses ergänzt die Informationen, die im `<summary>`-Element angegeben wurden, und sorgt für eine robustere Swagger-Benutzeroberfläche. Das `<remarks>`-Element kann aus Text, JSON-Code oder XML-Code bestehen.
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+
 ::: moniker-end
 
 Durch die zusätzlichen Kommentare wird die Benutzeroberfläche wie unten gezeigt erweitert:
@@ -253,10 +267,15 @@ Das Vorhandensein dieses Attributs ändert das Verhalten der Benutzeroberfläche
 Fügen Sie das `[Produces("application/json")]`-Attribut zum API-Controller hinzu. Dadurch kann deklariert werden, dass die Aktionen des Controllers den Inhaltstyp *application/json* für Antworten unterstützen:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+
 ::: moniker-end
 
 Im Dropdownmenü des **Anforderungsinhaltstyps** ist dieser Inhaltstyp als Standard für die GET-Aktionen des Controllers ausgewählt:
@@ -272,10 +291,15 @@ Entwickler, die gleichzeitig API-Nutzer sind, interessieren sich vor allem dafü
 Die Aktion `Create` gibt bei einer erfolgreichen Anforderung den Statuscode „HTTP 201“ zurück. Der Statuscode „HTTP 400“ wird zurückgegeben, wenn der gesendete Anforderungstext NULL ist. Ohne richtige Dokumentation in der Swagger-Benutzeroberfläche fehlt dem Consumer das Wissen über diese erwarteten Ergebnisse. Sie können dieses Problem beheben, indem Sie die hervorgehobenen Zeilen im folgenden Beispiel hinzufügen:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+
 ::: moniker-end
 
 Die Swagger-Benutzeroberfläche dokumentiert nun deutlich die erwarteten HTTP-Antwortcodes:
