@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883433"
 ---
 <a name="how-do-i-the-ajax-toolkit-reorder-control"></a><span data-ttu-id="533e6-104">[Gewusst wie:] Das AJAX-Steuerelement-Toolkit neu anordnen</span><span class="sxs-lookup"><span data-stu-id="533e6-104">[How Do I:] The AJAX Toolkit Reorder Control</span></span>
 ====================

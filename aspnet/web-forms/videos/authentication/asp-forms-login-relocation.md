@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887017"
 ---
 <a name="asp-forms-login-relocation"></a><span data-ttu-id="e3869-103">ASP Forms Anmeldung Verschiebung</span><span class="sxs-lookup"><span data-stu-id="e3869-103">ASP Forms Login Relocation</span></span>
 ====================

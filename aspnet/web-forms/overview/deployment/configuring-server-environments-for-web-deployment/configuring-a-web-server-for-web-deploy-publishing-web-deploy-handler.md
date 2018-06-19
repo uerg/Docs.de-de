@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887283"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a><span data-ttu-id="84976-103">Konfigurieren einen Webserver für das Web Deploy-Veröffentlichung (Web Deploy-Handler)</span><span class="sxs-lookup"><span data-stu-id="84976-103">Configuring a Web Server for Web Deploy Publishing (Web Deploy Handler)</span></span>
 ====================

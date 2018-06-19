@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: "Zwischenspeichern von Daten in einer ASP.NET Web-Seiten (Razor) Standort für eine bessere Leistung | Microsoft Docs"
+title: Zwischenspeichern von Daten in einer ASP.NET Web-Seiten (Razor) Standort für eine bessere Leistung | Microsoft Docs
 author: tfitzmac
-description: "Sie können beschleunigte Websites durch Speichern – d. h. dass Cache - Daten, die normalerweise würde sehr lange dauern abrufen oder Verarbeiten der Ergebnisse einer..."
+description: Sie können beschleunigte Websites durch Speichern – d. h. dass Cache - Daten, die normalerweise würde sehr lange dauern abrufen oder Verarbeiten der Ergebnisse einer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039195"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a><span data-ttu-id="6cc34-103">Zwischenspeichern von Daten an einem Standort der ASP.NET Web Pages (Razor) für eine bessere Leistung</span><span class="sxs-lookup"><span data-stu-id="6cc34-103">Caching Data in an ASP.NET Web Pages (Razor) Site for Better Performance</span></span>
 ====================

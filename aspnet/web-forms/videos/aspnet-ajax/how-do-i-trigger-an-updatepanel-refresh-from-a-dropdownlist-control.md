@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884768"
 ---
 <a name="how-do-i-trigger-an-updatepanel-refresh-from-a-dropdownlist-control"></a><span data-ttu-id="7cf31-105">[Gewusst wie:] Auslösen einer Aktualisierung UpdatePanel aus einem DropDownList-Steuerelement?</span><span class="sxs-lookup"><span data-stu-id="7cf31-105">[How Do I:] Trigger an UpdatePanel Refresh from a DropDownList Control?</span></span>
 ====================

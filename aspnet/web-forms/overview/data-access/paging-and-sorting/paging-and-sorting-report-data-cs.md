@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887303"
 ---
 <a name="paging-and-sorting-report-data-c"></a><span data-ttu-id="53f21-104">Paging und Sortieren von Berichtsdaten (c#)</span><span class="sxs-lookup"><span data-stu-id="53f21-104">Paging and Sorting Report Data (C#)</span></span>
 ====================

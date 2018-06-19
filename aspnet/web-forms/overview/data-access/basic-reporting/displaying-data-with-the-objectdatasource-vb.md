@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877345"
 ---
 <a name="displaying-data-with-the-objectdatasource-vb"></a><span data-ttu-id="db154-103">Anzeigen von Daten mit der ObjectDataSource (VB)</span><span class="sxs-lookup"><span data-stu-id="db154-103">Displaying Data With the ObjectDataSource (VB)</span></span>
 ====================

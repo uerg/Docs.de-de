@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879516"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a><span data-ttu-id="d4f38-104">Lernprogramm: Broadcast-Server mit ASP.NET SignalR 1.x</span><span class="sxs-lookup"><span data-stu-id="d4f38-104">Tutorial: Server Broadcast with ASP.NET SignalR 1.x</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881892"
 ---
 <a name="how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control"></a><span data-ttu-id="6ef37-105">[Gewusst wie:] Ein Steuerelement von ASP.NET zuordnen AJAX-Clientverhalten?</span><span class="sxs-lookup"><span data-stu-id="6ef37-105">[How Do I:] Associate AJAX Client Behavior with an ASP.NET Server Control?</span></span>
 ====================

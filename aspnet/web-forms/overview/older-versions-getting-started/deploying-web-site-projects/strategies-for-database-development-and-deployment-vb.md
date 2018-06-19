@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889591"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a><span data-ttu-id="600a2-104">Strategien zur Datenbankentwicklung und-Bereitstellung (VB)</span><span class="sxs-lookup"><span data-stu-id="600a2-104">Strategies for Database Development and Deployment (VB)</span></span>
 ====================

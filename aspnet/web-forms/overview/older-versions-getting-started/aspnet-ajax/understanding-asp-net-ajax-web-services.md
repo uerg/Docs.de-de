@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889341"
 ---
 <a name="understanding-aspnet-ajax-web-services"></a><span data-ttu-id="9a75e-104">Grundlegendes zu ASP.NET AJAX-Webdienste</span><span class="sxs-lookup"><span data-stu-id="9a75e-104">Understanding ASP.NET AJAX Web Services</span></span>
 ====================

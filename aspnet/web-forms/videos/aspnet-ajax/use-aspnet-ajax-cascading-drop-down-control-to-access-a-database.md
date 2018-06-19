@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886650"
 ---
 <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a><span data-ttu-id="d8873-103">Verwenden von ASP.NET AJAX kaskadierende Dropdown-Steuerelement auf eine Datenbank zugreifen</span><span class="sxs-lookup"><span data-stu-id="d8873-103">Use ASP.NET AJAX Cascading Drop Down Control to Access a Database</span></span>
 ====================

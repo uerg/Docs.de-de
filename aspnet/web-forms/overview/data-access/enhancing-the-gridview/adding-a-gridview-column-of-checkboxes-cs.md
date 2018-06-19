@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880166"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a><span data-ttu-id="4476b-103">Hinzufügen einer GridView-Spalte der Kontrollkästchen (c#)</span><span class="sxs-lookup"><span data-stu-id="4476b-103">Adding a GridView Column of Checkboxes (C#)</span></span>
 ====================

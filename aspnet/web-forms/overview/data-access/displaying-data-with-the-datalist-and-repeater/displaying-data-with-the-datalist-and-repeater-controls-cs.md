@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878281"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a><span data-ttu-id="7bc3b-104">Anzeigen von Daten mit dem DataList und Wiederholungsmodul-Steuerelement (c#)</span><span class="sxs-lookup"><span data-stu-id="7bc3b-104">Displaying Data with the DataList and Repeater Controls (C#)</span></span>
 ====================

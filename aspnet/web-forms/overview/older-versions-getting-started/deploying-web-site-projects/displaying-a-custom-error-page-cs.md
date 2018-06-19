@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30889071"
 ---
 <a name="displaying-a-custom-error-page-c"></a><span data-ttu-id="538e4-104">Anzeigen einer Fehlerseite (c#)</span><span class="sxs-lookup"><span data-stu-id="538e4-104">Displaying a Custom Error Page (C#)</span></span>
 ====================

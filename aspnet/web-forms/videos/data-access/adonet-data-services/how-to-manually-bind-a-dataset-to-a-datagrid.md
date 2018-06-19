@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886354"
 ---
 <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a><span data-ttu-id="737f1-104">Wie Sie ein Dataset manuell an ein DataGrid-Steuerelement zu binden</span><span class="sxs-lookup"><span data-stu-id="737f1-104">How to Manually Bind a Dataset to a Datagrid</span></span>
 ====================

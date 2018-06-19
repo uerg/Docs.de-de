@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851721"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a><span data-ttu-id="4fa7b-103">Migrieren der Konfiguration zu ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4fa7b-103">Migrate configuration to ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888210"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a><span data-ttu-id="55c1c-103">Anzeigen von Binärdaten in den Data-Websteuerelementen (c#)</span><span class="sxs-lookup"><span data-stu-id="55c1c-103">Displaying Binary Data in the Data Web Controls (C#)</span></span>
 ====================

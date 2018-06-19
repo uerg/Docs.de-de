@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889123"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a><span data-ttu-id="c0a25-103">Hinzufügen von Validierungssteuerelemente auf das DataList-bearbeiten-Schnittstelle (c#)</span><span class="sxs-lookup"><span data-stu-id="c0a25-103">Adding Validation Controls to the DataList's Editing Interface (C#)</span></span>
 ====================

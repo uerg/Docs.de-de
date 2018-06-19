@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876344"
 ---
 <a name="caching-data-at-application-startup-vb"></a><span data-ttu-id="9d2eb-104">Zwischenspeichern von Daten beim Start der Anwendung (VB)</span><span class="sxs-lookup"><span data-stu-id="9d2eb-104">Caching Data at Application Startup (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525889"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a><span data-ttu-id="77d85-104">Wie verwende ich das ASP.NET IIS Registration-Tool, um ASP.NET zu konfigurieren</span><span class="sxs-lookup"><span data-stu-id="77d85-104">How Do I Use the ASP.NET IIS Registration Tool to Configure ASP.NET</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880101"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a><span data-ttu-id="3cc8f-103">Ausnahmebehandlung BLL und DAL-Ebene (VB)</span><span class="sxs-lookup"><span data-stu-id="3cc8f-103">Handling BLL- and DAL-Level Exceptions (VB)</span></span>
 ====================

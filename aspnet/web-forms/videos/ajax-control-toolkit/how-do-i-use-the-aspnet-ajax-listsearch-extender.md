@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883858"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-listsearch-extender"></a><span data-ttu-id="b1a91-105">[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-ListSearch-Extender?</span><span class="sxs-lookup"><span data-stu-id="b1a91-105">[How Do I:] Use the ASP.NET AJAX ListSearch Extender?</span></span>
 ====================

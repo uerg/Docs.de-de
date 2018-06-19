@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872868"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-vb"></a><span data-ttu-id="bb5c7-104">Starten ein modales Popupfenster von Servercode (VB)</span><span class="sxs-lookup"><span data-stu-id="bb5c7-104">Launching a Modal Popup Window from Server Code (VB)</span></span>
 ====================

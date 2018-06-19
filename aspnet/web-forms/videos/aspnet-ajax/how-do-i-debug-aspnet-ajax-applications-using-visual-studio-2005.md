@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887212"
 ---
 <a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a><span data-ttu-id="6d288-105">[Gewusst wie:] Werden ASP.NET AJAX-Anwendungen mit Visual Studio 2005 gedebuggt?</span><span class="sxs-lookup"><span data-stu-id="6d288-105">[How Do I:] Debug ASP.NET AJAX Applications Using Visual Studio 2005?</span></span>
 ====================

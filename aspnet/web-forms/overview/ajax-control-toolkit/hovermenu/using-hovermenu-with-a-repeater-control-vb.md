@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868398"
 ---
 <a name="using-hovermenu-with-a-repeater-control-vb"></a><span data-ttu-id="ea76d-103">Verwenden HoverMenu mit einem Wiederholungsmodul-Steuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="ea76d-103">Using HoverMenu with a Repeater Control (VB)</span></span>
 ====================

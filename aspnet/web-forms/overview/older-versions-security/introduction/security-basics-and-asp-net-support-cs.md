@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889790"
 ---
 <a name="security-basics-and-aspnet-support-c"></a><span data-ttu-id="42fe9-103">Grundlagen der Codezugriffssicherheit und Unterstützung für ASP.NET (c#)</span><span class="sxs-lookup"><span data-stu-id="42fe9-103">Security Basics and ASP.NET Support (C#)</span></span>
 ====================

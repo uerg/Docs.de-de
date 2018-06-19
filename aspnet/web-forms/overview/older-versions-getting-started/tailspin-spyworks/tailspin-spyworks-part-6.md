@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886809"
 ---
 <a name="part-6-aspnet-membership"></a><span data-ttu-id="cdc22-104">Teil 6: ASP.NET-Mitgliedschaft</span><span class="sxs-lookup"><span data-stu-id="cdc22-104">Part 6: ASP.NET Membership</span></span>
 ====================

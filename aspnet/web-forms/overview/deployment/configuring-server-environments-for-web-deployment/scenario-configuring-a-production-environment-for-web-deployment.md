@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882945"
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a><span data-ttu-id="90dc4-103">Szenario: Konfigurieren einer produktiven Umgebung für die Bereitstellung</span><span class="sxs-lookup"><span data-stu-id="90dc4-103">Scenario: Configuring a Production Environment for Web Deployment</span></span>
 ====================

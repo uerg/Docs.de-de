@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875135"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a><span data-ttu-id="ccdd4-103">Erstellen eine benutzerdefinierte AJAX-Steuerelement-Toolkit Extendersteuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="ccdd4-103">Creating a Custom AJAX Control Toolkit Control Extender (VB)</span></span>
 ====================

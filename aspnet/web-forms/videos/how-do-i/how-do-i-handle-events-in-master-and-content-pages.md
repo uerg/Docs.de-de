@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525999"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a><span data-ttu-id="93023-104">[Gewusst wie:] Behandeln von Ereignissen in Master "und" Inhaltsseiten</span><span class="sxs-lookup"><span data-stu-id="93023-104">[How Do I:] Handle Events in Master and Content Pages</span></span>
 ====================

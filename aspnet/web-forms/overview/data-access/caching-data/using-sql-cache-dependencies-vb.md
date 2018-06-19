@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878372"
 ---
 <a name="using-sql-cache-dependencies-vb"></a><span data-ttu-id="46225-104">Mithilfe von SQL-Cache-Abhängigkeiten (VB)</span><span class="sxs-lookup"><span data-stu-id="46225-104">Using SQL Cache Dependencies (VB)</span></span>
 ====================

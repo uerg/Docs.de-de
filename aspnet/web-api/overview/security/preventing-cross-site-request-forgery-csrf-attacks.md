@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: "Verhindern von Cross-Site Request Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Web-API | Microsoft Docs"
+title: Verhindern von Cross-Site Request Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: "Beschreibt die siteübergreifende Anforderung Websiteübergreifender anforderungsfälschung Angriff und wie Anti-CSRF-Measures in ASP.NET Web-API implementiert."
+description: Beschreibt die siteübergreifende Anforderung Websiteübergreifender anforderungsfälschung Angriff und wie Anti-CSRF-Measures in ASP.NET Web-API implementiert.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508149"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a><span data-ttu-id="08a25-103">Verhindern von Cross-Site Request Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Web-API</span><span class="sxs-lookup"><span data-stu-id="08a25-103">Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API</span></span>
 ====================

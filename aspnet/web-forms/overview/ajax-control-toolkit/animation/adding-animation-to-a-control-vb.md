@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870634"
 ---
 <a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="cd0b4-104">Hinzufügen von Animationen zu einem Steuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="cd0b4-104">Adding Animation to a Control (VB)</span></span>
 ====================

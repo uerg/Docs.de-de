@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879451"
 ---
 <a name="testing-the-strength-of-a-password-vb"></a><span data-ttu-id="36696-104">Testen die Stärke von Kennwörtern (VB)</span><span class="sxs-lookup"><span data-stu-id="36696-104">Testing the Strength of a Password (VB)</span></span>
 ====================

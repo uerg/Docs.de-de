@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883283"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a><span data-ttu-id="32222-103">Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio: Einführung - 1, 12</span><span class="sxs-lookup"><span data-stu-id="32222-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio: Introduction - 1 of 12</span></span>
 ====================

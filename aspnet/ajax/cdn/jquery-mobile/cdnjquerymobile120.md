@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073603"
 ---
 <a name="jquery-mobile-120-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="7dc97-102">jQuery Mobile 1.2.0 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="7dc97-102">jQuery Mobile 1.2.0 on the Microsoft Ajax CDN</span></span>
 ====================

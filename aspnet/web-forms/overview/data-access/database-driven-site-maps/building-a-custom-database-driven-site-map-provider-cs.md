@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878008"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-c"></a><span data-ttu-id="083eb-104">Erstellen eine benutzerdefinierte Website mit Datenbank-Driven Kartenanbieter (c#)</span><span class="sxs-lookup"><span data-stu-id="083eb-104">Building a Custom Database-Driven Site Map Provider (C#)</span></span>
 ====================

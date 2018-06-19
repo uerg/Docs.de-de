@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882779"
 ---
 <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a><span data-ttu-id="9a282-103">Einführung in ASP.NET für ColdFusion-Entwickler: Erstellen einer ASP.NET-Anwendung</span><span class="sxs-lookup"><span data-stu-id="9a282-103">Introduction to ASP.NET for ColdFusion Developers: Building an ASP.NET Application</span></span>
 ====================

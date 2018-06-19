@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886728"
 ---
 <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="3109c-103">Verwendung von Attribut-Validierung in ASP.NET Dynamic Data-Anwendungen</span><span class="sxs-lookup"><span data-stu-id="3109c-103">How to Use Attribute Validation in ASP.NET Dynamic Data Applications</span></span>
 ====================

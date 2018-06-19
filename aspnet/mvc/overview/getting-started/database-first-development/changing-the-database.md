@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879321"
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a><span data-ttu-id="2d72f-104">EF Datenbank zuerst mit ASP.NET MVC: Ändern der Datenbank</span><span class="sxs-lookup"><span data-stu-id="2d72f-104">EF Database First with ASP.NET MVC: Changing the Database</span></span>
 ====================

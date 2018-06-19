@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873939"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a><span data-ttu-id="c2ee2-104">Iteration #4 – Stellen Sie die Anwendung lose (VB)</span><span class="sxs-lookup"><span data-stu-id="c2ee2-104">Iteration #4 – Make the application loosely coupled (VB)</span></span>
 ====================

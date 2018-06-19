@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 359cd2d349a361be83708262a55b3638461a054d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515339"
 ---
 <a name="deployment"></a><span data-ttu-id="cd46c-103">Bereitstellung</span><span class="sxs-lookup"><span data-stu-id="cd46c-103">Deployment</span></span>
 ====================

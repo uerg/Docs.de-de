@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886159"
 ---
 <a name="understanding-aspnet-memberships"></a><span data-ttu-id="19e96-104">Grundlegendes zu ASP.NET Mitgliedschaften</span><span class="sxs-lookup"><span data-stu-id="19e96-104">Understanding ASP.NET Memberships</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888798"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a><span data-ttu-id="aca7b-104">Erste Schritte mit Entity Framework 4.0-Datenbank zunächst und ASP.NET 4 WebForms - Teil 6</span><span class="sxs-lookup"><span data-stu-id="aca7b-104">Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms - Part 6</span></span>
 ====================

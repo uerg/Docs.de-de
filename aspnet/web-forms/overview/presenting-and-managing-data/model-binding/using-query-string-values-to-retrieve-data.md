@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886822"
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a><span data-ttu-id="00b30-104">Verwenden von Abfragezeichenfolgen-Werte zum Filtern von Daten mit modellbindung und WebForms</span><span class="sxs-lookup"><span data-stu-id="00b30-104">Using query string values to filter data with model binding and web forms</span></span>
 ====================

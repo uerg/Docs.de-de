@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880735"
 ---
 <a name="how-do-i-aspnet-ajax-enable-an-existing-web-service"></a><span data-ttu-id="d3482-105">[Gewusst wie:] ASP.NET-AJAX zu einen bestehenden Webdienst aktivieren?</span><span class="sxs-lookup"><span data-stu-id="d3482-105">[How Do I:] ASP.NET AJAX Enable an Existing Web Service?</span></span>
 ====================

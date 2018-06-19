@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/index
 title: Zwischenspeichern von Daten | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm Satz erläutert zwischenspeichern, wodurch Leistung und caching in der Darstellungsschicht über das ObjectDataSource-Steuerelement anwenden verbessert werden kann..."
+description: Dieses Lernprogramm Satz erläutert zwischenspeichern, wodurch Leistung und caching in der Darstellungsschicht über das ObjectDataSource-Steuerelement anwenden verbessert werden kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
 ms.openlocfilehash: 0b14ecdd4a8cab1d61bf9b7c238fc32330d54e52
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512619"
 ---
 <a name="caching-data"></a><span data-ttu-id="b98a1-103">Zwischenspeichern von Daten</span><span class="sxs-lookup"><span data-stu-id="b98a1-103">Caching Data</span></span>
 ====================

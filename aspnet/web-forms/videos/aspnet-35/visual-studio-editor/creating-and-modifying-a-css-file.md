@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880816"
 ---
 <a name="creating-and-modifying-a-css-file"></a><span data-ttu-id="e0ee3-104">Erstellen und Ändern von CSS-Datei</span><span class="sxs-lookup"><span data-stu-id="e0ee3-104">Creating and Modifying a CSS File</span></span>
 ====================

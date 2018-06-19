@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874517"
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a><span data-ttu-id="bc847-104">Mithilfe der Farbwähler Extendersteuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="bc847-104">Using the ColorPicker Control Extender (VB)</span></span>
 ====================

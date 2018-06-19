@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888353"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a><span data-ttu-id="f9a72-103">Einfügen eines neuen Datensatzes aus der GridView Fußzeile (c#)</span><span class="sxs-lookup"><span data-stu-id="f9a72-103">Inserting a New Record from the GridView's Footer (C#)</span></span>
 ====================

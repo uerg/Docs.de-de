@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889617"
 ---
 <a name="precompiling-your-website-c"></a><span data-ttu-id="53565-104">Vorkompilieren von Ihrer Website (c#)</span><span class="sxs-lookup"><span data-stu-id="53565-104">Precompiling Your Website (C#)</span></span>
 ====================

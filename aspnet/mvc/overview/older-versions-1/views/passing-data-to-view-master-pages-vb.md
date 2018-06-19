@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870751"
 ---
 <a name="passing-data-to-view-master-pages-vb"></a><span data-ttu-id="da777-104">Übergeben von Daten an View Master Pages (VB)</span><span class="sxs-lookup"><span data-stu-id="da777-104">Passing Data to View Master Pages (VB)</span></span>
 ====================

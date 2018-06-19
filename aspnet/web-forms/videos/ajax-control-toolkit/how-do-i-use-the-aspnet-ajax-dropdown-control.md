@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879828"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropdown-control"></a><span data-ttu-id="9214f-104">[Gewusst wie:] Verwenden Sie das DropDown-Steuerelement in ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="9214f-104">[How Do I:] Use the ASP.NET AJAX DropDown Control?</span></span>
 ====================

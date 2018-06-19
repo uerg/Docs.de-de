@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886549"
 ---
 <a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a><span data-ttu-id="cdf67-105">[Gewusst wie:] Implementieren Sie die inkrementellen Seite Anzeige Muster, die unter Verwendung von HTTP GET und POST?</span><span class="sxs-lookup"><span data-stu-id="cdf67-105">[How Do I:] Implement the Incremental Page Display Pattern using HTTP GET and POST?</span></span>
 ====================

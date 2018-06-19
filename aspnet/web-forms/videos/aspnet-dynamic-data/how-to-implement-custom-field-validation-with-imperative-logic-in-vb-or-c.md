@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885015"
 ---
 <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a><span data-ttu-id="4f40d-103">Zum Implementieren von benutzerdefinierten Feldvalidierung mit imperativem Logik in VB oder c#</span><span class="sxs-lookup"><span data-stu-id="4f40d-103">How to Implement Custom Field Validation with Imperative Logic in VB or C#</span></span>
 ====================

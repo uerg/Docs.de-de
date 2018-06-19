@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872688"
 ---
 <a name="handling-entity-relations"></a><span data-ttu-id="95d0e-102">Behandeln von Entitätsbeziehungen</span><span class="sxs-lookup"><span data-stu-id="95d0e-102">Handling Entity Relations</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881037"
 ---
 <a name="adding-users-to-your-membership-system"></a><span data-ttu-id="3eda9-103">Hinzufügen von Benutzern zu Ihrem Mitgliedschaftssystem</span><span class="sxs-lookup"><span data-stu-id="3eda9-103">Adding Users to Your Membership System</span></span>
 ====================

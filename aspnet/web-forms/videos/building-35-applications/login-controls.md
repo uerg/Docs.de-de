@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520919"
 ---
 <a name="login-controls"></a><span data-ttu-id="2c992-103">Anmeldesteuerelementen</span><span class="sxs-lookup"><span data-stu-id="2c992-103">Login Controls</span></span>
 ====================

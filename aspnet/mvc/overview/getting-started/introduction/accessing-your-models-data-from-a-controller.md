@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873556"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a><span data-ttu-id="b1567-102">Zugriff auf das Modell Daten aus einem Controller</span><span class="sxs-lookup"><span data-stu-id="b1567-102">Accessing Your Model's Data from a Controller</span></span>
 ====================

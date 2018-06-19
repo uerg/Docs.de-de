@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877225"
 ---
 <a name="working-with-computed-columns-c"></a><span data-ttu-id="e1c93-103">Arbeiten mit berechneten Spalten (c#)</span><span class="sxs-lookup"><span data-stu-id="e1c93-103">Working with Computed Columns (C#)</span></span>
 ====================

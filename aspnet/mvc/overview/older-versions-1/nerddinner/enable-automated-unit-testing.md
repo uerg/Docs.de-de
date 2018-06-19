@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875629"
 ---
 <a name="enable-automated-unit-testing"></a><span data-ttu-id="fa571-103">Aktivieren Sie automatisierte Komponententests</span><span class="sxs-lookup"><span data-stu-id="fa571-103">Enable Automated Unit Testing</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889708"
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a><span data-ttu-id="5838b-104">Aktualisieren und Löschen von vorhandenen Binärdaten (VB)</span><span class="sxs-lookup"><span data-stu-id="5838b-104">Updating and Deleting Existing Binary Data (VB)</span></span>
 ====================

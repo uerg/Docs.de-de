@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877709"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a><span data-ttu-id="f558c-104">ASP.NET MVC 4 benutzerdefinierten Aktionsfiltern</span><span class="sxs-lookup"><span data-stu-id="f558c-104">ASP.NET MVC 4 Custom Action Filters</span></span>
 
@@ -200,7 +201,7 @@ ms.lasthandoff: 04/06/2018
 1. <span data-ttu-id="f558c-201">Drücken Sie **F5**, um die Anwendung auszuführen.</span><span class="sxs-lookup"><span data-stu-id="f558c-201">Press **F5** to run the application.</span></span>
 2. <span data-ttu-id="f558c-202">Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter:</span><span class="sxs-lookup"><span data-stu-id="f558c-202">Browse to **/ActionLog** to see log view initial state:</span></span>
 
-    <span data-ttu-id="f558c-203">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image3.png "Tracker Protokollstatus vor der Aktivität "Seite"")</span><span class="sxs-lookup"><span data-stu-id="f558c-203">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image3.png "Log tracker status before page activity")</span></span>
+    <span data-ttu-id="f558c-203">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image3.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")</span><span class="sxs-lookup"><span data-stu-id="f558c-203">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image3.png "Log tracker status before page activity")</span></span>
 
     <span data-ttu-id="f558c-204">*Protokoll Tracker Status vor der Aktivität "Seite"*</span><span class="sxs-lookup"><span data-stu-id="f558c-204">*Log tracker status before page activity*</span></span>
 
@@ -279,7 +280,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="f558c-244">Führen Sie nun die Anwendung aus, um zu sehen, wie diese zwei benutzerdefinierte Aktionsfilter funktionieren.</span><span class="sxs-lookup"><span data-stu-id="f558c-244">Now, run the application in order to see how these two Custom Action Filters work.</span></span> <span data-ttu-id="f558c-245">Drücken Sie die zu diesem Zweck **F5** und warten Sie, bis die Anwendung gestartet wird.</span><span class="sxs-lookup"><span data-stu-id="f558c-245">To do this, press **F5** and wait until the application starts.</span></span>
 3. <span data-ttu-id="f558c-246">Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter.</span><span class="sxs-lookup"><span data-stu-id="f558c-246">Browse to **/ActionLog** to see log view initial state.</span></span>
 
-    <span data-ttu-id="f558c-247">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image5.png "Tracker Protokollstatus vor der Aktivität "Seite"")</span><span class="sxs-lookup"><span data-stu-id="f558c-247">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image5.png "Log tracker status before page activity")</span></span>
+    <span data-ttu-id="f558c-247">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image5.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")</span><span class="sxs-lookup"><span data-stu-id="f558c-247">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image5.png "Log tracker status before page activity")</span></span>
 
     <span data-ttu-id="f558c-248">*Protokoll Tracker Status vor der Aktivität "Seite"*</span><span class="sxs-lookup"><span data-stu-id="f558c-248">*Log tracker status before page activity*</span></span>
 4. <span data-ttu-id="f558c-249">Klicken Sie auf eines der **Genres** aus dem Menü und einige Aktionen vorhanden ist, wie z. B. Browsen verfügbaren Album ausführen.</span><span class="sxs-lookup"><span data-stu-id="f558c-249">Click one of the **Genres** from the menu and perform some actions there, like browsing an available album.</span></span>
@@ -303,7 +304,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="f558c-257">Überprüfen Sie nun, wie die Filter ausgeführt werden, je nach Wert für die Order-Eigenschaft.</span><span class="sxs-lookup"><span data-stu-id="f558c-257">Now, verify how the filters are executed depending on its Order property's value.</span></span> <span data-ttu-id="f558c-258">Sie finden, die den Filter mit dem kleinsten Wert der Bestellung (**CustomActionFilter**) ist das erste Schema an, die ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="f558c-258">You will find that the filter with the smallest Order value (**CustomActionFilter**) is the first one that is executed.</span></span> <span data-ttu-id="f558c-259">Drücken Sie **F5** und warten Sie, bis die Anwendung gestartet wird.</span><span class="sxs-lookup"><span data-stu-id="f558c-259">Press **F5** and wait until the application starts.</span></span>
 3. <span data-ttu-id="f558c-260">Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter.</span><span class="sxs-lookup"><span data-stu-id="f558c-260">Browse to **/ActionLog** to see log view initial state.</span></span>
 
-    <span data-ttu-id="f558c-261">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image7.png "Tracker Protokollstatus vor der Aktivität "Seite"")</span><span class="sxs-lookup"><span data-stu-id="f558c-261">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image7.png "Log tracker status before page activity")</span></span>
+    <span data-ttu-id="f558c-261">![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image7.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")</span><span class="sxs-lookup"><span data-stu-id="f558c-261">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image7.png "Log tracker status before page activity")</span></span>
 
     <span data-ttu-id="f558c-262">*Protokoll Tracker Status vor der Aktivität "Seite"*</span><span class="sxs-lookup"><span data-stu-id="f558c-262">*Log tracker status before page activity*</span></span>
 4. <span data-ttu-id="f558c-263">Klicken Sie auf eines der **Genres** aus dem Menü und einige Aktionen vorhanden ist, wie z. B. Browsen verfügbaren Album ausführen.</span><span class="sxs-lookup"><span data-stu-id="f558c-263">Click one of the **Genres** from the menu and perform some actions there, like browsing an available album.</span></span>

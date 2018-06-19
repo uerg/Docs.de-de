@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884716"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a><span data-ttu-id="c1464-103">[Lektion 7:] Datenbindung, Steuerelemente der Benutzeroberfläche</span><span class="sxs-lookup"><span data-stu-id="c1464-103">[Lesson 7:] Databinding to User Interface Controls</span></span>
 ====================

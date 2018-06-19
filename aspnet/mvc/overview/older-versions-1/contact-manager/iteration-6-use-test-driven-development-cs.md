@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876292"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a><span data-ttu-id="bd8a7-104">Iteration #6 – verwenden Sie eine testgesteuerte Entwicklung (c#)</span><span class="sxs-lookup"><span data-stu-id="bd8a7-104">Iteration #6 – Use test-driven development (C#)</span></span>
 ====================

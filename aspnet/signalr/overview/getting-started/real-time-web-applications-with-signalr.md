@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878047"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a><span data-ttu-id="f25dd-104">Praktische Übungseinheiten: Echtzeit-Webanwendungen mit SignalR</span><span class="sxs-lookup"><span data-stu-id="f25dd-104">Hands On Lab: Real-Time Web Applications with SignalR</span></span>
 ====================

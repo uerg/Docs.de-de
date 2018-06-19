@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870413"
 ---
 <a name="understanding-action-filters-c"></a><span data-ttu-id="15109-104">Grundlegendes zu Aktionsfiltern (c#)</span><span class="sxs-lookup"><span data-stu-id="15109-104">Understanding Action Filters (C#)</span></span>
 ====================

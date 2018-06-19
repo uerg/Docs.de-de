@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886952"
 ---
 <a name="aspnet-hosting-options-vb"></a><span data-ttu-id="f0f29-103">ASP.NET Hostingoptionen (VB)</span><span class="sxs-lookup"><span data-stu-id="f0f29-103">ASP.NET Hosting Options (VB)</span></span>
 ====================

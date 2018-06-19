@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876942"
 ---
 <a name="custom-formatting-based-upon-data-vb"></a><span data-ttu-id="39bc5-104">Benutzerdefinierte Formatierung basierend auf Daten (VB)</span><span class="sxs-lookup"><span data-stu-id="39bc5-104">Custom Formatting Based Upon Data (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870153"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-vb"></a><span data-ttu-id="ec753-104">Ermöglicht nur bestimmte Zeichen in einem Textfeld (VB)</span><span class="sxs-lookup"><span data-stu-id="ec753-104">Allowing Only Certain Characters in a Text Box (VB)</span></span>
 ====================

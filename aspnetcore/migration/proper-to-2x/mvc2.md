@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851039"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a><span data-ttu-id="796f1-103">Migrieren von ASP.NET zu ASP.NET Core 2.0</span><span class="sxs-lookup"><span data-stu-id="796f1-103">Migrate from ASP.NET to ASP.NET Core 2.0</span></span>
 

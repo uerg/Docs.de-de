@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851208"
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a><span data-ttu-id="bf659-103">Open Umleitung Angriffe in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="bf659-103">Prevent open redirect attacks in ASP.NET Core</span></span>
 

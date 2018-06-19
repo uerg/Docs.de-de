@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888590"
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a><span data-ttu-id="cdec7-104">Allgemeine Konfigurationsunterschiede zwischen Entwicklungs- und Produktionsumgebungen (c#)</span><span class="sxs-lookup"><span data-stu-id="cdec7-104">Common Configuration Differences Between Development and Production (C#)</span></span>
 ====================

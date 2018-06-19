@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883936"
 ---
 <a name="intro-to-aspnet-20-user-interface-elements"></a><span data-ttu-id="8e40b-103">[Einführung in ASP.NET 2.0:] Benutzeroberflächenelemente</span><span class="sxs-lookup"><span data-stu-id="8e40b-103">[Intro to ASP.NET 2.0:] User Interface Elements</span></span>
 ====================

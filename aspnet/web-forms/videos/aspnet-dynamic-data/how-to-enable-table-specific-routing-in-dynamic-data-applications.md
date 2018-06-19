@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883334"
 ---
 <a name="how-to-enable-table-specific-routing-in-dynamic-data-applications"></a><span data-ttu-id="a711b-103">So aktivieren Sie die Tabelle bestimmte Routing in Dynamic Data-Anwendungen</span><span class="sxs-lookup"><span data-stu-id="a711b-103">How to Enable Table Specific Routing in Dynamic Data Applications</span></span>
 ====================

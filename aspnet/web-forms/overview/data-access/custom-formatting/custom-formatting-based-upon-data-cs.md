@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876864"
 ---
 <a name="custom-formatting-based-upon-data-c"></a><span data-ttu-id="be0be-104">Benutzerdefinierte Formatierung basierend auf Daten (c#)</span><span class="sxs-lookup"><span data-stu-id="be0be-104">Custom Formatting Based Upon Data (C#)</span></span>
 ====================

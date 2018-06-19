@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30880361"
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a><span data-ttu-id="52045-104">Erstellen einer Builddefinition, unterstützt die Bereitstellung</span><span class="sxs-lookup"><span data-stu-id="52045-104">Creating a Build Definition That Supports Deployment</span></span>
 ====================

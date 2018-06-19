@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889526"
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a><span data-ttu-id="cf2cb-104">Strategien zur Datenbankentwicklung und-Bereitstellung (c#)</span><span class="sxs-lookup"><span data-stu-id="cf2cb-104">Strategies for Database Development and Deployment (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884401"
 ---
 <a name="creating-inactive-users"></a><span data-ttu-id="b0f04-103">Inaktive Benutzer erstellen</span><span class="sxs-lookup"><span data-stu-id="b0f04-103">Creating Inactive Users</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887654"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a><span data-ttu-id="a3b5e-104">Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 3: Sortieren und Filtern</span><span class="sxs-lookup"><span data-stu-id="a3b5e-104">Using the Entity Framework 4.0 and the ObjectDataSource Control, Part 3: Sorting and Filtering</span></span>
 ====================

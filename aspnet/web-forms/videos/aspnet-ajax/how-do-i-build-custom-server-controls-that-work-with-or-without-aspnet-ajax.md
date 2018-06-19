@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885496"
 ---
 <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a><span data-ttu-id="d8145-104">[Gewusst wie:] Erstellen Sie benutzerdefinierte Serversteuerelemente, die mit oder ohne ASP.NET-AJAX arbeiten?</span><span class="sxs-lookup"><span data-stu-id="d8145-104">[How Do I:] Build Custom Server Controls that Work With or Without ASP.NET AJAX?</span></span>
 ====================

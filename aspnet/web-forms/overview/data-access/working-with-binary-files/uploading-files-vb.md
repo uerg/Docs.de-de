@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30888096"
 ---
 <a name="uploading-files-vb"></a><span data-ttu-id="cb086-103">Hochladen von Dateien (VB)</span><span class="sxs-lookup"><span data-stu-id="cb086-103">Uploading Files (VB)</span></span>
 ====================

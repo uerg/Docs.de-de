@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913571"
 ---
 # <a name="request-features-in-aspnet-core"></a><span data-ttu-id="68b62-103">Anforderungsfeatures in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="68b62-103">Request Features in ASP.NET Core</span></span>
 

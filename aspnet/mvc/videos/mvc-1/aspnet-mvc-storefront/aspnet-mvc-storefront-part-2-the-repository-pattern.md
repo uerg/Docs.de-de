@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874485"
 ---
 <a name="aspnet-mvc-storefront-part-2-the-repository-pattern"></a><span data-ttu-id="4b7d7-104">Storefront ASP.NET-MVC-Teil 2: Das Repositorymuster</span><span class="sxs-lookup"><span data-stu-id="4b7d7-104">ASP.NET MVC Storefront Part 2: The Repository Pattern</span></span>
 ====================

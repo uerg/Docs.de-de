@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886913"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a><span data-ttu-id="38639-103">Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von einem Code-Only-Update - 8 von 12</span><span class="sxs-lookup"><span data-stu-id="38639-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio or Visual Web Developer: Deploying a Code-Only Update - 8 of 12</span></span>
 ====================
@@ -127,7 +128,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="38639-171">Visual Studio stellt die aktualisierte Anwendung bereit und öffnet den Browser, um die Homepage der Website.</span><span class="sxs-lookup"><span data-stu-id="38639-171">Visual Studio deploys the updated application and opens the browser to the site's home page.</span></span> <span data-ttu-id="38639-172">Die *app\_offline.htm* Datei wird angezeigt.</span><span class="sxs-lookup"><span data-stu-id="38639-172">The *app\_offline.htm* file is displayed.</span></span> <span data-ttu-id="38639-173">Sie testen können, um die erfolgreiche Bereitstellung zu überprüfen, müssen Sie Sie entfernen die *app\_offline.htm* Datei.</span><span class="sxs-lookup"><span data-stu-id="38639-173">Before you can test to verify successful deployment, you must remove the *app\_offline.htm* file.</span></span>
 
-<span data-ttu-id="38639-174">Zurück zu den **Manager für Dateiserver** Anwendung in der Systemsteuerung.</span><span class="sxs-lookup"><span data-stu-id="38639-174">Return to the **File Manager** application in the control panel.</span></span> <span data-ttu-id="38639-175">Wählen Sie **contosouniversity.com** und **"Wwwroot"**Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.</span><span class="sxs-lookup"><span data-stu-id="38639-175">Select **contosouniversity.com** and **wwwroot**, select **app\_offline.htm**, and then click **Delete**.</span></span>
+<span data-ttu-id="38639-174">Zurück zu den **Manager für Dateiserver** Anwendung in der Systemsteuerung.</span><span class="sxs-lookup"><span data-stu-id="38639-174">Return to the **File Manager** application in the control panel.</span></span> <span data-ttu-id="38639-175">Wählen Sie **contosouniversity.com** und **"Wwwroot"** Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.</span><span class="sxs-lookup"><span data-stu-id="38639-175">Select **contosouniversity.com** and **wwwroot**, select **app\_offline.htm**, and then click **Delete**.</span></span>
 
 <span data-ttu-id="38639-176">[![Deleting_app_offline.htm](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image17.png)</span><span class="sxs-lookup"><span data-stu-id="38639-176">[![Deleting_app_offline.htm](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image17.png)</span></span>
 

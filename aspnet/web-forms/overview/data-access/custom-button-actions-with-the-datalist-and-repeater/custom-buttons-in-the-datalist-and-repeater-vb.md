@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876084"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a><span data-ttu-id="56d43-103">Benutzerdefinierte Schaltflächen im DataList und Repeater (VB)</span><span class="sxs-lookup"><span data-stu-id="56d43-103">Custom Buttons in the DataList and Repeater (VB)</span></span>
 ====================

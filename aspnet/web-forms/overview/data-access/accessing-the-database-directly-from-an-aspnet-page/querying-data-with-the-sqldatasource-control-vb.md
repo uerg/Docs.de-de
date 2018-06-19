@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876565"
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a><span data-ttu-id="cb4c5-104">Abfragen von Daten mit SqlDataSource-Steuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="cb4c5-104">Querying Data with the SqlDataSource Control (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874251"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a><span data-ttu-id="15620-104">Erstellen sich gegenseitig ausschließende Kontrollkästchen (VB)</span><span class="sxs-lookup"><span data-stu-id="15620-104">Creating Mutually Exclusive Checkboxes (VB)</span></span>
 ====================
