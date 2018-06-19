@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898098"
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a><span data-ttu-id="30909-105">Einführung in ASP.NET Web Pages - erste Schritte</span><span class="sxs-lookup"><span data-stu-id="30909-105">Introducing ASP.NET Web Pages - Getting Started</span></span>
 ====================

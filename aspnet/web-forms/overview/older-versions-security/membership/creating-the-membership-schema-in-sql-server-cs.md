@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891792"
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a><span data-ttu-id="033e5-104">Erstellen das Schema für die Mitgliedschaft in SQLServer (c#)</span><span class="sxs-lookup"><span data-stu-id="033e5-104">Creating the Membership Schema in SQL Server (C#)</span></span>
 ====================

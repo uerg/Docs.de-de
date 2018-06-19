@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
 title: '[Gewusst wie:] Erkennen von Webbrowser-Funktionen in ASP.NET Web Pages | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt Chris Pels, wie Funktionen bestimmen den Browser des Benutzers beim Anzeigen von Seiten in einer ASP.NET-Website. Zunächst Weitere Informationen zum Konto..."
+description: In diesem Video zeigt Chris Pels, wie Funktionen bestimmen den Browser des Benutzers beim Anzeigen von Seiten in einer ASP.NET-Website. Zunächst Weitere Informationen zum Konto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884090"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a><span data-ttu-id="fc75d-104">[Gewusst wie:] Erkennen von Webbrowser-Funktionen in ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="fc75d-104">[How Do I:] Detect Browser Capabilities in ASP.NET Web Pages</span></span>
 ====================

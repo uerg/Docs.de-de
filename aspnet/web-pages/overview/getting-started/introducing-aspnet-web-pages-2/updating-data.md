@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898534"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a><span data-ttu-id="d19db-104">Einführung in ASP.NET Web Pages - Aktualisieren von Datenbankdaten</span><span class="sxs-lookup"><span data-stu-id="d19db-104">Introducing ASP.NET Web Pages - Updating Database Data</span></span>
 ====================

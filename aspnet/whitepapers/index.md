@@ -2,21 +2,22 @@
 uid: whitepapers/index
 title: Whitepapers | Microsoft Docs
 author: rick-anderson
-description: "Auf dieser Seite finden Sie Whitepapers helfen Ihnen beim Installieren und Konfigurieren von ASP.NET und Schreiben von sicheren, schnelle und flexible ASP.NET-Anwendungen unterstützen."
+description: Auf dieser Seite finden Sie Whitepapers helfen Ihnen beim Installieren und Konfigurieren von ASP.NET und Schreiben von sicheren, schnelle und flexible ASP.NET-Anwendungen unterstützen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2011
 ms.topic: article
 ms.assetid: 3824e2d7-446f-406b-9c8b-5a1634359a78
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-msc.legacyurl: 
+msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 5d335017a28f3dcbb8332b5361a2b068bddd2cce
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883802"
 ---
 <a name="whitepapers"></a><span data-ttu-id="d7669-103">Whitepaper</span><span class="sxs-lookup"><span data-stu-id="d7669-103">Whitepapers</span></span>
 ====================

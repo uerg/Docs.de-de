@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878762"
 ---
 <a name="an-overview-of-project-katana"></a><span data-ttu-id="bbc98-104">Eine Übersicht über Project Katana</span><span class="sxs-lookup"><span data-stu-id="bbc98-104">An Overview of Project Katana</span></span>
 ====================

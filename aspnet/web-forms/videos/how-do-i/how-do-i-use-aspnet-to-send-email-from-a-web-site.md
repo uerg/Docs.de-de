@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
 title: '[Gewusst wie:] Verwenden Sie ASP.NET zum Senden von E-Mails von einer Website | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie zum Erstellen und Senden einer e-Mail in eine ASP.NET-Website. Lernen Sie zunächst die Kernklassen in der System.Net.Mail Namespace f..."
+description: In diesem video Chris Pels wird gezeigt, wie zum Erstellen und Senden einer e-Mail in eine ASP.NET-Website. Lernen Sie zunächst die Kernklassen in der System.Net.Mail Namespace f...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526049"
 ---
 <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a><span data-ttu-id="8ebbd-104">[Gewusst wie:] Verwenden Sie ASP.NET zum Senden von E-Mails von einer Website</span><span class="sxs-lookup"><span data-stu-id="8ebbd-104">[How Do I:] Use ASP.NET to Send Email from a Web Site</span></span>
 ====================

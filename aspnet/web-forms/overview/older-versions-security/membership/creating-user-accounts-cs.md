@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892178"
 ---
 <a name="creating-user-accounts-c"></a><span data-ttu-id="b0f26-104">Erstellen von Benutzerkonten (c#)</span><span class="sxs-lookup"><span data-stu-id="b0f26-104">Creating User Accounts (C#)</span></span>
 ====================

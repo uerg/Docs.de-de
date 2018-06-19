@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896295"
 ---
 # <a name="aspnet-webhooks-receivers"></a><span data-ttu-id="7f294-103">ASP.NET WebHooks Empfänger</span><span class="sxs-lookup"><span data-stu-id="7f294-103">ASP.NET WebHooks receivers</span></span>
 

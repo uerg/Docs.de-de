@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036413"
 ---
 <a name="mapping-signalr-users-to-connections"></a><span data-ttu-id="7eb4c-105">Zuordnen von SignalR-Benutzern zu Verbindungen</span><span class="sxs-lookup"><span data-stu-id="7eb4c-105">Mapping SignalR Users to Connections</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28041864"
 ---
 <a name="signalr-performance"></a><span data-ttu-id="bc5b1-103">SignalR-Leistung</span><span class="sxs-lookup"><span data-stu-id="bc5b1-103">SignalR Performance</span></span>
 ====================

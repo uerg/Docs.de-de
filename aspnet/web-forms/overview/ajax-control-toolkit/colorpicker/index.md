@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/index
-title: "Farbwähler | Microsoft Docs"
+title: Farbwähler | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie das Steuerelement Farbwähler verwendet wird, das Benutzer in einem Popupfenster eine Farbe auswählen können."
+description: Dieses Lernprogramm zeigt, wie das Steuerelement Farbwähler verwendet wird, das Benutzer in einem Popupfenster eine Farbe auswählen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker
 msc.type: chapter
 ms.openlocfilehash: 28a5801af256a1457f486c658783fb153f8428e1
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509299"
 ---
 <a name="colorpicker"></a><span data-ttu-id="43c91-103">Farbwähler</span><span class="sxs-lookup"><span data-stu-id="43c91-103">ColorPicker</span></span>
 ====================

@@ -12,8 +12,10 @@ ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
 ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851542"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a><span data-ttu-id="ce8e1-103">Migrieren von ASP.NET-Mitgliedschaft Authentifizierung zu ASP.NET Core 2.0 Identity</span><span class="sxs-lookup"><span data-stu-id="ce8e1-103">Migrate from ASP.NET Membership authentication to ASP.NET Core 2.0 Identity</span></span>
 

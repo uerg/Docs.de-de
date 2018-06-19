@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044207"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a><span data-ttu-id="f5f67-103">In der ASP.NET Web API 2 Tracing</span><span class="sxs-lookup"><span data-stu-id="f5f67-103">Tracing in ASP.NET Web API 2</span></span>
 ====================

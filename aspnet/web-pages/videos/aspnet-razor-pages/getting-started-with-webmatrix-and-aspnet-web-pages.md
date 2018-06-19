@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897212"
 ---
 <a name="getting-started-with-webmatrix-and-aspnet-web-pages"></a><span data-ttu-id="082c3-103">Erste Schritte mit WebMatrix und ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="082c3-103">Getting Started with WebMatrix and ASP.NET Web Pages</span></span>
 ====================

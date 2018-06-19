@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869139"
 ---
 <a name="create-a-database"></a><span data-ttu-id="71538-103">Erstellen Sie eine Datenbank</span><span class="sxs-lookup"><span data-stu-id="71538-103">Create a Database</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074163"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a><span data-ttu-id="f99b0-103">Schlüsselverwaltung Erweiterbarkeit in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f99b0-103">Key management extensibility in ASP.NET Core</span></span>
 

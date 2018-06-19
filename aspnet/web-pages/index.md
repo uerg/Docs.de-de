@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages
 msc.type: categoryindex
 ms.openlocfilehash: d6c2d8a564b5144845e89cd0ee86841b9f305bf5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528659"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="f5a65-103">ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="f5a65-103">ASP.NET Web Pages</span></span>
 ====================

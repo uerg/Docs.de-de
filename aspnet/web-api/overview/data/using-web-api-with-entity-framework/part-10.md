@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867813"
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a><span data-ttu-id="b191f-102">Veröffentlichen Sie die App in Azure-Azure App Service</span><span class="sxs-lookup"><span data-stu-id="b191f-102">Publish the App to Azure Azure App Service</span></span>
 ====================

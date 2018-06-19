@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071014"
 ---
 <a name="jquery-mobile-10-rc2-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="c40bd-102">jQuery Mobile 1.0 RC2 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="c40bd-102">jQuery Mobile 1.0 RC2 on the Microsoft Ajax CDN</span></span>
 ====================

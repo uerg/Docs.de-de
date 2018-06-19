@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869711"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a><span data-ttu-id="f6c52-104">Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#)</span><span class="sxs-lookup"><span data-stu-id="f6c52-104">Creating Unit Tests for ASP.NET MVC Applications (C#)</span></span>
 ====================

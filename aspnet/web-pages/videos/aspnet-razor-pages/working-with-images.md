@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896184"
 ---
 <a name="working-with-images"></a><span data-ttu-id="509ca-103">Working with Images (Arbeiten mit Bildern)</span><span class="sxs-lookup"><span data-stu-id="509ca-103">Working with Images</span></span>
 ====================

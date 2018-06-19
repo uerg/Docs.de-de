@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876266"
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a><span data-ttu-id="89e3d-103">Externen Authentifizierungsdienste mit ASP.NET Web-API (c#)</span><span class="sxs-lookup"><span data-stu-id="89e3d-103">External Authentication Services with ASP.NET Web API (C#)</span></span>
 ====================

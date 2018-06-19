@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887911"
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a><span data-ttu-id="459ee-104">Integrieren von JQuery UI Datepicker mit wurden die modellbindung und WebForms</span><span class="sxs-lookup"><span data-stu-id="459ee-104">Integrating JQuery UI Datepicker with model binding and web forms</span></span>
 ====================

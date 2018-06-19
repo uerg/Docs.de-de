@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894388"
 ---
 <a name="how-do-i-set-up-distributed-load-testing-for-high-volume-tests"></a><span data-ttu-id="47e62-104">[Gewusst wie:] Richten Sie verteilte Auslastungstests für hohes Volumen Tests?</span><span class="sxs-lookup"><span data-stu-id="47e62-104">[How Do I:] Set Up Distributed Load Testing for High Volume Tests?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075085"
 ---
 <a name="jquery-ui-1813-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="333de-102">jQuery UI 1.8.13 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="333de-102">jQuery UI 1.8.13 on the Microsoft Ajax CDN</span></span>
 ====================

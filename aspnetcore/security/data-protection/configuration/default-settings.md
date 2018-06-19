@@ -1,7 +1,7 @@
 ---
-title: "Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core"
+title: Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core
 author: rick-anderson
-description: "Informationen Sie zu Data Protection schlüsselverwaltung und Lebensdauer in ASP.NET Core."
+description: Informationen Sie zu Data Protection schlüsselverwaltung und Lebensdauer in ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887289"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a><span data-ttu-id="336c5-103">Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="336c5-103">Data Protection key management and lifetime in ASP.NET Core</span></span>
 

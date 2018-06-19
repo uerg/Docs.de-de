@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898405"
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a><span data-ttu-id="e1d20-103">Verschiedene Versionen von ASP.NET Web Pages (Razor) nebeneinander ausgeführt</span><span class="sxs-lookup"><span data-stu-id="e1d20-103">Running Different Versions of ASP.NET Web Pages (Razor) Side by Side</span></span>
 ====================

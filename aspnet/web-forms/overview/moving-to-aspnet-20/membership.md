@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/membership
 title: Mitgliedschaft | Microsoft Docs
 author: microsoft
-description: "ASP.NET-Mitgliedschaft baut auf den Erfolg der Forms-Authentifizierungsmodell von ASP.NET 1.x. ASP.NET-Formularauthentifizierung bietet eine einfache Möglichkeit, Incorp..."
+description: ASP.NET-Mitgliedschaft baut auf den Erfolg der Forms-Authentifizierungsmodell von ASP.NET 1.x. ASP.NET-Formularauthentifizierung bietet eine einfache Möglichkeit, Incorp...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885563"
 ---
 <a name="membership"></a><span data-ttu-id="f4339-104">Mitgliedschaft</span><span class="sxs-lookup"><span data-stu-id="f4339-104">Membership</span></span>
 ====================

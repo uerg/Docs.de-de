@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
-title: "[Gewusst wie:] Auf Vorlagen basierende E-Mails senden, für die Überwachung von Ereignissen in ASP.NET Gesundheit | Microsoft Docs"
+title: '[Gewusst wie:] Auf Vorlagen basierende E-Mails senden, für die Überwachung von Ereignissen in ASP.NET Gesundheit | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt, Chris Pels wie die TemplatedEmailWebEventProvider senden, dass e-Mails beim Überwachungsereignisse Integrität, die auftreten eine Vorlage für t nutzen..."
+description: In diesem Video zeigt, Chris Pels wie die TemplatedEmailWebEventProvider senden, dass e-Mails beim Überwachungsereignisse Integrität, die auftreten eine Vorlage für t nutzen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521789"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a><span data-ttu-id="78c22-103">[Gewusst wie:] Aus einer Vorlage gebildete-e-Mails zu senden, Integrität, die Überwachung von Ereignissen in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="78c22-103">[How Do I:] Send Templated Emails for Health Monitoring Events in ASP.NET</span></span>
 ====================

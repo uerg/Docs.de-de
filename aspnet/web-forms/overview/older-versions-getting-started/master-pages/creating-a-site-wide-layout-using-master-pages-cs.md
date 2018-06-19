@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891268"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a><span data-ttu-id="9fb31-104">Erstellen eines standortweite Layouts mit Masterseiten (c#)</span><span class="sxs-lookup"><span data-stu-id="9fb31-104">Creating a Site-Wide Layout Using Master Pages (C#)</span></span>
 ====================

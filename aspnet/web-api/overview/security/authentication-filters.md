@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153517"
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a><span data-ttu-id="fa8a2-104">Authentifizierungsfilter in der ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="fa8a2-104">Authentication Filters in ASP.NET Web API 2</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892750"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a><span data-ttu-id="3fbbe-104">Hinzufügen von Geschäftslogikschicht auf ein Projekt, wurden die modellbindung und WebForms verwendet</span><span class="sxs-lookup"><span data-stu-id="3fbbe-104">Adding business logic layer to a project that uses model binding and web forms</span></span>
 ====================

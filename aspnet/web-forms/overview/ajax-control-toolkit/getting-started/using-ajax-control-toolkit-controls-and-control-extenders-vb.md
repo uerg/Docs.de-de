@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873039"
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a><span data-ttu-id="25619-103">Verwenden von AJAX-Steuerelement-Toolkit-Steuerelemente und -Extender (VB)</span><span class="sxs-lookup"><span data-stu-id="25619-103">Using AJAX Control Toolkit Controls and Control Extenders (VB)</span></span>
 ====================

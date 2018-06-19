@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879022"
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a><span data-ttu-id="bc534-104">Zwischenspeichern von Daten mit der ObjectDataSource (VB)</span><span class="sxs-lookup"><span data-stu-id="bc534-104">Caching Data with the ObjectDataSource (VB)</span></span>
 ====================

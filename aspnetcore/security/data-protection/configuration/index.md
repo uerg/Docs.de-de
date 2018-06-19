@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076371"
 ---
 # <a name="data-protection-configuration-in-aspnet-core"></a><span data-ttu-id="3c9f3-103">Konfigurieren des Schutzes von Daten in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="3c9f3-103">Data Protection configuration in ASP.NET Core</span></span>
 

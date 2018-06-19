@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880751"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a><span data-ttu-id="d4ddb-102">Code bearbeiten ASP.NET-Web Forms in Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="d4ddb-102">Code Editing ASP.NET Web Forms in Visual Studio 2013</span></span>
 ====================
@@ -75,7 +76,7 @@ ms.lasthandoff: 04/06/2018
 ## <a name="creating-a-new-aspnet-web-forms-page"></a><span data-ttu-id="d4ddb-135">Erstellen einer neuen ASP.NET Web Forms-Seite</span><span class="sxs-lookup"><span data-stu-id="d4ddb-135">Creating a new ASP.NET Web Forms Page</span></span>
 
 
-<span data-ttu-id="d4ddb-136">Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"*sowie mehrere andere Dateien und Ordner ab.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-136">When you create a new Web Forms application using the **ASP.NET Web Application** project template, Visual Studio adds an ASP.NET page (Web Forms page) named *Default.aspx*, as well as several other files and folders.</span></span> <span data-ttu-id="d4ddb-137">Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-137">You can use the *Default.aspx* page as the home page for your Web application.</span></span> <span data-ttu-id="d4ddb-138">Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-138">However, for this walkthrough, you will create and work with a new page.</span></span>
+<span data-ttu-id="d4ddb-136">Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"* sowie mehrere andere Dateien und Ordner ab.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-136">When you create a new Web Forms application using the **ASP.NET Web Application** project template, Visual Studio adds an ASP.NET page (Web Forms page) named *Default.aspx*, as well as several other files and folders.</span></span> <span data-ttu-id="d4ddb-137">Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-137">You can use the *Default.aspx* page as the home page for your Web application.</span></span> <span data-ttu-id="d4ddb-138">Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.</span><span class="sxs-lookup"><span data-stu-id="d4ddb-138">However, for this walkthrough, you will create and work with a new page.</span></span>
 
 ### <a name="to-add-a-page-to-the-web-application"></a><span data-ttu-id="d4ddb-139">Die Webanwendung eine Seite hinzu</span><span class="sxs-lookup"><span data-stu-id="d4ddb-139">To add a page to the Web application</span></span>
 

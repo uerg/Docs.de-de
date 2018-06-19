@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: "[Gewusst wie:] Übergeben von Informationen von einer Seite an einen anderen mithilfe einer Abfragezeichenfolge | Microsoft Docs"
+title: '[Gewusst wie:] Übergeben von Informationen von einer Seite an einen anderen mithilfe einer Abfragezeichenfolge | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt Chris Pels wie Informationen von einer Seite in eine andere mithilfe einer Abfragezeichenfolge übergeben werden kann. Erstens finden Sie unter Vorgehensweise beim Erstellen einer Abfragezeichenfolge in..."
+description: In diesem Video zeigt Chris Pels wie Informationen von einer Seite in eine andere mithilfe einer Abfragezeichenfolge übergeben werden kann. Erstens finden Sie unter Vorgehensweise beim Erstellen einer Abfragezeichenfolge in...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521959"
 ---
 <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a><span data-ttu-id="fc33a-104">[Gewusst wie:] Übergeben von Informationen von einer Seite in eine andere mithilfe einer Abfragezeichenfolge</span><span class="sxs-lookup"><span data-stu-id="fc33a-104">[How Do I:] Pass Information From One Page to Another Using a Query String</span></span>
 ====================

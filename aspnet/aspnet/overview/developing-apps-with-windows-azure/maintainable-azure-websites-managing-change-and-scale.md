@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878346"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a><span data-ttu-id="d8cbe-103">Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung</span><span class="sxs-lookup"><span data-stu-id="d8cbe-103">Hands on Lab: Maintainable Azure Websites: Managing Change and Scale</span></span>
 ====================
@@ -382,7 +383,7 @@ ms.lasthandoff: 04/06/2018
     > [!NOTE]
     > <span data-ttu-id="d8cbe-341">Auszuführende alle Web-apps in der aktuellen Region und demselben Abonnement in **Standard** Modus, lassen Sie die **Alles auswählen** Kontrollkästchen der **Sites wählen** Konfiguration.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-341">To run all web apps in the current region and subscription in **Standard** mode, leave the **Select All** check box selected in the **Choose Sites** configuration.</span></span> <span data-ttu-id="d8cbe-342">Andernfalls deaktivieren Sie die **Alles markieren** Kontrollkästchen.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-342">Otherwise, clear the **Select All** check box.</span></span>
 
-    <span data-ttu-id="d8cbe-343">![Aktualisieren der Web-app zum Modus "Standard"](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Aktualisieren der Web-app zum Modus "Standard"")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-343">![Upgrading the web app to Standard mode](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Upgrading the web app to Standard mode")</span></span>
+    <span data-ttu-id="d8cbe-343">![Aktualisieren der Web-app zum Modus "Standard"](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Aktualisieren der Web-app zum Modus \"Standard\"")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-343">![Upgrading the web app to Standard mode](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Upgrading the web app to Standard mode")</span></span>
 
     <span data-ttu-id="d8cbe-344">*Aktualisieren der Web-App zum Modus "Standard"*</span><span class="sxs-lookup"><span data-stu-id="d8cbe-344">*Upgrading the Web App to Standard mode*</span></span>
 3. <span data-ttu-id="d8cbe-345">Klicken Sie auf **Ja** um die Änderungen zu bestätigen.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-345">Click **Yes** to confirm the changes.</span></span>
@@ -685,7 +686,7 @@ ms.lasthandoff: 04/06/2018
 <a id="Ex4Task3"></a>
 #### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a><span data-ttu-id="d8cbe-562">Aufgabe 3: aktualisieren die Lösung, um statischen Inhalt von Azure Blob-Speicher nutzen.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-562">Task 3 – Updating the Solution to Consume Static Content from Azure Blob Storage</span></span>
 
-<span data-ttu-id="d8cbe-563">In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild hochgeladen in Azure Blob Storage (statt dem Image befindet sich in der Web-app) durch Hinzufügen einer ASP.NET URL-neuschreibungsregel in der **"Web.config"**Datei.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-563">In this task, you will configure the **GeekQuiz** solution to consume the image uploaded to Azure Blob Storage (instead of the image located in the web app) by adding an ASP.NET URL rewrite rule in the **web.config** file.</span></span>
+<span data-ttu-id="d8cbe-563">In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild hochgeladen in Azure Blob Storage (statt dem Image befindet sich in der Web-app) durch Hinzufügen einer ASP.NET URL-neuschreibungsregel in der **"Web.config"** Datei.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-563">In this task, you will configure the **GeekQuiz** solution to consume the image uploaded to Azure Blob Storage (instead of the image located in the web app) by adding an ASP.NET URL rewrite rule in the **web.config** file.</span></span>
 
 1. <span data-ttu-id="d8cbe-564">Öffnen Sie in Visual Studio die **"Web.config"** Datei innerhalb der **GeekQuiz** Projekt, und suchen Sie die **&lt;"System.Webserver"&gt;** Element.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-564">In Visual Studio, open the **Web.config** file inside the **GeekQuiz** project and locate the **&lt;system.webServer&gt;** element.</span></span>
 2. <span data-ttu-id="d8cbe-565">Fügen Sie den folgenden Code zum Hinzufügen eine URL-rewrite Regel, aktualisieren den Platzhalter mit den Namen des Speicherkontos.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-565">Add the following code to add an URL rewrite rule, updating the placeholder with your storage account name.</span></span>
@@ -846,7 +847,7 @@ ms.lasthandoff: 04/06/2018
     <span data-ttu-id="d8cbe-667">*Den Test WebTest1 hinzufügen*</span><span class="sxs-lookup"><span data-stu-id="d8cbe-667">*Adding the WebTest1 test*</span></span>
 15. <span data-ttu-id="d8cbe-668">In der **Testmischung** auf **Weiter**.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-668">Back in the **Test Mix** page, click **Next**.</span></span>
 
-    <span data-ttu-id="d8cbe-669">![Abschließen der Seite "Testmischung"](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Abschließen der Seite "Testmischung"")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-669">![Completing the Test Mix page](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Completing the Test Mix page")</span></span>
+    <span data-ttu-id="d8cbe-669">![Abschließen der Seite "Testmischung"](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Abschließen der Seite \"Testmischung\"")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-669">![Completing the Test Mix page](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Completing the Test Mix page")</span></span>
 
     <span data-ttu-id="d8cbe-670">*Abschließen der Seite "Testmischung"*</span><span class="sxs-lookup"><span data-stu-id="d8cbe-670">*Completing the Test Mix page*</span></span>
 16. <span data-ttu-id="d8cbe-671">In der **Netzwerkmischung** auf **Weiter**.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-671">In the **Network Mix** page, click **Next**.</span></span>
@@ -883,7 +884,7 @@ ms.lasthandoff: 04/06/2018
 
 1. <span data-ttu-id="d8cbe-691">In **Projektmappen-Explorer**, doppelklicken Sie auf **"LoadTest1.LoadTest"** Auslastungstest zu öffnen.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-691">In **Solution Explorer**, double-click **LoadTest1.loadtest** to open the load test.</span></span>
 
-    <span data-ttu-id="d8cbe-692">![Öffnen "LoadTest1.LoadTest"](maintainable-azure-websites-managing-change-and-scale/_static/image99.png ""LoadTest1.LoadTest" Öffnen")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-692">![Opening LoadTest1.loadtest](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "Opening LoadTest1.loadtest")</span></span>
+    <span data-ttu-id="d8cbe-692">![Öffnen "LoadTest1.LoadTest"](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "\"LoadTest1.LoadTest\" Öffnen")</span><span class="sxs-lookup"><span data-stu-id="d8cbe-692">![Opening LoadTest1.loadtest](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "Opening LoadTest1.loadtest")</span></span>
 
     <span data-ttu-id="d8cbe-693">*Die "LoadTest1.LoadTest" Öffnen*</span><span class="sxs-lookup"><span data-stu-id="d8cbe-693">*Opening LoadTest1.loadtest*</span></span>
 2. <span data-ttu-id="d8cbe-694">In der **"LoadTest1.LoadTest"** Fenster, klicken Sie auf die erste Schaltfläche in der Toolbox auf den Auslastungstest ausführen.</span><span class="sxs-lookup"><span data-stu-id="d8cbe-694">In the **LoadTest1.loadtest** window, click the first button in the toolbox to run the load test.</span></span>

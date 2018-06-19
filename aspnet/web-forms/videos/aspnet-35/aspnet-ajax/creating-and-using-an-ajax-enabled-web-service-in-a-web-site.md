@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890163"
 ---
 <a name="creating-and-using-an-ajax-enabled-web-service-in-a-web-site"></a><span data-ttu-id="76774-104">Erstellen und verwenden einen AJAX-fähigen Webdienst in einer Website</span><span class="sxs-lookup"><span data-stu-id="76774-104">Creating and Using an AJAX-enabled Web Service in a Web Site</span></span>
 ====================

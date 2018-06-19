@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870543"
 ---
 <a name="part-3-creating-an-admin-controller"></a><span data-ttu-id="283a3-102">Teil 3: Erstellen eines Admin-Controllers</span><span class="sxs-lookup"><span data-stu-id="283a3-102">Part 3: Creating an Admin Controller</span></span>
 ====================

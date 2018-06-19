@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893520"
 ---
 <a name="how-do-i-run-unit-tests-against-a-deployed-database"></a><span data-ttu-id="4cbf5-104">[Gewusst wie:] Ausführen von Komponententests für eine bereitgestellte Datenbank?</span><span class="sxs-lookup"><span data-stu-id="4cbf5-104">[How Do I:] Run Unit Tests against a Deployed Database?</span></span>
 ====================

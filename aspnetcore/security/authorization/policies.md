@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072860"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a><span data-ttu-id="5027d-103">Gruppenrichtlinien-basierte Autorisierung in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="5027d-103">Policy-based authorization in ASP.NET Core</span></span>
 

@@ -1,7 +1,7 @@
 ---
 title: Clientseitige Entwicklung in ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 02/21/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29526404"
 ---
 # <a name="client-side-development-in-aspnet-core"></a><span data-ttu-id="f372f-102">Clientseitige Entwicklung in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f372f-102">Client-side development in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892081"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a><span data-ttu-id="a68a8-104">Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 1: Erste Schritte</span><span class="sxs-lookup"><span data-stu-id="a68a8-104">Using the Entity Framework 4.0 and the ObjectDataSource Control, Part 1: Getting Started</span></span>
 ====================

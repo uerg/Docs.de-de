@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879165"
 ---
 <a name="caching-data-at-application-startup-c"></a><span data-ttu-id="0963d-104">Zwischenspeichern von Daten beim Start der Anwendung (c#)</span><span class="sxs-lookup"><span data-stu-id="0963d-104">Caching Data at Application Startup (C#)</span></span>
 ====================

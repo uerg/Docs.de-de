@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892399"
 ---
 <a name="editor-control-custom"></a><span data-ttu-id="61307-103">Editor-Steuerelement benutzerdefinierte</span><span class="sxs-lookup"><span data-stu-id="61307-103">Editor Control Custom</span></span>
 ====================

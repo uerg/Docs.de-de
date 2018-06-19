@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899115"
 ---
 <a name="aspnet-4-breaking-changes"></a><span data-ttu-id="7a72c-103">ASP.NET 4 wichtige Änderungen</span><span class="sxs-lookup"><span data-stu-id="7a72c-103">ASP.NET 4 Breaking Changes</span></span>
 ====================
@@ -242,7 +243,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-xml[Main](breaking-changes/samples/sample9.xml)]
 
-<span data-ttu-id="7a72c-243">Das folgende Beispiel zeigt wie die **Speicherort** Tag wird verwendet, um alle Konfigurationsabschnitte beginnend mit umschließen die **"appSettings"** Abschnitt und endend mit **"System.Webserver"**Abschnitt.</span><span class="sxs-lookup"><span data-stu-id="7a72c-243">The following example shows how the **location** tag is used to wrap all configuration sections starting with the **appSettings** section and ending with **system.webServer** section.</span></span>
+<span data-ttu-id="7a72c-243">Das folgende Beispiel zeigt wie die **Speicherort** Tag wird verwendet, um alle Konfigurationsabschnitte beginnend mit umschließen die **"appSettings"** Abschnitt und endend mit **"System.Webserver"** Abschnitt.</span><span class="sxs-lookup"><span data-stu-id="7a72c-243">The following example shows how the **location** tag is used to wrap all configuration sections starting with the **appSettings** section and ending with **system.webServer** section.</span></span>
 
 [!code-xml[Main](breaking-changes/samples/sample10.xml)]
 

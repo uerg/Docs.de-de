@@ -1,7 +1,7 @@
 ---
 title: Mobile Entwicklung mit ASP.NET Core
 author: rick-anderson
-description: "Erfahren Sie mehr über Themen zur mobilen Entwicklung mit ASP.NET Core."
+description: Erfahren Sie mehr über Themen zur mobilen Entwicklung mit ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29902278"
 ---
 # <a name="mobile-development-with-aspnet-core"></a><span data-ttu-id="d6e21-103">Mobile Entwicklung mit ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d6e21-103">Mobile development with ASP.NET Core</span></span>
 

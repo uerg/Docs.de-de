@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897415"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a><span data-ttu-id="2f2ff-104">Einführung in ASP.NET Web Pages - Datenbankdaten löschen</span><span class="sxs-lookup"><span data-stu-id="2f2ff-104">Introducing ASP.NET Web Pages - Deleting Database Data</span></span>
 ====================

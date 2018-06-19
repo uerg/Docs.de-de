@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887560"
 ---
 <a name="master-pages-and-site-navigation-vb"></a><span data-ttu-id="e1397-104">Masterseiten und Website-Navigation (VB)</span><span class="sxs-lookup"><span data-stu-id="e1397-104">Master Pages and Site Navigation (VB)</span></span>
 ====================

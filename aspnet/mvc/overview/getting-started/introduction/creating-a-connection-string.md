@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867917"
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a><span data-ttu-id="bb6f1-102">Erstellen einer Verbindungszeichenfolge und Arbeiten mit SQL Server LocalDB</span><span class="sxs-lookup"><span data-stu-id="bb6f1-102">Creating a Connection String and Working with SQL Server LocalDB</span></span>
 ====================

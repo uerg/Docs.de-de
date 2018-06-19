@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
 title: Serversteuerelemente | Microsoft Docs
 author: microsoft
-description: "ASP.NET 2.0 verbessert Serversteuerelemente in vielerlei Hinsicht. In diesem Modul müssen wir einige der Änderungen an der Architektur auf ASP.NET 2.0 und das Visual Studio-200 abdecken..."
+description: ASP.NET 2.0 verbessert Serversteuerelemente in vielerlei Hinsicht. In diesem Modul müssen wir einige der Änderungen an der Architektur auf ASP.NET 2.0 und das Visual Studio-200 abdecken...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885192"
 ---
 <a name="server-controls"></a><span data-ttu-id="90156-104">Serversteuerelemente</span><span class="sxs-lookup"><span data-stu-id="90156-104">Server Controls</span></span>
 ====================

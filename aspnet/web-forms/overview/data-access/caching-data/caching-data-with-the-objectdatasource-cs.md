@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879191"
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a><span data-ttu-id="f70fd-104">Zwischenspeichern von Daten mit der ObjectDataSource (c#)</span><span class="sxs-lookup"><span data-stu-id="f70fd-104">Caching Data with the ObjectDataSource (C#)</span></span>
 ====================

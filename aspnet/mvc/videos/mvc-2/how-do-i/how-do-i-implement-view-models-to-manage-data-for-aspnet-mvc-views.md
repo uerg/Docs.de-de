@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871193"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a><span data-ttu-id="2cc4c-105">Gewusst wie: Implementieren Ansichtsmodelle für ASP.NET MVC-Ansichten verwalten?</span><span class="sxs-lookup"><span data-stu-id="2cc4c-105">How Do I: Implement View  Models to Manage Data for ASP.NET MVC Views?</span></span>
 ====================

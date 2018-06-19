@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891525"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a><span data-ttu-id="13123-103">Sortieren von Daten in einem DataList oder Wiederholungsmodul-Steuerelement (VB)</span><span class="sxs-lookup"><span data-stu-id="13123-103">Sorting Data in a DataList or Repeater Control (VB)</span></span>
 ====================

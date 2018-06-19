@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876071"
 ---
 <a name="aspnet-identity-recommended-resources"></a><span data-ttu-id="d4a55-104">ASP.NET Identity empfohlene Ressourcen</span><span class="sxs-lookup"><span data-stu-id="d4a55-104">ASP.NET Identity Recommended Resources</span></span>
 ====================

@@ -1,14 +1,14 @@
 ---
 uid: mobile/device-simulators
-title: "Verbreitete Mobile Geräte zu Testzwecken simulieren | Microsoft Docs"
+title: Verbreitete Mobile Geräte zu Testzwecken simulieren | Microsoft Docs
 author: rick-anderson
-description: "Sie können die Emulatoren für verbreitete mobile Geräte und Browser herunterladen, anhand dieser links"
+description: Sie können die Emulatoren für verbreitete mobile Geräte und Browser herunterladen, anhand dieser links
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2011
 ms.topic: article
 ms.assetid: bfb5612e-c3ec-4f28-b43b-63d781aa2272
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043810"
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a><span data-ttu-id="687f9-103">Verbreitete Mobile Geräte zu Testzwecken simulieren</span><span class="sxs-lookup"><span data-stu-id="687f9-103">Simulate Popular Mobile Devices for Testing</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/20/2018
+ms.locfileid: "30000901"
 ---
 # <a name="partial-views-in-aspnet-core"></a><span data-ttu-id="493a2-103">Verwenden von Teilansichten in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="493a2-103">Partial Views in ASP.NET Core</span></span>
 

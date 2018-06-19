@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883611"
 ---
 <a name="intellisense-for-jscript-and-aspnet-ajax"></a><span data-ttu-id="4b6d4-103">IntelliSense für Jscript und ASP.NET AJAX</span><span class="sxs-lookup"><span data-stu-id="4b6d4-103">IntelliSense for Jscript and ASP.NET AJAX</span></span>
 ====================

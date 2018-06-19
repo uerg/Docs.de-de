@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/migrating
 msc.type: chapter
 ms.openlocfilehash: dba2b033efb8f6e38b8634bb842b83ff4168b88f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525859"
 ---
 <a name="migrating"></a><span data-ttu-id="4a6b1-103">Migrieren von</span><span class="sxs-lookup"><span data-stu-id="4a6b1-103">Migrating</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/index
-title: "Gespräche | Microsoft Docs"
+title: Gespräche | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 1 Gespräche"
+description: ASP.NET MVC 1 Gespräche
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-1/conference-presentations
 msc.type: chapter
 ms.openlocfilehash: ed730075f5c4232ff48406a2cc047d85f16c2244
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503369"
 ---
 <a name="talks"></a><span data-ttu-id="0e806-103">Gespräche</span><span class="sxs-lookup"><span data-stu-id="0e806-103">Talks</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526519"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a><span data-ttu-id="188f4-104">[Gewusst wie:] Arbeiten Sie mit Masterseiten deklarativ und programmgesteuert</span><span class="sxs-lookup"><span data-stu-id="188f4-104">[How Do I:] Work with Master Pages Declaratively and Programmatically</span></span>
 ====================

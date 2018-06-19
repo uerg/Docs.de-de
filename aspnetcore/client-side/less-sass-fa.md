@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073522"
 ---
 # <a name="less-sass-and-font-awesome-in-aspnet-core"></a><span data-ttu-id="b6bd5-103">Weniger, Schriftart, die in ASP.NET Core Awesome und Sass</span><span class="sxs-lookup"><span data-stu-id="b6bd5-103">Less, Sass, and Font Awesome in ASP.NET Core</span></span>
 

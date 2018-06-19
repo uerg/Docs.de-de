@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30889630"
 ---
 <a name="membership-and-administration"></a><span data-ttu-id="2ffce-103">Mitgliedschaft und Verwaltung</span><span class="sxs-lookup"><span data-stu-id="2ffce-103">Membership and Administration</span></span>
 ====================

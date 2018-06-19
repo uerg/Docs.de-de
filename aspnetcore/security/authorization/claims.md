@@ -14,6 +14,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336303"
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a><span data-ttu-id="215b1-103">Anspruchsbasierte Autorisierung in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="215b1-103">Claims-based authorization in ASP.NET Core</span></span>
 

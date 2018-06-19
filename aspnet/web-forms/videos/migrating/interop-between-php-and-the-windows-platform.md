@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892425"
 ---
 <a name="interop-between-php-and-the-windows-platform"></a><span data-ttu-id="63ebf-103">Interoperabilität zwischen PHP und die Windows-Plattform</span><span class="sxs-lookup"><span data-stu-id="63ebf-103">Interop between PHP and the Windows Platform</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871258"
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a><span data-ttu-id="6ef9f-104">Authentifizieren von Benutzern bei der Formularauthentifizierung (c#)</span><span class="sxs-lookup"><span data-stu-id="6ef9f-104">Authenticating Users with Forms Authentication (C#)</span></span>
 ====================

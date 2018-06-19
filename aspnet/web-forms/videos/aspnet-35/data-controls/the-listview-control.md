@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881944"
 ---
 <a name="the-listview-control"></a><span data-ttu-id="2f76e-105">ListView-Steuerelement</span><span class="sxs-lookup"><span data-stu-id="2f76e-105">The ListView Control</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 title: UnitTests Controller in ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: "Dieses Thema beschreibt einige spezifischen Verfahren für die Komponententests Controller in Web-API 2 an. Bevor Sie dieses Thema lesen, sollten Sie das Lernprogramm Einheit gelesen..."
+description: Dieses Thema beschreibt einige spezifischen Verfahren für die Komponententests Controller in Web-API 2 an. Bevor Sie dieses Thema lesen, sollten Sie das Lernprogramm Einheit gelesen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/11/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039543"
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a><span data-ttu-id="82e2d-104">UnitTests Controller in ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="82e2d-104">Unit Testing Controllers in ASP.NET Web API 2</span></span>
 ====================

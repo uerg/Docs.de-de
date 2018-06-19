@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/submit-and-postback
 title: Senden und Postback | Microsoft Docs
 author: JoeStagner
-description: "Dieses Video bietet eine Einführung der was passiert &quot;im Hintergrund&quot; interagieren, wenn Ihre ASP.NET-Anwendung Browser und Server."
+description: Dieses Video bietet eine Einführung der was passiert &quot;im Hintergrund&quot; interagieren, wenn Ihre ASP.NET-Anwendung Browser und Server.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882353"
 ---
 <a name="submit-and-postback"></a><span data-ttu-id="15b76-103">Senden und Postback</span><span class="sxs-lookup"><span data-stu-id="15b76-103">Submit and Postback</span></span>
 ====================

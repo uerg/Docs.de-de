@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
 ms.openlocfilehash: bfdab4cfd3945401213bcc0b6f282dd5ffbedc5d
 ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727170"
 ---
 # <a name="aspnet-mvc-4-hands-on-labs"></a><span data-ttu-id="e581e-103">ASP.NET MVC 4 praktische Übungen</span><span class="sxs-lookup"><span data-stu-id="e581e-103">ASP.NET MVC 4 Hands On Labs</span></span>
 

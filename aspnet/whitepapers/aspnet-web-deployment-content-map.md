@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-web-deployment-content-map
-title: "ASP.NET Web-Bereitstellung – empfohlene Ressourcen | Microsoft Docs"
+title: ASP.NET Web-Bereitstellung – empfohlene Ressourcen | Microsoft Docs
 author: rick-anderson
-description: "Dieses Thema enthält Links zu Dokumentationen über das Bereitstellen von Ressourcen (veröffentlichen) ASP.NET web-Anwendungen in IIS mithilfe von Visual Studio 2010, Visual Web De..."
+description: Dieses Thema enthält Links zu Dokumentationen über das Bereitstellen von Ressourcen (veröffentlichen) ASP.NET web-Anwendungen in IIS mithilfe von Visual Studio 2010, Visual Web De...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048167"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a><span data-ttu-id="080dc-103">ASP.NET Web-Bereitstellung – empfohlene Ressourcen</span><span class="sxs-lookup"><span data-stu-id="080dc-103">ASP.NET Web Deployment - Recommended Resources</span></span>
 ====================

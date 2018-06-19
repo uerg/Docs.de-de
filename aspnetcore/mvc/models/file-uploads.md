@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740412"
 ---
 # <a name="file-uploads-in-aspnet-core"></a><span data-ttu-id="2e914-103">Dateiuploads in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="2e914-103">File uploads in ASP.NET Core</span></span>
 

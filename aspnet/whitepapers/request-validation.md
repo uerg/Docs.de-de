@@ -2,13 +2,13 @@
 uid: whitepapers/request-validation
 title: Anforderungsvalidierung - Script-Angriffe verhindert | Microsoft Docs
 author: rick-anderson
-description: "Dieses Dokument beschreibt die Anforderung Überprüfungsfunktion von ASP.NET, wird standardmäßig die Anwendung daran gehindert wird Verarbeitung nicht codierte HTML-Inhalt senden..."
+description: Dieses Dokument beschreibt die Anforderung Überprüfungsfunktion von ASP.NET, wird standardmäßig die Anwendung daran gehindert wird Verarbeitung nicht codierte HTML-Inhalt senden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883554"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="f5890-103">Anforderungsvalidierung - Script-Angriffe zu verhindern</span><span class="sxs-lookup"><span data-stu-id="f5890-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

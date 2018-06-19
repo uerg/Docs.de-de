@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871648"
 ---
 <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a><span data-ttu-id="3e70e-104">Storefront ASP.NET-MVC-Teil 1: Architektonische Erläuterung und (Übersicht)</span><span class="sxs-lookup"><span data-stu-id="3e70e-104">ASP.NET MVC Storefront Part 1: Architectural Discussion and Overview</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882515"
 ---
 <a name="create-a-data-driven-dynamic-web-page"></a><span data-ttu-id="01d0b-103">Erstellen Sie eine datengesteuerte dynamische Webseite</span><span class="sxs-lookup"><span data-stu-id="01d0b-103">Create a Data-Driven Dynamic Web Page</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888577"
 ---
 <a name="deploying-a-database-vb"></a><span data-ttu-id="e1340-104">Bereitstellen einer Datenbank (VB)</span><span class="sxs-lookup"><span data-stu-id="e1340-104">Deploying a Database (VB)</span></span>
 ====================

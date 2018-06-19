@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893845"
 ---
 <a name="custom-extraction-rules-and-coded-web-tests"></a><span data-ttu-id="60489-103">Benutzerdefinierte Extraktionsregeln und codierte Webtests</span><span class="sxs-lookup"><span data-stu-id="60489-103">Custom Extraction Rules and Coded Web Tests</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072697"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a><span data-ttu-id="d1874-103">Mit einem bestimmten Schema in ASP.NET Core autorisieren</span><span class="sxs-lookup"><span data-stu-id="d1874-103">Authorize with a specific scheme in ASP.NET Core</span></span>
 

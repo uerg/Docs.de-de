@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891892"
 ---
 <a name="checkout-and-payment-with-paypal"></a><span data-ttu-id="19663-103">Auschecken "und" Payment mit PayPal</span><span class="sxs-lookup"><span data-stu-id="19663-103">Checkout and Payment with PayPal</span></span>
 ====================
