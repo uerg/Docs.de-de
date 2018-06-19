@@ -2,7 +2,7 @@
 uid: web-forms/pluralsight
 title: Web Forms Lehrvideos von Pluralsight | Microsoft Docs
 author: rick-anderson
-description: "Web Forms Video Training von Pluralsight dieses ASP.NET Web Forms Entwicklung Kurs stellt verschiedene wichtige Technologien müssen Sie wissen, wie eine .NET Gerätetest-..."
+description: Web Forms Video Training von Pluralsight dieses ASP.NET Web Forms Entwicklung Kurs stellt verschiedene wichtige Technologien müssen Sie wissen, wie eine .NET Gerätetest-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/16/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520139"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a>Web Forms Lehrvideos von Pluralsight
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/index
-title: "ASP.NET MVC für die restliche uns | Microsoft Docs"
+title: ASP.NET MVC für die restliche uns | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC für die restliche uns"
+description: ASP.NET MVC für die restliche uns
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us
 msc.type: chapter
 ms.openlocfilehash: 6c1d8eb52d39a4d133c4a6b8e209d1d4990f0b77
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503419"
 ---
 <a name="aspnet-mvc-for-the-rest-of-us"></a>ASP.NET MVC für die restliche uns
 ====================

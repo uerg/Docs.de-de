@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/index
-title: "Ältere Versionen – WebForms, erste Schritte | Microsoft Docs"
+title: Ältere Versionen – WebForms, erste Schritte | Microsoft Docs
 author: rick-anderson
-description: "Die Dokumentation für ASP.NET Web Forms 4 und früheren Versionen."
+description: Die Dokumentation für ASP.NET Web Forms 4 und früheren Versionen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started
 msc.type: chapter
 ms.openlocfilehash: 5b8e483c21b91ca1c056f3ad2e686b8faf1e4dc5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518049"
 ---
 <a name="older-versions---web-forms-getting-started"></a>Ältere Versionen – WebForms, erste Schritte
 ====================

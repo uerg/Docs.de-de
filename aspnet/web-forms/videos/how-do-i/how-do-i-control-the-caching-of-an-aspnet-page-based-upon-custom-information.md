@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 title: '[Gewusst wie:] Das Zwischenspeichern von einer ASP.NET-Seite auf benutzerdefinierten Informationen basierend Steuerelement | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie die Kriterien für das Zwischenspeichern einer ASP.NET-Seite basierend auf benutzerdefinierten Daten zu steuern. Eine Beispielseite wird erstellt, und klicken Sie dann den o..."
+description: In diesem video Chris Pels wird gezeigt, wie die Kriterien für das Zwischenspeichern einer ASP.NET-Seite basierend auf benutzerdefinierten Daten zu steuern. Eine Beispielseite wird erstellt, und klicken Sie dann den o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528129"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Gewusst wie:] Steuerelement, das Zwischenspeichern von einer ASP.NET-Seite Grundlage mit benutzerdefinierten Informationen
 ====================

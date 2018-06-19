@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521849"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[Gewusst wie:] Verwenden Sie ein Visual Studio 2008 Web-Bereitstellungsprojekt
 ====================
