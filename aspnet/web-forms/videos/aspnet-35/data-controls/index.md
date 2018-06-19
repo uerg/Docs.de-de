@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-35/data-controls
 msc.type: chapter
 ms.openlocfilehash: aa4214c52a60559ace33c688fb251a3f26302997
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520509"
 ---
 <a name="data-controls"></a>Datensteuerelemente
 ====================

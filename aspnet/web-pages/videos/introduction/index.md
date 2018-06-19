@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/index
-title: "Einführung in Web Pages-Videos | Microsoft Docs"
+title: Einführung in Web Pages-Videos | Microsoft Docs
 author: rick-anderson
-description: "Die Videos, die Sie zum Erlernen der Grundlagen zu Web Pages und WebMatrix anzeigen können."
+description: Die Videos, die Sie zum Erlernen der Grundlagen zu Web Pages und WebMatrix anzeigen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
 ms.openlocfilehash: d128715483de83125166d75988181e729d5207bf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529969"
 ---
 <a name="introduction-to-web-pages-videos"></a>Einführung in Web Pages-Videos
 ====================

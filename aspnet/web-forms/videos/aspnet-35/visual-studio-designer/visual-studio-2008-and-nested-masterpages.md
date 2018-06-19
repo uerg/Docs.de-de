@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/visual-studio-designer/visual-studio-2008-and-nested-masterpages
 title: Visual Studio 2008 und geschachtelte Masterpages | Microsoft Docs
 author: JoeStagner
-description: "Ich verwende eine Webvorlage aus oswd.org veranschaulicht die Verwendung von Masterseiten und wie sie in Visual Studio 2008 unterstützt werden. Insbesondere wird ich th anzeigen..."
+description: Ich verwende eine Webvorlage aus oswd.org veranschaulicht die Verwendung von Masterseiten und wie sie in Visual Studio 2008 unterstützt werden. Insbesondere wird ich th anzeigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520559"
 ---
 <a name="visual-studio-2008-and-nested-masterpages"></a>Visual Studio 2008 und geschachtelte Masterpages
 ====================

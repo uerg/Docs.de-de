@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876331"
 ---
 <a name="aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization"></a>Storefront ASP.NET-MVC-Teil 10: Shopping Cart Umgestalten und Autorisierung
 ====================

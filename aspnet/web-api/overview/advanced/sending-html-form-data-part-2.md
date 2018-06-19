@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/sending-html-form-data-part-2
 title: 'HTML-Formulardaten in ASP.NET Web-API senden: Datei hochladen und Multipart / MIME | Microsoft Docs'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28040141"
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>Senden von HTML-Formulardaten in ASP.NET Web-API: hochladen und Multipart / MIME-Datei
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26536079"
 ---
 <a name="using-web-api-with-aspnet-web-forms"></a>Mithilfe von Web-API mit ASP.NET Web Forms
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
 title: '[Gewusst wie:] Stellen Sie HTML-Elemente vom serverseitigen Code zugegriffen werden kann | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie möglich standard-HTML-Elemente in einer ASPX-Seite von serverseitigen Code, damit sie in der Seite Processin verwendet werden können..."
+description: In diesem video Chris Pels zeigt, wie möglich standard-HTML-Elemente in einer ASPX-Seite von serverseitigen Code, damit sie in der Seite Processin verwendet werden können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521549"
 ---
 <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[Gewusst wie:] Stellen Sie HTML-Elemente vom serverseitigen Code zugegriffen werden kann
 ====================

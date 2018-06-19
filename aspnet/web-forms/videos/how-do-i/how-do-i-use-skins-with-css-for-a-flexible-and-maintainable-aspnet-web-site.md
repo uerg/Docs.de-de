@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site
-title: "[Gewusst wie:] Verwenden von Designs mit CSS für eine Flexible und verwaltbar ASP.NET-Website | Microsoft Docs"
+title: '[Gewusst wie:] Verwenden von Designs mit CSS für eine Flexible und verwaltbar ASP.NET-Website | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie zum Erstellen von Designs für ASP.NET-Serversteuerelemente und binden Sie CSS-Formatvorlagen, um die Darstellung der Themen versehen Vertr. steuern..."
+description: In diesem video Chris Pels wird gezeigt, wie zum Erstellen von Designs für ASP.NET-Serversteuerelemente und binden Sie CSS-Formatvorlagen, um die Darstellung der Themen versehen Vertr. steuern...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/07/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521769"
 ---
 <a name="how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site"></a>[Gewusst wie:] Verwenden von Designs mit CSS für eine Flexible und verwaltbar ASP.NET-Website
 ====================

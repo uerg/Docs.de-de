@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-cache-portions-of-an-aspnet-page
 title: '[Gewusst wie:] Teile einer ASP.NET-Seite zwischenspeichern | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie ein oder mehrere Teile einer ASP.NET-Seite durch Implementieren der OutputCache für Benutzersteuerelemente auf der Seite zwischengespeichert. Zuerst wird ein..."
+description: In diesem video Chris Pels wird gezeigt, wie ein oder mehrere Teile einer ASP.NET-Seite durch Implementieren der OutputCache für Benutzersteuerelemente auf der Seite zwischengespeichert. Zuerst wird ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525279"
 ---
 <a name="how-do-i-cache-portions-of-an-aspnet-page"></a>[Gewusst wie:] Zwischenspeichern von Teilen einer ASP.NET-Seite
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
 title: '[Gewusst wie:] Senden von e-Mail-Nachricht asynchron mit ASP.NET | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video veranschaulicht Chris Pels System.Net.Mail Klassen in ASP.NET verwenden, um eine asynchrone e-Mail-Nachricht zu senden. Zunächst finden Sie unter einer Websi konfigurieren..."
+description: In diesem Video veranschaulicht Chris Pels System.Net.Mail Klassen in ASP.NET verwenden, um eine asynchrone e-Mail-Nachricht zu senden. Zunächst finden Sie unter einer Websi konfigurieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525869"
 ---
 <a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[Gewusst wie:] Senden von e-Mail-Nachricht asynchron mit ASP.NET
 ====================

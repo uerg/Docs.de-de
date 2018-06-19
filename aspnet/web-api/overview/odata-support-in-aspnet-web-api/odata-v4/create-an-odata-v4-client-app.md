@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 title: Erstellen Sie eine Client-App OData v4 (c#) | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036699"
 ---
 <a name="create-an-odata-v4-client-app-c"></a>Erstellen Sie eine Client-App OData v4 (c#)
 ====================

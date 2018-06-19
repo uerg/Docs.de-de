@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control
-title: "[Gewusst wie:] Verwendung Steuerelementzustand zum Beibehalten von Informationen für einen benutzerdefinierten Webserver-Steuerelement | Microsoft Docs"
+title: '[Gewusst wie:] Verwendung Steuerelementzustand zum Beibehalten von Informationen für einen benutzerdefinierten Webserver-Steuerelement | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt Chris Pels, wie zum Speichern von Informationen im Zusammenhang mit einem benutzerdefinierten Webserver-Steuerelement in den Zustand des Steuerelements, der unabhängig von der \"ViewState\" Speichern ist..."
+description: In diesem Video zeigt Chris Pels, wie zum Speichern von Informationen im Zusammenhang mit einem benutzerdefinierten Webserver-Steuerelement in den Zustand des Steuerelements, der unabhängig von der "ViewState" Speichern ist...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526219"
 ---
 <a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a>[Gewusst wie:] Verwenden der Steuerelementzustand zum Beibehalten von Informationen für einen benutzerdefinierten Webserver-Steuerelement
 ====================

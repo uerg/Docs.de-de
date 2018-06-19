@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
-title: "Entitätsbeziehungen in OData v4 mithilfe von ASP.NET Web-API 2.2 | Microsoft Docs"
+title: Entitätsbeziehungen in OData v4 mithilfe von ASP.NET Web-API 2.2 | Microsoft Docs
 author: MikeWasson
-description: "Die meisten Datasets definieren die Beziehungen zwischen Entitäten: Kunden Bestellungen; haben. Bücher weisen Autoren; Produkte wurden Lieferanten. Verwendung von OData können Clients über navigieren..."
+description: 'Die meisten Datasets definieren die Beziehungen zwischen Entitäten: Kunden Bestellungen; haben. Bücher weisen Autoren; Produkte wurden Lieferanten. Verwendung von OData können Clients über navigieren...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508099"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Entitätsbeziehungen in OData v4 mithilfe von ASP.NET Web-API 2.2
 ====================

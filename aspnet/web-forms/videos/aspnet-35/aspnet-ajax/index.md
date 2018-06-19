@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/aspnet-ajax/index
 title: ASP.NET Ajax | Microsoft Docs
 author: rick-anderson
-description: "Diese Videoreihe wird erklärt, wie eine ASP.NET-Anwendung die Ajax-Funktionalität hinzugefügt wird."
+description: Diese Videoreihe wird erklärt, wie eine ASP.NET-Anwendung die Ajax-Funktionalität hinzugefügt wird.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax
 msc.type: chapter
 ms.openlocfilehash: 1731f8611bbd3593f3add89d7765c07a0fbe6c2b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520229"
 ---
 <a name="aspnet-ajax"></a>ASP.NET Ajax
 ====================

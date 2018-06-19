@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868177"
 ---
 <a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a>Was ist eine ASP.NET MVC? Technische 80 Minute-Video für Entwickler NerdDinner
 ====================

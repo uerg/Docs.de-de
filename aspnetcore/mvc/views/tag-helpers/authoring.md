@@ -15,6 +15,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740997"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Erstellen von Taghilfsprogrammen in ASP.NET Core
 

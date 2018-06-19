@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/page-layout
 title: Seitenlayout | Microsoft Docs
 author: JoeStagner
-description: "Tabellen oder StyleSheets? Relative Positionierung, oder klicken Sie mit der absoluten? In diesem Video wird gezeigt, die Funktionen von Visual Web Developer, die die Entwicklung mit Handelsversion unterstützen..."
+description: Tabellen oder StyleSheets? Relative Positionierung, oder klicken Sie mit der absoluten? In diesem Video wird gezeigt, die Funktionen von Visual Web Developer, die die Entwicklung mit Handelsversion unterstützen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525399"
 ---
 <a name="page-layout"></a>Seitenlayout
 ====================

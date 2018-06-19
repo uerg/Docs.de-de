@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/contact-manager/index
 title: Wenden Sie sich an Manager | Microsoft Docs
 author: rick-anderson
-description: "Erstellen eine vollständige Contact Management-Anwendung von Grund auf Fertig stellen."
+description: Erstellen eine vollständige Contact Management-Anwendung von Grund auf Fertig stellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
 ms.openlocfilehash: 1dfcaeef7f292a24f2ba191d965028f5c0f912e4
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499189"
 ---
 <a name="contact-manager"></a>Wenden Sie sich an Manager
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/change-the-visual-style-of-a-web-page
-title: "Ändern Sie den visuellen Stil einer Webseite | Microsoft Docs"
+title: Ändern Sie den visuellen Stil einer Webseite | Microsoft Docs
 author: rick-anderson
-description: "Teil 3 ruft Ihnen den Einstieg in CSS und Stylesheets, damit Sie Ihre Seite schöner vornehmen können."
+description: Teil 3 ruft Ihnen den Einstieg in CSS und Stylesheets, damit Sie Ihre Seite schöner vornehmen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529979"
 ---
 <a name="change-the-visual-style-of-a-web-page"></a>Ändern Sie den visuellen Stil einer Webseite
 ====================

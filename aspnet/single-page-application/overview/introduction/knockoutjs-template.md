@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036894"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Einseitigen-Anwendung: Die KnockoutJS Vorlage
 ====================
@@ -46,7 +47,7 @@ Anforderungen:
 
 Starten Sie Visual Studio, und wählen Sie **neues Projekt** von der Startseite. Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-**Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
+In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt, und klicken Sie auf **OK**.
 
 ![](knockoutjs-template/_static/image2.png)
 

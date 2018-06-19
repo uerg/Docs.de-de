@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/overview/index
-title: "Übersicht über | Microsoft Docs"
+title: Übersicht über | Microsoft Docs
 author: rick-anderson
 description: Erfahren Sie, was MVC ist, wie es Web Forms unterscheidet und zum Erstellen einer ASP.NET-Anwendung.
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/overview
 msc.type: chapter
 ms.openlocfilehash: c0f4e2747708c0c3ad42f21af680b28541d77252
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500739"
 ---
 <a name="overview"></a>Übersicht
 ====================

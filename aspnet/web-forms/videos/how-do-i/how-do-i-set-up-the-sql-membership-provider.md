@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-set-up-the-sql-membership-provider
 title: '[Gewusst wie:] Richten Sie die SQL-Mitgliedschaftsanbieters | Microsoft Docs'
 author: rick-anderson
-description: "Verknüpfen Sie Patrick Hynds, wie er zeigt, wie die SQL-Mitgliedschaftsanbieters einrichten, um die Formularauthentifizierung zu Ihrer ASP.NET 2.0-Website hinzufügen. Es gibt einige Tipps..."
+description: Verknüpfen Sie Patrick Hynds, wie er zeigt, wie die SQL-Mitgliedschaftsanbieters einrichten, um die Formularauthentifizierung zu Ihrer ASP.NET 2.0-Website hinzufügen. Es gibt einige Tipps...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526089"
 ---
 <a name="how-do-i-set-up-the-sql-membership-provider"></a>[Gewusst wie:] Richten Sie die SQL-Mitgliedschaftsanbieters
 ====================

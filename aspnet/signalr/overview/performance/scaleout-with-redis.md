@@ -2,7 +2,7 @@
 uid: signalr/overview/performance/scaleout-with-redis
 title: SignalR mit horizontaler Skalierung mit Redis | Microsoft Docs
 author: MikeWasson
-description: "Versionen der Software verwendete in diesem Thema Visual Studio 2013 .NET 4.5 SignalR Version 2-Vorgängerversionen des in diesem Thema Informationen zu früheren Versionen von..."
+description: Versionen der Software verwendete in diesem Thema Visual Studio 2013 .NET 4.5 SignalR Version 2-Vorgängerversionen des in diesem Thema Informationen zu früheren Versionen von...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042689"
 ---
 <a name="signalr-scaleout-with-redis"></a>SignalR mit horizontaler Skalierung mit Redis
 ====================

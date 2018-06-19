@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889019"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master/Detail-verwenden eine Aufzählung der Master-Datensätze mit Details DataList (VB)
 ====================

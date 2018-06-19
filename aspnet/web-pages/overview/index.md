@@ -2,7 +2,7 @@
 uid: web-pages/overview/index
 title: Webseiten-Leitfaden | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview
 msc.type: book
 ms.openlocfilehash: 8b537b200df3d6d10a54c1b6e1c9004ac26e1e59
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528699"
 ---
 <a name="web-pages-guidance"></a>Webseiten-Leitfaden
 ====================

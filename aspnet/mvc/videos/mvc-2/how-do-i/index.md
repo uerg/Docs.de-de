@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-2/how-do-i/index
 title: Wie--I | Microsoft Docs
 author: rick-anderson
-description: "Videos in diesem Abschnitt behandelt die ASP.NET MVC, einschließlich Informationen zum \"Das Storefront -\" eine gesamte e-Commerce-Anwendung Start abgeschlossen erstellen."
+description: Videos in diesem Abschnitt behandelt die ASP.NET MVC, einschließlich Informationen zum "Das Storefront -" eine gesamte e-Commerce-Anwendung Start abgeschlossen erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 54d09894c61d8be19ab6b8a1ceb37312c47497a7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504259"
 ---
 <a name="how-do-i"></a>Wie stimmen--i
 ====================

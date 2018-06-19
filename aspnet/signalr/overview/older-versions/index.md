@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/index
-title: "Ältere Versionen von SignalR | Microsoft Docs"
+title: Ältere Versionen von SignalR | Microsoft Docs
 author: rick-anderson
-description: "Dokumentation, die auf früheren Versionen von SignalR beziehen."
+description: Dokumentation, die auf früheren Versionen von SignalR beziehen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: 93e8dfe32fd0b38905a3b0f2d4f4894c9625ca4d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505499"
 ---
 <a name="signalr-older-versions"></a>Ältere Versionen von SignalR
 ====================

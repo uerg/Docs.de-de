@@ -17,6 +17,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555559"
 ---
 # <a name="use-the-single-page-application-templates-with-aspnet-core"></a>Verwenden der Projektvorlagen für Einzelseitenanwendungen (SPAs) mit ASP.NET Core
 

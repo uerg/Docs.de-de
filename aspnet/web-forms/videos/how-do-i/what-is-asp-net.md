@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/what-is-asp-net
 title: Was ist ASP.NET? | Microsoft-Dokumentation
 author: shanselman
-description: "Microsofts Scott Hanselman bietet eine kurze Übersicht über ASP.NET."
+description: Microsofts Scott Hanselman bietet eine kurze Übersicht über ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521529"
 ---
 <a name="what-is-aspnet"></a>Was ist ASP.NET?
 ====================

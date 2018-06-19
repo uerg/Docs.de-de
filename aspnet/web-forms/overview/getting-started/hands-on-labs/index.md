@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/index
-title: "Visual Studio 2012 praktische Übungseinheiten | Microsoft Docs"
+title: Visual Studio 2012 praktische Übungseinheiten | Microsoft Docs
 author: rick-anderson
 description: Informationen Sie zur Entwicklung mit ASP.NET Web Forms mit diese Zeiger-auf-Labs
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs
 msc.type: chapter
 ms.openlocfilehash: fcfb9d1f4b1cdd55dbc9472e2b74cab7a4c7d84b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516549"
 ---
 <a name="visual-studio-2012-hands-on-labs"></a>Visual Studio 2012 praktische Übungseinheiten
 ====================

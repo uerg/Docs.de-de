@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "SignalR-Verbindung Dichte Testen mit tatsächlich | Microsoft Docs"
+title: SignalR-Verbindung Dichte Testen mit tatsächlich | Microsoft Docs
 author: tfitzmac
-description: "SignalR-Verbindung Dichte Testen mit tatsächlich"
+description: SignalR-Verbindung Dichte Testen mit tatsächlich
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26535329"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>SignalR-Verbindung Dichte Testen mit tatsächlich
 ====================

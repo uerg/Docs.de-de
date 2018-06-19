@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
 title: '[Gewusst wie:] Erstellen Sie eine Wiederverwendbare Komponente zum Senden von E-Mail an eine Verteilerliste | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie zum Erstellen einer Komponente, die auf mehreren Webseiten und Websites verwendet werden kann, die e-Mail-Nachrichten an eine Liste der Empfänger sendet. Erste..."
+description: In diesem video Chris Pels wird gezeigt, wie zum Erstellen einer Komponente, die auf mehreren Webseiten und Websites verwendet werden kann, die e-Mail-Nachrichten an eine Liste der Empfänger sendet. Erste...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/04/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525499"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Gewusst wie:] Erstellen Sie eine Wiederverwendbare Komponente zum Senden von E-Mail an eine Verteilerliste
 ====================

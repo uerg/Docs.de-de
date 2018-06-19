@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/index
 title: ASP.NET MVC-erste Schritte | Microsoft Docs
 author: rick-anderson
-description: "Weitere Informationen zu ASP.NET MVC ASP.NET MVC bietet Ihnen leistungsfähige, auf Mustern basierende können dynamische Websites erstellen, die eine klare Trennung von Anliegen und diese g ermöglicht..."
+description: Weitere Informationen zu ASP.NET MVC ASP.NET MVC bietet Ihnen leistungsfähige, auf Mustern basierende können dynamische Websites erstellen, die eine klare Trennung von Anliegen und diese g ermöglicht...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/31/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 37d374d01ca122046f9fcd7b72331fc7cfe569cf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499209"
 ---
 <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC-erste Schritte
 ====================

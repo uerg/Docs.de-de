@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/index
 title: Controller und Routing | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm Satz erfahren Sie mehr über ASP.NET-Routing, wodurch eine Zuordnung Browseranforderungen zur ASP.NET MVC-Controller-Aktionen."
+description: In diesem Lernprogramm Satz erfahren Sie mehr über ASP.NET-Routing, wodurch eine Zuordnung Browseranforderungen zur ASP.NET MVC-Controller-Aktionen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing
 msc.type: chapter
 ms.openlocfilehash: fe42077c119599bd169464ec2a7cdc4a0dd008a3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499949"
 ---
 <a name="controllers-and-routing"></a>Controller und Routing
 ====================

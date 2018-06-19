@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index
 title: ASP.NET 4 - Enterprise-Bereitstellung Reihe 3 TFS konfigurieren | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm wird gezeigt, wie zum Konfigurieren von Team Foundation Server (TFS) 2010 zum Erstellen von Lösungen und Webinhalte auf verschiedenen zielumgebungen bereitstellen."
+description: In diesem Lernprogramm wird gezeigt, wie zum Konfigurieren von Team Foundation Server (TFS) 2010 zum Erstellen von Lösungen und Webinhalte auf verschiedenen zielumgebungen bereitstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server
 msc.type: chapter
 ms.openlocfilehash: e82bcc3d408a47233e2192d9dd9a56ecd06fbaa1
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515169"
 ---
 <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 - Enterprise-Bereitstellung Reihe 3 Konfigurieren von TFS
 ====================

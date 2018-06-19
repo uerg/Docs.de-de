@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/index
 title: Erste Schritte SignalR | Microsoft Docs
 author: rick-anderson
-description: "Weitere Informationen zu ASP.NET SignalR ASP.NET SignalR ist eine neue Bibliothek für ASP.NET-Entwickler,, die beim Entwickeln von Echtzeit-Webfunktionen erleichtert. SignalR ermöglicht Bi..."
+description: Weitere Informationen zu ASP.NET SignalR ASP.NET SignalR ist eine neue Bibliothek für ASP.NET-Entwickler,, die beim Entwickeln von Echtzeit-Webfunktionen erleichtert. SignalR ermöglicht Bi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 23d54a781354fbccfd5c42bfb4280d8c45ee4c30
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503829"
 ---
 <a name="signalr-getting-started"></a>Erste Schritte SignalR
 ====================

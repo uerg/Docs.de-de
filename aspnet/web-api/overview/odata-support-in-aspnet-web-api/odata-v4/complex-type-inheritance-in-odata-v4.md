@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
 title: Vererbung von komplexen Typ in OData v4 mit ASP.NET Web-API | Microsoft Docs
 author: microsoft
-description: "Gemäß den OData v4-Spezifikation kann ein komplexer Typ von einem anderen komplexen Typ erben. (Ein komplexer Typ ist ein strukturierter Typ ohne einen Schlüssel.) Web-API..."
+description: Gemäß den OData v4-Spezifikation kann ein komplexer Typ von einem anderen komplexen Typ erben. (Ein komplexer Typ ist ein strukturierter Typ ohne einen Schlüssel.) Web-API...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508419"
 ---
 <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>Vererbung von komplexen Typ in OData v4 mit ASP.NET Web-API
 ====================

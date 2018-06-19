@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
-title: "[Gewusst wie:] Erweitern und Anpassen von einem ASP.NET-Serversteuerelement für einen bestimmten Zweck | Microsoft Docs"
+title: '[Gewusst wie:] Erweitern und Anpassen von einem ASP.NET-Serversteuerelement für einen bestimmten Zweck | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie ein standard ASP.NET-Serversteuerelement erweitern, und passen Sie sie für einen bestimmten Zweck. Spezielle Steuerelemente bieten eine c..."
+description: In diesem video Chris Pels zeigt, wie ein standard ASP.NET-Serversteuerelement erweitern, und passen Sie sie für einen bestimmten Zweck. Spezielle Steuerelemente bieten eine c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526499"
 ---
 <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[Gewusst wie:] Erweitern und Anpassen von einem ASP.NET-Serversteuerelement für einen bestimmten Zweck
 ====================

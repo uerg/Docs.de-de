@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-an-edit-data-page-in-webmatrix
-title: "Erstellen Sie eine Bearbeitungsseite für Daten in WebMatrix | Microsoft Docs"
+title: Erstellen Sie eine Bearbeitungsseite für Daten in WebMatrix | Microsoft Docs
 author: rick-anderson
-description: "Teil 7 baut auf diese Weise können Sie verwenden eine Seite, um Ihre Datenbank bearbeiten und die Änderungen werden automatisch aktualisiert, Ihnen zu zeigen."
+description: Teil 7 baut auf diese Weise können Sie verwenden eine Seite, um Ihre Datenbank bearbeiten und die Änderungen werden automatisch aktualisiert, Ihnen zu zeigen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529759"
 ---
 <a name="create-an-edit-data-page-in-webmatrix"></a>Erstellen Sie eine Bearbeitungsseite für Daten in WebMatrix
 ====================

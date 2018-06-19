@@ -2,7 +2,7 @@
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 title: Mit der ASP.NET Web API 2 Selbsthosting OWIN | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie zum Hosten von ASP.NET Web-API in einer Konsolenanwendung, die mithilfe der Web-API-Framework selbst gehostet wird OWIN. Öffnen Sie die Weboberfläche für .NET (OWIN) d..."
+description: Dieses Lernprogramm zeigt, wie zum Hosten von ASP.NET Web-API in einer Konsolenanwendung, die mithilfe der Web-API-Framework selbst gehostet wird OWIN. Öffnen Sie die Weboberfläche für .NET (OWIN) d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506969"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a>Mit der ASP.NET Web API 2 Selbsthosting OWIN
 ====================

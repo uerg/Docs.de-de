@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 title: '[Gewusst wie:] Implementieren der Websitenavigation in ASP.NET? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "In diesem Video erfahren wir, wie eine Sitemap definieren und verwenden es mit Menüs, TreeView und Sitemap-Serversteuerelemente. Erfahren Sie, wie eine Sitemap auf einer Masterseite verwendet..."
+description: In diesem Video erfahren wir, wie eine Sitemap definieren und verwenden es mit Menüs, TreeView und Sitemap-Serversteuerelemente. Erfahren Sie, wie eine Sitemap auf einer Masterseite verwendet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525689"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Gewusst wie:] Implementieren der Websitenavigation in ASP.NET?
 ====================

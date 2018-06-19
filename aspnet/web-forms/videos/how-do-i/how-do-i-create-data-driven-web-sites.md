@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524909"
 ---
 <a name="how-do-i-create-data-driven-web-sites"></a>[Gewusst wie:] Erstellen eines datengesteuerten Websites?
 ====================

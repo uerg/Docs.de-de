@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
-title: "[Gewusst wie:] Konfigurieren einer ASP.NET-Website für eine .NET Framework-Version | Microsoft Docs"
+title: '[Gewusst wie:] Konfigurieren einer ASP.NET-Website für eine .NET Framework-Version | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels erfahren, wie so konfigurieren Sie eine ASP.NET-Website um eine bestimmte Version von ASP.NET/.NET Framework verwenden. Zunächst überprüfen Sie, welche V Identifizieren von..."
+description: In diesem video Chris Pels erfahren, wie so konfigurieren Sie eine ASP.NET-Website um eine bestimmte Version von ASP.NET/.NET Framework verwenden. Zunächst überprüfen Sie, welche V Identifizieren von...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525019"
 ---
 <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a>[Gewusst wie:] Konfigurieren einer ASP.NET-Website für eine .NET Framework-Version
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507129"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Praktische Übungseinheit: Visual Studio 2013-Webtools
 ====================
@@ -224,7 +225,7 @@ In dieser Aufgabe verwenden Sie den Browserlink **überprüfen Modus** Feature z
     *HTML-Element in der Visual Studio-HTML-Editor ausgewählt*
 4. Aktualisieren Sie jetzt die **Vorderseite** CSS-Klasse, um das Format des ausgewählten Elements zu ändern. Drücken Sie die zu diesem Zweck **STRG** + **,** So öffnen die **Navigieren zu** Suchfeld. Typ **"Site.CSS" ändern** , und drücken Sie **EINGABETASTE** zum Öffnen der Datei.
 
-    ![Öffnen die Datei "Site.CSS" ändern](visual-studio-2013-web-tools/_static/image16.png "Öffnen der Datei "Site.CSS" ändern")
+    ![Öffnen die Datei "Site.CSS" ändern](visual-studio-2013-web-tools/_static/image16.png "Öffnen der Datei \"Site.CSS\" ändern")
 
     *Öffnen der Datei "Site.CSS" ändern*
 5. Drücken Sie **STRG** + **F** und Typ **.flip Containter .front** die CSS-Auswahl gefunden.
@@ -320,12 +321,12 @@ In dieser Aufgabe verwenden Sie den Browserlink **Entwurfsmodus** Feature bearbe
 
 1. Wechseln Sie zu der **Ansicht** Menü, und klicken Sie auf **Fehlerliste** So öffnen die **Fehlerliste** Fenster.
 
-    ![In der Sicht Fehlerliste Menü](visual-studio-2013-web-tools/_static/image31.png "Fehlerliste im Menü "Ansicht"")
+    ![In der Sicht Fehlerliste Menü](visual-studio-2013-web-tools/_static/image31.png "Fehlerliste im Menü \"Ansicht\"")
 
     *Fehler in der Sicht im Menü angezeigt.*
 2. Beachten Sie, dass ein SEO-Warnung benachrichtigt, die eine **&lt;Meta&gt;** tag für die Beschreibung für die Seite fehlt. Doppelklicken Sie auf den Eintrag SEO Warnung, um dies zu beheben.
 
-    ![Fehlerliste (Fenster)](visual-studio-2013-web-tools/_static/image32.png "Fenster "Fehlerliste"")
+    ![Fehlerliste (Fenster)](visual-studio-2013-web-tools/_static/image32.png "Fenster \"Fehlerliste\"")
 
     *Fehlerliste (Fenster)*
 3. In der **Web Essentials** (Dialogfeld), klicken Sie auf **Ja** zum Einfügen einer Beschreibung &lt;Meta&gt; Tag.

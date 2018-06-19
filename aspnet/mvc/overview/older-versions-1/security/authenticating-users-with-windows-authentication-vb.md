@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868996"
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Authentifizieren von Benutzern mit Windows-Authentifizierung (VB)
 ====================

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 929c73c314a15e7003853d3996158d1328e597cb
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094599"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -141,14 +142,6 @@ Eine Ressourcendatei ist ein nützlicher Mechanismus für das Trennen von lokali
     Die Datei *Welcome.es.resx* wird in Visual Studio angezeigt.
 
     ![Die Ressourcendatei „Welcome Spanish (es)“ im Projektmappen-Explorer](localization/_static/se.png)
-
-<a name="error"></a>
-
-Wenn Sie Visual Studio 2017 15.3 (Vorschauversion) verwenden, erhalten Sie einen Fehlerindikator im Ressourcen-Editor. Entfernen Sie den Wert *ResXFileCodeGenerator* aus dem Eigenschaftenraster von *Benutzerdefiniertes Tool*, um diese Fehlermeldung zu vermeiden:
-
-![RESX-Editor](localization/_static/err.png)
-
-Alternativ können Sie diesen Fehler ignorieren. Dieser Fehler sollte im nächsten Release behoben sein.
 
 ## <a name="resource-file-naming"></a>Benennung von Ressourcendateien
 

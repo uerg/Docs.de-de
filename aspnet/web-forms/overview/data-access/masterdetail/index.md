@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/masterdetail/index
 title: Master/Detail | Microsoft Docs
 author: rick-anderson
-description: "Diese Lernprogramme zeigen, wie Masterdatensätze in einer Dropdownliste Listen- und Detailbildschirm in einem GridView-Steuerelement angezeigt wird."
+description: Diese Lernprogramme zeigen, wie Masterdatensätze in einer Dropdownliste Listen- und Detailbildschirm in einem GridView-Steuerelement angezeigt wird.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/masterdetail
 msc.type: chapter
 ms.openlocfilehash: d0e8193c008f5457a62cd009873883acc0c5c237
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514439"
 ---
 <a name="masterdetail"></a>Master/Detail
 ====================

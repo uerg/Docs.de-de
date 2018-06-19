@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
 title: '[Gewusst wie:] Bestimmen, ob eine Website oder einem Webanwendungsprojekt verwenden | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels werden die Unterschiede zwischen einem ASP.NET-Websiteprojekt und ein Webanwendungsprojekt vergleichen. Erfahren Sie, die Überlegungen zur Verwendung von..."
+description: In diesem video Chris Pels werden die Unterschiede zwischen einem ASP.NET-Websiteprojekt und ein Webanwendungsprojekt vergleichen. Erfahren Sie, die Überlegungen zur Verwendung von...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522199"
 ---
 <a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a>[Gewusst wie:] Bestimmen Sie, ob eine Website oder einem Webanwendungsprojekt verwenden
 ====================

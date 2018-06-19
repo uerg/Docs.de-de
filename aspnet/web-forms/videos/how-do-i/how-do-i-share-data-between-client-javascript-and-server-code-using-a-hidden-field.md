@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
-title: "[Gewusst wie:] Freigeben von Daten zwischen dem Client JavaScript und über ein ausgeblendetes Feld Servercode | Microsoft Docs"
+title: '[Gewusst wie:] Freigeben von Daten zwischen dem Client JavaScript und über ein ausgeblendetes Feld Servercode | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt Informationen zum Freigeben von Daten zwischen JavaScript und serverseitigen Code mit einem ausgeblendeten Feld auf einer ASP.NET-Seite. Als Nächstes erfahren Sie, wie t..."
+description: In diesem video Chris Pels zeigt Informationen zum Freigeben von Daten zwischen JavaScript und serverseitigen Code mit einem ausgeblendeten Feld auf einer ASP.NET-Seite. Als Nächstes erfahren Sie, wie t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521579"
 ---
 <a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a>[Gewusst wie:] Freigeben von Daten zwischen dem Client JavaScript und über ein ausgeblendetes Feld Servercode
 ====================

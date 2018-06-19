@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/index
 title: ASP.NET 4 - fortsetzen von Entity Framework 4 und WebForms | Microsoft Docs
 author: rick-anderson
-description: "Wie die Contoso U-Anwendung als eine n-Tier-Anwendung, die über das ObjectDataSource-Steuerelement zu erstellen und das Behandeln von Parallelität und Leistung zu maximieren."
+description: Wie die Contoso U-Anwendung als eine n-Tier-Anwendung, die über das ObjectDataSource-Steuerelement zu erstellen und das Behandeln von Parallelität und Leistung zu maximieren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-wit
 msc.type: chapter
 ms.openlocfilehash: aa412b55bddf886f6915dc852599a423c56c9fc3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516639"
 ---
 <a name="aspnet-4---continuing-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 - fortsetzen von Entity Framework 4 und WebForms
 ====================

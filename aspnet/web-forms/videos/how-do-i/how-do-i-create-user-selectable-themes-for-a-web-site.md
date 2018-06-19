@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
-title: "[Gewusst wie:] Benutzer auswählbare-Designs für eine Website erstellen | Microsoft Docs"
+title: '[Gewusst wie:] Benutzer auswählbare-Designs für eine Website erstellen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt Chris Pels, wie mehrere Designs für eine Website erstellen, und lassen Sie die Benutzer auswählen, welches Design auf den Standort angewendet wird. Finden Sie unter wie..."
+description: In diesem Video zeigt Chris Pels, wie mehrere Designs für eine Website erstellen, und lassen Sie die Benutzer auswählen, welches Design auf den Standort angewendet wird. Finden Sie unter wie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524949"
 ---
 <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a>[Gewusst wie:] Benutzer auswählbare-Designs für eine Website erstellen
 ====================

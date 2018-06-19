@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
 title: Actors weiter oben Modell Ansicht Controller Framework | Microsoft Docs
 author: Haacked
-description: "Finden Sie unter Gewusst wie: Erstellen einer einfachen Anwendung, die einige der wichtigen Funktionen von ASP.NET MVC hervorgehoben. Darüber hinaus erfahren Sie, wie mithilfe einiger der Produktivität der..."
+description: 'Finden Sie unter Gewusst wie: Erstellen einer einfachen Anwendung, die einige der wichtigen Funktionen von ASP.NET MVC hervorgehoben. Darüber hinaus erfahren Sie, wie mithilfe einiger der Produktivität der...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503439"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a>America des weiter oben Modell Ansicht Controller-Framework
 ====================

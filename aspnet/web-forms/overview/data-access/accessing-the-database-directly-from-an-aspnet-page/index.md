@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/index
 title: Zugriff auf die Datenbank direkt von einer ASP.NET-Seite | Microsoft Docs
 author: rick-anderson
-description: "In diesen Lernprogrammen erfahren, wie die SqlDataSource-Steuerelement zu verwenden, um die Datenbank direkt abgefragt werden, wenn Sie eine strikte Trennung zwischen der Präsentations- und Daten benötigen..."
+description: In diesen Lernprogrammen erfahren, wie die SqlDataSource-Steuerelement zu verwenden, um die Datenbank direkt abgefragt werden, wenn Sie eine strikte Trennung zwischen der Präsentations- und Daten benötigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-f
 msc.type: chapter
 ms.openlocfilehash: ec6474ccfd2aadc76dc21596fa1e4a5dc7bf01f8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511719"
 ---
 <a name="accessing-the-database-directly-from-an-aspnet-page"></a>Zugriff auf die Datenbank direkt von einer ASP.NET-Seite
 ====================

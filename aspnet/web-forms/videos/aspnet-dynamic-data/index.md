@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-dynamic-data/index
 title: ASP.NET Dynamic Data | Microsoft Docs
 author: rick-anderson
-description: "Wie ASP.NET Dynamic Data Gerüstbau Anwendungen erstellen, die automatisch wissen, wie auf Daten zugreift."
+description: Wie ASP.NET Dynamic Data Gerüstbau Anwendungen erstellen, die automatisch wissen, wie auf Daten zugreift.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
 ms.openlocfilehash: a2fc937d18572ac2e1bc41cd28b98569a2490a61
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522509"
 ---
 <a name="aspnet-dynamic-data"></a>ASP.NET Dynamic Data
 ====================

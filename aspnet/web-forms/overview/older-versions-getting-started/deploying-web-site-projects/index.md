@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/index
-title: "Bereitstellen von Website-Projekten in Visual Studio 2008 und früheren Versionen | Microsoft Docs"
+title: Bereitstellen von Website-Projekten in Visual Studio 2008 und früheren Versionen | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET-Webanwendungen in der Regel dienen, erstellt, und in einer lokalen Entwicklungsumgebung getestet und in einer produktionsumgebung Umgebung o bereitgestellt werden müssen..."
+description: ASP.NET-Webanwendungen in der Regel dienen, erstellt, und in einer lokalen Entwicklungsumgebung getestet und in einer produktionsumgebung Umgebung o bereitgestellt werden müssen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-
 msc.type: chapter
 ms.openlocfilehash: a5a332a226efe4c549ce123d611c58ce01439452
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26517409"
 ---
 <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Bereitstellen von Website-Projekten in Visual Studio 2008 und früheren Versionen
 ====================

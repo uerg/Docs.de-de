@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-file-uploads-with-an-ajax-style-interface
-title: "[Gewusst wie:]  Dateien mit einer AJAX-ähnlichen Schnittstelle | Microsoft Docs"
+title: '[Gewusst wie:]  Dateien mit einer AJAX-ähnlichen Schnittstelle | Microsoft Docs'
 author: JoeStagner
 description: In diesem Video wird ich veranschaulicht die Verwendung von ASP.NET ist ein AJAX-Stil Hochladen von Dateien vom Clientcomputer mit dem Server. Ich vorgebe AJAX-Stil, da es ist ein...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526209"
 ---
 <a name="how-do-i--file-uploads-with-an-ajax-style-interface"></a>[Gewusst wie:]  Dateiuploads mit einer AJAX-Stil-Schnittstelle
 ====================

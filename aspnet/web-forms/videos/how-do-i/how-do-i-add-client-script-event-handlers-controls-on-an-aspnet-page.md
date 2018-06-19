@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page
-title: "[Wie kann ich]: Hinzufügen von Steuerelementen für den Client Skript-Ereignis-Handler auf einer ASP.NET-Seite? | Microsoft-Dokumentation"
+title: '[Wie kann ich]: Hinzufügen von Steuerelementen für den Client Skript-Ereignis-Handler auf einer ASP.NET-Seite? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie Steuerelemente auf einer ASP.NET-Seite Skriptereignisse Client hinzu. Zunächst mehrere ASP.NET-Steuerelemente werden auf der Seite \"und\" eine e hinzugefügt..."
+description: In diesem video Chris Pels wird gezeigt, wie Steuerelemente auf einer ASP.NET-Seite Skriptereignisse Client hinzu. Zunächst mehrere ASP.NET-Steuerelemente werden auf der Seite "und" eine e hinzugefügt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525159"
 ---
 <a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a>[Wie kann ich]: Hinzufügen von Steuerelementen für den Client Skript-Ereignis-Handler auf einer ASP.NET-Seite?
 ====================

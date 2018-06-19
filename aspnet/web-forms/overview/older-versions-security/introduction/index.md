@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/index
-title: "ASP.NET 3.5 - Sicherheit – Einführung | Microsoft Docs"
+title: ASP.NET 3.5 - Sicherheit – Einführung | Microsoft Docs
 author: rick-anderson
 description: Diese Reihe von Lernprogrammen untersucht Techniken zum Authentifizieren von Benutzern den Zugriff mithilfe eines Anmeldeformulars (Formularauthentifizierung) und Autorisieren von auf einzelne Seiten...
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/introduction
 msc.type: chapter
 ms.openlocfilehash: f964a35693e781451db24ae6ed7ca8d5aa7a6917
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519059"
 ---
 <a name="aspnet-35---introduction-to-security"></a>ASP.NET 3.5 - Einführung in die Sicherheit
 ====================

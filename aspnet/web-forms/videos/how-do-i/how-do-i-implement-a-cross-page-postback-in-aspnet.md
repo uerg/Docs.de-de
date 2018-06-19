@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
-title: "[Gewusst wie:] Implementieren Sie ein PostBack seitenübergreifend in ASP.NET | Microsoft Docs"
+title: '[Gewusst wie:] Implementieren Sie ein PostBack seitenübergreifend in ASP.NET | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie eine plattformübergreifende Seite PostBack in ASP.NET erstellen, in denen ein Steuerelement auf einer Seite \"Quelle\" ein Postbackereignis, das ein anderes Ziel löst..."
+description: In diesem video Chris Pels zeigt, wie eine plattformübergreifende Seite PostBack in ASP.NET erstellen, in denen ein Steuerelement auf einer Seite "Quelle" ein Postbackereignis, das ein anderes Ziel löst...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526309"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[Gewusst wie:] Implementieren Sie ein PostBack seitenübergreifend in ASP.NET
 ====================

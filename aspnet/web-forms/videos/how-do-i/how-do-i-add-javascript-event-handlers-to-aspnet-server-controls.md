@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-event-handlers-to-aspnet-server-controls
-title: "[Gewusst wie:] JavaScript-Ereignishandler ASP.NET-Serversteuerelemente hinzufügen | Microsoft Docs"
+title: '[Gewusst wie:] JavaScript-Ereignishandler ASP.NET-Serversteuerelemente hinzufügen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt, Chris Pels wie für eine JavaScript-Methoden mit ASP.NET-Serversteuerelemente auf Clientseite bieten Funktionen für den Server Vertr...."
+description: In diesem Video zeigt, Chris Pels wie für eine JavaScript-Methoden mit ASP.NET-Serversteuerelemente auf Clientseite bieten Funktionen für den Server Vertr....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525409"
 ---
 <a name="how-do-i-add-javascript-event-handlers-to-aspnet-server-controls"></a>[Gewusst wie:] Hinzufügen von JavaScript-Ereignishandler zu ASP.NET-Serversteuerelementen
 ====================

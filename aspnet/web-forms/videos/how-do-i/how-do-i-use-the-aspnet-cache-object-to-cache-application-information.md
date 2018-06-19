@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
 title: '[Wie kann ich]: Verwenden Sie das ASP.NET Cacheobjekt zum Zwischenspeichern von Anwendungsinformationen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie das ASP.NET-Cache-Objekt zum Speichern von Anwendungsinformationen. Eine Beispielseite wird mit einer einfachen Benutzeroberfläche erstellt ein..."
+description: In diesem video Chris Pels zeigt, wie das ASP.NET-Cache-Objekt zum Speichern von Anwendungsinformationen. Eine Beispielseite wird mit einer einfachen Benutzeroberfläche erstellt ein...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525979"
 ---
 <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Wie kann ich]: Verwenden Sie das ASP.NET Cacheobjekt zum Zwischenspeichern von Anwendungsinformationen
 ====================

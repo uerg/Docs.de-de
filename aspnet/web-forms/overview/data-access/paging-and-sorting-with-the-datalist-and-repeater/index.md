@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/index
 title: Paging und Sortieren mit dem DataList und Repeater | Microsoft Docs
 author: rick-anderson
-description: "Diese Lernprogramme zeigen, wie pagingunterstützung für das DataList oder Wiederholungsmodul-Steuerelement eine sehr flexible Benutzeroberfläche erstellen, für das paging und sortieren hinzufügen."
+description: Diese Lernprogramme zeigen, wie pagingunterstützung für das DataList oder Wiederholungsmodul-Steuerelement eine sehr flexible Benutzeroberfläche erstellen, für das paging und sortieren hinzufügen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datal
 msc.type: chapter
 ms.openlocfilehash: e05b1a691a3a6378859847d4530f11bbe4d8c1d3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514419"
 ---
 <a name="paging-and-sorting-with-the-datalist-and-repeater"></a>Paging und Sortieren mit dem DataList und Repeater
 ====================

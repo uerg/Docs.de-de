@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object
-title: "[Gewusst wie:] Verwenden Sie das ObjectDataSource mit einem Daten-Klasse und das Geschäftsobjekt | Microsoft Docs"
+title: '[Gewusst wie:] Verwenden Sie das ObjectDataSource mit einem Daten-Klasse und das Geschäftsobjekt | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video wird Chris Pels ObjectDataSource als intermediate Ebene zwischen datengebundene Elemente der Benutzeroberfläche und eine benutzerdefinierte Daten Konto Funktionsweisen..."
+description: In diesem Video wird Chris Pels ObjectDataSource als intermediate Ebene zwischen datengebundene Elemente der Benutzeroberfläche und eine benutzerdefinierte Daten Konto Funktionsweisen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526119"
 ---
 <a name="how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object"></a>[Gewusst wie:] Verwenden Sie das ObjectDataSource mit einem Daten-Klasse und das Geschäftsobjekt
 ====================

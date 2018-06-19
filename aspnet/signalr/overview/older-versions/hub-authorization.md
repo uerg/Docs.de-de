@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
-title: "Authentifizierung und Autorisierung für SignalR-Hubs (SignalR 1.x) | Microsoft Docs"
+title: Authentifizierung und Autorisierung für SignalR-Hubs (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Dieses Thema beschreibt, wie festzulegen, welche Benutzer oder Rollen hubmethoden zugreifen können."
+description: Dieses Thema beschreibt, wie festzulegen, welche Benutzer oder Rollen hubmethoden zugreifen können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042874"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Authentifizierung und Autorisierung für SignalR-Hubs (SignalR 1.x)
 ====================
