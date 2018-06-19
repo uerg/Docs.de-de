@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891242"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Verwenden der Seitenprüfung in Visual Studio 2012
 ====================
@@ -145,7 +146,7 @@ In dieser Aufgabe erfahren Sie, wie mit der Seitenprüfung im Kontext eines ASP.
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Überprüfen von Elementen*
-7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![wählen Sie die Registerkarte "HTML", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wählen Sie die Registerkarte "HTML", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.") ), deaktivieren Sie den Cursor.
+7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![wählen Sie die Registerkarte "HTML", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wählen Sie die Registerkarte \"HTML\", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.") ), deaktivieren Sie den Cursor.
 8. Wählen Sie die **HTML** Registerkarte an, den im Browser Seitenprüfung gerenderten HTML-Code angezeigt.
 9. Klicken Sie in das HTML-Markup suchen Sie das Listenelement mit dem Link Koala, und wählen Sie sie.
 
@@ -295,12 +296,12 @@ In dieser Aufgabe erfahren Sie, wie die Page Inspector-Funktionen im Kontext ein
       > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
 2. Suchen Sie im Projektmappen-Explorer **"default.aspx"** Seite der rechten Maustaste darauf und wählen Sie **in Seitenprüfung anzeigen**.
 
-    ![Öffnen "default.aspx" mit der Seitenprüfung](using-page-inspector-in-visual-studio-2012/_static/image24.png "Öffnen von "default.aspx" mit der Seitenprüfung")
+    ![Öffnen "default.aspx" mit der Seitenprüfung](using-page-inspector-in-visual-studio-2012/_static/image24.png "Öffnen von \"default.aspx\" mit der Seitenprüfung")
 
     *Öffnen Sie "default.aspx" mit der Seitenprüfung*
 3. Die Seite Inspektor-Fenster wird "default.aspx" angezeigt.
 
-    ![Anzeigen von "default.aspx" in der Seitenprüfung](using-page-inspector-in-visual-studio-2012/_static/image25.png ""default.aspx" in Seitenprüfung anzeigen")
+    ![Anzeigen von "default.aspx" in der Seitenprüfung](using-page-inspector-in-visual-studio-2012/_static/image25.png "\"default.aspx\" in Seitenprüfung anzeigen")
 
     *"Default.aspx" in Seitenprüfung anzeigen*
 
@@ -312,7 +313,7 @@ In dieser Aufgabe erfahren Sie, wie die Page Inspector-Funktionen im Kontext ein
 
     Sie sehen die Quelldateien, die die gerenderte Standardseite erstellen. Dies ist nützlich zum Identifizieren alle Elemente auf einen Blick, insbesondere bei der Arbeit mit Benutzersteuerelemente und Masterseiten. Beachten Sie, dass Sie auch zu einzelnen Dateien navigieren können.
 
-    ![Die Registerkarte "Dateien"](using-page-inspector-in-visual-studio-2012/_static/image26.png "Registerkarte "der Dateien"")
+    ![Die Registerkarte "Dateien"](using-page-inspector-in-visual-studio-2012/_static/image26.png "Registerkarte \"der Dateien\"")
 
     *Die Registerkarte "Dateien"*
 5. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche auf der linken Seite der Registerkarten.

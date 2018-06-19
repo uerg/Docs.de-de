@@ -16,6 +16,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962593"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Hilfsprogramm für Teiltags in ASP.NET Core
 

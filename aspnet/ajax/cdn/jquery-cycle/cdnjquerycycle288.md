@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30078282"
 ---
 <a name="jquery-cycle-288"></a>jQuery-Zyklus 2,88
 ====================

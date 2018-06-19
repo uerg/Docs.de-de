@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521379"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-2"></a>[Gewusst wie:]  Mehrere Dateiuploads in ASP.NET 2
 ====================

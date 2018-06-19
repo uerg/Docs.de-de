@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890384"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Problembehandlung (12 12)
 ====================
@@ -316,7 +317,7 @@ Das Feld Quellfehler die Fehlerseite nennt die folgende Zeile aus der Datei "Web
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die ASP.NET 4 oder früher ausgerichtet ist stattdessen. Wenn Sie eine ASP.NET 4 oder früher Webprojekt mit dem gleichen Ziel bereitstellen, wählen Sie die **entfernen weiterer Dateien am Ziel** Kontrollkästchen auf der **Einstellungen** auf der Registerkarte die **"Web veröffentlichen"**Assistenten. Wenn Sie nicht auswählen **entfernen weiterer Dateien am Ziel**, werden Sie weiterhin erhalten, die Seite "Fehler bei der Konfiguration".
+Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die ASP.NET 4 oder früher ausgerichtet ist stattdessen. Wenn Sie eine ASP.NET 4 oder früher Webprojekt mit dem gleichen Ziel bereitstellen, wählen Sie die **entfernen weiterer Dateien am Ziel** Kontrollkästchen auf der **Einstellungen** auf der Registerkarte die **"Web veröffentlichen"** Assistenten. Wenn Sie nicht auswählen **entfernen weiterer Dateien am Ziel**, werden Sie weiterhin erhalten, die Seite "Fehler bei der Konfiguration".
 
 Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für ein Ziel-Framework, aber Sie können nicht das Problem beheben, indem Sie nur ändern, die von **.NET Framework 4.5** auf **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt verfügen weiterhin über Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell die Verweise ändern oder Erstellen eines neuen Projekts, das .NET Framework 4 oder früher ausgerichtet ist. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988080"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[Gewusst wie:] Nutzen Sie die CSS-Friendly Steuerelementadapter?
 ====================

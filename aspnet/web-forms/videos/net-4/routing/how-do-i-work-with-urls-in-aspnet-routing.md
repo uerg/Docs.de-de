@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893884"
 ---
 <a name="how-do-i-work-with-urls-in-aspnet-routing"></a>Gewusst wie: Arbeiten mit URLs in ASP.NET-Routing?
 ====================

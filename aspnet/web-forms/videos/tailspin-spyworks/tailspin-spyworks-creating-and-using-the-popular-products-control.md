@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893328"
 ---
 <a name="tailspin-spyworks---creating-and-using-the-popular-products-control"></a>Tailspin Spyworks - erstellen und verwenden das Steuerelement beliebte Produkte
 ====================

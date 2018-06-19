@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871622"
 ---
 <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>Storefront ASP.NET-MVC-Teil 4: Linq To Sql-Sammlung
 ====================

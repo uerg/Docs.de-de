@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control
-title: "[Gewusst wie:] Speichern und Laden Ansichtszustand Informationen für einen benutzerdefinierten Webserver-Steuerelement | Microsoft Docs"
+title: '[Gewusst wie:] Speichern und Laden Ansichtszustand Informationen für einen benutzerdefinierten Webserver-Steuerelement | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie persistent speichern und Wiederherstellen von Informationen in der \"ViewState\" Speichern eines benutzerdefinierten Steuerelements. Erfahren Sie zunächst, wie einfachen Wert beibehalten..."
+description: In diesem video Chris Pels zeigt, wie persistent speichern und Wiederherstellen von Informationen in der "ViewState" Speichern eines benutzerdefinierten Steuerelements. Erfahren Sie zunächst, wie einfachen Wert beibehalten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525569"
 ---
 <a name="how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control"></a>[Gewusst wie:] Speichern und Laden Ansichtszustand Informationen für einen benutzerdefinierten Webserver-Steuerelement
 ====================

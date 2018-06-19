@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872155"
 ---
 <a name="using-hovermenu-with-a-repeater-control-c"></a>Verwenden HoverMenu mit einem Wiederholungsmodul-Steuerelement (c#)
 ====================

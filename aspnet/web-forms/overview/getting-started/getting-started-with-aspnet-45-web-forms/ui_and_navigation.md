@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890241"
 ---
 <a name="ui-and-navigation"></a>Benutzeroberfläche und Navigation
 ====================
@@ -116,7 +117,7 @@ Eine Masterseite ist eine ASP.NET-Datei mit der Erweiterung .master (z. B. *Site
 
 Zusätzlich zu den `@Master` -Direktive die Gestaltungsvorlage enthält auch alle Elemente der obersten Ebene HTML für eine Seite, wie z. B. `html`, `head`, und `form`. Auf der Masterseite Sie oben hinzugefügt haben, verwenden Sie z. B. ein HTML `table` für das Layout einer `img` -Element für die Firmenlogo, statischen Text und Serversteuerelemente, allgemeine Mitgliedschaft für Ihre Website zu behandeln. Sie können die HTML-Elemente und ASP.NET-Elemente als Teil der Masterseite verwenden.
 
-Zusätzlich zu den statischen Text und Steuerelemente, die auf allen Seiten angezeigt werden, umfasst die Gestaltungsvorlage auch eine oder mehrere **ContentPlaceHolder** Steuerelemente. Diese Platzhaltersteuerelemente definieren Bereiche, wo ersetzbare Inhalt angezeigt wird. Wiederum ersetzbare Inhalt ist definiert in Inhaltsseiten, z. B. *"default.aspx"*unter Verwendung der **Inhalt** Serversteuerelement.
+Zusätzlich zu den statischen Text und Steuerelemente, die auf allen Seiten angezeigt werden, umfasst die Gestaltungsvorlage auch eine oder mehrere **ContentPlaceHolder** Steuerelemente. Diese Platzhaltersteuerelemente definieren Bereiche, wo ersetzbare Inhalt angezeigt wird. Wiederum ersetzbare Inhalt ist definiert in Inhaltsseiten, z. B. *"default.aspx"* unter Verwendung der **Inhalt** Serversteuerelement.
 
 #### <a name="adding-image-files"></a>Hinzufügen von Bilddateien
 

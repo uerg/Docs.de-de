@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508209"
 ---
 <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Erstellen Sie einen Singleton in OData v4 mithilfe von Web-API 2.2
 ====================

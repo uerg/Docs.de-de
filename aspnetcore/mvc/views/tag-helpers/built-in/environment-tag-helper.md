@@ -1,7 +1,7 @@
 ---
 title: Umgebungstaghilfsprogramm in ASP.NET Core
 author: pkellner
-description: "Definition des Umgebungstaghilfsprogramms für ASP.NET Core, einschließlich aller Eigenschaften"
+description: Definition des Umgebungstaghilfsprogramms für ASP.NET Core, einschließlich aller Eigenschaften
 manager: wpickett
 ms.author: riande
 ms.date: 07/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28901182"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>Umgebungstaghilfsprogramm in ASP.NET Core
 

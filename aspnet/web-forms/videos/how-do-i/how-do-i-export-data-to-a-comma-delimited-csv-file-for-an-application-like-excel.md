@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: "[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel | Microsoft Docs"
+title: '[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel | Microsoft Docs'
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels wie werden Daten aus einer Datenbank oder einer anderen Quelle und in eine durch Komma getrennte Datei, die in einer Anwendung li zu verwendenden exportieren...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525639"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel
 ====================

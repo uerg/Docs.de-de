@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
 title: OData in ASP.NET Web-API | Microsoft Docs
 author: rick-anderson
-description: "Vorgehensweise: Erstellen von OData-Endpunkte in der Web-API. OData ist ein Data Access-Protokoll für das Web. Es bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datasets. Web-API s..."
+description: 'Vorgehensweise: Erstellen von OData-Endpunkte in der Web-API. OData ist ein Data Access-Protokoll für das Web. Es bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datasets. Web-API s...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/17/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: dd46454ae78424ab383a71d185ff7a563692cc5f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508039"
 ---
 <a name="odata-in-aspnet-web-api"></a>OData in ASP.NET Web-API
 ====================

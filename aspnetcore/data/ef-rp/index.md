@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070419"
 ---
 # <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>ASP.NET Core-Razor-Seiten mit EF Core: Tutorialreihe
 

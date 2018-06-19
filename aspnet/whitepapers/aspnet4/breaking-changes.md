@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899115"
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 wichtige Änderungen
 ====================
@@ -242,7 +243,7 @@ In der `Web.config` des übergeordneten Webanwendung 2 von ASP.NET oder ASP.NET 
 
 [!code-xml[Main](breaking-changes/samples/sample9.xml)]
 
-Das folgende Beispiel zeigt wie die **Speicherort** Tag wird verwendet, um alle Konfigurationsabschnitte beginnend mit umschließen die **"appSettings"** Abschnitt und endend mit **"System.Webserver"**Abschnitt.
+Das folgende Beispiel zeigt wie die **Speicherort** Tag wird verwendet, um alle Konfigurationsabschnitte beginnend mit umschließen die **"appSettings"** Abschnitt und endend mit **"System.Webserver"** Abschnitt.
 
 [!code-xml[Main](breaking-changes/samples/sample10.xml)]
 

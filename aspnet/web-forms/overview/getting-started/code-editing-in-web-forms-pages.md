@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880751"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Code bearbeiten ASP.NET-Web Forms in Visual Studio 2013
 ====================
@@ -75,7 +76,7 @@ In diesem Teil der exemplarischen Vorgehensweise erstellen Sie ein Webanwendungs
 ## <a name="creating-a-new-aspnet-web-forms-page"></a>Erstellen einer neuen ASP.NET Web Forms-Seite
 
 
-Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"*sowie mehrere andere Dateien und Ordner ab. Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung. Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.
+Beim Erstellen einer neuen Web Forms-Anwendung, mithilfe der **ASP.NET-Webanwendung** Projektvorlage für Startseiten, fügt Visual Studio eine ASP.NET-Seite (Web Forms-Seite), die mit dem Namen *"default.aspx"* sowie mehrere andere Dateien und Ordner ab. Sie können die *"default.aspx"* Seite als Startseite für Ihre Web-Anwendung. Allerdings werden Sie in dieser exemplarischen Vorgehensweise erstellen und Arbeiten mit einer neuen Seite.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Die Webanwendung eine Seite hinzu
 

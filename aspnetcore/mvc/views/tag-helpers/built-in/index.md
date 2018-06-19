@@ -1,7 +1,7 @@
 ---
 title: 'ASP.NET Core: Integrierte Taghilfsprogramme'
 author: pkellner
-description: "Erfahren Sie, wie in ASP.NET Core integrierte Taghilfsprogramme dabei helfen, Ihre Produktivität zu steigern."
+description: Erfahren Sie, wie in ASP.NET Core integrierte Taghilfsprogramme dabei helfen, Ihre Produktivität zu steigern.
 manager: wpickett
 ms.author: riande
 ms.date: 09/13/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903207"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 

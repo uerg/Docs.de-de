@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879105"
 ---
 <a name="using-templatefields-in-the-detailsview-control-c"></a>Verwenden von TemplateFields im DetailsView-Steuerelement (c#)
 ====================

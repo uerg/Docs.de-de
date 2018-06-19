@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
 title: '[Gewusst wie:] Bereitstellen einer Website mit der Website-Kopiertool | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels erfahren, wie eine Website mit der Kopie Websiteverwaltungs-Tool in Visual Studio bereitstellen. Herstellen einer Verbindung mit einer Remotewebsite zunächst überprüfen, und..."
+description: In diesem video Chris Pels erfahren, wie eine Website mit der Kopie Websiteverwaltungs-Tool in Visual Studio bereitstellen. Herstellen einer Verbindung mit einer Remotewebsite zunächst überprüfen, und...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525669"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a>[Gewusst wie:] Bereitstellen einer Website mit der Kopie Websiteverwaltungs-Tool
 ====================

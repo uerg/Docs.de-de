@@ -2,7 +2,7 @@
 uid: web-pages/overview/security/index
 title: Sicherheit | Microsoft Docs
 author: rick-anderson
-description: "Zum Hinzufügen von Funktionen der Anmeldung zu einer ASP.NET Web Pages-Anwendung, und die Anwendung von Bots schützen."
+description: Zum Hinzufügen von Funktionen der Anmeldung zu einer ASP.NET Web Pages-Anwendung, und die Anwendung von Bots schützen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/security
 msc.type: chapter
 ms.openlocfilehash: 6b493fb9afaa894ec805ebd6684180c33a33b1b0
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529529"
 ---
 <a name="security"></a>Sicherheit
 ====================

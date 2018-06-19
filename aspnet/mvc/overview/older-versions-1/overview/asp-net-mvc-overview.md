@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/asp-net-mvc-overview
-title: "Übersicht über ASP.NET MVC | Microsoft Docs"
+title: Übersicht über ASP.NET MVC | Microsoft Docs
 author: microsoft
-description: "Weitere Informationen Sie zu den Unterschieden zwischen ASP.NET MVC-Anwendung und ASP.NET Web Forms-Anwendungen. Informationen Sie zum Erstellen einer ASP.NET MVC-Anwendung überlassen."
+description: Weitere Informationen Sie zu den Unterschieden zwischen ASP.NET MVC-Anwendung und ASP.NET Web Forms-Anwendungen. Informationen Sie zum Erstellen einer ASP.NET MVC-Anwendung überlassen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500869"
 ---
 <a name="aspnet-mvc-overview"></a>Übersicht über ASP.NET MVC
 ====================

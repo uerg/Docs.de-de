@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904546"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>Konfigurieren der Lokalisierung portabler Objekte in ASP.NET Core
 

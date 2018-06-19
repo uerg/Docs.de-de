@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/persistent-connection-authorization
-title: "Authentifizierung und Autorisierung für den permanenten SignalR-Verbindungen (SignalR 1.x) | Microsoft Docs"
+title: Authentifizierung und Autorisierung für den permanenten SignalR-Verbindungen (SignalR 1.x) | Microsoft Docs
 author: pfletcher
 description: Dieses Thema beschreibt die Autorisierung auf eine permanente Verbindung zu erzwingen. Allgemeine Informationen zur Integration der Sicherheit in einer SignalR-Anwendung...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036101"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections-signalr-1x"></a>Authentifizierung und Autorisierung für den permanenten SignalR-Verbindungen (SignalR 1.x)
 ====================

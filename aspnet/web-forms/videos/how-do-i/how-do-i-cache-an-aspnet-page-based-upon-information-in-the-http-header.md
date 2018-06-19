@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
 title: '[Gewusst wie:]  Cache eine ASP.NET-Seite auf Grundlage von Informationen in den HTTP-Header | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie der ASP.NET-Ausgabecache basierend auf Informationen in die HTTP-Header der Seite zu einer Seite. Zunächst potenziellen HTTP-ü..."
+description: In diesem video Chris Pels wird gezeigt, wie der ASP.NET-Ausgabecache basierend auf Informationen in die HTTP-Header der Seite zu einer Seite. Zunächst potenziellen HTTP-ü...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882216"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Gewusst wie:]  Cache-Informationen in den HTTP-Header einer ASP.NET-Seite Grundlage
 ====================

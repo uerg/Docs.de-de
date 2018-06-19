@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 title: Erstellen ein konsistentes Layout in der ASP.NET Web Pages (Razor)-Websites | Microsoft Docs
 author: tfitzmac
-description: "Um die zum Erstellen von Webseiten für Ihre Website effizienter gestalten, können Sie wiederverwendbare Blöcke von Inhalten (z. B. Kopf- und Fußzeilen) für die Website, und Sie c erstellen..."
+description: Um die zum Erstellen von Webseiten für Ihre Website effizienter gestalten, können Sie wiederverwendbare Blöcke von Inhalten (z. B. Kopf- und Fußzeilen) für die Website, und Sie c erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530239"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Erstellen ein konsistentes Layout in ASP.NET Web Pages (Razor)-Websites
 ====================

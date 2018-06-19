@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878346"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praktische Übungseinheit: Azure-Websites verwaltbar: verwalten, ändern und Skalierung
 ====================
@@ -382,7 +383,7 @@ In dieser Aufgabe aktivieren Sie in der Web-app Veröffentlichen in einer Stagin
     > [!NOTE]
     > Auszuführende alle Web-apps in der aktuellen Region und demselben Abonnement in **Standard** Modus, lassen Sie die **Alles auswählen** Kontrollkästchen der **Sites wählen** Konfiguration. Andernfalls deaktivieren Sie die **Alles markieren** Kontrollkästchen.
 
-    ![Aktualisieren der Web-app zum Modus "Standard"](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Aktualisieren der Web-app zum Modus "Standard"")
+    ![Aktualisieren der Web-app zum Modus "Standard"](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Aktualisieren der Web-app zum Modus \"Standard\"")
 
     *Aktualisieren der Web-App zum Modus "Standard"*
 3. Klicken Sie auf **Ja** um die Änderungen zu bestätigen.
@@ -685,7 +686,7 @@ In dieser Aufgabe verwenden Sie das Server-Explorer-Fenster in Visual Studio fü
 <a id="Ex4Task3"></a>
 #### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>Aufgabe 3: aktualisieren die Lösung, um statischen Inhalt von Azure Blob-Speicher nutzen.
 
-In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild hochgeladen in Azure Blob Storage (statt dem Image befindet sich in der Web-app) durch Hinzufügen einer ASP.NET URL-neuschreibungsregel in der **"Web.config"**Datei.
+In dieser Aufgabe Konfigurieren Sie die **GeekQuiz** Lösung nutzen Sie das Bild hochgeladen in Azure Blob Storage (statt dem Image befindet sich in der Web-app) durch Hinzufügen einer ASP.NET URL-neuschreibungsregel in der **"Web.config"** Datei.
 
 1. Öffnen Sie in Visual Studio die **"Web.config"** Datei innerhalb der **GeekQuiz** Projekt, und suchen Sie die **&lt;"System.Webserver"&gt;** Element.
 2. Fügen Sie den folgenden Code zum Hinzufügen eine URL-rewrite Regel, aktualisieren den Platzhalter mit den Namen des Speicherkontos.
@@ -846,7 +847,7 @@ Nun, dass **zur automatischen Skalierung** wurde konfiguriert, erstellen Sie ein
     *Den Test WebTest1 hinzufügen*
 15. In der **Testmischung** auf **Weiter**.
 
-    ![Abschließen der Seite "Testmischung"](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Abschließen der Seite "Testmischung"")
+    ![Abschließen der Seite "Testmischung"](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Abschließen der Seite \"Testmischung\"")
 
     *Abschließen der Seite "Testmischung"*
 16. In der **Netzwerkmischung** auf **Weiter**.
@@ -883,7 +884,7 @@ Sie werden nun führen Sie den Auslastungstest aus, den Sie in der vorherigen Au
 
 1. In **Projektmappen-Explorer**, doppelklicken Sie auf **"LoadTest1.LoadTest"** Auslastungstest zu öffnen.
 
-    ![Öffnen "LoadTest1.LoadTest"](maintainable-azure-websites-managing-change-and-scale/_static/image99.png ""LoadTest1.LoadTest" Öffnen")
+    ![Öffnen "LoadTest1.LoadTest"](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "\"LoadTest1.LoadTest\" Öffnen")
 
     *Die "LoadTest1.LoadTest" Öffnen*
 2. In der **"LoadTest1.LoadTest"** Fenster, klicken Sie auf die erste Schaltfläche in der Toolbox auf den Auslastungstest ausführen.

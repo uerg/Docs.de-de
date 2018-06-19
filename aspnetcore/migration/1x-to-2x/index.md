@@ -14,6 +14,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555234"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Migrieren von ASP.NET Core 1.x zu 2.0
 

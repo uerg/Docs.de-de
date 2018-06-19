@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: "Abhängigkeitsinjektion in ASP.NET Web API 2 | Microsoft Docs"
+title: Abhängigkeitsinjektion in ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: "Dieses Lernprogramm zeigt, wie Abhängigkeiten in der ASP.NET Web API-Controller einfügen. Softwareversionen, die im Lernprogramm Web API 2 Unity-Anwendungsblock verwendet..."
+description: Dieses Lernprogramm zeigt, wie Abhängigkeiten in der ASP.NET Web API-Controller einfügen. Softwareversionen, die im Lernprogramm Web API 2 Unity-Anwendungsblock verwendet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036514"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>Abhängigkeitsinjektion in ASP.NET Web API 2
 ====================
