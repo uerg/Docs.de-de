@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872109"
 ---
 <a name="creating-custom-html-helpers"></a><span data-ttu-id="f95d5-104">Erstellen von benutzerdefinierten HTML-Hilfsprogrammen</span><span class="sxs-lookup"><span data-stu-id="f95d5-104">Creating Custom HTML Helpers</span></span>
 ====================

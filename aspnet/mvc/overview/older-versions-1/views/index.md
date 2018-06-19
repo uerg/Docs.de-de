@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/index
 title: ASP.NET MVC-Ansichten | Microsoft Docs
 author: rick-anderson
-description: "Diese Reihe von Lernprogrammen bietet eine kurze Einführung in ASP.NET MVC-Ansichten, Anzeigen von Daten und HTML-Hilfsmethoden."
+description: Diese Reihe von Lernprogrammen bietet eine kurze Einführung in ASP.NET MVC-Ansichten, Anzeigen von Daten und HTML-Hilfsmethoden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/views
 msc.type: chapter
 ms.openlocfilehash: ba9f94794f1a53d9b3a027b1cfdf2e97b5544488
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500829"
 ---
 <a name="aspnet-mvc-views"></a><span data-ttu-id="4f057-103">ASP.NET MVC-Ansichten</span><span class="sxs-lookup"><span data-stu-id="4f057-103">ASP.NET MVC Views</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/session-level-objects
 title: Session-Objekte auf Serverebene | Microsoft Docs
 author: JoeStagner
-description: "In diesem Video wird etwas über die Sitzungsereignisse-Ebene und Objekte und vergleichen deren Verwendung mit ihrer Anwendung und Ebenen Entsprechungen."
+description: In diesem Video wird etwas über die Sitzungsereignisse-Ebene und Objekte und vergleichen deren Verwendung mit ihrer Anwendung und Ebenen Entsprechungen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524989"
 ---
 <a name="session-level-objects"></a><span data-ttu-id="cc0b1-103">Session-Objekte auf Serverebene</span><span class="sxs-lookup"><span data-stu-id="cc0b1-103">Session Level Objects</span></span>
 ====================

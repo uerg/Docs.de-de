@@ -2,7 +2,7 @@
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
 title: LINQ-Videos aus VB-Team | Microsoft Docs
 author: rick-anderson
-description: "Diese Videos ermöglichen, über eine Stunde und die Hälfte der Inhalte konzentriert sich auf die neue LINQ-Sprachfunktionen von Visual Basic 9.0 in Visual Studio 2008 enthalten."
+description: Diese Videos ermöglichen, über eine Stunde und die Hälfte der Inhalte konzentriert sich auf die neue LINQ-Sprachfunktionen von Visual Basic 9.0 in Visual Studio 2008 enthalten.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
 ms.openlocfilehash: a33cb02630be7ec688e4fce3d290f4a692f958ff
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525919"
 ---
 <a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="903f7-103">LINQ-Videos aus VB-Team</span><span class="sxs-lookup"><span data-stu-id="903f7-103">LINQ Videos from the VB Team</span></span>
 ====================

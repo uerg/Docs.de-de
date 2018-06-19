@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883306"
 ---
 <a name="begin-editing-the-templates-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="7c1c1-103">Mit dem beginnen Sie Bearbeiten von Vorlagen in ASP.NET Dynamic Data-Anwendungen</span><span class="sxs-lookup"><span data-stu-id="7c1c1-103">Begin Editing the Templates in ASP.NET Dynamic Data Applications</span></span>
 ====================

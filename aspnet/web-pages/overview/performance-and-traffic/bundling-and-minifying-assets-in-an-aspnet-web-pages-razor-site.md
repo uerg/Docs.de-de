@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
 title: Bundling und Minimierung mit Objekten in einer ASP.NET Web Pages (Razor) Website | Microsoft Docs
 author: microsoft
-description: "Bundling und Minimierung werden Methoden zum Beschleunigen Ihrer Website. M bündeln können kombinieren Sie mehrere JavaScript (. js)-Dateien oder mehrere cascading Stylesheet (...)"
+description: Bundling und Minimierung werden Methoden zum Beschleunigen Ihrer Website. M bündeln können kombinieren Sie mehrere JavaScript (. js)-Dateien oder mehrere cascading Stylesheet (...)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528549"
 ---
 <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="e2a26-104">Bundling und Minimierung mit Anlagen an einem Standort der ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="e2a26-104">Bundling and Minifying Assets in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

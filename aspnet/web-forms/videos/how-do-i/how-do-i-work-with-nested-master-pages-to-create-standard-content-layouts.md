@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
 title: '[Gewusst wie:] Arbeiten mit geschachtelten Masterseiten Standard Content Layouts erstellen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie verschachtelte Gestaltungsvorlagen verwenden, um einzelne Masterseiten zu erstellen, die verschiedene standardmäßige Content Layouts für w darstellen..."
+description: In diesem video Chris Pels zeigt, wie verschachtelte Gestaltungsvorlagen verwenden, um einzelne Masterseiten zu erstellen, die verschiedene standardmäßige Content Layouts für w darstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525959"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a><span data-ttu-id="6dff0-103">[Gewusst wie:] Arbeiten Sie mit geschachtelten Masterseiten Standard Content Layouts erstellen</span><span class="sxs-lookup"><span data-stu-id="6dff0-103">[How Do I:] Work with Nested Master Pages to Create Standard Content Layouts</span></span>
 ====================

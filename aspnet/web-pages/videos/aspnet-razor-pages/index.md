@@ -2,7 +2,7 @@
 uid: web-pages/videos/aspnet-razor-pages/index
 title: ASP.NET Razor Pages | Microsoft Docs
 author: rick-anderson
-description: "Die Videos können Sie anzeigen, um einen Drilldown in Web Pages und WebMatrix."
+description: Die Videos können Sie anzeigen, um einen Drilldown in Web Pages und WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529929"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="2d4c0-103">ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="2d4c0-103">ASP.NET Web Pages</span></span>
 =================

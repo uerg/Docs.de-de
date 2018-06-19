@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/index
 title: Filtern von Szenarien mit dem DataList und Repeater | Microsoft Docs
 author: rick-anderson
-description: "In diesen Lernprogrammen sehen Sie, wie mit dem Master/Detail-Berichte, die mithilfe von Dropdownlisten für die master-Datensätze und einem DataList-Steuerelement für die Details angezeigt."
+description: In diesen Lernprogrammen sehen Sie, wie mit dem Master/Detail-Berichte, die mithilfe von Dropdownlisten für die master-Datensätze und einem DataList-Steuerelement für die Details angezeigt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-data
 msc.type: chapter
 ms.openlocfilehash: a8a1c2301dc287b49149bc5afe85a7dedad54d58
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514099"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a><span data-ttu-id="6ba89-103">Filtern von Szenarien mit dem DataList und Repeater</span><span class="sxs-lookup"><span data-stu-id="6ba89-103">Filtering Scenarios with the DataList and Repeater</span></span>
 ====================

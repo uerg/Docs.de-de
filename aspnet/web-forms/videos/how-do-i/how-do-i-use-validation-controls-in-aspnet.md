@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
-title: "[Gewusst wie:]  Verwenden von Steuerelementen für die Validierung in ASP.NET? | Microsoft-Dokumentation"
+title: '[Gewusst wie:]  Verwenden von Steuerelementen für die Validierung in ASP.NET? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "Erfahren Sie in diesem Video, wie, die Validierungssteuerelemente, die in ASP.NET verfügbar, mit der um Überprüfung auf Webseiten zu implementieren. Die wichtigste Überprüfung steuert z. B...."
+description: Erfahren Sie in diesem Video, wie, die Validierungssteuerelemente, die in ASP.NET verfügbar, mit der um Überprüfung auf Webseiten zu implementieren. Die wichtigste Überprüfung steuert z. B....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525949"
 ---
 <a name="how-do-i--use-validation-controls-in-aspnet"></a><span data-ttu-id="55cdd-105">[Gewusst wie:]  Verwenden von Steuerelementen für die Validierung in ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="55cdd-105">[How Do I:]  Use Validation Controls in ASP.NET?</span></span>
 ====================

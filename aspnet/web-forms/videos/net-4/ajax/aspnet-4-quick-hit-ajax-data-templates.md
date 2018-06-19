@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885418"
 ---
 <a name="aspnet-4-quick-hit---ajax-data-templates"></a><span data-ttu-id="24f12-103">ASP.NET 4 "Schnelle Hit" - AJAX-Datenvorlagen</span><span class="sxs-lookup"><span data-stu-id="24f12-103">ASP.NET 4 "Quick Hit" - AJAX Data Templates</span></span>
 ====================

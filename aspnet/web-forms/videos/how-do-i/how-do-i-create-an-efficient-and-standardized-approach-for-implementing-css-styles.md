@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
 title: Wie erstelle einen effizienten und standardisierten Ansatz ich zum Implementieren der CSS-Formatvorlagen? | Microsoft-Dokumentation
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie zum Organisieren und Implementieren von CSS-Formatvorlagen, die ein standardisiertes Aussehen und Verhalten zu einer Website bereitstellen. Darüber hinaus werden die Formate..."
+description: In diesem video Chris Pels wird gezeigt, wie zum Organisieren und Implementieren von CSS-Formatvorlagen, die ein standardisiertes Aussehen und Verhalten zu einer Website bereitstellen. Darüber hinaus werden die Formate...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521899"
 ---
 <a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a><span data-ttu-id="df0b1-105">Wie erstelle einen effizienten und standardisierten Ansatz ich zum Implementieren der CSS-Formatvorlagen?</span><span class="sxs-lookup"><span data-stu-id="df0b1-105">How Do I: Create an Efficient and Standardized Approach for Implementing CSS Styles?</span></span>
 ====================

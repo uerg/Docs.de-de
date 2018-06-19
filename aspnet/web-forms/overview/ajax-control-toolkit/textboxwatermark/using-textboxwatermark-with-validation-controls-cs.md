@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868879"
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a><span data-ttu-id="d655f-104">Verwenden von TextBoxWatermark mit Validierungssteuerelemente (c#)</span><span class="sxs-lookup"><span data-stu-id="d655f-104">Using TextBoxWatermark With Validation Controls (C#)</span></span>
 ====================

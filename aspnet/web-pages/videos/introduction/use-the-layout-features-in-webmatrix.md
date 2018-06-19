@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/use-the-layout-features-in-webmatrix
 title: Verwenden Sie die Layoutfunktionen in WebMatrix | Microsoft Docs
 author: rick-anderson
-description: "Teil 4 erfahren Sie, Layout und wie Sie Layout in WebMatrix für gemeinsamen Code über die Seiten verwenden können."
+description: Teil 4 erfahren Sie, Layout und wie Sie Layout in WebMatrix für gemeinsamen Code über die Seiten verwenden können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529769"
 ---
 <a name="use-the-layout-features-in-webmatrix"></a><span data-ttu-id="14418-103">Verwenden Sie die Layoutfunktionen in WebMatrix</span><span class="sxs-lookup"><span data-stu-id="14418-103">Use the Layout Features in WebMatrix</span></span>
 ====================

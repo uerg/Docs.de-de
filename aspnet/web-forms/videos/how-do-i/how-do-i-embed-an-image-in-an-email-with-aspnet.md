@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-embed-an-image-in-an-email-with-aspnet
 title: '[Gewusst wie:] Einbetten eines Bilds in eine E-Mail mit ASP.NET | Microsoft Docs'
 author: rick-anderson
-description: "Chris Pels zeigt, wie ein Bild in einer e-Mail mit ASP.NET einbetten. Er erstellt ein Web Form (mit Feldern für an, von, Betreff und Text), verwendet der AlternateView..."
+description: Chris Pels zeigt, wie ein Bild in einer e-Mail mit ASP.NET einbetten. Er erstellt ein Web Form (mit Feldern für an, von, Betreff und Text), verwendet der AlternateView...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525069"
 ---
 <a name="how-do-i-embed-an-image-in-an-email-with-aspnet"></a><span data-ttu-id="ea6b4-104">[Gewusst wie:] Einbetten eines Bilds in eine E-Mail mit ASP.NET</span><span class="sxs-lookup"><span data-stu-id="ea6b4-104">[How Do I:] Embed an Image in an Email with ASP.NET</span></span>
 ====================

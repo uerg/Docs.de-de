@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/ajax-style-services-with-microsoft-visual-web-developer-2008
 title: AJAX-Stil-Diensten mit Microsoft Visual Web Developer 2008 | Microsoft Docs
 author: JoeStagner
-description: "AJAX bedeutet Verschiedenes an unterschiedliche Personen. Dieses Video zeigt Ihnen die Grundlagen zum Schreiben von AJAX-Stil-Dienste (und Client-Side-Consumer) in Visual Web Gerätetest-..."
+description: AJAX bedeutet Verschiedenes an unterschiedliche Personen. Dieses Video zeigt Ihnen die Grundlagen zum Schreiben von AJAX-Stil-Dienste (und Client-Side-Consumer) in Visual Web Gerätetest-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525429"
 ---
 <a name="ajax-style-services-with-microsoft-visual-web-developer-2008"></a><span data-ttu-id="6e0af-104">AJAX-Stil-Diensten mit Microsoft Visual Web Developer 2008</span><span class="sxs-lookup"><span data-stu-id="6e0af-104">AJAX Style Services with Microsoft Visual Web Developer 2008</span></span>
 ====================

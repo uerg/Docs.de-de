@@ -2,7 +2,7 @@
 uid: signalr/videos/getting-started/signalr-and-web-sockets
 title: SignalR und WebSockets | Microsoft Docs
 author: shanselman
-description: "Scott Hanselman führt SignalR und WebSockets."
+description: Scott Hanselman führt SignalR und WebSockets.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505519"
 ---
 <a name="signalr-and-web-sockets"></a><span data-ttu-id="26469-103">SignalR und WebSockets</span><span class="sxs-lookup"><span data-stu-id="26469-103">SignalR and Web Sockets</span></span>
 ====================

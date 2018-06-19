@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
 title: '[Gewusst wie:] Verwenden Sie Masterseiten und Websitenavigation? | Microsoft-Dokumentation'
 author: microsoft
-description: "Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mithilfe von ASP.NET 2.0 MasterPages. Finden Sie, wie einfach es ist, die Navigation zu einer Website hinzufügen..."
+description: Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mithilfe von ASP.NET 2.0 MasterPages. Finden Sie, wie einfach es ist, die Navigation zu einer Website hinzufügen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521499"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a><span data-ttu-id="7d063-105">[Gewusst wie:] Verwenden Sie Masterseiten und Websitenavigation?</span><span class="sxs-lookup"><span data-stu-id="7d063-105">[How Do I:] Use Master Pages and Site Navigation?</span></span>
 ====================

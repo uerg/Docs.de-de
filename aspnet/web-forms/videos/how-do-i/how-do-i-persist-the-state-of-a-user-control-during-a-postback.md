@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
-title: "[Wie kann ich]: den Zustand eines Benutzersteuerelements beibehalten, während ein Postback | Microsoft Docs"
+title: '[Wie kann ich]: den Zustand eines Benutzersteuerelements beibehalten, während ein Postback | Microsoft Docs'
 author: rick-anderson
 description: In diesem video Chris Pels wird gezeigt, wie der Status eines oder mehrere Objekte in einem Benutzersteuerelement beibehalten werden. Zuerst wird ein Benutzersteuerelement erstellt, das die Abilit darstellt...
 ms.author: aspnetcontent
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525969"
 ---
-<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a><span data-ttu-id="de83b-104">[Wie kann ich]: den Zustand eines Benutzersteuerelements beibehalten, während ein Postback</span><span class="sxs-lookup"><span data-stu-id="de83b-104">[How Do I]: Persist the State of a User Control During a Postback</span></span>
+<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Wie kann ich]: den Zustand eines Benutzersteuerelements beibehalten, während ein Postback
+[How Do I]: Persist the State of a User Control During a Postback
 ====================
 <span data-ttu-id="de83b-105">durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="de83b-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

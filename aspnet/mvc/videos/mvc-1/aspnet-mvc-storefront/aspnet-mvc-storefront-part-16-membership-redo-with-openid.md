@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868034"
 ---
 <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a><span data-ttu-id="64d09-104">ASP.NET MVC Storefront Teil 16: Mitgliedschaft Redo mit OpenID</span><span class="sxs-lookup"><span data-stu-id="64d09-104">ASP.NET MVC Storefront Part 16: Membership Redo With OpenID</span></span>
 ====================

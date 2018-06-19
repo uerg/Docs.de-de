@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526109"
 ---
 <a name="how-do-i--simple-file-uploads-in-aspnet"></a><span data-ttu-id="e6dd1-104">[Gewusst wie:]  Einfache Dateiuploads in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="e6dd1-104">[How Do I:]  Simple File Uploads in ASP.NET</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 title: Unter Verwendung von externen Websites in einer ASP.NET-Webanwendung angemeldet Pages (Razor) Standort | Microsoft Docs
 author: tfitzmac
-description: "In diesem Artikel wird erläutert, wie der ASP.NET Web Pages (Razor)-Site, die mithilfe von Google, Facebook, Twitter, Yahoo und andere Standorte anmelden – d. h. wie unterstützt..."
+description: In diesem Artikel wird erläutert, wie der ASP.NET Web Pages (Razor)-Site, die mithilfe von Google, Facebook, Twitter, Yahoo und andere Standorte anmelden – d. h. wie unterstützt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530169"
 ---
 <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="24794-103">Protokollierung bei der Verwendung von externen Sites in einem Standort der ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="24794-103">Logging In Using External Sites in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

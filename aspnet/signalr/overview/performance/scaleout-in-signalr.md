@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-in-signalr
-title: "Einführung in Warteschlangen für horizontale Skalierung in SignalR | Microsoft Docs"
+title: Einführung in Warteschlangen für horizontale Skalierung in SignalR | Microsoft Docs
 author: MikeWasson
-description: "Versionen der Software verwendete in diesem Thema Visual Studio 2013 .NET 4.5 SignalR Version 2-Vorgängerversionen des in diesem Thema Informationen zu früheren Versionen von..."
+description: Versionen der Software verwendete in diesem Thema Visual Studio 2013 .NET 4.5 SignalR Version 2-Vorgängerversionen des in diesem Thema Informationen zu früheren Versionen von...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034593"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a><span data-ttu-id="dedeb-103">Einführung in Warteschlangen für horizontale Skalierung in SignalR</span><span class="sxs-lookup"><span data-stu-id="dedeb-103">Introduction to Scaleout in SignalR</span></span>
 ====================

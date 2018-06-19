@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/testing-and-debugging
 msc.type: chapter
 ms.openlocfilehash: c9c43ce6c25496049c4788efc0cb5e39cb0db42a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529519"
 ---
 <a name="testing-and-debugging"></a><span data-ttu-id="f9f1f-103">Testen und Debuggen</span><span class="sxs-lookup"><span data-stu-id="f9f1f-103">Testing and Debugging</span></span>
 ====================

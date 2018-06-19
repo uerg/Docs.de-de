@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503819"
 ---
 <a name="mvc-3---razor-view-engine"></a><span data-ttu-id="42fd0-103">MVC 3 - Razor-Ansichtsmodul</span><span class="sxs-lookup"><span data-stu-id="42fd0-103">MVC 3 - Razor View Engine</span></span>
 ====================

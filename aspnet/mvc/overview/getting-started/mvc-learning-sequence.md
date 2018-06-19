@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/mvc-learning-sequence
 title: MVC empfohlen, Lernprogramme und Artikel | Microsoft Docs
 author: Rick-Anderson
-description: "Diese Seite enthält Links zu ASP.NET MVC-Lernprogrammen und eine vorgeschlagene Sequenz, die Links."
+description: Diese Seite enthält Links zu ASP.NET MVC-Lernprogrammen und eine vorgeschlagene Sequenz, die Links.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032640"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a><span data-ttu-id="aac48-103">MVC empfohlen, Lernprogramme und Artikel</span><span class="sxs-lookup"><span data-stu-id="aac48-103">MVC recommended tutorials and articles</span></span>
 ====================

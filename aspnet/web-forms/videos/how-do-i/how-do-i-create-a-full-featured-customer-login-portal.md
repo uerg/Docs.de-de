@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-full-featured-customer-login-portal
 title: '[Gewusst wie:] Erstellen Sie eine voll ausgestattete Anmeldung Kundenportal? | Microsoft-Dokumentation'
 author: microsoft
-description: "Durch die Erstellung einer fiktiven Kundenportal, erfahren Sie mehr über Masterseiten, Designs, Mitgliedschaft, Rollen, Websitenavigation, Benutzerprofile, nachvollziehen und..."
+description: Durch die Erstellung einer fiktiven Kundenportal, erfahren Sie mehr über Masterseiten, Designs, Mitgliedschaft, Rollen, Websitenavigation, Benutzerprofile, nachvollziehen und...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525299"
 ---
 <a name="how-do-i-create-a-full-featured-customer-login-portal"></a><span data-ttu-id="aa2a0-104">[Gewusst wie:] Erstellen Sie eine voll ausgestattete Anmeldung Kundenportal?</span><span class="sxs-lookup"><span data-stu-id="aa2a0-104">[How Do I:] Create a Full-Featured Customer Login Portal?</span></span>
 ====================

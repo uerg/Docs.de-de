@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507129"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a><span data-ttu-id="e5b37-104">Praktische Übungseinheit: Visual Studio 2013-Webtools</span><span class="sxs-lookup"><span data-stu-id="e5b37-104">Hands On Lab: Visual Studio 2013 Web Tools</span></span>
 ====================
@@ -224,7 +225,7 @@ ms.lasthandoff: 04/10/2018
     <span data-ttu-id="e5b37-235">*HTML-Element in der Visual Studio-HTML-Editor ausgewählt*</span><span class="sxs-lookup"><span data-stu-id="e5b37-235">*HTML element selected in the Visual Studio HTML editor*</span></span>
 4. <span data-ttu-id="e5b37-236">Aktualisieren Sie jetzt die **Vorderseite** CSS-Klasse, um das Format des ausgewählten Elements zu ändern.</span><span class="sxs-lookup"><span data-stu-id="e5b37-236">You will now update the **front** CSS class in order to change the styling of the selected element.</span></span> <span data-ttu-id="e5b37-237">Drücken Sie die zu diesem Zweck **STRG** + **,** So öffnen die **Navigieren zu** Suchfeld.</span><span class="sxs-lookup"><span data-stu-id="e5b37-237">To do so, press **CTRL** + **,** to open the **Navigate To** search box.</span></span> <span data-ttu-id="e5b37-238">Typ **"Site.CSS" ändern** , und drücken Sie **EINGABETASTE** zum Öffnen der Datei.</span><span class="sxs-lookup"><span data-stu-id="e5b37-238">Type **site.css** and press **ENTER** to open the file.</span></span>
 
-    <span data-ttu-id="e5b37-239">![Öffnen die Datei "Site.CSS" ändern](visual-studio-2013-web-tools/_static/image16.png "Öffnen der Datei "Site.CSS" ändern")</span><span class="sxs-lookup"><span data-stu-id="e5b37-239">![Opening file Site.css](visual-studio-2013-web-tools/_static/image16.png "Opening file Site.css")</span></span>
+    <span data-ttu-id="e5b37-239">![Öffnen die Datei "Site.CSS" ändern](visual-studio-2013-web-tools/_static/image16.png "Öffnen der Datei \"Site.CSS\" ändern")</span><span class="sxs-lookup"><span data-stu-id="e5b37-239">![Opening file Site.css](visual-studio-2013-web-tools/_static/image16.png "Opening file Site.css")</span></span>
 
     <span data-ttu-id="e5b37-240">*Öffnen der Datei "Site.CSS" ändern*</span><span class="sxs-lookup"><span data-stu-id="e5b37-240">*Opening file Site.css*</span></span>
 5. <span data-ttu-id="e5b37-241">Drücken Sie **STRG** + **F** und Typ **.flip Containter .front** die CSS-Auswahl gefunden.</span><span class="sxs-lookup"><span data-stu-id="e5b37-241">Press **CTRL** + **F** and type **.flip-containter .front** to find the CSS selector.</span></span>
@@ -320,12 +321,12 @@ ms.lasthandoff: 04/10/2018
 
 1. <span data-ttu-id="e5b37-305">Wechseln Sie zu der **Ansicht** Menü, und klicken Sie auf **Fehlerliste** So öffnen die **Fehlerliste** Fenster.</span><span class="sxs-lookup"><span data-stu-id="e5b37-305">Go to the **View** menu and click **Error List** to open the **Error List** window.</span></span>
 
-    <span data-ttu-id="e5b37-306">![In der Sicht Fehlerliste Menü](visual-studio-2013-web-tools/_static/image31.png "Fehlerliste im Menü "Ansicht"")</span><span class="sxs-lookup"><span data-stu-id="e5b37-306">![Error List in View menu](visual-studio-2013-web-tools/_static/image31.png "Error List in View menu")</span></span>
+    <span data-ttu-id="e5b37-306">![In der Sicht Fehlerliste Menü](visual-studio-2013-web-tools/_static/image31.png "Fehlerliste im Menü \"Ansicht\"")</span><span class="sxs-lookup"><span data-stu-id="e5b37-306">![Error List in View menu](visual-studio-2013-web-tools/_static/image31.png "Error List in View menu")</span></span>
 
     <span data-ttu-id="e5b37-307">*Fehler in der Sicht im Menü angezeigt.*</span><span class="sxs-lookup"><span data-stu-id="e5b37-307">*Error List in View menu*</span></span>
 2. <span data-ttu-id="e5b37-308">Beachten Sie, dass ein SEO-Warnung benachrichtigt, die eine **&lt;Meta&gt;** tag für die Beschreibung für die Seite fehlt.</span><span class="sxs-lookup"><span data-stu-id="e5b37-308">Notice that there is an SEO warning notifying that a **&lt;meta&gt;** tag for the page description is missing.</span></span> <span data-ttu-id="e5b37-309">Doppelklicken Sie auf den Eintrag SEO Warnung, um dies zu beheben.</span><span class="sxs-lookup"><span data-stu-id="e5b37-309">Double-click the SEO warning entry to fix it.</span></span>
 
-    <span data-ttu-id="e5b37-310">![Fehlerliste (Fenster)](visual-studio-2013-web-tools/_static/image32.png "Fenster "Fehlerliste"")</span><span class="sxs-lookup"><span data-stu-id="e5b37-310">![Error List window](visual-studio-2013-web-tools/_static/image32.png "Error List window")</span></span>
+    <span data-ttu-id="e5b37-310">![Fehlerliste (Fenster)](visual-studio-2013-web-tools/_static/image32.png "Fenster \"Fehlerliste\"")</span><span class="sxs-lookup"><span data-stu-id="e5b37-310">![Error List window](visual-studio-2013-web-tools/_static/image32.png "Error List window")</span></span>
 
     <span data-ttu-id="e5b37-311">*Fehlerliste (Fenster)*</span><span class="sxs-lookup"><span data-stu-id="e5b37-311">*Error List window*</span></span>
 3. <span data-ttu-id="e5b37-312">In der **Web Essentials** (Dialogfeld), klicken Sie auf **Ja** zum Einfügen einer Beschreibung &lt;Meta&gt; Tag.</span><span class="sxs-lookup"><span data-stu-id="e5b37-312">In the **Web Essentials** dialog box, click **Yes** to insert a description &lt;meta&gt; tag.</span></span>

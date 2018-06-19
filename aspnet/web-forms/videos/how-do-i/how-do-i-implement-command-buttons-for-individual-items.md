@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
-title: "[Gewusst wie:] Implementieren Sie für einzelne Elemente Befehlsschaltflächen | Microsoft Docs"
+title: '[Gewusst wie:] Implementieren Sie für einzelne Elemente Befehlsschaltflächen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video zeigt Chris Pels wie Ereignisse im Zusammenhang mit einem Schaltflächen-Steuerelement in den einzelnen Elementen eines datengebundenen Steuerelements wie ein ListView-Steuerelement behandelt. Die erste..."
+description: In diesem Video zeigt Chris Pels wie Ereignisse im Zusammenhang mit einem Schaltflächen-Steuerelement in den einzelnen Elementen eines datengebundenen Steuerelements wie ein ListView-Steuerelement behandelt. Die erste...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525559"
 ---
 <a name="how-do-i-implement-command-buttons-for-individual-items"></a><span data-ttu-id="a8bc4-104">[Gewusst wie:] Befehlsschaltflächen für einzelne Elemente zu implementieren.</span><span class="sxs-lookup"><span data-stu-id="a8bc4-104">[How Do I:] Implement Command Buttons for Individual Items</span></span>
 ====================

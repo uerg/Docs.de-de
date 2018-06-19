@@ -2,7 +2,7 @@
 uid: web-api/videos/getting-started/your-first-web-api
 title: 'ASP.NET Web-API, Teil 1: Ihre erste Web-API | Microsoft Docs'
 author: jongalloway
-description: "Hinweis: In diesem Video enthält Informationen aus einer Vorabversion von ASP.NET Web-API"
+description: 'Hinweis: In diesem Video enthält Informationen aus einer Vorabversion von ASP.NET Web-API'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509089"
 ---
 <a name="aspnet-web-api-part-1-your-first-web-api"></a><span data-ttu-id="55876-103">ASP.NET Web-API, Teil 1: Ihre erste Web-API</span><span class="sxs-lookup"><span data-stu-id="55876-103">ASP.NET Web API, Part 1: Your First Web API</span></span>
 ====================

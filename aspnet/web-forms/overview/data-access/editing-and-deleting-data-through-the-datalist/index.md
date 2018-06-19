@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: "Bearbeiten und Löschen von Daten über das DataList | Microsoft Docs"
+title: Bearbeiten und Löschen von Daten über das DataList | Microsoft Docs
 author: rick-anderson
-description: "Diese Lernprogramme zeigen, wie das DataList-Steuerelement zu optimieren, sodass sie verwendet, die Daten ändern können."
+description: Diese Lernprogramme zeigen, wie das DataList-Steuerelement zu optimieren, sodass sie verwendet, die Daten ändern können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through
 msc.type: chapter
 ms.openlocfilehash: f4056e4c88fd3e270de275dd7dd52e944cfc0862
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513439"
 ---
 <a name="editing-and-deleting-data-through-the-datalist"></a><span data-ttu-id="e685e-103">Bearbeiten und Löschen von Daten über das DataList</span><span class="sxs-lookup"><span data-stu-id="e685e-103">Editing and Deleting Data Through the DataList</span></span>
 ====================

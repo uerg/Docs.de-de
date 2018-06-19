@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
 title: '[Gewusst wie:]  Erstellen Sie ein benutzerdefiniertes Steuerelement in ASP.NET? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "In diesem Video zeigen Chris Pels, wie ein benutzerdefiniertes Steuerelement in ASP.NET zu erstellen, die in einer Web-Website oder über viele Websites verwendet werden können. STA..."
+description: In diesem Video zeigen Chris Pels, wie ein benutzerdefiniertes Steuerelement in ASP.NET zu erstellen, die in einer Web-Website oder über viele Websites verwendet werden können. STA...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525029"
 ---
 <a name="how-do-i--create-a-custom-user-control-in-aspnet"></a><span data-ttu-id="63e8b-105">[Gewusst wie:]  Erstellen Sie ein benutzerdefiniertes Steuerelement in ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="63e8b-105">[How Do I:]  Create a Custom User Control in ASP.NET?</span></span>
 ====================

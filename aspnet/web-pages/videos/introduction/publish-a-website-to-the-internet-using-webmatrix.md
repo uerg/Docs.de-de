@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/publish-a-website-to-the-internet-using-webmatrix
-title: "Veröffentlichen eine Website mit dem Internet mithilfe von WebMatrix | Microsoft Docs"
+title: Veröffentlichen eine Website mit dem Internet mithilfe von WebMatrix | Microsoft Docs
 author: rick-anderson
-description: "Teil 9 veranschaulicht Sie Ihre Website im Internet veröffentlichen mithilfe von WebMatrix."
+description: Teil 9 veranschaulicht Sie Ihre Website im Internet veröffentlichen mithilfe von WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529839"
 ---
 <a name="publish-a-website-to-the-internet-using-webmatrix"></a><span data-ttu-id="46265-103">Veröffentlichen einer Websites mit dem Internet mithilfe von WebMatrix</span><span class="sxs-lookup"><span data-stu-id="46265-103">Publish a Website to the Internet Using WebMatrix</span></span>
 ====================

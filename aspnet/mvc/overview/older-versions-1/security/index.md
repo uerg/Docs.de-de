@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/index
 title: Sicherheit | Microsoft Docs
 author: rick-anderson
-description: "Legen Sie dieses Lernprogramm behandelt wie mit einem Kennwort schützen, einige Seiten in Ihre ASP.NET MVC-Anwendung und das Erstellen und Verwalten von Benutzern und Rollen."
+description: Legen Sie dieses Lernprogramm behandelt wie mit einem Kennwort schützen, einige Seiten in Ihre ASP.NET MVC-Anwendung und das Erstellen und Verwalten von Benutzern und Rollen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/security
 msc.type: chapter
 ms.openlocfilehash: 827802db011995cb8728f51d5c967e50669045e2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500649"
 ---
 <a name="security"></a><span data-ttu-id="d2549-103">Sicherheit</span><span class="sxs-lookup"><span data-stu-id="d2549-103">Security</span></span>
 ====================

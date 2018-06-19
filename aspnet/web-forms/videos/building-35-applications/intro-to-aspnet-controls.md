@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-aspnet-controls
-title: "Einführung in ASP.NET-Steuerelemente | Microsoft Docs"
+title: Einführung in ASP.NET-Steuerelemente | Microsoft Docs
 author: JoeStagner
-description: "Steuerelemente-driven Development können tatsächlich Ihre Entwicklung Produktivität zu steigern. Dieses Video bietet eine grundlegende Einführung in ASP.NET Standardsteuerelemente."
+description: Steuerelemente-driven Development können tatsächlich Ihre Entwicklung Produktivität zu steigern. Dieses Video bietet eine grundlegende Einführung in ASP.NET Standardsteuerelemente.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520959"
 ---
 <a name="intro-to-aspnet-controls"></a><span data-ttu-id="05548-104">Einführung in ASP.NET-Steuerelemente</span><span class="sxs-lookup"><span data-stu-id="05548-104">Intro to ASP.NET Controls</span></span>
 ====================

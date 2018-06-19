@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider
 title: '[Gewusst wie:] Schreiben Sie Webereignisse mit einer SQL Server-Datenbank mithilfe der SqlWebEventProvider | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie die ASP.NET-Systemüberwachung SqlWebEventProvider Protokollieren von Fehlern in einer Website mit einer SQL Server-Datenbank. Erstens löschen..."
+description: In diesem video Chris Pels zeigt, wie die ASP.NET-Systemüberwachung SqlWebEventProvider Protokollieren von Fehlern in einer Website mit einer SQL Server-Datenbank. Erstens löschen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526539"
 ---
 <a name="how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider"></a><span data-ttu-id="bd972-104">[Gewusst wie:] Schreiben Sie Webereignisse in einer SQL Server-Datenbank mithilfe der SqlWebEventProvider</span><span class="sxs-lookup"><span data-stu-id="bd972-104">[How Do I:] Write Web Events to a SQL Server Database Using the SqlWebEventProvider</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/security
 msc.type: chapter
 ms.openlocfilehash: 01ce39a655b69c038b4e39b013af9013968c2ac2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505579"
 ---
 <a name="signalr-security"></a><span data-ttu-id="530f3-103">SignalR-Sicherheit</span><span class="sxs-lookup"><span data-stu-id="530f3-103">SignalR Security</span></span>
 ====================

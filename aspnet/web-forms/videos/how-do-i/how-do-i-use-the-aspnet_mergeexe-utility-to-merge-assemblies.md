@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: "[Gewusst wie:] Verwenden Sie das Hilfsprogramm aspnet_merge.exe zum Zusammenführen von Assemblys | Microsoft Docs"
+title: '[Gewusst wie:] Verwenden Sie das Hilfsprogramm aspnet_merge.exe zum Zusammenführen von Assemblys | Microsoft Docs'
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels, wie das aspnet_merge.exe-Hilfsprogramm verwenden, um Assemblys zu kombinieren, die mit der aspnet_compiler.exe Utilit kompiliert wurden...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526489"
 ---
 <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a><span data-ttu-id="fb5e4-103">[Gewusst wie:] Verwenden Sie das Dienstprogramm aspnet_merge.exe zum Zusammenführen von Assemblys</span><span class="sxs-lookup"><span data-stu-id="fb5e4-103">[How Do I:] Use the aspnet_merge.exe Utility to Merge Assemblies</span></span>
 ====================

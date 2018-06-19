@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036777"
 ---
 <a name="tutorial-signalr-self-host"></a><span data-ttu-id="f772d-104">Lernprogramm: SignalR Selbsthosting</span><span class="sxs-lookup"><span data-stu-id="f772d-104">Tutorial: SignalR Self-Host</span></span>
 ====================

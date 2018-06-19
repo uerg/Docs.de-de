@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/index
 title: ASP.NET 4 - Tailspin Spyworks | Microsoft Docs
 author: rick-anderson
-description: "Wie Sie neue Funktionen in ASP.NET 4 zu verwenden, um einem Onlineshop, einschließlich Warenkorb, Auschecken und Verwaltung zu erstellen."
+description: Wie Sie neue Funktionen in ASP.NET 4 zu verwenden, um einem Onlineshop, einschließlich Warenkorb, Auschecken und Verwaltung zu erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spywo
 msc.type: chapter
 ms.openlocfilehash: f08b0b6d30501971febb4d8054f673f92a8bc275
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518649"
 ---
 <a name="aspnet-4---tailspin-spyworks"></a><span data-ttu-id="bb9ac-103">ASP.NET 4 - Tailspin Spyworks</span><span class="sxs-lookup"><span data-stu-id="bb9ac-103">ASP.NET 4 - Tailspin Spyworks</span></span>
 ====================

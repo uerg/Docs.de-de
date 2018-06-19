@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor
 msc.type: chapter
 ms.openlocfilehash: 06e68d964cecc00c0ab45f7965a8df11e8afc6ea
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510619"
 ---
 <a name="htmleditor"></a><span data-ttu-id="d752d-103">HTMLEditor</span><span class="sxs-lookup"><span data-stu-id="d752d-103">HTMLEditor</span></span>
 ====================

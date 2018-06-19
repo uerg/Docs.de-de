@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
-title: "[Gewusst wie:] Implementieren Sie ein benutzerdefiniertes Ereignis für die Integritätsüberwachung | Microsoft Docs"
+title: '[Gewusst wie:] Implementieren Sie ein benutzerdefiniertes Ereignis für die Integritätsüberwachung | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie ein Ereignis, das eine standardmäßige Systemüberwachungsereignissen in ASP.NET erweitert die benutzerdefinierte Integritätsüberwachung erstellen. Die benutzerdefinierte Pro..."
+description: In diesem video Chris Pels zeigt, wie ein Ereignis, das eine standardmäßige Systemüberwachungsereignissen in ASP.NET erweitert die benutzerdefinierte Integritätsüberwachung erstellen. Die benutzerdefinierte Pro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524959"
 ---
 <a name="how-do-i-implement-a-custom-health-monitoring-event"></a><span data-ttu-id="4397a-104">[Gewusst wie:] Implementieren Sie eine benutzerdefinierte Integritätsüberwachung-Ereignis</span><span class="sxs-lookup"><span data-stu-id="4397a-104">[How Do I:] Implement a Custom Health Monitoring Event</span></span>
 ====================

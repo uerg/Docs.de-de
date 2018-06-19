@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
 title: '[Gewusst wie:] Erstellen Sie einen benutzerdefinierter Mitgliedschaftsanbieter? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "Einem Mitgliedschaftsanbieter ermöglicht eine Webanwendung zum Speichern und Abrufen von Daten der Benutzergruppenmitgliedschaft für einen Benutzer, und der standardmäßigen ASP.NET-Mitgliedschaftsanbieter verwendet vorab definieren..."
+description: Einem Mitgliedschaftsanbieter ermöglicht eine Webanwendung zum Speichern und Abrufen von Daten der Benutzergruppenmitgliedschaft für einen Benutzer, und der standardmäßigen ASP.NET-Mitgliedschaftsanbieter verwendet vorab definieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525519"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a><span data-ttu-id="694e5-104">[Gewusst wie:] Erstellen Sie einen benutzerdefinierter Mitgliedschaftsanbieter?</span><span class="sxs-lookup"><span data-stu-id="694e5-104">[How Do I:] Create a Custom Membership Provider?</span></span>
 ====================

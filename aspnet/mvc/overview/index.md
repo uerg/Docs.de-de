@@ -2,7 +2,7 @@
 uid: mvc/overview/index
 title: ASP.NET MVC-Leitfaden | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview
 msc.type: book
 ms.openlocfilehash: da7640ae8661d0affe798cd5f3d664179bb6bfc2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499199"
 ---
 <a name="aspnet-mvc-guidance"></a><span data-ttu-id="e67ce-102">ASP.NET MVC-Leitfaden</span><span class="sxs-lookup"><span data-stu-id="e67ce-102">ASP.NET MVC Guidance</span></span>
 ====================

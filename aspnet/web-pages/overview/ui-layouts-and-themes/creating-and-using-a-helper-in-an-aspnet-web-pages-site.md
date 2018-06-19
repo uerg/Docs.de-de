@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529999"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="5b8ac-104">Erstellen und verwenden eine Hilfsmethode in einer ASP.NET Web Pages (Razor) Standort</span><span class="sxs-lookup"><span data-stu-id="5b8ac-104">Creating and Using a Helper in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

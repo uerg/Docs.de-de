@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
-title: "[Gewusst wie:] E-Mail-Benachrichtigung für die Systemüberwachung für eine ASP.NET-Website konfigurieren | Microsoft Docs"
+title: '[Gewusst wie:] E-Mail-Benachrichtigung für die Systemüberwachung für eine ASP.NET-Website konfigurieren | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie e-Mail-Benachrichtigungen für die Integritätsüberwachung einer ASP.NET-Website konfigurieren. Zunächst Informationen Sie zum Konfigurieren des Sendens von e..."
+description: In diesem video Chris Pels zeigt, wie e-Mail-Benachrichtigungen für die Integritätsüberwachung einer ASP.NET-Website konfigurieren. Zunächst Informationen Sie zum Konfigurieren des Sendens von e...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521759"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a><span data-ttu-id="a57ed-104">[Gewusst wie:] Konfigurieren Sie e-Mail-Benachrichtigungen für die Integritätsüberwachung auf einer ASP.NET-Website</span><span class="sxs-lookup"><span data-stu-id="a57ed-104">[How Do I:] Configure Email Notification for Health Monitoring on an ASP.NET Web Site</span></span>
 ====================

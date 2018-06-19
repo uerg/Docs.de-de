@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/rating/index
 title: Bewertung | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm veranschaulicht, wie mithilfe des Steuerelements für die Bewertung um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen."
+description: Dieses Lernprogramm veranschaulicht, wie mithilfe des Steuerelements für die Bewertung um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating
 msc.type: chapter
 ms.openlocfilehash: cabc043fd4be36d5d81563fa2f4b7e46a08fcad8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511609"
 ---
 <a name="rating"></a><span data-ttu-id="1df79-103">Bewertung</span><span class="sxs-lookup"><span data-stu-id="1df79-103">Rating</span></span>
 ====================

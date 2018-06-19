@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/index
 title: ASP.NET 3.5 - Mitgliedschaft | Microsoft Docs
 author: rick-anderson
-description: "Diese Reihe von Lernprogrammen untersucht Techniken für die Verwendung der integrierten Mitgliedschaftssystem (Sicherheit) zum Erstellen von Benutzerkonten und Konfigurieren von Autorisierungsregeln."
+description: Diese Reihe von Lernprogrammen untersucht Techniken für die Verwendung der integrierten Mitgliedschaftssystem (Sicherheit) zum Erstellen von Benutzerkonten und Konfigurieren von Autorisierungsregeln.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/membership
 msc.type: chapter
 ms.openlocfilehash: bcd354111798d45c6207f0eead00647f6a031fcc
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519099"
 ---
 <a name="aspnet-35---membership"></a><span data-ttu-id="188bb-103">ASP.NET 3.5 - Mitgliedschaft</span><span class="sxs-lookup"><span data-stu-id="188bb-103">ASP.NET 3.5 - Membership</span></span>
 ====================

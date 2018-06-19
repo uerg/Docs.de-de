@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508159"
 ---
 <a name="integrated-windows-authentication"></a><span data-ttu-id="c9880-103">Integrierte Windows-Authentifizierung</span><span class="sxs-lookup"><span data-stu-id="c9880-103">Integrated Windows Authentication</span></span>
 ====================

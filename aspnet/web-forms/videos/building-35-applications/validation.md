@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/building-35-applications/validation
-title: "Überprüfung | Microsoft Docs"
+title: Überprüfung | Microsoft Docs
 author: JoeStagner
 description: In diesem video Joe wird die Verwendung der Steuerelemente FormValidation in ASP.NET mithilfe von Microsoft Visual Web Developer veranschaulicht.
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524999"
 ---
 <a name="validation"></a><span data-ttu-id="4e8db-103">Validierung</span><span class="sxs-lookup"><span data-stu-id="4e8db-103">Validation</span></span>
 ====================

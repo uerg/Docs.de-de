@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/index
-title: "Benutzeroberflächen, Layouts und Designs | Microsoft Docs"
+title: Benutzeroberflächen, Layouts und Designs | Microsoft Docs
 author: rick-anderson
 description: Zum Anpassen der UI-Website in einer ASP.NET Web Pages-Anwendung.
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
 ms.openlocfilehash: 3681ff95e4dbd3cc50f74ef9771ff23cd3ae070a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529569"
 ---
 <a name="ui-layouts-and-themes"></a><span data-ttu-id="9004d-103">Benutzeroberflächen, Layouts und Designs</span><span class="sxs-lookup"><span data-stu-id="9004d-103">UI, Layouts, and Themes</span></span>
 ====================

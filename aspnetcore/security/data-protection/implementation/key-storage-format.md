@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153572"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a><span data-ttu-id="851b9-103">In softwareschlüsselspeicher-Format in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="851b9-103">Key storage format in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870114"
 ---
 <a name="part-9-registration-and-checkout"></a><span data-ttu-id="7e7cc-104">Teil 9: Registrierung und Kasse</span><span class="sxs-lookup"><span data-stu-id="7e7cc-104">Part 9: Registration and Checkout</span></span>
 ====================

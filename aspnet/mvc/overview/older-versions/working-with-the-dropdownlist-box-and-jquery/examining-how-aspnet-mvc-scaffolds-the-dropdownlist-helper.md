@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874082"
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a><span data-ttu-id="ff325-102">Überprüfen, wie ASP.NET MVC der DropDownList-Hilfsmethode scaffolds</span><span class="sxs-lookup"><span data-stu-id="ff325-102">Examining  how  ASP.NET MVC scaffolds the DropDownList Helper</span></span>
 ====================

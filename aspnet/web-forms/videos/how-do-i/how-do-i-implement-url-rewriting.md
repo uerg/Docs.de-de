@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
 title: '[Gewusst wie:] Implementieren Sie die URLs? | Microsoft-Dokumentation'
 author: scottgolightly
-description: "In diesem Video zeigt Scott Golightly, wie ein ASP.NET HttpModule um \"Die URL-rewrite\" Wenn eine Anforderung für eine Webseite eingeht erstellt. Sie möchten möglicherweise umschreiben..."
+description: In diesem Video zeigt Scott Golightly, wie ein ASP.NET HttpModule um "Die URL-rewrite" Wenn eine Anforderung für eine Webseite eingeht erstellt. Sie möchten möglicherweise umschreiben...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526259"
 ---
 <a name="how-do-i-implement-url-rewriting"></a><span data-ttu-id="e6851-105">[Gewusst wie:] Implementieren Sie die URLs?</span><span class="sxs-lookup"><span data-stu-id="e6851-105">[How Do I:] Implement URL Rewriting?</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
 title: Wie erstelle ich einen Kontakt, den uns Seite
 author: microsoft
-description: "Erstellen Sie eine Webseite zum Sammeln von Informationen vom Benutzer mit dem Assistenten-Steuerelement, überprüfen diese Informationen und die System.Net.Mail Klassen verwenden, senden eine konfigurieren..."
+description: Erstellen Sie eine Webseite zum Sammeln von Informationen vom Benutzer mit dem Assistenten-Steuerelement, überprüfen diese Informationen und die System.Net.Mail Klassen verwenden, senden eine konfigurieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/24/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525459"
 ---
 <a name="how-do-i-create-a-contact-us-page"></a><span data-ttu-id="849e9-103">[Gewusst wie:] Erstellen Seite "Kontakt"?</span><span class="sxs-lookup"><span data-stu-id="849e9-103">[How Do I:] Create a "Contact Us" Page?</span></span>
 ====================

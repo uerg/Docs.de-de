@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872896"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a><span data-ttu-id="6ac79-104">Starten ein modales Popupdialogfeld-Fenster von Servercode (c#)</span><span class="sxs-lookup"><span data-stu-id="6ac79-104">Launching a Modal Popup Window from Server Code (C#)</span></span>
 ====================

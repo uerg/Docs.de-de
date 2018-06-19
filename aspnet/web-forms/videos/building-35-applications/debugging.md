@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/debugging
 title: Debuggen | Microsoft Docs
 author: JoeStagner
-description: "Beschreibung: Visual Web Developer bietet eine umfassende Debugleistung für Einsteiger und erfahrene Entwickler gleichermaßen. In diesem Video wird Joe Sie über die VW bereisen..."
+description: 'Beschreibung: Visual Web Developer bietet eine umfassende Debugleistung für Einsteiger und erfahrene Entwickler gleichermaßen. In diesem Video wird Joe Sie über die VW bereisen...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528149"
 ---
 <a name="debugging"></a><span data-ttu-id="503b2-104">Debuggen</span><span class="sxs-lookup"><span data-stu-id="503b2-104">Debugging</span></span>
 ====================

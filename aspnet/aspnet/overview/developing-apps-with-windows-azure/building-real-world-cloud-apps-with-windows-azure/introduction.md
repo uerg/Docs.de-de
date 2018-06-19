@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870530"
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="03234-104">Real-World Cloud Apps with Azure erstellen</span><span class="sxs-lookup"><span data-stu-id="03234-104">Building Real-World Cloud Apps with Azure</span></span>
 ====================

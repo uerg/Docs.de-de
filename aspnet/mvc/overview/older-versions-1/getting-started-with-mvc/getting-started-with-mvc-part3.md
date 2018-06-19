@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30869594"
 ---
 <a name="adding-a-view"></a><span data-ttu-id="3dcd8-104">Hinzufügen einer Ansicht</span><span class="sxs-lookup"><span data-stu-id="3dcd8-104">Adding a View</span></span>
 ====================

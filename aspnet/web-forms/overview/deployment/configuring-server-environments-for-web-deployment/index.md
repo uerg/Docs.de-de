@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index
-title: "ASP.NET 4 – Bereitstellung Reihe 2 Konfigurieren von Unternehmensservern | Microsoft Docs"
+title: ASP.NET 4 – Bereitstellung Reihe 2 Konfigurieren von Unternehmensservern | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm erfahren Sie, wie serverumgebungen unterstützen nur einem Klick oder automatisierte Website bereitstellen und die Publishing in verschiedene andere Scen eingerichtet..."
+description: In diesem Lernprogramm erfahren Sie, wie serverumgebungen unterstützen nur einem Klick oder automatisierte Website bereitstellen und die Publishing in verschiedene andere Scen eingerichtet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-fo
 msc.type: chapter
 ms.openlocfilehash: 48281541d8337daf9cf252bc4601c8b1e75fd398
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515229"
 ---
 <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a><span data-ttu-id="9ea3e-103">ASP.NET 4 - Enterprise-Bereitstellung: Reihe 2: Konfigurieren von Servern</span><span class="sxs-lookup"><span data-stu-id="9ea3e-103">ASP.NET 4 - Enterprise Deployment Series 2 Configuring Servers</span></span>
 ====================

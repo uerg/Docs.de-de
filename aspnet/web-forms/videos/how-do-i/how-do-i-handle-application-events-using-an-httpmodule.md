@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
 title: '[Gewusst wie:] Behandeln von Anwendungsereignissen HttpModule verwenden? | Microsoft-Dokumentation'
 author: rick-anderson
-description: "Erfahren Sie, wie ein HttpModule zu erstellen, die von Ereignissen während der Verarbeitung einer Anforderung für die Seite behandelt. Das Beispiel-Modul schreibt Informationen in ein Protokoll..."
+description: Erfahren Sie, wie ein HttpModule zu erstellen, die von Ereignissen während der Verarbeitung einer Anforderung für die Seite behandelt. Das Beispiel-Modul schreibt Informationen in ein Protokoll...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526179"
 ---
 <a name="how-do-i-handle-application-events-using-an-httpmodule"></a><span data-ttu-id="92770-105">[Gewusst wie:] Behandeln von Anwendungsereignissen HttpModule verwenden?</span><span class="sxs-lookup"><span data-stu-id="92770-105">[How Do I:] Handle Application Events using an HttpModule?</span></span>
 ====================

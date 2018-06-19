@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/index
-title: "SignalR-Handbuch für die-API | Microsoft Docs"
+title: SignalR-Handbuch für die-API | Microsoft Docs
 author: rick-anderson
-description: "Die Dokumentation für die Verwendung der SignalR-Hubs-API. Autorisierung API finden Sie auf der Registerkarte \"Sicherheit\"."
+description: Die Dokumentation für die Verwendung der SignalR-Hubs-API. Autorisierung API finden Sie auf der Registerkarte "Sicherheit".
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/guide-to-the-api
 msc.type: chapter
 ms.openlocfilehash: 119b21af75576c269b5d81769897281bd05b2986
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503859"
 ---
 <a name="signalr-guide-to-the-api"></a><span data-ttu-id="3d3b9-104">SignalR-Anleitung für die API</span><span class="sxs-lookup"><span data-stu-id="3d3b9-104">SignalR Guide to the API</span></span>
 ====================

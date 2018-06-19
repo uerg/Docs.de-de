@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870101"
 ---
 <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a><span data-ttu-id="394d9-105">Wie erstelle ich ein benutzerdefiniertes HTML-Hilfsobjekt für eine MVC-Anwendung?</span><span class="sxs-lookup"><span data-stu-id="394d9-105">How Do I: Create a Custom HTML Helper for an MVC Application?</span></span>
 ====================

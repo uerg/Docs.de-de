@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/index
-title: "Ältere Versionen - MVC 1 und 2 | Microsoft Docs"
+title: Ältere Versionen - MVC 1 und 2 | Microsoft Docs
 author: rick-anderson
 description: Ressourcen zum Erlernen der Programmierung von MVC-1 und 2.
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
 ms.openlocfilehash: 8cd1868c8729c79dd9dda2067063e427cf3e0b4e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500089"
 ---
 <a name="older-versions---mvc-1-and-2"></a><span data-ttu-id="6de08-103">Ältere Versionen - MVC 1 und 2</span><span class="sxs-lookup"><span data-stu-id="6de08-103">Older Versions - MVC 1 and 2</span></span>
 ====================

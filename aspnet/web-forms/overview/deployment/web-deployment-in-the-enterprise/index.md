@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
 title: ASP.NET 4 - Enterprise-Bereitstellung-Serie 1 | Microsoft Docs
 author: rick-anderson
-description: "In diesem Lernprogramm beschreibt, wie viele der Herausforderungen erfüllen, die Sie beim Verwalten der Bereitstellung von Enterprise-Skalierung von Webanwendungen auf Developmen auftreten werden..."
+description: In diesem Lernprogramm beschreibt, wie viele der Herausforderungen erfüllen, die Sie beim Verwalten der Bereitstellung von Enterprise-Skalierung von Webanwendungen auf Developmen auftreten werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
 ms.openlocfilehash: 50918b1aef416a7b262e982bcf67607aa36933a3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515179"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a><span data-ttu-id="b2cea-103">ASP.NET 4 - Enterprise-Bereitstellung-Serie 1</span><span class="sxs-lookup"><span data-stu-id="b2cea-103">ASP.NET 4 - Enterprise Deployment Series 1</span></span>
 ====================

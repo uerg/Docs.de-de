@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
 title: '[Gewusst wie:] Verwenden Sie OutputCache zum Zwischenspeichern von einer ASP.NET-Seite | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels wird gezeigt, wie die Nutzung der integrierten Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass sie keinen erneut gerendert werden. Zunächst wird die..."
+description: In diesem video Chris Pels wird gezeigt, wie die Nutzung der integrierten Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass sie keinen erneut gerendert werden. Zunächst wird die...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526199"
 ---
 <a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a><span data-ttu-id="e0667-104">[Gewusst wie:] Verwenden Sie OutputCache zum Zwischenspeichern von einer ASP.NET-Seite</span><span class="sxs-lookup"><span data-stu-id="e0667-104">[How Do I:] Use OutputCache to Cache an ASP.NET Page</span></span>
 ====================

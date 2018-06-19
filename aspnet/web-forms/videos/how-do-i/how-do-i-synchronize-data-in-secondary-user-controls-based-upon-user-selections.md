@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: "[Wie kann ich]: Synchronisieren von Daten in sekundäre Benutzer Steuerelemente auf Grundlage der Auswahl des Benutzers | Microsoft Docs"
+title: '[Wie kann ich]: Synchronisieren von Daten in sekundäre Benutzer Steuerelemente auf Grundlage der Auswahl des Benutzers | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt, wie zwei DropDownList-Steuerelemente erstellen, in denen füllt Auswählen eines Elements in der ersten Liste der Elemente in der zweiten Liste. Erste..."
+description: In diesem video Chris Pels zeigt, wie zwei DropDownList-Steuerelemente erstellen, in denen füllt Auswählen eines Elements in der ersten Liste der Elemente in der zweiten Liste. Erste...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526439"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a><span data-ttu-id="e9ffc-104">[Wie kann ich]: Synchronisieren von Daten in sekundäre Benutzer Steuerelemente auf Grundlage der Auswahl des Benutzers</span><span class="sxs-lookup"><span data-stu-id="e9ffc-104">[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections</span></span>
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Wie kann ich]: Synchronisieren von Daten in sekundäre Benutzer Steuerelemente auf Grundlage der Auswahl des Benutzers
+[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections
 ====================
 <span data-ttu-id="e9ffc-105">durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="e9ffc-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

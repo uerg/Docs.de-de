@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
-title: "Einführung in WebForms | Microsoft Docs"
+title: Einführung in WebForms | Microsoft Docs
 author: JoeStagner
-description: "ASP.NET Web Forms ist der Standardmechanismus für die Benutzeroberfläche für ASP.NET-Anwendungen... In diesem Video wird gezeigt, dass die grundlegende der Entwicklung mit Web Forms."
+description: ASP.NET Web Forms ist der Standardmechanismus für die Benutzeroberfläche für ASP.NET-Anwendungen... In diesem Video wird gezeigt, dass die grundlegende der Entwicklung mit Web Forms.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521019"
 ---
 <a name="intro-to-web-forms"></a><span data-ttu-id="b08e4-104">Einführung in WebForms</span><span class="sxs-lookup"><span data-stu-id="b08e4-104">Intro to Web Forms</span></span>
 ====================

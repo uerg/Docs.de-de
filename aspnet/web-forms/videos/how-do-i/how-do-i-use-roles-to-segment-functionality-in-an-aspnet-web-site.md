@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
-title: "[Gewusst wie:] Verwenden Sie die Rollen-Funktionalität in eine ASP.NET-Website segmentieren | Microsoft Docs"
+title: '[Gewusst wie:] Verwenden Sie die Rollen-Funktionalität in eine ASP.NET-Website segmentieren | Microsoft Docs'
 author: rick-anderson
-description: "In diesem Video erfahren Chris Pels wie Sie die Verwendung von Rollen in einer ASP.NET-Website nach dem Einrichten von ASP.NET-Mitgliedschaft zu maximieren. Erfahren Sie zunächst, wie setup Agentattribute..."
+description: In diesem Video erfahren Chris Pels wie Sie die Verwendung von Rollen in einer ASP.NET-Website nach dem Einrichten von ASP.NET-Mitgliedschaft zu maximieren. Erfahren Sie zunächst, wie setup Agentattribute...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526529"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a><span data-ttu-id="1154f-104">[Gewusst wie:] Verwenden von Rollen zum Segmentieren der Funktionalität in einer ASP.NET-Website</span><span class="sxs-lookup"><span data-stu-id="1154f-104">[How Do I:] Use Roles to Segment Functionality in an ASP.NET Web Site</span></span>
 ====================

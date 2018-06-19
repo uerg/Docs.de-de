@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/http-message-handlers
 title: HTTP-Meldungshandler in ASP.NET Web-API | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506949"
 ---
 <a name="http-message-handlers-in-aspnet-web-api"></a><span data-ttu-id="700c5-102">HTTP-Meldungshandler in ASP.NET Web-API</span><span class="sxs-lookup"><span data-stu-id="700c5-102">HTTP Message Handlers in ASP.NET Web API</span></span>
 ====================
