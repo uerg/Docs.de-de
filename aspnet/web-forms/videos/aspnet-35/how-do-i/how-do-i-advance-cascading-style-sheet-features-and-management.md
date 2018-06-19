@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882656"
 ---
 <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[Gewusst wie:] Wechseln Sie Cascading Stylesheet-Features und Verwaltung
 ====================

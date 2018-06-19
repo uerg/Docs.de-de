@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883624"
 ---
 <a name="how-do-i-enable-inline-gridview-editing"></a>Wie aktiviere ich Inline GridView bearbeiten?
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886029"
 ---
 <a name="changing-membership-settings-in-the-default-membership-schema"></a>Ändern der Einstellungen für die Mitgliedschaft in das Standardschema der Mitgliedschaft
 ====================

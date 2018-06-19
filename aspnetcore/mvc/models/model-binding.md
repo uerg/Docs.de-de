@@ -15,6 +15,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904559"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Modellbindung in ASP.NET Core
 

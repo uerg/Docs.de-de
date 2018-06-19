@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876474"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Anhang: Die Korrektur es Beispielanwendung (Real-World Cloud Apps with Azure erstellen)
 ====================

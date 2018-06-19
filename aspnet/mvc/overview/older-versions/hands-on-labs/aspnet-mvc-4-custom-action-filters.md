@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877709"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 benutzerdefinierten Aktionsfiltern
 
@@ -200,7 +201,7 @@ In dieser Aufgabe testen Sie, dass die Protokollierungsfilter arbeitet. Sie star
 1. Drücken Sie **F5**, um die Anwendung auszuführen.
 2. Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter:
 
-    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image3.png "Tracker Protokollstatus vor der Aktivität "Seite"")
+    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image3.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")
 
     *Protokoll Tracker Status vor der Aktivität "Seite"*
 
@@ -279,7 +280,7 @@ In dieser Aufgabe erstellen Sie fügen einen neuen benutzerdefinierten Filter in
 2. Führen Sie nun die Anwendung aus, um zu sehen, wie diese zwei benutzerdefinierte Aktionsfilter funktionieren. Drücken Sie die zu diesem Zweck **F5** und warten Sie, bis die Anwendung gestartet wird.
 3. Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter.
 
-    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image5.png "Tracker Protokollstatus vor der Aktivität "Seite"")
+    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image5.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")
 
     *Protokoll Tracker Status vor der Aktivität "Seite"*
 4. Klicken Sie auf eines der **Genres** aus dem Menü und einige Aktionen vorhanden ist, wie z. B. Browsen verfügbaren Album ausführen.
@@ -303,7 +304,7 @@ In dieser Aufgabe erfahren Sie, wie die Filter Ausführungsreihenfolge zu verwal
 2. Überprüfen Sie nun, wie die Filter ausgeführt werden, je nach Wert für die Order-Eigenschaft. Sie finden, die den Filter mit dem kleinsten Wert der Bestellung (**CustomActionFilter**) ist das erste Schema an, die ausgeführt wird. Drücken Sie **F5** und warten Sie, bis die Anwendung gestartet wird.
 3. Navigieren Sie zu **/ActionLog** zum ersten Protokoll Ansichtszustand finden Sie unter.
 
-    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image7.png "Tracker Protokollstatus vor der Aktivität "Seite"")
+    ![Protokollstatus Tracker vor der Aktivität "Seite"](aspnet-mvc-4-custom-action-filters/_static/image7.png "Tracker Protokollstatus vor der Aktivität \"Seite\"")
 
     *Protokoll Tracker Status vor der Aktivität "Seite"*
 4. Klicken Sie auf eines der **Genres** aus dem Menü und einige Aktionen vorhanden ist, wie z. B. Browsen verfügbaren Album ausführen.

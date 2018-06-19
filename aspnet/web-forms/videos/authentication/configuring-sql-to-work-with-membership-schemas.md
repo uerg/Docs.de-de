@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882792"
 ---
 <a name="configuring-sql-to-work-with-membership-schemas"></a>Konfigurieren von SQL für die Arbeit mit Mitgliedschaft Schemas
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
 title: '[Gewusst wie:] Der Adapter verwendet, diesen zu rendert ein ASP.NET-Serversteuerelement zuordnen | Microsoft Docs'
 author: rick-anderson
-description: "In diesem video Chris Pels zeigt wie einen Steuerelement-Adapter zu verwenden, um verschiedene Renderings für ein ASP.NET-Serversteuerelement bereitzustellen, ohne Sie tatsächlich den c wird..."
+description: In diesem video Chris Pels zeigt wie einen Steuerelement-Adapter zu verwenden, um verschiedene Renderings für ein ASP.NET-Serversteuerelement bereitzustellen, ohne Sie tatsächlich den c wird...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526059"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[Gewusst wie:] Der Adapter verwendet, diesen zu rendert ordnen Sie ein ASP.NET-Serversteuerelement zu
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877943"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Einfügen, aktualisieren und Löschen von Daten mit SqlDataSource-(VB)
 ====================

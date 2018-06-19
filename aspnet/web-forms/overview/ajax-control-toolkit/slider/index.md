@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/index
 title: Schieberegler | Microsoft Docs
 author: rick-anderson
-description: "Dieses Lernprogramm zeigt, wie das Schieberegler-Steuerelement verwenden, um eine grafische Schieberegler anzuzeigen, den Benutzer steuern können, mit der Maus."
+description: Dieses Lernprogramm zeigt, wie das Schieberegler-Steuerelement verwenden, um eine grafische Schieberegler anzuzeigen, den Benutzer steuern können, mit der Maus.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider
 msc.type: chapter
 ms.openlocfilehash: 52b6fda01b6ef9931c3557b57b5ebd216a7f2eda
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511629"
 ---
 <a name="slider"></a>Slider
 ====================

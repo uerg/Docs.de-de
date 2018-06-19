@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879503"
 ---
 <a name="part-7-membership-and-authorization"></a>Teil 7: Mitgliedschaft und Autorisierung
 ====================

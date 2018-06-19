@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/index
 title: Arbeiten mit Daten im Batch | Microsoft Docs
 author: rick-anderson
-description: "Mit diesen Lernprogrammen sehen Sie sich aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen."
+description: Mit diesen Lernprogrammen sehen Sie sich aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
 ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514759"
 ---
 <a name="working-with-batched-data"></a>Arbeiten mit Daten im Batch
 ====================

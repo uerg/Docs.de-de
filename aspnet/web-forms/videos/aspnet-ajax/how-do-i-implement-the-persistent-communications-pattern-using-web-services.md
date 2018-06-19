@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883182"
 ---
 <a name="how-do-i-implement-the-persistent-communications-pattern-using-web-services"></a>[Gewusst wie:] Implementiert die permanente Kommunikation-Muster, die mithilfe von Webdiensten?
 ====================

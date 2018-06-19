@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888447"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a>Validierungssteuerelemente hinzufügen, bearbeiten und Einfügen von Schnittstellen (c#)
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886991"
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Benutzer und Rollen in der Produktionswebsite (VB)
 ====================

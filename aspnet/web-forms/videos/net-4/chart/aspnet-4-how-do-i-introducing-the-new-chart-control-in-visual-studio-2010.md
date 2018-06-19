@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884690"
 ---
 <a name="how-do-i-introducing-the-new-chart-control-in-visual-studio-2010"></a>Gewusst wie: Einführung in das neue Diagrammsteuerelement in Visual Studio 2010
 ====================

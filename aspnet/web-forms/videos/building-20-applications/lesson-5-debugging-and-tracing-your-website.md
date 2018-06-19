@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881921"
 ---
 <a name="lesson-5-debugging-and-tracing-your-website"></a>[Lektion 5:] Debuggen und Überwachung Ihrer Website
 ====================

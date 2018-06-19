@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882857"
 ---
 <a name="how-do-i-create-an-aspnet-ajax-extender-from-scratch"></a>[Gewusst wie:] Erstellen Sie einen ASP.NET AJAX-Extender von Grund auf neu?
 ====================

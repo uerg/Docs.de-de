@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Verwenden von OAuth-Anbieter mit MVC 4 | Microsoft Docs
 author: tfitzmac
-description: "In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 4-Webanwendung zu erstellen, die Benutzern ermöglicht, melden Sie sich mit den Anmeldeinformationen von einem externen Anbieter, wie z. B. Facebo..."
+description: In diesem Lernprogramm wird gezeigt, wie eine ASP.NET MVC 4-Webanwendung zu erstellen, die Benutzern ermöglicht, melden Sie sich mit den Anmeldeinformationen von einem externen Anbieter, wie z. B. Facebo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033568"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Verwenden von OAuth-Anbieter mit MVC 4
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886913"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von einem Code-Only-Update - 8 von 12
 ====================
@@ -127,7 +128,7 @@ In der **Web eine klicken Sie auf Publish** Symbolleiste, wählen Sie die **Prod
 
 Visual Studio stellt die aktualisierte Anwendung bereit und öffnet den Browser, um die Homepage der Website. Die *app\_offline.htm* Datei wird angezeigt. Sie testen können, um die erfolgreiche Bereitstellung zu überprüfen, müssen Sie Sie entfernen die *app\_offline.htm* Datei.
 
-Zurück zu den **Manager für Dateiserver** Anwendung in der Systemsteuerung. Wählen Sie **contosouniversity.com** und **"Wwwroot"**Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.
+Zurück zu den **Manager für Dateiserver** Anwendung in der Systemsteuerung. Wählen Sie **contosouniversity.com** und **"Wwwroot"** Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.
 
 [![Deleting_app_offline.htm](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image17.png)
 

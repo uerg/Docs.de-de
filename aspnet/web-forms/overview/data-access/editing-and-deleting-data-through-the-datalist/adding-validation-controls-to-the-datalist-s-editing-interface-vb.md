@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888330"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>Hinzufügen von Validierungssteuerelemente zum Bearbeiten der DataList-Schnittstelle (VB)
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885527"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Gewusst wie:] Verwenden von MSBuild zum Automatisieren von ASP.NET-Compiler und Dienstprogramme zusammenführen
 ====================

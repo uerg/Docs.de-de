@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913571"
 ---
 # <a name="request-features-in-aspnet-core"></a>Anforderungsfeatures in ASP.NET Core
 

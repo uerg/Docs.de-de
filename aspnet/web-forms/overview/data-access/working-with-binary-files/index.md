@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/index
-title: "Arbeiten mit binären Dateien | Microsoft Docs"
+title: Arbeiten mit binären Dateien | Microsoft Docs
 author: rick-anderson
-description: "Diese Lernprogramme zeigen, wie, damit Benutzer Binärdateien (z. B. Word oder PDF-Dokumente) auf den Server hochladen, in dem sie im Ordner oder in der Datenbank gespeichert werden können."
+description: Diese Lernprogramme zeigen, wie, damit Benutzer Binärdateien (z. B. Word oder PDF-Dokumente) auf den Server hochladen, in dem sie im Ordner oder in der Datenbank gespeichert werden können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files
 msc.type: chapter
 ms.openlocfilehash: 025abf4399775f76eca866f0387c1dc2ad6bd86a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515139"
 ---
 <a name="working-with-binary-files"></a>Arbeiten mit Binärdateien
 ====================

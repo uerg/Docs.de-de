@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891034"
 ---
 <a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a>[Gewusst wie:] Erstellen Sie die Excel-Kalkulationstabellen, die mit LINQ to XML?
 ====================
