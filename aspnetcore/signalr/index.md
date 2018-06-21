@@ -2,26 +2,26 @@
 title: ASP.NET Core SignalR
 author: rachelappel
 description: Erfahren Sie mehr über ASP.NET Core SignalR.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
-ms.date: 05/25/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
+ms.date: 06/18/2018
 uid: signalr/index
-ms.openlocfilehash: 6e36bb483da8f6744c662841c09c7717e424e0a4
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: beeae7e2f00323a25ed021f876bc22f78b2e106e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276681"
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
 * [Introduction (Einführung)](xref:signalr/introduction)
-* [Erste Schritte](xref:signalr/get-started)
 * [Hubs](xref:signalr/hubs)
 * [JavaScript-Client](xref:signalr/javascript-client)
 * [.NET-Client](xref:signalr/dotnet-client)
+* [HubContext](xref:signalr/hubcontext)
+* [Benutzer und Gruppen](xref:signalr/groups)
+* [Hub-Protokoll „MessagePack“](xref:signalr/messagepackhubprotocol)
 * [Veröffentlichen in Azure](xref:signalr/publish-to-azure-web-app)
+* [Streaming](xref:signalr/streaming)
 * [Unterstützte Plattformen](xref:signalr/supported-platforms)

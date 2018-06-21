@@ -2,23 +2,33 @@
 title: Azure Active Directory mit ASP.NET Core
 author: rick-anderson
 description: Lesen Sie Azure Active Directory-Themen zu ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/4/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/azure-active-directory/index
-ms.openlocfilehash: 238f8c6e8c4c0b98df93ef4ed70eae8e72a6f8f9
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d909de78a8794a71d75c65affbeee29bf15158b6
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272908"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Azure Active Directory mit ASP.NET Core
 
+## <a name="azure-ad-v1-samples"></a>Azure AD V1-Beispiele
+In den folgenden Beispielen wird gezeigt, wie Sie Azure AD V1 integrieren, sodass Benutzer sich mit einem Geschäfts-, Schul- oder Unikonto anmelden können:
 * [Integrieren von Azure AD in eine ASP.NET Core-Web-App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 * [Aufrufen einer ASP.NET Core-Web-API aus einer WPF-Anwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 * [Aufrufen einer Web-API in einer ASP.NET Core-Webanwendung mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+
+## <a name="azure-ad-v2-samples"></a>Azure AD V2-Beispiele
+In den folgenden Beispielen erfahren Sie, wie Sie Azure AD V2 integrieren, sodass sich Benutzer mit Geschäfts-, Schul- oder Unikonto oder einem privaten Microsoft-Konto (früher Live-Konto) anmelden können:
+* [Integrating Azure AD V2 into an ASP.NET Core 2.0 web app (Integration von Azure AD V2 in eine ASP.NET Core 2.0-Web-App)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2): 
+  * Weitere Informationen erhalten Sie [in diesem Video](https://channel9.msdn.com/Events/Build/2018/THR5000). 
+
+* [Calling a ASP.NET Core 2.0 Web API from a WPF application using Azure AD V2 (Aufrufen einer ASP.NET Core 2.0-Web-API über eine WPF-Anwendung mithilfe von Azure AD V2)](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2): 
+  * Weitere Informationen erhalten Sie [in diesem Video](https://channel9.msdn.com/Events/Build/2018/THR5001). 
+
+## <a name="azure-ad-b2c-sample"></a>Azure AD B2C-Beispiel
+In diesem Beispiel wird gezeigt, wie Sie Azure AD B2C integrieren, sodass Benutzer sich über soziale Netzwerke anmelden können (z.B. Facebook, Google etc.).
 * [Eine ASP.NET Core-Web-API in Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/)
 
