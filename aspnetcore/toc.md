@@ -1,5 +1,9 @@
 # [Introduction (Einführung)](index.md)
 
+# [Neuigkeiten](xref:aspnetcore-2.1)
+# [Neuigkeiten](xref:aspnetcore-2.0)
+# [Neuigkeiten](xref:aspnetcore-1.1)
+
 # [Erste Schritte](getting-started.md)
 ## [Erstellen einer Web-App](xref:mvc/razor-pages/index)
 ## [Erstellen einer Web-API](xref:tutorials/first-web-api)
@@ -104,6 +108,8 @@
 ### [Web-API mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
 ### [Web-API mit Visual Studio Code](xref:tutorials/web-api-vsc)
 
+## [Entwickeln von Apps mit einem Datei-Watcher](xref:tutorials/dotnet-watch)
+
 ## [Erstellen von Back-End-Diensten für mobile Apps](mobile/native-mobile-backend.md)
 
 # [Grundlagen](fundamentals/index.md)
@@ -198,15 +204,15 @@
 ### [Benutzerdefinierte Formatierer](xref:web-api/advanced/custom-formatters)
 ### [Formatieren von Antwortdaten](xref:web-api/advanced/formatting)
 
-# [Testen, Debuggen und Problembehandlung](xref:testing/index)
+# [Testen, Debuggen und Problembehandlung](xref:test/index)
 ## [Komponententests](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-## [Integrationstests](xref:testing/integration-testing)
-## [Testen von Razor Pages](xref:testing/razor-pages-testing)
+## [Integrationstests](xref:test/integration-tests)
+## [Komponententests für Razor-Seiten](xref:test/razor-pages-tests)
 ## [Testen von Controllern](xref:mvc/controllers/testing)
 ## [Remotedebuggen](/visualstudio/debugger/remote-debugging-azure)
 ## [Momentaufnahmendebugging](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Debuggen von Momentaufnahmen in Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
-## [Problembehandlung](xref:testing/troubleshoot)
+## [Problembehandlung](xref:test/troubleshoot)
 
 # [Datenzugriff mit Entity Framework Core und Azure](data/index.md)
 ## [Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
@@ -240,7 +246,11 @@
 ## [Hubs](xref:signalr/hubs)
 ## [JavaScript-Client](xref:signalr/javascript-client)
 ## [.NET-Client](xref:signalr/dotnet-client)
+## [HubContext](xref:signalr/hubcontext)
+## [Benutzer und Gruppen](xref:signalr/groups)
+## [Hub-Protokoll „MessagePack“](xref:signalr/messagepackhubprotocol)
 ## [Veröffentlichen in Azure](xref:signalr/publish-to-azure-web-app)
+## [Streaming](xref:signalr/streaming)
 ## [Unterstützte Plattformen](xref:signalr/supported-platforms)
 
 # [Mobil](xref:mobile/index)
@@ -274,6 +284,7 @@
 ## [Authentifizierung](xref:security/authentication/index)
 ### [Einführung in Identity](xref:security/authentication/identity)
 ### [Gerüst für Identität](xref:security/authentication/scaffold-identity)
+### [Hinzufügen benutzerdefinierter Benutzerdaten zu Identity](xref:security/authentication/add-user-data)
 ### [Community-basierte OSS-Authentifizierungsoptionen](xref:security/authentication/community)
 ### [Konfigurieren von Identity](xref:security/authentication/identity-configuration)
 ### [Konfigurieren der Windows-Authentifizierung](xref:security/authentication/windowsauth)
@@ -361,6 +372,7 @@
 ## [Antworten komprimierende Middleware](xref:performance/response-compression)
 
 # [Migration](xref:migration/index)
+## [ASP.NET Core 2.0 zu 2.1](xref:migration/20_21)
 ## [ASP.NET zu ASP.NET Core](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Web-API](xref:migration/webapi)
@@ -373,10 +385,5 @@
 ### [Authentifizierung und Identität](xref:migration/1x-to-2x/identity-2x)
 
 # [API-Referenz](/dotnet/api/?view=aspnetcore-2.0)
-
-# [2.0 – Anmerkungen zu dieser Version](aspnetcore-2.0.md)
-## [1.1 – Anmerkungen zu dieser Version](aspnetcore-1.1.md)
-## [Frühere Anmerkungen zu dieser Version](https://github.com/aspnet/home/releases)
-## [VS 2015/project.json-Dokumentation](https://docs.microsoft.com/dotnet/articles/project-json)
 
 # [Mitwirken](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
