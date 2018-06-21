@@ -2,19 +2,15 @@
 title: Primitive in ASP.NET Core
 author: guardrex
 description: Lesen Sie Artikel über ASP.NET Core-Bausteine, die von Frameworkerweiterungen gemeinsam genutzt werden, und die Sie in Ihrem eigenen Code verwenden können.
-manager: wpickett
 ms.author: riande
 ms.date: 10/28/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/primitives/index
-ms.openlocfilehash: 1a670d849c890dd0a07608267c621e6291f4214c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 14d93807ae99e8402a905d135f8f76bb0e4f42d5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28882710"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275463"
 ---
 # <a name="primitives-in-aspnet-core"></a>Primitive in ASP.NET Core
 
