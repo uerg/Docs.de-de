@@ -2,19 +2,15 @@
 title: Konfigurieren Sie die Primärschlüsseldaten Identitätstyp in ASP.NET Core
 author: AdrienTorris
 description: Lernen Sie die Schritte zum Konfigurieren des gewünschten Datentyps für den Primärschlüssel ASP.NET Core Identity verwendet.
-manager: wpickett
 ms.author: scaddie
 ms.date: 09/28/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: 49d5ef94abeb5bd616c5ddbcdd4358a58a8e63a4
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: cfec91e1194556385bb884ee44cf79c1fcbbcb56
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094865"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274355"
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>Konfigurieren Sie die Primärschlüsseldaten Identitätstyp in ASP.NET Core
 

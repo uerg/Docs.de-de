@@ -2,19 +2,15 @@
 title: Kontext-Header in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie mehr Details zur Implementierung von Headern für ASP.NET Core-Datenschutz-Kontext.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2343e59898c024eba420390d7fb0bce2fc82a895
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077853"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274468"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Kontext-Header in ASP.NET Core
 
@@ -60,7 +56,7 @@ Stattdessen verwenden wir die NIST SP800 108 KDF in Counter-Modus (finden Sie un
 
 Betrachten Sie beispielsweise die Groß-/Kleinschreibung, wobei der Block symmetrischen Verschlüsselungsalgorithmus AES-192-CBC und der Validierungsalgorithmus ist HMACSHA256, aus. Das System würde die Kontextheader mithilfe der folgenden Schritte generieren.
 
-Erstens können (K_E || K_H) = SP800_108_CTR (prf = HMACSHA512 Key = "", Label = "", Kontext = ""), wobei | K_E | = 192 Bits und | K_H | = 256 Bits pro angegebenen Algorithmen. This leads to K_E = 5BB6..21DD and K_H = A04A..00A9 in the example below:
+Erstens können (K_E || K_H) = SP800_108_CTR (prf = HMACSHA512 Key = "", Label = "", Kontext = ""), wobei | K_E | = 192 Bits und | K_H | = 256 Bits pro angegebenen Algorithmen. Dies führt zu K_E = 5BB6... 21DD und K_H = A04A... 00A9 im folgenden Beispiel:
 
 ```
 5B B6 C9 83 13 78 22 1D 8E 10 73 CA CF 65 8E B0
@@ -71,11 +67,11 @@ B7 92 3D BF 59 90 00 A9
 
 Als Nächstes berechnen Enc_CBC (K_E, IV, "") für AES-192-CBC angegebene IV = 0 * und K_E wie oben beschrieben.
 
-result := F474B1872B3B53E4721DE19C0841DB6F
+Ergebnis: F474B1872B3B53E4721DE19C0841DB6F =
 
 Als Nächstes berechnen MAC (K_H, "") für HMACSHA256 K_H wie oben angegeben.
 
-result := D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C
+Ergebnis: D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C =
 
 Dadurch wird die vollständige Kontextheader unten generiert:
 
@@ -166,7 +162,7 @@ Die Kontextheader besteht aus folgenden Komponenten:
 
 Nutzen denselben Mechanismus wie die Verschlüsselung CBC + HMAC-Szenario für Verbundauthentifizierung K_E abgeleitet. Da im Play hier keine K_H vorhanden ist, wird im Wesentlichen haben jedoch | K_H | = 0, und der Algorithmus wird reduziert die im folgenden Format.
 
-K_E = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
+K_E = SP800_108_CTR (prf = HMACSHA512 Key = "", Label = "", Kontext = "")
 
 ### <a name="example-aes-256-gcm"></a>Beispiel: AES-256-GCM
 
@@ -176,7 +172,7 @@ K_E: 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8 =
 
 Als Nächstes Berechnen der authentifizierungstag von Enc_GCM (K_E Nonce, "") für AES-256-GCM angegebene Nonce = 096 und K_E wie oben beschrieben.
 
-result := E7DCCE66DF855A323A6BB7BD7A59BE45
+Ergebnis: E7DCCE66DF855A323A6BB7BD7A59BE45 =
 
 Dadurch wird die vollständige Kontextheader unten generiert:
 

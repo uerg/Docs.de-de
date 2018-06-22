@@ -2,20 +2,16 @@
 title: Authentifizieren von Benutzern mit WS-Verbund in ASP.NET Core
 author: chlowell
 description: Dieses Lernprogramm veranschaulicht die Verwendung von WS-Verbund in einer ASP.NET Core-app.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/27/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/ws-federation
-ms.openlocfilehash: d4621c7b97678903b9f2562e353da3883334b599
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 55504ed28cf8ef1095bf16c101c09a6f374f038c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898803"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277438"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>Authentifizieren von Benutzern mit WS-Verbund in ASP.NET Core
 
@@ -26,7 +22,7 @@ Nähere Informationen zu ASP.NET Core 2.0 apps WS-Verbund-Unterstützung wird du
 Standardmäßig ist die neue Middleware:
 
 * Keine unerwünschte Anmeldungen zu ermöglichen. Diese Funktion von der WS-Verbund-Protokoll ist anfällig für XSRF-Angriffen. Dies kann jedoch aktiviert werden, mit der `AllowUnsolicitedLogins` Option.
-* Jedes Formular-Post in Anmeldenachrichten nicht überprüft werden. Nur Anforderungen an die `CallbackPath` Anmeldung Ins überprüft werden `CallbackPath` standardmäßig `/signin-wsfed` kann jedoch geändert werden. Dieser Pfad kann mit anderen Authentifizierungsanbieter freigegeben werden, durch Aktivieren der `SkipUnrecognizedRequests` Option.
+* Jedes Formular-Post in Anmeldenachrichten nicht überprüft werden. Nur Anforderungen an die `CallbackPath` Anmeldung Ins überprüft werden `CallbackPath` wird standardmäßig auf `/signin-wsfed` kann jedoch geändert werden über die geerbte [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) Eigenschaft von der [ WsFederationOptions](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions) Klasse. Dieser Pfad kann mit anderen Authentifizierungsanbieter freigegeben werden, durch Aktivieren der [SkipUnrecognizedRequests](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions.skipunrecognizedrequests) Option.
 
 ## <a name="register-the-app-with-active-directory"></a>Registrieren einer app in Active Directory
 
@@ -42,7 +38,7 @@ Standardmäßig ist die neue Middleware:
 
 * Geben Sie einen Anzeigenamen für die vertrauende Seite. Der Name ist nicht wichtig, die ASP.NET Core-app.
 
-* [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) lacks support for token encryption, so don't configure a token encryption certificate:
+* [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) verfügt nicht über Unterstützung für die Verschlüsselung von token, damit ein tokenverschlüsselungszertifikat nicht konfigurieren:
 
 ![Fügen Sie der vertrauenden Seite Assistent für Vertrauensstellung: Zertifikat konfigurieren](ws-federation/_static/AdfsConfigureCert.png)
 

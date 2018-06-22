@@ -2,20 +2,16 @@
 title: Migrieren von ASP.NET-Mitgliedschaft Authentifizierung zu ASP.NET Core 2.0 Identity
 author: isaac2004
 description: Informationen Sie zum Migrieren von vorhandenen ASP.NET-Apps mithilfe von Mitgliedschaft Authentifizierung für ASP.NET Core 2.0 Identity.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851542"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274104"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migrieren von ASP.NET-Mitgliedschaft Authentifizierung zu ASP.NET Core 2.0 Identity
 
@@ -42,7 +38,7 @@ Die schnellste Möglichkeit zum Anzeigen des Schemas für ASP.NET Core 2.0 Ident
 
 * Wählen Sie **Datei** > **Neu** > **Projekt** aus.
 * Erstellen Sie ein neues **ASP.NET-Webanwendung für Core**, und nennen Sie das Projekt *CoreIdentitySample*.
-* Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**. Diese Vorlage erzeugt eine [Razor-Seiten](xref:mvc/razor-pages/index) app. Bevor Sie auf **OK**, klicken Sie auf **Authentifizierung ändern**.
+* Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**. Diese Vorlage erzeugt eine [Razor-Seiten](xref:razor-pages/index) app. Bevor Sie auf **OK**, klicken Sie auf **Authentifizierung ändern**.
 * Wählen Sie **einzelne Benutzerkonten** für die Identity-Vorlagen. Klicken Sie abschließend auf **OK**, klicken Sie dann **OK**. Visual Studio erstellt ein Projekt mithilfe der Vorlage für ASP.NET Core Identity.
 
 ASP.NET Core 2.0 Benutzeridentität verwendet [Entity Framework Core](/ef/core) für die Interaktion mit der Datenbank, die Speichern der Authentifizierungsdaten. In der Reihenfolge für die neu erstellte app funktioniert muss eine Datenbank zum Speichern dieser Daten sein. Ist nach dem Erstellen einer neuen app, die schnellste Möglichkeit zum Überprüfen des Schemas in einer datenbankumgebung zum Erstellen der Datenbank über Entity Framework-Migrationen. Dieser Vorgang erstellt eine Datenbank, entweder lokal oder an anderer Stelle, die dieses Schema imitiert. Überprüfen Sie die vorherige Dokumentation weitere Informationen.

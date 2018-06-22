@@ -2,20 +2,16 @@
 title: Konfigurieren von ASP.NET Core Datenschutz
 author: rick-anderson
 description: Informationen Sie zum Datenschutz in ASP.NET Core konfigurieren.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/17/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 803b81f5f69496900791ca1d1976f70f8c266f29
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: b2fa1921120d297f4b0dbb0294a00e0e573f4e04
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555416"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272578"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurieren von ASP.NET Core Datenschutz
 

@@ -2,20 +2,16 @@
 title: Razor-Seiten Autorisierung Konventionen in ASP.NET Core
 author: guardrex
 description: Informationen Sie zum Zugriff auf den Seiten mit den Konventionen zu steuern, die Autorisierung von Benutzern und ermöglichen anonyme Benutzern den Zugriff auf Seiten oder Ordner von Seiten.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: cd1fa7957ca50db0de71f71234f84d3fbc631f45
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 8856520bf43f2f62cc12c7e883485babdb43fb3e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341742"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272674"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Razor-Seiten Autorisierung Konventionen in ASP.NET Core
 
@@ -40,7 +36,7 @@ Ein [AuthorizePage Überladung](/dotnet/api/microsoft.extensions.dependencyinjec
 ::: moniker range=">= aspnetcore-2.1"
 
 > [!NOTE]
-> Ein `AuthorizeFilter` kann angewendet werden, um eine Modellklasse Seite mit den `[Authorize]` Standardsicherheitsfilter-Attribut. Weitere Informationen finden Sie unter [autorisieren Filterattribut](xref:mvc/razor-pages/filter#authorize-filter-attribute).
+> Ein `AuthorizeFilter` kann angewendet werden, um eine Modellklasse Seite mit den `[Authorize]` Standardsicherheitsfilter-Attribut. Weitere Informationen finden Sie unter [autorisieren Filterattribut](xref:razor-pages/filter#authorize-filter-attribute).
 
 ::: moniker-end
 
@@ -90,5 +86,5 @@ Die notwendige Autorisierung auf der Seite "Private" funktioniert nicht, da bei 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:mvc/razor-pages/razor-pages-conventions)
+* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) Klasse

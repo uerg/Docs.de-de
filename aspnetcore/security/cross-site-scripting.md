@@ -2,18 +2,15 @@
 title: Zu verhindern, dass siteübergreifende Skripting (XSS) in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zu Cross-Site-Skripting (XSS) und Techniken zur Behebung dieses Sicherheitsrisiko in ASP.NET Core-app.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272447"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zu verhindern, dass siteübergreifende Skripting (XSS) in ASP.NET Core
 
@@ -60,7 +57,7 @@ Diese Sicht gibt den Inhalt der *UntrustedInput* Variable. Diese Variable enthä
 
 ## <a name="javascript-encoding-using-razor"></a>JavaScript-Codierung mithilfe von Razor
 
-Möglicherweise gibt es Zeiten, die zum Einfügen eines Werts in JavaScript, die in der Ansicht verarbeitet werden sollen. Hierfür gibt es zwei Möglichkeiten. Die sicherste Möglichkeit, einfache Werte einfügen ist, platzieren den Wert in einem Datenattribut eines Tags und in Ihrer JavaScript-abgerufen. Zum Beispiel:
+Möglicherweise gibt es Zeiten, die zum Einfügen eines Werts in JavaScript, die in der Ansicht verarbeitet werden sollen. Hierfür gibt es zwei Möglichkeiten. Die sicherste Möglichkeit zum Einfügen von Werten ist, platzieren den Wert in einem Datenattribut eines Tags und in Ihrer JavaScript-abgerufen. Zum Beispiel:
 
 ```none
 @{
@@ -228,4 +225,4 @@ Die allgemeinen angenommen, dass die Methode besteht darin, dass die Codierung e
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Überprüfung als eine XSS-Technik zum Verhindern von Datenverlusten
 
-Überprüfung kann ein nützliches Tool in XSS-Angriffen eingeschränkt werden. Wird nicht für eine einfache numerische Zeichenfolge, enthält nur die Zeichen 0-9 z. B. ein XSS-Angriffen ausgelöst werden. Überprüfung komplizierter Sie HTML in Benutzereingaben - akzeptieren möchten, sollten Analyse von HTML-Eingaben schwierig, wenn nicht sogar unmöglich ist. MarkDown und andere Textformate wäre eine sicherere Option für umfangreiche Eingaben auf. Sie sollten niemals zur Validierung von allein verlassen. Nicht vertrauenswürdige Eingaben vor der Ausgabe immer zu codieren, unabhängig davon, was eine Überprüfung durchgeführt.
+Überprüfung kann ein nützliches Tool in XSS-Angriffen eingeschränkt werden. Beispielsweise wird keine numerische Zeichenfolge, enthält nur die Zeichen 0-9 ein XSS-Angriffen ausgelöst. Überprüfung komplizierter Sie HTML in Benutzereingaben - akzeptieren möchten, sollten Analyse von HTML-Eingaben schwierig, wenn nicht sogar unmöglich ist. MarkDown und andere Textformate wäre eine sicherere Option für umfangreiche Eingaben auf. Sie sollten niemals zur Validierung von allein verlassen. Nicht vertrauenswürdige Eingaben vor der Ausgabe immer zu codieren, unabhängig davon, was eine Überprüfung durchgeführt.

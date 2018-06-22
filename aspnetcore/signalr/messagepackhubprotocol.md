@@ -2,27 +2,23 @@
 title: Verwenden von MessagePack Hub-Protokoll in SignalR für ASP.NET Core
 author: rachelappel
 description: MessagePack Hub-Protokoll zu ASP.NET Core SignalR hinzufügen.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/04/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: b6c33c4da47a19d67bffbaf84f54d59013edadbe
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 702c77502868d6666cb2634b6959f029e036d14e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252478"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274988"
 ---
 # <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>Verwenden von MessagePack Hub-Protokoll in SignalR für ASP.NET Core
 
 Durch [Brennan Conroy](https://github.com/BrennanConroy)
 
-In diesem Artikel geht davon aus, der Reader wird mit den Themen vertraut [Einstieg in die](xref:signalr/get-started).
+In diesem Artikel geht davon aus, der Reader wird mit den Themen vertraut [Einstieg in die](xref:tutorials/signalr).
 
 ## <a name="what-is-messagepack"></a>Was ist MessagePack?
 
@@ -102,6 +98,6 @@ const connection = new signalR.HubConnectionBuilder()
 
 ## <a name="related-resources"></a>Weitere Informationen
 
-* [Erste Schritte](xref:signalr/get-started)
+* [Erste Schritte](xref:tutorials/signalr)
 * [.NET-Client](xref:signalr/dotnet-client)
 * [JavaScript-Client](xref:signalr/javascript-client)

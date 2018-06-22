@@ -2,20 +2,16 @@
 title: Migrieren von ClaimsPrincipal.Current
 author: mjrousos
 description: Informationen Sie zum Migrieren von ClaimsPrincipal.Current zum Abrufen des aktuellen authentifizierten Benutzers Identität und Ansprüche in ASP.NET Core.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/04/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/claimsprincipal-current
-ms.openlocfilehash: ea43d17e76380baf57cd9debbc508e8812cfa4a6
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 477f9fe8f0249bdfc528e1b401f072851f2f0d23
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851532"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277185"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>Migrieren von ClaimsPrincipal.Current
 

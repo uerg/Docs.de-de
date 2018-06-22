@@ -2,19 +2,15 @@
 title: Beachten Sie nicht-DI-Szenarien für den Datenschutz in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie, wie Sie Data Protection Szenarien zu unterstützen, bzw. können keinen von Abhängigkeitsinjektion bereitgestellten Dienst verwenden möchten.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/non-di-scenarios
-ms.openlocfilehash: d878bd20489876f919f2a8e0149f3f000cbf72d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 34354c8443f6ae00bcce6ad9bdb6c11aaaa25bf8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29727245"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276879"
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>Beachten Sie nicht-DI-Szenarien für den Datenschutz in ASP.NET Core
 

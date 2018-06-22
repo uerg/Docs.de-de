@@ -2,19 +2,15 @@
 title: Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zu Data Protection schlüsselverwaltung und Lebensdauer in ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: b43c14af015d5e03f46200c51a1218a581b1de0c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 54259b1e2f37cdbbd551038e80f2b0fa1d77f196
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28887289"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277805"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Data Protection schlüsselverwaltung sowie seine Lebensdauer in ASP.NET Core
 
@@ -24,10 +20,10 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Die app versucht, seine betriebsumgebung erkennen und Behandeln von Schlüsselkonfiguration selbst.
 
-1. Wenn die app, in gehostet wird [Azure Apps](https://azure.microsoft.com/services/app-service/), Schlüssel werden beibehalten, um die *%HOME%\ASP.NET\DataProtection-Keys* Ordner. Dieser Ordner wird vom Netzwerkspeicher gesichert und auf allen Computern, die die app hosten synchronisiert ist.
-   * Schlüssel nicht im Ruhezustand geschützt.
+1. Wenn die app, in gehostet wird [Azure Apps](https://azure.microsoft.com/services/app-service/), Schlüssel werden beibehalten, um die *%HOME%\ASP.NET\DataProtection-Keys* Ordner. Dieser Ordner wird von einem Netzwerkspeicher unterstützt und mit allen Computern, auf denen die App gehostet wird, synchronisiert.
+   * Ruhende Schlüssel werden nicht geschützt.
    * Die *DataProtection Schlüssel* Ordner stellt den Schlüssel Ring für alle Instanzen einer App in einem einzelnen bereitstellungsslot bereit.
-   * Separate bereitstellungsslots, z. B. Staging und Produktion freigeben keinen Schlüssel Ring. Wenn Sie zwischen bereitstellungsslots, z. B. Staging bis zur Produktion ausgetauscht oder mithilfe von austauschen / B-Tests, werden jede app mithilfe von Datenschutz kann nicht zum Entschlüsseln von gespeicherten Daten, die mit dem Schlüssel Ring innerhalb des vorherigen Slots. Dies führt zu Benutzern, die Abmeldung von einer app, die der standardmäßigen ASP.NET Core Cookieauthentifizierung verwendet protokolliert werden, da er Schutz von Daten verwendet, um die Cookies zu schützen. Wenn Slot unabhängig Schlüssel Ringe gewünscht Verwenden eines externen Schlüsselbund-Anbieters, z. B. Azure Blob-Speicher, Azure Key Vault, eine SQL-Speicher oder Redis-Cache.
+   * Separate Bereitstellungsslots, wie Staging und Produktion, verwenden keinen gemeinsamen Schlüsselbund. Wenn Sie zwischen bereitstellungsslots, z. B. Staging bis zur Produktion ausgetauscht oder mithilfe von austauschen / B-Tests, werden jede app mithilfe von Datenschutz kann nicht zum Entschlüsseln von gespeicherten Daten, die mit dem Schlüssel Ring innerhalb des vorherigen Slots. Dies führt zu Benutzern, die Abmeldung von einer app, die der standardmäßigen ASP.NET Core Cookieauthentifizierung verwendet protokolliert werden, da er Schutz von Daten verwendet, um die Cookies zu schützen. Wenn Slot unabhängig Schlüssel Ringe gewünscht Verwenden eines externen Schlüsselbund-Anbieters, z. B. Azure Blob-Speicher, Azure Key Vault, eine SQL-Speicher oder Redis-Cache.
 
 1. Wenn das Benutzerprofil verfügbar ist, werden Schlüssel beibehalten, um die *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* Ordner. Wenn das Betriebssystem Windows ist, werden die Schlüssel im Ruhezustand mit DPAPI verschlüsselt.
 

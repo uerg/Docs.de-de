@@ -2,19 +2,15 @@
 title: Verwenden von Grunt in ASP.NET Core
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 21fa565c930563bbc819c2a02ea71655193513d0
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897180"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272973"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Verwenden von Grunt in ASP.NET Core
 
@@ -97,7 +93,7 @@ Als Nächstes konfigurieren Sie NPM, die zum Herunterladen von Grunt und Grunt-A
 
 2. In der *"Package.JSON"* Dateien innerhalb der `devDependencies` Objekt von geschweiften Klammern, geben Sie "grunt". Wählen Sie `grunt` in Intellisense Liste aus, und drücken Sie die EINGABETASTE. Visual Studio den Paketnamen Grunt Angebot, und fügen einen Doppelpunkt. Wählen Sie rechts neben dem Doppelpunkt ausmacht, die neueste stabile Version des Pakets vom oberen Rand der Intellisense-Liste (drücken Sie `Ctrl-Space` Wenn Intellisense nicht angezeigt wird).
 
-    ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
+    ![Grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
     > NPM verwendet [semantischer versionsverwaltung](http://semver.org/) , Abhängigkeiten zu organisieren. Semantische versionsverwaltung, auch bekannt als SemVer, identifiziert die Pakete mit den Nummerierungsschema <major>.<minor>. <patch>. IntelliSense vereinfacht semantischen versionsverwaltung, indem nur einige allgemeine Optionen angezeigt. Das oberste Element in der Intellisense-Liste (0.4.5 im obigen Beispiel) wird die neueste stabile Version des Pakets betrachtet. Das Caretzeichen (^) Symbol entspricht der aktuellsten Hauptversion und die Tilde (~) entspricht der aktuellsten Nebenversion. Finden Sie unter der [NPM Semver Version Parser Verweis](https://www.npmjs.com/package/semver) als Leitfaden für die vollständige expressivität, die SemVer bereitstellt.

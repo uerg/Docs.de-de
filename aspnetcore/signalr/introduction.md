@@ -2,21 +2,17 @@
 title: Einführung in ASP.NET Core SignalR
 author: rachelappel
 description: Erfahren Sie, wie die SignalR für ASP.NET Core-Bibliothek vereinfacht das Hinzufügen von Funktionen in Echtzeit zu apps.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/25/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: f05b7cbf05372dc5d5cdadaf5a534d7a9d9bfecc
-ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.openlocfilehash: 0c833acea139d22883a69a02c2357a71f3ac8db8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2018
-ms.locfileid: "33923354"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277903"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Einführung in ASP.NET Core SignalR
 
@@ -59,7 +55,7 @@ Senden von Nachrichten mithilfe der aktive Transport aufrufen Hubs clientseitige
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Erste Schritte mit SignalR für ASP.NET Core](xref:signalr/get-started)
+* [Erste Schritte mit SignalR für ASP.NET Core](xref:tutorials/signalr)
 * [Unterstützte Plattformen](xref:signalr/supported-platforms)
 * [Hubs](xref:signalr/hubs)
 * [JavaScript-Client](xref:signalr/javascript-client)

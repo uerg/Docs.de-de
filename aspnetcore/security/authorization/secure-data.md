@@ -2,19 +2,15 @@
 title: Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 author: rick-anderson
 description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzerdaten durch Autorisierung geschützt. Umfasst HTTPS, Authentifizierung und Sicherheit, ASP.NET Core Identity.
-manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 53cab4b72980eef47c899a22e49fa697e7497279
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: 32ced054ba559e66de4a300137d56b7c81a4149b
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35726003"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276379"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten durch Autorisierung geschützt
 

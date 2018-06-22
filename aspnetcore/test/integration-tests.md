@@ -1,21 +1,17 @@
 ---
 title: Integrationstests im ASP.NET Core
 author: guardrex
-description: Erfahren Sie mehr Integrationstests wie stellen Sie sicher, dass ein app-Komponenten auf der Infrastrukturebene, einschließlich der Datenbank, Dateisystem und Netzwerk ordnungsgemäß.
-manager: wpickett
+description: In diesem Artikel erfahren Sie, wie Integrationstests sicherstellen, dass die Komponenten einer App auf der Infrastrukturebene ordnungsgemäß funktionieren, einschließlich der Datenbank, dem Dateisystem und dem Netzwerk.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35217585"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277695"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Integrationstests im ASP.NET Core
 
@@ -29,7 +25,7 @@ In diesem Thema wird angenommen, ein grundlegendes Verständnis von Komponentent
 
 Die Beispiel-app ist eine app Razor-Seiten und geht davon aus ein grundlegendes Verständnis der Razor-Seiten. Wenn mit Razor-Seiten nicht vertraut sind, finden Sie unter den folgenden Themen:
 
-* [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index)
+* [Introduction to Razor Pages (Einführung in Razor Pages)](xref:razor-pages/index)
 * [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Komponententests für Razor-Seiten](xref:test/razor-pages-tests)
 

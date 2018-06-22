@@ -2,19 +2,15 @@
 title: Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zum Erstellen einer ASP.NET Core-Apps mit der e-Mail-Bestätigung und das Kennwort zurücksetzen.
-manager: wpickett
 ms.author: riande
 ms.date: 2/11/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d7c1aea2b533fc614eb25c537b72bea773e76077
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: db41dd47518fa8b35c006b3291068e7724cf6cca
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252281"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275079"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 

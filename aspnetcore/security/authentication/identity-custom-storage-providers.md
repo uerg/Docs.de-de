@@ -2,18 +2,15 @@
 title: Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 author: ardalis
 description: Informationen Sie zum Konfigurieren von benutzerdefinierten Speicheranbieter für ASP.NET Core Identität.
-manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: a50069586c702152e81961773114ea75901ab23d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11c49d630c922b0aa91678277e9553bf0c25134d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278426"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
 
@@ -170,7 +167,7 @@ Innerhalb der `UserStore` -Klasse, verwenden Sie die Access-Datenklassen, die Si
 - **IUserLockoutStore**  
  Die [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren eines Kontos zu speichern. Enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und sperren.
 - **IQueryableUserStore**  
- Die [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) Schnittstelle definiert den Member implementieren, um einen abfragbaren benutzerpeicher bereitzustellen.
+ Die [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) Schnittstelle definiert die Elemente, die Sie implementieren, um einen abfragbaren benutzerpeicher.
 
 Implementieren Sie nur die Schnittstellen, die erforderlich sind, in Ihrer app. Zum Beispiel:
 

@@ -2,19 +2,15 @@
 title: Data Protection computerweite Supportrichtlinie in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zur Unterstützung für das Festlegen von computerweiten Standardrichtlinie für alle apps, die ASP.NET Core-Datenschutz nutzen.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 70aaca7afcd3df22cebb4466fbd9845a2277688c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076961"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275187"
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Data Protection computerweite Supportrichtlinie in ASP.NET Core
 
@@ -50,7 +46,7 @@ Wenn EncryptionType CNG-CBC ist, das System für die Verwendung konfiguriert sym
 | EncryptionAlgorithm         | Zeichenfolge | Der Name des Verschlüsselungsalgorithmus einen symmetrischen Block CNG verständlich. Dieser Algorithmus wird im CBC-Modus geöffnet. |
 | EncryptionAlgorithmProvider | Zeichenfolge | Der Name der CNG-Anbieter-Implementierung, die vom Algorithmus "EncryptionAlgorithm" erzeugt werden kann. |
 | EncryptionAlgorithmKeySize  | DWORD  | Die Länge (in Bits) des Schlüssels, der für der Block symmetrischen Verschlüsselungsalgorithmus abgeleitet werden. |
-| HashAlgorithm               | Zeichenfolge | Der Name eines Hashalgorithmus CNG verständlich. Dieser Algorithmus wird im HMAC-Modus geöffnet. |
+| Hashalgorithmus               | Zeichenfolge | Der Name eines Hashalgorithmus CNG verständlich. Dieser Algorithmus wird im HMAC-Modus geöffnet. |
 | HashAlgorithmProvider       | Zeichenfolge | Der Name der CNG-Anbieter-Implementierung, die vom Algorithmus Hashalgorithmus erzeugt werden können. |
 
 Wenn EncryptionType CNG-GCM ist, das System für die Verwendung konfiguriert symmetrische Blockchiffre Galois/Counter-Modus für die Vertraulichkeit und die Authentizität mit Windows CNG-Diensten (siehe [angeben benutzerdefinierte Windows CNG-Algorithmen](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Weitere Informationen). Die folgenden zusätzlichen Werte werden unterstützt, von denen jeder eine Eigenschaft für die CngGcmAuthenticatedEncryptionSettings-Typ entspricht.

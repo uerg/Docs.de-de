@@ -2,20 +2,16 @@
 title: -Angriffe zu verhindern, dass Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung in ASP.NET Core
 author: steve-smith
 description: Erfahren Sie, wie ein, um Angriffe auf Web-apps zu verhindern, in denen eine bösartige Website die Interaktion zwischen einem Clientbrowser und die app auswirken kann.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/19/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: a00bd4ff4b265a19766e54e6ad6b97b870df56c5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341859"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279596"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>-Angriffe zu verhindern, dass Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung in ASP.NET Core
 
@@ -138,7 +134,7 @@ Automatische Generierung von antiforgery Token für HTML-Formularelemente kann d
   ```
 
 > [!NOTE]
-> [Razor-Seiten](xref:mvc/razor-pages/index) vor XSRF/CSRF automatisch geschützt sind. Weitere Informationen finden Sie unter [XSRF/CSRF und Razor-Seiten](xref:mvc/razor-pages/index#xsrf).
+> [Razor-Seiten](xref:razor-pages/index) vor XSRF/CSRF automatisch geschützt sind. Weitere Informationen finden Sie unter [XSRF/CSRF und Razor-Seiten](xref:razor-pages/index#xsrf).
 
 Die am häufigsten verwendete Ansatz zum Schutz vor CSRF-Angriffen ist die Verwendung der *für die Domänensynchronisierung Tokenmuster* (STP). STP wird verwendet, wenn der Benutzer eine Seite mit den Formulardaten anfordert:
 
