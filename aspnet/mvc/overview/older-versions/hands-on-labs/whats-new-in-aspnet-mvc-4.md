@@ -181,7 +181,7 @@ In dieser Übung untersuchen Sie die Erweiterungen in ASP.NET MVC 4-Projektvorla
 
        Durchsuchen Sie die Ansichten der Vorlagen so ermitteln Sie das neue Design Markup.
 
-       ![Neue Vorlage für die Verwendung von Razor und HTML5-Markups About.cshtml. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Neue Vorlage für die Verwendung von Razor und HTML5-Markups About.cshtml.")
+       ![Neue Vorlage für die Verwendung von Razor und HTML5-Markups About.cshtml. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Neue Vorlage für die Verwendung von Razor und HTML5-Markups About.cshtml.")
 
        *Neue Vorlage für die Verwendung von Razor und HTML5-Markups (About.cshtml).*
    - **Aktualisierte JavaScript-Bibliotheken**
