@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c56efda28c668b8f88d28334705b4c26f288870f
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273417"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314161"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Cloud-Authentifizierung in Web-APIs mit Azure Active Directory B2C in ASP.NET Core
 
@@ -117,7 +117,7 @@ Verwenden Sie die folgenden Werte an:
 | **Einschließen von Web-app / web-API** | Ja                              |                                 |
 | **Impliziten Datenfluss zulassen**       | Ja                              |                                 |
 | **Antwort-URL**                 | `https://getpostman.com/postman` |                                 |
-| **App-ID-URI**                | *&lt;Leer lassen&gt;*            | Für dieses Lernprogramm erforderlich nicht. |
+| **App-ID-URI**                | *&lt;leer lassen&gt;*            | Für dieses Lernprogramm erforderlich nicht. |
 | **Native Client enthalten**     | Nein                               |                                 |
 
 Die neu registrierten Web-app benötigt eine Zugriffsberechtigung für die Web-API im Auftrag des Benutzers.  
@@ -173,9 +173,9 @@ Um eine authentifizierte Anforderung an die Web-API vornehmen zu können, ist ei
    |      <strong>Tokenname</strong>       |                                  <em>&lt;Tokenname&gt;</em>                                  |                                                                                                                   Geben Sie einen beschreibenden Namen für das Token aus.                                                                                                                    |
    |      <strong>GRANT-Typ</strong>       |                                           Implizit                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Rückruf-URL</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Auth-URL</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Ersetzen Sie <em>&lt;name_der_mandantendomäne&gt;</em> mit Domänennamen des Mandanten.                                                                                                  |
+   |       <strong>Auth-URL</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Ersetzen Sie <em>&lt;name_der_mandantendomäne&gt;</em> mit Domänennamen des Mandanten.                                                                                                  |
    |       <strong>Client-ID</strong>       |                <em>&lt;Geben Sie das Postman App- <b>Anwendungs-ID</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
-   |     <strong>Geheimer Clientschlüssel</strong>     |                                 <em>&lt;Leer lassen&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |     <strong>Geheimer Clientschlüssel</strong>     |                                 <em>&lt;leer lassen&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
    |         <strong>Bereich</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Ersetzen Sie <em>&lt;name_der_mandantendomäne&gt;</em> mit Domänennamen des Mandanten. Ersetzen Sie <em>&lt;api&gt;</em> mit dem Namen der Web-API-Projekt. Können Sie auch Anwendung-ID auf. Das Muster für die URL lautet: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope-Name}</em>. |
    | <strong>Clientauthentifizierung</strong> |                                Clientanmeldeinformationen im Text senden                                |                                                                                                                                                                                                                                                                              |
 
