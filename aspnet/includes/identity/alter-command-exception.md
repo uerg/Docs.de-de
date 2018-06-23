@@ -1,0 +1,5 @@
+> <span data-ttu-id="7f2fc-101">Einige Befehle werden nicht unterstützt, wenn die app SQLite als Identitätsspeicher Daten verwendet.</span><span class="sxs-lookup"><span data-stu-id="7f2fc-101">Some commands aren't supported if the app uses SQLite as its Identity data store.</span></span> <span data-ttu-id="7f2fc-102">Aufgrund der Einschränkungen in das Datenbankmodul `Alter` Befehle lösen die folgende Ausnahme:</span><span class="sxs-lookup"><span data-stu-id="7f2fc-102">Due to limitations in the database engine, `Alter` commands throw the following exception:</span></span>
+>
+> <span data-ttu-id="7f2fc-103">"System.NotSupportedException: SQLite diese Migrationsvorgang nicht unterstützt."</span><span class="sxs-lookup"><span data-stu-id="7f2fc-103">"System.NotSupportedException: SQLite does not support this migration operation."</span></span> 
+>
+> <span data-ttu-id="7f2fc-104">Umgehen führen Sie Code First-Migrationen auf die Datenbank so ändern Sie die Tabellen aus.</span><span class="sxs-lookup"><span data-stu-id="7f2fc-104">As a work around, run Code First migrations on the database to change the tables.</span></span>
