@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1766c11dabec3931ec2bfc4ae2e15332427d7855
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874992"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314012"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migration von einer vorhandenen Website von SQL-Mitgliedschaft zu ASP.NET Identity
 ====================
@@ -89,7 +89,7 @@ Für ASP.NET Identity-Klassen, um sofort mit den Daten von vorhandenen Benutzern
 
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Id | Zeichenfolge | Id | RoleId | ProviderKey | Id |
+| Id | Zeichenfolge | Id | RoleId | Dem "providerkey" | Id |
 | Benutzername | Zeichenfolge | name | UserId | UserId | ClaimType |
 | PasswordHash | Zeichenfolge |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | Zeichenfolge |  |  |  | Benutzer\_Id |
@@ -99,7 +99,7 @@ Für ASP.NET Identity-Klassen, um sofort mit den Daten von vorhandenen Benutzern
 | PhoneNumberConfirmed | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
-| AccessFailedCount | int |  |  |  |  |
+| "Accessfailedcount" | int |  |  |  |  |
 
 Tabellen mit Spalten, die Eigenschaften für jedes dieser Modelle aufweisen müssen. Die Zuordnung zwischen Klassen und Tabellen wird definiert, der `OnModelCreating` Methode der `IdentityDBContext`. Dies bezeichnet man die fluent-API-Methode der Konfiguration und Weitere Informationen finden Sie [hier](https://msdn.microsoft.com/data/jj591617.aspx). Die Konfiguration für die Klassen ist, wie unten beschrieben.
 
@@ -107,15 +107,17 @@ Tabellen mit Spalten, die Eigenschaften für jedes dieser Modelle aufweisen müs
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id |  |
 | IdentityRole | AspnetRoles | Id |  |
-| IdentityUserRole | AspnetUserRole | Benutzer-ID + RoleId | User\_Id-&gt;AspnetUsers RoleId-&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey+UserId + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Id | User\_Id-&gt;AspnetUsers |
+| IdentityUserRole | AspnetUserRole | Benutzer-ID + RoleId | Benutzer\_-Id -&gt;AspnetUsers RoleId -&gt;AspnetRoles |
+| IdentityUserLogin | AspnetUserLogins | Dem "providerkey" + UserId + LoginProvider | UserId-&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Id | Benutzer\_-Id -&gt;AspnetUsers |
 
 Mit diesen Informationen können wir die SQL-Anweisungen zum Erstellen von neuer Tabellen erstellen. Wir können jede Anweisung einzeln schreiben oder generieren das gesamte Skript mithilfe von EntityFramework-PowerShell-Befehle, die wir, klicken Sie dann bearbeiten können nach Bedarf. Dazu in Visual Studio öffnen die **Package Manager Console** aus der **Ansicht** oder **Tools** Menü
 
 - Führen Sie "Enable-Migrations"-Befehls zum Aktivieren von EntityFramework Migrationen.
 - Ausführen des Befehls "Add-Migration anfängliche", die das Anfangssetup Code zum Erstellen der Datenbank in c# erstellt / VB dar.
 - Der letzte Schritt besteht, führen Sie "Update-Database – Skript"-Befehl, der das SQL-Skript generiert basierend auf der Modell-Klasse.
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 Diese Generation Datenbankskripts kann anfangs verwendet werden, in dem wir zusätzliche Änderungen verdienen werden, um neue Spalten hinzuzufügen, und Kopieren von Daten. Der Vorteil dieses ist, dass wir generieren die `_MigrationHistory` Tabelle, die das Datenbankschema zu ändern, wenn das Modell für zukünftige Versionen von Identität Versionen Änderung Klassen von EntityFramework verwendet wird. 
 
