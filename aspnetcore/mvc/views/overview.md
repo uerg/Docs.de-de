@@ -2,25 +2,21 @@
 title: Ansichten in ASP.NET Core MVC
 author: ardalis
 description: Informationen zur Verarbeitung der Darstellung von App-Daten und zur Benutzerinteraktion in den Ansichten von ASP.NET Core MVC
-manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33965724"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278348"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten in ASP.NET Core MVC
 
 Von [Steve Smith](https://ardalis.com/) und [Luke Latham](https://github.com/guardrex)
 
-In diesem Artikel werden die Ansichten erläutert, die in ASP.NET Core MVC-Anwendungen verwendet werden. Informationen zu Razor Pages finden Sie unter [Introduction to Razor Pages (Einführung in Razor Pages)](xref:mvc/razor-pages/index).
+In diesem Artikel werden die Ansichten erläutert, die in ASP.NET Core MVC-Anwendungen verwendet werden. Informationen zu Razor Pages finden Sie unter [Introduction to Razor Pages (Einführung in Razor Pages)](xref:razor-pages/index).
 
 Im Muster Model-View-Controller (MVC) verarbeitet die *Ansicht* die Darstellung der App-Daten und der Benutzerinteraktion. Bei einer Ansicht handelt es sich um eine HTML-Vorlage mit eingebettetem [Razor-Markup](xref:mvc/views/razor). Bei einem Razor-Markup handelt es sich um Code, der mit einem HTML-Markup interagiert, um eine Webseite herzustellen, die an den Client gesendet wird.
 

@@ -2,19 +2,15 @@
 title: Hinzufügen einer Ansicht zu einer ASP.NET Core-App
 author: rick-anderson
 description: Erfahren Sie mehr über das Hinzufügen einer Ansicht zu einer ASP.NET Core-App.
-manager: wpickett
 ms.author: riande
 ms.date: 03/04/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-view
-ms.openlocfilehash: ae74273652151060fbd14c3f73642b560af117f4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 191056a928883fa89d7234f4c85979946a884000
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894972"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279192"
 ---
 [!INCLUDE [adding-view](../../includes/mvc-intro/adding_view1.md)]
 

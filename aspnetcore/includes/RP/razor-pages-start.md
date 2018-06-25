@@ -9,11 +9,11 @@ Testen Sie die Links. Die Links **RazorPagesMovie** und **Home** führen zur Sei
 Die folgende Tabelle listet die Dateien und Ordner im Projekt auf. In diesem Tutorial ist es am wichtigsten, die Datei *Startup.cs* zu verstehen. Sie müssen nicht jeden der unten angegebenen Links ansehen. Die Links werden als Referenz bereitgestellt, wenn Sie weitere Informationen zu einer Datei oder einem Ordner im Projekt benötigen.
 
 | Datei oder Ordner              | Zweck |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | wwwroot | Enthält statische Dateien. Weitere Informationen finden Sie unter [Statische Dateien](xref:fundamentals/static-files). |
-| Seiten | Ordner für [Razor Pages](xref:mvc/razor-pages/index). | 
+| Seiten | Ordner für [Razor Pages](xref:razor-pages/index). |
 | *appsettings.json* | [Konfiguration](xref:fundamentals/configuration/index) |
-| *Program.cs* | [Hostet](xref:fundamentals/hosting) die ASP.NET Core-App.|
+| *Program.cs* | [Hostet](xref:fundamentals/host/index) die ASP.NET Core-App.|
 | *Startup.cs* | Konfiguriert Dienste und die Anforderungspipeline. Siehe [Startup](xref:fundamentals/startup).|
 
 ### <a name="the-pages-folder"></a>Der Seitenordner

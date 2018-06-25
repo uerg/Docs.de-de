@@ -2,20 +2,16 @@
 title: Anchor-Tag-Hilfsprogramm in ASP.NET Core
 author: pkellner
 description: Lernen Sie die Attribute für das ASP.NET Core-Anchor-Taghilfsprogramm kennen und erfahren Sie, welche Rolle jedes Attribut bei der Erweiterung des Verhaltens des HTML-Anchor-Tags spielt.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 31ff62b6bedb5e577a51f341c89d241d06a83ad3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899407"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273883"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Anchor-Tag-Hilfsprogramm in ASP.NET Core
 
@@ -272,4 +268,4 @@ Der generierte HTML-Code:
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Bereiche](xref:mvc/controllers/areas)
-* [Einführung in Razor Pages](xref:mvc/razor-pages/index)
+* [Einführung in Razor Pages](xref:razor-pages/index)

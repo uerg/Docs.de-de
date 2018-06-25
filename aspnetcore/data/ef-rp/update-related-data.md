@@ -2,19 +2,15 @@
 title: 'Razor-Seiten mit EF Core in ASP.NET Core: Aktualisieren verwandter Daten (7 von 8)'
 author: rick-anderson
 description: Mithilfe dieses Tutorials führen Sie Updates für verwandte Daten aus, indem Sie Felder mit Fremdschlüsseln sowie Navigationseigenschaften aktualisieren.
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740373"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275293"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Aktualisieren verwandter Daten (7 von 8)
 
@@ -95,8 +91,6 @@ Das oben stehende Markup führt die folgenden Änderungen durch:
 * Zeigt die Kurs-ID an. In der Regel wird der Primärschlüssel (PS) einer Entität nicht angezeigt. PS sind für Benutzer normalerweise nicht von Bedeutung. In diesem Fall handelt es sich bei dem PS um die Kursnummer.
 * Ändert die Beschriftung von **DepartmentID** in **Department**.
 * Ersetzt `"ViewBag.DepartmentID"` durch `DepartmentNameSL` (aus der Basisklasse).
-* Fügt die Option „Abteilung auswählen“ hinzu. Durch diese Änderung wird anstelle der ersten Abteilung die Option „Abteilung auswählen“ gerendert.
-* Fügt eine Validierungsmeldung hinzu, wenn die Abteilung nicht ausgewählt wird.
 
 Die Seite enthält ein ausgeblendetes Feld (`<input type="hidden">`) für die Kursnummer. Das Hinzufügen eines `<label>`-Taghilfsprogramms mit `asp-for="Course.CourseID"` bewirkt nicht, dass das ausgeblendete Feld nicht mehr benötigt wird. `<input type="hidden">` ist erforderlich, damit die Kursnummer in die bereitgestellten Daten eingeschlossen wird, wenn der Benutzer auf **Speichern** klickt.
 

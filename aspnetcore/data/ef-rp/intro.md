@@ -2,19 +2,15 @@
 title: 'Razor-Seiten mit Entity Framework Core in ASP.NET Core: Tutorial 1 von 8'
 author: rick-anderson
 description: Informationen zum Erstellen einer Razor Pages-App mit Entity Framework Core
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: d7cf4740f31f1e0ae56461efc4c1b3d91238270f
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: cadf36f4e1ff3776ad4139e1d7c4e9b73687bc5c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35726016"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279229"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor-Seiten mit Entity Framework Core in ASP.NET Core: Tutorial 1 von 8
 
@@ -30,7 +26,7 @@ Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso Un
 
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-Kenntnisse über [Razor Pages](xref:mvc/razor-pages/index). Anfänger sollten den Artikel [Erste Schritte mit Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) lesen, bevor sie mit diesem Tutorial beginnen.
+Kenntnisse über [Razor Pages](xref:razor-pages/index). Anfänger sollten den Artikel [Erste Schritte mit Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) lesen, bevor sie mit diesem Tutorial beginnen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -57,7 +53,7 @@ Der Benutzeroberflächenstil dieser Website ähnelt den durch die integrierten V
 * Erstellen Sie eine neue ASP.NET Core-Webanwendung. Geben Sie dem Projekt den Namen **ContosoUniversity**. Es ist wichtig, dass Sie dem Projekt exakt diesen Namen geben, sodass die Namespaces übereinstimmen, wenn der Code kopiert und eingefügt wird.
  ![neue ASP.NET Core-Webanwendung](intro/_static/np.png)
 * Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**.
- ![Webanwendung (Razor Pages)](../../mvc/razor-pages/index/_static/np2.png)
+ ![Webanwendung (Razor Pages)](../../razor-pages/index/_static/np2.png)
 
 Drücken Sie **F5**, um die App im Debugmodus auszuführen, oder **STRG+F5** zur Ausführung ohne Anfügen des Debuggers.
 

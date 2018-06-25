@@ -2,19 +2,15 @@
 title: Untersuchen der Methoden „Details“ und „Delete“ einer ASP.NET Core-App
 author: rick-anderson
 description: Erfahren Sie mehr über die Controllermethode und Ansicht „Details“ in einer einfachen ASP.NET Core MVC-App.
-manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: b392f956888a740a4a8c7c553996fc85ce63bd4b
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: f7f9a369e3e612542140fcf1091b21037e530a91
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729635"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278647"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Untersuchen der Methoden „Details“ und „Delete“ einer ASP.NET Core-App
 

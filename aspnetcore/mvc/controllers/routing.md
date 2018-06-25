@@ -2,19 +2,15 @@
 title: Routing zu Controlleraktionen in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie, wie ASP.NET Core MVC Routingmiddleware verwendet, um die URLs der eingehenden Anforderungen abzugleichen und sie Aktionen zuzuordnen.
-manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: 28fe62128d0a094fa08e866a270aed26080b1e51
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 795ca13674f85b6e8c1f84718c225613a7a7125a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29905204"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278410"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing zu Controlleraktionen in ASP.NET Core
 

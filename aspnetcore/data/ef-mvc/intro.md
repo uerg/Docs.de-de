@@ -2,19 +2,15 @@
 title: 'ASP.NET Core MVC mit Entity Framework Core: Tutorial 1 von 10'
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 0eef084c656f68fb1cad9fc0f5cfeee31ff96a30
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 3c418cc4e331ad19b0ec1be3207fa2cc44bef041
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153776"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275670"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC mit Entity Framework Core: Tutorial 1 von 10
 
@@ -31,8 +27,7 @@ Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso Un
 Entity Framework Core 2.0 ist die neuste Version von Entity Framework, die allerdings noch nicht alle Features von Entity Framework 6.x enthält. Weitere Informationen zum Auswählen zwischen EF 6.x und EF Core finden Sie unter [Vergleichen von EF Core und EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Wenn Sie sich für EF 6.x entscheiden, erhalten Sie weitere Informationen in der [Vorgängerversion dieser Tutorialreihe](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
-> * Weitere Informationen zur ASP.NET Core 1.1-Version dieses Tutorials finden Sie im [PDF-Format in der VS 2017 Update 2-Version dieses Tutorials](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
-> * Die Version dieses Tutorials für Visual Studio 2015 finden Sie unter [Visual Studio 2015-Version der ASP.NET Core-Dokumentation im PDF-Format](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
+> Weitere Informationen zur ASP.NET Core 1.1-Version dieses Tutorials finden Sie im [PDF-Format in der VS 2017 Update 2-Version dieses Tutorials](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -42,7 +37,7 @@ Entity Framework Core 2.0 ist die neuste Version von Entity Framework, die aller
 
 Wenn Sie auf ein Problem stoßen, das Sie nicht lösen können, sollten Sie versuchen, Ihren Code mit dem [abgeschlossenen Projekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final) zu vergleichen. Eine Liste mit häufig auftretenden Fehlern und den jeweiligen Lösungen finden Sie im Abschnitt [zur Fehlerbehebung auf im letzten Tutorial dieser Tutorialreihe](advanced.md#common-errors). Wenn Sie dort nicht die gewünschten Informationen finden, können Sie unter „StackOverflow.com“ für [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) oder [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) eine Frage posten.
 
-> [!TIP] 
+> [!TIP]
 > Diese Reihe besteht aus 10 Tutorials, die aufeinander aufbauen. Sie sollten jedes Mal, wenn Sie erfolgreich ein Tutorial abgeschlossen haben, eine Kopie des Projekts erstellen. Wenn Sie dann auf Probleme stoßen, können Sie zurück zum vorherigen Tutorial wechseln und müssen nicht wieder ganz von vorne beginnen.
 
 ## <a name="the-contoso-university-web-application"></a>Die Webanwendung der Contoso University

@@ -2,19 +2,15 @@
 title: Anwendungsparts in ASP.NET Core
 author: ardalis
 description: Dieser Artikel enthält Informationen zur Verwendung von Anwendungsparts, die Abstraktionen der Ressourcen einer Anwendung sind, damit Sie Features ermitteln oder das Laden von Features aus einer Assembly verhindern können.
-manager: wpickett
 ms.author: riande
 ms.date: 01/04/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 8f7aeadc7a1218bf203575add8c82c95faf137b4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e0290ceadc159d7c3608ec4420d95cd219407d32
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32739853"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276824"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Anwendungsparts in ASP.NET Core
 
