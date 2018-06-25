@@ -2,24 +2,20 @@
 title: Hinzufügen der Validierung
 author: rick-anderson
 description: Informationen zum Hinzufügen der Validierung zu einer einfachen ASP.NET Core-App.
-manager: wpickett
 ms.author: riande
 ms.date: 04/13/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/validation
-ms.openlocfilehash: 1028048801c3dae69d5fda56c233fcc13669cf5e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82ec58e6151e175a6a44f04b6e176e14f9385a79
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897145"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273597"
 ---
 [!INCLUDE [validation](../../includes/mvc-intro/validation.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="79ad5-103">[Zurück: Hinzufügen eines Felds](new-field.md)
-> [Weiter: Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="79ad5-103">[Previous - Add a field](new-field.md)
+> <span data-ttu-id="85f89-103">[Zurück: Hinzufügen eines Felds](new-field.md)
+> [Weiter: Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="85f89-103">[Previous - Add a field](new-field.md)
 [Next - Examine the Details and Delete methods](xref:tutorials/first-mvc-app/details)</span></span>  
 

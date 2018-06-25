@@ -2,54 +2,50 @@
 title: Cache-Taghilfsprogramm im ASP.NET Core MVC
 author: pkellner
 description: Veranschaulicht die Arbeit mit dem Cache-Taghilfsprogramm
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 969716e21211513053f52049368a0a7190ffba47
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898751"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276551"
 ---
-# <a name="cache-tag-helper-in-aspnet-core-mvc"></a><span data-ttu-id="26c6d-103">Cache-Taghilfsprogramm im ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="26c6d-103">Cache Tag Helper in ASP.NET Core MVC</span></span>
+# <a name="cache-tag-helper-in-aspnet-core-mvc"></a><span data-ttu-id="4176e-103">Cache-Taghilfsprogramm im ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="4176e-103">Cache Tag Helper in ASP.NET Core MVC</span></span>
 
-<span data-ttu-id="26c6d-104">Von [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="26c6d-104">By [Peter Kellner](http://peterkellner.net)</span></span> 
+<span data-ttu-id="4176e-104">Von [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="4176e-104">By [Peter Kellner](http://peterkellner.net)</span></span> 
 
-<span data-ttu-id="26c6d-105">Durch das Cache-Taghilfsprogramm kann die Leistung Ihrer ASP.NET Core-App erheblich verbessert werden, indem deren Inhalte im internen ASP.NET Core-Cacheanbieter zwischengespeichert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-105">The Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to the internal ASP.NET Core cache provider.</span></span>
+<span data-ttu-id="4176e-105">Durch das Cache-Taghilfsprogramm kann die Leistung Ihrer ASP.NET Core-App erheblich verbessert werden, indem deren Inhalte im internen ASP.NET Core-Cacheanbieter zwischengespeichert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-105">The Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to the internal ASP.NET Core cache provider.</span></span>
 
-<span data-ttu-id="26c6d-106">Die Razor-Ansichtsengine legt für `expires-after` einen Standardwert von 20 Minuten fest.</span><span class="sxs-lookup"><span data-stu-id="26c6d-106">The Razor View Engine sets the default `expires-after` to twenty minutes.</span></span>
+<span data-ttu-id="4176e-106">Die Razor-Ansichtsengine legt für `expires-after` einen Standardwert von 20 Minuten fest.</span><span class="sxs-lookup"><span data-stu-id="4176e-106">The Razor View Engine sets the default `expires-after` to twenty minutes.</span></span>
 
-<span data-ttu-id="26c6d-107">Das folgende Razor-Markup speichert das Datum bzw. die Zeit zwischen:</span><span class="sxs-lookup"><span data-stu-id="26c6d-107">The following Razor markup caches the date/time:</span></span>
+<span data-ttu-id="4176e-107">Das folgende Razor-Markup speichert das Datum bzw. die Zeit zwischen:</span><span class="sxs-lookup"><span data-stu-id="4176e-107">The following Razor markup caches the date/time:</span></span>
 
 ```cshtml
 <cache>@DateTime.Now</cache>
 ```
 
-<span data-ttu-id="26c6d-108">Über die erste Anforderung an die Seite, die `CacheTagHelper` enthält, wird das aktuelle Datum bzw. die aktuelle Uhrzeit zurückgegeben.</span><span class="sxs-lookup"><span data-stu-id="26c6d-108">The first request to the page that contains `CacheTagHelper` will display the current date/time.</span></span> <span data-ttu-id="26c6d-109">Über zusätzliche Anforderungen werden die zwischengespeicherten Werte angezeigt, bis der Cache abläuft (standardmäßig 20 Minuten lang) oder aufgrund von Speichermangel entfernt wird.</span><span class="sxs-lookup"><span data-stu-id="26c6d-109">Additional requests will show the cached value until the cache expires (default 20 minutes) or is evicted by memory pressure.</span></span>
+<span data-ttu-id="4176e-108">Über die erste Anforderung an die Seite, die `CacheTagHelper` enthält, wird das aktuelle Datum bzw. die aktuelle Uhrzeit zurückgegeben.</span><span class="sxs-lookup"><span data-stu-id="4176e-108">The first request to the page that contains `CacheTagHelper` will display the current date/time.</span></span> <span data-ttu-id="4176e-109">Über zusätzliche Anforderungen werden die zwischengespeicherten Werte angezeigt, bis der Cache abläuft (standardmäßig 20 Minuten lang) oder aufgrund von Speichermangel entfernt wird.</span><span class="sxs-lookup"><span data-stu-id="4176e-109">Additional requests will show the cached value until the cache expires (default 20 minutes) or is evicted by memory pressure.</span></span>
 
-<span data-ttu-id="26c6d-110">Sie können die Aufbewahrungsdauer im Cache mithilfe der folgenden Attribute festlegen:</span><span class="sxs-lookup"><span data-stu-id="26c6d-110">You can set the cache duration with the following attributes:</span></span>
+<span data-ttu-id="4176e-110">Sie können die Aufbewahrungsdauer im Cache mithilfe der folgenden Attribute festlegen:</span><span class="sxs-lookup"><span data-stu-id="4176e-110">You can set the cache duration with the following attributes:</span></span>
 
-## <a name="cache-tag-helper-attributes"></a><span data-ttu-id="26c6d-111">Attribute von Cache-Taghilfsprogrammen</span><span class="sxs-lookup"><span data-stu-id="26c6d-111">Cache Tag Helper Attributes</span></span>
+## <a name="cache-tag-helper-attributes"></a><span data-ttu-id="4176e-111">Attribute von Cache-Taghilfsprogrammen</span><span class="sxs-lookup"><span data-stu-id="4176e-111">Cache Tag Helper Attributes</span></span>
 
 - - -
 
-### <a name="enabled"></a><span data-ttu-id="26c6d-112">enabled</span><span class="sxs-lookup"><span data-stu-id="26c6d-112">enabled</span></span>    
+### <a name="enabled"></a><span data-ttu-id="4176e-112">enabled</span><span class="sxs-lookup"><span data-stu-id="4176e-112">enabled</span></span>    
 
 
-| <span data-ttu-id="26c6d-113">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-113">Attribute Type</span></span>    | <span data-ttu-id="26c6d-114">Gültige Werte</span><span class="sxs-lookup"><span data-stu-id="26c6d-114">Valid Values</span></span>      |
+| <span data-ttu-id="4176e-113">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-113">Attribute Type</span></span>    | <span data-ttu-id="4176e-114">Gültige Werte</span><span class="sxs-lookup"><span data-stu-id="4176e-114">Valid Values</span></span>      |
 |----------------   |----------------   |
-| <span data-ttu-id="26c6d-115">boolean</span><span class="sxs-lookup"><span data-stu-id="26c6d-115">boolean</span></span>           | <span data-ttu-id="26c6d-116">TRUE (Standardwert)</span><span class="sxs-lookup"><span data-stu-id="26c6d-116">"true" (default)</span></span>  |
-|                   | <span data-ttu-id="26c6d-117">"false"</span><span class="sxs-lookup"><span data-stu-id="26c6d-117">"false"</span></span>   |
+| <span data-ttu-id="4176e-115">boolean</span><span class="sxs-lookup"><span data-stu-id="4176e-115">boolean</span></span>           | <span data-ttu-id="4176e-116">TRUE (Standardwert)</span><span class="sxs-lookup"><span data-stu-id="4176e-116">"true" (default)</span></span>  |
+|                   | <span data-ttu-id="4176e-117">"false"</span><span class="sxs-lookup"><span data-stu-id="4176e-117">"false"</span></span>   |
 
 
-<span data-ttu-id="26c6d-118">Legt fest, ob der Inhalt zwischengespeichert wird, der vom Cache-Taghilfsprogramm eingeschlossen wird.</span><span class="sxs-lookup"><span data-stu-id="26c6d-118">Determines whether the content enclosed by the Cache Tag Helper is cached.</span></span> <span data-ttu-id="26c6d-119">Die Standardeinstellung ist `true`.</span><span class="sxs-lookup"><span data-stu-id="26c6d-119">The default is `true`.</span></span>  <span data-ttu-id="26c6d-120">Wenn das Cache-Taghilfsprogramm auf `false` festgelegt ist, wird die gerenderte Ausgabe nicht zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="26c6d-120">If set to `false` this Cache Tag Helper will have no caching effect on the rendered output.</span></span>
+<span data-ttu-id="4176e-118">Legt fest, ob der Inhalt zwischengespeichert wird, der vom Cache-Taghilfsprogramm eingeschlossen wird.</span><span class="sxs-lookup"><span data-stu-id="4176e-118">Determines whether the content enclosed by the Cache Tag Helper is cached.</span></span> <span data-ttu-id="4176e-119">Die Standardeinstellung ist `true`.</span><span class="sxs-lookup"><span data-stu-id="4176e-119">The default is `true`.</span></span>  <span data-ttu-id="4176e-120">Wenn das Cache-Taghilfsprogramm auf `false` festgelegt ist, wird die gerenderte Ausgabe nicht zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="4176e-120">If set to `false` this Cache Tag Helper will have no caching effect on the rendered output.</span></span>
 
-<span data-ttu-id="26c6d-121">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-121">Example:</span></span>
+<span data-ttu-id="4176e-121">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-121">Example:</span></span>
 
 ```cshtml
 <cache enabled="true">
@@ -59,15 +55,15 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="expires-on"></a><span data-ttu-id="26c6d-122">expires-on</span><span class="sxs-lookup"><span data-stu-id="26c6d-122">expires-on</span></span> 
+### <a name="expires-on"></a><span data-ttu-id="4176e-122">expires-on</span><span class="sxs-lookup"><span data-stu-id="4176e-122">expires-on</span></span> 
 
-| <span data-ttu-id="26c6d-123">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-123">Attribute Type</span></span> |           <span data-ttu-id="26c6d-124">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="26c6d-124">Example Value</span></span>            |
+| <span data-ttu-id="4176e-123">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-123">Attribute Type</span></span> |           <span data-ttu-id="4176e-124">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="4176e-124">Example Value</span></span>            |
 |----------------|------------------------------------|
-| <span data-ttu-id="26c6d-125">DateTimeOffset</span><span class="sxs-lookup"><span data-stu-id="26c6d-125">DateTimeOffset</span></span> | <span data-ttu-id="26c6d-126">"@new DateTime(2025,1,29,17,02,0)"</span><span class="sxs-lookup"><span data-stu-id="26c6d-126">"@new DateTime(2025,1,29,17,02,0)"</span></span> |
+| <span data-ttu-id="4176e-125">DateTimeOffset</span><span class="sxs-lookup"><span data-stu-id="4176e-125">DateTimeOffset</span></span> | <span data-ttu-id="4176e-126">"@new DateTime(2025,1,29,17,02,0)"</span><span class="sxs-lookup"><span data-stu-id="4176e-126">"@new DateTime(2025,1,29,17,02,0)"</span></span> |
 
-<span data-ttu-id="26c6d-127">Legt die absolute Ablaufzeit fest.</span><span class="sxs-lookup"><span data-stu-id="26c6d-127">Sets an absolute expiration date.</span></span> <span data-ttu-id="26c6d-128">Im folgenden Beispiel werden die Inhalte des Cache-Taghilfsprogramms bis zum 29. Januar 2025 um 17:02 Uhr zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="26c6d-128">The following example will cache the contents of the Cache Tag Helper until 5:02 PM on January 29, 2025.</span></span>
+<span data-ttu-id="4176e-127">Legt die absolute Ablaufzeit fest.</span><span class="sxs-lookup"><span data-stu-id="4176e-127">Sets an absolute expiration date.</span></span> <span data-ttu-id="4176e-128">Im folgenden Beispiel werden die Inhalte des Cache-Taghilfsprogramms bis zum 29. Januar 2025 um 17:02 Uhr zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="4176e-128">The following example will cache the contents of the Cache Tag Helper until 5:02 PM on January 29, 2025.</span></span>
 
-<span data-ttu-id="26c6d-129">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-129">Example:</span></span>
+<span data-ttu-id="4176e-129">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-129">Example:</span></span>
 
 ```cshtml
 <cache expires-on="@new DateTime(2025,1,29,17,02,0)">
@@ -77,15 +73,15 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="expires-after"></a><span data-ttu-id="26c6d-130">expires-after</span><span class="sxs-lookup"><span data-stu-id="26c6d-130">expires-after</span></span>
+### <a name="expires-after"></a><span data-ttu-id="4176e-130">expires-after</span><span class="sxs-lookup"><span data-stu-id="4176e-130">expires-after</span></span>
 
-| <span data-ttu-id="26c6d-131">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-131">Attribute Type</span></span> |        <span data-ttu-id="26c6d-132">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="26c6d-132">Example Value</span></span>         |
+| <span data-ttu-id="4176e-131">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-131">Attribute Type</span></span> |        <span data-ttu-id="4176e-132">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="4176e-132">Example Value</span></span>         |
 |----------------|------------------------------|
-|    <span data-ttu-id="26c6d-133">TimeSpan</span><span class="sxs-lookup"><span data-stu-id="26c6d-133">TimeSpan</span></span>    | <span data-ttu-id="26c6d-134">"@TimeSpan.FromSeconds(120)"</span><span class="sxs-lookup"><span data-stu-id="26c6d-134">"@TimeSpan.FromSeconds(120)"</span></span> |
+|    <span data-ttu-id="4176e-133">TimeSpan</span><span class="sxs-lookup"><span data-stu-id="4176e-133">TimeSpan</span></span>    | <span data-ttu-id="4176e-134">"@TimeSpan.FromSeconds(120)"</span><span class="sxs-lookup"><span data-stu-id="4176e-134">"@TimeSpan.FromSeconds(120)"</span></span> |
 
-<span data-ttu-id="26c6d-135">Legt die Zeitspanne ab der ersten Anforderungszeit fest, um die Inhalte zwischenzuspeichern.</span><span class="sxs-lookup"><span data-stu-id="26c6d-135">Sets the length of time from the first request time to cache the contents.</span></span> 
+<span data-ttu-id="4176e-135">Legt die Zeitspanne ab der ersten Anforderungszeit fest, um die Inhalte zwischenzuspeichern.</span><span class="sxs-lookup"><span data-stu-id="4176e-135">Sets the length of time from the first request time to cache the contents.</span></span> 
 
-<span data-ttu-id="26c6d-136">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-136">Example:</span></span>
+<span data-ttu-id="4176e-136">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-136">Example:</span></span>
 
 ```cshtml
 <cache expires-after="@TimeSpan.FromSeconds(120)">
@@ -95,15 +91,15 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="expires-sliding"></a><span data-ttu-id="26c6d-137">expires-sliding</span><span class="sxs-lookup"><span data-stu-id="26c6d-137">expires-sliding</span></span>
+### <a name="expires-sliding"></a><span data-ttu-id="4176e-137">expires-sliding</span><span class="sxs-lookup"><span data-stu-id="4176e-137">expires-sliding</span></span>
 
-| <span data-ttu-id="26c6d-138">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-138">Attribute Type</span></span> |        <span data-ttu-id="26c6d-139">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="26c6d-139">Example Value</span></span>        |
+| <span data-ttu-id="4176e-138">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-138">Attribute Type</span></span> |        <span data-ttu-id="4176e-139">Beispielwert</span><span class="sxs-lookup"><span data-stu-id="4176e-139">Example Value</span></span>        |
 |----------------|-----------------------------|
-|    <span data-ttu-id="26c6d-140">TimeSpan</span><span class="sxs-lookup"><span data-stu-id="26c6d-140">TimeSpan</span></span>    | <span data-ttu-id="26c6d-141">"@TimeSpan.FromSeconds(60)"</span><span class="sxs-lookup"><span data-stu-id="26c6d-141">"@TimeSpan.FromSeconds(60)"</span></span> |
+|    <span data-ttu-id="4176e-140">TimeSpan</span><span class="sxs-lookup"><span data-stu-id="4176e-140">TimeSpan</span></span>    | <span data-ttu-id="4176e-141">"@TimeSpan.FromSeconds(60)"</span><span class="sxs-lookup"><span data-stu-id="4176e-141">"@TimeSpan.FromSeconds(60)"</span></span> |
 
-<span data-ttu-id="26c6d-142">Legt die Zeit fest, nach der ein Cacheeintrag gelöscht werden soll, wenn niemand auf diesen zugegriffen hat.</span><span class="sxs-lookup"><span data-stu-id="26c6d-142">Sets the time that a cache entry should be evicted if it has not been accessed.</span></span>
+<span data-ttu-id="4176e-142">Legt die Zeit fest, nach der ein Cacheeintrag gelöscht werden soll, wenn niemand auf diesen zugegriffen hat.</span><span class="sxs-lookup"><span data-stu-id="4176e-142">Sets the time that a cache entry should be evicted if it has not been accessed.</span></span>
 
-<span data-ttu-id="26c6d-143">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-143">Example:</span></span>
+<span data-ttu-id="4176e-143">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-143">Example:</span></span>
 
 ```cshtml
 <cache expires-sliding="@TimeSpan.FromSeconds(60)">
@@ -113,16 +109,16 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="vary-by-header"></a><span data-ttu-id="26c6d-144">vary-by-header</span><span class="sxs-lookup"><span data-stu-id="26c6d-144">vary-by-header</span></span>
+### <a name="vary-by-header"></a><span data-ttu-id="4176e-144">vary-by-header</span><span class="sxs-lookup"><span data-stu-id="4176e-144">vary-by-header</span></span>
 
-| <span data-ttu-id="26c6d-145">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-145">Attribute Type</span></span>    | <span data-ttu-id="26c6d-146">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-146">Example Values</span></span>                |
+| <span data-ttu-id="4176e-145">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-145">Attribute Type</span></span>    | <span data-ttu-id="4176e-146">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-146">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-147">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="26c6d-147">String</span></span>            | <span data-ttu-id="26c6d-148">"User-Agent"</span><span class="sxs-lookup"><span data-stu-id="26c6d-148">"User-Agent"</span></span>                  |
-|                   | <span data-ttu-id="26c6d-149">"User-Agent,content-encoding"</span><span class="sxs-lookup"><span data-stu-id="26c6d-149">"User-Agent,content-encoding"</span></span> |
+| <span data-ttu-id="4176e-147">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="4176e-147">String</span></span>            | <span data-ttu-id="4176e-148">"User-Agent"</span><span class="sxs-lookup"><span data-stu-id="4176e-148">"User-Agent"</span></span>                  |
+|                   | <span data-ttu-id="4176e-149">"User-Agent,content-encoding"</span><span class="sxs-lookup"><span data-stu-id="4176e-149">"User-Agent,content-encoding"</span></span> |
 
-<span data-ttu-id="26c6d-150">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-150">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when they change.</span></span> <span data-ttu-id="26c6d-151">Im folgenden Beispiel wird der Headerwert `User-Agent` überwacht.</span><span class="sxs-lookup"><span data-stu-id="26c6d-151">The following example monitors the header value `User-Agent`.</span></span> <span data-ttu-id="26c6d-152">Außerdem werden die Inhalte für alle `User-Agent` zwischengespeichert, die dem Webserver präsentiert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-152">The example will cache the content for every different `User-Agent` presented to the web server.</span></span>
+<span data-ttu-id="4176e-150">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-150">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when they change.</span></span> <span data-ttu-id="4176e-151">Im folgenden Beispiel wird der Headerwert `User-Agent` überwacht.</span><span class="sxs-lookup"><span data-stu-id="4176e-151">The following example monitors the header value `User-Agent`.</span></span> <span data-ttu-id="4176e-152">Außerdem werden die Inhalte für alle `User-Agent` zwischengespeichert, die dem Webserver präsentiert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-152">The example will cache the content for every different `User-Agent` presented to the web server.</span></span>
 
-<span data-ttu-id="26c6d-153">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-153">Example:</span></span>
+<span data-ttu-id="4176e-153">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-153">Example:</span></span>
 
 ```cshtml
 <cache vary-by-header="User-Agent">
@@ -132,16 +128,16 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="vary-by-query"></a><span data-ttu-id="26c6d-154">vary-by-query</span><span class="sxs-lookup"><span data-stu-id="26c6d-154">vary-by-query</span></span>
+### <a name="vary-by-query"></a><span data-ttu-id="4176e-154">vary-by-query</span><span class="sxs-lookup"><span data-stu-id="4176e-154">vary-by-query</span></span>
 
-| <span data-ttu-id="26c6d-155">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-155">Attribute Type</span></span>    | <span data-ttu-id="26c6d-156">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-156">Example Values</span></span>                |
+| <span data-ttu-id="4176e-155">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-155">Attribute Type</span></span>    | <span data-ttu-id="4176e-156">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-156">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-157">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="26c6d-157">String</span></span>            | <span data-ttu-id="26c6d-158">"Make"</span><span class="sxs-lookup"><span data-stu-id="26c6d-158">"Make"</span></span>                |
-|                   | <span data-ttu-id="26c6d-159">"Make,Model"</span><span class="sxs-lookup"><span data-stu-id="26c6d-159">"Make,Model"</span></span> |
+| <span data-ttu-id="4176e-157">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="4176e-157">String</span></span>            | <span data-ttu-id="4176e-158">"Make"</span><span class="sxs-lookup"><span data-stu-id="4176e-158">"Make"</span></span>                |
+|                   | <span data-ttu-id="4176e-159">"Make,Model"</span><span class="sxs-lookup"><span data-stu-id="4176e-159">"Make,Model"</span></span> |
 
-<span data-ttu-id="26c6d-160">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-160">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the header value changes.</span></span> <span data-ttu-id="26c6d-161">Das folgende Beispiel überprüft die Werte von `Make` und `Model`.</span><span class="sxs-lookup"><span data-stu-id="26c6d-161">The following example looks at the values of `Make` and `Model`.</span></span>
+<span data-ttu-id="4176e-160">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-160">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the header value changes.</span></span> <span data-ttu-id="4176e-161">Das folgende Beispiel überprüft die Werte von `Make` und `Model`.</span><span class="sxs-lookup"><span data-stu-id="4176e-161">The following example looks at the values of `Make` and `Model`.</span></span>
 
-<span data-ttu-id="26c6d-162">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-162">Example:</span></span>
+<span data-ttu-id="4176e-162">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-162">Example:</span></span>
 
 ```cshtml
 <cache vary-by-query="Make,Model">
@@ -151,16 +147,16 @@ ms.locfileid: "30898751"
 
 - - -
 
-### <a name="vary-by-route"></a><span data-ttu-id="26c6d-163">vary-by-route</span><span class="sxs-lookup"><span data-stu-id="26c6d-163">vary-by-route</span></span>
+### <a name="vary-by-route"></a><span data-ttu-id="4176e-163">vary-by-route</span><span class="sxs-lookup"><span data-stu-id="4176e-163">vary-by-route</span></span>
 
-| <span data-ttu-id="26c6d-164">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-164">Attribute Type</span></span>    | <span data-ttu-id="26c6d-165">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-165">Example Values</span></span>                |
+| <span data-ttu-id="4176e-164">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-164">Attribute Type</span></span>    | <span data-ttu-id="4176e-165">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-165">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-166">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="26c6d-166">String</span></span>            | <span data-ttu-id="26c6d-167">"Make"</span><span class="sxs-lookup"><span data-stu-id="26c6d-167">"Make"</span></span>                |
-|                   | <span data-ttu-id="26c6d-168">"Make,Model"</span><span class="sxs-lookup"><span data-stu-id="26c6d-168">"Make,Model"</span></span> |
+| <span data-ttu-id="4176e-166">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="4176e-166">String</span></span>            | <span data-ttu-id="4176e-167">"Make"</span><span class="sxs-lookup"><span data-stu-id="4176e-167">"Make"</span></span>                |
+|                   | <span data-ttu-id="4176e-168">"Make,Model"</span><span class="sxs-lookup"><span data-stu-id="4176e-168">"Make,Model"</span></span> |
 
-<span data-ttu-id="26c6d-169">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn die Parameterwerte der Routendaten geändert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-169">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the route data parameter value(s) change.</span></span> <span data-ttu-id="26c6d-170">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-170">Example:</span></span>
+<span data-ttu-id="4176e-169">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn die Parameterwerte der Routendaten geändert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-169">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the route data parameter value(s) change.</span></span> <span data-ttu-id="4176e-170">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-170">Example:</span></span>
 
-<span data-ttu-id="26c6d-171">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="26c6d-171">*Startup.cs*</span></span> 
+<span data-ttu-id="4176e-171">*Startup.cs*</span><span class="sxs-lookup"><span data-stu-id="4176e-171">*Startup.cs*</span></span> 
 
 ```csharp
 routes.MapRoute(
@@ -168,7 +164,7 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
 
-<span data-ttu-id="26c6d-172">*Index.cshtml*</span><span class="sxs-lookup"><span data-stu-id="26c6d-172">*Index.cshtml*</span></span>
+<span data-ttu-id="4176e-172">*Index.cshtml*</span><span class="sxs-lookup"><span data-stu-id="4176e-172">*Index.cshtml*</span></span>
 
 ```cshtml
 <cache vary-by-route="Make,Model">
@@ -178,16 +174,16 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-cookie"></a><span data-ttu-id="26c6d-173">vary-by-cookie</span><span class="sxs-lookup"><span data-stu-id="26c6d-173">vary-by-cookie</span></span>
+### <a name="vary-by-cookie"></a><span data-ttu-id="4176e-173">vary-by-cookie</span><span class="sxs-lookup"><span data-stu-id="4176e-173">vary-by-cookie</span></span>
 
-| <span data-ttu-id="26c6d-174">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-174">Attribute Type</span></span>    | <span data-ttu-id="26c6d-175">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-175">Example Values</span></span>                |
+| <span data-ttu-id="4176e-174">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-174">Attribute Type</span></span>    | <span data-ttu-id="4176e-175">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-175">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-176">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="26c6d-176">String</span></span>            | <span data-ttu-id="26c6d-177">".AspNetCore.Identity.Application"</span><span class="sxs-lookup"><span data-stu-id="26c6d-177">".AspNetCore.Identity.Application"</span></span>                |
-|                   | <span data-ttu-id="26c6d-178">".AspNetCore.Identity.Application,HairColor"</span><span class="sxs-lookup"><span data-stu-id="26c6d-178">".AspNetCore.Identity.Application,HairColor"</span></span> |
+| <span data-ttu-id="4176e-176">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="4176e-176">String</span></span>            | <span data-ttu-id="4176e-177">".AspNetCore.Identity.Application"</span><span class="sxs-lookup"><span data-stu-id="4176e-177">".AspNetCore.Identity.Application"</span></span>                |
+|                   | <span data-ttu-id="4176e-178">".AspNetCore.Identity.Application,HairColor"</span><span class="sxs-lookup"><span data-stu-id="4176e-178">".AspNetCore.Identity.Application,HairColor"</span></span> |
 
-<span data-ttu-id="26c6d-179">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="26c6d-179">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the header values(s) change.</span></span> <span data-ttu-id="26c6d-180">Das folgende Beispiel überprüft das Cookie, das der ASP.NET Identity zugeordnet ist.</span><span class="sxs-lookup"><span data-stu-id="26c6d-180">The following example looks at the cookie associated with ASP.NET Identity.</span></span> <span data-ttu-id="26c6d-181">Wenn ein Benutzer authentifiziert wird, muss der Anforderungscookie festgelegt werden. Dadurch wird eine Cacheaktualisierung ausgelöst.</span><span class="sxs-lookup"><span data-stu-id="26c6d-181">When a user is authenticated the request cookie to be set which triggers a cache refresh.</span></span>
+<span data-ttu-id="4176e-179">Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden.</span><span class="sxs-lookup"><span data-stu-id="4176e-179">Accepts a single header value or a comma-separated list of header values that trigger a cache refresh when the header values(s) change.</span></span> <span data-ttu-id="4176e-180">Das folgende Beispiel überprüft das Cookie, das der ASP.NET Identity zugeordnet ist.</span><span class="sxs-lookup"><span data-stu-id="4176e-180">The following example looks at the cookie associated with ASP.NET Identity.</span></span> <span data-ttu-id="4176e-181">Wenn ein Benutzer authentifiziert wird, muss der Anforderungscookie festgelegt werden. Dadurch wird eine Cacheaktualisierung ausgelöst.</span><span class="sxs-lookup"><span data-stu-id="4176e-181">When a user is authenticated the request cookie to be set which triggers a cache refresh.</span></span>
 
-<span data-ttu-id="26c6d-182">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-182">Example:</span></span>
+<span data-ttu-id="4176e-182">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-182">Example:</span></span>
 
 ```cshtml
 <cache vary-by-cookie=".AspNetCore.Identity.Application">
@@ -197,18 +193,18 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-user"></a><span data-ttu-id="26c6d-183">vary-by-user</span><span class="sxs-lookup"><span data-stu-id="26c6d-183">vary-by-user</span></span>
+### <a name="vary-by-user"></a><span data-ttu-id="4176e-183">vary-by-user</span><span class="sxs-lookup"><span data-stu-id="4176e-183">vary-by-user</span></span>
 
-| <span data-ttu-id="26c6d-184">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-184">Attribute Type</span></span>    | <span data-ttu-id="26c6d-185">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-185">Example Values</span></span>                |
+| <span data-ttu-id="4176e-184">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-184">Attribute Type</span></span>    | <span data-ttu-id="4176e-185">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-185">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-186">Boolesch</span><span class="sxs-lookup"><span data-stu-id="26c6d-186">Boolean</span></span>             | <span data-ttu-id="26c6d-187">"true"</span><span class="sxs-lookup"><span data-stu-id="26c6d-187">"true"</span></span>                  |
-|                     | <span data-ttu-id="26c6d-188">FALSE (Standardwert)</span><span class="sxs-lookup"><span data-stu-id="26c6d-188">"false" (default)</span></span> |
+| <span data-ttu-id="4176e-186">Boolesch</span><span class="sxs-lookup"><span data-stu-id="4176e-186">Boolean</span></span>             | <span data-ttu-id="4176e-187">"true"</span><span class="sxs-lookup"><span data-stu-id="4176e-187">"true"</span></span>                  |
+|                     | <span data-ttu-id="4176e-188">FALSE (Standardwert)</span><span class="sxs-lookup"><span data-stu-id="4176e-188">"false" (default)</span></span> |
 
-<span data-ttu-id="26c6d-189">Gibt an, ob der Cache zurückgesetzt werden soll, wenn sich ein anderer Benutzer anmeldet, also das Kontextprinzipal geändert wird.</span><span class="sxs-lookup"><span data-stu-id="26c6d-189">Specifies whether or not the cache should reset when the logged-in user (or Context Principal) changes.</span></span> <span data-ttu-id="26c6d-190">Der aktuelle Benutzer wird auch als Anforderungskontextprinzipal bezeichnet und kann in einer Razor-Ansicht angezeigt werden, indem Sie auf `@User.Identity.Name` verweisen.</span><span class="sxs-lookup"><span data-stu-id="26c6d-190">The current user is also known as the Request Context Principal and can be viewed in a Razor view by referencing `@User.Identity.Name`.</span></span>
+<span data-ttu-id="4176e-189">Gibt an, ob der Cache zurückgesetzt werden soll, wenn sich ein anderer Benutzer anmeldet, also das Kontextprinzipal geändert wird.</span><span class="sxs-lookup"><span data-stu-id="4176e-189">Specifies whether or not the cache should reset when the logged-in user (or Context Principal) changes.</span></span> <span data-ttu-id="4176e-190">Der aktuelle Benutzer wird auch als Anforderungskontextprinzipal bezeichnet und kann in einer Razor-Ansicht angezeigt werden, indem Sie auf `@User.Identity.Name` verweisen.</span><span class="sxs-lookup"><span data-stu-id="4176e-190">The current user is also known as the Request Context Principal and can be viewed in a Razor view by referencing `@User.Identity.Name`.</span></span>
 
-<span data-ttu-id="26c6d-191">Das folgende Beispiel überprüft den zu diesem Zeitpunkt angemeldeten Benutzer.</span><span class="sxs-lookup"><span data-stu-id="26c6d-191">The following example looks at the current logged in user.</span></span>  
+<span data-ttu-id="4176e-191">Das folgende Beispiel überprüft den zu diesem Zeitpunkt angemeldeten Benutzer.</span><span class="sxs-lookup"><span data-stu-id="4176e-191">The following example looks at the current logged in user.</span></span>  
 
-<span data-ttu-id="26c6d-192">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-192">Example:</span></span>
+<span data-ttu-id="4176e-192">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-192">Example:</span></span>
 
 ```cshtml
 <cache vary-by-user="true">
@@ -216,23 +212,23 @@ routes.MapRoute(
 </cache>
 ```
 
-<span data-ttu-id="26c6d-193">Wenn Sie dieses Attribut verwenden, werden die Inhalte im Cache über einen Anmeldungs- und Abmeldungskreislauf verwaltet.</span><span class="sxs-lookup"><span data-stu-id="26c6d-193">Using this attribute maintains the contents in cache through a log-in and log-out cycle.</span></span>  <span data-ttu-id="26c6d-194">Wenn Sie das Attribut `vary-by-user="true"` verwenden, wird der Cache über eine Anmeldungs- bzw. Abmeldungsaktion für den authentifizierten Benutzer ungültig.</span><span class="sxs-lookup"><span data-stu-id="26c6d-194">When using `vary-by-user="true"`, a log-in and log-out action invalidates the cache for the authenticated user.</span></span>  <span data-ttu-id="26c6d-195">Der Cache wird für ungültig erklärt, da ein neuer eindeutiger Cookiewert bei der Anmeldung generiert wird.</span><span class="sxs-lookup"><span data-stu-id="26c6d-195">The cache is invalidated because a new unique cookie value is generated on login.</span></span> <span data-ttu-id="26c6d-196">Der Cache wird für den Status „Anonym“ verwaltet, wenn kein Cookie vorhanden ist oder es abgelaufen ist.</span><span class="sxs-lookup"><span data-stu-id="26c6d-196">Cache is maintained for the anonymous state when no cookie is present or has expired.</span></span> <span data-ttu-id="26c6d-197">D.h., der Cache wird verwaltet, wenn kein Benutzer angemeldet ist.</span><span class="sxs-lookup"><span data-stu-id="26c6d-197">This means if no user is logged in, the cache will be maintained.</span></span>
+<span data-ttu-id="4176e-193">Wenn Sie dieses Attribut verwenden, werden die Inhalte im Cache über einen Anmeldungs- und Abmeldungskreislauf verwaltet.</span><span class="sxs-lookup"><span data-stu-id="4176e-193">Using this attribute maintains the contents in cache through a log-in and log-out cycle.</span></span>  <span data-ttu-id="4176e-194">Wenn Sie das Attribut `vary-by-user="true"` verwenden, wird der Cache über eine Anmeldungs- bzw. Abmeldungsaktion für den authentifizierten Benutzer ungültig.</span><span class="sxs-lookup"><span data-stu-id="4176e-194">When using `vary-by-user="true"`, a log-in and log-out action invalidates the cache for the authenticated user.</span></span>  <span data-ttu-id="4176e-195">Der Cache wird für ungültig erklärt, da ein neuer eindeutiger Cookiewert bei der Anmeldung generiert wird.</span><span class="sxs-lookup"><span data-stu-id="4176e-195">The cache is invalidated because a new unique cookie value is generated on login.</span></span> <span data-ttu-id="4176e-196">Der Cache wird für den Status „Anonym“ verwaltet, wenn kein Cookie vorhanden ist oder es abgelaufen ist.</span><span class="sxs-lookup"><span data-stu-id="4176e-196">Cache is maintained for the anonymous state when no cookie is present or has expired.</span></span> <span data-ttu-id="4176e-197">D.h., der Cache wird verwaltet, wenn kein Benutzer angemeldet ist.</span><span class="sxs-lookup"><span data-stu-id="4176e-197">This means if no user is logged in, the cache will be maintained.</span></span>
 
 - - -
 
-### <a name="vary-by"></a><span data-ttu-id="26c6d-198">vary-by</span><span class="sxs-lookup"><span data-stu-id="26c6d-198">vary-by</span></span>
+### <a name="vary-by"></a><span data-ttu-id="4176e-198">vary-by</span><span class="sxs-lookup"><span data-stu-id="4176e-198">vary-by</span></span>
 
-| <span data-ttu-id="26c6d-199">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-199">Attribute Type</span></span> | <span data-ttu-id="26c6d-200">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-200">Example Values</span></span> |
+| <span data-ttu-id="4176e-199">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-199">Attribute Type</span></span> | <span data-ttu-id="4176e-200">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-200">Example Values</span></span> |
 |----------------|----------------|
-|     <span data-ttu-id="26c6d-201">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="26c6d-201">String</span></span>     |    <span data-ttu-id="26c6d-202">"@Model"</span><span class="sxs-lookup"><span data-stu-id="26c6d-202">"@Model"</span></span>    |
+|     <span data-ttu-id="4176e-201">Zeichenfolge</span><span class="sxs-lookup"><span data-stu-id="4176e-201">String</span></span>     |    <span data-ttu-id="4176e-202">"@Model"</span><span class="sxs-lookup"><span data-stu-id="4176e-202">"@Model"</span></span>    |
 
-<span data-ttu-id="26c6d-203">Über dieses Attribut können Sie festlegen, welche Daten zwischengespeichert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="26c6d-203">Allows for customization of what data gets cached.</span></span> <span data-ttu-id="26c6d-204">Wenn das Objekt verändert wird, auf das der Zeichenfolgenwert des Attributs verweist, wird der Inhalt des Cache-Hilfsprogramms aktualisiert.</span><span class="sxs-lookup"><span data-stu-id="26c6d-204">When the object referenced by the attribute's string value changes, the content of the Cache Tag Helper is updated.</span></span> <span data-ttu-id="26c6d-205">Häufig wird eine Zeichenfolgenverkettung von Modellwerten diesem Attribut zugewiesen.</span><span class="sxs-lookup"><span data-stu-id="26c6d-205">Often a string-concatenation of model values are assigned to this attribute.</span></span>  <span data-ttu-id="26c6d-206">D.h., dass der Cache ungültig wird, wenn ein Update an einem der verketteten Werte vorgenommen wird.</span><span class="sxs-lookup"><span data-stu-id="26c6d-206">Effectively, that means an update to any of the concatenated values invalidates the cache.</span></span>
+<span data-ttu-id="4176e-203">Über dieses Attribut können Sie festlegen, welche Daten zwischengespeichert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="4176e-203">Allows for customization of what data gets cached.</span></span> <span data-ttu-id="4176e-204">Wenn das Objekt verändert wird, auf das der Zeichenfolgenwert des Attributs verweist, wird der Inhalt des Cache-Hilfsprogramms aktualisiert.</span><span class="sxs-lookup"><span data-stu-id="4176e-204">When the object referenced by the attribute's string value changes, the content of the Cache Tag Helper is updated.</span></span> <span data-ttu-id="4176e-205">Häufig wird eine Zeichenfolgenverkettung von Modellwerten diesem Attribut zugewiesen.</span><span class="sxs-lookup"><span data-stu-id="4176e-205">Often a string-concatenation of model values are assigned to this attribute.</span></span>  <span data-ttu-id="4176e-206">D.h., dass der Cache ungültig wird, wenn ein Update an einem der verketteten Werte vorgenommen wird.</span><span class="sxs-lookup"><span data-stu-id="4176e-206">Effectively, that means an update to any of the concatenated values invalidates the cache.</span></span>
 
-<span data-ttu-id="26c6d-207">Das folgende Beispiel nimmt an, dass die Controllermethode, die die Ansicht rendert, die Integerwerte der beiden Routenparameter `myParam1` und `myParam2` addiert, und diesen als eine Modelleigenschaft zurückgibt.</span><span class="sxs-lookup"><span data-stu-id="26c6d-207">The following example assumes the controller method rendering the view sums the integer value of the two route parameters, `myParam1` and `myParam2`, and returns that as the single model property.</span></span> <span data-ttu-id="26c6d-208">Wenn sich diese Summe ändert, wird auch der Inhalt des Cache-Taghilfsprogramms gerendert und erneut zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="26c6d-208">When this sum changes, the content of the Cache Tag Helper is rendered and cached again.</span></span>  
+<span data-ttu-id="4176e-207">Das folgende Beispiel nimmt an, dass die Controllermethode, die die Ansicht rendert, die Integerwerte der beiden Routenparameter `myParam1` und `myParam2` addiert, und diesen als eine Modelleigenschaft zurückgibt.</span><span class="sxs-lookup"><span data-stu-id="4176e-207">The following example assumes the controller method rendering the view sums the integer value of the two route parameters, `myParam1` and `myParam2`, and returns that as the single model property.</span></span> <span data-ttu-id="4176e-208">Wenn sich diese Summe ändert, wird auch der Inhalt des Cache-Taghilfsprogramms gerendert und erneut zwischengespeichert.</span><span class="sxs-lookup"><span data-stu-id="4176e-208">When this sum changes, the content of the Cache Tag Helper is rendered and cached again.</span></span>  
 
-<span data-ttu-id="26c6d-209">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-209">Example:</span></span>
+<span data-ttu-id="4176e-209">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-209">Example:</span></span>
 
-<span data-ttu-id="26c6d-210">Aktion:</span><span class="sxs-lookup"><span data-stu-id="26c6d-210">Action:</span></span>
+<span data-ttu-id="4176e-210">Aktion:</span><span class="sxs-lookup"><span data-stu-id="4176e-210">Action:</span></span>
 
 ```csharp
 public IActionResult Index(string myParam1,string myParam2,string myParam3)
@@ -245,7 +241,7 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 }
 ```
 
-<span data-ttu-id="26c6d-211">*Index.cshtml*</span><span class="sxs-lookup"><span data-stu-id="26c6d-211">*Index.cshtml*</span></span>
+<span data-ttu-id="4176e-211">*Index.cshtml*</span><span class="sxs-lookup"><span data-stu-id="4176e-211">*Index.cshtml*</span></span>
 
 ```cshtml
 <cache vary-by="@Model"">
@@ -255,18 +251,18 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 
 - - -
 
-### <a name="priority"></a><span data-ttu-id="26c6d-212">priority</span><span class="sxs-lookup"><span data-stu-id="26c6d-212">priority</span></span>
+### <a name="priority"></a><span data-ttu-id="4176e-212">priority</span><span class="sxs-lookup"><span data-stu-id="4176e-212">priority</span></span>
 
-| <span data-ttu-id="26c6d-213">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="26c6d-213">Attribute Type</span></span>    | <span data-ttu-id="26c6d-214">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="26c6d-214">Example Values</span></span>                |
+| <span data-ttu-id="4176e-213">Attributtyp</span><span class="sxs-lookup"><span data-stu-id="4176e-213">Attribute Type</span></span>    | <span data-ttu-id="4176e-214">Beispielwerte</span><span class="sxs-lookup"><span data-stu-id="4176e-214">Example Values</span></span>                |
 |----------------   |----------------               |
-| <span data-ttu-id="26c6d-215">CacheItemPriority</span><span class="sxs-lookup"><span data-stu-id="26c6d-215">CacheItemPriority</span></span>  | <span data-ttu-id="26c6d-216">"High"</span><span class="sxs-lookup"><span data-stu-id="26c6d-216">"High"</span></span>                   |
-|                    | <span data-ttu-id="26c6d-217">"Low"</span><span class="sxs-lookup"><span data-stu-id="26c6d-217">"Low"</span></span> |
-|                    | <span data-ttu-id="26c6d-218">"NeverRemove"</span><span class="sxs-lookup"><span data-stu-id="26c6d-218">"NeverRemove"</span></span> |
-|                    | <span data-ttu-id="26c6d-219">"Normal"</span><span class="sxs-lookup"><span data-stu-id="26c6d-219">"Normal"</span></span> |
+| <span data-ttu-id="4176e-215">CacheItemPriority</span><span class="sxs-lookup"><span data-stu-id="4176e-215">CacheItemPriority</span></span>  | <span data-ttu-id="4176e-216">"High"</span><span class="sxs-lookup"><span data-stu-id="4176e-216">"High"</span></span>                   |
+|                    | <span data-ttu-id="4176e-217">"Low"</span><span class="sxs-lookup"><span data-stu-id="4176e-217">"Low"</span></span> |
+|                    | <span data-ttu-id="4176e-218">"NeverRemove"</span><span class="sxs-lookup"><span data-stu-id="4176e-218">"NeverRemove"</span></span> |
+|                    | <span data-ttu-id="4176e-219">"Normal"</span><span class="sxs-lookup"><span data-stu-id="4176e-219">"Normal"</span></span> |
 
-<span data-ttu-id="26c6d-220">Enthält Anweisungen zum Entfernen des Caches für den integrierten Cacheanbieter.</span><span class="sxs-lookup"><span data-stu-id="26c6d-220">Provides cache eviction guidance to the built-in cache provider.</span></span> <span data-ttu-id="26c6d-221">Der Webserver entfernt `Low`-Cacheeinträge erst, wenn der Arbeitsspeicher ausgelastet ist.</span><span class="sxs-lookup"><span data-stu-id="26c6d-221">The web server will evict `Low` cache entries first when it's under memory pressure.</span></span>
+<span data-ttu-id="4176e-220">Enthält Anweisungen zum Entfernen des Caches für den integrierten Cacheanbieter.</span><span class="sxs-lookup"><span data-stu-id="4176e-220">Provides cache eviction guidance to the built-in cache provider.</span></span> <span data-ttu-id="4176e-221">Der Webserver entfernt `Low`-Cacheeinträge erst, wenn der Arbeitsspeicher ausgelastet ist.</span><span class="sxs-lookup"><span data-stu-id="4176e-221">The web server will evict `Low` cache entries first when it's under memory pressure.</span></span>
 
-<span data-ttu-id="26c6d-222">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="26c6d-222">Example:</span></span>
+<span data-ttu-id="4176e-222">Beispiel:</span><span class="sxs-lookup"><span data-stu-id="4176e-222">Example:</span></span>
 
 ```cshtml
 <cache priority="High">
@@ -274,11 +270,11 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 </cache>
 ```
 
-<span data-ttu-id="26c6d-223">Das `priority`-Attribut garantiert keine festgelegte Ebene der Cachevermerkdauer.</span><span class="sxs-lookup"><span data-stu-id="26c6d-223">The `priority` attribute doesn't guarantee a specific level of cache retention.</span></span> <span data-ttu-id="26c6d-224">Bei `CacheItemPriority` handelt es sich nur um einen Vorschlag.</span><span class="sxs-lookup"><span data-stu-id="26c6d-224">`CacheItemPriority` is only a suggestion.</span></span> <span data-ttu-id="26c6d-225">Wenn Sie dieses Attribut auf `NeverRemove` festlegen, ist das noch keine Garantie dafür, dass der Cache für immer gespeichert bleibt.</span><span class="sxs-lookup"><span data-stu-id="26c6d-225">Setting this attribute to `NeverRemove` doesn't guarantee that the cache will always be retained.</span></span> <span data-ttu-id="26c6d-226">Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources).</span><span class="sxs-lookup"><span data-stu-id="26c6d-226">See [Additional Resources](#additional-resources) for more information.</span></span>
+<span data-ttu-id="4176e-223">Das `priority`-Attribut garantiert keine festgelegte Ebene der Cachevermerkdauer.</span><span class="sxs-lookup"><span data-stu-id="4176e-223">The `priority` attribute doesn't guarantee a specific level of cache retention.</span></span> <span data-ttu-id="4176e-224">Bei `CacheItemPriority` handelt es sich nur um einen Vorschlag.</span><span class="sxs-lookup"><span data-stu-id="4176e-224">`CacheItemPriority` is only a suggestion.</span></span> <span data-ttu-id="4176e-225">Wenn Sie dieses Attribut auf `NeverRemove` festlegen, ist das noch keine Garantie dafür, dass der Cache für immer gespeichert bleibt.</span><span class="sxs-lookup"><span data-stu-id="4176e-225">Setting this attribute to `NeverRemove` doesn't guarantee that the cache will always be retained.</span></span> <span data-ttu-id="4176e-226">Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources).</span><span class="sxs-lookup"><span data-stu-id="4176e-226">See [Additional Resources](#additional-resources) for more information.</span></span>
 
-<span data-ttu-id="26c6d-227">Das Cache-Taghilfsprogramm ist vom [Arbeitsspeicher Cache Service](xref:performance/caching/memory) abhängig.</span><span class="sxs-lookup"><span data-stu-id="26c6d-227">The Cache Tag Helper is dependent on the [memory cache service](xref:performance/caching/memory).</span></span> <span data-ttu-id="26c6d-228">Das Cache-Taghilfsprogramm fügt den Service wenn nötig hinzu.</span><span class="sxs-lookup"><span data-stu-id="26c6d-228">The Cache Tag Helper adds the service if it has not been added.</span></span>
+<span data-ttu-id="4176e-227">Das Cache-Taghilfsprogramm ist vom [Arbeitsspeicher Cache Service](xref:performance/caching/memory) abhängig.</span><span class="sxs-lookup"><span data-stu-id="4176e-227">The Cache Tag Helper is dependent on the [memory cache service](xref:performance/caching/memory).</span></span> <span data-ttu-id="4176e-228">Das Cache-Taghilfsprogramm fügt den Service wenn nötig hinzu.</span><span class="sxs-lookup"><span data-stu-id="4176e-228">The Cache Tag Helper adds the service if it has not been added.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="26c6d-229">Zusätzliche Ressourcen</span><span class="sxs-lookup"><span data-stu-id="26c6d-229">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="4176e-229">Zusätzliche Ressourcen</span><span class="sxs-lookup"><span data-stu-id="4176e-229">Additional resources</span></span>
 
-* [<span data-ttu-id="26c6d-230">Zwischenspeichern in Speicher</span><span class="sxs-lookup"><span data-stu-id="26c6d-230">Cache in-memory</span></span>](xref:performance/caching/memory)
-* [<span data-ttu-id="26c6d-231">Einführung in Identity</span><span class="sxs-lookup"><span data-stu-id="26c6d-231">Introduction to Identity</span></span>](xref:security/authentication/identity)
+* [<span data-ttu-id="4176e-230">Zwischenspeichern in Speicher</span><span class="sxs-lookup"><span data-stu-id="4176e-230">Cache in-memory</span></span>](xref:performance/caching/memory)
+* [<span data-ttu-id="4176e-231">Einführung in Identity</span><span class="sxs-lookup"><span data-stu-id="4176e-231">Introduction to Identity</span></span>](xref:security/authentication/identity)

@@ -2,23 +2,19 @@
 title: Hinzufügen eines neuen Felds zu einer ASP.NET Core-App
 author: rick-anderson
 description: Informationen zum Hinzufügen eines neuen Felds zu einer vorhandenen ASP.NET Core EF/MVC-App.
-manager: wpickett
 ms.author: riande
 ms.date: 04/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/new-field
-ms.openlocfilehash: 38dc1d63620cd696e16b6e247696a0aa20aecc54
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 56b165d034c7ee0e21d72e60d36c06cbe434ff70
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898421"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272266"
 ---
 [!INCLUDE [adding-field](../../includes/mvc-intro/new-field.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="d16e1-103">[Zurück: Hinzufügen der Suche](search.md)
-> [Weiter: Hinzufügen der Validierung](validation.md)</span><span class="sxs-lookup"><span data-stu-id="d16e1-103">[Previous - Add search](search.md)
+> <span data-ttu-id="95bf5-103">[Zurück: Hinzufügen der Suche](search.md)
+> [Weiter: Hinzufügen der Validierung](validation.md)</span><span class="sxs-lookup"><span data-stu-id="95bf5-103">[Previous - Add search](search.md)
 [Next - Add validation](validation.md)</span></span>  
