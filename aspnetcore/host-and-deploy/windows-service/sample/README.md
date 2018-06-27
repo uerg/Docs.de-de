@@ -1,35 +1,37 @@
-# <a name="custom-webhost-service-sample"></a>Benutzerdefinierte WebHost-Beispiel
+# <a name="custom-webhost-service-sample"></a>Beispiel: Benutzerdefinierter WebHost-Dienst
 
-Dieses Beispiel zeigt die empfohlene Methode, um eine ASP.NET Core-app unter Windows zu hosten, ohne mit IIS als Windows-Dienst. In diesem Beispiel wird veranschaulicht, die in beschriebenen Funktionen [hosten Sie eine ASP.NET Core-app in einem Windows-Dienst](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+In diesem Beispiel wird die Vorgehensweise zum Hosten einer ASP.NET Core-App als Windows-Dienst ohne Verwendung von IIS dargestellt. In diesem Beispiel wird das unter [Hosten einer ASP.NET Core-App in einem Windows-Dienst](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service) beschriebene Szenario veranschaulicht.
 
 ## <a name="instructions"></a>Anweisungen
 
-Die Beispiel-app ist eine einfache MVC-Web-app geändert wird, gemäß der Anleitung in [hosten Sie eine ASP.NET Core-app in einem Windows-Dienst](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+Bei der Beispiel-App handelt es sich gemäß den Anweisungen unter [Hosten einer ASP.NET Core-App in einem Windows-Dienst](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service) um eine geänderte Razor Pages-Web-App.
 
-Um die app in einem Dienst auszuführen, führen Sie die folgenden Schritte aus:
+Führen Sie die folgenden Schritte aus, um die App in einem Dienst auszuführen:
 
-1. Erstellen Sie einen Ordner am *c:\svc*.
+1. Erstellen Sie unter *c:\svc* einen Ordner.
 
-1. Veröffentlichen Sie die app zum Ordner mit der `dotnet publish --configuration Release --output c:\\svc`. Der Befehl wird der App wechseln Sie zum Ordner, einschließlich der erforderlichen `appsettings.json` Datei und die `wwwroot` Ordner samt Inhalt.
+1. Veröffentlichen Sie die App in dem Ordner mit `dotnet publish --configuration Release --output c:\\svc`. Die Objekte der App werden durch den Befehl in den Ordner *svc* verschoben, einschließlich der erforderlichen `appsettings.json`-Datei und des `wwwroot`-Ordners.
 
-1. Öffnen einer **Administrator** -Befehlsshell.
+1. Öffnen Sie eine **Administrator**-Eingabeaufforderung.
 
 1. Führen Sie den folgenden Befehl aus:
 
    ```console
-   sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
    sc start MyService
    ```
 
-1. Navigieren Sie in einem Browser auf `http://localhost:5000` um sicherzustellen, dass der Dienst ausgeführt wird.
+  *Der Abstand zwischen dem Gleichheitszeichen und dem Beginn der Pfadzeichenfolge ist erforderlich.*
 
-1. Um den Dienst zu beenden, verwenden Sie den Befehl aus:
+1. Navigieren Sie in einem Browser zu `http://localhost:5000`, und überprüfen Sie, ob der Dienst ausgeführt wird. Die App wird zum sicheren Endpunkt `https://localhost:5001` umgeleitet.
+
+1. Verwenden Sie zum Beenden des Diensts den folgenden Befehl:
 
    ```console
    sc stop MyService
    ```
 
-Wenn die app nicht wie erwartet, bei der Ausführung in einem Dienst gestartet, ist eine schnelle Möglichkeit, Fehlermeldungen zugänglich zu machen, wie z. B. hinzufügen ein Anbieters für die Protokollierung der [Anbieter Windows-Ereignisprotokoll](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog). Eine weitere Option besteht, überprüfen Sie das Anwendungsereignisprotokoll, die mithilfe der Ereignisanzeige auf dem System. Hier ist z. B. eine nicht behandelte Ausnahme auf einen FileNotFound Fehler im Anwendungsereignisprotokoll:
+Wenn die App nicht wie erwartet gestartet wird, können Fehlermeldungen auf schnelle Weise zugänglich gemacht werden, indem ein Protokollierungsanbieter, z.B. der [Windows EventLog-Anbieter](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog), hinzugefügt wird. Eine weitere Möglichkeit besteht darin, das Anwendungsereignisprotokoll mit der Ereignisanzeige im System zu überprüfen. Im Folgenden wird beispielsweise eine unbehandelte Ausnahme für einen Fehler vom Typ „FileNotFound“ im Anwendungsereignisprotokoll aufgeführt:
 
 ```console
 Application: AspNetCoreService.exe

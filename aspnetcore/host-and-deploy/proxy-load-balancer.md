@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e18f049fd5d8caef5dfc488a020ec239d1a6d83d
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740945"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567074"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich
 
@@ -38,7 +38,7 @@ Gemäß der Konvention leiten Proxys Informationen in HTTP-Headern weiter.
 | X-Forwarded-Proto | Der Wert des ursprünglichen Schemas (HTTP/HTTPS). Der Wert kann auch eine Liste von Schemas sein, wenn die Anforderung mehrere Proxys durchlaufen hat. |
 | X-Forwarded-Host | Der ursprüngliche Wert des Felds „Hostheader“. In der Regel ändern Proxys den Hostheader nicht. Informationen über Sicherheitslücken, durch die Rechteerweiterungen ermöglicht werden und die sich auf Systeme auswirken, in denen der Proxy Hostheader nicht validiert oder auf bekannte gute Werte beschränkt, finden Sie in der [Microsoft-Sicherheitsempfehlung CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295). |
 
-Die Middleware für weitergeleitete Header aus dem Paket [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) liest die Header und füllt die zugehörigen Felder in [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext) aus. 
+Die Middleware für weitergeleitete Header aus dem Paket [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) liest die Header und füllt die zugehörigen Felder in [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext) aus.
 
 Die Middleware aktualisiert:
 
@@ -67,7 +67,7 @@ Konfigurieren Sie die Middleware mit [ForwardedHeadersOptions](/dotnet/api/micro
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
-    
+
     services.Configure<ForwardedHeadersOptions>(options =>
     {
         options.ForwardedHeaders = 
@@ -97,6 +97,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 > [!NOTE]
 > Wenn [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) nicht in `Startup.ConfigureServices` oder direkt für die Erweiterungsmethode mit [UseForwardedHeaders(IApplicationBuilder, ForwardedHeadersOptions)](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ForwardedHeadersExtensions_UseForwardedHeaders_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_ForwardedHeadersOptions_) angegeben wurde, müssen die Standardheader [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) weitergeleitet werden. Die Eigenschaft [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) muss mit den weiterzuleitenden Headern konfiguriert werden.
+
+## <a name="nginx-configuration"></a>Nginx-Konfiguration
+
+Informationen zur Weiterleitung der Header `X-Forwarded-For` und `X-Forwarded-Proto` finden Sie unter [Hosten unter Linux mit Nginx: Konfigurieren von Nginx](xref:host-and-deploy/linux-nginx#configure-nginx). Weitere Informationen finden Sie unter [NGINX: Verwenden des weitergeleiteten Headers](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
+
+## <a name="apache-configuration"></a>Apache-Konfiguration
+
+`X-Forwarded-For` wird automatisch hinzugefügt (siehe [Apache-Modul mod_proxy: Reverseproxy-Anforderungsheader](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). Informationen zur Weiterleitung des Headers `X-Forwarded-Proto` finden Sie unter [Hosten unter Linux mit Apache: Konfigurieren von Apache](xref:host-and-deploy/linux-apache#configure-apache).
 
 ## <a name="forwarded-headers-middleware-options"></a>Middleware für weitergeleitete Header: Optionen
 

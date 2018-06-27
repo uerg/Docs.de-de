@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729193"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Hochleistungsprotokollierung mit LoggerMessage in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage)-Features erstellen Delegate, die zwischengespeichert werden können und die im Vergleich zu [Protokollierungserweiterungsmethoden](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions) (wie z.B. `LogInformation`, `LogDebug` und `LogError`) weniger Objektzuweisungen benötigen und den Rechenaufwand reduzieren. Verwenden Sie das `LoggerMessage`-Muster für Hochleistungsprotokollierungen.
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage)-Features erstellen Delegate, die zwischengespeichert werden können und die im Vergleich zu [Methoden zur Protokollierungserweiterung](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions) (wie z.B. `LogInformation`, `LogDebug` und `LogError`) weniger Objektzuweisungen benötigen und den Rechenaufwand reduzieren. Verwenden Sie das `LoggerMessage`-Muster für Hochleistungsprotokollierungen.
 
 `LoggerMessage` hat im Vergleich zu Protokollierungserweiterungsmethoden die folgenden Vorzüge:
 
@@ -143,13 +144,9 @@ Definieren Sie einen [Protokollbereich](xref:fundamentals/logging/index#log-scop
 
 Die Beispiel-App verfügt über die Schaltfläche **Clear all** (Alles löschen) zum Löschen aller Zitate in der Datenbank. Die Zitate werden nacheinander entfernt und gelöscht. Bei jedem Zitatlöschvorgang wird die `QuoteDeleted`-Methode in der Protokollierung aufgerufen. Diesen Protokollmeldung wird ein Protokollbereich hinzugefügt.
 
-Aktivieren Sie `IncludeScopes` in den Optionen der Konsolenprotokollierung:
+Aktivieren Sie `IncludeScopes` in der Datei *appsettings.json* im Abschnitt „Konsolenprotokollierung“:
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-In ASP.NET Core 2.0-Apps ist das Festlegen von `IncludeScopes` erforderlich, um Protokollbereich zu ermöglichen. Im Release ASP.NET Core 2.1 soll ein Feature zum Festlegen von `IncludeScopes` über *appsettings*-Konfigurationsdateien beinhaltet sein.
-
-Die Beispiel-App löscht andere Anbieter und fügt Filter zum Minimieren der Protokollausgabe hinzu. So können Sie die Protokollmeldungen der Beispiel-App leichter sehen, die `LoggerMessage`-Features veranschaulichen.
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 Fügen Sie zum Erstellen eines Protokollbereichs ein Feld hinzu, dass einen `Func`-Delegaten für den Bereich enthält. Die Beispiel-App erstellt ein Feld mit dem Namen `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Logging (Protokollierung)](xref:fundamentals/logging/index)

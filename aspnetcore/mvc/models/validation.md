@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 1ab19fad90eab9f2da58b4d62615a85d71894218
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f6748ef6df865919e43cdd9ee86fcc64dbe9651a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252359"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Modellvalidierung im ASP.NET Core MVC
 
@@ -99,9 +100,13 @@ Validierungsattribute funktionieren für die meisten Anforderungen, die im Zusam
 
 Im folgenden Beispiel legt eine Unternehmensregel fest, dass Benutzer das Genre für Filme, die nach 1960 veröffentlicht wurden, möglicherweise nicht auf *Klassiker* festlegen. Das `[ClassicMovie]`-Attribut überprüft erst das Genre, und wenn es sich um einen Klassiker handelt, überprüft es, ob das Datum der Veröffentlichung nach 1960 liegt. Wenn der Film nach 1960 veröffentlicht wurde, schlägt die Validierung fehl. Das Attribut akzeptiert einen Integer-Parameter, der für das Jahr steht, das Sie verwenden können, um Daten zu überprüfen. Sie können wie folgt den Wert des Parameters im Konstruktor des Attributs erfassen:
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
 
-Die obenstehende `movie`-Variable stellt ein `Movie`-Objekt dar, das die Daten der Formularübermittlung enthalten, die überprüft werden sollen. In diesem Fall überprüft der Validierungscode anhand der Regeln das Datum und das Genre der `ClassicMovieAttribute`-Klasse in der `IsValid`-Methode. Wenn die Validierung erfolgreich ist, gibt `IsValid` einen `ValidationResult.Success`-Code zurück, und wenn die Validierung fehlschlägt, wird ein `ValidationResult` mit einer Fehlermeldung zurückgegeben. Wenn ein Benutzer das `Genre`-Feld verändert und das Formular übermittelt, überprüft die `IsValid`-Methode des `ClassicMovieAttribute`-Attributs, ob es sich bei dem Film um einen Klassiker handelt. Wenden Sie das `ClassicMovieAttribute`-Attribut wie jedes andere Attribut auch auf eine Eigenschaft wie `ReleaseDate` an, um wie im folgenden Codebeispiel dargestellt sicherzustellen, dass die Validierung durchgeführt wird. Da das Beispiel nur mit `Movie`-Typen funktioniert, ist es die bessere Option, `IValidatableObject` wie im folgenden Abschnitt dargestellt zu verwenden.
+Die obenstehende `movie`-Variable stellt ein `Movie`-Objekt dar, das die Daten der Formularübermittlung enthalten, die überprüft werden sollen. In diesem Fall überprüft der Validierungscode anhand der Regeln das Datum und das Genre der `ClassicMovieAttribute`-Klasse in der `IsValid`-Methode. Ist die Validierung erfolgreich, gibt `IsValid` einen `ValidationResult.Success`-Code zurück. Schlägt die Validierung fehl, wird ein `ValidationResult` mit einer Fehlermeldung zurückgegeben:
+
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=55-58)]
+
+Wenn ein Benutzer das `Genre`-Feld verändert und das Formular übermittelt, überprüft die `IsValid`-Methode des `ClassicMovieAttribute`-Attributs, ob es sich bei dem Film um einen Klassiker handelt. Wenden Sie das `ClassicMovieAttribute`-Attribut wie jedes andere Attribut auch auf eine Eigenschaft wie `ReleaseDate` an, um wie im folgenden Codebeispiel dargestellt sicherzustellen, dass die Validierung durchgeführt wird. Da das Beispiel nur mit `Movie`-Typen funktioniert, ist es die bessere Option, `IValidatableObject` wie im folgenden Abschnitt dargestellt zu verwenden.
 
 Stattdessen kann derselbe Code auch in dem Modell platziert werden, indem er in die `Validate`-Methode auf der `IValidatableObject`-Schnittstelle implementiert wird. Benutzerdefinierte Validierungsattribute funktionieren zwar gut für die Validierung von individuellen Eigenschaften, die Implementierung von `IValidatableObject` kann jedoch verwendet werden, um wie hier dargestellt die Validierung auf Klassenebene zu implementieren.
 

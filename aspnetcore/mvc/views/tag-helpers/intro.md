@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c8d5a63948aed0630d677ad3c0a40fb07ddc62af
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613124"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Taghilfsprogramme in ASP.NET Core
 
@@ -67,11 +68,11 @@ Der Taghilfsprogrammbereich wird über eine Kombination aus `@addTagHelper`, `@r
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` stellt Taghilfsprogramme zur Verfügung.
 
-Wenn Sie eine neue ASP.NET Core-Web-App mit dem Namen *AuthoringTagHelpers* erstellen (ohne Authentifizierung), wird die folgende *Views/_ViewImports.cshtml*-Datei Ihrem Projekt hinzugefügt:
+Wenn Sie eine neue ASP.NET Core-Web-App mit dem Namen *AuthoringTagHelpers* erstellen, wird die folgende *Views/_ViewImports.cshtml*-Datei Ihrem Projekt hinzugefügt:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-Über die `@addTagHelper`-Anweisung werden Taghilfsprogramme in der Ansicht zur Verfügung gestellt. In diesem Fall ist *Views/_ViewImports.cshtml* die Ansichtsdatei, die standardmäßig von allen Ansichtsdateien im *Ansichten*-Ordner und den Unterverzeichnissen geerbt wird. Dadurch werden Taghilfsprogramme zur Verfügung gestellt. Im obenstehenden Code wird die Platzhaltersyntax („\*“) verwendet, um anzugeben, dass alle in der Assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) festgelegten Taghilfsprogramme für alle Ansichtsdateien im *Ansichten*-Verzeichnis bzw. -Unterverzeichnis verfügbar sind. Über den ersten Parameter nach `@addTagHelper` wird das Taghilfsprogramm geladen („\*“ wird für alle Taghilfsprogramme verwendet), und über den zweiten Parameter „Microsoft.AspNetCore.Mvc.TagHelpers“ wird die Assembly angegeben, die die Taghilfsprogramme enthält. Bei *Microsoft.AspNetCore.Mvc.TagHelpers* handelt es sich um die Assembly für die integrierten ASP.NET Core-Taghilfsprogramme.
+Über die `@addTagHelper`-Anweisung werden Taghilfsprogramme in der Ansicht zur Verfügung gestellt. In diesem Fall ist *Pages/_ViewImports.cshtml* die Ansichtsdatei, die standardmäßig von allen Dateien im *Seiten*-Ordner und den Unterordnern geerbt wird. Dadurch werden Taghilfsprogramme zur Verfügung gestellt. Im obenstehenden Code wird die Platzhaltersyntax („\*“) verwendet, um anzugeben, dass alle in der Assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) festgelegten Taghilfsprogramme für alle Ansichtsdateien im *Ansichten*-Verzeichnis bzw. -Unterverzeichnis verfügbar sind. Über den ersten Parameter nach `@addTagHelper` wird das Taghilfsprogramm geladen („\*“ wird für alle Taghilfsprogramme verwendet), und über den zweiten Parameter „Microsoft.AspNetCore.Mvc.TagHelpers“ wird die Assembly angegeben, die die Taghilfsprogramme enthält. Bei *Microsoft.AspNetCore.Mvc.TagHelpers* handelt es sich um die Assembly für die integrierten ASP.NET Core-Taghilfsprogramme.
 
 Verwenden Sie folgenden Code, wenn Sie alle Taghilfsprogramme in diesem Projekt zur Verfügung stellen wollen. Dadurch wird eine Assembly mit dem Namen *AuthoringTagHelpers* erstellt:
 

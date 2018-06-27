@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: d132747cb7c92ef5afac4664c91634a4ad290e5f
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734522"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Erkennen von Änderungen mit Änderungstoken in ASP.NET Core
 
@@ -26,7 +27,7 @@ Ein *Änderungstoken* ist ein allgemeiner Baustein auf niedriger Ebene zum Nachv
 
 ## <a name="ichangetoken-interface"></a>IChangeToken-Schnittstelle
 
-[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) verbreitet Benachrichtigungen, wenn eine Änderung aufgetreten ist. `IChangeToken` befindet sich im [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives)-Namespace. Für Anwendungen, die das [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)-Metapaket nicht verwenden, verweisen Sie auf das [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/)-NuGet-Paket in der Projektdatei.
+[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) verbreitet Benachrichtigungen, wenn eine Änderung aufgetreten ist. `IChangeToken` befindet sich im [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives)-Namespace. Für Anwendungen, die das Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 oder höher) nicht verwenden, verweisen Sie auf das NuGet-Paket [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) in der Projektdatei.
 
 `IChangeToken` verfügt über zwei Eigenschaften:
 
@@ -37,9 +38,10 @@ Die Schnittstelle verfügt über eine Methode, [RegisterChangeCallback(Action&lt
 
 ## <a name="changetoken-class"></a>ChangeToken-Klasse
 
-`ChangeToken` ist eine statische Klasse, die zur Verbreitung von Änderungsbenachrichtigungen verwendet wird. `ChangeToken` befindet sich im [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives)-Namespace. Für Anwendungen, die das [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)-Metapaket nicht verwenden, verweisen Sie auf das [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/)-NuGet-Paket in der Projektdatei.
+`ChangeToken` ist eine statische Klasse, die zur Verbreitung von Änderungsbenachrichtigungen verwendet wird. `ChangeToken` befindet sich im [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives)-Namespace. Für Anwendungen, die das Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) nicht verwenden, verweisen Sie auf das NuGet-Paket [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) in der Projektdatei.
 
 Die `ChangeToken` [OnChange (Func&lt;IChangeToken&gt;, Action)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action_)-Methode registriert eine aufzurufende `Action`, wenn das Token geändert wird:
+
 * `Func<IChangeToken>` erzeugt das Token.
 * `Action` wird aufgerufen, wenn das Token geändert wird.
 
@@ -196,7 +198,7 @@ var compositeChangeToken =
 
 `HasChanged` für die kombinierten Tokenberichte ist `true`, wenn ein dargestelltes `HasChanged`-Token `true` ist. `ActiveChangeCallbacks` für die kombinierten Tokenberichte ist `true`, wenn ein dargestelltes `ActiveChangeCallbacks`-Token `true` ist. Wenn mehrere gleichzeitige Änderungsereignisse auftreten, wird der Rückruf für die kombinierte Änderung genau einmal aufgerufen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Zwischenspeichern in Speicher](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)

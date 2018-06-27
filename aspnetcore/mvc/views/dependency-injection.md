@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d33f0253fc7c1329e8bab400ace4c4ce8d10d792
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613059"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Dependency Injection in Ansichten in ASP.NET Core
 
@@ -67,8 +68,8 @@ Die Listen werden über einen Dienst aufgefüllt, der in die Ansicht eingefügt 
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
->[!TIP]
-> Denken Sie daran, Typen zu registrieren, die Sie über Dependency Injection in der `ConfigureServices`-Methode in *Startup.cs* anfordern.
+> [!IMPORTANT]
+> Denken Sie daran, Typen zu registrieren, die Sie über Dependency Injection in `Startup.ConfigureServices` anfordern. Ein nicht registrierter Typ löst eine Ausnahme zur Laufzeit aus, weil der Dienstanbieter intern über [GetRequiredService](/dotnet/api/microsoft.extensions.dependencyinjection.serviceproviderserviceextensions.getrequiredservice) abgefragt wird.
 
 ## <a name="overriding-services"></a>Überschreiben von Diensten
 

@@ -12,11 +12,12 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3fc068096a4b8696340787aa15120a2f97d10164
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252437"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Veröffentlichen einer ASP.NET Core-App in Azure mithilfe von Befehlszeilentools
 
@@ -24,13 +25,13 @@ Von [Cam Soper](https://twitter.com/camsoper)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Dieses Tutorial zeigt Ihnen, wie Sie eine ASP. NET Core-Anwendung mithilfe von Befehlszeilentools für Microsoft Azure App Service erstellen und bereitstellen.  Wenn Sie fertig sind, verfügen Sie über eine Webanwendung, die in ASP.NET MVC Core erstellt wurde und als Azure App Service-Web-App gehostet wird.  Dieses Tutorial wurde mit Windows-Befehlszeilentools geschrieben, kann aber auch auf macOS- und Linux-Umgebungen angewendet werden.  
+Dieses Tutorial zeigt Ihnen, wie Sie eine ASP. NET Core-App mithilfe von Befehlszeilentools für Microsoft Azure App Service erstellen und bereitstellen. Wenn Sie fertig sind, verfügen Sie über eine Razor Pages-Web-App, die in ASP.NET Core erstellt wurde und als Azure App Service-Web-App gehostet wird. Dieses Tutorial wurde mit Windows-Befehlszeilentools geschrieben, kann aber auch auf macOS- und Linux-Umgebungen angewendet werden.
 
 In diesem Tutorial lernen Sie, wie die folgenden Aufgaben ausgeführt werden:
 
 > [!div class="checklist"]
 > * Erstellen einer Azure App Service-Website mithilfe der Azure CLI
-> * Bereitstellen einer ASP.NET Core-Anwendung in Azure App Service mit dem Git-Befehlszeilentool
+> * Bereitstellen einer ASP.NET Core-App in Azure App Service mit dem Git-Befehlszeilentool
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -40,41 +41,85 @@ Um dieses Tutorial abzuschließen, benötigen Sie Folgendes:
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://www.git-scm.com/)-Befehlszeilenclient
 
-## <a name="create-a-web-application"></a>Erstellen einer Webanwendung
+## <a name="create-a-web-app"></a>Erstellen einer Web-App
 
-Erstellen Sie ein neues Verzeichnis für die Webanwendung, erstellen Sie eine neue ASP.NET Core MVC-Anwendung, und führen Sie die Website dann lokal aus.
+Erstellen Sie ein neues Verzeichnis für die Web-App, erstellen Sie eine neue ASP.NET Core-Razor Pages-App, und führen Sie die Website dann lokal aus.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-```cmd
-REM Create a new ASP.NET Core MVC application
+
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+REM Change to the new directory that was just created
+cd MyApplication
+
+REM Run the app
+dotnet run
+```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 REM Change to the new directory that was just created
 cd MyApplication
 
-REM Run the application
+REM Run the app
 dotnet run
 ```
 
+::: moniker-end
+
 # <a name="othertabother"></a>[Andere](#tab/other)
+
+::: moniker range=">= aspnetcore-2.1"
+
 ```bash
-# Create a new ASP.NET Core MVC application
+# Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+# Change to the new directory that was just created
+cd MyApplication
+
+# Run the app
+dotnet run
+```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```bash
+# Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 # Change to the new directory that was just created
 cd MyApplication
 
-# Run the application
+# Run the app
 dotnet run
 ```
+
+::: moniker-end
+
 ---
 
 ![Befehlszeilenausgabe](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-Testen Sie die Anwendung, indem Sie zu http://localhost:5000 navigieren.
+Testen Sie die App, indem Sie zu `http://localhost:5000` navigieren.
 
 ![Die lokal ausgeführte Website](publish-to-azure-webapp-using-cli/_static/app_test.png)
-
 
 ## <a name="create-the-azure-app-service-instance"></a>Erstellen der Azure App Service-Instanz
 
@@ -101,14 +146,15 @@ Legen Sie vor der Bereitstellung mithilfe des folgenden Befehls die Anmeldeinfor
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```
 
-Eine Bereitstellungs-URL ist erforderlich, um die Anwendung mithilfe von Git bereitzustellen.  Rufen Sie die URL wie folgt ab.
+Eine Bereitstellungs-URL ist erforderlich, um die App mithilfe von Git bereitzustellen. Rufen Sie die URL wie folgt ab.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git -n $webappname -g DotNetAzureTutorial --query [url] -o tsv
 ```
+
 Beachten Sie die angezeigte URL Endung in `.git`. Sie wird im nächsten Schritt verwendet.
 
-## <a name="deploy-the-application-using-git"></a>Bereitstellen der Anwendung mithilfe von Git
+## <a name="deploy-the-app-using-git"></a>Bereitstellen der App mithilfe von Git
 
 Jetzt können Sie die Bereitstellung über Ihren lokalen Computer mithilfe von Git vornehmen.
 
@@ -116,6 +162,7 @@ Jetzt können Sie die Bereitstellung über Ihren lokalen Computer mithilfe von G
 > Sie können alle Warnungen von Git zu Zeilenenden problemlos ignorieren.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
 ```cmd
 REM Initialize the local Git repository
 git init
@@ -134,6 +181,7 @@ git push azure master
 ```
 
 # <a name="othertabother"></a>[Andere](#tab/other)
+
 ```bash
 # Initialize the local Git repository
 git init
@@ -150,15 +198,16 @@ git remote add azure <THE GIT URL YOU NOTED EARLIER>
 # Push the local repository to the remote
 git push azure master
 ```
+
 ---
 
-Git fordert Sie zur Eingabe der Anmeldeinformationen für die Bereitstellung auf, die zuvor festgelegt wurden. Nach der Authentifizierung wird die Anwendung mithilfe von Push in den Remotespeicherort übertragen, erstellt und bereitgestellt.
+Git fordert Sie zur Eingabe der Anmeldeinformationen für die Bereitstellung auf, die zuvor festgelegt wurden. Nach der Authentifizierung wird die App mithilfe von Push an den Remotespeicherort übertragen und dort erstellt und bereitgestellt.
 
 ![Git-Bereitstellungsausgabe](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 
-## <a name="test-the-application"></a>Testen der Anwendung
+## <a name="test-the-app"></a>Testen der App
 
-Testen Sie die Anwendung, indem Sie zu `https://<web app name>.azurewebsites.net` navigieren.  Um die Adresse in der Cloud Shell (oder der Azure CLI) anzuzeigen, verwenden Sie Folgendes:
+Testen Sie die App, indem Sie zu `https://<web app name>.azurewebsites.net` navigieren. Um die Adresse in der Cloud Shell (oder der Azure CLI) anzuzeigen, verwenden Sie Folgendes:
 
 ```azurecli-interactive
 az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o tsv
@@ -180,7 +229,7 @@ In diesem Tutorial haben Sie gelernt, wie die folgenden Aufgaben ausgeführt wer
 
 > [!div class="checklist"]
 > * Erstellen einer Azure App Service-Website mithilfe der Azure CLI
-> * Bereitstellen einer ASP.NET Core-Anwendung in Azure App Service mit dem Git-Befehlszeilentool
+> * Bereitstellen einer ASP.NET Core-App in Azure App Service mit dem Git-Befehlszeilentool
 
 Im nächsten Schritt erfahren Sie, wie Sie die Befehlszeile verwenden, um eine vorhandene Web-App bereitzustellen, die CosmosDB verwendet.
 

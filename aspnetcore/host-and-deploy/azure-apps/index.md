@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687502"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -103,25 +104,29 @@ Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftret
 
 ### <a name="install-the-preview-site-extension"></a>Installieren der Websiteerweiterung (Vorschau)
 
-* Navigieren Sie im Azure-Portal zum Blatt „App Service“.
-* Geben Sie „er“ in das Suchfeld ein.
-* Wählen Sie **Erweiterungen** aus.
-* Wählen Sie „Hinzufügen“ aus.
+1. Navigieren Sie im Azure-Portal zum Blatt „App Service“.
+1. Wählen Sie die Web-App aus.
+1. Geben Sie „ex“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsbereiche nach unten bis **ENTWICKLUNGSTOOLS**.
+1. Wählen Sie **ENTWICKLUNGSTOOLS** > **Erweiterungen** aus.
+1. Wählen Sie **Hinzufügen** aus.
 
-![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/x1.png)
+   ![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/x1.png)
 
-* Wählen Sie zwischen der **ASP.NET Core 2.1-Runtime (x86)** und der **ASP.NET Core 2.1-Runtime (x64)**.
-* Klicken Sie auf **OK**. Klicken Sie erneut auf **OK**.
+1. Wählen Sie **ASP.NET Core-Erweiterungen** aus.
+1. Klicken Sie auf **OK**, um die rechtlichen Bedingungen zu akzeptieren.
+1. Wählen Sie **OK** aus, um die Erweiterung zu installieren.
 
-Nach Abschluss der Hinzufügevorgänge wird die neueste .NET Core 2.1-Vorschauversion installiert. Überprüfen Sie, ob die Installation erfolgreich war, indem Sie `dotnet --info` in der Konsole ausführen. Führen Sie Folgendes auf dem Blatt **App Service** durch:
+Nach Abschluss der Hinzufügevorgänge wird die neueste .NET Core-Vorschauversion installiert. Überprüfen Sie, ob die Installation erfolgreich war, indem Sie `dotnet --info` in der Konsole ausführen. Führen Sie Folgendes auf dem Blatt **App Service** durch:
 
-* Geben Sie „kon“ in das Suchfeld ein.
-* Wählen Sie **Konsole** aus.
-* Geben Sie `dotnet --info` in der Konsole ein.
+1. Geben Sie „con“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsbereiche nach unten bis **ENTWICKLUNGSTOOLS**.
+1. Wählen Sie **ENTWICKLUNGSTOOLS** > **Konsole** aus.
+1. Geben Sie `dotnet --info` in der Konsole ein.
+
+Wenn es sich bei Version `2.1.300-preview1-008174` um die aktuelle Vorschauversion handelt, wird durch Ausführen von `dotnet --info` in der Eingabeaufforderung folgende Ausgabe abgerufen:
 
 ![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/cons.png)
 
-Die vorherige Abbildung war aktuell zu der Zeit, als dieser Text geschrieben wurde. Sie sehen möglicherweise eine andere Version.
+Bei der im vorangehenden Bild dargestellten Version von ASP.NET Core, `2.1.300-preview1-008174`, handelt es sich um ein Beispiel. Die aktuelle Vorschauversion von ASP.NET Core zum Zeitpunkt der Konfiguration der Websiteerweiterung wird angezeigt, wenn Sie `dotnet --info` ausführen.
 
 `dotnet --info` zeigt den Pfad zu der Websiteerweiterung an, wo die Vorschauversion installiert wurde. Es ist zu sehen, dass die App aus der Websiteerweiterung statt aus dem Standardspeicherort *ProgramFiles* ausgeführt wird. Wenn *ProgramFiles* angezeigt wird, starten Sie die Website neu, und führen Sie `dotnet --info` aus.
 
@@ -142,7 +147,7 @@ Eigenständige Apps sind eine Option für alle ASP.NET Core-Anwendungen.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Verwenden von Docker mit Web-Apps für Container
 
-Der [Docker-Hub](https://hub.docker.com/r/microsoft/aspnetcore/) enthält die neuesten Images für 2.1-Vorschau-Docker. Die Images können als Basisimage verwendet werden. Verwenden Sie das Image, und führen Sie wie gewohnt eine Bereitstellung für Web-Apps für Container durch.
+Der [Docker-Hub](https://hub.docker.com/r/microsoft/aspnetcore/) enthält die aktuellen Images für die Docker-Vorschauversion. Die Images können als Basisimage verwendet werden. Verwenden Sie das Image, und führen Sie wie gewohnt eine Bereitstellung für Web-Apps für Container durch.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

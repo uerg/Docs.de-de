@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233078"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34555481"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 
@@ -25,7 +25,10 @@ In diesem Artikel wird die Unterstützung für [Visual Studio](https://www.visua
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
+* [Visual Studio für Windows](https://www.microsoft.com/net/download/windows)
+* Workload **ASP.NET und Webentwicklung**
+* Workload **Plattformübergreifende .NET Core-Entwicklung**
+* X.509-Sicherheitszertifikat
 
 ## <a name="enable-iis"></a>Aktivieren von IIS
 
