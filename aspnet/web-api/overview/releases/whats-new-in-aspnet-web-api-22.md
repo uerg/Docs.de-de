@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 400329dd852ca3c527387ee45e3e902b725e771b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89b065fccd0e4864f4a24c37b4caa29a1e127840
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508399"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961298"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>Neuigkeiten in der ASP.NET Web API 2.2
 ====================
@@ -131,7 +131,7 @@ Zeichenfolgenliterale können z. B. als Parameter von Funktionen oder Schlüssel
 
 Erhalt Dienste solche Anforderungen Hosts wird Escapezeichen Escapesequenzen die fest, bevor sie an die Web-API-Runtime übergeben. Dies schützt vor Angriffen wie folgt:  
   
- http://www.contoso.com/..%2f..%2f/Windows/System32/cmd.exe?/c+dir+c:
+`http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:`
 
 Dies bewirkt, dass der Stapel Web API OData-Fehler 404 (Nichtgefunden) zurückgegeben. Um diesen Fehler zu verhindern, sollte der Client verwenden, die doppelte Escapesequenzen für Schrägstrich ("% 252F") und umgekehrter Schrägstrich ("%" 255 C). Dies geschieht nicht für Abfragezeichenfolgen, z. B. /Employees? $filter = Name Eq "Namen % 2F"
 
@@ -158,7 +158,7 @@ Eine alternative problemumgehung besteht darin, den folgenden Code in Ihrer Web-
 Problem: Wurden die modellbindung des komplexen Typs ab, mit FromUri-Attribut ergänzt wird, verhält sich anders bei Verwendung der Routing-Attribut.
 
 Folgenden Link besteht im Nachverfolgen des Problems auch und Details für dieses Problem zu umgehen.  
-[http://aspnetwebstack.codeplex.com/WorkItem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
+[http://aspnetwebstack.codeplex.com/workitem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
 
 Problem: Gerüstbau MVC/Web-API in einem Projekt mit 5.2.0 Pakete führt 5.1.2 Pakete für Argumente, die nicht bereits im Projekt vorhanden sind
 

@@ -12,12 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 96e0ee5fd0b74e7b22b8e346aa8462f7558a3ddc
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880426"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960693"
 ---
 <a name="creating-a-team-project-in-tfs"></a>Erstellen ein Teamprojekt in TFS
 ====================
@@ -110,9 +110,8 @@ Als Nächstes müssen Sie neue Teamwebsites in der SharePoint-Websitesammlung zu
 
    > [!NOTE]
    > Möglicherweise erhalten Sie eine <strong>HTTP 404 Not Found</strong> Fehler aufgrund eines doppelten Codierung HTTP-Fehlers. In diesem Fall ersetzen Sie dabei die URL:   
-   > [<em>URL Websitesammlung</em>] /\_layouts/permsetup.aspx  
-   > Zum Beispiel:  
-   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > `[site_collection_URL]/_layouts/permsetup.aspx` Zum Beispiel:  
+   > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. Auf der **Gruppen einrichten für diesen Standort** Seite, fügen Sie den Benutzer, die Teamprojekte erstellen, wird die **Besitzer** Gruppe, und klicken Sie dann auf **OK**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
