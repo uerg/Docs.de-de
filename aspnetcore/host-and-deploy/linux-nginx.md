@@ -2,20 +2,16 @@
 title: Hosten von ASP.NET Core unter Linux mit Nginx
 author: rick-anderson
 description: Hier finden Sie Informationen zum Einrichten von Nginx als Reverseproxy unter Ubuntu 16.04, um den HTTP-Datenverkehr an eine ASP.NET Core-Web-App weiterzuleiten, die auf Kestrel ausgeführt wird.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: edef672ca809c560a3f9faa891586e5e255284b5
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 374b13e0851cd171a7d8500a4965851a3a0eb49c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34566814"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277373"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosten von ASP.NET Core unter Linux mit Nginx
 

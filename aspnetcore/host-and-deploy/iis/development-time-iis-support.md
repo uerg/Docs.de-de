@@ -2,20 +2,16 @@
 title: IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 author: shirhatti
 description: Informationen zur Unterstützung für das Debuggen von ASP.NET Core-Apps, wenn diese hinter IIS unter Windows Server ausgeführt werden.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/14/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: eb8b4369d6d5434adbac187f59b18d7a2b80055c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34555481"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277653"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 

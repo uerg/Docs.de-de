@@ -2,19 +2,15 @@
 title: Erstellen einer Web-App mit ASP.NET Core MVC unter Windows mit Visual Studio
 author: rick-anderson
 description: Eine Einführung in ASP.NET Core MVC mit Visual Studio unter Windows finden Sie im Inhaltsverzeichnis.
-manager: wpickett
 ms.author: riande
 ms.date: 10/26/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 84ccaee9bc9e6af0b420de9a35caa36f49d8f6bb
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 78d567589933b641bf5202d230b25034ff06943c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729807"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276333"
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Erstellen einer Web-App mit ASP.NET Core MVC unter Windows mit Visual Studio
 

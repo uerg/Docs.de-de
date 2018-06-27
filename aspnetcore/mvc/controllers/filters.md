@@ -2,19 +2,15 @@
 title: Filter in ASP.NET Core
 author: ardalis
 description: Erfahren Sie, wie Filter funktionieren und wie Sie sie in ASP.NET Core MVC verwenden.
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252151"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275644"
 ---
 # <a name="filters-in-aspnet-core"></a>Filter in ASP.NET Core
 
@@ -23,10 +19,10 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 In ASP.Net Core MVC ermöglichen *Filter* Ihnen, Code vor oder nach bestimmten Stufen der Anforderungsverarbeitungspipeline auszuführen.
 
 > [!IMPORTANT]
-> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filtermethoden für Razor-Seiten](xref:mvc/razor-pages/filter).
+> Die Informationen in diesem Artikel können **nicht** auf Razor-Seiten angewendet werden. In ASP.NET Core 2.1 und in neueren Versionen werden [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) und [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) für Razor-Seiten unterstützt. Weitere Informationen finden Sie unter [Filtermethoden für Razor-Seiten](xref:razor-pages/filter).
 
  Integrierte Filter sind für folgende Aufgaben zuständig:
- 
+
  * Autorisierung (der Zugriff auf Ressourcen, für die ein Benutzer nicht autorisiert ist, wird verhindert)
  * Überprüfung von Anforderungen auf die Verwendung von HTTPS
  * Zwischenspeicherung von Antworten (die Anforderungspipeline wird unterbrochen, damit eine zwischengespeicherte Antwort zurückgegeben wird) 
