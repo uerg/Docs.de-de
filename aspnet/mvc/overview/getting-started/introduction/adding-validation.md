@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 96dc6724b48daf77034c0741be970be11b81ab37
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33966558"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961515"
 ---
 <a name="adding-validation"></a>Hinzufügen der Validierung
 ====================
@@ -57,7 +57,7 @@ Wenn dieser Befehl abgeschlossen ist, handelt es sich bei Visual Studio öffnet 
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-Die `Genre` Feld sind nicht mehr NULL-Werte zulässt (Sie müssen einen Wert eingeben). Die `Rating` Feld hat eine maximale Länge von 5 und `Title` besitzt eine maximale Länge von 60. Die minimale Länge von 3 auf `Title` und dem Bereich auf `Price` schemaänderungen erstellt wurde.
+Die `Genre` Feld ist nicht mehr NULL-Werte zulässt (Sie müssen einen Wert eingeben). Die `Rating` Feld hat eine maximale Länge von 5 und `Title` besitzt eine maximale Länge von 60. Die minimale Länge von 3 auf `Title` und dem Bereich auf `Price` schemaänderungen erstellt wurde.
 
 Überprüfen Sie die Film-Schema:
 

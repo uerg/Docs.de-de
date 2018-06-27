@@ -12,12 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 58d87bd6211ae1b1eea227d34c001239efcf5f1d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891779"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961398"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguration der Formularauthentifizierung und Weiterführende Themen (c#)
 ====================
@@ -168,7 +168,7 @@ Speichern Sie die Änderungen in "default.aspx", und besuchen sie dann über ein
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-Die URL SomePage.aspx unter folgendem Link automatisch in eine URL konvertiert wurde, die das Authentifizierungsticket - enthalten haben nicht, müssen Sie jeglichen Code schreiben! Das Authentifizierungsticket Formular wird automatisch in die URL für alle Links, die nicht mit http:// beginnen eingebettet werden oder /. Es spielt keine Rolle, wenn der Link angezeigt, in einem Aufruf von Response.Redirect, in einem Linksteuerelement oder in ein HTML-Ankerelement wird (d. h. &lt;eine Href = "..."&gt;... &lt;/a&gt;). Solange die URL ist nicht, etwa http://www.someserver.com/SomePage.aspx oder /SomePage.aspx, die Formulare Authentifizierungsticket für uns eingebettet werden wird.
+Die URL SomePage.aspx unter folgendem Link automatisch in eine URL konvertiert wurde, die das Authentifizierungsticket - enthalten haben nicht, müssen Sie jeglichen Code schreiben! Das Authentifizierungsticket Formular wird automatisch in die URL für alle Links, die nicht mit beginnen eingebettet werden `http://` oder `/`. Es spielt keine Rolle, wenn der Link angezeigt, in einem Aufruf von Response.Redirect, in einem Linksteuerelement oder in ein HTML-Ankerelement wird (d. h. `<a href="...">...</a>`). Solange die URL ist nicht, etwa `http://www.someserver.com/SomePage.aspx` oder `/SomePage.aspx`, wird das Formularauthentifizierungsticket für uns eingebettet werden.
 
 > [!NOTE]
 > Cookieless Formularauthentifizierungstickets entsprechen, auf die gleiche Timeout Richtlinien als Cookie-basierte Authentifizierungstickets. Es gibt jedoch cookieless Authentifizierungstickets mehr anfällig für replay-Angriffe, da das Authentifizierungsticket direkt in die URL eingebettet ist. Angenommen Sie, ein Benutzer eine Website aufruft, anmeldet und fügt dann die URL in eine e-Mail an einen Kollegen aufzuheben. Wenn der Kollege auf diesen Link klickt, bevor die Ablaufzeit erreicht ist, werden sie als Benutzer angemeldet, die die e-Mail zugesandt!
@@ -180,7 +180,7 @@ Das Formularauthentifizierungsticket wird unverschlüsselt übertragen entweder 
 
 Um den Datenschutz von Daten für das Ticket zu gewährleisten, kann die Formulare Authentifizierungssystem Ticketdaten verschlüsseln. Fehler beim Verschlüsseln der Ticketdaten sendet potenziell vertraulichen Informationen über die Verbindung im nur-Text.
 
-Um ein Ticket Authentizität zu gewährleisten, muss der Forms-Authentifizierungssystem *überprüfen* des Tickets. Überprüfung dient die sicherstellen, dass ein bestimmtes Datenelement nicht geändert wurde, erfolgt über eine * [message Authentication Code (MAC)](http://en.wikipedia.org/wiki/Message_authentication_code)*. Kurz gesagt, ist die MAC ein kleiner Teil der Informationen, die die Daten zu, die identifizieren (in diesem Fall das Ticket) überprüft werden muss. Wenn die durch den MAC dargestellten Daten, geändert werden und klicken Sie dann die Mac- und die Daten nicht übereinstimmen. Darüber hinaus ist es rechnerisch schwierig, Zugriff auf die Daten ändern, sowohl generieren seine eigenen MAC, um die geänderten Daten entsprechen.
+Um ein Ticket Authentizität zu gewährleisten, muss der Forms-Authentifizierungssystem *überprüfen* des Tickets. Überprüfung dient die sicherstellen, dass ein bestimmtes Datenelement nicht geändert wurde, erfolgt über eine  *[message Authentication Code (MAC)](http://en.wikipedia.org/wiki/Message_authentication_code)*. Kurz gesagt, ist die MAC ein kleiner Teil der Informationen, die die Daten zu, die identifizieren (in diesem Fall das Ticket) überprüft werden muss. Wenn die durch den MAC dargestellten Daten, geändert werden und klicken Sie dann die Mac- und die Daten nicht übereinstimmen. Darüber hinaus ist es rechnerisch schwierig, Zugriff auf die Daten ändern, sowohl generieren seine eigenen MAC, um die geänderten Daten entsprechen.
 
 Beim Erstellen von (oder Ändern von) wird ein Ticket, das Forms-Authentifizierungssystem einen MAC erstellt und fügt ihn das Ticket Daten. Wenn eine nachfolgende Anforderung eingeht, vergleicht der Forms-Authentifizierungssystem die Mac- und Ticket-Daten, um die Echtheit des Ticketdaten überprüfen. Abbildung 3 wird dieser Workflow grafisch dargestellt.
 
@@ -212,7 +212,7 @@ Die Verschlüsselung und Hashalgorithmen, die von dem Authentifizierungssystem F
 
 **Tabelle 2**: die &lt;MachineKey&gt; Elementattribute
 
-Eine ausführliche Beschreibung dieser Optionen Verschlüsselung und gültigkeitsprüfung, und die vor- und Nachteile der verschiedenen Algorithmen ist nicht Gegenstand dieses Lernprogramm. Für eine ausführliche sehen Sie sich diese Probleme, einschließlich Anleitungen auf welche Verschlüsselung und gültigkeitsprüfung Algorithmen zu verwenden, welche Schlüssellängen und verwenden, und wie auf diese Schlüssel zu generieren, finden Sie am besten *Professional ASP.NET 2.0-Sicherheit, Mitgliedschaft und Rollenverwaltung *.
+Eine ausführliche Beschreibung dieser Optionen Verschlüsselung und gültigkeitsprüfung, und die vor- und Nachteile der verschiedenen Algorithmen ist nicht Gegenstand dieses Lernprogramm. Für eine ausführliche sehen Sie sich diese Probleme, einschließlich Anleitungen auf welche Verschlüsselung und gültigkeitsprüfung Algorithmen zu verwenden, welche Schlüssellängen und verwenden, und wie auf diese Schlüssel zu generieren, finden Sie am besten *Professional ASP.NET 2.0-Sicherheit, Mitgliedschaft und Rollenverwaltung* .
 
 Standardmäßig werden für die Verschlüsselung und Überprüfung verwendeten Schlüssel automatisch für jede Anwendung generiert und diese Schlüssel werden in der Local Security Authority (LSA) gespeichert. Kurz gesagt, garantiert die Standardeinstellungen eindeutige Schlüssel für einen Server von Web-Webserver und jede Anwendung durch. Dieses Standardverhalten funktioniert daher nicht für die beiden folgenden Szenarien:
 
@@ -319,7 +319,7 @@ Abbildung 5 zeigt einen Screenshot, der die Anzeige in Aktion an. Anmelden als S
 
 Jede eingehende Anforderung versucht die FormsAuthenticationModule zur Authentifizierung des Benutzers. Wenn ein nicht abgelaufenen Authentifizierungsticket vorhanden ist, weist der FormsAuthenticationModule die HttpContext.User-Eigenschaft auf ein neues GenericPrincipal-Objekt. Dieses GenericPrincipal-Objekt hat eine Identität vom Typ FormsIdentity, die einen Verweis auf das Formularauthentifizierungsticket enthält. GenericPrincipal-Klasse enthält die bare mindestfunktionen, die durch eine Klasse, die IPrincipal implementiert erforderlich – Es muss nur noch eine Identity-Eigenschaft und eine IsInRole-Methode.
 
-Das principal-Objekt hat zwei Aufgaben: welche Rollen gibt an, der Benutzer gehört, und die Identität der Anmeldeinformationen. Dies erfolgt über die IPrincipal-Schnittstelle IsInRole (*RoleName*)-Methode und die Identity-Eigenschaft bzw.. GenericPrincipal-Klasse ermöglicht ein Zeichenfolgenarray mit Rollennamen, aus denen über ihren Konstruktor angegeben werden. die IsInRole (*RoleName*)-Methode lediglich überprüft, ob die übergebene in *RoleName* innerhalb des Zeichenfolgenarrays vorhanden ist. Die FormsAuthenticationModule GenericPrincipal erstellt, übergibt er in ein leeres Zeichenfolgenarray an die GenericPrincipal-Konstruktor. Deshalb wird jeder Aufruf von IsInRole immer "false" zurückgegeben.
+Das principal-Objekt hat zwei Aufgaben: welche Rollen gibt an, der Benutzer gehört, und die Identität der Anmeldeinformationen. Dies erfolgt über die IPrincipal-Schnittstelle IsInRole (*RoleName*)-Methode und die Identity-Eigenschaft bzw. GenericPrincipal-Klasse ermöglicht ein Zeichenfolgenarray mit Rollennamen, aus denen über ihren Konstruktor angegeben werden. die IsInRole (*RoleName*)-Methode lediglich überprüft, ob die übergebene in *RoleName* innerhalb des Zeichenfolgenarrays vorhanden ist. Die FormsAuthenticationModule GenericPrincipal erstellt, übergibt er in ein leeres Zeichenfolgenarray an die GenericPrincipal-Konstruktor. Deshalb wird jeder Aufruf von IsInRole immer "false" zurückgegeben.
 
 GenericPrincipal-Klasse erfüllt die Anforderungen für die meisten Forms zertifikatbasierte Authentifizierungsszenarien, in denen Rollen nicht verwendet werden. Für solche Situationen, in denen die Rolle Standardbehandlung reicht nicht aus, oder wenn Sie ein benutzerdefiniertes Objekt für "IIdentity" wird der Benutzer zuordnen müssen, erstellen Sie ein benutzerdefiniertes IPrincipal Objekt während des Workflows für die Authentifizierung und die HttpContext.User-Eigenschaft zuweisen.
 
@@ -434,7 +434,7 @@ Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie
 
 ### <a name="about-the-author"></a>Informationen zum Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird * [Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
