@@ -2,20 +2,16 @@
 title: Hosten von ASP.NET Core unter Linux mit Apache
 description: Informationen zum Einrichten von Apache als Reverseproxyserver für CentOS zur Weiterleitung von HTTP-Datenverkehr an eine ASP.NET Core-Web-App, die unter Kestrel ausgeführt wird.
 author: spboyer
-manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: 69e92af08eabede023608e612f1fbd48a8f2608e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35652174"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275450"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosten von ASP.NET Core unter Linux mit Apache
 
@@ -27,7 +23,7 @@ In dieser Führungslinie finden Sie Informationen zur Einrichtung von [Apache](h
 
 1. Ein Server, auf dem CentOS 7 ausgeführt wird, mit einem Standardbenutzerkonto mit sudo-Berechtigung.
 1. Installieren Sie die .NET Core-Runtime auf dem Server.
-   1. Besuchen Sie die [.NET Core-Seite „All Downloads“ (Alle Downloads)](https://www.microsoft.com/net/download/all).
+   1. Navigieren Sie zu der [.NET-Seite „All Downloads“ (Alle Downloads)](https://www.microsoft.com/net/download/all).
    1. Wählen Sie unter **Runtime** die aktuelle Nicht-Vorschau-Runtime aus der Liste aus.
    1. Wählen Sie die Anweisungen für CentOS/Oracle aus, und befolgen Sie diese.
 1. Eine vorhandene ASP.NET Core-App.
@@ -44,7 +40,7 @@ dotnet publish --configuration Release
 
 Die App kann auch als eine [eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht werden, wenn Sie die .NET Core-Runtime nicht auf dem Server verwalten möchten.
 
-Kopieren Sie die ASP.NET Core-App auf den Server, indem Sie ein Tool verwenden, das in den Workflow der Organisation integriert ist (z.B. SCP oder SFTP). Web-Apps befinden sich üblicherweise im *var*-Verzeichnis (z.B. *var/aspnetcore/hellomvc*).
+Kopieren Sie die ASP.NET Core-App auf den Server, indem Sie ein beliebiges Tool verwenden, das in den Workflow der Organisation integriert ist (z.B. SCP oder SFTP). Web-Apps befinden sich üblicherweise im Verzeichnis *var* (z.B. *var/aspnetcore/hellomvc*).
 
 > [!NOTE]
 > In einem Szenario für die Bereitstellung in der Produktion übernimmt ein Continuous Integration-Workflow die Veröffentlichung der App und das Kopieren der Objekte auf den Server.
