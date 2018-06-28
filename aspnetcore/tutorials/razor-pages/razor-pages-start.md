@@ -2,19 +2,15 @@
 title: Erste Schritte mit Razor Pages in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie Grundlegendes zur Erstellung einer ASP.NET Core-Web-App mit Razor-Seiten. Razor-Seiten werden für Web-Workloads in ASP.NET Core empfohlen.
-manager: wpickett
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: d7cdf7c8fac3b2ac1e526c6eeee8205068964ec9
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: e317b49f2ad33c392de33bc32a87f67bb8cb72a0
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34582816"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278043"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Erste Schritte mit Razor Pages in ASP.NET Core
 
@@ -82,7 +78,7 @@ Die folgende Abbildung zeigt die App, nachdem die Nachverfolgung akzeptiert wurd
 
 * Wählen Sie in Visual Studio im Menü **Datei** die Option **Neu** > **Projekt** aus.
 * Erstellen Sie eine neue ASP.NET Core-Webanwendung. Nennen Sie das Projekt **RazorPagesMovie**. Es ist wichtig, den Namen *RazorPagesMovie* zu verwenden, damit die Namespaces übereinstimmen, wenn Sie Code kopieren/einfügen.
-  ![neue ASP.NET Core-Webanwendung](../../mvc/razor-pages/index/_static/np.png)
+  ![neue ASP.NET Core-Webanwendung](../../razor-pages/index/_static/np.png)
 * Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**.
 
   [!INCLUDE [install 2.0](~/includes/dotnetcore-on-dotnetfx-vs.md)]

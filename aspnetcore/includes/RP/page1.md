@@ -107,7 +107,7 @@ Die Eigenschaft `Layout` wird in der Datei *Pages/_ViewStart.cshtml* festgelegt:
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Das vorhergehende Markup legt die Layoutdatei für alle Razor-Dateien unter dem Ordner *Seiten* auf *Pages/_Layout.cshtml* fest. Weitere Informationen finden Sie unter [Layout](xref:mvc/razor-pages/index#layout).
+Das vorhergehende Markup legt die Layoutdatei für alle Razor-Dateien unter dem Ordner *Seiten* auf *Pages/_Layout.cshtml* fest. Weitere Informationen finden Sie unter [Layout](xref:razor-pages/index#layout).
 
 ### <a name="update-the-layout"></a>Aktualisieren des Layouts
 
