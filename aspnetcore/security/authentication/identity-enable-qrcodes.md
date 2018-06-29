@@ -1,20 +1,19 @@
 ---
-title: Aktivieren Sie qr-Code-Generierung für Authentifikator-apps in ASP.NET Core
+title: Aktivieren Sie qr-Code-Generierung für TOTP Authentifikator-apps in ASP.NET Core
 author: rick-anderson
-description: Ermitteln Sie zum Aktivieren der Generierung von QR-Code für Authentifikator-apps, die mit ASP.NET Core zweistufige Authentifizierung arbeiten.
+description: Ermitteln Sie zum Aktivieren der Generierung von QR-Code für TOTP Authentifikator-apps, die mit ASP.NET Core zweistufige Authentifizierung arbeiten.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/24/2017
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 7604371eef1e8dcf35a5c47ef11b66c0669cacc5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b0d8f104119340b97bd65f1826bb921ca875acf8
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274728"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089970"
 ---
-# <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Aktivieren Sie qr-Code-Generierung für Authentifikator-apps in ASP.NET Core
-
-Hinweis: Dieses Thema bezieht sich auf ASP.NET Core 2.x
+# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Aktivieren Sie qr-Code-Generierung für TOTP Authentifikator-apps in ASP.NET Core
 
 Im Lieferumfang von ASP.NET Core ist Unterstützung für Anwendungen, für die einzelnen Authentifizierung Authentifikator. Zwei Faktor-Authentifizierung (2FA) Authentifikator-apps, mit der eine zeitbasierte zum einmaligen Kennwort Algorithmus (TOTP), sind die empfohlene Vorgehensweise für 2FA Branche. 2FA TOTP mit SMS 2FA bevorzugt wird. Eine Authentifikator-app enthält einen 6 bis 8 Ziffern-Code, der die Benutzer nach der Bestätigung ihres Benutzernamens und Kennworts eingeben müssen. In der Regel wird eine Authentifikator-app auf einem Smartphone installiert.
 
@@ -58,7 +57,7 @@ Ausführen der app, und stellen Sie sicher, dass Sie den QR-Code Scannen und üb
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>Ändern Sie den Namen der Website in den QR-Code
 
-Der Websitename in den QR-Code stammt aus den Namen des Projekts, die Sie auswählen, wenn das Projekt zunächst erstellen. Können Sie Sie ändern, indem Sie die Suche nach der `GenerateQrCodeUri(string email, string unformattedKey)` Methode in der *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor-Seiten)-Datei oder das *Controllers\ManageController.cs* (MVC)-Datei. 
+Der Websitename in den QR-Code stammt aus den Namen des Projekts, die Sie auswählen, wenn das Projekt zunächst erstellen. Können Sie Sie ändern, indem Sie die Suche nach der `GenerateQrCodeUri(string email, string unformattedKey)` Methode in der *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor-Seiten)-Datei oder das *Controllers\ManageController.cs* (MVC)-Datei.
 
 Der Standard-Code aus der Vorlage sieht wie folgt aus:
 
@@ -82,7 +81,7 @@ Sie können den QR-Code-Bibliothek mit Ihrem bevorzugten Bibliothek ersetzen. De
 Die korrekt formatierte URL für den QR-Code finden Sie in der:
 
 * `AuthenticatorUri` die Eigenschaft des Modells.
-* `data-url` die Eigenschaft in der `qrCodeData` Element. 
+* `data-url` die Eigenschaft in der `qrCodeData` Element.
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP Client- und Zeitversatz
 

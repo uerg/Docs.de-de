@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 524928a5b291e02556d11a762d86430a6dc94660
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 218d7a495655598046671093c0cfe7b9622aca5e
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277256"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077601"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Benutzerdefinierte Autorisierung-Policy-Anbietern, die mithilfe von IAuthorizationPolicyProvider in ASP.NET Core 
 
@@ -88,7 +88,7 @@ Die benutzerdefinierte `MinimumAgeAuthorizeAttribute` erleichtert Anforderung Au
 Bei Verwendung `MinimumAgeAuthorizationAttribute`, Richtliniennamen Autorisierung werden entsprechen dem folgenden Muster `"MinimumAge" + Age`, sodass die benutzerdefinierte `IAuthorizationPolicyProvider` Autorisierungsrichtlinien durch generieren soll:
 
 * Analysieren das Alter von den Richtliniennamen an.
-* Mithilfe von `AuthorizationPolicyBuiler` zum Erstellen eines neuen `AuthorizationPolicy`
+* Mithilfe von `AuthorizationPolicyBuilder` zum Erstellen eines neuen `AuthorizationPolicy`
 * Hinzufügen von Anforderungen an die Richtlinie basierend auf dem Alter mit `AuthorizationPolicyBuilder.AddRequirements`. In anderen Szenarien können `RequireClaim`, `RequireRole`, oder `RequireUserName` stattdessen.
 
 ```CSharp

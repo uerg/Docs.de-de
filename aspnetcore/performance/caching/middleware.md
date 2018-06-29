@@ -2,20 +2,17 @@
 title: Antwort zwischenspeichern Middleware in ASP.NET Core
 author: guardrex
 description: Informationen Sie zum Konfigurieren und Verwenden von Antwort zwischenspeichern Middleware in ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0b33e55acc6b3112349a2a5a791f7563dbd19fb5
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341703"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077646"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antwort zwischenspeichern Middleware in ASP.NET Core
 
@@ -93,7 +90,7 @@ Zwischenspeichern von Antworten von der Middleware, wird die Verwendung von HTTP
 | Cache-Control | Die Middleware berücksichtigt nur Zwischenspeichern von Antworten mit markiert die `public` Cache-Anweisung. Caching mit den folgenden Parametern zu steuern:<ul><li>Max-age</li><li>Max-veraltet&#8224;</li><li>Min-frisch</li><li>Must-revalidate-Anweisung</li><li>ohne-cache</li><li>ohne-Speicher</li><li>nur-If-Cache</li><li>private</li><li>public</li><li>s-maxage</li><li>Proxy-revalidate-Anweisung&#8225;</li></ul>&#8224;Wenn kein Limit angegeben wird, auf `max-stale`, die Middleware führt keine Aktion.<br>&#8225;`proxy-revalidate`hat dieselbe Wirkung wie das `must-revalidate`.<br><br>Weitere Informationen finden Sie unter [RFC 7231: Cache-Control-Request-Direktiven](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | Ein `Pragma: no-cache` Header in der Anforderung erzeugt dieselbe Wirkung wie das `Cache-Control: no-cache`. Dieser Header wird überschrieben, indem die relevanten Direktiven in der `Cache-Control` -Header, falls vorhanden. Für die Abwärtskompatibilität mit HTTP/1.0 berücksichtigt. |
 | Set-Cookie | Die Antwort wird nicht zwischengespeichert, wenn der Header vorhanden ist. Middleware, die in der anforderungsverarbeitung-Pipeline, die eine oder mehrere Cookies festlegt wird verhindert, dass die Antwort zwischenspeichern Middleware Zwischenspeichern der Antwort (z. B. die [Cookie-basierte TempData Anbieter](xref:fundamentals/app-state#tempdata)).  |
-| variieren | Die `Vary` Header variiert die zwischengespeicherte Antwort von einer anderen Spaltenüberschrift verwendet wird. Z. B. Antworten zwischenspeichern, codieren Sie dazu die `Vary: Accept-Encoding` -Header, der Antworten für Anforderungen mit Headern zwischenspeichert `Accept-Encoding: gzip` und `Accept-Encoding: text/plain` getrennt. Eine Antwort mit dem Headerwert `*` wird nie gespeichert. |
+| Variieren | Die `Vary` Header variiert die zwischengespeicherte Antwort von einer anderen Spaltenüberschrift verwendet wird. Z. B. Antworten zwischenspeichern, codieren Sie dazu die `Vary: Accept-Encoding` -Header, der Antworten für Anforderungen mit Headern zwischenspeichert `Accept-Encoding: gzip` und `Accept-Encoding: text/plain` getrennt. Eine Antwort mit dem Headerwert `*` wird nie gespeichert. |
 | Läuft ab | Eine veraltete von dieser Header als Antwort wird nicht gespeichert oder abgerufen werden, es sei denn, die von anderen überschreiben `Cache-Control` Header. |
 | If-None-Match | Die vollständige Antwort wird aus dem Cache bedient, wenn der Wert ist keine `*` und die `ETag` der Antwort entspricht nicht der Werte bereitgestellt. Andernfalls wird eine 304 (nicht geändert) Antwort verarbeitet. |
 | If-Modified-Since | Wenn die `If-None-Match` Header nicht vorhanden ist, wird eine vollständige Antwort aus dem Cache bedient, wenn die zwischengespeicherte Antwortdatum neuer als der angegebene Wert ist. Andernfalls wird eine 304 (nicht geändert) Antwort verarbeitet. |
