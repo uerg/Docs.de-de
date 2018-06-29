@@ -2,18 +2,15 @@
 title: Zwischenspeichern von Antworten in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zum Verwenden von caching zu niedrigeren bandbreitenanforderungen Antwort und erhöhen Sie der Leistung von ASP.NET Core-apps.
-manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: c53ae3f6ab8d26588533772dd4fdacb36ec12059
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734509"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077763"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -49,7 +46,7 @@ Andere Cacheheader, die eine Rolle am caching spielen sind in der folgenden Tabe
 | [ALTER](https://tools.ietf.org/html/rfc7234#section-5.1)     | Eine Schätzung der die Zeitdauer in Sekunden seit die Antwort generiert wurde, oder auf dem Ausgangsserver erfolgreich überprüft. |
 | [Läuft ab](https://tools.ietf.org/html/rfc7234#section-5.3) | Das Datum/Uhrzeit, nach dem die Antwort als veraltet angesehen wird. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Vorhanden ist, für die Kompatibilität mit HTTP/1.0 Abwärtskompatibilität Einstellung zwischenspeichert `no-cache` Verhalten. Wenn die `Cache-Control` Header vorhanden ist, ist die `Pragma` -Header wird ignoriert. |
-| [variieren](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
+| [Variieren](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Gibt an, dass eine zwischengespeicherte Antwort nicht, wenn alle gesendet werden muss von der `Vary` Headerfelder entsprechen, in die zwischengespeicherte Antwort ursprüngliche Anforderung und die neue Anforderung. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP-basierte Zwischenspeichern Hinsicht anfordern cachesteuerungsdirektiven
 
@@ -98,9 +95,9 @@ Die Antwort zwischenspeichern Middleware muss aktiviert sein, zum Festlegen der 
 
 | Anforderung                          | Ergebnis                   |
 | -------------------------------- | ------------------------ |
-| `http://example.com?key1=value1` | vom Server zurückgegebene     |
-| `http://example.com?key1=value1` | von der Middleware zurückgegeben |
-| `http://example.com?key1=value2` | vom Server zurückgegebene     |
+| `http://example.com?key1=value1` | Vom Server zurückgegebene     |
+| `http://example.com?key1=value1` | Von der Middleware zurückgegeben |
+| `http://example.com?key1=value2` | Vom Server zurückgegebene     |
 
 Die erste Anforderung wird vom Server zurückgegebenen und Middleware zwischengespeichert. Die zweite Anforderung wird von Middleware zurückgegeben, weil die Abfragezeichenfolge die vorhergehenden Anforderung übereinstimmt. Die dritte Anforderung ist nicht im Cache Middleware, da der Wert der Abfragezeichenfolge nicht mit eine frühere Anforderung übereinstimmt. 
 
@@ -110,7 +107,7 @@ Die `ResponseCacheAttribute` dient zum Erstellen und konfigurieren Sie (über `I
 * Schreibt die entsprechenden Header auf Grundlage der Eigenschaften legen Sie in der `ResponseCacheAttribute`. 
 * Aktualisiert die Antwort zwischenspeichern HTTP-Funktion, wenn `VaryByQueryKeys` festgelegt ist.
 
-### <a name="vary"></a>variieren
+### <a name="vary"></a>Variieren
 
 Dieser Header wird nur geschrieben, wenn die `VaryByHeader` festgelegt wird. Es wird festgelegt, um die `Vary` den Wert der Eigenschaft. Das folgende Beispiel verwendet die `VaryByHeader` Eigenschaft:
 
