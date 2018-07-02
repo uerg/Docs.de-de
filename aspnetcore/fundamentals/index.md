@@ -2,20 +2,16 @@
 title: ASP.NET Core – Grundlagen
 author: rick-anderson
 description: Lernen Sie die grundlegenden Konzepte zum Erstellen einer ASP.NET Core-Anwendung kennen.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233309"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278868"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -78,7 +74,7 @@ Weitere Informationen finden Sie unter [Application startup (Starten von Anwendu
 
 ## <a name="content-root"></a>Inhaltsstammverzeichnis
 
-Das Inhaltsstammverzeichnis ist der Basispfad zu allen von der Anwendung verwendeten Inhalten wie Ansichten, [Razor Pages](xref:mvc/razor-pages/index) und statischen Objekten. Standardmäßig entspricht das Inhaltsstammverzeichnis dem Anwendungsbasispfad der ausführbaren Datei, mit der die Anwendung gehostet wird.
+Das Inhaltsstammverzeichnis ist der Basispfad zu allen von der Anwendung verwendeten Inhalten wie Ansichten, [Razor Pages](xref:razor-pages/index) und statischen Objekten. Standardmäßig entspricht das Inhaltsstammverzeichnis dem Anwendungsbasispfad der ausführbaren Datei, mit der die Anwendung gehostet wird.
 
 ## <a name="web-root"></a>Webstammverzeichnis
 
@@ -106,9 +102,13 @@ Jede auf [OWIN](http://owin.org) basierende Middleware steht für ASP.NET Core z
 
 Weitere Informationen finden Sie unter [Middleware](xref:fundamentals/middleware/index) und [Introduction to Open Web Interface for .NET (OWIN) (Einführung in Open Web Interface for .NET (OWIN))](xref:fundamentals/owin).
 
+::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="initiate-http-requests"></a>Initiieren von HTTP-Anforderungen
 
 Informationen zur Verwendung von `IHttpClientFactory` für den Zugriff auf `HttpClient`-Instanzen, um HTTP-Anforderungen durchzuführen, finden Sie unter [Initiieren von HTTP-Anforderungen](xref:fundamentals/http-requests).
+
+::: moniker-end
 
 ## <a name="environments"></a>Umgebungen
 
@@ -126,7 +126,7 @@ Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configu
 
 ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiedenen Protokollanbietern funktioniert. Integrierte Anbieter unterstützen das Senden von Protokollen an mindestens einen Zielanbieter. Protokollierungsframeworks von Drittanbietern sind ebenso zulässig.
 
-[Logging (Protokollierung)](xref:fundamentals/logging/index)
+Weitere Informationen finden Sie unter [Protokollierung](xref:fundamentals/logging/index).
 
 ## <a name="error-handling"></a>Fehlerbehandlung
 
@@ -158,11 +158,11 @@ ASP.NET Core-Apps konfigurieren und starten einen *Host*, der für das Starten d
 
 Weitere Informationen finden Sie unter [Hosten in ASP.NET Core](xref:fundamentals/host/index).
 
-## <a name="session-and-application-state"></a>Sitzungs- und Anwendungszustand
+## <a name="session-and-app-state"></a>Sitzungs- und Anwendungszustand
 
-Sitzungszustand ist ein Feature in ASP.NET Core, das Sie verwenden können, um Benutzerdaten zu speichern, während der Benutzer Ihre Web-App durchsucht.
+ASP.NET Core bietet verschiedene Ansätze zum Beibehalten des Sitzungs- und Anwendungszustand, während der Benutzer eine Web-App durchsucht.
 
-Weitere Informationen finden Sie unter [Session and application state (Sitzungs- und Anwendungszustand)](xref:fundamentals/app-state).
+Weitere Informationen finden Sie unter [Sitzungs- und Anwendungszustand](xref:fundamentals/app-state).
 
 ## <a name="servers"></a>Server
 
