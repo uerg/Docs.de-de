@@ -5,14 +5,18 @@ description: In diesem Tutorial erfahren Sie, wie Sie die Vererbung mithilfe von
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272853"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092996"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC mit EF Core: Vererbung (9 von 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -50,7 +54,7 @@ Bei den TPC- und TPH-Vererbungsmustern wird in der Regel eine bessere Leistung e
 
 Dieses Tutorial veranschaulicht die Implementierung der TPH-Vererbung. TPH ist das einzige Vererbungsmuster, das von Entity Framework Core unterstützt wird.  Dabei erstellen Sie eine `Person`-Klasse, ändern die Klassen `Instructor` und `Student`, die von `Person` abgeleitet werden sollen, fügen die neue Klasse zum `DbContext` hinzu und erstellen eine Migration.
 
-> [!TIP] 
+> [!TIP]
 > Sie sollten eine Kopie des Projekts speichern, bevor Sie folgende Änderungen vornehmen.  Wenn Probleme auftreten und Sie von vorne beginnen müssen, ist es leichter, vom gespeicherten Projekt aus zu starten, statt für dieses Tutorial ausgeführte Schritte rückgängig zu machen oder zum Anfang der Reihe zurückkehren zu müssen.
 
 ## <a name="create-the-person-class"></a>Erstellen der Klasse „Person“
@@ -121,7 +125,7 @@ dotnet ef database update
 
 (In einem Produktionssystem würden Sie entsprechende Änderungen an der Methode `Down` vornehmen, falls Sie diese jemals verwenden müssten, um zur vorherigen Datenbankversion zurückzukehren. In diesem Tutorial wird die Methode `Down` nicht verwendet.)
 
-> [!NOTE] 
+> [!NOTE]
 > Es ist möglich, dass andere Fehler auftreten, wenn Schemaänderungen in einer Datenbank durchgeführt werden, die vorhandene Daten enthält. Wenn Migrationsfehler auftreten, die Sie nicht beheben können, können Sie entweder den Datenbanknamen in der Verbindungszeichenfolge ändern oder die Datenbank löschen. In einer neuen Datenbank gibt es keine zu migrierenden Daten, und der Befehl „update-database“ wird wahrscheinlich ohne Fehler ausgeführt. Verwenden Sie zum Löschen der Datenbank SSOX, oder führen Sie den CLI-Befehl `database drop` aus.
 
 ## <a name="test-with-inheritance-implemented"></a>Testen mit implementierter Vererbung
@@ -140,6 +144,8 @@ Klicken Sie mit der rechten Maustaste auf die Tabelle „Person“, und klicken 
 
 Sie haben die „Tabelle pro Hierarchie“-Vererbung für die Klassen `Person`, `Student` und `Instructor` implementiert. Weitere Informationen zur Vererbung in Entity Framework Core finden Sie unter [Vererbung](https://docs.microsoft.com/ef/core/modeling/inheritance). Im nächsten Tutorial erfahren Sie, wie Sie eine Vielzahl von Entity Framework-Szenarios auf fortgeschrittenem Niveau verarbeiten können.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Zurück](concurrency.md)
-> [Weiter](advanced.md)  
+> [Weiter](advanced.md)

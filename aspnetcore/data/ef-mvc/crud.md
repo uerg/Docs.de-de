@@ -5,14 +5,18 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: e0d454ce4f2319b48b649d46c0878d6969acbc9f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278556"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093100"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -20,7 +24,7 @@ Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MV
 
 Im vorherigen Tutorial haben Sie eine MVC-Anwendung erstellt, die Entity Framework und SQL Server LocalDB verwendet, um Daten zu speichern und anzuzeigen. In diesem Tutorial überprüfen und passen Sie CRUD-Code (Create, Read, Update, Delete) an, der durch den MVC-Gerüstbau automatisch für Ihre Controller und Ansichten erstellt wird.
 
-> [!NOTE] 
+> [!NOTE]
 > Es ist üblich, dass das Repositorymuster implementiert wird, um eine Abstraktionsebene zwischen Ihrem Controller und der Datenzugriffsebene zu erstellen. In diesen Tutorials werden keine Repositorys verwendet, um die Verwendung des Entity Frameworks einfach und zielorientiert zu erklären. Weitere Informationen über Repositorys mit EF finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
 
 In diesem Tutorial arbeiten Sie mit den folgenden Webseiten:
@@ -183,7 +187,7 @@ Aus diesen Änderungen resultiert, dass die Methodensignatur der HttpPost-Method
 
 ### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternativer HttpPost-Edit-Code: Erstellen und Anfügen
 
-Der empfohlene HttpPost-Edit-Code stellt sicher, dass nur geänderte Spalten aktualisiert werden und behält Daten in Eigenschaften, die Sie nicht in der Modellbindung einschließen wollen. Dieser Read-First-Ansatz benötigt jedoch einen zusätzlichen Datenbank-Lesevorgang und kann zu komplexeren Code für die Behandlung von Nebenläufigkeitskonflikten führen. Alternativ können Sie dem EF-Kontext eine Entität anfügen, die von der Modellbindung erstellt wurde, und diese als geändert markieren. (Aktualisieren Sie ihr Projekt nicht mit diesem Code, er wird hier nur gezeigt, um eine optionale Vorgehensweise zu veranschaulichen.) 
+Der empfohlene HttpPost-Edit-Code stellt sicher, dass nur geänderte Spalten aktualisiert werden und behält Daten in Eigenschaften, die Sie nicht in der Modellbindung einschließen wollen. Dieser Read-First-Ansatz benötigt jedoch einen zusätzlichen Datenbank-Lesevorgang und kann zu komplexeren Code für die Behandlung von Nebenläufigkeitskonflikten führen. Alternativ können Sie dem EF-Kontext eine Entität anfügen, die von der Modellbindung erstellt wurde, und diese als geändert markieren. (Aktualisieren Sie ihr Projekt nicht mit diesem Code, er wird hier nur gezeigt, um eine optionale Vorgehensweise zu veranschaulichen.)
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
@@ -293,6 +297,8 @@ Weitere Informationen finden Sie unter [Tracking vs. No-Tracking (Mit Nachverfol
 
 Sie verfügen jetzt über einen vollständigen Satz von Seiten, die dazu in der Lage sind, einfache CRUD-Vorgänge für Student-Entitäten auszuführen. Im nächsten Tutorial erweitern Sie die Funktionen der Seite **Index**, indem Sie das Sortieren, Filtern und Paging hinzufügen.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Zurück](intro.md)
-> [Weiter](sort-filter-page.md)  
+> [Weiter](sort-filter-page.md)
