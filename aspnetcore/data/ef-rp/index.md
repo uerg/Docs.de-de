@@ -5,16 +5,16 @@ description: ''
 ms.author: riande
 ms.date: 03/15/2017
 uid: data/ef-rp/index
-ms.openlocfilehash: 0bb700e4ee6b33c65ab519c41bab620def261752
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 56d317e4334ee006c8b52163594e2850c11d23d7
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277510"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960865"
 ---
 # <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>ASP.NET Core-Razor-Seiten mit EF Core: Tutorialreihe
 
-In dieser Tutorialreihe erfahren Sie, wie Sie ASP.NET Core-Web-Apps für Razor Pages erstellen, die Entity Framework (EF) Core für den Datenzugriff verwenden. Die Tutorials erfordern Visual Studio 2017.
+In dieser Tutorialreihe erfahren Sie, wie Sie ASP.NET Core-Web-Apps für Razor Pages erstellen, die Entity Framework (EF) Core für den Datenzugriff verwenden.
 
 1. [Erste Schritte](xref:data/ef-rp/intro)
 1. [Create-, Read-, Update- und Delete-Vorgänge (CRUD)](xref:data/ef-rp/crud)

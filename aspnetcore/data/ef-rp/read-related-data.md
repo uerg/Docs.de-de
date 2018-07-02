@@ -2,19 +2,15 @@
 title: 'Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)'
 author: rick-anderson
 description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Das gilt für Daten, die Entity Framework in Navigationseigenschaften lädt.
-manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233400"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276759"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -184,7 +180,7 @@ Ersetzen Sie *Pages/Instructors/Index.cshtml.cs* durch den folgenden Code:
 
 Die `OnGetAsync`-Methode akzeptiert optional Routendaten für die ID des ausgewählten Dozenten.
 
-Untersuchen Sie die Abfrage auf der Seite *Pages/Instructors/Index.cshtml*:
+Untersuchen Sie die Abfrage in der Datei *Pages/Instructors/Index.cshtml.cs*:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
@@ -278,7 +274,7 @@ Wenn ein Kurs ausgewählt ist, füllt der folgende Code die `Enrollments`-Eigens
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-Fügen Sie das folgende Markup zum Ende der Razor Page *Pages/Courses/Index.cshtml* hinzu:
+Fügen Sie das folgende Markup zum Ende der Razor-Seite *Pages/Instructors/Index.cshtml* hinzu:
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 

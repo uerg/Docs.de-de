@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Co
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033312"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077776"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -610,6 +610,10 @@ So konfigurieren Sie das Azure-Protokollstreaming
 Navigieren Sie zur Seite **Protokollstreaming**, um Anwendungsmeldungen anzuzeigen. Diese werden von der Anwendung über die `ILogger`-Schnittstelle protokolliert.
 
 ![Anwendungsprotokollstreaming im Azure-Portal](index/_static/azure-log-streaming.png)
+
+## <a name="azure-application-insights-trace-logging"></a>Ablaufverfolgungsprotokollierung für Azure Application Insights
+
+Das [Application Insights](https://azure.microsoft.com/services/application-insights/) SDK kann Ablaufverfolgungstelemetrie von Protokollen sammeln, die über die ASP.NET Core-Protokollierungsinfrastruktur generiert wurden. Weitere Informationen finden Sie unter [Microsoft/ApplicationInsights-aspnetcore Wiki: Logging (Microsoft/ApplicationInsights-aspnetcore-Wiki: Protokollierung)](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

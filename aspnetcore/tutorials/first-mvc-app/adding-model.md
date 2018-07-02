@@ -2,19 +2,15 @@
 title: Hinzufügen eines Modells zu einer ASP.NET Core MVC-App
 author: rick-anderson
 description: Fügen Sie ein Modell zu einer einfachen ASP.NET Core-App hinzu.
-manager: wpickett
 ms.author: riande
 ms.date: 12/8/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 802cb458cb05579b97256022b56d6f97a03d2f1a
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 1e562116de8e6a88666f578f7255e325735c10a9
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34687791"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272321"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Hinzufügen eines Modells zu einer ASP.NET Core MVC-App
 
@@ -103,8 +99,7 @@ In diesem Abschnitt führen Sie folgende Aktionen mit der Paket-Manager-Konsole 
 
 Öffnen Sie das Menü **Extras**. Wählen Sie dort **NuGet-Paket-Manager > Paket-Manager-Konsole** aus.
 
-<!-- following image shared with uid: tutorials/razor-pages/model -->
-  ![PMC-Menü](adding-model/_static/pmc.png)
+<!-- following image shared with uid: tutorials/razor-pages/model -->![PMC-Menü](adding-model/_static/pmc.png)
 
 Geben Sie in der PMC die folgenden Befehle ein:
 

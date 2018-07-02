@@ -2,19 +2,15 @@
 title: Routing in ASP.NET Core
 author: ardalis
 description: In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341781"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314135"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -154,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Mit dieser Vorlage wird durch einen Abgleich z.B. der URL-Pfad `/Products/5` gefunden, und die Werte `{ controller = Products, action = Details, id = 5 }` sowie die Datentoken `{ locale = en-US }` werden extrahiert.
+Mit dieser Vorlage wird durch einen Abgleich z.B. der URL-Pfad `/en-US/Products/5` gefunden, und die Werte `{ controller = Products, action = Details, id = 5 }` sowie die Datentoken `{ locale = en-US }` werden extrahiert.
 
 ![Gebietsschemas, Windows-Tokens](routing/_static/tokens.png)
 
@@ -286,7 +282,17 @@ Mit Vorlagen lässt sich Routing besonders leicht durchführen. Einschränkungen
 
 Tipp: Wenn Sie die [Protokollierung](xref:fundamentals/logging/index) aktivieren, erfahren Sie, wie die integrierten Routingimplementierungen (z.B. `Route`) Übereinstimmungen für Anforderungen ermitteln.
 
-## <a name="route-constraint-reference"></a>Referenz für Einschränkungen
+## <a name="reserved-routing-names"></a>Reservierte Routingnamen
+
+Die folgenden Schlüsselwörter sind reservierte Namen und können nicht als Routennamen oder Parameter verwendet werden:
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
+
+## <a name="route-constraint-reference"></a>Referenz für Routeneinschränkungen
 
 Routeneinschränkungen werden ausgeführt, wenn `Route` die Syntax der eingehenden URL abgeglichen und den URL-Pfad mit einer Tokenisierung in Routenwerte umgewandelt hat. In der Regel wird mit Routeneinschränkungen der Routenwert der zugehörigen Vorlage geprüft. Dabei wird bestimmt, ob der Wert gültig ist. Für einige Routeneinschränkungen werden anstelle des Routenwerts andere Daten verwendet, um zu ermitteln, ob das Routing einer Anforderung möglich ist. `HttpMethodRouteConstraint` kann beispielsweise auf der Grundlage des HTTP-Verbs eine Anforderung entweder annehmen oder ablehnen.
 
