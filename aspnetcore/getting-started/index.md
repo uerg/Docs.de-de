@@ -1,0 +1,158 @@
+---
+title: Erste Schritte mit ASP.NET Core
+author: rick-anderson
+description: Kurztutorial, in dem eine einfache Hello World-App mit ASP.NET Core erstellt und ausgeführt wird.
+ms.author: riande
+ms.custom: mvc
+ms.date: 05/31/2018
+uid: getting-started
+ms.openlocfilehash: eb049dea2800cf2e12c044b88d1664ee80bb95a5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296767"
+---
+# <a name="get-started-with-aspnet-core"></a><span data-ttu-id="d77b3-103">Erste Schritte mit ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d77b3-103">Get started with ASP.NET Core</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+1. <span data-ttu-id="d77b3-104">Installieren Sie [!INCLUDE[](~/includes/2.1-SDK.md)].</span><span class="sxs-lookup"><span data-stu-id="d77b3-104">Install the [!INCLUDE[](~/includes/2.1-SDK.md)].</span></span>
+
+2. <span data-ttu-id="d77b3-105">Erstellen Sie ein ASP.NET Core-Projekt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-105">Create an ASP.NET Core project.</span></span> <span data-ttu-id="d77b3-106">Öffnen Sie eine Befehlsshell, und geben Sie den folgenden Befehl ein:</span><span class="sxs-lookup"><span data-stu-id="d77b3-106">Open a command shell and enter the following command:</span></span>
+
+    ```console
+    dotnet new webapp -o aspnetcoreapp
+    ```
+
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+3. <span data-ttu-id="d77b3-108">Vertrauen Sie dem HTTPS-Entwicklungszertifikat:</span><span class="sxs-lookup"><span data-stu-id="d77b3-108">Trust the HTTPS development certificate:</span></span>
+
+# <a name="windowstabwindows"></a>[<span data-ttu-id="d77b3-109">Windows</span><span class="sxs-lookup"><span data-stu-id="d77b3-109">Windows</span></span>](#tab/windows)
+
+    ```console
+    dotnet dev-certs https --trust
+    ```
+
+    The preceding command displays the following dialog:
+
+    ![Security warning dialog](_static/cert.png)
+
+    Select **Yes** if you agree to trust the development certificate.
+
+# <a name="macostabmacos"></a>[<span data-ttu-id="d77b3-110">macOS</span><span class="sxs-lookup"><span data-stu-id="d77b3-110">macOS</span></span>](#tab/macos)
+
+    ```console
+    dotnet dev-certs https --trust
+    ```
+
+    The preceding command displays the following message:
+
+    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
+    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+    *This command might prompt you for your password to install the certificate on the system keychain.
+    Password:*
+
+    Enter your password if you agree to trust the development certificate.
+
+# <a name="linuxtablinux"></a>[<span data-ttu-id="d77b3-111">Linux</span><span class="sxs-lookup"><span data-stu-id="d77b3-111">Linux</span></span>](#tab/linux)
+
+    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+---
+
+4. <span data-ttu-id="d77b3-112">Führen Sie die App aus:</span><span class="sxs-lookup"><span data-stu-id="d77b3-112">Run the app:</span></span>
+
+    ```console
+    cd aspnetcoreapp
+    dotnet run
+    ```
+
+5. <span data-ttu-id="d77b3-113">Wechseln Sie zu [http://localhost:5001](http://localhost:5001).</span><span class="sxs-lookup"><span data-stu-id="d77b3-113">Browse to [http://localhost:5001](http://localhost:5001).</span></span>  <span data-ttu-id="d77b3-114">Klicken Sie auf **Accept** (Akzeptieren), um die Datenschutz- und Cookierichtlinie zu akzeptieren.</span><span class="sxs-lookup"><span data-stu-id="d77b3-114">Click **Accept** to accept the privacy and cookie policy.</span></span> <span data-ttu-id="d77b3-115">Diese App bewahrt keine personenbezogenen Informationen auf.</span><span class="sxs-lookup"><span data-stu-id="d77b3-115">This app doesn't keep personal information.</span></span>
+
+6. <span data-ttu-id="d77b3-116">Öffnen Sie *Pages/About.cshtml*, und modifizieren Sie die Seite mit dem folgenden hervorgehobenen Markup:</span><span class="sxs-lookup"><span data-stu-id="d77b3-116">Open *Pages/About.cshtml* and modify the page with the following highlighted markup:</span></span>
+
+    <span data-ttu-id="d77b3-117">[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]</span><span class="sxs-lookup"><span data-stu-id="d77b3-117">[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]</span></span>
+
+7. <span data-ttu-id="d77b3-118">Navigieren Sie zu [http://localhost:5001/About](http://localhost:5001/About), und überprüfen Sie, ob die Änderungen angezeigt werden.</span><span class="sxs-lookup"><span data-stu-id="d77b3-118">Browse to [http://localhost:5001/About](http://localhost:5001/About) and verify the changes are displayed.</span></span>
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+1. <span data-ttu-id="d77b3-119">Installieren Sie [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].</span><span class="sxs-lookup"><span data-stu-id="d77b3-119">Install the [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].</span></span>
+
+2. <span data-ttu-id="d77b3-120">Erstellen Sie ein neues ASP.NET Core-Projekt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-120">Create a new ASP.NET Core project.</span></span>
+
+   <span data-ttu-id="d77b3-121">Öffnen Sie eine Befehlsshell.</span><span class="sxs-lookup"><span data-stu-id="d77b3-121">Open a command shell.</span></span> <span data-ttu-id="d77b3-122">Geben Sie folgenden Befehl ein:</span><span class="sxs-lookup"><span data-stu-id="d77b3-122">Enter the following command:</span></span>
+
+    ```console
+    dotnet new razor -o aspnetcoreapp
+    ```
+
+3. <span data-ttu-id="d77b3-123">Führen Sie die App mit den folgenden Befehlen aus:</span><span class="sxs-lookup"><span data-stu-id="d77b3-123">Run the app with the following commands:</span></span>
+
+    ```console
+    cd aspnetcoreapp
+    dotnet run
+    ```
+
+4. <span data-ttu-id="d77b3-124">Wechseln Sie zu [http://localhost:5000](http://localhost:5000).</span><span class="sxs-lookup"><span data-stu-id="d77b3-124">Browse to [http://localhost:5000](http://localhost:5000).</span></span>
+
+5. <span data-ttu-id="d77b3-125">Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-125">Open *Pages/About.cshtml* and modify the page to display the message "Hello, world!</span></span> <span data-ttu-id="d77b3-126">Die Zeit auf dem Server ist @DateTime.Now" :</span><span class="sxs-lookup"><span data-stu-id="d77b3-126">The time on the server is @DateTime.Now":</span></span>
+
+    <span data-ttu-id="d77b3-127">[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]</span><span class="sxs-lookup"><span data-stu-id="d77b3-127">[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]</span></span>
+
+6. <span data-ttu-id="d77b3-128">Wechseln Sie zu [http://localhost:5000/About](http://localhost:5000/About), und bestätigen Sie die Änderungen.</span><span class="sxs-lookup"><span data-stu-id="d77b3-128">Browse to [http://localhost:5000/About](http://localhost:5000/About) and verify the changes.</span></span>
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+1. <span data-ttu-id="d77b3-129">Installieren Sie den .NET Core **SDK Installer** für SDK 1.0.4 von der .NET Core-Seite [Alle Downloads](https://www.microsoft.com/net/download/all).</span><span class="sxs-lookup"><span data-stu-id="d77b3-129">Install the .NET Core **SDK Installer** for SDK 1.0.4 from the [.NET Core All Downloads page](https://www.microsoft.com/net/download/all).</span></span>
+
+2. <span data-ttu-id="d77b3-130">Erstellen Sie einen Ordner für das neue ASP.NET Core-Projekt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-130">Create a folder for a new ASP.NET Core project.</span></span>
+
+   <span data-ttu-id="d77b3-131">Öffnen Sie eine Befehlsshell.</span><span class="sxs-lookup"><span data-stu-id="d77b3-131">Open a command shell.</span></span> <span data-ttu-id="d77b3-132">Geben Sie die folgenden Befehle ein:</span><span class="sxs-lookup"><span data-stu-id="d77b3-132">Enter the following commands:</span></span>
+
+   ```console
+   mkdir aspnetcoreapp
+   cd aspnetcoreapp
+   ```
+
+3. <span data-ttu-id="d77b3-133">Wenn Sie eine höhere Version des SDK auf Ihrem Computer installiert haben, erstellen Sie die Datei *global.json*, und wählen Sie das SDK 1.0.4 aus.</span><span class="sxs-lookup"><span data-stu-id="d77b3-133">If you have installed a later SDK version on your machine, create a *global.json* file to select the 1.0.4 SDK.</span></span>
+
+   ```json
+   {
+     "sdk": { "version": "1.0.4" }
+   }
+   ```
+
+4. <span data-ttu-id="d77b3-134">Erstellen Sie ein neues ASP.NET Core-Projekt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-134">Create a new ASP.NET Core project.</span></span>
+
+   ```console
+   dotnet new web
+   ```
+
+5. <span data-ttu-id="d77b3-135">Stellen Sie die Pakete wieder her.</span><span class="sxs-lookup"><span data-stu-id="d77b3-135">Restore the packages.</span></span>
+
+    ```console
+    dotnet restore
+    ```
+
+6. <span data-ttu-id="d77b3-136">Führen Sie die App aus.</span><span class="sxs-lookup"><span data-stu-id="d77b3-136">Run the app.</span></span>
+
+   ```console
+   dotnet run
+   ```
+
+   <span data-ttu-id="d77b3-137">Mit dem Befehl [dotnet run](/dotnet/core/tools/dotnet-run) wird die App bei Bedarf zunächst erstellt.</span><span class="sxs-lookup"><span data-stu-id="d77b3-137">The [dotnet run](/dotnet/core/tools/dotnet-run) command builds the app first, if needed.</span></span>
+
+7. <span data-ttu-id="d77b3-138">Wechseln Sie zu `http://localhost:5000`.</span><span class="sxs-lookup"><span data-stu-id="d77b3-138">Browse to `http://localhost:5000`.</span></span>
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end
