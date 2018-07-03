@@ -26,7 +26,7 @@ Tippen Sie auf die Menülinks (**MvcMovie**, **Home**, **About**). Auf jeder Sei
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
 ::: moniker-end
 
 >[!WARNING]

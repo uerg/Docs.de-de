@@ -5,14 +5,18 @@ description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn 
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 77e5fba176835f7da9be6c7057084ed017d34bec
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9bf65621213c9657232dfff1701c9937d5105a9c
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278397"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093022"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC mit EF Core – Parallelität (8 von 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -207,7 +211,7 @@ Ersetzen Sie in der Datei *DepartmentsController.cs* die HttpGet-Methode `Delete
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
-Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler erneut angezeigt wird. Wenn dieses Flag auf TRUE festgelegt ist, und die angegebene Abteilung nicht mehr vorhanden ist, wurde sie von einem anderen Benutzer gelöscht. In diesem Fall leitet der Code an eine Indexseite weiter.  Wenn dieses Flag auf TRUE festgelegt ist, und die Abteilung vorhanden ist, wurde sie von einem anderen Benutzer geändert. In diesem Fall sendet der Code mithilfe von `ViewData` eine Fehlermeldung an die Ansicht.  
+Die Methode akzeptiert einen optionalen Parameter, der angibt, ob die Seite nach einem Parallelitätsfehler erneut angezeigt wird. Wenn dieses Flag auf TRUE festgelegt ist, und die angegebene Abteilung nicht mehr vorhanden ist, wurde sie von einem anderen Benutzer gelöscht. In diesem Fall leitet der Code an eine Indexseite weiter.  Wenn dieses Flag auf TRUE festgelegt ist, und die Abteilung vorhanden ist, wurde sie von einem anderen Benutzer geändert. In diesem Fall sendet der Code mithilfe von `ViewData` eine Fehlermeldung an die Ansicht.
 
 Ersetzen Sie den Code in der HttpPost-Methode `Delete` (namens `DeleteConfirmed`) durch den folgenden Code:
 
@@ -276,6 +280,8 @@ Ersetzen Sie den Code in der Datei *Views/Departments/Create.cshtml*, um der Dro
 
 Damit ist die Einführung in die Behandlung von Nebenläufigkeitskonflikten abgeschlossen. Weitere Informationen zum Behandeln der Parallelität in EF Core finden Sie unter [Concurrency conflicts (Nebenläufigkeitskonflikte)](https://docs.microsoft.com/ef/core/saving/concurrency). Das nächste Tutorial zeigt Ihnen, wie Sie die „Tabelle pro Hierarchie“-Vererbung für die Entitäten Instructor und Student implementieren.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Zurück](update-related-data.md)
-> [Weiter](inheritance.md)  
+> [Weiter](inheritance.md)

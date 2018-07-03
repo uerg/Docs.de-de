@@ -5,14 +5,18 @@ description: In diesem Tutorial werden wichtige Themen eingeführt, um Grundkenn
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274368"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093074"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC mit EF Core: Erweitert (10 von 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -195,7 +199,7 @@ Weitere Informationen zu anderen Themen im Zusammenhang mit ASP.NET Core MVC, wi
 
 Tom Dykstra und Rick Anderson (Twitter @RickAndMSFT) haben dieses Tutorial verfasst. Rowan Miller, Diego Vega und andere Mitglieder des Entity Framework-Teams haben uns bei Codereviews und der Behebung von Problemen unterstützt, die aufgetreten waren, während wir den Code für dieses Tutorial geschrieben haben.
 
-## <a name="common-errors"></a>Häufige Fehler  
+## <a name="common-errors"></a>Häufige Fehler
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll wird von einem anderen Prozess verwendet
 
@@ -240,6 +244,7 @@ Fehlermeldung:
 Projektmappe:
 
 Überprüfen Sie die Verbindungszeichenfolge. Wenn Sie die Datenbankdatei manuell gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge, um mit einer neuen Datenbank zu beginnen.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Vorherige](inheritance.md)

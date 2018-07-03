@@ -5,14 +5,18 @@ description: Mithilfe dieses Tutorials führen Sie Updates für verwandte Daten 
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 53f1607d96a9a1db98f4e80e9582c124cedf6c8d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272649"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093058"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC mit EF Core: Lesen verwandter Daten (7 von 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -134,7 +138,7 @@ Der Code führt Folgendes aus:
         "",
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
-    
+
 -   Wenn kein Standort für das Büro angegeben wird, wird die Instructor.OfficeAssignment-Eigenschaft auf NULL festgelegt, damit die zugehörige Zeile aus der OfficeAssignment-Tabelle gelöscht wird.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
@@ -213,7 +217,7 @@ Wenn das Kontrollkästchen für einen Kurs aktiviert ist, dieser Kurs jedoch nic
 Fügen Sie in der *Views/Instructors/Edit.cshtml*-Datei ein **Kurse**-Feld mit einem Array mit Kontrollkästchen hinzu, indem Sie den folgenden Code direkt nach den `div`-Elementen für das **Büro**-Feld und vor dem `div`-Element für die Schaltfläche **Speichern** einfügen.
 
 <a id="notepad"></a>
-> [!NOTE] 
+> [!NOTE]
 > Wenn Sie den Code in Visual Studio einfügen, werden Zeilenumbrüche so geändert, dass der Code unterbrochen wird.  Drücken Sie einmal Strg+Z, um die automatische Formatierung rückgängig zu machen.  Damit werden die Zeilenumbrüche korrigiert, damit sie dem entsprechen, was Sie hier sehen. Der Einzug muss nicht perfekt sein, die Zeilen `@</tr><tr>`, `@:<td>`, `@:</td>` und `@:</tr>` müssen jedoch, wie dargestellt, jeweils in einer einzelnen Zeile stehen. Ansonsten wird ein Laufzeitfehler ausgelöst. Drücken Sie, nachdem Sie den Block mit dem neuen Code ausgewählt haben, dreimal auf die TAB-Taste, um den neuen Code am vorhandenen Code auszurichten. Sie können [hier](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html) den Status für dieses Problem überprüfen.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
@@ -228,7 +232,7 @@ Führen Sie die App aus, klicken Sie erst auf die Registerkarte **Dozenten** und
 
 Ändern Sie einige Kurszuweisungen, und klicken Sie auf „Speichern“. Die Änderungen werden auf der Indexseite angezeigt.
 
-> [!NOTE] 
+> [!NOTE]
 > Der hier gewählte Ansatz für die Bearbeitung der Kursdaten von Dozenten wird empfohlen, wenn eine begrenzte Anzahl von Kursen verwendet wird. Bei umfangreicheren Auflistungen wären eine andere Benutzeroberfläche und eine andere Aktualisierungsmethode erforderlich.
 
 ## <a name="update-the-delete-page"></a>Aktualisieren der Seite „Delete“ (Löschen)
@@ -282,7 +286,7 @@ Fügen die in der *Views/Instructor/Create.cshtml*-Datei ein Textfeld für den B
 
 [!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Führen Sie einen Test durch, indem Sie die App ausführen und einen Dozenten erstellen. 
+Führen Sie einen Test durch, indem Sie die App ausführen und einen Dozenten erstellen.
 
 ## <a name="handling-transactions"></a>Verarbeiten von Transaktionen
 
@@ -292,6 +296,8 @@ Wie bereits im [CRUD-Tutorial](crud.md) erläutert, implementiert Entity Framewo
 
 Damit ist sind die ersten Schritte zum Arbeiten mit zugehörigen Daten abgeschlossen. Im nächsten Tutorial wird erläutert, wie Nebenläufigkeitskonflikte verarbeitet werden.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Zurück](read-related-data.md)
-> [Weiter](concurrency.md)  
+> [Weiter](concurrency.md)
