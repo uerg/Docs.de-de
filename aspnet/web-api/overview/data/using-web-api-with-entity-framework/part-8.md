@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-8
-title: Elementdetails anzeigen | Microsoft Docs
+title: Anzeigen von Elementdetails | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,33 +9,32 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 75ef94b1-bbec-4681-9210-452dba816144
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 94863e94f2a8b3f1ce8a8fb85d877bc0768f3d8a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 268c44f842cc2beb32a0a3e4c74b83b7ca9fd787
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868086"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375178"
 ---
-<a name="display-item-details"></a>Elementdetails anzeigen
+<a name="display-item-details"></a>Anzeigen von Elementdetails
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](https://github.com/MikeWasson/BookService)
+[Abgeschlossenes Projekt herunterladen](https://github.com/MikeWasson/BookService)
 
-In diesem Abschnitt fügen Sie die Möglichkeit zum Anzeigen der Details für jedes Buch. Fügen Sie in "App.js" in den folgenden Code für das Modell anzeigen:
+In diesem Abschnitt fügen Sie die Möglichkeit zum Anzeigen von Details für jedes Buch hinzu. Fügen Sie in "app.js" in den folgenden Code an das Ansichtsmodell:
 
 [!code-javascript[Main](part-8/samples/sample1.js)]
 
-Fügen Sie in Views/Home/Index.cshtml ein Data-Bind-Element auf den Link Details ein:
+Fügen Sie in Views/Home/Index.cshtml ein Data-Bind-Element, das Details-Link:
 
 [!code-html[Main](part-8/samples/sample2.html?highlight=5)]
 
-Bindet das Click-Ereignishandler für die &lt;eine&gt; Element an der `getBookDetail` Funktion für das Modell anzeigen.
+Bindet den Klickhandler für die &lt;eine&gt; Element der `getBookDetail` Funktion im Ansichtsmodell.
 
-Ersetzen Sie die folgenden Markierung-nach-oben, in der gleichen Datei:
+Ersetzen Sie in der gleichen Datei die folgende Mark-nach-oben ein:
 
 [!code-html[Main](part-8/samples/sample3.html)]
 
@@ -43,13 +42,13 @@ durch diesen:
 
 [!code-html[Main](part-8/samples/sample4.html)]
 
-Dieses Markup erstellt eine Tabelle, die an den Eigenschaften des datengebundenen ist die `detail` Observable im Modell anzeigen.
+Dieses Markup erstellt eine Tabelle, die auf die Eigenschaften der Datenbindung die `detail` Observable im Ansichtsmodell.
 
-Die "&lt;!--ko--&gt; &quot; Syntax können Sie eine Bindung Knockout außerhalb ein DOM-Element enthalten. In diesem Fall die `if` Bindung führt dazu, dass in diesem Abschnitt des Markups angezeigt werden nur, wenn `details` ungleich Null ist.
+Die "&lt;! – ko--&gt; &quot; Syntax können Sie eine Bindung Knockout außerhalb eines DOM-Elements enthalten. In diesem Fall die `if` -Bindung bewirkt, dass in diesem Abschnitt des Markups angezeigt werden nur dann, wenn `details` ungleich Null ist.
 
 [!code-html[Main](part-8/samples/sample5.html)]
 
-Wenn Sie die app auszuführen, und klicken Sie auf eines der nun die &quot;Detail&quot; Links, die app zeigt die Details für das Offlineadressbuch.
+Jetzt, wenn Sie die app auszuführen, und klicken Sie auf eines der &quot;Detail&quot; Links, die app zeigt die Book-Details.
 
 [![](part-8/_static/image2.png)](part-8/_static/image1.png)
 

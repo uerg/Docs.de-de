@@ -1,95 +1,94 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
-title: Verteiltes Caching (Building Real-World Cloud Apps with Azure) | Microsoft Docs
+title: Verteilte Zwischenspeicherung (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
-description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
+description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2015
 ms.topic: article
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 3600200f9bb705ccf66c859547668bdf8e89d97a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f92d9a00ce3cc723643f4f8077bb4308f5d8089e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868671"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365645"
 ---
-<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Verteiltes Caching (Building Real-World Cloud Apps with Azure)
+<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Verteilte Zwischenspeicherung (erstellen realer Cloud-Apps mit Azure)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download Behebungsskript Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Die **Building Real World Cloud Apps with Azure** e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die Ihnen helfen können erfolgreich ausgeführt entwickeln Web-apps für die Cloud. Weitere Informationen zu e-Book herunterladen, finden Sie unter [im Kapitel über das erste](introduction.md).
+> Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
 
-Im Kapitel über das vorherige Behandlung vorübergehender Fehler betrachtet und erwähnt als Trennschalter Strategie Zwischenspeichern. Dieses Kapitel bietet weitere Hintergrundinformationen zum Zwischenspeichern, einschließlich der Verwendung, häufige Muster von verwenden, und wie Sie es in Azure zu implementieren.
+Im vorherige Kapitel behandeln vorübergehender Fehler betrachtet und erwähnt als Strategie zur Circuit-Breaker Zwischenspeichern. Dieses Kapitel bietet weitere Hintergrundinformationen zur Zwischenspeicherung, einschließlich der Verwendung, allgemeine Muster für die Verwendung von, und wie Sie es in Azure implementieren.
 
-## <a name="what-is-distributed-caching"></a>Was ist verteiltes caching
+## <a name="what-is-distributed-caching"></a>Was ist die verteilte Zwischenspeicherung
 
-Ein Cache bietet hohen Durchsatz mit geringer Latenz Zugriff auf häufig verwendete Anwendung, durch das Speichern der Daten im Arbeitsspeicher. Für eine Cloud-app ist die nützlichste Typ des Caches verteilter Cache, d. h., die Daten werden nicht gespeichert werden, auf die einzelnen Webserver Arbeitsspeicher jedoch von anderen Cloudressourcen und die zwischengespeicherten Daten für alle Webserver einer Anwendung zur Verfügung gestellt werden (oder andere cloud-VMs, ar e wird von der Anwendung).
+Ein Cache bietet hohen Durchsatz, niedrige Latenzen beim Zugriff auf häufig verwendete Anwendungsdaten, durch Speicherung der Daten im Arbeitsspeicher. Für eine Cloud-app ist die nützlichste Typ des Caches verteilten Cache, d. h., die Daten werden nicht gespeichert werden, auf die einzelnen Webserver Speicher, sondern auf anderen Cloudressourcen, und die zwischengespeicherten Daten für alle von Webservern der Anwendung verfügbar gemacht werden (oder anderen cloud-VMs, ar e wird von der Anwendung).
 
 ![Diagramm mit mehreren Webservern, die Zugriff auf den gleichen Cacheservern](distributed-caching/_static/image1.png)
 
-Wenn die Anwendung skaliert, um hinzufügen oder Entfernen von Servern oder Server aufgrund eines Upgrades oder Fehlern ersetzt werden, bleibt die zwischengespeicherten Daten zugegriffen werden kann, auf jedem Server, der die Anwendung ausgeführt wird.
+Wenn die Anwendung durch Hinzufügen oder Entfernen von Servern skaliert werden kann, oder Server aufgrund eines Upgrades oder Fehlern ersetzt werden, bleibt die zwischengespeicherten Daten zugegriffen werden kann, auf jedem Server, der die Anwendung ausgeführt wird.
 
-Durch das Vermeiden des hohen Latenz Datenzugriffs von einem persistenten Datenspeicher, kann die caching Reaktionsfähigkeit der Anwendung erheblich verbessern. Beispielsweise ist das Abrufen von Daten aus dem Cache wesentlich schneller, als sie aus einer relationalen Datenbank abrufen zu müssen.
+Durch das Vermeiden des hohen Latenz Datenzugriff von einem persistenten Datenspeicher, kann die Zwischenspeicherung Reaktionsfähigkeit von Anwendungen drastisch verbessern. Beispielsweise ist das Abrufen von Daten aus dem Cache viel schneller als das Abrufen aus einer relationalen Datenbank.
 
-Ein Seite Vorteil des Zwischenspeicherns wird reduziert Datenverkehr zum persistenten Datenspeicher, was möglicherweise zu niedrigeren Kosten führt, wenn ausgehende Daten vorhanden sind die Kosten für den persistenten Datenspeicher.
+Ein Nebeneffekt des Cachings wird reduziert, Datenverkehr an den persistenten Datenspeicher, der niedrigeren Kosten entstehen, wenn ausgehende Daten vorhanden sind Gebühren für den persistenten Datenspeicher.
 
-## <a name="when-to-use-distributed-caching"></a>Verwendung von verteiltes caching
+## <a name="when-to-use-distributed-caching"></a>Wenn für das verteilte caching
 
-Zwischenspeichern von funktioniert am besten für Anwendungsworkloads dazu weitere lesen als das Schreiben von Daten und wenn das Datenmodell die Schlüssel/Wert-Organisation, die Sie verwenden zum Speichern und Abrufen von Daten im Cache unterstützt. Es ist auch sinnvoller, wenn Anwendungsbenutzer viele allgemeine Daten freigeben; Beispielsweise würde Cache nicht so viele Vorteile bieten, wenn jeder Benutzer in der Regel nur für diesen Benutzer Daten abruft. Ein Beispiel, in dem caching sehr vorteilhaft sein könnte, ist ein Produktkatalog, da die Daten nicht häufig geändert, und alle Kunden die gleichen Daten betrachten.
+Funktionsweise der Zwischenspeicherung am besten für Workloads von Anwendungen dazu weitere Informationen als das Schreiben von Daten, und wenn das Datenmodell unterstützt die Schlüssel/Wert-Organisation, die Sie verwenden, um Daten im Cache speichern und abrufen. Es ist auch sinnvoller, wenn Benutzer viele allgemeine Daten freigeben; Cache würde z. B. nicht so viele Vorteile bieten, wenn jeder Benutzer in der Regel Daten, die für diesen Benutzer eindeutig abruft. Ein Beispiel, in denen Zwischenspeicherung sehr vorteilhaft sein könnte, ist einem Produktkatalog, da die Daten nicht häufig ändert, und alle die gleichen Daten Kunden.
 
-Der Vorteil des Zwischenspeicherns wird zunehmend messbaren desto Skalierung eine Anwendung, Einschränkungen für Durchsatz und Latenz Verzögerungen bei der persistenten Datenspeicher der gesamtleistung der Anwendung eingeschränkt werden. Sie können jedoch implementieren, Zwischenspeichern von anderen Gründen als auch die Leistung. Für Daten, die nicht perfekt auf dem neuesten Stand, wenn dem Benutzer angezeigt werden, kann Cache Zugriff als ein Trennschalter für dienen, wenn es sich bei der persistenten Datenspeicher nicht mehr reagiert oder nicht verfügbar ist.
+Der Vorteil der Zwischenspeicherung wird zunehmend messbare hochskaliert wird je eine Anwendung aus, den Grenzwerten für den Durchsatz und Latenz Verzögerungen bei der persistenten Datenspeicher, die mehrere der gesamtleistung der Anwendung eingeschränkt werden. Sie können jedoch implementieren, Zwischenspeichern aus anderen Gründen als auch die Leistung. Für Daten, die nicht perfekt auf dem neuesten Stand bei dem Benutzer angezeigt werden, dienen erfolgt ein Trennschalter für beim persistenten Datenspeicher nicht mehr reagiert oder nicht verfügbar ist.
 
-## <a name="popular-cache-population-strategies"></a>Beliebte Cache Auffüllung Strategien
+## <a name="popular-cache-population-strategies"></a>Strategien für die Auffüllung von beliebten cache
 
-Damit Daten aus dem Cache abgerufen werden können, müssen Sie es zuerst speichern. Es gibt mehrere Strategien zum Abrufen von Daten, die Sie benötigen in einem Cache:
+Um Daten aus Cache abrufen können, müssen Sie es zuerst speichern. Es gibt verschiedene Strategien zum Abrufen von Daten, die Sie benötigen in einen Cache:
 
 - Bei Bedarf / Cache-Aside
 
-    Die Anwendung versucht, Daten aus dem Cache abzurufen, und wenn der Cache nicht über die Daten (ein "Miss") verfügt, die Anwendung speichert die Daten im Cache, damit er das nächste Mal zur Verfügung stehen. Das nächste Mal, das die Anwendung versucht, dieselben Daten abzurufen, feststellt, im Cache (als "Treffer") wonach für. Um zu verhindern, Abrufen von zwischengespeicherten Daten, die geändert wurden für die Datenbank, für ungültig zu erklären Sie den Cache beim vornehmen von Änderungen im Datenspeicher.
-- Hintergrund Datenpush
+    Die Anwendung versucht, Daten aus Cache abrufen, und wenn der Cache nicht über die Daten (ein "Miss") verfügt, die Anwendung speichert die Daten im Cache, damit es das nächste Mal zur Verfügung stehen. Das nächste Mal, das die Anwendung versucht, die die gleichen Daten abrufen, sucht es, was er im Cache (ein "Treffer") gesucht wird. Um zu verhindern, Abrufen von zwischengespeicherten Daten, die geändert wurde für die Datenbank, wird der Cache ungültig, wenn Änderungen an den Datenspeicher.
+- Hintergrund-Daten per Push
 
-    Hintergrunddienste Verschieben von Daten in den Cache in regelmäßigen Abständen, und die app immer Wortlisten aus dem Cache. Dieser Ansatz funktioniert hervorragend mit hoher Latenz von Datenquellen, die Sie nicht immer erforderlich ist, geben die neuesten Daten zurück.
+    Hintergrunddienste senden Daten in den Cache in regelmäßigen Abständen, und die app immer Pullvorgänge aus dem Cache. Dieser Ansatz funktioniert hervorragend mit hoher Latenz von Datenquellen, die Sie nicht immer benötigen zurück, die neuesten Daten.
 - Trennschalter
 
-    Die Anwendung, die normalerweise direkt mit persistenten Datenspeicher kommuniziert werden, aber bei der persistenten Datenspeicher Verfügbarkeitsprobleme verfügt, die Anwendung die Daten aus dem Cache abruft. Daten können im Cache, die mit dem Cache reserviert oder Hintergrund-Push-Strategie gestellt wurden. Dies ist eine Fehlerbehandlung Strategie statt einer Strategie für die Leistung verbessern.
+    Die Anwendung normalerweise kommuniziert wird, direkt mit der persistenten Datenspeicher, aber wenn persistenten Datenspeicher Verfügbarkeitsproblemen verfügt, die Anwendung die Daten aus dem Cache abruft. Daten können im Cache, die mit dem Cache reserviert oder Hintergrund Strategie zum Übertragen von Daten gestellt wurden. Dies ist eine Fehlerbehandlung Strategie statt einer Strategie für die Verbesserung der Leistung.
 
-Um Daten im Cache aktuell zu halten, können Sie verwandte Cacheeinträge löschen, wenn Ihre Anwendung erstellt wird, Updates, Daten oder löscht. Ist er gut für die Anwendung, in einigen Fällen Daten abzurufen, die etwas veraltet ist, können Sie basieren auf einer konfigurierbaren Ablaufzeit wie ALT Cache festgelegt werden kann.
+Um die Daten im Cache aktuell zu halten, können Sie verwandte Cacheeinträge löschen, wenn Ihre Anwendung, aktualisiert erstellt, oder Löschen von Daten. Wenn es sich gut ist, die für Ihre Anwendung, die gelegentlich Daten abrufen, die etwas veraltet ist, können Sie verlassen auf eine konfigurierbare Ablaufzeit für einen Grenzwert für Alter Cache festgelegt werden kann.
 
-Sie können konfigurieren, absolute Ablaufzeit (Zeitraum seit dem Cacheelement, das erstellt wurde) oder eine gleitende Ablaufzeit (Menge an Zeit seit der letzten Ausführung ein Cacheelement zugegriffen wurde). Absoluter Ablauf wird verwendet, wenn Sie auf dem Cache Ablauf-Mechanismus, um zu verhindern, dass die Daten zu veralten abhängig sind. In der app korrigieren wir müssen manuell Entfernen veralteter Cacheelementen, und wir gleitende Ablaufzeit verwenden, um die aktuellsten Daten im Cache aktuell bleibt. Unabhängig von der Ablaufrichtlinie, die Sie auswählen, wird der Cache automatisch die ältesten (geringste zuletzt verwendete oder LRU) Elemente entfernen, wenn das Cache Speicher erreicht ist.
+Sie können die absolute Ablaufzeit (Zeitspanne, da das Element im Cache erstellt wurde) oder die gleitende Ablaufzeit (Zeitspanne seit dem letzten, ein Element im Cache zugegriffen wurde) konfigurieren. Absoluter Ablauf wird verwendet, wenn Sie von den Mechanismus zur Zwischenspeicherung Ablauf zu verhindern, dass die Daten zu sehr veraltet abhängig sind. Klicken Sie in der Fix It-app wir werden veraltete Cacheelemente manuell entfernen, und gleitende Ablaufzeit verwenden wir die aktuellsten Daten im Cache beibehalten. Unabhängig von der Ablaufrichtlinie, die Sie auswählen, wird der Cache automatisch die ältesten (zuletzt verwendete mindestens oder LRU) Elemente entfernen, wenn der Cache Speicher-Grenze erreicht wird.
 
-## <a name="sample-cache-aside-code-for-fix-it-app"></a>Cache-Aside-Beispielcode für die app korrigieren
+## <a name="sample-cache-aside-code-for-fix-it-app"></a>Cache-Aside-Beispielcode für Fix It-app
 
-Im folgenden Beispielcode überprüfen wir den Cache zunächst beim Abrufen eines Vorgangs zu beheben. Wenn der Task im Cache gefunden wird, geben wir zurück; Wenn es nicht gefunden, wir es aus der Datenbank abgerufen und im Cache zu speichern. Die Änderungen, die Sie zum Hinzufügen von caching zu vornehmen würden die `FindTaskByIdAsync` Methode werden hervorgehoben.
+Im folgenden Beispielcode prüfen Sie den Cache zunächst beim Abrufen einer Aufgabe zu beheben. Wenn die Aufgabe im Cache gefunden wird, geben wir zurück; Wenn keine gefunden, wir rufen es aus der Datenbank und in den Cache zu speichern. Die Änderungen, die Sie zum Hinzufügen von caching zu vornehmen würde die `FindTaskByIdAsync` Methode werden hervorgehoben.
 
 [!code-csharp[Main](distributed-caching/samples/sample1.cs?highlight=5,9-11,13-15,19)]
 
-Beim Aktualisieren oder einer Aufgabe zu beheben löschen, müssen Sie (entfernen) die zwischengespeicherten Task für ungültig zu erklären. Andernfalls versucht Zukunft gelesen hat diese Aufgabe weiterhin die alten Daten aus dem Cache abzurufen.
+Wenn Sie aktualisieren oder einer Aufgabe zu beheben löschen, müssen Sie (entfernen) den zwischengespeicherten Task für ungültig zu erklären. Andernfalls versucht zukünftige, lesen Sie, dass diese Aufgabe weiterhin die alten Daten aus dem Cache abzurufen.
 
 [!code-csharp[Main](distributed-caching/samples/sample2.cs?highlight=7)]
 
-Dabei handelt es sich um Beispiele zur Veranschaulichung einfachen caching-Codes. Zwischenspeichern wurde nicht in die herunterladbare korrigieren-Projekt implementiert.
+Hierbei handelt es sich um Beispiele zur Veranschaulichung von einfachen Codes zur Zwischenspeicherung; Zwischenspeichern wurde nicht in den herunterladbaren Fix It-Projekt implementiert.
 
-## <a name="azure-caching-services"></a>Azure-zwischenspeicherdienste
+## <a name="azure-caching-services"></a>Azure-Cachedienste
 
-Azure bietet die folgenden Cachingdienste: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) und [Azure Managed Cache](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redis Cache basiert auf dem beliebten [open-Source-Redis-Cache](http://redis.io/) und ist die erste Wahl für die meisten zwischenspeicherszenarien.
+Azure bietet die folgenden Dienste für die Zwischenspeicherung: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) und [Azure Managed Cache](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redis Cache basiert auf dem beliebten [open-Source-Redis-Cache](http://redis.io/) und ist die Zwischenspeicherung zur ersten Wahl für die meisten Szenarien.
 
 <a id="sessionstate"></a>
-## <a name="aspnet-session-state-using-a-cache-provider"></a>ASP.NET-Sitzungsstatus mit einem Cacheanbieter
+## <a name="aspnet-session-state-using-a-cache-provider"></a>ASP.NET-Sitzungszustand mit einem Cacheanbieter
 
-Siehe die [Web Development best Practices Kapitel](web-development-best-practices.md), eine bewährte Methode wird zur Vermeidung des Sitzungsstatus. Wenn Ihre Anwendung den Sitzungsstatus erfordert, wird die nächste bewährte zu den in-Memory-Standardanbieter zu vermeiden, da die Dezentrales Skalieren (mehrere Instanzen des Webservers) ermöglichen nicht. Die ASP.NET SQL Server-Sitzungsstatusanbieter ermöglicht eine Website, die auf mehrere Webserver Sitzungsstatus verwendet ausgeführt wird, sondern im Vergleich zu einer in-Memory-Anbieter Kosten hoher Latenz verursacht. Die beste Lösung, wenn Sie die Sitzungszustand zu verwenden ist, in einen Cacheanbieter, z. B. die [Sitzungsstatusanbieter für Azure-Cache](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
+Siehe die [Web Development best Practices Kapitel](web-development-best-practices.md), eine bewährte Methode ist, um zu vermeiden, mithilfe des Sitzungszustands. Wenn Ihre Anwendung den Sitzungsstatus erfordert, werden die nächsten bewährte Methode ab, den Standardanbieter für in-Memory zu vermeiden, da Sie nicht, die Scale out-(mehrere Instanzen des Webservers) ermöglicht. Die ASP.NET SQL Server-Sitzungszustandsanbieter ermöglicht, eine Website, die auf mehreren Webservern, um den Sitzungsstatus verwendet ausgeführt wird, aber verursacht eine hohe Latenz Kosten im Vergleich zu einer in-Memory-Anbieter. Die beste Lösung, wenn Sie den Sitzungszustand verwenden müssen, verwenden Sie einen Cacheanbieter, wie z. B. ist der [Session State Provider für Azure Cache](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben gesehen, wie die app zu beheben, implementieren konnte zwischenspeichern, um die Antwortzeit und Skalierbarkeit zu verbessern, und aktivieren Sie die app aus, um anzugeben, dass für Lesevorgänge reagiert werden, wenn die Datenbank nicht verfügbar ist. In der [nächsten Kapitels](queue-centric-work-pattern.md) wir zeigen, wie weiter verbessern der Skalierbarkeit und die App reaktionsfähig für Schreibvorgänge werden weiterhin.
+Sie haben gesehen, wie die Fix It-app implementieren kann zwischenspeichern, um die Antwortzeit und die Skalierbarkeit zu verbessern, und aktivieren Sie die app aus, um anzugeben, dass die Reaktionsfähigkeit bei Lesevorgängen werden, wenn die Datenbank nicht verfügbar ist. In der [im nächsten Kapitel](queue-centric-work-pattern.md) wir zeigen, wie weiter verbessern der Skalierbarkeit und die App weiterhin reaktionsfähig für Schreibvorgänge.
 
 ## <a name="resources"></a>Ressourcen
 
@@ -97,20 +96,20 @@ Weitere Informationen zum Zwischenspeichern finden Sie unter den folgenden Resso
 
 Dokumentation
 
-- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx). Offizielle MSDN-Dokumentation für das caching in Azure.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Caching Guidance finden Sie in der Cache-Aside-Muster.
+- [Azure-Cache](https://msdn.microsoft.com/library/gg278356.aspx). Offizielle MSDN-Dokumentation zur Zwischenspeicherung in Azure.
+- [Microsoft Patterns and Practices - Leitfaden zur Azure](https://msdn.microsoft.com/library/dn568099.aspx). Caching Guidance "und" Cache-Aside-Muster angezeigt.
 - [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Caching finden Sie im Abschnitt.
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt für Verteiltes Zwischenspeichern.
-- [Verteiltes Caching für den Pfad zur Skalierbarkeit](https://msdn.microsoft.com/magazine/dd942840.aspx). Eine ältere (2009) MSDN Magazine-Artikel, aber eine gut geschriebene Einführung in Verteiltes Zwischenspeichern im Allgemeinen; Wechselt in genauer als die Zwischenspeichern Abschnitte des Whitepapers FailSafe und Best Practices.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt zum verteilten Zwischenspeichern.
+- [Verteilte Zwischenspeicherung auf dem Weg zur Skalierbarkeit](https://msdn.microsoft.com/magazine/dd942840.aspx). Ein älterer Artikel in MSDN Magazine (2009), aber eine klar formulierte Einführung in die verteilte Zwischenspeicherung im Allgemeinen; genauer als die Zwischenspeicherung Abschnitte der die ausfallsichere und Best Practices-Whitepaper wird.
 
 Videos
 
-- [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Neun zweiteilige Reihe Marc Mercuri, Ulrich Homann und Mark Simms. Stellt eine Sicht 400-Ebene zum Cloud-apps zu entwickeln. Diese Reihe konzentriert sich auf der Theorie und Gründe, warum; Detaillierte Informationen zur Vorgehensweise finden Sie in das Erstellen von Big Reihe von Mark Simms. Finden Sie caching in Folge 3 beginnenden 1:24:14.
-- [Erstellen von Big: Erkenntnisse aus Azure-Kunden – Teil I](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies erläutert verteilte caching beginnenden 46:00. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen. Die Präsentation wurde am 31. Oktober 2012 angegeben, damit er nicht zwischenspeichern-Dienst in Azure App Service-Web-Apps abdeckt, die in 2013 eingeführt wurde.
+- [FailSafe: Erstellen von skalierbaren, robusten Clouddiensten](https://channel9.msdn.com/Series/FailSafe). Teil 9-Reihe von Marc Mercuri, Ulrich Homann und Mark Simms. Bietet einen Überblick über 400 auf Serverebene wie Sie Cloud-apps zu gestalten. Diese Serie konzentriert sich auf die Theorie und Gründe, warum; Weitere Informationen zur Vorgehensweise finden Sie in der Erstellung großer von Mark Simms. Finden Sie unter den Ausführungen zur Zwischenspeicherung in Folge 3 beginnend mit 1:24:14.
+- [Erstellen von Big: Erfahrungen aus dem Azure-Kunden – Teil I](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies wird die verteilte Zwischenspeicherung ab 46:00 erläutert. Ähnlich wie die Failsafe-Serie, aber wird auf Weitere Gewusst-wie-Details. Die Präsentation wurde 31. Oktober 2012 angegeben werden, damit es nicht zwischenspeichern-Dienst der Web-Apps in Azure App Service behandelt wird, die in 2013 eingeführt wurde.
 
 Codebeispiel
 
-- [Grundlagen von Clouddiensten in Azure Cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Eine beispielanwendung, die implementiert Verteiltes Zwischenspeichern. Finden Sie im zugehörigen Blogbeitrag [Grundlagen von Clouddiensten – Grundlagen Caching](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
+- [Clouddienstgrundlagen in Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Eine beispielanwendung, die verteilte Zwischenspeicherung implementiert. Finden Sie im zugehörigen Blogbeitrag [Grundlagen der Cloud-Dienst – Grundlagen zwischenspeichern](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
 
 > [!div class="step-by-step"]
 > [Zurück](transient-fault-handling.md)

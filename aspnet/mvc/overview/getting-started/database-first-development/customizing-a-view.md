@@ -1,46 +1,45 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/customizing-a-view
-title: 'EF Datenbank zuerst mit ASP.NET MVC: Anpassen einer Ansicht | Microsoft Docs'
+title: 'EF Database First mit ASP.NET MVC: Anpassen einer Ansicht | Microsoft-Dokumentation'
 author: tfitzmac
-description: MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Dieses Lernprogramm Seri...
+description: Verwenden MVC, Entity Framework und ASP.NET-Gerüstbau, können Sie eine Webanwendung erstellen, die eine Schnittstelle für eine vorhandene Datenbank bereitstellt. Dieses Tutorial Seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
 ms.topic: article
 ms.assetid: 269380ff-d7e1-4035-8ad1-fe1316a25f76
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/customizing-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 8338603e032329ad03d47c6392e508aa07c6858e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bfbcfd39dd1cf0abe89a00d2958ca010f0e5e109
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867657"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376497"
 ---
-<a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>EF Datenbank zuerst mit ASP.NET MVC: Anpassen einer Ansicht
+<a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>EF Database First mit ASP.NET MVC: Anpassen einer Ansicht
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> MVC, Entity Framework und ASP.NET Gerüstbau verwenden, können Sie eine Webanwendung erstellen, die eine Schnittstelle zu einer vorhandenen Datenbank bereitstellt. Diese Reihe von Lernprogrammen wird gezeigt, wie automatisch generieren von Code, der ermöglicht Benutzern das anzeigen, bearbeiten, erstellen und Löschen von Daten, die in einer Datenbanktabelle gespeichert. Der generierte Code entspricht den Spalten in der Datenbanktabelle.
+> Verwenden MVC, Entity Framework und ASP.NET-Gerüstbau, können Sie eine Webanwendung erstellen, die eine Schnittstelle für eine vorhandene Datenbank bereitstellt. Dieser tutorialreihe erfahren Sie, wie Sie automatisch generierter Code, der ermöglicht Benutzern das anzeigen, bearbeiten, erstellen und Löschen von Daten, die in einer Datenbanktabelle gespeichert. Der generierte Code entspricht die Spalten in der Datenbanktabelle.
 > 
-> In diesem Teil der Reihe konzentriert sich auf das Ändern der Ansichten automatisch generiert, um die Lesbarkeit zu verbessern.
+> Dieser Teil der Serie konzentriert sich auf die automatisch generierten Ansichten zur Verbesserung der Präsentation zu ändern.
 
 
-## <a name="add-enrolled-courses-to-student-details"></a>Registrierte Kurse zu Student Details hinzufügen
+## <a name="add-enrolled-courses-to-student-details"></a>Registrierte Kurse für Schüler und Studenten Details hinzufügen
 
-Der generierte Code bietet einen guten Ausgangspunkt für Ihre Anwendung jedoch nicht notwendigerweise bietet alle Funktionen, die Sie in Ihrer Anwendung benötigen. Sie können den Code, um die bestimmte Anforderungen der Anwendung anpassen. Die Anwendung wird derzeit nicht registrierte Kurse für den ausgewählten Schüler angezeigt. In diesem Abschnitt fügen Sie die registrierten Kurse für Studenten, die **Details** Ansicht für die Studenten.
+Der generierte Code bietet einen guten Ausgangspunkt für Ihre Anwendung bietet jedoch nicht unbedingt alle Funktionen, die Sie in Ihrer Anwendung benötigen. Sie können den Code, um die bestimmten Anforderungen Ihrer Anwendung anpassen. Die Anwendung wird derzeit nicht die registrierten Kurse für den ausgewählten Studenten angezeigt. In diesem Abschnitt fügen Sie die registrierten Kurse für jeden Kursteilnehmer auf die **Details** Ansicht für den Studenten.
 
-Open **Students/Details.cshtml**, und unterhalb der letzten &lt;/DL&gt; Registerkarte, aber vor dem schließenden &lt;/div&gt; kennzeichnen, fügen Sie den folgenden Code hinzu.
+Öffnen **Students/Details.cshtml**, und klicken Sie unterhalb der letzten &lt;/DL&gt; Registerkarte aber vor dem schließenden &lt;/div&gt; markieren, fügen Sie den folgenden Code hinzu.
 
 [!code-cshtml[Main](customizing-a-view/samples/sample1.cshtml)]
 
-Dieser Code erstellt eine Tabelle, die eine Zeile für jeden Datensatz in der Enrollment-Tabelle für die ausgewählten Studenten angezeigt. Die **Anzeige** Methode rendert die HTML für das Objekt (ModelItem), die den Ausdruck darstellt. Verwenden Sie die Anzeige-Methode (statt einfach einbetten den Eigenschaftswert im Code) um sicherzustellen, dass der Wert wird formatiert ordnungsgemäß basierend auf den Typ und die Vorlage für diesen Typ. In diesem Beispiel wird jeder Ausdruck gibt eine einzelne Eigenschaft aus dem aktuellen Datensatz in der Schleife und die Werte sind primitive Typen, die als Text gerendert werden.
+Dieser Code erstellt eine Tabelle, die eine Zeile für jeden Datensatz in der Enrollment-Tabelle für den ausgewählten Studenten angezeigt. Die **Anzeige** -Methode rendert die HTML für das Objekt (ModelItem), die den Ausdruck darstellt. Verwenden Sie die Anzeige-Methode (anstatt einfach den Wert der Eigenschaft im Code) um sicherzustellen, dass der Wert ist ordnungsgemäß basierend auf den Typ und die Vorlage für diesen Typ formatiert. In diesem Beispiel jeder Ausdruck gibt eine einzelne Eigenschaft des aktuellen Datensatzes in der Schleife und die Werte sind primitive Typen, die als Text gerendert werden.
 
-Navigieren Sie zu der Studenten/Indexansicht erneut aus, und wählen Sie **Details** für eines der Studenten. Sie sehen, dass die registrierten Kurse in der Ansicht enthalten sind.
+Navigieren Sie erneut an die Schüler/Studenten/Index-Ansicht aus, und wählen Sie **Details** für eines der Schüler/Studenten. Sie sehen, dass die registrierten Kurse in der Ansicht hinzugefügt wurden.
 
-![Studenten, die bei der Registrierung](customizing-a-view/_static/image1.png)
+!["Student" mit Registrierung](customizing-a-view/_static/image1.png)
 
 > [!div class="step-by-step"]
 > [Zurück](changing-the-database.md)

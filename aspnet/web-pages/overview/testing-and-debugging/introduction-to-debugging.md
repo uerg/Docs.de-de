@@ -1,110 +1,109 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: Einführung in Debugging ASP.NET Web Pages (Razor) Standorte | Microsoft Docs
+title: Einführung in Debugging ASP.NET Web Pages (Razor) Sites | Microsoft-Dokumentation
 author: tfitzmac
-description: Debuggen ist der Prozess des Suchens und Behebens von Fehlern in Ihren Codeseiten. Das Kapitel zeigt, die einige Tools und Techniken, die Sie zum Debuggen verwenden können und Analyz...
+description: Debugging ist der Prozess des Suchens und Behebens von Fehlern in Ihren Codeseiten. In diesem Kapitel erfahren Sie, einige Tools und Techniken zum Debuggen können und Analysieren der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
 ms.topic: article
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d189eb8640346ca7850d9013961cbf45aaefd6f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897504"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375861"
 ---
-<a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Einführung in Debugging ASP.NET Web Pages (Razor)-Websites
+<a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Einführung in Debugging ASP.NET Web Pages (Razor) Sites
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Dieser Artikel beschreibt verschiedene Möglichkeiten zum Debuggen von Seiten auf einer Website für ASP.NET Web Pages (Razor). Debuggen ist der Prozess des Suchens und Behebens von Fehlern in Ihren Codeseiten.
+> Dieser Artikel beschreibt verschiedene Möglichkeiten zum Debuggen von Seiten auf einer Website für ASP.NET Web Pages (Razor). Debugging ist der Prozess des Suchens und Behebens von Fehlern in Ihren Codeseiten.
 > 
-> **Lernen Sie:** 
+> **Sie lernen Folgendes:** 
 > 
-> - Vorgehensweise beim Anzeigen von Informationen, die der Identifikation analysieren und Debuggen von Seiten.
+> - Vorgehensweise beim Anzeigen von Informationen, die dabei hilft, analysieren und Debuggen von Seiten.
 > - Gewusst wie: Verwenden Sie das Debuggen in Visual Studio-tools.
 >   
 > 
-> Dies sind die Funktionen von ASP.NET im Artikel:
+> Dies sind die Funktionen von ASP.NET in diesem Artikel:
 > 
 > - Die `ServerInfo` Helper.
-> - `ObjectInfo` Hilfsmethode.
+> - `ObjectInfo` -Hilfsprogramm.
 >   
 > 
-> ## <a name="software-versions"></a>Versionen der Software
+> ## <a name="software-versions"></a>Software-Versionen
 > 
 > 
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
 >   
 > 
-> Dieses Lernprogramm funktioniert auch mit ASP.NET Web Pages 2. Können Sie WebMatrix 3, aber der integrierte Debugger wird nicht unterstützt.
+> In diesem Tutorial funktioniert auch mit ASP.NET Web Pages 2. Sie können WebMatrix 3 verwenden, aber integrierte Debugger wird nicht unterstützt.
 
 
-Ein wichtiger Aspekt der Problembehandlung von Fehlern und Probleme in Ihrem Code ist in erster Linie vermeiden. Möglich, die verlegen Sie Abschnitte des Codes die Ursachen von Fehlern in `try/catch` blockiert. Weitere Informationen finden Sie im Abschnitt zum Behandeln von Fehlern in [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890).
+Ein wichtiger Aspekt der Problembehandlung von Fehlern und Problemen im Code werden diese im vornherein zu vermeiden. Sie können dies durch Einfügen von Abschnitte des Codes, die wahrscheinlich Fehler verursachen `try/catch` Blöcke. Weitere Informationen finden Sie im Abschnitt zum Behandeln von Fehlern in [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890).
 
-Die `ServerInfo` Helper ist ein Diagnosetool, mit dem Sie einen Überblick über die Informationen zu der webserverumgebung bietet, die Ihre Seite hostet. Es zeigt auch, HTTP-Anforderungsinformationen, die gesendet wird, wenn ein Browser die Seite anfordert. Die `ServerInfo` Hilfsprogramm zeigt die aktuelle Benutzeridentität, den Typ des Browsers, die die Anforderung vorgenommen und so weiter. Diese Art von Informationen helfen Ihnen die Behandlung allgemeiner Probleme bei.
+Die `ServerInfo` Helper ist ein Diagnosetool, das Sie einen Überblick über die Informationen über die Web-Server-Umgebung bietet, die Ihre Seite hostet. Außerdem erfahren Sie, HTTP-Anforderungsinformationen, die gesendet wird, wenn ein Browser die Seite anfordert. Die `ServerInfo` Hilfsprogramm zeigt den Identität des aktuellen Benutzers, der Typ des Browsers, der eine Anforderung gesendet, und so weiter. Diese Art von Informationen können Sie die Behandlung häufig auftretender Probleme.
 
-1. Erstellen Sie eine neue Webseite mit dem Namen *ServerInfo.cshtml*.
-2. Am Ende der Seite nur vor dem abschließenden `</body>` zu kennzeichnen, fügen Sie `@ServerInfo.GetHtml()`:
+1. Erstellen einer neuen Webseite mit dem Namen *ServerInfo.cshtml*.
+2. Am Ende der Seite wird nur vor dem schließenden `</body>` markieren, fügen Sie `@ServerInfo.GetHtml()`:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample1.cshtml)]
 
-    Sie können Hinzufügen der `ServerInfo` Code an einer beliebigen Stelle auf der Seite. Am Ende hinzufügen erhält, behält jedoch die Ausgabe getrennt von der anderen Seiteninhalt, dadurch ist es einfacher zu lesen.
+    Sie können hinzufügen, die `ServerInfo` Code an einer beliebigen Stelle auf der Seite. Aber es am Ende hinzugefügt werden seine Ausgabe getrennt von Ihrer anderen Seiteninhalt, wodurch es einfacher zu lesen.
 
     > [!NOTE] 
     > 
-    > **Wichtige** sollten Sie alle Diagnosecode aus Webseiten entfernen, bevor Sie Webseiten auf einem Produktionsserver verschieben. Dies gilt für die `ServerInfo` Helper als auch die anderen Diagnosetechniken in diesem Artikel, bei denen Hinzufügen von Code zu einer Seite. Sie möchten nicht Besucher Ihrer Website, um Informationen zu Ihrem Servernamen, Benutzernamen, Pfaden auf dem Server und ähnliche Details anzuzeigen, da diese Art von Informationen für Personen mit böswilligen Absichten nützlich sein kann.
-3. Speichern Sie die Seite, und führen Sie es in einem Browser.
+    > **Wichtige** Sie sollten alle Diagnosecode von Ihren Webseiten entfernen, bevor Sie Webseiten auf einem Produktionsserver verschieben. Dies gilt für die `ServerInfo` Helper als auch die sonstige diagnostischen Verfahrensweisen in diesem Artikel, bei denen Code einer Seite hinzufügen. Sie möchten nicht Besucher Ihrer Website, um Informationen zu Ihrem Servernamen, Benutzernamen, Pfade auf Ihrem Server, und klicken Sie auf ähnliche Informationen anzuzeigen, da diese Art von Informationen für Personen mit böswilligen Absichten nützlich sein könnten.
+3. Speichern Sie die Seite, und führen Sie sie in einem Browser.
 
-    ![Debugging-1](introduction-to-debugging/_static/image1.jpg)
+    ![Debuggen von-1](introduction-to-debugging/_static/image1.jpg)
 
-    Die `ServerInfo` Hilfsprogramm zeigt vier Tabellen von Informationen auf der Seite:
+    Die `ServerInfo` Hilfsprogramm zeigt vier Tabellen mit Informationen auf der Seite:
 
-   - Konfiguration des Servers. Dieser Abschnitt enthält Informationen zum hosting Webserver, einschließlich Computernamen, die Version von ASP.NET, die Sie ausführen, den Domänennamen und die Serverzeit an.
-   - ASP.NET Servervariablen. Dieser Abschnitt enthält Details über die viele HTTP-Protokolldetails (aufgerufene HTTP-Variablen) und Werte, der jede webseitenanforderung angehören.
-   - HTTP-Laufzeitinformationen. Dieser Abschnitt enthält details zu, die die Version von Microsoft .NET Framework, die Ihre Webseite unter ausgeführt wird, den Pfad, der Details zu den Cache und So weiter. (Wie in haben Sie gelernt [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages mithilfe der Razor-Syntax basieren auf Microsoft ASP.NET Web Server-Technologie, die selbst auf eine umfangreiche Software erstellt wird Entwicklung Bibliothek als .NET Framework bezeichnet.)
-   - Umgebungsvariablen. Dieser Abschnitt enthält eine Übersicht über die lokale Umgebungsvariablen und deren Werte auf dem Webserver an.
+   - Konfiguration des Servers. Dieser Abschnitt enthält Informationen zum hosting-Webserver, einschließlich der Name des Computers, der Version von ASP.NET ausführen, den Domänennamen und die Serverzeit an.
+   - ASP.NET Server-Variablen. Dieser Abschnitt enthält Details über die viele Details für HTTP-Protokoll (aufgerufene HTTP-Variablen) und Werte, sind Teil jeder Anforderung der Webseite.
+   - Informationen zu HTTP-Laufzeit. Dieser Abschnitt enthält details zu, die die Version von Microsoft .NET Framework, die Ihre Webseite unter ausgeführt wird, den Pfad, der Details zu den Cache, und So weiter. (Wie Sie in haben [Einführung in ASP.NET Web-Programmierung mithilfe der Razor-Syntax](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages mit der Razor-Syntax werden auf Grundlage von Microsoft ASP.NET Web-Server-Technologie, die selbst auf eine umfangreiche Software erstellt wird Entwicklungsbibliothek mit dem Namen .NET Framework.)
+   - Umgebungsvariablen. Dieser Abschnitt enthält eine Liste mit allen lokalen Umgebungsvariablen und deren Werte auf dem Webserver.
 
-     Eine vollständige Beschreibung aller Informationen für die Server und die Anforderung ist nicht Gegenstand dieses Artikels, aber Sie sehen, dass die `ServerInfo` Helper gibt eine Vielzahl von diagnostische Informationen zurück. Weitere Informationen zu den Werten, die `ServerInfo` zurückgibt, finden Sie unter [Umgebungsvariablen erkannt](https://technet.microsoft.com/library/dd560744(WS.10).aspx) auf der Microsoft TechNet-Website und [IIS-Servervariablen](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) auf der MSDN-Website.
+     Eine vollständige Beschreibung der Informationen zur Server und die Anforderung ist nicht Gegenstand dieses Artikels, aber Sie sehen, dass die `ServerInfo` Helper eine Vielzahl von Diagnoseinformationen zurückgegeben. Weitere Informationen zu den Werten, die `ServerInfo` zurückgibt, finden Sie unter [Umgebungsvariablen erkannt](https://technet.microsoft.com/library/dd560744(WS.10).aspx) auf der Microsoft TechNet-Website und [IIS-Servervariablen](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) auf der MSDN-Website.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Einbetten von Ausgabe-Ausdrücke zum Anzeigen von Seite
 
-Eine weitere Möglichkeit, um festzustellen, was im Code geschieht ist Ausgabe Ausdrücke auf der Seite eingebettet. Wie Sie wissen, können Sie den Wert einer Variablen direkt ausgegeben, durch Hinzufügen von etwa `@myVariable` oder `@(subTotal * 12)` auf der Seite. Für das Debuggen, können Sie diese Ausgabe Ausdrücke an strategischen Stellen im Code platzieren. Dadurch können Sie den Wert von Schlüsselvariablen oder das Ergebnis von Berechnungen sehen, wenn die Seite ausgeführt wird. Wenn Sie fertig sind Debuggen, können Sie die Ausdrücke entfernen, oder kommentieren Sie sie. Diese Prozedur zeigt eine typische Herangehensweise an die eingebettete Ausdrücke verwenden, um eine Seite zu debuggen.
+Eine weitere Möglichkeit, festzustellen, was in Ihrem Code passiert ist, Ausgabe-Ausdrücke auf der Seite einzubetten. Wie Sie wissen, können Sie den Wert einer Variablen direkt ausgeben, indem Sie etwa hinzufügen `@myVariable` oder `@(subTotal * 12)` auf der Seite. Für das Debuggen, können Sie diese Ausgabe-Ausdrücke an strategischen Stellen im Code platzieren. Dadurch können Sie den Wert des Schlüssels Variablen oder das Ergebnis von Berechnungen anzeigen, wenn Ihre Seite ausgeführt wird. Wenn Sie fertig sind Debuggen, können Sie die Ausdrücke zu entfernen oder kommentieren Sie diese aus. Diese Prozedur zeigt eine typische Herangehensweise an die eingebettete Ausdrücke verwenden, um eine Seite zu debuggen.
 
 1. Erstellen Sie eine neue WebMatrix-Seite mit dem Namen *OutputExpression.cshtml*.
-2. Ersetzen Sie den Seiteninhalt durch Folgendes:
+2. Ersetzen Sie die Seite mit folgendem Inhalt:
 
     [!code-html[Main](introduction-to-debugging/samples/sample2.html)]
 
-    Im Beispiel wird eine `switch` Anweisung, um die Überprüfung des Werts der `weekday` Variable und klicken Sie dann anzeigen, die eine andere Ausgabenachricht je nach den Tag der Woche ist. Im Beispiel die `if` Block in der ersten Codeblock ändert den Tag der Woche nach dem Zufallsprinzip durch Hinzufügen eines Tages auf den aktuellen Wochentag-Wert. Dies ist ein Fehler, die zur Veranschaulichung eingeführt.
-3. Speichern Sie die Seite, und führen Sie es in einem Browser.
+    Im Beispiel wird eine `switch` Anweisung, um die Überprüfung des Werts der `weekday` Variable, und klicken Sie dann eine andere Ausgabe-je nach den Tag der Woche Nachricht anzeigen. Im Beispiel die `if` -Block innerhalb der erste Codeblock nach dem Zufallsprinzip ändert sich der Tag der Woche durch Hinzufügen von einem Tag auf den aktuellen Wochentag-Wert. Dies ist ein Fehler, die zur Veranschaulichung eingeführt.
+3. Speichern Sie die Seite, und führen Sie sie in einem Browser.
 
-    Die Seite zeigt die Meldung für den falschen Tag der Woche. Der Tag der Woche es tatsächlich handelt, wird die Nachricht für einen Tag zu einem späteren Zeitpunkt angezeigt werden. Obwohl in diesem Fall Sie wissen, warum die Nachricht deaktiviert ist (da der Code den falsche Tageswert absichtlich versetzt wird), in der Praxis ist es häufig schwer feststellbar ist, in dem Status der Vorgänge im Code falsche an. Um zu debuggen, müssen Sie herausfinden, was auf den Wert der wichtigsten Objekte und Variablen wie z. B. geschieht `weekday`.
-4. Ausgabe Ausdrücke hinzufügen, indem Sie einfügen `@weekday` wie an zwei Stellen angegeben durch den Kommentaren im Code gezeigt. Diese Ausgabe-Ausdrücke werden die Werte der Variablen an diesem Punkt in der Ausführung des Codes angezeigt.
+    Die Seite zeigt die Meldung für den falschen Tag der Woche. Der Tag der Woche es eigentlich ist, wird die Nachricht für einen Tag zu einem späteren Zeitpunkt angezeigt werden. Obwohl in diesem Fall Sie wissen, warum die Nachricht deaktiviert ist (da der Code den falsche Tageswert absichtlich legt fest), in der Praxis ist es oft schwer zu wissen, in denen Fehler im Code Stand der Dinge ist. Zum Debuggen, müssen Sie herausfinden, was auf den Wert der wichtigsten Objekte und Variablen wie z. B. passiert `weekday`.
+4. Ausgabe-Ausdrücke hinzufügen, durch Einfügen von `@weekday` wie an zwei Stellen angegeben werden, indem Kommentare im Code gezeigt. Diese Ausgabe-Ausdrücke werden die Werte der Variablen an diesem Punkt in die Ausführung des Codes angezeigt.
 
     [!code-csharp[Main](introduction-to-debugging/samples/sample3.cs?highlight=2-3,15-16)]
 5. Speichern Sie, und führen Sie die Seite in einem Browser.
 
-    Die Seite zeigt die tatsächlichen Tag der Woche zuerst, und klicken Sie dann die aktualisierte Tag der Woche, resultiert aus dem Hinzufügen eines Tages, und klicken Sie dann die resultierende Nachricht aus der `switch` Anweisung. Die Ausgabe aus den beiden Variablen Ausdrücken (`@weekday`) ohne Leerzeichen zwischen den Tagen hat, da Sie die HTML-Elemente hinzugefügt haben `<p>` Tags aus, um die Ausgabe die Ausdrücke, die nur zu Testzwecken dienen.
+    Die Seite zeigt die tatsächlichen Tag der Woche zuerst, und klicken Sie dann die aktualisierte Tag der Woche, die sich ergibt aus dem Hinzufügen von einem Tag, und klicken Sie dann die resultierende Nachricht aus der `switch` Anweisung. Die Ausgabe aus den beiden Variablen Ausdrücken (`@weekday`) ohne Leerzeichen zwischen den Tagen hat, da Sie die HTML-Elemente hinzugefügt haben `<p>` Tags aus, um die Ausgabe die Ausdrücke werden nur zu Testzwecken.
 
-    ![Debugging-2](introduction-to-debugging/_static/image2.jpg)
+    ![Debuggen-2](introduction-to-debugging/_static/image2.jpg)
 
-    Jetzt sehen Sie, wo der Fehler ist. Wenn Sie zum ersten Mal Anzeigen der `weekday` Variable im Code, zeigt die richtige Tag. Wenn Sie ihn anzeigen zweiten Mal nach der `if` blockieren im Code, der Tag, die von einem deaktiviert ist. Damit Sie wissen, dass ein Fehler zwischen der ersten und zweiten Darstellung der Wochentag Variablen aufgetreten ist. Wenn dies einen echten Fehler wäre, würde diese Art von Ansatz helfen Ihnen bei den Speicherort des Codes einzugrenzen, die das Problem verursacht.
-6. Beheben Sie den Code auf der Seite durch Entfernen von zwei Ausgabe-Ausdrücken, die Sie hinzugefügt, und entfernen den Code, der den Tag der Woche ändert. Die verbleibenden, vollständige Codeblock sieht wie im folgenden Beispiel:
+    Nun Sie sehen können, wo der Fehler ist. Wenn Sie die ersten Anzeigen der `weekday` Variable im Code, zeigt es den richtigen Tag. Wenn Sie ihn anzeigen beim zweiten Mal wird nach der `if` -block in den Code, der Tag, die von einem deaktiviert ist. Damit Sie wissen, dass zwischen der ersten und zweiten Darstellung der Wochentag Variablen ist ein Problem aufgetreten ist. Würde dies eines echten Fehlers, hilft diese Art von Ansatz Ihnen bei den Speicherort des Codes einzugrenzen, die das Problem verursacht.
+6. Beheben Sie den Code auf der Seite, indem Sie entfernen die zwei Ausgabe-Ausdrücke, die Sie hinzugefügt haben, und entfernen den Code, der den Tag der Woche geändert. Der verbleibende, vollständige Codeblock sieht wie im folgenden Beispiel aus:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample4.cshtml)]
-7. Führen Sie die Seite in einem Browser aus. Diesmal sehen Sie die richtige Nachricht, die für den aktuellen Tag der Woche angezeigt.
+7. Führen Sie die Seite in einem Browser. Dieses Mal sehen Sie die richtige Nachricht, die für den aktuellen Tag der Woche angezeigt.
 
-## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Verwenden der ObjectInfo-Hilfsmethode zum Objekt anzeigen
+## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Verwenden zum Anzeigen von Objektwerten der ObjectInfo-Hilfsmethode
 
-Die `ObjectInfo` Hilfsprogramm zeigt den Typ und den Wert des jeweiligen Objekts, das Sie übergeben. Können Sie sie zum Anzeigen des Werts von Variablen und Objekte in Ihrem Code (z. B. die Ausgabe Ausdrücke im vorherigen Beispiel wurde) sowie die sehen Sie den Datentyp von Informationen über das Objekt enthält.
+Die `ObjectInfo` Hilfsprogramm zeigt den Typ und den Wert des jeweiligen Objekts, das Sie übergeben. Können Sie sie an den Wert der Variablen und Objekte in Ihrem Code (wie Sie mit Ausdrücken der Ausgabe im vorherigen Beispiel), außerdem sehen Sie Daten, die Informationen über das Objekt geben.
 
 1. Öffnen Sie die Datei mit dem Namen *OutputExpression.cshtml* , die Sie zuvor erstellt haben.
 2. Ersetzen Sie alle Code auf der Seite mit den folgenden Codeblock:
@@ -112,33 +111,33 @@ Die `ObjectInfo` Hilfsprogramm zeigt den Typ und den Wert des jeweiligen Objekts
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
 3. Speichern Sie, und führen Sie die Seite in einem Browser.
 
-    ![Debugging-4](introduction-to-debugging/_static/image3.jpg)
+    ![Debuggen-4](introduction-to-debugging/_static/image3.jpg)
 
-    In diesem Beispiel wird die `ObjectInfo` Helper werden zwei Elemente angezeigt:
+    In diesem Beispiel die `ObjectInfo` Hilfsprogramm zeigt zwei Elemente:
 
-   - Der Typ. Für die erste Variable, der Typ ist `DayOfWeek`. Für die zweite Variable, der Typ ist `String`.
-   - Der Wert. In diesem Fall, da Sie bereits den Wert der Variable für die Grußformel auf der Seite angezeigt, der Wert wird erneut angezeigt, wenn Sie die Variable übergeben `ObjectInfo`.
+   - Der Typ. Für die erste Variable, der Typ ist `DayOfWeek`. Für die zweite Variable ist der Typ `String`.
+   - Der Wert. In diesem Fall, da Sie bereits über den Wert der Grußformel bei der Variablen auf der Seite anzuzeigen, der Wert wird erneut angezeigt, wenn Sie die Variable übergeben `ObjectInfo`.
 
-     Für komplexere Objekte die `ObjectInfo` Helper kann weitere Informationen anzeigen &#8212; es kann im Grunde wird angezeigt, die Typen und Werte aller Eigenschaften des Objekts.
+     Für komplexe Objekte die `ObjectInfo` Helper kann mehr Informationen anzeigen &#8212; im Grunde genommen können sie anzeigen, die Typen und Werte aller Eigenschaften eines Objekts.
 
-## <a name="using-debugging-tools-in-visual-studio"></a>Verwenden von Tools zum Debuggen in Visual Studio
+## <a name="using-debugging-tools-in-visual-studio"></a>Verwenden Tools zum Debuggen in Visual Studio
 
-Verwenden Sie für eine umfassende Debugleistung erzielen Sie, Visual Studio 2013 oder die kostenlose [Visual Studio Express 2013 für Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Mit Visual Studio können Sie einen Haltepunkt im Code über die Befehlszeile festlegen, die Sie untersuchen möchten.
+Verwenden Sie für eine umfassende Debugleistung, Visual Studio 2013 oder die kostenlose [Visual Studio Express 2013 für Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Mit Visual Studio können Sie einen Haltepunkt im Code in der Befehlszeile festlegen, die Sie untersuchen möchten.
 
 ![Haltepunkt festlegen](introduction-to-debugging/_static/image1.png)
 
-Wenn Sie die Website testen, hält die Ausführung von Benutzercode am Haltepunkt.
+Wenn Sie die Website testen, wird der ausgeführte Code die Ausführung am Haltepunkt angehalten.
 
-![Erreichen des Haltepunkts](introduction-to-debugging/_static/image2.png)
+![Haltepunkt erreicht](introduction-to-debugging/_static/image2.png)
 
-Sie können die aktuellen Werte von Variablen und durchlaufen Sie den Code Zeile für Zeile überprüfen.
+Sie können die aktuellen Werte der Variablen, und durchlaufen Sie den Code Zeile für Zeile überprüfen.
 
-![Werte anzeigen](introduction-to-debugging/_static/image3.png)
+![Werte](introduction-to-debugging/_static/image3.png)
 
-Informationen zur Verwendung von integrierten Debuggers in Visual Studio zum Debuggen von ASP.NET Razor-Seiten finden Sie unter [Programmieren von ASP.NET Web Pages (Razor) mit Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
+Weitere Informationen zur Verwendung von integrierten Debuggers in Visual Studio zum Debuggen von ASP.NET Razor-Seiten finden Sie unter [Programming ASP.NET Web Pages (Razor) mithilfe von Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Programmieren von ASP.NET Web Pages (Razor) mithilfe von Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
+- [Programmieren von ASP.NET-Webseiten (Razor) mithilfe von Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
 - [IIS-Servervariablen](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
-- [Umgebungsvariablen erkannt](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)
+- [Erkannt von Umgebungsvariablen](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

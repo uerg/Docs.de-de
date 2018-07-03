@@ -1,28 +1,27 @@
 ---
 uid: aspnet/tutorials
-title: ASP.NET Lernprogramme | Microsoft Docs
+title: ASP.NET-Tutorials | Microsoft-Dokumentation
 author: tdykstra
-description: Eine Liste von Anleitungen zum Entwickeln von ASP.NET-Anwendungen.
+description: Eine Liste von detaillierten Anleitungen zum Entwickeln von ASP.NET-Anwendungen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036764"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389611"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET-Lernprogramme
 
-Die folgenden schrittweisen Anleitungen für die Entwicklung von ASP.NET-Anwendungen sind verfügbar.
+Die folgenden schrittweisen Anleitungen zum Entwickeln von ASP.NET-Anwendungen sind verfügbar.
 
 > [!NOTE]
-> Suchen Sie die Lernprogramme ASP.NET Core?  Suchen sie [hier](https://docs.microsoft.com/aspnet/core/tutorials/).
+> Suchen Sie nach ASP.NET Core-Tutorials?  Suchen sie [hier](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Web Forms
 
@@ -48,7 +47,7 @@ Die folgenden schrittweisen Anleitungen für die Entwicklung von ASP.NET-Anwendu
 
 ## <a name="mvc"></a>MVC
 
-* [Erste Schritte mit ASP.NET MVC 5](mvc/overview/getting-started/introduction/index.md)
+* [Erste Schritte mit ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
 * [Erste Schritte mit EF 6 anhand von MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [EF Database First mit ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Verwenden der Seitenprüfung in ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)

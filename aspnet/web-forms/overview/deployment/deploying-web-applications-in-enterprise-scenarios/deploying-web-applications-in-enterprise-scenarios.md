@@ -1,58 +1,57 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
-title: Bereitstellen von Webanwendungen in Enterprise-Szenarios, die mit Visual Studio 2010 | Microsoft Docs
+title: Bereitstellen von Webanwendungen in Unternehmensszenarien mit Visual Studio 2010 | Microsoft-Dokumentation
 author: jrjlee
-description: Diese Reihe von Lernprogrammen beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie optimal nutzen...
+description: Diese Reihe von Tutorials beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie optimal zu nutzen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
 ms.topic: article
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8412000e150f59911bb38f0147b1a487bef60c18
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890228"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376837"
 ---
-<a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Bereitstellen von Webanwendungen in Enterprise-Szenarios, die mit Visual Studio 2010
+<a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Bereitstellen von Webanwendungen in Unternehmensszenarien mit Visual Studio 2010
 ====================
 durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Diese Reihe von Lernprogrammen beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie am besten Technologien wie Visual Studio 2010, Microsoft Build Engine (MSBuild), Internet Information Services (IIS) 7.5, das IIS-Webbereitstellungstool (Web Deploy), Web Farm Framework (WFF) und Dienstprogramme wie VSDBCMD.exe zum Verwenden von zu vereinfachen Sie, und verwalten Sie den Bereitstellungsprozess. Sie enthält Übersichten und aufgabenorientierte Anleitungen, die Ihnen dabei helfen wird:
+> Diese Reihe von Tutorials beschreibt Tools und Techniken, die Sie zum Bereitstellen von Webanwendungen in verschiedenen Unternehmensszenarien verwenden können. Es wird erläutert, wie am besten von Technologien wie Visual Studio 2010, Microsoft Build Engine (MSBuild), Internet Information Services (IIS) 7.5, das IIS-Webbereitstellungstool (Web Deploy), das Web Farm Framework (WFF) und Hilfsprogramme wie VSDBCMD.exe zu nutzen vereinfachen und den Bereitstellungsprozess zu verwalten. Sie enthält Übersichten und aufgabenbezogene Leitfäden, die Sie bei der:
 > 
-> - Überprüfen Sie, und stellen Sie die Anforderungen für die Bereitstellung für eine Web-Anwendung von Enterprise-Skalierung her.
-> - Konfigurieren Sie Tests, Staging und Produktion webserverumgebungen zur Unterstützung einer webbereitstellung.
-> - Konfigurieren von Team Foundation Server (TFS) die fortlaufende Integration (CI) Prozesse, um automatisierte Web Deploy unterstützt.
-> - Bereitstellen von Enterprise-Skalierung Webanwendungen auf verschiedene serverumgebungen mit unterschiedlichen Anforderungen und Einschränkungen.
-> - Bereitstellen von Änderungen für Webanwendungen, die in anderen Server-Umgebungen ausgeführt werden.
+> - Überprüfen Sie, und herzustellen Sie die Anforderungen für die Bereitstellung für eine Webanwendung für Unternehmen.
+> - Konfigurieren Sie die Test-, Staging- und produktionsumgebungen-webserverumgebungen zur Unterstützung von Web-Bereitstellung.
+> - Konfigurieren Sie Team Foundation Server (TFS) continuous (CI) Integrationsprozesse, um automatisierte webbereitstellung zu unterstützen.
+> - Stellen Sie unternehmensweite Webanwendungen unterschiedliche Umgebungen mit unterschiedlichen Anforderungen und Einschränkungen bereit.
+> - Bereitstellen von Änderungen für Webanwendungen, die in verschiedenen serverumgebungen ausgeführt werden.
 > 
 > > [!NOTE]
-> > Während diese Lernprogramme für die Verwendung von TFS als CI-Server die Beschreibung ist die Anweisungen auf den CI leicht angepasst. Ein fundiertes Wissen TFS zu verstehen und nutzen die Lernprogramme erforderlich nicht.
+> > Während in diesen Tutorials wird die Verwendung von TFS als ein CI-Server beschrieben, ist die Anleitung auf einem beliebigen CI-Server ganz einfach angepasst. Umfassende Kenntnisse über TFS zu verstehen und nutzen die Tutorials erforderlich nicht.
 > 
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
+> Ein italienischen Übersetzung mit diesen Lernprogrammen finden Sie unter [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="about-the-authors"></a>Über die Autoren
 
-Jason Lee ist principal Technologist mit [Inhalt Master](http://www.contentmaster.com/) , in denen er arbeitet seit mit Microsoft-Produkten und Technologien, insbesondere in SharePoint und ASP.NET seit einigen Jahren. Jason besitzt einen PhD berechnen und ist zurzeit MCPD und MCTS zertifiziert. Erfahren Sie, Jasons technischen Blog unter [www.jrjlee.com](http://www.jrjlee.com/).
+Jason Lee ist leitender Technologe mit [Inhalt Master](http://www.contentmaster.com/) , in denen er arbeitet mit Microsoft-Produkten und Technologien, insbesondere für SharePoint und ASP.NET, seit einigen Jahren. Jason verfügt über einen PhD in der Datenverarbeitung und befindet sich derzeit MCPD und MCTS-Zertifizierung. Lesen Sie Jasons technischen Blog unter [www.jrjlee.com](http://www.jrjlee.com/).
 
-Benjamin Curry ist principal Technologist mit [Inhalt Master](http://www.contentmaster.com/) hat, die Whitepapers, SDK-Dokumentation, PowerPoint-Präsentationen und Trainer und online-Training Kurse während seiner Career geschrieben. Eine ursprüngliche Mitglied ASP.NET-Dokumentationsteam, hat er mit Microsoft Web-Technologien für über einem Jahrzehnt über gearbeitet.
+Benjamin Curry ist leitender Technologe mit [Inhalt Master](http://www.contentmaster.com/) hat, die Whitepaper, SDK-Dokumentation, PowerPoint-Präsentationen und Kurse mit Schulungsleiter und onlineschulungen während seiner beruflichen Laufbahn geschrieben. Eine ursprüngliche Member des ASP.NET-Teams Dokumentation, hat er mit der Microsoft-webtechnologien für mehr als einem Jahrzehnt gearbeitet.
 
 ## <a name="target-audience"></a>Zielgruppe
 
-Dieser Satz Lernprogramme sind für ASP.NET Web-Anwendungsentwickler und Lösungsarchitekten, die Visual Studio 2010 verwenden, um unternehmensweite Webanwendungen zu erstellen. Um den größtmöglichen Nutzen aus dem Inhalt zu erhalten, sollten Sie mit Visual Studio 2010 vertraut sein, und haben grundlegende Kenntnisse von TFS, zusammen mit Berücksichtigung der Microsoft Web Platform-Technologien wie ASP.NET MVC 3, Windows Communication Foundation (WCF), IIS, SQL Server und Visual Studio-Datenbankprojekte. Sie müssen jedoch nicht mit Bereitstellungstools und Technologien vertraut sein, oder müssen wissen, wie zum Einrichten von CI-Systemen zu können.
+Diese Reihe von Lernprogrammen ist für ASP.NET Web Application-Entwickler und Lösungsarchitekten, die Visual Studio 2010 verwenden, um unternehmensweite Webanwendungen zu erstellen. Um den größtmöglichen Nutzen aus dem Inhalt zu erhalten, sollten Sie mit Visual Studio 2010 vertraut sein und haben grundlegende Kenntnisse von TFS, zusammen mit Berücksichtigung der Plattform Microsoft-webtechnologien wie ASP.NET MVC 3, Windows Communication Foundation (WCF), IIS, SQL Server und Visual Studio-Datenbankprojekte. Sie müssen jedoch nicht mit Bereitstellungstools und-Technologien vertraut sein, oder müssen wissen, wie zum Einrichten von CI-Systemen zu können.
 
 ## <a name="requirements"></a>Anforderungen
 
-Die exemplarischen Vorgehensweisen, und führen Sie die Aufgaben, die diese Lernprogramme zu beschreiben, müssen Sie diese Software auf Ihrem Computer zu installieren:
+Führen die exemplarischen Vorgehensweisen aus, und führen Sie die Aufgaben, die in diesen Tutorials beschreiben, müssen Sie zum Installieren der Software auf Ihrem Entwicklungscomputer:
 
 - Visual Studio 2010 Premium oder Ultimate Edition mit Servicepack 1
 - .NET Framework 4.0
@@ -61,25 +60,25 @@ Die exemplarischen Vorgehensweisen, und führen Sie die Aufgaben, die diese Lern
 - IIS 7.5 Express
 - SQL Server Express 2008 R2
 
-Um die in diesen exemplarischen Vorgehensweisen beschriebenen Schritte zur Bereitstellung auszuführen, müssen Sie zum Beispiel Web Application-bereitstellungsumgebungen zugreifen. Optimale Ergebnisse zu erzielen sollte diese Umgebungen Bereitstellungsmuster für Ihre Organisation Unternehmen entsprechen. Sie können dann die exemplarischen Vorgehensweisen in dieser Dokumentation die bereitstellungsumgebungen und die Anforderungen Ihrer Organisation entsprechend ändern.
+Um die in diesen exemplarischen Vorgehensweisen beschriebenen Schritte zur Bereitstellung auszuführen, müssen Sie Zugriff auf beispielumgebungen für die Bereitstellung von Web-Anwendung. Für optimale Ergebnisse sollten diese Umgebungen Ihrer Organisation Unternehmen Bereitstellungsmuster widerspiegeln. Anschließend können Sie die exemplarischen Vorgehensweisen in dieser Dokumentation die bereitstellungsumgebungen und Anforderungen Ihrer Organisation entsprechend ändern.
 
 ## <a name="series-contents"></a>Inhalt der Reihe
 
-In diesem Abschnitt einführende besteht aus zwei weiteren Themen. Diese sind darauf ausgelegt, befolgen Sie, die Lernprogramme einen größeren Kontext bereit:
+In diesem einführenden Abschnitt besteht aus zwei weiteren Themen. Diese sind darauf ausgelegt, um einen breiteren Kontext für die Lernprogramme bereitzustellen, die folgen:
 
-- [Web-Unternehmensbereitstellung: Szenarioübersicht](enterprise-web-deployment-scenario-overview.md). Dieses Thema beschreibt das Szenario, das jeweils die Lernprogramme in dieser Serie unterstützt. Das Szenario konzentriert sich auf die Application Lifecycle Management (ALM) für das fiktive Unternehmen mit dem Namen Fabrikam, Inc., wie sie eine Enterprise-Skalierung Web-Anwendung entwickelt.
-- [Anwendungslebenszyklus-Verwaltung: Von der Entwicklung bis hin zur Produktion](application-lifecycle-management-from-development-to-production.md). Dieses Thema enthält eine allgemeine, für den End-to-End-Übersicht über einen Bereitstellungsprozess. Es wird veranschaulicht, wie eine Enterprise-Skalierung ASP.NET-Webanwendung über die Test-, Staging-und produktionsumgebungen als Teil eines Prozesses kontinuierliches Entwickeln von Fabrikam, Inc. bewegt wird.
+- [Webbasierte Unternehmensbereitstellung: Szenarioübersicht](enterprise-web-deployment-scenario-overview.md). In diesem Thema wird beschrieben, die jeweils den Tutorials dieser Serie bildet. Das Szenario konzentriert sich auf das Application Lifecycle Management (ALM)-Anforderungen für das fiktive Unternehmen mit dem Namen Fabrikam, Inc., wie sie eine Webanwendung für Unternehmen entwickelt.
+- [Anwendungslebenszyklus-Verwaltung: Von der Entwicklung zur Produktion](application-lifecycle-management-from-development-to-production.md). Dieses Thema enthält eine Übersicht auf hoher Ebene, End-to-End über einen Prozess. Es wird veranschaulicht, wie eine unternehmensweite ASP.NET-Webanwendung über die Test-, Staging-und produktionsumgebungen im Rahmen einer ständigen Entwicklung von Fabrikam, Inc. bewegt wird.
 
-Die Serie umfasst vier Tutorial Sätze. Jede konzentriert sich auf verschiedene Aspekte der Bereitstellung von:
+Die Serie umfasst vier Tutorial Sätze. Jede konzentriert sich auf verschiedene Aspekte der Webentwicklung:
 
-- [Die webbereitstellung im Unternehmen](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Dieses Lernprogramm enthält eine grundlegende Einführung in MSBuild-Projektdateien, die Publishing Web-Pipeline, Web Deploy und anderen verwandten Technologien. Es wird erläutert, wie diese Tools gemeinsam verwendet werden können, um komplexe-bereitstellungstechnologien zu verwalten.
-- [Konfigurieren von Serverumgebungen für die Bereitstellung](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). In diesem Lernprogramm beschreibt, wie Windows-Servern zum unterstützen verschiedene Bereitstellungsszenarien, einschließlich remote-Web-paketbereitstellung mithilfe der Webbereitstellungs-Agent-Dienst (der "remote-Agent") oder Bereitstellen von Web-Handler und die Bereitstellung des Remotezugriffs zu konfigurieren. Sie erhalten Anweisungen zum Auswählen der geeigneten Bereitstellungsmethode für Ihre Umgebung, und es wird beschrieben, wie die WFF mithilfe bereitgestellter Webanwendungen über alle Webserver in einer Serverfarm repliziert.
-- [Konfigurieren von Team Foundation Server für die Bereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie zum Konfigurieren von TFS, sodass unterstützen verschiedene Bereitstellungsszenarien, einschließlich automatisierter Bereitstellung im Rahmen des CI-Prozess und Bereitstellungen von bestimmte Builds manuell ausgelöst wird.
-- [Erweiterte Web Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie verschiedene erweiterte Bereitstellung, wie Datenbank-Bereitstellungen für mehrere Umgebungen anpassen, Ausschließen von Dateien und Ordner von der Bereitstellung und offline-Webanwendungen, die während des Bereitstellungsvorgangs Aufgaben .
+- [Webbereitstellung im Unternehmen](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Dieses Tutorial bietet eine grundlegende Einführung in MSBuild-Projektdateien, die Veröffentlichung Webpipeline, Web Deploy und andere verwandten Technologien. Es wird erläutert, wie diese Tools zusammen verwenden werden können, um komplexe Bereitstellungsprozesse zu verwalten.
+- [Konfigurieren von Serverumgebungen für die Webbereitstellung](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). In diesem Tutorial wird beschrieben, wie Windows Server zur Unterstützung verschiedener Bereitstellungsszenarien, einschließlich der remote-Web-Paket-Bereitstellung mithilfe der Webbereitstellungs-Agent-Dienst ("remote-Agent") oder Bereitstellen von Web-Handler und remote-Datenbank-Bereitstellung konfiguriert. Sie erhalten Anweisungen zum Auswählen der geeigneten Bereitstellungsmethode für Ihre eigene Umgebung, und es wird beschrieben, wie die WFF verwenden, um bereitgestellten Webanwendungen für alle Webserver in einer Serverfarm zu replizieren.
+- [Konfigurieren von Team Foundation Server für die Webbereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In diesem Tutorial wird beschrieben, wie zum Konfigurieren von TFS zur Unterstützung verschiedener Bereitstellungsszenarien, einschließlich der automatisierten Bereitstellung im Rahmen eines CI-Prozesses und bestimmte Builds Bereitstellungen manuell ausgelöst wird.
+- [Erweiterte webbasierte Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In diesem Tutorial wird beschrieben, wie verschiedene erweiterte Bereitstellung, z. B. Anpassen von datenbankbereitstellungen für mehrere Umgebungen und Ausschließen von Dateien und Ordner von der Bereitstellung von Webanwendungen während der Bereitstellung und Aufgaben .
 
-## <a name="where-to-start"></a>Wo Sie beginnen
+## <a name="where-to-start"></a>Wo Sie anfangen
 
-Diese Reihe von Lernprogrammen verwendet eine beispiellösung mit einer realistischen Maß an Komplexität, zusammen mit einem fiktiven Unternehmen-Bereitstellungsszenario, um eine referenzimplementierung bereitzustellen und um die Aufgaben und exemplarische Vorgehensweisen für einen allgemeinen Kontext zu gewähren. Im nächsten Thema [Web Unternehmensbereitstellung: Szenarioübersicht](enterprise-web-deployment-scenario-overview.md), werden das Szenario und der Beispielprojektmappe eingeführt. Von dort aus können Sie arbeiten über den Lernprogrammen und Themen, die Ihren Anforderungen am ehesten entsprechen.
+Diese Reihe von Lernprogrammen verwendet eine beispiellösung mit einem realistischen Maß an Komplexität, zusammen mit der ein fiktives Unternehmen-Bereitstellungsszenario, um eine referenzimplementierung bereitzustellen und geben Sie die Aufgaben und exemplarische Vorgehensweisen ein allgemeiner Kontext. Im nächsten Thema, [webbasierte Unternehmensbereitstellung: Szenarioübersicht](enterprise-web-deployment-scenario-overview.md), führt das Szenario und die Projektmappe. Von dort aus können Sie arbeiten, über die Lernprogramme und Themen, die Ihren Anforderungen am ehesten entsprechen.
 
 > [!div class="step-by-step"]
 > [Nächste](enterprise-web-deployment-scenario-overview.md)

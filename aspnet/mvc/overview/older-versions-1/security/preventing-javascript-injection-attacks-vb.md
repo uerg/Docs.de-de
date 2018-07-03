@@ -1,92 +1,91 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
-title: Verhindern von JavaScript-Injection-Angriffe (VB) | Microsoft Docs
+title: Verhindern von Injection-Angriffe mit JavaScript (VB) | Microsoft-Dokumentation
 author: StephenWalther
-description: Verhindern, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe zu vermeiden Sie. In diesem Lernprogramm wird Stephen Walther erläutert, wie Sie de auf einfache Weise...
+description: Verhindern Sie, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe informieren möchten. In diesem Tutorial erläutert Stephen Walther an, wie Sie de auf einfache Weise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
 ms.topic: article
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cb19236b22abd455472621ce74a8cddf9752d6c5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6c022847462239624d5b84816999918ec77f8337
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871232"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402340"
 ---
-<a name="preventing-javascript-injection-attacks-vb"></a>Verhindern von JavaScript-Injection-Angriffe (VB)
+<a name="preventing-javascript-injection-attacks-vb"></a>Verhindern von Injection-Angriffe mit JavaScript (VB)
 ====================
 durch [Stephen Walther](https://github.com/StephenWalther)
 
 [PDF herunterladen](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
 
-> Verhindern, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe zu vermeiden Sie. In diesem Lernprogramm wird Stephen Walther erläutert, wie Sie einfach diese Arten von Angriffen durch HTML-Codierung Ihrer Inhalte zunichte machen können.
+> Verhindern Sie, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe informieren möchten. In diesem Tutorial erläutert Stephen Walther an, wie Sie einfach diese Arten von Angriffen durch HTML-Codierung Ihrer Inhalte zunichte machen können.
 
 
-Ziel dieses Lernprogramms wird erläutert, wie Sie JavaScript-Injection-Angriffen in Ihre ASP.NET MVC-Anwendungen verhindern können. In diesem Lernprogramm wird erläutert, zwei Ansätze zum Schutz Ihrer Website für einen JavaScript-Injection-Angriff. Erfahren Sie, wie Sie JavaScript-Injection-Angriffe zu verhindern, indem Sie Verschlüsseln von Daten, die Sie anzeigen. Sie erfahren außerdem, wie Sie JavaScript-Injection-Angriffe zu verhindern, indem Sie Verschlüsseln von Daten, die Sie akzeptieren.
+Das Ziel in diesem Tutorial wird beschrieben, wie Sie JavaScript-Injection-Angriffen in ASP.NET MVC-Anwendungen verhindern können. In diesem Tutorial werden zwei Ansätze zur Verteidigung Ihrer Website für einen JavaScript-Injection-Angriff erläutert. Erfahren Sie, wie Sie JavaScript-Injection-Angriffe zu verhindern, indem Sie die Codierung der Daten, die angezeigt werden. Außerdem erfahren Sie, wie Sie JavaScript-Injection-Angriffe zu verhindern, indem Sie die Codierung der Daten, die Sie akzeptieren.
 
 ## <a name="what-is-a-javascript-injection-attack"></a>Was ist ein JavaScript-Injection-Angriff?
 
-Wenn Sie Benutzereingaben akzeptieren und das erneute die Benutzereingabe anzeigen, öffnen Sie Ihre Website für JavaScript-Injection-Angriffe. Sehen wir uns eine konkrete Anwendung, die für JavaScript-Injection-Angriffe geöffnet ist.
+Wenn Sie Benutzereingaben akzeptieren und das erneute die Benutzereingabe anzeigen, öffnen Sie Ihre Website für JavaScript-Injection-Angriffe. Betrachten Sie eine konkrete Anwendung, die für JavaScript-Injection-Angriffe geöffnet ist.
 
-Stellen Sie sich vor, dass Sie eine Kunden-Feedback-Website erstellt haben (siehe Abbildung 1). Kunden können finden Sie auf der Website, und geben Sie Feedback zu ihrer Erfahrung mit Ihren Produkten. Wenn ein Kunde ihr Feedback sendet, wird das Feedback auf der Seite "Feedback" erneut.
+Stellen Sie sich vor, dass Sie eine Kunden-Feedback-Website erstellt haben (siehe Abbildung 1). Kunden können finden Sie auf der Website, und geben Sie Feedback an den Erfahrungen, die Ihre Produkte verwenden. Wenn ein Kunde ihr Feedback übermittelt, wird das Feedback auf der Seite "Feedback" erneut angezeigt.
 
 
 [![Kunden-Feedback-Website](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
-**Abbildung 01**: Kunden-Feedback-Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](preventing-javascript-injection-attacks-vb/_static/image3.png))
+**Abbildung 01**: Kunden-Feedback-Website ([klicken Sie, um das Bild in voller Größe anzeigen](preventing-javascript-injection-attacks-vb/_static/image3.png))
 
 
-Die Kunden-Feedback-Website verwendet das `controller` 1 aufgelistet. Dies `controller` enthält zwei Aktionen, die mit dem Namen `Index()` und `Create()`.
+Die Kunden-Feedback-Website verwendet die `controller` in Codebeispiel 1. Dies `controller` enthält zwei Aktionen, die mit dem Namen `Index()` und `Create()`.
 
-**Auflisten von 1 – `HomeController.vb`**
+**Codebeispiel 1: `HomeController.vb`**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample1.vb)]
 
-Die `Index()` Methode zeigt den `Index` anzeigen. Diese Methode übergibt alle vorherigen Kundenfeedback auf die `Index` Ansicht durch Abrufen von Feedback aus der Datenbank (mithilfe einer LINQ to SQL-Abfrage).
+Die `Index()` Methode zeigt die `Index` anzeigen. Diese Methode gibt alle von der vorherigen Feedback von Kunden, die `Index` Ansicht durch Abrufen des Feedbacks aus der Datenbank (mithilfe einer LINQ to SQL-Abfrage).
 
-Die `Create()` Methode erstellt ein neues Feedbackelement und der Datenbank hinzugefügt. Die Meldung, die der Kunde in der Form gibt wird zum Übergeben der `Create()` Methode im Message-Parameter. Ein Feedbackelement erstellt wird und die Nachricht wird des Feedbackelement zugewiesen `Message` Eigenschaft. Das Feedback-Element wird mit der Datenbank übermittelt die `DataContext.SubmitChanges()` -Methodenaufruf. Schließlich wird der Besucher umgeleitet, an die `Index` anzeigen, in dem alle Feedback, das angezeigt wird.
+Die `Create()` Methode erstellt ein neues Feedbackelement und fügt es der Datenbank hinzu. Die Meldung, die der Kunde in der Form gibt übergeben wird, um die `Create()` -Methode in der Meldungsparameter. Ein Feedbackelement erstellt wird und die Nachricht wird des Feedbackelement zugewiesen `Message` Eigenschaft. Das Feedbackelement wird übermittelt, für die Datenbank mit der `DataContext.SubmitChanges()` Methodenaufruf. Schließlich wird der Besucher umgeleitet, an die `Index` anzeigen, in denen alle das Feedback wird angezeigt.
 
 Die `Index` Ansicht im Codebeispiel 2 enthalten ist.
 
-**Auflisten von 2 – `Index.aspx`**
+**Codebeispiel 2: `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample2.aspx)]
 
-Die `Index` Sicht hat zwei Abschnitte. Der obere Abschnitt enthält die tatsächlichen Kunden-Feedback-Formular. Der untere Abschnitt enthält eine For... Each-Schleife, die alle vorherigen Kunden Feedback Elemente durchläuft und zeigt die EntryDate und Nachricht Eigenschaften für jedes Feedbackelement.
+Die `Index` Ansicht besteht aus zwei Abschnitten. Der oberste Abschnitt enthält die tatsächliche Kunden-Feedback-Formular. Der untere Abschnitt enthält eine For... Each-Schleife, die alle vorherigen Customer feedbackelemente durchläuft und zeigt die EntryDate und Nachricht Eigenschaften für jedes Feedbackelement.
 
-Die Kunden-Feedback-Website ist eine einfache Website. Leider ist die Website öffnen, um JavaScript-Injection-Angriffe.
+Die Kunden-Feedback-Website ist eine einfache Website. Leider ist die Website für JavaScript-Injection-Angriffe geöffnet.
 
-Stellen Sie sich vor, dass Sie den folgenden Text in der Kunden-Feedback-Formular eingeben:
+Stellen Sie sich, dass Sie den folgenden Text in das Kunden-Feedback-Formular eingeben:
 
 [!code-html[Main](preventing-javascript-injection-attacks-vb/samples/sample3.html)]
 
-Dieser Text stellt eine JavaScript-Skript, das eine Warnung Meldungsfeld wird angezeigt. Nachdem ein Benutzer mit diesem Skript an das Feedback übermittelt zu bilden, die Nachricht <em>Boo!</em> wird angezeigt, wenn jeder Benutzer, die Kunden-Feedback-Website in der Zukunft besucht (siehe Abbildung 2).
+Dieser Text stellt ein JavaScript-Skript, das eine Warnmeldung angezeigt. Nachdem ein Benutzer dieses Skript an das Feedback übermittelt zu bilden, die Nachricht <em>Boo!</em> wird angezeigt, wenn jeder Benutzer, die Kunden-Feedback-Website in der Zukunft besucht (siehe Abbildung 2).
 
 
-[![JavaScript-Injection](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
+[![Einschleusung von JavaScript](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
-**Abbildung 02**: JavaScript-Injection ([klicken Sie hier, um das Bild in voller Größe angezeigt](preventing-javascript-injection-attacks-vb/_static/image6.png))
+**Abbildung 02**: JavaScript-Injection ([klicken Sie, um das Bild in voller Größe anzeigen](preventing-javascript-injection-attacks-vb/_static/image6.png))
 
 
-Nun kann Ihre erste Antwort für JavaScript-Injection-Angriffe Apathy sein. Glauben, dass JavaScript-Injection-Angriffe einfach ein sind *Verunstaltung* Angriff. Sie gehen davon aus, dass niemand nichts tatsächlich bösartige durch Ausführen eines Commits für eine JavaScript-Injection-Angriff ausführen können.
+Nun kann Ihre erste Reaktion auf JavaScript-Injection-Angriffen kann das zu apathie sein. Zunächst vermuten, dass die JavaScript-Injection-Angriffe einfach eine Art von sind *Verunstaltung* Angriff. Sie gehen davon aus, dass niemand alles wirklich böse ausführen können, indem ein Commit für einen JavaScript-Injection-Angriff.
 
-Leider ein Hacker kann tragen einige really, tatsächlich bösartige Dinge von Räumen JavaScript in einer Website. Sie können einen JavaScript-Injection-Angriff verwenden, einen Cross-Site-Skripting (XSS)-Angriff durchführen. Bei einem Angriff siteübergreifende vertrauliche Benutzerinformationen zu stehlen und an eine andere Website gesendet.
+Leider ein Hacker möglich, einige wirklich sehr schlecht Dinge durch Einfügen von JavaScript in einer Website. Sie können einen JavaScript-Injection-Angriff verwenden, Cross-Site Scripting (XSS) auszuführen. Bei einem Angriff Cross-Site Scripting, wenn Sie vertrauliche Benutzer Daten stehlen und an eine andere Website gesendet.
 
-Ein Hacker kann z. B. einen JavaScript-Injection-Angriff verwenden, die Werte der Browsercookies von anderen Benutzern zu stehlen. Wenn vertraulicher Informationen – z. B. Kennwörter, Kreditkartennummern und Sozialversicherungsnummern – in der Browsercookies gespeichert ist, klicken Sie dann können ein Hacker einen JavaScript-Injection-Angriff Sie um diese Informationen zu stehlen. Oder, wenn ein Benutzer vertraulichen Informationen in ein Formularfeld in eine Seite, die mit einem JavaScript-Angriff gefährdet ist eingibt, der Hacker kann die eingefügte JavaScript verwenden, ziehen Sie die Daten des Formulars und einer anderen Website gesendet.
+Beispielsweise kann ein Hacker einen JavaScript-Injection-Angriff verwenden, um die Werte der Cookies im Browser von anderen Benutzern zu stehlen. Wenn vertraulicher Informationen zugreifen, beispielsweise Kennwörter, Kreditkartennummern und Sozialversicherungsnummern – in die Cookies im Browser gespeichert sind, klicken Sie dann können ein Hacker einen JavaScript-Injection-Angriff Sie um diese Informationen zu stehlen. Wenn ein Benutzer vertraulichen Informationen in ein Formularfeld in eine Seite, die bei einem JavaScript-Angriff gefährdet ist eingibt, klicken Sie dann der Hacker kann auch den injizierten JavaScript-Code zum Abrufen von Daten aus dem Formular und eine andere Website an.
 
-*Sie werden abschreckend*. Nehmen Sie JavaScript-Injection-Angriffe ernst, und schützen Sie vertrauliche Informationen des Benutzers. In den nächsten beiden Abschnitten besprechen wir zwei Techniken, die Sie verwenden können, um Ihre ASP.NET MVC-Anwendungen vom JavaScript-Injection-Angriffen zu schützen.
+*Seien Sie abschreckend*. Nehmen Sie JavaScript-Injection-Angriffen ernst zu, und schützen Sie vertrauliche Informationen des Benutzers. In den nächsten beiden Abschnitten werden zwei Techniken, mit denen Sie Ihre ASP.NET MVC-Anwendungen von JavaScript-Injection-Angriffen zu schützen.
 
 ## <a name="approach-1-html-encode-in-the-view"></a>Ansatz #1: HTML-Codierung in der Ansicht
 
-Eine einfache Methode, mit der JavaScript-Injection-Angriffe verhindert in HTML ist codieren alle Daten, die von Websitebenutzern eingegeben werden, wenn Sie die Daten in einer Ansicht anzuzeigen. Die aktualisierte `Index` Ansicht im Codebeispiel 3 folgt diesem Ansatz.
+Eine einfache Methode zum Verhindern von JavaScript-Injection-Angriffen in HTML codieren Sie alle Daten, die von Benutzern der Website eingegeben werden, wenn Sie die Daten in einer Sicht erneut anzeigen. Die aktualisierte `Index` Ansicht in Programmausdruck 3 folgt diesem Ansatz.
 
-**Auflisten von 3 – `Index.aspx` (HTML-codiert)**
+**Codebeispiel 3 – `Index.aspx` (HTML-codiert)**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample4.aspx)]
 
@@ -94,33 +93,33 @@ Beachten Sie, dass der Wert des `feedback.Message` ist HTML-codiert werden, bevo
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample5.aspx)]
 
-Welche Aktion er ausführt Mittelwert in HTML zu codieren eine Zeichenfolge? Wenn Sie HTML eine Zeichenfolge zu codieren, gefährliche Zeichen wie z. B. `<` und `>` werden von HTML-Entitätsverweisen, z. B. ersetzt `&lt;` und `&gt;`. Daher die Zeichenfolge `<script>alert("Boo!")</script>` ist HTML-codiert ist, ruft er konvertiert `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Die codierte Zeichenfolge führt nicht mehr als ein JavaScript-Skript, wenn vom Browser interpretiert. Rufen Sie stattdessen die Seite "ignorieren" in Abbildung 3.
+Funktionsweise Mittelwert in HTML codieren eine Zeichenfolge? Wenn Sie HTML eine Zeichenfolge zu codieren, gefährliche Zeichen wie z. B. `<` und `>` durch Verweise auf HTML-Entitäten wie z. B. ersetzt werden `&lt;` und `&gt;`. Dies der Fall bei der Zeichenfolge `<script>alert("Boo!")</script>` HTML-codiert, es konvertiert `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Die codierte Zeichenfolge führt nicht mehr als einem JavaScript-Skript, wenn von einem Browser interpretiert. Stattdessen erhalten Sie in Abbildung 3 die harmlose Seite an.
 
 
-[![JavaScript-Angriff wird außer Kraft gesetzt](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
+[![JavaScript-Angriff](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
-**Abbildung 03**: JavaScript-Angriff wird außer Kraft gesetzt ([klicken Sie hier, um das Bild in voller Größe angezeigt](preventing-javascript-injection-attacks-vb/_static/image9.png))
+**Abbildung 03**: keine JavaScript-Angriff ([klicken Sie, um das Bild in voller Größe anzeigen](preventing-javascript-injection-attacks-vb/_static/image9.png))
 
 
-Beachten Sie, dass in der `Index` anzeigen in 3 auflisten nur den Wert der `feedback.Message` codiert ist. Der Wert des `feedback.EntryDate` ist nicht codiert. Sie müssen nur von einem Benutzer eingegeben Daten codieren. Da der Wert des EntryDate im Controller generiert wurde, Sie nicht HTML-erforderlich dieser Wert Codierung.
+Beachten Sie, dass in der `Index` anzeigen in Programmausdruck 3 nur den Wert der `feedback.Message` codiert ist. Der Wert des `feedback.EntryDate` ist nicht codiert. Sie müssen nur von einem Benutzer eingegeben Daten codieren. Da der Wert des EntryDate im Controller generiert wurde, müssen Sie nicht in HTML dieses Werts codieren.
 
-## <a name="approach-2-html-encode-in-the-controller"></a>Vorgehensweise #2: HTML-Codierung im Controller
+## <a name="approach-2-html-encode-in-the-controller"></a>Ansatz #2: HTML-Codierung im Controller
 
-Anstelle von HTML-Codierung von Daten, wenn Sie die Daten in einer Ansicht anzeigen, können Sie HTML codieren der Daten, kurz bevor die Daten in die Datenbank zu senden. Dieser zweite Ansatz in der die `controller` 4 auflisten.
+Anstelle von HTML codieren von Daten, wenn Sie die Daten in einer Ansicht anzeigen, können Sie HTML codieren Sie die Daten ein, kurz bevor die Daten in der Datenbank zu übermitteln. Dieser zweite Ansatz wird verwendet, in der die `controller` in Listing 4.
 
-**Auflisten von 4 – `HomeController.cs` (HTML-codiert)**
+**Programmausdruck 4 – `HomeController.cs` (HTML-codiert)**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample6.vb)]
 
-Beachten Sie, dass der Wert der Nachricht HTML ist-codiert vor der Übermittlung der des Werts in der Datenbank innerhalb der `Create()` Aktion. Wenn die Nachricht in der Ansicht angezeigt wird, wird die Nachricht ist HTML-codiert, und JavaScript in der Nachricht eingefügt wird nicht ausgeführt.
+Beachten Sie, dass der Wert der Nachricht HTML ist-codiert werden, bevor der Wert, an die Datenbank in übermittelt wird der `Create()` Aktion. Wenn die Nachricht in der Ansicht erneut angezeigt wird, wird die Nachricht wird HTML-codiert, und JavaScript in der Nachricht eingefügt wird nicht ausgeführt.
 
-In der Regel sollten Sie die erste Methode, die in diesem Lernprogramm erläutert wird, über der zweite Ansatz bevorzugen. Das Problem bei dieser zweite Ansatz ist, dass Sie mit HTML-codierte Daten in der Datenbank am Ende. Das heißt, werden Ihre Datenbankdaten mit lustige suchen Zeichen Fehler auftreten.
+In der Regel sollten Sie die erste Methode, die in diesem Tutorial erläutert wird, über dieser zweite Ansatz bevorzugen. Das Problem bei dieser zweite Ansatz ist, dass Sie HTML-codierte Daten in der Datenbank erhalten. Das heißt, werden Ihre Datenbankdaten mit lustige aussehende Zeichen verschmutzte.
 
-Warum ist dies das fehlerhafte? Wenn Sie Daten in der Datenbank in einen anderen Wert als eine Webseite anzeigen müssen, werden Sie Probleme haben. Beispielsweise können Sie die Daten in einer Windows Forms-Anwendung einfach nicht mehr anzeigen.
+Warum dies schlecht ist? Wenn Sie Daten in der Datenbank in einen anderen Wert als eine Webseite anzeigen müssen, klicken Sie dann haben Sie Probleme. Beispielsweise können Sie nicht mehr einfach die Daten in einer Windows Forms-Anwendung anzeigen.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Der Zweck dieses Tutorials konnten Sie über die Aussicht einen JavaScript-Injection-Angriff erschrecken. In diesem Lernprogramm erläuterten zwei Ansätze zum Schutz Ihrer ASP.NET MVC-Anwendungen vor Injection-Angriffen JavaScript: können Sie entweder HTML codieren Benutzer übermittelt Daten in der Ansicht, oder Sie können HTML codieren Benutzer übermittelt Daten im Controller.
+Der Zweck dieses Lernprogramms bestand darin, Sie über die Aussicht einen JavaScript-Injection-Angriff abschrecken. In diesem Tutorial erläutert zwei Ansätze zur Verteidigung von ASP.NET MVC-Anwendungen für JavaScript-Injection-Angriffen: können Sie entweder HTML codieren Benutzer übermittelt Daten in der Ansicht, oder Sie können HTML codieren Benutzer übermittelt Daten in den Controller.
 
 > [!div class="step-by-step"]
 > [Vorherige](authenticating-users-with-windows-authentication-vb.md)
