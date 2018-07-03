@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/new-designer-support-in-visual-studio-2008
-title: Neue Designer-Unterstützung in Visual Studio 2008 | Microsoft Docs
+title: Neue Designerunterstützung in Visual Studio 2008 | Microsoft-Dokumentation
 author: JoeStagner
-description: In diesem Video wird ich mehrere der neuen Designer-Funktionen in Visual Studio 2008 veranschaulicht.
+description: In diesem Video zeige ich ihnen einige der neuen Features in Visual Studio 2008 Designer.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: 01305c35-5b83-408b-bc9d-fa31b17a723f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/new-designer-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 5a40c1ef5e1b41ae590c93c600331d0c502de1e9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4b133dde8cc7691881c4d87c99d8721321e2e42
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881697"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390535"
 ---
-<a name="new-designer-support-in-visual-studio-2008"></a><span data-ttu-id="09bf7-103">Neue Designer-Unterstützung in Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="09bf7-103">New Designer Support in Visual Studio 2008</span></span>
+<a name="new-designer-support-in-visual-studio-2008"></a><span data-ttu-id="4a9a9-103">Neue Designerunterstützung in Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="4a9a9-103">New Designer Support in Visual Studio 2008</span></span>
 ====================
-<span data-ttu-id="09bf7-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="09bf7-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4a9a9-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4a9a9-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="09bf7-105">In diesem Video wird ich mehrere der neuen Designer-Funktionen in Visual Studio 2008 veranschaulicht.</span><span class="sxs-lookup"><span data-stu-id="09bf7-105">In this video I will demonstrate several of the new designer features in Visual Studio 2008.</span></span>
+<span data-ttu-id="4a9a9-105">In diesem Video zeige ich ihnen einige der neuen Features in Visual Studio 2008 Designer.</span><span class="sxs-lookup"><span data-stu-id="4a9a9-105">In this video I will demonstrate several of the new designer features in Visual Studio 2008.</span></span>
 
-[<span data-ttu-id="09bf7-106">&#9654;Sehen Sie sich an (14 Minuten)</span><span class="sxs-lookup"><span data-stu-id="09bf7-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/new-designer-support-in-visual-studio-2008)
+[<span data-ttu-id="4a9a9-106">&#9654;Sehen Sie sich Video (14 Minuten)</span><span class="sxs-lookup"><span data-stu-id="4a9a9-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/new-designer-support-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="09bf7-107">Nächste</span><span class="sxs-lookup"><span data-stu-id="09bf7-107">Next</span></span>](javascript-intellisense-support-in-visual-studio-2008.md)
+> [<span data-ttu-id="4a9a9-107">Nächste</span><span class="sxs-lookup"><span data-stu-id="4a9a9-107">Next</span></span>](javascript-intellisense-support-in-visual-studio-2008.md)

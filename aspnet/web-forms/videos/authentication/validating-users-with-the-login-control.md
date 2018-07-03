@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/authentication/validating-users-with-the-login-control
-title: Überprüfen von Benutzern mit dem Anmeldesteuerelement | Microsoft Docs
+title: Überprüfen von Benutzern mit dem Login-Steuerelement | Microsoft-Dokumentation
 author: JoeStagner
-description: In diesem Video untersucht Joe Stagner eine alternative Methode der Benutzerauthentifizierung stattdessen ein benutzerdefiniertes Formular erstellen und Aufrufen der API zum Authentifizieren verwendet...
+description: In diesem Video untersucht Joe Stagner eine alternative Methode der Benutzerauthentifizierung, sondern dann ein benutzerdefiniertes Formular erstellen und Aufrufen der API zum Authentifizieren einer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
 ms.topic: article
 ms.assetid: 6c11816b-504a-4512-b67e-9bd15947a7f8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/validating-users-with-the-login-control
 msc.type: video
-ms.openlocfilehash: 10b692957ab2e634674df9b90dea0aad05c0a751
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9e08d09821f3c16c847a1a2d494b943f778cb2e7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883238"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390662"
 ---
-<a name="validating-users-with-the-login-control"></a><span data-ttu-id="0a721-103">Überprüfen von Benutzern mit dem Anmeldesteuerelement</span><span class="sxs-lookup"><span data-stu-id="0a721-103">Validating Users with the Login Control</span></span>
+<a name="validating-users-with-the-login-control"></a><span data-ttu-id="765dd-103">Überprüfen von Benutzern mit dem Login-Steuerelement</span><span class="sxs-lookup"><span data-stu-id="765dd-103">Validating Users with the Login Control</span></span>
 ====================
-<span data-ttu-id="0a721-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="0a721-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="765dd-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="765dd-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="0a721-105">In diesem Video untersucht Joe Stagner eine alternative Methode der Benutzerauthentifizierung stattdessen ein benutzerdefiniertes Formular erstellen und Aufrufen der API, um einen Benutzer zu authentifizieren.</span><span class="sxs-lookup"><span data-stu-id="0a721-105">In this video, Joe Stagner explores an alternative method of user authentication rather then creating a custom form and calling the API to authenticate a user.</span></span> <span data-ttu-id="0a721-106">Er verwendet die Login-Steuerelement, das bereitgestellt wird, mit ASP.NET 2 und höher.</span><span class="sxs-lookup"><span data-stu-id="0a721-106">He uses the Login Control that ships with ASP.NET 2 and above.</span></span> <span data-ttu-id="0a721-107">Lesen Sie zusätzliche Informationen in diesem Video "Überprüfen Benutzer Anmeldeinformationen für die Mitgliedschaft Benutzerspeicher"-Security-Lernprogramm ([c#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span><span class="sxs-lookup"><span data-stu-id="0a721-107">For additional information about this video, read the "Validating User Credentials Against the Membership User Store" security tutorial ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span></span>
+<span data-ttu-id="765dd-105">In diesem Video untersucht Joe Stagner eine alternative Methode der Benutzerauthentifizierung, sondern dann ein benutzerdefiniertes Formular erstellen und Aufrufen der API zum Authentifizieren eines Benutzers.</span><span class="sxs-lookup"><span data-stu-id="765dd-105">In this video, Joe Stagner explores an alternative method of user authentication rather then creating a custom form and calling the API to authenticate a user.</span></span> <span data-ttu-id="765dd-106">Er verwendet die Login-Steuerelement, der bereitgestellt wird, mit ASP.NET 2 und höher.</span><span class="sxs-lookup"><span data-stu-id="765dd-106">He uses the Login Control that ships with ASP.NET 2 and above.</span></span> <span data-ttu-id="765dd-107">Weitere Informationen über dieses Video finden Sie in "Überprüfen von Benutzer-Anmeldeinformationen für die Mitgliedschaft Benutzer Store" Security Tutorial ([c#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span><span class="sxs-lookup"><span data-stu-id="765dd-107">For additional information about this video, read the "Validating User Credentials Against the Membership User Store" security tutorial ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span></span>
 
-[<span data-ttu-id="0a721-108">&#9654;Sehen Sie sich an (5 Minuten)</span><span class="sxs-lookup"><span data-stu-id="0a721-108">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
+[<span data-ttu-id="765dd-108">&#9654;Sehen Sie sich Video (5 Minuten)</span><span class="sxs-lookup"><span data-stu-id="765dd-108">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="0a721-109">[Zurück](validating-users-manually.md)
-> [Weiter](adding-users-to-your-membership-system.md)</span><span class="sxs-lookup"><span data-stu-id="0a721-109">[Previous](validating-users-manually.md)
+> <span data-ttu-id="765dd-109">[Zurück](validating-users-manually.md)
+> [Weiter](adding-users-to-your-membership-system.md)</span><span class="sxs-lookup"><span data-stu-id="765dd-109">[Previous](validating-users-manually.md)
 [Next](adding-users-to-your-membership-system.md)</span></span>

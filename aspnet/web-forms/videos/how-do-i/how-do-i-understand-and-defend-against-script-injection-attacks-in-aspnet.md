@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet
-title: Gewusst wie ich zu verstehen und Verteidigung gegen Script-Injection-Angriffen in ASP.NET | Microsoft Docs
+title: Wie kann ich zu verstehen und Abwehr der Script-Injection-Angriffen in ASP.NET | Microsoft-Dokumentation
 author: JoeStagner
-description: Cross Site Skripting (XSS) ist vielleicht die gravierenden Sicherheitsproblem für Webentwickler heutzutage konfigurieren. In diesem Video Microsofts Joe Stagner pro...
+description: Cross Site Scripting (XSS) ist vielleicht das gravierenden Sicherheitsproblem für Webentwickler, die heutzutage in Angriff zu nehmen. In diesem Video Microsofts Joe Stagner pro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2009
 ms.topic: article
 ms.assetid: 84c1e12c-2cc3-4bfe-bcc4-35381779a669
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet
 msc.type: video
-ms.openlocfilehash: c3dc6b9c1e114f236974560397dfe69d64d11893
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1c91c50bd306376839aae5a0f4baafd02111ea23
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28882229"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362183"
 ---
-<a name="how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet"></a><span data-ttu-id="9d256-104">Gewusst wie ich zu verstehen und Verteidigung gegen Script-Injection-Angriffen in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="9d256-104">How Do I Understand and Defend Against Script Injection Attacks in ASP.NET</span></span>
+<a name="how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet"></a><span data-ttu-id="3812b-104">Wie kann ich zu verstehen und Abwehr der Script-Injection-Angriffen in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="3812b-104">How Do I Understand and Defend Against Script Injection Attacks in ASP.NET</span></span>
 ====================
-<span data-ttu-id="9d256-105">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="9d256-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="3812b-105">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3812b-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="9d256-106">Cross Site Skripting (XSS) ist vielleicht die gravierenden Sicherheitsproblem für Webentwickler heutzutage konfigurieren.</span><span class="sxs-lookup"><span data-stu-id="9d256-106">Cross Site Scripting (XSS) is perhaps the most troublesome security issue for web developers to tackle these days.</span></span> <span data-ttu-id="9d256-107">In diesem Video stellt Microsofts Joe Stagner einige Beispiele dafür, wie gefährlich XSS wirklich werden können und wie ASP.NET können Sie problemlos Verteidigung gegen XSS in Ihrer Webanwendungen.</span><span class="sxs-lookup"><span data-stu-id="9d256-107">In this video, Microsoft's Joe Stagner provides some examples of how dangerous XSS can really be and how ASP.NET helps you easily defend against XSS in your Web Applications.</span></span>
+<span data-ttu-id="3812b-106">Cross Site Scripting (XSS) ist vielleicht das gravierenden Sicherheitsproblem für Webentwickler, die heutzutage in Angriff zu nehmen.</span><span class="sxs-lookup"><span data-stu-id="3812b-106">Cross Site Scripting (XSS) is perhaps the most troublesome security issue for web developers to tackle these days.</span></span> <span data-ttu-id="3812b-107">In diesem Video stellt Microsoft Joe Stagner Beispiele wie gefährlich XSS wirklich möglich, und wie ASP.NET Ihnen hilft, einfach vor XSS in Ihren Webanwendungen zu schützen.</span><span class="sxs-lookup"><span data-stu-id="3812b-107">In this video, Microsoft's Joe Stagner provides some examples of how dangerous XSS can really be and how ASP.NET helps you easily defend against XSS in your Web Applications.</span></span>
 
-[<span data-ttu-id="9d256-108">&#9654; Sehen Sie sich an (40 Minuten)</span><span class="sxs-lookup"><span data-stu-id="9d256-108">&#9654; Watch video (40 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet)
+[<span data-ttu-id="3812b-108">&#9654;Sehen Sie sich Video (40 Minuten)</span><span class="sxs-lookup"><span data-stu-id="3812b-108">&#9654; Watch video (40 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet)
