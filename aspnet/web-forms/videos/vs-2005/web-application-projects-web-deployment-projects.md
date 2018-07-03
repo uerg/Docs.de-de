@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/web-application-projects-web-deployment-projects
-title: Webanwendungsprojekte & Bereitstellung Webprojekte | Microsoft Docs
+title: Webanwendungs- und Webbereitstellungsprojekte | Microsoft-Dokumentation
 author: BradleyBartz
-description: Bradley Bartz wird gezeigt, wie die Webanwendungsprojekte und Web-Bereitstellungsprojekte für Visual Studio 2005 entwickeln und Bereitstellen von ASP.NET Projekte Simila stellen...
+description: Bradley Bartz zeigt, wie die Web Application Projects und Web-Bereitstellungsprojekte für Visual Studio 2005 zu entwickeln und Bereitstellen von ASP.NET Projekte Simila machen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2006
 ms.topic: article
 ms.assetid: 66d242f5-0306-4df2-8f05-c93e405f9847
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/web-application-projects-web-deployment-projects
 msc.type: video
-ms.openlocfilehash: b862b4d2bddecd6ae653c5cfcf8fcfb4d4a6c363
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8c5eb9827158f626315c03d1d2ce91367ab695cb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894079"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390555"
 ---
-<a name="web-application-projects--web-deployment-projects"></a>Webanwendungsprojekte & Webprojekte für die Bereitstellung
+<a name="web-application-projects--web-deployment-projects"></a>Webanwendungs- und Webbereitstellungsprojekte
 ====================
 durch [Bradley Bartz](https://github.com/BradleyBartz)
 
-Bradley Bartz zeigt an, wie der Webanwendungsprojekte und Web-Bereitstellungsprojekte für Visual Studio 2005 entwickeln und Bereitstellen von ASP.NET-Projekten ähnlich wie der Visual Studio .NET 2003-Modell herstellen.
+Bradley Bartz wird gezeigt, wie die Web Application Projects und Web-Bereitstellungsprojekte für Visual Studio 2005 entwickeln und Bereitstellen von ASP.NET-Projekten ähnlich wie beim Visual Studio .NET 2003-Modell machen.
 
-[&#9654;Sehen Sie sich an (66 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/web-application-projects-web-deployment-projects)
+[&#9654;Sehen Sie sich Video (66 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/web-application-projects-web-deployment-projects)
 
 > [!div class="step-by-step"]
 > [Vorherige](web-deployment-projects.md)

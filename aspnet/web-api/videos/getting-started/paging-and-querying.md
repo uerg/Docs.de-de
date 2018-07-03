@@ -1,29 +1,28 @@
 ---
 uid: web-api/videos/getting-started/paging-and-querying
-title: 'ASP.NET Web-API, Teil 4: Paging und Abfragen von | Microsoft Docs'
+title: 'ASP.NET Web-API, Teil 4: Auslagern und Abfragen | Microsoft-Dokumentation'
 author: jongalloway
-description: 'Hinweis: In diesem Video enthält Informationen aus einer Vorabversion von ASP.NET Web-API'
+description: 'Hinweis: Dieses Video enthält Informationen, die von einer Vorabversion von ASP.NET Web-API'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
 ms.topic: article
 ms.assetid: 44fa9b58-c8b0-4219-83f4-4ef328da2a09
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/videos/getting-started/paging-and-querying
 msc.type: video
-ms.openlocfilehash: f187bce7069443c9528cde91ad0638ff851362f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9640df721cc0d72031b7c30bf1fe1a41a82339cb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26509109"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390939"
 ---
-<a name="aspnet-web-api-part-4-paging-and-querying"></a>ASP.NET Web-API, Teil 4: Paging und Abfragen
+<a name="aspnet-web-api-part-4-paging-and-querying"></a>ASP.NET Web-API, Teil 4: Auslagern und Abfragen
 ====================
 durch [Jon Galloway](https://github.com/jongalloway)
 
 > [!NOTE]
-> In diesem Video enthält Informationen aus einer Vorabversion von ASP.NET Web-API. Informationen zu Änderungen, finden Sie unter der aktualisierte Code am [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)
+> Dieses Video enthält Informationen, die von einer Vorabversion von ASP.NET Web-API. Informationen dazu, was sich geändert finden Sie unter den aktualisierten Beispielcode an [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)
 
-[&#9654; Sehen Sie sich an (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/paging-and-querying)
+[&#9654;Sehen Sie sich Video (4 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/paging-and-querying)

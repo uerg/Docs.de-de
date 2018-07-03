@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: '[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel | Microsoft Docs'
+title: '[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem Video zeigt Chris Pels wie werden Daten aus einer Datenbank oder einer anderen Quelle und in eine durch Komma getrennte Datei, die in einer Anwendung li zu verwendenden exportieren...
+description: In diesem Video zeigt Chris Pels, wie Sie Daten aus einer Datenbank oder einer anderen Quelle und exportieren es in eine durch Trennzeichen getrennte Datei, die in einer Anwendung li verwendet werden kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
 ms.topic: article
 ms.assetid: c9df86ad-aec2-43d5-bb8a-413ebb666673
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
 msc.type: video
-ms.openlocfilehash: ead1a76ec27a98422cc61cbd4d46d9da10c8e502
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c1f94118c64fee7f4198cd096ae2ef200981ba8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525639"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402602"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[Gewusst wie:] Exportieren von Daten in eine durch Trennzeichen getrennte CSV-Datei für eine Anwendung wie Excel
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem Video zeigt Chris Pels, wie Daten aus einer Datenbank oder einer anderen Quelle und exportieren es auf eine durch Trennzeichen getrennten CSV-Datei, die in einer Anwendung wie Excel verwendet werden kann. Zuerst wird ein Satz von Daten als ein "DataTable"-Objekt erstellt. Als Nächstes wird die Antwort für die aktuelle webseitenanforderung deaktiviert ist, und die Header und Content-Type werden so konfiguriert, dass eine Csv-Datei sein. Dann werden die tatsächlichen Daten an den Antwortstream hinzugefügt, durch erste Spaltenheader für die Csv-Datei, gefolgt von den Datenwerten schreiben. Dieser Ansatz kann hilfreich sein, wenn Benutzer benötigen einen Export von Daten aus, damit es lokal in einem Programm wie in Excel bearbeitet werden kann.
+In diesem Video zeigt Chris Pels, wie Sie Daten aus einer Datenbank oder einer anderen Quelle und exportieren es in eine durch Trennzeichen getrennte Datei, die in einer Anwendung wie Excel verwendet werden kann. Zunächst wird ein Satz von Daten als ein "DataTable"-Objekt erstellt. Klicken Sie dann die Antwort für die aktuelle Anforderung der Webseite deaktiviert ist, und den Header und Content-Type sind so konfiguriert, dass Sie eine Csv-Datei werden. Anschließend werden die tatsächlichen Daten in den Antwortstream hinzugefügt, dazu werden die ersten die Spaltenüberschriften auf der Csv-Datei gefolgt von den Datenwerten. Dieser Ansatz kann hilfreich sein, wenn der Benutzer benötigen einen Export von Daten aus, damit sie lokal in einem Programm wie in Excel bearbeitet werden kann.
 
-[&#9654; Sehen Sie sich an (19 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel)
+[&#9654;Sehen Sie sich Video (19 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel)

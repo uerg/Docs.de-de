@@ -1,78 +1,77 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
-title: Erstellen eines Steuerelements Bewertung (c#) | Microsoft Docs
+title: Erstellen eines Bewertungssteuerelements (c#) | Microsoft-Dokumentation
 author: wenz
-description: Viele Websites bieten Benutzern die Rate Artikel oder Elemente von e-Commerce-Community-Sites. Dies erfordert in der Regel einige Codierungsaufwand, aber wir haben die...
+description: Viele Websites bieten e-Commerce, Community-Sites, die Benutzer auf Rate Artikel oder Elemente. Dies in der Regel erfordert einigen Aufwand beim Codeschreiben, aber wir haben die...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 969fb28f-2bff-4fc4-b24a-27f5e2534a37
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a48cf0ed9402e2875e87ba7bdb76afc5f501a670
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7be954a73c6c08bca9992aacf6ad529bc61c9247
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389585"
 ---
-<a name="creating-a-rating-control-c"></a>Erstellen eines Steuerelements Bewertung (c#)
+<a name="creating-a-rating-control-c"></a>Erstellen eines Bewertungssteuerelements (c#)
 ====================
 durch [Christian Wenz](https://github.com/wenz)
 
-[Herunterladen von Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.cs.zip) oder [PDF herunterladen](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0CS.pdf)
+[Code herunterladen](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.cs.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0CS.pdf)
 
-> Viele Websites bieten Benutzern die Rate Artikel oder Elemente von e-Commerce-Community-Sites. Dies erfordert in der Regel einige Codierungsaufwand allerdings haben wir die Control-Toolkit zu Verfügung.
+> Viele Websites bieten e-Commerce, Community-Sites, die Benutzer auf Rate Artikel oder Elemente. Dies in der Regel erfordert einigen Aufwand beim Codeschreiben, aber wir müssen das Steuerelement-Toolkit unsere Freigabe.
 
 
 ## <a name="overview"></a>Übersicht
 
-Viele Websites bieten Benutzern die Rate Artikel oder Elemente von e-Commerce-Community-Sites. Dies erfordert in der Regel einige Codierungsaufwand allerdings haben wir die Control-Toolkit zu Verfügung.
+Viele Websites bieten e-Commerce, Community-Sites, die Benutzer auf Rate Artikel oder Elemente. Dies in der Regel erfordert einigen Aufwand beim Codeschreiben, aber wir müssen das Steuerelement-Toolkit unsere Freigabe.
 
 ## <a name="steps"></a>Schritte
 
-Erstens, Sie benötigen (mindestens) zwei Arten von Images: eine für eine ausgefüllte Bewertung Element und eine für ein Element leer Bewertung. Eine Bewertung-Element ist in der Regel einen Stern oder einem Smiley. In diesem Szenario finden Sie drei Dateien, smiley.png und empty.png und Smiley done.png im Rahmen des Downloads Source Code für dieses Lernprogramm.
+Als Erstes benötigen Sie (mindestens) zwei Arten von Images: eine für einen ausgefüllten Bewertung Element und eine für ein Element leer Bewertung. Ein Element für die Bewertung ist normalerweise ein Stern- oder einem Smiley. In diesem Szenario finden Sie drei Dateien, smiley.png und empty.png und Smiley-done.png als Teil der Source-Code-Downloads für dieses Tutorial.
 
-Anschließend erstellen Sie eine neue ASP.NET-Datei, und starten Sie mit dem Hinzufügen einer `ScriptManager` Steuerelement darauf:
+Anschließend erstellen Sie eine neue ASP.NET-Datei, und beginnen mit dem Hinzufügen einer `ScriptManager` -Steuerelement hinzu:
 
 [!code-aspx[Main](creating-a-rating-control-cs/samples/sample1.aspx)]
 
-Fügen Sie dann die `Rating` Steuerelement aus dem ASP.NET AJAX-Steuerelement-Toolkit. Die folgenden Attribute müssen für dieses Beispiel festgelegt werden:
+Fügen Sie dann die `Rating` Steuerelement von ASP.NET AJAX Control Toolkit. Die folgenden Attribute für dieses Beispiel festgelegt werden müssen:
 
 - `CurrentRating` die erste Bewertung verwendet werden
-- `MaxRating` die maximale Bewertung für
-- `EmptyStarCssClass` die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) leer ist.
-- `FilledStarCssClass` die CSS-Klasse verwenden, wenn ein Element Bewertung (Stern) ausgefüllt wird
+- `MaxRating` die maximale Bewertung
+- `EmptyStarCssClass` die CSS-Klasse verwenden, wenn ein Element der Bewertung (Star) leer ist.
+- `FilledStarCssClass` zu verwenden, wenn ein Element der Bewertung (Star) ausgefüllt wird, die CSS-Klasse
 - `StarCssClass` die CSS-Klasse, die für einen sichtbaren Stat verwendet
-- `WaitingStarCssClass` die CSS-Klasse verwenden, während Bewertungssterne zurück an den Server gesendet wird
+- `WaitingStarCssClass` die CSS-Klasse verwenden, während eine Bewertung von Daten an den Server gesendet wird
 
-Und hier ist das Markup erstellt ein Steuerelement für die Bewertung mit fünf Elementen (Smileys), von denen keine anfänglich ausgefüllt wird:
+Und hier ist das Markup der einem Steuerelement für Bewertungen mit fünf erstellt Elemente (Smileys), von denen keine anfänglich ausgefüllt wird:
 
 [!code-aspx[Main](creating-a-rating-control-cs/samples/sample2.aspx)]
 
-Die drei referenzierten CSS-Klassen müssen nun die entsprechenden Bilddateien anzeigen also erleichtert, Verwendung von CSS:
+Die drei referenzierten CSS-Klassen müssen jetzt zeigen die entsprechenden Bilddateien, dies ist ganz einfach mithilfe von CSS:
 
 [!code-css[Main](creating-a-rating-control-cs/samples/sample3.css)]
 
-Stellen Sie sicher, dass Sie die Breite und Höhe der drei Images bereitstellen, andernfalls kann die Anzeige etwas daran aussehen.
+Stellen Sie sicher, dass Sie in die Breite und Höhe der drei Images bereitstellen, andernfalls kann die Anzeige ein wenig dachte aussehen.
 
-Schließlich sollte das Ergebnis der Bewertung werden dem Benutzer angezeigten (oder mindestens in einer Datenbank gespeichert). So fügen Sie eine Bezeichnung für die Ausgabe von SMS und eine Schaltfläche "Absenden" Zurücksenden der Bewertung Formular an den Server hinzu:
+Schließlich sollte das Ergebnis der Bewertung werden dem Benutzer angezeigt (oder zumindest in einer Datenbank gespeichert). So fügen Sie eine Bezeichnung für die Ausgabe eine SMS-Nachricht und eine Schaltfläche "Senden" Zurücksenden der Bewertung Formular an den Server hinzu:
 
 [!code-aspx[Main](creating-a-rating-control-cs/samples/sample4.aspx)]
 
-In den serverseitigen Code Zugriff auf das Steuerelement Bewertung über seine `ID` , und klicken Sie dann Zugriff auf seine `CurrentRating` Eigenschaft, die die Anzahl der Elemente ausgewählten Bewertung in unserem Beispiel einen Wert zwischen 0 und 5 ist.
+Zugriff auf das Steuerelement für Bewertungen über, in den serverseitigen Code, dessen `ID` und rufen Sie die `CurrentRating` Eigenschaft, die die Anzahl der ausgewählten Bewertung Elemente, in unserem Beispiel ein Wert zwischen 0 und 5 ist.
 
 [!code-aspx[Main](creating-a-rating-control-cs/samples/sample5.aspx)]
 
-Speichern Sie die Seite, und Laden Sie sie in Ihren Browser. Wenn Sie auf die Elemente (Anfangs leer) Bewertung zeigen, ein JavaScript-Effekt tritt: die Bewertung ändert. Wenn Sie für den Satz von Sternen klicken, wird die Bewertung des aktuellen beibehalten. Bei der Übermittlung des Formulars wird der serverseitige Code schließlich ausgewählte Bewertung ausgegeben.
+Speichern Sie die Seite, und Laden Sie sie in Ihrem Browser. Wenn Sie auf die Elemente (anfänglich leer) Bewertung zeigen, ein JavaScript-Effekt tritt: die Änderungen für die Bewertung. Wenn Sie auf den Satz von Sternen klicken, wird die aktuelle Bewertung beibehalten. Wenn Sie das Formular übermitteln, gibt der serverseitige Code schließlich ausgewählte Bewertung aus.
 
 
-[![Erstellen ein Bewertungssystem mit minimalem Codeeinsatz](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
+[![Erstellen ein Bewertungssystem mit minimalem code](creating-a-rating-control-cs/_static/image2.png)](creating-a-rating-control-cs/_static/image1.png)
 
-Erstellen ein Bewertungssystem mit minimalem Codeeinsatz ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-rating-control-cs/_static/image3.png))
+Erstellen ein Bewertungssystem mit minimalem Code ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-rating-control-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Nächste](creating-a-rating-control-vb.md)

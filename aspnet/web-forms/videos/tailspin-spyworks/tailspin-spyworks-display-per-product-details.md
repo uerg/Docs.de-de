@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-per-product-details
-title: Tailspin Spyworks - pro Produktdetails anzeigen | Microsoft Docs
+title: Tailspin Spyworks – anzeigen, Produktdetails | Microsoft-Dokumentation
 author: JoeStagner
 description: Joe Stagner zeigt die Produktdetails an, in der Tailspin Spyworks Web Forms-beispielanwendung.
 ms.author: aspnetcontent
@@ -9,23 +9,22 @@ ms.date: 06/09/2010
 ms.topic: article
 ms.assetid: cc1ae79f-69ff-445a-a789-b5da2b255cb6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-per-product-details
 msc.type: video
-ms.openlocfilehash: 1ce108cdbb22b49ed678d9f1e8cd69ccfbc5dedd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e0388a2c04dfcac18a9810bd4231df8210d632cb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895836"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391766"
 ---
-<a name="tailspin-spyworks---display-per-product-details"></a>Tailspin Spyworks - Anzeige pro Produktdetails
+<a name="tailspin-spyworks---display-per-product-details"></a>Tailspin Spyworks – Anzeigen der Produktdetails
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
 Joe Stagner zeigt die Produktdetails an, in der Tailspin Spyworks Web Forms-beispielanwendung.
 
-[&#9654;Sehen Sie sich an (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-per-product-details)
+[&#9654;Sehen Sie sich Video (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-per-product-details)
 
 > [!div class="step-by-step"]
 > [Zurück](tailspin-spyworks-display-the-product-list.md)

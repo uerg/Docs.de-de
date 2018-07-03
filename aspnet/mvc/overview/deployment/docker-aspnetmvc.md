@@ -7,16 +7,15 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.topic: article
-ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: fa010e795878b26c79dbe04ef0017373283c4269
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29143188"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37403018"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrieren von ASP.NET MVC-Anwendungen zu Windows-Containern
 
@@ -89,15 +88,15 @@ FROM microsoft/aspnet
 COPY ./bin/Release/PublishOutput/ /inetpub/wwwroot
 ```
 
-Es gibt keinen `ENTRYPOINT`-Befehl in dieser Dockerfile-Datei. Sie benötigen ihn nicht. Wenn Windows Server mit IIS ausgeführt wird, ist der IIS-Prozess Entrypoint, das in das Aspnet-Basisimage Starten konfiguriert ist.
+Es gibt keinen `ENTRYPOINT`-Befehl in dieser Dockerfile-Datei. Sie benötigen ihn nicht. Bei Windows Server mit IIS ausgeführt wird, ist der IIS-Prozess den Einstiegspunkt, der konfiguriert wird, um in das Aspnet-Basisimage zu starten.
 
-Führen Sie den Docker-Erstellungsbefehl aus, um das Image zu erstellen, über das die ASP.NET-Anwendung ausgeführt wird. Zu diesem Zweck öffnen Sie ein PowerShell-Fenster im Verzeichnis des Projekts, und geben Sie den folgenden Befehl in dem Projektmappenverzeichnis:
+Führen Sie den Docker-Erstellungsbefehl aus, um das Image zu erstellen, über das die ASP.NET-Anwendung ausgeführt wird. Zu diesem Zweck öffnen Sie ein PowerShell-Fenster im Verzeichnis des Projekts, und geben Sie den folgenden Befehl im Projektmappenverzeichnis ein:
 
 ```console
 docker build -t mvcrandomanswers .
 ```
 
-Mit diesem Befehl wird das neue Abbild mithilfe der Anweisungen in die dockerfile-Datei erstellen naming (-t-Kennzeichnung) das Bild als Mvcrandomanswers. Dies kann beinhalten, dass Sie das Basisimage aus [Docker Hub](http://hub.docker.com) abrufen und dann Ihre Anwendung zu diesem Image hinzufügen müssen.
+Dieser Befehl erstellt das neue Image entsprechend den Anweisungen in der dockerfile-Datei benennen (--t tagging) das Bild als Mvcrandomanswers. Dies kann beinhalten, dass Sie das Basisimage aus [Docker Hub](http://hub.docker.com) abrufen und dann Ihre Anwendung zu diesem Image hinzufügen müssen.
 
 Nach Abschluss dieses Befehls können Sie den `docker images`-Befehl ausführen, um Informationen über das neue Image anzuzeigen:
 
@@ -118,7 +117,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 Das `-d`-Argument weist Docker an, das Image im getrennten Modus zu starten. Das bedeutet, dass das Docker-Image getrennt von der aktuellen Shell ausgeführt wird.
 
-In vielen Beispielen Docker möglicherweise -p, ordnen Sie die Container und Host-Ports angezeigt. Standard-Aspnet-Image wurde bereits konfiguriert, den Container zum Lauschen an Port 80 und verfügbar gemacht. 
+In vielen Beispielen für Docker sehen Sie -p, um den Container und Host-Ports zuzuordnen. Das Aspnet-Standardimage wurde bereits konfiguriert, den Container zum Lauschen an Port 80 und verfügbar gemacht. 
 
 `--name randomanswers` gibt dem ausgeführten Container einen Namen. Sie können diesen Namen in den meisten Befehlen anstelle der Container-ID verwenden.
 
@@ -137,7 +136,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
 172.31.194.61
 ```
 
-Herstellen einer Verbindung mit dem ausgeführten Container mithilfe der IPv4-Adresse `http://172.31.194.61` im dargestellten Beispiel. Wenn Sie diese URL in Ihren Browser eingeben, sollte die ausgeführte Website angezeigt werden.
+Verbinden mit dem ausgeführten Container, der die IPv4-Adresse mit `http://172.31.194.61` im gezeigten Beispiel. Wenn Sie diese URL in Ihren Browser eingeben, sollte die ausgeführte Website angezeigt werden.
 
 > [!NOTE]
 > Manche VPN- oder Proxysoftware könnte Ihren Wechsel zu Ihrer Website verhindern.
