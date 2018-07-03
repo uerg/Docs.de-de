@@ -1,74 +1,73 @@
 ---
 uid: single-page-application/overview/introduction/other-libraries
-title: Wissen Sie eine Bibliothek als Knockout? | Microsoft-Dokumentation
+title: Wissen Sie andere Bibliotheken als Knockout? | Microsoft-Dokumentation
 author: madskristensen
-description: Wissen Sie eine Bibliothek als Knockout?
+description: Wissen Sie andere Bibliotheken als Knockout?
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2013
 ms.topic: article
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 6ac260e88fd156bad4b414e93325d5a04c490c88
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0424d209cbd24756d1a840788bb3dc5b48d905ff
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872584"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375239"
 ---
-<a name="know-a-library-other-than-knockout"></a>Wissen Sie eine Bibliothek als Knockout?
+<a name="know-a-library-other-than-knockout"></a>Wissen Sie andere Bibliotheken als Knockout?
 ====================
 durch [Mads Kristensen](https://github.com/madskristensen)
 
-Die [einzelnen Seite Anwendung (SPA) Vorlage](knockoutjs-template.md) ist eine hervorragende Möglichkeit zum Schreiben von Clientanwendungen für Einzelseiten beginnen. Die Vorlage verwendet [KnockoutJS](http://knockoutjs.com/) Anwendungsdaten auf DOM-Elemente zu binden.
+Die [Single-Page-Anwendung (SPA) Vorlage](knockoutjs-template.md) eignet sich hervorragend für das Schreiben von Single-Page-Anwendungen. Die Vorlage verwendet [KnockoutJS](http://knockoutjs.com/) Anwendungsdaten an DOM-Elemente binden.
 
-Knockout ist jedoch nicht die einzige JavaScript-Bibliothek zum Erstellen von rich-Client-Anwendungen. Andere Bibliotheken durch ähnliche Probleme behoben werden auf unterschiedliche Weise. Möglicherweise bevorzugen Sie eine Bibliothek ein Vergleich mit anderen kennen, damit wir einige der Community erstellte Vorlagen zum Download verfügbar gemacht haben. Jede dieser Vorlagen wird eine andere Mischung von Client-JavaScript-Bibliotheken verwendet.
+Knockout ist jedoch nicht die einzige JavaScript-Bibliothek zum Erstellen von rich-Client-Anwendungen. Andere Bibliotheken zu ähnliche Problemen auf unterschiedliche Weise lösen. Möglicherweise bevorzugen Sie eine einer Bibliothek über ein anderes, daher haben wir einige von Communitymitgliedern erstellte Vorlagen zum Download zur Verfügung haben. Jede dieser Vorlagen verwendet eine andere Mischung von Client-JavaScript-Bibliotheken.
 
-Um eine Vorlage von der Community erstellte installieren zu können, finden Sie auf der Vorlage Seiten unten, und klicken Sie auf die Schaltfläche "herunterladen". Die Vorlagen werden als VSIX-Dateien bereitgestellt.
+Um eine Community erstellte Vorlage installieren zu können, finden Sie auf eines der Vorlage Seiten unten, und klicken Sie auf die Schaltfläche "herunterladen". Die Vorlagen werden als VSIX-Dateien bereitgestellt.
 
 ## <a name="backbonejs"></a>BackboneJS
 
-[Backbone.js SPA Vorlage](../templates/backbonejs-template.md). Diese Vorlage bietet eine anfängliche Skeleton zum Entwickeln einer [Backbone.js](http://backbonejs.org/) -Anwendung in ASP.NET MVC. Direktes es Standardbenutzer Anmeldung stellt Funktionalität bereit, einschließlich registrieren, anmelden, das Zurücksetzen von Benutzerkennwörtern und Bestätigung durch den Benutzer mit grundlegenden e-Mail-Vorlagen.
+[Backbone.js-SPA-Vorlage](../templates/backbonejs-template.md). Diese Vorlage enthält einen anfänglichen Gerüst für die Entwicklung einer [Backbone.js](http://backbonejs.org/) -Anwendung in ASP.NET MVC. Standardmäßig wird die grundlegende Anmeldefunktionalität ermöglichen, einschließlich Registrierung, Anmeldung, kennwortzurücksetzung durch Benutzer und Bestätigung durch den Benutzer mit basic-e-Mail-Vorlagen.
 
 ## <a name="breezejs"></a>BreezeJS
 
-[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) ist eine open Source-Bibliothek für die Verwaltung von umfangreichen Daten in einem JavaScript-Client. Kinderspiel verarbeitet Abfragen, caching, änderungsnachverfolgung, Überprüfung und mehr. Zwei Vorlagen für die Funktion zum Kinderspiel:
+[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) ist eine open-Source-Bibliothek für die Verwaltung umfangreicher Daten in einem JavaScript-Client. Breeze verarbeitet Abfragen, Zwischenspeicherung, änderungsnachverfolgung, Validierung und mehr. Zwei Vorlagen enthalten, zum Kinderspiel wird:
 
-- Die [Kinderspiel/Knockout](../templates/breezeknockout-template.md) Vorlage erweitert Knockout SPA-Vorlage, die anzeigt, wie leicht Sie eine Einzelseiten-Anwendung mit Kinderspiel für datenverwaltungs- und KnockoutJS für die Datenbindung erstellen können.
-- Die [Kinderspiel/Angular](../templates/breezeangular-template.md) Vorlage verlängert außerdem die Knockout SPA-Vorlage zum Kinderspiel, jedoch mit der [AngularJS](http://angularjs.org) -Bibliothek für die Datenbindung, abhängigkeiteneinschleusung und Verwaltung Bildschirm.
+- Die [Breeze/Knockout](../templates/breezeknockout-template.md) Vorlage erweitert die Knockout-SPA-Vorlage, die zeigt, wie einfach Sie eine Single-Page-Anwendung mit Breeze für die datenverwaltung und KnockoutJS für die Datenbindung erstellen können.
+- Die [Breeze/Angular](../templates/breezeangular-template.md) Vorlage erweitert auch die Knockout-SPA-Vorlage mit Breeze, jedoch mit der [AngularJS](http://angularjs.org) -Bibliothek für die Datenbindung, Abhängigkeitsinjektion und Bildschirm-Verwaltung.
 
-Darüber hinaus die [Hot Handtuch SPA-Vorlage](../templates/hottowel-template.md) BreezeJS verwendet.
+Darüber hinaus die [Hot Towel-SPA-Vorlage](../templates/hottowel-template.md) BreezeJS verwendet.
 
-## <a name="emberjs"></a>EmberJS
+## <a name="emberjs"></a>Ember.js
 
-[EmberJS SPA-Vorlage](../templates/emberjs-template.md). Diese Vorlage verwendet [Ember](http://emberjs.com/), eine leistungsstarke MVC-JavaScript-Bibliothek, die eine Vielzahl von Aufgaben zum Erstellen von rich Client-Anwendungen gelöst.
+[Ember.js-SPA-Vorlage](../templates/emberjs-template.md). Diese Vorlage verwendet [Ember](http://emberjs.com/), eine leistungsstarke MVC-JavaScript-Bibliothek, die eine Vielzahl von Herausforderungen für das Erstellen von rich Client-Anwendungen gelöst.
 
-Die Ember SPA-Vorlage ist eine erneute Implementierung Knockout SPA-Vorlage, EmberJS und Lenkern Datenvorlagen verwenden.
+Die Ember-SPA-Vorlage ist eine erneute Implementierung die Knockout-SPA-Vorlage, die mithilfe der ember.js und Handlebars-Vorlagen.
 
-## <a name="hot-towel"></a>Im laufenden Systembetrieb Handtuch
+## <a name="hot-towel"></a>Hot Towel
 
-[Im laufenden Systembetrieb Handtuch SPA-Vorlage](../templates/hottowel-template.md). Diese Vorlage bringt verschiedene JavaScript-Bibliotheken, einschließlich zum Kinderspiel, Knockout, RequireJS und Bootstrap Twitter.
+[Hot Towel-SPA-Vorlage](../templates/hottowel-template.md). Mit dieser Vorlage wird in mehreren JavaScript-Bibliotheken, einschließlich von Breeze und Knockout, RequireJS Twitter Bootstrap.
 
-Im Vergleich mit den anderen Vorlagen, die hier aufgeführten bietet die Hot Handtuch Teample eine umfassendere Anwendung aus der Sie Ihre eigenen erstellen können. Gibt es weitere Konzepte zu berücksichtigen sind, aber nachdem Sie diese vertraut gemacht haben, diese Vorlage nur möglicherweise wonach Sie suchen. Wenn Sie eine SPA erstellen möchten, jedoch keine Entscheidung getroffen werden, wo Sie beginnen, sollten die im laufenden Systembetrieb Handtuch und in Sekunden stehen Ihnen eine SPA und alle Tools müssen Sie dafür erstellen.
+Im Vergleich mit den anderen Vorlagen, die hier aufgeführten bietet die Hot Towel Teample eine vollständige Anwendung, die von der Sie Ihre eigenen erstellen können. Es gibt weitere Konzepte, die Sie berücksichtigen, aber sobald sie verstanden haben, mit dieser Vorlage einfach möglicherweise was Sie suchen. Wenn Sie möchten, Erstellen einer SPA, jedoch können nicht entscheiden, wo Sie beginnen, sollten Hot Towel und in Sekunden Sie eine SPA und alle Tools müssen, müssen Sie darauf erstellen.
 
 ## <a name="feature-table"></a>Feature-Tabelle
 
-Hier werden die von jeder SPA-Vorlage bereitgestellten Funktionen:
+Hier sind die Funktionen, die durch jede SPA-Vorlage bereitgestellt wurde:
 
 
-|                        | ASP.NET SPA | Backbone | Kinderspiel/Angular | Breeze/KO |  Ember   | Im laufenden Systembetrieb Handtuch |
+|                        | ASP.NET SPA | Backbone | Breeze/Angular | Breeze/KO |  Ember   | Hot Towel |
 |------------------------|-------------|----------|----------------|-----------|----------|-----------|
-|      TODO-Beispiel       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|      Beispiel "ToDo"       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
 |     Bare-Vorlage      |             | &#10003; |                |           |          | &#10003;  |
 | Navigation und Verlauf |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
 |        Bibliotheken        |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;Backbone     |             | &#10003; |                |           |          |           |
 |         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
-|        Durandal        |             |          |                |           |          | &#10003;  |
+|        durandal        |             |          |                |           |          | &#10003;  |
 |         Ember          |             |          |                |           | &#10003; |           |
 |        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
 

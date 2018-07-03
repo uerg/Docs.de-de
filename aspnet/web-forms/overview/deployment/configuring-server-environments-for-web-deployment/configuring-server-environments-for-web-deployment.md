@@ -1,38 +1,37 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
-title: Konfigurieren von Serverumgebungen für Web Deploy | Microsoft Docs
+title: Konfigurieren von Serverumgebungen für die Webbereitstellung | Microsoft-Dokumentation
 author: jrjlee
-description: In diesem Lernprogramm erfahren Sie, wie serverumgebungen unterstützen nur einem Klick oder automatisierte Website bereitstellen und die Publishing in verschiedene andere Scen eingerichtet...
+description: Dieses Tutorial zeigt Ihnen, wie Server-Umgebungen unterstützen nur einem Klick oder automatisierte, websitebereitstellung und Veröffentlichung in verschiedene andere Scen eingerichtet...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: ff6118be618a170ac76d66a9de24a7b5cc2d840a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 520239c926b853b91638ed2687daebfb561fb99a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892295"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365269"
 ---
-<a name="configuring-server-environments-for-web-deployment"></a>Konfigurieren von Serverumgebungen für die Bereitstellung
+<a name="configuring-server-environments-for-web-deployment"></a>Konfigurieren von Serverumgebungen für die Webbereitstellung
 ====================
 durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> In diesem Lernprogramm erfahren Sie, wie Server-Umgebungen zu nur einem Klick oder automatisierte Unterstützung, die Bereitstellung der Website und die Veröffentlichung in verschiedenen Situationen eingerichtet. Das Lernprogramm enthält Themen, um führen Sie durch verschiedene Aufgaben, wie die Konfiguration von einem Webserver zur Unterstützung bestimmter Ansätze bei der Bereitstellung und das Einrichten einer Serverfarm Web Farm Framework (WFF) zusammen mit szenariobasierte Übersichten, die bereitstellen einen groben Anhaltspunkt für End-to-End.
+> Dieses Tutorial zeigt Ihnen, wie Sie Server-Umgebungen unterstützen nur einem Klick oder automatisierte, websitebereitstellung und Veröffentlichung in verschiedene andere Szenarien einrichten. Das Tutorial enthält Themen, führen Sie durch Ausführen verschiedener Aufgaben, wie das Konfigurieren eines Webservers zur Unterstützung bestimmter Ansätze bei der Bereitstellung und zum Einrichten einer Web Farm Framework (WFF)-Serverfarm, zusammen mit auf Szenarien basierende Übersichten, die bereitstellen End-to-End-Leitfaden auf höherer Ebene.
 > 
-> Das Lernprogramm verwendet das Fabrikam, Inc.-Bereitstellungsszenario, die in beschriebenen [Web Unternehmensbereitstellung: Szenarioübersicht](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md) als Bezugspunkt für Beispiele und Netzwerkinfrastruktur.
+> Das Lernprogramm verwendet das Fabrikam, Inc.-Bereitstellungsszenario, die in beschriebenen [webbasierte Unternehmensbereitstellung: Szenarioübersicht](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md) als Bezugspunkt für Beispiele und Netzwerkinfrastruktur.
 > 
-> Für einen italienischen Übersetzung mit diesen Lernprogrammen, besuchen Sie [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
+> Ein italienischen Übersetzung mit diesen Lernprogrammen finden Sie unter [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
-Dieses Lernprogramm umfasst die folgenden Themen:
+In diesem Lernprogramm umfasst folgende Themen:
 
 - [Auswählen der richtigen Vorgehensweise zur Webbereitstellung](choosing-the-right-approach-to-web-deployment.md)
 - [Szenario: Konfigurieren einer Testumgebung für die Webbereitstellung](scenario-configuring-a-test-environment-for-web-deployment.md)
@@ -45,29 +44,29 @@ Dieses Lernprogramm umfasst die folgenden Themen:
 - [Erstellen einer Serverfarm mit dem Webfarmframework](creating-a-server-farm-with-the-web-farm-framework.md)
 - [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](configuring-deployment-properties-for-a-target-environment.md)
 
-Das erste Thema [Auswählen der rechts Ansatz für die Webbereitstellung](choosing-the-right-approach-to-web-deployment.md), beschreibt die wichtigsten Ansätze Sie zum Veröffentlichen von Webanwendungen mithilfe der Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy können) 2.0. Außerdem ermittelt es für die Szenarien, die jeder Ansatz zuordnen. Von hier aus jedes Szenario Thema bietet einen allgemeinen Überblick über die Aufgaben, die Sie ausführen müssen und identifiziert die Themen, die, denen Sie benötigen, über arbeiten, können Sie diese Aufgaben unabhängig.
+Das erste Thema [Entscheidung zur Webbereitstellung rechts](choosing-the-right-approach-to-web-deployment.md), beschreibt die wichtigsten Ansätze Sie das Veröffentlichen von Webanwendungen mithilfe der Internetinformationsdienste (Internet Information Services, IIS)-Webbereitstellungstool (Web Deploy können) 2.0. Ebenfalls aufgeführt sind die Szenarien, die auf jeden Ansatz zuordnen. Von hier aus jedes Szenario Thema bietet einen Überblick über die Aufgaben, die Sie durchführen müssen, und identifiziert die Themen über arbeiten, können Sie das Ausführen dieser Aufgaben benötigen.
 
-Bei Verwendung der Teilung Datei Herangehensweise beschrieben [Verständnis des Prozesses erstellen](../web-deployment-in-the-enterprise/understanding-the-build-process.md) zum Erstellen und Bereitstellen der Projektmappe das letzte Thema [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](configuring-deployment-properties-for-a-target-environment.md), beschreibt das umgebungsspezifische Projektdateien für die Bereitstellung in unterschiedliche zielumgebungen konfigurieren.
+Bei Verwendung in beschriebenen Ansatz der geteilten Projekt Datei [Verständnis des Prozesses erstellen](../web-deployment-in-the-enterprise/understanding-the-build-process.md) zum Erstellen und Bereitstellen Ihrer Lösung, die das letzte Thema, [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](configuring-deployment-properties-for-a-target-environment.md), beschreibt, wie umgebungsspezifisches Projektdateien für die Bereitstellung in unterschiedliche zielumgebungen zu konfigurieren.
 
 ## <a name="key-technologies"></a>Schlüsseltechnologien
 
-Dieses Lernprogramm konzentriert sich auf wie dieser Produkte und Technologien verwenden, um Web Deploy zu unterstützen:
+In diesem Tutorial geht es um die Produkte und Technologien zu verwenden, um die webbereitstellung zu unterstützen:
 
 - IIS 7.5
-- Web Deploy 2.x
+- Web Deploy-2.x
 - WFF 2.x
-- IIS-Web-Verwaltungsdienst (WMSvc)
+- IIS-Web-Verwaltungsdienst (WMSvc) verwenden.
 
-Das Lernprogramm erwähnt auch die Verwendung von Windows Server 2008 R2, SQL Server 2008 R2, ASP.NET 4.0 und ASP.NET MVC 3.
+Das Tutorial betrifft auch für die Verwendung von Windows Server 2008 R2, SQL Server 2008 R2, ASP.NET 4.0 und ASP.NET MVC 3.
 
-## <a name="other-tutorials-in-this-series"></a>Weitere Lernprogramme in dieser Serie
+## <a name="other-tutorials-in-this-series"></a>Andere Tutorials in dieser Reihe
 
-Dies bildet einen Teil einer Reihe von fünf Lernprogramme auf Unternehmensebene zur Bereitstellung. Dies sind die anderen Lernprogramme in der Reihe:
+Dies ist Teil einer Reihe von fünf Lernprogrammen auf Unternehmensniveau webbereitstellung. Dies sind die anderen Tutorials der Reihe:
 
-- [Bereitstellen von Webanwendungen in Enterprise-Szenarios](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Diese einführenden Inhalt enthält kontextbezogenen Hintergrund für die Reihe von Lernprogrammen. Das Szenario des Lernprogramme beschrieben und veranschaulicht, wie die Aufgaben und exemplarische Vorgehensweisen beschrieben, die in der gesamten Reihe in einen größeren Application Lifecycle Management (ALM) Prozess passen.
-- [Die webbereitstellung im Unternehmen](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Dieses Lernprogramm enthält eine grundlegende Einführung in Microsoft Build Engine (MSBuild)-Projektdateien, die Publishing Web-Pipeline, Web Deploy und anderen verwandten Technologien. Es wird erläutert, wie diese Tools gemeinsam verwendet werden können, um komplexe-bereitstellungstechnologien zu verwalten.
-- [Konfigurieren von Team Foundation Server für die Bereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie zum Konfigurieren von Team Foundation Server (TFS) zur Unterstützung der verschiedenen Bereitstellungsszenarien, einschließlich automatisierter Bereitstellung im Rahmen eines Prozesses für die fortlaufende Integration (CI) und Bereitstellungen von bestimmte Builds manuell ausgelöst wird.
-- [Erweiterte Web Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In diesem Lernprogramm wird beschrieben, wie verschiedene erweiterte Bereitstellung, wie Datenbank-Bereitstellungen für mehrere Umgebungen anpassen, Ausschließen von Dateien und Ordner von der Bereitstellung und offline-Webanwendungen, die während des Bereitstellungsvorgangs Aufgaben .
+- [Bereitstellen von Webanwendungen in Unternehmensszenarien](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Dieser einführenden Inhalt enthält die kontextbezogenen Hintergrundinformationen zum der Tutorial-Reihe. Das tutorialszenario beschrieben und veranschaulicht, wie die Aufgaben und exemplarische Vorgehensweisen beschrieben, die in der gesamten Reihe in einem größeren Application Lifecycle Management (ALM)-Prozess passen.
+- [Webbereitstellung im Unternehmen](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Dieses Tutorial bietet eine grundlegende Einführung in Projektdateien Microsoft Build Engine (MSBuild), die Veröffentlichung Webpipeline, Web Deploy und andere verwandten Technologien. Es wird erläutert, wie diese Tools zusammen verwenden werden können, um komplexe Bereitstellungsprozesse zu verwalten.
+- [Konfigurieren von Team Foundation Server für die Webbereitstellung](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In diesem Tutorial wird beschrieben, wie so konfigurieren Sie Team Foundation Server (TFS) zur Unterstützung verschiedener Bereitstellungsszenarien, einschließlich der automatisierten Bereitstellung im Rahmen einer continuous Integration (CI) und bestimmte Builds Bereitstellungen manuell ausgelöst wird.
+- [Erweiterte webbasierte Unternehmensbereitstellung](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In diesem Tutorial wird beschrieben, wie verschiedene erweiterte Bereitstellung, z. B. Anpassen von datenbankbereitstellungen für mehrere Umgebungen und Ausschließen von Dateien und Ordner von der Bereitstellung von Webanwendungen während der Bereitstellung und Aufgaben .
 
 > [!div class="step-by-step"]
 > [Nächste](choosing-the-right-approach-to-web-deployment.md)

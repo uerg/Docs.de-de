@@ -1,66 +1,65 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
-title: Behandlung von Postbacks aus einem Popupsteuerelement mit UpdatePanel (c#) | Microsoft Docs
+title: Verarbeiten von Postbacks über ein Popupsteuerelement mit einem UpdatePanel-Steuerelement (c#) | Microsoft-Dokumentation
 author: wenz
-description: Der Extender PopupControl im AJAX Control Toolkit bietet eine einfache Möglichkeit, um ein Popup auszulösen, wenn es sich bei jedem anderen Steuerelement aktiviert wird. Besondere Sorgfalt hat auszuführende...
+description: Der PopupControl Extender im AJAX Control Toolkit bietet eine einfache Möglichkeit, ein Popup auslösen, wenn ein anderes Steuerelement aktiviert ist. Besondere Sorgfalt verfügt, die ausgeführt werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 1f68f59d-9c1e-4cf3-b304-c13ae6b7203e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: abedb5247f710b02752651a7bfb011ab63d32844
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 758ed5eef32be0fb596d8b9dbf903729816746bd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879633"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377972"
 ---
-<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>Behandlung von Postbacks aus einem Popupsteuerelement mit UpdatePanel (c#)
+<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>Verarbeiten von Postbacks über ein Popupsteuerelement mit einem UpdatePanel-Steuerelement (c#)
 ====================
 durch [Christian Wenz](https://github.com/wenz)
 
-[Herunterladen von Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.cs.zip) oder [PDF herunterladen](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2CS.pdf)
+[Code herunterladen](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.cs.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2CS.pdf)
 
-> Der Extender PopupControl im AJAX Control Toolkit bietet eine einfache Möglichkeit, um ein Popup auszulösen, wenn es sich bei jedem anderen Steuerelement aktiviert wird. Besondere Sorgfalt muss ausgeführt werden, wenn ein Postback solche ein Popup erfolgt.
+> Der PopupControl Extender im AJAX Control Toolkit bietet eine einfache Möglichkeit, ein Popup auslösen, wenn ein anderes Steuerelement aktiviert ist. Besondere Sorgfalt muss ausgeführt werden, wenn ein Postback solche ein Popup erfolgt.
 
 
 ## <a name="overview"></a>Übersicht
 
-Der Extender PopupControl im AJAX Control Toolkit bietet eine einfache Möglichkeit, um ein Popup auszulösen, wenn es sich bei jedem anderen Steuerelement aktiviert wird. Besondere Sorgfalt muss ausgeführt werden, wenn ein Postback solche ein Popup erfolgt.
+Der PopupControl Extender im AJAX Control Toolkit bietet eine einfache Möglichkeit, ein Popup auslösen, wenn ein anderes Steuerelement aktiviert ist. Besondere Sorgfalt muss ausgeführt werden, wenn ein Postback solche ein Popup erfolgt.
 
 ## <a name="steps"></a>Schritte
 
-Bei Verwendung einer `PopupControl` mit einem Postback ein `UpdatePanel` können verhindern, dass die Seite-Aktualisierung, die durch das Postback verursacht. Das folgende Markup definiert eine Reihe von wichtigen Elemente:
+Bei Verwendung einer `PopupControl` mit einem Postback, ein `UpdatePanel` können verhindern, dass die seitenaktualisierung, die durch das Postback verursacht. Das folgende Markup definiert ein paar wichtige Elemente:
 
-- Ein `ScriptManager` steuern, sodass das ASP.NET AJAX-Steuerelement-Toolkit funktioniert
+- Ein `ScriptManager` steuern, das ASP.NET AJAX Control Toolkit funktioniert
 - Zwei `TextBox` steuert, welche sowohl ein Popup ausgelöst werden
-- Ein `Panel` Steuerelement, das als das Popup fungieren soll
-- Innerhalb des Bereichs einer `Calendar` Steuerelement eingebettet ist ein `UpdatePanel` Steuerelement
-- Zwei `PopupControlExtender` Steuerelemente, die im Bereich der Textfelder zuweisen
+- Ein `Panel` -Steuerelement, das als das Popup verwendet wird
+- Innerhalb des Bereichs eine `Calendar` eingebettetes Steuerelement ist in einer `UpdatePanel` Steuerelement
+- Zwei `PopupControlExtender` Steuerelemente, die den Inhalt der Textfelder im Bereich zuweisen
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/samples/sample1.aspx)]
 
-Beachten Sie, dass die `OnSelectionChanged` Attribut von der `Calendar` Steuerelement festgelegt ist. Damit ein Postback tritt auf, wenn der Benutzer ein Datum im Kalender auswählt, und die serverseitige Methode `c1_SelectionChanged()` ausgeführt wird. Innerhalb dieser Methode muss das aktuelle Datum abgerufen und zurück in das Textfeld geschrieben werden.
+Beachten Sie, dass die `OnSelectionChanged` Attribut der `Calendar` -Steuerelement so eingestellt ist. Daher ein Postback tritt auf, wenn der Benutzer ein Datum innerhalb des Kalenders auswählt, und die serverseitige Methode `c1_SelectionChanged()` ausgeführt wird. In dieser Methode muss das aktuelle Datum abgerufen und in das Textfeld zurückgeschrieben werden.
 
-Die Syntax lautet wie folgt: Erstens einen Proxy-Objekt für die `PopupControlExtender` auf der Seite generiert werden muss. Das ASP.NET AJAX-Steuerelement-Toolkit bietet die `GetProxyForCurrentPopup()` Methode. Das Objekt, diese Methode gibt, unterstützt die `Commit()` Methode einen Wert an das Steuerelement gesendet wird, die das Popup (nicht das Steuerelement, das dem Aufruf der Methode ausgelöst!) ausgelöst. Der folgende Code stellt das ausgewählte Datum als Argument für die `Commit()` -Methode, sodass des Codes zum Zurückschreiben von des ausgewählten Datums in das Textfeld:
+Die Syntax dafür lautet wie folgt: zunächst einen Proxy-Objekt für die `PopupControlExtender` auf der Seite generiert werden muss. Das ASP.NET AJAX Control Toolkit bietet die `GetProxyForCurrentPopup()` Methode. Das Objekt, das Beenden dieser Methode unterstützt die `Commit()` Methode, der einen Wert an das Steuerelement gesendet, der das Popup (nicht das Steuerelement, das den Methodenaufruf ausgelöst!) ausgelöst. Der folgende Code stellt das ausgewählte Datum als Argument für die `Commit()` -Methode, sodass des Codes, die das ausgewählte Datum in das Textfeld schreiben:
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/samples/sample2.aspx)]
 
-Jetzt immer an einem Kalenderdatum klicken Sie auf das ausgewählte Datum angezeigt wird, klicken Sie im zugehörigen Textfeld kann ein Datumsauswahl-Steuerelement erstellen, die derzeit auf vielen Websites gefunden werden.
+Jetzt, wenn Sie in einem Kalenderdatum klicken Sie auf das ausgewählte Datum angezeigt wird, in der zugeordneten Textfeld ein Datumsauswahl-Steuerelement zu erstellen, die derzeit auf vielen Websites finden.
 
 
-[![Der Kalender wird angezeigt, wenn der Benutzer in das Textfeld klickt](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image1.png)
+[![Der Kalender wird angezeigt, wenn der Benutzer in das Textfeld klickt.](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image1.png)
 
-Der Kalender wird angezeigt, wenn der Benutzer in das Textfeld klickt ([klicken Sie hier, um das Bild in voller Größe angezeigt](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image3.png))
+Der Kalender wird angezeigt, wenn der Benutzer in das Textfeld klickt ([klicken Sie, um das Bild in voller Größe anzeigen](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image3.png))
 
 
 [![Durch Klicken auf ein Datum in das Textfeld eingefügt](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image4.png)
 
-Durch Klicken auf ein Datum in das Textfeld eingefügt ([klicken Sie hier, um das Bild in voller Größe angezeigt](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image6.png))
+Durch Klicken auf ein Datum in das Textfeld eingefügt ([klicken Sie, um das Bild in voller Größe anzeigen](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Zurück](using-multiple-popup-controls-cs.md)

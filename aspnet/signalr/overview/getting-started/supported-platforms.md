@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
-title: Unterstützte Plattformen | Microsoft Docs
+title: Unterstützte Plattformen | Microsoft-Dokumentation
 author: pfletcher
 description: In diesem Artikel wird beschrieben, welche Clients und Servern von SignalR unterstützt werden.
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 04/18/2018
 ms.topic: article
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 4d3dc028ff67d0a9cfa03627b5f98f6541ecfff8
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: fd15296dbc0954a3f9b668abe3f392d76bf49b11
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585230"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375255"
 ---
 <a name="supported-platforms"></a>Unterstützte Plattformen
 ====================
@@ -27,18 +26,18 @@ durch [Patrick Fletcher](https://github.com/pfletcher)
 > 
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
 > 
-> Lassen Sie Sie Feedback auf wie in diesem Lernprogramm mögen und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
+> Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
-SignalR ist unter einer Vielzahl von Server- und Clientkonfigurationen unterstützt. Darüber hinaus weist jede Transportoption einen Satz von Anforderungen eigene; Wenn die Systemanforderungen für einen Transport nicht verfügbar sind, werden SignalR ordnungsgemäß Failover auf andere Transporte. Weitere Informationen über die Transporte, die SignalR unterstützt, finden Sie unter [Transporte und Zugriffe](introduction-to-signalr.md#transports).
+SignalR ist unter einer Vielzahl von Server- und Client-Konfigurationen unterstützt. Darüber hinaus verfügt über jeden Transportoption auf einen Satz von Anforderungen über eigene aus. Wenn Sie die Systemanforderungen für einen Transport nicht verfügbar sind, wird SignalR ordnungsgemäß Failover auf andere Transporte. Weitere Informationen zu die Transporte, die von SignalR unterstützt, finden Sie unter [Transporte und Fallbacks](introduction-to-signalr.md#transports).
 
-## <a name="server-system-requirements"></a>Systemanforderungen
+## <a name="server-system-requirements"></a>Server – Systemanforderungen
 
-Die SignalR-Serverkomponente kann auf einer Vielzahl von Serverkonfigurationen gehostet werden. Dieser Abschnitt beschreibt die unterstützten Versionen von Betriebssystemen, .NET Framework, Internet Information Server und anderen Komponenten.
+Die SignalR-Serverkomponenten kann auf einer Vielzahl von Serverkonfigurationen gehostet werden. Dieser Abschnitt beschreibt die unterstützten Versionen von Betriebssystemen, .NET Framework, IIS-Server und andere Komponenten.
 
 ### <a name="supported-server-operating-systems"></a>Unterstützte Serverbetriebssysteme
 
-In den folgenden Server oder Client-Betriebssystemen kann die SignalR-Serverkomponente gehostet werden. Beachten Sie, dass für SignalR verwendet WebSockets, Windows Server 2012, Windows Server 2016 oder Windows 8 erforderlich ist (WebSocket genutzt werden auf Windows Azure-Websites, solange der Website .NET Framework, Version 4.5 festgelegt ist, und WebSockets am Standort aktiviert ist Konfigurationsseite).
+Die SignalR-Serverkomponenten kann in den folgenden Server oder Client-Betriebssystemen gehostet werden. Beachten Sie, dass für die SignalR verwendet WebSockets, Windows Server 2012, Windows Server 2016 oder Windows 8 erforderlich ist (WebSocket kann verwendet werden auf Windows Azure-Websites, .NET Framework-Version des Standorts auf 4.5 festgelegt ist, und die Web Sockets in der Website aktiviert ist Configuration-Seite).
 
 - Windows Server 2016
 - Windows Server 2012
@@ -48,91 +47,91 @@ In den folgenden Server oder Client-Betriebssystemen kann die SignalR-Serverkomp
 - Windows 7
 - Windows Azure
 
-### <a name="supported-server-net-framework-version"></a>Unterstützte Version von .NET Framework
+### <a name="supported-server-net-framework-version"></a>.NET Framework-Version unterstützte server
 
-SignalR-2 wird nur in .NET Framework 4.5 unterstützt. Finden Sie unter der [empfohlene Updates](#updates) Abschnitt, um Updates, die Zuverlässigkeit, Kompatibilität, Stabilität und Leistung zu verbessern.
+SignalR 2 wird nur unter .NET Framework 4.5 unterstützt. Finden Sie unter den [empfohlene Updates](#updates) Abschnitt für Updates, die Zuverlässigkeit, Kompatibilität, Stabilität und Leistung zu verbessern.
 
-### <a name="supported-server-iis-versions"></a>Unterstützte Serverversionen für IIS
+### <a name="supported-server-iis-versions"></a>Unterstützter Server IIS-Versionen
 
-Wenn SignalR in IIS gehostet wird, werden die folgenden Versionen unterstützt. Wenn ein Client-Betriebssystem verwendet wird, z. B. für die Entwicklung Vollversionen von IIS oder Cassini (Windows 8 oder Windows 7), nicht verwendet werden sollte, da es werden maximal 10 gleichzeitige Verbindungen auferlegt werden, die seit Verbindungen sehr schnell erreicht wird, vorübergehend, häufig neu eingerichtet, und werden werden nicht sofort freigegeben nach nicht mehr verwendet wird. IIS Express unter Clientbetriebssystemen vorgesehen.
+Wenn Sie SignalR in IIS gehostet wird, werden die folgenden Versionen unterstützt. Beachten Sie, dass wenn ein Client-Betriebssystem verwendet wird, wie z. B. für die Entwicklung (Windows 8 oder Windows 7), einen vollständige Versionen von IIS oder Cassini nicht verwendet werden sollte, da es werden maximal 10 gleichzeitige Verbindungen auferlegt, die sehr schnell da Verbindungen erreicht wird, vorübergehende, häufig erneut hergestellt, und Sie werden nicht sofort entfernt bei nicht mehr verwendet wird. IIS Express sollte auf Client-Betriebssystemen verwendet werden.
 
-Beachten Sie außerdem, dass für SignalR WebSocket, verwendet IIS 8 oder Express von IIS 8 verwendet werden muss, den der Server Windows 8, WindowsServer 2012 oder höher verwendet werden muss und WebSocket in IIS aktiviert werden muss. Informationen zum Aktivieren von WebSocket in IIS finden Sie unter [WebSocket-Protokoll-Unterstützung für IIS 8.0](https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support).
+Beachten Sie außerdem, dass für SignalR WebSocket, verwendet IIS 8 oder IIS 8 Express verwendet werden muss, den der Server Windows 8, WindowsServer 2012 oder höher verwendet werden muss, und WebSocket in IIS aktiviert sein muss. Informationen zum Aktivieren von WebSocket in IIS finden Sie unter [Unterstützung für IIS 8.0 WebSocket-Protokolls](https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support).
 
 - IIS 8 oder IIS 8 Express.
 - IIS 7 und 7.5. Unterstützung für [URLs ohne Erweiterung](https://support.microsoft.com/kb/980368) ist erforderlich.
-- IIS muss im integrierten Modus ausgeführt werden; im klassischer Modus wird nicht unterstützt. Nachricht Verzögerungen von bis zu 30 Sekunden möglicherweise auftreten können, wenn IIS im klassischen Modus unter Verwendung des Transports Server-Sent Ereignisse ausgeführt wird.
+- IIS muss im integrierten Modus ausgeführt werden; im klassischen Modus wird nicht unterstützt. Nachrichtenverzögerungen von bis zu 30 Sekunden möglicherweise auftreten können, wenn im klassischen Modus mithilfe des Server-Sent Ereignisse Transports IIS ausgeführt wird.
 - Die hostanwendung muss im Modus mit vollständiger Vertrauenswürdigkeit ausgeführt werden.
 
 ## <a name="client-system-requirements"></a>Systemanforderungen für Clients
 
-SignalR kann in einer Vielzahl von Client-Plattformen verwendet werden. Dieser Abschnitt beschreibt die Systemanforderungen für die Verwendung von SignalR in Webbrowsern, Windows-desktopanwendungen, Silverlight-Anwendungen und mobile Geräte.
+SignalR kann in einer Vielzahl von Client-Plattformen verwendet werden. Dieser Abschnitt beschreibt die Systemanforderungen für die Verwendung von SignalR im Webbrowser, Windows-desktopanwendungen, Silverlight-Anwendungen und mobilen Geräten.
 
 ### <a name="web-browsers"></a>Webbrowser
 
-SignalR kann in einer Vielzahl von Webbrowsern verwendet werden, aber in der Regel nur die letzten beiden Versionen unterstützt werden.
+SignalR kann in einer Vielzahl von Webbrowsern verwendet werden, aber in der Regel nur die letzten beiden Versionen werden unterstützt.
 
-Anwendungen, die in Browsern SignalR verwenden müssen jQuery-Version 1.6.4 oder höher Hauptversionen (z. B. 1.7.2, 1.8.2 oder 1.9.1) verwenden.
+Anwendungen, die verwenden SignalR in Browsern, müssen jQuery-Version 1.6.4 oder höher Hauptversionen (z. B. 1.7.2 1.8.2 oder 1.9.1) verwenden.
 
 SignalR kann in den folgenden Browsern verwendet werden:
 
-- Microsoft Internet Explorer-Versionen, 8, 9, 10 und 11. Modernes werden Desktop- und Mobile-Versionen unterstützt.
-- Mozilla Firefox: aktuelle Version - 1, Windows und Mac-Versionen.
-- Google Chrome: aktuelle Version - 1, Windows und Mac-Versionen.
+- Microsoft Internet Explorer, Versionen 8, 9, 10 und 11. Moderne, Desktop- und Mobile-Versionen verwendet werden.
+- Mozilla Firefox: aktuelle Version - 1, sowohl Windows und Mac-Versionen.
+- Google Chrome: aktuelle Version – 1, sowohl Windows und Mac-Versionen.
 - Safari: aktuelle Version - 1, Mac und iOS-Versionen.
-- Opera: aktuelle Version - 1, nur Windows.
+- Opera: aktuelle Version – 1, nur Windows.
 - Android-browser
 
-Zusätzlich zu, die bestimmte Browsern erfordern, haben die verschiedene Transporte, die SignalR verwendet Ihren eigenen. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
+Zusätzlich zum Einbinden von bestimmter Browser, gelten die verschiedene Transporte, die SignalR verwendet Ihren eigenen. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
 
 <a id="browser"></a>
 
 **Transport Anforderungen an Webbrowser**
 
-| Transport | Internet Explorer | Chrome (Windows oder iOS) | Firefox | Safari (OSX oder iOS) | Android |
+| Transport | Internet Explorer | Chrome (Windows oder iOS) | Firefox | Safari (OS x oder iOS) | Android |
 | --- | --- | --- | --- | --- | --- |
 | WebSockets | 10+ | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | Nicht zutreffend |
 | Vom Server gesendeten Ereignisse | Nicht zutreffend | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | Nicht zutreffend |
 | ForeverFrame | 8+ | Nicht zutreffend | Nicht zutreffend | Nicht zutreffend | 4.1 |
-| Langen Abruftransports | 8+ | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | 4.1 |
+| Lange Abrufvorgänge | 8+ | aktuelle - 1 | aktuelle - 1 | aktuelle - 1 | 4.1 |
 
-\*: 6 und höher für die vollständige Funktionalität erforderlich sind.
+\*: 6 + für die vollständige Funktionalität erforderlich.
 
 #### <a name="unsupported-browsers"></a>Nicht unterstützte Browser
 
-Während der SignalR *möglicherweise* ausführen, ohne wichtige Aspekte, die in älteren Browserversionen, wir testen SignalR nicht aktiv darin und im Allgemeinen Fehlern, die in ihnen möglicherweise nicht behoben.
+Während Sie SignalR *möglicherweise* ausführen, ohne wichtige Probleme in ältere Browserversionen, wir Testen nicht aktiv SignalR darin und beheben Sie in der Regel keine Fehler, die in der sie vorkommen.
 
 ### <a name="windows-desktop-and-silverlight-applications"></a>Windows-Desktop und Silverlight-Anwendungen
 
-Zusätzlich zu den in einem Webbrowser ausführen, kann SignalR in eigenständigen Windows-Client oder Silverlight-Anwendungen gehostet werden. Windows-Desktop und Silverlight SignalR-Anwendungen haben die folgenden Systemanforderungen.
+Zusätzlich zur Ausführung in einem Webbrowser, kann die SignalR in eigenständigen Windows-Client oder Silverlight-Anwendungen gehostet werden. Windows-Desktop und Silverlight-SignalR-Anwendungen müssen die folgenden Systemanforderungen.
 
 - Anwendungen, die mit .NET 4 werden unter Windows XP SP3 oder höher unterstützt.
 - Anwendungen mit .NET Framework 4.5 werden unter Windows Vista oder höher unterstützt.
 
-Zusätzlich zu Betriebssystem und .NET Framework-Anforderungen gelten die Transporte, die für SignalR verfügbar eigene. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
+Zusätzlich zum Betriebssystem und .NET Framework-Anforderungen gelten die Transporte, die SignalR zur eigenen. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
 
 **Windows-Desktop und Silverlight-Transport-Anforderungen**
 
 | Transport | Anwendung für .NET | Silverlight |
 | --- | --- | --- |
-| WebSockets | Windows 8 und höher und .NET 4.5 + | Nicht zutreffend |
+| WebSockets | Windows 8 und höher und .NET 4.5 und höher | Nicht zutreffend |
 | Forever Frame | Nicht zutreffend | Nicht zutreffend |
 | Vom Server gesendeten Ereignisse | .NET 4+ | 5+ |
-| Langen Abruftransports | .NET 4+ | 5+ |
+| Lange Abrufvorgänge | .NET 4+ | 5+ |
 
 <a id="android"></a>
 
 ### <a name="windows-store-and-windows-phone-applications"></a>Windows Store und Windows Phone-Anwendungen
 
-SignalR kann in Windows Store- und Windows Phone 8-Anwendungen verwendet werden. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
+SignalR kann in Windows Store-Anwendungen und Windows Phone 8-Anwendungen verwendet werden. Die folgenden Transportoptionen werden unter den folgenden Konfigurationen unterstützt:
 
 **Windows Store und Windows Phone-Transport-Anforderungen**
 
 | Transport | Windows Store / .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / .NET |
 | --- | --- | --- | --- | --- |
-| WebSockets | Nicht zutreffend | Windows 8 + | 8+ | Nicht zutreffend |
-| Forever Frame | Nicht zutreffend | Windows 8 + | 7.5+ | Nicht zutreffend |
-| Vom Server gesendeten Ereignisse | Windows 8 + | Nicht zutreffend | Nicht zutreffend | 8+ |
-| Langen Abruftransports | Windows 8 + | Windows 8 + | 7.5+ | 8+ |
+| WebSockets | Nicht zutreffend | Win8 + | 8+ | Nicht zutreffend |
+| Forever Frame | Nicht zutreffend | Win8 + | 7.5+ | Nicht zutreffend |
+| Vom Server gesendeten Ereignisse | Win8 + | Nicht zutreffend | Nicht zutreffend | 8+ |
+| Lange Abrufvorgänge | Win8 + | Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>
 
@@ -141,4 +140,4 @@ SignalR kann in Windows Store- und Windows Phone 8-Anwendungen verwendet werden.
 Die folgenden Updates werden für SignalR-Server empfohlen:
 
 - Ist ein Update für .NET Framework 4.5 verfügbar [hier](https://support.microsoft.com/kb/2750149).
-- Microsoft wird in regelmäßigen Abständen QFEs für ASP.NET freizugeben. Diese sollten als verfügbar angewendet werden.
+- Microsoft wird in regelmäßigen Abständen QFEs für ASP.NET freigeben. Diese sollten je nach Verfügbarkeit angewendet werden.

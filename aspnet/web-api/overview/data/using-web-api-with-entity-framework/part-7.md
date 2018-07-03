@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-7
-title: Erstellen Sie die Sicht (UI) | Microsoft Docs
+title: Erstellen Sie die Sicht (UI) | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,51 +9,50 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: b2445062-a1fe-4133-8994-f510280f6d9a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5052d7cca4a5c12a9ea56eb929d4794b19e82603
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e9ebe60f88ecbf65a6f8d04de9a23d72a72fda83
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878801"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364980"
 ---
 <a name="create-the-view-ui"></a>Erstellen Sie die Sicht (UI)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](https://github.com/MikeWasson/BookService)
+[Abgeschlossenes Projekt herunterladen](https://github.com/MikeWasson/BookService)
 
-In diesem Abschnitt beginnen Sie den HTML-Code für die app definieren und die Datenbindung zwischen den HTML-Code und das Ansichtsmodell hinzufügen.
+In diesem Abschnitt Starten Sie den HTML-Code für die app zu definieren und die Datenbindung zwischen der HTML-Code und das Ansichtsmodell hinzufügen.
 
 Öffnen Sie die Datei Views/Home/Index.cshtml. Ersetzen Sie den gesamten Inhalt dieser Datei durch Folgendes.
 
 [!code-cshtml[Main](part-7/samples/sample1.cshtml)]
 
-Die meisten der `div` Elemente müssen für die [Bootstrap](http://getbootstrap.com/) formatieren. Die wichtigen Elemente sind die Personen mit `data-bind` Attribute. Dieses Attribut verknüpft den HTML-Code für das Modell anzeigen.
+Die meisten der `div` Elemente sind für [Bootstrap](http://getbootstrap.com/) formatieren. Die wichtigen Elemente sind mit `data-bind` Attribute. Dieses Attribut verknüpft den HTML-Code an das Ansichtsmodell.
 
 Zum Beispiel:
 
 [!code-html[Main](part-7/samples/sample2.html)]
 
-In diesem Beispiel wird die &quot; `text` &quot; binden Ursachen der `<p>` Element den Wert der anzuzeigenden der `error` Eigenschaft aus dem Modell anzeigen. Bedenken Sie, dass `error` wurde als deklariert eine `ko.observable`:
+In diesem Beispiel die &quot; `text` &quot; Bindung bewirkt, dass die `<p>` Element den Wert der anzuzeigenden der `error` Eigenschaft aus dem Anzeigemodell. Zur Erinnerung: `error` deklariert wurde, als eine `ko.observable`:
 
 [!code-javascript[Main](part-7/samples/sample3.js)]
 
-Wenn ein neuer Wert zugewiesen wird, um `error`, Knockout aktualisiert den Text in die `<p>` Element.
+Jedes Mal, wenn ein neuer Wert zugewiesen wird, um `error`, aktualisiert Knockout des Texts in der `<p>` Element.
 
-Die `foreach` Bindung weist Knockout so durchlaufen Sie den Inhalt der `books` Array. Für jedes Element im Array Knockout erstellt ein neues &lt;li&gt; Element. Bindungen, die innerhalb des Kontexts der `foreach` verweisen auf Eigenschaften auf das Arrayelement. Zum Beispiel:
+Die `foreach` Bindung weist Knockout so durchlaufen Sie den Inhalt der `books` Array. Knockout erstellt für jedes Element im Array, ein neues &lt;li&gt; Element. Bindungen, die innerhalb des Kontexts der `foreach` verweisen auf Eigenschaften für das Arrayelement. Zum Beispiel:
 
 [!code-html[Main](part-7/samples/sample4.html)]
 
-Hier die `text` Bindung liest die Author-Eigenschaft, jedes Buch.
+Hier die `text` Bindung liest die Author-Eigenschaft für jedes Buch.
 
-Wenn Sie die Anwendung jetzt ausführen, sollten sie wie folgt aussehen:
+Wenn Sie die Anwendung jetzt ausführen, sollte es wie folgt aussehen:
 
 ![](part-7/_static/image1.png)
 
-Die Liste der Bücher lädt asynchron ausgeführt wird, nachdem die Seite geladen. Zurzeit die &quot;Details&quot; Links sind nicht funktionsfähig. Wir werden diese Funktionalität im nächsten Abschnitt hinzufügen.
+Die Liste der Bücher lädt asynchron, nachdem die Seite geladen werden. Momentan die &quot;Details&quot; Links sind nicht funktionsfähig. Wir fügen diese Funktionalität im nächsten Abschnitt.
 
 > [!div class="step-by-step"]
 > [Zurück](part-6.md)

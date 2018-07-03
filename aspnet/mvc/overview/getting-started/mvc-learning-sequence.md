@@ -1,57 +1,56 @@
 ---
 uid: mvc/overview/getting-started/mvc-learning-sequence
-title: MVC empfohlen, Lernprogramme und Artikel | Microsoft Docs
+title: MVC – empfohlene Tutorials und Artikel | Microsoft-Dokumentation
 author: Rick-Anderson
-description: Diese Seite enthält Links zu ASP.NET MVC-Lernprogrammen und eine vorgeschlagene Sequenz, die Links.
+description: Diese Seite enthält Links zu ASP.NET MVC-Tutorials und eine vorgeschlagene Sequenz zu folgen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: 538eff2b2b2fdab5b0be879f0a5dfa5c9403b089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fd972549fd4c1f46f5bdeafbb466baab7a21e9df
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28032640"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363988"
 ---
-<a name="mvc-recommended-tutorials-and-articles"></a>MVC empfohlen, Lernprogramme und Artikel
+<a name="mvc-recommended-tutorials-and-articles"></a>MVC – empfohlene Tutorials und Artikel
 ====================
-Durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 <a id="pwd"></a>
 ## <a name="getting-started"></a>Erste Schritte
 
-- [Erste Schritte mit ASP.NET MVC 5](introduction/getting-started.md) dieses 11 Teil ist eine gute Möglichkeit zum.
-- [Pluralsight ASP.NET MVC 5-Grundlagen](https://pluralsight.com/training/Player?author=scott-allen&amp;name=aspdotnet-mvc5-fundamentals-m1-introduction&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc5-fundamentals) (video Kurs)
+- [Erste Schritte mit ASP.NET MVC 5](introduction/getting-started.md) Webinaren dieses 11 ist ein guter Ausgangspunkt.
+- [Pluralsight ASP.NET MVC 5-Grundlagen](https://pluralsight.com/training/Player?author=scott-allen&amp;name=aspdotnet-mvc5-fundamentals-m1-introduction&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc5-fundamentals) (videokurs)
 - [Einführung in ASP.NET MVC](https://www.microsoftvirtualacademy.com/training-courses/introduction-to-asp-net-mvc) von Jon Galloway und Christopher Harrison
-- [Lebenszyklus von einer ASP.NET MVC 5-Anwendung](lifecycle-of-an-aspnet-mvc-5-application.md) PDF-Dokument, das den Lebenszyklus einer ASP.NET MVC 5-App-Diagramme.
+- [Lebenszyklus einer ASP.NET MVC 5-Anwendung](lifecycle-of-an-aspnet-mvc-5-application.md) PDF-Dokument, das den Lebenszyklus einer ASP.NET MVC 5-App-Diagramme.
 
 <a id="con"></a>
 ## <a name="working-with-data"></a>Arbeiten mit Daten
 
-- [Erste Schritte mit EF 6 Code First-mit MVC 5](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Tom Dykstras preisgekrönten Reihe tief in EF Artikel.
+- [Erste Schritte mit EF 6 Code First-anhand von MVC 5](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Tom Dykstras ausgezeichnete Reihe dringt tief in EF.
 
 <a id="wj"></a>
 ## <a name="security"></a>Sicherheit
 
-- [Erstellen Sie eine ASP.NET MVC-app mit Authentifizierung und SQL-Datenbank und in Azure bereitstellen](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) dieses beliebten Lernprogramm führt Sie durch das Erstellen einer einfachen app und die Mitgliedschaft und Rollen hinzufügen.
-- [Erstellen Sie eine ASP.NET MVC 5-App mit Facebook, Twitter, LinkedIn und Google OAuth2 anmelden](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) dieses Lernprogramm veranschaulicht das Erstellen einer ASP.NET MVC 5-Webanwendung, die Benutzern ermöglicht, melden Sie sich mithilfe von OAuth 2.0 mit Anmeldeinformationen für eine externe Authentifizierung Anbieter, wie z. B. Facebook, Twitter, LinkedIn, Microsoft oder Google.
-- [Erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, e-Mail-Bestätigung und das Kennwort zurücksetzen](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) zuerst in einer Reihe von Identität enthält Code zum [senden Sie einen Link zur Bestätigung erneut](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
-- [ASP.NET MVC 5-app mit SMS und e-Mail-Zweifaktorenauthentifizierung](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) zweiten Reihe Identität.
+- [Erstellen einer ASP.NET MVC-app mit Authentifizierung und SQL-Datenbank und Bereitstellen in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) dieser beliebten Tutorial führt Sie durch Erstellen einer einfachen app und Hinzufügen von Mitgliedschaften und Rollen.
+- [Erstellen einer ASP.NET MVC 5-App mit Facebook, Twitter, LinkedIn und Google OAuth2 Sign-on](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) in diesem Tutorial erfahren Sie, wie zum Erstellen einer ASP.NET MVC 5-Webanwendung, die Benutzern ermöglicht, melden Sie sich mithilfe von OAuth 2.0 mit den Anmeldeinformationen eine externe Authentifizierung Anbieter, z. B. Facebook, Twitter, LinkedIn, Microsoft oder Google.
+- [Erstellen eine sichere ASP.NET MVC 5-Web-app mit Anmeldung, e-Mail-Bestätigung und kennwortzurücksetzung](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) zuerst in einer Reihe von Identität, enthält Code zum [einen Bestätigungslink](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
+- [ASP.NET MVC 5-app mit SMS und e-Mail-Adresse einer zweistufigen Authentifizierung](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) zweite Identity-Reihe.
 - [Best Practices für die Bereitstellung von Kennwörtern und anderer sensibler Daten für ASP.NET und Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-- [Zweistufige Authentifizierung mithilfe von SMS und e-Mails mit ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` und das Sicherheitscookie Code erfordern, dass einen Benutzer ein überprüfte e-Mail-Konto haben, bevor sie anmelden können, wie SignInManager 2FA Anforderung und vieles mehr überprüft.
-- [Konto zur Bestätigung und Kennwortwiederherstellung mit ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) enthält Details zum Identität wurde nicht gefunden, [erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit anmelden, e-Mail-Bestätigung und das Kennwort zurücksetzen](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) wie etwa dem erstellen zu lassen Benutzer zurücksetzen, deren Kennwort vergessen haben.
+- [Zwei-Faktor-Authentifizierung, die mithilfe von SMS und e-Mail-Adresse mit ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` und das Sicherheitscookie, den Code so, dass einen Benutzer um ein überprüftes e-Mail-Konto zu erhalten, vor der Anmeldung auf, wie SignInManager 2FA-Anforderung und vieles mehr überprüft.
+- [Kontobestätigung und Kennwortwiederherstellung in ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) enthält Details zu Identität wurde nicht gefunden, im [erstellen eine sichere ASP.NET MVC 5-Web-app mit Anmeldung, e-Mail-Bestätigung und kennwortzurücksetzung](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) wie lassen Benutzer zurücksetzen, ihr Kennwort vergessen haben.
 
 <a id="da"></a>
 ## <a name="azure"></a>Azure
 
-- [Erstellen eine ASP.NET Web-app in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) kurze und einfache Lernprogramm zur Bereitstellung in Azure.
-- [Erstellen Sie eine ASP.NET MVC-app mit Authentifizierung und SQL-Datenbank und in Azure bereitstellen](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Erstellen eine ASP.NET-Web-App in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) kurze und einfache Tutorial zur Bereitstellung in Azure.
+- [Erstellen einer ASP.NET MVC-app mit Authentifizierung und SQL-Datenbank und Bereitstellen in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 
 <a id="perf"></a>
 ## <a name="performance-and-debugging"></a>Leistung und des Debuggers

@@ -1,143 +1,142 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
-title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Problembehandlung | Microsoft Docs'
+title: 'ASP.NET-webbereitstellung mithilfe von Visual Studio: Problembehandlung | Microsoft-Dokumentation'
 author: tdykstra
-description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
+description: Dieser tutorialreihe erfahren Sie, wie bereitzustellende (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder bei einem Hostinganbieter von Drittanbietern, indem Warnungsprovider...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/01/2015
 ms.topic: article
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 15bda09c59afaf9e5449c68c5206bb28de245541
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0b57a91c29ba15463e6c534693b951aee8286ad2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889276"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364001"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Problembehandlung
+<a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>ASP.NET-webbereitstellung mithilfe von Visual Studio: Problembehandlung
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung eines Drittanbieters Hostinganbieter oder Azure App Service-Web-Apps mithilfe von Visual Studio 2012 oder Visual Studio 2010. Informationen über die Reihen finden Sie unter [im ersten Lernprogramm, in der Reihe](introduction.md).
+> Dieser tutorialreihe erfahren Sie, wie bereitzustellende (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder bei einem Hostinganbieter von Drittanbietern, mithilfe von Visual Studio 2012 oder Visual Studio 2010. Weitere Informationen über die Reihe finden Sie unter [im ersten Tutorial der Reihe](introduction.md).
 
 
-Diese Seite beschreibt einige allgemeine Probleme, die auftreten können, wenn Sie eine ASP.NET-Webanwendung mithilfe von Visual Studio bereitstellen. Für jede werden ein oder mehrere mögliche Ursachen und entsprechende Lösungen bereitgestellt.
+Diese Seite beschreibt einige der häufigsten Probleme, die auftreten können, wenn Sie eine ASP.NET-Webanwendung mithilfe von Visual Studio bereitstellen. Für jede Adresse werden ein oder mehrere mögliche Ursachen und entsprechende Lösungen bereitgestellt.
 
-Die Szenarien gezeigt gelten für Azure und Drittanbieter-Hostinganbieter. Weitere Informationen zur Problembehandlung in Azure App Service-Web-apps finden Sie unter den folgenden Ressourcen:
+Die gezeigten Szenarien gelten für Azure und Drittanbietern Hostinganbieter. Weitere Informationen zur Problembehandlung in Azure App Service-Web-apps finden Sie unter den folgenden Ressourcen:
 
-- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Problembehandlung in einer Web-App in Azure App Service mithilfe von Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 - [Überwachen von Web-Apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
-- [Die Version von Windows Azure SDK 2.0 für .NET Ankündigung](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgus Blog verwenden, zeigt, wie beim Abrufen der Diagnoseprotokolle in Visual Studio)
+- [Ankündigung der Version von Windows Azure SDK 2.0 für .NET](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgus Blog, zeigt, wie zum Abrufen von Diagnoseprotokollen in Visual Studio)
 
-## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Serverfehler in '/' Anwendung - aktuellen Fehlereinstellungen für benutzerdefinierte verhindern, dass die Details des Fehlers Remote angezeigt wird
+## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Serverfehler in '/' Anwendung – aktuelle Einstellungen für benutzerdefinierte Fehler verhindern, dass Details des Fehlers angezeigt wird, Remote
 
 ### <a name="scenario"></a>Szenario
 
-Nach der Bereitstellung eines Standorts mit einem Remotehost, erhalten Sie eine Fehlermeldung, die die Einstellung "CustomErrors" in der Datei "Web.config" erwähnt, aber nicht an welche die eigentliche Ursache des Fehlers wurde:
+Nach dem Bereitstellen einer Websites mit einem Remotehost, erhalten Sie eine Fehlermeldung angezeigt, die die CustomErrors-Einstellung in der Datei "Web.config" erwähnt, aber nicht angegeben, was die eigentliche Ursache des Fehlers:
 
 [!code-xml[Main](troubleshooting/samples/sample1.xml)]
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig zeigt ASP.NET ausführliche Fehlerinformationen, nur, wenn Ihre Webanwendung auf dem lokalen Computer ausgeführt wird. Sie möchten in der Regel nicht ausführliche Fehlerinformationen angezeigt wird, wenn die Webanwendung über das Internet öffentlich verfügbar ist, da Hacker dieser Informationen können Sie Sicherheitsrisiken in der Anwendung gefunden werden können. Allerdings, wenn Sie eine Website oder Updates auf einer Website bereitstellen, manchmal etwas geht falsch und müssen Sie die tatsächliche Fehlermeldung abzurufen.
+Standardmäßig zeigt ASP.NET ausführliche Fehlerinformationen, nur, wenn Ihre Webanwendung auf dem lokalen Computer ausgeführt wird. Im Allgemeinen möchten nicht ausführliche Fehlerinformationen angezeigt wird, wenn die Webanwendung über das Internet öffentlich verfügbar ist, da Hacker können diese Informationen verwenden, um Schwachstellen in der Anwendung zu finden sein können. Wenn Sie jedoch Sie einen Standort oder Updates an einem Standort bereitstellen, manchmal etwas schief gehen und müssen Sie die eigentliche Fehlermeldung zu erhalten.
 
-Zum Aktivieren der Anwendung ausführlichen Fehlermeldungen angezeigt, wenn sie auf dem Remotehost ausgeführt wird, bearbeiten Sie die Datei "Web.config" CustomErrors Mode abgegrenzt, erneute Bereitstellung der Anwendung und führen Sie die Anwendung erneut aus:
+Zum Aktivieren der Anwendung detaillierte Fehlermeldungen angezeigt, wenn sie auf dem Remotehost ausgeführt wird, bearbeiten Sie die Datei "Web.config" zum Festlegen von CustomErrors-Modus aus, die Anwendung erneut bereitstellen, und führen Sie die Anwendung erneut aus:
 
-1. Wenn der Anwendungsdatei "Web.config" AcustomErrors Element im thesystem.web-Element enthält, ändern Sie Themode-Attribut auf "off". Fügen Sie AcustomErrors Element andernfalls im thesystem.web-Element mit Themode-Attribut auf "off" festlegen, wie im folgenden Beispiel gezeigt: 
+1. Wenn die Web.config-Datei der Anwendung im thesystem.web Element AcustomErrors-Element enthält, ändern Sie Themode-Attribut auf "off". Fügen Sie AcustomErrors Element andernfalls im thesystem.web-Element mit Themode-Attribut auf "off" festlegen, wie im folgenden Beispiel gezeigt: 
 
     [!code-xml[Main](troubleshooting/samples/sample2.xml)]
 2. Bereitstellen Sie die Anwendung.
-3. Führen Sie die Anwendung, und wiederholen Sie, was Sie zuvor ausgeführt haben, die den Fehler verursacht hat. Jetzt können Sie sehen, was die eigentlichen Fehlermeldung ist.
-4. Wenn Sie den Fehler behoben haben, Wiederherstellen der ursprünglichen CustomErrors-Einstellung und erneute Bereitstellung der Anwendung.
+3. Führen Sie die Anwendung, und wiederholen Sie den zuvor, die den Fehler verursacht hat. Jetzt können Sie sehen, was die eigentliche Fehlermeldung ist.
+4. Wenn Sie den Fehler behoben haben, stellen Sie die ursprüngliche CustomErrors-Einstellung aus, und Bereitstellen Sie die Anwendung erneut.
 
-## <a name="cannot-createshadow-copy-contosouniversity-when-that-file-already-exists"></a>Kann nicht erstellt/Schatten kopieren "ContosoUniversity", wenn diese Datei bereits vorhanden ist.
+## <a name="cannot-createshadow-copy-contosouniversity-when-that-file-already-exists"></a>Kann nicht erstellt/Shadow Copy "ContosoUniversity", wenn die Datei bereits vorhanden ist.
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie versuchen, ein Projekt in Visual Studio auszuführen, erhalten Sie eine Fehlerseite mit einer Meldung wie im folgenden Beispiel:
+Wenn Sie versuchen, ein Projekt in Visual Studio ausführen, erhalten Sie eine Fehlerseite mit einer Meldung wie im folgenden Beispiel:
 
-Serverfehler in "/" Anwendung. Kann nicht erstellt/Schatten kopieren "ContosoUniversity", wenn diese Datei bereits vorhanden ist.
+Serverfehler in "/" Anwendung. Kann nicht erstellt/Shadow Copy "ContosoUniversity", wenn die Datei bereits vorhanden ist.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Eine Minute lang warten und den Browser zu aktualisieren oder erneut kompilieren der Website ein, und versuchen Sie es erneut ausführen.
+Warten Sie eine Minute, und aktualisieren Sie den Browser, oder Kompilieren Sie die Site neu, und führen Sie es erneut aus.
 
-## <a name="access-is-denied-in-a-web-page-that-uses-sql-server-compact"></a>Auf einer Webseite verweigert wird, verwendet SQLServer Compact
+## <a name="access-is-denied-in-a-web-page-that-uses-sql-server-compact"></a>Auf einer Webseite authentifiziert werden, verwendet SQLServer Compact
 
 ### <a name="scenario"></a>Szenario
 
-Beim Bereitstellen von eines Standorts, der SQL Server Compact verwendet, und führen Sie eine Seite in die bereitgestellte Website, die auf die Datenbank zugreift, wird die folgende Fehlermeldung angezeigt:
+Beim Bereitstellen einer Website, die SQL Server Compact verwendet, und Sie eine Seite in der bereitgestellten Website, die Zugriff auf die Datenbank ausführen, sehen Sie die folgende Fehlermeldung angezeigt:
 
 Der Zugriff wird verweigert. (Ausnahme von HRESULT: 0 x 80070005 (E\_ACCESSDENIED))
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Das NETZWERKDIENST-Konto auf dem Server muss in der Lage, SQL-Dienst Compact native-Binärdateien zu lesen, die in der *bin\amd64* oder *bin\x86* Ordner, jedoch nicht über Leserechte verfügt über Berechtigungen für diesen Ordner. Set read-Berechtigung für den Netzwerkdienst auf dem *"bin"* Ordner, und stellen Sie sicher, um die Berechtigungen zum Unterordner zu erweitern.
+Das NETZWERKDIENST-Konto auf dem Server muss in der Lage, SQL-Dienst Compact native-Binärdateien zu lesen, die in der *bin\amd64* oder *bin\x86* Ordner, aber es ist keine Leseberechtigungen für diese Ordner. Set read-Berechtigung für den Netzwerkdienst auf die *Bin* Ordner, und stellen Sie sicher, um die Berechtigungen, um Unterordner zu erweitern.
 
 ## <a name="cannot-read-configuration-file-due-to-insufficient-permissions"></a>Die Konfigurationsdatei aufgrund unzureichender Berechtigungen kann nicht gelesen werden.
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie auf der Visual Studio Schaltfläche "Veröffentlichen" zum Bereitstellen einer Anwendung in IIS auf dem lokalen Computer veröffentlichen ein Fehler auftritt und die **Ausgabe** Fenster zeigt eine Fehlermeldung angezeigt, die etwa wie folgt:
+Wenn Sie auf der Visual Studio Schaltfläche "Veröffentlichen" zum Bereitstellen einer Anwendung in IIS auf dem lokalen Computer veröffentlichen ein Fehler auftritt und die **Ausgabe** Fenster wird eine Fehlermeldung angezeigt, die etwa wie folgt:
 
 Fehler beim Lesen der IIS-Konfigurationsdatei "Computer/Umleitung". Die Identität, die Ausführung dieses Vorgangs wurde... Fehler: Die Konfigurationsdatei aufgrund unzureichender Berechtigungen kann nicht gelesen werden.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Mit nur einem Klick auf IIS auf dem lokalen Computer zu veröffentlichen, werden muss Visual Studio mit Administratorberechtigungen ausgeführt. Schließen Sie Visual Studio, und starten Sie es erneut mit Administratorberechtigungen.
+Mit nur einem Klick in IIS auf dem lokalen Computer veröffentlichen, müssen Sie ausführen Visual Studio mit Administratorberechtigungen. Schließen Sie Visual Studio, und starten Sie ihn mit Administratorberechtigungen neu.
 
 ## <a name="could-not-connect-to-the-destination-computer--using-the-specified-process"></a>Auf dem Zielcomputer konnte keine Verbindung hergestellt werden... Mithilfe des angegebenen Prozesses
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie auf der Visual Studio Schaltfläche "Veröffentlichen" zum Bereitstellen einer Anwendung veröffentlichen ein Fehler auftritt und die **Ausgabe** Fenster zeigt eine Fehlermeldung angezeigt, die etwa wie folgt:
+Wenn Sie auf der Visual Studio Schaltfläche "Veröffentlichen" zum Bereitstellen einer Anwendung, veröffentlichen ein Fehler auftritt und die **Ausgabe** Fenster wird eine Fehlermeldung angezeigt, die etwa wie folgt:
 
 [!code-console[Main](troubleshooting/samples/sample3.cmd)]
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Ein Proxyserver wird die Kommunikation mit dem Zielserver unterbrechen. Wählen Sie in der Windows-Systemsteuerung oder im Internet Explorer **Internetoptionen** , und wählen Sie die **Verbindungen** Registerkarte. In der **Interneteigenschaften** (Dialogfeld), klicken Sie auf **LAN-Einstellungen**. In der **Local Area Network (LAN)-Einstellungen** deaktivieren Sie im Dialogfeld die **automatische Suche der Einstellungen** Kontrollkästchen. Klicken Sie dann auf die Schaltfläche "Veröffentlichen" erneut aus.
+Ein Proxyserver wird die Kommunikation mit dem Zielserver unterbrechen. Wählen Sie in der Windows-Systemsteuerung oder im Internet Explorer **Internetoptionen** , und wählen Sie die **Verbindungen** Registerkarte. In der **Interneteigenschaften** Dialogfeld klicken Sie auf **LAN-Einstellungen**. In der **Local Area Network (LAN) Einstellungen** Dialogfeld das Kontrollkästchen der **automatische Suche der Einstellungen** Kontrollkästchen. Klicken Sie dann auf die Schaltfläche "Veröffentlichen" erneut aus.
 
-Wenn das Problem weiterhin besteht, wenden Sie sich an Ihren Systemadministrator, um zu bestimmen, was mit Proxy oder Firewall-Einstellungen erledigt werden kann. Das Problem auftritt, weil einen nicht standardmäßigen Port für die Bereitstellung der Webverwaltungsdienst (8172); Web Deploy verwendet werden. Bei anderen Verbindungen wird Port 80 verwendet, wenn Sie Web Deploy. Wenn Sie mit einem Drittanbieter-Hostinganbieter bereitstellen, verwenden Sie in der Regel der Webverwaltungsdienst.
+Wenn das Problem weiterhin besteht, wenden Sie sich an Ihren Systemadministrator, um zu bestimmen, was mit Proxy oder Firewall-Einstellungen erfolgen kann. Das Problem auftritt, da Sie einen nicht standardmäßigen Port für die Web-Management-Dienst-Bereitstellung (8172), Web Deploy verwendet werden. Bei anderen Verbindungen verwendet das Web Deploy-Port 80. Wenn Sie bei einem Hostinganbieter von Drittanbietern bereitstellen, verwenden Sie in der Regel den Web-Management-Dienst.
 
-## <a name="default-net-40-application-pool-does-not-exist"></a>.NET 4.0 Standardanwendungspool ist nicht vorhanden.
+## <a name="default-net-40-application-pool-does-not-exist"></a>Standard .NET 4.0-Anwendungspool ist nicht vorhanden.
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie eine Anwendung, die .NET Framework 4 erforderlich sind bereitstellen, wird die folgende Fehlermeldung angezeigt:
+Wenn Sie eine Anwendung, die .NET Framework 4 erforderlich sind bereitstellen, sehen Sie die folgende Fehlermeldung angezeigt:
 
-Der standardmäßige .NET 4.0-Anwendungspool ist nicht vorhanden, oder die Anwendung konnte nicht hinzugefügt werden. Stellen Sie sicher, dass ASP.NET 4.0 auf diesem Computer installiert ist.
+Der Standardanwendungspool für .NET 4.0 ist nicht vorhanden, oder die Anwendung konnte nicht hinzugefügt werden. Stellen Sie sicher, dass ASP.NET 4.0 auf diesem Computer installiert ist.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-ASP.NET 4 ist in IIS nicht installiert. Wenn der Server, dem Sie die Bereitstellung Ihrem Entwicklungscomputer ist und Visual Studio 2010 auf dem installiert ist, wird ASP.NET 4 ist auf dem Computer installiert, aber möglicherweise nicht in IIS installiert. Öffnen Sie auf dem Server, dem Sie bereitstellen ein Eingabeaufforderungsfenster mit erhöhten Rechten, und installieren Sie ASP.NET 4 in IIS, indem die folgenden Befehle ausführen:
+ASP.NET 4 ist in IIS nicht installiert. Wenn der Server für die Bereitstellung werden Ihrem Entwicklungscomputer und verfügt über Visual Studio 2010 installiert, ASP.NET 4 ist auf dem Computer installiert, aber Sie werden möglicherweise nicht in IIS installiert. Öffnen Sie auf dem Server, dem Sie bereitstellen eine Eingabeaufforderung mit erhöhten Rechten, und installieren Sie ASP.NET 4 in IIS, indem Sie die folgenden Befehle ausführen:
 
 [!code-console[Main](troubleshooting/samples/sample4.cmd)]
 
-Möglicherweise müssen auch die .NET Framework-Version des Standardanwendungspools manuell festlegen. Weitere Informationen finden Sie unter der Bereitstellung in IIS als eine Testumgebung Lernprogramm dieser Reihe.
+Sie müssen möglicherweise auch die .NET Framework-Version von den Standardanwendungspool manuell festlegen. Weitere Informationen finden Sie unter der Bereitstellung von IIS als Testumgebung Tutorial dieser Reihe.
 
-## <a name="format-of-the-initialization-string-does-not-conform-to-specification-starting-at-index-0"></a>Format der Initialisierungszeichenfolge stimmt nicht beginnend bei Index 0-Spezifikation überein.
+## <a name="format-of-the-initialization-string-does-not-conform-to-specification-starting-at-index-0"></a>Format der Initialisierungszeichenfolge entspricht nicht die Spezifikation, die beginnend bei Index 0.
 
 ### <a name="scenario"></a>Szenario
 
-Nach der Bereitstellung einer Anwendung mit nur einem Klick veröffentlichen Sie, wenn ausführen, die eine Seite, die Zugriff auf die Datenbank Sie die folgende Fehlermeldung angezeigt erhalten:
+Nach der Bereitstellung einer Anwendung mit nur einem Klick veröffentlichen Sie, wenn Sie eine Seite, die Zugriff auf die Datenbank ausführen Sie die folgende Fehlermeldung erhalten:
 
-Format der Initialisierungszeichenfolge stimmt nicht beginnend bei Index 0-Spezifikation überein.
+Format der Initialisierungszeichenfolge entspricht nicht die Spezifikation, die beginnend bei Index 0.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Öffnen der *"Web.config"* -Datei in die bereitgestellte Website und das Kontrollkästchen, um festzustellen, ob die Werte der Verbindungszeichenfolgen beginnen mit $(ReplacableToken\_, wie im folgenden Beispiel:
+Öffnen der *"Web.config"* Datei in der bereitgestellten Website und das Kontrollkästchen, um festzustellen, ob die Werte der Verbindungszeichenfolgen, die mit $ beginnen (ReplacableToken\_, wie im folgenden Beispiel:
 
 [!code-xml[Main](troubleshooting/samples/sample5.xml)]
 
-Wenn die Verbindungszeichenfolgen wie Folgendes Beispiel aussehen, Bearbeiten der Projektdatei, und fügen Sie die folgende Eigenschaft auf die PropertyGroup-Element, das für alle Buildkonfigurationen ist:
+Die Verbindungszeichenfolgen wie im folgenden Beispiel zu sehen, bearbeiten Sie die Projektdatei, und fügen Sie die folgende Eigenschaft auf das PropertyGroup-Element, das für alle Buildkonfigurationen:
 
 [!code-xml[Main](troubleshooting/samples/sample6.xml)]
 
@@ -147,236 +146,236 @@ Klicken Sie dann bereitstellen Sie die Anwendung erneut.
 
 ### <a name="scenario"></a>Szenario
 
-Beim Ausführen der bereitgestellten Website sehen Sie die folgende Fehlermeldung angezeigt, ohne spezifische Angaben, der angibt, der Ursache des Fehlers:
+Wenn Sie auf die bereitgestellte Website ausführen, sehen Sie die folgende Fehlermeldung angezeigt, ohne spezifische Angaben, der angibt, der Ursache des Fehlers:
 
 HTTP-Fehler 500 – Interner Serverfehler.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Es gibt zahlreiche Ursachen von Fehlern 500 allerdings eine mögliche Ursache, wenn Sie diese Lernprogramme vorgehen handelt es sich, dass Sie ein XML-Element in der falschen Stelle in einer Web.config-Transformationsdateien einfügen. Beispielsweise würden Sie diesen Fehler erhalten, wenn Sie die Transformation einfügen, das eingefügt eine &lt;Speicherort&gt; Element unter &lt;system.web&gt; statt direkt unter &lt;Konfiguration&gt;. Die Datei "Web.config" Transform-Vorschaufeature können, stellen Sie sicher, dass die Transformationen wie vorgesehen funktionieren. Die Lösung, wenn Sie eine Transformation finden, die nicht ordnungsgemäß codiert wurde, ist die Transformationsdatei korrigieren und erneut bereitstellen. Wenn ein Fehler nicht offensichtlich ist, kommentieren Sie Transformationen und erneutes Bereitstellen, um festzustellen, was den Fehler 500 verursacht.
+Es gibt viele Ursachen für Fehler vom Typ 500 eine mögliche Ursache, wenn Sie in diesen Tutorials durcharbeiten ist allerdings, dass Sie ein XML-Element in der falschen Stelle in einem der Web.config-Transformationsdateien einfügen. Beispielsweise würden Sie diese Fehlermeldung erhalten, wenn Sie die Transformation einfügen, die Fügt eine &lt;Speicherort&gt; Element unter &lt;"System.Web"&gt; anstelle von direkt unter &lt;Konfiguration&gt;. Sie können das Vorschaufeature des Web.config-Transformation verwenden, um sicherzustellen, dass die Transformationen wie vorgesehen funktionieren. Die Lösung, wenn Sie eine Transformation finden, die nicht ordnungsgemäß codiert wurde, ist die Transformationsdatei korrigieren und erneut bereitstellen. Wenn ein Fehler nicht offensichtlich ist, kommentieren Sie Transformationen und erneut bereitstellen, um die finden Sie unter den 500-Fehler verursacht.
 
 ## <a name="http-50021-internal-server-error"></a>HTTP-500.21 Interner Serverfehler
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie den bereitgestellten Standort ausführen, sehen Sie die folgende Fehlermeldung angezeigt:
+Wenn Sie auf die bereitgestellte Website ausführen, sehen Sie die folgende Fehlermeldung angezeigt:
 
-HTTP-Fehler 500.21 - Interner Serverfehler. Handler "PageHandlerFactory-integriert" weist das ungültige Modul "ManagedPipelineHandler" in der Modulliste.
+HTTP-Fehler 500.21 - Interner Serverfehler. Handler "PageHandlerFactory-integriert" hat ein ungültiges Modul "ManagedPipelineHandler" in der Modulliste an.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Die Website wurde bereitgestellt, Ziele, die ASP.NET 4, aber ASP.NET 4 ist nicht in IIS auf dem Server registriert. Klicken Sie auf dem Server öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und registrieren Sie ASP.NET 4, indem Sie die folgenden Befehle ausführen:
+Die Website haben Sie Ziele, die ASP.NET 4, aber ASP.NET 4 ist nicht registriert in IIS auf dem Server bereitgestellt. Klicken Sie auf dem Server öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und registrieren Sie ASP.NET 4, indem Sie die folgenden Befehle ausführen:
 
 [!code-console[Main](troubleshooting/samples/sample7.cmd)]
 
-Möglicherweise müssen auch die .NET Framework-Version des Standardanwendungspools manuell festlegen. Weitere Informationen finden Sie unter der Bereitstellung in IIS als eine Testumgebung Lernprogramm dieser Reihe.
+Sie müssen möglicherweise auch die .NET Framework-Version von den Standardanwendungspool manuell festlegen. Weitere Informationen finden Sie unter der Bereitstellung von IIS als Testumgebung Tutorial dieser Reihe.
 
-## <a name="login-failed-opening-sql-server-express-database-in-appdata"></a>Fehler bei der Anmeldung öffnende SQL Server Express-Datenbank in-App\_Daten
+## <a name="login-failed-opening-sql-server-express-database-in-appdata"></a>Fehler bei der Anmeldung öffnen SQL Server Express-Datenbank in-App\_Daten
 
 ### <a name="scenario"></a>Szenario
 
-Sie auf dem laufenden der *"Web.config"* Verbindungszeichenfolge für die SQL Server Express-Datenbank als Datei ein *mdf* Datei Ihre *App\_Daten* Ordner und die erste Ausführung der Anwendung, die Sie sehen die folgende Fehlermeldung angezeigt:
+Sie aktualisiert die *"Web.config"* Datei die Verbindungszeichenfolge für SQL Server Express-Datenbank als eine *mdf* Datei Ihre *App\_Daten* Ordner und die erste Ausführung der Anwendung, die Sie sehen die folgende Fehlermeldung angezeigt:
 
-System.Data.SqlClient.SqlException: Datenbank "Datenbankname" von der Anmeldung angeforderte kann kann nicht geöffnet werden. Fehler bei der Anmeldung.
+System.Data.SqlClient.SqlException: Datenbank "DatabaseName" von der Anmeldung angeforderte kann kann nicht geöffnet werden. Die Anmeldung ist fehlgeschlagen.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Der Name des der *mdf* Datei kann nicht mit dem Namen einer beliebigen SQL Server Express-Datenbank, die jemals auf Ihrem Computer vorhanden ist übereinstimmen, auch wenn Sie gelöscht der *mdf* Datei bereits vorhandene Datenbank. Ändern Sie den Namen des der *mdf* Datei in einen Namen, die nie als Datenbanknamen und Änderung verwendet wurde die *"Web.config"* zu den neuen Namen zu verwendende Datei an. Als Alternative können Sie [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) gelöscht zuvor vorhandenen SQL Server Express-Datenbanken.
+Der Name des der *mdf* Datei kann nicht mit dem Namen einer beliebigen SQL Server Express-Datenbank, die jemals auf Ihrem Computer vorhanden ist übereinstimmen, auch wenn Sie gelöscht der *mdf* -Datei der bereits vorhandene Datenbank. Ändern Sie den Namen des der *mdf* Datei einen Namen, die als Name der Datenbank und ändern Sie eine noch nie verwendet wurde die *"Web.config"* Datei, die den neuen Namen verwenden. Als Alternative können Sie [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) So löschen Sie die bereits vorhandene SQL Server Express-Datenbanken.
 
-## <a name="model-compatibility-cannot-be-checked"></a>Modell Kompatibilität können nicht überprüft werden
+## <a name="model-compatibility-cannot-be-checked"></a>Modell-Kompatibilität können nicht überprüft werden
 
 ### <a name="scenario"></a>Szenario
 
-Sie auf dem laufenden der *"Web.config"* Datei die Verbindungszeichenfolge so, dass in einer neuen SQL Server Express-Datenbank verweist, und beim ersten die Anwendung ausführen die folgende Fehlermeldung angezeigt:
+Sie aktualisiert den *"Web.config"* Datei die Verbindungszeichenfolge so in eine neue SQL Server Express-Datenbank verweist, und beim ersten der Anwendung ausführen die folgende Fehlermeldung angezeigt:
 
-Die modellkompatibilität kann nicht überprüft werden, da die Datenbank keine Modellmetadaten enthält. Stellen Sie sicher, dass die DbModelBuilder-Konventionen IncludeMetadataConvention hinzugefügt wurde.
+Modell-Kompatibilität kann nicht überprüft werden, da die Datenbank nicht über die Modellmetadaten enthält. Stellen Sie sicher, dass die Konventionen DbModelBuilder IncludeMetadataConvention hinzugefügt wurde.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Wenn der Name der Datenbank, die Sie in der Datei "Web.config" gesteckt je verwendet wurde, bevor auf Ihrem Computer eine Datenbank mit einigen Tabellen in der sie möglicherweise schon vorhanden sind. Wählen Sie einen neuen Namen, die auf Ihrem Computer vor und die Änderung nicht verwendet wurde die *"Web.config"* Datei, zeigen Sie auf diesem neuen Datenbanknamen verwenden. Als Alternative können Sie [SQL Server Express-Hilfsprogramm](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) oder [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) beim Löschen der vorhandenen Datenbank.
+Wenn Sie den Datenbanknamen in der Datei "Web.config" Einfügen wurde je genutzt, bevor auf Ihrem Computer eine Datenbank bereits mit einigen Tabellen vorhanden sein kann. Wählen Sie einen neuen Namen, die nicht auf Ihrem Computer vor der Änderung verwendet wurde die *"Web.config"* Datei, zeigen Sie auf diesem neuen Datenbanknamen verwenden. Als Alternative können Sie [SQL Server Express-Hilfsprogramm](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) oder [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) zum Löschen der vorhandenen Datenbank.
 
-## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>SQL-Fehler, wenn ein Skript versucht, das Erstellen von Benutzern oder Rollen
+## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>SQL-Fehler, wenn ein Skript versucht, Benutzer oder Rollen erstellen
 
 ### <a name="scenario"></a>Szenario
 
-Verwenden Sie datenbankbereitstellung konfiguriert werden, auf die **SQL packen/veröffentlichen** Registerkarte SQL-Skripts, die während der Bereitstellung ausgeführt umfassen Create User oder Create Role-Befehle und Skript erzeugt die Ausführung dieser Befehle ausgeführt werden. Möglicherweise ausführlichere Meldungen, wie die folgende angezeigt:
+Verwenden Sie die datenbankbereitstellung auf konfiguriert die **SQL packen/veröffentlichen** Registerkarte SQL-Skripts, die während der Bereitstellung ausgeführt enthalten Create User oder Create Role Befehle und Skripts Ausführung ein Fehler auftritt, wenn diese Befehle ausgeführt werden. Detailliertere Meldungen, wie im folgenden wird möglicherweise angezeigt:
 
 [!code-console[Main](troubleshooting/samples/sample8.cmd)]
 
-Wenn dieser Fehler tritt auf, wenn Sie in die Bereitstellung konfiguriert haben die **Web veröffentlichen** Assistenten statt über das **SQL packen/veröffentlichen** Registerkarte, erstellen Sie einen Thread in der [Konfiguration und Bereitstellung](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment) Forum und die Lösung wird diese Seite "Problembehandlung" hinzugefügt werden.
+Wenn dieser Fehler tritt auf, wenn Sie die datenbankbereitstellung im konfiguriert haben die **Webveröffentlichung** Assistenten anstelle der **SQL packen/veröffentlichen** Registerkarte, erstellen Sie einen Thread in der [Konfiguration und Bereitstellung](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment) Forum und die Lösung wird auf dieser Seite zur Problembehandlung hinzugefügt werden.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Berechtigung zum Erstellen von Benutzern bzw. Rollen keine für das Benutzerkonto, das Sie verwenden, um die Bereitstellung durchzuführen. Hostinganbieter kann z. B. die Db zuweisen\_Datareader Db\_Datawriter, und Db\_Ddladmin Rollen mit dem Benutzerkonto, mit dem es für Sie eingerichtet. Diese reichen für die meisten Datenbankobjekte erstellen, aber nicht für Benutzer oder Rollen erstellen. Eine Möglichkeit, den Fehler zu vermeiden, wird durch das Ausschließen von Benutzern und Rollen von datenbankbereitstellung. Hierzu können Sie durch Bearbeiten der PreSource-Element für automatisch generierte Skript die Datenbank, in die folgenden Attribute enthalten:
+Berechtigung zum Erstellen von Benutzern bzw. Rollen keine für das Benutzerkonto an, das Sie verwenden, um die Bereitstellung durchzuführen. Beispielsweise kann der Hostinganbieter die Datenbank zuweisen\_Datareader, Db\_Datawriter, und Db\_Ddladmin Rollen mit dem Benutzerkonto, das für Sie eingerichtet. Diese sind ausreichend für die meisten Datenbankobjekte erstellen, aber nicht für die Erstellung von Benutzern oder Rollen. Eine Möglichkeit zur Vermeidung des Fehlers ist durch das Ausschließen von Benutzern und Rollen von der Bereitstellung der Datenbank. Hierzu bearbeiten das PreSource-Element für automatisch generierte Skript die Datenbank, die folgenden Attribute enthalten:
 
 [!code-console[Main](troubleshooting/samples/sample9.cmd)]
 
-Informationen dazu, wie das PreSource-Element in der Projektdatei bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in der Projektdatei](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Wenn die Benutzer oder Rollen in der Entwicklungsdatenbank in der Zieldatenbank werden müssen, wenden Sie sich an Ihrem Hostinganbieter, um Unterstützung zu erhalten.
+Informationen dazu, wie Sie das PreSource-Element in der Projektdatei bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten der Bereitstellungseinstellungen in der Projektdatei](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Wenn die Benutzer oder Rollen in der Entwicklungsdatenbank in der Zieldatenbank müssen, wenden Sie sich an dem Hostinganbieter zur Verfügung, um Unterstützung zu erhalten.
 
-## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>SQL Server-Timeoutfehler beim Ausführen von benutzerdefinierten Skripts während der Bereitstellung
-
-### <a name="scenario"></a>Szenario
-
-Sie während der Bereitstellung auszuführenden benutzerdefinierten SQL-Skripts angegeben haben, und wenn sie Web Deploy ausgeführt wurde, sie Timeout eintritt.
-
-### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
-
-Mehrere Skripts mit verschiedenen Transaktionsmodi ausgeführt, kann zu Timeout-Fehlern führen. Standardmäßig automatisch generierten Skripts, die in einer Transaktion ausgeführt, aber benutzerdefinierte Skripts nicht der Fall. Bei Auswahl der **Daten und/oder Schema aus einer vorhandenen Datenbank mithilfe von Pull** option die **SQL packen/veröffentlichen** Registerkarte, wenn Sie ein benutzerdefinierte SQL-Skript hinzufügen, müssen Sie transaktionseinstellungen für einige Skripts ändern, damit Alle Skripts verwenden die gleichen transaktionseinstellungen. Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen einer Datenbank mit einem Webanwendungsprojekt](https://msdn.microsoft.com/library/dd465343.aspx).
-
-Wenn Sie transaktionseinstellungen konfiguriert haben, sodass alle identisch sind, aber diese Fehlermeldung weiterhin erhalten, ist eine mögliche problemumgehung die Skripts separat ausführen. In der **Datenbankskripts** Raster in die **packen/veröffentlichen** Registerkarte "SQL", Deaktivieren der **Include** Kontrollkästchen für das Skript, das den Timeoutfehler verursacht hat, dann das Projekt veröffentlichen. Kehren Sie zurück in die **Datenbankskripts** Raster, wählen Sie dieses Skripts **Include** Kontrollkästchen, und Deaktivieren der **Include** Kontrollkästchen für die anderen Skripts. Klicken Sie dann veröffentlichen Sie das Projekt erneut. Dieses Mal beim Veröffentlichen, wird nur die ausgewählten benutzerdefinierten Skripts ausgeführt.
-
-## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Streamen von Daten von Website-Manifest ist noch nicht verfügbar
+## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>SQL Server Timeout-Fehler beim Ausführen von benutzerdefinierten Skripts während der Bereitstellung
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie installieren ein Paket mit der *deploy.cmd* Datei mit der Option t (Test), die Sie sehen der folgende Fehlermeldung angezeigt:
-
-Fehler: Die Streamdaten von "Sitemanifest/DbFullSql [@path="C:\TEMP\AdventureWorksGrant.sql']/sqlScript"ist noch nicht verfügbar.
+Sie haben angegeben, benutzerdefinierte SQL-Skripts, die während der Bereitstellung ausgeführt, und wenn Web Deploy sie ausgeführt wird, sie ein Timeout.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Die Fehlermeldung bedeutet, dass der Befehl einen Testbericht erzeugen kann. Jedoch möglicherweise den Befehl ausführen, wenn Sie die (tatsächliche Installationsoption) "y" verwenden. Die Meldung gibt nur an, dass ein Problem mit dem Befehl im Testmodus vorliegt.
+Die Ausführung mehrerer Skripts, die verschiedene Modi kann zu Timeout-Fehlern führen. Standardmäßig automatisch generierten Skripts, die in einer Transaktion ausgeführt, aber nicht für benutzerdefinierte Skripts. Bei Auswahl der **Daten und/oder Schema aus einer vorhandenen Datenbank extrahieren** option die **SQL packen/veröffentlichen** Registerkarte, wenn Sie ein benutzerdefinierte SQL-Skript hinzufügen, müssen Sie für das Transaktionsprotokoll auf einige Skripts ändern, damit Alle Skripts verwenden die gleichen transaktionseinstellungen. Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen einer Datenbank mit einem Webanwendungsprojekt](https://msdn.microsoft.com/library/dd465343.aspx).
 
-## <a name="this-application-requires-managedruntimeversion-v40"></a>Diese Anwendung erfordert ManagedRuntimeVersion v4. 0
+Wenn Sie für das Transaktionsprotokoll konfiguriert haben, sodass alle identisch sind, aber weiterhin diese Fehlermeldung erhalten, ist eine mögliche problemumgehung, um die Skripts einzeln auszuführen. Paketinstallation Fügt ein Skript nach dem Erstellen, kopieren Sie die systemeigenen Assemblys in **amd64** und **X86**. Damit für diese bereitgestellt werden kann müssen Sie jedoch manuell in das Projekt aufgenommen. Weitere Informationen finden Sie unter den Bereitstellen von SQL Server Compact Tutorial. Fehler nach dem Bereitstellen einer Entity Framework Code First-Anwendung "Pfad ist nicht gültig."
+
+## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Bereitstellung einer Anwendung, die Entity Framework Code First-Migrationen und ein DBMS wie SQL Server Compact verwendet, die die Datenbank in eine Datei in der App gespeichertDatenordner.
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie versuchen, bereitstellen, wird die folgende Fehlermeldung angezeigt:
+Wenn Sie Installieren eines Pakets mithilfe der *"Deploy.cmd"* Datei mit der Option t (Test), die Sie sehen der folgende Fehlermeldung angezeigt:
 
-Der Anwendungspool, den Sie verwenden möchten hat die 'ManagedRuntimeVersion'-Eigenschaft auf "v2. 0" festgelegt. Diese Anwendung erfordert "v4. 0".
+Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die @pathAppDaten Ordner stellen Sie sicher, dass Sie keine Ausschließen von AppDaten ausgewählt, und stellen Sie erneut bereit.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-ASP.NET 4 ist in IIS nicht installiert. Wenn der Server, dem Sie die Bereitstellung Ihrem Entwicklungscomputer ist und Visual Studio 2010 auf dem installiert ist, wird ASP.NET 4 ist auf dem Computer installiert, aber möglicherweise nicht in IIS installiert. Öffnen Sie auf dem Server, dem Sie bereitstellen ein Eingabeaufforderungsfenster mit erhöhten Rechten, und installieren Sie ASP.NET 4 in IIS, indem die folgenden Befehle ausführen:
+Wenn Sie die Anwendung ausführen, erhalten Sie eine Fehlermeldung wie im folgenden Beispiel: Allerdings kann den Befehl ausführen, bei der Verwendung der Option y (tatsächlichen Installation). Entweder Sie alle Dateien in haben nicht die AppDaten Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt Ausschließen von AppDaten auf der Web packen/veröffentlichen Registerkarte die Projekteigenschaften Fenster.
+
+## <a name="this-application-requires-managedruntimeversion-v40"></a>Während des Bereitstellungsvorgangs wird keinen Ordner auf dem Server erstellen, wenn keine Dateien vorhanden sind, in dem Ordner auf dem Server kopiert werden sollen.
+
+### <a name="scenario"></a>Szenario
+
+Wenn Sie bereits die Datenbank, die auf der Website eingerichtet haben, werden während des Bereitstellungsvorgangs der Dateien gelöscht und die AppDaten Ordner selbst bei Auswahl entfernen weiterer Dateien am Ziel in Das Veröffentlichungsprofil.
+
+"COM-Objekt, das vom zugrunde liegenden RCW getrennt wurde kann nicht verwendet werden." Sie wurden erfolgreich mit nur einem Klick zum Bereitstellen Ihrer Anwendung zu veröffentlichen und starten dann dieser Fehler angezeigt:
+
+### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
+
+ASP.NET 4 ist in IIS nicht installiert. Wenn der Server für die Bereitstellung werden Ihrem Entwicklungscomputer und verfügt über Visual Studio 2010 installiert, ASP.NET 4 ist auf dem Computer installiert, aber Sie werden möglicherweise nicht in IIS installiert. Öffnen Sie auf dem Server, dem Sie bereitstellen eine Eingabeaufforderung mit erhöhten Rechten, und installieren Sie ASP.NET 4 in IIS, indem Sie die folgenden Befehle ausführen:
 
 [!code-console[Main](troubleshooting/samples/sample10.cmd)]
 
-## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Microsoft.Web.Deployment.DeploymentProviderOptions umgewandelt
+## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Schließen und Neustart von Visual Studio ist in der Regel alles, die was erforderlich ist, um diesen Fehler zu beheben.
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie ein Paket bereitstellen, wird die folgende Fehlermeldung angezeigt:
+Bereitstellung schlägt fehl, da Benutzer Anmeldeinformationen zum Veröffentlichen, müssen keine SetACL Autorität
 
-Kann nicht Objekt vom Typ "Microsoft.Web.Deployment.DeploymentProviderOptions", "Microsoft.Web.Deployment.DeploymentProviderOptions" umgewandelt werden.
+Wandelt ein Objekt vom Typ "Microsoft.Web.Deployment.DeploymentProviderOptions', 'Microsoft.Web.Deployment.DeploymentProviderOptions' nicht möglich.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Sie versuchen, das zum Bereitstellen von IIS-Manager über die Bereitstellung 1.1 Benutzeroberfläche auf einem Server mit Web Deploy 2.0 installiert. Wenn Sie das IIS-Verwaltungstool Remote bereitstellen, indem ein Kontrollkästchen-Paket importieren verwenden die **neue Features verfügbar** (Dialogfeld), wenn Sie die Verbindung herstellen. (Dieses Dialogfeld kann nur einmal angezeigt, wenn die Verbindung erstmalig eingerichtet wird. Um die Verbindung deaktivieren und erneut zu beginnen, IIS-Manager zu schließen und erneut gestartet werden Sie durch Eingabe von Inetmgr/zurücksetzen an der Eingabeaufforderung.) Wenn eine der Funktionen aufgeführt ist **Webbenutzeroberfläche bereitstellen**, und es wurde eine Versionsnummer niedriger als 8 ist, müssen Sie die Bereitstellung für Server möglicherweise 1.1 und 2.0-Versionen von Web Deploy installiert. Um von einem Client bereitstellen, die 2.0 installiert ist, muss der Server nur Web Deploy 2.0 installiert haben. Sie müssen Ihrem Hostinganbieter zum Beheben dieses Problems zu erhalten.
+Veröffentlichung tritt ein, mit der ein Fehler, Sie haben keine Autorität zum Einrichten von Berechtigungen für Ordner (das Benutzerkonto an, das Sie verwenden keine SetACL Authority). Standardmäßig legt der Visual Studio Leseberechtigungen für den Stammordner der Website und Schreibberechtigungen für die App**Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für Website-Ordner richtig sind und müssen nicht festgelegt werden soll, deaktivieren Sie dieses Verhalten durch Hinzufügen von  IncludeSetACLProviderOn Ziel"false"/ IncludeSetACLProviderOnDestination  der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten). Deaktivieren Sie die Verbindung, und beginnen, IIS-Manager zu schließen und neu zu starten Sie durch Eingabe von Inetmgr/reset an der Eingabeaufforderung.) Wenn eine der Funktionen aufgeführt ist **Webbenutzeroberfläche bereitstellen**, und eine Versionsnummer kleiner als 8 hat, hat des Servers, die Sie bereitstellen, möglicherweise 1.1 und 2.0-Versionen von Web Deploy installiert. Ihre Anwendungsfehler, wenn versucht wird, erstellen oder Bearbeiten einer Datei in einen von der Anwendung, da sie nicht über die Autorität für die Schreibzugriff für diesen Ordner verfügt. Wenn die Anwendung über Schreibzugriff auf einen untergeordneten Ordner benötigt, können Sie Berechtigungen für diesen Ordner festlegen, siehe die Festlegen von Ordnerberechtigungen und in der Produktionsumgebung bereitstellen Tutorials.
 
-## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Kann nicht geladen werden die systemeigenen Komponenten von SQL Server Compact
+## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Wenn Ihre Anwendung über Schreibzugriff auf den Stammordner der Website erfordert, müssen Sie schreibgeschützten Zugriff auf den Stammordner festlegen, durch das Hinzufügen verhindert  IncludeSetACLProviderOn Ziel"false"/ IncludeSetACLProviderOnDestination  der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten).
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie den bereitgestellten Standort ausführen, sehen Sie die folgende Fehlermeldung angezeigt:
+Wenn Sie auf die bereitgestellte Website ausführen, sehen Sie die folgende Fehlermeldung angezeigt:
 
-Fehler beim Laden der systemeigenen Komponenten von SQL Server Compact, des Anbieters ADO.NET Version 8482 entspricht. Installieren Sie die richtige Version von SQL Server Compact. Finden Sie im Knowledge Base-Artikel 974247 Weitere Details.
+Fehler beim Laden der systemeigenen Komponenten von SQL Server Compact, die ADO.NET-Anbieter 8482-Version entspricht. Installieren Sie die richtige Version von SQL Server Compact. KB-Artikel 974247 für Weitere Informationen finden Sie unter.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Der bereitgestellte Standort verfügt nicht über *amd64* und *X86* Unterordner mit der systemeigenen Assemblys werden unter der Anwendungsverzeichnis *"bin"* Ordner. Auf einem Computer, SQL Server Compact installiert ist, befinden sich die systemeigenen Assemblys im *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private*. Die beste Möglichkeit, erhalten die richtigen Dateien in den richtigen Ordnern in einem Visual Studio-Projekt ist das NuGet SqlServerCompact-Paket installieren. Paketinstallation Fügt eine Postbuild-Skript aus, um die systemeigenen Assemblys in kopieren *amd64* und *X86*. Damit für diese bereitgestellt werden können müssen Sie jedoch manuell in das Projekt aufgenommen. Weitere Informationen finden Sie unter der [Bereitstellen von SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) Lernprogramm.
+Fehler bei der Konfiguration - TargetFramework-Attributs verweist auf eine Version, die älter als die installierte Version von .NET Framework Sie wurde erfolgreich veröffentlicht ein Webprojekt, das auf ASP.NET 4.5 abzielt, aber wenn Sie die Anwendung ausführen (mit der * -Modus auf "in der Datei" Web.config "off" festgelegt) erhalten Sie die folgende Fehlermeldung: Die Quelle Fehlermeldungsfeld der Fehlerseite hebt die folgende Zeile aus "Web.config" als Ursache des Fehlers: Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob die Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die auf ASP.NET 4 oder früher abzielt stattdessen. Wenn Sie eine ASP.NET 4 oder früher Webprojekt für dasselbe Ziel bereitstellen, wählen Sie die [entfernen weiterer Dateien am Ziel](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) auf das Kontrollkästchen der Einstellungen Registerkarte die "Web veröffentlichen"Assistenten.
 
-## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>"Pfad ist ungültig" Fehler nach dem Bereitstellen einer Entity Framework Code First-Anwendung
+## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Wenn Sie nicht auswählen entfernen weiterer Dateien am Ziel, wird weiterhin die Fehler bei der Konfiguration-Seite.
 
 ### <a name="scenario"></a>Szenario
 
-Bereitstellung einer Anwendung, die Entity Framework Code First-Migrationen und einem DBMS z. B. SQL Server Compact verwendet wird, das die Datenbank in einer Datei in die App speichert\_Datenordner. Sie müssen Code First-Migrationen so konfiguriert, dass um die Datenbank nach der ersten Bereitstellung zu erstellen. Wenn Sie die Anwendung ausführen, erhalten Sie eine Fehlermeldung wie im folgenden Beispiel:
+Das Projekt \_Eigenschaften Windows enthält die Dropdownliste für eine Ziel-Framework, aber dieses Problem kann nicht aufgelöst werden, indem Sie einfach, die von .NET Framework 4.5 zu .NET Framework 4. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt wird immer noch Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell ändern Sie diese Verweise, oder Erstellen eines neuen Projekts, das auf .NET Framework 4 oder früher abzielt.
 
-Der Pfad ist ungültig. Überprüfen Sie das Verzeichnis für die Datenbank an. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf ]
+Der Pfad ist ungültig. Überprüfen Sie das Verzeichnis für die Datenbank an. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf]
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Code wird zuerst die Datenbank, aber die App zu erstellen versucht\_Datenordner ist nicht vorhanden. Entweder haben nicht Sie alle Dateien haben, in der *App\_Daten* Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt **ausschließen App\_Daten** auf die **Web packen/veröffentlichen** Registerkarte dem Fenster "Projekteigenschaften". Der Bereitstellungsprozess wird keinen Ordner auf dem Server erstellen, wenn es sind keine Dateien im Ordner "" an den Server kopiert werden soll. Bereits die Datenbank am Standort eingerichtet haben, wird der Bereitstellungsprozess die Dateien löschen und die *App\_Daten* Ordner selbst bei Auswahl **entfernen weiterer Dateien am Ziel** in Das Veröffentlichungsprofil. Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die *App\_Daten* Ordner stellen Sie sicher, dass Sie keine **ausschließen App\_Daten** ausgewählt, und stellen Sie erneut bereit.
+Weitere Informationen finden Sie unter \_.NET Framework als Ziel für Websites. Entweder Sie alle Dateien in haben nicht die *App\_Daten* Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt **Ausschließen von App\_Daten** auf der **Web packen/veröffentlichen** Fenster "Projekteigenschaften" auf der Registerkarte. Während des Bereitstellungsvorgangs wird keinen Ordner auf dem Server erstellen, wenn keine Dateien vorhanden sind, in dem Ordner auf dem Server kopiert werden sollen. Wenn Sie bereits die Datenbank, die auf der Website eingerichtet haben, werden während des Bereitstellungsvorgangs der Dateien gelöscht und die *App\_Daten* Ordner selbst bei Auswahl **entfernen weiterer Dateien am Ziel** in Das Veröffentlichungsprofil. Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die *App\_Daten* Ordner stellen Sie sicher, dass Sie keine **Ausschließen von App\_Daten** ausgewählt, und stellen Sie erneut bereit.
 
 ## <a name="com-object-that-has-been-separated-from-its-underlying-rcw-cannot-be-used"></a>"COM-Objekt, das vom zugrunde liegenden RCW getrennt wurde kann nicht verwendet werden."
 
 ### <a name="scenario"></a>Szenario
 
-Sie wurden erfolgreich mit nur einem Klick zum Bereitstellen der Anwendung zu veröffentlichen und starten Sie dann Sie dieser Fehler angezeigt:
+Sie wurden erfolgreich mit nur einem Klick zum Bereitstellen Ihrer Anwendung zu veröffentlichen und starten dann dieser Fehler angezeigt:
 
-Fehler bei der webbereitstellungstasks. (Die Anforderung an die remote-Agent-URL konnte nicht abgeschlossen werden "<https://serverurl.com/msdeploy.axd?site=sitename>".)  
- Die Anforderung an die remote-Agent-URL konnte nicht abgeschlossen werden "<https://url/msdeploy.axd?site=sitename>".  
+Fehler bei der webbereitstellungstasks. (Die Anforderung an die URL der remote-Agent konnte nicht abgeschlossen "<https://serverurl.com/msdeploy.axd?site=sitename>".)  
+ Die Anforderung an die URL der remote-Agent konnte nicht abgeschlossen "<https://url/msdeploy.axd?site=sitename>".  
 Die Anforderung wurde abgebrochen: die Anforderung wurde abgebrochen.  
 COM-Objekt, das vom zugrunde liegenden RCW getrennt wurde, kann nicht verwendet werden.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Schließen und Neustart von Visual Studio ist in der Regel alle, die erforderlich ist, um diesen Fehler zu beheben.
+Schließen und Neustart von Visual Studio ist in der Regel alles, die was erforderlich ist, um diesen Fehler zu beheben.
 
-## <a name="deployment-fails-because-user-credentials-used-for-publishing-dont-have-setacl-authority"></a>Bereitstellung schlägt fehl, da Benutzer Anmeldeinformationen verwendet für die Publishing haben keine SetACL Autorität
-
-### <a name="scenario"></a>Szenario
-
-Publishing schlägt fehl mit Fehler, der angibt berechtigt nicht, Berechtigungen für Ordner festlegen (das Benutzerkonto, das Sie verwenden keinen SetACL Autorität).
-
-### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
-
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für den Standortordner auf Ihre Richtigkeit, und müssen nicht festgelegt werden, deaktivieren Sie dieses Verhalten durch Hinzufügen von **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
-
-## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>"Zugriff verweigert" Fehler, wenn die Anwendung versucht, in einen Anwendungsordner zu schreiben
+## <a name="deployment-fails-because-user-credentials-used-for-publishing-dont-have-setacl-authority"></a>Bereitstellung schlägt fehl, da Benutzer Anmeldeinformationen zum Veröffentlichen, müssen keine SetACL Autorität
 
 ### <a name="scenario"></a>Szenario
 
-Ihre Anwendungsfehler beim Erstellen oder Bearbeiten einer Datei in einem Anwendungsordner versucht, da sie nicht über die Autorität für Schreibzugriff für diesen Ordner verfügt.
+Veröffentlichung tritt ein, mit der ein Fehler, Sie haben keine Autorität zum Einrichten von Berechtigungen für Ordner (das Benutzerkonto an, das Sie verwenden keine SetACL Authority).
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Standardmäßig legt Visual Studio Leseberechtigungen für den Stammordner des Standorts und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung Schreibzugriff auf ein Unterordner benötigt, können Sie Berechtigungen für diesen Ordner als im Ordner und Bereitstellen von der Einstellung für die Produktionsumgebung Lernprogramme in dieser Serie gezeigt festlegen. Wenn Ihre Anwendung Schreibzugriff auf den Stammordner der Website benötigt, müssen Sie verhindern, dass nur-Lese-Zugriff auf den Stammordner festlegen, durch Hinzufügen von **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** die veröffentlichungsprofildatei (auf einem einzigen Profil wirkt sich auf) oder die Datei wpp.targets (um die Auswirkung auf die von allen Profilen). Informationen zur Bearbeitung dieser Dateien finden Sie unter [Vorgehensweise: Bearbeiten von Bereitstellungseinstellungen in Profildateien (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Standardmäßig legt der Visual Studio Leseberechtigungen für den Stammordner der Website und Schreibberechtigungen für die App\_Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für Website-Ordner richtig sind und müssen nicht festgelegt werden soll, deaktivieren Sie dieses Verhalten durch Hinzufügen von **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten). Informationen dazu, wie Sie diese Dateien zu bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten der Bereitstellungseinstellungen in Veröffentlichungsprofildateien (.pubxml) Dateien](https://msdn.microsoft.com/library/ff398069.aspx).
+
+## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Zugriff verweigert wird, wenn die Anwendung versucht, die in einen Anwendungsordner zu schreiben
+
+### <a name="scenario"></a>Szenario
+
+Ihre Anwendungsfehler, wenn versucht wird, erstellen oder Bearbeiten einer Datei in einen von der Anwendung, da sie nicht über die Autorität für die Schreibzugriff für diesen Ordner verfügt.
+
+### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
+
+Standardmäßig legt der Visual Studio Leseberechtigungen für den Stammordner der Website und Schreibberechtigungen für die App\_Datenordner. Wenn Ihre Anwendung über Schreibzugriff auf einen untergeordneten Ordner benötigt, können Sie Berechtigungen für diesen Ordner festlegen, wie in den Ordner festlegen von Berechtigungen und Bereitstellen von in die Produktionsumgebung Tutorials in dieser Reihe dargestellt. Wenn Ihre Anwendung über Schreibzugriff auf den Stammordner der Website erfordert, müssen Sie schreibgeschützten Zugriff auf den Stammordner festlegen, durch das Hinzufügen verhindert **&lt;IncludeSetACLProviderOn Ziel&gt;"false"&lt;/ IncludeSetACLProviderOnDestination&gt;** der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten). Informationen dazu, wie Sie diese Dateien zu bearbeiten, finden Sie unter [Vorgehensweise: Bearbeiten der Bereitstellungseinstellungen in Veröffentlichungsprofildateien (.pubxml) Dateien](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
-## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Fehler bei der Konfiguration - TargetFramework-Attributs verweist auf eine Version, die höher als die installierte Version von .NET Framework ist
+## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Fehler bei der Konfiguration - TargetFramework-Attributs verweist auf eine Version, die älter als die installierte Version von .NET Framework
 
 ### <a name="scenario"></a>Szenario
 
-Sie wurden erfolgreich veröffentlicht ein Webprojekt, die ASP.NET 4.5 abzielen, aber beim Ausführen der Anwendung (mit den CustomErrors-Modus auf "off" in der Datei Web.config festgelegt) erhalten Sie die folgende Fehlermeldung:
+Sie wurde erfolgreich veröffentlicht ein Webprojekt, das auf ASP.NET 4.5 abzielt, aber beim Ausführen der Anwendungs (mit den CustomErrors-Modus auf "off" in der Datei Web.config festgelegt) erhalten Sie die folgende Fehlermeldung:
 
-Die "TargetFramework"-Attribut in der &lt;Kompilierung&gt; -Element der Datei "Web.config" wird nur für Zielversion 4.0 und höher von .NET Framework verwendet (z. B. "&lt;Kompilierung TargetFramework ="4.0"&gt;'). Das Attribut "TargetFramework" verweist auf derzeit eine Version, die höher als die installierte Version von .NET Framework ist. Geben Sie eine gültige Zielversion von .NET Framework, oder installieren Sie die erforderliche Version von .NET Framework.
+Die "TargetFramework"-Attribut in der &lt;Kompilierung&gt; -Element der Datei "Web.config" wird nur für die Ziel-Version 4.0 und höher von .NET Framework verwendet (z. B. "&lt;Kompilierung TargetFramework ="4.0"&gt;'). Das Attribut "TargetFramework" verweist auf derzeit eine Version, die älter als die installierte Version von .NET Framework. Geben Sie eine gültige Zielversion von .NET Framework, oder installieren Sie die erforderliche Version von .NET Framework.
 
-Das Feld Quellfehler die Fehlerseite nennt die folgende Zeile aus der Datei "Web.config" als die Ursache des Fehlers:
+Die Quelle Fehlermeldungsfeld der Fehlerseite hebt die folgende Zeile aus "Web.config" als Ursache des Fehlers:
 
 &lt;compilation targetFramework="4.5" /&gt;
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die ASP.NET 4 oder früher ausgerichtet ist stattdessen.
+Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob die Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die auf ASP.NET 4 oder früher abzielt stattdessen.
 
-Wenn Sie eine ASP.NET 4 oder früher Webprojekt mit dem gleichen Ziel bereitstellen, wählen Sie die **entfernen weiterer Dateien am Ziel** Kontrollkästchen auf der **Einstellungen** auf der Registerkarte die **"Web veröffentlichen"** Assistenten. Wenn Sie nicht auswählen **entfernen weiterer Dateien am Ziel**, werden Sie weiterhin erhalten, die Seite "Fehler bei der Konfiguration".
+Wenn Sie eine ASP.NET 4 oder früher Webprojekt für dasselbe Ziel bereitstellen, wählen Sie die **entfernen weiterer Dateien am Ziel** auf das Kontrollkästchen der **Einstellungen** Registerkarte die **"Web veröffentlichen"** Assistenten. Wenn Sie nicht auswählen **entfernen weiterer Dateien am Ziel**, wird weiterhin die Fehler bei der Konfiguration-Seite.
 
-Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für ein Ziel-Framework, aber Sie können nicht das Problem beheben, indem Sie nur ändern, die von **.NET Framework 4.5** auf **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt verfügen weiterhin über Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell die Verweise ändern oder Erstellen eines neuen Projekts, das .NET Framework 4 oder früher ausgerichtet ist. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
+Das Projekt **Eigenschaften** Windows enthält die Dropdownliste für eine Ziel-Framework, aber dieses Problem kann nicht aufgelöst werden, indem Sie einfach, die von **.NET Framework 4.5** zu **.NET Framework 4**. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt wird immer noch Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell ändern Sie diese Verweise, oder Erstellen eines neuen Projekts, das auf .NET Framework 4 oder früher abzielt. Weitere Informationen finden Sie unter [.NET Framework als Ziel für Websites](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
-## <a name="medium-trust-errors"></a>Mittlere Vertrauensstellungsfehler
+## <a name="medium-trust-errors"></a>Fehler von mittlerer Vertrauenswürdigkeit
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie Ihre Anwendung in der Produktion ausführen, ruft er ein Fehler im Zusammenhang mit mittlerer Vertrauenswürdigkeit ab.
+Wenn Sie Ihre Anwendung in der Produktion ausführen, ruft er einen Fehler im Zusammenhang mit mittlerer Vertrauenswürdigkeit ab.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Viele Drittanbieter-Hostinganbieter führen Ihre Website in mittlerer Vertrauenswürdigkeit, d. Es gibt einige Dinge, die es keine Erlaubnis hat h., führen. Beispielsweise kann nicht Anwendungscode den Zugriff auf die Windows-Registrierung und kann nicht lesen oder Schreiben von Dateien, die außerhalb der Ordnerhierarchie für Ihre Anwendung sind. Standardmäßig die Anwendung ausgeführt wird, im *volle Vertrauenswürdigkeit* auf dem lokalen Computer, was bedeutet, dass die Anwendung möglicherweise können Aktionen ausgeführt werden, die ein Fehler auftritt, während der Bereitstellung bis hin zur Produktion.
+Viele Drittanbieter-Hostinganbieter führen Sie Ihre Website in mittlerer Vertrauenswürdigkeit, d. Es gibt einige Dinge h. zu tun ist unzulässig. Z. B. kann nicht Anwendungscode auf die Windows-Registrierung zugreifen und kann nicht lesen oder Schreiben von Dateien, die außerhalb der Ordnerhierarchie Ihrer Anwendung sind. In der Standardeinstellung die Anwendung ausgeführt wird, im *volle Vertrauenswürdigkeit* auf dem lokalen Computer, was bedeutet, dass es sich bei die Anwendung möglicherweise mehr Möglichkeiten, die fehlschlagen, wenn Sie sie in der produktionsumgebung bereitstellen können.
 
-Sie können die Anwendung mittlere Vertrauensebene in den lokalen IIS-Umgebung ausgeführt werden, um die Problembehandlung konfigurieren. Zu diesem Zweck öffnen Sie die Anwendung *"Web.config"* Datei, und fügen Sie eine **Vertrauensstellung** Element in der **system.web** Element, wie im folgenden Beispiel gezeigt.
+Sie können die Anwendung mittlerer Vertrauenswürdigkeit in der lokalen IIS-Umgebung ausgeführt werden soll, um die Problembehandlung konfigurieren. Zu diesem Zweck öffnen Sie die Anwendung *"Web.config"* Datei, und fügen eine **Vertrauensstellung** Element in der **"System.Web"** Element, wie im folgenden Beispiel gezeigt.
 
 [!code-xml[Main](troubleshooting/samples/sample11.xml)]
 
-Die Anwendung wird nun in mittlerer vetrauenswürdigkeit in IIS auch auf dem lokalen Computer ausgeführt.
+Die Anwendung wird jetzt auch auf dem lokalen Computer mittlerer Vertrauenswürdigkeit in IIS ausgeführt.
 
-Keine dies durchführen, wenn Sie die Bereitstellung für Azure App Service, da Azure keine mittleren Vertrauenswürdigkeit erforderlich sind. Zum Zeitpunkt dieses Lernprogramms im Februar 2012 geschrieben wird verursacht mit dieser Methode, um Ihre Anwendung mittlerer Vertrauenswürdigkeit ausgeführt wird, einen Fehler in Azure.
+Nicht geschieht, wenn Sie in Azure App Service bereitstellen werden, da Azure nicht mit mittleren Vertrauenswürdigkeit erfordert. Zu dem Zeitpunkt, die in diesem Tutorial im Februar 2012 geschrieben wird verursacht mit dieser Methode zu Ihrer Anwendung bei mittlerer Vertrauenswürdigkeit ausgeführt wird, einen Fehler in Azure.
 
-Wenn Sie Entity Framework Code First-Migrationen verwenden, und Sie die Bereitstellung für einen Hostinganbieter, der Ihre Anwendung mittlerer Vertrauenswürdigkeit ausgeführt wird, stellen Sie sicher, dass Sie Version 5.0 oder höher installiert. In Entity Framework, Version 4.3 Migrationen erfordert volle Vertrauenswürdigkeit um das Datenbankschema zu aktualisieren.
+Wenn Sie Entity Framework Code First-Migrationen verwenden, und Sie bereitstellen für einen Hostinganbieter, der Ihre Anwendung bei mittlerer Vertrauenswürdigkeit ausgeführt wird, stellen Sie sicher, dass Sie Version 5.0 oder höher installiert. In Entity Framework, Version 4.3 Migrationen erfordert volles Vertrauen um das Datenbankschema zu aktualisieren.
 
 ## <a name="http-40417-not-found-error"></a>HTTP 404.17 wurde nicht gefunden
 
 ### <a name="scenario"></a>Szenario
 
-Beim Ausführen der bereitgestellten Website auf dem Entwicklungscomputer in IIS finden Sie die folgende Fehlermeldung angezeigt, die meldet, dass der Server "default.aspx" verarbeiten kann:
+Beim Ausführen der bereitgestellten Website auf Ihrem Entwicklungscomputer in IIS, sehen Sie die folgende Fehlermeldung angezeigt, die meldet, dass der Server "default.aspx" nicht verarbeiten kann:
 
-HTTP-Fehler 404.17 - wurde nicht gefunden.
+HTTP Error 404.17 –, die nicht gefunden.
 
-Der angeforderte Inhalt Skript und wird nicht vom Handler für statische Dateien verarbeitet werden.
+Der angeforderte Inhalt Skript, und es wird nicht vom Handler statische Dateien verarbeitet werden.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-ASP.NET 4.5 möglicherweise nicht auf Ihrem Computer installiert werden. Sehen Sie die Schritte in der Bereitstellung in IIS als eine Testumgebung Lernprogramm dieser Reihe, die erläutern, wie ASP.NET 4.5 installiert.
+ASP.NET 4.5 möglicherweise nicht auf Ihrem Computer installiert. Finden Sie die Schritte in der Bereitstellung von IIS als Testumgebung Tutorial dieser Reihe, die erläutern, wie Sie ASP.NET 4.5 zu installieren.
 
 > [!div class="step-by-step"]
 > [Vorherige](deploying-extra-files.md)

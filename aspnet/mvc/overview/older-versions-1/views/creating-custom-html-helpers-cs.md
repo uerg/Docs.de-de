@@ -1,42 +1,41 @@
 ---
 uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
-title: Erstellen von benutzerdefinierten HTML-Hilfsmethoden (c#) | Microsoft Docs
+title: Erstellen von benutzerdefinierten HTML-Hilfsprogrammen (c#) | Microsoft-Dokumentation
 author: microsoft
-description: Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsmethoden erstellen können, die Sie im MVC-Ansichten zur Verfügung stehen. Durch die Nutzung von HTML-Hilfsobjekt...
+description: Das Ziel in diesem Tutorial wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsprogramme erstellen können, die Sie in Ihren MVC-Ansichten verwenden können. Durch die Nutzung von HTML-Hilfsobjekt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
 ms.topic: article
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ebc9aa2aa8dbc02dc01833d671c3bfd19141ba74
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1e5bb247f52162aba02e0d5775bced73f76d2081
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869724"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365171"
 ---
-<a name="creating-custom-html-helpers-c"></a>Erstellen von benutzerdefinierten HTML-Hilfsmethoden (c#)
+<a name="creating-custom-html-helpers-c"></a>Erstellen von benutzerdefinierten HTML-Hilfsprogrammen (c#)
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
 [PDF herunterladen](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
-> Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsmethoden erstellen können, die Sie im MVC-Ansichten zur Verfügung stehen. Durch die Nutzung von HTML-Hilfsmethoden, können Sie die Menge des mühsam Eingabe der HTML-Tags, die Sie ausführen müssen, um eine standard-HTML-Seite erstellen reduzieren.
+> Das Ziel in diesem Tutorial wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsprogramme erstellen können, die Sie in Ihren MVC-Ansichten verwenden können. Durch Nutzen der HTML-Hilfsprogramme, können Sie die Menge der lästige Eingabe von HTML-Tags, die Sie ausführen müssen, um eine standard-HTML-Seite zu erstellen, reduzieren.
 
 
-Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsmethoden erstellen können, die Sie im MVC-Ansichten zur Verfügung stehen. Durch die Nutzung von HTML-Hilfsmethoden, können Sie die Menge des mühsam Eingabe der HTML-Tags, die Sie ausführen müssen, um eine standard-HTML-Seite erstellen reduzieren.
+Das Ziel in diesem Tutorial wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsprogramme erstellen können, die Sie in Ihren MVC-Ansichten verwenden können. Durch Nutzen der HTML-Hilfsprogramme, können Sie die Menge der lästige Eingabe von HTML-Tags, die Sie ausführen müssen, um eine standard-HTML-Seite zu erstellen, reduzieren.
 
-Im ersten Teil dieses Lernprogramms beschreiben ich einige der vorhandenen HTML-Hilfsmethoden, die mit ASP.NET MVC-Framework enthalten. Als Nächstes ich werden zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden beschrieben: Ich wird erläutert, wie zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden durch das Erstellen einer statischen Methode und durch Erstellen einer Erweiterungsmethode.
+Im ersten Teil dieses Lernprogramms beschreibe ich einige der vorhandenen HTML-Hilfsprogramme in ASP.NET MVC-Framework enthalten. Als Nächstes zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden beschrieben: erläutert, wie Sie benutzerdefinierte HTML-Hilfsprogramme zu erstellen, erstellen Sie eine statische Methode und eine Erweiterungsmethode erstellen.
 
-## <a name="understanding-html-helpers"></a>Grundlegendes zu HTML-Hilfsmethoden
+## <a name="understanding-html-helpers"></a>Grundlegendes zu HTML-Hilfsprogramme
 
-Ein HTML-Hilfsobjekt ist nur eine Methode, die eine Zeichenfolge zurückgibt. Die Zeichenfolge kann jede Art von Inhalt darstellen, die Sie möchten. Beispielsweise können Sie HTML-Hilfsmethoden zum Rendern von HTML-Tags wie HTML-standard `<input>` und `<img>` Tags. HTML-Hilfsmethoden können auch komplexeren Inhalt, z. B. eine Registerkartenleiste oder eine HTML-Tabelle der Datenbankdaten rendern.
+Ein HTML-Hilfsprogramm ist nur eine Methode, die eine Zeichenfolge zurückgibt. Die Zeichenfolge kann jede Art von Inhalt darstellen, die Sie möchten. Beispielsweise können Sie HTML-Hilfsmethoden zum Rendern von HTML-standard HTML-Tags `<input>` und `<img>` Tags. Sie können auch HTML-Hilfsmethoden zum Rendern komplexeren Inhalts wie z. B. eine Registerkartenleiste oder eine HTML-Tabelle von Datenbankdaten verwenden.
 
-ASP.NET MVC-Framework enthält die folgenden standardmäßigen HTML-Hilfsmethoden (Dies ist keine vollständige Liste):
+ASP.NET MVC-Framework enthält den folgenden Satz von standardmäßigen HTML-Hilfsprogramme (Dies ist keine vollständige Liste):
 
 - Html.ActionLink()
 - Html.BeginForm()
@@ -50,80 +49,80 @@ ASP.NET MVC-Framework enthält die folgenden standardmäßigen HTML-Hilfsmethode
 - Html.TextArea()
 - Html.TextBox()
 
-Betrachten Sie beispielsweise das Formular im Codebeispiel 1 aus. Dieses Formular wird mithilfe von zwei der standardmäßigen HTML-Hilfsmethoden gerendert (siehe Abbildung 1). Dieses Formular verwendet die `Html.BeginForm()` und `Html.TextBox()` Hilfsmethoden zum Rendern eines einfachen HTML-Formulars.
+Betrachten Sie beispielsweise das Formular in Codebeispiel 1. Dieses Formular wird mit der Hilfe von zwei der standardmäßigen HTML-Hilfsprogramme gerendert (siehe Abbildung 1). Dieses Formular verwendet die `Html.BeginForm()` und `Html.TextBox()` Helper-Methoden, um ein einfaches HTML-Formular zu rendern.
 
 
-[![Seite gerendert wird, mit HTML-Hilfsmethoden](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[![Rendern der Seite mit HTML-Hilfsprogramme](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
-**Abbildung 01**: Seite gerendert wird, mit HTML-Hilfsmethoden ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-custom-html-helpers-cs/_static/image3.png))
+**Abbildung 01**: Rendern der Seite mit HTML-Hilfsprogramme ([klicken Sie, um das Bild in voller Größe anzeigen](creating-custom-html-helpers-cs/_static/image3.png))
 
 
-**Auflisten von 1 – `Views\Home\Index.aspx`**
+**Codebeispiel 1: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample1.aspx)]
 
-Die Html.BeginForm() Hilfsmethode wird verwendet, um die öffnenden und schließenden HTML erstellen `<form>` Tags. Beachten Sie, dass die `Html.BeginForm()` Methode wird aufgerufen, in einer mit Anweisung. Die Anweisung wird sichergestellt, dass die `<form>` Tag geschlossen wird, am Ende der mit Block.
+Die Html.BeginForm() Hilfsmethode wird verwendet, um das öffnende und schließende HTML erstellen `<form>` Tags. Beachten Sie, dass die `Html.BeginForm()` Methode wird aufgerufen, in einem using Anweisung. Die using-Anweisung wird sichergestellt, dass die `<form>` Tags geschlossen wird, am Ende der Verwendung von Block.
 
-Wunsch statt einer mit blockieren, können Sie die Html.EndForm() Hilfsmethode schließen Aufrufen der `<form>` Tag. Verwenden Sie unabhängig davon, welche Vorgehensweise erstellen eine öffnende und schließende `<form>` Tag, die für Sie besonders intuitiv erscheint.
+Falls gewünscht, statt zum Erstellen eines neuen, blockieren, können Sie die Html.EndForm() Helper-Methode zum Schließen Aufrufen der `<form>` Tag. Verwenden der Ansatz, erstellen eine öffnende und schließende `<form>` Tag, der Ihnen intuitivste erscheint.
 
-Die `Html.TextBox()` Hilfsmethoden werden zum Rendern von HTML in Codebeispiel 1 verwendet `<input>` Tags. Wenn Sie in Ihrem Browser Quelltext anzeigen auswählen sehen Sie die HTML-Quelle in 2 aufgelistet. Beachten Sie, dass die Datenquelle und des standard-HTML-Tags enthält.
+Die `Html.TextBox()` Helper-Methoden werden zum Rendern von HTML in Codebeispiel 1 verwendet `<input>` Tags. Bei Auswahl von Quelltext anzeigen in Ihrem Browser sehen Sie die HTML-Quelle im Codebeispiel 2. Beachten Sie, dass die Quelle die standard-HTML-Tags enthält.
 
 > [!IMPORTANT]
-> Beachten Sie, dass die `Html.TextBox()`- HTML-Hilfsobjekt wird mit gerendert `<%= %>` anstelle von tags `<% %>` Tags. Wenn Sie das Gleichheitszeichen nicht einschließen, ruft nichts an den Browser gerendert.
+> Beachten Sie, dass die `Html.TextBox()`- HTML-Hilfsprogramm wird mit gerendert `<%= %>` anstelle von tags `<% %>` Tags. Wenn Sie nicht das Gleichheitszeichen enthalten, wird Klicken Sie dann "nothing" an den Browser gerendert.
 
-ASP.NET MVC-Framework enthält einen kleinen Satz von Hilfsmethoden. In den meisten Fällen müssen Sie das MVC-Framework mit der benutzerdefinierten HTML-Hilfsmethoden zu erweitern. Im weiteren Verlauf dieses Lernprogramms erfahren Sie zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden.
+ASP.NET MVC-Framework enthält eine kleine Gruppe von Hilfsprogrammen. In den meisten Fällen müssen Sie das MVC-Framework für benutzerdefinierte HTML-Hilfsprogramme zu erweitern. In den Rest dieses Tutorials erfahren Sie, zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsprogramme.
 
-**Auflisten von 2 – `Index.aspx Source`**
+**Codebeispiel 2: `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample2.aspx)]
 
 ### <a name="creating-html-helpers-with-static-methods"></a>Erstellen von HTML-Hilfsprogrammen mit statischen Methoden
 
-Die einfachste Möglichkeit zum Erstellen neuer HTML-Hilfsobjekt ist eine statische Methode erstellen, die eine Zeichenfolge zurückgibt. Stellen Sie sich vor, z. B., dass Sie eine neue HTML-Hilfsobjekt erstellen, der eine HTML rendert möchten `<label>` Tag. Sie können mithilfe die Klasse 2 auflisten Rendern einer `<label>` .
+Die einfachste Möglichkeit zum Erstellen einer neuen HTML-Hilfsobjekt ist die Erstellung eine statische Methode, die eine Zeichenfolge zurückgibt. Angenommen, Sie können eine neue HTML-Hilfsobjekt zu erstellen, die eine HTML rendert `<label>` Tag. Sie können mithilfe die Klasse in Liste 2 Rendern einer `<label>` .
 
-**Auflisten von 2 – `Helpers\LabelHelper.cs`**
+**Codebeispiel 2: `Helpers\LabelHelper.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample3.cs)]
 
-Es gibt keine besonderen über die Klasse 2 auflisten. Die `Label()` -Methode einfach eine Zeichenfolge zurückgibt.
+Es gibt keine besonderen, über die Klasse im Codebeispiel 2. Die `Label()` Methode gibt einfach eine Zeichenfolge zurück.
 
-Die geänderte Indexansicht auflisten 3 verwendet den `LabelHelper` zum Rendern von HTML `<label>` Tags. Beachten Sie, die die Sicht enthält eine `<%@ imports %>` -Direktive, die importiert die `Application1.Helpers` Namespace.
+Geänderte Ansicht "Index" in Programmausdruck 3 verwendet die `LabelHelper` zum Rendern von HTML `<label>` Tags. Beachten Sie, die die Ansicht enthält eine `<%@ imports %>` Richtlinie, die importiert die `Application1.Helpers` Namespace.
 
-**Auflisten von 2 – `Views\Home\Index2.aspx`**
+**Codebeispiel 2: `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample4.aspx)]
 
-### <a name="creating-html-helpers-with-extension-methods"></a>Erstellen von HTML-Hilfsprogrammen mit Erweiterungsmethoden [c#]
+### <a name="creating-html-helpers-with-extension-methods"></a>Erstellen von HTML-Hilfsprogrammen mit Erweiterungsmethoden
 
-HTML-Hilfsmethoden funktioniert wie der standardmäßigen HTML-Hilfsmethoden, die in ASP.NET MVC-Framework einbezogen wird, müssen Sie zum Erstellen von Erweiterungsmethoden [c#] erstellt werden soll. Erweiterungsmethoden können Sie einer vorhandenen Klasse neue Methoden hinzufügen. Wenn Sie ein HTML-Hilfsmethode erstellen, werden neue Methoden hinzufügen, für die HtmlHelper-Klasse, die durch eine Sicht HTML-Eigenschaft dargestellt wird.
+Wenn Sie erstellen möchten wie HTML-Hilfsprogramme, der einfach funktioniert der standardmäßigen HTML-Hilfsprogramme, die in ASP.NET MVC-Framework enthalten, müssen Sie Erweiterungsmethoden erstellen. Erweiterungsmethoden ermöglichen Ihnen, neue Methoden zu einer vorhandenen Klasse hinzufügen. Wenn Sie eine HTML-Hilfsmethode erstellen, fügen Sie neue Methoden für die HtmlHelper-Klasse, die eine Ansicht des HTML-Eigenschaft dargestellt.
 
-Die Klasse im Codebeispiel 3 fügt eine Erweiterungsmethode zum der `HtmlHelper` Klasse mit dem Namen `Label()`. Es gibt mehrere Dinge, die Sie zu dieser Klasse beachten sollten. Erstens ist zu beachten, dass die Klasse eine statische Klasse. Sie müssen eine Erweiterungsmethode mit einer statischen Klasse definieren.
+Die Klasse in Programmausdruck 3 fügt eine Erweiterungsmethode die `HtmlHelper` Klasse mit dem Namen `Label()`. Es gibt einige Dinge, die Sie zu dieser Klasse sehen. Erstens ist zu beachten, dass die Klasse eine statische Klasse. Sie müssen eine Erweiterungsmethode mit einer statischen Klasse definieren.
 
-Zweitens, beachten Sie, dass der erste Parameter der `Label()` Methode ist das Schlüsselwort vorangestellt `this`. Der erste Parameter einer Erweiterungsmethode gibt an, die Klasse, die die Erweiterungsmethode erweitert wird.
+Zweitens: Beachten Sie, dass der erste Parameter der `Label()` Methode das Schlüsselwort vorangestellt ist `this`. Der erste Parameter einer extensionmethode gibt an, die Klasse, die die Erweiterungsmethode erweitert wird.
 
-**Auflisten von 3: `Helpers\LabelExtensions.cs`**
+**Codebeispiel 3: `Helpers\LabelExtensions.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample5.cs)]
 
-Nachdem Sie eine Erweiterungsmethode zu erstellen und die Anwendung erfolgreich erstellen, wird die Erweiterungsmethode in Visual Studio Intellisense wie bei allen anderen Methoden einer Klasse angezeigt (siehe Abbildung 2). Der einzige Unterschied ist diese Erweiterung, die Methoden mit einem besonderen Symbol neben dem Namen (Symbol nach unten weisenden Pfeil) angezeigt werden.
+Nachdem Sie eine Erweiterungsmethode erstellen, und erstellen Sie Ihre Anwendung erfolgreich, wird die Erweiterungsmethode in Visual Studio Intellisense wie alle anderen Methoden einer Klasse (siehe Abbildung 2). Der einzige Unterschied ist diese Erweiterung, die Methoden mit einem speziellen Symbol neben dem Namen (ein Symbol nach unten weisenden Pfeil) angezeigt werden.
 
 
-[![Verwenden die Erweiterungsmethode Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
+[![Mithilfe der Erweiterungsmethode Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
-**Abbildung 02**: mit der Erweiterungsmethode Html.Label() ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-custom-html-helpers-cs/_static/image6.png))
+**Abbildung 02**: mithilfe der Erweiterungsmethode Html.Label() ([klicken Sie, um das Bild in voller Größe anzeigen](creating-custom-html-helpers-cs/_static/image6.png))
 
 
-Die geänderte Indexansicht Auflisten von 4 verwendet die Erweiterungsmethode Html.Label() aller gerendert seine `<label>` Tags.
+Geänderte Ansicht "Index" in Listing 4 verwendet die Html.Label()-Erweiterungsmethode, um alle Rendern die `<label>` Tags.
 
-**Auflisten von 4 – `Views\Home\Index3.aspx`**
+**Codebeispiel 4: `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm haben Sie gelernt, zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsmethoden. Zunächst haben Sie gelernt, wie erstellen eine benutzerdefinierten `Label()` HTML-Hilfsobjekt durch Erstellen einer statischen Methode, gibt eine Zeichenfolge zurück. Als Nächstes haben Sie gelernt, wie zum Erstellen eines benutzerdefinierten `Label()` HTML-Hilfsmethode durch Erstellen einer Erweiterungsmethode für die `HtmlHelper` Klasse.
+In diesem Tutorial haben Sie zwei Methoden zum Erstellen von benutzerdefinierten HTML-Hilfsprogramme. Zunächst haben Sie gelernt, erstellen Sie eine benutzerdefinierte `Label()` HTML-Hilfsobjekt, erstellen Sie eine statische Methode, gibt eine Zeichenfolge zurück. Anschließend haben Sie gelernt, erstellen Sie eine benutzerdefinierte `Label()` HTML-Hilfsobjekt-Methode, indem Sie eine Erweiterungsmethode erstellen, auf die `HtmlHelper` Klasse.
 
-In diesem Lernprogramm konzentriert sich ich auf eine sehr einfache HTML-Hilfsmethode erstellen. Beachten Sie, dass ein HTML-Hilfsobjekt ebenso kompliziert, wie gewünscht werden. Sie können HTML-Hilfsmethoden erstellen, die Inhalte wie Strukturansichten, Menüs oder Tabellen der Datenbankdaten rendern.
+Ich Schwerpunkt in diesem Tutorial erstellen eine sehr einfache HTML-Hilfsmethode. Beachten Sie, dass ein HTML-Hilfsprogramm kann so kompliziert, wie Sie möchten. Sie können HTML-Hilfsprogramme erstellen, die umfangreiche Inhalte, z. B. Strukturansichten, Menüs oder Tabellen der Datenbankdaten rendern.
 
 > [!div class="step-by-step"]
 > [Zurück](asp-net-mvc-views-overview-cs.md)

@@ -1,35 +1,34 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity | Microsoft Docs
+title: Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity | Microsoft-Dokumentation
 author: tfitzmac
-description: ASP.NET Identity ist ein erweiterbares System können Sie Ihren eigenen Speicheranbieter erstellen und in die Anwendung eingebunden werden, ohne die anwe erneut verarbeitet werden...
+description: ASP.NET Identity ist ein erweiterbares System auf das diese Weise können Sie Ihren eigenen Anbieter erstellen und es in Ihre Anwendung einbinden, ohne die anwendungse erneut verarbeitet werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
 ms.topic: article
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 06e3ad3b74bf94806f56da9f579255bf2917bc48
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c0f4badabb9c6886bceb2e084f39276a07359dbb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30876799"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364474"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> ASP.NET Identity ist ein erweiterbares System können Sie Ihren eigenen Speicheranbieter erstellen und in die Anwendung eingebunden werden, ohne die Anwendung erneut verarbeitet werden. Dieses Thema beschreibt das Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Identity. Wichtiger Konzepte, die zum Erstellen eigener Speicheranbieter behandelt, aber es ist nicht schrittweise Anleitungen zum Implementieren eines benutzerdefinierten Speicheranbieters.
+> ASP.NET Identity ist ein erweiterbares System auf das diese Weise können Sie Ihren eigenen Anbieter erstellen und es in Ihre Anwendung einbinden, ohne die Anwendung erneut verarbeitet werden muss. Dieses Thema beschreibt, wie Sie einen benutzerdefinierte Speicheranbieter für ASP.NET Identity zu erstellen. Hierin sind die entscheidenden Konzepte für Ihren eigenen Anbieter erstellen, aber es ist nicht schrittweise Anleitungen zum Implementieren eines benutzerdefinierten Speicheranbieters.
 > 
-> Ein Beispiel ein benutzerdefinierten Speicheranbieters implementieren, finden Sie unter [Implementieren eines benutzerdefinierten MySQL ASP.NET Identity Speicheranbieters](implementing-a-custom-mysql-aspnet-identity-storage-provider.md).
+> Ein Beispiel zum Implementieren eines benutzerdefinierten Speicheranbieters, finden Sie unter [Implementieren eines benutzerdefinierten MySQL ASP.NET Identity-Speicheranbieters](implementing-a-custom-mysql-aspnet-identity-storage-provider.md).
 > 
 > Dieses Thema wurde für ASP.NET Identity 2.0 aktualisiert.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - Visual Studio 2013 mit Update 2
@@ -38,145 +37,145 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="introduction"></a>Einführung
 
-Standardmäßig die ASP.NET Identity-System speichert Benutzerinformationen in einer SQL Server-Datenbank und Entity Framework Code First verwendet, um die Datenbank zu erstellen. Für viele Anwendungen eignet sich dieser Ansatz gut. Allerdings auch eine andere Art der Persistenz-Mechanismus, wie z. B. Azure-Tabellenspeicher verwenden oder möglicherweise verfügen Sie bereits mit einer sehr unterschiedliche Struktur als die standardmäßige Implementierung Datenbanktabellen. In beiden Fällen können Sie einen benutzerdefinierten Anbieter für Ihre Speichermechanismus schreiben und stecken Sie diesen Anbieter in Ihrer Anwendung.
+Standardmäßig wird der ASP.NET Identity-System speichert Benutzerinformationen in einer SQL Server-Datenbank und verwendet Entity Framework Code First zum Erstellen der Datenbank. Bei vielen Anwendungen eignet sich dieser Ansatz gut. Allerdings Sie eine andere Art von persistenzmechanismus, z. B. Azure-Tabellenspeicher verwenden möchten, oder möglicherweise verfügen Sie bereits von Tabellen mit einer ganz anderen Struktur als die standardmäßige Implementierung. In beiden Fällen können einen benutzerdefinierten Anbieter für den Storage-Mechanismus zu schreiben und diesen Anbieter in Ihre Anwendung einbinden.
 
-ASP.NET Identity ist standardmäßig in vielen der Visual Studio 2013 Vorlagen enthalten. Sie erhalten Updates zu ASP.NET Identity über [Microsoft AspNet Identity EntityFramework NuGet-Paket](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/).
+ASP.NET Identity ist standardmäßig in vielen der Vorlagen für Visual Studio 2013 enthalten. Sie erhalten Updates nach ASP.NET Identity über [Microsoft AspNet Identität EntityFramework NuGet-Paket](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/).
 
 Dieses Thema enthält die folgenden Abschnitte:
 
-- [Grundkenntnisse der Architektur](#architecture)
+- [Grundlegendes zur Architektur](#architecture)
 - [Verstehen Sie die Daten, die gespeichert werden](#data)
-- [Die Datenzugriffsebene erstellen](#dal)
-- [Anpassen der User-Klasse](#user)
+- [Erstellen der Datenzugriffsebene](#dal)
+- [Anpassen der-Klasse](#user)
 - [Passen Sie den Speicher des Benutzers](#userstore)
-- [Anpassen der Rolle ""-Klasse](#role)
+- [Anpassen der Role-Klasse](#role)
 - [Anpassen der rollenspeicher](#rolestore)
-- [Konfigurieren Sie die Anwendung für die Verwendung der neuen Speicheranbieter](#reconfigure)
-- [Andere Implementierungen von benutzerdefinierten Speicheranbieter](#other)
+- [Konfigurieren der Anwendung zur Verwendung der neuen Speicheranbieter](#reconfigure)
+- [Andere Implementierungen von benutzerdefinierte Speicheranbieter](#other)
 
 <a id="architecture"></a>
-## <a name="understand-the-architecture"></a>Grundkenntnisse der Architektur
+## <a name="understand-the-architecture"></a>Grundlegendes zur Architektur
 
-ASP.NET Identity besteht aus Klassen, die aufgerufen wird, Manager und speichert. -Manager sind allgemeine Klassen, die ein Anwendungsentwickler verwendet wird, um die Vorgänge, z. B. Erstellen eines Benutzers in die ASP.NET Identity-System ausführen. Geschäfte sind an darunter liegende Klassen, die angeben, wie die Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Geschäfte sind eng gekoppelt, mit der Dauerhaftigkeit Manager wurden jedoch entkoppelt von Geschäften dies, dass Sie die Dauerhaftigkeit ersetzen können bedeutet, ohne Unterbrechung der gesamten Anwendung.
+ASP.NET Identity besteht aus Klassen, die aufgerufen wird, Manager und Speicher. -Manager sind die allgemeinen Klassen, die Anwendungsentwickler zum Ausführen von Vorgängen, z. B. das Erstellen eines Benutzers in der ASP.NET Identity-System verwendet. Geschäfte sind Low-Level-Klassen, die angeben, wie Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Geschäfte sind eng gekoppelt mit den Dauerhaftigkeitsmechanismus, aber Managern von entkoppelt sind speichert dies, dass Sie den Dauerhaftigkeitsmechanismus ersetzen können bedeutet, ohne die gesamte Anwendung stören.
 
 Das folgende Diagramm zeigt, wie die Webanwendung mit Managern interagiert, und speichert, die mit der Datenzugriffsebene interagieren.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image1.png)
 
-Zum Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Identity müssen Sie die Datenquelle, die Datenzugriffsebene und die Store-Klassen, die Interaktion mit diesem Datenzugriffsebene erstellen. Sie können weiterhin, mit dem gleichen-Manager-APIs zum Ausführen von Datenvorgängen für den Benutzer aber jetzt, dass Daten in einem anderen Speichersystem gespeichert werden.
+Um eine benutzerdefinierte Speicheranbieter für ASP.NET Identity zu erstellen, müssen Sie der Datenquelle, die Datenzugriffsebene und den Store-Klassen, die Interaktion mit diesen Datenzugriffsebene zu erstellen. Sie können weiterhin den gleichen-Manager-APIs zum Ausführen von Datenvorgängen für den Benutzer aber nun, da Daten in ein anderes Speicherkonto System gespeichert werden.
 
-Sie müssen nicht die Managerklassen anzupassen, weil beim Erstellen einer neuen Instanz eines UserManager oder RoleManager den Typ der Benutzerklasse bereitstellen und eine Instanz der Klasse Store als Argument übergeben. Dieser Ansatz können Sie Ihren benutzerdefinierten Klassen in der bestehenden Struktur einbinden. Sehen Sie, wie UserManager und RoleManager mit Ihren benutzerdefinierten Store Klassen im Abschnitt zu instanziieren [konfigurieren Sie die Anwendung für die Verwendung der neuen Speicheranbieter](#reconfigure).
+Sie müssen nicht die Managerklassen anzupassen, da es beim Erstellen einer neuen Instanz UserManager oder RoleManager auch den Typ der Benutzerklasse angegeben, und übergeben Sie eine Instanz der Store-Klasse als Argument. Dadurch können Sie Ihre benutzerdefinierten Klassen in der vorhandenen Struktur eingebunden. Erfahren Sie, wie Sie die UserManager und RoleManager mit Ihren benutzerdefinierten Store Klassen im Abschnitt zu instanziieren [konfigurieren Sie die Anwendung zur Verwendung der neuen Speicheranbieter](#reconfigure).
 
 <a id="data"></a>
 ## <a name="understand-the-data-that-is-stored"></a>Verstehen Sie die Daten, die gespeichert werden
 
-Zum Implementieren eines benutzerdefinierten Speicheranbieters müssen Sie verstehen, die Arten von Daten mit ASP.NET Identity verwendet, und entscheiden, welche Funktionen für Ihre Anwendung wichtig sind.
+Zum Implementieren eines benutzerdefinierten Speicheranbieters müssen Sie verstehen, die Arten von Daten, die mit ASP.NET Identity verwendet, und entscheiden, welche Funktionen für Ihre Anwendung relevant sind.
 
 | Daten | Beschreibung |
 | --- | --- |
-| Benutzer | Registrierte Benutzer Ihrer Website. Enthält die Benutzer-Id und den Namen an. Möglicherweise enthalten ein Kennwort ein Hashwert erstellt wurde, wenn Benutzer sich mit den Anmeldeinformationen anmelden, die auf Ihrer Website spezifisch sind (und nicht mithilfe der Anmeldeinformationen aus einer externen Website wie Facebook), und sicherheitsstempel, um anzugeben, ob alle Elemente in die Anmeldeinformationen des Benutzers geändert wurde. Möglicherweise enthalten auch die e-Mail-Adresse, Telefonnummer, ob zweistufige Authentifizierung aktiviert ist, wird die aktuelle Anzahl der fehlgeschlagene Anmeldungen, und gibt an, ob ein Konto gesperrt wurde. |
-| Benutzeransprüche | Ein Satz von Anweisungen (oder Ansprüche), über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann. |
-| Benutzernamen | Informationen zu den externen Authentifizierungsanbieter (z. B. Facebook) verwenden, wenn Sie einen Benutzer anmelden. |
-| Rollen | Eine Autorisierungsgruppe für Ihre Website. Enthält den Rollennamen-Id und die Rolle (z. B. "Admin" oder "Employee"). |
+| Benutzer | Registrierte Benutzer Ihrer Website. Enthält die Benutzer-Id und den Namen an. Sind ein Hashwert des Kennworts, wenn Benutzer sich mit Anmeldeinformationen anzumelden, die auf Ihrer Website spezifisch sind (und nicht mithilfe der Anmeldeinformationen von einem externen Standort wie etwa Facebook), und sicherheitsstempel an, ob etwas in die Anmeldeinformationen des Benutzers geändert wurde. Kann auch e-Mail-Adresse, Telefonnummer, die die aktuelle Anzahl der Fehler bei Anmeldungen, ob die zweistufige Authentifizierung aktiviert ist, und gibt an, ob ein Konto gesperrt wurde. |
+| Benutzeransprüche | Ein Satz von Anweisungen (oder Ansprüche) über den Benutzer, die die Identität des Benutzers darstellen. Sie können größer Ausdruck, der die Identität des Benutzers als über Rollen erreicht werden kann. |
+| Benutzeranmeldungen | Informationen zu den externen Authentifizierungsanbieter (z. B. Facebook) beim Anmelden eines Benutzers verwenden. |
+| Rollen | Autorisierungsgruppe für Ihre Website. Enthält den Rollennamen Id und der Rolle (z. B. "Admin" oder "Employee"). |
 
 <a id="dal"></a>
-## <a name="create-the-data-access-layer"></a>Die Datenzugriffsebene erstellen
+## <a name="create-the-data-access-layer"></a>Erstellen der Datenzugriffsebene
 
-In diesem Thema wird davon ausgegangen, dass Sie mit der Persistenz-Mechanismus, den Sie verwenden möchten, und zum Erstellen von Entitäten für diesen Mechanismus vertraut sind. Dieses Thema bietet detaillierte Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen; Stattdessen stellt er einige Vorschläge für die entwurfsentscheidungen, dass Sie beim Arbeiten mit ASP.NET Identity vornehmen müssen.
+In diesem Thema wird davon ausgegangen, dass Sie mit der persistenzmechanismus, den Sie beabsichtigen, verwenden Sie "und" Vorgehensweise: Erstellen von Entitäten für diesen Mechanismus vertraut sind. Dieses Thema bietet keine Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen. Stattdessen stellt er einige Vorschläge dazu die Entscheidungen, die Sie benötigen bei der Arbeit mit ASP.NET Identity.
 
-Sie haben viele Freiheit beim Entwerfen der Repositorys für einen benutzerdefinierten Anbieter zu speichern. Sie müssen nur Repositorys für Funktionen zu erstellen, die Sie in Ihrer Anwendung verwenden möchten. Z. B. Wenn Sie keine Rollen in Ihrer Anwendung verwenden, müssen nicht Sie Speicher für Rollen oder Benutzerrollen erstellen. Die Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die die standardmäßige Implementierung des ASP.NET Identity erheblich unterscheiden. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Repositorys.
+Sie haben nur wenige freiheiten beim Entwerfen der Repositorys für eine benutzerdefinierte Anbieter zu speichern. Sie müssen nur die Repositorys für Funktionen zu erstellen, die Sie in Ihrer Anwendung verwenden möchten. Z. B. Wenn Sie keine Rollen in Ihrer Anwendung verwenden, müssen nicht Sie Speicher für Rollen oder Benutzerrollen zu erstellen. Ihre Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die sehr stark von der Standardimplementierung von ASP.NET Identity ist. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Repositorys.
 
-Eine MySQL-Implementierung des Datenrepositorys für ASP.NET Identity 2.0, finden Sie unter [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
+Einen MySQL-gesammelte Daten Repositorys für ASP.NET Identity 2.0, finden Sie unter [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
 
-In der Datenzugriffsebene Geben Sie die Logik, um die Daten von ASP.NET Identity in Ihrer Datenquelle zu speichern. Die Datenzugriffsebene für Ihre benutzerdefinierten Speicheranbieter kann die folgenden Klassen zum Speichern von Benutzer-und Rolle enthalten.
+In der Datenzugriffsebene Geben Sie die Logik, um die Daten von ASP.NET Identity in Ihrer Datenquelle zu speichern. Die Datenzugriffsebene für Ihre benutzerdefinierte Speicheranbieter sind zum Beispiel die folgenden Klassen zum Speichern von Informationen für Benutzer und die Rolle.
 
 | Klasse | Beschreibung | Beispiel |
 | --- | --- | --- |
-| Kontext | Kapselt die Informationen zum Herstellen einer Verbindung mit Ihrem Dauerhaftigkeit und Ausführen von Abfragen. Diese Klasse ist der Datenzugriffsebene von zentraler Bedeutung. Die anderen Datenklassen ist eine Instanz dieser Klasse für ihre Vorgänge erforderlich. Sie werden auch die Store-Klassen mit einer Instanz dieser Klasse initialisieren. | [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) |
-| Benutzerspeicher | Speichert und ruft Benutzerinformationen (z. B. Benutzer und Kennwort-Hash) ab. | [UserTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserTable.cs) |
-| Rolle Speicher | Speichert Rolleninformationen und abruft (z. B. die Rolle ""). | [RoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) |
+| Kontext | Kapselt die Informationen zur Verbindung mit Ihrem persistenzmechanismus aus, und Abfragen ausführen. Diese Klasse ist der Datenzugriffsebene von zentraler Bedeutung. Die anderen Datenklassen erfordert eine Instanz dieser Klasse, um ihre Vorgänge auszuführen. Sie werden auch die Store-Klassen mit einer Instanz dieser Klasse initialisieren. | [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) |
+| Benutzerspeicher | Speichert und Benutzerinformationen (z. B. Benutzer und Kennwort-Hash) abruft. | [UserTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserTable.cs) |
+| Rolle Speicher | Speichert und ruft Rolleninformationen (z. B. der Role-Name) ab. | [RoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) |
 | Speicherung von userclaims. | Speichert und Anspruch Benutzerinformationen (z. B. den Anspruchstyp und-Wert) abruft. | [UserClaimsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) |
-| Speicherung von userlogins. | Speichert und ruft die Benutzer-Anmeldeinformationen (z. B. eines externen Authentifizierungsanbieters) ab. | [UserLoginsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) |
-| UserRole Storage | Speichert und ruft ab, welche Rollen ein Benutzer zugewiesen ist. | [UserRoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
+| Speicherung von userlogins. | Speichert und ruft die Benutzeranmeldeinformationen (z. B. ein externer Authentifizierungsanbieter) ab. | [UserLoginsTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) |
+| Speicherauslastung | Speichert und ruft ab, welche Rollen ein Benutzer zugewiesen ist. | [UserRoleTable (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) |
 
-Erneut verwenden, müssen Sie nur den Klassen implementieren, die Sie in Ihrer Anwendung verwenden möchten.
+In diesem Fall müssen Sie nur die Klassen implementieren, die Sie in Ihrer Anwendung verwenden möchten.
 
-In der Datenzugriffsklassen Geben Sie Code zum Ausführen von Datenvorgängen für einen bestimmten Persistenz-Mechanismus. Innerhalb der MySQL-Implementierung enthält z. B. die UserTable-Klasse eine Methode zum Einfügen eines neuen Datensatzes in die Datenbanktabelle Benutzer an. Die Variable mit dem Namen `_database` ist eine Instanz der MySQLDatabase-Klasse.
+In den Data Access-Klassen Geben Sie Code zum Ausführen von Datenvorgängen für Ihre bestimmte persistenzmechanismus aus. In der MySQL-Implementierung enthält die UserTable-Klasse z. B. eine Methode, um einen neuen Datensatz in die Benutzer-Datenbanktabelle einzufügen. Die Variable mit dem Namen `_database` ist eine Instanz der MySQLDatabase-Klasse.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample1.cs)]
 
-Nach dem Erstellen der Datenzugriffsklassen, müssen Sie die Store-Klassen erstellen, die die spezifischen Methoden in der Datenzugriffsebene aufrufen.
+Nach dem Erstellen Ihrer Datenzugriffsklassen, müssen Sie die Store-Klassen erstellen, die die spezifischen Methoden in der Datenzugriffsebene aufrufen.
 
 <a id="user"></a>
-## <a name="customize-the-user-class"></a>Anpassen der User-Klasse
+## <a name="customize-the-user-class"></a>Anpassen der-Klasse
 
-Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine Klasse entspricht der [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
+Wenn Sie Ihren eigenen Anbieter implementieren zu können, müssen Sie eine Benutzerklasse entspricht erstellen die ["identityuser"](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
 
-Das folgende Diagramm zeigt die IdentityUser-Klasse, die Sie erstellen müssen und die Schnittstelle in dieser Klasse implementiert.
+Das folgende Diagramm zeigt die Klasse "identityuser", die Sie erstellen müssen und die Schnittstelle zur in dieser Klasse zu implementieren.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image2.png)
 
-Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die der UserManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und den Benutzernamen an. Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen die Angabe den Typ des Schlüssels für den Benutzer durch die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
+Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die versucht, dass der UserManager aufgerufen werden, wenn Vorgänge werden entfernungsaktionen ausgeführt angeforderte. Die Schnittstelle enthält zwei Eigenschaften - Id und den Benutzernamen an. Die [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) Schnittstelle können Sie zur Angabe des Schlüssels für den Benutzer durch die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert der TKey-Parameter.
 
 Das Identity-Framework bietet außerdem die [IUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
 
-Die Klasse IdentityUser IUser implementiert und enthält zusätzliche Eigenschaften oder Konstruktoren für Benutzer auf Ihrer Website. Das folgende Beispiel zeigt eine IdentityUser-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Feld "Id"-Wert von **Int** mit dem Wert des generischen Parameters übereinstimmen. 
+Die Klasse "identityuser" IUser implementiert und enthält alle zusätzlichen Eigenschaften oder Konstruktoren für Benutzer auf Ihrer Website. Das folgende Beispiel zeigt eine "identityuser"-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Id-Feld nastaven NA hodnotu **Int** mit dem Wert des generischen Parameters übereinstimmen. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample2.cs)]
 
- Eine vollständige Implementierung finden Sie unter [IdentityUser (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs). 
+ Eine vollständige Implementierung finden Sie unter ["identityuser" (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs). 
 
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>Passen Sie den Speicher des Benutzers
 
-Sie erstellen außerdem eine UserStore-Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In der UserStore-Klasse, die Sie implementieren die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) und jede der optionalen Schnittstellen. Sie wählen die optionalen Schnittstellen implementieren basierend auf den Funktionen, die, den Sie in der Anwendung bereitstellen möchten.
+Sie erstellen außerdem eine UserStore-Klasse, die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse ist, entspricht die [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace. In die UserStore-Klasse, die Sie implementieren die ["iuserstore"&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) und alle optionalen Schnittstellen. Die Auswahl der optionalen zu implementierenden Schnittstellen basierend auf den Funktionen, die, den Sie in Ihrer Anwendung bereitstellen möchten.
 
-Die folgende Abbildung zeigt die UserStore-Klasse, die Sie erstellen müssen und die entsprechenden Schnittstellen.
+Die folgende Abbildung zeigt die UserStore-Klasse, die Sie erstellen müssen, und die entsprechenden Schnittstellen.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image3.png)
 
-Die Standard-Projektvorlage in Visual Studio enthält Code, der voraussetzt, dass viele optionalen Schnittstellen im Benutzerspeicher implementiert wurden. Wenn Sie mit einem benutzerdefinierten Benutzerspeicher die Standardvorlage verwenden, müssen Sie optionale Schnittstellen implementieren, in Ihrem Benutzerspeicher oder ändern den Code zum nicht mehr in den Schnittstellen Aufrufen von Methoden, die nicht implementiert wurde.
+Die Standard-Projektvorlage in Visual Studio enthält Code, der voraussetzt, dass viele optionalen Schnittstellen im Benutzerspeicher implementiert wurden. Wenn Sie die Standardvorlage mit eines benutzerdefinierten Benutzerspeichers verwenden, müssen Sie optionale Schnittstellen implementieren, aus Ihrem Benutzerspeicher oder ändern den Vorlagencode zum nicht mehr in den Schnittstellen Aufrufen von Methoden, die Sie nicht implementiert haben.
 
- Das folgende Beispiel zeigt eine einfache Store-Klasse. Die **TUser** generischer Parameter akzeptiert den Typ des User-Klasse die in der Regel die IdentityUser-Klasse ist Sie definiert. Die **TKey** generischer Parameter akzeptiert, die Ihre Benutzerschlüssel-Typ. 
+ Das folgende Beispiel zeigt eine einfache Store-Klasse. Die **TUser** generischer Parameter ist vom Typ Ihrer Benutzer-Klasse handelt es sich in der Regel die Klasse "identityuser" Sie definiert. Die **TKey** generischer Parameter ist vom Typ Ihrer Benutzer-Schlüssel. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample3.cs)]
 
- In diesem Beispiel wird mit dem Namen des Konstruktors, der einen Parameter akzeptiert *Datenbank* des Typs ExampleDatabase nur eine Abbildung wie in der Data Access-Klasse übergeben wird. So dauert beispielsweise in der MySQL-Implementierung dieser Konstruktor einen Parameter vom Typ MySQLDatabase. 
+ In diesem Beispiel ist der Konstruktor, der einen Parameter mit dem Namen *Datenbank* des Typs ExampleDatabase nur veranschaulicht, wie in der Data Access-Klasse übergeben wird. In der MySQL-Implementierung akzeptiert z. B. diesen Konstruktor einen Parameter vom Typ MySQLDatabase an. 
 
-In dieser Klasse UserStore verwenden Sie die Datenzugriffsklassen, die Sie erstellt haben, um Vorgänge auszuführen. Beispielsweise weist die UserStore-Klasse in der Implementierung der MySQL CreateAsync-Methode, die eine Instanz von UserTable verwendet, um einen neuen Datensatz einzufügen. Die **einfügen** Methode für die **UserTable** Objekt ist die gleiche Methode, die im vorherigen Abschnitt gezeigt wurde. 
+In die UserStore-Klasse verwenden Sie die Access-Datenklassen, die Sie erstellt haben, um Vorgänge auszuführen. Beispielsweise hat die UserStore-Klasse in der MySQL-Implementierung, die CreateAsync-Methode, die eine Instanz von UserTable verwendet wird, um einen neuen Datensatz einzufügen. Die **einfügen** Methode für die **UserTable** Objekt ist dieselbe Methode, die im vorherigen Abschnitt gezeigt wurde. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample4.cs)]
 
-### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen implementiert werden, wenn Benutzerspeicher anpassen
+### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen zu implementieren, wenn der Speicher des Benutzers anpassen
 
-Die nächste Abbildung zeigt ausführliche Informationen zu Funktionen in jede Schnittstelle definiert. Alle optionalen Schnittstellen erben von IUserStore.
+Die nächste Abbildung zeigt weitere Details zu den Funktionen, die in jede Schnittstelle definiert. Alle optionalen Schnittstellen erben von "iuserstore".
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **IUserStore**  
-  Die [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) -Schnittstelle ist die einzige müssen Sie in Ihrem Benutzerspeicher implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
+  Die ["iuserstore"&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) Schnittstelle ist die einzige Schnittstelle, die Sie aus Ihrem Benutzerspeicher implementieren müssen. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
 - **IUserClaimStore**  
-  Die [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zum Aktivieren von benutzeransprüchen implementieren. Es enthält die Methoden oder hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
+  Die [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zum Aktivieren von benutzeransprüchen implementieren. Sie enthält Methoden oder hinzufügen, entfernen und Abrufen von Ansprüchen des Benutzers.
 - **IUserLoginStore**  
-  Die [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiert die Methoden müssen Sie in Ihrem Benutzerspeicher So aktivieren Sie die externe Authentifizierungsanbieter implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
+  Die [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiert die Methoden müssen Sie in Ihrem Benutzerspeicher externe Authentifizierungsanbieter zu implementieren. Sie enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf den Anmeldeinformationen.
 - **IUserRoleStore**  
-  Die [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher zur Zuordnung von Benutzern zu einer Rolle implementieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
+  Die [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher für die Zuordnung von Benutzern zu einer Rolle implementieren. Sie enthält Methoden zum Hinzufügen, entfernen, und rufen Sie die Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer eine Rolle zugewiesen ist.
 - **IUserPasswordStore**  
-  Die [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher persistent implementieren gehasht Kennwörter. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
+  Die ["iuserpasswordstore"&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher beibehalten implementieren Kennwörter gehasht. Sie enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort, und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt hat.
 - **IUserSecurityStampStore**  
-  Die [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrer Benutzerspeicher einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat implementieren . Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
+  Die [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) Schnittstelle definiert die Methoden müssen Sie in Ihrem Benutzerspeicher verwenden einen sicherheitsstempel für den, der angibt, ob die Kontoinformationen des Benutzers geändert hat implementieren . Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer ändert das Kennwort ein, oder hinzufügt oder entfernt Anmeldungen. Sie enthält Methoden zum Abrufen und Festlegen des sicherheitsstempels.
 - **IUserTwoFactorStore**  
-  Die [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, implementieren zweistufige Authentifizierung müssen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
+  Die [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren, implementieren müssen, an die zweistufige Authentifizierung. Sie enthält Methoden zum Abrufen und festlegen, ob die zweistufige Authentifizierung für einen Benutzer aktiviert ist.
 - **IUserPhoneNumberStore**  
-  Die [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um die Telefonnummern von Benutzern zu speichern. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
+  Die [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, zum Speichern von Telefonnummern des Benutzers. Sie enthält Methoden zum Abrufen und festlegen, die Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
 - **IUserEmailStore**  
-  Die [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
+  Die [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie zum Speichern von Benutzer-e-Mail-Adressen implementieren müssen. Sie enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
 - **IUserLockoutStore**  
-  Die [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie implementieren müssen, um Informationen zum Sperren eines Kontos zu speichern. Es enthält Methoden zum Abrufen der aktuellen Anzahl von zugriffsversuchsfehlern, abrufen und festlegen, ob das Konto gesperrt werden kann, abrufen und Festlegen der Sperre Enddatum, erhöht die Anzahl der fehlerhafte Anmeldeversuche und die Anzahl der gescheiterten Versuche zurückgesetzt.
+  Die [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) Schnittstelle definiert die Methoden, die Sie zum Speichern von Informationen zum Sperren eines Kontos implementieren müssen. Sie enthält Methoden zum Abrufen der aktuellen Anzahl fehlerhafter Zugriffsversuche, abrufen und festlegen, ob das Konto gesperrt werden kann, abrufen und Festlegen der Sperre Enddatum, erhöht die Anzahl der Fehlversuche und Zurücksetzen der Anzahl fehlgeschlagener Versuche.
 - **IQueryableUserStore**  
-  Die [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) Schnittstelle definiert die Elemente, die Sie implementieren müssen, um einen abfragbaren benutzerpeicher bereitzustellen. Sie enthält eine Eigenschaft, die abgefragt werden Benutzer enthält.
+  Die [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) Schnittstelle definiert die Elemente Sie implementieren müssen, um einen abfragbaren benutzerpeicher bereitzustellen. Sie enthält eine Eigenschaft, die abgefragt werden Benutzer enthält.
 
-  Implementieren Sie Schnittstellen, die erforderlich sind, in der Anwendung; z. B. Schnittstellen die IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore und IUserSecurityStampStore wie unten dargestellt. 
+  Implementieren Sie Schnittstellen, die erforderlich sind, in der Anwendung; z. B. Schnittstellen die IUserClaimStore, IUserLoginStore, IUserRoleStore, "iuserpasswordstore" und IUserSecurityStampStore wie unten dargestellt. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample5.cs)]
 
@@ -184,24 +183,24 @@ Eine vollständige Implementierung (einschließlich aller Schnittstellen), finde
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin und IdentityUserRole
 
-Der Microsoft.AspNet.Identity.EntityFramework-Namespace enthält die Implementierung der [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), und [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre Anwendung. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Die Methode UserStore.GetClaimsAsync() kann zum Beispiel die UserClaimTable.FindByUserId(user. aufrufen. ID) Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
+Der Microsoft.AspNet.Identity.EntityFramework-Namespace enthält die Implementierungen der [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), und [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich um Ihre eigenen Versionen dieser Klassen zu erstellen und definieren Sie die Eigenschaften für Ihre Anwendung. Manchmal ist es jedoch sehr viel effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgängen (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Die Back-End-Speicher-Klassen können stattdessen diese Vorgänge direkt auf die Datenquelle ausführen. Beispielsweise können die UserStore.GetClaimsAsync()-Methode der UserClaimTable.FindByUserId(user. aufrufen ID)-Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste mit Ansprüchen zurückgeben.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample6.cs)]
 
 <a id="role"></a>
-## <a name="customize-the-role-class"></a>Anpassen der Rolle ""-Klasse
+## <a name="customize-the-role-class"></a>Anpassen der Role-Klasse
 
-Wenn Sie Ihren eigenen Speicheranbieter implementieren zu können, müssen, erstellen Sie eine rollenklasse entspricht der [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
+Wenn Sie Ihren eigenen Anbieter implementieren zu können, müssen Sie eine rollenklasse entspricht erstellen die [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) -Klasse in der [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) Namespace:
 
-Das folgende Diagramm zeigt die IdentityRole-Klasse, die Sie erstellen müssen und die Schnittstelle in dieser Klasse implementiert.
+Das folgende Diagramm zeigt die IdentityRole-Klasse, die Sie erstellen müssen, und die Schnittstelle, die in dieser Klasse zu implementieren.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image5.png)
 
-Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die RoleManager versucht, der beim Ausführen von Vorgängen angefordert aufgerufen. Die Schnittstelle enthält zwei Eigenschaften - Id und Name. Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) -Schnittstelle ermöglicht Ihnen das Festlegen den Typ des Schlüssels für die Rolle über die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert des Parameters TKey.
+Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) Schnittstelle definiert die Eigenschaften, die versucht, dass die RoleManager aufgerufen werden, wenn Vorgänge werden entfernungsaktionen ausgeführt angeforderte. Die Schnittstelle enthält zwei Eigenschaften - Id und Name. Die [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) Schnittstelle können Sie zur Angabe des Schlüssels für die Rolle über die generische **TKey** Parameter. Der Typ der Id-Eigenschaft entspricht dem Wert der TKey-Parameter.
 
 Das Identity-Framework bietet außerdem die [IRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) Schnittstelle (ohne den generischen Parameter) Wenn Sie einen Zeichenfolgenwert für den Schlüssel verwenden möchten.
 
-Das folgende Beispiel zeigt eine IdentityRole-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Feld "Id" wird in ganzzahligen Typ festgelegt, mit dem Wert des generischen Parameters übereinstimmen. 
+Das folgende Beispiel zeigt eine IdentityRole-Klasse, die eine ganze Zahl für den Schlüssel verwendet. Das Id-Feld wird in ganzzahligen Typ festgelegt, mit dem Wert des generischen Parameters übereinstimmen. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample7.cs)]
 
@@ -210,62 +209,62 @@ Das folgende Beispiel zeigt eine IdentityRole-Klasse, die eine ganze Zahl für d
 <a id="rolestore"></a>
 ## <a name="customize-the-role-store"></a>Anpassen der rollenspeicher
 
-Sie erstellen außerdem eine RoleStore-Klasse, die die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse entspricht dem [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) Klasse im Microsoft.ASP.NET.Identity.EntityFramework-Namespace. In der RoleStore-Klasse, die Sie implementieren die [IRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) und optional die [IQueryableRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) -Schnittstelle.
+Sie erstellen außerdem eine RoleStore-Klasse, die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse ist, entspricht die [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) -Klasse im Namespace Microsoft.ASP.NET.Identity.EntityFramework. In Ihrer RoleStore-Klasse, die Sie implementieren die [IRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) und optional die [IQueryableRoleStore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) -Schnittstelle.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image6.png)
 
-Das folgende Beispiel zeigt eine Rolle Store-Klasse. Der generische TRole-Parameter akzeptiert den Typ der rollenklasse, die in der Regel die IdentityRole-Klasse ist, die Sie definiert. Der generische Parameter des TKey nimmt den Typ Ihres Schlüssels Rolle. 
+Das folgende Beispiel zeigt eine Rolle Store-Klasse. Der generische TRole-Parameter hat, den Typ der rollenklasse, die in der Regel die IdentityRole-Klasse ist, die Sie definiert wird. Der generische TKey-Parameter hat es sich um den Typ des Schlüssels Rolle. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
-  Die [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) Schnittstelle definiert die Methoden, die in Ihrer Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
+  Die [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) Schnittstelle definiert die Methoden, die in Ihrer Rolle Store-Klasse implementieren. Sie enthält Methoden zum Erstellen, aktualisieren, löschen und Rollen werden abgerufen.
 - **RoleStore&lt;TRole&gt;**  
-  Zum RoleStore anpassen, erstellen Sie eine Klasse, die IRoleStore-Schnittstelle implementiert. Sie müssen nur diese Klasse implementieren, wenn Rollen auf Ihrem System verwendet werden soll. Der Konstruktor, einen Parameter namens akzeptiert *Datenbank* des Typs ExampleDatabase nur eine Abbildung wie in der Data Access-Klasse übergeben wird. So dauert beispielsweise in der MySQL-Implementierung dieser Konstruktor einen Parameter vom Typ MySQLDatabase.  
+  Zum RoleStore anpassen, erstellen Sie eine Klasse, die die IRoleStore-Schnittstelle implementiert. Sie müssen nur diese Klasse implementieren, wenn auf Ihrem System Rollen verwenden möchten. Der Konstruktor, der einen namens Parameter *Datenbank* des Typs ExampleDatabase nur veranschaulicht, wie in der Data Access-Klasse übergeben wird. In der MySQL-Implementierung akzeptiert z. B. diesen Konstruktor einen Parameter vom Typ MySQLDatabase an.  
   
   Eine vollständige Implementierung finden Sie unter [RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
 
 <a id="reconfigure"></a>
-## <a name="reconfigure-application-to-use-new-storage-provider"></a>Konfigurieren Sie die Anwendung für die Verwendung der neuen Speicheranbieter
+## <a name="reconfigure-application-to-use-new-storage-provider"></a>Konfigurieren der Anwendung zur Verwendung der neuen Speicheranbieter
 
-Sie haben Ihre neue Speicheranbieter implementiert. Nun müssen Sie die Anwendung verwendet diesen Speicheranbieter konfigurieren. Wenn der Standardanbieter Speicher in Ihrem Projekt enthalten ist, müssen Sie entfernen den Standardanbieter und Ersetzen Sie sie bei Ihrem Anbieter.
+Sie haben Ihre neuen Speicheranbieter implementiert. Nun müssen Sie Ihrer Anwendung zur Verwendung dieses Storage-Anbieter konfigurieren. Wenn der Standardanbieter für die Speicherung in Ihrem Projekt enthalten war, müssen Sie den Standardanbieter zu entfernen und Ersetzen Sie ihn mit Ihrem Anbieter.
 
-### <a name="replace-default-storage-provider-in-mvc-project"></a>Ersetzen Sie die Standard-Speicheranbieter in MVC-Projekt
+### <a name="replace-default-storage-provider-in-mvc-project"></a>Ersetzen der Standardanbieter für Speicher in MVC-Projekt
 
-1. In der **NuGet-Pakete verwalten** Fenster, deinstallieren Sie die **Microsoft ASP.NET Identity EntityFramework** Paket. Sie können dieses Paket nach Dateien suchen der installierten Pakete Identity.EntityFramework.  
-    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Sie werden gefragt, ob Sie auch Entity Framework deinstallieren möchten. Wenn Sie ihn nicht in anderen Teilen der Anwendung benötigen, können Sie es deinstallieren.
-2. In der Datei im Ordner Models IdentityModels.cs löschen, oder kommentieren Sie Sie aus der **ApplicationUser** und **ApplicationDbContext** Klassen. In einer MVC-Anwendung können Sie die gesamte IdentityModels.cs Datei löschen. Klicken Sie in einer Web Forms-Anwendung die beiden Klassen gelöscht, aber stellen Sie sicher, dass Sie die Hilfsklasse beibehalten, die auch in der Datei IdentityModels.cs befindet.
-3. Wenn es sich bei Ihrem Speicheranbieter in einem separaten Projekt befindet, fügen Sie einen Verweis darauf in der Webanwendung an.
+1. In der **NuGet-Pakete verwalten** Fenster, deinstallieren Sie die **Microsoft ASP.NET Identity EntityFramework** Paket. Sie können dieses Paket finden, indem Sie in den Paketen installiert werden Identity.EntityFramework gesucht.  
+    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Sie werden aufgefordert werden, wenn Sie auch Entity Framework deinstallieren möchten. Wenn Sie ihn nicht in anderen Teilen der Anwendung benötigen, können Sie sie deinstallieren.
+2. Löschen Sie in der Datei IdentityModels.cs im Ordner "Models", oder kommentieren Sie die **"applicationuser"** und **ApplicationDbContext** Klassen. In einer MVC-Anwendung können Sie die gesamte IdentityModels.cs-Datei löschen. Löschen Sie die beiden Klassen, aber stellen Sie sicher, dass Sie die Hilfsklasse beibehalten, die auch in der Datei IdentityModels.cs befindet, in einer Web Forms-Anwendung.
+3. Wenn Ihr Storage-Anbieter in einem separaten Projekt befindet, fügen Sie einen Verweis darauf in Ihrer Webanwendung.
 4. Ersetzen Sie alle Verweise auf `using Microsoft.AspNet.Identity.EntityFramework;` mit einer using-Anweisung für den Namespace von Ihrem Speicheranbieter.
-5. In der **Startup.Auth.cs** Klasse, ändern Sie die **ConfigureAuth** zu eine einzelne Instanz von den entsprechenden Kontext zu verwendende Methode. 
+5. In der **Startup.Auth.cs** Klasse, Ändern der **ConfigureAuth** Methode, um eine einzelne Instanz von den geeigneten Kontext verwenden. 
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample9.cs?highlight=3)]
-6. In der App\_Startordner öffnen **IdentityConfig.cs**. Ändern Sie in der Klasse ApplicationUserManager der **erstellen** Methode, um eine Benutzer-Manager zurückzugeben, die Ihre benutzerdefinierten Benutzerspeicher verwendet. 
+6. In der App\_Startordner **IdentityConfig.cs**. Ändern Sie in der ApplicationUserManager-Klasse, die **erstellen** Methode, um eine Benutzer-Manager zurückzugeben, die Ihrem benutzerdefinierten Benutzerspeicher verwendet. 
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample10.cs?highlight=3)]
-7. Ersetzen Sie alle Verweise auf **ApplicationUser** mit **IdentityUser**.
-8. Das Standardprojekt enthält einige Member in User-Klasse, die nicht in der IUser-Schnittstelle definiert sind; wie E-Mail, PasswordHash und GenerateUserIdentityAsync. Wenn User-Klasse nicht diese Member verfügt, müssen Sie diese implementieren oder ändern Sie den Code, der diesen Member verwendet.
-9. Wenn Sie alle Instanzen von RoleManager erstellt haben, ändern Sie Code, verwenden Sie die neue RoleStore-Klasse.  
+7. Ersetzen Sie alle Verweise auf **"applicationuser"** mit **"identityuser"**.
+8. Das Standardprojekt enthält einige Elemente in der User-Klasse, die nicht in die "IUser"-Schnittstelle definiert sind; z. B. E-Mail, PasswordHash und GenerateUserIdentityAsync. Wenn die User-Klasse nicht über diese Elemente besitzt, müssen Sie sie implementieren oder ändern Sie den Code, der diese Elemente verwendet.
+9. Wenn Sie alle Instanzen von RoleManager erstellt haben, ändern Sie diesen Code, um die neue RoleStore-Klasse zu verwenden.  
 
     [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample11.cs)]
-10. Das Standardprojekt dient für eine Klasse, die einen Zeichenfolgenwert für den Schlüssel verfügt. Wenn User-Klasse auf einen anderen Typ für den Schlüssel (z. B. eine ganze Zahl) verfügt, müssen Sie das Projekt zur Bearbeitung von Ihrem Typs ändern. Finden Sie unter [Ändern der Primärschlüssel für Benutzer in ASP.NET Identity](change-primary-key-for-users-in-aspnet-identity.md).
-11. Fügen Sie ggf. die Verbindungszeichenfolge in der Datei "Web.config" hinzu.
+10. Das Standardprojekt dient für eine Klasse, die einen Zeichenfolgenwert für den Schlüssel verfügt. Wenn die User-Klasse für den Schlüssel (z. B. eine ganze Zahl) einen anderen Typ aufweist, müssen Sie das Projekt, um die Arbeit mit Ihrem Typ ändern. Finden Sie unter [Ändern des Primärschlüssels für Benutzer in ASP.NET Identity](change-primary-key-for-users-in-aspnet-identity.md).
+11. Fügen Sie ggf. die Verbindungszeichenfolge in die Datei "Web.config" hinzu.
 
 <a id="other"></a>
 ## <a name="other-resources"></a>Weitere Ressourcen
 
 - Blog: [Implementieren von ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
-- Lernprogramm und GIT-Code: [Simple.Data Asp.Net Identity Provider](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
-- Lernprogramm:[die grundlegende Identität Konten einrichten und zeigen sie auf eine externe DB](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx). Durch [ @xivSolutions ](https://twitter.com/xivSolutions).
-- Lernprogramm[: Implementieren eines benutzerdefinierten MySQL ASP.NET Identity-Speicheranbieters](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+- Tutorial und GIT-Code: [Simple.Data Asp.Net Identity Provider](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
+- Tutorial:[die grundlegende Identität Konten einrichten, und zeigen sie auf eine externe Datenbank](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx). Durch [ @xivSolutions ](https://twitter.com/xivSolutions).
+- Tutorial[: Implementieren eines benutzerdefinierten MySQL ASP.NET Identity-Speicheranbieters](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
 - [CodeFluent Entitäten](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/) von [SoftFluent](http://www.softfluent.com/)
 - [Azure-Tabellenspeicher](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) von James Randall.
 - Azure-Tabellenspeicher: [AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) von [ @stuartleeks ](https://twitter.com/stuartleeks).
 - [CouchDB / Cloudant von Daniel Wertheim.](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- Elastische Suchzeichenfolge[h: elastischen Identität](https://github.com/bmbsqd/elastic-identity) von Bombsquad AB.
+- Für elastische Datenbanken suchen[h: für elastische Datenbanken Identität](https://github.com/bmbsqd/elastic-identity) von Bombsquad AB.
 - [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) von Jonathan Sheely Jonathan Sheely.
 - [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) von Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) von [ @tourismgeek ](https://twitter.com/tourismgeek).
 - [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) von [ILMServices](http://www.ilmservice.com/).
 - Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)
-- T4-Vorlagen zum Generieren von EF code für ein Geschäft auf "Datenbank zuerst" Benutzer: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
+- T4-Vorlagen zum Generieren von EF code für ein "database zuerst" Benutzerspeicher: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
