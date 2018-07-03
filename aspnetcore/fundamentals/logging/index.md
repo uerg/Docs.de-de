@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Co
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 969ad303c3fee06aa40d43140153ffbf58b735db
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126286"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -18,15 +18,17 @@ Von [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdy
 
 ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiedenen Protokollanbietern funktioniert. Mit den integrierten Anbietern können Sie Protokolle an verschiedene Ziele senden, und Sie können ein Protokollierungsframework eines Drittanbieters einbinden. Dieser Artikel zeigt, wie Sie die integrierte Protokollierungs-API und die Anbieter in Ihrem Code verwenden.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample2) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
----
+::: moniker-end
 
 ## <a name="how-to-create-logs"></a>Erstellen von Protokollen
 
@@ -44,7 +46,7 @@ ASP.NET Core stellt keine asynchronen Protokollierungsmethoden zur Verfügung, w
 
 ## <a name="how-to-add-providers"></a>Hinzufügen von Anbietern
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Ein Protokollierungsanbieter ruft die mit einem `ILogger`-Objekt erstellte Meldung ab und zeigt sie an oder speichert sie. Beispielsweise zeigt der Konsolenanbieter Meldungen auf der Konsole an, und der Azure App Service-Anbieter kann Meldungen in Azure Blob Storage speichern.
 
@@ -56,7 +58,9 @@ Die Standardprojektvorlage ermöglicht die Protokollierung mit der Methode [Crea
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Ein Protokollierungsanbieter ruft die mit einem `ILogger`-Objekt erstellte Meldung ab und zeigt sie an oder speichert sie. Beispielsweise zeigt der Konsolenanbieter Meldungen auf der Konsole an, und der Azure App Service-Anbieter kann Meldungen in Azure Blob Storage speichern.
 
@@ -69,9 +73,53 @@ Die ASP.NET Core-[Abhängigkeitsinjektion](xref:fundamentals/dependency-injectio
 > [!NOTE]
 > Die [Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) fügt Protokollanbieter in der `Startup.Configure`-Methode hinzu. Wenn Sie für zuvor ausgeführten Code eine Protokollausgabe erhalten möchten, fügen Sie Protokollierungsanbieter im `Startup`-Klassenkonstruktor hinzu.
 
----
+::: moniker-end
 
 Informationen zu jedem [integrierten Protokollierungsanbieter](#built-in-logging-providers) sowie Links zu [Protokollierungsanbietern von Drittanbietern](#third-party-logging-providers) finden Sie weiter unten in diesem Artikel.
+
+## <a name="settings-file-configuration"></a>Konfiguration der Einstellungsdatei
+
+In jedem der vorherigen Beispiele im Abschnitt [Hinzufügen von Anbietern](#how-to-add-providers) wird die Protokollanbieterkonfiguration aus dem `Logging`-Abschnitt der Einstellungsdateien für die App geladen. Im folgenden Beispiel werden die Inhalte einer herkömmlichen *appsettings.Development.json*-Datei veranschaulicht:
+
+::: moniker range=">= aspnetcore-2.1"
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    },
+    "Console":
+    {
+      "IncludeScopes": "true"
+    }
+  }
+}
+```
+
+`LogLevel`-Schlüssel stellen Protokollnamen dar. Der `Default`-Schlüssel gilt für Protokolle, die nicht explizit aufgeführt werden. Der Wert entspricht dem auf das jeweilige Protokoll angewendeten [Protokolliergrad](#log-level). Protokollschlüssel, die `IncludeScopes` festlegen (im Beispiel `Console`), geben an, ob [Protokollbereiche](#log-scopes) für das angegebene Protokoll aktiviert sind.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.1"
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}
+```
+
+`LogLevel`-Schlüssel stellen Protokollnamen dar. Der `Default`-Schlüssel gilt für Protokolle, die nicht explizit aufgeführt werden. Der Wert entspricht dem auf das jeweilige Protokoll angewendeten [Protokolliergrad](#log-level).
+
+::: moniker-end
 
 ## <a name="sample-logging-output"></a>Beispiel einer Protokollierungsausgabe
 
@@ -263,7 +311,7 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>Protokollfilterung
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Sie können einen Mindestprotokolliergrad für einen bestimmten Anbieter und eine bestimmte Kategorie oder für alle Anbieter oder alle Kategorien festlegen. Alle Protokolle unter dem Mindestgrad werden nicht an diesen Anbieter weitergeleitet, sodass sie nicht angezeigt oder gespeichert werden. 
 
@@ -345,7 +393,9 @@ Sie können Code in einer Filterfunktion schreiben, um Filterregeln anzuwenden. 
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Bei einigen Protokollierungsanbietern können Sie angeben, wann Protokolle in ein Speichermedium geschrieben oder ignoriert werden sollen – je nach Protokolliergrad und Kategorie.
 
@@ -363,7 +413,7 @@ Wenn Sie die Filterung verwenden, um zu verhindern, dass alle Protokolle für ei
 
 Die Erweiterungsmethode `WithFilter` wird vom NuGet-Paket [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) bereitgestellt. Die Methode gibt eine neue `ILoggerFactory`-Instanz zurück, die Protokollmeldungen für alle bei ihr registrierten Protokollierungsanbieter filtert. Andere `ILoggerFactory`-Instanzen, die ursprüngliche `ILoggerFactory`-Instanz eingeschlossen, sind nicht betroffen.
 
----
+::: moniker-end
 
 ## <a name="log-scopes"></a>Protokollbereiche
 
@@ -375,22 +425,37 @@ Ein Bereich ist ein `IDisposable`-Typ, der von der Methode [ILogger.BeginScope&l
 
 Der folgende Code aktiviert Bereiche für den Konsolenanbieter:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range="> aspnetcore-2.0"
 
-In *Program.cs*:
+*Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Um die bereichsbasierte Protokollierung zu aktivieren, muss die Konsolenprotokollierungsoption `IncludeScopes` konfiguriert werden. Die Konfiguration von `IncludeScopes` mithilfe von *appsettings*-Konfigurationsdateien wird mit der Veröffentlichung von ASP.NET Core 2.1 zur Verfügung stehen.
+> Um die bereichsbasierte Protokollierung zu aktivieren, muss die Konsolenprotokollierungsoption `IncludeScopes` konfiguriert werden.
+>
+> `IncludeScopes` kann mithilfe der *appsettings*-Konfigurationsdateien konfiguriert werden. Weitere Informationen finden Sie im Abschnitt zur [Konfiguration der Einstellungsdatei](#settings-file-configuration).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-In *Startup.cs*:
+::: moniker range="= aspnetcore-2.0"
+
+*Program.cs*:
+
+[!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
+
+> [!NOTE]
+> Um die bereichsbasierte Protokollierung zu aktivieren, muss die Konsolenprotokollierungsoption `IncludeScopes` konfiguriert werden.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+*Startup.cs*:
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_Scopes&highlight=6)]
 
----
+::: moniker-end
 
 Jede Protokollmeldung enthält die bereichsbezogenen Informationen:
 
@@ -418,13 +483,16 @@ ASP.NET Core wird mit den folgenden Anbietern bereitgestellt:
 
 Das Anbieterpaket [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sendet eine Protokollausgabe an die Konsole. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
+
 
 ```csharp
 logging.AddConsole()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddConsole()
@@ -446,7 +514,7 @@ Dieser Code verweist auf den `Logging`-Abschnitt der Datei *appSettings.json*:
 
 Die gezeigten Einstellungen schränken die Frameworkprotokolle auf Warnungen ein, während die App eine Protokollierung auf Debugebene durchführt, wie im Abschnitt [Protokollfilterung](#log-filtering) erläutert. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration/index).
 
----
+::: moniker-end
 
 ### <a name="debug-provider"></a>Der Debuganbieter
 
@@ -454,13 +522,15 @@ Beim Anbieterpaket [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/pa
 
 Unter Linux werden Protokolle dieses Anbieters in */var/log/message* geschrieben.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddDebug()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddDebug()
@@ -468,25 +538,27 @@ loggerFactory.AddDebug()
 
 Mithilfe von [AddDebug-Überladungen](/dotnet/api/microsoft.extensions.logging.debugloggerfactoryextensions) können Sie einen Mindestprotokolliergrad oder eine Filterfunktion übergeben.
 
----
+::: moniker-end
 
 ### <a name="eventsource-provider"></a>Der EventSource-Anbieter
 
 Für Apps, die für ASP.NET Core 1.1.0 oder höher konzipiert sind, kann mit dem Anbieterpaket [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) eine Ereignisablaufverfolgung implementiert werden. Verwenden Sie unter Windows [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Der Anbieter ist plattformunabhängig, aber für Linux oder macOS sind Ereignissammlung und Anzeigetools noch nicht verfügbar. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddEventSourceLogger()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddEventSourceLogger()
 ```
 
----
+::: moniker-end
 
 Eine gute Möglichkeit zum Erfassen und Anzeigen von Protokollen ist die Verwendung des Hilfsprogramms [PerfView](https://github.com/Microsoft/perfview). Es gibt andere Tools zur Anzeige von ETW-Protokollen, aber PerfView bietet die besten Ergebnisse bei der Arbeit mit ETW-Ereignissen, die von ASP.NET ausgegeben werden. 
 
@@ -498,13 +570,15 @@ Um PerfView für das Erfassen von Ereignissen zu konfigurieren, die von diesem A
 
 Das Anbieterpaket [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) sendet eine Protokollausgabe in das Windows-Ereignisprotokoll.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddEventLog()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddEventLog()
@@ -512,25 +586,27 @@ loggerFactory.AddEventLog()
 
 Mithilfe von [AddEventLog-Überladungen](/dotnet/api/microsoft.extensions.logging.eventloggerfactoryextensions) können Sie `EventLogSettings` oder einen Mindestprotokolliergrad übergeben.
 
----
+::: moniker-end
 
 ### <a name="tracesource-provider"></a>Der TraceSource-Anbieter
 
 Das Anbieterpaket [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) verwendet die [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource)-Bibliotheken und -Anbieter.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddTraceSource(sourceSwitchName);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddTraceSource(sourceSwitchName);
 ```
 
----
+::: moniker-end
 
 Mithilfe von [AddTraceSource-Überladungen](/dotnet/api/microsoft.extensions.logging.tracesourcefactoryextensions) können Sie eine Quelloption und einen Listener für die Ablaufverfolgung übergeben.
 
@@ -544,7 +620,7 @@ Im folgenden Beispiel wird ein `TraceSource`-Anbieter konfiguriert, der Protokol
 
 Das Anbieterpaket [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) schreibt Protokolle in Textdateien in das Dateisystem einer Azure App Service-App und in [Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in einem Azure Storage-Konto. Der Anbieter ist nur für Apps verfügbar, die für ASP.NET Core 1.1 oder höher konzipiert sind.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Wenn Sie Anwendungen für .NET Core entwickeln, müssen Sie weder das Anbieterpaket installieren noch [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) explizit aufrufen. Der Anbieter steht automatisch für Ihre App zur Verfügung, wenn die App in Azure App Service bereitgestellt wird.
 
@@ -554,7 +630,9 @@ Wenn Sie Anwendungen für .NET Framework entwickeln, fügen Sie das Anbieterpake
 logging.AddAzureWebAppDiagnostics();
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddAzureWebAppDiagnostics();
@@ -562,7 +640,7 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 Mithilfe einer [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics)-Überladung können Sie [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) übergeben. Damit können Sie Standardeinstellungen wie die Vorlage für die Protokollierungsausgabe, den BLOB-Namen und die Dateigrößenbeschränkung überschreiben. (Eine *Ausgabevorlage* ist eine Meldungsvorlage, die zusätzlich zu dem Protokoll, das Sie beim Aufruf einer `ILogger`-Methode angeben, auf alle Protokolle angewendet wird.)
 
----
+::: moniker-end
 
 Wenn Sie eine Bereitstellung für eine App Service-App durchführen, berücksichtigt die App die Einstellungen im Abschnitt [Diagnoseprotokolle](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) der Seite **App Service** im Azure-Portal. Bei einem Update dieser Einstellungen werden die Änderungen sofort wirksam, ohne dass ein Neustart oder eine erneute Bereitstellung der App notwendig ist.
 

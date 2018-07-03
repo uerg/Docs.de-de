@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 601d6ac2cb373c40fb1de5427b0ea6c299fa1f32
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9d7d4d49dbb55e327a208df99a0e3ca744de8609
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296747"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077747"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -31,7 +31,7 @@ Dieses Dokument bietet eine Einführung in Razor Pages. Es handelt sich nicht um
 
 ## <a name="creating-a-razor-pages-project"></a>Erstellen eines Projekts mit Razor Pages
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Ausführliche Informationen zum Erstellen eines Projekts mit Razor-Seiten mithilfe von Visual Studio finden Sie unter [Erste Schritte mit Razor-Seiten](xref:tutorials/razor-pages/razor-pages-start).
 
@@ -53,7 +53,7 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
 Öffnen Sie die generierte Datei *.csproj* aus Visual Studio für Mac.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -69,7 +69,7 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -295,7 +295,17 @@ Razor Pages beinhaltet alle Funktionen der Razor-Anzeige-Engine. Layouts, Teilan
 
 Strukturieren Sie diese Seite mit einigen dieser praktischen Funktionen.
 
+::: moniker range=">= aspnetcore-2.1"
+
+Fügen Sie der *Pages/Shared/_Layout.cshtml* eine [Layoutseite](xref:mvc/views/layout) hinzu:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Fügen Sie einer *Pages/_Layout.cshtml* eine [Layoutseite](xref:mvc/views/layout) hinzu:
+
+::: moniker-end
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_LayoutSimple.cshtml)]
 
@@ -310,7 +320,19 @@ Die Eigenschaft [Layout](xref:mvc/views/layout#specifying-a-layout) wird in *Pag
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
+::: moniker range=">= aspnetcore-2.1"
+
+Das Layout befindet sich im Ordner *Shared/Pages*. Seiten suchen hierarchisch nach anderen Ansichten (Layouts, Vorlagen oder Teilansichten) und beginnen im gleichen Ordner wie die aktuelle Seite. Ein Layout im Ordner *Shared/Pages* kann über eine beliebige Razor-Seite im Ordner *Pages* verwendet werden.
+
+Die Layoutdatei sollte im Ordner *Pages/Shared* gespeichert werden.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Das Layout befindet sich im Ordner *Pages* (Seiten). Seiten suchen hierarchisch nach anderen Ansichten (Layouts, Vorlagen oder Teilansichten) und beginnen im gleichen Ordner wie die aktuelle Seite. Ein Layout im Ordner *Seiten* kann aus jeder Razor Page unter dem Ordner *Pages* verwendet werden.
+
+::: moniker-end
 
 Wir empfehlen Ihnen, die Layoutdatei **nicht** im Ordner *Views/Shared* (Ansichten/Freigegeben) zu platzieren. *Views/Shared* ist ein MVC-Ansichtsmuster. Razor Pages basieren auf der Ordnerhierarchie, nicht auf Pfadkonventionen.
 

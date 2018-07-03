@@ -4,14 +4,14 @@ author: rick-anderson
 description: Lernen Sie die grundlegenden Konzepte zum Erstellen einer ASP.NET Core-Anwendung kennen.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 09/30/2017
+ms.date: 07/02/2018
 uid: fundamentals/index
-ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 33786bf78567a1aa12a1ac97d44d1a596ec4c3be
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278868"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144975"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core – Grundlagen
 
@@ -204,15 +204,23 @@ Bei [WebSockets](https://wikipedia.org/wiki/WebSocket) handelt es sich um ein Pr
 
 Weitere Informationen finden Sie unter [WebSockets](xref:fundamentals/websockets).
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="microsoftaspnetcoreapp-metapackage"></a>Metapaket „Microsoft.AspNetCore.App“
+
+Mit dem Metapaket [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) wird die Paketverwaltung vereinfacht. Weitere Informationen finden Sie unter [Das Metapaket „Microsoft.AspNetCore.App“](xref:fundamentals/metapackage-app).
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
 ## <a name="microsoftaspnetcoreall-metapackage"></a>Metapaket „Microsoft.AspNetCore.All“
 
 Das Metapaket [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) für ASP.NET Core enthält:
 
 * alle unterstützten Pakete des ASP.NET Core-Teams
-* alle unterstützten Pakete von Entity Framework Core 
+* alle unterstützten Pakete von Entity Framework Core
 * interne und Drittanbieterabhängigkeiten, die von ASP.NET Core und Entity Framework Core verwendet werden
 
 Weitere Informationen finden Sie unter [Microsoft.AspNetCore.All metapackage (Microsoft.AspNetCore.All-Metapaket)](xref:fundamentals/metapackage).
+::: moniker-end
 
 ## <a name="net-core-vs-net-framework-runtime"></a>.NET Core-Runtime im Vergleich zur .NET Framework-Laufzeit
 
