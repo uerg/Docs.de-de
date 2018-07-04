@@ -1,41 +1,40 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
-title: Erstellen des Projekts | Microsoft Docs
+title: Erstellen Sie das Projekt | Microsoft-Dokumentation
 author: Erikre
-description: Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
+description: Diese lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
 ms.topic: article
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e5d6fa312ce0375eee5ca456aaea9f088d806cfc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740451"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384487"
 ---
 <a name="create-the-project"></a>Erstellen des Projekts
 ====================
 durch [Erik Reitan](https://github.com/Erikre)
 
-[Herunterladen des Wingtip Toys-Beispielprojekt (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [(PDF) E-Book herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Herunterladen der Wingtip Toys-Beispielprojekts (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [E-Book (PDF) herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Diese Reihe von Lernprogrammen erfahren Sie die Grundlagen der Erstellung einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. Eine Visual Studio 2013 [-Projekts mit C#-Quellcode](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) ist verfügbar, die diese Reihe von Lernprogrammen begleitet.
+> Diese lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. Eine Visual Studio 2013 [-Projekts mit C#-Quellcode](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) ist verfügbar, die dieser tutorialreihe begleitet.
 
 
-In diesem Lernprogramm erstellen, überprüfen und führen Sie das Standardprojekt in Visual Studio, die Sie mit Funktionen von ASP.NET vertraut machen können. Darüber hinaus überprüfen Sie die Visual Studio-Umgebung.
+In diesem Tutorial werden Sie zu erstellen, überprüfen Sie, und führen Sie das Standardprojekt in Visual Studio, die Sie mit Funktionen von ASP.NET vertraut machen können. Darüber hinaus überprüfen Sie die Visual Studio-Umgebung.
 
-## <a name="what-youll-learn"></a>Lernen Sie:
+## <a name="what-youll-learn"></a>Sie lernen Folgendes:
 
-- Vorgehensweise: Erstellen Sie ein neues Web Forms-Projekt.
-- Der Dateistruktur des Web Forms-Projekts.
-- Wie Sie das Projekt in Visual Studio ausführen.
-- Die verschiedenen Funktionen von der Standardeinstellung Web Forms-Anwendung.
+- Vorgehensweise: erstellen ein neues Web Forms-Projekt.
+- Die Dateistruktur des Web Forms-Projekts.
+- So führen Sie das Projekt in Visual Studio.
+- Die verschiedenen Features von der Standard-Web Forms-Anwendung.
 - Einige Grundlagen zur Verwendung von Visual Studio-Umgebung.
 
 ## <a name="creating-the-project"></a>Erstellen des Projekts
@@ -43,161 +42,161 @@ In diesem Lernprogramm erstellen, überprüfen und führen Sie das Standardproje
 1. Öffnen Sie Visual Studio.
 2. Wählen Sie **neues Projekt** aus der **Datei** Menü in Visual Studio. 
 
-    ![Erstellen des Projekts – neues Projekt im Menü-Element](create-the-project/_static/image1.png)
+    ![Erstellen Sie das Projekt - neues Projekt im Menü-Element](create-the-project/_static/image1.png)
 3. Wählen Sie die **Vorlagen**  - &gt; **Visual C#-**  - &gt; **Web** Gruppe "Vorlagen" auf der linken Seite.
 4. Wählen Sie die **ASP.NET-Webanwendung** Vorlage in der mittleren Spalte.  
- Diese Reihe von Lernprogrammen verwendeten .NET Framework 4.5.2.
-5. Namen für das Projekt *WingtipToys* , und wählen Sie die **OK** Schaltfläche. 
+ Dieser tutorialreihe verwendet .NET Framework 4.5.2.
+5. Benennen Sie Ihr Projekt *WingtipToys* , und wählen Sie die **OK** Schaltfläche. 
 
-    ![Erstellen des Projekts - Dialogfeld "Neues Projekt"](create-the-project/_static/image2.png)
+    ![Erstellen Sie das Projekt - Dialogfeld "Neues Projekt"](create-the-project/_static/image2.png)
 
     > [!NOTE]
-    > Der Name des Projekts in diesem Lernprogramm Reihe ist **WingtipToys**. Es wird empfohlen, dass Sie diese Option verwenden *genaue* Projektname, sodass der Code in der gesamten Reihe von Lernprogrammen Funktionen wie erwartet bereitgestellt.
+    > Der Name des Projekts in dieser tutorialreihe ist **WingtipToys**. Es wird empfohlen, dass Sie diese Option verwenden *genaue* Projektname, damit der Code in der tutorialreihe Funktionen wie erwartet bereitgestellt.
 
 6. Klicken Sie auf die **Authentifizierung ändern** Schaltfläche. Wählen Sie **einzelne Benutzerkonten** , und klicken Sie auf die **OK** Schaltfläche.
 
 7. Wählen Sie die **Web Forms** Vorlage, und klicken Sie auf die **OK** Schaltfläche.
 
-    ![Erstellen des Projekts - neue Projektvorlage](create-the-project/_static/image3.png)
+    ![Erstellen Sie das Projekt - Vorlage für neue Projekte](create-the-project/_static/image3.png)
 
-Das Projekt dauert eine gewisse Zeit zu erstellen. Wenn Sie wieder bereit ist, öffnen Sie die **"default.aspx"** Seite.
+Das Projekt dauert ein wenig Zeit, zu erstellen. Wenn er bereit ist, öffnen Sie die **"default.aspx"** Seite.
 
-![Erstellen des Projekts - neue Projektvorlage](create-the-project/_static/image4.png)
+![Erstellen Sie das Projekt - Vorlage für neue Projekte](create-the-project/_static/image4.png)
 
-Sie können zwischen wechseln **Entwurf** anzeigen und **Quelle** Ansicht durch Auswahl einer Option am unteren Rand des Fensters Center. **Entwurf** zeigt ASP.NET Web Pages, Masterseiten, Inhaltsseiten, HTML-Seiten und Benutzersteuerelemente mithilfe einer fast-WYSIWYG-Ansicht. **Quelle** zeigt HTML-Markup für die Webseite, die Sie bearbeiten können.
+Sie können zwischen wechseln **Entwurf** anzeigen und **Quelle** Ansicht eine Option am unteren Rand des Fensters Center. **Entwurf** zeigt ASP.NET Web Pages, Masterseiten, Inhaltsseiten, HTML-Seiten und Benutzersteuerelemente eine fast-WYSIWYG-Ansicht verwenden. **Quelle** zeigt das HTML-Markup für Ihre Webseite, die Sie bearbeiten können.
 
 > [!TIP] 
 > 
-> **Grundlegendes zu den ASP.NET-Frameworks**
+> **Grundlegendes zu den ASP.NET Frameworks**
 > 
-> ASP.NET Web Forms können Sie Builds dynamische Websites mithilfe eines vertrauten Drag & Drop, ereignisgesteuerte-Modells. Eine Entwurfsoberfläche und Hunderte von Steuerelementen und Komponenten ermöglichen Ihnen das schnelle einfach komplexe und umfangreiche GUI-gesteuerte Websites mit Datenzugriff erstellen. Der Wingtip Toys-Speicher basiert auf ASP.NET Web Forms, aber viele Konzepte, die Sie in diesem Lernprogramm Reihe Kennenlernen gelten für alle von ASP.NET.
+> ASP.NET Web Forms können Sie erstellen dynamischer Websites mit einem vertrauten Drag & Drop, ereignisgesteuertes Modell. Eine Entwurfsoberfläche und Hunderte von Steuerelementen und Komponenten können Sie schnell komplexe und umfangreiche GUI-gesteuerte Websites mit Datenzugriff erstellen. Die Wingtip Toys-Store basiert auf ASP.NET Web Forms, aber viele der Konzepte, die Sie in diesem Tutorial erfahren Sie, gelten für alle von ASP.NET.
 > 
-> ASP.NET bietet vier primäre Entwicklungsframeworks:
+> ASP.NET bietet vier primäre Webentwicklungs-Frameworks:
 > 
-> - [ASP.NET Web Forms](../../../index.md)  
->  Das Web Forms-Framework wendet sich an Entwickler, die lieber deklarative und Steuerelement basierende Programmierung, z. B. Microsoft Windows Forms (WinForms) und WPF/XAML/Silverlight. Er bietet ein Modell WYSIWYG-Designer-driven Development, daher ist es gängige für Entwickler, die Suche nach einer Umgebung rapid Application Development, (RAD), für die Webentwicklung. Wenn Sie mit dem Webprogrammierung vertraut sind und mit der herkömmlichen Microsoft RAD Client Entwicklungstools (z. B. Visual Basic und Visual c#) vertraut sind, können Sie schnell eine Webanwendung erstellen, ohne Sie Erfahrung mit HTML und JavaScript.
+> - [ASP.NET-Web Forms](../../../index.md)  
+>  Die Web Forms-Framework richtet sich an Entwickler, die deklarative und Steuerelementen basierenden Programmierung, z. B. Microsoft Windows Forms (WinForms) "und" WPF/XAML/Silverlight bevorzugen. Es bietet ein Modell WYSIWYG-Designer-driven Development, daher ist die beliebt sind, mit der Entwickler, die für eine Umgebung rapid Application Development (RAD), für die Webentwicklung. Wenn Sie noch keine Erfahrungen Webprogrammierung und mit der herkömmlichen Microsoft RAD-Entwicklung Clienttools (z. B. für Visual Basic und Visual c#) vertraut sind, können Sie schnell eine Webanwendung erstellen, ohne Benutzeroberfläche in HTML und JavaScript.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
->  ASP.NET MVC wendet sich an Entwickler, die Muster und Prinzipien wie eine testgesteuerte Entwicklung, die Abgrenzung von Problemen, die Umkehrung des Steuerelements (IoC) und abhängigkeiteneinschleusung (DI) interessiert sind. Dieses Framework vertraut zu machen, die Geschäftslogikschicht einer Web-Anwendung in der Darstellungsschicht trennen.
+>  ASP.NET MVC richtet sich an Entwickler, die Muster und Prinzipien wie die testgesteuerte Entwicklung, Trennung von Belangen, IoC Inversion of Control (IoC) und Abhängigkeitsinjektion (Dependency Injection) interessiert sind. Dieses Framework fördert die Trennung des Geschäftslogikebene einer Webanwendung auf der Darstellungsschicht.
 > - [ASP.NET-Webseiten 2](../../../../web-pages/index.md)  
->  ASP.NET Web Pages wendet sich an Entwickler, die eine einfache Web Development Story, nach dem Vorbild der PHP möchten. Im Modell Webseiten HTML-Seiten erstellen, und klicken Sie dann auf der Seite serverbasierten Code hinzufügen, um dynamisch zu steuern, wie dieses Markup gerendert wird. Web Pages ist speziell für eine einfache Framework werden, und es ist der einfachste Einstiegspunkt in ASP.NET für Personen, die wissen, HTML, aber möglicherweise keine umfassenden Programmierfunktionen - z. B., Studenten oder Tüftler, die. Es ist auch eine gute Möglichkeit für Entwickler von Websites, die wissen, PHP oder ähnliche Frameworks mithilfe von ASP.NET zu starten.
-> - [ASP.NET Single-Page-Anwendung](../../../../single-page-application/index.md)  
->  ASP.NET Single-Page-Anwendung (SPA) können Sie Anwendungen erstellen, die erhebliche clientseitige Interaktion mit HTML 5, CSS 3 und JavaScript enthalten. ASP.NET und Web-Toolsupdate 2012.2 geliefert wird eine neue Vorlage zum Erstellen von einseitige Anwendungen mit knockout.js und ASP.NET Web-API. Zusätzlich zu den neuen SPA-Vorlage sind auch neue von der Community erstellte SPA Vorlagen zum Download zur Verfügung.
+>  ASP.NET Web Pages richtet sich an Entwickler, die eine einfache Web-Entwicklung Story, wie PHP wünschen. Im Webseiten-Modell HTML-Seiten erstellen und die Seite anschließend serverbasierten Code hinzugefügt werden, um dynamisch zu steuern, wie dieses Markup gerendert wird. Webseiten wurde speziell für ein schlankes Framework werden, und es ist der einfachste Einstiegspunkt in ASP.NET für Personen, die wissen, HTML, aber möglicherweise keine umfassende Programmierfunktionen – z. B., Schüler/Studenten oder Hobbyprogrammierer. Es ist auch eine gute Möglichkeit für Webentwickler, die wissen, PHP oder ähnliche Frameworks, um mithilfe von ASP.NET zu starten.
+> - [ASP.NET-Single-Page-Anwendung](../../../../single-page-application/index.md)  
+>  ASP.NET Single Page Application (SPA) können Sie die Anwendungen zu erstellen, die signifikante clientseitigen Interaktionen mit HTML 5, CSS 3 und JavaScript enthalten. Die ASP.NET und Web Tools 2012.2-Update umfasst eine neue Vorlage zum Erstellen von einseitigen Anwendungen mithilfe von knockout.js und ASP.NET Web-API. Zusätzlich zu der neuen SPA-Vorlage werden neue Community erstellte SPA-Vorlagen auch zum Download zur Verfügung.
 > 
-> Zusätzlich zu den vier wichtigsten Entwicklungsframeworks bietet ASP.NET auch zusätzliche Technologien, die wichtig zu beachten und mit vertraut sein, aber nicht in diesem Lernprogramm Reihe behandelt:
+> Zusätzlich zu den vier wichtigsten Entwicklungsframeworks bietet ASP.NET auch zusätzliche Technologien, die wichtig zu beachten und mit vertraut sein, aber nicht in diesem Lernprogramm behandelt:
 > 
-> - [ASP.NET Web API](../../../../web-api/index.md) -ein Framework zur Erstellung von HTTP-Diensten, die eine Breite Palette von Clients, einschließlich Browsern und mobilen Geräten erreichen.
-> - [ASP.NET SignalR](../../../../signalr/index.md) -eine Bibliothek, die beim Entwickeln von Echtzeit-Webfunktionen erleichtert.
+> - [ASP.NET Web-API](../../../../web-api/index.md) -ein Framework zum Erstellen von HTTP-Dienste, die eine Breite Palette von Clients, einschließlich Browsern und mobilen Geräten zu erreichen.
+> - [ASP.NET SignalR](../../../../signalr/index.md) – eine Bibliothek, die Entwicklung von Echtzeit-Webfunktionen erleichtert.
 
 
 ### <a name="reviewing-the-project"></a>Überprüfen das Projekt
 
-In Visual Studio die **Projektmappen-Explorer** -Fenster können Sie die Dateien für das Projekt zu verwalten. Werfen wir einen Blick auf die Ordner, die zur Anwendung hinzugefügt wurden **Projektmappen-Explorer**. Die Web Application-Vorlage fügt eine grundlegende Ordnerstruktur:
+In Visual Studio die **Projektmappen-Explorer** Fenster können Sie die Dateien für das Projekt zu verwalten. Werfen wir einen Blick auf die Ordner, die zur Anwendung hinzugefügt wurden **Projektmappen-Explorer**. Die Web Application-Vorlage fügt eine grundlegende Ordnerstruktur:
 
-![Erstellen des Projekts - Projektmappen-Explorer](create-the-project/_static/image5.png)
+![Erstellen Sie das Projekt - Projektmappen-Explorer](create-the-project/_static/image5.png)
 
-Visual Studio erstellt, einige ursprünglichen Ordner und Dateien für das Projekt. Die erste Dateien, die Sie später in diesem Lernprogramm arbeiten, sind die folgenden:
+Visual Studio erstellt einige anfängliche Ordner und Dateien für Ihr Projekt. Die erste Dateien, die Sie später in diesem Tutorial mit arbeiten, sind die folgenden:
 
 | **Datei** | **Zweck** |
 | --- | --- |
-| *"default.aspx"* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
+| *"Default.aspx"* | In der Regel die erste Seite angezeigt, wenn die Anwendung in einem Browser ausgeführt wird. |
 | *Site.Master* | Eine Seite, die Ihnen ermöglicht, ein konsistentes Layout und die Verwendung-Standardverhalten für Seiten in Ihrer Anwendung zu erstellen. |
-| *"Global.asax"* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Module enthält. |
+| *"Global.asax"* | Eine optionale Datei, die Code für die Reaktion auf Ereignisse, die sich auf Anwendungsebene und auf Sitzungsebene ausgelöst von ASP.NET oder HTTP-Modulen enthält. |
 | *Web.config* | Die Konfigurationsdaten für eine Anwendung. |
 
-### <a name="running-the-default-web-application"></a>Die Standard-Web-Anwendung ausführen
+### <a name="running-the-default-web-application"></a>Ausführen der Standardwebanwendung
 
-Die standardwebanwendung bietet eine komfortable basierend auf integrierte Funktionen und Support. Ohne Änderungen auf das Standardprojekt für Web Forms ist die Anwendung auf Ihrem lokalen Webbrowser ausgeführt.
+Die standardwebanwendung bietet eine komfortable basierend auf integrierte Funktionen und unterstützt. Die Anwendung kann ohne Änderungen an das Standard-Web Forms-Projekt auf Ihren lokalen Webbrowser ausgeführt werden.
 
 1. Drücken Sie die ***F5*** gedrückt, während in Visual Studio.   
- Die Anwendung erstellen und in Ihrem Webbrowser anzuzeigen.  
+ Die Anwendung wird erstellt und in Ihrem Webbrowser angezeigt.  
 
     ![Erstellen des Projekts - Standardseite](create-the-project/_static/image6.png)
-2. Sobald Sie abgeschlossene Review die laufende Anwendung haben, schließen Sie das Browserfenster.
+2. Wenn Sie vollständige Überprüfung die ausgeführte Anwendung haben, schließen Sie das Browserfenster.
 
-Es gibt drei wichtigsten Seiten in dieser Standard-Web-Anwendung: *"default.aspx"* (privat), *About.aspx*, und *Contact.aspx*. Jede dieser Seiten kann von der oberen Navigationsleiste erreicht werden. Es gibt auch zwei zusätzlichen Seiten, die im Ordner "Konto" enthalten, die Register.aspx Seite und die Seite "Login.aspx". Diese beiden Seiten können Sie die Mitgliedschaftsfunktionen von ASP.NET zum Erstellen, speichern und überprüfen die Anmeldeinformationen des Benutzers verwenden.
+Es gibt drei Hauptseiten in dieser Standard-Webanwendung: *"default.aspx"* (Stamm), *About.aspx*, und *Contact.aspx*. Jede dieser Seiten aus der oberen Navigationsleiste erreichbar ist. Es gibt auch zwei zusätzlichen Seiten, die in den Konto-Ordner enthalten, der Register.aspx-Seite und die Seite "Login.aspx". Diese beiden Seiten können Sie die Mitgliedschaftsfunktionen von ASP.NET zum Erstellen, speichern und überprüfen die Anmeldeinformationen des Benutzers verwenden.
 
 ## <a name="aspnet-web-forms-background"></a>ASP.NET Web Forms-Hintergrund
 
-ASP.NET Web Forms sind die Seiten, die auf Microsoft ASP.NET Technologie basieren, in denen Code, der auf dem Server ausgeführt dynamisch wird Webseitenausgabe an den Browser oder Client-Gerät generiert. Eine ASP.NET Web Forms-Seite gerendert wird automatisch das korrekte Browser kompatiblen HTML für Funktionen wie Formatvorlagen, Layout und So weiter. WebForms sind kompatibel mit einer beliebigen Sprache, die von der .NET common Language Runtime, wie z. B. Microsoft Visual Basic und Visual c# unterstützt. Web Forms darüber hinaus basieren auf der [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), bietet Vorteile, z. B. einer verwalteten Umgebung, typsicherheit und Vererbung.
+ASP.NET Web Forms sind Seiten, die auf Microsoft ASP.NET-Technologie basieren, Code, auf dem Server dynamisch ausgeführt wird, in denen Ausgabe einer Webseite an den Browser oder Client-Gerät erstellt wird. Eine ASP.NET Web Forms-Seite rendert automatisch die richtige Browser kompatibel HTML für Features wie z. B. Stile, Layout und So weiter. Web Forms sind kompatibel mit jeder von der .NET common Language Runtime, z. B. Microsoft Visual Basic und Microsoft Visual c# unterstützt. Darüber hinaus Web Forms auf Grundlage der [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), die bietet Vorteile wie z. B. einer verwalteten Umgebung, typsicherheit und Vererbung.
 
-Wenn eine ASP.NET Web Forms-Seite ausgeführt wird, durchläuft die Seite einen Lebenszyklus, in dem sie eine Reihe von Verarbeitungsschritten ausführt. Diese Schritte umfassen Initialisierung, instanziieren Steuerelemente, wiederherstellen und Zustand beibehalten, das Ausführen von Ereignishandlercode und das Rendern. Wie Sie die Leistungsfähigkeit von ASP.NET Web Forms kennen gelernt, ist für die Ihnen beim Verständnis der [Lebenszyklus von ASP.NET-Seiten](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) , damit Sie Code in der entsprechenden Lebenszyklus Phase für den Effekt schreiben können, Sie möchten.
+Wenn eine ASP.NET Web Forms-Seite ausgeführt wird, durchläuft die Seite einen Lebenszyklus, in dem sie eine Reihe von Verarbeitungsschritten ausführt. Diese Schritte beinhalten Initialisierung Instanziieren von Steuerelementen, wiederherstellen und aufrechterhalten des Zustands, Ausführen von Code im Ereignishandler und das Rendern. Wie Sie mit der Leistungsfähigkeit der ASP.NET Web Forms machen vertraut, es ist wichtig, dass Sie verstehen die [Lebenszyklus von ASP.NET-Seiten](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) , damit Sie Code in der entsprechenden Lebenszyklus-Phase für den Effekt schreiben können, Sie möchten.
 
-Bei ein Webserver eine Anforderung für eine Seite empfängt, sie sucht nach der Seite, verarbeitet, wird an den Browser gesendet und dann verwirft alle Informationen zur Seite. Wenn der Benutzer erneut die gleiche Seite anfordert, wiederholt der Server die gesamte Sequenz, die eine erneute Verarbeitung der Seite von Grund auf neu. Anders ausgedrückt, ein Server ist kein Arbeitsspeicher von Seiten verarbeitet Seiten verfügt zustandslos sind. Das ASP.NET-Seitenframework behandelt automatisch die Aufgabe der Verwaltung des Zustands von der Seite und seine Steuerelemente, und sie versorgt Sie mit expliziten weisen den Status der anwendungsspezifische Informationen beibehalten.
+Wenn ein Webserver eine Anforderung für eine Seite erhält, sucht nach der Seite, verarbeitet, sendet es an den Browser und klicken Sie dann verwirft alle Informationen zur Seite. Wenn der Benutzer erneut die gleiche Seite anfordert, wird der Server die gesamte Sequenz, die eine erneute Verarbeitung der Seite von Grund auf neu wiederholt. Anders ausgedrückt, ein Server keinen Speicher von Seiten, dass sie verarbeitet Seiten hat hat sind zustandslos. Das ASP.NET-Seitenframework behandelt automatisch die Aufgabe der Verwaltung des Ihrer Seite und ihre Steuerelemente, und bietet Ihnen eine explizite Möglichkeiten, den Status einer anwendungsspezifischen Informationen beibehalten.
 
 > [!TIP] 
 > 
-> **Web Application-Funktionen in die Vorlage für das Web Forms-Anwendung**
+> **Web Application-Funktionen in der Vorlage die Web Forms-Anwendung**
 > 
-> Der ASP.NET Web Forms-Anwendung-Vorlage stellt einen umfangreichen Satz von integrierten Funktionen bereit. Er bietet nicht nur mit einem *Home.aspx* Seite ein *About.aspx* Seite eine *Contact.aspx* Seite, sondern umfasst auch Mitgliedschaftsfunktionen, die Benutzer registriert und speichert Ihre Anmeldeinformationen, damit Ihre Website anmelden können. Diese Übersicht bietet weitere Informationen zu einigen der Features, die in der Vorlage für ASP.NET Web Forms-Anwendung und deren Verwendung in der Anwendung des Wingtip Toys enthalten sind.
+> Die Vorlage für ASP.NET Web Forms-Anwendung bietet einen umfangreichen Satz von integrierten Funktionen. Es stellt nicht nur mit einem *Home.aspx* Seite eine *About.aspx* Seite eine *Contact.aspx* Seite, enthält jedoch auch Mitgliedschaftsfunktion, die Benutzer registriert, und speichert die Anmeldeinformationen, damit sie zu Ihrer Website anmelden können. Diese Übersicht bietet weitere Informationen zu einigen der Features in der Vorlage für ASP.NET Web Forms-Anwendung und deren Verwendung in der Anwendung Wingtip Toys enthalten sind.
 > 
 > **Mitgliedschaft**
 > 
-> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) Identität speichert Ihrer Benutzer-Anmeldeinformationen in einer Datenbank, die von der Anwendung erstellt. Wenn Ihre Benutzer anmelden, überprüft die Anwendung ihre Anmeldeinformationen durch Lesen der Datenbank. Des Projekts *Konto* Ordner enthält die Dateien, die die verschiedenen Teilen von Mitgliedschaft zu implementieren: registrieren, anmelden, das Ändern des Kennworts und Autorisieren des Zugriffs. Darüber hinaus unterstützt die ASP.NET Web Forms OAuth- und OpenID. Diese Verbesserungen Authentifizierung Benutzern gestatten, in Ihre vorhandenen Anmeldeinformationen, derartige Konten wie Facebook, Twitter, Windows Live und Google-Website anzumelden.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) Identity speichert die Benutzeranmeldeinformationen in einer Datenbank, die von der Anwendung erstellt. Wenn Ihre Benutzer anmelden, überprüft die Anwendung ihrer Anmeldeinformationen durch Lesen aus der Datenbank an. Ihres Projekts *Konto* Ordner enthält die Dateien, die die verschiedenen Teile der Mitgliedschaft zu implementieren: Registrierung, Anmeldung, das Ändern des Kennworts und Autorisieren des Zugriffs. Darüber hinaus unterstützt ASP.NET Web Forms, OAuth und OpenID. Diese Verbesserungen der Authentifizierung können Benutzer bei einer Website mithilfe von vorhandenen Anmeldeinformationen aus solchen Facebook, Twitter, Windows Live und Google-Konten anmelden.
 > 
-> ![Erstellen des Projekts - Projektmappen-Explorer (ASP.NET Identity)](create-the-project/_static/image7.png)
+> ![Erstellen Sie das Projekt - Projektmappen-Explorer (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
-> Standardmäßig erstellt die Vorlage eine Mitgliedschaftsdatenbank mithilfe eines standarddatenbanknamens in einer Instanz von SQL Server Express LocalDB, dem Development-Datenbankserver, der mit Visual Studio Express 2013 für Web enthalten ist.
+> Standardmäßig erstellt die Vorlage eine Mitgliedschaftsdatenbank mithilfe eines standarddatenbanknamens auf einer Instanz von SQL Server Express LocalDB, den Datenbankserver für Entwicklung, die in Visual Studio Express 2013 für Web enthalten ist.
 > 
 > **SQL Server Express LocalDB**
 > 
-> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) ist eine vereinfachte Version von SQL Server, die viele Programmierbarkeitsfunktionen einer SQL Server-Datenbank verfügt. SQL Server Express LocalDB im Benutzermodus ausgeführt und verfügt über eine schnelle, Konfigurationsfreie Installation, die eine kurze Liste der erforderlichen Installationskomponenten verfügt. In Microsoft SQL Server, eine beliebige Datenbank oder Transact-SQL-Code kann von SQL Server Express LocalDB in SQL Server und SQL Azure ohne Upgradeschritte verschoben werden. Daher kann SQL Server Express LocalDB für Anwendungen für alle Editionen von SQL Server als entwicklerumgebung verwendet werden. SQL Server Express LocalDB aktiviert Funktionen z. B. gespeicherte Prozeduren, benutzerdefinierte Funktionen und Aggregate, .NET Framework-Integration, räumliche Typen und andere, die in SQL Server Compact nicht verfügbar sind.
+> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) ist eine Basisversion von SQL Server, die über viele Programmierbarkeitsfunktionen der SQL Server-Datenbank verfügt. SQL Server Express LocalDB im Benutzermodus ausgeführt und verfügt über eine schnelle, Konfigurationsfreie Installation, die eine kurze Liste an Voraussetzungen. In Microsoft SQL Server, eine beliebige Datenbank oder Transact-SQL-Code kann aus SQL Server Express LocalDB zu SQL Server und SQL Azure ohne Upgradeschritte verschoben werden. Daher kann SQL Server Express LocalDB als entwicklerumgebung für Anwendungen für alle Editionen von SQL Server verwendet werden. SQL Server Express LocalDB ermöglicht Funktionen wie z. B. gespeicherte Prozeduren, benutzerdefinierte Funktionen und Aggregate, .NET Framework-Integration, räumliche Typen und anderen Benutzern, die in SQL Server Compact nicht verfügbar sind.
 > 
 > **Masterseiten**
 > 
-> Ein [ASP.NET-Masterseite](https://msdn.microsoft.com/library/wtxbf3hh.aspx) ein einheitliches Aussehen und Verhalten für alle Seiten in der Anwendung definiert. Mit dem Inhalt einer einzelnen Inhaltsseite auf die letzte Seite zu erzeugen, die dem Benutzer angezeigt wird, werden das Layout der Masterseite zusammengeführt. In der Anwendung des Wingtip Toys, ändern Sie die *Site.master* Masterseite, sodass alle Seiten in der Website des Wingtip Toys dieselbe unterschiedliche Logo und Navigation Leiste freigeben.
+> Ein [ASP.NET-Masterseite](https://msdn.microsoft.com/library/wtxbf3hh.aspx) ein einheitliches Erscheinungsbild und Verhalten für alle Seiten in Ihrer Anwendung definiert. Mit dem Inhalt einer einzelnen Inhaltsseite auf die letzte Seite zu erzeugen, die dem Benutzer angezeigt wird, werden das Layout der Masterseite zusammengeführt. In der Anwendung Wingtip Toys, die Sie ändern die *Site.master* Masterseite, sodass alle Seiten in der Wingtip Toys-Website dieselbe unterschiedliche Logo und Navigation Leiste freigeben.
 > 
 > **HTML5**
 > 
-> Die Vorlage für ASP.NET Web Forms-Anwendung unterstützt [HTML5](http://www.w3schools.com/html/html5_intro.asp), dies ist die neueste Version der HTML-Markup Language. HTML5 unterstützt neue Elemente und Funktionen, die zum Erstellen von Websites zu vereinfachen.
+> Die Vorlage für ASP.NET Web Forms-Anwendung unterstützt [HTML5](http://www.w3schools.com/html/html5_intro.asp), d.h., dass die neueste Version von die HTML-Markup Language. HTML5 unterstützt neue Elemente und Funktionen, die zum Erstellen von Websites zu vereinfachen.
 > 
 > **Modernizr**
 > 
-> Für Browser, die nicht mit HTML5 unterstützen, können Sie [Modernizr](http://www.modernizr.com/). Modernizr ist eine Open Source-JavaScript-Bibliothek, die erkennt, ob ein Browser HTML5-Funktionen unterstützt, und aktivieren Sie diese, wenn dies nicht der Fall. In der Vorlage ASP.NET Web Forms-Anwendung wird von Modernizr als ein NuGet-Paket installiert.
+> Für Browser, die kein HTML5 unterstützen, können Sie [Modernizr](http://www.modernizr.com/). Modernizr ist eine Open Source-JavaScript-Bibliothek, die erkennt, ob ein Browser HTML5-Features unterstützt, und aktivieren, wenn dies nicht der Fall. In der Vorlage ASP.NET Web Forms-Anwendung ist Modernizr als NuGet-Paket installiert.
 > 
 > **Bootstrap**
 > 
-> Verwenden Sie die Projektvorlagen für Visual Studio 2013 [Bootstrap](http://getbootstrap.com/), ein Layout und Designumgebung-Framework von Twitter erstellt. Bootstrap verwendet CSS3 reaktionsfähiges Design bereitstellen, was bedeutet, dass Layouts dynamisch an die anderen Browser Fenstergrößen angepasst werden können. Der Bootstrap-Designumgebung-Funktion können auch einfach eine Änderung in der Anwendung aussehen und Verhalten wirksam. Standardmäßig enthält der ASP.NET Web Application-Vorlage in Visual Studio 2013 Bootstrap als NuGet-Paket.
+> Verwenden Sie die Projektvorlagen für Visual Studio 2013 [Bootstrap](http://getbootstrap.com/), ein Layout und Design-Framework erstellt die Lösung durch Twitter. Bootstrap verwendet CSS3 reaktionsfähiges Design bereitstellen, was bedeutet, dass Layouts an anderen Browser Fenstergrößen dynamisch anpassen können. Sie können auch die Bootstrap Design-Funktion verwenden, auf einfache Weise eine Änderung in der Anwendung aussehen und Verhalten wirksam. Standardmäßig enthält die ASP.NET Web Application-Vorlage in Visual Studio 2013 Bootstrap als NuGet-Paket.
 > 
 > **NuGet-Pakete**
 > 
-> Die Vorlage für ASP.NET Web Forms-Anwendung enthält eine Reihe von [NuGet](http://www.nuget.org/) Pakete. Diese Pakete stellen als Komponente aufbereitete Funktionen in Form von open Source-Bibliotheken und Tools bereit. Es gibt eine Vielzahl von Paketen zum Erstellen und Testen Ihre Anwendungen. Visual Studio erleichtert das Hinzufügen, entfernen und Aktualisieren von NuGet-Pakete. Entwickler können erstellen und Pakete sowie zu NuGet hinzufügen.
+> Die Vorlage für ASP.NET Web Forms-Anwendung umfasst eine Reihe von [NuGet](http://www.nuget.org/) Pakete. Diese Pakete stellen in Komponenten gegliederten Funktionen in Form von open Source-Bibliotheken und Tools bereit. Es gibt eine Vielzahl von Paketen zu erstellen und Testen Ihrer Anwendungen. Visual Studio erleichtert das Hinzufügen, entfernen und Aktualisieren von NuGet-Pakete. Entwickler können erstellen und Pakete auch in NuGet hinzufügen.
 > 
-> ![Projekt - NuGet-Dialogfeld "erstellen"](create-the-project/_static/image8.png)
+> ![Erstellen Sie das Projekt - NuGet-Dialogfeld](create-the-project/_static/image8.png)
 > 
-> Bei der Installation eines Pakets NuGet kopiert Dateien in der Projektmappe, und Sie werden automatisch macht alle Änderungen, die erforderlich sind, z. B. Hinzufügen von verweisen, oder ändern die Konfiguration der Webanwendung zugeordnet. Wenn Sie die Bibliothek entfernen möchten, wird NuGet werden Dateien entfernt, und kehrt alle Änderungen in Ihrem Projekt vorgenommen werden, damit, dass keine übersichtliche verbleibt. NuGet ist verfügbar, von der **Tools** Menü in Visual Studio.
+> Bei der Installation eines Pakets, NuGet kopiert Dateien in Ihrer Lösung und wird automatisch auf alle Änderungen, die erforderlich sind, z. B. Hinzufügen von verweisen, und Ändern der Konfigurations Ihrer Web-Anwendung zugeordnet. Wenn Sie die Bibliothek entfernen möchten, wird NuGet entfernt Dateien und kehrt alle Änderungen, die sie in Ihrem Projekt vorgenommen, sodass keine Überfrachtung gelassen wird. NuGet steht über den **Tools** Menü in Visual Studio.
 > 
 > **jQuery**
 > 
-> [jQuery](http://jquery.com/) ist eine schnelle und präzise JavaScript-Bibliothek, die das HTML-Dokument durchlaufen, Ereignisbehandlung, Animation und Ajax-Aktivitäten für die schnelle Webentwicklung vereinfacht. Die jQuery JavaScript-Bibliothek ist in der Vorlage für ASP.NET Web Forms-Anwendung als ein NuGet-Paket enthalten.
+> [jQuery](http://jquery.com/) ist eine schnelle und präzise JavaScript-Bibliothek, die HTML-Dokument durchlaufen, Ereignisbehandlung, Animation und Ajax-Aktivitäten für eine schnelle Webentwicklung vereinfacht. JavaScript-Bibliothek jQuery ist als NuGet-Paket in der Vorlage für ASP.NET Web Forms-Anwendung enthalten.
 > 
-> **Unaufdringlichen Überprüfung**
+> **Unaufdringliche Validierung**
 > 
-> Integrierte Validierungssteuerelemente wurden konfiguriert, um unaufdringliches JavaScript für die clientseitige Validierungslogik verwenden. Dies erheblich reduziert die Menge an JavaScript Inline im Markup Seite gerendert, und verringert die Gesamtgröße der Seite. Unaufdringlichen Überprüfung Global hinzugefügt wird, der ASP.NET Web Forms-Anwendung Vorlage basierend auf der Einstellung in der &lt;"appSettings"&gt; Element von der *"Web.config"* Datei im Stammverzeichnis der Anwendung.
+> Integrierten Validator-Steuerelemente wurden konfiguriert, um für die clientseitige Validierungslogik unaufdringliches JavaScript zu verwenden. Dies erheblich reduziert die Menge an JavaScript Inline im Markup Seite gerendert, und verringert die Gesamtgröße der Seite. Unaufdringliche Validierung ist global hinzugefügt, der ASP.NET Web Forms-Anwendung-Vorlage basierend auf der Einstellung in der &lt;"appSettings"&gt; Element der *"Web.config"* Datei im Stammverzeichnis der Anwendung.
 > 
-> **Entity Framework Code First**
+> **Entitätsframework Code First**
 > 
-> Neben den Funktionen in der Vorlage für ASP.NET Web Forms-Anwendung, die Anwendung des Wingtip Toys verwendet [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), dies ist ein NuGet-Bibliothek, die Code-orientierte Entwicklung ermöglicht, bei der Arbeit mit Daten. Einfach ausgedrückt, wird den datenbankbezogene Teil Ihrer Anwendung basierend auf den von Ihnen geschriebenen Code erstellt. Mit dem Entity Framework, abrufen und Bearbeiten von Daten als stark typisierte Objekte. Damit Sie in die Details wie die Daten zugegriffen wird, anstatt die Anwendung die Geschäftslogik konzentrieren können.
+> Neben den Features in der Vorlage für ASP.NET Web Forms-Anwendung, die Wingtip Toys-Anwendung verwendet [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), dies ist eine NuGet-Bibliothek, die Code-orientierte Entwicklung ermöglicht, bei der Arbeit mit Daten. Kurz gesagt, wird die Datenbank betreffende Teil Ihrer Anwendung basierend auf den Code, den Sie schreiben. Mithilfe von Entity Framework, abrufen und Bearbeiten von Daten als stark typisierte Objekte. Mit diesem können Sie auf die Geschäftslogik konzentrieren, in der Anwendung statt auf die Details wie die Daten zugegriffen wird.
 > 
-> Weitere Informationen zu den installierten Bibliotheken und Pakete, die mit der ASP.NET Web Forms-Vorlage enthalten finden Sie in der Liste der installierten NuGet-Pakete. Zu diesem Zweck erstellen Sie In Visual Studio ein neues Web Forms-Projekt, die Option **Tools**  - &gt; **Bibliothekspaket-Manager**  - &gt; **verwalten NuGet-Pakete für Projektmappe**, und wählen Sie **installierte Pakete** in der **NuGet-Pakete verwalten** (Dialogfeld).
+> Weitere Informationen zu den installierten Bibliotheken und Pakete, die in der ASP.NET Web Forms-Vorlage enthalten finden Sie in der Liste der installierten NuGet-Pakete. Zu diesem Zweck erstellen Sie In Visual Studio ein neues Web Forms-Projekt, die Option **Tools**  - &gt; **Bibliothekspaket-Manager**  - &gt; **verwalten NuGet-Pakete für Projektmappe**, und wählen Sie **installierte Pakete** in die **NuGet-Pakete verwalten** Dialogfeld.
 
 
 ### <a name="touring-visual-studio"></a>Visual Studio Touring
 
 Die wichtigsten Fenster in Visual Studio enthalten die **Projektmappen-Explorer**, **Server-Explorer** (**Datenbank-Explorer** in Express), wird die **Eigenschaften Fenster**, **Toolbox**, **Symbolleiste**, und die **Dokumentfenster**.
 
-![Projekt - NuGet-Dialogfeld "erstellen"](create-the-project/_static/image9.png)
+![Erstellen Sie das Projekt - NuGet-Dialogfeld](create-the-project/_static/image9.png)
 
-Weitere Informationen zu Visual Studio finden Sie unter [Visual Visual Web Developer-Handbuch](https://msdn.microsoft.com/library/ee410104.aspx).
+Weitere Informationen zu Visual Studio, finden Sie unter [visuelle Anleitung zu Visual Web Developer](https://msdn.microsoft.com/library/ee410104.aspx).
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm haben Sie erstellt haben, führen Sie die Standard-Web Forms-Anwendung und überprüft. Sie haben haben gelernt, einige Grundlagen zur Verwendung von Visual Studio-Umgebung und überprüft die verschiedenen Funktionen von der Standardeinstellung Web Forms-Anwendung. In den folgenden Lernprogrammen erstellen Sie die Datenzugriffsebene.
+In diesem Tutorial haben Sie erstellt haben, führen Sie die Standard-Web Forms-Anwendung und überprüft. Sie haben die anderen Funktionen von der Standard-Web Forms-Anwendung überprüft und haben einige Grundlagen zur Verwendung von Visual Studio-Umgebung. In den folgenden Tutorials erstellen Sie die Datenzugriffsebene.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[Auswahl des richtigen Programmiermodell](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Webanwendungsprojekten Websiteprojekte](https://msdn.microsoft.com/library/dd547590.aspx)   
-[ASP.NET Web Forms-Seiten (Übersicht)](https://msdn.microsoft.com/library/428509ah.aspx)
+[Auswählen des richtigen Programmiermodells](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
+[Von Webanwendungsprojekten und Websiteprojekten](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET Web Forms-Seiten-Übersicht](https://msdn.microsoft.com/library/428509ah.aspx)
 
 > [!div class="step-by-step"]
 > [Zurück](introduction-and-overview.md)

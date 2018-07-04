@@ -1,226 +1,225 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: Datenquellen-Steuerelement (Building Real-World Cloud Apps with Azure) | Microsoft Docs
+title: Datenquellen-Steuerelement (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
-description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
+description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 12c695b65a21452fdc4a31e821854253bccec0d7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875694"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368974"
 ---
-<a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelements (Building Real-World Cloud Apps with Azure)
+<a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelement (erstellen realer Cloud-Apps mit Azure)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download Behebungsskript Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Die **Building Real World Cloud Apps with Azure** e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die Ihnen helfen können erfolgreich ausgeführt entwickeln Web-apps für die Cloud. Weitere Informationen zu e-Book herunterladen, finden Sie unter [im Kapitel über das erste](introduction.md).
+> Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
 
-Datenquellen-Steuerelements ist entscheidend für alle Cloud-Entwicklungsprojekte, nicht nur die Team-Umgebungen. Stellen Sie wäre nicht Quellcode bearbeiten oder sogar ein Word-Dokument ohne eine Rückgängigfunktion und die automatische Sicherungen und die Datenquellen-Steuerelements können Sie diese Funktionen auf Projektebene, in denen sie noch mehr Zeit sparen, wenn etwas schief geht. Mit Cloud-Quellcodeverwaltungsdienste müssen Sie nicht mehr komplizierte Installation kümmern, und können Sie Visual Studio Online für bis zu 5 Benutzer kostenlos Datenquellen-Steuerelements.
+Datenquellen-Steuerelement ist entscheidend für alle Cloud-Entwicklungsprojekte, nicht nur für teamumgebungen. Sie wäre nicht vorstellen, Quellcode zu bearbeiten, oder sogar ein Word-Dokument ohne eine Rückgängigfunktion und die automatischen Sicherungen und die Datenquellen-Steuerelement können Sie diese Funktionen auf Projektebene, in denen sie noch mehr Zeit sparen können, wenn etwas schief geht. Mit Cloud dateiquellcode-Verwaltungsdienste müssen Sie nicht mehr komplizierte Einrichtung kümmern und können Sie Visual Studio Online quellcodeverwaltung für bis zu 5 Benutzer kostenlos.
 
-Der erste Teil dieses Kapitel erklärt drei wichtige best Practices zu bedenken:
+Der erste Teil dieses Kapitels erläutert die drei wichtige bewährte Methoden zu berücksichtigen:
 
-- [Behandeln von Automatisierungsskripts als Quellcode](#scripts) und Version Sie zusammen mit der Anwendungscode.
-- [Checken Sie niemals geheime Schlüssel](#secrets) (sensible Daten wie z. B. Anmeldeinformationen) in einem Quellcoderepository.
-- [Einrichten der Quelle Verzweigungen](#devops) an den DevOps-Workflow zu aktivieren.
+- [Behandeln von Automation-Skripts als Quellcode](#scripts) und Version Sie zusammen mit Ihrem Anwendungscode.
+- [Checken Sie niemals Geheimnisse](#secrets) (sensible Daten wie z. B. Anmeldeinformationen) in ein Quellcoderepository.
+- [Einrichten des quellbranches](#devops) den DevOps-Workflow zu aktivieren.
 
-Der Rest des Kapitels bietet einige Beispiel-Implementierungen dieser Muster in Visual Studio, Azure und Visual Studio Online:
+Der Rest des Kapitels erhalten einige beispielimplementierungen dieser Muster in Visual Studio, Azure und Visual Studio Online:
 
-- [Hinzufügen von Skripts zur quellcodeverwaltung in Visual Studio](#vsscripts)
-- [Speichern von sensiblen Daten in Azure](#appsettings)
+- [Hinzufügen von Skripts zu quellcodeverwaltung in Visual Studio](#vsscripts)
+- [Sensible Daten im Azure Store](#appsettings)
 - [Verwenden Sie Git in Visual Studio und Visual Studio Online](#gittfs)
 
 <a id="scripts"></a>
-## <a name="treat-automation-scripts-as-source-code"></a>Behandeln von Automatisierungsskripts als Quellcode
+## <a name="treat-automation-scripts-as-source-code"></a>Behandeln von Automation-Skripts als Quellcode
 
-Wenn Sie ein Cloud-Projekt arbeiten, ändern Sie Dinge häufig und schnell reagieren auf Probleme, die von unseren Kunden gemeldet werden sollen. Schnelle Reaktion auf umfasst die Verwendung des Automatisierungsskripts, wie beschrieben in der [automatisieren alles](automate-everything.md) Kapitel. Alle Skripts, mit denen Sie die Umgebung erstellt haben bereitstellen ihm, skalieren sie usw. mit Quellcode Ihrer Anwendung synchronisiert werden müssen.
+Wenn Sie ein Cloud-Projekt arbeiten Sie Dinge häufig ändern, und schnell reagieren auf Probleme, die von Ihren Kunden gemeldet werden sollen. Schnelle Reaktion auf umfasst mithilfe von Automatisierungsskripts, wie unter der [automatisieren alles](automate-everything.md) Kapitel. Alle Skripts, mit denen Sie Ihre Umgebung erstellen, bereitstellen, skalieren sie usw. mit Quellcode der Anwendung synchronisiert werden müssen.
 
-Um die Skripts mit Code synchron zu halten, speichern Sie sie in Ihr Quellcodeverwaltungssystem aus. Wenn die Notwendigkeit zum Zurücksetzen von Änderungen oder einen Quick Fix an Produktionscode Dies unterscheidet sich von der Entwicklungscode vornehmen, müssen Sie anschließend zeitaufwendiges zum Auffinden, welche Einstellungen geändert haben oder die Teammitglieder Kopien der Version sein Sie müssen versuchen. Sie sind sicher, die die benötigten Skripts synchron mit der Codebasis, die Sie benötigen sie für sind, und Sie sind sicher, dass alle Teammitglieder mit den gleichen Skripts funktionieren. Klicken Sie dann, ob Sie zum Automatisieren von Tests und Bereitstellung von ein Hotfix, Produktions- oder Neuentwicklungen-Feature müssen, müssen das richtige Skript für den Code Sie, die aktualisiert werden muss.
+Um Skripts mit Code synchron zu halten, speichern Sie sie in Ihr Quellcodeverwaltungssystem ein. Wenn Sie müssen zum Zurücksetzen von Änderungen, oder stellen eine schnelle Lösung an den Produktionscode entwickeln von Code abweicht, müssen Sie dann Zeit dabei vergeuden, nachzuverfolgen, welche Einstellungen geändert haben oder die Teammitglieder Kopien der Version verfügen, die Sie benötigen. Sie sind sicher, die die benötigten Skripts synchron mit der Codebasis, die Sie benötigen diese Angaben für sind, und Sie sind sicher, dass alle Teammitglieder mit den gleichen Skripts funktionieren. Klicken Sie dann, ob Sie testen und Bereitstellen der ein Hotfix, Produktion oder Entwicklung neuer Features automatisieren möchten, müssen das richtige Skript für den Code Sie, die aktualisiert werden muss.
 
 <a id="secrets"></a>
-## <a name="dont-check-in-secrets"></a>Aktivieren Sie nicht in der geheime Schlüssel
+## <a name="dont-check-in-secrets"></a>Überprüfen Sie mit der nicht im Geheimnisse
 
-Eine Quellcoderepository ist in der Regel auf zu viele Personen dafür eine entsprechend sicheren Ort für vertrauliche Daten wie Kennwörter, zugegriffen werden kann. Wenn Skripts Geheimnisse wie Kennwörter benötigen, werden parametrisieren Sie diese Einstellungen, sodass sie nicht im Quellcode gespeichert, und speichern Ihre vertraulichen Daten, die an anderer Stelle.
+Ein Quellcoderepository ist in der Regel auf zu viele Entwickler dafür eine angemessen sichere Ort für vertrauliche Daten wie Kennwörter, zugreifen kann. Wenn Skripts Geheimnisse wie Kennwörter benötigen, parametrisieren Sie die Einstellungen, damit sie nicht im Quellcode gespeichert, und speichern Ihre Geheimnisse, die an anderer Stelle.
 
-Beispielsweise veröffentlichen Azure können, die Sie Dateien herunterladen, die enthalten, Einstellungen, um die Erstellung von Veröffentlichungsprofile zu automatisieren. Diese Dateien enthalten Benutzernamen und Kennwörter, die autorisiert sind, um die Azure-Dienste zu verwalten. Bei Verwendung dieser Methode zum Erstellen der Veröffentlichungsprofile, und wenn Sie diese Dateien zur Versionskontrolle einchecken, kann jede Person mit Zugriff auf Ihr Repository sehen, diese Benutzernamen und Kennwörter. Sie können das Kennwort sicher im Veröffentlichungsprofil selbst speichern, da er verschlüsselt und befindet sich im ein *. pubxml.user* Datei, die standardmäßig nicht in der quellcodeverwaltung enthalten ist.
+Z. B. Veröffentlichen mit Azure können, die Sie Dateien herunterladen, die enthalten, Einstellungen, um die Erstellung von veröffentlichungsprofilen automatisieren. Diese Dateien enthalten Benutzernamen und Kennwörter, die autorisiert sind, um Ihre Azure-Dienste zu verwalten. Bei Verwendung dieser Methode zum Erstellen von veröffentlichungsprofilen, und wenn Sie diese Dateien in die quellcodeverwaltung einchecken, werden jeder mit Zugriff auf Ihr Repository sehen diese Benutzernamen und Kennwörter. Sie können das Kennwort sicher im Veröffentlichungsprofil selbst speichern, da er verschlüsselt und befindet sich im eine *. pubxml.user* -Datei, die standardmäßig nicht in der quellcodeverwaltung enthalten ist.
 
 <a id="devops"></a>
-## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>Struktur Quelle Verzweigungen DevOps Workflows zu erleichtern.
+## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>Struktur des quellbranches um DevOps-Workflow zu erleichtern.
 
-Wie Sie in Ihrem Repository Verzweigungen implementieren wirkt sich auf die Möglichkeit, neue Funktionen zu entwickeln, und Beheben von Problemen in der Produktion aus. Hier ist ein Muster, dass viele Mittel Teams verwenden die Größe:
+Wie Sie Branches in Ihrem Repository implementieren wirkt sich auf Ihre Fähigkeit, sowohl neue Features entwickeln, und Beheben von Problemen in der Produktion aus. Hier ist ein Muster, dass die Größe der Medium viele Teams verwenden:
 
-![Quelle Verzweigungsstruktur](source-control/_static/image1.png)
+![Quelle branchstruktur](source-control/_static/image1.png)
 
-Die hauptverzweigung entspricht immer Code, der in der Produktion ist. Verzweigungen unterhalb Master entsprechen verschiedenen Phasen in den Entwicklungslebenszyklus. Die Development-Verzweigung ist, in dem Sie neue Features zu implementieren. Für ein kleines Team möglicherweise gerade müssen Master "und" Entwicklung, aber häufig empfiehlt Personen eine staging Verzweigung zwischen Entwicklungs- und Master haben. Sie können die Staging verwenden, für die endgültige Integration testen, bevor ein Update für die Produktion verschoben wird.
+Der master-Branch entspricht immer Code, der in der Produktion ist. Branches unterhalb Master entsprechen verschiedenen Phasen im Lebenszyklus Entwicklung. Der Development-Branch ist, in dem Sie die neuen Features implementiert. Für ein kleines Team können Sie nur Master und -Entwicklung haben, aber es häufig wird empfohlen, Personen eine stagingverzweigung zwischen Entwicklung und Master. Sie können Staging verwenden, für die endgültige Integration zu testen, bevor ein Update für die Produktion verschoben wird.
 
-Für big Teams möglicherweise separate Verzweigungen für jede neue Funktion; für eine kleinere Team müssen Sie möglicherweise "Jeder" Einchecken zur Development-Verzweigung.
+Für große Teams, die möglicherweise separaten Branches für jede neue Funktion; für ein kleineres Teams müssen Sie möglicherweise alle Benutzer auf dem Development-Branch einchecken.
 
-Haben eine Verzweigung für jede Funktion Funktion A bereit Sie-Zusammenführung wird immer der quellcodeänderungen in die Entwicklung von Verzweigen und nach unten in der anderen Zweige der Funktion. Zusammenführung der Quellcode kann zeitaufwändig sein, und um diese Aufgabe gleichzeitig Funktionen separate zu vermeiden, implementieren einige Teams Alternative aufgerufen *[feature schaltet](http://en.wikipedia.org/wiki/Feature_toggle)* (auch bekannt als *feature Flags*). Dies bedeutet, dass der gesamte Code für alle Funktionen in der gleichen Verzweigung ist, aber Sie aktivieren oder Deaktivieren von einzelnen Funktionen mithilfe von Switches im Code. Nehmen Sie z. B. an Funktion A ist ein neues Feld für korrigieren app-Vorgänge und Funktion B fügt Funktionen zum Zwischenspeichern. Der Code für beide Funktionen kann in die Development-Verzweigung werden, jedoch werden nur app-Anzeige von wird das neue Feld, wenn eine Variable auf "true", und er festgelegt ist nur verwendet zwischenspeichern, wenn eine andere Variable festgelegt ist auf "true". Wenn Funktion ein nicht höher gestuft werden können, aber die Funktion B bereit ist, können Sie höher Stufen der gesamte Code bis hin zur Produktion mit dem Feature ein Schalter deaktiviert, und schalten Sie die Funktion B. Sie können Fertig stellen Funktion A und Stufen Sie ihn später mit keine Quelle Code zusammengeführt.
+Wenn Sie einen Branch für jede Funktion Feature A bereit besteht seine Änderungen am Quellcode nach oben in die Entwicklung branch und nach-unten in den anderen funktionszweigen. Dieses Quellcodes Zusammenführung kann sehr zeitaufwändig sein, und um die Arbeit und dennoch die Sicherheit Features separate zu vermeiden, implementieren einige Teams Alternative aufgerufen *[featuretoggles](http://en.wikipedia.org/wiki/Feature_toggle)* (auch bekannt als *featureflags*). Dies bedeutet, dass der gesamte Code für alle Features befindet sich in derselben Filiale, aber Sie aktivieren oder Deaktivieren von einzelnen Funktionen mithilfe von Switches im Code. Nehmen wir beispielsweise an Feature A ist ein neues Feld für die Aufgaben-app-Fix It und Feature B fügt Funktionen zum Zwischenspeichern hinzu. Der Code für beide Funktionen kann in der Development-Branch werden, nur Anzeige der app wird das neue Feld, wenn eine Variable auf "true", und es festgelegt ist nur verwenden jedoch zwischenspeichern, wenn eine andere Variable festgelegt ist auf "true". Wenn Feature A nicht höher gestuft werden, aber die Feature B bereit ist, können Sie höher Stufen der gesamte Code in der Produktion mit dem Feature A-Schalter aus, und schalten Sie das Feature B. Sie können-Funktion A abgeschlossen und Stufen es später noch Mal, alles ohne Source Code zusammenführen.
 
-Und zwar unabhängig davon, ob Sie Verzweigungen oder schaltet für Funktionen verwenden, können eine Verzweigungsstruktur wie folgt auf eine Weise Agile- und wiederholbare Codes von der Entwicklung in die Produktion übertragen.
+Und zwar unabhängig davon, ob Sie Branches oder schaltet für Funktionen verwenden, kann eine Verzweigungsstruktur wie folgt Sie Ihren Code von der Entwicklung in der produktionsumgebung auf agile und wiederholbare Weise zu übertragen.
 
-Diese Struktur ermöglicht Ihnen, schnell auf Feedback von Kunden zu reagieren. Wenn Sie schnelle Problembehebung bis hin zur Produktion vornehmen müssen, können Sie auch, die effizient agile-Methode verwenden. Sie können eine Verzweigung aus Master oder Staging erstellen und einrichten Master zusammenführen und nach-unten-Wenn er bereit ist in den Verzweigungen "Entwicklung" und "Funktion.
+Diese Struktur ermöglicht Ihnen, schnell auf Kundenfeedback zu reagieren. Wenn Sie eine schnelle Lösung für die Produktion vornehmen müssen, auch möglich, die effizient auf agile Weise. Sie können eine Verzweigung vom Master oder Staging erstellen, und wenn er bereit ist, um in den masterbranch zusammenführen und nach-unten in der Entwicklung und Feature-Branches.
 
-![Hotfix-Verzweigung](source-control/_static/image2.png)
+![Hotfix-branch](source-control/_static/image2.png)
 
-Ohne eine Verzweigungsstruktur wie folgt mit der Trennung von Produktions- und Development-Branches konnte Sie ein Produktionsproblem in die Position des neuen Featurecode sowie die Korrektur Produktion höher stufen müssen einfügen. Der neuen Featurecode u. u. nicht vollständig getestet und bereit für die Produktion und möglicherweise müssen Sie viele Arbeitsaufgaben Rückgängigmachen von Änderungen, die nicht bereit sind. Oder Sie möglicherweise die Korrektur zum Testen von Änderungen, und rufen Sie sie bereit für die Bereitstellung zu verzögern.
+Ohne eine Verzweigungsstruktur wie folgt mit der Trennung von Produktions- und entwicklungsbranches können Sie ein Produktionsproblem an der Position der neuen Featurecode sowie die Korrektur für die Produktion heraufstufen zuordnen. Der neue Code für die Funktion möglicherweise nicht vollständig getestet und bereit zur Produktion, und möglicherweise müssen Sie eine Menge Arbeit Zurückziehen von Änderungen, die nicht bereit sind. Oder Sie möglicherweise die Korrektur, um die Änderungen zu testen, und Regen sie bereit für die Bereitstellung verzögern.
 
-Als Nächstes sehen Sie Beispiele für diese drei Muster in Visual Studio, Azure und Visual Studio Online zu implementieren. Diese sind Beispiele, die detaillierte, schrittweise Vorgehensweise-to--It-Anweisungen statt; Ausführliche Anweisungen, die alle erforderlichen Kontext bereitzustellen, finden Sie unter der [Ressourcen](#resources) Abschnitt am Ende des Kapitels.
+Als Nächstes sehen Sie Beispiele für diese drei Muster in Visual Studio, Azure und Visual Studio Online zu implementieren. Dies sind Beispiele für statt-Schritt-how-to--It-Anweisungen; Detaillierte Anweisungen, die alle von den erforderlichen Kontext bereitstellen, finden Sie unter den [Ressourcen](#resources) Abschnitt am Ende des Kapitels.
 
 <a id="vsscripts"></a>
-## <a name="add-scripts-to-source-control-in-visual-studio"></a>Hinzufügen von Skripts zur quellcodeverwaltung in Visual Studio
+## <a name="add-scripts-to-source-control-in-visual-studio"></a>Hinzufügen von Skripts zu quellcodeverwaltung in Visual Studio
 
-Sie können Skripts zur quellcodeverwaltung in Visual Studio hinzufügen, indem Sie sie in einem Visual Studio-Projektmappenordner (vorausgesetzt, dass das Projekt in der quellcodeverwaltung ist) einschließen. Dies ist eine Methode zu diesem Zweck.
+Sie können Skripts zur quellcodeverwaltung in Visual Studio hinzufügen, dazu können Sie sie in einem Visual Studio-Projektmappenordner (vorausgesetzt, dass Ihr Projekt in der quellcodeverwaltung ist). Hier ist eine Möglichkeit dafür.
 
-Erstellen Sie einen Ordner für die Skripts im Projektmappenordner (den gleichen Ordner mit Ihrem *sln* Datei).
+Erstellen Sie einen Ordner für die Skripts in Ihrem Projektordner (den gleichen Ordner, die Ihre *sln* Datei).
 
-![Automation-Ordner](source-control/_static/image3.png)
+![Ordner "Automatisierung"](source-control/_static/image3.png)
 
-Kopieren Sie die Skriptdateien in den Ordner ein.
+Kopieren Sie die Skriptdateien in den Ordner an.
 
-![Automatisierung Ordnerinhalt auflisten](source-control/_static/image4.png)
+![Automation Ordnerinhalt auflisten](source-control/_static/image4.png)
 
 Fügen Sie in Visual Studio dem Projekt einen Projektmappenordner hinzu.
 
-![Neuer Projektmappenordner Menüauswahl](source-control/_static/image5.png)
+![Neuen Projektmappenordner Menüauswahl](source-control/_static/image5.png)
 
-Und fügen Sie die Skriptdateien in den Projektmappenordner.
+Und fügen Sie die Skriptdateien in den Projektmappenordner hinzu.
 
 ![Menüauswahl vorhandenes Element hinzufügen](source-control/_static/image6.png)
 
 ![Dialogfeld "Vorhandenes Element hinzufügen"](source-control/_static/image7.png)
 
-Die Skriptdateien sind nun in Ihrem Projekt enthalten, und Datenquellen-Steuerelements ist ihre versionsänderungen zusammen mit den entsprechenden quellcodeänderungen nachverfolgen.
+Die Skriptdateien befinden sich nun in Ihrem Projekt und quellcodeverwaltung verfolgt ihre Änderungen an der Typsystemversion zusammen mit den entsprechenden Änderungen am Quellcode.
 
 <a id="appsettings"></a>
-## <a name="store-sensitive-data-in-azure"></a>Speichern von sensiblen Daten in Azure
+## <a name="store-sensitive-data-in-azure"></a>Sensible Daten im Azure Store
 
-Wenn Sie Ihre Anwendung auf ein Azure-Website ausführen, ist eine Möglichkeit zum Speichern von Anmeldeinformationen in der quellcodeverwaltung vermeiden sie in Azure speichern.
+Wenn Sie Ihre Anwendung in einer Azure-Website ausführen, werden eine Möglichkeit zum Vermeiden der Speicherung von Anmeldeinformationen in der quellcodeverwaltung in Azure zu speichern, die stattdessen.
 
-Beispielsweise speichert die Anwendung beheben in der Datei "Web.config" Datei zwei Verbindungszeichenfolgen, die Kennwörter in der Produktion und einen Schlüssel, der Zugriff auf Azure-Speicherkonto gewährt hat.
+Beispielsweise speichert die Fix It-Anwendung in der Web.config-Datei zwei Verbindungszeichenfolgen, die Kennwörter in der Produktion und einen Schlüssel, der Ihrem Azure Storage-Konto Zugriff hat.
 
 [!code-xml[Main](source-control/samples/sample1.xml?highlight=2-3,11)]
 
-Wenn Ablegen von tatsächlichen Produktionswerten für diese Einstellungen in Ihrer *"Web.config"* Datei, oder wenn Sie sie, in Ablegen der *Web.Release.config* Datei so konfigurieren Sie eine Transformation für "Web.config", um sie während der Bereitstellung einfügen Sie müssen im Quell-Repository gespeichert werden. Bei der Eingabe von Datenbank-Verbindungszeichenfolgen in der Produktion eines Veröffentlichungsprofils, das Kennwort werden in Ihre *pubxml* Datei. (Sie ausschließen, die *pubxml* Datei aus der quellcodeverwaltung, aber dann verlieren Sie auch den Vorteil, dass die anderen bereitstellungseinstellungen freigeben.)
+Wenn Sie die eigentliche Produktion-Werte für diese Einstellungen im ablegen Ihrer *"Web.config"* -Datei, oder wenn Sie sie, in Platzieren der *Datei "Web.Release.config"* Datei so konfigurieren Sie eine Web.config-Transformation, um sie während der Bereitstellung einfügen Sie müssen im Quell-Repository gespeichert werden. Wenn Sie die Datenbank-Verbindungszeichenfolgen in der Produktion geben Sie das Veröffentlichungsprofil, das Kennwort werden in Ihrem *pubxml* Datei. (Können Sie ausschließen, die *pubxml* Datei aus der quellcodeverwaltung, aber dann verlieren Sie den Vorteil, dass die anderen bereitstellungseinstellungen freigeben.)
 
-Azure bietet eine Alternative für die **"appSettings"** und Verbindungszeichenfolgen Abschnitte der *"Web.config"* Datei. Hier wird der relevante Teil der **Konfiguration** Registerkarte für eine Website im Azure-Verwaltungsportal:
+Azure bietet Ihnen eine Alternative für die **"appSettings"** und Verbindungszeichenfolgen Teile der *"Web.config"* Datei. Hier ist der relevante Teil der **Konfiguration** Registerkarte für eine Website im Azure-Verwaltungsportal:
 
 !["appSettings" und ConnectionStrings im portal](source-control/_static/image8.png)
 
-Beim Bereitstellen eines Projekts zu dieser Website und die Anwendung ausgeführt wird, überschreiben beliebige Werte, die Sie in Azure gespeichert haben, werden alle Werte in der Datei "Web.config".
+Wenn Sie ein Projekt auf die Anwendung ausgeführt wird und dieser Website bereitstellen, überschreiben beliebige Werte, die Sie in Azure gespeichert haben, werden alle Werte in der Datei "Web.config".
 
-Sie können diese Werte mit dem Verwaltungsportal oder die Skripts in Azure festlegen. Die Umgebung Automation Erstellungsskript Sie gesehen, in haben der [automatisieren alles](automate-everything.md) Kapitel einer Azure SQL-Datenbank erstellt, ruft der Speicher und SQL-Datenbank-Verbindungszeichenfolgen ab und speichert diese geheimen Informationen in den Einstellungen für Ihre Website.
+Sie können diese Werte in Azure mit dem Verwaltungsportal oder Skripts festlegen. Die Umgebung erstellen Automatisierungsskripts, die Sie gesehen, in haben der [automatisieren alles](automate-everything.md) Kapitel erstellt eine Azure SQL-Datenbank, ruft Sie ab, den Speicher und SQL-Datenbank-Verbindungszeichenfolgen und speichert diese Informationen in den Einstellungen für Ihre Website.
 
 [!code-powershell[Main](source-control/samples/sample2.ps1)]
 
 [!code-powershell[Main](source-control/samples/sample3.ps1)]
 
-Beachten Sie, dass die Skripts, sodass Istwerte auf das Quellrepository beibehalten abrufen nicht parametrisiert werden.
+Beachten Sie, dass die Skripts, damit an die Quell-Repository tatsächliche Werte beibehalten werden nicht parametrisiert werden.
 
-Wenn Sie sich lokal in der Entwicklungsumgebung ausführen, die app liest die lokale Datei "Web.config"-Datei und die Verbindung Zeichenfolge verweist auf eine LocalDB, SQL Server-Datenbank, in der *App\_Daten* Ordner des Webprojekts. Wenn Sie die app in Azure ausführen und die Anwendung versucht, diese Werte aus der Datei "Web.config" zu lesen, werden was er ruft zurück und verwendet die Werte für die Website nicht was tatsächlich in der Datei "Web.config" wird gespeichert.
+Wenn Sie lokal in Ihrer Entwicklungsumgebung ausführen, die app liest die lokale Datei "Web.config"-Datei und der Verbindung angegebene Verbindungszeichenfolge verweist auf die SQL Server LocalDB-Datenbank in der *App\_Daten* Ordner des Webprojekts. Wenn Sie die app in Azure ausführen und die app versucht, diese Werte aus der Datei "Web.config" zu lesen, sind was erhält zurück und wird verwendet, die Werte, die für die Website, nicht was tatsächlich in der Datei "Web.config" wird gespeichert ist.
 
 <a id="gittfs"></a>
 ## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Verwenden Sie Git in Visual Studio und Visual Studio Online
 
-Alle quellcodeverwaltungsumgebung können Sie um die Verzweigung DevOps-Struktur, die weiter oben vorgestellten zu implementieren. Für verteilte Teams eine [distributed Version Control System](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) möglicherweise funktionieren am besten; für andere Teams eine [zentralisierte System](http://en.wikipedia.org/wiki/Revision_control) möglicherweise besser geeignet.
+Sie können der quellcodeverwaltungsumgebung verwenden, um DevOps-Verzweigungsstruktur, die zuvor gezeigte zu implementieren. Für verteilte Teams einen [verteilte Versionskontrollsystem](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) funktioniert am besten; für andere Teams eine [ein zentralisiertes System](http://en.wikipedia.org/wiki/Revision_control) besser funktioniert.
 
-[Git](http://git-scm.com/) ist ein DVCS, das sehr beliebte geworden ist. Wenn Sie Git für die quellcodeverwaltung verwenden, müssen Sie eine vollständige Kopie des Repositorys mit allen dessen Verlauf auf dem lokalen Computer. Viele bevorzugen, weil das einfacher ist weiterarbeiten, wenn Sie nicht mit dem Netzwerk verbunden – können Sie weiterhin führen Sie ein Commit und Rollbacks, erstellen und Verzweigungen wechseln und so weiter. Auch wenn Sie mit dem Netzwerk verbunden sind, ist es einfacher und schneller zum Erstellen von Verzweigungen und Verzweigungen wechseln, wenn alles lokal ist. Sie können auch auf lokalen Commit- oder Rollbackvorgängen vorgehen, ohne Auswirkungen auf andere Entwickler. Und Sie können in Batches Commits vor dem Senden an den Server.
+[Git](http://git-scm.com/) ist einem DVCS, das ist sehr beliebt geworden. Wenn Sie Git für die quellcodeverwaltung verwenden, müssen Sie eine vollständige Kopie des Repositorys mit dem gesamten Verlauf auf dem lokalen Computer. Viele Benutzer bevorzugen, weil es einfacher ist weiterarbeiten, wenn Sie nicht mit dem Netzwerk verbunden sind – Sie können Sie weiterhin commits und Rollbacks, erstellen und zwischen Branches wechseln und so weiter. Auch wenn Sie mit dem Netzwerk verbunden sind, ist es einfacher und schneller, erstellen Sie Branches und zwischen Branches wechseln, wenn alles lokal ist. Sie können auch lokale Commits und Rollbacks durchführen, ohne Auswirkungen auf andere Entwickler. Und Sie können Commits vor dem Senden an den Server batch.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), früher bekannt als Team Foundation-Dienst bietet sowohl Git und [Team Foundation-Versionskontrolle](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; zentralisierte Steuerung der Quelle). Hier verwenden einige Teams bei Microsoft in der Azure-Gruppe zentrale Datenquellen-Steuerelements, einige verteilt, verwenden und einige eine Mischung aus (bei einigen Projekten zentralisierte und verteilt, die für andere Projekte) verwenden. VSO-Diensts ist für bis zu 5 Benutzer kostenlos. Sie können für eine kostenlose Plan registrieren [hier](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), früher bekannt als Team Foundation Service, Git bietet und [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; zentrale quellcodeverwaltung). Hier verwenden einige Teams bei Microsoft im Azure-zentrale quellcodeverwaltung, einige verwenden, verteilt, und einige Verwenden einer Kombination aus (bei einigen Projekten zentralisiert und für andere Projekte verteilt). Der Visual Studio Online-Dienst ist für bis zu 5 Benutzer kostenlos. Sie können für einen kostenlosen Plan registrieren [hier](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 umfasst integrierte erstrangige [Git Unterstützung](https://msdn.microsoft.com/library/hh850437.aspx); hier ist eine schnelle Demo, die Funktionsweise von.
+Visual Studio 2013 bietet erstklassige integrierte [Git-Unterstützung](https://msdn.microsoft.com/library/hh850437.aspx); hier ist eine kurze Demo, wie es geht.
 
-Ein Projekt in Visual Studio 2013 geöffnet, Maustaste die Projektmappe in **Projektmappen-Explorer**, und wählen Sie **Projektmappe zur Quellcodeverwaltung hinzufügen**.
+Ein Projekt in Visual Studio 2013 geöffnet, mit der rechten Maustaste der Projektmappe in **Projektmappen-Explorer**, und wählen Sie **Projektmappe zur Quellcodeverwaltung hinzufügen**.
 
 ![Projektmappe zur Quellcodeverwaltung hinzufügen](source-control/_static/image9.png)
 
-Visual Studio werden gefragt, ob Sie TFVC (zentrale Versionskontrolle) oder Git verwenden möchten.
+Visual Studio gefragt werden, wenn Sie TFVC (zentralisierte Versionskontrolle) oder Git verwenden möchten.
 
-![Source Control auswählen](source-control/_static/image10.png)
+![Wählen Sie die Datenquellen-Steuerelement](source-control/_static/image10.png)
 
-Wenn Sie Git auswählen, und klicken Sie auf **OK**, Visual Studio ein neues lokales Git-Repository im Projektmappenordner erstellt. Das neue Repository sind noch keine Dateien; Sie müssen diese im Repository hinzufügen, indem Sie ein Git-Commit. Mit der rechten Maustaste in der Projektmappe in **Projektmappen-Explorer**, und klicken Sie dann auf **Commit**.
+Wenn Sie Git wählen, und klicken Sie auf **OK**, Visual Studio erstellt ein neues lokales Git-Repository in Ihrem Projektmappenordner. Das neue Repository sind keine Dateien noch; Sie müssen diese in das Repository hinzufügen, indem Sie ein Git-Commit. Mit der rechten Maustaste in der Lösung in **Projektmappen-Explorer**, und klicken Sie dann auf **Commit**.
 
 ![Commit](source-control/_static/image11.png)
 
-Visual Studio automatisch die Stufen aller die Projektdateien für den Commit und listet diese in **Team Explorer** in der **eingeschlossene Änderungen** Bereich. (Wenn es einige nicht in der Commit enthalten sein sollen wurden, wählen Sie sie beispielsweise mit der rechten Maustaste, und klicken Sie auf **ausschließen**.)
+Visual Studio automatisch alle Projektdateien für den Commit stellt es vorab bereit und listet diese in **Team Explorer** in die **eingeschlossene Änderungen** Bereich. (Würde es einige nicht im Commit enthalten sein sollen, können Sie auswählen, mit der rechten Maustaste, und klicken Sie auf **ausschließen**.)
 
 ![Team Explorer](source-control/_static/image12.png)
 
-Geben Sie einen Commit Kommentar ein, und klicken Sie auf **Commit**, und Visual Studio wird das Commit ausgeführt, und zeigt die Commit-ID an.
+Geben Sie einen commitkommentar, und klicken Sie auf **Commit**, Visual Studio führt den Commit und zeigt die Commit-ID.
 
 ![Team Explorer-Änderungen](source-control/_static/image13.png)
 
-Jetzt, wenn Sie Code ändern, sodass es unterscheidet sich von den im Repository, können Sie einfach die Unterschiede anzeigen. Mit der rechten Maustaste eine Datei, die Sie geändert haben, wählen Sie **vergleichen mit Unmodified**, und Sie erhalten einen Vergleich anzeigen, die Änderung Ihrer uncommitted anzeigt.
+Jetzt, wenn Sie Code ändern, sodass sie unterscheidet sich von den im Repository, können Sie einfach die Unterschiede anzeigen. Mit der rechten Maustaste eine Datei, die Sie geändert haben, wählen Sie **vergleichen mit Unmodified**, und Sie erhalten einen Vergleich anzeigen, die Ihre nicht gespeicherte Änderungen anzeigt.
 
-![Mit nicht geänderten vergleichen](source-control/_static/image14.png)
+![Mit unveränderter Version vergleichen](source-control/_static/image14.png)
 
 ![Diff mit Änderungen](source-control/_static/image15.png)
 
-Welche Änderungen können Sie ganz leicht erkennen, nehmen und Sie sie einchecken.
+Sie können Änderungen leicht erkennen, Sie machen, und checken Sie sie.
 
-Angenommen, müssen Sie eine Verzweigung –, können Sie dies in Visual Studio zu tun. In **Team Explorer**, klicken Sie auf **neue Verzweigung**.
+Angenommen, müssen Sie einen Branch – können Sie dies in Visual Studio zu tun. In **Team Explorer**, klicken Sie auf **neuen Branch**.
 
-![Team Explorer New Branch](source-control/_static/image16.png)
+![Neuen Branch für Team Explorer](source-control/_static/image16.png)
 
-Geben Sie einen Namen für die Verzweigung, klicken Sie auf **Verzweigung erstellen**, und bei Auswahl **Auschecken Verzweigung**, Visual Studio automatisch auscheckt der neuen Verzweigung.
+Geben Sie einen Branch ein, klicken Sie auf **Verzweigung erstellen**, und wenn Sie ausgewählt **Branch Auschecken**, überprüft Visual Studio automatisch den neuen Branch.
 
-![Team Explorer New Branch](source-control/_static/image17.png)
+![Neuen Branch für Team Explorer](source-control/_static/image17.png)
 
-Sie können jetzt nehmen Sie Änderungen an Dateien und in diese Verzweigung einchecken. Und Sie können problemlos zwischen Verzweigungen und Visual Studio automatisch synchronisiert, die die Dateien, je nachdem, was Sie zu verzweigen ausgecheckt haben. In diesem Beispiel wird die Webseite im Titel  *\_Layout.cshtml* wurde geändert in "Hotfix 1" in HotFix1 Verzweigung.
+Sie können nun Änderungen an Dateien vornehmen und Einchecken für diesen Branch. Und Sie können problemlos Wechseln zwischen Branches und Visual Studio automatisch Synchronisierungen, die die Dateien, je nachdem, was Sie branch ausgecheckt haben. In diesem Beispiel wird die Webseite im Titel  *\_Layout.cshtml* wurde geändert in "Hotfix 1" in HotFix1 Branch.
 
-![Hotfix1 Verzweigung](source-control/_static/image18.png)
+![Hotfix1 branch](source-control/_static/image18.png)
 
-Wenn Sie in der Master zurückwechseln verzweigen, den Inhalt der  *\_Layout.cshtml* Datei automatisch, was sie in den hauptbranch werden zurückgesetzt.
+Wenn Sie zurück zum Master wechseln branch, den Inhalt der  *\_Layout.cshtml* Datei automatisch zurückgesetzt, was sie in der master-Branch werden.
 
-![Hauptverzweigung](source-control/_static/image19.png)
+![Master-branch](source-control/_static/image19.png)
 
-Diese ein einfaches Beispiel, wie Sie schnell eine Verzweigung erstellen und zwischen Verzweigungen hin-und spiegeln. Dieses Feature ermöglicht einen hoch agilen Workflow verwenden die Verzweigungsstruktur und Automatisierungsskripts dargestellt wird, der [automatisieren alles](automate-everything.md) Kapitel. Sie können z. B. werden in die Development-Verzweigung arbeiten, Erstellen einer Hotfix-Verzweigung aus Master, wechseln Sie zu der neuen Verzweigung, nehmen Sie die Änderungen vorhanden und commit, und wechseln Sie zurück zur Development-Verzweigung und fortfahren, was Sie tun.
+Diese ein einfaches Beispiel, wie Sie schnell eine Verzweigung erstellen und kippen zwischen Branches wechseln. Dieses Feature ermöglicht einen äußerst agilen Workflow, die mithilfe von die branchstruktur und Automatisierungsskripts angezeigt, der [automatisieren alles](automate-everything.md) Kapitel. Sie können z. B. werden in der Development-Branch arbeiten, erstellen Sie einen Hotfix Branch abseits des masterbranches, wechseln Sie zu den neuen Branch, Ihre Änderungen daran vornehmen und committet haben, und wechseln Sie dann zu dem Development-Branch und fortgesetzt, wo Sie aufgehört haben.
 
-Hier gesehen ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung mithilfe von Push übertragen Sie in der Regel auch ändert sich in einem gemeinsamen Repository. Visual Studio-Tools aktivieren Sie auf einem remote-Git-Repository zu verweisen. Sie können "github.com" zu diesem Zweck verwenden oder können Sie [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) mit allen anderen Visual Studio Online Funktionen wie z. B. Arbeitsaufgabe und fehlernachverfolgung integriert.
+Was Sie hier gesehen haben ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung push Sie in der Regel auch Änderungen zu einem gemeinsamen Repository. Visual Studio-Tools können auch Sie auf einem remote-Git-Repository zu verweisen. Können Sie zu diesem Zweck "github.com", oder Sie können [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) mit allen anderen Visual Studio Online Funktionen wie z. B. Arbeitselement und nachverfolgung von Programmfehlern integriert.
 
-Dies ist nicht die einzige Möglichkeit, die einem agile Verzweigungsstrategie natürlich implementiert werden können. Sie können die gleichen agilen Workflow über eine zentrale Quellcodeverwaltungs-Repository aktivieren.
+Dies ist nicht die einzige Möglichkeit, die Sie eine agile Verzweigungsstrategie, natürlich implementieren können. Sie können den gleichen agilen-Workflow mit einem zentralen Quellcodeverwaltungs-Repository aktivieren.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Messen Sie Ihr Quellcodeverwaltungssystem basierend auf wie schnell können Sie eine Änderung und rufen Sie die Anwendung in einer sicheren und kalkulierbare Weise live Erfolg. Wenn Sie selbst abschreckend feststellen, eine Änderung vorzunehmen, da ein oder zwei von manuellen Tests darauf erfordern, Fragen Sie sich selbst habe process-wise oder test-wise vornehmen, damit Sie diese Änderung in Minuten oder zu schlechteste nicht mehr als eine Stunde vornehmen können. Eine Strategie für die auf diese Weise wird zum Implementieren von continuous Integration und kontinuierlichen Bereitstellung, die wir in behandelt werden die [nächsten Kapitels](continuous-integration-and-continuous-delivery.md).
+Messen Sie den Erfolg von Ihr Quellcodeverwaltungssystem basierend auf wie schnell Sie können eine Änderung vornehmen und sie auf eine Weise sicheres und berechenbares live. Wenn Sie sich eine Änderung vornehmen, da Sie müssen lediglich eine oder zwei manuelle Tests auf abschreckend, können Sie sich Fragen habe process-wise oder test-wise, damit Sie innerhalb von Minuten oder am schlechtesten, die nicht mehr als eine Stunde, die diese Änderung vornehmen können. Eine Strategie zum Ausführen, wird zum Implementieren von continuous Integration und continuous Delivery, die wir im behandeln werde die [im nächsten Kapitel](continuous-integration-and-continuous-delivery.md).
 
 <a id="resources"></a>
 ## <a name="resources"></a>Ressourcen
 
-Die [Visual Studio Online](https://www.visualstudio.com/) Portal bietet Dokumentation und Support Services und Sie können für ein Konto registrieren. Wenn Sie Visual Studio 2012 und Git verwenden möchten, finden Sie unter [Visual Studio-Tools für Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
+Die [Visual Studio Online](https://www.visualstudio.com/) -Portal bietet die Dokumentation und Support Services, und Sie können für ein Konto registrieren. Wenn Sie Visual Studio 2012 und Git verwenden möchten, finden Sie unter [Visual Studio-Tools für Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
 
-Weitere Informationen zu TFVC (zentrale Version Control) und Git (distributed Version Control) finden Sie unter den folgenden Ressourcen:
+Weitere Informationen zu TFVC (zentralisierte Versionskontrolle) und Git (verteilte Versionskontrolle) finden Sie unter den folgenden Ressourcen:
 
-- [Welche Versionskontrollsystem sollten verwenden: TFVC oder Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN-Dokumentation enthält eine Tabelle, die die Unterschiede zwischen TFVC und Git.
-- [Nun, möchte ich, dass Team Foundation Server und möchte ich, Git, aber dies ist eine bessere?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Vergleich von Git- und TFVC.
+- [Welches Versionskontrollsystem sollte ich verwenden: TFVC oder Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN-Dokumentation enthält eine Tabelle, die Zusammenfassung der Unterschiede zwischen TFVC und Git.
+- [Auch wie ich Team Foundation Server und z.B. ich wie Git verwenden, aber das ist besser?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Vergleich von Git- und TFVC.
 
-Weitere Informationen zu verzweigen Strategien finden Sie unter den folgenden Ressourcen:
+Weitere Informationen zu verzweigungsstrategien finden Sie unter den folgenden Ressourcen:
 
-- [Erstellen einer Releasepipeline mit Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns and Practices-Dokumentation. Finden Sie in Kapitel 6 Nähere Informationen zur Verzweigung Strategien. Befürworter-Funktion über die Funktion Verzweigungen schaltet und wenn Verzweigungen für Funktionen verwendet werden, Fürsprecher halten sie kurzlebige (Stunden oder Tage höchstens).
-- [Version-Steuerelement Handbuch](https://aka.ms/vsarsolutions). Führen Sie zu verzweigen Strategien von ALM Rangers. Finden Sie auf der Registerkarte "Downloads" in der Verzweigung Strategies.pdf.
-- [Softwareentwicklung mit dem Feature schaltet](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN Magazine-Artikel.
-- [Funktion zum ein-/ausschalten](http://martinfowler.com/bliki/FeatureToggle.html). Einführung in die Funktion schaltet / Funktion kennzeichnet Fowlers-Blog.
-- [Schaltet Vs Feature Verzweigungen Feature](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Eine andere Blogbeitrag zu Feature-Schaltet von Dylan Smith.
+- [Erstellung einer Versionspipeline mit Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns and Practices-Dokumentation. Finden Sie in Kapitel 6, Informationen zu verzweigungsstrategien. Befürworter-Funktion über featurebranches schaltet und Verzweigungen für Funktionen verwendet, advocates sorgen kurzlebige (Stunden oder Tage lang höchstens).
+- [Version Control Handbuch](https://aka.ms/vsarsolutions). Leitfaden Sie zu verzweigungsstrategien von ALM Rangers. Finden Sie auf der Registerkarte "Downloads" in der Verzweigung Strategies.pdf.
+- [Softwareentwicklung mit Funktionsschaltern](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN Magazine-Artikel.
+- [Aktivieren/Deaktivieren Features](http://martinfowler.com/bliki/FeatureToggle.html). Einführung in die Funktion schaltet / featureflags Blog von Martin.
+- [Feature Toggles Vs Featurebranches](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Einem anderen Blogbeitrag zu funktionsschaltern von Dylan Smith.
 
-Weitere Informationen zum Umgang mit vertraulichen Informationen, der nicht in quellcodeverwaltungsrepositorys beibehalten werden soll, finden Sie unter den folgenden Ressourcen:
+Weitere Informationen zum Umgang mit vertraulichen Informationen, der nicht in Repositorys zur quellcodeverwaltung aufbewahrt werden sollen, finden Sie unter den folgenden Ressourcen:
 
-- [Bewährte Methoden für die Bereitstellung von Kennwörtern und andere sensible Daten für ASP.NET und Azure App Service](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-- [Azure-Websites: Wie Anwendungszeichenfolgen und Verbindung Zeichenfolgen Arbeit](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Erläutert die Azure-Funktion, die überschreibt `appSettings` und `connectionStrings` Daten in der *"Web.config"* Datei.
-- [Benutzerdefinierte Einstellungen für Konfiguration und die Anwendung in Azure Web Sites - mit Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
+- [Bewährte Methoden für die Bereitstellung von Kennwörtern und anderen vertraulichen Daten in ASP.NET und Azure App Service](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+- [Azure-Websites: Wie Anwendungs- und Verbindung Zeichenfolgen arbeiten](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Erläutert die Azure-Funktion, die überschreibt `appSettings` und `connectionStrings` Daten in die *"Web.config"* Datei.
+- [Benutzerdefinierte Konfiguration und Anwendung von Einstellungen in Azure Websites - mit Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
 
-Informationen zu weiteren Methoden, durch die Beibehaltung vertrauliche Informationen aus der quellcodeverwaltung finden Sie unter [ASP.NET MVC: behalten Sie Private Einstellungen von Datenquellen-Steuerelements](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
+Weitere Informationen zu anderen Methoden zum Schützen von vertraulichen Informationen aus der quellcodeverwaltung finden Sie unter [ASP.NET MVC: behalten Sie privaten Einstellungen von Quellcodeverwaltung](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
 > [!div class="step-by-step"]
 > [Zurück](automate-everything.md)

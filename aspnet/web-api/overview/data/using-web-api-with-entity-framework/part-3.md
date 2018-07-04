@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: Code First-Migrationen verwenden, um das Seeding der Datenbank | Microsoft Docs
+title: Verwenden Sie Code First-Migrationen, um die Datenbank ein Seeding | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,85 +9,84 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 33bc6d82daa9ca5f46452a1adf4e2eebea04fa6c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d753ea52c57af2cbffff9e1e8741bbe49bc6d7b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869932"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370525"
 ---
-<a name="use-code-first-migrations-to-seed-the-database"></a>Verwenden Sie Code First-Migrationen, um das Seeding der Datenbank
+<a name="use-code-first-migrations-to-seed-the-database"></a>Verwenden Sie Code First-Migrationen, um die Datenbank ein Seeding
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](https://github.com/MikeWasson/BookService)
+[Abgeschlossenes Projekt herunterladen](https://github.com/MikeWasson/BookService)
 
-In diesem Abschnitt verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) in EF zum Ausgangswert für der Datenbank mit Testdaten.
+In diesem Abschnitt verwenden Sie [Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) in EF das Seeding der Datenbank mit Testdaten.
 
-Aus der **Tools** klicken Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **Package Manager Console**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-console[Main](part-3/samples/sample1.cmd)]
 
-Dieser Befehl fügt einen Ordner namens Migrationen zu Ihrem Projekt plus eine Codedatei mit dem Namen "Configuration.cs" in den Ordner.
+Dieser Befehl fügt einen Ordner namens Migrationen zu Ihrem Projekt sowie eine Codedatei namens Configuration.cs in den Ordner "Migrations".
 
 ![](part-3/_static/image1.png)
 
-Öffnen Sie die Datei "Configuration.cs". Fügen Sie die folgenden **mit** Anweisung.
+Öffnen Sie die Configuration.cs-Datei. Fügen Sie die folgenden **mit** Anweisung.
 
 [!code-csharp[Main](part-3/samples/sample2.cs)]
 
-Fügen Sie folgenden Code, der **Configuration.Seed** Methode:
+Klicken Sie dann fügen Sie den folgenden Code der **Configuration.Seed** Methode:
 
 [!code-csharp[Main](part-3/samples/sample3.cs)]
 
-Geben Sie im Fenster Paket-Manager-Konsole die folgenden Befehle ein:
+Geben Sie im Fenster Paket-Manager-Konsole die folgenden Befehle aus:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-Der erste Befehl generiert Code, der die Datenbank erstellt und mit dem zweite Befehl wird dieser Code ausgeführt. Die Datenbank wird lokal mit erstellt [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
+Der erste Befehl generiert Code, der die Datenbank erstellt, und mit dem zweite Befehl wird dieser Code ausgeführt. Die Datenbank wird lokal mit erstellt [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
 
 ![](part-3/_static/image2.png)
 
-## <a name="explore-the-api-optional"></a>Untersuchen Sie die API (Optional)
+## <a name="explore-the-api-optional"></a>Erkunden der API (Optional)
 
-Drücken Sie F5, um die Anwendung im Debugmodus auszuführen. Visual Studio startet IIS Express und Ihre Web-app ausführt. Visual Studio dann öffnet einen Browser und Startseite der app geöffnet.
+Drücken Sie F5, um die Anwendung im Debugmodus auszuführen. Visual Studio startet IIS Express und Ihrer Web-app ausgeführt. Visual Studio klicken Sie dann einen Browser und der app-Startseite wird geöffnet.
 
-Wenn Visual Studio ein Webprojekt ausgeführt wird, weist es eine Portnummer an. In der folgenden Abbildung ist die Nummer des Ports 50524. Wenn Sie die Anwendung ausführen, sehen Sie eine andere Portnummer an.
+Wenn Visual Studio ein Webprojekt ausgeführt wird, weist sie eine Portnummer an. In der folgenden Abbildung ist die Nummer des Ports 50524. Wenn Sie die Anwendung ausführen, sehen Sie eine andere Portnummer an.
 
 ![](part-3/_static/image3.png)
 
-Die Startseite wird mithilfe von ASP.NET MVC implementiert. Klicken Sie oben auf der Seite besteht eine Verknüpfung, die besagt, dass "API" zur Verfügung. Diesen Link gelangen Sie zur einer automatisch generierten Hilfeseite an, für die Web-API. (Um zu erfahren, wie diese Hilfeseite generiert wird und wie Sie Ihre eigenen Dokumentation auf der Seite hinzufügen können, finden Sie unter [Hilfeseiten für ASP.NET Web-API erstellen](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) Sie können auf "Hilfe" die Seite enthält Links, um Details über die API, einschließlich der Anforderung und Antwort-Format anzuzeigen klicken.
+Auf der Startseite wird die Verwendung von ASP.NET MVC implementiert. Bei den oberen Rand der Seite wird eine Verknüpfung mit dem Text "API". Diesen Link gelangen Sie zu einer automatisch generierten Hilfeseite an, für die Web-API. (Um zu erfahren, wie diese Hilfeseite generiert wird und wie Sie Ihre eigene Dokumentation auf der Seite hinzufügen können, finden Sie unter [für ASP.NET Web API Help Pages erstellen](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) Sie können Seite enthält Links, um die Details der API, einschließlich der Anforderung und Antwort-Format finden auf die Hilfe klicken.
 
 ![](part-3/_static/image4.png)
 
-Die API ermöglicht CRUD-Vorgänge in der Datenbank. Im folgenden werden die API zusammengefasst.
+Der API können CRUD-Vorgänge in der Datenbank. Im folgenden werden die API zusammengefasst.
 
 | Authors |  |
 | --- | -- |
-| Api-Autoren abrufen | Rufen Sie aller Autoren ab. |
-| GET api/authors/{id} | Einen Autor-ID abrufen |
-| POST/api/Autoren | Erstellen Sie eine neue erstellen. |
-| PUT /api/authors/{id} | Aktualisieren eines vorhandenen Autors. |
-| DELETE /api/authors/{id} | Löschen eines Autors an. |
+| Abrufen der api/authors | Rufen Sie alle Autoren. |
+| GET-api/Authors / {Id} | Erhalten Sie einen Autor anhand der ID. |
+| POST/api/authors | Erstellen Sie einen neuen Autor. |
+| PUT/API/Authors / {Id} | Aktualisieren eines vorhandenen Autors an. |
+| Löschen Sie/API/Authors / {Id} | Löschen eines Autors an. |
 
 | Bücher |  |
 | --- | -- |
-| /Api/books abrufen | Rufen Sie aller Bücher an ab. |
-| GET /api/books/{id} | Ein Buch-ID abrufen |
-| Bereitstellen Sie/api/Bücher | Erstellen Sie ein neues Buch. |
-| PUT /api/books/{id} | Aktualisieren Sie ein vorhandenes Buch. |
-| DELETE /api/books/{id} | Löschen Sie ein Buch. |
+| /Api/books abrufen | Alle Bücher zu erhalten. |
+| Abrufen Sie/API/Books / {Id} | Erhalten Sie ein Buch anhand der ID. |
+| POST/api/Bücher | Erstellen Sie ein neues Buch. |
+| PUT/API/Books / {Id} | Aktualisieren Sie ein vorhandenes Buch. |
+| Löschen Sie/API/Books / {Id} | Löschen Sie ein Buch. |
 
-## <a name="view-the-database-optional"></a>Anzeigen der Datenbank (Optional)
+## <a name="view-the-database-optional"></a>Zeigen Sie die Datenbank (Optional)
 
-Beim Ausführen den Update-Database-Befehl wurde die Datenbank erstellt und aufgerufen EF die `Seed` Methode. Wenn Sie die Anwendung lokal ausführen, EF verwendet [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx). Sie können die Datenbank in Visual Studio anzeigen. Aus der **Ansicht** klicken Sie im Menü **Objekt-Explorer von SQL Server**.
+Wenn Sie den Update-Database-Befehl ausgeführt haben, EF die Datenbank erstellt und wird aufgerufen, die `Seed` Methode. Wenn Sie die Anwendung lokal ausführen, verwendet EF [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx). Sie können die Datenbank in Visual Studio anzeigen. Von der **Ansicht** , wählen Sie im Menü **Objekt-Explorer von SQL Server**.
 
 ![](part-3/_static/image5.png)
 
-In der **Verbindung mit Server herstellen** Dialogfeld in der **Servernamen** Bearbeitungsfeld, geben Sie "(Localdb) \v11.0". Lassen Sie die **Authentifizierung** Option als "Windows-Authentifizierung". Klicken Sie auf **verbinden**.
+In der **Herstellen einer Verbindung mit Server** Dialogfeld, in der **Servernamen** "Bearbeiten", geben Sie "(Localdb) \v11.0". Lassen Sie die **Authentifizierung** Option als "Windows-Authentifizierung". Klicken Sie auf **Verbinden**.
 
 ![](part-3/_static/image6.png)
 
@@ -95,11 +94,11 @@ Visual Studio eine Verbindung mit LocalDB her und zeigt Ihre vorhandenen Datenba
 
 ![](part-3/_static/image7.png)
 
-Klicken Sie zum Anzeigen der Daten mit der rechten Maustaste in einer Tabellenstatus, und wählen Sie **Ansichtsdaten**.
+Klicken Sie zum Anzeigen der Daten, mit der rechten Maustaste in einer Tabelle, und wählen Sie **Ansichtsdaten**.
 
 ![](part-3/_static/image8.png)
 
-Der folgende Screenshot zeigt die Ergebnisse für die Bücher-Tabelle. Beachten Sie, dass EF, die Datenbank mit den Daten Ausgangswert aufgefüllt und die Tabelle die Fremdschlüssel für die Authors-Tabelle enthält.
+Der folgende Screenshot zeigt die Ergebnisse für die Bücher-Tabelle. Beachten Sie, dass EF, die Datenbank mit der Seed-Daten aufgefüllt, und die Tabelle die Fremdschlüssel für die Authors-Tabelle enthält.
 
 ![](part-3/_static/image9.png)
 

@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
-title: '[Gewusst wie:] Bereitstellen eine Web-Anwendung während eines Builds des Teams? | Microsoft-Dokumentation'
+title: '[Gewusst wie:] Bereitstellen eine Webanwendung während eines Teambuilds? | Microsoft-Dokumentation'
 author: pjhacker
-description: Dieses Video zeigt, wie zum Erstellen eines neuen Teambuild und Bereitstellen der Web-Anwendung als Teil des Buildprozesses. Wir sehen, einschließlich der Deploym...
+description: In diesem Video wird demonstriert, wie zum Erstellen eines neuen Teambuild und zum Bereitstellen Ihrer Web-Anwendung als Teil des Buildprozesses. Sehen Sie, dass die Einbeziehung der können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/01/2007
 ms.topic: article
 ms.assetid: 3c81ee94-4561-4267-864d-2656b33d95c9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
 msc.type: video
-ms.openlocfilehash: a2e9c9495f2222db12eafacc70d37efa0254a5ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 04b2e5fb5d720ad41847e96700fb10ecc2002d57
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895306"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384329"
 ---
-<a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[Gewusst wie:] Bereitstellen eine Web-Anwendung während eines Builds des Teams?
+<a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[Gewusst wie:] Bereitstellen eine Webanwendung während eines Teambuilds?
 ====================
 durch [Paul Hacker](https://github.com/pjhacker)
 
-Dieses Video zeigt, wie zum Erstellen eines neuen Teambuild und Bereitstellen der Web-Anwendung als Teil des Buildprozesses. Sehen Sie, dass den Bereitstellungsschritt einschließlich so einfach wie das Buildskript einen X-Copy-Befehl hinzugefügt wird.
+In diesem Video wird demonstriert, wie zum Erstellen eines neuen Teambuild und zum Bereitstellen Ihrer Web-Anwendung als Teil des Buildprozesses. Sehen Sie, dass den Bereitstellungsschritt einschließlich so einfach wie das Skript zum Erstellen einen X-Copy-Befehl hinzugefügt wird.
 
-[&#9654;Sehen Sie sich an (5 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-deploy-a-web-application-during-a-team-build)
+[&#9654;Sehen Sie sich Video (5 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-deploy-a-web-application-during-a-team-build)
 
 > [!div class="step-by-step"]
 > [Zurück](how-do-i-automate-testing-using-team-build.md)

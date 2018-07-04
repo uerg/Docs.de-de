@@ -1,23 +1,22 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#) | Microsoft Docs
+title: Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#) | Microsoft-Dokumentation
 author: StephenWalther
-description: Informationen Sie zum Erstellen von Komponententests für Controlleraktionen. In diesem Lernprogramm veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine geben gibt...
+description: Erfahren Sie, wie Komponententests für Controlleraktionen zu erstellen. In diesem Tutorial veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine geben zurückgegeben...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
 ms.topic: article
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccd9a1b3aee8379c23c01c5eb7f756a786f6359d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4c88024a85d418befc9b2a111d96643ca0249ff4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869711"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396616"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Erstellen von Komponententests für ASP.NET MVC-Anwendungen (c#)
 ====================
@@ -25,99 +24,99 @@ durch [Stephen Walther](https://github.com/StephenWalther)
 
 [PDF herunterladen](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
 
-> Informationen Sie zum Erstellen von Komponententests für Controlleraktionen. In diesem Lernprogramm veranschaulicht Stephen Walther testen, ob eine Controlleraktion gibt eine bestimmte Ansicht zurück, einen bestimmten Satz von Daten gibt zurück oder einen anderen Typ von Aktionsergebnis.
+> Erfahren Sie, wie Komponententests für Controlleraktionen zu erstellen. In diesem Tutorial veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine bestimmte Ansicht zurückgibt, einen bestimmten Satz von Daten gibt zurück oder einen anderen Typ von Aktionsergebnis.
 
 
-Das Ziel dieses Lernprogramms wird veranschaulicht, wie Sie Komponententests für die Controller in Ihre ASP.NET MVC Anwendungen schreiben können. Es wird erläutert, wie drei verschiedene Typen von Komponententests zu erstellen. Erfahren Sie, so testen Sie die Sicht eine Controlleraktion zurückgegebenes So testen Sie eine Controlleraktion zurückgegebene Daten für die Ansicht und zum Testen, und zwar unabhängig davon, ob eine Controlleraktion leitet Sie an eine zweite Controlleraktion.
+Das Ziel in diesem Tutorial wird veranschaulicht, wie Sie Komponententests für die Controller in Ihre ASP.NET MVC Anwendungen schreiben können. Gewusst wie: Erstellen Sie drei verschiedene Typen von Komponententests erörtert. Erfahren Sie, so testen Sie die Sicht zurückgegeben werden, indem eine Controlleraktion, so testen Sie die Daten anzeigen, die eine Controlleraktion vom und zum Testen, und zwar unabhängig davon, ob Sie eine Controlleraktion auf eine zweite Controlleraktion umleitet.
 
-## <a name="creating-the-controller-under-test"></a>Erstellen den Controller getesteten
+## <a name="creating-the-controller-under-test"></a>Erstellen des Controllers im Test
 
-Zunächst erstellen den Controller, den wir testen möchten. Der Controller, mit dem Namen der `ProductController`, Auflisten von 1 enthalten ist.
+Wir erstellen zunächst den Controller, den wir testen möchten. Der Controller, mit dem Namen der `ProductController`, in der Liste 1 enthalten ist.
 
-**Auflisten von 1 – `ProductController.cs`**
+**Codebeispiel 1: `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
-Die `ProductController` enthält zwei Aktionsmethoden `Index()` und `Details()`. Beide Aktionsmethoden geben eine Sicht zurück. Beachten Sie, dass die `Details()` Aktion akzeptiert einen Parameter namens-ID
+Die `ProductController` enthält zwei Aktionsmethoden `Index()` und `Details()`. Beide Aktionsmethoden geben eine Ansicht zurück. Beachten Sie, dass die `Details()` Aktion akzeptiert einen Parameter, die mit dem Namen Id.
 
-## <a name="testing-the-view-returned-by-a-controller"></a>Testen die Sicht zurückgegebenes einen Controller
+## <a name="testing-the-view-returned-by-a-controller"></a>Testen die Ansicht zurückgegeben durch einen Controller
 
-Angenommen, wir testen möchten, und zwar unabhängig davon, ob die `ProductController` gibt die richtige Sicht zurück. Wir möchten sicherstellen, dass bei der `ProductController.Details()` Aktion aufgerufen wird, wird die Detailansicht zurückgegeben. Die Testklasse im Codebeispiel 2 enthält einen Komponententest für das Testen der Sicht zurückgegeben werden, indem die `ProductController.Details()` Aktion.
+Angenommen, wir testen möchten, ob die `ProductController` gibt die richtige Ansicht zurück. Wir möchten sicherstellen, die bei der `ProductController.Details()` Aktion wird aufgerufen, die Detailansicht wird zurückgegeben. Die Testklasse im Codebeispiel 2 enthält einen Komponententest für das Testen der Sicht zurückgegeben werden, indem die `ProductController.Details()` Aktion.
 
-**Auflisten von 2 – `ProductControllerTest.cs`**
+**Codebeispiel 2: `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
-Die Klasse im Codebeispiel 2 umfasst eine Testmethode, die mit dem Namen `TestDetailsView()`. Diese Methode enthält drei Codezeilen. Die erste Zeile des Codes erstellt eine neue Instanz der dem `ProductController` Klasse. Die zweite Zeile des Codes ruft des Controllers `Details()` Aktionsmethode. Zum Schluss die letzte Zeile der Code wird überprüft, und zwar unabhängig davon, ob die Sicht, durch zurückgegeben, die `Details()` Aktion ist die Detailansicht.
+Die Klasse im Codebeispiel 2 enthält eine Testmethode, die mit dem Namen `TestDetailsView()`. Diese Methode enthält drei Zeilen Code. Die erste Zeile des Codes erstellt eine neue Instanz der dem `ProductController` Klasse. Die zweite Codezeile ruft des Controllers `Details()` Aktionsmethode. Zum Schluss die letzte Zeile der Code wird überprüft, ob die Ansicht, durch zurückgegeben, die `Details()` Aktion wird die Detailansicht.
 
-Die `ViewResult.ViewName` Eigenschaft darstellt, den Namen der Sicht, die von einem Controller zurückgegeben. Eine große Warnung zum Testen dieser Eigenschaft. Es gibt zwei Möglichkeiten, ein Controller eine Ansicht zurückkehren kann. Ein Controller kann eine Sicht wie folgt explizit zurückgeben:
+Die `ViewResult.ViewName` Eigenschaft darstellt, den Namen der Ansicht, die von einem Controller zurückgegeben. Eine eindringliche Warnung zum Testen dieser Eigenschaft. Es gibt zwei Möglichkeiten, ein Controller eine Ansicht zurückkehren kann. Ein Controller kann explizit eine Ansicht wie folgt zurückgegeben:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample3.cs)]
 
-Alternativ kann der Name der Sicht nicht mit dem Namen der Controlleraktion wie folgt abgeleitet werden:
+Alternativ kann der Name der Ansicht aus dem Namen der Controlleraktion wie folgt abgeleitet werden:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample4.cs)]
 
-Diese Controlleraktion gibt auch eine Sicht mit dem Namen `Details`. Allerdings wird der Name der Sicht aus den Aktionsnamen abgeleitet. Wenn Sie den Ansichtsnamen testen möchten, müssen Sie explizit den Ansichtsnamen aus Controlleraktion zurückgeben.
+Diese Controlleraktion gibt auch eine Ansicht namens `Details`. Allerdings wird der Name der Sicht aus den Aktionsnamen abgeleitet. Wenn Sie den Ansichtsnamen testen möchten, müssen Sie explizit den Ansichtsnamen aus die Controlleraktion zurückgeben.
 
-Sie können den Komponententest in Auflisten von 2 ausführen, indem Sie die Tastenkombination eingeben **STRG + R, A** oder durch Klicken auf die **Ausführen aller Tests in der Projektmappe** Schaltfläche (siehe Abbildung 1). Wenn der Test erfolgreich ist, sehen Sie im Fenster Testergebnisse in Abbildung 2.
-
-
-[![Führen Sie aller Tests in der Projektmappe aus](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
-
-**Abbildung 01**: Führen Sie alle Tests in der Projektmappe ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
+Sie können den Komponententest in Liste 2 ausführen, indem Sie die Tastenkombination eingeben **STRG + R, A** oder durch Klicken auf die **Ausführen aller Tests in der Projektmappe** Schaltfläche (siehe Abbildung 1). Wenn der Test erfolgreich ist, sehen Sie im Fenster Testergebnisse in Abbildung 2.
 
 
-[![War erfolgreich!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
+[![Führen Sie aller Tests in der Lösung aus](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
 
-**Abbildung 02**: Erfolg! ([Klicken Sie hier, um das Bild in voller Größe angezeigt](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
+**Abbildung 01**: Führen Sie alle Tests in der Projektmappe ([klicken Sie, um das Bild in voller Größe anzeigen](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
 
 
-## <a name="testing-the-view-data-returned-by-a-controller"></a>Testen die Ansichtsdaten zurückgegebenes eines Controllers
+[![Success!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
 
-Ein MVC-Controller übergibt Daten an eine Ansicht mit der so genannte *`View Data`*. Angenommen, dass Sie die Details für ein bestimmtes Produkt anzuzeigen, wenn Sie aufrufen möchten die `ProductController Details()` Aktion. In diesem Fall können Sie eine Instanz des erstellen eine `Product` Klasse (definiert in Ihrem Modell), und übergeben Sie die Instanz, die die `Details` Ansicht durch nutzen `View Data`.
+**Abbildung 02**: Erfolg! ([Klicken Sie, um das Bild in voller Größe anzeigen](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
 
-Das geänderte `ProductController` auflisten 3 enthält ein aktualisiertes `Details()` Aktion, die ein Produkt zurückgibt.
 
-**Auflisten von 3: `ProductController.cs`**
+## <a name="testing-the-view-data-returned-by-a-controller"></a>Testen das Anzeigen von Daten zurückgegeben von einem Controller
+
+Ein MVC-Controller übergibt Daten an eine Ansicht mit der so genannte *`View Data`*. Beispiel: Angenommen, dass Sie die Details für ein bestimmtes Produkt angezeigt wird, wenn Sie aufrufen möchten die `ProductController Details()` Aktion. In diesem Fall können Sie eine Instanz von erstellen eine `Product` Klasse (definiert in Ihrem Modell), und übergeben Sie die Instanz, die die `Details` Ansicht durch die Nutzung von `View Data`.
+
+Die geänderte `ProductController` in Programmausdruck 3 enthält eine aktualisierte `Details()` Aktion, die ein Produkt zurück.
+
+**Codebeispiel 3: `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
-Zuerst die `Details()` Aktion erstellt eine neue Instanz der dem `Product` Klasse, die einen Laptop darstellt. Anschließend wird die Instanz von der `Product` -Klasse als zweiten Parameter an übergeben der `View()` Methode.
+Zunächst wird die `Details()` Aktion erstellt eine neue Instanz der der `Product` Klasse, die einen Laptop darstellt. Anschließend wird die Instanz von der `Product` Klasse übergeben wird, als der zweite Parameter für die `View()` Methode.
 
-Sie können Komponententests schreiben zu prüfen, ob die erwarteten Daten sind Daten enthalten, die in der Sicht. Den Komponententest im Codebeispiel 4 Tests, und zwar unabhängig davon, ob ein Produkt, das einen Laptop darstellt zurückgegeben wird, beim Aufrufen der `ProductController Details()` Aktionsmethode.
+Sie können Komponententests schreiben, testen, ob die erwarteten Daten sind Daten enthalten, die in der Ansicht. Im Komponententest in Listing 4 Tests, und zwar unabhängig davon, ob ein Produkt, das einen Laptop darstellt zurückgegeben wird, beim Aufrufen der `ProductController Details()` Aktionsmethode.
 
-**Auflisten von 4 – `ProductControllerTest.cs`**
+**Codebeispiel 4: `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
-Auflisten von 4 der `TestDetailsView()` Methode überprüft durch den Aufruf zurückgegebenen Daten für die Ansicht der `Details()` Methode. Die `ViewData` verfügbar gemacht als Eigenschaft für die `ViewResult` durch den Aufruf zurückgegebenen die `Details()` Methode. Die `ViewData.Model` -Eigenschaft enthält das Produkt, die an die Ansicht übergeben. Der Test einfach überprüft, ob das Produkt, die in die Ansichtsdaten enthalten den Namen Laptop verfügt.
+In Listing 4 die `TestDetailsView()` Methode testet den Sichtdaten zurückgegeben werden, durch den Aufruf der `Details()` Methode. Die `ViewData` wird als Eigenschaft verfügbar, auf die `ViewResult` durch den Aufruf zurückgegebenen der `Details()` Methode. Die `ViewData.Model` Eigenschaft enthält das Produkt an die Ansicht übergeben. Der Test einfach überprüft, ob das Produkt in die Ansichtsdaten enthalten den Namen Laptop verfügt.
 
-## <a name="testing-the-action-result-returned-by-a-controller"></a>Testen das Aktionsergebnis zurückgegebenes eines Controllers
+## <a name="testing-the-action-result-returned-by-a-controller"></a>Testen das Aktionsergebnis zurückgegeben durch einen Controller
 
-Eine komplexere Controlleraktion möglicherweise unterschiedliche Typen von Aktionsergebnisse abhängig von den Werten der an die Controlleraktion übergebenen Parameter zurück. Eine Controlleraktion kann eine Vielzahl von Aktionsergebnisse einschließlich Zurückgeben einer `ViewResult`, `RedirectToRouteResult`, oder `JsonResult`.
+Eine komplexere Controlleraktion möglicherweise verschiedene Arten von Aktionsergebnissen abhängig von den Werten der Parameter der Controlleraktion, die an zurück. Eine Controlleraktion kann eine Vielzahl von Typen von Aktionsergebnissen einschließlich Zurückgeben einer `ViewResult`, `RedirectToRouteResult`, oder `JsonResult`.
 
-Z. B. das geänderte `Details()` Aktion im Codebeispiel 5 gibt den `Details` anzeigen, wenn Sie ein gültiges Produkt-Id an die Aktion übergeben. Wenn Sie eine ungültige Produkt-Id – eine Id mit einem Wert kleiner übergeben als 1 – können Sie umgeleitet werden, um die `Index()` Aktion.
+Z. B. die geänderte `Details()` Aktion in Listing 5 gibt den `Details` anzeigen, wenn Sie ein gültige Produkt-Id an die Aktion übergeben. Wenn Sie eine ungültige Produkt-Id – eine Id mit einem Wert, kleiner übergeben als 1 – dann umgeleitet werden, um die `Index()` Aktion.
 
-**Auflisten von 5 – `ProductController.cs`**
+**Codebeispiel 5: `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
-Sie können das Verhalten Testen der `Details()` Aktion mit dem Komponententest 6 auflisten. Der Komponententest Auflisten von 6 stellt sicher, dass Sie zur umgeleitet werden die `Index` anzeigen, wenn eine Id mit dem Wert-1, um übergeben wird die `Details()` Methode.
+Sie können das Verhalten der Testen der `Details()` Aktion mit den Komponententest in Codebeispiel 6. Der Komponententest in Codebeispiel 6 stellt sicher, dass Sie zur umgeleitet werden die `Index` anzeigen, wenn eine Id mit dem Wert-1 zu übergeben, wird die `Details()` Methode.
 
-**Auflisten von 6 – `ProductControllerTest.cs`**
+**Codebeispiel 6: `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
-Beim Aufrufen der `RedirectToAction()` in eine Controlleraktion, Controlleraktion Methodenrückgabe eine `RedirectToRouteResult`. Der Test prüft, ob die `RedirectToRouteResult` den Benutzer weitergeleitet wird, eine Controlleraktion mit dem Namen `Index`.
+Beim Aufrufen der `RedirectToAction()` -Methode in eine Controlleraktion, die Controlleraktion gibt eine `RedirectToRouteResult`. Der Test überprüft, ob die `RedirectToRouteResult` leitet den Benutzer an eine Controlleraktion, die mit dem Namen `Index`.
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm haben Sie gelernt, wie Komponententests für Controlleraktionen MVC erstellt wird. Zunächst haben Sie gelernt, wie Sie überprüfen, ob die richtige Ansicht durch eine Controlleraktion zurückgegeben wird. Sie haben gelernt, wie die `ViewResult.ViewName` Eigenschaft, um zu überprüfen, ob der Name einer Sicht.
+In diesem Tutorial haben Sie gelernt, wie Komponententests für MVC-Controlleraktionen zu erstellen. Zuerst, wie Sie überprüfen, ob die richtige Ansicht von eine Controlleraktion zurückgegeben wird. Sie haben gelernt, wie mit der `ViewResult.ViewName` Eigenschaft, um zu überprüfen, ob der Name einer Sicht.
 
-Als Nächstes untersucht wie Sie testen können, den Inhalt der `View Data`. Haben Sie gelernt, überprüfen Sie, ob das richtige Produkt in zurückgegebener `View Data` nach dem Aufrufen einer Controlleraktion.
+Als Nächstes, wir untersucht, wie Sie den Inhalt der testen können `View Data`. Haben Sie gelernt, überprüfen Sie, ob das richtige Produkt liegendes `View Data` nach dem Aufruf von eine Controlleraktion.
 
-Abschließend wird erläutert, wie Sie testen können, ob eine Controlleraktion verschiedene Informationstypen Aktionsergebnisse zurückgegeben werden. Sie haben gelernt, wie zu prüfen, ob ein Controller gibt eine `ViewResult` oder ein `RedirectToRouteResult`.
+Abschließend wird erläutert, wie Sie testen können, ob verschiedene Arten von Aktionsergebnissen aus eine Controlleraktion zurückgegeben werden. Sie erfahren, wie zu prüfen, ob ein Controller gibt eine `ViewResult` oder `RedirectToRouteResult`.
 
 > [!div class="step-by-step"]
 > [Nächste](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

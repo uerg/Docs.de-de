@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/your-first-scaffold-and-what-is-dynamic-data
-title: Die erste Gerüst und welche Dynamic Data? | Microsoft-Dokumentation
+title: Informationen zum ersten Gerüst und wie Dynamic Data? | Microsoft-Dokumentation
 author: shanselman
-description: In dieser kurzen Einführung erstellen Sie eine vollständige Dynamic Data-Anwendung in Minuten, die mithilfe von Gerüstbau, und im Prozess erfahren Sie, Dynamic Data.
+description: In dieser kurzen Einführung erstellen Sie eine vollständige dynamische Daten, die Anwendung innerhalb weniger Minuten mithilfe von Gerüstbau, und in den Prozess, die erfahren Sie mehr über Dynamic Data.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
 ms.topic: article
 ms.assetid: aff67466-d3e1-4ecb-8df3-2a79583f65b2
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/your-first-scaffold-and-what-is-dynamic-data
 msc.type: video
-ms.openlocfilehash: b531837d93b8f9bfabf847f4eec1409de6e7e6dd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 434e5c4d96e7eb901c1286d82fb9aca321130a1d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886328"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397178"
 ---
-<a name="your-first-scaffold-and-what-is-dynamic-data"></a>Die erste Gerüst und welche Dynamic Data?
+<a name="your-first-scaffold-and-what-is-dynamic-data"></a>Informationen zum ersten Gerüst und wie Dynamic Data?
 ====================
 durch [Scott Hanselman](https://github.com/shanselman)
 
-In dieser kurzen Einführung erstellen Sie eine vollständige Dynamic Data-Anwendung in Minuten, die mithilfe von Gerüstbau, und im Prozess erfahren Sie, Dynamic Data.
+In dieser kurzen Einführung erstellen Sie eine vollständige dynamische Daten, die Anwendung innerhalb weniger Minuten mithilfe von Gerüstbau, und in den Prozess, die erfahren Sie mehr über Dynamic Data.
 
-[&#9654;Sehen Sie sich an (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/your-first-scaffold-and-what-is-dynamic-data)
+[&#9654;Sehen Sie sich Video (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/your-first-scaffold-and-what-is-dynamic-data)
 
 > [!div class="step-by-step"]
 > [Nächste](how-do-i-enable-inline-gridview-editing.md)

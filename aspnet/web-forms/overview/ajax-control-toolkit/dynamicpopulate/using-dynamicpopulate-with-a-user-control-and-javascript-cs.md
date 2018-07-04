@@ -1,40 +1,39 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: Ein Benutzersteuerelement und JavaScript (c#) DynamicPopulate mit | Microsoft Docs
+title: Verwenden von DynamicPopulate mit einem Benutzersteuerelement und JavaScript (c#) | Microsoft-Dokumentation
 author: wenz
-description: Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf t...
+description: Das DynamicPopulate-Steuerelement in ASP.NET AJAX Control Toolkit Aufrufe eines Webdiensts (oder eine Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement, auf t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 38ac8250-8854-444c-b9ab-8998faa41c5a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cba1647e69cbaebf0accb745278590e357d8c2c1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879568"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370418"
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Verwenden von DynamicPopulate mit einem Benutzersteuerelement und JavaScript (c#)
 ====================
 durch [Christian Wenz](https://github.com/wenz)
 
-[Herunterladen von Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip) oder [PDF herunterladen](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
+[Code herunterladen](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
 
-> Das DynamicPopulate-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf der Seite, ohne eine Seite-Aktualisierung. Es ist auch möglich, die mit JavaScript-Code für benutzerdefinierte clientseitige Auffüllung auslösen. Besondere Sorgfalt muss jedoch ausgeführt werden, wenn der Extender in ein benutzerdefiniertes Steuerelement befindet.
+> Das DynamicPopulate-Steuerelement in ASP.NET AJAX Control Toolkit Aufrufe eines Webdiensts (oder eine Seitenmethode) und füllt den resultierenden Wert in einem Zielsteuerelement auf der Seite, ohne eine seitenaktualisierung. Es ist auch möglich, um die Auffüllung mithilfe von benutzerdefinierten JavaScript-Code für die clientseitige auszulösen. Jedoch besondere Sorgfalt ausgeführt werden, wenn der Extender in einem Benutzersteuerelement befinden muss.
 
 
 ## <a name="overview"></a>Übersicht
 
-Die `DynamicPopulate` -Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit Aufrufen eines Webdiensts (oder die Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement auf der Seite, ohne eine Seite-Aktualisierung. Es ist auch möglich, die mit JavaScript-Code für benutzerdefinierte clientseitige Auffüllung auslösen. Besondere Sorgfalt muss jedoch ausgeführt werden, wenn der Extender in ein benutzerdefiniertes Steuerelement befindet.
+Die `DynamicPopulate` -Steuerelement in ASP.NET AJAX Control Toolkit Aufrufe eines Webdiensts (oder eine Seitenmethode), und füllt den resultierenden Wert in einem Zielsteuerelement auf der Seite, ohne eine seitenaktualisierung. Es ist auch möglich, um die Auffüllung mithilfe von benutzerdefinierten JavaScript-Code für die clientseitige auszulösen. Jedoch besondere Sorgfalt ausgeführt werden, wenn der Extender in einem Benutzersteuerelement befinden muss.
 
 ## <a name="steps"></a>Schritte
 
-Erstens, Sie benötigen ein ASP.NET-Webdienst implementiert die Methode aufgerufen werden, indem Sie die `DynamicPopulateExtender` Steuerelement. Der Webdienst implementiert die Methode `getDate()` erwartet ein Argument vom Typzeichenfolge aufgerufen `contextKey`, da die `DynamicPopulate` Steuerelement sendet ein Teil der Kontextinformationen mit jedem Aufruf der Web-Dienst. Hier ist der Code (Datei `DynamicPopulate.cs.asmx`) die ruft des aktuellen Datums in einem der drei Formate:
+Zunächst einmal benötigen Sie eines ASP.NET-Webdiensts die implementiert wird, die Methode aufgerufen werden, indem Sie die `DynamicPopulateExtender` Steuerelement. Der Webdienst implementiert, die Methode `getDate()` erwartet ein Argument vom Typzeichenfolge, mit dem Namen `contextKey`, da die `DynamicPopulate` Steuerelement sendet ein Teil der Informationen zum Sitzungskontext mit jeder Aufruf des Webdiensts. Hier ist der Code (Datei `DynamicPopulate.cs.asmx`) die ruft des aktuellen Datums in der folgenden drei Formaten:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample1.aspx)]
 
@@ -42,38 +41,38 @@ Im nächsten Schritt erstellen Sie ein neues Benutzersteuerelement (`.ascx` Date
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample2.aspx)]
 
-Ein &lt; `label` &gt; Element wird verwendet, um die Anzeige der Daten vom Server stammt.
+Ein &lt; `label` &gt; Element zum Anzeigen der Daten vom Server verwendet werden.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample3.aspx)]
 
-Auch in der Benutzersteuerelementdatei verwenden wir drei Optionsfelder, die jeweils einen der drei möglichen Datumsformate, die durch den Webdienst unterstützt darstellt. Klickt der Benutzer auf einem der Optionsfelder auf, wird der Browser JavaScript-Code ausführen, die wie folgt aussieht:
+Auch in die Benutzersteuerelement-Datei verwenden wir drei Optionsfeldern, die jeweils einen der drei mögliche vom Webdienst unterstütztes Datumsformat darstellt. Klickt der Benutzer auf eines der Optionsfelder auf, wird der Browser JavaScript-Code ausführen, die wie folgt aussieht:
 
 [!code-powershell[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample4.ps1)]
 
-Dieser Code greift auf die `DynamicPopulateExtender` (ungewöhnliche ID keine Gedanken noch, dies wird später behandelt werden) und löst die dynamische Auffüllung mit Daten. Im Kontext des aktuellen Optionsfelds `this.value` bezieht sich auf den Wert also `format1`, `format2` oder `format3` genau wie die Webmethode erwartet.
+Dieser Code greift auf die `DynamicPopulateExtender` (aber keine Sorge, über die ungewöhnliche-ID noch, dies wird später behandelt) und löst die dynamische Auffüllung mit Daten. Im Kontext des aktuellen Optionsfelds `this.value` bezieht sich auf den Wert handelt es sich `format1`, `format2` oder `format3` genau wie die Webmethode erwartet.
 
-Das einzige noch fehlt im Benutzersteuerelement ist die `DynamicPopulateExtender` steuern, welche links von der Optionsfelder an den Webdienst.
+Ist das einzige, was fehlt im Steuerelement noch die `DynamicPopulateExtender` steuern, welche die Optionsfelder mit dem Webdienst verknüpft ist.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample5.aspx)]
 
-Erneut Beachten Sie möglicherweise die ungewöhnliche-ID, die im Steuerelement verwendete: `mcd1$myDate` anstelle von `myDate`. Zuvor den JavaScript-Code verwendet `mcd1_dpe1` für den Zugriff auf die `DynamicPopulateExtender` anstelle von `dpe1`. Diese Benennungsstrategie ist eine spezielle Anforderung bei Verwendung `DynamicPopulateExtender` innerhalb eines Benutzersteuerelements. Darüber hinaus müssen Sie die Benutzer-Verwaltungsgruppen in eine bestimmte Funktion, um damit alles funktioniert eingebettet werden sollen. Erstellen Sie eine neue ASP.NET-Seite, und registrieren Sie ein Tagpräfix für das Benutzersteuerelement, das Sie soeben implementiert haben:
+Sie können erneut Notieren Sie die ungewöhnliche ID, die im Steuerelement verwendete: `mcd1$myDate` anstelle von `myDate`. Zuvor den JavaScript-Code verwendet `mcd1_dpe1` für den Zugriff auf die `DynamicPopulateExtender` anstelle von `dpe1`. Diese Benennungskonvention Strategie ist eine besondere Anforderung, bei Verwendung `DynamicPopulateExtender` in einem Benutzersteuerelement. Darüber hinaus müssen Sie die Benutzer-Verwaltungsgruppen in bestimmte Funktion, um alle dafür erforderlichen einzubetten. Erstellen Sie eine neue ASP.NET-Seite und registrieren Sie ein Tagpräfix für das Benutzersteuerelement, die, das Sie gerade implementiert haben:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample6.aspx)]
 
-Fügen Sie dann auf die ASP.NET AJAX `ScriptManager` Steuerelement auf der neuen Seite:
+Schließen Sie dann auf der ASP.NET AJAX `ScriptManager` Steuerelement auf der neuen Seite:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample7.aspx)]
 
-Fügen Sie schließlich das Benutzersteuerelement zur Seite. Nur festgelegt werden müssen, dessen `ID` Attribut (und `runat="server"`, natürlich), haben Sie aber auch auf einen bestimmten Namen festlegen: `mcd1` , da dies das Präfix in das Benutzersteuerelement für den Zugriff darauf mithilfe von JavaScript verwendet wird.
+Fügen Sie abschließend das Benutzersteuerelement auf der Seite. Sie müssen nur Festlegen der `ID` Attribut (und `runat="server"`und natürlich), Sie haben jedoch auch zu einem bestimmten Namen festlegen: `mcd1` da dies das Präfix in das Benutzersteuerelement verwendet, um die Zugriffsberechtigung mithilfe von JavaScript ist.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
-Und das ist schon alles! Die Seite verhält sich wie erwartet: ein Benutzer auf eines der Optionsfelder klickt, das Steuerelement im Toolkit den Webdienst aufruft, und das aktuelle Datum in das gewünschte Format angezeigt.
+Und das ist schon alles! Die Seite wie erwartet verhält: ein Benutzer klickt auf eines der Optionsfelder, die das Steuerelement im Toolkit den Webdienst aufruft, und das aktuelle Datum im gewünschten Format angezeigt.
 
 
 [![Die Optionsfelder befinden sich in einem Benutzersteuerelement](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 
-Die Optionsfelder in einem Benutzersteuerelement befinden ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
+Die Optionsfelder in einem Benutzersteuerelement befinden ([klicken Sie, um das Bild in voller Größe anzeigen](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Zurück](dynamically-populating-a-control-using-javascript-code-cs.md)

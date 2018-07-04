@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-category-menu
-title: Tailspin Spyworks - Kategorie Menü | Microsoft Docs
+title: Tailspin Spyworks – Kategoriemenü | Microsoft-Dokumentation
 author: JoeStagner
-description: Joe Stagner baut auf das Menü "Kategorie" für die Tailspin Spyworks Web Forms-beispielanwendung.
+description: Joe Stagner erstellt, klicken Sie im kategoriemenü "für die Tailspin Spyworks Web Forms-beispielanwendung.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2010
 ms.topic: article
 ms.assetid: 21936995-16d2-4f2e-b9b2-fa1dea15c7aa
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-category-menu
 msc.type: video
-ms.openlocfilehash: 54d83fc53f18bc74ebf241c9934646c80e13232b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3baa90bc4c54cc8bfde062dbad4c1d4899b5ca73
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896042"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384296"
 ---
-<a name="tailspin-spyworks---category-menu"></a>Tailspin Spyworks - Kategorie Menü
+<a name="tailspin-spyworks---category-menu"></a>Tailspin Spyworks – Kategoriemenü
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-Joe Stagner baut auf das Menü "Kategorie" für die Tailspin Spyworks Web Forms-beispielanwendung.
+Joe Stagner erstellt, klicken Sie im kategoriemenü "für die Tailspin Spyworks Web Forms-beispielanwendung.
 
-[&#9654;Sehen Sie sich an (7 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-category-menu)
+[&#9654;Sehen Sie sich Video (7 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-category-menu)
 
 > [!div class="step-by-step"]
 > [Zurück](tailspin-spyworks-directory-organization.md)

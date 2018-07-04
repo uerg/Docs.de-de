@@ -1,46 +1,45 @@
 ---
 uid: web-pages/overview/security/16-adding-security-and-membership
-title: Mitgliedschaft und Sicherheit zu einer ASP.NET-Webseite hinzufügen Pages (Razor) Website | Microsoft Docs
+title: Hinzufügen von Sicherheits- und Mitgliedschaftsberechtigungen zu einer ASP.NET Web Pages (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
-description: 'Das Kapitel zeigt, wie Sie Ihre Website zu sichern, sodass einige Seiten nur an Personen verfügbar, die sind in anmelden. (Gewusst wie: Erstellen von Seiten Tha... entwicklungserfahrung'
+description: Das Kapitel zeigt, wie Sie Ihre Website sichern, damit einige Seiten nur für Personen verfügbar sind, die sich in. (Sie werden auch zum Erstellen von Seiten Tha... sehen
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
 ms.topic: article
 ms.assetid: 7a77c2c0-deea-4290-a9c3-97958891758e
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 468a6661df6442705c2e2e178c01aad01bf5765c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898858"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383463"
 ---
-<a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Hinzufügen von Sicherheit und die Mitgliedschaft in einer ASP.NET Web Pages (Razor) Standort
+<a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Hinzufügen von Sicherheit und die Mitgliedschaft in einer ASP.NET Web Pages (Razor)-Website
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Dieser Artikel beschreibt, wie eine Website für ASP.NET Web Pages (Razor) geschützt werden, da einige Seiten nur an Personen verfügbar sind, die in anmelden. (Sie müssen auch finden Sie unter Vorgehensweise: Erstellen von Seiten, die alle Benutzer zugreifen können.)
+> In diesem Artikel wird erläutert, wie Sie eine Website für ASP.NET Web Pages (Razor) schützen, damit einige Seiten nur für Personen verfügbar sind, die sich in. (Sie müssen auch finden Sie unter Vorgehensweise: Erstellen von Seiten, die jeder Benutzer zugreifen kann.)
 > 
-> **Lernen Sie:** 
+> **Sie lernen Folgendes:** 
 > 
-> - Vorgehensweise zum Erstellen einer Website, die eine Registrierungsseite und einer Anmeldeseite verfügt, sodass für einige Seiten nur Mitgliedern Zugriff zu beschränken.
-> - Vorgehensweise: Erstellen von Seiten "public" und "nur Member.
-> - Definieren von Rollen, die Gruppen sind, die haben unterschiedliche Sicherheitsberechtigungen auf Ihrer Website, und zum Zuweisen von Benutzern zu einer Rolle.
-> - Wie CAPTCHA verwenden, um zu verhindern, dass automatisierte Programme (Bots) Member Konten erstellen.
+> - Informationen zum Erstellen einer Website, die eine Seite zum Registrieren und eine Anmeldeseite verfügt, damit für einige Seiten Sie Zugriff auf nur Elemente einschränken können.
+> - Vorgehensweise: Erstellen von Seiten "public" und "nur für Mitglieder.
+> - Gewusst wie: Definieren von Rollen, die Gruppen sind, die haben unterschiedliche Sicherheitsberechtigungen auf Ihrer Website, und das Zuweisen von Benutzern zu einer Rolle.
+> - So erfolgreich die CAPTCHAPRÜFUNG verwenden, um zu verhindern, dass die automatisierten Programmen (Bots) Erstellen von Konten für den Member.
 >   
 > 
-> Dies sind die Funktionen von ASP.NET im Artikel:
+> Dies sind die Funktionen von ASP.NET in diesem Artikel:
 > 
 > - Der WebMatrix **Starter Site** Vorlage.
 > - Die `WebSecurity` Helper und `Roles` Klasse.
 > - Die `ReCaptcha` Helper.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
@@ -48,227 +47,227 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web Helpers Library
 
 
-Sie können Ihre Website einrichten, sodass Benutzer anmelden können &#8212; , also so, dass der Standort unterstützt *Mitgliedschaft*. Dies kann aus vielen Gründen nützlich sein. Z. B. möglicherweise Ihre Site Seiten, die nur für Elemente verfügbar sein sollen. In einigen Fällen müssen Sie möglicherweise Benutzer anmelden, um Sie Feedback senden oder einen Kommentar.
+Sie können Ihre Website einrichten, damit, dass Benutzer anmelden können &#8212; , also so, dass der Standort unterstützt *Mitgliedschaft*. Dies kann aus vielen Gründen nützlich sein. Ihre Website kann z. B. Seiten haben, die nur für Mitglieder verfügbar sein sollen. In einigen Fällen können Benutzer aufgefordert werden, melden Sie sich, um Feedback senden oder einen Kommentar hinterlassen.
 
-Auch wenn Ihre Website Mitgliedschaft unterstützt, nicht Benutzern unbedingt erforderlich, um sich anzumelden, bevor sie einige der Seiten auf der Website verwenden. Benutzer angemeldet sind, werden als bezeichnet *anonyme Benutzer*.
+Auch wenn Ihre Website Mitgliedschaft unterstützt, nicht die Benutzer unbedingt erforderlich ist, anmelden, bevor sie einige der Seiten auf der Website verwenden. Benutzer, die nicht bei angemeldet sind, werden als bezeichnet *anonyme Benutzer*.
 
-Ein Benutzer auf Ihrer Website registrieren kann und kann dann melden Sie sich an den Standort. Die Website erfordert einen Benutzernamen (e-Mail-Adresse) und ein Kennwort zur Bestätigung, dass Benutzer, die er vorgibt sind zu sein. Dieser anmelden und Überprüfen der Identität eines Benutzers wird bezeichnet als *Authentifizierung*.
+Ein Benutzer auf Ihrer Website registrieren kann und kann dann melden Sie sich an den Standort. Die Website erfordert einen Benutzernamen (e-Mail-Adresse) und ein Kennwort zu bestätigen, dass die Benutzer sind, die er vorgibt zu sein. Dieser Prozess der Anmeldung und zum Bestätigen der Identität eines Benutzers wird als bezeichnet *Authentifizierung*.
 
-Sie können Mitgliedschaft und Sicherheit auf unterschiedliche Weise einrichten:
+Sie können Sicherheits- und mitgliedschaftsberechtigungen auf unterschiedliche Weise einrichten:
 
-- Wenn Sie WebMatrix verwenden, wird eine einfache Möglichkeit für die Erstellung als neue Website auf der Grundlage der **Starter Site** Vorlage. Diese Vorlage für Sicherheit und die Mitgliedschaft bereits konfiguriert ist und bereits eine Registrierungsseite, eine Anmeldeseite usw.
+- Wenn Sie WebMatrix verwenden, wird eine einfache Möglichkeit ist, so erstellen Sie als neue Website auf Grundlage der **Starter Site** Vorlage. Diese Vorlage ist bereits für die Sicherheits- und mitgliedschaftsberechtigungen konfiguriert und verfügt bereits über einer Registrierungsseite, eine Anmeldeseite und So weiter.
 
-    Der Standort, von der Vorlage erstellt hat auch eine Option, damit Benutzer melden Sie sich mit einer externen Website wie Facebook, Google, oder Twitter.
-- Wenn Sicherheit in eine vorhandene Site hinzufügen möchten, oder Sie verwenden möchten, nicht die **Starter Site** Vorlage können Sie eigene Registrierungsseite, Anmeldeseite usw. erstellen.
+    Die Website, die von der Vorlage erstellten verfügt auch über die Option, damit die Benutzer melden Sie sich mit einem externen Standort wie Facebook, Google oder Twitter.
+- Wenn Sie Sicherheit zu einer vorhandenen Website hinzufügen möchten, oder Sie verwenden möchten, nicht die **Starter Site** Vorlage können Sie Ihre eigenen Registrierungsseite, Seite ' Anmeldung ' usw. erstellen.
 
-Dieser Artikel konzentriert sich auf die erste Option &mdash; zum Hinzufügen von Sicherheit mithilfe der **Starter Site** Vorlage. Es bietet auch einige grundlegende Informationen dazu, wie Sie Ihre eigenen Sicherheit zu implementieren und Wiederherstellungsprozessen sowie Links zu weiteren Informationen über das nachholen. Es gibt auch Informationen zum Aktivieren externer Anmeldungen, dies wird ausführlicher in einem separaten Artikel beschrieben.
+Dieser Artikel konzentriert sich auf die erste Option &mdash; Gewusst wie: Hinzufügen von Sicherheit mithilfe der **Starter Site** Vorlage. Es bietet auch einige grundlegende Informationen dazu, wie Sie Ihre Sicherheit selbst implementieren und Wiederherstellungsprozessen sowie Links zu weiteren Informationen dazu, wie Sie dies tun. Es gibt auch Informationen zum Aktivieren externer Anmeldungen, die in einem separaten Artikel ausführlicher beschrieben wird.
 
-## <a name="creating-website-security-using-the-starter-site-template"></a>Website-Sicherheit mithilfe der Startvorlage-Site erstellen
+## <a name="creating-website-security-using-the-starter-site-template"></a>Website-Sicherheit mithilfe der Vorlage Starter Site erstellen
 
 In WebMatrix können Sie die **Starter Site** Vorlage zum Erstellen einer Website mit den folgenden Komponenten:
 
 - Eine Datenbank, die zum Speichern von Benutzernamen und Kennwörter für Ihre Elemente verwendet wird.
-- Eine Registrierungsseite, wo anonyme (neu) Benutzer registrieren können.
-- Eine Seite Anmelde- und Abmeldeereignisse.
+- Eine Registrierungsseite, in denen anonyme (neu) Benutzer registrieren kann.
+- Eine Anmeldung und Abmeldung-Seite.
 - Ein Kennwort Wiederherstellung und Zurücksetzen der Seite.
 
-Das folgende Verfahren beschreibt, wie die Website erstellen und zu konfigurieren.
+Das folgende Verfahren beschreibt die Website erstellen und konfigurieren.
 
-1. Starten von WebMatrix und klicken Sie in der **Schnellstart** Seite **Websitevorlage aus**.
-2. Wählen Sie die **Starter Site** Vorlage, und klicken Sie dann auf **OK**. WebMatrix erstellt einen neuen Standort.
-3. Klicken Sie im linken Bereich auf die **Dateien** Arbeitsbereich Selektor.
-4. Öffnen Sie im Stammordner der Website, die  *\_AppStart.cshtml* Datei, die eine spezielle Datei, die verwendet wird, um globale Einstellungen enthalten. Es enthält einige Anweisungen, die mit auskommentiert werden die `//` Zeichen:
+1. Starten Sie WebMatrix und klicken Sie in der **Schnellstart** Seite **Websitevorlage aus**.
+2. Wählen Sie die **Starter Site** -Vorlage, und klicken Sie dann auf **OK**. WebMatrix erstellt einen neuen Standort.
+3. Klicken Sie im linken Bereich auf die **Dateien** arbeitsbereichsauswahl.
+4. Öffnen Sie im Stammordner der Website, die  *\_AppStart.cshtml* Datei, d.h. eine spezielle Datei, die verwendet wird, um globale Einstellungen enthalten. Sie enthält einige Anweisungen, die mit auskommentiert werden die `//` Zeichen:
 
     [!code-csharp[Main](16-adding-security-and-membership/samples/sample1.cs)]
 
-    Konfigurieren Sie diese Anweisungen die `WebMail` Hilfsprogramm, das zum Senden von e-Mail verwendet werden kann. Das Mitgliedschaftssystem kann e-Mail-Dienst verwenden, um Bestätigungsnachrichten versendet werden, wenn Benutzer registrieren, oder wenn sie ihre Kennwörter ändern möchten. (Z. B. nachdem ein Benutzer registrieren, erhalten sie eine e-Mail, die einen Link, den sie klicken können enthält, um den Registrierungsprozess abzuschließen.)
+    Konfigurieren Sie diese Anweisungen die `WebMail` Hilfsmethode, die zum Senden von e-Mails verwendet werden kann. Das Mitgliedschaftssystem kann-e-Mail verwenden, um Bestätigungsnachrichten zu senden, wenn Benutzer registrieren, oder wenn sie ihre Kennwörter ändern möchten. (Z. B. nach dem Benutzer registrieren, erhalten sie einer e-Mails, die einen Link, den sie klicken können enthält, um den Registrierungsprozess abzuschließen.)
 
-    Senden von e-Mail erfordert Zugriff auf einen SMTP-Server, wie in beschrieben [E-Mail hinzufügen, um eine ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=202899). Sie müssen die e-Mail-Einstellungen in dieser Mitte speichern  *\_AppStart.cshtml* Datei, damit Sie nicht, diese wiederholt in jeder Seite zu codieren, die e-Mails senden kann. (Sie müssen die SMTP-Einstellungen zum Einrichten einer Registrierungsdatenbank konfigurieren; Sie brauchen nur SMTP-Einstellungen, wenn Benutzer ihre e-Mail-Alias überprüfen und können Benutzer ein vergessenes Kennwort zurückgesetzt werden sollen.)
-5. Kommentieren Sie die Anweisungen durch das Entfernen `//` vor jeweils.
+    Senden von e-Mails erfordert Zugriff auf einen SMTP-Server, wie in beschrieben [Hinzufügen von e-Mail-Adresse zu einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=202899). Speichern Sie die e-Mail-Einstellungen in dieser zentralen  *\_AppStart.cshtml* Datei, sodass Sie keine sie wiederholt auf jeder Seite ein code, die e-Mail-Adresse senden können. (Sie müssen keine SMTP-Einstellungen zum Einrichten einer Registrierungsdatenbank zu konfigurieren; lediglich SMTP-Einstellungen, wenn Sie möchten die Benutzer über ihre e-Mail-Alias überprüfen und können Benutzer ein vergessenes Kennwort zurückzusetzen.)
+5. Kommentieren Sie die Anweisungen durch das Entfernen `//` vor jeder.
 
-    Wenn Sie keine e-Mail-Bestätigung einrichten möchten, können Sie diesen Schritt und den nächsten Schritt überspringen. Wenn der SMTP-Werte nicht festgelegt werden, wird das neue Konto ohne eine e-Mail zur kaufbestätigung sofort verfügbar.
+    Wenn Sie nicht, um e-Mail-Bestätigung einzurichten möchten, können Sie diesen Schritt und den nächsten Schritt überspringen. Wenn die SMTP-Werte nicht festgelegt werden, ist das neue Konto sofort verfügbar ist, ohne eine Bestätigung per e-Mail.
 6. Ändern Sie die folgenden e-Mail-bezogenen Einstellungen in den Code ein:
 
    - Legen Sie `WebMail.SmtpServer` auf den Namen des SMTP-Servers, die Sie können zugreifen.
    - Lassen Sie `WebMail.EnableSsl` festgelegt `true`. Diese Einstellung sichert die Anmeldeinformationen, die an den SMTP-Server gesendet werden, indem sie verschlüsselt werden.
-   - Legen Sie `WebMail.UserName` mit dem Benutzernamen für Ihr SMTP-Server-Konto.
+   - Legen Sie `WebMail.UserName` , den Benutzernamen für Ihr SMTP-Server-Konto.
    - Legen Sie `WebMail.Password` auf das Kennwort für Ihr SMTP-Server-Konto.
    - Legen Sie `WebMail.From` an Ihre eigene e-Mail-Adresse. Dies ist die e-Mail-Adresse, der aus die Nachricht gesendet wird.
 
      > [!NOTE] 
      > 
-     > **Tipp** zusätzliche Informationen zu den Werten für diese Eigenschaften finden Sie unter [Konfigurieren von e-Mail-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
+     > **Tipp** finden Sie weitere Informationen zu den Werten für diese Eigenschaften [Konfigurieren von e-Mail-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
 7. Speichern und schließen Sie  *\_AppStart.cshtml*.
 8. Führen Sie die *Default.cshtml* Seite in einem Browser.
 
-    ![Sicherheit-Mitgliedschaft-2](16-adding-security-and-membership/_static/image1.png)
+    ![Security-Mitgliedschaft-2](16-adding-security-and-membership/_static/image1.png)
 
    > [!NOTE]
-   > Wenn Sie eine Fehlermeldung, die besagt angezeigt, dass eine Eigenschaft einer Instanz des Transportservers `ExtendedMembershipProvider`, der Standort möglicherweise nicht verwenden, die ASP.NET Web Pages-Mitgliedschaftssystems (SimpleMembership) konfiguriert werden. Dies kann manchmal auftreten, wenn es sich bei einem Hostinganbieter Server anders als Ihr lokaler Server konfiguriert ist. Um dieses Problem zu beheben, fügen Sie das folgende Element mit des Standorts *"Web.config"* Datei:
+   > Wenn Sie eine Fehlermeldung angezeigt, die besagt, dass eine Eigenschaft einer Instanz von sein muss `ExtendedMembershipProvider`, der Standort kann nicht konfiguriert werden, um die ASP.NET Web Pages-Mitgliedschaftssystems (SimpleMembership) zu verwenden. Dies kann manchmal auftreten, wenn einem Hostinganbieter Server anders als die des lokalen Servers konfiguriert ist. Um dieses Problem zu beheben, fügen Sie das folgende Element auf der Website *"Web.config"* Datei:
    > 
    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
    > 
-   > Fügen Sie dieses Element als untergeordnetes Element von der `<configuration>` Element sowie einen Peer der `<system.web>` Element.
-9. Klicken Sie in der oberen rechten Ecke der Seite, auf die **registrieren** Link. Die *Register.cshtml* Seite wird angezeigt.
-10. Geben Sie einen Benutzernamen und ein Kennwort, und klicken Sie dann auf **registrieren**.
+   > Fügen Sie dieses Element als untergeordnetes Element der `<configuration>` Element sowie einen Peer der `<system.web>` Element.
+9. Klicken Sie in der oberen rechten Ecke der Seite auf die **registrieren** Link. Die *Register.cshtml* angezeigt wird.
+10. Geben Sie einen Benutzernamen und ein Kennwort ein, und klicken Sie dann auf **registrieren**.
 
-    ![Sicherheit-Mitgliedschaft-3](16-adding-security-and-membership/_static/image2.png)
+    ![Security-Mitgliedschaft-3](16-adding-security-and-membership/_static/image2.png)
 
-    Beim Erstellen der Website aus der **Starter Site** Vorlage, eine Datenbank namens *StarterSite.sdf* am Standort der Erstellung *App\_Daten* Ordner. Während der Registrierung ist Ihre Benutzerinformationen in der Datenbank hinzugefügt. Wenn Sie die SMTP-Werte festlegen, wird eine Nachricht an die e-Mail-Adresse gesendet, dass Sie verwendet werden, damit Sie die Registrierung abschließen können.
+    Beim Erstellen der Website der **Starter Site** Vorlage, eine Datenbank namens *StarterSite.sdf* erstellt wurde, in der Website *App\_Daten* Ordner. Während der Registrierung wird Ihre Benutzerinformationen der Datenbank hinzugefügt. Wenn Sie die SMTP-Werte festlegen, wird eine Nachricht an die e-Mail-Adresse gesendet, dass Sie verwendet werden, sodass Sie die Registrierung abschließen können.
 
-    ![Sicherheit-Mitgliedschaft-4](16-adding-security-and-membership/_static/image3.png)
-11. Rufen Sie Ihre e-Mail-Programm, und suchen Sie die Nachricht, die Bestätigungscode und einen Link zur Website verfügt.
-12. Klicken Sie auf den Link, um Ihr Konto zu aktivieren. Der Link zur Bestätigung wird eine Bestätigungsseite Registrierung geöffnet.
+    ![Security-Mitgliedschaft-4](16-adding-security-and-membership/_static/image3.png)
+11. Wechseln Sie zu Ihr e-Mail-Programm, und suchen Sie die Nachricht, die Bestätigungscode und einen Link mit dem Standort haben wird.
+12. Klicken Sie auf den Link, um Ihr Konto zu aktivieren. Der Link zur Bestätigung wird eine Bestätigungsseite für die Registrierung geöffnet.
 
-    ![Sicherheit-Mitgliedschaft-5](16-adding-security-and-membership/_static/image4.png)
-13. Klicken Sie auf die **Anmeldung** verknüpfen, und melden Sie sich mit dem Konto, den Sie registriert.
+    ![Security-Mitgliedschaft-5](16-adding-security-and-membership/_static/image4.png)
+13. Klicken Sie auf die **Anmeldung** verknüpfen, und melden Sie sich mit dem Konto, das Sie registriert.
 
-      Nach dem Anmelden die **Anmeldung** und **registrieren** Links werden durch ersetzt eine **Logout** Link. Der Anmeldename wird als Link angezeigt. (Link können Sie die zu einer Seite zu wechseln, in dem Sie Ihr Kennwort ändern.)
+      Nachdem Sie sich angemeldet haben, die **Anmeldung** und **registrieren** Links werden ersetzt, indem eine **Logout** Link. Ihr Benutzername ist als Link angezeigt. (Den Link können Sie die zu einer Seite zu wechseln, in dem Sie Ihr Kennwort ändern.)
 
-      ![Sicherheit-Mitgliedschaft-6](16-adding-security-and-membership/_static/image5.png)
+      ![Security-Mitgliedschaft-6](16-adding-security-and-membership/_static/image5.png)
 
       > [!NOTE]
-      > Standardmäßig senden ASP.NET Web Pages Anmeldeinformationen an den Server in Klartext (wie einem von Menschen lesbaren Text). Eine Produktionswebsite zu verwendende secure HTTP (https://, auch bekannt als die *secure Sockets Layer* oder SSL) zum Verschlüsseln von vertraulichen Informationen, die mit dem Server ausgetauscht werden. Können Sie die erforderlichen-e-Mail Nachrichten gesendet werden mit SSL durch Festlegen von `WebMail.EnableSsl=true` wie im vorherigen Beispiel. Weitere Informationen zu SSL finden Sie unter [Web Sichern der Kommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660).
+      > Standardmäßig senden ASP.NET-Webseiten Anmeldeinformationen an den Server als Klartext (als Benutzer lesbarer Text). Eine Produktionswebsite sollten sicheres HTTP verwenden (https://, auch bekannt als die *secure Sockets Layer* oder SSL) zum Verschlüsseln von vertraulichen Informationen, die mit dem Server ausgetauscht werden. Können Sie die erforderlichen-e-Mail Nachrichten gesendet werden mithilfe von SSL durch Festlegen von `WebMail.EnableSsl=true` wie im vorherigen Beispiel. Weitere Informationen zu SSL finden Sie unter [Webkommunikation sichern: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660).
 
 ## <a name="additional-membership-functionality-in-the-site"></a>Zusätzliche Mitgliedschaftsfunktionen auf der Website
 
-Ihre Website enthält anderer Funktionen, die Benutzer ihre Konten verwalten kann. Benutzer können Folgendes tun:
+Ihre Site enthält andere Funktionen, die Benutzer ihre Konten verwalten kann. Benutzer können Folgendes tun:
 
-- Ändern Sie ihre Kennwörter. Nach der Anmeldung können sie den Benutzernamen klicken (die einen Link handelt). Dadurch gelangen sie zu einer Seite, in dem sie ein neues Kennwort erstellen (*Account/ChangePassword.cshtml*).
-- Wiederherzustellen Sie ein vergessenes Kennwort. Auf der Anmeldeseite wird ein Link (**haben Sie Ihr Kennwort vergessen?**), die Benutzer zu einer Seite akzeptiert (*Account/ForgotPassword.cshtml*) in dem sie eine e-Mail-Adresse eingeben können. Die Website sendet sie eine e-Mail-Nachricht, die einen Link, die sie klicken können enthält, um ein neues Kennwort festlegen (*Account/PasswordReset.cshtml*).
+- Ändern Sie ihrer Kennwörter. Nach der Anmeldung können sie den Benutzernamen klicken (das einen Link ist). Dadurch gelangen sie zu einer Seite, in dem sie ein neues Kennwort erstellen (*Account/ChangePassword.cshtml*).
+- Wiederherstellen eines vergessenen Kennworts. Auf der Anmeldeseite, es ist ein Link (**haben Sie Ihr Kennwort vergessen?**) Benutzer zu einer Seite (*Account/ForgotPassword.cshtml*) in dem sie eine e-Mail-Adresse eingeben können. Der Standort sendet ihnen eine e-Mail-Nachricht, die einen Link, die sie klicken können enthält, um ein neues Kennwort festlegen (*Account/PasswordReset.cshtml*).
 
-Ferner können Benutzer melden sich mit einem externen Standort kann auch wie nachfolgend erläutert.
+Sie können auch über die Benutzer melden sich mit einem externen Standort kann auch wie nachfolgend erläutert.
 
 <a id="Creating_a_Members-Only_Page"></a>
-## <a name="creating-a-members-only-page"></a>Erstellen eine Seite Mitgliedsinterne
+## <a name="creating-a-members-only-page"></a>Erstellen einer Seite nur für Mitglieder verfügbar
 
-Wird, kann alle Benutzer auf eine andere Seite in Ihrer Website durchsuchen. Sie möchten jedoch möglicherweise über Seiten verfügen, die nur an Personen verfügbar sind, die in angemeldet sind (d. h. Mitglieder). ASP.NET können Sie die Seiten zu erstellen, die nur von Mitgliedern von Anmeldeinformationen zugegriffen werden kann. Wenn anonyme Benutzer versuchen, eine Seite nur Member zuzugreifen, leiten Sie diese in der Regel zur Anmeldeseite.
+Vorerst, kann alle Benutzer zu einer beliebigen Seite auf Ihrer Website durchsuchen. Jedoch empfiehlt es sich um Seiten zu erhalten, die nur für Personen verfügbar sind, die sich angemeldet haben (d. h. Mitglieder). ASP.NET können Sie die Seiten zu erstellen, die nur von Mitgliedern von angemeldeten zugegriffen werden kann. Wenn anonyme Benutzer versuchen, eine Seite nur Member zuzugreifen, leiten Sie sie in der Regel auf die Anmeldeseite.
 
 In diesem Verfahren erstellen Sie einen Ordner aus, der Seiten enthält, die nur für angemeldete Benutzer verfügbar sind.
 
 1. Erstellen Sie einen neuen Ordner im Stammverzeichnis der Website. (Klicken Sie im Menüband auf den Pfeil unterhalb **neu** und wählen Sie dann **neuer Ordner**.)
-2. Nennen Sie diesen Ordner *Elemente*.
-3. Innerhalb der *Elemente* Ordner, erstellen Sie eine neue Seite und den Namen *MembersInformation.cshtml*.
-4. Ersetzen Sie den vorhandenen Inhalt durch den folgenden Code und Markup:
+2. Nennen Sie diesen Ordner *Mitglieder*.
+3. In der *Mitglieder* , erstellen Sie eine neue Seite und den Namen *MembersInformation.cshtml*.
+4. Ersetzen Sie den vorhandenen Inhalt, mit dem folgenden Code und Markup:
 
     [!code-cshtml[Main](16-adding-security-and-membership/samples/sample3.cshtml)]
 
-    Dieser Code überprüft die `IsAuthenticated` Eigenschaft von der `WebSecurity` -Objekt, das zurückgegeben `true` , wenn der Benutzer angemeldet hat. Wenn der Benutzer nicht, in der Code ruft angemeldet ist `Response.Redirect` den Benutzer zum Senden der *Login.cshtml* auf der Seite der *Konto* Ordner.
+    Dieser Code überprüft die `IsAuthenticated` Eigenschaft der `WebSecurity` Objekt, das zurückgegeben `true` , wenn der Benutzer angemeldet hat. Wenn der Benutzer nicht, in der Code ruft angemeldet ist `Response.Redirect` zum Senden von des Benutzers die *Login.cshtml* auf der Seite die *Konto* Ordner.
 
-    Die URL der Umleitung enthält eine `returnUrl` Wert der Abfragezeichenfolge, die verwendet `Request.Url.LocalPath` um den Pfad der aktuellen Seite festzulegen. Wenn Sie festlegen, die `returnUrl` Wert in der Abfragezeichenfolge wie folgt (und bei die Rückgabe-URL ein lokaler Pfad ist), die Anmeldeseite wird Benutzer zu dieser Seite zurückkehren, nach der Anmeldung.
+    Die URL der Umleitung enthält eine `returnUrl` Wert der Abfragezeichenfolge, die verwendet `Request.Url.LocalPath` den Pfad der aktuellen Seite fest. Setzen Sie die `returnUrl` Wert in der Abfragezeichenfolge wie folgt (und die Rückgabe-URL ist ein lokaler Pfad), die Anmeldeseite wird Benutzer zu dieser Seite zurückkehren, nachdem er sich anmeldet.
 
-    Der Code setzt auch  *\_SiteLayout.cshtml* Seite wie die Seite "Layout". (Weitere Informationen zu Layoutseiten finden Sie unter [erstellen ein konsistentes Layout in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=202891).)
-5. Führen Sie den Standort an. Wenn Sie weiterhin angemeldet sind, klicken Sie auf die **Logout** Schaltfläche am oberen Rand der Seite.
-6. Fordern Sie im Browser die Seite */Mitglieder/MembersInformation*. Die URL kann beispielsweise wie folgt aussehen:
+    Der Code legt auch fest  *\_SiteLayout.cshtml* Seite wie die Seite "Layout". (Weitere Informationen zu Layoutseiten, finden Sie unter [Erstellen eines konsistenten Layouts in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=202891).)
+5. Führen Sie die Website. Wenn Sie weiterhin angemeldet sind, klicken Sie auf die **Logout** Schaltfläche am oberen Rand der Seite.
+6. Fordern Sie die Seite im Browser */Member/MembersInformation*. Die URL kann beispielsweise wie folgt aussehen:
 
     `http://localhost:38366/Members/MembersInformation`
 
-    (Die Portnummer (38366) wird wahrscheinlich in die URL anders sein.)
+    (Die Portnummer (38366) wird wahrscheinlich in Ihrer URL unterschiedlich sein.)
 
-    Sie sind umgeleitet, um die *Login.cshtml* Seite, da Sie nicht angemeldet sind.
-7. Melden Sie sich mit dem Konto, das Sie zuvor erstellt haben. Sie sind umgeleitet, an die *MembersInformation* Seite. Da Sie angemeldet sind, sehen Sie diesmal den Seiteninhalt zu.
+    Sie werden umgeleitet, um die *Login.cshtml* Seite, da Sie nicht, in angemeldet sind.
+7. Melden Sie sich mit dem Konto an, die Sie zuvor erstellt haben. Sie werden umgeleitet, an die *MembersInformation* Seite. Da Sie angemeldet sind, sehen Sie diesmal den Seiteninhalt zu.
 
-Um den Zugriff auf mehreren Seiten zu sichern, können Sie dies tun:
+Um den Zugriff auf mehrere Seiten zu schützen, können Sie so vorgehen:
 
 - Fügen Sie die sicherheitsüberprüfung auf jeder Seite hinzu.
-- Erstellen einer  *\_PageStart.cshtml* Seite in den Ordner mit der Sie geschützte Seiten beibehalten, und fügen es die sicherheitsüberprüfung. Die  *\_PageStart.cshtml* Seite fungiert als eine Art von globaler Seite für alle Seiten im Ordner "". Diese Technik wird ausführlicher im [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Erstellen Sie eine  *\_PageStart.cshtml* Seite in den Ordner, in dem auf der Sie geschützte Seiten beibehalten, und fügen es für die sicherheitsüberprüfung. Die  *\_PageStart.cshtml* -Seite fungiert als eine Art der Seite "globale" für alle Seiten im Ordner "". Diese Technik wird ausführlicher erläutert [anpassen standortweite Verhalten für ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Erstellen von Sicherheit für Gruppen von Benutzern (Rollen)
 
-Wenn Ihre Website zahlreiche Elemente enthält, ist es nicht effizient, um die Berechtigung für jeden Benutzer einzeln überprüfen, bevor Sie eine Seite zu können. Möglichkeiten zum Erstellen von Gruppen, stattdessen werden oder *Rollen*, einzelne Elemente gehören. Sie können dann basierte auf Rolle Berechtigungen überprüfen. In diesem Abschnitt erstellen Sie eine &quot;Admin&quot; Rolle und erstellen Sie eine Seite, die für Benutzer verfügbar ist, sind in (wer angehören) dieser Rolle.
+Wenn Ihre Website sehr viele Mitglieder hat, ist es nicht effizienter, über die Berechtigung für jeden Benutzer einzeln überprüfen, bevor Sie eine Seite angezeigt werden können. Was Sie tun können stattdessen ist das Erstellen von Gruppen oder *Rollen*, dass die einzelnen Elemente angehören. Sie können dann Berechtigungen auf Grundlage der Rolle überprüfen. In diesem Abschnitt erstellen Sie eine &quot;Admin&quot; Rolle und erstellen Sie dann auf eine Seite, die für Benutzer zugänglich ist, die in (wer angehören) die Rolle.
 
-Das ASP.NET-Mitgliedschaftssystem wird eingerichtet, um Rollen zu unterstützen. Jedoch im Gegensatz zu Mitgliedschaft Registrierung und Anmeldung die **Starter Site** Vorlage keine Seiten, mit denen Sie Rollen verwalten. (Verwalten von Rollen ist eine Verwaltungsaufgabe statt einer Benutzeraufgabe.) Allerdings können Sie direkt in der Mitgliedschaftsdatenbank in WebMatrix Gruppen hinzufügen.
+Das ASP.NET-Mitgliedschaftssystem wird eingerichtet, um Rollen zu unterstützen. Anders als bei Mitgliedschaft Registrierung und Anmeldung die **Starter Site** Vorlage keine Seiten, mit denen Sie Rollen verwalten. (Verwalten von Rollen ist eine administrative Aufgabe anstatt einer Benutzeraufgabe.) Allerdings können Sie direkt in der Mitgliedschaftsdatenbank in WebMatrix Gruppen hinzufügen.
 
-1. Klicken Sie in WebMatrix, auf die **Datenbanken** Arbeitsbereich Selektor.
-2. Öffnen Sie im linken Bereich der *StarterSite.sdf* geöffneten Knoten die **Tabellen** -Knoten aus, und doppelklicken Sie dann auf die *Webseiten\_Rollen* Tabelle.
+1. Klicken Sie in WebMatrix die **Datenbanken** arbeitsbereichsauswahl.
+2. Öffnen Sie im linken Bereich die *StarterSite.sdf* Knoten, die **Tabellen** Knoten, und doppelklicken Sie dann auf die *Webseiten\_Rollen* Tabelle.
 
-    ![Sicherheit-Mitgliedschaft-7](16-adding-security-and-membership/_static/image6.png)
-3. Hinzufügen einer Rolle mit dem Namen &quot;Admin&quot;. Die *RoleId* Feld wird automatisch ausgefüllt. (Es ist der Primärschlüssel und verfügt über ein Feld identifizieren sein festgelegt wurde, wie in beschrieben [Einführung in die Arbeit mit einer Datenbank in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=202893).)
-4. Wie Sie sehen, lautet der Wert für die *RoleId* Feld. (Wenn dies die erste Rolle, die Sie definieren ist, wird 1 sein.)
+    ![Security-Mitgliedschaft-7](16-adding-security-and-membership/_static/image6.png)
+3. Hinzufügen einer Rolle mit dem Namen &quot;Admin&quot;. Die *RoleId* Feld wird automatisch ausgefüllt. (Dabei handelt es sich der Primärschlüssel festgelegt wurde, werden ein Feld, und identifizieren Siehe [Einführung in die Arbeit mit einer Datenbank in ASP.NET Web Pages-Websites](https://go.microsoft.com/fwlink/?LinkId=202893).)
+4. Notieren Sie sich, der der Wert für die *RoleId* Feld. (Ist dies die erste Rolle, die Sie definieren, wird 1 sein.)
 
-    ![Sicherheit-Mitgliedschaft-8](16-adding-security-and-membership/_static/image7.png)
+    ![Security-Mitgliedschaft-8](16-adding-security-and-membership/_static/image7.png)
 5. Schließen der *Webseiten\_Rollen* Tabelle.
 6. Öffnen der *UserProfile* Tabelle.
-7. Notieren Sie sich die *UserId* Wert von mindestens einer der Benutzer in der Tabelle, und schließen Sie dann die Tabelle.
-8. Öffnen der *Webseiten\_UserInRoles* Tabelle, und geben Sie einen *UserID* und ein *RoleID* Wert in der Tabelle. Um beispielsweise Benutzer 2 in der &quot;Admin&quot; Rolle, geben Sie diese Werte:
+7. Notieren Sie sich die *"UserID"* Wert von mindestens einem Benutzer in der Tabelle und schließen Sie dann in der Tabelle.
+8. Öffnen der *Webseiten\_UserInRoles* Tabelle, und geben Sie einen *"UserID"* und *RoleID* Wert in der Tabelle. Um beispielsweise Benutzer 2 in der &quot;Admin&quot; Rolle geben Sie diese Werte:
 
-    ![Sicherheit-Mitgliedschaft-9](16-adding-security-and-membership/_static/image8.png)
+    ![Security-Mitgliedschaft-9](16-adding-security-and-membership/_static/image8.png)
 9. Schließen der *Webseiten\_UsersInRoles* Tabelle.
 
-    Nun, da Sie Rollen definiert haben, können Sie eine Seite konfigurieren, die für Benutzer verfügbar ist, die in dieser Rolle sind.
-10. Erstellen Sie in den Stammordner der Website eine neue Seite mit dem Namen *AdminError.cshtml* , und Ersetzen Sie den vorhandenen Inhalt durch folgenden Code. Dies ist die Seite wird, der an einen Benutzer umgeleitet werden, wenn sie den Zugriff auf eine Seite nicht gestattet ist.
+    Nun, da Sie Rollen definiert haben, können Sie eine Seite konfigurieren, die für Benutzer zugänglich ist, die in dieser Rolle sind.
+10. Erstellen Sie in den Stammordner der Website eine neue Seite mit dem Namen *AdminError.cshtml* , und Ersetzen Sie den vorhandenen Inhalt durch den folgenden Code. Dies ist die Seite wird, der an Benutzer umgeleitet werden, wenn sie Zugriff auf eine Seite nicht gestattet ist.
 
     [!code-cshtml[Main](16-adding-security-and-membership/samples/sample4.cshtml)]
-11. Erstellen Sie in den Stammordner der Website eine neue Seite mit dem Namen *AdminOnly.cshtml* und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+11. Erstellen Sie in den Stammordner der Website eine neue Seite mit dem Namen *AdminOnly.cshtml* , und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
     [!code-cshtml[Main](16-adding-security-and-membership/samples/sample5.cshtml)]
 
-    Die `Roles.IsUserInRole` -Methode zurückkehrt `true` ist der aktuelle Benutzer ein Mitglied der angegebenen Rolle (in diesem Fall wird die Rolle "Admin").
-12. Führen Sie *Default.cshtml* in einem Browser eingeben, aber nicht anmelden. (Wenn Sie bereits angemeldet sind, melden Sie sich ab.)
-13. Fügen Sie in der Adressleiste des Browsers *AdminOnly* in der URL. (Das heißt, anfordern der *AdminOnly.cshtml* Datei.) Sie sind zur umgeleitet der *AdminError.cshtml* Seite, da Sie derzeit als Benutzer, in angemeldet sind der &quot;Admin&quot; Rolle.
-14. Zurück zu *Default.cshtml* und melden Sie sich als der Benutzer, die Sie hinzugefügt, um haben die &quot;Admin&quot; Rolle.
-15. Navigieren Sie zu *AdminOnly.cshtml* Seite. Dieses Mal wird die Seite angezeigt.
+    Die `Roles.IsUserInRole` Methodenrückgabe `true` ist der aktuelle Benutzer ein Mitglied der angegebenen Rolle (in diesem Fall die Rolle "Admin").
+12. Führen Sie *Default.cshtml* in einem Browser, aber nicht anmelden. (Wenn Sie bereits angemeldet sind, melden Sie sich an.)
+13. Fügen Sie in der Adressleiste des Browsers *AdminOnly* in der URL. (Das heißt, fordern die *AdminOnly.cshtml* Datei.) Sie werden umgeleitet, um die *AdminError.cshtml* Seite, da Sie zurzeit als Benutzer angemeldet sind nicht die &quot;Admin&quot; Rolle.
+14. Wechseln Sie zurück zur *Default.cshtml* und melden Sie sich als der Benutzer, die Sie hinzugefügt, um haben die &quot;Admin&quot; Rolle.
+15. Navigieren Sie zu *AdminOnly.cshtml* Seite. Dieses Mal die Seite angezeigt.
 
 ## <a name="preventing-automated-programs-from-joining-your-website"></a>Verhindert, dass automatisierte Programme verknüpfen Ihre Website
 
-Die Anmeldeseite wird nicht mehr automatisierte Programme (auch bezeichnet als *web Roboter* oder *Bots*) mit Ihrer Website registriert. Hier wird beschrieben, wie einen ReCaptcha-Test für die Seite "Registrierung" aktiviert.
+Beendet die Anmeldeseite nicht automatisierte Programme (auch bezeichnet als *web-Roboter* oder *Bots*) beim Registrieren Ihrer Website. Diesem Verfahren wird beschrieben, wie Sie einen ReCaptcha-Test für die Registrierungsseite aktivieren.
 
-![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
-1. Registrieren Sie Ihre Website unter ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Wenn Sie die Registrierung abgeschlossen haben, erhalten Sie einen öffentlichen Schlüssel und einem privaten Schlüssel.
-2. Der ASP.NET Web Helpers Library zu Ihrer Website hinzufügen, wie in beschrieben [installieren-Hilfsprogramme in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=252372), sofern Sie noch nicht geschehen.
-3. In der *Konto* Ordner öffnen die Datei mit dem Namen *Register.cshtml*.
-4. Suchen Sie im Code am oberen Rand der Seite mit den folgenden Zeilen und kommentieren Sie sie durch das Entfernen der `//` Kommentarzeichen:
+1. Registrieren Sie Ihre Website in ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Wenn Sie die Registrierung abgeschlossen haben, erhalten Sie einen öffentlichen Schlüssel und einen privaten Schlüssel.
+2. Die ASP.NET Web Helpers Library zu Ihrer Website hinzufügen, wie in beschrieben [Hilfsprogramme installieren, in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=252372), sofern Sie noch nicht geschehen.
+3. In der *Konto* Ordner die Datei mit dem Namen *Register.cshtml*.
+4. Suchen Sie die folgenden Zeilen im Code am oberen Rand der Seite, und kommentieren Sie sie durch das Entfernen der `//` Kommentarzeichen:
 
     [!code-csharp[Main](16-adding-security-and-membership/samples/sample6.cs)]
-5. Ersetzen Sie `PRIVATE_KEY` durch Ihren eigenen privaten ReCaptcha-Schlüssel.
-6. Entfernen Sie das Markup der Seite, die `@*` und `*@` Kommentarzeichen aus, um die folgenden Zeilen im Markup Seite:
+5. Ersetzen Sie dies `PRIVATE_KEY` durch Ihren eigenen privaten ReCaptcha-Schlüssel.
+6. Entfernen Sie in das Markup der Seite, die `@*` und `*@` Kommentarzeichen aus, um die folgenden Zeilen im Markup Seite:
 
     [!code-cshtml[Main](16-adding-security-and-membership/samples/sample7.cshtml)]
-7. Ersetzen Sie `PUBLIC_KEY` durch Ihren Schlüssel.
-8. Wenn Sie es bereits entfernt noch nicht, entfernen die `<div>` Element, das Text, der enthält mit "Zu ermöglichen, CAPTCHA-Prüfung..." beginnt. (Entfernen Sie den gesamten `<div>` Element und dessen Inhalt.)
+7. Ersetzen Sie dies `PUBLIC_KEY` durch Ihren Schlüssel.
+8. Wenn Sie es bereits entfernt nicht getan haben, entfernen die `<div>` Element, das Text, der enthält mit "Zum Aktivieren der CAPTCHA-Prüfung..." beginnt. (Entfernen Sie den gesamten `<div>` -Element und dessen Inhalt.)
 
-9. Führen Sie *Default.cshtml* in einem Browser. Wenn Sie bei der Website angemeldet sind, klicken Sie auf die **Logout** Link.
-10. Klicken Sie auf die **registrieren** verknüpfen und die Registrierung mithilfe des CAPTCHA-Tests zu testen.
+9. Führen Sie *Default.cshtml* in einem Browser. Wenn Sie sich bei der Website angemeldet sind, klicken Sie auf die **Logout** Link.
+10. Klicken Sie auf die **registrieren** verknüpfen und Testen Sie die Registrierung mit der CAPTCHA-Test.
 
-     ![Sicherheit-Mitgliedschaft-10](16-adding-security-and-membership/_static/image9.png)
+     ![Security-Mitgliedschaft-10](16-adding-security-and-membership/_static/image9.png)
 
-Weitere Informationen zu den `ReCaptcha` Helper, finden Sie unter [eine CATPCHA verwenden, um zu verhindern, dass automatisierte Programme (Bots) aus mithilfe der ASP.NET Web Site](https://go.microsoft.com/fwlink/?LinkId=251967).
+Weitere Informationen zu den `ReCaptcha` Helper, finden Sie unter [eine CATPCHA verwenden, um zu verhindern, dass automatisierten Programmen (Bots) aus mithilfe der ASP.NET Web Site](https://go.microsoft.com/fwlink/?LinkId=251967).
 
 <a id="Additional_Resources"></a>
-## <a name="letting-users-log-in-using-an-external-site"></a>Wenn Benutzer melden Sie sich mit einer externen Website
+## <a name="letting-users-log-in-using-an-external-site"></a>Benutzer melden Sie sich mit einem externen Standort
 
-Die **Starter Site** Vorlage enthält Code und Markup, mit dem Benutzer melden Sie sich mit Facebook, Windows Live, Twitter, Google oder Yahoo. Standardmäßig ist diese Funktionalität nicht aktiviert. Das allgemeine Verfahren für die Verwendung von Infrastrukturcode Benutzer melden sich mit diesen externen Anbietern ist dies:
+Die **Starter Site** Vorlage enthält Code und Markup, mit dem Benutzer melden Sie sich mit Facebook, Windows Live, Twitter, Google und Yahoo. Standardmäßig ist diese Funktionalität nicht aktiviert. Das allgemeine Verfahren für die Verwendung von können Benutzer melden sich mit dieser externen Anbietern ist dies:
 
-- Entscheiden Sie, welche von externen Standorten unterstützt werden soll.
-- Falls erforderlich, wechseln Sie zu diesem Standort, und richten Sie eine app für die Anmeldung. (Z. B. müssen Sie dies erforderlich ist, um die Facebook-Anmeldungen zu ermöglichen.)
-- Konfigurieren Sie auf der Website des Anbieters ein. In den meisten Fällen nur müssen Teil des Codes im Entfernen der  *\_AppStart.cshtml* Datei.
-- Fügen Sie auf der Registrierungsseite aus, in dem Personen kann Markup Verknüpfung mit der externen Website für die Anmeldung. Sie können das Markup in der Regel kopieren, das Sie benötigen, und ändern Sie den Text etwas.
+- Entscheiden Sie, welche von externen Websites unterstützt werden soll.
+- Falls erforderlich, wechseln Sie zu diesem Standort aus, und richten Sie eine app für die Anmeldung. (Z. B. müssen Sie dazu, um Facebook-Logins zu ermöglichen.)
+- Konfigurieren Sie auf der Website des Anbieters ein. In den meisten Fällen müssen einfach Kommentieren von Code in die  *\_AppStart.cshtml* Datei.
+- Fügen Sie auf der Registrierungsseite aus, die Benutzer kann Markup Link zu der externen Website für die Anmeldung. Sie können das Markup in der Regel kopieren, das Sie benötigen, und ändern Sie den Text etwas.
 
-Eine schrittweise Anleitung finden Sie im Thema [Aktivieren der Anmeldung von externen Standorten in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=251969).
+Schrittweise Anweisungen finden Sie im Thema [Aktivieren der Anmeldung über externe Websites einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=251969).
 
-Nachdem ein Benutzer von einem anderen Standort anmeldet, wird der Benutzer auf Ihrer Website zurückkehrt und *ordnet* , melden Sie sich mit Ihrer Website. Aktiviert ist, wird dies ein Mitgliedschaftseintrag an Ihrem Standort für die externe Anmeldung des Benutzers erstellt. Dadurch können Sie die normalen Funktionen der Mitgliedschaft (z. B. Rollen) mit der externen Anmeldung zu verwenden.
+Nachdem ein Benutzer von einer anderen Website anmeldet, wird der Benutzer auf Ihrer Website zurückkehrt und *ordnet* , melden Sie sich mit Ihrer Website. Aktiviert ist, erstellt dies eine Mitgliedschaftseintrag in Ihre Site für eine externe Anmeldung des Benutzers. So können Sie die normalen Funktionen der Mitgliedschaft (z. B. Rollen) mit der externen Anmeldung zu verwenden.
 
-## <a name="adding-security-to-an-existing-website"></a>Hinzufügen von Sicherheit zu einer vorhandenen Website
+## <a name="adding-security-to-an-existing-website"></a>Sicherheit von einer vorhandenen Website
 
-Das Verfahren weiter oben in diesem Artikel verwendet wird, zur Verwendung der **Starter Site** Vorlage als Grundlage für die Website-Sicherheit. Wenn Sie zum Starten von nicht die **Starter Site** Vorlage oder um die relevanten Seiten von einer Website, auf Grundlage dieser Vorlage zu kopieren, können Sie den gleichen Typ der Sicherheit in Ihrer eigenen Site implementieren, indem Sie selbst codieren. Sie erstellen die gleichen Arten von Seiten – Registrierung, Anmeldung usw. – und verwenden Sie Hilfsmethoden und Klassen zum Einrichten der Mitgliedschaft.
+Das Verfahren weiter oben in diesem Artikel beruht auf der Verwendung der **Starter Site** Vorlage als Grundlage für die Website-Sicherheit. Wenn es nicht praktikabel, zum Starten von der **Starter Site** Vorlage oder um die relevanten Seiten von einer Website, auf Grundlage dieser Vorlage zu kopieren, können Sie die gleiche Art von Sicherheit auf der eigenen Website implementieren, indem Sie ihn selbst codieren. Sie erstellen die gleichen Arten der Seiten, Registrierung, Anmeldung und So weiter, und verwenden Sie Hilfsmethoden und Klassen zum Einrichten der Mitgliedschaft.
 
-Der grundlegende Prozess wird im Blogbeitrag beschrieben [die grundlegendste Möglichkeit zum Implementieren von ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). Die meiste Arbeit erfolgt mithilfe der folgenden Methoden und Eigenschaften der `WebSecurity` Hilfsprogramm:
+Das grundlegende Verfahren wird beschrieben, in dem Blogbeitrag [die einfachste Möglichkeit zum Implementieren der ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). Die meiste Arbeit erfolgt mithilfe der folgenden Methoden und Eigenschaften der `WebSecurity` Hilfsprogramm:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Mit diesen Methoden können Sie bestimmen, ob ein Benutzer bereits registriert ist und sie zu registrieren.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Diese Eigenschaft können Sie bestimmen, ob der aktuelle Benutzer angemeldet ist. Dies ist nützlich für Benutzer zu einer Anmeldeseite umzuleiten, wenn sie nicht bereits angemeldet haben.
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Mit diesen Methoden können Sie bestimmen, ob jemand bereits registriert ist und sie zu registrieren.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Diese Eigenschaft können Sie bestimmen, ob der aktuelle Benutzer angemeldet ist. Dies ist nützlich, um Benutzer zu einer Anmeldeseite umgeleitet werden, wenn sie nicht bereits angemeldet haben.
 - [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Diese Methoden meldet einen Benutzer aus, oder verkleinern.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Diese Eigenschaft ist nützlich für die Anzeige des aktuellen Benutzers angemeldeten Namen (wenn der Benutzer angemeldet ist).
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Diese Methode ist nützlich, wenn Sie die e-Mail-Bestätigung für die Registrierung eingerichtet. (Details finden Sie im Blogbeitrag [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Diese Eigenschaft ist nützlich für die Anzeige der Namen des aktuellen Benutzers angemeldet, (wenn der Benutzer angemeldet ist).
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Diese Methode ist nützlich, wenn Sie die e-Mail-Bestätigung für die Registrierung einrichten. (Details werden im Blogbeitrag beschrieben [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Um Rollen zu verwalten, können Sie die [Rollen](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) und [Mitgliedschaft](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) Klassen, wie in der Blogeintrag beschrieben.
+Um Rollen zu verwalten, können Sie die [Rollen](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) und [Mitgliedschaft](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) Klassen, wie in den Blogeintrag beschrieben.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Anpassen des Verhaltens von Websiteseiten](https://go.microsoft.com/fwlink/?LinkId=202906)
-- [Sichern von Webkommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660)
-- [DIE grundlegendste Möglichkeit zum Implementieren von ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) und [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Hierbei handelt es sich um Blogbeiträge, die zum Implementieren von Mitgliedschaft ASP.NET-Funktionen ohne beschreiben die **Starter Site** Vorlage.
+- [Sichern von Web-Kommunikation: Zertifikate, SSL und https://](https://go.microsoft.com/fwlink/?LinkId=208660)
+- [Die einfachste Möglichkeit zum Implementieren der ASP.NET Razor-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) und [mithilfe der Funktion zur ereignisbestätigung für ASP.NET Web Pages-Sicherheit](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Hierbei handelt es sich um Blogbeiträge, die beschreiben, wie ASP.NET Membershipfeatures ohne implementiert die **Starter Site** Vorlage.
 - [Aktivieren der Anmeldung über externe Websites einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=251969)
 - [WebSecurity-Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [SimpleRoleProvider Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [SimpleMembershipProvider Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [SimpleRoleProvider-Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [SimpleMembershipProvider-Klasse-API-Referenz](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

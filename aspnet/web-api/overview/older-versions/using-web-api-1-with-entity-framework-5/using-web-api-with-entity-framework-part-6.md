@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
-title: 'Teil 6: Erstellen von Produkt- und Reihenfolge Controller | Microsoft Docs'
+title: 'Teil 6: Erstellen von Produkt- und Order-Controllern | Microsoft-Dokumentation'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,114 +9,113 @@ ms.date: 07/04/2012
 ms.topic: article
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 6bd485d29821af12b9ebe31b2d04a2d9ab826731
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 08abc66624526f4b1931231d114158afe8b63247
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869386"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382847"
 ---
-<a name="part-6-creating-product-and-order-controllers"></a>Teil 6: Erstellen von Produkt- und Reihenfolge Controller
+<a name="part-6-creating-product-and-order-controllers"></a>Teil 6: Erstellen von Produkt- und in der Reihenfolge Controller
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-## <a name="add-a-products-controller"></a>Hinzufügen einer Produkts-Controllers
+## <a name="add-a-products-controller"></a>Hinzufügen eines Controllers Produkte
 
-Der Administrator-Controller ist für Benutzer mit Administratorrechten aus. Kunden, andererseits, können Produkte anzeigen, jedoch kann nicht erstellen, aktualisieren oder löschen Sie sie.
+Der Administrator-Controller ist für Benutzer, die über Administratorrechte verfügen. Kunden, auf der anderen Seite können Produkte anzeigen, jedoch kann nicht erstellen, aktualisieren oder löschen.
 
-Wir können problemlos den Zugriff auf die Methoden Post, Put und Delete einschränken, ohne die Get-Methoden. Aber sehen Sie sich die Daten, die für ein Produkt zurückgegeben werden:
+Wir können problemlos den Zugriff auf die POST-, PUT- und Delete-Methoden, einschränken, bei die Get-Methoden geöffnet bleibt. Aber sehen Sie sich die Daten, die für ein Produkt zurückgegeben werden:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample1.json?highlight=1)]
 
-Die `ActualCost` Eigenschaft darf nicht für Kunden sichtbar sein! Die Lösung besteht darin, definieren Sie eine *Datenübertragungsobjekt* (DTO) enthält, die eine Teilmenge der Eigenschaften, die Kunden angezeigt werden sollen. Wir verwenden LINQ zum Projekt `Product` -Instanzen `ProductDTO` Instanzen.
+Die `ActualCost` Eigenschaft sollte nicht für Kunden sichtbar sein! Die Lösung besteht darin, definieren Sie eine *Datenübertragungsobjekt* (DTO), umfasst eine Teilmenge der Eigenschaften, die für Kunden sichtbar sein sollen. Wir verwenden LINQ zum Projekt `Product` -Instanzen `ProductDTO` Instanzen.
 
-Fügen Sie eine Klasse mit dem Namen `ProductDTO` Ordner Models.
+Fügen Sie eine Klasse, die mit dem Namen `ProductDTO` zum Ordner "Models".
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample2.cs)]
 
-Nun fügen Sie den Controller hinzu. Im Projektmappen-Explorer mit der rechten Maustaste des Ordners Controllers. Wählen Sie **hinzufügen**, und wählen Sie dann **Controller**. In der **Controller hinzufügen** Dialogfeld Namen des Controllers &quot;ProductsController&quot;. Klicken Sie unter **Vorlage**Option **leere API-Controller**.
+Nun fügen Sie den Controller hinzu. Klicken Sie im Projektmappen-Explorer den Ordner "Controllers". Wählen Sie **hinzufügen**, und wählen Sie dann **Controller**. In der **Controller hinzufügen** Dialogfeld benennen Sie den Controller &quot;ProductsController&quot;. Klicken Sie unter **Vorlage**Option **leeren API-Controller**.
 
 ![](using-web-api-with-entity-framework-part-6/_static/image1.png)
 
-Ersetzen Sie alles in der Quelldatei an, durch den folgenden Code:
+Ersetzen Sie alles, was in der Quelldatei an, mit dem folgenden Code:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample3.cs)]
 
-Der Controller verwendet weiterhin den `OrdersContext` zum Abfragen der Datenbank. Aber anstatt `Product` Instanzen direkt, wir rufen `MapProducts` , diese auf projizieren `ProductDTO` Instanzen:
+Der Controller verwendet weiterhin die `OrdersContext` zum Abfragen der Datenbank. Aber anstatt `Product` Instanzen direkt, wir rufen `MapProducts` , diese auf projizieren `ProductDTO` Instanzen:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample4.cs?highlight=1)]
 
-Die `MapProducts` Methode gibt ein **IQueryable**, sodass wir das Ergebnis mit anderen Abfrageparametern verfassen können. Sehen Sie hierzu finden Sie unter der `GetProduct` -Methode, die Fügt eine **, in dem** -Klausel, um die Abfrage:
+Die `MapProducts` Methode gibt ein **"IQueryable"**, sodass wir das Ergebnis mit anderen Abfrageparametern verfassen können. Sehen Sie in der `GetProduct` -Methode, die Fügt eine **, in denen** -Klausel, um die Abfrage:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample5.cs?highlight=2)]
 
-## <a name="add-an-orders-controller"></a>Fügen Sie einen Orders-Controller
+## <a name="add-an-orders-controller"></a>Fügen Sie eine Orders-Controller hinzu.
 
-Als Nächstes fügen Sie einen Controller, mit dem Benutzer erstellen und Anzeigen von Aufträgen an.
+Als Nächstes fügen Sie einen Controller, mit dem Benutzer erstellen und Anzeigen von Bestellungen hinzu.
 
-Wir beginnen mit einem anderen DTO. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in den Ordner Models, und fügen Sie eine Klasse mit dem Namen `OrderDTO` verwenden Sie die folgende Implementierung:
+Wir beginnen mit einem anderen DTO. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in den Ordner "Models", und fügen Sie eine Klasse, die mit dem Namen `OrderDTO` verwenden Sie die folgende Implementierung:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample6.cs)]
 
-Nun fügen Sie den Controller hinzu. Im Projektmappen-Explorer mit der rechten Maustaste des Ordners Controllers. Wählen Sie **hinzufügen**, und wählen Sie dann **Controller**. In der **Controller hinzufügen** im Dialogfeld die folgenden Optionen festlegen:
+Nun fügen Sie den Controller hinzu. Klicken Sie im Projektmappen-Explorer den Ordner "Controllers". Wählen Sie **hinzufügen**, und wählen Sie dann **Controller**. In der **Controller hinzufügen** im Dialogfeld die folgenden Optionen festlegen:
 
-- Klicken Sie unter **Controllernamen**, geben Sie "OrdersController".
-- Klicken Sie unter **Vorlage**Option "API-Controller mit Lese-/Schreibzugriff Aktionen unter Verwendung von Entity Framework".
-- Klicken Sie unter **Modellschemas**Option &quot;Reihenfolge (ProductStore.Models)&quot;.
+- Klicken Sie unter **Controllername**, geben Sie "OrdersController".
+- Klicken Sie unter **Vorlage**Option "API-Controller mit Lese-/Schreibzugriff Aktionen unter Verwendung von Entitätsframework".
+- Klicken Sie unter **Modellklasse**Option &quot;Reihenfolge (ProductStore.Models)&quot;.
 - Klicken Sie unter **Datenkontextklasse**Option &quot;OrdersContext (ProductStore.Models)&quot;.
 
 ![](using-web-api-with-entity-framework-part-6/_static/image2.png)
 
-Klicken Sie auf **Hinzufügen**. Dadurch wird eine Datei namens OrdersController.cs hinzugefügt. Als Nächstes müssen wir die Standardimplementierung des Controllers ändern.
+Klicken Sie auf **Hinzufügen**. Dadurch wird eine Datei namens OrdersController.cs hinzugefügt. Als Nächstes müssen wir die Standardimplementierung des Controllers zu ändern.
 
-Löschen Sie zuerst die `PutOrder` und `DeleteOrder` Methoden. Für dieses Beispiel nicht Kunden ändern oder löschen vorhandene Aufträge. In einer realen Anwendung benötigen Sie viele der Back-End-Logik, um diese Fälle zu behandeln. Geliefert (z. B. wurde die Bestellung bereits?)
+Löschen Sie zuerst die `PutOrder` und `DeleteOrder` Methoden. In diesem Beispiel nicht Kunden ändern oder löschen vorhandene Aufträge. In einer realen Anwendung benötigen Sie viele Back-End-Logik zum Behandeln dieser Fälle. Geliefert (z. B. wurde die Bestellung bereits?)
 
 Ändern der `GetOrders` Methode, um nur die Aufträge zurückzugeben, die dem Benutzer gehören:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample7.cs)]
 
-Ändern der `GetOrder` Methode wie folgt:
+Ändern der `GetOrder` -Methode wie folgt:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample8.cs)]
 
-Hier werden die Änderungen, die wir an die Methode vorgenommen:
+Hier sind die Änderungen, die wir der Methode vorgenommen:
 
-- Der Rückgabewert ist eine `OrderDTO` Instanz anstelle von einer `Order`.
-- Wenn wir die Datenbank für die Bestellung abzufragen, verwenden wir die [DbQuery.Include](https://msdn.microsoft.com/library/gg696395) Methode, um den zugehörigen fetch `OrderDetail` und `Product` Entitäten.
-- Wir haben das Ergebnis mithilfe einer Projektion vereinfachen.
+- Der Rückgabewert ist ein `OrderDTO` Instanz statt einer `Order`.
+- Wenn wir die Datenbank für die Bestellung abgefragt wird, verwenden wir die [DbQuery.Include](https://msdn.microsoft.com/library/gg696395) Methode, um die zugehörigen abrufen `OrderDetail` und `Product` Entitäten.
+- Wir vereinfachen das Ergebnis mithilfe einer Projektion.
 
 Die HTTP-Antwort enthält ein Array von Produkten mit Mengen:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample9.json)]
 
-Dieses Format ist einfacher, Clients als die ursprüngliche Objektdiagramm nutzen die verschachtelte Entitäten (Reihenfolge, Details und Produkte) enthält.
+Dieses Format ist einfacher, Clients als im ursprünglichen Objektdiagramm nutzen, die geschachtelte Entitäten (Order, Details und Produkte) enthält.
 
-Die letzte Methode, die beachtet werden `PostOrder`. Jetzt, diese Methode nimmt ein `Order` Instanz. Aber in Betracht ziehen, was geschieht, wenn ein Client, einen Anforderungstext wie folgt sendet:
+Die letzte Methode, die beachtet werden `PostOrder`. Derzeit, diese Methode akzeptiert eine `Order` Instanz. Aber bedenken, was geschieht, wenn ein Client, Anforderungstext sollte wie folgt sendet:
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample10.json)]
 
-Dies ist eine gut strukturierte Reihenfolge und Entity Framework wird es problemlos in die Datenbank einfügen. Aber es enthält eine Produktentität, die nicht bereits vorhanden ist. Der Client ein neues Produkt in unserer Datenbank erstellte! Dies wird eine plötzliche an die Reihenfolge Fullfilment Abteilung sein, wenn sie eine Bestellung für Koala wegen finden Sie unter. Die Moral ist, achten Sie tatsächlich zu Daten, die Sie in einer POST- oder PUT-Anforderung akzeptieren.
+Dies ist eine gut strukturierte Reihenfolge aus, und Entity Framework wird zum Glück fügen sie in der Datenbank. Aber es enthält eine Product-Entität, die nicht bereits vorhanden ist. Der Client erstellt einfach ein neues Produkt in der Datenbank. Dies wird an die Reihenfolge Ausführung-Abteilung, überrascht sein, wenn sie einen Auftrag für Koala Bears finden Sie unter. Die Moral, seien Sie wirklich die Daten, die Sie in einer POST- oder PUT-Anforderung annehmen.
 
 Um dieses Problem zu vermeiden, ändern Sie die `PostOrder` Methode, um eine `OrderDTO` Instanz. Verwenden der `OrderDTO` zum Erstellen der `Order`.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample11.cs)]
 
-Beachten Sie, die wir verwenden die `ProductID` und `Quantity` Eigenschaften, und es ignoriert alle Werte, die der Client für Produktnamen oder Preis gesendet. Wenn die Produkt-ID ungültig ist, es wird die foreign Key-Einschränkung in der Datenbank verletzen, und die Einfügung schlägt fehlt, wie er es sollte.
+Beachten Sie, die wir verwenden die `ProductID` und `Quantity` Eigenschaften und ignorieren Sie alle Werte, die vom Client für Produktnamen oder Preis gesendet wurde. Wenn die Produkt-ID ungültig ist, wird es verletzen, foreign Key-Einschränkung in der Datenbank und der Einfügevorgang fehl, wie er es sollte.
 
-Hier wird die vollständige `PostOrder` Methode:
+Hier ist die vollständige `PostOrder` Methode:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample12.cs)]
 
-Fügen Sie schließlich die **autorisieren** -Attribut auf den Controller:
+Fügen Sie abschließend die **autorisieren** Attribut mit dem Controller:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-6/samples/sample13.cs)]
 
-Jetzt können nur registrierte Benutzer erstellen oder Aufträge anzeigen.
+Jetzt können nur registrierte Benutzer erstellen oder Anzeigen von Bestellungen.
 
 > [!div class="step-by-step"]
 > [Zurück](using-web-api-with-entity-framework-part-5.md)

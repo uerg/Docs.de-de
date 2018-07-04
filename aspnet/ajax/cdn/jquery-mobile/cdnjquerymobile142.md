@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile142
-title: jQuery Mobile 1.4.2 auf das Microsoft Ajax-CDN | Microsoft Docs
+title: jQuery Mobile 1.4.2 für das Microsoft Ajax CDN | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: cf0c0d88-33b1-465c-a7f7-7928cacac9fa
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile142
 msc.type: content
-ms.openlocfilehash: 9d88c6c6a493e41cb0a5d369a34993318abbce25
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ec58006254f821b437084f665002b3bfecef64bf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071996"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396733"
 ---
-<a name="jquery-mobile-142-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.4.2 auf das Microsoft Ajax-CDN
+<a name="jquery-mobile-142-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.4.2 für das Microsoft Ajax CDN
 ====================
-Die jQuery Mobile 1.4.2-Bibliothek enthält die folgenden Dateien:
+JQuery Mobile 1.4.2-Bibliothek enthält die folgenden Dateien:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.2/jquery.mobile.structure-1.4.2.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css

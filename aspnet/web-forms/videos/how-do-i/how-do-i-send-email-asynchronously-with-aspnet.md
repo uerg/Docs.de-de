@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
-title: '[Gewusst wie:] Senden von e-Mail-Nachricht asynchron mit ASP.NET | Microsoft Docs'
+title: '[Gewusst wie:] Senden von E-Mails mit ASP.NET asynchron | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem Video veranschaulicht Chris Pels System.Net.Mail Klassen in ASP.NET verwenden, um eine asynchrone e-Mail-Nachricht zu senden. Zunächst finden Sie unter einer Websi konfigurieren...
+description: In diesem Video zeigt Chris Pels, wie mithilfe der System.Net.Mail-Klassen in ASP.NET um eine asynchrones e-Mail-Nachricht zu senden. Zunächst erfahren Sie, wie eine Websi konfigurieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/24/2008
 ms.topic: article
 ms.assetid: 77a5c8fa-ebb2-426d-b56b-a5a98a46b516
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
 msc.type: video
-ms.openlocfilehash: a9e35a8fe3a6918da712e5f12c75937ef7f6e76d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69810f4c25b6b449168ca31af5df584c77d92e07
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525869"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395927"
 ---
-<a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[Gewusst wie:] Senden von e-Mail-Nachricht asynchron mit ASP.NET
+<a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[Gewusst wie:] Senden von E-Mails asynchron mit ASP.NET
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem Video veranschaulicht Chris Pels System.Net.Mail Klassen in ASP.NET verwenden, um eine asynchrone e-Mail-Nachricht zu senden. Erstens finden Sie unter Gewusst wie: Konfigurieren einer Website zum Senden von e-Mails mit der &lt;MailSettings&gt; Element in der Datei "Web.config". Als Nächstes erstellen Sie eine einfache Benutzeroberfläche für das Eingeben von e-Mail-Informationen. Klicken Sie dann die Informationen zum Erstellen Verwenden Sie die MailMessage-Klasse, um eine e-Mail-Nachricht im Code-behind für die Seite zu erstellen. Als Teil dieses Prozesses erstellen Sie einen Ereignishandler für das asynchroner Rückruf, der nach dem Senden der e-Mail. In der ereignismeldung Ereignishandler finden Sie unter der Instanz der Klasse AsynchCompletedEventArgs verwenden, die Informationen über die e-Mail-Adresse senden Prozess bereitstellt. Klicken Sie abschließend senden Sie eine-e-Testmail asynchron ausgeführt wird, befolgen die Schritte in den Debugmodus, und zeigen Sie die tatsächliche e-Mail, die vom Prozess empfangen.
+In diesem Video zeigt Chris Pels, wie mithilfe der System.Net.Mail-Klassen in ASP.NET um eine asynchrones e-Mail-Nachricht zu senden. Zunächst Informationen zum Konfigurieren einer Website zum Senden von e-Mails unter Verwendung der &lt;MailSettings&gt; Element in der Datei "Web.config". Als Nächstes erstellen Sie eine einfache Benutzeroberfläche für die Eingabe von e-Mail-Informationen. Erfahren Sie, wie erstellen Sie die MailMessage-Klasse verwenden, um eine e-Mail-Nachricht in der CodeBehind für die Seite zu erstellen. Als Teil dieses Prozesses erstellen Sie einen Ereignishandler für der asynchrone Rückruf, der nach dem Senden der e-Mail ein. In dieser Handler finden Sie unter der Instanz der Klasse AsynchCompletedEventArgs verwenden, die Informationen über die e-Mail-Adresse Sendeprozess bereitstellt. Abschließend senden Sie eine-e-Testmail asynchron die Schritte in den Debugmodus aktiv ist, und zeigen Sie die tatsächliche e-Mail, die vom Prozess empfangen.
 
-[&#9654; Sehen Sie sich an (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-send-email-asynchronously-with-aspnet)
+[&#9654;Sehen Sie sich Video (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-send-email-asynchronously-with-aspnet)

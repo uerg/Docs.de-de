@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/authentication/implement-the-registration-verification-pattern
-title: Die Registrierung Überprüfung Muster implementieren | Microsoft Docs
+title: Implementieren des Musters zur Überprüfung der Registrierung | Microsoft-Dokumentation
 author: JoeStagner
-description: In diesem Video erweitet Joe Stagner während der Registrierung in einer ASP.NET-Anwendung eine e-Mail-Überprüfungsschritt.
+description: In diesem Video erweitet Joe Stagner den Registrierungsprozess in einer ASP.NET-Anwendung einen Überprüfungsschritt-e-Mail.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/29/2010
 ms.topic: article
 ms.assetid: 8e5cebbc-7e7b-4f1a-af6b-75a6ed398030
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/implement-the-registration-verification-pattern
 msc.type: video
-ms.openlocfilehash: 98c0a39a3125951b768ea1b0c18a55f21b287f32
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5dcf07c072105a4d6ccf01385ef08ddb603c12a6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880868"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382399"
 ---
-<a name="implement-the-registration-verification-pattern"></a>Das Muster der Registrierung Überprüfung implementieren
+<a name="implement-the-registration-verification-pattern"></a>Implementieren des Musters zur Überprüfung der Registrierung
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-In diesem Video erweitet Joe Stagner während der Registrierung in einer ASP.NET-Anwendung eine e-Mail-Überprüfungsschritt.
+In diesem Video erweitet Joe Stagner den Registrierungsprozess in einer ASP.NET-Anwendung einen Überprüfungsschritt-e-Mail.
 
-[&#9654;Sehen Sie sich an (35 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/implement-the-registration-verification-pattern)
+[&#9654;Sehen Sie sich Video (35 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/implement-the-registration-verification-pattern)
 
 > [!div class="step-by-step"]
 > [Zurück](logging-users-into-your-membership-system.md)

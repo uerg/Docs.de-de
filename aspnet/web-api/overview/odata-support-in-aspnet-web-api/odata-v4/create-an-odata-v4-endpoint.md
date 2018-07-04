@@ -1,35 +1,34 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
-title: Erstellen Sie einen OData v4-Endpunkt mithilfe von ASP.NET Web-API 2.2 | Microsoft Docs
+title: Erstellen einer ASP.NET Web API 2.2 verwendet OData v4-Endpunkts | Microsoft-Dokumentation
 author: MikeWasson
-description: Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Methode zur Abfragen und Bearbeiten von Datasets über CRUD-Vorgänge...
+description: Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datensätzen über CRUD-Vorgänge...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2014
 ms.topic: article
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: a3f94818f9674b0e1e9a45b2a6cc9455edc79726
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 55cfae975f0202e29908edaa84c6ef33416f2a54
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26508049"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397800"
 ---
-<a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>Erstellen Sie einen OData v4-Endpunkt mithilfe von ASP.NET Web-API 2.2
+<a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>Erstellen einer ASP.NET Web API 2.2 verwendet OData v4-Endpunkts
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-> Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datasets über CRUD-Vorgänge (erstellen, lesen, aktualisieren und löschen).
+> Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datensätzen über CRUD-Vorgänge (erstellen, lesen, aktualisieren und löschen).
 > 
-> ASP.NET Web-API unterstützt v3 und v4 des Protokolls. Sie können auch einen v4-Endpunkt, der Seite-an-Seite ausgeführt wird mit einem v3-Endpunkt.
+> ASP.NET Web-API unterstützt v3 und v4 des Protokolls. Sie haben sogar einen v4-Endpunkts, die Seite-an-Seite ausgeführt wird mit einem v3-Endpunkt.
 > 
-> In diesem Lernprogramm wird gezeigt, wie auf einen OData v4-Endpunkt zu erstellen, der CRUD-Vorgänge unterstützt werden.
+> Dieses Tutorial veranschaulicht, wie einen OData v4-Endpunkt zu erstellen, der CRUD-Vorgänge unterstützt.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - Web-API 2.2
@@ -46,61 +45,61 @@ durch [Mike Wasson](https://github.com/MikeWasson)
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio-Projekt erstellen
 
-In Visual Studio aus der **Datei** klicken Sie im Menü **neu** &gt; **Projekt**.
+In Visual Studio aus der **Datei** , wählen Sie im Menü **neu** &gt; **Projekt**.
 
 Erweitern Sie **installiert** &gt; **Vorlagen** &gt; **Visual C#-** &gt; **Web**, und wählen Sie die  **ASP.NET Web Application** Vorlage. Nennen Sie das Projekt &quot;ProductService&quot;.
 
 [![](create-an-odata-v4-endpoint/_static/image2.png)](create-an-odata-v4-endpoint/_static/image1.png)
 
-In der **neues Projekt** wählen Sie im Dialogfeld die **leere** Vorlage. Unter &quot;Hinzufügen von Ordnern und core Verweise... &quot;, klicken Sie auf **Web-API**. Klicken Sie auf **OK**.
+In der **neues Projekt** wählen Sie im Dialogfeld die **leere** Vorlage. Klicken Sie unter &quot;fügen Sie Ordner und kernreferenzen... &quot;, klicken Sie auf **Web-API-**. Klicken Sie auf **OK**.
 
 [![](create-an-odata-v4-endpoint/_static/image4.png)](create-an-odata-v4-endpoint/_static/image3.png)
 
 ## <a name="install-the-odata-packages"></a>Installieren Sie die OData-Pakete
 
-Aus der **Tools** klicken Sie im Menü **NuGet Package Manager** &gt; **Package Manager Console**. Geben Sie die im Paket-Manager-Konsole:
+Wählen Sie im Menü **Tools** die Option **NuGet-Paket-Manager** &gt; **Paket-Manager-Konsole** aus. Geben Sie im Fenster Paket-Manager-Konsole:
 
 [!code-console[Main](create-an-odata-v4-endpoint/samples/sample1.cmd)]
 
 Mit diesem Befehl wird der aktuelle OData-NuGet-Pakete installiert.
 
-## <a name="add-a-model-class"></a>Fügen Sie eine Modellklasse hinzu
+## <a name="add-a-model-class"></a>Hinzufügen einer Modellklasse
 
-Ein *Modell* ist ein Objekt, das eine Datenentität in der Anwendung darstellt.
+Ein *Modell* ist ein Objekt, das eine Datenentität in Ihrer Anwendung darstellt.
 
-Im Projektmappen-Explorer mit der rechten Maustaste Ordner Models. Wählen Sie im Kontextmenü der **hinzufügen** &gt; **Klasse**.
+Klicken Sie im Projektmappen-Explorer den Ordner "Models". Wählen Sie im Kontextmenü des **hinzufügen** &gt; **Klasse**.
 
 [![](create-an-odata-v4-endpoint/_static/image6.png)](create-an-odata-v4-endpoint/_static/image5.png)
 
 > [!NOTE]
-> Gemäß der Konvention werden Modellklassen befinden sich im Ordner Models, aber Sie müssen dieser Konvention in Ihren eigenen Projekten.
+> Gemäß der Konvention ViewModel-Klassen befinden sich im Ordner "Models", aber Sie müssen keine dieser Konvention in Ihren eigenen Projekten folgen.
 
 
-Nennen Sie die Klasse `Product`. Ersetzen Sie in der Datei Product.cs den Standardcode durch Folgendes:
+Nennen Sie die Klasse `Product`. Ersetzen Sie in der Datei "Product.cs" den Standardcode durch den folgenden:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample2.cs)]
 
-Die `Id` Eigenschaft ist für den Entitätsschlüssel. Clients können Entitäten nach Schlüssel Abfragen. Um das Produkt mit der ID 5 zu erhalten, ist der URI z. B. `/Products(5)`. Die `Id` Eigenschaft werden auch der Primärschlüssel in der Back-End-Datenbank.
+Die `Id` -Eigenschaft ist der Entitätsschlüssel. Clients können Entitäten nach Schlüssel abrufen. Um das Produkt mit der ID 5 zu erhalten, ist der URI beispielsweise `/Products(5)`. Die `Id` Eigenschaft werden ebenfalls der Primärschlüssel in der Back-End-Datenbank.
 
-## <a name="enable-entity-framework"></a>Aktivieren von Entity Framework
+## <a name="enable-entity-framework"></a>Aktivieren von Entitätsframework
 
-In diesem Lernprogramm wird Entity Framework (EF) Code First verwendet, um die Back-End-Datenbank zu erstellen.
+In diesem Tutorial wird Entity Framework (EF) Code First verwendet, um die Back-End-Datenbank zu erstellen.
 
 > [!NOTE]
-> Web API OData erfordert keine EF. Verwenden Sie Datenzugriffsschicht, die in Modellen Datenbankentitäten übersetzen kann.
+> Web-API OData ist EF nicht erforderlich. Verwenden Sie Datenzugriffsebene, die Datenbankentitäten in Modellen umsetzen kann.
 
 
-Installieren Sie zunächst das NuGet-Paket für EF. Aus der **Tools** klicken Sie im Menü **NuGet Package Manager** &gt; **Package Manager Console**. Geben Sie die im Paket-Manager-Konsole:
+Installieren Sie zuerst das NuGet-Paket für EF. Wählen Sie im Menü **Tools** die Option **NuGet-Paket-Manager** &gt; **Paket-Manager-Konsole** aus. Geben Sie im Fenster Paket-Manager-Konsole:
 
 [!code-console[Main](create-an-odata-v4-endpoint/samples/sample3.cmd)]
 
-Öffnen Sie die Datei "Web.config", und fügen Sie folgenden Abschnitt in der **Konfiguration** Element nach dem **"configSections"** Element.
+Öffnen Sie die Datei "Web.config", und fügen Sie folgenden Abschnitt in der **Konfiguration** Element nach dem **ConfigSections** Element.
 
 [!code-xml[Main](create-an-odata-v4-endpoint/samples/sample4.xml?highlight=6)]
 
 Diese Einstellung wird eine Verbindungszeichenfolge für eine LocalDB-Datenbank hinzugefügt. Wenn Sie die app lokal ausführen, wird diese Datenbank verwendet werden.
 
-Als Nächstes fügen Sie eine Klasse, die mit dem Namen `ProductsContext` Ordner Models:
+Als Nächstes fügen Sie eine Klasse, die mit dem Namen `ProductsContext` zum Ordner "Models":
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample5.cs)]
 
@@ -112,65 +111,65 @@ Im Konstruktor `"name=ProductsContext"` gibt den Namen der Verbindungszeichenfol
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample6.cs)]
 
-Fügen Sie folgenden Code, der **registrieren** Methode:
+Klicken Sie dann fügen Sie den folgenden Code der **registrieren** Methode:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample7.cs)]
 
-Dieser Code führt zwei Aufgaben aus:
+Dieser Code bewirkt zwei Dinge:
 
 - Erstellt ein Entity Data Model (EDM).
 - Fügt eine Route hinzu.
 
-Ein EDM ist eine abstrakte Modell der Daten. Das EDM wird verwendet, um das dienstmetadatendokument zu erstellen. Die **ODataConventionModelBuilder** Klasse erstellt ein EDM mit Standard-Benennungskonventionen. Dieser Ansatz erfordert den geringsten Code. Wenn Sie mehr Kontrolle über das EDM soll, können Sie mithilfe der **ODataModelBuilder** Klasse EDM zu erstellen, indem Sie die Eigenschaften, Schlüssel und Navigationseigenschaften explizit hinzufügen.
+Ein EDM ist ein abstraktes Modell der Daten. Das EDM wird verwendet, um das Metadatendokument für den Dienst zu erstellen. Die **ODataConventionModelBuilder** Klasse erstellt ein EDM mithilfe von Standard-Benennungskonventionen. Dieser Ansatz erfordert den geringsten Code. Wenn Sie mehr Kontrolle über das EDM möchten, können Sie die **ODataModelBuilder** Klasse, um die EDM zu erstellen, durch das Hinzufügen von Eigenschaften, Schlüssel und Navigationseigenschaften explizit.
 
-Ein *Route* teilt mit Web-API, wie HTTP-Anforderungen an den Endpunkt weitergeleitet. Rufen Sie zum Erstellen einer OData v4-Route dem **MapODataServiceRoute** Erweiterungsmethode.
+Ein *Route* weist Web-API wie HTTP-Anforderungen an den Endpunkt weitergeleitet. Rufen Sie zum Erstellen einer OData v4-Route dem **MapODataServiceRoute** -Erweiterungsmethode.
 
-Wenn die Anwendung mehrere OData-Endpunkte verfügt, erstellen Sie eine separate Route für jeden. Weisen Sie jede Route, einen eindeutigen Routennamen und ein Präfix.
+Wenn Ihre Anwendung mehrere OData-Endpunkte verfügt, erstellen Sie eine separate Route für jeden. Geben Sie jede Route, einen eindeutigen Routennamen und Präfix zu.
 
-## <a name="add-the-odata-controller"></a>Fügen Sie den OData-Controller hinzu
+## <a name="add-the-odata-controller"></a>Hinzufügen des OData-Controllers
 
-Ein *Controller* ist eine Klasse, die HTTP-Anforderungen verarbeitet. Sie erstellen einen separaten Controller für jede Entität im OData-Dienst festlegen. In diesem Lernprogramm erstellen Sie einen Controller für die `Product` Entität.
+Ein *Controller* ist eine Klasse, die HTTP-Anforderungen verarbeitet. Erstellen Sie einen separaten Controller für jede Entität im OData-Dienst festgelegt. In diesem Tutorial erstellen Sie einen Controller für die `Product` Entität.
 
-Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in des Ordners Controller, und wählen **hinzufügen** &gt; **Klasse**. Nennen Sie die Klasse `ProductsController`.
+Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in den Ordner "Controllers", und wählen Sie **hinzufügen** &gt; **Klasse**. Nennen Sie die Klasse `ProductsController`.
 
 > [!NOTE]
-> Die Version des Lernprogramms für OData v3 verwendet die **Controller hinzufügen** Gerüstbau. Derzeit ist kein Gerüst für OData v4.
+> Die Version dieses Tutorials für OData v3 verwendet die **Controller hinzufügen** Gerüstbau. Es gibt derzeit keine Gerüstbau für OData v4.
 
 
-Ersetzen Sie den Standardcode in ProductsController.cs durch Folgendes.
+Ersetzen Sie die Codebausteine in ProductsController.cs durch Folgendes.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample8.cs)]
 
-Der Controller verwendet die `ProductsContext` Klasse Zugriff auf die Datenbank mithilfe von EF. Beachten Sie, die der Controller überschreibt die **Dispose** Methode zum Freigeben der **ProductsContext**.
+Der Controller verwendet die `ProductsContext` Klasse Zugriff auf die Datenbank mithilfe von EF. Beachten Sie, die der Controller überschreibt die **Dispose** Methode zum Verwerfen der **ProductsContext**.
 
-Dies ist der Ausgangspunkt für den Controller. Fügen Sie anschließend die Methoden für alle CRUD-Vorgänge.
+Dies ist der Ausgangspunkt für den Controller. Als Nächstes fügen wir Methoden für alle CRUD-Vorgänge.
 
 ## <a name="querying-the-entity-set"></a>Die Entitätenmenge Abfragen
 
-Fügen Sie die folgenden Methoden hinzu `ProductsController`.
+Fügen Sie die folgenden Methoden auf `ProductsController`.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample9.cs)]
 
-Die parameterlose Version der `Get` Methodenrückgabe die gesamte Sammlung von Produkten. Die `Get` Methode mit einem *Schlüssel* Parameter sucht nach einem Produkt anhand ihres Schlüssels (in diesem Fall die `Id` Eigenschaft).
+Der parameterlosen Version von der `Get` die gesamte Auflistung für die Produkte der Methodenrückgabe. Die `Get` -Methode mit einem *Schlüssel* Parameter sucht ein Produkt durch deren Schlüssel (in diesem Fall die `Id` Eigenschaft).
 
-Die **[EnableQuery]** -Attributs können Clients die Abfrage mithilfe von Abfrageoptionen wie $filter, $sort und $page ändern. Weitere Informationen finden Sie unter [OData-Abfrageoptionen unterstützen](../supporting-odata-query-options.md).
+Die **[EnableQuery]** Attribut ermöglicht Clients, die Abfrage mithilfe von Abfrageoptionen wie $filter "," $sort, und "$page zu ändern. Weitere Informationen finden Sie unter [unterstützt OData-Abfrageoptionen](../supporting-odata-query-options.md).
 
-## <a name="adding-an-entity-to-the-entity-set"></a>Hinzufügen einer Entität an die Entitätssammlung
+## <a name="adding-an-entity-to-the-entity-set"></a>Beim Hinzufügen einer Entität auf die Entitätenmenge
 
-Fügen Sie die folgende Methode hinzu, um Clients zum Hinzufügen eines neuen Produkts zur Datenbank aktivieren `ProductsController`.
+Um Clients zum Hinzufügen eines neuen Produkts in die Datenbank zu aktivieren, fügen Sie die folgende Methode `ProductsController`.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample10.cs)]
 
 ## <a name="updating-an-entity"></a>Aktualisieren einer Entität
 
-OData unterstützt zwei unterschiedliche Semantiken zum Aktualisieren einer Entität, Patch- und PUT an.
+OData unterstützt zwei unterschiedliche Semantiken zum Aktualisieren einer Entität, Patch- und PUT.
 
-- Patch für führt ein teilweises Update. Der Client gibt nur die Eigenschaften zu aktualisieren.
-- PUT ersetzt die gesamte Entität.
+- PATCH führt eine partielle Aktualisierung. Der Client gibt nur die Eigenschaften zu aktualisieren.
+- PUT wird die gesamte Entität ersetzt.
 
-Der Nachteil von PUT ist, dass der Client gesendet werden muss Werte für alle Eigenschaften in der Entität, einschließlich der Werte, die nicht geändert werden. Die [OData-Spezifikation](http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793719) gibt an, dass die PATCHDATEI bevorzugt wird.
+Der Nachteil von PUT ist, dass der Client gesendet werden muss Werte für alle Eigenschaften in der Entität, einschließlich der Werte, die nicht geändert werden. Die [OData-Spezifikation](http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793719) gibt an, dass ein PATCH bevorzugt wird.
 
-In jedem Fall sieht der Code für Patch- und PUT-Methoden:
+In jedem Fall sieht der Code für sowohl Patch- und PUT-Methoden:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample11.cs)]
 
@@ -178,6 +177,6 @@ Im Fall von PATCH, der Controller verwendet die **Delta&lt;T&gt;**  Typ, um die 
 
 ## <a name="deleting-an-entity"></a>Löschen einer Entität
 
-Fügen Sie die folgende Methode hinzu, um Clients So löschen Sie ein Produkt aus der Datenbank aktivieren `ProductsController`.
+Um Clients So löschen Sie ein Produkt aus der Datenbank zu aktivieren, fügen Sie die folgende Methode `ProductsController`.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample12.cs)]

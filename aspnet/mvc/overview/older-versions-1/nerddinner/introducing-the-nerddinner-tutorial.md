@@ -1,60 +1,59 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
-title: Einführung in das Lernprogramm NerdDinner | Microsoft Docs
+title: Einführung zum NerdDinner-Tutorial | Microsoft-Dokumentation
 author: shanselman
-description: Die beste Möglichkeit, erfahren, ein neues Framework besteht darin mit erstellen. In diesem Lernprogramm erläutert, wie eine kleine, aber vollständige, Anwendung, die mit ASP.NET.. erstellen...
+description: Die beste Möglichkeit, erfahren, ein neues Framework ist etwas damit zu erstellen. In diesem Tutorial erläutert, wie Sie eine kleine, aber abgeschlossen ist,-Anwendung, die mithilfe von P.NET-Konfiguration erstellen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 735a775752beda3fc24852422b1ff9d60a7c46b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868554"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371625"
 ---
-<a name="introducing-the-nerddinner-tutorial"></a>Einführung in das Lernprogramm NerdDinner
+<a name="introducing-the-nerddinner-tutorial"></a>Einführung zum NerdDinner-Tutorial
 ====================
 durch [Scott Hanselman](https://github.com/shanselman)
 
 [PDF herunterladen](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Die beste Möglichkeit, erfahren, ein neues Framework besteht darin mit erstellen. Dieses Lernprogramm führt Sie durch die Schritte zum Erstellen einer kleines, jedoch abgeschlossen, Anwendung, die mithilfe von ASP.NET MVC-1, und eine Einführung in die entsprechende kernbegriffe.
+> Die beste Möglichkeit, erfahren, ein neues Framework ist etwas damit zu erstellen. Dieses Tutorial führt Sie durch die Schritte zum Erstellen einer kleines, aber abgeschlossen haben, Anwendung, die mithilfe von ASP.NET MVC-1, und eine Einführung in die wichtigsten Konzepte.
 > 
-> Bei Verwendung von ASP.NET MVC 3 empfehlen wir führen Sie die [erste Schritte mit MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) oder [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) Lernprogramme.
+> Wenn Sie ASP.NET MVC 3 verwenden, sollten Sie Sie folgen den [erste Schritte mit MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) oder [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) Tutorials.
 
 
-## <a name="nerddinner-tutorial"></a>NerdDinner-Lernprogramm
+## <a name="nerddinner-tutorial"></a>NerdDinner-Tutorial
 
-Die beste Möglichkeit, erfahren, ein neues Framework besteht darin mit erstellen. Dieses Lernprogramm führt Sie durch die Schritte zum Erstellen einer kleines, jedoch abgeschlossen haben, mithilfe von ASP.NET MVC, Anwendung und eine Einführung in die entsprechende kernbegriffe.
+Die beste Möglichkeit, erfahren, ein neues Framework ist etwas damit zu erstellen. Dieses Tutorial führt Sie durch die Schritte zum Erstellen einer kleines, aber abgeschlossen haben, Anwendung, die mit ASP.NET MVC, und eine Einführung in die wichtigsten Konzepte.
 
-Die Anwendung, die wir erstellen möchten, wird "NerdDinner" aufgerufen. NerdDinner bietet eine einfache Möglichkeit für Benutzer zum Suchen und Organisieren von Abendessen online:
+Die Anwendung zum Erstellen der hier verwendeten heißt "NerdDinner". NerdDinner bietet eine einfache Möglichkeit für Benutzer zum Suchen und Organisieren von Dinner online:
 
 ![](introducing-the-nerddinner-tutorial/_static/image1.png)
 
-NerdDinner kann registrierte Benutzer erstellen, bearbeiten und Löschen von Abendessen angezeigt. Er erzwingt einen konsistenten Satz von Überprüfung und Geschäftsregeln in der Anwendung:
+NerdDinner kann registrierte Benutzer erstellen, bearbeiten und Löschen von Dinner. Einen konsistenten Satz von Überprüfung und Geschäftsregeln erzwungen für die Anwendung:
 
 ![](introducing-the-nerddinner-tutorial/_static/image2.png)
 
-Besucher können eine AJAX-basierte Zuordnung um zu suchende bevorstehende Abendessen in der Nähe sie gespeichert werden:
+Besucher können eine AJAX-basierten Zuordnung verwenden, um nach bevorstehenden Dinner verwendet wird, treten in der Nähe von ihnen zu suchen:
 
 ![](introducing-the-nerddinner-tutorial/_static/image3.png)
 
-Klicken eine Dinner gelangen sie zur eine Seite "Details", in denen erfahren sie mehr darüber:
+Durch Klicken auf einem Dinner gelangen sie auf eine Detailseite, erhalten sie weitere Informationen:
 
 ![](introducing-the-nerddinner-tutorial/_static/image4.png)
 
-Wenn sie interessiert der Teilnahme an der Dinner können auf der Website registrieren oder anmelden:
+Wenn sie Ihre Teilnahme an der Dinner können auf der Website registrieren oder anmelden:
 
 ![](introducing-the-nerddinner-tutorial/_static/image5.png)
 
-Sie können einen AJAX-basierten Antwort-Link, um das Ereignis studiert klicken:
+Sie können eine AJAX-basierte RSVP-Link, um das Ereignis teilnehmen klicken Sie dann auf:
 
 ![](introducing-the-nerddinner-tutorial/_static/image6.png)
 
@@ -62,32 +61,32 @@ Sie können einen AJAX-basierten Antwort-Link, um das Ereignis studiert klicken:
 
 ### <a name="implementing-nerddinner"></a>NerdDinner implementieren
 
-Wir werden unsere NerdDinner Anwendung beginnen, indem Sie mithilfe von Datei -&gt;Befehl Neues Projekt in Visual Studio zum Erstellen eines brandneuen ASP.NET MVC-Projekts. Wir wird dann schrittweise Funktionen erweitert werden. Dabei werden folgende Themen behandelt:
+Wir werden unsere NerdDinner-Anwendung beginnen Sie mit der Datei -&gt;Befehl für neues Projekt in Visual Studio zum Erstellen eines neuen ASP.NET MVC-Projekts. Es wird schrittweise Funktionen und Features hinzugefügt. Dabei werden folgende Themen behandelt:
 
-1. [Vorgehensweise: Erstellen Sie ein neues ASP.NET MVC-Projekt](# "erstellen Sie ein neues ASP.NET MVC-Projekt")
+1. [Vorgehensweise: Erstellen Sie ein neues ASP.NET MVC-Anwendungsprojekt](# "Erstellen eines neuen ASP.NET MVC-Projekts")
 2. [Gewusst wie: Erstellen einer Datenbank](# "erstellen Sie eine Datenbank")
-3. [Gewusst wie: Erstellen eines Modells mit Business Regel Überprüfungen](# "Erstellen eines Modells mit Business Regel Überprüfungen")
-4. [Gewusst wie: Controller und Ansichten verwenden, um eine Liste/Detail-Benutzeroberfläche implementieren](# "verwenden Controller und Ansichten zum Implementieren einer Auflistung/Detail-Benutzeroberfläche")
-5. [Gewusst wie: Bereitstellen von CRUD (erstellen, lesen, aktualisieren und löschen) Daten bilden Eintrag Unterstützung](# "bieten CRUD (Create, Read, Update, Delete) Daten Formular Dateneingabe zu unterstützen")
-6. [Zum Verwenden von ViewData und Implementierung von Klassen ViewModel](# "ViewData verwenden und Implementieren von ViewModel-Klassen")
-7. [Gewusst wie: Verwenden Sie die Benutzeroberfläche mit Masterseiten und Replikatsgruppenelemente erneut](# "Benutzeroberfläche mithilfe von Masterseiten erneut verwenden und Replikatsgruppenelemente")
-8. [Zum Implementieren von Paging effiziente](# "implementieren effizient Daten Paging")
-9. [Sichern von Anwendungen mithilfe von Authentifizierung und Autorisierung](# "sichere Anwendungen mithilfe von Authentifizierung und Autorisierung")
-10. [Wie Sie mithilfe von AJAX dynamische Updates bereitstellen](# "AJAX verwenden, um dynamische Updates bieten")
-11. [Wie AJAX zuordnungsszenarien implementieren mit](# "AJAX verwenden, um Zuordnungsszenarien implementieren")
-12. [So aktivieren Sie automatisierte Komponententests](# "automatisierte Komponententest aktivieren")
+3. [Gewusst wie: Erstellen eines Modells mit geschäftsregelüberprüfungen](# "Erstellen eines Modells mit Geschäftsregelüberprüfungen")
+4. [Wie Sie die Controller und Ansichten zu verwenden, um eine Liste/Details-Benutzeroberfläche implementieren](# "verwenden Controller und Ansichten zum Implementieren einer Auflistungs-/Detailbenutzeroberfläche")
+5. [Gewusst wie: Bereitstellen von CRUD (erstellen, lesen, aktualisieren und löschen) Daten bilden Eintrag Unterstützung](# "bieten CRUD (Create, Read, Update, Delete) Daten Formular Eingabe unterstützt")
+6. [Verwenden von ViewData und Implementieren von ViewModel-Klassen wie](# "Verwenden von ViewData und Implementieren von ViewModel-Klassen")
+7. [Gewusst wie: Verwenden Sie die Benutzeroberfläche mit Masterseiten und teilausführungen erneut](# "Wiederverwenden von UI mithilfe von Masterseiten und Teilausführungen")
+8. [Gewusst wie: Implementieren von effizienten datenauslagerung](# "implementieren effizient Daten Paging")
+9. [So sichern Sie Anwendungen mithilfe von Authentifizierung und Autorisierung](# "sichere Anwendungen mithilfe von Authentifizierung und Autorisierung")
+10. [Bereitstellen von dynamischen Updates mit AJAX](# "AJAX zu übermitteln, dynamische Updates verwenden")
+11. [Wie AJAX verwendet zum Implementieren von zuordnungsszenarien](# "AJAX verwenden, zum Implementieren von Zuordnungsszenarien")
+12. [Gewusst wie: Aktivieren Sie automatisierte Komponententests](# "automatisierte Komponententests aktivieren")
 
-Sie können Ihr eigenes Exemplar des NerdDinner Erstellen von Grund auf neu, indem Abschließen jeder Schritt wir Exemplarische Vorgehensweise in diesem Kapitel. Alternativ können Sie eine abgeschlossene Version des Quellcodes hier herunterladen: [NerdDinner auf GitHub](https://github.com/AspNetMVPSamples/NerdDinner). Sie können auch optional auch [Laden Sie eine kostenlose PDF-Version dieses Lernprogramms](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) , wenn Sie das Lernprogramm offline lesen möchten.
+Sie können Ihr eigenes Exemplar des NerdDinner Erstellen von Grund auf neu, durch die Durchführung der einzelnen führen wir die exemplarische Vorgehensweise in diesem Kapitel. Alternativ können Sie eine abgeschlossene Version des Quellcodes hier herunterladen: [NerdDinner auf GitHub](https://github.com/AspNetMVPSamples/NerdDinner). Sie können optional auch auch [Herunterladen einer kostenlosen PDF-Version dieses Tutorials](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) sollten Sie das Tutorial offline zu lesen.
 
-Sie können Visual Studio 2008 oder die kostenlose Visual Web Developer 2008 Express verwenden, zum Erstellen der Anwendung. Sie können SQL Server oder den freien SQL Server Express für die Datenbank verwenden.
+Sie können Visual Studio 2008 oder die kostenlose Visual Web Developer 2008 Express verwenden, um die Anwendung zu erstellen. Sie können entweder SQL Server oder die kostenlose SQL Server Express für die Datenbank verwenden.
 
-Sie können ASP.NET MVC, Visual Web Developer 2008 Express und SQL Server Express (kostenlos) mithilfe von V2 installieren die [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)
+Sie können ASP.NET MVC, Visual Web Developer 2008 Express und SQL Server Express (kostenlos) mithilfe von Version 2 der installieren die [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)
 
-### <a name="now-lets-get-started"></a>Jetzt sehen wir beginnen...
+### <a name="now-lets-get-started"></a>Jetzt lassen Sie uns loslegen...
 
-Wir haben behandelt, was NerdDinner ist, wir werden unsere Hüllen als Rollup angegeben, und Code schreiben.
+Nun, da wir die neuerungen NerdDinner behandelt habe, wir unsere Ärmel, und Schreiben von Code.
 
-Wir beginnen, indem Sie mithilfe von Datei -&gt;neues Projekt in Visual Studio die NerdDinner-Anwendung erstellen.
+Wir beginnen mit Datei -&gt;neues Projekt in Visual Studio die NerdDinner-Anwendung zu erstellen.
 
 > [!div class="step-by-step"]
 > [Nächste](create-a-new-aspnet-mvc-project.md)

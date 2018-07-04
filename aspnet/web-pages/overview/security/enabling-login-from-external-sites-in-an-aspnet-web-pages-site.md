@@ -1,180 +1,179 @@
 ---
 uid: web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
-title: Unter Verwendung von externen Websites in einer ASP.NET-Webanwendung angemeldet Pages (Razor) Standort | Microsoft Docs
+title: Anmelden mithilfe externer Websites in einer ASP.NET Web Pages (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
-description: In diesem Artikel wird erläutert, wie der ASP.NET Web Pages (Razor)-Site, die mithilfe von Google, Facebook, Twitter, Yahoo und andere Standorte anmelden – d. h. wie unterstützt...
+description: In diesem Artikel wird erläutert, wie bei einer ASP.NET Web Pages (Razor)-Website, die mithilfe von Facebook, Google, Twitter, Yahoo und anderen Websites anmelden – d. h. wie unterstützt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
 ms.topic: article
 ms.assetid: ef852096-a5bf-47b3-9945-125cde065093
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 47d15686194b15b7b06a99d63125c19a41f91ed9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b161a890d11b1c0bf86669b819b97255c075075f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26530169"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396889"
 ---
-<a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Protokollierung bei der Verwendung von externen Sites in einem Standort der ASP.NET Web Pages (Razor)
+<a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Anmelden mithilfe externer Websites in einer ASP.NET Web Pages (Razor)-Website
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In diesem Artikel wird erläutert, wie der ASP.NET Web Pages (Razor)-Site, die mithilfe von Google, Facebook, Twitter, Yahoo und andere Standorte anmelden – d. h. wie OAuth- und OpenID an Ihrem Standort unterstützt.
+> In diesem Artikel wird erläutert, wie bei einer ASP.NET Web Pages (Razor)-Website, die mithilfe von Facebook, Google, Twitter, Yahoo und anderen Websites anmelden – d. h. wie OAuth und OpenID an Ihrem Standort unterstützt.
 > 
-> Lernen Sie:
+> Sie lernen Folgendes:
 > 
-> - Wie die Anmeldung von anderen Standorten aktiviert, bei der Verwendung der Vorlage Starter Site von WebMatrix.
+> - Anmeldung von anderen Websites aktivieren, bei der Verwendung der Vorlage Starter Site von WebMatrix
 > 
-> Dies ist die ASP.NET-Funktion im Artikel eingeführt:
+> Dies ist die ASP.NET-Funktion, die in diesem Artikel eingeführt:
 > 
 > - Die `OAuthWebSecurity` Helper.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
-> - WebMatrix-3
+> - WebMatrix 3
 
-ASP.NET Web Pages bietet Unterstützung für [OAuth](http://oauth.net/) und [OpenID](http://openid.net/) Anbieter. Diese Anbieter können Sie Benutzern die Anmeldung in Ihre Website mit ihren vorhandenen Anmeldeinformationen von Facebook, Twitter, Microsoft und Google lassen. Beispielsweise können zur Anmeldung mit Facebook-Konto Benutzer eine Facebook-Symbol, wählen Sie dem diese an die Facebook-Anmeldeseite weitergeleitet, wo er ihre Benutzerinformationen ein. Sie können dann die Facebook-Anmeldung mit ihrem Konto auf der Website zuordnen. Eine verwandte-Erweiterung für die Web Pages-Mitgliedschaft-Funktionen ist, dass Benutzer mehrere Anmeldungen (einschließlich Anmeldungen über social Network-Sites) zuordnen, können mit einem einzelnen Konto auf Ihrer Website.
+ASP.NET Web Pages bietet Unterstützung für [OAuth](http://oauth.net/) und [OpenID](http://openid.net/) Anbieter. Verwenden diese Anbieter, können Sie Benutzern die Anmeldung an Ihrem Standort mit ihren vorhandenen Anmeldeinformationen aus Facebook, Twitter, Microsoft und Google lassen. Beispielsweise können um mit einer Facebook-Konto anzumelden, Benutzer nur ein Facebook-Symbol auswählen sie an die Facebook-Anmeldeseite umgeleitet, in dem sie ihre Benutzerinformationen eingeben. Sie können dann die Facebook-Anmeldung mit ihrem Konto auf der Website zuordnen. Eine ähnliche Verbesserung auf die Funktionen der Webseiten-Mitgliedschaft ist, dass Benutzer mehrere Anmeldungen (einschließlich Anmeldungen von Websites für soziale Netzwerke) zuordnen, können mit einem einzigen Konto auf Ihrer Website.
 
-Dieses Bild zeigt die Anmeldeseite von der **Starter Site** Vorlage, in dem ein Benutzer eine Symbol für Facebook, Twitter, Google oder Microsoft zum Aktivieren der Protokollierung mit einem externen Konto auswählen kann:
+Diese Abbildung zeigt die Anmeldeseite von der **Starter Site** Vorlage, in dem ein Benutzer eine Symbol für Facebook, Twitter, Google oder Microsoft zum Aktivieren der Protokollierung mit einem externen Konto auswählen kann:
 
 ![externen Anbietern](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image1.png)
 
-Sie können OAuth- und OpenID-Mitgliedschaft aktivieren, indem Sie einige Codezeilen in Auskommentieren der **Starter Site** Vorlage. Die Methoden und Eigenschaften verwenden Sie zum Arbeiten mit dem OAuth und OpenID-Anbieter sind in der `WebMatrix.Security.OAuthWebSecurity` Klasse. Die **Starter Site** eine vollständige Mitgliedschaft-Infrastruktur umfasst die Vorlage, mit einer Anmeldeseite, eine Mitgliedschaftsdatenbank und der gesamte Code müssen Sie Benutzern die Anmeldung in Ihre Website mithilfe von lokalen Anmeldeinformationen oder die von einem anderen Standort zu ermöglichen .
+Sie können die Mitgliedschaft von OAuth und OpenID aktivieren, indem Sie die Kommentierung von ein paar Codezeilen in der **Starter Site** Vorlage. Die Methoden und Eigenschaften können Sie arbeiten mit dem OAuth und OpenID-Anbieter sind in der `WebMatrix.Security.OAuthWebSecurity` Klasse. Die **Starter Site** Vorlage umfasst eine Infrastruktur der vollständigen, komplett mit einer Anmeldeseite eine Mitgliedschaftsdatenbank und der gesamte Code müssen Sie Benutzern die Anmeldung bei Ihrer Website, die mit lokalen Anmeldeinformationen oder die von einem anderen Standort kann .
 
-Dieser Abschnitt enthält ein Beispiel, damit Benutzer von externen Standorten auf einer Website anzumelden, die basierend auf den **Starter Site** Vorlage. Nach dem Erstellen einer Startwebsite, führen Sie diese (Details folgen):
+Dieser Abschnitt enthält ein Beispiel, damit Benutzer, die von externen Websites auf einer Website melden Sie sich auf der Grundlage der **Starter Site** Vorlage. Nach der Erstellung einer Startwebsite, führen Sie diese (Details folgen):
 
-- Für die Standorte, die einen OAuth-Anbieter (Facebook, Twitter und Microsoft) verwenden, erstellen Sie eine Anwendung auf der externen Website an. Dies gibt Ihnen die Anwendungsschlüssel, die Sie benötigen, um die Login-Funktion für diese Standorte aufzurufen.
-- Für Standorte, die einen OpenID-Anbieter (Google) verwenden, müssen Sie keine Anwendung zu erstellen. Für alle diese Standorte müssen Sie ein Konto verfügen, um anzumelden und entwickleranwendungen zu erstellen.
+- Für die Standorte, die einen OAuth-Anbieter (Facebook, Twitter und Microsoft) verwenden, erstellen Sie eine Anwendung auf der externen Website. Dadurch können Sie die Anwendungsschlüssel, die Sie benötigen, um das Feature "Anmeldung" für die Websites aufrufen.
+- Für Standorte, die einen OpenID-Anbieter (Google) zu verwenden, müssen Sie keinen zum Erstellen einer Anwendung. Für alle diese Standorte müssen Sie ein Konto verfügen, um sich anmelden und entwickleranwendungen erstellen.
 
     > [!NOTE]
-    > Microsoft-Anwendungen akzeptieren nur eine live-URL für eine Website verwenden, damit Sie eine lokale Website-URL für das Testen von Benutzernamen verwenden können.
-- Bearbeiten Sie einige Dateien in Ihrer Website, um den entsprechenden Authentifizierungsanbieter anzugeben und eine Anmeldung auf der Website übermitteln, die Sie verwenden möchten.
+    > Microsoft-Anwendungen akzeptieren nur eine live-URL für eine Arbeitswebsite, damit Sie eine lokale Website-URL für das Testen von Anmeldungen nicht verwenden können.
+- Bearbeiten Sie einige Dateien auf Ihrer Website, um den entsprechenden Authentifizierungsanbieter anzugeben und um eine Anmeldung auf der Website zu übermitteln, die Sie verwenden möchten.
 
 Dieser Artikel enthält separate Anweisungen für die folgenden Aufgaben:
 
-- [Aktivieren des Google-Anmeldungen](#To_enable_Google_logins)
-- [Aktivieren der Facebook-Anmeldungen](#To_enable_Facebook_logins)
-- [Aktivieren der Twitter-Anmeldungen](#To_enable_Twitter_logins)
+- [Aktivieren von Google-Anmeldungen](#To_enable_Google_logins)
+- [Aktivieren die Facebook-logins](#To_enable_Facebook_logins)
+- [Aktivieren von Twitter-Anmeldungen](#To_enable_Twitter_logins)
 
 <a id="To_enable_Google_logins"></a>
-## <a name="enabling-google-logins"></a>Aktivieren des Google-Anmeldungen
+## <a name="enabling-google-logins"></a>Aktivieren von Google-Anmeldungen
 
-1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die auf der Vorlage Starter Site von WebMatrix basiert.
-2. Öffnen der  *\_AppStart.cshtml* Seite und die auskommentierung der folgenden Codezeile. 
+1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die basierend auf der Vorlage Starter Site von WebMatrix.
+2. Öffnen der  *\_AppStart.cshtml* Seite, und heben Sie die auskommentierung der folgenden Zeile des Codes. 
 
     [!code-css[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample1.css)]
 
-### <a name="testing-google-login"></a>Testen von Google-Anmeldung
+### <a name="testing-google-login"></a>Testen die Google-Anmeldung
 
-1. Führen Sie die *default.cshtml* Seite Ihrer Website, und wählen Sie die **melden Sie sich** Schaltfläche.
-2. Auf der *Anmeldung* Seite in der **einen anderen Dienst zum Anmelden verwenden** Abschnitt, und wählen Sie entweder die **Google** oder **Yahoo** Schaltfläche zum Absenden. Dieses Beispiel verwendet die Google-Anmeldung. 
+1. Führen Sie die *default.cshtml* Seite Ihrer Website, und wählen Sie die **melden Sie sich bei** Schaltfläche.
+2. Auf der *Anmeldung* auf der Seite die **verwenden Sie einen anderen Dienst anmelden** Abschnitt, und wählen Sie entweder die **Google** oder **Yahoo** Schaltfläche "Senden". Dieses Beispiel verwendet die Google-Anmeldung. 
 
-    Die Webseite leitet die Anforderung an der Google-Anmeldeseite.
+    Die Webseite leitet die Anforderung an die Google-Anmeldeseite.
 
     ![Google-Anmeldung](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image2.png)
 3. Geben Sie Anmeldeinformationen für ein vorhandenes Google-Konto ein.
-4. Wenn Sie Google Sie gefragt werden, ob Sie zulassen möchten *"localhost"* um Informationen aus dem Konto zu verwenden, klicken Sie auf **zulassen**.
+4. Wenn Sie Google fragt, ob Sie zulassen möchten *"localhost"* um Informationen aus dem Konto zu verwenden, klicken Sie auf **zulassen**.
 
-    Der Code verwendet das Google-Token zur Authentifizierung des Benutzers, und klicken Sie dann auf Ihrer Website auf diese Seite gibt. Auf dieser Seite können Benutzer ihre Google-Anmeldung mit einem vorhandenen Konto auf Ihrer Website zu verknüpfen, oder sie können ein neues Konto an Ihrem Standort ordnen Sie die externe Anmeldung mit registrieren.
+    Der Code verwendet das Google-Token zur Authentifizierung des Benutzers und gibt dann zurück zu dieser Seite auf Ihrer Website. Sie können ein neues Konto auf der Website so ordnen Sie die externe Anmeldung mit registrieren, oder auf dieser Seite können Benutzer ihre Google-Anmeldung mit einem vorhandenen Konto auf Ihrer Website zu verknüpfen.
 
     ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image3.png)
-5. Wählen Sie die **zuordnen** Schaltfläche. Der Browser gibt zur Startseite der Anwendung.
+5. Wählen Sie die **zuordnen** Schaltfläche. Gibt zurück, der Browser zur Startseite Ihrer Anwendung.
 
 <a id="To_enable_Facebook_logins"></a>
-## <a name="enabling-facebook-logins"></a>Aktivieren der Facebook-Anmeldungen
+## <a name="enabling-facebook-logins"></a>Aktivieren die Facebook-Logins
 
 1. Wechseln Sie zu der [Facebook-Entwickler-Website](https://developers.facebook.com/apps) (Melden Sie sich, wenn Sie noch nicht angemeldet sind).
-2. Wählen Sie die **neue App** Schaltfläche und befolgen Sie dann die Anweisungen, die neue Anwendung erstellen und benennen.
-3. Im Abschnitt **wählen Sie die Integration Ihrer app mit Facebook**, wählen Sie die **Website** Abschnitt.
-4. Füllen Sie die **Website-URL** Feld mit der URL Ihrer Website (z. B. `http://www.example.com`). Die **Domäne** Feld ist optional; Sie können Hiermit können Sie die Bereitstellung der Authentifizierung für eine gesamte Domäne (z. B. *example.com*). 
+2. Wählen Sie die **Create New App** Schaltfläche aus, und klicken Sie dann führen Sie die aufforderungen zum Benennen und die neue Anwendung erstellen.
+3. Im Abschnitt **wählen, wie Ihre app mit Facebook integrieren**, wählen Sie die **Website** Abschnitt.
+4. Geben Sie die **Website-URL** Feld mit der URL Ihrer Website (z. B. `http://www.example.com`). Die **Domäne** Feld ist optional; Sie können dies verwenden, zur Authentifizierung für eine gesamte Domäne (z. B. *"example.com"*). 
 
     > [!NOTE]
-    > Wenn Sie einen Standort, auf dem lokalen Computer mit einer URL ausgeführt werden wie `http://localhost:12345` (wobei die Anzahl ist eine lokale Portnummer), können Sie diesen Wert zum Hinzufügen der **Website-URL** bei Testen Ihrer Website im Feld. Jedoch jedes Mal, wenn die Portnummer des lokalen standortänderungen, müssen Sie beim Aktualisieren der **Website-URL** Feld Ihrer Anwendung.
-5. Wählen Sie die **Änderungen speichern** Schaltfläche.
-6. Wählen Sie die **Apps** Registerkarte erneut aus, und zeigen Sie dann auf die Startseite für die Anwendung.
-7. Kopieren der **App-ID** und **App-Geheimnis** Werte für Ihre Anwendung und in eine temporäre Textdatei einfügen. Diese Werte werden an dem Facebook-Anbieter in Ihrem Websitecode übergeben werden.
-8. Beenden Sie die Facebook-Entwicklerwebsite ein.
+    > Wenn Sie einen Standort, auf dem lokalen Computer mit einer URL ausgeführt werden wie `http://localhost:12345` (wobei die Anzahl ist eine lokale Portnummer), können Sie diesen Wert zum Hinzufügen der **Website-URL** Feld für das Testen Ihrer Website. Jedoch jedes Mal, wenn die Portnummer des lokalen standortänderungen, müssen Sie zum Aktualisieren der **Website-URL** Feld der Anwendung.
+5. Wählen Sie die **Save Changes** Schaltfläche.
+6. Wählen Sie die **Apps** Registerkarte erneut aus, und zeigen Sie dann auf die Startseite für Ihre Anwendung.
+7. Kopieren der **App-ID** und **App-Geheimnis** Werte für Ihre Anwendung und fügen Sie sie in eine temporäre Textdatei. Sie werden diese Werte mit dem Facebook-Anbieter in Ihrem Websitecode übergeben.
+8. Beenden Sie die Facebook-Entwickler-Website.
 
-Jetzt nehmen Sie Änderungen an zwei Seiten in Ihrer Website, damit Benutzer können sich bei der Website mithilfe ihrer Facebook-Konten anmelden können.
+Nun können Sie Änderungen auf beiden Seiten auf Ihrer Website, damit Benutzer bei der Website mit ihren Facebook-Konten anmelden können.
 
-1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die auf der Vorlage Starter Site von WebMatrix basiert.
-2. Öffnen der  *\_AppStart.cshtml* Seite und die auskommentierung des Codes für die Facebook-OAuth-Anbieter. Der unkommentierten Codeblock sieht wie folgt aus: 
+1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die basierend auf der Vorlage Starter Site von WebMatrix.
+2. Öffnen der  *\_AppStart.cshtml* Seite, und kommentieren Sie den Code für die Facebook-OAuth-Anbieter. Der auskommentierungen aufgehoben wurden Codeblock sieht folgendermaßen aus: 
 
     [!code-csharp[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample2.cs)]
-3. Kopieren der **App-ID** Wert aus der Facebook-Anwendung als Wert für die `appId` Parameter (in Anführungszeichen).
+3. Kopieren der **App-ID** Wert aus der Facebook-Anwendung als Wert für die `appId` Parameter (innerhalb der Anführungszeichen).
 4. Kopie **App-Geheimnis** Wert aus der Facebook-Anwendung als der `appSecret` Parameterwert.
 5. Speichern und schließen Sie die Datei.
 
-### <a name="testing-facebook-login"></a>Testen der Facebook-Anmeldung
+### <a name="testing-facebook-login"></a>Testen die Facebook-Anmeldung
 
-1. Führen Sie des Standorts *default.cshtml* Seite, und wählen Sie die **Anmeldung** Schaltfläche.
-2. Auf der *Anmeldung* Seite in der **einen anderen Dienst zum Anmelden verwenden** Abschnitt der **Facebook** Symbol. 
+1. Führen Sie die Website des *default.cshtml* Seite, und wählen Sie die **Anmeldung** Schaltfläche.
+2. Auf der *Anmeldung* auf der Seite die **verwenden Sie einen anderen Dienst anmelden** Abschnitt der **Facebook** Symbol. 
 
     Die Webseite leitet die Anforderung an die Facebook-Anmeldeseite.
 
     ![OAuth-2](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image4.png)
-3. Melden Sie sich eine Facebook-Konto. 
+3. Melden Sie sich ein Facebook-Konto. 
 
-    Der Code verwendet das Facebook-Token, um Sie zu authentifizieren und gibt dann zurück auf eine Seite in dem Sie Ihre Facebook-Anmeldung mit Ihrer Website Anmeldung zuordnen. Der Name oder e-Mail-Adresse eines Benutzers in gefüllt wird die **E-Mail** Feld im Formular.
+    Der Code wird das Facebook-Token zur Authentifizierung verwendet und gibt dann zurück zu einer Seite in dem Sie Ihre Facebook-Anmeldung mit Ihrer Website zuordnen. Ihr Benutzername oder e-Mail-Adresse wird ausgefüllt, in der **-e-Mail** Feld im Formular.
 
     ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image5.png)
 4. Wählen Sie die **zuordnen** Schaltfläche. 
 
-    Der Browser gibt, um zur Startseite, und Sie angemeldet sind.
+    Der Browser gibt, auf der Startseite, und Sie angemeldet sind.
 
 <a id="To_enable_Twitter_logins"></a>
-## <a name="enabling-twitter-logins"></a>Aktivieren der Twitter-Anmeldungen
+## <a name="enabling-twitter-logins"></a>Aktivieren von Twitter-Anmeldungen
 
 1. Navigieren Sie zu der [Twitter-Entwickler-Website](https://dev.twitter.com/).
-2. Wählen Sie die **Erstellen einer App** verknüpfen, und melden Sie sich dann bei der Website.
-3. Auf der **erstellen Sie eine Anwendung** bilden, "füllen" der **Namen** und **Beschreibung** Felder.
-4. In der **WebSite** Feld, geben Sie die URL Ihrer Website (z. B. `http://www.example.com`). 
+2. Wählen Sie die **erstellen Sie eine App** verknüpfen, und melden Sie sich bei der Website.
+3. Auf der **erstellen Sie eine Anwendung** bilden, füllen Sie die **Namen** und **Beschreibung** Felder.
+4. In der **WebSite** Geben Sie die URL Ihrer Website (z. B. `http://www.example.com`). 
 
     > [!NOTE]
-    > Wenn Sie Ihre Website lokal testen (über eine URL wie `http://localhost:12345`), ist die URL, Twitter nicht akzeptieren. Allerdings können Sie möglicherweise die lokalen Loopback-IP-Adresse verwenden (z. B. `http://127.0.0.1:12345`). Dies vereinfacht das Testen Ihrer Anwendung lokal. Jedoch jedes Mal, wenn die Portnummer Ihres lokalen Standorts geändert wird, Sie müssen zum Aktualisieren der **WebSite** Feld Ihrer Anwendung.
-5. In der **Rückruf-URL** Feld, geben Sie eine URL für die Seite in Ihrer Website, die Benutzern, nach der Anmeldung in Twitter zurückgegeben werden sollen. Geben Sie beispielsweise die gleiche URL, die Sie in eingegeben haben, um Benutzer zur Startseite des Starter-Site zu senden (die ihre angemeldeten Status erkannt wird), die **WebSite** Feld.
-6. Akzeptieren Sie die Bestimmungen ein, und wählen Sie die **die Twitter-Anwendung erstellen** Schaltfläche.
-7. Auf der **Meine Anwendungen** Angebotsseite, wählen Sie die Anwendung, die Sie erstellt haben.
-8. Auf der **Details** Registerkarte, führen Sie einen Bildlauf nach unten aus, und wählen Sie die **erstellen Sie eigene Zugriffstoken** Schaltfläche.
-9. Auf der **Details** Registerkarte, kopieren Sie die **Consumerschlüssel** und **Consumerschlüssel** Werte für Ihre Anwendung und in eine temporäre Textdatei einfügen. Sie müssen diese Werte in Ihrem Websitecode auf Twitter-Anbieter übergeben.
+    > Wenn Sie Ihre Website lokal testen (über eine URL wie `http://localhost:12345`), ist die URL, Twitter nicht akzeptieren. Allerdings ist Sie möglicherweise die lokalen Loopback-IP-Adresse verwenden (z. B. `http://127.0.0.1:12345`). Dies vereinfacht das Testen der Anwendung lokal. Jedoch jedes Mal, wenn die Portnummer des lokalen Standorts geändert wird, Sie müssen beim Aktualisieren der **WebSite** Feld der Anwendung.
+5. In der **Rückruf-URL** Geben Sie eine URL für die Seite Ihrer Website, die Benutzern, nach der Anmeldung bei Twitter zurückgegeben werden sollen. Geben Sie beispielsweise die gleiche URL, die Sie im eingegeben haben, um Benutzer zur Startseite der Starter Site zu senden (was deren Status angemeldeten erkannt wird), die **WebSite** Feld.
+6. Akzeptieren Sie die Bedingungen, und wählen Sie die **Erstellen Ihrer Twitter-Anwendung** Schaltfläche.
+7. Auf der **Meine Anwendungen** Startseite, wählen Sie die Anwendung, die Sie erstellt haben.
+8. Auf der **Details** Registerkarte, scrollen Sie nach unten, und wählen Sie die **erstellen My Access Token** Schaltfläche.
+9. Auf der **Details** Registerkarte, kopieren Sie die **Consumerschlüssel** und **Consumer Secret** Werte für Ihre Anwendung und fügen Sie sie in eine temporäre Textdatei. Sie müssen diese Werte mit dem Twitter-Anbieter in Ihrem Websitecode übergeben.
 10. Die Twitter-Website zu beenden.
 
-Jetzt nehmen Sie Änderungen an zwei Seiten in Ihrer Website, damit Benutzer werden bei der Website mithilfe ihrer Konten Twitter anmelden können.
+Nun können Sie Änderungen auf beiden Seiten auf Ihrer Website, damit Benutzer bei der Website mit ihren Twitter-Konten anmelden können.
 
-1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die auf der Vorlage Starter Site von WebMatrix basiert.
-2. Öffnen der  *\_AppStart.cshtml* Seite und die auskommentierung des Codes für den Twitter-OAuth-Anbieter. Der unkommentierten Codeblock sieht wie folgt: 
+1. Erstellen Sie oder öffnen Sie eine ASP.NET Web Pages-Website, die basierend auf der Vorlage Starter Site von WebMatrix.
+2. Öffnen der  *\_AppStart.cshtml* Seite, und entfernen Sie den Code für den Twitter-OAuth-Anbieter. Der auskommentierungen aufgehoben wurden Codeblock sieht folgendermaßen aus: 
 
     [!code-csharp[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample3.cs)]
-3. Kopieren der **Consumerschlüssel** Wert aus der Twitter-Anwendung als Wert für die `consumerKey` Parameter (in Anführungszeichen).
-4. Kopieren der **Consumerschlüssel** Wert aus der Twitter-Anwendung als Wert für die `consumerSecret` Parameter.
+3. Kopieren der **Consumerschlüssel** Wert aus der Twitter-Anwendung als Wert für die `consumerKey` Parameter (innerhalb der Anführungszeichen).
+4. Kopieren der **Consumer Secret** Wert aus der Twitter-Anwendung als Wert für die `consumerSecret` Parameter.
 5. Speichern und schließen Sie die Datei.
 
-### <a name="testing-twitter-login"></a>Testen der Twitter-Anmeldung
+### <a name="testing-twitter-login"></a>Testen von Twitter-Anmeldung
 
 1. Führen Sie die *default.cshtml* Seite Ihrer Website, und wählen Sie die **Anmeldung** Schaltfläche.
-2. Auf der *Anmeldung* Seite in der **einen anderen Dienst zum Anmelden verwenden** Abschnitt der **Twitter** Symbol. 
+2. Auf der *Anmeldung* auf der Seite die **verwenden Sie einen anderen Dienst anmelden** Abschnitt der **Twitter** Symbol. 
 
-    Die Webseite leitet die Anforderung an einen Twitter-Anmeldeseite für die Anwendung, die Sie erstellt haben.
+    Die Webseite leitet die Anforderung an eine Twitter-Anmeldeseite für die Anwendung, die Sie erstellt haben.
 
     ![OAuth-4](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image6.png)
 3. Melden Sie sich ein Twitter-Konto.
-4. Der Code verwendet das Twitter-Token zur Authentifizierung des Benutzers und wechselt zurück zu einer Seite, in dem Sie zuordnen können Ihre Anmeldung mit Ihrem Konto für die Website. Der Name oder e-Mail-Adresse in gefüllt wird die **E-Mail** Feld im Formular.
+4. Der Code verwendet das Twitter-Token zur Authentifizierung des Benutzers und wechselt zurück zu einer Seite, in dem Sie zuordnen können Ihre Anmeldung mit Ihrem Konto für die Website. Ihren Namen oder e-Mail-Adresse wird ausgefüllt, in der **-e-Mail** Feld im Formular.
 
     ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image7.png)
 5. Wählen Sie die **zuordnen** Schaltfläche. 
 
-    Der Browser gibt, um zur Startseite, und Sie angemeldet sind.
+    Der Browser gibt, auf der Startseite, und Sie angemeldet sind.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 
-- [Anpassen des Verhaltens der standortweiten](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Anpassen des Verhaltens von Websiteseiten](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Hinzufügen von Sicherheit und die Mitgliedschaft in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkID=202904)

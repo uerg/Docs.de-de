@@ -1,297 +1,296 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
-title: Überwachung und Telemetrie (Building Real-World Cloud Apps with Azure) | Microsoft Docs
+title: Überwachung und Telemetrie (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
-description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
+description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2015
 ms.topic: article
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: d58c495b3888c146a2a9bc831865cf7cc0d94c7b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b2c91b26fddc21986bf90957f7e4ef0a493d5837
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30877358"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396759"
 ---
-<a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Überwachung und Telemetrie (Building Real-World Cloud Apps with Azure)
+<a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Überwachung und Telemetrie (erstellen realer Cloud-Apps mit Azure)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download Behebungsskript Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Die **Building Real World Cloud Apps with Azure** e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die Ihnen helfen können erfolgreich ausgeführt entwickeln Web-apps für die Cloud. Weitere Informationen zu e-Book herunterladen, finden Sie unter [im Kapitel über das erste](introduction.md).
+> Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
 
-Viele Leute basieren auf Kunden zu informieren, wenn ihre Anwendung ausgefallen ist. Das ist eigentlich keine bewährte Methode eine beliebige Stelle, und zwar insbesondere nicht in der Cloud. Besteht keine Garantie der kurze Benachrichtigung, und wenn Sie benachrichtigt werden, führen Sie häufig erhalten minimale oder eine irreführende Daten über was passiert ist. Mit guten Telemetrie und protokollierungssysteme, die Sie was passiert berücksichtigen können mit der app, und wenn etwas geht falschen sofort festzustellen und nützliche Problembehandlungsinformationen zur Bearbeitung haben.
+Viele Leute, abhängig von Kunden zu informieren, wenn ihre Anwendung nicht verfügbar ist. Das ist nicht wirklich eine bewährte Methode eine beliebige Stelle, und zwar insbesondere nicht in der Cloud. Es gibt keine Garantie der schnellen Benachrichtigung, und bei der Sie benachrichtigt werden,, erhalten Sie oft minimale oder irreführende Daten, was passiert ist. Mit guten Telemetrie- und protokollierungssysteme, die Sie was passiert achten können mit der app, und wenn etwas geht ein auftreten, Sie unverzüglich erkennen und mithilfe nützlicher Problembehandlungsinformationen zum Arbeiten mit.
 
-## <a name="buy-or-rent-a-telemetry-solution"></a>Erwerben Sie oder zu vermieten Sie Telemetrie-Lösung
+## <a name="buy-or-rent-a-telemetry-solution"></a>Erwerben Sie oder zu mieten Sie eine komplettlösung für Telemetrie
 
 > [!NOTE]
-> In diesem Artikel wurde geschrieben, bevor Sie [Application Insights](https://azure.microsoft.com/services/application-insights/) freigegeben wurde. Application Insights ist die bevorzugte Methode für Telemetrie-Lösungen in Azure. Finden Sie unter [Einrichten von Application Insights für Ihre ASP.NET-Website](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) für Weitere Informationen.
+> Dieser Artikel geschrieben wurde, bevor Sie [Application Insights](https://azure.microsoft.com/services/application-insights/) wurde veröffentlicht. Application Insights ist die bevorzugte Methode für die telemetrielösungen in Azure. Finden Sie unter [richten Sie Application Insights für Ihre ASP.NET-Website](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) für Weitere Informationen.
 
 
-Eine der Aufgaben, die über die Cloudumgebung hervorragende des ist die für den Kauf oder den besten Weg zum Sieg vermieten wirklich sehr einfach. Telemetrie ist ein Beispiel. Ohne großen Aufwand erhalten Sie eine gute Telemetriesystem bis und ausführen, sehr kostengünstig. Es gibt eine Reihe von hervorragende Partnern, die in Azure zu integrieren, und einige von ihnen freie Ebenen – haben, sodass Sie grundlegende Telemetrie Nothing abrufen können. Hier sind nur einige der Einträge in Azure derzeit verfügbar:
+Eines der Dinge, die besondere an der Cloud-Umgebung ist, es wirklich einfach ist oder so Sieg Mieten. Telemetrie ist ein Beispiel. Ohne viel Aufwand erhalten Sie ein System wirklich guten Telemetrie- und ausgeführt wird, sehr kostengünstig. Es gibt einige hervorragende Partner, die in Azure integriert, und einige von ihnen haben free-Tarife –, damit Sie grundlegende Telemetriedaten auf ' Nothing ' nutzen können. Hier sind nur einige der in Azure derzeit verfügbar:
 
 - [New Relic](http://newrelic.com/)
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Ab März 2015 [Microsoft Application Insights für Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) wurde noch nicht freigegeben, doch sind in Vorschau auszuprobieren. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) umfasst auch die Überwachungsfunktionen.
+Seit März 2015 [Microsoft Application Insights für Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) wird noch nicht freigegeben, aber in der Vorschau zum Testen zur Verfügung steht. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) enthält außerdem Überwachungsfunktionen.
 
-Wir müssen schnell durchlaufen New Relic einrichten, um anzuzeigen, wie einfach es ist ein Telemetriesystem verwenden.
+Wir zeigen Ihnen schnell New Relic zu zeigen, wie einfach es sein kann, verwenden Sie ein Telemetriesystem einrichten.
 
-Registrieren Sie sich für den Dienst an, in der Azure-Verwaltungsportal. Klicken Sie auf **neu**, und klicken Sie dann auf **Store**. Die **wählen Sie ein Add-on** Dialogfeld wird angezeigt. Führen Sie einen Bildlauf nach unten, und klicken Sie auf **New Relic**.
+Registrieren Sie in der Azure-Verwaltungsportal sich für den Dienst an. Klicken Sie auf **neu**, und klicken Sie dann auf **Store**. Die **Add-on auswählen** Dialogfeld wird angezeigt. Scrollen Sie nach unten, und klicken Sie auf **New Relic**.
 
-![Wählen Sie ein Add-on](monitoring-and-telemetry/_static/image1.png)
+![Add-on auswählen](monitoring-and-telemetry/_static/image1.png)
 
-Klicken Sie auf den Pfeil nach rechts, und wählen Sie die gewünschte Ebene. Für diese Demo verwenden wir die free-Tarif.
+Klicken Sie auf den Pfeil nach rechts, und wählen Sie die gewünschten Dienstebene. Für diese Demo verwenden wir den freien-Tarif.
 
-![Personalisieren-Add-On](monitoring-and-telemetry/_static/image2.png)
+![Add-on personalisieren](monitoring-and-telemetry/_static/image2.png)
 
-Klicken Sie auf den Pfeil nach rechts, bestätigen die "Bestellung" und New Relic jetzt wird als ein Add-on im Portal.
+Klicken Sie auf den Pfeil nach rechts, bestätigen die "kaufen", und New Relic jetzt wird als ein Add-on im Portal.
 
-![Überprüfen Sie die Bestellung](monitoring-and-telemetry/_static/image3.png)
+![Kauf überprüfen](monitoring-and-telemetry/_static/image3.png)
 
-![Neue Relic Add-on im Verwaltungsportal](monitoring-and-telemetry/_static/image4.png)
+![Neue Relic-Add-Ons im Verwaltungsportal](monitoring-and-telemetry/_static/image4.png)
 
 Klicken Sie auf **Verbindungsinformationen**, und kopieren Sie den Lizenzschlüssel.
 
 ![Verbindungsinformationen](monitoring-and-telemetry/_static/image5.png)
 
-Wechseln Sie zu der **konfigurieren** Registerkarte für Ihre Web-app im Portal festgelegt **Leistungsüberwachung** auf **Add-On**, und legen Sie die **Add-On auswählen** Dropdown-Liste aus, um **New Relic**. Klicken Sie dann auf **speichern**.
+Wechseln Sie zu der **konfigurieren** Registerkarte für Ihre Web-app im Portal festgelegt **Leistungsüberwachung** zu **-Add-On**, und legen Sie die **Add-On auswählen** Dropdown-Liste aus, um **New Relic**. Klicken Sie dann auf **speichern**.
 
-![New Relic in der Registerkarte "konfigurieren"](monitoring-and-telemetry/_static/image6.png)
+![New Relic auf der Registerkarte "konfigurieren"](monitoring-and-telemetry/_static/image6.png)
 
-Installieren Sie das neue Relic NuGet-Paket in Ihrer app in Visual Studio.
+Installieren Sie das New Relic NuGet-Paket in Ihrer app in Visual Studio.
 
-![Entwickleranalysen in der Registerkarte "konfigurieren"](monitoring-and-telemetry/_static/image7.png)
+![Developer Analytics in der Registerkarte "konfigurieren"](monitoring-and-telemetry/_static/image7.png)
 
-Die app in Azure bereitstellen und verwenden. Erstellen Sie einige korrigieren Aufgaben aus, um eine Aktivität für New Relic überwachen bereitzustellen.
+Bereitstellen der app in Azure, und es verwenden. Erstellen Sie ein paar Fix It-Aufgaben zum Bereitstellen von Aktivitäten bei New Relic zur Überwachung.
 
-Kehren Sie zurück an die **New Relic** auf der Seite der **Add-ons** das Portal und klicken Sie auf der Registerkarte **verwalten**. Das Portal leitet Sie zu New Relic-Verwaltungsportal, einmaliges Anmelden für die Authentifizierung verwenden, daher ist es nicht Ihre Anmeldeinformationen erneut einzugeben. Die Seite "Übersicht" stellt eine Vielzahl von Leistungsstatistiken. (Klicken Sie auf das Bild, um die vollständige Übersicht über die Seitengröße anzuzeigen.)
+Navigieren Sie zurück zu den **New Relic** auf der Seite die **-Add-Ons** das Portal und klicken Sie auf der Registerkarte **verwalten**. Das Portal sendet Sie an das New Relic-Verwaltungsportal, die einmaliges Anmelden für die Authentifizierung verwenden, müssen Sie nicht Ihre Anmeldeinformationen erneut einzugeben. Die Seite "Übersicht" bietet eine Vielzahl von Leistungsstatistiken. (Klicken Sie auf das Bild, um die vollständige Übersicht über die Seitengröße anzuzeigen.)
 
-[![Neue Relic Registerkarte "Überwachung"](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![Neue Relic-Überwachung-Registerkarte](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 Hier sind nur einige der Statistiken, die Sie sehen können:
 
 - Durchschnittliche Antwortzeit zu unterschiedlichen Zeiten des Tages.
 
     ![Antwortzeit](monitoring-and-telemetry/_static/image10.png)
-- Durchsatzraten (bei den Anforderungen pro Minute) zu unterschiedlichen Zeiten des Tages.
+- Durchsatzraten erforderlich sind (in der Anforderungen pro Minute) zu unterschiedlichen Zeiten des Tages.
 
     ![Durchsatz](monitoring-and-telemetry/_static/image11.png)
-- Server CPU-Zeitaufwand für die Behandlung von anderen HTTP-Anforderungen.
+- Server-CPU-Zeit aufgewendet, unterschiedliche HTTP-Anforderungen verarbeiten.
 
     ![Web-Transaktionszeiten](monitoring-and-telemetry/_static/image12.png)
-- CPU-Zeit, die für verschiedene Teile des Anwendungscodes:
+- CPU-Zeit in verschiedenen Teilen des Anwendungscodes:
 
     ![Ablaufverfolgungsdetails](monitoring-and-telemetry/_static/image13.png)
 - Leistungsverlauf Statistiken.
 
     ![Leistungsverlauf](monitoring-and-telemetry/_static/image14.png)
-- Aufrufe externer Dienste wie z. B. die Blob-Dienst und die Statistik zur zuverlässigen und reaktionsfähig wurde der Dienst.
+- Aufrufe von externen Diensten wie z. B. die Blob-Dienst und die Statistik zur zuverlässigen und reaktionsfähige wurde der Dienst.
 
     ![Externe Dienste](monitoring-and-telemetry/_static/image15.png)
 
     ![Externe Dienste](monitoring-and-telemetry/_static/image16.png)
 
-    ![Externen Dienst](monitoring-and-telemetry/_static/image17.png)
+    ![Externe Dienste](monitoring-and-telemetry/_static/image17.png)
 - Informationen dazu, wo in der ganzen Welt oder, in dem in der US-Web-app Datenverkehr stammt.
 
     ![Geography](monitoring-and-telemetry/_static/image18.png)
 
-Sie können auch Berichte und Ereignisse einrichten. Sie können z. B. sagen Sie Fehler bandbreitenvorlagen jederzeit, senden Sie eine e-Mail an alert Supportmitarbeiter, um das Problem.
+Sie können auch Berichte und-Ereignisse einrichten. Sie können beispielsweise jederzeit angezeigt werden Fehler angenommen, Senden einer e-Mail an alert Supportpersonal auf das Problem.
 
 ![Berichte](monitoring-and-telemetry/_static/image19.png)
 
-New Relic ist nur ein Beispiel eines Systems Telemetrie. Sie können all diese von anderen Diensten sowie abrufen. Der Vorteil der Cloud ist, ohne Code schreiben zu müssen und für die minimale oder keine Ausgaben, plötzlich können Sie viel mehr Informationen wie Ihre Anwendung verwendet wird und was Ihre Kunden tatsächlich auftreten.
+New Relic ist nur ein Beispiel für ein Telemetriesystem; Sie können all dies von anderen Diensten sowie abrufen. Das Schöne an der Cloud ist, ohne Code schreiben zu müssen, und klicken Sie für die minimale oder keine Ausgaben, plötzlich erhalten Sie noch viel mehr Informationen, wie Ihre Anwendung verwendet wird und was Ihre Kunden tatsächlich auftreten.
 
 <a id="log"></a>
-## <a name="log-for-insight"></a>Protokoll Einblicke
+## <a name="log-for-insight"></a>Protokoll für Einblicke
 
-Ein Telemetrie-Paket ist ein guter erster Schritt allerdings weiterhin bestehen, Ihren eigenen Code zu instrumentieren. Der telemetriedienst Aufschluss darüber, wenn ein Problem vorliegt und Aufschluss darüber, welche Kunden treten, aber es nicht erzielen möglicherweise viele Einblick in was im Code.
+Ein telemetriepaket ist ein guter erster Schritt, müssen jedoch Ihren eigenen Code zu instrumentieren. Der telemetriedienst Aufschluss darüber, wenn ein Problem vorliegt und nennt die Kunden treten, aber es kann keine bieten Ihnen viele der Einblick in die Abläufe in Ihrem Code.
 
-Sie möchten nicht müssen remote in einem Produktionsserver, um festzustellen, welche Vorgänge die app ausführt. Die möglicherweise nicht praktikabel, wenn Sie einen Server haben, aber was, wenn Sie haben die Skalierung auf Hunderte von Servern und Sie wissen nicht, welche in remote erforderlich? Die Protokollierung sollte aussagekräftig sind, die Sie niemals in Produktionsservern zum Analysieren und Debuggen von remote Probleme. Sie sollten genügend Informationen anmelden, damit Sie Probleme, die ausschließlich über die Protokolle isolieren können.
+Sie möchten nicht haben, um remote auf einem Produktionsserver, um festzustellen, was den Status Ihrer app. Die möglicherweise praktisch, wenn Sie einen Server haben, aber was, wenn Sie die auf Hunderten von Servern skaliert haben, und Sie nicht wissen, welche Sie Remotezugriff müssen? Ihre Protokollierung sollte aussagekräftig sind, die nie eine Remoteverbindung mit Produktionsservern zum Analysieren und beheben Probleme. Sie sollten genügend Informationen protokollieren, damit Sie Probleme, die ausschließlich über die Protokolle isolieren können.
 
 ### <a name="log-in-production"></a>Melden Sie sich in der Produktion
 
-Viele Leute Aktivieren der Ablaufverfolgung in der Produktion nur, wenn ein Problem vorliegt und sie debuggen möchten. Dies kann zu eine beträchtliche Verzögerung zwischen dem Zeitpunkt, den Sie ein Problem bekannt sind und die Zeit, die Sie hilfreiche Informationen zur Problembehandlung zu erhalten führen. Und die Informationen erhalten Sie möglicherweise nicht für vorübergehende Fehler hilfreich sein.
+Viele Leute Aktivieren der Ablaufverfolgung in einer produktionsumgebung nur, wenn ein Problem vorliegt und sie debuggen möchten. Dies kann eine erhebliche Verzögerung zwischen dem Zeitpunkt, wenn Sie ein Problem bekannt sind und die Zeit erhalten Sie hilfreiche Informationen dazu, die zur Problembehandlung führen. Und die Informationen erhalten Sie möglicherweise nicht nach vorübergehenden Fehlern hilfreich sein.
 
-Was wir in der Cloudumgebung empfiehlt sich in dem Speicher billig ist ist, dass Sie immer in der Produktion anmelden. Auf diese Weise, wenn Fehler auftreten, Ihnen bereits werden protokolliert, und Sie Verlaufsdaten, mit deren Hilfe können analysieren Sie Probleme, die regelmäßig zu unterschiedlichen Zeiten auftreten oder Entwickeln mit der Zeit. Sie können einen Bereinigungsprozess zum Löschen der alten Protokolle automatisieren, aber Sie möglicherweise feststellen, dass es in solchen Prozess einrichten, statt die Protokolle beibehalten werden sollen.
+Was wir in der Cloud-Umgebung wird empfohlen, in dem Speicher günstig ist, ist, dass Sie lassen Sie in der Produktion anmelden. Auf diese Weise, wenn Fehler auftreten, bereits diese protokolliert, und Sie haben es sich um historische Daten, die helfen können, analysieren Sie Probleme, die im Laufe der Zeit entwickeln oder regelmäßig zu unterschiedlichen Zeiten ausgeführt. Sie können einen Bereinigungsprozess zum Löschen der alten Protokolle automatisieren, aber unter Umständen ist dieser Prozess einrichten, als es ist, behalten Sie die Protokolle kostenintensiver.
 
-Zusätzliche Kosten für die Protokollierung ist trivial, im Vergleich zu den bei der Problembehandlung Beseitigung Zeit- und kostenintensiv, wenn Sie, dass alle Informationen, die Sie bereits müssen, wenn etwas schief geht speichern können. Klicken Sie dann, wenn jemand besagt diesem Unternehmen arbeitete ein zufälliger Fehler einen Augenblick ca. 8:00 Uhr gestern, aber sie können den Fehler nicht speichern, können Sie leicht feststellen, was das Problem auftrat.
+Der zusätzliche Aufwand für die Protokollierung ist trivial, im Vergleich zur Menge der Problembehandlung von Zeit und Geld, die Sie speichern können, indem Sie alle Informationen, die Sie bereits verfügbar benötigen, falls etwas schief geht. Klicken Sie dann, wenn jemand besagt wiesen einen zufälligen Fehler einiger Zeit rund um 8:00 Uhr gestern Abend, aber sie nicht den Fehler nicht mehr wissen, können Sie leicht feststellen, Problem.
 
-Für weniger als 4 $ ist einen Monat, 50 GB von Protokollen auf Seite beibehalten werden kann, und die Leistungseinbußen bei der Protokollierung trivial, solange Sie daran denken, dass – um Leistungsengpässe vermeiden, stellen Sie sicher, dass die Protokollierung Bibliothek asynchrone wird beibehalten.
+Für weniger als $4 ist einen Monat, die Sie 50 GB von Protokollen auf Seite aufbewahren können und die Auswirkungen auf die Leistung der Protokollierung trivial, sofern Sie halten daran denken, dass – um Leistungsengpässe vermeiden, stellen Sie sicher, dass Ihre protokollierungsbibliothek asynchron ist.
 
-### <a name="differentiate-logs-that-inform-from-logs-that-require-action"></a>Unterscheiden Sie Protokolle, die Kenntnis von Protokollen, die eine Aktion erfordern
+### <a name="differentiate-logs-that-inform-from-logs-that-require-action"></a>Unterscheiden Sie Protokolle, die informieren von Protokollen, die ein Eingreifen erfordern
 
-Protokolle werden INFORM (Ich möchte Sie etwas wissen) oder ACT (Ich möchte Sie eine Aktion) voneinander. Achten Sie darauf, dass Sie nur ACT-Protokolle, um Probleme zu schreiben, die tatsächlich eine Person oder ein automatisierter Prozess Maßnahmen erfordern. Zu viele ACT-Protokolle erstellt Rauschen, dass zu viel Arbeit gesichtet alles Original Probleme gefunden. Und wenn Ihre ACT-Protokolle automatisch eine Aktion wie etwa das Versenden von e-Mail für die Supportmitarbeiter auszulösen, vermeiden Sie Tausende von Aktionen, die durch ein einzelnes Problem ausgelöst werden können.
+Protokolle sind eigentlich INFORM (Ich möchte etwas bekannt sein) oder ACT (Ich möchte Sie etwas tun). Achten Sie darauf, dass Sie nur Schreiben von ACT-Protokollen für Probleme, die tatsächlich eine Person oder ein automatisierter Prozess, eine Aktion erfordern. Zu viele ACT-Protokolle erstellt Rauschen an, dass zu viel Arbeit, gesichtet, alles um echte Probleme zu finden. Und wenn die ACT-Protokolle automatisch eine Aktion wie z. B. das Senden von e-Mails für die Supportmitarbeiter auslösen, vermeiden, dass Tausende von Aktionen, die durch ein einzelnes Problem ausgelöst werden.
 
-In .NET System.Diagnostics-Ablaufverfolgung können Protokolle Fehler-, Warn-, Info und Debug/Verbose-Ebene zugewiesen werden. Sie können ACT aus INFORM-Protokollen durch reservieren Fehlerstufe für ACT-Protokolle, und verwenden die unteren Ebenen für INFORM Protokolle unterscheiden.
+In .NET System.Diagnostics-Ablaufverfolgung, können Protokolle Fehler-, Warn-, Info und Debug/Verbose-Ebene zugewiesen werden. Sie können ACT aus Protokollen der INFORM unterscheiden, indem reservieren Fehlerstufe für ACT-Protokolle und die unteren Ebenen für INFORM Protokolle.
 
 ![Protokolliergrade](monitoring-and-telemetry/_static/image20.png)
 
 ### <a name="configure-logging-levels-at-run-time"></a>Konfigurieren von Protokolliergraden zur Laufzeit
 
-Während der Anmeldung immer in der Produktion haben ist, wird eine weitere best Practice protokollierungsframework implementiert, mit dem Sie zur Laufzeit Anpassen der Detailebene, die Sie sich anmelden können, ohne erneute Bereitstellung oder Neustarten Ihrer Anwendung. Beispielsweise wird bei Verwendung der Verfolgungsfunktion in `System.Diagnostics` können Fehler-, Warn-, Info und Debug/ausführlich protokolliert. Es wird empfohlen Sie immer Error, Warning, melden und Informationen protokolliert werden, in der Produktion kann dynamisch Debug/Verbose-Protokollierung für die Problembehandlung von Fall zu Fall hinzufügen möchten.
+Obwohl es lohnt sich damit anmelden immer in der Produktion ist, ist ein anderes bewährtes Verfahren ein protokollierungsframework zu implementieren, die Sie anpassen, die Ebene an Informationen, die protokolliert wird, ohne erneute Bereitstellung oder Neustarten Ihrer Anwendung zur Laufzeit ermöglicht. Zum Beispiel bei Verwendung der Verfolgungsfunktion in `System.Diagnostics` können Sie Fehler, Warnung, Informationen erstellen und Debuggen/Verbose protokolliert. Es wird empfohlen, Sie sollten immer protokolliert werden Fehler, Warnung, und Informationen protokolliert werden, in der Produktion sollten Sie zum Debuggen/Verbose-Protokollierung, für die Problembehandlung auf von Fall zu Fall dynamisch hinzufügen können.
 
-Web-Apps in Azure App Service bieten eine integrierte Unterstützung für das Schreiben von `System.Diagnostics` Protokolle in das Dateisystem, Table Storage oder Blob-Speicher. Sie können verschiedene Protokolliergrade für die einzelnen Ziele Speicher auswählen, und Sie können den Protokolliergrad auf einfache Weise ändern, ohne Ihre Anwendung neu zu starten. Die Blob-Speicher-Unterstützung erleichtert das auszuführende [HDInsight](https://docs.microsoft.com/azure/hdinsight/) Analysis-Aufträge für die Anwendungsprotokolle, da HDInsight weiß, wie direkt arbeiten mit Blob-Speicher.
+In Azure App Service-Web-Apps bieten integrierte Unterstützung für das Schreiben von `System.Diagnostics` Protokolle, um das Dateisystem, Table Storage oder BLOB-Speicher. Sie können verschiedene Protokolliergrade für die einzelnen Ziele Speicher auswählen, und Sie können den Protokolliergrad im laufenden Betrieb ohne Neustarten Ihrer Anwendung ändern. Der Blob-speichersupport erleichtert das auszuführende [HDInsight](https://docs.microsoft.com/azure/hdinsight/) Analysis-Aufträge für die Anwendungsprotokolle, da HDInsight direkt mit BLOB-Speicher arbeiten kann.
 
-### <a name="log-exceptions"></a>Log-Ausnahmen
+### <a name="log-exceptions"></a>Protokollieren von Ausnahmen
 
-Nicht einfach *Ausnahme. ToString()* in Ihrem Protokollierungscode. Die auslässt Kontextinformationen. Im Fall von SQL-Fehler auslässt es der SQL-Fehlernummer. Umfassen Sie für alle Ausnahmen Kontextinformationen, die Ausnahme selbst und inneren Ausnahmen um sicherzustellen, dass Sie alles bereitstellen, die für die Problembehandlung benötigt werden. Informationen zum Sitzungskontext kann z. B. den Servernamen, eine Transaktions-ID und einen Benutzernamen (jedoch nicht das Kennwort oder vertrauliche Daten!) enthalten.
+Nur fügen Sie keine *Ausnahme. ToString()* in Ihrem Protokollierungscode. Kontextinformationen bleiben. Bleiben sie im Fall von SQL-Fehlern die SQL-Fehlernummer. Enthalten Sie für alle Ausnahmen Kontextinformationen, die Ausnahme selbst und die inneren Ausnahmen um sicherzustellen, dass alles, was Sie bereitstellen, die für die Problembehandlung benötigt werden. Informationen zum Sitzungskontext kann z. B. den Namen des Servers, einer Transaktions-ID und einen Benutzernamen ein (aber nicht das Kennwort oder geheimen Schlüssel) enthalten.
 
-Wenn Sie für jeden Entwickler darin, die richtigen Schritte mit der Ausnahme, die Protokollierung benötigen, wird nicht von denen einige aus. Um sicherzustellen, dass es das Recht jeder Anforderung abgeschlossen wird, erstellen Sie direkt in Ihre protokollierungsschnittstelle Ausnahmebehandlung: übergeben Sie das Ausnahmeobjekt selbst die Protokollierungsklasse und melden Sie sich die Ausnahmedaten ordnungsgemäß die Protokollierungsklasse.
+Wenn Sie für jeden Entwickler, die das richtige tun mit der Ausnahme, die Protokollierung benötigen, nicht einige davon. Um sicherzustellen, dass es der rechten Seite Art jedes Mal abgeschlossen wird, direkt in Ihre protokollierungsschnittstelle für die Ausnahmebehandlung zu erstellen: übergeben Sie das Ausnahmeobjekt selbst die Protokollierungsklasse und die Ausnahmedaten ordnungsgemäß in der Protokollierungsklasse zu melden.
 
-### <a name="log-calls-to-services"></a>Log-Aufrufe an Dienste
+### <a name="log-calls-to-services"></a>Log-Aufrufe von Diensten
 
-Es wird dringend empfohlen, dass Sie ein Protokoll schreiben jedes Mal, wenn Ihre app an einen Dienst aufruft, ob er an eine Datenbank, eine REST-API oder keine externen Dienste ist. Schließen Sie in Ihre Protokolle nicht nur ein Hinweis auf Erfolg oder Fehler, aber wie lange jeder Anforderung gedauert hat. In der Cloudumgebung wird häufig Probleme im Zusammenhang mit Leistungseinbußen statt umfassende Ausfälle angezeigt werden. Etwas, das 10 Millisekunden normalerweise dauert plötzlich start möglicherweise ein zweites dauert. Wenn jemand Ihnen, dass Ihre app langsam ist mitteilt, wird New Relic ansehen können soll, oder den telemetriedienst haben und überprüfen Hauptbenutzern vorliegt und Sie möchten suchen können eigene Protokolle tauchen Sie in die Details, warum es langsam ist sind.
+Es wird dringend empfohlen, dass Sie ein Protokoll schreiben jedes Mal, wenn Ihre app an einen Dienst aufruft, ob es sich um eine Datenbank oder eine REST-API oder einen externen Dienst handelt. Enthalten Sie in Ihren Protokollen nicht nur ein Hinweis auf Erfolg oder Fehler, aber wie lange jede Anforderung gedauert hat. In der Cloud-Umgebung sehen Sie häufig Probleme im Zusammenhang mit ggf. statt des vollständigen Ausfälle. Etwas, das normalerweise 10 Millisekunden dauert möglicherweise plötzlich gestartet, eine Sekunde dauert. Wenn jemand Ihnen, dass Ihre app langsam ist mitteilt, New Relic ansehen sollen, oder den telemetriedienst, Sie haben, und überprüfen Sie, ihre Erfahrungen, und klicken Sie dann Sie möchten, um sehen zu können, sind eigene Protokolle tiefer in die Details, warum es langsam ist.
 
 ### <a name="use-an-ilogger-interface"></a>Verwenden Sie eine ILogger-Schnittstelle
 
-Erstellen eine einfachen werden empfohlen, auf diese Weise bei der Erstellung einer produktionsanwendung *ILogger* Schnittstelle, und einige Methoden darin bleiben. Dies vereinfacht die protokollierungsimplementierung bereitgestellt werden später ändern und nicht in Ihren gesamten Code zu diesem Zweck zu. Es konnte unter Verwendung der `System.Diagnostics.Trace` Klasse in der app zu beheben, aber stattdessen verwenden wir es im Hintergrund in einer Protokollierung-Klasse, die implementiert *ILogger*, und stellen wir *ILogger* Methodenaufrufe in der gesamten die app.
+Zum Erstellen eines einfachen werden empfohlen, beim Erstellen der Anwendung in einer produktionsumgebung *"ILogger"* Schnittstelle, und halten Sie sich einige Methoden. Dies erleichtert die protokollierungsimplementierung später ändern und nicht durchlaufen Sie Ihren gesamten Code dafür. Können wir verwenden die `System.Diagnostics.Trace` Klasse in der gesamten app Fix It, aber stattdessen verwenden wir es im Hintergrund in einer Protokollierungsklasse, die implementiert *"ILogger"*, und wir *"ILogger"* Methodenaufrufe in der gesamten die app.
 
-Auf diese Weise, wenn Sie Ihre Meinung Ihrer Protokollierung umfangreichere, stellen können Sie ersetzen [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) mit den Protokollierungsmechanismus werden sollen. Beispielsweise wenn Ihre app wächst Sie können festlegen, dass Sie so verwenden Sie ein umfassenderes Protokollierung Paket wie z. B. [NLog](http://nlog-project.org/) oder [Enterprise Library-Anwendungsblock Protokollierung](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) eine andere beliebte protokollierungsframework ist jedoch nicht asynchronen protokollierungs.)
+Auf diese Weise, wenn Sie Ihre Meinung Ihrer Protokollierung Auswahlelements, können Sie ersetzen [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) mit den verwendeten Protokollierungsmechanismus werden soll. Z. B. Wachstum Ihrer app Sie können festlegen, dass Sie ein umfassenderes Protokollierung-Paket verwenden, z. B. [NLog](http://nlog-project.org/) oder [Enterprise Library Logging Application Block](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) ist ein beliebter protokollierungsframework aber asynchrone Protokollierung ausgeführt werden.)
 
-Ein möglicher Grund für die Verwendung von ein Framework wie NLog ist zur Erleichterung der Protokollausgabe in separaten hohem Volumen und hoher / Wert-Datenspeicher unterteilen. Mit dem Sie große Datenmengen INFORM effizienter zu speichern, die nicht schnelle Abfragen auf und schnellen Zugriff auf Daten von ACT gleichzeitig ausgeführt werden müssen.
+Ein möglicher Grund für die Verwendung eines Frameworks wie NLog ist, um zu ermöglichen, Aufteilen der Protokollausgabe in separate hohem Volumen und hoher-Wert-Datenspeicher. Mit dem Sie große Datenmengen INFORM effizient zu speichern, die Sie benötigen keine, schnelle Abfragen berücksichtigt werden sollen, und schnellen Zugriff auf Daten von ACT gleichzeitig ausgeführt werden.
 
 ### <a name="semantic-logging"></a>Semantische Protokollierung
 
-Eine relativ neue Möglichkeit Protokollierung ausführen können, die weitere nützliche Diagnoseinformationen erstellt werden kann, finden Sie unter [Enterprise Library semantische Protokollierung Application Block (Bereich)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Bereich verwendet [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) und [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -Unterstützung in .NET 4.5, um weitere strukturierte und des queryable-Protokolle erstellen können. Sie definieren eine andere Methode für jede Art von Ereignis, das Sie sich anmelden, dem Sie die Anpassung der Informationen, die Sie schreiben kann. Um beispielsweise einen SQL-Datenbank-Fehler zu protokollieren, rufen Sie möglicherweise, eine `LogSQLDatabaseError` Methode. Art der Ausnahme bedeutet dies, dass eine wichtige Information die Fehlernummer ist, sodass Sie einen Fehler-Number-Parameter in der Methodensignatur enthalten und zeichnen Sie die Nummer des Fehlers als ein separates Feld in der Systemprotokoll-Datensatz, den Sie schreiben konnte. Da die Zahl in einem separaten Feld erhalten mehr einfach und zuverlässig Sie Berichte auf Grundlage der SQL-Fehlernummern als könnten Sie, wenn Sie nur die Nummer des Fehlers in eine Meldungszeichenfolge verkettet wurden.
+Ein relativ neues Aussehen Protokollierung durchführen, die mehr nützlicher diagnostischen Informationen erzeugen können, finden Sie unter [Enterprise Bibliothek Semantic Logging Application Block (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). SLAB verwendet [Ereignisablaufverfolgung für Windows-Ereignis](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) und [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -Unterstützung in .NET 4.5, um weitere strukturierter und abgefragt werden Protokolle erstellen können. Sie definieren eine andere Methode für jeden Typ von Ereignis, das Sie sich anmelden, können Sie die Informationen anpassen, die Sie schreiben. Um beispielsweise einen SQL-Datenbank-Fehler zu protokollieren, rufen Sie möglicherweise, eine `LogSQLDatabaseError` Methode. Für diese Art der Ausnahme wissen Sie, dass eine wichtige Information ist die Fehlernummer, damit Sie einen Fehler-Number-Parameter in der Methodensignatur enthalten könnten, und notieren Sie die Fehlernummer als eigenständiges Feld in der Protokolldatensatz, den Sie schreiben. Da die Zahl in einem separaten Feld ist erhalten einfacher und zuverlässig Sie Berichte auf Grundlage der SQL-Fehlernummern, als wenn Sie nur die Fehlernummer in eine Meldungszeichenfolge verkettet wurden, können Sie.
 
-## <a name="logging-in-the-fix-it-app"></a>Die Lösung Fehleranzahl app
+## <a name="logging-in-the-fix-it-app"></a>Die Lösung protokollieren app
 
-### <a name="the-ilogger-interface"></a>ILogger-Schnittstelle
+### <a name="the-ilogger-interface"></a>Die ILogger-Schnittstelle
 
-So sieht die *ILogger* Schnittstelle in der app zu beheben.
+Hier ist die *"ILogger"* Schnittstelle in der app zu beheben.
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample1.cs)]
 
-Diese Methoden ermöglichen es Ihnen, auf den gleichen vier Ebenen von unterstützten Protokolle schreiben *System.Diagnostics*. Die TraceApi-Methoden sind für die Protokollierung von externen Dienstaufrufe mit Informationen zur Latenz. Sie können auch einen Satz von Methoden zum Debuggen/Verbose-Ebene hinzufügen.
+Diese Methoden können Sie zum Schreiben von Protokollen auf den gleichen vier Ebenen von unterstützten *System.Diagnostics*. Die TraceApi-Methoden sind für die Protokollierung von externen Dienst-Aufrufe mit Informationen zur Latenz. Sie können auch einen Satz von Methoden für Debuggen/Verbose-Ebene hinzufügen.
 
 ### <a name="the-logger-implementation-of-the-ilogger-interface"></a>Die Implementierung der Protokollierung der ILogger-Schnittstelle
 
-Die Implementierung der Schnittstelle ist sehr einfach. Er im Grunde ruft nur in den Standard *System.Diagnostics* Methoden. Der folgende Codeausschnitt zeigt alle drei Methoden Informationen und jeweils von den anderen.
+Die Implementierung der Schnittstelle ist sehr einfach. Es im Grunde genommen ruft nur in den Standard *System.Diagnostics* Methoden. Der folgende Codeausschnitt zeigt alle drei Methoden Informationen und jeweils eine der anderen.
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample2.cs)]
 
-### <a name="calling-the-ilogger-methods"></a>Aufrufen der ILogger-Methoden
+### <a name="calling-the-ilogger-methods"></a>Aufrufen der Methoden "ILogger"
 
-Jedes Mal, wenn Code in der app zu beheben, eine Ausnahme abfängt, ruft eine *ILogger* Methode, um die Details der Ausnahme protokollieren. Und jedes Mal, wenn sie die Datenbank, Blob-Dienst oder eine REST-API aufruft, startet eine Stoppuhr vor dem Aufruf, wann die Stoppuhr beendet, wenn der Dienst zurückgibt, und die verstrichene Zeit zusammen mit Informationen zum Erfolg oder Fehler protokolliert.
+Jedes Mal, wenn Code in der Fix It-app eine Ausnahme auffängt, ruft er einen *"ILogger"* Methode, um die Ausnahmedetails zu protokollieren. Und jedes Mal, wenn sie die Datenbank, Blob-Dienst oder eine REST-API aufruft, beginnt eine Stoppuhr vor dem Aufruf, beendet die Stoppuhr, wenn der Dienst zurückgibt, und die verstrichene Zeit sowie Informationen zu Erfolg oder Fehler protokolliert.
 
-Beachten Sie, dass die protokollmeldung den Klassennamen und den Namen der Methode enthält. In diesem Zusammenhang empfiehlt es sich, sicherzustellen, dass protokollmeldungen identifizieren, welcher Teil des Anwendungscodes, die sie geschrieben wurde.
+Beachten Sie, dass die Nachricht des Klassen- und Methodennamen enthält. Es wird empfohlen, sicherzustellen, dass protokollmeldungen identifizieren, welcher Teil der Anwendungscode geschrieben haben, werden.
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample3.cs?highlight=6,14,20-21,25)]
 
-Nun für jedes Mal die app zu beheben einen Aufruf zur SQL-Datenbank erfolgt ist, sehen Sie den Aufruf der Methode, die davon aufgerufen, und es ermittelt, genau wie zu lange gedauert hat.
+Jetzt für jedes Mal, wenn die Fix It-app einen Aufruf in SQL-Datenbank erfolgt ist, sehen Sie den Aufruf der Methode, die sie aufgerufen, und genau wie viel Zeit gedauert hat.
 
-![SQL-Datenbankabfrage in Protokollen](monitoring-and-telemetry/_static/image21.png)
+![SQL-Datenbank-Abfrage in Protokollen](monitoring-and-telemetry/_static/image21.png)
 
 ![](monitoring-and-telemetry/_static/image22.png)
 
-Wenn Sie über die Protokolle durchsuchen wechseln, sehen Sie sich, dass die Zeit Datenbankaufrufe nehmen Variable ist. Informationen hilfreich sein könnte: Da die app alle Protokolle können Sie historische Trends in der Datenbank Leistung des Diensts über die Zeit wird analysieren. Z. B. ein Dienst möglicherweise schnell in den meisten Fällen jedoch fehlschlagen, Anforderungen oder Antworten zu bestimmten Zeiten des Tages verlangsamt möglicherweise.
+Wenn Sie über die Protokolle durchsuchen wechseln, sehen Sie sich, dass die Zeit Datenbankaufrufe nehmen Variable. Dass Informationen hilfreich sein kann: Da die app diese Protokolle können Sie historische Trends in den Informationen zur Leistung des Datenbank-Diensts im Laufe der Zeit analysieren. Z. B. kann ein Dienst schnell in den meisten Fällen jedoch Anforderungen fehlschlagen, oder Antworten verlangsamt möglicherweise die zu bestimmten Zeiten des Tages.
 
-Sie können das gleiche gilt für den Blob-Dienst – vornehmen, für jedes Mal, wenn die app wird eine neue Datei hochgeladen, es ist ein Protokoll und sehen Sie, wie lange gedauert hat jede Datei hochladen.
+Sie können das gleiche gilt für den Blob-Dienst – durchführen, für jedes Mal, wenn die app eine neue Datei hochlädt, es gibt ein Protokoll und sehen Sie, wie lange dauerte einzelnen Dateien hochzuladen.
 
 ![BLOB-Upload-Protokoll](monitoring-and-telemetry/_static/image23.png)
 
-Es ist ein paar zusätzliche Codezeilen, jedes Mal, wenn Sie Aufrufen eines Dienstes, und wenn jemand, dass die Ausführung zu einem Problem besagt, Sie jetzt genau wie das Problem wurde wissen, ob es sich um ein Fehler aufgetreten, oder wenn sie nur langsam ausgeführt wurde, zu schreiben. Sie können die Ursache des Problems zu ermitteln, ohne auf einem Server remote oder Aktivieren der Protokollierung, nachdem der Fehler geschieht und hoffen, neu erstellt.
+Es ist ein paar zusätzliche Codezeilen, jedes Mal, wenn Sie einen Dienst aufrufen, und jetzt immer jemand, dass sie ein Problem aufgetreten sagt, Sie genau wie das Problem war wissen, ob es sich um einen Fehler war, oder wenn sie nur langsam ausgeführt wurde, zu schreiben. Sie können die Ursache des Problems zu ermitteln, ohne dass eine Remoteverbindung mit einem Server oder Aktivieren der Protokollierung, nachdem der Fehler passiert und hoffen, dass es neu erstellen.
 
 ## <a name="dependency-injection-in-the-fix-it-app"></a>Abhängigkeitsinjektion in die Lösung diese app
 
-Sie Fragen sich vielleicht, wie der Repository-Konstruktor im oben gezeigten Beispiel wird die Protokollierung Implementierung abruft:
+Sie Fragen sich vielleicht, wie der Repository-Konstruktor im obigen Beispiel die Protokollierung schnittstellenimplementierung abruft:
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample4.cs?highlight=6)]
 
-Zum Einrichten der Schnittstelle für die Implementierung die app von Netzwerkdaten verwendet [Abhängigkeitsinjektion](http://en.wikipedia.org/wiki/Dependency_injection)(DI) mit [AutoFac](http://autofac.org/). DI können Sie mithilfe eines Objekts basierend auf einer Schnittstelle an vielen Stellen im gesamten Code und nur die Implementierung an einem Ort angeben, die verwendet wird, wenn die Schnittstelle instanziiert wird. Dies vereinfacht die Implementierung zu ändern: Möglicherweise möchten z. B. die System.Diagnostics-Protokollierung durch eine Protokollierung für NLog zu ersetzen. Oder für automatisierte Tests möchten Sie möglicherweise eine Pseudoversion des Protokollierungsmoduls ersetzen.
+Verwendet, um die Schnittstelle für die Implementierung die app zu verknüpfen [Abhängigkeitsinjektion](http://en.wikipedia.org/wiki/Dependency_injection)(DI) mit [AutoFac](http://autofac.org/). Mithilfe der Abhängigkeitseinfügung können Sie ein Objekt, das basierend auf einer Schnittstelle an vielen Stellen im gesamten Code verwenden und nur an einem zentralen Ort die Implementierung, die verwendet wird, wenn die Schnittstelle instanziiert wird. Dies erleichtert die Implementierung zu ändern: Möglicherweise möchten z. B. die System.Diagnostics-Protokollierung durch eine NLog-Protokollierung zu ersetzen. Oder für automatisierte Tests möchten Sie möglicherweise eine Pseudoversion des Protokollierungsmoduls zu ersetzen.
 
-Die Anwendung beheben verwendet DI in allen Repositorys und aller Controller. Die Konstruktoren des der Controllerklassen Abrufen einer *ITaskRepository* Schnittstelle die gleiche Weise wie das Repository eine protokollierungsschnittstelle ruft:
+Die Fix It-Anwendung nutzt DI in allen Repositorys und alle Controller. Die Konstruktoren der Controllerklassen abzurufen ein *ITaskRepository* Schnittstelle die gleiche Weise wie das Repository, eine protokollierungsschnittstelle ruft:
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample5.cs?highlight=5)]
 
-Die app mithilfe die Bibliothek AutoFac DI automatisch bereitstellen *TaskRepository* und *Protokollierung* Instanzen für diese Konstruktoren.
+Die app verwendet die AutoFac-DI-Bibliothek, um automatisch bereitstellen *TaskRepository* und *Protokollierung* -Instanzen für diese Konstruktoren.
 
 [!code-csharp[Main](monitoring-and-telemetry/samples/sample6.cs?highlight=8,10)]
 
-Dieser Code im Wesentlichen sagt, dass an einer beliebigen Stelle ein Konstruktor muss ein *ILogger* Schnittstelle, übergeben Sie Sie in einer Instanz von der *Protokollierung* -Klasse, und dann auf, wenn ein *IFixItTaskRepository*-Schnittstelle, übergeben Sie Sie in einer Instanz von der *FixItTaskRepository* Klasse.
+Dieser Code im Wesentlichen sagt: ein Konstruktor an einer beliebigen Stelle muss ein *"ILogger"* Schnittstelle, übergeben Sie Sie in einer Instanz von der *Protokollierung* -Klasse, und dann auf, wenn ein *IFixItTaskRepository*Schnittstelle, übergeben Sie Sie in einer Instanz von der *FixItTaskRepository* Klasse.
 
-[AutoFac](http://autofac.org/) ist einer der vielen Abhängigkeit-Injection-Frameworks, die Sie verwenden können. Ist eine beliebte [Unity](https://blogs.msdn.com/b/agile/archive/2013/08/20/new-guide-dependency-injection-with-unity.aspx), d. h. empfohlen und vom Microsoft Patterns and Practices unterstützt.
+[AutoFac](http://autofac.org/) ist eines der vielen Dependency Injection-Frameworks, die Sie verwenden können. Ist syntactically [Unity](https://blogs.msdn.com/b/agile/archive/2013/08/20/new-guide-dependency-injection-with-unity.aspx), die empfohlen und von Microsoft Patterns and Practices unterstützt.
 
-## <a name="built-in-logging-support-in-azure"></a>Unterstützung für integrierte Protokollierung in Azure
+## <a name="built-in-logging-support-in-azure"></a>Integrierte Protokollierung-Unterstützung in Azure
 
 Azure unterstützt die folgenden Arten von [Protokollierung für Web-Apps in Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio):
 
-- System.Diagnostics-Ablaufverfolgung (Sie können ein-und ausschalten und zielsatzebenen im Handumdrehen ohne Neustart der Website).
+- System.Diagnostics-Ablaufverfolgung (können Sie ein-und ausschalten und Ebenen im laufenden Betrieb ohne Neustart der Website).
 - Windows-Ereignisse.
-- IIS Logs (HTTP/FREB).
+- IIS-Protokolle (HTTP/FREB).
 
-Azure unterstützt die folgenden Arten von [Clouddiensten anmelden](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics):
+Azure unterstützt die folgenden Arten von [Protokollierung in Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics):
 
 - System.Diagnostics-Ablaufverfolgung.
 - Leistungsindikatoren.
 - Windows-Ereignisse.
-- IIS Logs (HTTP/FREB).
+- IIS-Protokolle (HTTP/FREB).
 - Überwachen von benutzerdefinierten Verzeichnis.
 
-Die korrigieren-app verwendet die System.Diagnostics-Ablaufverfolgung. Alles, was Sie zum Aktivieren der Protokollierung in einer Web-app System.Diagnostics tun müssen ist einen Switch in das Portal wechseln oder die REST-API aufrufen. Klicken Sie im Portal auf der **Konfiguration** Ihrer Website auf der Registerkarte, und führen Sie einen Bildlauf nach unten zu finden Sie unter der **Application Diagnostics** Abschnitt. Sie können aktivieren oder deaktivieren Sie die Protokollierung, und wählen den gewünschten Protokolliergrad. Sie können Azure-Protokolle im Dateisystem oder in ein Speicherkonto geschrieben haben.
+Die Fix It-app verwendet die System.Diagnostics-Ablaufverfolgung. Sie müssen zum Aktivieren der Protokollierung in eine Web-app System.Diagnostics lediglich kippen einen Switch in das Portal oder die REST-API aufrufen. Im Portal klicken Sie auf die **Konfiguration** Registerkarte für die Website, und scrollen Sie nach unten, um finden Sie unter der **Application Diagnostics** Abschnitt. Sie können aktivieren oder Deaktivieren der Protokollierung, und wählen den gewünschten Protokolliergrad. Sie haben Azure die Protokolle im Dateisystem oder in ein Speicherkonto zu schreiben.
 
 ![App-Diagnose und Website-Diagnose in der Registerkarte "konfigurieren"](monitoring-and-telemetry/_static/image24.png)
 
-Nach der Aktivierung der Protokollierung in Azure können Sie die Protokolle im Ausgabefenster von Visual Studio sehen, wie sie erstellt werden.
+Nach der Aktivierung der diagnoseprotokollierung in Azure sehen Sie Protokolle im Ausgabefenster von Visual Studio, wie sie erstellt werden.
 
-![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![Menü "Streaming Logs"](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![Menü "Logs" Streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![Menü "Streaming Logs"](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
-Außerdem können Sie Protokolle in Ihrem Speicherkonto geschrieben und anzeigen, die sie mit jedem tool, kann Azure-Speichertabelle auf den Dienst zugreifen, wie z. B. **Server-Explorer** in Visual Studio oder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+Sie können auch veranlassen, Protokolle, die in Ihr Speicherkonto geschrieben und zeigen sie mit jedem tool, das kann Azure Storage-Tabelle auf den Dienst zugreifen, z. B. **Server-Explorer** in Visual Studio oder [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Protokolle in Server-Explorer](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![Protokolle im Server-Explorer](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
 ## <a name="summary"></a>Zusammenfassung
 
-Es ist wirklich einfach, eine Out-of-Box Telemetriesystem zu implementieren, Protokollierung in Ihrem eigenen Code zu instrumentieren und Konfigurieren der Protokollierung in Azure. Und wenn Produktion Probleme auftreten, die Kombination von einem Telemetriesystem und benutzerdefinierte Protokolle hilft Probleme schnell zu beheben, bevor sie für Ihre Kunden erhebliche Probleme aufgetreten sind.
+Es ist sehr einfach, eine Out-of-the-Box Telemetriesystem zu implementieren, Protokollierung, die in Ihrem eigenen Code zu instrumentieren und Konfigurieren der Protokollierung in Azure. Und bei der produktionsprobleme auftreten, die Kombination von ein Telemetriesystem und benutzerdefinierte Protokolle können Sie Probleme schnell zu lösen, bevor sie die wichtigsten Probleme für Ihre Kunden werden.
 
-In der [nächsten Kapitels](transient-fault-handling.md) betrachten wir vorübergehende Fehler zu behandeln, damit sie Produktion Probleme, die Sie untersuchen, werden nicht.
+In der [im nächsten Kapitel](transient-fault-handling.md) betrachten wir Gewusst wie: Behandeln von vorübergehenden Fehlern, damit sie produktionsprobleme, die Sie untersuchen, werden nicht.
 
 ## <a name="resources"></a>Ressourcen
 
 Weitere Informationen finden Sie in den folgenden Ressourcen.
 
-Die Dokumentation hauptsächlich über Telemetrie:
+Dokumentation in erster Linie zur Telemetrie:
 
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Instrumentation und Telemetrie Anleitungen, Dienst Messung Anleitungen, Muster Integrität Webendpunkt-Überwachung und Runtime-Neukonfiguration Muster angezeigt.
-- [In der Cloud Pinch Cent: Aktivieren der Überwachung auf Azure-Websites New Relic-Leistungsüberwachung](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
+- [Microsoft Patterns and Practices - Leitfaden zur Azure](https://msdn.microsoft.com/library/dn568099.aspx). Instrumentation und Telemetrie Anleitungen, Leitfaden zur Dienstmessung Service, Überwachung des Integritätsendpunkts Muster und Laufzeit-neukonfigurationsmuster angezeigt.
+- [In der Cloud Berührpunkte Cent: Aktivieren der neuen Leistungsüberwachung Relic auf Azure-Websites](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
 - [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Finden Sie im Abschnitt Telemetrie und Diagnose.
 - [Entwicklung der nächsten Generation mit Application Insights](https://msdn.microsoft.com/magazine/dn683794.aspx). MSDN Magazine-Artikel.
 
-Dokumentation in erster Linie zur Protokollierung:
+Die Dokumentation hauptsächlich über die Protokollierung:
 
-- [Semantische Protokollierung Anwendungsblock (Bereich)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Neil Mackenzie stellt den Fall für die semantische Protokollierung mit Bereich.
-- [Erstellen von strukturierten und sinnvolle Protokolle mit semantische Protokollierung](https://channel9.msdn.com/Events/Build/2013/3-336). (Video) Julianischen Dominguez stellt den Fall für die semantische Protokollierung mit Bereich.
-- [EF6 SQL-Protokollierung – Teil 1: einfache Protokollierung](http://blog.oneunicorn.com/2013/05/08/ef6-sql-logging-part-1-simple-logging/). Arthur Vickers wird gezeigt, wie zum Protokollieren von Abfragen, die von Entity Framework in EF 6 ausgeführt wird.
-- [Verbindungsresilienz und Abfangen der Befehl mit dem Entity Framework in einer ASP.NET MVC-Anwendung](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Vierte veranschaulicht in einer Reihe Tutorial neun-Teil der EF-6-Befehl-Abfangfunktion-Funktion verwenden, um SQL-Befehle an die Datenbank gesendet wird, Entity Framework protokolliert.
-- [Verbessern der Protokollierung mithilfe von C#-5.0 Aufrufer-Informationsattribute](http://www.dotnetcurry.com/showarticle.aspx?ID=972). Wie der Name der Aufrufmethode problemlos zu protokollieren, ohne eine feste Programmierung es in Literalen oder mithilfe von Reflektion Bezugsquelle manuell.
+- [Semantic Logging Application Block (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Neil Mackenzie stellt den Fall für die semantische Protokollierung mit SLAB.
+- [Erstellen von strukturierten und sinnvolle-Protokollen mit der semantischen Protokollierung](https://channel9.msdn.com/Events/Build/2013/3-336). (Video) Julianischen Dominguez stellt den Fall für die semantische Protokollierung mit SLAB.
+- [EF6 SQL-Protokollierung – Teil 1: einfache Protokollierung](http://blog.oneunicorn.com/2013/05/08/ef6-sql-logging-part-1-simple-logging/). Arthur Vickers zeigt, wie zum Protokollieren von Abfragen, die von Entity Framework in EF 6 ausgeführt wird.
+- [Verbindungsresilienz und Abfangen von Befehlen mit Entitätsframework in einer ASP.NET MVC-Anwendung](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Viertens veranschaulicht in einer tutorialreihe neun-Teil der Abfangfunktion für EF 6-Befehl verwenden, um SQL-Befehle, die an die Datenbank gesendet werden, von Entity Framework zu protokollieren.
+- [Verbessern Sie die Protokollierung mithilfe von c# 5.0 Aufrufer-Informationsattribute](http://www.dotnetcurry.com/showarticle.aspx?ID=972). Wie Sie einfach den Namen der aufrufenden Methode protokollieren, ohne fest zu Programmieren in Literale oder mithilfe von Reflektion manuell anfordern.
 
 Dokumentation in erster Linie zur Problembehandlung:
 
-- [Azure Problembehandlung &amp; Debuggen Blog](https://blogs.msdn.com/b/kwill/).
-- [AzureTools – das Diagnosedienstprogramm verwendet, die für das Azure Developer Support-Team](https://blogs.msdn.com/b/kwill/archive/2013/08/26/azuretools-the-diagnostic-utility-used-by-the-windows-azure-developer-support-team.aspx?Redirected=true). Stellt ein, und bietet einen Downloadlink für ein Tool, das auf einer Azure-VM herunterladen und Ausführen einer Vielzahl von Tools für Diagnose und Überwachung verwendet werden kann. Der Wert ist nützlich, wenn Sie auf einen bestimmten virtuellen Computer ein Problem diagnostizieren müssen.
-- [Problembehandlung bei einer Web-app in Azure App Service mithilfe von Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Ein schrittweises Lernprogramm für erste Schritte mit System.Diagnostics-Protokollierung und Remotedebuggen.
+- [Azure-Problembehandlung &amp; Debuggen Blog](https://blogs.msdn.com/b/kwill/).
+- [AzureTools – dem Diagnose-Hilfsprogramm verwendet werden, indem Sie das Azure Developer Support-Team](https://blogs.msdn.com/b/kwill/archive/2013/08/26/azuretools-the-diagnostic-utility-used-by-the-windows-azure-developer-support-team.aspx?Redirected=true). Stellt und enthält einen Link zum Herunterladen für ein Tool, das auf einer Azure-VM zum Herunterladen und Ausführen einer Vielzahl von Tools für die Diagnose und Überwachung verwendet werden kann. Nützlich, wenn Sie ein Problem auf einem bestimmten virtuellen Computer zu diagnostizieren müssen.
+- [Problembehandlung bei Web-Apps in Azure App Service mithilfe von Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Ein ausführliches Tutorial für erste Schritte mit System.Diagnostics-Ablaufverfolgung und Remotedebuggen.
 
 Videos:
 
-- [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Neun zweiteilige Reihe Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Folgen, 4 und 9 sind zur Überwachung und Telemetrie. 9-Episode enthält einen Überblick über die Überwachung von Diensten MetricsHub, AppDynamics New Relic und PagerDuty.
-- [Erstellen von Big: Erkenntnisse aus Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms dreht Entwerfen für Fehler und Instrumentieren alles ab. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen.
+- [FailSafe: Erstellen von skalierbaren, robusten Clouddiensten](https://channel9.msdn.com/Series/FailSafe). Teil 9-Reihe von Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und architektonischen Prinzipien auf eine Weise sehr zugegriffen werden kann und interessante Geschichten, die von Microsoft Customer Advisory Teams (CAT) die Erfahrung für tatsächliche Kunden gezeichnet werden. Episoden 4 und 9 sind zur Überwachung und Telemetrie. 9-Episode enthält einen Überblick über die Überwachung von Diensten MetricsHub, AppDynamics, New Relic und PagerDuty.
+- [Erstellen von Big: Erfahrungen aus dem Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms spricht über Entwerfen für Fehler, und alles instrumentieren. Ähnlich wie die Failsafe-Serie, aber wird auf Weitere Gewusst-wie-Details.
 
 Codebeispiel:
 
-- [Grundlagen von Clouddiensten in Azure Cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Beispielanwendung, die von der Microsoft Azure-Kundenberatungsteam erstellt werden. Telemetrie und Protokollierung-Methoden veranschaulicht, wie in den folgenden Artikeln beschrieben. Das Beispiel implementiert die anwendungsprotokollierung mit [NLog](http://nlog-project.org/). Verwandte Dokumentation finden Sie in der [Reihe von vier TechNet Wiki-Artikel zur Protokollierung und Telemetrie](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon).
+- [Clouddienstgrundlagen in Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Die Microsoft Azure Customer Advisory Team erstellte beispielanwendung. Telemetriedaten und Protokollierung Methoden veranschaulicht, wie in den folgenden Artikeln beschrieben. Das Beispiel implementiert die anwendungsprotokollierung mit [NLog](http://nlog-project.org/). Verwandte Dokumentation finden Sie in der [Reihe von vier TechNet-Wiki-Artikel zur Protokollierung und Telemetrie](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon).
 
 > [!div class="step-by-step"]
 > [Zurück](design-to-survive-failures.md)

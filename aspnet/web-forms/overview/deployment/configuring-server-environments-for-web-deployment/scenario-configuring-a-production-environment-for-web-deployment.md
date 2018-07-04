@@ -1,64 +1,63 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
-title: 'Szenario: Eine Produktionsumgebung für die Bereitstellung konfigurieren | Microsoft Docs'
+title: 'Szenario: Konfigurieren einer Produktionsumgebung für die Webbereitstellung | Microsoft-Dokumentation'
 author: jrjlee
-description: In diesem Thema wird beschrieben, ein Webdienst-Bereitstellungsszenario für eine produktionsumgebung und erläutert, die Aufgaben, die Sie ausführen, um ein ähnliches einrichten müssen...
+description: In diesem Thema wird beschrieben, einem typischen Bereitstellungsszenario für eine produktionsumgebung und erläutert, die Aufgaben, die Sie erledigen, um eine ähnliche einrichten müssen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4de5b1f20f3adcb53765c7cb9765c0d90a80e677
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ff9a1e7657852f37b3dc4fc1dbc4f6e78e6427cb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882945"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370347"
 ---
-<a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Szenario: Konfigurieren einer produktiven Umgebung für die Bereitstellung
+<a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Szenario: Konfigurieren einer Produktionsumgebung für die Webbereitstellung
 ====================
 durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> In diesem Thema wird beschrieben, ein Webdienst-Bereitstellungsszenario für eine produktionsumgebung und erläutert, die Aufgaben, die Sie ausführen, um eine ähnliche Umgebung einrichten müssen.
+> In diesem Thema wird beschrieben, einem typischen Bereitstellungsszenario für eine produktionsumgebung und erläutert, die Aufgaben, die Sie ausführen, um eine ähnliche Umgebung einrichten müssen.
 
 
-Die produktionsumgebung ist das endgültige Ziel für eine Webanwendung oder einer Website. Zu diesem Zeitpunkt die Anwendung wurde durch Tests in einer Stagingumgebung bereitgestellt wurde und ist jetzt kann es losgehen "live." Die Merkmale einer produktiven Umgebung können entsprechend den Natur und Zweck der Webinhalte, die Größe des Unternehmens, Ihre Zielgruppe und viele andere Faktoren stark variieren. In einem Szenario mit Enterprise-Ebene kann die produktionsumgebung diese Merkmale haben:
+Die produktionsumgebung ist das endgültige Ziel für eine Webanwendung oder eine Website. Zu diesem Zeitpunkt Ihre Anwendung wurde durch Tests in einer Stagingumgebung bereitgestellt wurde und ist "online geschaltet." Die Merkmale einer produktionsumgebung können gemäß der Art und den Zweck Ihrer Web-Inhalte, die Größe Ihrer Organisation, Ihre Zielgruppe und viele andere Faktoren variieren. In einem Unternehmen-Szenario kann die produktionsumgebung diese Merkmale aufweisen:
 
-- Die Umgebung besteht aus mehreren Lastenausgleich Webserver und eine oder mehrere Datenbankserver, häufig mit Failoverclustering und datenbankspiegelung.
-- Wenn die Umgebung über Internetzugriff verfügt, ist es wahrscheinlich aus dem internen Netzwerk getrennt werden. Möglicherweise in einem anderen Subnetz in einem Umkreisnetzwerk, möglicherweise in einer anderen Domäne und kann es sich um eine vollkommen andere Netzwerkinfrastruktur handeln.
-- Entwickler und Build-Server-Prozesskonten werden mit hoher Wahrscheinlichkeit keine Administratorrechte auf den Produktionsservern.
-- Änderungen an Anwendungen sind auf die seltener als Test- oder stagingbereitstellungen bereitgestellt.
+- Die Umgebung besteht aus mehreren Webservern auf der Lastenausgleich und eine oder mehrere Datenbankserver häufig mit Failoverclustering und datenbankspiegelung.
+- Wenn die Umgebung über Internetzugriff verfügt, ist es wahrscheinlich aus dem internen Netzwerk getrennt werden. Möglicherweise in einem anderen Subnetz in einem Umkreisnetzwerk, möglicherweise in einer anderen Domäne, und möglicherweise in einer ganz anderen Netzwerkinfrastruktur.
+- Entwickler und Build-Server-Prozesskonten sind sehr unwahrscheinlich ist, auf den Produktionsservern die über Administratorrechte verfügen.
+- Änderungen an Anwendungen werden auf die seltener als Test- oder staging-Bereitstellungen bereitgestellt.
 
 > [!NOTE]
-> Dezentrales Skalieren einer datenbankbereitstellung auf mehreren Servern ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/library/ms130214.aspx).
+> Horizontales Skalieren einer datenbankbereitstellung auf mehreren Servern ist, würde den Rahmen dieses Tutorials. Weitere Informationen zu diesem Bereich, finden Sie in [SQL Server-Onlinedokumentation](https://technet.microsoft.com/library/ms130214.aspx).
 
 
-Z. B. in unserer [lernprogrammszenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Build-Server enthält alle Builddefinitionen, mit denen Benutzer die Projektmappe Contact Manager erstellt und in einer Stagingumgebung in einem einzigen Schritt bereitgestellt haben. Sobald die Anwendung bis hin zur Produktion, aufgrund der Einschränkungen von sicherheitsanforderungen und die Netzwerkinfrastruktur bereitgestellt werden kann muss der Administrator der Produktion-Umgebung manuell kopieren Sie das Webpaket auf einem Produktionsserver für Web und importieren es über Internet Information Services (IIS) Manager.
+Z. B. in unserer [lernprogrammszenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), ein Team Build-Server enthält die Build-Definitionen, mit denen Benutzer die Projektmappe Contact Manager erstellen und in einer Stagingumgebung in einem einzigen Schritt bereitstellen. Wenn die Anwendung bereit für die Bereitstellung zur Produktion, aufgrund der Einschränkungen von sicherheitsanforderungen und der Netzwerkinfrastruktur, ist muss der Produktion umgebungsadministrator manuell kopieren des Pakets auf einem Produktionswebserver und importieren Es wird über Internet Information Services (IIS) Manager.
 
 ![](scenario-configuring-a-production-environment-for-web-deployment/_static/image1.png)
 
-## <a name="solution-overview"></a>Lösungsübersicht
+## <a name="solution-overview"></a>Übersicht über die Lösung
 
-In diesem Szenario können Sie diese Fakten aus eine Analyse der bereitstellungsanforderungen ableiten:
+In diesem Szenario können Sie diese Fakten aus einer Analyse der bereitstellungsanforderungen hergeleitet werden:
 
-- Aufgrund von sicherheitsbeschränkungen und die Netzwerkkonfiguration kann nicht die produktionsumgebung zur Unterstützung von nur einem Klick oder automatisierte Bereitstellung konfiguriert werden. Offline-Bereitstellung ist die einzige realisierbare Ansatz in diesem Szenario.
-- Die produktionsumgebung umfasst mehrere Webserver, damit Sie Web Farm Framework (WFF) verwenden können, um eine Serverfarm zu erstellen. Bei diesem Ansatz muss der Administrator nur die Anwendung auf einem Web-Server (dem primären Server) importieren und WFF wird die Bereitstellung für alle anderen Webserver in der produktionsumgebung repliziert.
+- Sie können nicht aufgrund von sicherheitseinschränkungen und die Netzwerkkonfiguration die produktionsumgebung zur Unterstützung von nur einem Klick oder automatisierte Bereitstellung konfigurieren. Offline-Bereitstellung ist die einzige Möglichkeit in diesem Szenario.
+- Die produktionsumgebung enthält mehrere Webserver, damit Sie das Web Farm Framework (WFF) verwenden können, um eine Serverfarm zu erstellen. Mit diesem Ansatz muss des Administrators nur den import der Anwendung auf einem Web-Server (der primäre Server) und WFF wird die Bereitstellung auf allen anderen Webservern in der produktionsumgebung replizieren.
 
-Die folgenden Themen enthalten alle Informationen, die Sie benötigen, um diese Aufgaben ausführen:
+In diesen Themen enthalten alle Informationen, die Sie benötigen, um diese Aufgaben ausführen:
 
-- [Erstellen Sie eine Serverfarm mit Webfarmframework](configuring-a-database-server-for-web-deploy-publishing.md). Dieses Thema beschreibt, wie zum Erstellen und Konfigurieren einer Serverfarm WFF, sodass Web Platform Produkte und Komponenten, Konfigurationseinstellungen und Websites und Anwendungen auf mehrere Load Balancing Webserver repliziert werden.
-- [Konfigurieren Sie einen Webserver für Web Deploy-Veröffentlichung (Bereitstellung Offline)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Dieses Thema beschreibt das Erstellen eines Webservers, mit der können Administratoren importieren und Bereitstellen von Webpaketen manuell, beginnend mit einem bereinigten Build von Windows Server 2008 R2.
-- [Konfigurieren eines Datenbankservers für Web Deploy-Veröffentlichung](configuring-a-database-server-for-web-deploy-publishing.md). Dieses Thema beschreibt, wie einen Datenbankserver zur Unterstützung von Remotezugriff und Bereitstellung, beginnend bei einer Standardinstallation von SQL Server 2008 R2 zu konfigurieren.
+- [Erstellen Sie eine Serverfarm mit Webfarmframework](configuring-a-database-server-for-web-deploy-publishing.md). In diesem Thema wird beschrieben, wie zum Erstellen und konfigurieren eine Serverfarm mit WFF, sodass Web Platform-Produkte und Komponenten, Konfigurationseinstellungen und Websites und Anwendungen über mehrere Lastenausgleich Webserver hinweg repliziert werden.
+- [Konfigurieren Sie einen Webserver für Web Deploy-Veröffentlichung (Offlinebereitstellung)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Dieses Thema beschreibt die Erstellung von einem Webserver, mit dem Administratoren importieren und Bereitstellen von Webpaketen manuell einen bereinigten Build von Windows Server 2008 R2 ab.
+- [Konfigurieren eines Datenbankservers aus, für Web Deploy-Veröffentlichung](configuring-a-database-server-for-web-deploy-publishing.md). Dieses Thema beschreibt, wie Sie einen Datenbankserver zur Unterstützung von Remotezugriff und -Bereitstellung, beginnend bei einer Standardinstallation von SQL Server 2008 R2 zu konfigurieren.
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Anleitungen zum Konfigurieren einer testumgebung typische Entwickler finden Sie unter [Szenario: Konfigurieren einer Umgebung testen für Webbereitstellung](scenario-configuring-a-test-environment-for-web-deployment.md). Anleitungen zum Konfigurieren einer typischen Stagingumgebung finden Sie unter [Szenario: Konfigurieren einer Staging-Umgebung für die Bereitstellung](scenario-configuring-a-staging-environment-for-web-deployment.md).
+Anleitungen zum Konfigurieren einer testumgebung für die typischen Entwicklers finden Sie unter [Szenario: Konfigurieren einer Testumgebung für die Webbereitstellung](scenario-configuring-a-test-environment-for-web-deployment.md). Anleitungen zum Konfigurieren einer typischen staging-Umgebung finden Sie unter [Szenario: Konfigurieren von einer Staging-Umgebung für die Webbereitstellung](scenario-configuring-a-staging-environment-for-web-deployment.md).
 
 > [!div class="step-by-step"]
 > [Zurück](scenario-configuring-a-staging-environment-for-web-deployment.md)
