@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
-title: 'Teil 1: Übersicht und Erstellen des Projekts | Microsoft Docs'
+title: 'Teil 1: Übersicht und erstellen das Projekt | Microsoft-Dokumentation'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,56 +9,55 @@ ms.date: 07/03/2012
 ms.topic: article
 ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: f9cdff0cb0cad9adad546c8f8d46ba9b010e1079
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f0616383fce2e92f7d1a0b63bf840208f7327bf7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873325"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394060"
 ---
 <a name="part-1-overview-and-creating-the-project"></a>Teil 1: Übersicht und Erstellen des Projekts
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-Entity Framework ist ein Framework für/objektrelationalen Zuordnung. Es wird die Domänenobjekte im Code Entitäten in einer relationalen Datenbank zugeordnet. Den meisten Fällen müssen Sie keinen auf der Datenbankebene kümmern, da Entity Framework es für Sie übernimmt. Code bearbeitet die Objekte, und Änderungen in einer Datenbank beibehalten werden.
+Entitätsframework ist ein Framework für Objekt-relationale Zuordnung. Es ist die Domänenobjekte in Ihrem Code Entitäten in einer relationalen Datenbank zugeordnet. Zum größten Teil, müssen Sie keinen der Datenbankschicht zu kümmern, da Entity Framework es für Sie übernimmt. Ihr Code bearbeitet, die Objekte, und Änderungen in einer Datenbank beibehalten werden.
 
-## <a name="about-the-tutorial"></a>Informationen zum Lernprogramm
+## <a name="about-the-tutorial"></a>Über das Tutorial
 
-In diesem Lernprogramm erstellen Sie eine einfachen Store-Anwendung. Es gibt zwei wesentliche Teile der Anwendung. Normale Benutzer können Produkte anzeigen und Aufträge erstellen:
+In diesem Tutorial erstellen Sie eine einfache Store-Anwendung. Es gibt zwei wesentliche Teile der Anwendung. Standardbenutzer können Produkte anzeigen, und Aufträge zu erstellen:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image1.png)
 
-Administratoren können erstellen, löschen oder bearbeiten die Produkte:
+Administratoren können zu erstellen, löschen oder Bearbeiten von Produkten:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>Fähigkeiten, die Sie erfahren
+## <a name="skills-youll-learn"></a>Fähigkeiten, mit denen, die Sie lernen Folgendes
 
-Hier ist Sie lernen:
+Hier ist Sie lernen Folgendes:
 
-- Verwendung von Entity Framework mit ASP.NET Web-API.
-- Wie Sie knockout.js verwenden, um eine dynamische Clientbenutzeroberfläche zu erstellen.
-- Wie Sie die Formularauthentifizierung mit Web-API verwenden, um Benutzer zu authentifizieren.
+- Wie Sie Entity Framework mit ASP.NET Web-API zu verwenden.
+- Gewusst wie "Knockout.js" verwenden, um eine dynamische Clientbenutzeroberfläche zu erstellen.
+- So verwenden Sie die Formularauthentifizierung mit Web-API zum Authentifizieren von Benutzern.
 
-Obwohl dieses Lernprogramm eigenständig ist, empfiehlt es sich, lesen Sie zuerst die folgenden Lernprogramme:
+Obwohl in diesem Tutorial eigenständig ist, empfiehlt es sich, zuerst die folgenden Lernprogramme zu lesen:
 
 - [Ihre erste ASP.NET Web-API](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
-- [Erstellen eine Web-API, die unterstützt CRUD-Vorgänge](../creating-a-web-api-that-supports-crud-operations.md)
+- [Erstellen einer Webs-API, die unterstützt CRUD-Vorgänge](../creating-a-web-api-that-supports-crud-operations.md)
 
-Einige Kenntnisse [ASP.NET-MVC](../../../../mvc/index.md) ist auch hilfreich.
+Sie benötigen Kenntnisse des [ASP.NET MVC](../../../../mvc/index.md) ist auch hilfreich.
 
 ## <a name="overview"></a>Übersicht
 
-Auf hoher Ebene sieht die Architektur der Anwendung zur Verfügung:
+Auf einer hohen Ebene sieht der Architektur der Anwendung zur Verfügung:
 
 - ASP.NET MVC generiert die HTML-Seiten für den Client.
-- ASP.NET Web-API macht die CRUD-Vorgänge für die Daten ("Products" und "Orders").
-- Entity Framework übersetzt, die c#-Modelle, die von Web-API in Datenbankentitäten verwendet wird.
+- ASP.NET Web-API macht die CRUD-Vorgänge für die Daten ("Produkte" und "Orders") verfügbar.
+- Entitätsframework übersetzt der c#-Modelle, die von Web-API verwendet werden, in der Datenbankentitäten.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
@@ -70,9 +69,9 @@ Das folgende Diagramm zeigt, wie die Domänenobjekte auf verschiedenen Ebenen de
 
 Sie können das Tutorial-Projekt mit Visual Web Developer Express oder die Vollversion von Visual Studio erstellen.
 
-Aus der **starten** auf **neues Projekt**.
+Von der **starten** auf **neues Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt "ProductStore", und klicken Sie auf **OK**.
+In der **Vorlagen** wählen Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen das Projekt **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt "ProductStore", und klicken Sie auf **OK**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 
@@ -80,18 +79,18 @@ In der **neues ASP.NET MVC 4-Projekt** wählen Sie im Dialogfeld **Internetanwen
 
 ![](using-web-api-with-entity-framework-part-1/_static/image6.png)
 
-Die Vorlage "Internetanwendung" erstellt eine ASP.NET MVC-Anwendung, die Formularauthentifizierung unterstützt. Wenn Sie die Anwendung jetzt ausführen, ist es bereits einige Funktionen:
+Die Vorlage "Internetanwendung" erstellt eine ASP.NET MVC-Anwendung, die Formularauthentifizierung unterstützt. Wenn Sie die Anwendung jetzt ausführen, verfügt sie bereits über einige Features:
 
-- Neue Benutzer können registrieren, indem Sie auf den Link "Register" in der oberen rechten Ecke.
-- Registrierte Benutzer können durch Klicken auf den Link "Anmelden" anmelden.
+- Neue Benutzer können auf den Link "Register" in der oberen rechten Ecke registrieren.
+- Registrierte Benutzer können auf den Link "Anmelden" anmelden.
 
-Informationen zur Mitgliedschaft werden in einer Datenbank beibehalten, die automatisch erstellt wird. Weitere Informationen zur Formularauthentifizierung in ASP.NET MVC finden Sie unter [Exemplarische Vorgehensweise: Verwenden der Formularauthentifizierung in ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
+Informationen zur Mitgliedschaft werden in einer Datenbank beibehalten, der automatisch erstellt wird. Weitere Informationen zur Formularauthentifizierung in ASP.NET MVC finden Sie unter [Exemplarische Vorgehensweise: Verwenden der Formularauthentifizierung in ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
 
 ## <a name="update-the-css-file"></a>Aktualisieren Sie die CSS-Datei
 
-Dieser Schritt ist kosmetischer Natur, jedoch werden die Seiten gerendert werden wie die früheren Screenshots vorgenommen.
+Dieser Schritt ist kosmetischer Natur, aber machen die Seiten, wie die früheren Screenshots gerendert wird.
 
-Klicken Sie im Projektmappen-Explorer erweitern Sie den Inhaltsordner, und öffnen Sie die Datei mit dem Namen "Site.CSS" ändern. Fügen Sie die folgenden CSS-Stile hinzu:
+Klicken Sie im Projektmappen-Explorer erweitern Sie den Ordner "Content", und öffnen Sie die Datei mit dem Namen "Site.CSS". Fügen Sie die folgenden CSS-Stile hinzu:
 
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 

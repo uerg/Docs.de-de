@@ -1,123 +1,122 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: Erstellen und Ausführen einer Bereitstellung Befehlsdatei | Microsoft Docs
+title: Erstellen und Ausführen einer Bereitstellungstyps Befehlsdatei | Microsoft-Dokumentation
 author: jrjlee
-description: In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellt, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild)-Projektdateien in einem einzelnen Schritt erneut ausführen...
+description: In diesem Thema wird beschrieben, wie Sie eine Befehlsdatei erstellen, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild) Projektdateien als einen Schritt für Schritt, erneut ausführen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fc59920feb5eb48bc8150606b58a1ed4ba60ee92
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891177"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395372"
 ---
-<a name="creating-and-running-a-deployment-command-file"></a>Erstellen und Ausführen einer Befehlsdatei Bereitstellung
+<a name="creating-and-running-a-deployment-command-file"></a>Erstellen und Ausführen einer Befehlsdatei für die Bereitstellung
 ====================
 durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellt, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild)-Projektdateien einstufiger, wiederholbare ausgeführt wird.
+> In diesem Thema wird beschrieben, wie eine Befehlsdatei erstellen, mit denen Sie eine Bereitstellung mithilfe von Microsoft Build Engine (MSBuild) Projektdateien als Schritt für Schritt, wiederholbaren Prozess ausgeführt wird.
 
 
-Dieses Thema ist Teil einer Reihe von Lernprogrammen, die auf der Basis der Enterprise-bereitstellungsanforderungen eines fiktiven Unternehmens mit dem Namen Fabrikam, Inc. Dieses Lernprogramm Zeichenreihe verwendet eine beispiellösung&#x2014;der [Vorgesetzten Kontakts](the-contact-manager-solution.md) Lösung&#x2014;zur Darstellung einer Webanwendung mit einer realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, einen Windows Communication Foundation (WCF)-Dienst, und ein Datenbankprojekt.
+In diesem Thema ist Teil einer Reihe von Tutorials, die auf der Basis der bereitstellungsanforderungen Enterprise ein fiktives Unternehmen, die mit dem Namen Fabrikam, Inc. Dieser tutorialreihe verwendet eine beispiellösung&#x2014;der [Contact Manager](the-contact-manager-solution.md) Lösung&#x2014;zur Darstellung einer Webanwendung mit einem realistischen Maß an Komplexität, einschließlich einer ASP.NET MVC 3-Anwendung, eine Windows-Kommunikation Foundation (WCF)-Dienst und ein Datenbankprojekt.
 
-Die Bereitstellungsmethode das Herzstück mit diesen Lernprogrammen basiert auf der Teilung Datei Herangehensweise beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), in dem durch der Buildprozess gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie für jede zielumgebung und enthält umgebungsspezifische Einstellungen für Build- und Bereitstellungsprozess geltenden Anweisungen, an. Zur Buildzeit ist die Unabhängigkeit von der Umgebung-Projektdatei, einen vollständigen Satz von Buildanweisungen bilden die Projektdatei umgebungsspezifische zusammengeführt.
+Die Methode für die Bereitstellung das Kernstück des in diesen Tutorials basiert auf den geteilten Projekt Dateiansatz beschrieben, die [Verständnis des Prozesses erstellen](understanding-the-build-process.md), in dem der Buildprozess durch gesteuert wird zwei Projektdateien&#x2014;enthält Erstellen Sie die Anweisungen, die für jede zielumgebung, und enthält umgebungsspezifische Build & Deployment-Einstellungen gelten. Zur Erstellungszeit wird die umgebungsspezifischen-Projektdatei in die Unabhängigkeit von der Umgebung Projektdatei, um einen vollständigen Satz von einrichtungsanweisungen bilden zusammengeführt.
 
-## <a name="process-overview"></a>Übersicht über das
+## <a name="process-overview"></a>Prozessübersicht
 
-In diesem Thema erfahren Sie, wie zum Erstellen und Ausführen einer Befehlsdatei, die diese Projektdateien verwendet wird, um eine wiederholbare Bereitstellungen in Ihrer zielumgebung auszuführen. Im Wesentlichen die Befehlsdatei einfach muss einen MSBuild-Befehl enthalten, die:
+In diesem Thema erfahren Sie, wie zum Erstellen und Ausführen einer Befehlsdatei, die diese Projektdateien verwendet wird, um eine wiederholbare Bereitstellung für Ihre zielumgebung durchzuführen. Im Wesentlichen die Befehlsdatei muss einfach nur einen MSBuild-Befehl enthält, die:
 
-- Weist MSBuild an, führen Sie die Umgebung Unabhängigkeit *Publish.proj* Datei.
-- Teilt die *Publish.proj* Datei, die sich die Datei enthält den umgebungsspezifische projekteinstellungen und wo sie suchen.
+- Informiert MSBuild, führen Sie die Umgebung agnostisch *Publish.proj* Datei.
+- Teilt die *Publish.proj* Datei, welche Datei enthält die umgebungsspezifischen projekteinstellungen und wo Sie sich befindet.
 
-## <a name="create-an-msbuild-command"></a>Erstellen Sie einen MSBuild-Befehl
+## <a name="create-an-msbuild-command"></a>Erstellen Sie ein MSBuild-Befehl
 
-Wie in beschrieben [Verständnis des Build-Prozesses](understanding-the-build-process.md), umgebungsspezifische Projektdatei&#x2014;z. B. *Env Dev.proj*&#x2014;dient in der Umgebung Unabhängigkeit importiert werden sollen *Publish.proj* Datei während des Buildvorgangs. In Kombination bieten zwei dieser Dateien einen vollständigen Satz von Anweisungen, die MSBuild Bereitstellen von Informationen zum Erstellen und Bereitstellen der Projektmappe.
+Siehe [Verständnis des Prozesses erstellen](understanding-the-build-process.md), umgebungsspezifische Projektdatei&#x2014;z. B. *Env-Dev.proj*&#x2014;dient in der Umgebung agnostisch importiert werden sollen *Publish.proj* Datei zum Zeitpunkt der Erstellung. Zusammen bieten diese beiden Dateien einen vollständigen Satz von Anweisungen, die MSBuild anweisen, wie zum Erstellen und Bereitstellen Ihrer Lösung.
 
-Die *Publish.proj* Datei verwendet eine **importieren** Element, um die Umgebung spezifischen-Projektdatei importieren.
+Die *Publish.proj* Datei verwendet ein **importieren** Element, um die umgebungsspezifischen-Projektdatei importieren.
 
 
 [!code-xml[Main](creating-and-running-a-deployment-command-file/samples/sample1.xml)]
 
 
-Bei Verwendung von MSBuild.exe zum Erstellen und Bereitstellen der Projektmappe Contact Manager müssen Sie daher auf:
+Wenn Sie MSBuild.exe zum Erstellen und Bereitstellen von Contact Manager-Lösung verwenden, müssen Sie:
 
-- MSBuild.exe ausführen, auf die *Publish.proj* Datei.
-- Geben Sie den Speicherort der Projektdatei umgebungsspezifische durch Angabe eines Befehlszeilenparameters namens **TargetEnvPropsFile**.
+- Führen Sie MSBuild.exe auf die *Publish.proj* Datei.
+- Geben Sie den Speicherort der Projektdatei umgebungsspezifische durch Angabe der Parameter für die Befehlszeilen mit dem Namen **TargetEnvPropsFile**.
 
-Zu diesem Zweck sieht die MSBuild-Befehl folgendermaßen aus:
+Zu diesem Zweck sieht der MSBuild-Befehl folgendermaßen aus:
 
 
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample2.cmd)]
 
 
-Hier ist es ein einfacher Schritt zu einer Bereitstellung wiederholbare, Schritt für Schritt zu verschieben. Alles, was Sie tun müssen MSBuild-Befehl eine CMD-Datei hinzugefügt werden. In der Projektmappe Contact Manager Veröffentlichungsordner enthält eine Datei namens *veröffentlichen Dev.cmd* genau dies ausführt.
+Hier ist es eine einfache Schritt, in einer Bereitstellung für wiederholbare, Schritt für Schritt zu verschieben. Müssen Sie lediglich Ihre MSBuild-Befehl eine CMD-Datei hinzu. In der Projektmappe Contact Manager-Ordner "Publish" umfasst eine Datei namens *veröffentlichen-Dev.cmd* , die dies ist genau.
 
 
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample3.cmd)]
 
 
 > [!NOTE]
-> Die **/fl** -Schalter wird MSBuild zum Erstellen einer Protokolldatei mit dem Namen *msbuild.log* in das Arbeitsverzeichnis an, in dem MSBuild.exe aufgerufen wurde.
+> Die **/fl** -Schalter weist MSBuild zum Erstellen einer Protokolldatei mit dem Namen *msbuild.log* in das Arbeitsverzeichnis, in denen MSBuild.exe aufgerufen wurde.
 
 
-Um bereitzustellen, oder stellen Sie die Kontakt-Manager-Lösung, müssen Sie lediglich führen die *veröffentlichen Dev.cmd* Datei. Wenn Sie die Datei ausführen, sehen MSBuild:
+Zum Bereitstellen oder die Kontakt-Manager-Lösung erneut bereitzustellen, müssen Sie lediglich ausgeführt wird die *veröffentlichen-Dev.cmd* Datei. Wenn Sie die Datei ausführen, wird MSBuild:
 
 - Alle Projekte in der Projektmappe zu erstellen.
-- Bereitstellbare Webpaketen für die Anwendung Webprojekte zu generieren.
+- Generieren Sie bereitstellbare Webpakete für Webanwendungsprojekte.
 - Generieren Sie DBSCHEMA und DeployManifest-Dateien für die Datenbankprojekte.
-- Bereitstellen Sie die Webpakete an den Webserver.
-- Bereitstellen Sie die Datenbank auf dem Datenbankserver.
+- Stellen Sie die Webpakete an den Webserver bereit.
+- Bereitstellen der Datenbank mit dem Datenbankserver her.
 
 ## <a name="run-the-deployment"></a>Führen Sie die Bereitstellung
 
-Wenn Sie eine Befehlsdatei für Ihre zielumgebung erstellt haben, sollten Sie einfach mit der Datei die gesamte Bereitstellung abschließen können.
+Wenn Sie eine Befehlsdatei für Ihre zielumgebung erstellt haben, sollten Sie die gesamte Bereitstellung abgeschlossen, indem Sie einfach die Datei ausführen können.
 
-**Die Kontakt-Manager-Lösung an Ihre testumgebung bereitstellen**
+**Zum Bereitstellen der Contact Manager-Lösung an Ihre testumgebung**
 
-1. Auf der Arbeitsstation Developer öffnen Sie Windows Explorer, und navigieren Sie zum Speicherort von der *veröffentlichen Dev.cmd* Datei.
-2. Doppelklicken Sie auf die Datei, um es auszuführen.
-3. Wenn ein **Datei öffnen-Sicherheitswarnung** Dialogfeld angezeigt wird, klicken Sie auf **ausführen**.
-4. Wenn Ihre Konfigurationseinstellungen und Testserver eingerichtet sind, ordnungsgemäß im Eingabeaufforderungsfenster zeigt eine **der Buildvorgang war erfolgreich** Meldung, wenn MSBuild die Verarbeitung der Projektdateien abgeschlossen hat.
+1. Klicken Sie auf der Entwicklerarbeitsstation Windows Explorer öffnen, und navigieren Sie dann auf den Speicherort der der *veröffentlichen-Dev.cmd* Datei.
+2. Doppelklicken Sie auf die Datei aus, um es auszuführen.
+3. Wenn ein **Datei öffnen-Sicherheitswarnung** klicken Sie im angezeigten Dialogfeld **ausführen**.
+4. Wenn Ihre Konfigurationseinstellungen und die Testserver eingerichtet sind, ordnungsgemäß im Eingabeaufforderungsfenster wird angezeigt ein **Buildvorgang war erfolgreich.** Meldung, wenn MSBuild die Projektdateien Verarbeitung abgeschlossen hat.
 
     ![](creating-and-running-a-deployment-command-file/_static/image1.png)
-5. Wenn dies der erste Mal ist, haben Sie die Lösung für diese Umgebung bereitgestellt, müssen Sie die Test-Web--Servercomputer zum Hinzufügen der **Db\_Datawriter** und **Db\_Datareader**Rollen auf die **ContactManager** Datenbank. Hierin wird beschrieben, [Konfigurieren eines Datenbankservers für Webveröffentlichung bereitstellen](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
+5. Ist dies beim ersten Sie die Lösung für diese Umgebung bereitgestellt haben, müssen Sie das Computerkonto Test Web Server, Hinzufügen der **Db\_Datawriter** und **Db\_Datareader**Rollen auf die **ContactManager** Datenbank. Dieses Verfahren wird beschrieben, [Konfigurieren eines Datenbankservers für die Webveröffentlichung bereitstellen](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > Sie müssen nur dieser Berechtigungen zuweisen, wenn Sie die Datenbank erstellen. Standardmäßig während des Erstellungsprozesses werden nicht neu erstellt die Datenbank bei jeder Bereitstellung&#x2014;stattdessen die vorhandene Datenbank auf das neueste Schema verglichen und nur die erforderlichen Änderungen vornehmen. Daher müssen Sie nur diesen Datenbankrollen erstmalig ordnen Sie die Projektmappe bereitstellen.
-6. Öffnen Sie Internet Explorer, und navigieren Sie zu der URL der Kontakt-Manager-Anwendung (z. B. `http://testweb1:85/ContactManager/`).
-7. Stellen Sie sicher, dass die Anwendung erwartungsgemäß funktioniert, und Sie die Kontakte hinzufügen können.
+    > Sie müssen nur diese Berechtigungen zuweisen, wenn Sie die Datenbank erstellen. In der Standardeinstellung des Buildprozesses werden nicht neu erstellt die Datenbank bei jeder Bereitstellung&#x2014;stattdessen die vorhandene Datenbank auf dem neuesten Schema verglichen und nur die erforderlichen Änderungen vornehmen. Daher müssen Sie nur diesen Datenbankrollen beim ersten ordnen Sie die Lösung bereitstellen.
+6. Öffnen Sie Internet Explorer, und navigieren Sie zu der URL der Contact Manager-Anwendung (z. B. `http://testweb1:85/ContactManager/`).
+7. Stellen Sie sicher, dass die Anwendung ordnungsgemäß funktioniert, und Sie können Kontakte hinzufügen.
 
     ![](creating-and-running-a-deployment-command-file/_static/image2.png)
 
 ## <a name="conclusion"></a>Schlussbemerkung
 
-Erstellen eine Befehlsdatei mit der MSBuild-Anweisungen, bietet Ihnen eine schnelle und einfache Möglichkeit der Erstellung und Bereitstellung einer Lösung mit mehreren Projekten in einer bestimmten zielumgebung. Wenn Sie Ihre Lösung in mehreren zielumgebungen bereitstellen müssen, können Sie mehrere Befehlsdateien erstellen. In jeder Datei die MSBuild-Befehl wird die gleiche universal-Projektdatei erstellt, aber es wird eine andere umgebungsspezifische Projektdatei angeben. Beispielsweise könnte eine Befehlsdatei ein Entwickler veröffentlichen oder testumgebung dieses MSBuild-Befehl enthalten:
+Erstellen eine Befehlsdatei, die die MSBuild-Anweisungen enthält, bietet Ihnen eine schnelle und einfache Möglichkeit, erstellen und Bereitstellen von Projektmappen mit mehreren Projekten für ein bestimmtes Ziel-Umgebung. Wenn Sie wiederholte Bereitstellen Ihrer Lösung in mehreren zielumgebungen müssen, können Sie mehrere Befehlsdateien erstellen. Klicken Sie in jeder Befehlsdatei MSBuild-Befehl wird die gleiche universal-Projekt-Datei erstellen, aber es wird eine andere Umgebung spezifischen Projektdatei angeben. Beispielsweise kann eine Befehlsdatei für Entwickler veröffentlichen oder testumgebung dieses MSBuild-Befehl enthalten:
 
 
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample4.cmd)]
 
 
-Eine Befehlsdatei zum Veröffentlichen in einer Stagingumgebung könnte diese MSBuild-Befehl enthalten:
+Eine Befehlsdatei in einer Stagingumgebung zu veröffentlichen, könnte dieses MSBuild-Befehl enthalten:
 
 
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample5.cmd)]
 
 
 > [!NOTE]
-> Anleitungen zum Anpassen der umgebungsspezifische-Projektdateien für eigene Server-Umgebungen finden Sie unter [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+> Anleitungen zum Anpassen der umgebungsspezifischen Projektdateien für Ihre eigenen serverumgebungen finden Sie unter [Konfigurieren von Bereitstellungseigenschaften für eine Zielumgebung](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 
-Sie können den Buildprozess für jede Umgebung auch anpassen, indem Überschreiben von Eigenschaften oder das Festlegen von verschiedenen anderen Schaltern in MSBuild-Befehl. Weitere Informationen finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
+Sie können den Buildprozess für jede Umgebung auch anpassen, durch Überschreiben von Eigenschaften oder Festlegen von verschiedenen anderen Schaltern in Ihrem MSBuild-Befehl. Weitere Informationen finden Sie unter [MSBuild-Befehlszeilenreferenz](https://msdn.microsoft.com/library/ms164311.aspx).
 
 > [!div class="step-by-step"]
 > [Zurück](deploying-database-projects.md)

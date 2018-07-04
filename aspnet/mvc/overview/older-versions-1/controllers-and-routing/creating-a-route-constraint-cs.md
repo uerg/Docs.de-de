@@ -1,82 +1,81 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
-title: Erstellen einer Routeneinschränkung (c#) | Microsoft Docs
+title: Erstellen einer Routeneinschränkung (c#) | Microsoft-Dokumentation
 author: StephenWalther
-description: In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen.
+description: Stephen Walther wird in diesem Tutorial veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, durch das Erstellen von Einschränkungen mit regulären Ausdrücken.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
 ms.topic: article
 ms.assetid: 0bfd06b1-12d3-4fbb-9779-a82e5eb7fe7d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3159feb6538e3048f4f235f7d549e692604ca4e7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8c977df126ce79f6ca20bd3941009ae7295ae0a5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871206"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366531"
 ---
 <a name="creating-a-route-constraint-c"></a>Erstellen einer Routeneinschränkung (c#)
 ====================
 durch [Stephen Walther](https://github.com/StephenWalther)
 
-> In diesem Lernprogramm wird Stephen Walther veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, indem routeneinschränkungen mit regulären Ausdrücken erstellen.
+> Stephen Walther wird in diesem Tutorial veranschaulicht, wie Sie steuern können, wie Browser Übereinstimmung Routen anfordert, durch das Erstellen von Einschränkungen mit regulären Ausdrücken.
 
 
-Verwenden Sie routeneinschränkungen, um die Browseranforderungen einzuschränken, die mit eine bestimmte Route übereinstimmen. Einen regulären Ausdruck können Sie eine routeneinschränkung angeben.
+Sie verwenden die routeneinschränkungen, um die Browseranforderungen zu beschränken, die eine bestimmte Route übereinstimmen. Sie können einen regulären Ausdruck verwenden, einer routeneinschränkung an.
 
 Angenommen Sie, dass Sie die Route in Codebeispiel 1 in der Datei "Global.asax" definiert haben.
 
-**1 – Global.asax.cs auflisten**
+**Codebeispiel 1 – "Global.asax.cs"**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample1.cs)]
 
-Auflisten von 1 enthält eine Route mit dem Namen Product. Die Produkt-Route können Sie die ProductController in auflisten 2 enthaltene Browseranforderungen zuordnen.
+Codebeispiel 1 enthält eine Route mit dem Namen Product. Sie können die Produkt-Route verwenden, Browseranforderungen ProductController in Listing 2 enthaltenen zuordnen.
 
-**Auflisten von 2 – Controllers\ProductController.cs**
+**Codebeispiel 2 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample2.cs)]
 
 Beachten Sie, dass die Details()-Aktion, die von der Produkt-Controller verfügbar gemacht werden, einen einzelnen Parameter mit dem Namen "ProductID" akzeptiert. Dieser Parameter ist ein Integer-Parameter.
 
-Im Codebeispiel 1 definierten Route entspricht eine der folgenden URLs:
+Die Route definiert, die in Codebeispiel 1 wird eine der folgenden URLs übereinstimmen:
 
-- /Product/23
-- /Product/7
+- / Produkt/23
+- / Produkt/7
 
 Leider wird die Route auch die folgenden URLs übereinstimmen:
 
-- /Product/blah
-- /Product/apple
+- / Produkt/Bla
+- / Produkt/apple
 
-Da die Details() Aktion einen Ganzzahlparameter erwartet, verursacht der eine Anforderung, die etwas anderes als einen ganzzahligen Wert enthält einen Fehler aus. Beispielsweise bei der Eingabe der URL-/Product/apple in Ihrem Browser erhalten die Seite "Fehler" in Abbildung 1 Sie.
+Da die Details() Aktion einen ganzzahligen Parameter erwartet, verursacht der eine Anforderung, die etwas anderes als ein ganzzahliger Wert enthält einen Fehler aus. Z. B. Wenn Sie die URL-/Product/apple in Ihren Browser eingeben erhalten die Fehlerseite in Abbildung 1 Sie.
 
 
 [![Das Dialogfeld "Neues Projekt"](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
-**Abbildung 01**: Anzeigen einer Seite auflösen ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-route-constraint-cs/_static/image2.png))
+**Abbildung 01**: eine Seite explode angezeigt ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-route-constraint-cs/_static/image2.png))
 
 
-Was Sie tatsächlich möchten ist nur mit URLs übereinstimmen, die eine richtige ganze Zahl "ProductID" enthalten. Eine Einschränkung können beim Definieren einer Route die URLs einzuschränken, die die Route entsprechen. Die geänderte Produkt Route auflisten 3 enthält eine reguläre-Einschränkung, die nur ganze Zahlen übereinstimmt.
+Was Sie wirklich tun werden nur auf URLs überein, die eine richtige ganze Zahl "ProductID" enthalten. Eine Einschränkung können beim Definieren einer Route zum Einschränken der URLs, die mit die Route übereinstimmen. Die geänderte Produkt Route in Programmausdruck 3 enthält eine reguläre-Einschränkung, die nur Ganzzahlen entspricht.
 
-**3 – Global.asax.cs auflisten**
+**Codebeispiel 3: "Global.asax.cs"**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample3.cs)]
 
-Der reguläre Ausdruck \d+ entspricht mindestens einem ganzen Zahlen. Diese Einschränkung bewirkt, dass die Route Produkt entsprechend den folgenden URLs:
+Der reguläre Ausdruck \d+ entspricht eine oder mehrere Ganzzahlen. Diese Einschränkung bewirkt, dass die Product-Route mit den folgenden URLs übereinstimmen:
 
-- /Product/3
-- /Product/8999
+- / Produkt/3
+- / Produkt/8999
 
 Aber nicht die folgenden URLs:
 
-- /Product/apple
-- / Produkt
+- / Produkt/apple
+- / Product
 
-- Diese Browseranforderungen von einer anderen Route verarbeitet werden oder, wenn keine übereinstimmenden Routen vorhanden sind eine *die Ressource konnte nicht gefunden werden* Fehler zurückgegeben.
+- Diese Browseranforderungen von einer anderen Route verarbeitet werden oder, wenn es keine übereinstimmenden Routen sind, eine *die Ressource konnte nicht gefunden werden* Fehler zurückgegeben.
 
 > [!div class="step-by-step"]
 > [Zurück](creating-custom-routes-cs.md)

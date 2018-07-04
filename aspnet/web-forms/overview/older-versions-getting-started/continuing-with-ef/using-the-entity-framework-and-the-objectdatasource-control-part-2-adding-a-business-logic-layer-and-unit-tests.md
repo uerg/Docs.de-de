@@ -1,88 +1,87 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: 'Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests | Microsoft Docs'
+title: 'Verwenden von Entitätsframework 4.0 und ObjectDataSource-Steuerelement, Teil 2: Hinzufügen einer Geschäftslogikebene und Komponententests | Microsoft-Dokumentation'
 author: tdykstra
-description: Diese Reihe von Lernprogrammen baut auf der Contoso-University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0 Tutorial Reihe erstellt wird. I...
+description: Dieser tutorialreihe erstellt in der Contoso University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0-Tutorial-Reihe erstellt wird. ICH...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
 ms.topic: article
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 02f0b86203eb879ca618655b8956f22dc67858cd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888314"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394241"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Verwenden das Entity Framework 4.0 und das ObjectDataSource-Steuerelement, Teil 2: hinzufügen, eine Geschäftslogikschicht und Komponententests
+<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Verwenden von Entitätsframework 4.0 und ObjectDataSource-Steuerelement, Teil 2: Hinzufügen einer Geschäftslogikebene und Komponententests
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-> Diese Reihe von Lernprogrammen in der Contoso-University Webanwendung durch die erstellte builds der [erste Schritte mit dem Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) Reihe von Lernprogrammen. Wenn Sie die frühere Lernprogramme nicht abgeschlossen wurde, als Ausgangspunkt für dieses Lernprogramm können Sie [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Herunterladen der Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , die durch das vollständige Lernprogramm Reihe erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie stellen Sie diese auf die [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
+> Dieser tutorialreihe erstellt, in der Contoso University-Webanwendung, die erstellt wird die [erste Schritte mit Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) Tutorial-Reihe. Wenn Sie den vorherigen Tutorials wurde nicht abgeschlossen haben, als Ausgangspunkt für dieses Tutorial können Sie [Laden Sie die Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) , die Sie erstellt haben würden. Sie können auch [Laden Sie die Anwendung](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) , indem Sie die vollständige Reihe von Tutorials erstellt wird. Wenn Sie Fragen zu den Lernprogrammen haben, können Sie sie veröffentlichen das [ASP.NET Entity Framework-Forum](https://forums.asp.net/1227.aspx).
 
 
-Im vorherigen Lernprogramm erstellt Sie eine n-Tier-Webanwendung mithilfe von Entity Framework und die `ObjectDataSource` Steuerelement. In diesem Lernprogramm wird gezeigt, wie Geschäftslogik hinzufügen, während der Geschäftslogik Ebene (BLL) und die Datenzugriffsebene (DAL) separate gewahrt bleibt, und es wird gezeigt, wie die BLL automatisierte Komponententests zu erstellen.
+Im vorherigen Tutorial erstellt Sie eine n-Tier-Webanwendung mithilfe von Entity Framework und die `ObjectDataSource` Steuerelement. In diesem Tutorial wird gezeigt, wie Geschäftslogik hinzufügen, während die Geschäftslogik-Ebene (BLL) und der Datenzugriffsebene (DAL) separaten beibehalten, und es wird gezeigt, wie die BLL automatisierte Komponententests zu erstellen.
 
-In diesem Lernprogramm führen Sie die folgenden Aufgaben:
+In diesem Tutorial müssen Sie die folgenden Aufgaben ausführen:
 
-- Erstellen Sie eine Repository-Schnittstelle, die die Datenzugriffs-Methoden deklariert werden, die Sie benötigen.
-- Implementieren Sie die Repository-Schnittstelle in der Repository-Klasse.
-- Erstellen Sie eine Geschäftslogik-Klasse, die die Repository-Klasse, um die Datenzugriffs-Funktionen aufruft.
-- Verbinden der `ObjectDataSource` Steuerelement auf die Geschäftslogik Klasse anstelle von der Repository-Klasse.
-- Erstellen Sie ein Komponententestprojekt und eine Repository-Klasse, die Auflistungen im Arbeitsspeicher für seinen Datenspeicher verwendet.
-- Erstellen Sie einen Komponententest für die Geschäftslogik, die auf die Geschäftslogik Klasse hinzufügen, dann führen Sie den Test und Fehler angezeigt werden sollen.
-- Implementieren Sie die Geschäftslogik in der Geschäftslogik Klasse, und führen Sie die Einheit zu testen und finden Sie unter erfolgreich erneut aus.
+- Erstellen Sie eine Repositoryschnittstelle, die die Datenzugriffs-Methoden deklariert, die Sie benötigen.
+- Implementieren Sie die Repositoryschnittstelle, in der repositoryklasse.
+- Erstellen Sie eine Geschäftslogik-Klasse, die "Repository"-Klasse zum Ausführen von Datenzugriffs-Funktionen aufruft.
+- Verbinden der `ObjectDataSource` Steuerelement auf die Geschäftslogik Klasse anstelle von "Repository"-Klasse.
+- Erstellen Sie ein Komponententestprojekt und einer Repository-Klasse, die Auflistungen im Arbeitsspeicher für den Datenspeicher verwendet.
+- Erstellen Sie einen Komponententest für Geschäftslogik, die Sie die Geschäftslogik-Klasse, und klicken Sie dann den Test ausführen, und finden Sie unter Fehler hinzufügen möchten.
+- Die Geschäftslogik in der Geschäftslogik-Klasse implementieren und führen Sie erneut die Einheit zu testen, und finden Sie unter er erfolgreich abgeschlossen.
 
-Vorerst arbeiten Sie mit der *Departments.aspx* und *DepartmentsAdd.aspx* Seiten, die Sie im vorherigen Lernprogramm erstellt haben.
+Arbeiten Sie mit der *Departments.aspx* und *DepartmentsAdd.aspx* Seiten, die Sie im vorherigen Tutorial erstellt haben.
 
-## <a name="creating-a-repository-interface"></a>Erstellen einer Repository-Schnittstelle
+## <a name="creating-a-repository-interface"></a>Erstellen einer Repositoryschnittstelle
 
-Sie beginnen, indem Sie zum Erstellen der Repository-Schnittstelle.
+Sie erstellen Sie zunächst die Repositoryschnittstelle.
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image1.png)
 
-In der *DAL* Ordner eine neue Klassendatei erstellen, nennen Sie sie *ISchoolRepository.cs*, und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+In der *DAL* Ordner eine neue Klassendatei zu erstellen, nennen Sie es *ISchoolRepository.cs*, und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample1.cs)]
 
-Die Schnittstelle definiert eine Methode für jede die CRUD-Vorgänge (erstellen, lesen, aktualisieren und löschen) Methoden, die Sie in der Repository-Klasse erstellt haben.
+Die Schnittstelle definiert eine Methode für jede der die CRUD-Vorgänge (erstellen, lesen, aktualisieren und löschen) Methoden, die Sie in der "Repository"-Klasse erstellt haben.
 
 In der `SchoolRepository` -Klasse im *SchoolRepository.cs*, um anzugeben, dass diese Klasse implementiert die `ISchoolRepository` Schnittstelle:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample2.cs)]
 
-## <a name="creating-a-business-logic-class"></a>Erstellen einer Geschäftslogik Klasse
+## <a name="creating-a-business-logic-class"></a>Erstellen einer Geschäftslogik-Klasse
 
-Als Nächstes erstellen Sie die Geschäftslogik Klasse. Damit Sie von Geschäftslogik hinzufügen können, die von ausgeführt wird hierfür der `ObjectDataSource` zu steuern, obwohl Sie nicht, die noch ist. Jetzt führt die neue Geschäftslogik Klasse nur die gleichen CRUD-Vorgänge aus, denen das Repository ist.
+Als Nächstes erstellen Sie die Geschäftslogik-Klasse. Sie tun dies, damit Sie die Geschäftslogik hinzufügen können, die von ausgeführt werden, die `ObjectDataSource` zu steuern, obwohl Sie nicht, die noch ist. Jetzt wird die neue Geschäftslogik-Klasse nur die gleichen CRUD-Vorgänge ausführen, die das Repository ausführt.
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image3.png)
 
-Erstellen Sie einen neuen Ordner, und nennen Sie sie *BLL*. (In einer realen Anwendung würde die Geschäftslogik Ebene in der Regel als eine Klassenbibliothek implementiert werden – ein separates Projekt – jedoch zur Vereinfachung dieses Lernprogramms BLL Klassen werden in einem Projektordner beibehalten.)
+Erstellen Sie einen neuen Ordner, und nennen Sie sie *BLL*. (In einer realen Anwendung würde die Geschäftslogik-Ebene in der Regel als Klassenbibliothek implementiert werden, ein separates Projekt, aber in diesem Tutorial der Einfachheit halber werden BLL-Klassen in einem Projektordner gespeichert.)
 
-In der *BLL* Ordner eine neue Klassendatei erstellen, nennen Sie sie *SchoolBL.cs*, und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+In der *BLL* Ordner eine neue Klassendatei zu erstellen, nennen Sie es *SchoolBL.cs*, und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample3.cs)]
 
-Dieser Code erstellt die gleichen CRUD-Methoden, die Sie gesehen haben, weiter oben in der Repository-Klasse, anstatt direkt auf die Entity Framework-Methoden, er ruft jedoch die Repository-Klasse, Methoden.
+Dieser Code erstellt die gleichen CRUD-Methoden, die Sie gesehen haben, weiter oben in der repositoryklasse, anstatt direkt auf die Entity Framework-Methoden, er ruft jedoch das Repository-Klasse, Methoden.
 
-Die Class-Variable, die einen Verweis auf die Repository-Klasse enthält als einen Schnittstellentyp definiert ist, und der Code, der die Repository-Klasse instanziiert ist in zwei Konstruktoren enthalten. Wird von der parameterlose Konstruktor verwendet den `ObjectDataSource` Steuerelement. Er erstellt eine Instanz der `SchoolRepository` -Klasse, die Sie zuvor erstellt haben. Die anderen Konstruktor können den Code, der instanziiert die Geschäftslogik Klasse, ein Objekt zu übergeben, der Repository-Schnittstelle implementiert.
+Die Class-Variable, die einen Verweis auf die "Repository"-Klasse enthält, die als ein Schnittstellentyp definiert ist, und der Code, der die "Repository"-Klasse instanziiert ist in zwei Konstruktoren enthalten. Der parameterlose Konstruktor wird von verwendet die `ObjectDataSource` Steuerelement. Es erstellt eine Instanz der `SchoolRepository` -Klasse, die Sie zuvor erstellt haben. Der andere Konstruktor kann jeden beliebigen Code, der instanziiert die Geschäftslogik-Klasse ein Objekt übergeben, die die Repositoryschnittstelle implementiert.
 
-Die CRUD-Methoden, die die Repository-Klasse und die beiden Konstruktoren aufrufen können sie die Geschäftslogik Klasse mit den Back-End-Datenspeicher verwendet werden. Die Geschäftslogik Klasse muss nicht beachten wie die Klasse, die ihn aufruft die Daten weiterhin besteht. (Dies wird häufig aufgerufen *Persistenz Unkenntnis*.) Dies erleichtert die Komponententests bereit, auf, weil Sie die Geschäftslogik Klasse eine Repository-Implementierung herstellen können, die etwas als einfache verwendet als in-Memory- `List` Sammlungen, um Daten zu speichern.
+Die CRUD-Methoden, die "Repository"-Klasse und die beiden Konstruktoren aufrufen ermöglichen die Geschäftslogik-Klasse mit den Back-End-Datenspeicher verwendet werden können. Die Geschäftslogik-Klasse muss nicht zu beachten, wie die Klasse, die sie aufrufen, wird die Daten werden beibehalten. (Dies wird häufig als *ignorieren der Persistenz*.) Dadurch werden Komponententests, erleichtert, da Sie zu einer Repository-Implementierung die Geschäftslogik-Klasse verbinden können, die etwas ganz einfachen verwendet als in-Memory- `List` Sammlungen zum Speichern von Daten.
 
 > [!NOTE]
-> Technisch gesehen sind die Entitätsobjekten noch nicht Dauerhaftigkeit ignorierende, da von Klassen instanziiert werden, die von der Entity Framework erben `EntityObject` Klasse. Für vollständige Dauerhaftigkeit Unkenntnis, können Sie *plain old CLR-Objekte*, oder *POCOs*, anstelle von Objekten, die von erben die `EntityObject` Klasse. Mithilfe von POCOs ist nicht Gegenstand dieses Lernprogramm. Weitere Informationen finden Sie unter [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) auf der MSDN-Website.)
+> Technisch gesehen die Entitätsobjekte sind noch keine Dauerhaftigkeit, da sie eine Instanziierung von Klassen sind, die von Entity Framework erben `EntityObject` Klasse. Für vollständige ignorieren der Persistenz, können Sie *plain old CLR Objekte*, oder *POCOs*, anstelle von Objekten, die von erben die `EntityObject` Klasse. Die Verwendung von POCOs ist, würde den Rahmen dieses Tutorials. Weitere Informationen finden Sie unter [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) auf der MSDN-Website.)
 
 
-Nachdem Sie eine Verbindung herstellen können die `ObjectDataSource` von Steuerelementen an die Geschäftslogik-Klasse statt im Repository, und stellen Sie sicher, dass alles funktioniert, es hat sich nichts geändert.
+Nachdem Sie eine Verbindung herstellen können die `ObjectDataSource` Steuerelemente auf die Geschäftslogik-Klasse anstelle von an das Repository, und stellen Sie sicher, dass alles funktioniert wie vorher.
 
-In *Departments.aspx* und *DepartmentsAdd.aspx*, ändern Sie jedes Auftreten der `TypeName="ContosoUniversity.DAL.SchoolRepository"` zu `TypeName="ContosoUniversity.BLL.SchoolBL`". (Es gibt vier Instanzen in allen.)
+In *Departments.aspx* und *DepartmentsAdd.aspx*, ändern Sie jedes Vorkommen von `TypeName="ContosoUniversity.DAL.SchoolRepository"` zu `TypeName="ContosoUniversity.BLL.SchoolBL`". (Es gibt vier Instanzen in allen.)
 
-Führen Sie die *Departments.aspx* und *DepartmentsAdd.aspx* Seiten, um sicherzustellen, dass sie weiterhin funktionieren, wie vor.
+Führen Sie die *Departments.aspx* und *DepartmentsAdd.aspx* Seiten, um sicherzustellen, dass sie weiterhin funktionieren wie bisher.
 
 [![Image01 abgerufen wird](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image5.png)
 
@@ -90,29 +89,29 @@ Führen Sie die *Departments.aspx* und *DepartmentsAdd.aspx* Seiten, um sicherzu
 
 ## <a name="creating-a-unit-test-project-and-repository-implementation"></a>Erstellen eines Komponententestprojekts und der Repository-Implementierung
 
-Fügen Sie ein neues Projekt mit der Lösung die **Testprojekt** Vorlage, und nennen Sie sie `ContosoUniversity.Tests`.
+Fügen Sie ein neues Projekt der Projektmappe mithilfe der **Testprojekt** Vorlage, und nennen Sie sie `ContosoUniversity.Tests`.
 
 Fügen Sie im Testprojekt einen Verweis auf `System.Data.Entity` und fügen Sie einen Projektverweis auf die `ContosoUniversity` Projekt.
 
-Sie können jetzt die Repository-Klasse erstellen, die Sie mit Komponententests verwenden möchten. Der Datenspeicher für dieses Repository werden innerhalb der Klasse.
+Sie können jetzt die "Repository"-Klasse erstellen, die Sie mit Komponententests verwenden. Der Datenspeicher für dieses Repository wird in der Klasse sein.
 
-[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
+[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
-Im Testprojekt eine neue Klassendatei erstellen, nennen Sie sie *MockSchoolRepository.cs*, und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+Klicken Sie in das Testprojekt, und erstellen Sie eine neue Klassendatei, nennen Sie es *MockSchoolRepository.cs*, und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample4.cs)]
 
-Diese Klasse Repository hat dieselben CRUD-Methoden wie derjenige, der das Entity Framework greift direkt auf, aber sie funktionieren mit `List` Auflistungen im Arbeitsspeicher anstelle von mit einer Datenbank. Dies erleichtert es für eine Testklasse einrichten und Überprüfen von Komponententests für die Geschäftslogik Klasse.
+Dieses Repository-Klasse verfügt über die gleichen CRUD-Methoden, die das Entity Framework direkt zugreift, aber sie funktionieren mit `List` Auflistungen im Arbeitsspeicher, nicht mit einer Datenbank. Dies erleichtert es für eine Testklasse einrichten und überprüfen Komponententests für die Geschäftslogik-Klasse.
 
 ## <a name="creating-unit-tests"></a>Erstellen von Komponententests
 
-Die **testen** -Projektvorlage ein Stub-Komponententestklasse für Sie erstellt und die nächste Aufgabe besteht darin ändern diese Klasse, indem Sie Komponententestmethoden hinzugefügt, für die Geschäftslogik, die die Geschäftslogik Klasse hinzugefügt werden sollen.
+Die **testen** Projektvorlage eine Stub-Komponententestklasse für Sie erstellt und die nächste Aufgabe ist, ändern Sie diese Klasse von Komponententestmethoden hinzugefügt, für die Geschäftslogik, die die Geschäftslogik-Klasse hinzugefügt werden sollen.
 
-[![image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
+[![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
 
-Klicken Sie Contoso-Universität jeder einzelne Kursleiter kann nur der Administrator eine einzelne Abteilung und Geschäftslogik zum Erzwingen dieser Regel hinzufügen werden müssen. Starten Sie durch Hinzufügen von Tests und Ausführen der Tests aus, um diese Fehler anzuzeigen. Sie klicken Sie dann fügen Sie den Code und erneuten Ausführen der Tests ein erwarten sie erfolgreich ab.
+Contoso University jeder einzelnen "Instructor" kann nur der Administrator eine einzelne Abteilung sein, und Sie Geschäftslogik zum Erzwingen dieser Regel hinzufügen möchten. Sie werden gestartet, durch Hinzufügen von Tests und Ausführen der Tests aus, um Fehler anzuzeigen. Anschließend fügen Sie den Code und führen Sie erneut aus den Tests erfolgreich erhalten.
 
-Öffnen der *"UnitTest1.cs"* und fügen `using` -Anweisungen für die Geschäftsschichten Logik und Daten zugreifen, die Sie im Projekt ContosoUniversity erstellt:
+Öffnen der *"UnitTest1.cs"* -Datei und fügen `using` -Anweisungen für die Business-Logik und die Datenzugriffs-Ebenen, die Sie in der "ContosoUniversity"-Projekt erstellt haben:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample5.cs)]
 
@@ -120,39 +119,39 @@ Ersetzen Sie die `TestMethod1` Methode mit den folgenden Methoden:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample6.cs)]
 
-Die `CreateSchoolBL` Methode erstellt eine Instanz der Repository-Klasse, die Sie erstellt haben, für das Projekt Komponententest übergibt sie dann an eine neue Instanz der Geschäftslogik Klasse. Die Methode verwendet dann die Geschäftslogik Klasse zum Einfügen von drei Abteilungen, die Sie verwenden können, in den Testmethoden.
+Die `CreateSchoolBL` Methode erstellt eine Instanz der repositoryklasse, die Sie erstellt haben, für die Einheit Testprojekt, die sie dann auf eine neue Instanz der Geschäftslogik-Klasse übergibt. Die Methode verwendet dann die Geschäftslogik-Klasse zum Einfügen von drei Abteilungen, die Sie verwenden können, in den Testmethoden.
 
-Die Testmethoden überprüfen, ob die Geschäftslogik Klasse eine Ausnahme auslöst, wenn jemand versucht, eine neue Abteilung mit dem gleichen Administrator wie einer vorhandenen Abteilung einzufügen, oder wenn jemand versucht, eine Abteilung Administrator durch Festlegen auf die ID einer Person aktualisieren Wer ist bereits der Administrator einer anderen Abteilung.
+Die Testmethoden, stellen Sie sicher, dass die Geschäftslogik-Klasse eine Ausnahme auslöst, wenn jemand versucht, eine neue Abteilung mit dem gleichen Administrator als einer vorhandenen Abteilung einfügen, oder wenn jemand versucht, eine Abteilung Administrator zu aktualisieren, indem er auf die ID einer Person Wer ist bereits einer anderen Abteilung-Administrator.
 
-Exception-Klasse noch nicht noch erstellt werden, damit dieser Code nicht kompiliert wird. Zum Kompilieren abrufen Maustaste `DuplicateAdministratorException` , und wählen Sie **generieren**, und klicken Sie dann **Klasse**.
+Die Exception-Klasse noch nicht noch erstellt werden, damit dieser Code nicht kompiliert werden. Rufen Sie kompilieren Maustaste `DuplicateAdministratorException` , und wählen Sie **generieren**, und klicken Sie dann **Klasse**.
 
-[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
+[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
-Dadurch wird eine Klasse erstellt, in das Testprojekt, das Sie löschen können, nachdem Sie in das Hauptprojekt Exception-Klasse erstellt haben. und die Geschäftslogik implementiert.
+Dadurch wird eine Klasse erstellt, in das Testprojekt, das Sie löschen können, nachdem Sie die Exception-Klasse im Hauptprojekt erstellt haben. und die Geschäftslogik implementiert.
 
-Führen Sie das Testprojekt. Wie erwartet, schlägt die Tests fehl.
+Führen Sie das Testprojekt. Wie erwartet, ein Fehler auf die Tests.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image15.png)
 
-## <a name="adding-business-logic-to-make-a-test-pass"></a>Hinzufügen von Geschäftslogik eine Pass-Test ausführen
+## <a name="adding-business-logic-to-make-a-test-pass"></a>Hinzufügen von Geschäftslogik, um einen Testdurchlauf zu machen.
 
-Als Nächstes implementieren Sie die Geschäftslogik, die macht es unmöglich, als Administrator einer Abteilung jemand festgelegt, der bereits einer anderen Abteilung ist. Sie löst eine Ausnahme von der Geschäftslogik Ebene, und klicken Sie dann in der Darstellungsschicht abfangen, wenn ein Benutzer eine Abteilung bearbeitet und klickt auf **Update** nach der Auswahl eine Person, die bereits ein Administrator ist. (Lehrkräfte konnte auch entfernt werden, aus der Dropdown-Liste, die bereits Administratoren sind, bevor Sie auf die Seite gerendert, die Zwecke des vorliegenden ist jedoch mit der Geschäftslogik Ebene arbeiten.)
+Als Nächstes implementieren Sie die Geschäftslogik, die macht es unmöglich, Sie als Administrator einer Abteilung eine Person festgelegt, der bereits einer anderen Abteilung ist. Sie löst eine Ausnahme von der Geschäftslogik-Ebene und fange ihn dann in der Darstellungsschicht, wenn ein Benutzer eine Abteilung bearbeitet und klickt auf **Update** nach der Auswahl eine Person, die bereits ein Administrator ist. (Sie könnten auch Dozenten entfernen, aus der Dropdown-Liste, die bereits die Administratoren sind, bevor Sie auf die Seite rendern, aber hier dient dazu, mit der Geschäftslogik-Ebene zu arbeiten.)
 
-Starten Sie durch das Erstellen von Exception-Klasse, die ausgelöst wird, wenn ein Benutzer versucht, einem Kursleiter mehr als eine Abteilung Administratorberechtigungen. In das Hauptprojekt, erstellen Sie eine neue Klassendatei in der *BLL* Ordner, nennen Sie sie *DuplicateAdministratorException.cs*, und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+Zunächst erstellen die Exception-Klasse, die Sie auslösen müssen, wenn ein Benutzer versucht, ein "Instructor" mehr als eine Abteilung ernennen. In dem Hauptprojekt, erstellen Sie eine neue Klassendatei in der *BLL* Ordner, nennen Sie sie *DuplicateAdministratorException.cs*, und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample7.cs)]
 
-Löschen Sie jetzt die temporäre *DuplicateAdministratorException.cs* -Datei, die Sie im Testprojekt zuvor erstellt haben damit kompiliert werden.
+Jetzt löschen die temporäre *DuplicateAdministratorException.cs* im Testprojekt zuvor erstellte Datei zu kompilieren können.
 
-Öffnen Sie in das Hauptprojekt der *SchoolBL.cs* Datei, und fügen Sie die folgende Methode, die die Validierungslogik enthält. (Der Code bezieht sich auf eine Methode, die Sie später erstellen.)
+Öffnen Sie in dem Hauptprojekt, das *SchoolBL.cs* Datei, und fügen Sie die folgende Methode, die die Validierungslogik enthält. (Der Code bezieht sich auf eine Methode, die Sie später erstellen.)
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample8.cs)]
 
-Sie müssen diese Methode aufrufen, wenn Sie einfügen oder Aktualisieren von `Department` Entitäten, um zu überprüfen, ob eine andere Abteilung bereits die gleichen Administrator hat.
+Sie müssen diese Methode aufrufen, wenn Sie einfügen oder aktualisieren `Department` Entitäten, um zu überprüfen, ob eine andere Abteilung bereits die gleiche Administrator verfügt.
 
-Der Code Ruft eine Methode zum Durchsuchen der Datenbank für eine `Department` Entität mit dem gleichen `Administrator` Eigenschaftswert als Entität eingefügt oder aktualisiert wird. Wenn eine gefunden wird, löst der Code eine Ausnahme aus. Keine Überprüfung ist erforderlich, wenn die Entität eingefügt oder aktualisiert wird keine `Administrator` Wert und keine Ausnahme wird ausgelöst, wenn die Methode aufgerufen wird, während eines Updates und die `Department` gefundene Übereinstimmungen Entität die `Department` Entität aktualisiert wird.
+Der Code Ruft eine Methode zum Suchen der Datenbank für eine `Department` Entität mit dem gleichen `Administrator` Eigenschaftswert als die Entität eingefügt oder aktualisiert wird. Wenn eine gefunden wird, löst der Code eine Ausnahme aus. Keine Überprüfung ist erforderlich, wenn die Entität eingefügt oder aktualisiert werden keine `Administrator` Wert und keine Ausnahme wird ausgelöst, wenn die Methode aufgerufen wird, während einer Aktualisierung und die `Department` Entität Übereinstimmungen gefunden der `Department` Entität aktualisiert wird.
 
-Rufen Sie die neue Methode aus der `Insert` und `Update` Methoden:
+Rufen Sie die neue Methode über die `Insert` und `Update` Methoden:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample9.cs)]
 
@@ -164,33 +163,33 @@ In *SchoolRepository.cs*, fügen Sie die folgenden `using` Anweisung:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample11.cs)]
 
-In *SchoolRepository.cs*, fügen Sie die folgenden neuen Datenzugriffs-Methode:
+In *SchoolRepository.cs*, fügen Sie die folgende neue Datenzugriffs-Methode hinzu:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample12.cs)]
 
-Dieser Code ruft `Department` Entitäten, die einen angegebenen Administrator haben. Nur eine Abteilung sollten (sofern vorhanden) wurde gefunden. Da jedoch keine Einschränkung in die Datenbank integriert ist, ist der Rückgabetyp eine Auflistung für den Fall, dass mehrere Abteilungen gefunden werden.
+Dieser Code ruft `Department` Entitäten, die einen angegebenen Administrator haben. Nur eine Abteilung sollten (sofern vorhanden) wurde gefunden. Aber da keine Einschränkung in der Datenbank erstellt wurde, ist der Rückgabetyp eine Auflistung für den Fall, dass mehrere Abteilungen gefunden werden.
 
-Standardmäßig Wenn für der Objektkontext Entitäten aus der Datenbank abgerufen werden der nachverfolgt es diese in seiner Objektstatus-Manager. Die `MergeOption.NoTracking` Parameter gibt an, dass diese Überwachung für diese Abfrage nicht ausgeführt werden wird. Dies ist erforderlich, da die Abfrage die genaue Entität zurückgeben kann, die Sie aktualisieren möchten, und klicken Sie dann Sie nicht diese Entität angefügt. Angenommen, Sie bearbeiten die Abteilung der Verlauf der *Departments.aspx* Seite und der Administrator unverändert verlassen, wird diese Abfrage den Verlauf Abteilung zurückgeben. Wenn `NoTracking` ist nicht festgelegt ist, wird der Objektkontext müsste bereits Entität Department "Verlauf" in der Objektstatus-Manager. Und wenn Sie die Versionsgeschichte Abteilung Entität, die aus dem Ansichtszustand neu erstellt wird anfügen, der Objektkontext eine Ausnahme auslöst, die besagt, `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
+In der Standardeinstellung, wenn der Objektkontext Entitäten aus der Datenbank abruft verfolgt des sie sie in der Objektstatus-Manager. Die `MergeOption.NoTracking` Parameter gibt an, dass diese nachverfolgung für diese Abfrage nicht ausgeführt werden wird. Dies ist erforderlich, da die Abfrage die genaue Entität zurückgeben kann, die Sie aktualisieren möchten, und klicken Sie dann Sie nicht diese Entität anfügen können. Angenommen, Sie bearbeiten, dass die Abteilung der Verlauf der *Departments.aspx* Seite und der Administrator unverändert lassen, gibt diese Abfrage die Verlaufs-Abteilung. Wenn `NoTracking` ist nicht festgelegt ist, wird der Objektkontext müsste bereits die Verlaufs-Entität "Department" in einen Objekt-Zustands-Manager. Und wenn Sie die abteilungsentität Verlauf, die aus dem Ansichtszustand neu erstellt wird anfügen, der Objektkontext eine Ausnahme auslösen würde, die besagt, `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
 
-(Alternativ mit der Angabe von `MergeOption.NoTracking`, können Sie einem neuen Objektkontext nur für diese Abfrage erstellen. Da die neuen Objektkontext eigene Objektstatus-Manager verfügen würde, wäre kein Konflikt beim Aufrufen der `Attach` Methode. Neuen Objektkontext würde Metadaten und datenbankverbindung mit dem ursprünglichen Objektkontext freigeben, damit Leistungseinbuße von diesem alternativen Ansatz minimiert werden würde. Die hier gezeigte Ansatz führt jedoch die `NoTracking` option müssen Sie in anderen Kontexten hilfreich. Die `NoTracking` Option erläutert wird in einem späteren Lernprogramm dieser Reihe weiterer.)
+(Als Alternative zum Angeben von `MergeOption.NoTracking`, können Sie einem neuen Objektkontext nur für diese Abfrage erstellen. Da die neuen Objektkontext eine eigene Objektstatus-Manager einrichten möchten, wäre kein Konflikt beim Aufrufen der `Attach` Methode. Die neuen Objektkontext teilten Metadaten und die Datenbank mit dem ursprünglichen Objektkontext dieser Alternativen Vorgehensweise die Leistungseinbußen durch minimale wäre. Der hier gezeigte Ansatz führt jedoch die `NoTracking` option, die in anderen Kontexten nützlich finden Sie. Die `NoTracking` Option erläutert wird weiter unten in einem späteren Tutorial dieser Reihe.)
 
-Fügen Sie im Testprojekt befindet, die neue Datenzugriffs-Methode *MockSchoolRepository.cs*:
+Fügen Sie in das Testprojekt, und die neue Datenzugriffs-Methode *MockSchoolRepository.cs*:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample13.cs)]
 
-Dieser Code verwendet LINQ, um die gleichen Datenauswahl auszuführen, die die `ContosoUniversity` Projekt Repository verwendet LINQ to Entities für.
+Dieser Code verwendet LINQ, um die Datenauswahl der gleichen durchführen, die die `ContosoUniversity` projektrepository verwendet LINQ to Entities für.
 
 Führen Sie das Testprojekt erneut aus. Dieses Mal werden die Tests bestanden.
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image17.png)
 
-## <a name="handling-objectdatasource-exceptions"></a>Behandeln von Ausnahmen ObjectDataSource
+## <a name="handling-objectdatasource-exceptions"></a>Behandeln von Ausnahmen von "ObjectDataSource"
 
-In der `ContosoUniversity` Projekt, und führen Sie die *Departments.aspx* Seite, und versuchen Sie, die der Administrator für eine Abteilung an eine Person zu ändern, der bereits für eine andere Abteilung ist. (Beachten Sie, dass Sie nur Abteilungen, die Sie im Verlauf dieses Lernprogramms hinzugefügt bearbeiten können, da die Datenbank mit ungültigen Daten vorab geladene geschaltet wurde.) Sie erhalten die folgende Server-Fehlerseite:
+In der `ContosoUniversity` Projekt, und führen Sie die *Departments.aspx* Seite, und versuchen Sie, die der Administrator für eine Abteilung an eine Person zu ändern, die bereits einer anderen Abteilung-Administrator ist. (Beachten Sie, dass Sie nur Abteilungen, die Sie im Verlauf dieses Lernprogramms hinzugefügt bearbeiten können, da die Datenbank mit ungültigen Daten vorab geladen wird.) Sie erhalten eine die folgenden Seite der Server-Fehler:
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image19.png)
 
-Sie möchten schließlich nicht Benutzer sehen diese Art von Fehler (Seite), damit Sie Fehlerbehandlungscode hinzufügen müssen. Open *Departments.aspx* , und geben Sie einen Handler für das `OnUpdated` -Ereignis für die `DepartmentsObjectDataSource`. Die `ObjectDataSource` öffnungstag jetzt ähnelt dem folgenden Beispiel.
+Sie möchten nicht die Benutzer sehen diese Art von Fehler (Seite), müssen Sie Fehlerbehandlungscode hinzufügen. Open *Departments.aspx* , und geben Sie einen Handler für die `OnUpdated` Ereignis die `DepartmentsObjectDataSource`. Die `ObjectDataSource` öffnungstag jetzt das folgende Beispiel ähnelt.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample14.aspx)]
 
@@ -198,17 +197,17 @@ In *Departments.aspx.cs*, fügen Sie die folgenden `using` Anweisung:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample15.cs)]
 
-Fügen Sie den folgenden Ereignishandler für das `Updated` Ereignis:
+Fügen Sie den folgenden Ereignishandler für die `Updated` Ereignis:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample16.cs)]
 
-Wenn die `ObjectDataSource` Steuerelement wird eine Ausnahme abgefangen, wenn er versucht, das Update durchzuführen, übergibt die Ausnahme im Ereignisargument (`e`), die diesem Handler. Der Code im Ereignishandler überprüft, um festzustellen, ob die Ausnahme, die doppelte Administrator-Ausnahme ist. Wenn dies der Fall, wird der Code erstellt ein Validator-Steuerelement, das für eine Fehlermeldung enthält den `ValidationSummary` -Steuerelement zum Anzeigen.
+Wenn die `ObjectDataSource` Steuerelement wird eine Ausnahme abgefangen, wenn er versucht, das Update auszuführen, die er übergibt die Ausnahme im Ereignisargument (`e`), die diesem Handler. Der Code im Ereignishandler überprüft, um festzustellen, ob die Ausnahme, die doppelte Administrator-Ausnahme ist. Wenn es sich handelt, wird der Code erstellt ein Validator-Steuerelement, das für eine Fehlermeldung enthält die `ValidationSummary` -Steuerelement angezeigt.
 
-Führen Sie die Seite, und versuchen Sie damit eine Person den Administrator zwei Abteilungen wieder. Dieses Mal die `ValidationSummary` Steuerelement zeigt eine Fehlermeldung an.
+Führen Sie die Seite, und versuchen Sie, eine Person wieder den Administrator zwei Abteilungen zu machen. Dieses Mal die `ValidationSummary` Steuerelement wird eine Fehlermeldung angezeigt.
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image21.png)
 
-Nehmen Sie ähnliche Änderungen an der *DepartmentsAdd.aspx* Seite. In *DepartmentsAdd.aspx*, geben Sie einen Handler für das `OnInserted` -Ereignis für die `DepartmentsObjectDataSource`. Das resultierende Markup wird im folgende Beispiel ähneln.
+Nehmen Sie ähnliche Änderungen an der *DepartmentsAdd.aspx* Seite. In *DepartmentsAdd.aspx*, geben Sie einen Handler für die `OnInserted` Ereignis die `DepartmentsObjectDataSource`. Das daraus resultierende Markup wird im folgende Beispiel ähneln.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample17.aspx)]
 
@@ -220,11 +219,11 @@ Fügen Sie den folgenden Ereignishandler hinzu:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample19.cs)]
 
-Sie können jetzt testen der *DepartmentsAdd.aspx.cs* Seite, um sicherzustellen, dass sie versuchen, eine Person mehrere Abteilung Administratorberechtigungen auch ordnungsgemäß behandelt.
+Sie können nun testen der *DepartmentsAdd.aspx.cs* Seite, um sicherzustellen, dass sie auch richtig versucht, eine Person mehr als eine Abteilung ernennen behandelt.
 
-Dies schließt die Einführung zum Implementieren des Repositorymusters für die Verwendung der `ObjectDataSource` Steuerelement mit dem Entity Framework. Weitere Informationen zu den Repository-Muster und die Prüfbarkeit finden Sie im MSDN-Whitepaper [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
+Dies schließt die Einführung zum Implementieren der Repositorymuster für die Verwendung der `ObjectDataSource` Steuerelement mit dem Entity Framework. Weitere Informationen über die Repository-Muster und testbarkeit finden Sie im MSDN-Whitepaper [Prüfbarkeit und Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
-Im folgenden Lernprogramm sehen Sie, wie Sortier- und Filterfunktionen zur Anwendung hinzugefügt werden.
+Im folgenden Tutorial sehen Sie das Hinzufügen von Sortier- und Filterfunktionen zur Anwendung.
 
 > [!div class="step-by-step"]
 > [Zurück](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)

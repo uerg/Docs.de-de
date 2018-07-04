@@ -1,105 +1,104 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
-title: 'Teil 4: Auflisten von Produkten | Microsoft Docs'
+title: 'Teil 4: Auflisten von Produkten | Microsoft-Dokumentation'
 author: JoeStagner
-description: Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 deckt Auflisten von Produkten mit der GridView Vertr....
+description: Dieser tutorialreihe werden alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 enthält die Auflistung von Produkten mit der GridView-Vertr....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 929d88d747c25ca7c4f6f991421cb3aa9456aa45
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881063"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368808"
 ---
-<a name="part-4-listing-products"></a>Teil 4: Angebot Produkte
+<a name="part-4-listing-products"></a>Teil 4: Auflistung von Produkten
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks wird veranschaulicht, wie außergewöhnlich einfache ist die leistungsstarke, skalierbare Anwendungen für .NET-Plattform zu erstellen. Es wird gezeigt, aus wie die hervorragenden neuen Funktionen in ASP.NET 4 mit um einen Onlineshop, einschließlich Warenkorb, Auschecken und Verwaltung zu erstellen.
+> Tailspin Spyworks wird veranschaulicht, wie außerordentlich einfach es ist, erstellen Sie leistungsstarke, skalierbare Anwendungen für die .NET-Plattform. Es wird gezeigt, aus wie die hervorragenden neuen Funktionen in ASP.NET 4 zu verwenden, um eine online-Store, einschließlich der Warenkorb, Auschecken und Verwaltung zu erstellen.
 > 
-> Diese Reihe von Lernprogrammen sind alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 werden die Produkte Angebot des GridView-Steuerelements behandelt.
+> Dieser tutorialreihe werden alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 enthält die Auflistung von Produkten mit GridView-Steuerelement.
 
 
-## <a id="_Toc260221670"></a>  Auflisten von Produkten mit des GridView-Steuerelements
+## <a id="_Toc260221670"></a>  Auflistung von Produkten mit GridView-Steuerelement
 
-Fangen wir implementieren unsere ProductsList.aspx-Seite "Mit der rechten Maustaste auf" auf unserer Projektmappe, und wählen "Hinzufügen" und "Neues Element".
+Auf unserer Lösung und dann "Hinzufügen" und "Neues Element" Implementieren von unserer Seite ProductsList.aspx "Rechten Maustaste auf den" beginnen.
 
 ![](tailspin-spyworks-part-4/_static/image1.jpg)
 
-Wählen Sie "Web Form mithilfe Masterseite", und geben Sie einen Seitennamen ProductsList.aspx".
+Wählen Sie "Web Form mithilfe von Masterseite", und geben Sie einen Seitennamen ProductsList.aspx".
 
 Klicken Sie auf "Hinzufügen".
 
 ![](tailspin-spyworks-part-4/_static/image2.jpg)
 
-Als nächstes wählen Sie den Ordner "Formatvorlagen", in dem wir die Site.Master-Seite platziert, und wählen Sie ihn aus dem Fenster "Inhalt des Ordners".
+Als nächstes wählen Sie den "Stile"-Ordner, in dem wir die Site.Master-Seite platziert, und wählen Sie ihn in das Fenster "Inhalt des Ordners".
 
 ![](tailspin-spyworks-part-4/_static/image3.jpg)
 
 Klicken Sie auf "Ok", um die Seite zu erstellen.
 
-Die Datenbank wird mit Produktdaten aufgefüllt, wie unten dargestellt.
+Unsere Datenbank wird mit Produktdaten aufgefüllt, wie unten dargestellt.
 
 ![](tailspin-spyworks-part-4/_static/image4.jpg)
 
-Nach der Erstellung unserer Seite wir eine Datenquelle für die Entität erneut Zugriff auf diese Produktdaten verwenden, aber in diesem Fall müssen wir die Product-Entitäten auswählen, und wir müssen Sie die Elemente begrenzen, die zurückgegeben werden, um nur die für die ausgewählte Kategorie.
+Nach der Erstellung unserer Seite verwenden wir erneut eine Datenquelle für die Entität auf die Produktdaten zugreifen, aber in diesem Fall müssen wir die Product-Entitäten auswählen, und wir müssen die Elemente einzuschränken, um nur die für die ausgewählte Kategorie zurückgegeben werden.
 
-Um dies zu erreichen erfahren EntityDataSource zum automatischen Generieren der WHERE-Klausel aus, und geben wir die WhereParameter.
+Um dies zu erreichen wir verraten EntityDataSource zum automatischen Generieren der WHERE-Klausel aus, und wir legen die WhereParameter.
 
-Beachten Sie, dass bei der Menüelemente in unserem "Product Category-Menü" erstellt haben wir dynamisch den Link erstellt die Abfragezeichenfolge für jeden Link der CatagoryID hinzugefügt wird. Wir werden diesen QueryString-Parameter den WHERE-Parameter Ableiten der Entität-Datenquelle informieren.
+Sie erinnern sich, dass beim Erstellen der Menüelemente in unsere "Product Category-Menü" Wir dynamisch die Verknüpfung erstellt die Abfragezeichenfolge für jeden Link der CatagoryID hinzugefügt. Es informiert, dass der Entity-Datenquelle, QueryString-Parameter den WHERE-Parameter abgeleitet.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample1.aspx)]
 
-Konfigurieren Sie anschließend das ListView-Steuerelement, um eine Liste von Produkten anzuzeigen. Um eine optimale Leistung Warenkorb erstellen wir mehrere präzise Funktionen in jedes einzelne Produkt angezeigt, in unserem ListVew komprimiert werden.
+Als Nächstes konfigurieren wir das ListView-Steuerelement, um eine Liste von Produkten anzuzeigen. Um eine optimale Einkaufserlebnis erstellen wir mehrere präzise Funktionen in jedes einzelne Produkt angezeigt, in unserem ListVew komprimiert werden.
 
-- Der Produktname wird ein Link auf der Produkt-Detailansicht sein.
-- Das Produkt Preis wird angezeigt.
-- Ein Bild des Produkts angezeigt, und wir dynamisch wähle das Image aus einem Katalog-Images-Verzeichnis in der vorliegenden Anwendung.
-- Es enthält einen Link, um sofort des bestimmten Produkts zum Einkaufswagen hinzufügen.
+- Der Name des Produkts werden ein Link zur Detailansicht des Produkts.
+- Den Preis des Produkts wird angezeigt.
+- Ein Bild des Produkts wird angezeigt, und dynamisch wähle das Image aus einer Katalog-Bildverzeichnis in unserer Anwendung.
+- Es enthält einen Link, um sofort das jeweiligen Produkt zum Einkaufswagen hinzuzufügen.
 
-Im folgenden wird das Markup für die gegebene Instanz des ListView-Steuerelement.
+Hier ist das Markup für die gegebene Instanz des ListView-Steuerelement.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample2.aspx)]
 
 Dynamisch erstellen wir einige Links für die einzelnen Produkte angezeigt werden.
 
-Bevor wir eigenen neuen Seite testen müssen wir darüber hinaus die Verzeichnisstruktur für das Produkt Katalog-Images erstellen, die wie folgt.
+Bevor wir eigene neue Seite testen müssen wir darüber hinaus die Verzeichnisstruktur für das Produkt Katalog-Images erstellen, die wie folgt.
 
 ![](tailspin-spyworks-part-4/_static/image1.png)
 
-Nach unserer Produktbilder zugegriffen werden können wir unser Produkt Listenseite testen.
+Sobald unser Produktbilder zugegriffen werden kann, können wir unsere Produktseite für die Liste testen.
 
 ![](tailspin-spyworks-part-4/_static/image5.jpg)
 
-Homepage der Website klicken Sie auf einen der Links Liste Kategorie.
+Klicken Sie auf einen der Links die Kategorie-Liste, auf der Startseite der Website.
 
 ![](tailspin-spyworks-part-4/_static/image6.jpg)
 
-Nun müssen wir die Seite "ProductDetials.apsx" und die AddToCart-Funktionalität zu implementieren.
+Jetzt müssen wir die ProductDetials.apsx-Seite und die AddToCart-Funktionalität zu implementieren.
 
-Mithilfe des Datei -&gt;neu erstellen Sie einen Seitennamen ProductDetails.aspx über Website für die Gestaltungsvorlage aus, wie zuvor.
+Verwenden Sie Datei -&gt;neu, um einen Seitennamen ProductDetails.aspx mithilfe der Website-Masterseite, wie schon zuvor zu erstellen.
 
-Wir verwenden erneut EntityDataSource-Steuerelement, um den bestimmten Produktdatensatz in der Datenbank zugreifen, und verwenden wir ein ASP.NET FormView-Steuerelement zum Anzeigen von der Produktdaten wie folgt.
+Verwenden wir erneut einen EntityDataSource-Steuerelement auf den bestimmten Produktdatensatz in der Datenbank zugreifen, und wir verwenden ein ASP.NET FormView-Steuerelement, um die Produktdaten wie folgt anzeigen.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample3.aspx)]
 
-Machen Sie sich keine Gedanken Sie, wenn die Formatierung für Sie ein wenig seltsam aussieht. Das Markup oben verlässt Platz im Anzeigelayout für eine Reihe von Funktionen, die wir später implementieren.
+Machen Sie sich keine Gedanken Sie, wenn die Formatierung für Sie ein wenig seltsam aussieht. Das Markup oben bleibt Platz im Anzeigelayout für eine Reihe von Features, die wir später implementiert werden.
 
-Der Einkaufswagen repräsentiert die komplexere Logik in der vorliegenden Anwendung. Um zu beginnen, mithilfe des Datei -&gt;neu zum Erstellen eines Seitenblob MyShoppingCart.aspx aufgerufen.
+Der Warenkorb stellt die komplexere Logik in unserer Anwendung dar. Verwenden Sie zum Einstieg Dateien&gt;neu, um eine Seite mit dem MyShoppingCart.aspx zu erstellen.
 
-Beachten Sie, dass wir den Namen ShoppingCart.aspx nicht auswählen.
+Beachten Sie, dass wir nicht den Namen ShoppingCart.aspx auswählen.
 
-Die Datenbank enthält eine Tabelle mit dem Namen "ShoppingCart". Wenn wir ein Entity Data Model generiert wurde eine Klasse für jede Tabelle in der Datenbank erstellt. Das Entity Data Model generiert daher eine Entitätsklasse, die mit dem Namen "ShoppingCart". Wir konnten das Modell bearbeiten, sodass konnten wir verwenden Sie diesen Namen für unsere shopping Cart-Implementierung oder für unseren Anforderungen zu erweitern, aber wir stattdessen, wählen Sie einfach einen Namen, der den Konflikt zu vermeiden, wird deaktiviert wird.
+Unsere Datenbank enthält eine Tabelle namens "ShoppingCart". Wenn wir ein Entity Data Model generiert wurde eine Klasse für jede Tabelle in der Datenbank erstellt. Aus diesem Grund generiert der Entity Data Model eine Entitätsklasse, die mit dem Namen "ShoppingCart". Es konnte das Modell bearbeitet werden, damit wir verwenden Sie diesen Namen für die shopping Cart-Implementierung oder für unsere Anforderungen erweitern können, aber entscheiden wir uns wird stattdessen, wählen Sie einfach einen Namen, der den Konflikt vermieden wird.
 
-Es ist auch Folgendes zu beachten, dass wir einen einfache Einkaufswagen erstellen und die shopping Cart-Logik mit shopping Cart-Anzeige einbetten. Es empfiehlt sich auch unsere warenkorbsoftware in einer vollständig separaten Business-Ebene zu implementieren.
+Es ist auch zu beachten Sie, dass wir einen einfachen Warenkorb erstellen und betten die shopping Cart-Logik, mit der shopping Cart-Anzeige. Wir können auch auswählen, unsere warenkorbsoftware in einer vollständig separaten Business-Ebene zu implementieren.
 
 > [!div class="step-by-step"]
 > [Zurück](tailspin-spyworks-part-3.md)

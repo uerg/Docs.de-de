@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/action-results
-title: Aktion führt in Web-API 2 | Microsoft Docs
+title: Dies führt Web-API 2 | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,43 +9,42 @@ ms.date: 02/03/2014
 ms.topic: article
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7726829ac9eba339ff3ac1c94c86132cb1090783
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036465"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395528"
 ---
 <a name="action-results-in-web-api-2"></a>Aktionsergebnisse in Web-API 2
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-In diesem Thema wird beschrieben, wie ASP.NET Web-API den Rückgabewert von eine Controlleraktion in einer HTTP-Antwort-Nachricht konvertiert.
+In diesem Thema wird beschrieben, wie ASP.NET Web-API den Rückgabewert von eine Controlleraktion in eine HTTP-Response-Nachricht konvertiert.
 
 Eine Controlleraktion der Web-API kann Folgendes zurückgeben:
 
 1. void
 2. **HttpResponseMessage**
 3. **IHttpActionResult**
-4. Ein anderer Typ
+4. Eine andere Art
 
-Je nachdem, welche davon wird zurückgegeben, Web-API einen anderen Mechanismus verwendet, um die HTTP-Antwort zu erstellen.
+Je nachdem, welche dieser zurückgegeben wird, Web-API einen anderen Mechanismus verwendet, um die HTTP-Antwort zu erstellen.
 
-| Rückgabetyp | Wie Web-API die Antwort erstellt |
+| Rückgabetyp | Wie die Antwort erstellt Web-API |
 | --- | --- |
-| void | Zurückgeben von leeren 204 (kein Inhalt) |
-| **HttpResponseMessage** | Konvertieren Sie direkt in ein HTTP-Antwortnachricht. |
-| **IHttpActionResult** | Rufen Sie **ExecuteAsync** zum Erstellen einer **HttpResponseMessage**, dann die Umstellung auf eine HTTP-Antwortnachricht. |
-| Andere Typ | Schreiben Sie den serialisierten Rückgabewert in den Antworttext. 200 (OK) zurück |
+| void | Leere 204 (No Content) zurückgeben |
+| **HttpResponseMessage** | Konvertieren Sie direkt in HTTP-Antwortnachricht. |
+| **IHttpActionResult** | Rufen Sie **ExecuteAsync** zum Erstellen einer **HttpResponseMessage**, dann in HTTP-Antwortnachricht zu konvertieren. |
+| Andere Art | Schreiben Sie den serialisierten Rückgabewert in den Antworttext. 200 (OK) zurück |
 
-Im weiteren Verlauf dieses Themas werden alle im Detail beschrieben.
+Im weiteren Verlauf dieses Themas wird jede Option ausführlicher beschrieben.
 
 ## <a name="void"></a>void
 
-Wenn der Rückgabetyp ist `void`, Web-API gibt einfach eine leere HTTP-Antwort mit dem Statuscode 204 (kein Inhalt).
+Wenn der Rückgabetyp ist `void`, Web-API gibt einfach eine leere HTTP-Antwort mit dem Statuscode 204 (No Content) zurück.
 
 Beispiel-Controller:
 
@@ -57,9 +56,9 @@ HTTP-Antwort:
 
 ## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Wenn die Aktion gibt eine [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web-API konvertiert den zurückgegeben Wert direkt in einen HTTP-Antwortnachricht mithilfe der Eigenschaften von der **HttpResponseMessage** zu füllende Objekt die Antwort.
+Wenn die Aktion gibt ein [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web-API konvertiert den Rückgabewert direkt in eine HTTP-Antwortnachricht mithilfe der Eigenschaften des der **HttpResponseMessage** zu füllende Objekt die die Antwort.
 
-Diese Option bietet Sie ein hohes Maß an Kontrolle über die Antwortnachricht. Beispielsweise legt die folgenden Controlleraktion Cache-Control-Headers.
+Diese Option erhalten Sie umfassende Kontrolle über die Response-Nachricht. Beispielsweise legt die folgende Controlleraktion Cache-Control-Headers.
 
 [!code-csharp[Main](action-results/samples/sample3.cs)]
 
@@ -67,27 +66,27 @@ Antwort:
 
 [!code-console[Main](action-results/samples/sample4.cmd?highlight=2)]
 
-Wenn Sie ein Domänenmodell, übergeben die **CreateResponse** -Methode, die Web-API verwendet einen [medienformatierer](../formats-and-model-binding/media-formatters.md) zum Schreiben des serialisierten Modells in den Antworttext.
+Wenn Sie ein Domänenmodell, übergeben die **CreateResponse** -Methode, die Web-API verwendet einen [medienformatierer](../formats-and-model-binding/media-formatters.md) das serialisierte Modell in den Antworttext schreiben.
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-Web-API verwendet die Accept-Header in der Anforderung, um den Formatierer auszuwählen. Weitere Informationen finden Sie unter [Inhaltsaushandlung](../formats-and-model-binding/content-negotiation.md).
+Web-API verwendet den Accept-Header in der Anforderung verwendet, um den Formatierer auszuwählen. Weitere Informationen finden Sie unter [Content Negotiation](../formats-and-model-binding/content-negotiation.md).
 
 ## <a name="ihttpactionresult"></a>IHttpActionResult
 
-Die **IHttpActionResult** Schnittstelle in Web-API 2 eingeführt wurde. Im Wesentlichen definiert ein **HttpResponseMessage** Factory. Hier sind einige Vorteile der Verwendung der **IHttpActionResult** Schnittstelle:
+Die **IHttpActionResult** -Schnittstelle wurde in der Web-API 2 eingeführt. Im Wesentlichen definiert es ein **HttpResponseMessage** Factory. Hier sind einige Vorteile der Verwendung der **IHttpActionResult** Schnittstelle:
 
-- Vereinfacht die [UnitTests](../testing-and-debugging/unit-testing-controllers-in-web-api.md) Controller.
-- Verschiebt die allgemeine Logik für das Erstellen von HTTP-Antworten in gesonderte Klassen.
-- Macht die Absicht Controlleraktion klarer, indem Sie die Details auf niedriger Ebene beim Erstellen der Antwort ausblenden an.
+- Vereinfacht die [Komponententests](../testing-and-debugging/unit-testing-controllers-in-web-api.md) Ihren Controllern.
+- Verschiebt die allgemeine Logik für das Erstellen von HTTP-Antworten in separate Klassen.
+- Macht die Absicht der Controlleraktion klarer, durch das Ausblenden der Details auf niedriger Ebene, der die Antwort zu erstellen.
 
-**IHttpActionResult** enthält eine einzelne Methode **ExecuteAsync**, erstellt der asynchron eine **HttpResponseMessage** Instanz.
+**IHttpActionResult** enthält eine einzelne Methode, **ExecuteAsync**, erstellt der asynchron eine **HttpResponseMessage** Instanz.
 
 [!code-csharp[Main](action-results/samples/sample6.cs)]
 
-Wenn eine Controlleraktion zurückgibt ein **IHttpActionResult**, Web-API-Aufrufe der **ExecuteAsync** Methode zum Erstellen einer **HttpResponseMessage**. Er konvertiert die **HttpResponseMessage** in eine HTTP-Antwortnachricht gesendet.
+Wenn eine Controlleraktion zurückgibt ein **IHttpActionResult**, Web-API-Aufrufe der **ExecuteAsync** Methode zum Erstellen einer **HttpResponseMessage**. Anschließend konvertiert der **HttpResponseMessage** in HTTP-Antwortnachricht.
 
-Hier ist eine einfache Erfassungsgruppen des **IHttpActionResult** , der eine nur-Text-Antwort erstellt:
+Hier ist eine einfache Erfassungsgruppen des **IHttpActionResult** eine nur-Text-Antwort erstellt:
 
 [!code-csharp[Main](action-results/samples/sample7.cs)]
 
@@ -99,21 +98,21 @@ Antwort:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Je öfter, verwenden Sie die **IHttpActionResult** Implementierungen, die definiert, der  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  Namespace. Die **ApiController** Klasse definiert Hilfsmethoden, die diese integrierte Aktionsergebnisse zurückgeben.
+Häufiger, verwenden Sie die **IHttpActionResult** Implementierungen, die definiert, der **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** Namespace. Die **ApiController** -Klasse definiert Hilfsmethoden, die diese integrierte Aktionsergebnisse zurückgeben.
 
-Im folgenden Beispiel die Anforderung eine vorhandenes Produkt-ID stimmt nicht überein der Controller aufruft [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) zum Erstellen einer Antwort 404 (Nichtgefunden). Der Controller, andernfalls ruft [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), die eine Antwort mit 200 (OK), erstellt das Produkt enthält.
+Im folgenden Beispiel, wenn die Anforderung keine vorhandenen Produkt-ID übereinstimmt der Controller ruft [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) zum Erstellen einer 404 (nicht gefunden). Der Controller, andernfalls ruft [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), die einer Antwort 200 (OK), erstellt das Produkt enthält.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 
 ## <a name="other-return-types"></a>Andere Rückgabetypen
 
-Für alle anderen Rückgabetypen Web-API verwendet einen [medienformatierer](../formats-and-model-binding/media-formatters.md) zum Serialisieren des Rückgabewerts. Web-API schreibt den serialisierten Wert in den Antworttext. Statuscode der Antwort ist 200 (OK).
+Für alle anderen Rückgabetypen, Web-API verwendet einen [medienformatierer](../formats-and-model-binding/media-formatters.md) zum Serialisieren des zurückgegeben Wert. Web-API schreibt den serialisierten Wert in den Antworttext. Statuscode der Antwort ist 200 (OK).
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-Ein Nachteil dieses Ansatzes ist, dass Sie direkt einen Fehlercode, z. B. 404 zurückgeben können. Sie können jedoch Auslösen einer **HttpResponseException** für Fehlercodes. Weitere Informationen finden Sie unter [Exception Handling in ASP.NET Web API](../error-handling/exception-handling.md).
+Ein Nachteil dieses Ansatzes ist, dass Sie direkt einen Fehlercode, z. B. 404 zurückgeben können. Sie können jedoch Folgendes Auslösen einer **HttpResponseException** Fehlercodes. Weitere Informationen finden Sie unter [Exception Handling in ASP.NET Web-API](../error-handling/exception-handling.md).
 
-Web-API verwendet die Accept-Header in der Anforderung, um den Formatierer auszuwählen. Weitere Informationen finden Sie unter [Inhaltsaushandlung](../formats-and-model-binding/content-negotiation.md).
+Web-API verwendet den Accept-Header in der Anforderung verwendet, um den Formatierer auszuwählen. Weitere Informationen finden Sie unter [Content Negotiation](../formats-and-model-binding/content-negotiation.md).
 
 Beispiel für eine Anforderung
 

@@ -1,56 +1,55 @@
 ---
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
-title: Komponententests für SignalR-Anwendungen | Microsoft Docs
+title: Komponententests für SignalR-Anwendungen | Microsoft-Dokumentation
 author: pfletcher
-description: Dieser Artikel beschreibt, wie die Komponententest-Features von SignalR 2.0.
+description: Dieser Artikel beschreibt, wie Sie die Unit Testing-Funktionen von SignalR 2.0 zu verwenden.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
 ms.topic: article
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b058e8a05e50c2841b6272743f00dcd5b73b1460
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870842"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366186"
 ---
-<a name="unit-testing-signalr-applications"></a>Einheit Testen von SignalR-Anwendungen
+<a name="unit-testing-signalr-applications"></a>Komponententests für SignalR-Anwendungen
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
 
-> Dieser Artikel beschreibt die Verwendung der Funktionen UnitTests von SignalR-2. 
+> In diesem Artikel wird beschrieben, mit den Komponententest-Features von SignalR 2. 
 > 
-> ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - .NET 4.5
-> - SignalR Version 2
+> - SignalR-Version 2
 >   
 > 
 > 
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
 > 
-> Lassen Sie Sie Feedback auf wie in diesem Lernprogramm mögen und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
+> Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
 <a id="unit"></a>
 ## <a name="unit-testing-signalr-applications"></a>Komponententests für SignalR-Anwendungen
 
-Die Einheit Test-Funktionen können in SignalR 2 Sie um Komponententests für die SignalR-Anwendung zu erstellen. SignalR 2 umfasst die [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) -Schnittstelle, die zum Erstellen einer simulierten-Objekt, um Ihre hubmethoden zu Testzwecken simulieren verwendet werden kann.
+Sie können die Komponententestfunktionen in SignalR 2 verwenden, um Komponententests für Ihre SignalR-Anwendung zu erstellen. SignalR 2 enthält die [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) -Schnittstelle, die verwendet werden kann, um ein mock-Objekt zum Simulieren von Ihrem hubmethoden für das Testen zu erstellen.
 
-In diesem Abschnitt fügen Sie Komponententests für die Anwendung in der [Getting Started Tutorial](../getting-started/tutorial-getting-started-with-signalr.md) mit [XUnit.net](https://github.com/xunit/xunit) und [Moq](https://github.com/Moq/moq4).
+In diesem Abschnitt fügen Sie Komponententests für die Anwendung erstellt, der [Tutorials: Erste Schritte](../getting-started/tutorial-getting-started-with-signalr.md) mit [XUnit.net](https://github.com/xunit/xunit) und [Moq](https://github.com/Moq/moq4).
 
-XUnit.net wird verwendet werden, um den Test zu steuern. Moq verwendet werden, erstellen Sie eine [modellieren](http://en.wikipedia.org/wiki/Mock_object) Objekt zum Testen. Andere Mockframeworks können verwendet werden, falls gewünscht. [NSubstitute](http://nsubstitute.github.io/) ist auch eine gute Wahl. Dieses Lernprogramm veranschaulicht, wie die simulierte Objekt auf zwei Arten eingerichtet: zunächst mithilfe einer `dynamic` Objekt (eingeführt in .NET Framework 4) und der Sekunde, mit einer Schnittstelle.
+XUnit.net dienen zum Steuern des Tests; Moq wird zum Erstellen einer [simulieren](http://en.wikipedia.org/wiki/Mock_object) Objekt zum Testen. Anderen Mockframeworks können verwendet werden, falls gewünscht. [NSubstitute](http://nsubstitute.github.io/) ist auch eine gute Wahl. In diesem Tutorial wird veranschaulicht, wie das mock-Objekt auf zwei Arten einrichten: zunächst mithilfe einer `dynamic` Objekt (eingeführt in .NET Framework 4) und dann mithilfe einer Schnittstelle.
 
 ### <a name="contents"></a>Inhalt
 
-Dieses Lernprogramm enthält die folgenden Abschnitte.
+In diesem Tutorial enthält die folgenden Abschnitte.
 
 - [Komponententests mit dynamischen](#dynamic)
 - [Komponententests, die nach Typ](#type)
@@ -58,57 +57,57 @@ Dieses Lernprogramm enthält die folgenden Abschnitte.
 <a id="dynamic"></a>
 ### <a name="unit-testing-with-dynamic"></a>Komponententests mit dynamischen
 
-In diesem Abschnitt fügen Sie einen Komponententest für die Anwendung in der [Getting Started Tutorial](../getting-started/tutorial-getting-started-with-signalr.md) ein dynamisches Objekt verwenden.
+In diesem Abschnitt fügen Sie einen Komponententest für die Anwendung erstellt, der [Tutorials: Erste Schritte](../getting-started/tutorial-getting-started-with-signalr.md) ein dynamisches Objekt verwenden.
 
-1. Installieren der [XUnit Runner Erweiterung](https://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099) für Visual Studio 2013.
-2. Entweder ist zum Abschließen der [Getting Started Tutorial](../getting-started/tutorial-getting-started-with-signalr.md), oder Herunterladen die fertigen Anwendung von [MSDN Code Gallery](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9).
-3. Öffnen Sie bei Verwendung der Downloadversion der Anwendung Einstieg **Package Manager Console** , und klicken Sie auf **wiederherstellen** des SignalR-Pakets zum Projekt hinzufügen.
+1. Installieren Sie die [XUnit Runner Erweiterung](https://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099) für Visual Studio 2013.
+2. Entweder ist zum Abschließen der [Tutorials: Erste Schritte](../getting-started/tutorial-getting-started-with-signalr.md), oder die fertige Anwendung herunterladen [MSDN Code Gallery](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9).
+3. Wenn Sie die Download-Version erste Schritte-Anwendung verwenden, öffnen Sie **-Paket-Manager-Konsole** , und klicken Sie auf **wiederherstellen** das SignalR-Paket zum Projekt hinzufügen.
 
-    ![Stellen Sie die Pakete wieder her.](unit-testing-signalr-applications/_static/image1.png)
-4. Fügen Sie ein Projekt der Projektmappe für den Komponententest aus. Mit der rechten Maustaste in der Projektmappe in **Projektmappen-Explorer** , und wählen Sie **hinzufügen**, **neues Projekt...** . Klicken Sie unter der **c#** Knoten, wählen die **Windows** Knoten. Wählen Sie **-Klassenbibliothek**. Nennen Sie das neue Projekt **TestLibrary** , und klicken Sie auf **OK**.
+    ![Wiederherstellen von Paketen](unit-testing-signalr-applications/_static/image1.png)
+4. Fügen Sie ein Projekt der Projektmappe für den Komponententest aus. Mit der rechten Maustaste in der Projektmappe in **Projektmappen-Explorer** , und wählen Sie **hinzufügen**, **neues Projekt...** . Unter den **c#** Knoten die **Windows** Knoten. Wählen Sie **Klassenbibliothek**. Nennen Sie das neue Projekt **Testbibliothek** , und klicken Sie auf **OK**.
 
     ![Erstellen Sie die Bibliothek für das Testen](unit-testing-signalr-applications/_static/image2.png)
-5. Fügen Sie einen Verweis auf das Projekt SignalRChat im Test-Klassenbibliotheksprojekt. Mit der rechten Maustaste die **TestLibrary** Projekt, und wählen Sie **hinzufügen**, **Verweis...** . Wählen Sie die **Projekte** unter Knoten die **Lösung** Knoten, und aktivieren Sie **SignalRChat**. Klicken Sie auf **OK**.
+5. Fügen Sie einen Verweis auf das Projekt SignalRChat im Testprojekt-Bibliothek. Mit der rechten Maustaste die **Testbibliothek** Projekt, und wählen **hinzufügen**, **Verweis...** . Wählen Sie die **Projekte** unter den Knoten der **Lösung** Knoten, und überprüfen Sie **SignalRChat**. Klicken Sie auf **OK**.
 
-    ![Fügen Sie Projektverweis hinzu](unit-testing-signalr-applications/_static/image3.png)
-6. Hinzufügen der Pakete SignalR Moq und XUnit, um die **TestLibrary** Projekt. In der **Package Manager Console**legen die **Projekt standardmäßig** Dropdownliste zu **TestLibrary**. Führen Sie die folgenden Befehle im Konsolenfenster angezeigt:
+    ![Projektverweis hinzufügen](unit-testing-signalr-applications/_static/image3.png)
+6. Fügen Sie die SignalR, Moq und XUnit-Pakete, die **Testbibliothek** Projekt. In der **-Paket-Manager-Konsole**legen die **Standardprojekt** Dropdownliste aus, um **Testbibliothek**. Führen Sie die folgenden Befehle im Konsolenfenster angezeigt:
 
    - `Install-Package Microsoft.AspNet.SignalR`
    - `Install-Package Moq`
    - `Install-Package XUnit`
 
      ![Installieren von Paketen](unit-testing-signalr-applications/_static/image4.png)
-7. Erstellen Sie die Testdatei. Mit der rechten Maustaste die **TestLibrary** Projekt, und klicken Sie auf **hinzufügen...** , **Klasse**. Benennen Sie die neue Klasse **Tests.cs**.
+7. Erstellen Sie die Testdatei. Mit der rechten Maustaste die **Testbibliothek** Projekt, und klicken Sie auf **hinzufügen...** , **Klasse**. Nennen Sie die neue Klasse **Tests.cs**.
 8. Ersetzen Sie den Inhalt der Tests.cs durch den folgenden Code ein.
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample1.cs)]
 
-    Im obigen Code wird ein Testclient erstellt, mit der `Mock` -Objekt aus der [Moq](https://github.com/Moq/moq4) Bibliothek des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typ Parameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen. Die `broadcastMessage` Funktion klicken Sie dann für den simulierten Client definiert, dass sie aufgerufen werden kann, indem Sie die `ChatHub` Klasse. Das Modul ruft dann die `Send` Methode der `ChatHub` -Klasse, die ihrerseits die mocked `broadcastMessage` Funktion.
+    Im obigen Code wird ein Testclient erstellt, mit der `Mock` -Objekt aus der [Moq](https://github.com/Moq/moq4) Bibliothek, die vom Typ [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR 2.1 `dynamic` für den Typ die Parameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen. Die `broadcastMessage` Funktion ist dann für den simulierten Client definiert, damit sie aufgerufen werden kann, indem die `ChatHub` Klasse. Die Test-Engine ruft dann die `Send` Methode der `ChatHub` -Klasse, die wiederum die simulierte aufruft, `broadcastMessage` Funktion.
 9. Erstellen Sie die Projektmappe durch Drücken von **F6**.
-10. Führen Sie den Komponententest aus. Wählen Sie in Visual Studio **Test**, **Windows**, **Test-Explorer**. Im Test-Explorer-Fenster mit der Maustaste **HubsAreMockableViaDynamic** , und wählen Sie **ausgewählte Tests ausführen**.
+10. Führen Sie den Komponententest aus. Wählen Sie in Visual Studio **Test**, **Windows**, **Test-Explorer**. Im Fenster Test-Explorers mit der Maustaste **HubsAreMockableViaDynamic** , und wählen Sie **ausgewählte Tests ausführen**.
 
     ![Test-Explorer](unit-testing-signalr-applications/_static/image5.png)
-11. Stellen Sie sicher, dass der Test erfolgreich war, überprüfen Sie den unteren Bereich im Test-Explorer-Fenster. Das Fenster zeigt, dass der Test erfolgreich war.
+11. Stellen Sie sicher, dass der Test erfolgreich war, anhand der im unteren Bereich im Test-Explorer-Fenster. Das Fenster wird angezeigt, das erfolgreiche Ergebnis.
 
     ![Bestandene Tests](unit-testing-signalr-applications/_static/image6.png)
 
 <a id="type"></a>
 ### <a name="unit-testing-by-type"></a>Komponententests, die nach Typ
 
-In diesem Abschnitt fügen Sie einen Test für die Anwendung erstellt, der [Getting Started Tutorial](../getting-started/tutorial-getting-started-with-signalr.md) über eine Schnittstelle, die die Methode, die zu testende enthält.
+In diesem Abschnitt fügen Sie einen Test für die Anwendung erstellt, der [Tutorials: Erste Schritte](../getting-started/tutorial-getting-started-with-signalr.md) mithilfe einer Schnittstelle, die die Methode, die getestet werden, enthält.
 
-1. Führen Sie die Schritte 1 bis 7 in die [Komponententests mit dynamischen](#dynamic) Lernprogramm oben.
+1. Führen Sie die Schritte 1 bis 7 in der [Unit testing mit dynamischen](#dynamic) oben genannten Tutorial.
 2. Ersetzen Sie den Inhalt der Tests.cs durch den folgenden Code ein.
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample2.cs)]
 
-    Im obigen Code wird eine Schnittstelle erstellt, die Signatur der Definition der `broadcastMessage` Methode für die vom Testmodul ein simulierten Clients erstellen. Ein simulierten Client wird dann mit erstellt die `Mock` Objekt des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR-2.1 `dynamic` für den Typparameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen.
+    Im obigen Code wird eine Schnittstelle erstellt, die Signatur der Definition der `broadcastMessage` Methode, die für die die Test-Engine einen mock-Client erstellen. Ein mock Client erstellt dann mithilfe der `Mock` Objekt des Typs [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (weisen Sie in SignalR 2.1 `dynamic` für den Parameter.) Die `IHubCallerConnectionContext` Schnittstelle ist das Proxyobjekt, mit denen Sie die Methoden auf dem Client aufrufen.
 
-    Der Test erstellt dann eine Instanz des `ChatHub`, und erstellt dann auf eine Pseudoversion des der `broadcastMessage` -Methode, die wiederum, durch Aufrufen aufgerufen wird der `Send` Methode auf dem Hub.
+    Der Test erstellt dann eine Instanz des `ChatHub`, und erstellt dann eine Pseudoversion des der `broadcastMessage` -Methode, die wiederum, durch den Aufruf aufgerufen wird der `Send` Methode auf dem Hub.
 3. Erstellen Sie die Projektmappe durch Drücken von **F6**.
-4. Führen Sie den Komponententest aus. Wählen Sie in Visual Studio **Test**, **Windows**, **Test-Explorer**. Im Test-Explorer-Fenster mit der Maustaste **HubsAreMockableViaDynamic** , und wählen Sie **ausgewählte Tests ausführen**.
+4. Führen Sie den Komponententest aus. Wählen Sie in Visual Studio **Test**, **Windows**, **Test-Explorer**. Im Fenster Test-Explorers mit der Maustaste **HubsAreMockableViaDynamic** , und wählen Sie **ausgewählte Tests ausführen**.
 
     ![Test-Explorer](unit-testing-signalr-applications/_static/image7.png)
-5. Stellen Sie sicher, dass der Test erfolgreich war, überprüfen Sie den unteren Bereich im Test-Explorer-Fenster. Das Fenster zeigt, dass der Test erfolgreich war.
+5. Stellen Sie sicher, dass der Test erfolgreich war, anhand der im unteren Bereich im Test-Explorer-Fenster. Das Fenster wird angezeigt, das erfolgreiche Ergebnis.
 
     ![Bestandene Tests](unit-testing-signalr-applications/_static/image8.png)

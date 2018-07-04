@@ -1,31 +1,30 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-data-part-1
-title: Arbeiten mit Daten (Teil 1) | Microsoft Docs
+title: Arbeiten mit Daten (Teil 1) | Microsoft-Dokumentation
 author: JoeStagner
-description: Video sinnvoll ergänzen, die die Arbeit mit Daten Lernprogramm (Teil 1)
+description: Video sinnvoll ergänzen das Arbeiten mit Daten Tutorial (Teil 1)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: ebeac83f-2bca-4225-899e-1687480476f6
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-data-part-1
 msc.type: video
-ms.openlocfilehash: fc9cb26366dfb34a4e1d4f97e39fdfcaa783c9a0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 27af02a1f57c1f5803863e01c5c22391d3cb9886
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894698"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395026"
 ---
 <a name="working-with-data-part-1"></a>Arbeiten mit Daten (Teil 1)
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-Video sinnvoll ergänzen, die die Arbeit mit Daten Lernprogramm (Teil 1)
+Video sinnvoll ergänzen das Arbeiten mit Daten Tutorial (Teil 1)
 
-[&#9654;Sehen Sie sich an (8 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-data-part-1)
+[&#9654;Sehen Sie sich Video (8 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-data-part-1)
 
 > [!div class="step-by-step"]
 > [Zurück](working-with-forms-part-2.md)

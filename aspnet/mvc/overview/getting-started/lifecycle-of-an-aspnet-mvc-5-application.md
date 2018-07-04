@@ -1,42 +1,41 @@
 ---
 uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
-title: Lebenszyklus einer ASP.NET MVC 5-Anwendung | Microsoft Docs
+title: Lebenszyklus einer ASP.NET MVC 5-Anwendung | Microsoft-Dokumentation
 author: cephalin
-description: Laden Sie ein PDF-Dokument, das den Lebenszyklus einer ASP.NET MVC 5-Anwendung Diagramme. Dieses Lebenszyklus-Dokument enthält eine allgemeine Ansicht des MVC-Lebenszyklus einer...
+description: Laden Sie ein PDF-Dokument, das den Lebenszyklus einer ASP.NET MVC 5-Anwendung Diagramme herunter. In diesem Dokument Lifecycle bietet einen allgemeinen Überblick über den MVC-Lebenszyklus einer...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/28/2014
 ms.topic: article
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50d58d10c11677fa72ede6a03e686cbde4cbae1d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 98735f2e04bdd0f2fec19524e59f6272dbc4ca57
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036491"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393914"
 ---
 <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>Lebenszyklus einer ASP.NET MVC 5-Anwendung
 ====================
 durch [Cephas Lin](https://github.com/cephalin)
 
-[Herunterladen von PDF-Dokument](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
+[Herunterladen der PDF-Dokument](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
 
-Hier können Sie ein PDF-Dokument herunterladen, die Diagramme, die der Lebenszyklus von jeder ASP.NET MVC 5-Anwendung empfängt die HTTP-Anforderung an die HTTP-Antwort senden an den Client zurück. Es dient sowohl als Bildungseinrichtung Tool für diejenigen, die in ASP.NET MVC vertraut sind, als auch als Referenz für die Benutzer einen Drilldown in bestimmte Aspekte der Anwendung ausführen müssen. Das PDF-Dokument hat die folgenden Funktionen:
+Hier können Sie eine PDF-Dokument herunterladen, die Diagramme, die der Lebenszyklus jeder ASP.NET MVC 5-Anwendung, empfängt die HTTP-Anforderung zum Senden der HTTP-Antwort an den Client zurück. Es dient sowohl als Bildungseinrichtungen Tool für diejenigen, die mit ASP.NET MVC vertraut sind, als auch als Referenz für diejenigen, die einen Drilldown in bestimmte Aspekte der Anwendung durchführen möchten. Das PDF-Dokument hat die folgenden Funktionen:
 
-- Relevante ["HttpApplication"](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) Stufen, um besser zu verstehen, in denen mit MVC integriert ist die [ASP.NET Anwendungslebenszyklus](https://msdn.microsoft.com/library/bb470252.aspx).
-- Einen allgemeinen Überblick des Lebenszyklus der MVC-Anwendung, das, in dem Sie die wichtigen Phasen verstehen können, die jeder MVC-Anwendung in der Anforderung Verarbeitungspipeline durchlaufen.  
+- Relevante [HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) Phasen, um besser zu verstehen, in denen MVC in integriert die [ASP.NET Anwendungslebenszyklus](https://msdn.microsoft.com/library/bb470252.aspx).
+- Einen allgemeinen Überblick des Lebenszyklus der MVC-Anwendung, das, in dem Sie die wichtigsten Phasen verstehen können, die jeder MVC-Anwendung in der Anforderungsverarbeitungspipeline durchlaufen.  
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image1.jpg)
-- Eine Detailansicht, die einen Drilldown nach unten in die Details der Anforderung Verarbeitungspipeline anzeigt. Sie können allgemeine Ansicht und der Detailansicht, um festzustellen, wie die Lebenszyklen Details gesammelt werden, in den verschiedenen Phasen vergleichen. [PDF herunterladen](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) um eine größere Ansicht anzuzeigen.
+- Eine Detailansicht, die einen Drilldown nach unten mit den Einzelheiten der Anforderungsverarbeitungspipeline anzeigt. Sie können vergleichen, die Zusammenfassung und Detail-Ansicht, um festzustellen, wie die Lebenszyklen Details in die verschiedenen Phasen gesammelt werden. [PDF herunterladen](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) um eine größere Ansicht anzuzeigen.
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image2.jpg)
-- Platzierung und Zweck der allen überschreibbaren Methoden auf die [Controller](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) Objekt in die Pipeline zur anforderungsverarbeitung. Kann oder möglicherweise nicht erforderlich, alle eine Methode zu überschreiben, aber es ist wichtig, dass Sie ihre Rolle im Lebenszyklus Anwendung verstehen, damit Sie in der entsprechenden Lebenszyklusphase Effekt Code schreiben können, die Sie möchten.
-- Vergrößert-nach-oben-Diagramme anzeigen, wie alle Filtertypen (Authentifizierung, Autorisierung, Aktion und Ergebnis) aufgerufen wird.
-- Link zu einer nützlichen Artikel oder Blog von jeder Punkt in der Detailansicht von Interesse.
+- Platzierung und Zweck der allen überschreibbaren Methoden auf die [Controller](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) Objekt in der Pipeline zur anforderungsverarbeitung. Sie können nicht besitzen oder die Notwendigkeit, die alle eine Methode zu überschreiben, aber es ist wichtig, ihre Rolle im Lebenszyklus Anwendung nachvollziehen können, damit Sie in der entsprechenden Life Cycle, Lebenszyklus-Phase für den Effekt Code schreiben können, die Sie möchten.
+- Einfach unglaublich von Diagrammen, die zeigt, wie die Filter-Typen (Authentifizierung, Autorisierung, Aktion und Ergebnis) aufgerufen wird.
+- Verknüpfung zu einer nützlichen Artikel oder Blogs jeder Punkt in der Detailansicht von Interesse.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Kennengelernt dieses Dokument Ihren Bedürfnissen? Wir würden Ihr Feedback freuen. Wenn Sie Frage des ASP.NET MVC-Lebenszyklus in Ihrer Anwendung haben [Stackoverflow](http://stackoverflow.com/help) und [ASP.NET MVC-Foren](https://forums.asp.net/1146.aspx) eignen sich hervorragend, um Unterstützung bitten. Führen Sie die [me](https://twitter.com/Cephas_MSFT) auf Twitter, sodass Sie Updates auf meine aktuelle Lernprogramme abrufen können.
+Entspricht in diesem Dokument müssen? Wir würden uns freuen, Ihr Feedback. Wenn Sie eine Frage auf der ASP.NET MVC-Lebenszyklus in Ihrer Anwendung haben [Stackoverflow](http://stackoverflow.com/help) und [ASP.NET MVC-Foren](https://forums.asp.net/1146.aspx) stellen einen hervorragenden Ort zu Fragen. Führen Sie [mich](https://twitter.com/Cephas_MSFT) auf Twitter, sodass Sie Updates auf meinem neuesten Lernprogramme zugreifen können.

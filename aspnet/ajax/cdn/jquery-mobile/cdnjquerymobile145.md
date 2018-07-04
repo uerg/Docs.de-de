@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile145
-title: jQuery Mobile 1.4.5 auf das Microsoft Ajax-CDN | Microsoft Docs
+title: jQuery Mobile 1.4.5 für das Microsoft Ajax CDN | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 12/31/2014
 ms.topic: article
 ms.assetid: 67e9fda2-7895-4818-add6-fdc5be5be367
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile145
 msc.type: content
-ms.openlocfilehash: c1f6febaa41e45a9ecd2e9b90ec9851a4c95f1f6
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4a4642129fef5f0159139068179064e6b49b2799
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071329"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393292"
 ---
-<a name="jquery-mobile-145-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.4.5 auf das Microsoft Ajax-CDN
+<a name="jquery-mobile-145-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.4.5 für das Microsoft Ajax CDN
 ====================
-Die jQuery Mobile 1.4.5-Bibliothek enthält die folgenden Dateien:
+JQuery Mobile 1.4.5-Bibliothek enthält die folgenden Dateien:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.5/jquery.mobile.structure-1.4.5.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css

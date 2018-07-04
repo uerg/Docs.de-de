@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection
-title: 'Storefront ASP.NET-MVC-Teil 13: Abhängigkeitsinjektion | Microsoft Docs'
+title: 'ASP.NET MVC Storefront, Teil 13: Abhängigkeitsinjektion | Microsoft-Dokumentation'
 author: robconery
-description: Dies ist eine gemeinsame Entwicklung-Sitzung mit Jeremy Miller CodeBetter/StructureMap, in dem er mir goldene abhängigkeiteneinschleusung zeigt.
+description: Dies ist eine gemeinsame Entwicklung-Sitzung mit Jeremy Miller CodeBetter/StructureMap, in dem er mir die vor-und Nachteile der Abhängigkeitsinjektion zeigt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
 ms.topic: article
 ms.assetid: 296fbe12-a28a-4fd8-bbc9-d1dc7468566a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection
 msc.type: video
-ms.openlocfilehash: a915d6594d81151d87ee82d67af4105b009c7605
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a2b2521c111eb4fe777aa3cdc99ec70ebb585600
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871037"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366160"
 ---
-<a name="aspnet-mvc-storefront-part-13-dependency-injection"></a>Storefront ASP.NET-MVC-Teil 13: Abhängigkeitsinjektion
+<a name="aspnet-mvc-storefront-part-13-dependency-injection"></a>ASP.NET MVC Storefront, Teil 13: Abhängigkeitsinjektion
 ====================
-durch [stehlen Conery](https://github.com/robconery)
+durch [Rob Conery](https://github.com/robconery)
 
-Dies ist eine gemeinsame Entwicklung-Sitzung mit Jeremy Miller CodeBetter/StructureMap, in dem er mir goldene abhängigkeiteneinschleusung zeigt.
+Dies ist eine gemeinsame Entwicklung-Sitzung mit Jeremy Miller CodeBetter/StructureMap, in dem er mir die vor-und Nachteile der Abhängigkeitsinjektion zeigt.
 
-[&#9654;Sehen Sie sich an (58 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-13-dependency-injection)
+[&#9654;Sehen Sie sich Video (58 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-13-dependency-injection)
 
 > [!div class="step-by-step"]
 > [Zurück](aspnet-mvc-storefront-part-12-mocking.md)

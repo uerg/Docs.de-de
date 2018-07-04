@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-simple-file-uploads-in-aspnet
-title: '[Gewusst wie:]  Einfache Dateiuploads in ASP.NET | Microsoft Docs'
+title: '[Gewusst wie:]  Einfache Dateiuploads in ASP.NET | Microsoft-Dokumentation'
 author: JoeStagner
-description: In diesem Video wird ich gezeigt, mithilfe von ASP.NET, Hochladen einer einzelnen Datei vom Clientcomputer mit dem Server. Dies ist die erste Aufgabe in einer Reihe von Upload wird...
+description: In diesem Video zeige ich ihnen, mithilfe von ASP.NET, Hochladen einer einzelnen Datei auf dem Clientcomputer mit dem Server. Dadurch werden die erste in einer Reihe von hochladen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
 ms.topic: article
 ms.assetid: 310aa6ba-dc99-47ac-8f68-aac7529664b2
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-simple-file-uploads-in-aspnet
 msc.type: video
-ms.openlocfilehash: 295a24679aec66daf2285b58c9ed7ed1da9c85d8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28a6df1205e04f3e8676db9e37d040cb4ab154d1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26526109"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379649"
 ---
 <a name="how-do-i--simple-file-uploads-in-aspnet"></a>[Gewusst wie:]  Einfache Dateiuploads in ASP.NET
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-In diesem Video wird ich gezeigt, mithilfe von ASP.NET, Hochladen einer einzelnen Datei vom Clientcomputer mit dem Server. Dies ist die erste Aufgabe in einer Reihe von Videos Dateien hochgeladen werden.
+In diesem Video zeige ich ihnen, mithilfe von ASP.NET, Hochladen einer einzelnen Datei auf dem Clientcomputer mit dem Server. Dies ist die erste in einer Reihe von Dateien Videos Hochladen werden.
 
-[&#9654; Sehen Sie sich an (17 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-simple-file-uploads-in-aspnet)
+[&#9654;Sehen Sie sich Video (17 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-simple-file-uploads-in-aspnet)

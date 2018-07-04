@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
-title: Wie erstelle ich ein benutzerdefiniertes HTML-Hilfsobjekt für eine MVC-Anwendung? | Microsoft-Dokumentation
+title: 'Vorgehensweise erstellen: ein benutzerdefinierten HTML-Hilfsprogramms für eine MVC-Anwendung? | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem Video zeigt Chris Pels, wie eine benutzerdefinierte HtmlHelper erstellen, die in den Standardsatz in einer MVC-Anwendung nicht verfügbar ist. Erste, eine Beispiel-MVC-Applica...
+description: In diesem Video zeigt Chris Pels, wie ein benutzerdefiniertes HtmlHelper zu erstellen, die in den Standardsatz in einer MVC-Anwendung nicht verfügbar ist. Erste, eine Beispiel-MVC-Anwendung...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/11/2009
 ms.topic: article
 ms.assetid: 58b5eb15-4160-4ce2-ae70-6ba94262ea73
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 92faa04e1eefec0852604d51987ddaa9ee58838a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 87e74ade0182589d22aeaf66a608165df7ea2ee6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870101"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380140"
 ---
-<a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>Wie erstelle ich ein benutzerdefiniertes HTML-Hilfsobjekt für eine MVC-Anwendung?
+<a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>Vorgehensweise erstellen: ein benutzerdefinierten HTML-Hilfsprogramms für eine MVC-Anwendung?
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem Video zeigt Chris Pels, wie eine benutzerdefinierte HtmlHelper erstellen, die in den Standardsatz in einer MVC-Anwendung nicht verfügbar ist. Zuerst wird eine Beispiel-MVC-Anwendung mit einem Demo-Controller und Ansicht so testen Sie die benutzerdefinierte HtmlHelper erstellt. Als Nächstes wird ein Modul mit einer öffentlichen Funktion erstellt, die die Implementierung des benutzerdefinierten HtmlHelper stellt eine Erweiterungsmethode wird. Die benutzerdefinierten Hilfsmethoden ist zum Erstellen von `<img>` tags auf einer Seite, und mehrere eingehende Parameter, einschließlich Id, Url und Alt-Text für das Bildtag empfängt. Die Logik wird dann an die Funktion für die Rückgabe des abgeschlossenen hinzugefügt `<img>` Tag mit den angegebenen Informationen. Anschließend wird der benutzerdefinierten HtmlHelper auf der Seite "Demo" verwendet, um ein Bild anzuzeigen. Schließlich wird die benutzerdefinierte HtmlHelper erweitert, um mehrere Konstruktor überschreibt einzubeziehen die Flexibilität ermöglichen, weitere problemlos erstellen unterschiedliche `<img>` Tags.
+In diesem Video zeigt Chris Pels, wie ein benutzerdefiniertes HtmlHelper zu erstellen, die in den Standardsatz in einer MVC-Anwendung nicht verfügbar ist. Zunächst wird eine MVC-Anwendung mit einer Demo-Controller und eine Ansicht zum Testen der benutzerdefinierten HtmlHelper erstellt. Als Nächstes wird ein Modul mit einer öffentlichen Funktion erstellt, die eine Erweiterungsmethode ist, die die Implementierung von benutzerdefinierten HtmlHelper darstellt. Die benutzerdefinierten Hilfsmethoden ist zum Erstellen von `<img>` tags auf einer Seite, und mehrere eingehende Parameter, einschließlich Id, Url und Alt-Text für das Image-Tag empfängt. Die Logik wird dann an die Funktion für die Rückgabe der abgeschlossenen hinzugefügt `<img>` Tag mit den angegebenen Informationen. Anschließend wird benutzerdefiniertes HtmlHelper auf der Demoseite verwendet, um ein Bild anzuzeigen. Schließlich wird benutzerdefiniertes HtmlHelper erweitert, um mehrere Konstruktor Außerkraftsetzungen enthalten, die Flexibilität ermöglichen, weitere leichte Erstellen von anderen `<img>` Tags.
 
-[&#9654;Sehen Sie sich an (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
+[&#9654;Sehen Sie sich Video (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
 
 > [!div class="step-by-step"]
 > [Zurück](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)

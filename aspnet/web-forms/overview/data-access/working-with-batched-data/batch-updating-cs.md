@@ -1,213 +1,212 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
-title: Batchaktualisierung (c#) | Microsoft Docs
+title: Batch aktualisieren (c#) | Microsoft-Dokumentation
 author: rick-anderson
-description: Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang zu aktualisieren. In der Benutzeroberflächenebene erstellen wir eine GridView, in dem jede Zeile bearbeitbar ist. In den Daten...
+description: Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzelnen Vorgang aktualisieren. In der UI-Schicht erstellen wir eine GridView, in dem jede Zeile bearbeitet werden kann. In den Daten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
 ms.topic: article
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9f1bad4f0b58175a8437ebfedf161db057bb2bd2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bd8a8f4bc56867da1668fda32b42efcf3a629cdf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888551"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366805"
 ---
-<a name="batch-updating-c"></a>Batchaktualisierung (c#)
+<a name="batch-updating-c"></a>Batch-Update (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_64_CS.zip) oder [PDF herunterladen](batch-updating-cs/_static/datatutorial64cs1.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_64_CS.zip) oder [PDF-Datei herunterladen](batch-updating-cs/_static/datatutorial64cs1.pdf)
 
-> Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang zu aktualisieren. In der Benutzeroberflächenebene erstellen wir eine GridView, in dem jede Zeile bearbeitbar ist. In der Datenzugriffsebene umschließen wir mehrere Update-Vorgänge innerhalb einer Transaktion, um sicherzustellen, dass alle Updates erfolgreich ausgeführt oder alle Updates ein Rollback aus.
+> Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzelnen Vorgang aktualisieren. In der UI-Schicht erstellen wir eine GridView, in dem jede Zeile bearbeitet werden kann. In der Datenzugriffsebene umschließen wir die mehrere Update-Vorgänge innerhalb einer Transaktion, um sicherzustellen, dass alle Updates erfolgreich ausgeführt oder alle Updates zurückgesetzt werden.
 
 
 ## <a name="introduction"></a>Einführung
 
-In der [vorherigen Lernprogramm](wrapping-database-modifications-within-a-transaction-cs.md) wurde erläutert, wie der Datenzugriffsebene zum Hinzufügen der Unterstützung für Datenbanktransaktionen zu erweitern. Datenbanktransaktionen zu gewährleisten, dass eine Reihe von Anweisungen zur Datenänderung als ein atomarischer Vorgang behandelt werden, der sicherstellt, dass alle Änderungen werden oder alle fehlschlagen wird. Low-Level DAL Funktionalität aus dem Weg bereit wir re um unsere Aufmerksamkeit für das Erstellen von Batches Änderung Schnittstellen zu aktivieren.
+In der [vorherigen Lernprogramm](wrapping-database-modifications-within-a-transaction-cs.md) wurde erläutert, wie der Data Access Layer, zum Hinzufügen der Unterstützung für Datenbanktransaktionen zu erweitern. Datenbanktransaktionen garantieren, dass eine Reihe von Anweisungen zur Datenänderung als einem atomaren Vorgang behandelt wird, wird sichergestellt, dass alle Änderungen werden oder alle fehlschlagen wird. Low-Level DAL Funktionalität aus dem Weg bereit wir erneut unsere Aufmerksamkeit für das Erstellen von Batch-Änderung Schnittstellen zu aktivieren.
 
-In diesem Lernprogramm wird eine GridView erstellen, in dem jede Zeile bearbeitet werden kann (siehe Abbildung 1) ist. Da jede Zeile in die Bearbeitungsoberfläche dort s keine Notwendigkeit für eine Spalte vom Bearbeiten gerendert wird, aktualisieren Sie und brechen Sie ab (Schaltflächen). Stattdessen, es gibt zwei Produkte aktualisieren Schaltflächen auf der Seite, die beim Klicken auf die GridView Zeilen aufgelistet und die Datenbank aktualisieren.
+In diesem Tutorial Erstellen einer GridView-Ansicht wir, in dem jede Zeile bearbeitet werden (siehe Abbildung 1) ist. Da jede Zeile in der Bearbeitung Oberfläche, dort s keine Notwendigkeit für eine Spalte mit der Bearbeitung gerendert wird, aktualisieren Sie und Abbrechen Sie (Schaltflächen). Stattdessen, es gibt zwei Produkte aktualisieren Schaltflächen auf der Seite, die beim Klicken auf die GridView Zeilen aufgelistet, und Aktualisieren der Datenbank.
 
 
-[![Jede Zeile in der GridView ist bearbeitbar](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
+[![Jede Zeile in der GridView-Ansicht ist bearbeitbar](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
 
-**Abbildung 1**: jede Zeile in der GridView ist bearbeitbar ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image2.png))
+**Abbildung 1**: jede Zeile in der GridView-Ansicht ist bearbeitbar ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image2.png))
 
 
 Lassen Sie s beginnen!
 
 > [!NOTE]
-> In der [BatchUpdates ausführen](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) Lernprogramm erstellten eines Batch Bearbeitungsbereichs Schnittstelle. dabei wird das DataList-Steuerelement. In diesem Lernprogramm eingesetzt wird aus dem vorherigen, die zur verwendet wird, eine GridView, und das BatchUpdate innerhalb des Bereichs einer Transaktion ausgeführt wird. Nach Abschluss dieses Lernprogramms regelmäßigen ich zum früheren Lernprogramms zurückzukehren, und aktualisieren, damit die Datenbank transaktionsbezogenen Funktionalität hinzugefügt, in dem vorherigen Lernprogramm verwenden.
+> In der [Durchführen von BatchUpdates](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) Tutorial, die wir erstellt haben, ein Batch-Bearbeitung Schnittstelle mit dem DataList-Steuerelement. In diesem Tutorial unterscheidet, aus dem vorherigen, verwendet er, einer GridView-Ansicht und des BatchUpdates innerhalb des Bereichs einer Transaktion ausgeführt wird. Nach Abschluss dieses Lernprogramms sollten Sie mit dem früheren Tutorial zurück und aktualisieren, um die Datenbank transaktionsbezogenen Funktionalität hinzugefügt, in dem vorherigen Lernprogramm verwenden.
 
 
-## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Untersuchen die Schritte für alle Zeilen der GridView bearbeitbar zu machen
+## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Untersuchen die Schritte zum Erstellen der bearbeitet werden alle Zeilen der GridView
 
-Entsprechend der Anleitung unter dem [eine Übersicht der einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) Lernprogramm GridView bietet integrierte Unterstützung für die zugrunde liegenden Daten regelmäßig pro Zeile zu bearbeiten. Intern die GridView fest, welche Zeile über bearbeitbar ist seine [ `EditIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Wie die GridView zu seiner Datenquelle gebunden wird, überprüft er jede Zeile aus, um festzustellen, ob der Index der Zeile der Wert von entspricht `EditIndex`. Wenn dies der Fall ist, Schnittstellen für diese Zeile s werden Felder mit ihren Bearbeiten gerendert. Für BoundFields, bearbeitende diese Schnittstelle ist ein Textfeld, deren `Text` Eigenschaft der Wert des Datenfelds, angegeben durch die BoundField-s. zugewiesen `DataField` Eigenschaft. Für von TemplateFields die `EditItemTemplate` anstelle von dient der `ItemTemplate`.
+Siehe die [eine Übersicht der einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) Tutorial GridView bietet integrierte Unterstützung für die Bearbeitung der zugrunde liegenden Daten auf einer Basis pro Zeile. Intern wird die GridView – Anmerkungen zu dieser, welche Zeile über bearbeitet werden kann die [ `EditIndex` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Wie Sie mit der Datenquelle die GridView gebunden wird, überprüft er jede Zeile aus, um festzustellen, ob der Index der Zeile der Wert von entspricht `EditIndex`. Wenn dies der Fall ist, diese Zeile s, die Felder mit gerendert werden, deren Bearbeitung-Schnittstellen. Die Bearbeitungsschnittstelle für BoundFields, befindet sich ein Textfeld, dessen `Text` Eigenschaft erhält den Wert des Felds durch die BoundField-s angegebene `DataField` Eigenschaft. Für von TemplateFields die `EditItemTemplate` wird anstelle von verwendet die `ItemTemplate`.
 
-Beachten Sie, dass die Bearbeitung Workflow startet, klickt ein Benutzer eine Zeile s-Schaltfläche "Bearbeiten". Dies bewirkt, dass einen Postback, setzt die GridView s `EditIndex` -Eigenschaft auf den geklickt wurde Zeilenindex s und bindet die Daten in den Entwurfsbereich. Wenn eine Zeile s-Schaltfläche "Abbrechen" geklickt wird, beim Postback der `EditIndex` festgelegt ist, auf einen Wert von `-1` vor dem erneuten Binden der Daten in den Entwurfsbereich. Seit start des GridView-s-Zeilen Indizierung auf 0 (null) festlegen `EditIndex` auf `-1` wirkt sich die zum Anzeigen von GridView im Nur-Lese-Modus.
+Denken Sie daran, dass es sich bei der Bearbeitung Workflow startet, wenn ein Benutzer eine Zeile s Bearbeiten-Schaltfläche klickt. Dies führt dazu, dass einen Postback, legt die GridView-s `EditIndex` -Eigenschaft auf den geklickt wurde Zeilenindex s, und bindet die Daten in das Raster. Wenn eine Zeile s-Abbrechen-Schaltfläche geklickt wird, beim Postback der `EditIndex` festgelegt ist, auf einen Wert von `-1` vor dem erneuten Binden der Daten in das Raster. Da die GridView-s-Zeilen starten die Indizierung auf 0 (null), festlegen `EditIndex` zu `-1` hat den Effekt die GridView in schreibgeschützten Modus anzuzeigen.
 
-Die `EditIndex` Eigenschaft eignet sich gut für pro Zeile zu bearbeiten, kann aber nicht für den Batch zu bearbeiten. Damit die gesamte GridView bearbeitet werden kann, benötigen wir jede Zeile, mit dessen Bearbeitung Oberfläche gerendert werden. Die einfachste Möglichkeit hierfür besteht im erstellen, in dem jedes bearbeitbares Feld implementiert wird, gemäß einer TemplateField mit dessen Bearbeitung Oberfläche der `ItemTemplate`.
+Die `EditIndex` Eigenschaft eignet sich gut für jede Zeile zu bearbeiten, aber es dient nicht zum Bearbeiten von Batch. Damit die gesamte GridView bearbeitet werden kann, muss jede Zeile mit der Bearbeitungsoberfläche gerendert werden. Die einfachste Möglichkeit hierzu ist die Erstellung der, in dem jedes bearbeitbares Feld implementiert wird, wie in ein TemplateField mit der Bearbeitung Schnittstelle definiert die `ItemTemplate`.
 
-In den nächsten Schritten vollständig bearbeitbare GridView erstellen wir. In Schritt 1 wir beginnen, indem die GridView und seine ObjectDataSource erstellen und seine BoundFields und CheckBoxField in von TemplateFields konvertieren. In Schritt 2 und 3 verschieben wir die Bearbeitung Schnittstellen aus der von TemplateFields `EditItemTemplate` s, um ihre `ItemTemplate` s.
+In den nächsten Schritten vollständig bearbeitbare GridView erstellen wir. In Schritt 1 wir beginnen mit dem Erstellen der GridView und seine "ObjectDataSource" und seine BoundFields und CheckBoxField in von TemplateFields konvertieren. Wir verschieben in den Schritten 2 und 3 die Bearbeitung Schnittstellen aus der von TemplateFields `EditItemTemplate` s, um ihre `ItemTemplate` s.
 
 ## <a name="step-1-displaying-product-information"></a>Schritt 1: Anzeigen von Produktinformationen
 
-Vor Gedanken machen, wir erstellen eine GridView, in denen Zeilen sind, können bearbeitet werden, s starten, indem Sie einfach die Produktinformationen anzeigen lassen. Öffnen der `BatchUpdate.aspx` auf der Seite der `BatchData` Ordner, und ziehen Sie eine GridView aus der Toolbox in den Designer. Legen Sie die GridView s `ID` auf `ProductsGrid` , und wählen Sie das Smarttag, um die Bindung an eine neue, mit dem Namen ObjectDataSource `ProductsDataSource`. Konfigurieren der ObjectDataSource zum Abrufen der zugehörigen Daten aus der `ProductsBLL` Klasse s `GetProducts` Methode.
+Bevor wir fürchten, zum Erstellen einer GridView-Ansicht, in denen Zeilen sind, können bearbeitet werden, können zunächst einfach die Produktinformationen s. Öffnen der `BatchUpdate.aspx` auf der Seite die `BatchData` Ordner, und ziehen Sie einer GridView-Ansicht aus der Toolbox in den Designer. Legen Sie die GridView s `ID` zu `ProductsGrid` und sein Smarttag, auswählen, um die Bindung an eine neue, mit dem Namen "ObjectDataSource" `ProductsDataSource`. Konfigurieren Sie das "ObjectDataSource" zum Abrufen der Daten aus der `ProductsBLL` Klasse s `GetProducts` Methode.
 
 
-[![Konfigurieren der ObjectDataSource zur Verwendung der ProductsBLL-Klasse](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
+[![Konfigurieren von dem ObjectDataSource-Steuerelement zur Verwendung der ProductsBLL-Klasse](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
 
-**Abbildung 2**: Konfigurieren der ObjectDataSource verwenden die `ProductsBLL` Klasse ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image4.png))
-
-
-[![Abrufen von Produktdaten, die mithilfe der GetProducts-Methode](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
-
-**Abbildung 3**: Rufen Sie die Produkt-Daten mithilfe der `GetProducts` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image6.png))
+**Abbildung 2**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `ProductsBLL` Klasse ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image4.png))
 
 
-Wie die GridView dienen die ObjectDataSource s Änderung Funktionen regelmäßig pro Zeile zu arbeiten. Um eine Gruppe von Datensätzen zu aktualisieren, müssen wir viel Code in der ASP.NET Seite "s" Code-Behind-Klasse schreiben, die die Daten batches und übergibt sie an die BLL. Deshalb legen Sie die Dropdownlisten in das ObjectDataSource-s Update-, INSERT- und DELETE Registerkarten (keine). Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+[![Abrufen der Produktdaten mithilfe der GetProducts-Methode](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
+
+**Abbildung 3**: Rufen Sie die Product-Daten mithilfe der `GetProducts` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image6.png))
 
 
-[![Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten auf (keine)](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
-
-**Abbildung 4**: Legen Sie das Dropdown-Listen in aktualisieren, einfügen und Löschen von Registerkarten auf (keine) ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image8.png))
+Wie GridView dienen die Funktionen zur pfadänderung von "ObjectDataSource" s auf einer Basis pro Zeile. Um eine Gruppe von Datensätzen zu aktualisieren, müssen wir ein paar Codezeilen in der CodeBehind-Klasse in ASP.NET Seite "s" zu schreiben, der batches von Daten und übergibt sie an die BLL. Legen Sie daher die Dropdownlisten in der "ObjectDataSource"-s Update-, INSERT- und DELETE Registerkarten (keine). Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
 
-Nach Abschluss der Assistent zum Konfigurieren von Datenquellen, sollte das ObjectDataSource s deklarative Markup wie folgt aussehen:
+[![Legen Sie die Dropdownlisten in der Update-, INSERT- und DELETE werden Registerkarten (keine)](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
+
+**Abbildung 4**: Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten auf (keine) ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image8.png))
+
+
+Nach Abschluss des Assistenten konfigurieren von Datenquellen sollten "ObjectDataSource" s deklarative Markup wie folgt aussehen:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample1.aspx)]
 
-Assistenten zum Konfigurieren von Datenquellen wird auch in Visual Studio BoundFields und eine CheckBoxField für das Produkt von Datenfeldern in die GridView zu erstellen. Können Sie für dieses Lernprogramm nur ermöglicht dem Benutzer das Anzeigen und bearbeiten die s-Produktname, Kategorie, Preis und nicht mehr unterstützte Status s ein. Entfernen Sie alle außer den `ProductName`, `CategoryName`, `UnitPrice`, und `Discontinued` Felder und benennen Sie die `HeaderText` Eigenschaften der ersten drei Felder Product Category und Preis,. Schließlich die Kontrollkästchen der Paging aktivieren und die Sortierung in die GridView-s-Smarttag.
+Der Assistent zum Konfigurieren von Datenquellen wird auch in Visual Studio um BoundFields und eine CheckBoxField für die Product-Datenfelder in den GridView-Ansicht zu erstellen. In diesem Tutorial können Sie s, die nur dem Benutzer ermöglichen, anzeigen und bearbeiten die Product-s-Name, Kategorie, Preis und nicht mehr unterstützte Status. Entfernen Sie alle außer den `ProductName`, `CategoryName`, `UnitPrice`, und `Discontinued` Felder und benennen Sie die `HeaderText` Eigenschaften der ersten drei Felder Product Category und Preis. Und schließlich überprüfen Sie die Kontrollkästchen Paging aktivieren und die Sortierung zu aktivieren, in das GridView-s-Smarttag.
 
-An diesem Punkt hat die GridView drei BoundFields (`ProductName`, `CategoryName`, und `UnitPrice`) und eine CheckBoxField (`Discontinued`). Wir benötigen diese vier Felder in von TemplateFields konvertieren, und verschieben Sie die Bearbeitungsoberfläche aus den s TemplateField `EditItemTemplate` auf seine `ItemTemplate`.
+An diesem Punkt das GridView hat drei BoundFields (`ProductName`, `CategoryName`, und `UnitPrice`) und eine CheckBoxField (`Discontinued`). Wir müssen diese vier Felder in von TemplateFields konvertieren aus, und klicken Sie dann die Bearbeitungsschnittstelle verschieben, aus der TemplateField s `EditItemTemplate` auf seine `ItemTemplate`.
 
 > [!NOTE]
-> Wir erstellen und Anpassen von TemplateFields in untersucht die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Lernprogramm. Wir müssen die Schritte zum Umwandeln der BoundFields und CheckBoxField von TemplateFields durchlaufen und Schnittstellen definieren, deren Bearbeitung ihrer `ItemTemplate` s, aber wenn Sie Festfahren oder muss aufzufrischen, Don ' t in jedem Fall auf dieses Lernprogramm weiter oben Bezug nehmen.
+> Erstellen und Anpassen von TemplateFields im behandelt die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Tutorial. Begleiten wir durch die Schritte der BoundFields und CheckBoxField in von TemplateFields konvertiert und Schnittstellen definieren, deren Bearbeitung ihrer `ItemTemplate` s, aber wenn Sie Probleme oder eine Auffrischung, Don ' t zögern muss, wieder mit diesen früheren Tutorial zu verweisen.
 
 
-Klicken Sie auf den GridView s smart Tag auf die Spalten bearbeiten-Link, um die Felder (Dialogfeld) zu öffnen. Als nächstes wählen Sie jedes Feld, und klicken Sie auf dieses Feld konvertieren in einen TemplateField-Link.
+GridView s Smarttags klicken Sie auf die Spalten bearbeiten-Link, um die Felder (Dialogfeld) zu öffnen. Als nächstes wählen Sie jedes Feld, und klicken Sie auf das konvertierte dieses Feld in ein TemplateField-Link.
 
 
-![Konvertieren Sie die vorhandenen BoundFields und CheckBoxField in TemplateField](batch-updating-cs/_static/image5.gif)
+![Die vorhandenen BoundFields und CheckBoxField in TemplateField konvertieren](batch-updating-cs/_static/image5.gif)
 
-**Abbildung 5**: Konvertieren Sie die vorhandenen BoundFields und CheckBoxField in TemplateField
+**Abbildung 5**: die vorhandene BoundFields und CheckBoxField in TemplateField konvertieren
 
 
-Jedes Feld eine TemplateField ist,-Schnittstelle wir re kann jetzt so verschieben Sie die Bearbeitung aus dem `EditItemTemplate` s, um die `ItemTemplate` s.
+Nun, da jedes Feld ein TemplateField ist, es erneut bereit, um die Bearbeitung zu verschieben-Schnittstelle aus der `EditItemTemplate` s, um die `ItemTemplate` s.
 
 ## <a name="step-2-creating-theproductnameunitprice-anddiscontinuedediting-interfaces"></a>Schritt 2: Erstellen der`ProductName`,`UnitPrice`, und`Discontinued`Schnittstellen bearbeiten
 
-Erstellen der `ProductName`, `UnitPrice`, und `Discontinued` bearbeiten Schnittstellen sind im Thema dieses Schritts und unkompliziert, wie jede Schnittstelle bereits in der TemplateField s definiert ist `EditItemTemplate`. Erstellen der `CategoryName` Schnittstelle bearbeiten ist etwas komplizierter, da wir DropDownList die zutreffenden Kategorien erstellen müssen. Dies `CategoryName` Schnittstelle bearbeiten in Schritt 3 behandelt wird.
+Erstellen der `ProductName`, `UnitPrice`, und `Discontinued` bearbeiten die Schnittstellen sind Thema dieses Schritts und recht einfach gehalten wie jede Schnittstelle bereits in das TemplateField s definiert ist `EditItemTemplate`. Erstellen der `CategoryName` bearbeiten-Schnittstelle ist etwas komplizierter, da wir einem DropDownList-Steuerelement die entsprechenden Kategorien zu erstellen müssen. Dies `CategoryName` bearbeiten-Schnittstelle in Schritt 3 angegangen wird.
 
-S mit beginnen können die `ProductName` TemplateField. Klicken Sie auf den Link Bearbeiten von Vorlagen aus dem GridView-s-Smarttag und einen Drilldown nach unten, um die `ProductName` TemplateField s `EditItemTemplate`. Wählen Sie das Textfeld, in die Zwischenablage kopieren und fügen Sie ihn auf die `ProductName` TemplateField s `ItemTemplate`. Ändern Sie das Textfeld s `ID` Eigenschaft `ProductName`.
+S Einstieg ermöglichen die `ProductName` TemplateField. Klicken Sie auf den Link "Vorlagen bearbeiten" aus dem GridView-s-Smarttag, und zeigen die `ProductName` TemplateField s `EditItemTemplate`. Wählen Sie das Textfeld, in die Zwischenablage kopieren und fügen Sie ihn in das `ProductName` TemplateField s `ItemTemplate`. Ändern Sie das Textfeld s `ID` Eigenschaft `ProductName`.
 
-Als Nächstes fügen Sie einen RequiredFieldValidator auf die `ItemTemplate` , stellen Sie sicher, dass der Benutzer einen Wert für jeden Produktnamen s zur Verfügung. Legen Sie die `ControlToValidate` Eigenschaft ProductName, die `ErrorMessage` Eigenschaft an Sie müssen den Namen des Produkts enthalten. und die `Text` Eigenschaft \*. Nach dem Herstellen dieser Ergänzungen für das `ItemTemplate`, sollte am Bildschirm wie in Abbildung 6.
-
-
-[![Die ProductName TemplateField jetzt umfasst ein Textfeld und eine RequiredFieldValidator](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
-
-**Abbildung 6**: die `ProductName` TemplateField enthält jetzt ein Textfeld und eine RequiredFieldValidator ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image10.png))
+Fügen Sie als Nächstes einen RequiredFieldValidator auf die `ItemTemplate` um sicherzustellen, dass der Benutzer einen Wert für jeden Produktnamen s bereitstellt. Legen Sie die `ControlToValidate` Eigenschaft ProductName, die `ErrorMessage` Eigenschaft, um Sie müssen den Namen des Produkts bereitstellen. und die `Text` Eigenschaft \*. Nach dem Herstellen dieser Ergänzungen zu den `ItemTemplate`, Ihr Bildschirm sollte ähnlich wie in Abbildung 6 aussehen.
 
 
-Für die `UnitPrice` bearbeiten die Schnittstelle, durch Kopieren das Textfeld aus starten der `EditItemTemplate` auf die `ItemTemplate`. Platzieren Sie als Nächstes ein $ vor die Textfeld, und legen seine `ID` UnitPrice-Eigenschaft und die zugehörige `Columns` Eigenschaft auf 8.
+[![Die ProductName TemplateField jetzt enthält ein Textfeld und einer RequiredFieldValidator](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
 
-Auch eine CompareValidator zum Hinzufügen der `UnitPrice` s `ItemTemplate` um sicherzustellen, dass der vom Benutzer eingegebene Wert eine gültige Currency-Wert größer als oder gleich 0,00 ist. Legen Sie das Validierungssteuerelement s `ControlToValidate` Eigenschaft UnitPrice, seine `ErrorMessage` Eigenschaft, um Sie müssen einen gültigen Währungswert eingeben. Sie lassen Währung Symbole., seine `Text` Eigenschaft, um \*, dessen `Type` Eigenschaft `Currency`, dessen `Operator` Eigenschaft, um `GreaterThanEqual`, und die zugehörige `ValueToCompare` Eigenschaft auf 0.
-
-
-[![Das Hinzufügen eines ein CompareValidator, um sicherzustellen, dass der Preis eingegeben ein nicht negativer Currency-Wert ist](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
-
-**Abbildung 7**: Hinzufügen einer CompareValidator, um sicherzustellen, dass der Preis eingegeben ist ein nicht negativer Currency-Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image12.png))
+**Abbildung 6**: die `ProductName` TemplateField enthält nun ein Textfeld und einen RequiredFieldValidator ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image10.png))
 
 
-Für die `Discontinued` TemplateField können Sie das Kontrollkästchen, die bereits definiert, der `ItemTemplate`. Legen Sie einfach seine `ID` zu Discontinued und die zugehörige `Enabled` Eigenschaft, um `true`.
+Für die `UnitPrice` bearbeiten-Schnittstelle, starten Sie durch Kopieren der im Textfeld die `EditItemTemplate` auf die `ItemTemplate`. Platzieren Sie ein "$" vor das Textfeld und anschließend die `ID` UnitPrice-Eigenschaft und die zugehörige `Columns` Eigenschaft auf 8.
 
-## <a name="step-3-creating-thecategorynameediting-interface"></a>Schritt 3: Erstellen der`CategoryName`Schnittstelle bearbeiten
+Auch eine CompareValidator zum Hinzufügen der `UnitPrice` s `ItemTemplate` um sicherzustellen, dass der vom Benutzer eingegebene Wert eine gültige Currency-Wert größer als oder gleich 0,00 US-Dollar. Legen Sie das Validierungssteuerelement s `ControlToValidate` Eigenschaft UnitPrice, dessen `ErrorMessage` Eigenschaft, um Sie müssen einen gültigen Currency-Wert eingeben. Sie lassen Währung Symbole., seine `Text` Eigenschaft, um \*, dessen `Type` Eigenschaft `Currency`, dessen `Operator` Eigenschaft, um `GreaterThanEqual`, und die zugehörige `ValueToCompare` Eigenschaft auf 0.
 
-Die Bearbeitungsoberfläche in der `CategoryName` TemplateField s `EditItemTemplate` enthält ein Textfeld, das den Wert des anzeigt die `CategoryName` Feld "Daten". Wir müssen mit einer DropDownList ersetzen, die die möglichen Kategorien aufgelistet.
+
+[![Hinzufügen einer CompareValidator, um sicherzustellen, dass der Preis eingegeben haben ein nicht negativer Currency-Wert ist](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
+
+**Abbildung 7**: Hinzufügen einer CompareValidator, um sicherzustellen, dass der Preis eingegeben ist ein nicht negativer Währungswert ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image12.png))
+
+
+Für die `Discontinued` TemplateField können Sie das Kontrollkästchen, die bereits in definiert die `ItemTemplate`. Legen Sie einfach die `ID` zu Discontinued und die zugehörige `Enabled` Eigenschaft `true`.
+
+## <a name="step-3-creating-thecategorynameediting-interface"></a>Schritt 3: Erstellen der`CategoryName`bearbeiten-Schnittstelle
+
+Die Bearbeitungsschnittstelle in die `CategoryName` TemplateField s `EditItemTemplate` enthält ein Textfeld, das den Wert der `CategoryName` Feld "Daten". Wir müssen dies mit einem DropDownList-Steuerelement ersetzen, die die möglichen Kategorien auflistet.
 
 > [!NOTE]
-> Die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Lernprogramm enthält eine Erläuterung mehr umfassende und vollständige zum Anpassen einer Vorlage für das Einschließen einer DropDownList im Gegensatz zu einem Textfeld. Während der folgenden Schritte abgeschlossen sind, werden sie nur sehr knapp dargestellt. Eine eingehendere Betrachtung erstellen und konfigurieren die Kategorien DropDownList finden Sie zurück in die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Lernprogramm.
+> Die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Tutorial enthält eine umfassendere und vollständige Erläuterung der Anpassen einer Vorlage aus, um einem DropDownList-Steuerelement im Gegensatz zu einem Textfeld einzuschließen. Während die hier beschriebenen Schritte abgeschlossen sind, wird ihnen nur sehr knapp angezeigt. Eine ausführlichere Betrachtung erstellen und konfigurieren die Kategorien DropDownList verweisen zurück auf die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Tutorial.
 
 
-Ziehen eine DropDownList aus der Toolbox auf die `CategoryName` TemplateField s `ItemTemplate`wird durch das Festlegen der `ID` zu `Categories`. An diesem Punkt würde in der Regel die DropDownLists s-Datenquelle über das Smarttag, definieren wir erstellen eine neue ObjectDataSource. Dadurch wird jedoch hinzugefügt, das ObjectDataSource innerhalb der `ItemTemplate`, die führt zu einer ObjectDataSource-Instanz, die für jede Zeile GridView erstellt. Stattdessen können Sie s ObjectDataSource außerhalb der GridView s von TemplateFields zu erstellen. Beenden Sie die vorlagenbearbeitung, und ziehen Sie ein ObjectDataSource aus der Toolbox in den Designer unter dem `ProductsDataSource` ObjectDataSource. Benennen Sie die neue ObjectDataSource `CategoriesDataSource` und konfigurieren es für das Verwenden der `CategoriesBLL` Klasse s `GetCategories` Methode.
+Ziehen Sie von einem DropDownList-Steuerelement aus der Toolbox auf die `CategoryName` TemplateField s `ItemTemplate`wird durch das Festlegen der `ID` zu `Categories`. An diesem Punkt würde in der Regel die DropDownList-Steuerelementen-s-Datenquelle über sein Smarttag, definieren wir erstellen eine neue "ObjectDataSource". Dadurch wird jedoch hinzugefügt, dem ObjectDataSource-Steuerelement innerhalb der `ItemTemplate`, die führt zu einer "ObjectDataSource"-Instanz, die für jede GridView-Zeile erstellt. Stattdessen können Sie s, die außerhalb der GridView-s von TemplateFields dem ObjectDataSource-Steuerelement zu erstellen. Beendet die vorlagenbearbeitung, und ziehen Sie ein ObjectDataSource-Steuerelement aus der Toolbox in den Designer unter der `ProductsDataSource` "ObjectDataSource". Benennen Sie die neue "ObjectDataSource" `CategoriesDataSource` und konfigurieren Sie ihn zur Verwendung der `CategoriesBLL` Klasse s `GetCategories` Methode.
 
 
-[![Konfigurieren der ObjectDataSource Verwendung der CategoriesBLL-Assistenten](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
+[![Konfigurieren Sie die "ObjectDataSource", um den Assistenten CategoriesBLL verwenden](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
 
-**Abbildung 8**: Konfigurieren der ObjectDataSource verwenden die `CategoriesBLL` Assistenten ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image14.png))
-
-
-[![Abrufen von Kategoriedaten, die mithilfe der GetCategories-Methode](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
-
-**Abbildung 9**: Rufen Sie die Kategorie Daten mithilfe der `GetCategories` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image16.png))
+**Abbildung 8**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `CategoriesBLL` Assistenten ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image14.png))
 
 
-Da diese ObjectDataSource lediglich zum Abrufen von Daten verwendet wird, legen Sie die Dropdownlisten in die Update- und DELETE-Registerkarten, um (keine). Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+[![Rufen Sie die Kategoriedaten mithilfe der Methode GetCategories ab](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
+
+**Abbildung 9**: Rufen Sie die Kategorie Daten mithilfe der `GetCategories` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image16.png))
 
 
-[![Festlegen der Dropdownlisten in der Update- und DELETE-Registerkarten, um (keine)](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
-
-**Abbildung 10**: Legen Sie das Dropdown-Listen in aktualisieren und Löschen von Registerkarten auf (keine) ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image18.png))
+Da diese "ObjectDataSource" nur zum Abrufen von Daten verwendet wird, legen Sie die Dropdown-Listen in die Update- und DELETE-Registerkarten, um (keine) aus. Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
 
-Nach Abschluss des Assistenten die `CategoriesDataSource` s deklarativem Markup sollte wie folgt aussehen:
+[![Gruppe der Dropdownlisten in der UPDATE und DELETE-Registerkarten, um (keine)](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
+
+**Abbildung 10**: Legen Sie die Dropdownlisten im aktualisieren und Löschen von Registerkarten auf (keine) ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image18.png))
+
+
+Nach Abschluss des Assistenten, der `CategoriesDataSource` s deklaratives Markup sollte wie folgt aussehen:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample2.aspx)]
 
-Mit der `CategoriesDataSource` erstellt und konfiguriert wurde, zurück zu den `CategoryName` TemplateField s `ItemTemplate` und den DropDownList s smart Tag, klicken Sie auf den Link für die Datenquelle auswählen. Wählen Sie im Datenquellen-Assistenten die `CategoriesDataSource` in der ersten Dropdown-Liste aus, und haben die Möglichkeit, `CategoryName` verwendet für die Anzeige und `CategoryID` als Wert.
+Mit der `CategoriesDataSource` erstellt und konfiguriert haben, zurück zu den `CategoryName` TemplateField s `ItemTemplate` und DropDownList s Smarttags, klicken Sie auf den Link für die Datenquelle auswählen. Wählen Sie im Assistenten zum Konfigurieren von Datenquellen die `CategoriesDataSource` option in der ersten Dropdown-Liste, und entscheiden, dass `CategoryName` verwendet für die Anzeige und `CategoryID` als Wert.
 
 
-[![Der DropDownList an die CategoriesDataSource binden](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
+[![Die DropDownList an die CategoriesDataSource binden](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
 
-**Abbildung 11**: der DropDownList zum Binden der `CategoriesDataSource` ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image20.png))
-
-
-An diesem Punkt der `Categories` DropDownList zeigt eine Liste aller Kategorien ausgewählt, jedoch es nicht noch automatisch die entsprechende Kategorie für das Produkt, die auf die Zeile GridView gebunden. Um dies zu erreichen wir festlegen müssen der `Categories` DropDownList s `SelectedValue` für das Produkt s `CategoryID` Wert. Klicken Sie auf die Verknüpfung der DropDownList-s-Smarttag-Datenbindungen bearbeiten, und ordnen Sie die `SelectedValue` Eigenschaft mit dem `CategoryID` Datenfeld der Spalte wie in Abbildung 12 dargestellt.
+**Abbildung 11**: DropDownList, binden die `CategoriesDataSource` ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image20.png))
 
 
-![Binden Sie den Wert des Produkts s CategoryID zur Eigenschaft "SelectedValue" s DropDownList](batch-updating-cs/_static/image12.gif)
-
-**Abbildung 12**: gebunden Produkt s `CategoryID` Wert mit dem DropDownList s `SelectedValue` Eigenschaft
+An diesem Punkt die `Categories` DropDownList Listet alle Kategorien, aber es nicht noch automatisch wählen Sie die entsprechende Kategorie für das Produkt an die GridView-Zeile gebunden. Um dies zu erreichen, wir legen müssen, die `Categories` DropDownList s `SelectedValue` für das Produkt s `CategoryID` Wert. Klicken Sie auf den Link "DataBindings bearbeiten" aus dem DropDownList-s-Smarttag, und ordnen Sie die `SelectedValue` Eigenschaft mit dem `CategoryID` Datenfeld, wie in Abbildung 12 dargestellt.
 
 
-Eine letzte Problem bleibt: ggf. t Produkt verfügt über eine `CategoryID` Wert angegeben wird, die Databinding-Anweisung auf `SelectedValue` wird eine Ausnahme ausgelöst. Grund hierfür ist der DropDownList enthält nur die Elemente für die Kategorien und bietet keine Option ist für diese Produkte mit einem `NULL` Wert für die Datenbank `CategoryID`. Legen Sie zur Behebung des Problems, der DropDownList s `AppendDataBoundItems` Eigenschaft `true` und Hinzufügen eines neues Elements zu der DropDownList Auslassen der `Value` Eigenschaft vom deklarative Syntax. Stellen Sie also sicher, dass die `Categories` DropDownList s deklarativer Syntax sieht wie folgt:
+![Binden von der Product-s-Kategorie-ID-Wert an die SelectedValue-Eigenschaft der DropDownList-s](batch-updating-cs/_static/image12.gif)
+
+**Abbildung 12**: Binden Sie das Produkt s `CategoryID` Wert, der die DropDownList-Zuordnungsvorgänge `SelectedValue` Eigenschaft
+
+
+Eine letzte Problem bleibt: Wenn das Produkt t haben eine `CategoryID` Wert angegeben wird die Databinding-Anweisung auf `SelectedValue` führt zu einer Ausnahme. Grund hierfür ist die DropDownList enthält nur die Elemente für die Kategorien und bietet keine Option für diese Produkte mit einem `NULL` Wert für die Datenbank `CategoryID`. Legen Sie zur Behebung des Problems, das DropDownList-s `AppendDataBoundItems` Eigenschaft `true` und Hinzufügen eines neuen Elements zu DropDownList, Auslassen der `Value` Eigenschaft aus der deklarativen Syntax. Stellen Sie also sicher, dass die `Categories` DropDownList s deklarativer Syntax sieht wie folgt aus:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample3.aspx)]
 
-Hinweis wie die `<asp:ListItem Value="">` – wählen Sie eine--hat seine `Value` Attribut explizit festgelegt werden, um eine leere Zeichenfolge. Verweisen auf die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Lernprogramm eine ausführlichere Diskussion zur warum dieses zusätzliche DropDownList-Element erforderlich ist, behandelt der `NULL` Fall und warum Zuweisung von der `Value` die Eigenschaft auf eine leere Zeichenfolge ist wichtig.
+Hinweis wie die `<asp:ListItem Value="">` – wählen Sie eine – verfügt über seine `Value` Attribut explizit festgelegt wird, auf eine leere Zeichenfolge. Verweisen zurück auf die [Anpassen der Benutzeroberfläche für die Änderung der Daten](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Tutorial für eine ausführlichere Erläuterung der warum dieses zusätzliche DropDownList-Element erforderlich ist, behandelt der `NULL` Fall und warum Zuweisung der `Value` die Eigenschaft auf eine leere Zeichenfolge ist unerlässlich.
 
 > [!NOTE]
-> Es ist ein potenzielle Leistung und Skalierbarkeit Problem hier, das beachtet werden. Da jede Zeile eine DropDownList aufweist, verwendet der `CategoriesDataSource` als Datenquelle, die `CategoriesBLL` Klasse s `GetCategories` -Methode wird aufgerufen, *n* Besuchen der Versuche pro Seite, in dem *n* ist die Anzahl der Zeilen in der GridView. Diese *n* Aufrufe von `GetCategories` ergäben *n* Abfragen der Datenbank. Diese Auswirkungen auf die Datenbank konnte durch Zwischenspeichern der zurückgegebenen Kategorien in einem Cache pro Anforderung oder über die Caching-Schicht, die mit einer Abhängigkeit oder eine sehr kurze Zeit-basierte Ablauf zwischengespeichert SQL verkürzt werden. Weitere Informationen zu den pro-Anforderung, die Option zum Zwischenspeichern finden Sie unter [ `HttpContext.Items` einen Cache-Speicher pro Anforderung](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
+> Es ist ein potenzielles Leistung und Skalierbarkeit Problem hier, das erwähnt werden muss. Da jede Zeile mit einem DropDownList-Steuerelement enthält, die verwendet die `CategoriesDataSource` als Datenquelle, die `CategoriesBLL` s-Klasse `GetCategories` aufgerufene Methode *n* Mal pro Seite besuchen, in denen *n* ist die Anzahl der Zeilen in den GridView-Ansicht. Diese *n* Aufrufe von `GetCategories` führen *n* Abfragen an die Datenbank. Diese Auswirkungen auf die Datenbank kann weniger problematisch werden, durch das Zwischenspeichern der zurückgegebenen Kategorien oder in einem Cache pro Anforderung als auch über die Caching-Schicht, die mittels einer SQL-Abhängigkeit oder eine sehr kurze Zeit-basierte Ablauf zwischengespeichert werden. Weitere Informationen zu den pro Anforderung, die Option zum Zwischenspeichern finden Sie unter [ `HttpContext.Items` ein pro-Request-Cache-Store](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>Schritt 4: Abschließen der Schnittstelle bearbeiten
 
-Es gibt es eine Reihe von Änderungen an die GridView-s-Vorlagen ohne anzuhalten, wenn Sie unseren Fortschritt anzeigen vorgenommen. Nehmen Sie einen Moment Zeit, um unseren Fortschritt über einen Browser anzuzeigen. Wie in Abbildung 13 gezeigt, jede Zeile wird gerendert, mit dessen `ItemTemplate`, enthält die Zelle s Schnittstelle bearbeiten.
+Wir haben eine Reihe von Änderungen an den GridView-s-Vorlagen ohne Anhalten und unseren Fortschritt anzeigen hergestellt. Nehmen Sie einen Moment Zeit, um unseren Fortschritt über einen Browser anzuzeigen. Wie in Abbildung 13 gezeigt, jede Zeile mit dargestellt wird seine `ItemTemplate`, die die Zelle s bearbeiten-Schnittstelle enthält.
 
 
-[![Jede Zeile GridView ist bearbeitbar](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
+[![Jede GridView-Zeile ist bearbeitbar](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
 
-**Abbildung 13**: jede Zeile GridView ist bearbeitbar ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image22.png))
-
-
-Es gibt wenige kleinere Probleme bei der Formatierung, denen wir an diesem Punkt erledigen sollte. Beachten Sie, dass zunächst die `UnitPrice` Wert enthält vier Dezimalstellen. Zur Beseitigung dieses Problems zurückgeben, um die `UnitPrice` TemplateField s `ItemTemplate` und dann auf das Textfeld s smart Tag auf den Link-Datenbindungen bearbeiten. Als Nächstes angeben, die die `Text` Eigenschaft als Zahl formatiert werden sollen.
+**Abbildung 13**: jede GridView-Zeile ist bearbeitbar ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image22.png))
 
 
-![Die Texteigenschaft als Zahl formatieren](batch-updating-cs/_static/image14.gif)
+Es gibt einige kleinere Probleme bei der Formatierung, denen wir an diesem Punkt kümmern müssen. Beachten Sie, dass zuerst die `UnitPrice` Wert enthält vier Dezimalstellen. Um dieses Problem zu beheben, zurück zu den `UnitPrice` TemplateField s `ItemTemplate` und TextBox s Smarttags, klicken Sie auf den Link DataBindings bearbeiten. Als Nächstes angeben, die die `Text` Eigenschaft als Zahl formatiert werden sollen.
+
+
+![Formatieren von Text-Eigenschaft als eine Zahl](batch-updating-cs/_static/image14.gif)
 
 **Abbildung 14**: Format der `Text` Eigenschaft als Zahl
 
 
-Zweitens können s zentrieren Sie das Kontrollkästchen in der `Discontinued` Spalte (anstatt es linksbündig ausgerichtet). Klicken Sie auf Spalten bearbeiten, aus dem GridView-s-Smarttag, und wählen Sie die `Discontinued` TemplateField aus der Liste der Felder in der unteren linken Ecke. Drilldown `ItemStyle` und legen Sie die `HorizontalAlign` Eigenschaft Center wie in Abbildung 15 gezeigt.
+Zweitens können s zentrieren Sie das Kontrollkästchen in der `Discontinued` Spalte (anstatt es linksbündig ausgerichtet). Klicken Sie auf den Spalten bearbeiten das GridView-s-Smarttag, und wählen Sie die `Discontinued` TemplateField aus der Liste der Felder in der unteren linken Ecke. Drilldown in `ItemStyle` und legen Sie die `HorizontalAlign` Eigenschaft Center, wie in Abbildung 15 dargestellt.
 
 
 ![Zentrieren Sie das Kontrollkästchen nicht mehr unterstützte](batch-updating-cs/_static/image15.gif)
@@ -215,86 +214,86 @@ Zweitens können s zentrieren Sie das Kontrollkästchen in der `Discontinued` Sp
 **Abbildung 15**: Center die `Discontinued` Kontrollkästchen
 
 
-Als Nächstes die Seite ein ValidationSummary-Steuerelement hinzu, und legen Sie seine `ShowMessageBox` Eigenschaft `true` und seine `ShowSummary` Eigenschaft `false`. Zudem dazu führen, dass die Schaltfläche Web steuert, die beim Klicken auf, wird die s benutzeränderungen aktualisiert. Insbesondere zwei Schaltfläche Web Steuerelemente hinzufügen, einen oben GridView und darunter liegenden, beide Steuerelemente festlegen `Text` Updateprodukten Eigenschaften.
+Als Nächstes fügen Sie ein ValidationSummary-Steuerelement auf der Seite, und legen seine `ShowMessageBox` Eigenschaft `true` und die zugehörige `ShowSummary` Eigenschaft `false`. Fügen Sie auch, dass die Schaltfläche "Web steuert, die beim Klicken auf, die Benutzer s Änderungen aktualisiert. Insbesondere zwei Schaltfläche Web Steuerelemente hinzufügen, einen oberhalb der GridView und darunter liegenden beide Steuerelemente festlegen `Text` Eigenschaften, die Update-Produkte.
 
-Seit der GridView s Schnittstelle bearbeiten ist definiert in seiner von TemplateFields `ItemTemplate` s, die `EditItemTemplate` s sind überflüssig und können gelöscht werden.
+Seit der GridView-s bearbeiten-Schnittstelle ist definiert in der von TemplateFields `ItemTemplate` s, die `EditItemTemplate` s überflüssig und können gelöscht werden.
 
-Nach der Formatierung Änderungen vornehmen, die oben erwähnt werden, die Schaltflächen-Steuerelemente hinzufügen und entfernen Sie die unnötige `EditItemTemplate` s, die Seite "s" deklarative Syntax sollte wie folgt aussehen:
+Nachdem Formatänderungen machen oben bereits erwähnt, die Schaltflächen-Steuerelemente hinzufügen und entfernen Sie die unnötige `EditItemTemplate` s, sollte die Seite "s" deklarative Syntax wie folgt aussehen:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample4.aspx)]
 
-Abbildung 16 zeigt diese Seite, wenn Sie über einen Browser angezeigt werden soll, nachdem die Schaltfläche Websteuerelemente hinzugefügt wurden und die Formatierung vorgenommenen Änderungen.
+Abbildung 16 zeigt diese Seite, wenn Sie über einen Browser angezeigt werden soll, nachdem die Schaltfläche "-Web-Steuerelemente hinzugefügt wurden und die Formatierungen vorgenommenen Änderungen.
 
 
-[![Die Seite jetzt umfasst zwei Update-Produkte-Schaltflächen](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
+[![Die Seite jetzt enthält zwei Schaltflächen der Update-Produkte](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
 
-**Abbildung 16**: die Seite jetzt umfasst zwei Update Produkte Schaltflächen ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-updating-cs/_static/image24.png))
+**Abbildung 16**: die Seite jetzt umfasst zwei Update-Produkte Schaltflächen ([klicken Sie, um das Bild in voller Größe anzeigen](batch-updating-cs/_static/image24.png))
 
 
-## <a name="step-5-updating-the-products"></a>Schritt 5: Aktualisieren die Produkte
+## <a name="step-5-updating-the-products"></a>Schritt 5: Aktualisieren der Produkte
 
-Wenn ein Benutzer auf dieser Seite besucht sie ihre Änderungen vornehmen und klicken Sie dann auf eine der beiden Updateprodukten Schaltflächen. An diesem Punkt müssen wir irgendwie speichern, die vom Benutzer eingegebenen Werten für jede Zeile in einer `ProductsDataTable` Instanz, und übergeben Sie, um eine BLL-Methode, die dann besteht, `ProductsDataTable` Instanz mit dem DAL s `UpdateWithTransaction` Methode. Die `UpdateWithTransaction` -Methode, die wir in erstellt die [vorherigen Lernprogramm](wrapping-database-modifications-within-a-transaction-cs.md), wird sichergestellt, dass der Batch von Änderungen als atomarer Vorgang aktualisiert wird.
+Wenn ein Benutzer diese Seite besucht werden sie ihre Änderungen vornehmen, und klicken Sie dann auf eine der zwei Schaltflächen, Update-Produkte. An dieser Stelle müssen wir irgendwie speichern Sie die eingegebenen Werte für jede Zeile in einer `ProductsDataTable` -Instanz, und übergeben, die an eine BLL-Methode, die dann besteht, `ProductsDataTable` Instanz der DAL s `UpdateWithTransaction` Methode. Die `UpdateWithTransaction` -Methode, die wir in erstellt die [vorherigen Lernprogramm](wrapping-database-modifications-within-a-transaction-cs.md), stellt sicher, dass der Batch von Änderungen als atomaren Vorgang aktualisiert werden.
 
 Erstellen Sie eine Methode mit dem Namen `BatchUpdate` in `BatchUpdate.aspx.cs` und fügen Sie den folgenden Code hinzu:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Diese Methode startet durch Abrufen aller Produkte zurück in ein `ProductsDataTable` über einen Aufruf an die BLL s `GetProducts` Methode. Er dann listet der `ProductGrid` GridView s [ `Rows` Auflistung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Die `Rows` Auflistung enthält ein [ `GridViewRow` Instanz](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) für jede Zeile in der GridView angezeigt. Da wir maximal zehn Zeilen pro Seite die GridView s zeigen `Rows` Auflistung wird nicht mehr als zehn Elemente haben.
+Diese Methode startet indem Sie alle Produkte abrufen in ein `ProductsDataTable` über einen Aufruf an die BLL s `GetProducts` Methode. Zählt dann die `ProductGrid` GridView s [ `Rows` Auflistung](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Die `Rows` Auflistung enthält ein [ `GridViewRow` Instanz](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) für jede Zeile in der GridView-Ansicht angezeigt. Da wir höchstens zehn Zeilen pro Seite, die GridView s angezeigt werden `Rows` Auflistung wird nicht mehr als zehn Elemente haben.
 
-Für jede Zeile der `ProductID` ist stammt aus der `DataKeys` Auflistung und die entsprechenden `ProductsRow` ausgewählt ist, aus der `ProductsDataTable`. Die vier TemplateField-Eingabesteuerelemente programmgesteuert verwiesen und ihre Werte zugewiesen werden, um die `ProductsRow` s Instanzeigenschaften. Nach jeder GridView Zeilenwerte s verwendet werden, um Aktualisieren der `ProductsDataTable`, es s übergeben, mit dem BLL s `UpdateWithTransaction` Methode, wie wir gesehen, in dem vorherigen Lernprogramm haben einfach in die DAL s unten `UpdateWithTransaction` Methode.
+Für jede Zeile der `ProductID` ist stammt aus der `DataKeys` Sammlung und die entsprechenden `ProductsRow` ausgewählt ist, aus der `ProductsDataTable`. Die vier TemplateField-input-Steuerelemente programmgesteuert auf die verwiesen wird, und ihre Werte zugewiesen, die `ProductsRow` s Instanzeigenschaften. Nach jeder GridView Zeilenwerte s haben wurde zum Aktualisieren der `ProductsDataTable`, es s, die an die BLL s `UpdateWithTransaction` -Methode, die wie im vorherigen Tutorial beschrieben in der DAL s einfach nach unten ruft `UpdateWithTransaction` Methode.
 
-Der Batch-Update-Algorithmus für dieses Lernprogramm verwendete aktualisiert jede Zeile in der `ProductsDataTable` entspricht, die eine Zeile in der GridView, unabhängig davon, ob die Produktinformationen s geändert wurde. Während solche Blind sind t normalerweise ein Leistungsproblem aktualisiert, können sie zu überflüssig Datensätze führen, wenn Sie die Überwachung der Datenbanktabelle ändert. In der [BatchUpdates ausführen](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) Lernprogramm wir eine Batchaktualisierung-Schnittstelle mit DataList untersucht und Code, der nur die Datensätze aktualisiert, die tatsächlich vom Benutzer geändert wurden hinzugefügt. Wünschen, verwenden Sie die Methoden von [BatchUpdates ausführen](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) so aktualisieren den Code in diesem Lernprogramm, falls gewünscht.
+Der Batch-Update-Algorithmus für dieses Tutorial verwendete aktualisiert jede Zeile in der `ProductsDataTable` , entspricht einer Zeile in der GridView, unabhängig davon, ob die Produktinformationen s geändert wurde. Während solche Blind sind t in der Regel ein Leistungsproblem aktualisiert, können sie zu überflüssigen Datensätze führen re-Überwachung in die Datenbanktabelle überschreiten. In der [Durchführen von BatchUpdates](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) Tutorial wir untersucht einen Batch, die Schnittstelle mit DataList-Steuerelement aktualisiert und Code, der nur die Datensätze aktualisiert wird, die tatsächlich vom Benutzer geändert wurden. Gerne verwenden die Techniken von [Durchführen von BatchUpdates](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) so aktualisieren ggf. den Code in diesem Tutorial.
 
 > [!NOTE]
-> Beim Binden von der Datenquelle an die GridView über seine Smarttag weist Visual Studio automatisch Werte für die primären Data Source s-Schlüssel mit dem GridView s `DataKeyNames` Eigenschaft. Wenn Sie nicht das ObjectDataSource an die GridView über das Smarttag für GridView s binden, wie in Schritt 1 beschrieben, müssen Sie manuell festlegen, die GridView s `DataKeyNames` -Eigenschaft auf "ProductID", um Zugriff auf die `ProductID` Wert für jede Zeile über die `DataKeys` Auflistung.
+> Beim Binden von der Datenquelle an die GridView über sein Smarttag, weist Visual Studio automatisch Werte für die primären Datenquelle s-Key der GridView-s `DataKeyNames` Eigenschaft. Wenn Sie nicht dem ObjectDataSource-Steuerelement an die GridView über das GridView-s-Smarttag binden, wie in Schritt 1 beschrieben, müssen Sie manuell festlegen, die GridView s `DataKeyNames` Eigenschaft "ProductID", um Zugriff auf die `ProductID` Wert für jede Zeile über die `DataKeys` Auflistung.
 
 
-Verwendete Code `BatchUpdate` ähnelt, die in der BLL s verwendet `UpdateProduct` Methoden, die der Hauptunterschied liegt, wird der in der `UpdateProduct` Methoden nur einen einzigen `ProductRow` Instanz aus der Architektur abgerufen wird. Der Code, der die Eigenschaften des weist die `ProductRow` ist die gleiche Weise die `UpdateProducts` Methoden und den Code in der `foreach` wurde eine Schleife in `BatchUpdate`, wie das allgemeine Muster ist.
+Der Code in verwendet `BatchUpdate` ähnelt, verwendet die BLL s `UpdateProduct` Methoden, die der Hauptunterschied besteht darin, die in der `UpdateProduct` Methoden nur eine einzige `ProductRow` Instanz abgerufen wird, von der Architektur. Den Code, der die Eigenschaften des weist die `ProductRow` ist die gleiche Weise die `UpdateProducts` Methoden und den Code in der `foreach` wurde eine Schleife in `BatchUpdate`, da das gesamte Muster.
 
-Um dieses Lernprogramm abzuschließen, müssen wir die `BatchUpdate` Methode wird aufgerufen, wenn einer der Updateprodukten Schaltflächen geklickt wird. Erstellen von Ereignishandlern für die `Click` Ereignisse dieser beiden Schaltfläche Steuerelemente, und fügen Sie den folgenden Code in den Ereignishandlern:
+Um dieses Tutorial abzuschließen, müssen wir haben die `BatchUpdate` Methode wird aufgerufen, wenn eine der Update-Produkte-Schaltflächen geklickt wird. Erstellen von Ereignishandlern für die `Click` Ereignisse dieser beiden Steuerelemente Schaltfläche, und fügen Sie den folgenden Code in den Ereignishandlern:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample6.cs)]
 
-Zunächst erfolgt ein Aufruf zum `BatchUpdate`. Als Nächstes wird die `ClientScript property` wird verwendet, um JavaScript einfügen, die eine MessageBox-Datenbank, die gelesen angezeigt werden, die Produkte wurden aktualisiert.
+Zunächst erfolgt ein Aufruf zum `BatchUpdate`. Als Nächstes die `ClientScript property` wird verwendet, um das Einfügen von JavaScript, die eine Messagebox anzeigt, die liest die Produkte wurden aktualisiert.
 
-Nehmen Sie sich, diesen Code zu testen. Besuchen Sie `BatchUpdate.aspx` über einen Webbrowser, und bearbeiten Sie eine Anzahl von Zeilen, und klicken Sie auf eine der Schaltflächen Updateprodukten. Vorausgesetzt, dass keine Überprüfung der Eingabe-Fehler vorliegen, sollte eine MessageBox-Datenbank angezeigt werden, die gelesen wird, dass die Produkte aktualisiert wurden. Um die Unteilbarkeit des Updates zu überprüfen, sollten Sie einen zufälligen hinzufügen `CHECK` Einschränkung, wie die lässt keine `UnitPrice` 1234.56 Werte. Klicken Sie dann aus `BatchUpdate.aspx`, bearbeiten Sie eine Anzahl von Datensätzen, die sicherstellen festzulegende eines Produkts s `UnitPrice` Wert auf den unzulässigen Wert (1234.56). Dies sollte zu einem Fehler führen, wenn Updateprodukten mit den anderen Änderungen auf, während dieses Batchvorgangs auf ihre ursprünglichen Werte zurückgesetzt.
+Kurz, diesen Code zu testen. Besuchen Sie `BatchUpdate.aspx` über einen Browser, bearbeiten Sie eine Anzahl von Zeilen, und klicken Sie auf eine der Schaltflächen Update-Produkte. Vorausgesetzt, dass keine Überprüfung der Eingabe-Fehler vorliegen, sollten Sie eine Messagebox sehen, die gelesen, dass die Produkte aktualisiert wurden. Um die Unteilbarkeit des Updates zu überprüfen, erwägen Sie eine zufällige `CHECK` -Einschränkung, wie eine, die lässt keine `UnitPrice` 1234.56 Werte. Klicken Sie dann aus `BatchUpdate.aspx`, bearbeiten Sie eine Anzahl von Datensätzen, zum Festlegen des Produkts s sicherstellen `UnitPrice` Wert, der den unzulässigen Wert (1234.56). Dies sollte zu einem Fehler führen, wenn Update-Produkte mit den anderen Änderungen auf, während der Batchvorgang wieder auf ihre ursprünglichen Werte zurückgesetzt werden.
 
 ## <a name="an-alternativebatchupdatemethod"></a>Eine Alternative`BatchUpdate`Methode
 
-Die `BatchUpdate` wir einfach Methode untersucht ruft *alle* der Produkte von den BLL s `GetProducts` Methode und aktualisiert dann nur die Datensätze, die in der GridView angezeigt werden. Dieser Ansatz eignet sich, wenn die GridView Paging nicht verwendet, aber wenn dies der Fall ist, gibt es möglicherweise Hunderte oder Tausende Zehntausenden von Produkten, aber nur zehn Zeilen in die GridView. In einem solchen Fall ist das Abrufen aller Produkte aus der Datenbank nur ändern, davon 10 kleiner als ideal.
+Die `BatchUpdate` Methode, die wir gerade untersucht ruft *alle* der Produkte von der BLL s `GetProducts` Methode und aktualisiert dann nur die Datensätze, die in den GridView-Ansicht angezeigt werden. Dieser Ansatz ist ideal, wenn die GridView Paging nicht verwendet, aber wenn dies der Fall ist, gibt es möglicherweise Hunderte, Tausende oder Zehntausende von Produkten, aber nur zehn Zeilen in den GridView-Ansicht. In diesem Fall ist das Abrufen aller Produkte aus der Datenbank nur 10 Zeilen ändern nicht ideal.
 
-Für derartige Situationen sollten Sie die folgenden `BatchUpdateAlternate` Methode stattdessen:
+Für solche Situationen sollten Sie mit der folgenden `BatchUpdateAlternate` Methode stattdessen:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate` Zunächst erstellen ein neues leeres `ProductsDataTable` mit dem Namen `products`. Es wird dann die GridView s werden die Schritte `Rows` Auflistung und für jede Zeile, die bestimmten Produktinformationen, die mit der BLL s ruft `GetProductByProductID(productID)` Methode. Der abgerufene `ProductsRow` Instanz verfügt über Eigenschaften, die in der gleichen Weise wie aktualisiert `BatchUpdate`, jedoch erst nach dem Aktualisieren der Zeile, die sie in importieren die `products``ProductsDataTable` über die DataTable s [ `ImportRow(DataRow)` Methode](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` gestartet wird, indem Sie erstellen ein neues leeres `ProductsDataTable` mit dem Namen `products`. Anschließend werden die Schritte der GridView-s `Rows` Auflistung und für jede Zeile der bestimmte Produktinformationen mithilfe der BLL s ruft `GetProductByProductID(productID)` Methode. Der abgerufene `ProductsRow` Instanz verfügt über Eigenschaften, die auf dieselbe Weise wie aktualisiert `BatchUpdate`, jedoch erst nach dem Aktualisieren der Zeile, die dem Import in die `products``ProductsDataTable` über die DataTable s [ `ImportRow(DataRow)` Methode](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
-Nach der `foreach` Schleife abgeschlossen wird, `products` enthält mindestens ein `ProductsRow` Instanz für jede Zeile in der GridView. Da jedes von der `ProductsRow` Instanzen hinzugefügt wurden der `products` (anstelle von aktualisiert), wenn wir es Blind übergeben der `UpdateWithTransaction` Methode der `ProductsTableAdatper` wird versucht, jede der Datensätze in die Datenbank eingefügt. Stattdessen müssen wir angeben, dass jede dieser Zeilen (nicht hinzugefügt) geändert wurde.
+Nach der `foreach` Schleife abgeschlossen ist, `products` enthält mindestens ein `ProductsRow` Instanz für jede Zeile in der GridView-Ansicht. Da jede von der `ProductsRow` Instanzen hinzugefügt wurden die `products` (anstelle von aktualisiert), wenn wir damit Blind übergeben der `UpdateWithTransaction` Methode der `ProductsTableAdatper` versucht, jede der Datensätze in der Datenbank eingefügt. Stattdessen müssen wir angeben, dass jede dieser Zeilen (keine hinzugefügt) geändert wurde.
 
-Dies kann durch Hinzufügen einer neuen Methode, die mit dem Namen BLL `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, unten legt der `RowState` aller der `ProductsRow` -Instanzen lautet in der `ProductsDataTable` auf `Modified` und übergibt dann die `ProductsDataTable` der DAL-s `UpdateWithTransaction` Methode.
+Dies geschieht durch Hinzufügen einer neuen Methode an die BLL, die mit dem Namen `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, unten dargestellt, legt die `RowState` aller der `ProductsRow` -Instanzen in der `ProductsDataTable` zu `Modified` und übergibt dann die `ProductsDataTable` der DAL-s `UpdateWithTransaction` Methode.
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample8.cs)]
 
 ## <a name="summary"></a>Zusammenfassung
 
-Die GridView stellt integrierte zeilenspezifische Bearbeitungsfunktionen zur Verfügung, jedoch verfügt nicht über Unterstützung für das Erstellen von vollständig bearbeitbar Schnittstellen. Wie in diesem Lernprogramm wurde gezeigt, solche Schnittstellen sind möglich, aber viel Arbeit erfordert. Um eine GridView zu erstellen, in dem jede Zeile bearbeitet werden kann, muss die GridView-s-Felder in von TemplateFields konvertieren, und definieren Sie die Bearbeitung Schnittstelle innerhalb der `ItemTemplate` s. Aktualisieren Sie darüber hinaus alle - Schaltfläche Websteuerelemente Typ muss die Seite, die getrennt von der GridView hinzugefügt werden. Diese Schaltflächen `Click` Ereignishandler müssen die GridView s auflisten `Rows` -Auflistung, speichern Sie die Änderungen in einem `ProductsDataTable`, und übergeben die aktualisierte Informationen in die entsprechende BLL-Methode.
+GridView pro Zeile integrierten Funktionen enthält, aber Sie verfügt nicht über die Unterstützung für das Erstellen vollständig bearbeitbare Schnittstellen. Wie wir in diesem Tutorial gesehen haben, werden solche Schnittstellen sind möglich, aber ein wenig Aufwand erforderlich. Um einer GridView-Ansicht zu erstellen, in dem jede Zeile bearbeitet werden kann, müssen wir die GridView-s-Felder in von TemplateFields konvertieren und definieren die Bearbeitungsschnittstelle innerhalb der `ItemTemplate` s. Aktualisieren Sie darüber hinaus alle - Schaltfläche websteuerungselemente, hinzugefügt werden auf der Seite getrennt von der GridView. Diese Schaltflächen `Click` Ereignishandler müssen zum Aufzählen der GridView-s `Rows` -Auflistung, speichern Sie die Änderungen in einer `ProductsDataTable`, und übergeben die aktualisierte Informationen in die entsprechende BLL-Methode.
 
-In den nächsten Lernprogrammen sehen wir, wie eine Schnittstelle für die batchlöschung erstellt werden. Insbesondere jede GridView Zeile wird ein Kontrollkästchen und anstelle von aktualisiert alle-Geben Sie die Schaltflächen, lassen wir Schaltflächen ausgewählten Zeilen löschen.
+Im nächsten Tutorial sehen wir, wie Sie eine Schnittstelle für das Löschen von Batch zu erstellen. Insbesondere jeder GridView-Zeile wird ein Kontrollkästchen und nicht alle aktualisieren – geben Sie Schaltflächen, haben wir dann die Schaltflächen der ausgewählten Zeilen löschen.
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Teresa Murphy und David Suru. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Teresa Murphy und David Suru. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Zurück](wrapping-database-modifications-within-a-transaction-cs.md)

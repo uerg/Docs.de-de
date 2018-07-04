@@ -1,138 +1,137 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
-title: Aktualisieren, löschen und Erstellen von Daten mit modellbindung und WebForms | Microsoft Docs
+title: Aktualisieren, löschen und Erstellen von Daten mit modellbindung und Web Forms | Microsoft-Dokumentation
 author: tfitzmac
-description: Diese Reihe von Lernprogrammen veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung bei einem ASP.NET Web Forms-Projekt. Wurden die modellbindung macht die dateninteraktion Weitere gerade-...
+description: Diese tutorialreihe veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung mit einem ASP.NET Web Forms-Projekt. Modellbindung macht die dateninteraktion Weitere gerade-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: e6536f7858afde5faf3aedd34f3cbe95c5ed0d53
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b6cafe29d1cb46061a8743cbee62a7ffec6be990
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885844"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393875"
 ---
-<a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Aktualisieren, löschen und Erstellen von Daten mit modellbindung und WebForms
+<a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Aktualisieren, löschen und Erstellen von Daten mit modellbindung und Web forms
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Diese Reihe von Lernprogrammen veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung bei einem ASP.NET Web Forms-Projekt. Wurden die modellbindung macht die dateninteraktion mehr die selbsterklärend als Umgang mit Data Source-Objekte (z. B. ObjectDataSource oder SqlDataSource). Diese Reihe beginnt mit einführendes Material und verschiebt die erweiterte Konzepte in späteren Lernprogrammen.
+> Diese tutorialreihe veranschaulicht die grundlegenden Aspekte der Verwendung von modellbindung mit einem ASP.NET Web Forms-Projekt. Modellbindung, wird die dateninteraktion mehr geradlinigere als Umgang mit Data Source-Objekte (z. B. "ObjectDataSource" oder SqlDataSource-Steuerelement). Diese Serie beginnt mit einführendes Material und verschiebt in späteren Tutorials zu erweiterten Konzepten übergegangen.
 > 
-> Dieses Lernprogramm veranschaulicht das Erstellen, aktualisieren und Löschen von Daten mit modellbindung. Sie können die folgenden Eigenschaften festlegen:
+> Dieses Tutorial veranschaulicht das Erstellen, aktualisieren und Löschen von Daten mit modellbindung. Sie werden die folgenden Eigenschaften festlegen:
 > 
 > - DeleteMethod
 > - InsertMethod
 > - UpdateMethod
 > 
-> Diese Eigenschaften erhalten den Namen der Methode, die den entsprechenden Vorgang verarbeitet. Innerhalb dieser Methode können bereitstellen Sie die Logik für die Interaktion mit den Daten.
+> Diese Eigenschaften erhalten den Namen der Methode, die den entsprechenden Vorgang verarbeitet. In dieser Methode geben Sie die Logik für die Interaktion mit den Daten.
 > 
-> Dieses Lernprogramm baut auf das Projekt erstellt, in der ersten [Teil](retrieving-data.md) der Reihe.
+> Dieses Tutorial baut auf das Projekt erstellt haben, in der ersten [Teil](retrieving-data.md) der Reihe.
 > 
-> Sie können [herunterladen](https://go.microsoft.com/fwlink/?LinkId=286116) das vollständige Projekt in c# oder VB dar. Der Code zum Herunterladen funktioniert mit Visual Studio 2012 oder Visual Studio 2013. Er verwendet die Visual Studio 2012-Vorlage, die unterscheidet sich etwas von der Visual Studio 2013-Vorlage, die in diesem Lernprogramm gezeigt wird.
+> Sie können [herunterladen](https://go.microsoft.com/fwlink/?LinkId=286116) das vollständige Projekt in c# oder VB. Der herunterladbare Code funktioniert mit Visual Studio 2012 oder Visual Studio 2013. Er verwendet die Visual Studio 2012-Vorlage, die unterscheidet sich etwas von der Visual Studio 2013-Vorlage, die in diesem Tutorial gezeigt wird.
 
 
-## <a name="what-youll-build"></a>Was müssen Sie erstellen
+## <a name="what-youll-build"></a>Sie lernen Folgendes
 
-In diesem Lernprogramm lernen Sie folgende Aktionen ausführen:
+In diesem Tutorial müssen Sie folgende Aktionen ausführen:
 
-1. Dynamic Data-Vorlagen hinzufügen
-2. Aktivieren Sie aktualisieren und Löschen von Daten über die Bindung Modellmethoden
-3. Anwenden von Validierungsregeln Daten – ermöglichen das Erstellen eines neuen Datensatzes in der Datenbank
+1. Hinzufügen von dynamic Data-Vorlagen
+2. Aktivieren Sie aktualisieren und Löschen von Daten über Bindung Objektmodellmethoden
+3. Anwenden von Regeln für die datenvalidierung – ermöglichen das Erstellen eines neuen Datensatzes in der Datenbank
 
-## <a name="add-dynamic-data-templates"></a>Dynamic Data-Vorlagen hinzufügen
+## <a name="add-dynamic-data-templates"></a>Hinzufügen von dynamic Data-Vorlagen
 
-Um bestmögliche benutzererfahrung bieten und codewiederholungen minimieren, verwenden Sie dynamische Datenvorlagen. Sie können problemlos in Ihre vorhandene Website vorgefertigten dynamic Data-Vorlagen integrieren, durch die Installation von NuGet-Paket.
+Um die bestmögliche benutzererfahrung bieten und minimieren codewiederholungen, verwenden Sie dynamische Datenvorlagen. Sie können vorgefertigte dynamic Data-Vorlagen in Ihrer vorhandenen Website einfach integrieren, durch die Installation von NuGet-Paket.
 
-Aus der **NuGet-Pakete verwalten**, installieren Sie die **DynamicDataTemplatesCS**.
+Von der **NuGet-Pakete verwalten**, installieren Sie die **DynamicDataTemplatesCS**.
 
 ![Dynamic Data-Vorlagen](updating-deleting-and-creating-data/_static/image1.png)
 
-Beachten Sie, dass das Projekt jetzt einen Ordner namens enthält **DynamicData**. In diesem Ordner finden Sie die Vorlagen, die von dynamischen Steuerelementen in WebForms automatisch angewendet werden.
+Beachten Sie, dass das Projekt nun einen Ordner namens enthält **DynamicData**. In diesem Ordner finden Sie die Vorlagen, die automatisch auf dynamischen Steuerelementen in Ihren Webformularen angewendet werden.
 
 ![Dynamic Data-Ordner](updating-deleting-and-creating-data/_static/image2.png)
 
 ## <a name="enable-updating-and-deleting"></a>Enable aktualisieren und löschen
 
-Aktivieren von Benutzern zu aktualisieren und Löschen von Datensätzen in der Datenbank ist sehr ähnlich, an den Prozess zum Abrufen von Daten. In der **UpdateMethod** und **DeleteMethod** Eigenschaften, geben Sie die Namen der Methoden, die diese Vorgänge ausführen. Sie können auch Geben Sie die automatische Generierung von bearbeiten und Löschen von Schaltflächen, mit einem GridView-Steuerelement. Die folgende hervorgehobene Code werden die Ergänzungen an die GridView-Code dargestellt.
+Aktivieren von Benutzern zum Aktualisieren und Löschen von Datensätzen in der Datenbank ist sehr ähnlich ist, an den Prozess zum Abrufen von Daten. In der **UpdateMethod** und **DeleteMethod** Eigenschaften, Sie geben Sie die Namen der Methoden, die diese Vorgänge durchzuführen. Sie können auch Geben Sie die automatische Generierung von bearbeiten und Löschen von Schaltflächen, mit einem GridView-Steuerelement. Der folgende hervorgehobene Code zeigt die der GridView-Code-Erweiterungen.
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample1.aspx?highlight=4-5)]
 
-In der CodeBehind-Datei fügen Sie eine using-Anweisung für **System.Data.Entity.Infrastructure**.
+In der CodeBehind-Datei, fügen Sie eine using-Anweisung für **System.Data.Entity.Infrastructure**.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample2.cs)]
 
-Anschließend fügen Sie das folgende Update und delete-Methode.
+Anschließend fügen Sie das folgende Update und delete-Methoden.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample3.cs)]
 
-Die **TryUpdateModel** Methode gilt die übereinstimmenden datengebundene Werte aus dem Webformular an, für das Datenelement. Das Datenelement wird basierend auf den Wert des Id-Parameters abgerufen.
+Die **TryUpdateModel** Methode gilt die entsprechende datengebundene Werte aus dem Webformular, für das Datenelement. Das Datenelement wird basierend auf den Wert des Id-Parameters abgerufen.
 
 ## <a name="enforce-validation-requirements"></a>Erzwingen Sie die überprüfungsanforderungen zu erfüllen
 
-Die überprüfungsattribute aus, denen auf die Eigenschaften FirstName, LastName und Jahr in der Student-Klasse angewendet werden automatisch erzwungen werden, wenn die Daten zu aktualisieren. Die DynamicField--Steuerelemente hinzufügen, Client und Server Validierungssteuerelemente, die basierend auf der Validierungsattribute. Die Eigenschaften FirstName und LastName sind erforderlich. FirstName nicht überschreiten 20 Zeichen lang sein und Nachname darf 40 Zeichen nicht überschreiten. Jahr muss einen gültigen Wert für die AcademicYear-Enumeration.
+Die Validierungsattribute, die auf die Eigenschaften "FirstName, LastName und Year" in der Klasse "Student" angewendet werden automatisch erzwungen werden, wenn die Daten aktualisieren. Die DynamicField--Steuerelemente hinzufügen, Client und Server-Validierungssteuerelemente, die basierend auf den Validierungsattributen. Die FirstName und LastName-Eigenschaften sind erforderlich. FirstName kann nicht mehr, als 20 Zeichen umfassen und darf in "LastName" 40 Zeichen nicht überschreiten. Jahr, muss ein gültiger Wert für die AcademicYear-Enumeration sein.
 
-Wenn der Benutzer eine die Prüfungsanforderungen verletzt, wird das Update nicht fortgesetzt werden. Fügen Sie ValidationSummary Steuerelement über die GridView hinzu, um die Fehlermeldung anzuzeigen. Wenn die Validierungsfehler von der modellbindung anzeigen zu können, legen Sie die **ShowModelStateErrors** -Eigenschaftensatz auf **"true"**. 
+Wenn der Benutzer eine der Voraussetzungen für Validierung verletzt, wird das Update nicht fortgesetzt werden. Um die Fehlermeldung anzuzeigen, fügen Sie ein ValidationSummary-Steuerelement oben GridView hinzu. Um Fehler bei der Validierung von der modellbindung anzuzeigen, legen die **ShowModelStateErrors** -Eigenschaftensatz auf **"true"**. 
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample4.aspx)]
 
-Führen Sie die Webanwendung, und aktualisieren und Löschen von Datensätzen.
+Führen Sie die Webanwendung aktualisieren und Löschen von Datensätzen.
 
 ![Aktualisieren von Daten](updating-deleting-and-creating-data/_static/image3.png)
 
-Beachten Sie, dass, wenn in den Bearbeitungsmodus automatisch der Wert für die Eigenschaft "Year" als eine Dropdown-Liste gerendert wird. Die Year-Eigenschaft ist ein Enumerationswert, und die dynamische Datenvorlage für einen Enumerationswert gibt eine Dropdownliste für die Bearbeitung. Sie finden diese Vorlage durch Öffnen der **Enumeration\_Edit.ascx zeigt** in der Datei die **DynamicData**/**FieldTemplates** Ordner.
+Beachten Sie, dass, wenn in den Bearbeitungsmodus automatisch der Wert für die Eigenschaft "Year" als eine Dropdownliste gerendert wird. Die Eigenschaft "Year" ist ein Enumerationswert, und die dynamic Data-Vorlage für einen Enumerationswert gibt eine Dropdown-Liste für die Bearbeitung. Sie finden diese Vorlage, indem Sie öffnen die **Enumeration\_Edit.ascx zeigt** Datei die **DynamicData**/**"FieldTemplates"** Ordner.
 
-Wenn Sie gültige Werte angeben, wird das Update erfolgreich abgeschlossen. Wenn Sie eine der Anforderungen Überprüfung verletzen, das Update wird nicht fortgesetzt, und folgende Fehlermeldung wird oberhalb des Rasters angezeigt.
+Wenn Sie gültige Werte angeben, wird das Update erfolgreich abgeschlossen. Wenn Sie eine der Voraussetzungen für Validierung verletzen würden, das Update wird nicht fortgesetzt, und eine Fehlermeldung wird oberhalb des Rasters angezeigt.
 
 ![Fehlermeldung](updating-deleting-and-creating-data/_static/image4.png)
 
 ## <a name="add-new-records"></a>Neue Datensätze hinzufügen
 
-GridView-Steuerelement enthält keinen der **InsertMethod** Eigenschaft und kann daher nicht für das Hinzufügen eines neuen Datensatzes mit modellbindung verwendet werden. Sie finden die InsertMethod-Eigenschaft in der **FormView**, **DetailsView**, oder **ListView** Steuerelemente. In diesem Lernprogramm verwenden Sie ein FormView-Steuerelement, um einen neuen Datensatz hinzuzufügen.
+Das GridView-Steuerelement enthält keinen der **InsertMethod** Eigenschaft und kann daher nicht für das Hinzufügen eines neuen Datensatzes mit modellbindung verwendet werden. Sie finden die InsertMethod-Eigenschaft in der **FormView**, **DetailsView**, oder **ListView** Steuerelemente. In diesem Tutorial verwenden Sie einen FormView-Steuerelement, um einen neuen Datensatz hinzuzufügen.
 
-Fügen Sie zunächst einen Link auf die neue Seite, die Sie erstellen einen neuen Datensatz hinzuzufügen. Fügen Sie oberhalb der ValidationSummary:
+Fügen Sie zunächst einen Link auf die neue Seite, die Sie zum Hinzufügen eines neuen Eintrags erstellen. Fügen Sie oberhalb der ValidationSummary:
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample5.aspx)]
 
-Der neue Link wird am oberen Rand der Inhalt für die Seite "Students" angezeigt.
+Der neue Link wird am oberen Rand der Inhalt für die Schüler/Studenten-Seite angezeigt.
 
-![Link "Neues"](updating-deleting-and-creating-data/_static/image5.png)
+![Neuer link](updating-deleting-and-creating-data/_static/image5.png)
 
-Anschließend fügen Sie eine neue WebForm mithilfe einer Masterseite hinzu, und nennen Sie sie **AddStudent**. Wählen Sie Site.Master, als die Gestaltungsvorlage.
+Anschließend fügen Sie ein neues Webformular mit einer Masterseite hinzu, und nennen Sie sie **AddStudent**. Wählen Sie als Masterseite Site.Master.
 
-Sie werden die Felder für das Hinzufügen eines neuen Studenten mit Rendern einer **erzeugt wird** Steuerelement. Das Steuerelement erzeugt wird rendert, bearbeitbaren Eigenschaften in der Klasse, die in der ItemType-Eigenschaft angegeben. Die StudentID-Eigenschaft wurde gekennzeichnet, mit der **[ScaffoldColumn(false)]** Attribut, damit es nicht gerendert wird. Fügen Sie in den von der Seite "AddStudent" MainContent-Platzhalter den folgenden Code ein.
+Rendert Sie die Felder zum Hinzufügen eines neuen Studenten mit einem **erzeugt wird** Steuerelement. Das Steuerelement erzeugt wird, rendert, bearbeitbaren Eigenschaften in der Klasse, die in der ItemType-Eigenschaft angegeben. Die Eigenschaft "StudentID" wurde mit markiert die **[ScaffoldColumn(false)]** Attribut, damit es nicht gerendert wird. Fügen Sie im Platzhalter MainContent der AddStudent Seite den folgenden Code ein.
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample6.aspx)]
 
-Fügen Sie in der Code-Behind-Datei (AddStudent.aspx.cs) eine **mit** -Anweisung für die **ContosoUniversityModelBinding.Models** Namespace.
+Fügen Sie in der CodeBehind-Datei (AddStudent.aspx.cs) eine **mit** -Anweisung für die **ContosoUniversityModelBinding.Models** Namespace.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample7.cs)]
 
-Anschließend fügen Sie die folgenden Methoden zum Einfügen eines neuen Datensatzes und einen Ereignishandler für die Schaltfläche "Abbrechen" angeben.
+Anschließend fügen Sie die folgenden Methoden zum angeben, wie zum Einfügen eines neuen Datensatzes und einen Ereignishandler für die Schaltfläche "Abbrechen".
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample8.cs)]
 
-Alle Änderungen zu speichern.
+Speichern Sie alle Änderungen an.
 
 Führen Sie die Webanwendung, und erstellen Sie einen neuen Studenten.
 
 ![Hinzufügen von neuen Studenten](updating-deleting-and-creating-data/_static/image6.png)
 
-Klicken Sie auf **einfügen** , und beachten Sie die neue Studenten erstellt wurde.
+Klicken Sie auf **einfügen** und beachten Sie, dass der neue Student erstellt wurde.
 
 ![Anzeigen von neuen Studenten](updating-deleting-and-creating-data/_static/image7.png)
 
 ## <a name="conclusion"></a>Schlussbemerkung
 
-In diesem Lernprogramm ermöglichte aktualisieren, löschen und Erstellen von Daten. Sie wird sichergestellt, dass es sich um eine Überprüfungsregeln angewendet werden, bei der Interaktion mit den Daten.
+In diesem Tutorial haben aktiviert Sie aktualisieren, löschen und Erstellen von Daten. Sie wird sichergestellt, dass Validierungsregeln angewendet werden, bei der Interaktion mit den Daten.
 
-In der nächsten [Lernprogramm](sorting-paging-and-filtering-data.md) in dieser Serie, aktivieren Sie sortieren, paging und Filtern von Daten.
+In den nächsten [Tutorial](sorting-paging-and-filtering-data.md) in dieser Reihe, aktivieren Sie sortieren, paging und Filtern von Daten.
 
 > [!div class="step-by-step"]
 > [Zurück](retrieving-data.md)

@@ -1,79 +1,78 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: Verhindern von Cross-Site Request Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Web-API | Microsoft Docs
+title: Verhindern von Cross-Site Request Forgery (CSRF)-Angriffen in ASP.NET Web-API | Microsoft-Dokumentation
 author: MikeWasson
-description: Beschreibt die siteübergreifende Anforderung Websiteübergreifender anforderungsfälschung Angriff und wie Anti-CSRF-Measures in ASP.NET Web-API implementiert.
+description: Beschreibt die websiteübergreifende anforderungsfälschung (CSRF)-Angriffe und Anti-CSRF-Measures in ASP.NET Web-API zu implementieren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
 ms.topic: article
 ms.assetid: 81d46f14-8f48-4d8c-830d-cc8d594dc11b
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 5e7b24c697e0bb37f388341abd89609c76f6b64c
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 7dfddf09a1577cfa7a52f58b37533724a8475435
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961236"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379873"
 ---
-<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Verhindern von Cross-Site Request Websiteübergreifender Anforderungsfälschung-Angriffen in ASP.NET Web-API
+<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Verhindern von Cross-Site Request Forgery (CSRF)-Angriffen in ASP.NET Web-API
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-Cross-Site Request Fälschung Websiteübergreifender ist ein Angriff, in denen eine bösartige Website sendet eine Anforderung mit einem gefährdeten Standort, in dem der Benutzer zurzeit angemeldet ist
+Cross-Site Request Forgery (CSRF) ist ein Angriff, in dem eine schädliche Website sendet eine Anforderung an einer anfälligen Website, in denen der Benutzer zurzeit angemeldet ist
 
-Hier ist ein Beispiel von CSRF-Angriffen:
+Hier ist ein Beispiel eines CSRF-Angriffs aus:
 
 1. Ein Benutzer meldet sich bei `www.example.com` mit Formularauthentifizierung.
 2. Der Server authentifiziert den Benutzer. Die Antwort vom Server enthält ein Authentifizierungscookie.
-3. Ohne Abmelden, wechselt der Benutzer eine bösartige Website. Diese bösartige Website enthält die folgenden HTML-Formular: 
+3. Der Benutzer, ohne Abmeldung, eine schädliche Website besucht. Diese schädliche Websites enthält das folgende HTML-Format an: 
 
     [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample1.html)]
 
-    Beachten Sie, dass die formaktion an den Standort anfällig für nicht auf die bösartige Website sendet. Dies ist der "Cross-Site" Teil CSRF.
-4. Der Benutzer klickt auf die Schaltfläche "Absenden". Der Browser umfasst das Authentifizierungscookie mit der Anforderung.
-5. Die Anforderung auf dem Server mit dem Kontext des Benutzers Authentifizierung ausgeführt und Aktionen möglich, die ein authentifizierter Benutzer tun darf.
+    Beachten Sie, dass die Formularaktion an den Standort anfällig für nicht auf die bösartige Website sendet. Dies ist der Teil von "Cross-Site" für CSRF.
+4. Der Benutzer klickt auf die Schaltfläche "Senden". Der Browser enthält das Cookie für die Authentifizierung mit der Anforderung.
+5. Die Anforderung ausgeführt wird, auf dem Server mit dem Kontext des Benutzers Authentifizierung und Aktionen möglich, die ein authentifizierter Benutzer ausführen darf.
 
-Obwohl in diesem Beispiel wird den Benutzer auf die Formularschaltfläche erforderlich sind, konnte die böswillige Seite so fest, wie Sie problemlos ein Skript ausführen, das das Formular automatisch sendet. Darüber hinaus verhindert mit SSL eine CSRF-Angriffen nicht, da die bösartige Website "https://"-Anforderung senden kann.
+Obwohl in diesem Beispiel wird den Benutzer auf die Schaltfläche "Format" erforderlich sind, könnten auch einfach ein Skript ausführen, die das Formular automatisch übermittelt die schädliche Seite. Darüber hinaus verhindert mithilfe von SSL ein CSRF-Angriffs nicht, da die bösartige Website eine "https://"-Anforderung senden kann.
 
-In der Regel sind CSRF-Angriffen möglich für Websites, die Cookies für die Authentifizierung verwenden, da Browser alle relevanten Cookies an die Ziel-Website senden. CSRF-Angriffen sind jedoch nicht beschränkt auf Cookies ausnutzen. Beispielsweise Basis-und Digestauthentifizierung sind auch anfällig. Nach der Anmeldung eines Benutzers mit Standard-oder Digestauthentifizierung. der Browser sendet automatisch die Anmeldeinformationen an, bis die Sitzung beendet.
+In der Regel sind die CSRF-Angriffe möglich vor Websites, die Cookies für die Authentifizierung zu verwenden, da Browser alle relevanten Cookies an die Ziel-Website senden. CSRF-Angriffe sind jedoch nicht beschränkt auf Cookies ausnutzen. Z. B. Basis-und Digestauthentifizierung sind auch anfällig. Nachdem ein Benutzer meldet sich mit Standard-oder Digestauthentifizierung. der Browser sendet automatisch die Anmeldeinformationen an, bis die Sitzung beendet.
 
 ## <a name="anti-forgery-tokens"></a>Fälschungssicherheitstoken
 
-Zum Vermeiden von CSRF-Angriffen verwendet ASP.NET MVC fälschungssicherheitstoken, so genannte *Überprüfung Token anfordern*.
+Um CSRF-Angriffe zu vermeiden, verwendet ASP.NET MVC fälschungssicherheitstoken, so genannte *Überprüfung Token anfordern*.
 
 1. Der Client fordert eine HTML-Seite, die ein Formular enthält.
-2. Der Server enthält zwei Token in der Antwort. Ein Token wird als Cookie gesendet. Der andere wird in ein ausgeblendetes Formularfeld eingefügt. Die Token werden nach dem Zufallsprinzip generiert, so, dass Angreifer die Werte ermittelt werden kann.
-3. Wenn der Client das Formular sendet, muss er beide Token an den Server senden. Der Client sendet das cookietoken als Cookie, und er sendet das Token Form innerhalb der Formulardaten. (Ein Browserclient geschieht automatisch, wenn der Benutzer das Formular sendet.)
-4. Wenn eine Anforderung nicht beide Token enthält, lässt der Server die Anforderung an.
+2. Der Server umfasst zwei Token in der Antwort. Ein Token wird als Cookie gesendet. Die andere befindet sich in einem ausgeblendeten Formularfeld. Die Token werden nach dem Zufallsprinzip generiert, so, dass ein Angreifer die Werte nicht wissen.
+3. Wenn der Client das Formular sendet, müssen sie beide Token an den Server senden. Der Client sendet das cookietoken als ein Cookie, und sendet das formulartoken innerhalb von Daten aus dem Formular. (Ein Browserclient Fall automatisch, wenn der Benutzer das Formular übermittelt.)
+4. Wenn eine Anforderung nicht beide Token enthalten ist, lässt der Server die Anforderung an.
 
-Hier ist ein Beispiel eines HTML-Formulars mit einem ausgeblendeten Formular-Token:
+Hier ist ein Beispiel für ein HTML-Formular mit einem ausgeblendeten Feld-Token:
 
 [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample2.html)]
 
-Fälschungssicherheitstoken verwendet werden, da die böswillige Seite das Benutzertoken aufgrund von Richtlinien für denselben Ursprung nicht lesen kann. ([Same-Origin-Richtlinien](http://www.w3.org/Security/wiki/Same_Origin_Policy) verhindern, dass Dokumente auf zwei verschiedenen Standorten aus zugreifen auf Inhalte des jeweils anderen gehostet. Damit der oben aufgeführten Beispiel kann die bösartige Seite Anforderungen an example.com senden, aber die Antwort nicht gelesen.)
+Fälschungssicherheitstoken funktionieren, da die Token des Benutzers, aufgrund von Richtlinien für denselben Ursprung der schädliche Seite nicht gelesen werden kann. ([Richtlinien für denselben Ursprung](http://www.w3.org/Security/wiki/Same_Origin_Policy) verhindern, dass Dokumente auf zwei verschiedenen Standorten aus den Zugriff auf die Inhalte des jeweils anderen gehostet. Damit die oben aufgeführten Beispiel kann die schädliche Seite Anforderungen an "example.com" senden, aber er die Antwort kann nicht gelesen werden.)
 
-Zum Verhindern von CSRF-Angriffen fälschungssicherheitstoken mit Beliebiges Authentifizierungsprotokoll verwenden, in dem im Hintergrund sendet der Browser die Anmeldeinformationen nach der Anmeldung des Benutzers aus. Dies umfasst Cookie-basierte Authentifizierung-Protokolle, z. B. Formularauthentifizierung, als auch Protokolle wie z. B. die Standard- und Digest-Authentifizierung.
+Um CSRF-Angriffe zu verhindern, verwenden Sie fälschungssicherheitstoken Beliebiges Authentifizierungsprotokoll sendet, in dem der Browser automatisch Anmeldeinformationen, nachdem der Benutzer anmeldet. Dies umfasst cookiebasierte Authentifizierung-Protokolle, z. B. Formularauthentifizierung, als auch Protokolle wie Basis-und Digestauthentifizierung.
 
-Sie müssen das fälschungssicherheitstoken nonsafe Methoden (POST, PUT, DELETE). Stellen Sie außerdem sicher, dass die sichere Methoden (GET, HEAD) nicht keine Nebeneffekte haben. Darüber hinaus, wenn Sie die domänenübergreifende-Unterstützung, z. B. CORS oder JSONP, aktivieren sind sogar sichere Methoden wie z. B. GET potenziell anfällig für CSRF-Angriffen der Angreifer sensible Daten zu lesen.
+Sie sollten fälschungssicherheitstoken für nonsafe Methoden (POST, PUT, DELETE) erfordern. Stellen Sie außerdem sicher, dass sichere Methoden (GET, HEAD) nicht keine Nebeneffekte haben. Darüber hinaus, wenn Sie Unterstützung für domänenübergreifende, z. B. CORS oder JSONP, aktivieren sind sogar sichere Methoden wie GET potenziell anfällig für CSRF-Angriffe, denen der Angreifer möglicherweise sensible Daten zu lesen.
 
 ## <a name="anti-forgery-tokens-in-aspnet-mvc"></a>Fälschungssicherheitstoken in ASP.NET MVC
 
-Verwenden Sie zum Hinzufügen der fälschungssicherheitstoken zu einer Razor-Seite der **HtmlHelper.AntiForgeryToken** Hilfsmethode:
+Verwenden Sie zum Hinzufügen der fälschungssicherheitstoken zu einer Razor Page der **HtmlHelper.AntiForgeryToken** Hilfsmethode:
 
 [!code-cshtml[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample3.cshtml)]
 
-Diese Methode fügt die ausgeblendetes Formularfeld und zudem wird das cookietoken.
+Diese Methode fügt das verborgene Feld hinzu und legt auch fest, das cookietoken.
 
 ## <a name="anti-csrf-and-ajax"></a>Anti-CSRF und AJAX
 
-Des formulartokens kann ein Problem für AJAX-Anforderungen, da eine AJAX-Anforderung, JSON-Daten nicht HTML-Formulardaten senden kann. Eine Lösung besteht darin, die Token in einem benutzerdefinierten HTTP-Header zu senden. Der folgende Code Razor-Syntax verwendet, um die Token zu generieren und fügt dann die Token eine AJAX-Anforderung hinzu. Die Token werden durch den Aufruf auf dem Server generierte **AntiForgery.GetTokens**.
+Das formulartoken kann für AJAX-Anforderungen ein Problem sein, da eine AJAX-Anforderung, JSON-Daten nicht HTML-Formulardaten senden kann. Eine Lösung ist, um die Token in einem benutzerdefinierten HTTP-Header zu senden. Der folgende Code verwendet Razor-Syntax zum Generieren der Token und fügt dann die Token auf ein AJAX-Anforderung. Die Token werden durch den Aufruf auf dem Server generierte **AntiForgery.GetTokens**.
 
 [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample4.html)]
 
-Beim Verarbeiten der Anforderung extrahieren Sie das Token aus dem Anforderungsheader. Rufen Sie anschließend die **AntiForgery.Validate** Methode zum Überprüfen der Token. Die **Validate** Methode löst eine Ausnahme aus, wenn das Token nicht gültig sind.
+Wenn Sie die Anforderung verarbeiten, extrahieren Sie die Token aus dem Anforderungsheader. Rufen Sie dann die **AntiForgery.Validate** Methode zum Überprüfen der Token. Die **überprüfen** Methode löst eine Ausnahme aus, wenn die Token nicht gültig sind.
 
 [!code-csharp[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample5.cs)]

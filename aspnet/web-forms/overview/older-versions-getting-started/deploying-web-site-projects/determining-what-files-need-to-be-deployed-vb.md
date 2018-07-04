@@ -1,194 +1,193 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: Bestimmen, welche Dateien werden müssen (VB) bereitgestellten | Microsoft Docs
+title: Bestimmen, welche Dateien werden müssen (VB) bereitgestellten | Microsoft-Dokumentation
 author: rick-anderson
-description: Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung uns erstellt wurde...
+description: Was müssen Dateien aus der Entwicklungsumgebung bereitgestellt werden, in der produktionsumgebung hängt zum Teil, ob die ASP.NET-Anwendung uns erstellt wurde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
 ms.topic: article
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 89b45bff705996b799242ad55f156083f310af97
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889916"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380388"
 ---
-<a name="determining-what-files-need-to-be-deployed-vb"></a>Bestimmen, welche Dateien werden müssen (VB) bereitgestellt
+<a name="determining-what-files-need-to-be-deployed-vb"></a>Bestimmen, welche Dateien müssen sein bereitgestellt (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip) oder [PDF herunterladen](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
+[Code herunterladen](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
 
-> Welche Dateien in der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung mithilfe von der Website-Modell oder Webanwendungsmodells erstellt wurde. Weitere Informationen zu dieser zwei Projektmodelle und wie das Projektmodell Bereitstellung auswirkt.
+> Welche Dateien aus der Entwicklungsumgebung in der produktionsumgebung bereitgestellt werden müssen, richtet sich teilweise auf, ob die ASP.NET-Anwendung erstellt wurde mit dem Modell der Website oder -Modell. Weitere Informationen finden Sie Informationen zu diesen beiden Projektmodellen und wie das Modell auf eine Bereitstellung auswirkt.
 
 
 ## <a name="introduction"></a>Einführung
 
-Bereitstellen einer ASP.NET-Webanwendung umfasst das Kopieren von Dateien ASP.NET bezogene aus der Entwicklungsumgebung in der produktionsumgebung. Die ASP.NET bezogene Dateien umfassen ASP.NET Web-Seitenmarkup und Code und Client- und serverseitige Dateien unterstützen. Unterstützung einer clientseitigen-Dateien handelt es sich um die Dateien von Webseiten verwiesen und diese direkt an den Browser - Bilder, CSS-Dateien und JavaScript-Dateien, z. B. gesendet. Serverseitige-Unterstützungsdateien enthalten, die zum Verarbeiten einer Anforderung auf der Serverseite verwendet werden. Dies schließt Konfigurationsdateien, Webdienste, Klassendateien, typisierte DataSets und LINQ auf SQL-Dateien, o. ä.
+Bereitstellen einer ASP.NET-Webanwendung umfasst das Kopieren von ASP.NET-bezogenen Dateien aus der Entwicklungsumgebung in der produktionsumgebung bereit. Die ASP.NET-bezogene Dateien enthalten Markup einer Webseite ASP.NET und Code und Client- und serverseitige Unterstützungsdateien. Unterstützungsdateien für die clientseitige sind diese Dateien verwiesen wird, von Ihren Webseiten und z. B. direkt an den Browser - Bilder, CSS-Dateien und JavaScript-Dateien gesendet. Serverseitige-Unterstützungsdateien enthalten, die zum Verarbeiten einer Anforderung auf der Serverseite verwendet werden. Dies schließt-Konfigurationsdateien, Webdienste, Klassendateien, typisierter DataSets und LINQ zu SQL-Dateien, u. a. an.
 
-Im Allgemeinen alle clientseitige Unterstützungsdateien aus der Entwicklungsumgebung kopiert werden sollen, in der produktionsumgebung kopiert werden, welche serverseitige Unterstützungsdateien hängt jedoch, ob Sie den serverseitigen Code explizit in eine Assembly (eine Kompilieren`.dll` Datei) oder wenn Sie diese Assemblys automatisch generierter Probleme auftreten. In diesem Lernprogramm werden hervorgehoben, welche Dateien bereitgestellt werden, wenn explizit Kompilieren des Codes in einer Assembly und nicht von dieser Kompilierungsschritt automatisch ausgeführt werden müssen.
+Im Allgemeinen alle Dateien von der clientseitigen Unterstützung in der Entwicklungsumgebung kopiert werden sollen, in der produktionsumgebung kopiert werden, welche Dateien für die serverseitige Unterstützung hängt jedoch, ob Sie den serverseitigen Code explizit in eine Assembly (eine Kompilieren`.dll` Datei) oder wenn Sie diese Assemblys, die automatisch generiert haben. Dieses Tutorial wird beschrieben, welche Dateien bereitgestellt werden, wenn explizit Kompilieren des Codes in eine Assembly und nicht von dieser Kompilierungsschritt automatisch ausgeführt werden müssen.
 
-## <a name="explicit-compilation-versus-automatic-compilation"></a>Explizite Kompilierung im Vergleich zu automatische Kompilierung
+## <a name="explicit-compilation-versus-automatic-compilation"></a>Explizite Kompilierung und die automatische Kompilierung
 
-ASP.NET Web Pages sind in deklaratives Markup und Quellcode unterteilt. Der Teil von deklarativem Markup enthält, HTML, Web-Steuerelemente und Databinding-Syntax. der Code enthält Ereignishandler in Visual Basic oder C#-Code geschrieben wurde. Die Teile von Markup und Code werden in der Regel in unterschiedlichen Dateien unterteilt: `WebPage.aspx` enthält das deklarative Markup beim `WebPage.aspx.vb` enthält den Code.
+ASP.NET Web Pages sind in deklarativem Markup und Quellcode Code unterteilt. Der deklarativen Markup Teil enthält HTML-Steuerelemente und Databinding-Syntax; Der Codeteil enthält die Ereignishandler, die in Visual Basic oder C#-Code geschrieben wurde. Die Teile von Markup und Code in der Regel in unterschiedlichen Dateien getrennt: `WebPage.aspx` enthält die deklarative Markup beim `WebPage.aspx.vb` enthält den Code.
 
-Betrachten Sie eine ASP.NET-Seite mit dem Namen `Clock.aspx` , die ein Label-Steuerelement, dessen Text-Eigenschaft wird festgelegt, um das aktuelle Datum und die Uhrzeit, die beim Laden der Seite, enthält. Der Teil von deklarativem Markup (in `Clock.aspx`) enthält das Markup für ein Label-Websteuerelement - `<asp:Label runat="server" id="TimeLabel" />` – während der Codeteil (in `Clock.aspx.vb`) müsste eine `Page_Load` -Ereignishandler durch den folgenden Code:
+Erwägen Sie eine ASP.NET-Seite mit dem Namen `Clock.aspx` , die ein Label-Steuerelement, dessen Text-Eigenschaft festgelegt ist, um das aktuelle Datum und die Uhrzeit, die beim Laden der Seite, enthält. Der deklarativen Markup-Teil (in `Clock.aspx`) enthält das Markup für ein Label-Steuerelement - `<asp:Label runat="server" id="TimeLabel" />` – während der Codeteil (in `Clock.aspx.vb`) hätte eine `Page_Load` -Ereignishandler durch den folgenden Code:
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-In der Reihenfolge für das Datenbankmodul ASP.NET eine Anforderung für diese Seite, die Seite Codeteil (die *`WebPage`* `.aspx.vb` Datei) muss zuerst kompiliert werden. Dieser Kompilierung kann explizit oder automatisch durchgeführt werden soll.
+In der Reihenfolge für die ASP.NET-Engine eine Anforderung für diese Seite, Codeteil der Seite (die *`WebPage`* `.aspx.vb` Datei) muss zunächst kompiliert werden. Dieser Kompilierung kann explizit oder automatisch erfolgen muss.
 
-Wenn die Kompilierung explizit erfolgt, und klicken Sie dann die gesamte Anwendung Quellcode wird in eine oder mehrere Assemblys kompiliert (`.dll` Dateien) befindet sich in der Anwendungsverzeichnis `Bin` Verzeichnis. In angeordnet, wenn es sich bei die Kompilierung automatisch ablaufenden Schlüsselaustausches eingerichtet und dann das resultierende automatisch generierte Assembly ist, wird standardmäßig die `Temporary ASP.NET Files` Ordner, das auf `%WINDOWS%\Microsoft.NET\Framework\<version>`, obwohl dieser Speicherort unterscheidet sich konfigurierbar über die [ &lt; Kompilierung&gt; Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in `Web.config`. Mit der expliziten Kompilierung müssen Sie eine bestimmte Aktion, die ASP.NET-Anwendung Code in eine Assembly zu kompilieren, und dieser Schritt wird vor der Bereitstellung. Mit der automatische Kompilierung tritt auf, im Verlauf des Vorgangs auf dem Webserver Wenn zuerst die Ressource zugegriffen wird.
+Wenn die Kompilierung explizit erfolgt, und klicken Sie dann die gesamte Anwendung Quellcode in eine oder mehrere Assemblys kompiliert (`.dll` Dateien) befindet sich in der Anwendung `Bin` Verzeichnis. In angeordnet, wenn es sich bei die Kompilierung automatisch erfolgt, und klicken Sie dann das resultierende automatisch generierte Assembly ist, wird standardmäßig die `Temporary ASP.NET Files` Ordner, in dem finden Sie unter `%WINDOWS%\Microsoft.NET\Framework\<version>`, obwohl hier über konfigurierbar ist die [ &lt; Kompilierung&gt; Element](https://msdn.microsoft.com/library/s10awwz0.aspx) in `Web.config`. Mit der expliziten Kompilierung Sie ergreifen müssen einige ASP.NET den Code der Anwendung in eine Assembly kompiliert, und dieser Schritt tritt vor der Bereitstellung. Bei der automatischen Kompilierung tritt ein, der Kompilierungsprozess auf dem Webserver beim ersten Zugriff auf die Ressource.
 
-Unabhängig davon, welche Kompilierungsmodell verwenden, der Teil von Markup für alle ASP.NET-Seiten (die `WebPage.aspx` Dateien) in der produktionsumgebung kopiert werden müssen. Mit der expliziten Kompilierung müssen Sie kopieren Sie die Assemblys in der `Bin` Ordner, aber Sie müssen nicht den ASP.NET-Seiten Codeteile kopieren (die `WebPage.aspx.vb` Dateien). Automatische Kompilierung müssen Sie die Codedateien für den Bereich kopieren, damit der Code vorhanden ist und kann automatisch kompiliert werden, wenn die Seite besucht wird. Der Teil von Markup für jede ASP.NET-Webseite enthält eine `@Page` -Direktive mit Attributen, die angeben, ob die zugeordneten Seitencode bereits explizit kompiliert wurde, oder gibt an, ob es automatisch kompiliert werden muss. Daher die produktionsumgebung funktioniert nahtlos mit entweder Kompilierungsmodell und Sie müssen nicht gelten spezielle Konfiguration-Einstellungen, um anzugeben, dass explizite oder automatische Kompilierung verwendet wird.
+Unabhängig davon, welche Kompilierungsmodell verwenden, der Teil von Markup für alle ASP.NET-Seiten (die `WebPage.aspx` Dateien) in der produktionsumgebung kopiert werden müssen. Mit der expliziten Kompilierung müssen Sie sich die Assemblys im Kopieren der `Bin` Ordner, aber Sie müssen nicht die ASP.NET-Seiten Code Teile kopieren (die `WebPage.aspx.vb` Dateien). Bei der automatischen Kompilierung müssen Sie sich die Codedateien für das Teil zu kopieren, damit der Code vorhanden ist und kann automatisch kompiliert werden, wenn die Seite besucht wird. Der Teil von Markup für jede ASP.NET-Webseite umfasst eine `@Page` -Direktive zusammen mit Attributen, die angeben, ob der Code der Seite zugeordnete bereits explizit kompiliert wurde, oder gibt an, ob es automatisch kompiliert werden muss. Daher die produktionsumgebung kann nahtlos mit entweder Kompilierungsmodell arbeiten, und Sie müssen nicht gelten spezielle Konfigurationseinstellungen, um anzugeben, dass explizite oder automatische Kompilierung verwendet wird.
 
-Tabelle 1 werden die Dateien bereitstellen, wenn explizite Kompilierung im Vergleich zu automatische Kompilierung mit zusammengefasst. Beachten Sie, dass unabhängig von der Kompilierung Modell verwenden sollten immer Bereitstellen der Assemblys in der `Bin` Ordner, sofern dieser vorhanden ist. Die `Bin` Ordner enthält die Assemblys, spezifisch für die Web-Anwendung, die den kompilierten Quellcode angeben, wenn das explizite Kompilierungsmodell zu verwenden. Die `Bin` Verzeichnis enthält auch Assemblys aus anderen Projekten und den Open Source- oder Drittanbieter-Assemblys, die Sie verwenden möglicherweise, und diese auf dem Produktionsserver werden müssen. Daher sollten Sie als allgemeine Faustregel, kopieren Sie die `Bin` Ordner bis zur Produktion, bei der Bereitstellung. (Wenn Sie mithilfe des Modells für die automatische Kompilierung und keine externen Assemblys verwenden Sie erhalten keine `Bin` Directory –, die "OK" lautet.)
+In Tabelle 1 sind die verschiedenen Dateien bereitstellen, wenn explizite Kompilierung und die automatische Kompilierung verwenden. Beachten Sie, dass unabhängig von der Kompilierung Modell Sie sollten immer Bereitstellen der Assemblys in der `Bin` Ordner, sofern dieser vorhanden ist. Die `Bin` Ordner enthält die Assemblys für die Webanwendung, die den kompilierten Quellcode enthalten, wenn das Modell für die explizite Kompilierung verwendet. Die `Bin` Verzeichnis auch enthält die Assemblys aus anderen Projekten sowie alle Open Source- oder Drittanbieter-Assemblys, die Sie verwenden und diese auf dem Produktionsserver werden müssen. Daher wird eine allgemeine Faustregel, kopieren Sie die `Bin` Ordner bis zur Produktion, die bei der Bereitstellung. (Wenn Sie mithilfe des Modells für die automatische Kompilierung und keine externen Assemblys verwenden keine `Bin` Directory –, die "OK" lautet.)
 
-| **Kompilierungsmodell** | **Werden Teil der Markupdatei bereitgestellt?** | **Werden Quellcodedatei bereitgestellt?** | **Bereitstellen von Assemblys in `Bin` Verzeichnis?** |
+| **Kompilierungsmodell** | **Werden Teil-Markup-Datei bereitgestellt?** | **Bereitstellen von Quellcodedatei?** | **Bereitstellen von Assemblys in `Bin` Verzeichnis?** |
 | --- | --- | --- | --- |
 | Explizite Kompilierung | Ja | Nein | Ja |
 | Automatische Kompilierung | Ja | Ja | Ja (falls vorhanden) |
 
-**Tabelle 1: Welche Dateien, die Sie bereitstellen, hängt vom verwendete Kompilierungsmodell ab.**
+**Tabelle 1: Welche Dateien Sie bereitstellen, hängt das Kompilierungsmodell verwendet.**
 
-## <a name="taking-a-trip-down-memory-lane"></a>Erstellen eine Reise unten Arbeitsspeicher Lane
+## <a name="taking-a-trip-down-memory-lane"></a>Einen tagesausflug nach-unten-Leitungs-Arbeitsspeicher
 
-Welche Kompilierung Ansatz verwendet wird hängt teilweise von wie die ASP.NET-Anwendung in Visual Studio verwaltet wird. Wurden. NET Cacheobjekts im Jahr 2000 vier verschiedene Versionen von Visual Studio - Visual Studio .NET 2002, Visual Studio .NET 2003, Visual Studio 2005 und Visual Studio 2008 stattgefunden haben. Visual Studio .NET 2002 und 2003 verwaltet ASP.NET-Anwendungen mit der *Webanwendungsprojekt* Modell. Die wichtigsten Funktionen des Webanwendungsprojekts Modells sind:
+Welche Kompilierung-Ansatz verwendet wird, hängt teilweise von wie die ASP.NET-Anwendung in Visual Studio verwaltet wird. Da. NET Einführung im Jahr 2000 es vier verschiedene Versionen von Visual Studio - Visual Studio .NET 2002, Visual Studio .NET 2003, Visual Studio 2005 und Visual Studio 2008 gab. Visual Studio .NET 2002 und 2003 verwaltet werden ASP.NET-Anwendungen mit der *Webanwendungsprojekt* Modell. Die wichtigsten Features von das Webanwendungsprojekt-Modell sind:
 
-- Dateien, die Zusammensetzung des Projekts in einer Projektdatei definiert sind. Alle Dateien, die nicht in der Projektdatei definiert werden Teil der Webanwendung von Visual Studio nicht berücksichtigt werden.
-- Verwendet die explizite Kompilierung. Beim Erstellen des Projekts die Codedateien innerhalb des Projekts in einer einzelnen Assembly, die in der befindet kompiliert die `Bin` Ordner.
+- Die Dateien, die Zusammensetzung des Projekts werden in einer Projektdatei definiert. Alle Dateien, die nicht in der Projektdatei definiert werden die Web-Anwendung von Visual Studio nicht berücksichtigt werden.
+- Verwendet die explizite Kompilierung. Die Codedateien innerhalb des Projekts beim Erstellen des Projekts kompiliert werden, in eine einzelne Assembly, die in gespeichert wird die `Bin` Ordner.
 
-Wenn Microsoft Visual Studio 2005 freigegeben, die sie Unterstützung für das Modell Webanwendungsprojekt gelöscht und durch das Websiteprojekt-Modell ersetzt. Das Website-Projektmodell unterschieden selbst aus der *Webanwendungsprojekt* Modell auf folgende Weise:
+Wenn Microsoft Visual Studio 2005 veröffentlicht, die sie Unterstützung für das Webanwendungsprojekt-Modell und mit dem Websiteprojekt-Modell ersetzt. Das Websiteprojekt-Modell unterschieden sich selbst durch die *Webanwendungsprojekt* Modell, es gibt folgende Möglichkeiten:
 
-- Im Dateisystem wird stattdessen verwendet, anstatt eine einzelnes Projekt-Datei, die die Dateien des Projekts ausgeschrieben. Kurz gesagt, gelten alle Dateien innerhalb der Webanwendungsordner (oder Unterordner) als Teil des Projekts.
-- Erstellen eines Projekts in Visual Studio erstellt sich nicht auf eine Assembly in die `Bin` Verzeichnis. Stattdessen meldet die Erstellen eines Projekts für die Website Kompilierungsfehler.
-- Unterstützung für die automatische Kompilierung. Websiteprojekte werden in der Regel durch Kopieren von Markup und Source-Code in der produktionsumgebung bereitgestellt, obwohl der Code vorkompilierte (explizite-Kompilierung) sein kann.
+- Anstatt eine einzelne Projektdatei, die die Dateien des Projekts ausgeschrieben, wird das Dateisystem wird stattdessen verwendet. Kurz gesagt, gelten alle Dateien im Ordner der Web-Anwendung (oder Unterordner) als Teil des Projekts.
+- Erstellen eines Projekts in Visual Studio erstellt sich nicht auf eine Assembly in den `Bin` Verzeichnis. Stattdessen meldet die Erstellung eines Websiteprojekts Fehlermeldungen während der Kompilierung.
+- Unterstützung für die automatische Kompilierung. Websiteprojekte werden in der Regel durch Kopieren des Markup und Quellcode-Codes in der produktionsumgebung bereitgestellt, obwohl der Code vorkompilierte (explizite Kompilierung) sein kann.
 
-Microsoft fortgesetzt das Webanwendungsprojekt Modell, wenn sie Visual Studio 2005 Service Pack 1 veröffentlicht. Visual Web Developer wurde jedoch nur Unterstützung für das Websiteprojekt-Modell. Die gute Nachricht ist, dass diese Einschränkung mit Visual Web Developer 2008 Service Pack 1 gelöscht wurde. Heute können Sie ASP.NET-Anwendungen in Visual Studio und Visual Web Developer per das Webanwendungsprojekt-Modell oder das Websiteprojekt-Modell erstellen. Beide Modelle verfügen über ihre vor- und Nachteile. Verweisen auf [Einführung in Webanwendungsprojekte: Vergleichen von Websiteprojekte und Webanwendungsprojekte](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) für einen Vergleich der beiden Modelle, und um zu entscheiden, welche Projektmodell am besten für Ihre Situation geeignet.
+Microsoft das Webanwendungsprojekt-Modell heraus wieder aktiviert, wenn sie Visual Studio 2005 Service Pack 1 veröffentlicht. Jedoch weiterhin Visual Web Developer nur Unterstützung für das Websiteprojekt-Modell. Die gute Nachricht ist, dass diese Einschränkung mit Visual Web Developer 2008 Service Pack 1 gelöscht wurde. Heute können Sie ASP.NET-Anwendungen in Visual Studio (und Visual Web Developer), über das Webanwendungsprojekt-Modell oder das Websiteprojekt-Modell erstellen. Beide Modelle haben ihre vor- und Nachteile. Finden Sie unter [Einführung in Webanwendungsprojekte: Vergleich von Websiteprojekten und Webanwendungsprojekten](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) einen Vergleich der beiden Modelle, und um zu entscheiden, welche Projektmodell eignet sich für Ihre Situation am besten geeignet.
 
 ## <a name="exploring-the-sample-web-application"></a>Untersuchen die Beispielwebanwendung
 
-Der Download für dieses Lernprogramm umfasst eine ASP.NET-Anwendung Buch Reviews aufgerufen. Die Website imitiert eine Hobbys-Website, die eine Person erstellen möglicherweise ihre Buch freigeben überprüft werden soll, mit der online-Community. Diese ASP.NET-Webanwendung ist sehr einfach und besteht aus den folgenden Ressourcen:
+Der Download für dieses Lernprogramm enthält eine ASP.NET-Anwendung namens Book Reviews an. Die Website imitiert eine Hobby-Website, die ein Benutzer möglicherweise erstellen Sie mit ihrem Buch freigeben überprüft werden soll, mit der online-Community. Diese Webanwendung ASP.NET ist sehr einfach und besteht aus den folgenden Ressourcen:
 
-- `Web.config`, der Anwendungskonfigurationsdatei.
-- Eine Gestaltungsvorlage (`Site.master`).
+- `Web.config`, die Anwendungskonfigurationsdatei.
+- Eine Masterseite (`Site.master`).
 - Sieben verschiedenen ASP.NET-Seiten:
 
-    - ~/`Default.aspx` -Homepage der Website.
+    - ~/`Default.aspx` -der Website-Homepage.
     - ~/`About.aspx` -eine Seite "Über die Website".
-    - ~/`Fiction/Default.aspx` -eine Seite mit der Liste die Idee Bücher, die überarbeitet wurden.
+    - ~/`Fiction/Default.aspx` -eine Seite mit der Liste der Science-Fiction-Bücher, die überarbeitet wurden.
 
-        - ~/`Fiction/Blaze.aspx` -eine Überprüfung der Richard Bachman Novel *Blaze*.
-    - ~/`Tech/Default.aspx` -eine Seite mit der Technologie Bücher, die überarbeitet wurden.
+        - ~/`Fiction/Blaze.aspx` – eine Übersicht über das neuartige Richard Bachman *Blaze*.
+    - ~/`Tech/Default.aspx` -eine Seite mit der Liste der technologiebücher, die überarbeitet wurden.
 
-        - ~/`Tech/CYOW.aspx` -eine Überprüfung der *Erstellen Ihrer eigenen Website*.
-        - ~/`Tech/TYASP35.aspx` -eine Überprüfung der *Schulen selbst ASP.NET 3.5 in 24 Stunden*.
-- Drei unterschiedlichen CSS-Dateien in den `Styles` Ordner.
-- Vier Bilddateien - eine Powered by ASP.NET-Logo und Images im Hintergrund der drei überprüft Bücher - alle befindet sich in der `Images` Ordner.
-- Ein `Web.sitemap` Datei, die die Siteübersicht definiert und dient zum Anzeigen des Menüs in der `Default.aspx` Seiten in das Stammverzeichnis und `Fiction` und `Tech` Ordner.
-- Eine Klassendatei namens `BasePage.vb` , definiert eine Basis `Page` Klasse. Diese Klasse erweitert die Funktionalität der `Page` Klasse durch Festlegen von automatisch die `Title` -Eigenschaft basierend auf der Seite Position in der Siteübersicht. Kurz gesagt, jede ASP.NET Code-Behind-Klasse erweitert `BasePage` (anstelle von `System.Web.UI.Page`) hat den Titel, der auf einen Wert je nach seiner Position in der Siteübersicht festgelegt. Z. B. beim Anzeigen der ~ /`Tech/CYOW.aspx` Seite der Titel "Start: Technologie: Erstellen Ihrer eigenen Website" festgelegt ist.
+        - ~/`Tech/CYOW.aspx` -eine Beschreibung der *Erstellen Ihrer eigenen Website*.
+        - ~/`Tech/TYASP35.aspx` -eine Beschreibung der *bringen Sie sich ASP.NET 3.5 in 24 Stunden*.
+- Drei verschiedener CSS-Dateien in die `Styles` Ordner.
+- Vier Bilddateien - eine Powered by Logo ASP.NET und Images im Hintergrund der drei überprüft Bücher - alle der `Images` Ordner.
+- Ein `Web.sitemap` Datei, die die Sitemap definiert und dient zum Anzeigen des Menüs in die `Default.aspx` Seiten in das Stammverzeichnis und `Fiction` und `Tech` Ordner.
+- Eine Klassendatei namens `BasePage.vb` , definiert eine Basis `Page` Klasse. Diese Klasse erweitert die Funktionalität der `Page` Klasse, indem Sie automatisch Festlegen der `Title` -Eigenschaft basierend auf der Seite Position in der Siteübersicht. Kurz gesagt, jeder ASP.NET Code-Behind-Klasse, die erweitert `BasePage` (anstelle von `System.Web.UI.Page`) hat den Titel, der auf einen Wert abhängig von seiner Position in der Siteübersicht festgelegt. Z. B. beim Anzeigen der ~ /`Tech/CYOW.aspx` Seite der Titel "Start: Technologie: Erstellen Ihrer eigenen Website" festgelegt ist.
 
-Abbildung 1 zeigt einen Screenshot der Buch Reviews-Website, wenn Sie über einen Browser angezeigt. Hier sehen Sie die Seite "~ / Tech/TYASP35.aspx, prüft das Buch *Schulen selbst ASP.NET 3.5 in 24 Stunden*. Die Breadcrumb-Leiste, die am Anfang der Seite ", und klicken Sie im Menü in der linken Spalte umfasst basieren auf der Siteübersichtsstruktur in definierten `Web.sitemap`. Das Bild in der rechten oberen Ecke ist eines der Bilder befindet sich im Buch Cover der `Images` Ordner. Die Website Aussehen und Verhalten werden definiert über cascading Stylesheet-Regeln wie folgt buchstabiert CSS-Dateien in der `Styles` Ordner während der übergreifenden Seitenlayout in die Masterseite definiert wird `Site.master`.
-
-
-[![Überprüft die Buch-Website bietet Reviews auf eine Sammlung von Titeln](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
-
-**Abbildung 1**: das Buch überprüft Website bietet Reviews auf eine Sammlung von Titeln ([klicken Sie hier, um das Bild in voller Größe angezeigt](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
+Abbildung 1 zeigt einen Screenshot der Book Reviews-Website über einen Browser angezeigt. Hier sehen Sie die Seite "~ / Tech/TYASP35.aspx, überprüft das Buch *bringen Sie sich ASP.NET 3.5 in 24 Stunden*. Die Breadcrumb-Leiste, die am oberen Rand der Seite, und klicken Sie im Menü in der linken Spalte umfasst basieren auf der Site Map-Struktur, die in definierten `Web.sitemap`. Das Bild in der rechten oberen Ecke eines Images an den Buch wird erläutert, ist die `Images` Ordner. Erscheinungsbild der Website definiert sind, über das cascading Stylesheet-Regeln wie folgt buchstabiert die CSS-Dateien in die `Styles` Ordner während des übergreifende Seitenlayouts, in die Masterseite definiert wird `Site.master`.
 
 
-Diese Anwendung wird nicht mit eine Datenbank verwendet. Jede Überprüfung wird als einer separaten Webseite in der Anwendung implementiert. In diesem Lernprogramm (und die nächste mehrere Lernprogramme) führen durch das Bereitstellen einer Webanwendung, die über keine andere Datenbank. Allerdings in einem späteren Lernprogramm wir wird diese Anwendung zum Speichern von Bewertungen, Reader Kommentare und andere Informationen in einer Datenbank erhöhen, und untersuchen, welche Schritte müssen ausgeführt werden, um eine datengesteuerte Webanwendung ordnungsgemäß bereitgestellt.
+[![Die Book Reviews-Website bietet eine Sammlung von Titeln-Bewertungen](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
-> [!NOTE]
-> Diese Lernprogramme zum Hosten von ASP.NET-Anwendungen mit einem Webhostinganbieter zu konzentrieren, und untersuchen Sie Hilfsdateien Themen wie ASP nicht. NET Standortsystem-Karte oder mithilfe einer Seite-Basisklasse. Weitere Informationen zu diesen Technologien sowie weitere Hintergrundinformationen zu anderen Themen im gesamten Lernprogramm finden Sie in Abschnitt Weitere Themen, am Ende jedes Lernprogramm.
-
-
-In diesem Lernprogramm wurden zwei Kopien der Webanwendung, die jedes als ein anderer Typ von Visual Studio-Projekt implementiert: BookReviewsWAP ein Webanwendungsprojekt und BookReviewsWSP, eine Website-Projekt. Beide Projekte mit Visual Web Developer 2008 SP1 erstellt wurden, und Verwenden von ASP.NET 3.5 SP1. Diese Projekte zunächst für die Zusammenarbeit mit Entzippen den Inhalt auf Ihrem Desktop. Um das Webanwendungsprojekt (BookReviewsWAP) zu öffnen, navigieren Sie zu der `BookReviewsWAP` Ordner und doppelklicken Sie auf die Projektmappendatei `BookReviewsWAP.sln`. Um das Websiteprojekt (BookReviewsWSP) zu öffnen, starten Sie Visual Studio und dann wählen Sie im Menü Datei die Option für die Website öffnen, navigieren Sie zu der `BookReviewsWSP` Ordner auf Ihrem Desktop, und klicken Sie auf OK.
+**Abbildung 1**: The Book Reviews-Website bietet eine Sammlung von Titeln-Bewertungen ([klicken Sie, um das Bild in voller Größe anzeigen](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
 
 
-Die übrigen zwei Abschnitte in diesem Lernprogramm betrachten welche Dateien müssen Sie in der produktionsumgebung kopieren, wenn Sie die Anwendung bereitstellen. Die nächsten beiden Lernprogramme - [ *Bereitstellen Ihrer Website mithilfe von FTP* ](deploying-your-site-using-an-ftp-client-vb.md) und [ *Bereitstellen Ihrer Website mit Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -zeigen verschiedene Verwendungsmöglichkeiten Kopieren Sie diese Dateien auf einen Webhostinganbieter.
-
-## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Bestimmen die Dateien für das Webprojekt für die Anwendung bereitstellen
-
-Das Webanwendungsprojekt-Modell verwendet die explizite Kompilierung - Quellcode des Projekts in einer einzelnen Assembly jedes Mal, wenn Sie den build der Anwendung kompiliert wird. Diese Kompilierung enthält den ASP.NET-Seiten Code-Behind-Dateien (~ /`Default.aspx.vb`, ~ /`About.aspx.vb`usw.), sowie die `BasePage.vb` Klasse. Die resultierende Assembly lautet `BookReviewsWAP.dll` und befindet sich in der Anwendungsverzeichnis `Bin` Verzeichnis.
-
-Abbildung 2 zeigt die Dateien, die das Buch Reviews-Webanwendungsprojekt zu bilden.
-
-
-[![Im Projektmappen-Explorer enthält die Dateien, die das Webanwendungsprojekt zu bilden.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
-
-**Abbildung 2**: der Projektmappen-Explorer werden die Dateien, die das Webanwendungsprojekt bilden aufgelistet.
-
+Diese Anwendung wird nicht mit eine Datenbank verwendet. Jede Überprüfung wird als separate Webseite in der Anwendung implementiert. In diesem Tutorial (und die nächste mehrere Lernprogramme) führen durch die Bereitstellung einer Webanwendung, die nicht über eine Datenbank verfügt. Allerdings in einem späteren Tutorial wir erhöhen Sie diese Anwendung zum Speichern von Überprüfungen, Leserkommentare und andere Informationen in einer Datenbank und wird untersucht, welche Schritte müssen ausgeführt werden, um eine datengesteuerte Webanwendung ordnungsgemäß bereitgestellt.
 
 > [!NOTE]
-> Wie in Abbildung 2 gezeigt, werden die ASP.NET-Seiten Code-Behind-Dateien für ein Visual Basic-Webanwendungsprojekt nicht im Projektmappen-Explorer angezeigt. Klicken Sie zum Anzeigen der Code-Behind-Klasse für eine Seite mit der rechten Maustaste auf die Seite im Projektmappen-Explorer, und wählen Sie Code anzeigen.
+> In diesen Tutorials Hosten von ASP.NET-Anwendungen mit einem Webhostinganbieter konzentrieren, und es werden zusätzliche Themen wie ASP nicht untersuchen. NET Standortsystem-Zuordnung oder mit einer Seite-Basisklasse. Weitere Informationen zu diesen Technologien und Weitere Hintergrundinformationen zu anderen Themen im Lernprogramm behandelt finden Sie am Ende jedes Lernprogramm im Abschnitt Weitere nützliche Informationen.
 
 
-Zum Bereitstellen einer ASP.NET-Anwendung mithilfe von Beginn Modell Webanwendungsprojekt durch Erstellen der Anwendung, um die neuesten Quellcode explizit in eine Assembly kompilieren entwickelt wurden. Als Nächstes kopieren Sie die folgenden Dateien in der produktionsumgebung:
+Dieses Tutorial "Download" hat zwei Kopien der Webanwendung, die jeweils als einen anderen Typ von Visual Studio-Projekt implementiert: BookReviewsWAP, eine Web Application Project und BookReviewsWSP, eines Websiteprojekts. Beide Projekte mit Visual Web Developer 2008 SP1 erstellt wurden, und Verwenden von ASP.NET 3.5 SP1. Starten zum Arbeiten mit diesen Projekten Entzippen Sie den Inhalt auf Ihrem Desktop. Um das Webanwendungsprojekt (BookReviewsWAP) zu öffnen, navigieren Sie zu der `BookReviewsWAP` Ordner und doppelklicken Sie auf die Projektmappendatei, `BookReviewsWAP.sln`. Um das Websiteprojekt (BookReviewsWSP) zu öffnen, starten Sie Visual Studio, und klicken Sie dann aus dem Menü "Datei", wählen Sie die Option "Website öffnen", navigieren Sie zu der `BookReviewsWSP` Ordner auf Ihrem Desktop, und klicken Sie auf OK.
 
-- Die Dateien, die das deklarative Markup für jede ASP.NET enthalten-Seite, wie z. B. ~ /`Default.aspx`, ~ /`About.aspx`und so weiter. Kopieren Sie außerdem von deklarativem Markup für jede Master Seiten und Benutzersteuerelementen.
-- Die Assemblys (`.dll` Dateien) in den `Bin` Ordner. Sie müssen nicht die Programmdateien für die Datenbank zu kopieren (`.pdb`) oder XML-Dateien möglicherweise Sie in finden der `Bin` Verzeichnis.
 
-Sie müssen nicht den ASP.NET-Seiten Quellcodedateien in der produktionsumgebung kopieren, Sie brauchen auch So kopieren Sie die `BasePage.vb` Klassendatei.
+Die verbleibenden zwei Abschnitte in diesem Tutorial betrachten welche Dateien müssen Sie in der produktionsumgebung zu kopieren, beim Bereitstellen der Anwendung. Die nächsten beiden Lernprogramme - [ *Bereitstellen Ihrer Website mithilfe von FTP* ](deploying-your-site-using-an-ftp-client-vb.md) und [ *Bereitstellen Ihrer Website mit Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -zeigen verschiedene Verwendungsmöglichkeiten Kopieren Sie diese Dateien auf einen Webhostinganbieter.
+
+## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Bestimmen die Dateien für das Webprojekt für die Anwendung bereitstellen.
+
+Das Webanwendungsprojekt-Modell verwendet explizite Kompilierung - Quellcode des Projekts kompiliert wird, in eine einzelne Assembly jedes Mal, wenn Sie die Anwendung zu erstellen. Diese Kompilierung enthält die ASP.NET-Seiten Code-Behind-Dateien (~ /`Default.aspx.vb`, ~ /`About.aspx.vb`und so weiter), als auch die `BasePage.vb` Klasse. Die resultierende Assembly ist mit dem Namen `BookReviewsWAP.dll` und befindet sich in der Anwendung `Bin` Verzeichnis.
+
+Abbildung 2 zeigt die Dateien, aus denen das Book Reviews-Webanwendungsprojekt.
+
+
+[![Im Projektmappen-Explorer listet die Dateien, die das Webanwendungsprojekt zu bilden.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
+
+**Abbildung 2**: der Projektmappen-Explorer werden die Dateien, die das Webanwendungsprojekt umfassen aufgeführt.
+
 
 > [!NOTE]
-> Wie in Abbildung 2 gezeigt, die `BasePage` Klasse wird als eine Klassendatei in das Projekt, und platziert im Ordner "mit dem Namen" implementiert `HelperClasses`. Wenn das Projekt kompiliert wird der Code in der `BasePage.vb` Datei wird zusammen mit den ASP.NET-Seiten Code-Behind-Klassen in der einzelnen Assembly kompiliert `BookReviewsWAP.dll`. ASP.NET verfügt über einen besonderen Ordner mit dem Namen `App_Code` , das zum Speichern von Klassendateien für Websiteprojekte geeignet ist. Der Code in der `App_Code` Ordner wird automatisch kompiliert und sollte daher nicht mit Webanwendungsprojekte verwendet werden. Stattdessen, platzieren Sie die Anwendung Klassendateien in einem normalen Ordner namens `HelperClasses`, oder `Classes`, oder einer ähnlichen. Alternativ können Sie ein separates Klassenbibliotheksprojekt Klassendateien versehen.
+> Wie in Abbildung 2 gezeigt, werden die ASP.NET-Seiten Code-Behind-Dateien für ein Webanwendungsprojekt in Visual Basic nicht im Projektmappen-Explorer angezeigt. Zum Anzeigen der Code-Behind-Klasse für eine Seite mit der rechten Maustaste im Projektmappen-Explorer auf der Seite, und wählen Sie Code anzeigen.
 
 
-Zusätzlich zum Kopieren der ASP.NET bezogene Markup-Dateien und die Assembly in die `Bin` Ordner, müssen Sie auch die Unterstützung einer clientseitigen-Dateien - Bilder und CSS-Dateien - sowie die anderen serverseitigen Unterstützungsdateien, kopieren `Web.config` und `Web.sitemap`. Diese Client - und serverseitige unterstützen Dateien müssen in der produktionsumgebung, unabhängig davon, ob Sie explizite oder automatische Kompilierung kopiert werden soll.
+Zum Bereitstellen einer ASP.NET-Anwendung entwickelt, mit dem Webanwendungsprojekt-Modell-Start durch Erstellen der Anwendung aus, um die neuesten Quellcode explizit in eine Assembly zu kompilieren. Kopieren Sie als Nächstes die folgenden Dateien in der produktionsumgebung bereit:
+
+- Dateien mit der deklarativen Markup für jede ASP.NET-Seite, wie z. B. ~ /`Default.aspx`, ~ /`About.aspx`und so weiter. Kopieren Sie außerdem um deklarativen Markup für jede Master-Seiten und Benutzersteuerelemente.
+- Die Assemblys (`.dll` Dateien) in der `Bin` Ordner. Sie müssen sich nicht um die Programmdateien für die Datenbank zu kopieren (`.pdb`) oder XML-Dateien Sie unter Umständen in finden der `Bin` Verzeichnis.
+
+Sie müssen sich nicht um die ASP.NET-Seiten Quellcodedateien in der produktionsumgebung zu kopieren, Sie brauchen auch zum Kopieren der `BasePage.vb` Klassendatei.
+
+> [!NOTE]
+> Wie in Abbildung 2 gezeigt, die `BasePage` -Klasse wird implementiert, als eine Datei im Projekt im Ordner mit dem Namen abgelegt `HelperClasses`. Wenn das Projekt kompiliert wird der Code in die `BasePage.vb` Datei sowie die ASP.NET-Seiten CodeBehind-Klassen in die einzelne Assembly kompiliert wird `BookReviewsWAP.dll`. ASP.NET verfügt über einen speziellen Ordner mit dem Namen `App_Code` , das zum Speichern von Klassendateien für Websiteprojekte geeignet ist. Der Code in die `App_Code` Ordner wird automatisch kompiliert, und sollte daher nicht mit Webanwendungsprojekten verwendet werden. Stattdessen sollten Sie den Dateien Ihrer Anwendung Klasse platzieren, in einem normalen Ordner namens `HelperClasses`, oder `Classes`, oder etwas Ähnliches. Alternativ können Sie Klassendateien in ein separates Klassenbibliotheksprojekt platzieren.
+
+
+Zusätzlich zum Kopieren der ASP.NET bezogene Markup-Dateien und der Assembly in den `Bin` Ordner müssen Sie auch die clientseitige Unterstützung-Dateien – die Images und CSS-Dateien – sowie die anderen serverseitigen Supportdateien kopieren `Web.config` und `Web.sitemap`. Diese Client - und serverseitige Unterstützung Dateien müssen in der produktionsumgebung bereit, unabhängig davon, ob Sie explizite oder automatische Kompilierung kopiert werden soll.
 
 ## <a name="determining-the-files-to-deploy-for-the-web-site-project-files"></a>Bestimmen die Dateien für die Website-Projektdateien bereitstellen
 
-Das Websiteprojekt-Modell unterstützt die automatische Kompilierung, eine Funktion nicht verfügbar, wenn das Webanwendungsprojekt-Modell verwendet. Mit der expliziten Kompilierung müssen Sie Kompilieren von Quellcode des Projekts in eine Assembly und die Assembly in der produktionsumgebung kopieren. Andererseits, mit der automatische Kompilierung kopieren Sie einfach den Quellcode in der produktionsumgebung und Kompilierung von der Laufzeit bei Bedarf nach Bedarf.
+Das Websiteprojekt-Modell unterstützt die automatische Kompilierung, ein Feature nicht verfügbar, wenn das Webanwendungsprojekt-Modell verwendet. Mit explizite Kompilierung müssen Sie Quellcode Ihres Projekts in eine Assembly kompilieren und kopieren diese Assembly in der produktionsumgebung bereit. Auf der anderen Seite mit automatische Kompilierung Sie einfach den Quellcode in der produktionsumgebung kopieren, und es wird von der Laufzeit bei Bedarf kompiliert, je nach Bedarf.
 
-Die Menüoption Build in Visual Studio ist in Webanwendungsprojekten und Websiteprojekten vorhanden. Erstellen eine Webanwendungsprojekte kompiliert das Projekt-Quellcode in einer einzelnen Assembly befindet sich in der `Bin` Verzeichnis, das Erstellen von Websiteprojekt nach Fehlern während der Kompilierung überprüft, aber keine Assemblys erstellt. Zum Bereitstellen einer ASP.NET-Anwendung entwickelt, mit dem Websiteprojekt Modell alle möchten ist Kopie die entsprechenden Dateien in der produktionsumgebung ich empfehle Ihnen ersten Build des Projekts, um sicherzustellen, dass keine Kompilierung auftreten.
+Die Menüoption "Build" in Visual Studio ist sowohl für Webanwendungsprojekte als auch für Websiteprojekte in vorhanden. Erstellen einer Web Application Projects Quellcode des Projekts kompiliert, in eine einzelne Assembly befindet sich in der `Bin` Verzeichnis, das Erstellen eines Websiteprojekts alle während der Kompilierung auf Fehler überprüft, aber keine Assemblys erstellt. Zum Bereitstellen einer ASP.NET-Anwendung entwickelt, mit dem Websiteprojekt-Modell alle erforderlichen Vorgehensweise ist kopieren die entsprechenden Dateien in der produktionsumgebung sollten Sie zum ersten Erstellen des Projekts, um sicherzustellen, dass keine Kompilierungsfehler vorhanden sind.
 
-Abbildung 3 zeigt die Dateien, die das Buch Websiteprojekt Reviews bilden.
-
-
-[![Im Projektmappen-Explorer werden die Dateien, die das Websiteprojekt bilden aufgelistet.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
-
-**Abbildung 3**: der Projektmappen-Explorer werden die Dateien, die das Websiteprojekt bilden aufgelistet.
+Abbildung 3 zeigt die Dateien, aus denen das Book Reviews-Websiteprojekt besteht.
 
 
-Bereitstellen eines Projekts für die Website umfasst das Kopieren aller Dateien im Zusammenhang von ASP.NET in der produktionsumgebung -, die das Markup Datenseiten für ASP.NET Seiten, Masterseiten und Benutzersteuerelemente, zusammen mit ihren Codedateien umfasst. Sie müssen auch alle Klassendateien, z. B. kopieren `BasePage.vb`. Beachten Sie, dass die `BasePage.vb` befindet sich in der `App_Code` Ordner, einen speziellen ASP.NET-Ordner in Websiteprojekten für Klassendateien verwendet. Der besondere Ordner für Produktion, sowie, wie die Klassendateien in erstellt werden muss die `App_Code` Ordner in der Entwicklungsumgebung muss kopiert werden, um die `App_Code` Ordner auf dem Produktionsserver.
+[![Im Projektmappen-Explorer listet die Dateien, die das Websiteprojekt zu bilden.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
-Zusätzlich zum Kopieren von ASP.NET Markup und Quellcode Codedateien, müssen Sie auch die Unterstützung einer clientseitigen-Dateien - Bilder und CSS-Dateien - sowie die anderen serverseitigen Unterstützungsdateien, kopieren `Web.config` und `Web.sitemap`.
+**Abbildung 3**: der Projektmappen-Explorer werden die Dateien, die das Websiteprojekt umfassen aufgeführt.
+
+
+Bereitstellen eines Projekts für die Website umfasst das Kopieren aller ASP.NET-bezogene Dateien in der produktionsumgebung -, die die Markupseiten für ASP.NET Seiten, Masterseiten und Benutzersteuerelemente, zusammen mit ihren Codedateien enthält. Sie müssen auch Sie jede Klassendateien, kopieren Sie z. B. `BasePage.vb`. Beachten Sie, dass die `BasePage.vb` Datei befindet sich der `App_Code` Ordner, in dem eine spezielle ASP.NET-Ordner in Websiteprojekte für Klassendateien verwendet wird. Der besondere Ordner als dem Klassendateien in Produktion, ebenfalls erstellt werden muss die `App_Code` Ordner in der Entwicklungsumgebung kopiert werden muss, um die `App_Code` Ordner in der Produktion.
+
+Zusätzlich zum Kopieren von Codedateien für das ASP.NET Markup und Quellcode, müssen Sie auch die clientseitige Unterstützung-Dateien – die Images und CSS-Dateien – sowie die anderen serverseitigen Supportdateien kopieren `Web.config` und `Web.sitemap`.
 
 > [!NOTE]
-> Website-Projekte können auch explizite Kompilierung. Ein Lernprogramm zukünftige untersucht wie explizit ein Website-Projekt zu kompilieren.
+> Website-Projekten können auch explizite Kompilierung verwenden. Eine zukünftige Tutorial werden explizit einem Websiteprojekt Kompilierung untersucht.
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Bereitstellung einer ASP.NET-Anwendung umfasst das Kopieren der erforderlichen Dateien aus der Entwicklungsumgebung in der produktionsumgebung. Der genaue Satz von Dateien, die synchronisiert werden müssen, hängt davon ab, ob die ASP.NET-Anwendung Code explizit oder automatisch kompiliert wird. Die Kompilierung Strategie eingesetzt wird von, ob Visual Studio konfiguriert ist zum Verwalten der ASP.NET-Anwendung über das Webanwendungsprojekt-Modell oder das Websiteprojekt Modell beeinflusst.
+Bereitstellen einer ASP.NET-Anwendung umfasst das Kopieren der erforderlichen Dateien aus der Entwicklungsumgebung in der produktionsumgebung bereit. Der genaue Satz von Dateien, die synchronisiert werden müssen, hängt davon ab, ob ASP.NET den Code der Anwendung explizit oder automatisch kompiliert wird. Die Strategie für die Kompilierung eingesetzt wird von, ob Visual Studio konfiguriert ist zum Verwalten der ASP.NET-Anwendung verwenden, das Webanwendungsprojekt-Modell oder das Websiteprojekt-Modell beeinflusst.
 
-Das Webanwendungsprojekt-Modell verwendet die explizite Kompilierung und kompiliert das Projekt Code in einer einzelnen Assembly in den `Bin` Ordner. Bei der Bereitstellung der Anwendung, der Teil von Markup für die ASP.NET-Seiten und den Inhalt von der `Bin` Ordner muss sich in der produktionsumgebung abgelegt werden; in der Anwendung – die Codedateien "und" Code-Behind-Klassen, z. B. - Quellcode ist nicht erforderlich. in der produktionsumgebung kopiert werden soll.
+Das Webanwendungsprojekt-Modell verwendet die explizite Kompilierung und kompiliert Sie den Projektcode in einer Assembly in den `Bin` Ordner. Bei der Bereitstellung der Anwendung, die Teil von Markup für die ASP.NET-Seiten und den Inhalt der dem `Bin` Ordner muss sich in der produktionsumgebung abgelegt werden, der Quellcode in der Anwendung – die Codedateien und CodeBehind-Klassen, z. B. – ist nicht erforderlich. in der produktionsumgebung kopiert werden.
 
-Das Websiteprojekt-Modell verwendet automatische Kompilierung standardmäßig, obwohl es explizit ein Website-Projekt kompilieren möglich ist, da wir in Zukunft Lernprogramme angezeigt wird. Bereitstellen einer ASP.NET-Anwendung, die automatische Kompilierung verwendet, erfordert, dass der Teil Markup *und* Quellcode in der produktionsumgebung kopiert werden muss. Der Code wird automatisch in der produktionsumgebung kompiliert, wenn er zum ersten Mal angefordert wird.
+Das Websiteprojekt-Modell verwendet die automatische Kompilierung standardmäßig, obwohl es möglich, explizit ein Websiteprojekt zu kompilieren wie wir in zukünftigen Lernprogrammen sehen. Bereitstellen einer ASP.NET-Anwendung aus, die automatische Kompilierung verwendet, erfordert, dass der Teil des Markup *und* Quellcode kopiert werden muss, in der produktionsumgebung bereit. Der Code wird in der produktionsumgebung automatisch kompiliert, wenn er zum ersten Mal angefordert wird.
 
-Nachdem wir Elemente geprüft haben, welche Dateien zwischen der Entwicklungs- und produktionsumgebungen synchronisiert werden müssen können wir zur Bereitstellung die Anwendung Buch Reviews auf einen Webhostinganbieter bereit.
+Nun, da wir untersucht haben, welche Dateien zwischen den Umgebungen für Entwicklungs- und produktionsumgebungen synchronisiert werden müssen können wir die Book Reviews-Anwendung in einem Webhostinganbieter bereitzustellen.
 
 Viel Spaß beim Programmieren!
 
 ### <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
+Weitere Informationen zu den Themen in diesem Tutorial erläutert finden Sie in den folgenden Ressourcen:
 
 - [Übersicht über die ASP.NET-Kompilierung](https://msdn.microsoft.com/library/ms178466.aspx)
-- [ASP.NET-Benutzersteuerelemente](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
-- [ASP wird untersucht. NET Website-Navigation](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [Benutzersteuerelemente von ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
+- [Untersuchen ASP. NET Website-Navigation](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [Einführung in Webanwendungsprojekte](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Master-Seite-Lernprogramme](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
-- [Freigeben von Code einfach seitenübergreifend](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
-- [Verwendung einer benutzerdefinierten Basisklasse für die ASP.NET-Seiten Code-Behind-Klassen](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
-- [Visual Studio 2005-Website-Projektsystem: Worum handelt es sich, und warum wir Sie tun?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [Exemplarische Vorgehensweise: Konvertieren eines Website-Projekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
+- [Freigeben von Code zwischen den Seiten](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
+- [Verwenden eine benutzerdefinierte Basisklasse für Ihre ASP.NET-Seiten CodeBehind-Klassen](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [Visual Studio 2005-Website-Projektsystem: Worum handelt es sich, und warum haben wir es getan?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
+- [Exemplarische Vorgehensweise: Konvertieren eines Websiteprojekts in ein Webanwendungsprojekt in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
 > [!div class="step-by-step"]
 > [Zurück](asp-net-hosting-options-vb.md)
