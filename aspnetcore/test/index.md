@@ -4,14 +4,14 @@ author: guardrex
 description: Links zu Ressourcen zum Testen und Debuggen von ASP.NET Core-Anwendungen.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 07/03/2018
 uid: test/index
-ms.openlocfilehash: c5925d55a1b7d50d44d6bea4013331416ce3cec8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 20f6804c1db588a88abb0d5686f894b7463ff6a9
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278800"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433960"
 ---
 # <a name="test-debug-and-troubleshoot-in-aspnet-core"></a>Testen, Debuggen und Problembehandlung in ASP.NET Core
 
@@ -31,14 +31,20 @@ Informationen zum Testen von Controllerlogik in ASP.NET Core mit Moq und xUnit
 
 ## <a name="debug"></a>Debug
 
+[Lernen Sie das Debuggen mit Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
+Entdecken Sie die Funktionen des Visual Studio-Debuggers in einer Schrittanleitung.
+
+[Debuggen mit Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)  
+Informieren Sie sich über die in Visual Studio Code integrierte Debuggingunterstützung.
+
 [Debuggen von ASP.NET Core 2.x-Quellcode](https://github.com/aspnet/Docs/issues/4155)  
 In diesem Artikel wird erläutert, wie Sie .NET Core- und ASP.NET Core-Quellen debuggen.
 
 [Remotedebuggen](/visualstudio/debugger/remote-debugging-azure)  
-In diesem Artikel erfahren Sie, wie Visual Studio 2017-ASP.NET Core-Apps eingerichtet und konfiguriert sowie mithilfe von Azure in IIS bereitgestellt werden. Außerdem wird erklärt, wie Sie den Remotedebugger aus Visual Studio anfügen.
+Entdecken Sie, wie Sie eine Visual Studio 2017-ASP.NET Core-App einrichten, konfigurieren und mithilfe von Azure in IIS bereitstellen. Außerdem wird erklärt, wie Sie den Remotedebugger aus Visual Studio anfügen.
 
 [Momentaufnahmendebugging](/azure/application-insights/app-insights-snapshot-debugger)  
-In diesem Artikel wird gezeigt, wie Sie Momentaufnahmen der häufigsten Ausnahmen erfassen, damit Sie über alle für die Problemdiagnose in der Produktion erforderlichen Informationen verfügen.
+Finden Sie heraus, wie Sie Momentaufnahmen der häufigsten Ausnahmen erfassen, damit Sie über alle für die Problemdiagnose in der Produktion erforderlichen Informationen verfügen.
 
 ## <a name="troubleshoot"></a>Problembehandlung
 

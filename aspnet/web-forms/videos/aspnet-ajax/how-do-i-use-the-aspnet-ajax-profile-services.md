@@ -9,23 +9,22 @@ ms.date: 07/16/2007
 ms.topic: article
 ms.assetid: 8fc77048-4d1f-42bf-a947-ecc9a02b25c9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-profile-services
 msc.type: video
-ms.openlocfilehash: d8104502257a80beb1295edee6bfaee9ff262df1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8e5d075c599720973ef58bf956701e4a9a371506
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883910"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385221"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Profildienste?
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-ASP.NET 2.0 enthält [Profileigenschaften](https://msdn.microsoft.com/library/at64shx3.aspx) mit dem können Sie Details für jeden Benutzer Ihrer ASP.NET Web-Anwendung speichern. ASP.NET AJAX-Profildienste ermöglichen die clientseitige Weboberfläche abzurufenden Profileigenschaften eines Benutzers von der Webanwendung für die serverseitige. Dieses Video zeigt, wie ein Beispiel einen AJAX-aktivierten Standort die Anforderungsinformationen Reisen eines Benutzers, damit die Informationen abgerufen werden können, wenn er oder sie als Nächstes die Website besucht speichern kann.
+ASP.NET 2.0 eingeführten [Profileigenschaften](https://msdn.microsoft.com/library/at64shx3.aspx) mit dem Sie Details für jeden Benutzer Ihrer ASP.NET Web-Anwendung speichern können. ASP.NET AJAX-Profildienste können Ihre Client-Side-Weboberfläche abzurufenden Profileigenschaften eines Benutzers von der Webanwendung für die serverseitige. Dieses Video zeigt, wie ein AJAX-aktivierten Travel-Beispielwebsite Informationen zu den Ortswechsel eines Benutzers speichern kann, damit die Informationen abgerufen werden können, wenn er oder sie als Nächstes die Site besucht.
 
-[&#9654;Sehen Sie sich an (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-profile-services)
+[&#9654;Sehen Sie sich Video (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-profile-services)
 
 > [!div class="step-by-step"]
 > [Zurück](how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax.md)

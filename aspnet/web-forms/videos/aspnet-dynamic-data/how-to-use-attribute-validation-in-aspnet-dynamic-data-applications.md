@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications
-title: Verwendung von Attribut-Validierung in ASP.NET Dynamic Data-Anwendungen | Microsoft Docs
+title: Verwenden von Attributüberprüfungen in ASP.NET Dynamic Data-Anwendungen | Microsoft-Dokumentation
 author: JoeStagner
-description: In diesem Video wird einführen, ändern die partiellen Klassen in der Datenzugriffsebene unsere Dynamic Data-Anwendung und erhalten uns das Verwenden von Attributen durch fokussierende o gestartet...
+description: In diesem Video wird eingeführt, die partiellen Klassen in der Datenzugriffsebene für dynamische Daten der Anwendung ändern und damit beginnen mit Attributen durch fokussierende o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2008
 ms.topic: article
 ms.assetid: dcaaaa8d-7dbd-4f5f-be2a-226c2517872a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 1b612401548fd3a28706a9ba2f714883c79fe57c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ac668078772fbef243bfbcb3bdb96a4d55a30d08
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886728"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385188"
 ---
-<a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>Verwendung von Attribut-Validierung in ASP.NET Dynamic Data-Anwendungen
+<a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>Verwenden von Attributüberprüfungen in ASP.NET Dynamic Data-Anwendungen
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-In diesem Video wird einführen, ändern die partiellen Klassen in der Datenzugriffsebene unsere Dynamic Data-Anwendung und erhalten uns das Verwenden von Attributen durch die Fokussierung auf die Überprüfungsattribute gestartet. Diese Data Access Layer-Überprüfung ist es besser Überprüfung an die Benutzeroberflächenebene und ist sehr einfach, führen Sie mit ASP.NET Dynamic Data.
+In diesem Video wird eingeführt, die partiellen Klassen in der Datenzugriffsebene für dynamische Daten der Anwendung ändern und damit beginnen mit Attributen durch die Konzentration auf die Validierungsattribute. Dieser Datenzugriff ebenenvalidierung empfiehlt sich, die Validierung auf dem UI-Schicht und ist sehr einfach mit ASP.NET Dynamic Data.
 
-[&#9654;Sehen Sie sich an (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications)
+[&#9654;Sehen Sie sich Video (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications)
 
 > [!div class="step-by-step"]
 > [Zurück](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)

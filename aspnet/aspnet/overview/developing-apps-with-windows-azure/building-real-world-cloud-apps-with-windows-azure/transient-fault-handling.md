@@ -1,87 +1,86 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen) | Microsoft Docs
+title: Vorübergehende Fehlerbehandlung (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
-description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
+description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/03/2015
 ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 86bd67b04931ae2452f6e063e6475a434a0125bc
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 13ed8c2373c22070d21519bc495161e956b0ac4d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873078"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398413"
 ---
-<a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Vorübergehende Fehlerbehandlung (Real-World Cloud Apps with Azure erstellen)
+<a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Vorübergehende Fehlerbehandlung (erstellen realer Cloud-Apps mit Azure)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download Behebungsskript Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Die **Building Real World Cloud Apps with Azure** e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die Ihnen helfen können erfolgreich ausgeführt entwickeln Web-apps für die Cloud. Weitere Informationen zu e-Book herunterladen, finden Sie unter [im Kapitel über das erste](introduction.md).
+> Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
 
-Wenn Sie eine reale Welt Cloud-app entwerfen, ist eine Dinge, die im Wesentlichen stehen Ihnen temporäre dienstunterbrechungen zu behandeln. Dieses Problem ist eindeutig in der Cloud-apps wichtig, da Sie so Netzwerkverbindungen und externen Diensten abhängig sind. Erhalten Sie häufig nur wenig Problemen, die in der Regel Selbstkorrektur müssen entstehen, und wenn Sie nicht auf intelligente Weise handhaben vorbereitet sind, sie in eine schlechte Erfahrung für Ihre Kunden.
+Beim Entwerfen einer realen Cloud-Apps, ist eines der Dinge zu Bedenken haben wie temporäre dienstunterbrechungen behandelt. Dieses Problem ist in Cloud-apps eindeutig wichtig, weil Sie so von Verbindungen mit Netzwerken und externen Diensten abhängig sind. Erhalten Sie häufig wenig Störungen, die in der Regel selbst heilen sind, und wenn Sie nicht darauf vorbereitet, um sie auf intelligente Weise zu behandeln sind, werden führen dazu, dass eine schlechte Erfahrung für Ihre Kunden.
 
 ## <a name="causes-of-transient-failures"></a>Ursachen für vorübergehende Fehler
 
-In der Cloud-Umgebung finden Sie, dass Fehler und Datenbank in regelmäßigen Abständen geschehen, Verbindungen getrennt. Das ist teilweise verwendet werden, da Sie zumindest die offensichtlichen über mehrere Lastenausgleichsmodule, die im Vergleich zu der lokalen Umgebung, in Ihrem Webserver und Datenbankserver eine direkte physische Verbindung haben. Darüber hinaus in einigen Fällen, wenn Sie ein mehrinstanzfähiger Dienst abhängig sind sehen Aufrufe des Diensts Get langsamer oder Timeout Sie, weil eine andere Person, die der Dienst verwendet stark aktiviert ist. In anderen Fällen möglicherweise der Benutzer, der den Dienst zu häufig aktiviert ist, und der Dienst schränkt Sie die – Verbindungen verweigert – absichtlich um zu verhindern, dass Sie negative Auswirkungen auf andere Mandanten des Diensts.
+Finden Sie in der Cloud-Umgebung, die Fehler, und gelöschte Datenbank, die Verbindungen in regelmäßigen Abständen auftreten. Das ist teilweise daran, dass Sie also über mehrere Load balancer im Vergleich zu der lokalen Umgebung, in dem Ihr Webserver und Datenbankserver eine direkte physische Verbindung haben. Darüber hinaus manchmal, wenn Sie ein mehrinstanzenfähiger Dienst abhängig sind sehen Aufrufe des Diensts Get langsamer oder Timeout Sie, da eine andere Person, die der Dienst nutzt es stark erreicht. In anderen Fällen möglicherweise der Benutzer, der den Dienst zu häufig erreicht, und der Dienst drosselt Sie – Verbindungen verweigert – absichtlich um zu verhindern, dass Sie sich negativ auf die anderen Mandanten des Diensts.
 
-## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Verwenden Sie intelligenten Wiederholung/backofflogik bereitstellen, um die Auswirkung von vorübergehenden Ausfällen zu verringern
+## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Verwenden Sie intelligente wiederholen/Backoff-Logik, um die Auswirkungen der vorübergehende Fehler zu vermeiden
 
-Statt eine Ausnahme auszulösen, und eine Seite nicht verfügbare oder Fehler an den Kunden anzeigen, können Sie Fehler, die in der Regel vorübergehend sind erkennen und automatisch wiederholen Sie den Vorgang mit der der Fehler erhofft sich, die vor dem lange Sie erfolgreich ausgeführt werden. In den meisten Fällen wird der Vorgang beim zweiten Versuch erfolgreich, und Sie müssen des Fehlers wiederherstellen, ohne dass der Kunde, dass jemals Beachten Sie, dass ein Problem aufgetreten.
+Anstatt eine Ausnahme auszulösen, und eine Seite nicht verfügbare oder Fehler an den Kunden anzeigen, können Sie erkennen, Fehler, die in der Regel vorübergehend sind, und automatisch wiederholen Sie den Vorgang mit der der Fehler erhofft sich, die vor dem lange Sie erfolgreich sein werden. In den meisten Fällen wird beim zweiten Mal wird der Vorgang erfolgreich, und Sie werden auf den Fehler wiederherstellen, ohne dass der Kunde, dass jemals bewusst, dass ein Problem aufgetreten.
 
 Es gibt mehrere Möglichkeiten, die Sie intelligente Wiederholungslogik implementieren können.
 
-- Die Microsoft Patterns &amp; Practices-Gruppe verfügt über eine [vorübergehenden Anwendungsblock zur Behandlung](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) , die erledigt alles für Sie bei Verwendung von ADO.NET für den SQL-Datenbankzugriff (nicht über Entity Framework). Sie legen nur eine Richtlinie für Wiederholungen – wie viele Male auf, um eine Abfrage zu wiederholen oder Befehl und warten Sie, wie lange zwischen versucht – und Wrap Ihrer SQL code in eine *mit* Block.
+- Der Microsoft Patterns &amp; Practices-Gruppe verfügt über eine [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) , die alles, was für Sie ist, wenn Sie ADO.NET für den Zugriff von SQL-Datenbank (nicht über Entity Framework) verwenden. Sie legen Sie einfach eine Richtlinie für Wiederholungsversuche – wie viele Male wiederholen eine Abfrage oder Befehl und warten Sie, wie lange zwischen versucht – und Wrap Ihrer SQL-code in einem *mit* Block.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
     TFH unterstützt auch [Azure In-Role Cache](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) und [Service Bus](https://azure.microsoft.com/services/service-bus/).
-- Bei Verwendung von Entity Framework werden nicht in der Regel arbeiten Sie direkt mit der SQL-benutzerverbindungen Entity Framework 6 dieser Art von Logik für Wiederholungsversuche direkt in das Framework erstellt, sodass dieses Patterns and Practices-Paket kann nicht verwendet. Auf ähnliche Weise Geben Sie die wiederholungsstrategie und EF verwendet dann diese Strategie, wenn er auf die Datenbank zugreift.
+- Bei der Verwendung von Entity Framework werden nicht in der Regel Arbeit direkt mit SQL-Verbindungen können Sie also dieses Muster und Vorgehensweisen-Paket kann nicht verwendet werden, aber die Entity Framework 6 wird diese Art von Wiederholungslogik in das Framework erstellt. Auf ähnliche Weise Geben Sie die wiederholungsstrategie, und klicken Sie dann EF verwendet diese Strategie, wenn sie die Datenbank zugreift.
 
-    Zum Verwenden dieser Funktion in der app zu beheben, müssen Sie tun, lediglich eine Klasse hinzuzufügen, die abgeleitet *DbConfiguration* und aktivieren Sie die Wiederholungslogik erneut.
+    Um dieses Feature in der Fix It-app verwenden zu können, müssen wir lediglich ist eine Klasse hinzugefügt werden, die von abgeleitet *"dbconfiguration"* und aktivieren Sie die Wiederholungslogik.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample2.cs)]
 
-    Für SQL-Datenbank-Ausnahmen, die das Framework als in der Regel vorübergehende Fehler identifiziert wird, weist der Pseudocode EF Wiederholung des Vorgangs bis zu 3 Mal mit einem exponentiellen Backoff-Verzögerung zwischen Wiederholungen und einer maximalen Verzögerung von 5 Sekunden. Exponential Backoff bedeutet, dass nach jeder fehlerhaften Wiederholung für einen längeren Zeitraum vor dem Wiederholen des Vorgangs gewartet wird. Wenn drei Versuche in einer Zeile ein Fehler auftritt, wird eine Ausnahme ausgelöst. Im folgenden Abschnitt zu Trennschalter wird erläutert, warum exponentiellen Backoff aus, und eine begrenzte Anzahl von Wiederholungen werden soll.
+    Für SQL-Datenbank-Ausnahmen, die das Framework als in der Regel vorübergehende Fehler zu identifizieren, weist der Code EF den Vorgang mit einer exponentiellen Backoff-Verzögerung zwischen Wiederholungen und einer maximalen Verzögerung von fünf Sekunden bis zu 3 Mal zu wiederholen. Exponentielles Backoff bedeutet, dass nach einzelnen fehlerhaften Wiederholungsversuchen für einen längeren Zeitraum vor dem erneuten Versuch gewartet wird. Wenn drei Versuche in einer Zeile ein Fehler auftritt, wird eine Ausnahme ausgelöst. Im folgenden Abschnitt über Trennschalter erläutert Exponentielles Backoff und eine begrenzte Anzahl von Wiederholungen Gründe für die.
 
-    Sie können ähnliche Probleme haben, wenn Sie den Azure-Speicherdienst verwenden, wie die app zu beheben für Blobs ist und die .NET Storage Client API bereits die gleiche Art von Logik implementiert. Geben Sie einfach die wiederholungsrichtlinie, oder Sie müssen auch nicht, wenn Sie mit den Standardeinstellungen zufrieden sind.
+    Sie können ähnliche Probleme auftreten, wenn Sie den Azure Storage-Dienst verwenden, wie die Fix It-app für Blobs ist, und die .NET Storage Client-API bereits die gleiche Art von Logik implementiert. Geben Sie einfach die wiederholungsrichtlinie, oder Sie müssen auch nicht, wenn Sie mit den Standardeinstellungen zufrieden sind.
 
 <a id="circuitbreakers"></a>
-## <a name="circuit-breakers"></a>Trennschalter
+## <a name="circuit-breakers"></a>Schutzschalter
 
-Es gibt verschiedene Gründe, warum Sie oft über zu langen Zeitraum wiederholen möchten:
+Es gibt verschiedene Gründe, warum Sie nicht zu oft über zu langen Zeitraum wiederholen möchten:
 
-- Zu viele Benutzer nach mehreren versuchen weiterhin Wiederholung Anforderungsfehler möglicherweise andere benutzererfahrung beeinträchtigt werden. Wenn Millionen von Menschen sind, dass alle ausführenden wiederholte Wiederholen von Anforderungen konnten Sie IIS Dispatch Warteschlangen binden und verhindert, dass Ihre app Wartung Anforderungen, die es andernfalls erfolgreich verarbeiten konnte.
-- Wenn "Jeder" aufgrund eines Dienstfehlers verwendet wird, gibt es wiederholt so viele Anforderungen in die Warteschlange werden konnte, dass der Dienst beim Starten zum Wiederherstellen geleitete abruft.
-- Wenn der Fehler aufgrund einer Einschränkung anwendet wird, und es ein Zeitfenster ist für die Einschränkung der Dienst verwendet, könnte fortgesetzte Wiederholungen dieses Fensters verschieben und dazu führen, dass die Einschränkung, um den Vorgang fortzusetzen.
-- Sie müssen möglicherweise einen Benutzer warten auf eine Webseite gerendert. Festlegen, dass Personen Wartezeit zu lang möglicherweise mehr störende werden diese relativ schnell ihm mitgeteilt wird, versuchen Sie es später noch einmal.
+- Zu viele Benutzer dauerhaft Wiederholung fehlerhafte Anforderungen möglicherweise andere Benutzer beeinträchtigt werden. Wenn Millionen von Menschen sind, sodass wiederholte Anforderungen erneut können Sie IIS Dispatch Warteschlangen beschäftigen und verhindert, dass Ihre app verarbeitet Anforderungen, die es andernfalls erfolgreich verarbeiten konnte.
+- Wenn alle aufgrund eines Dienstfehlers gibt es wiederholt so viele Anforderungen Warteschlange eingereiht werden können, dass der Dienst überflutet beim Starten zum Wiederherstellen wird.
+- Wenn der Fehler aufgrund einer Einschränkung wird, und ein Zeitfenster für die Einschränkung der Dienst verwendet, können weitere Wiederholungsversuche verschieben das Fenster und dazu führen, dass die Drosselung, um den Vorgang fortzusetzen.
+- Sie müssen möglicherweise einen Benutzer warten auf eine Webseite zu rendern. Können Personen Wartezeit zu lang. möglicherweise mehr es ziemlich ärgerlich sein, relativ schnell ihm mitgeteilt wird, versuchen Sie es später noch mal.
 
-Exponential Backoff Adressen einige dieser Probleme durch die Begrenzung der Häufigkeit der Wiederholungen, die ein Dienst von der Anwendung erhalten kann. Aber Sie benötigen auch *Trennschalter*: Dies bedeutet, dass an einem bestimmten Schwellenwert für Ihre app wird beendet, und wiederholen Sie dann und akzeptiert eine andere Aktion, z. B. einen der folgenden Wiederholen:
+Exponentielles Backoff behandelt einige dieser Probleme durch beschränken die Häufigkeit der Wiederholungen, die ein Dienst aus Ihrer Anwendung erhalten kann. Jedoch müssen Sie auch haben *Schutzschalter*: Dies bedeutet, dass auf einen bestimmten Schwellenwert wiederholen Sie dann Ihre app wird beendet, Wiederholung und verwendet eine andere Aktion, z. B. einen der folgenden:
 
-- Benutzerdefiniertes fallback. Wenn Sie einen Aktienkurs von Reuters abrufen können, können Sie es vielleicht von Bloomberg abrufen; oder wenn Sie Daten aus der Datenbank abrufen können, ist möglicherweise erhalten Sie es aus dem Cache.
-- Fehler im Hintergrund. Wenn von einem Dienst, benötigen Sie nichts für Ihre app nicht, nur gibt null zurück, wenn Sie die Daten abrufen können. Sie können anzeigen, eine Aufgabe zu beheben, und der Blob-Dienst antwortet nicht, konnte die Taskdetails auf ohne das Bild angezeigt werden.
-- Fehlschlagen Sie schnell. Fehler ausgegeben der Benutzer wird für den Dienst mit wiederholen Sie den Anforderungen für die Unterbrechung des Diensts für andere Benutzer oder eine einschränkungszeitfensters erweitern konnte. Sie können eine Meldung aus "versuchen Sie es später" anzeigen.
+- Benutzerdefiniertes fallback. Wenn Sie den Aktienkurs aus Reuters abrufen können, können Sie es vielleicht aus Bloomberg abrufen; oder wenn Sie Daten aus der Datenbank nicht, vielleicht können Sie es aus dem Cache.
+- Ein Fehler auf automatische. Wenn nichts für Ihre app nicht was Sie von einem Dienst, nur gibt null zurück, wenn Sie die Daten zugreifen können. Wenn Sie einen Fix It-Task anzeigen sind und der Blob-Dienst antwortet nicht, können Sie die Taskdetails ohne das Bild darstellen.
+- Fail-fast. Fehler, den Benutzer überflutet wird des Diensts mit, wiederholen Sie den Anforderungen, die dazu führen, dass die dienstunterbrechung für andere Benutzer oder eine einschränkungszeitfensters erweitern können. Sie können eine Meldung "versuchen Sie es später noch Mal" anzeigen.
 
-Es gibt keine allgemeingültigen wiederholungsrichtlinie. Sie können mehrere Male wiederholen und mehr in Warten eines asynchronen Hintergrundprozesses Worker als in einer synchronen Web-app verwenden, in denen ein Benutzer auf eine Antwort wartet. Sie können mehr zwischen den Wiederholungsversuchen für einen relationalen Datenbankdienst warten, als Sie für einen Cachedienst würden. Hier sind einige Beispiele für empfohlene wiederholungsrichtlinien bieten einen Überblick darüber, wie die Zahlen variieren können. ("Schnelle erste" bedeutet keine Verzögerung vor dem ersten Wiederholungsversuch.
+Es gibt keine allgemeingültige wiederholungsrichtlinie. Sie können weitere Wiederholungsversuche und warten mehr in einem asynchronen Hintergrundprozess Worker, als Sie in einer synchronen Web-app tun würden, in denen ein Benutzer auf eine Antwort wartet. Sie können mehr zwischen den Wiederholungsversuchen für einen relationalen Datenbankdienst warten, als dies bei einem Cachedienst. Hier sind einige empfohlene Beispiel wiederholungsrichtlinien erhalten Sie eine Vorstellung davon, wie die Nummern variieren können. ("Schnelle erste" bedeutet, dass keine Verzögerung vor dem ersten Wiederholungsversuch.
 
 ![Beispiel-wiederholungsrichtlinien](transient-fault-handling/_static/image1.png)
 
-SQL-Datenbank Wiederholung Richtlinie Anleitungen finden Sie unter [Problembehandlung bei vorübergehenden Fehlern und Verbindungsfehlern mit SQL-Datenbank](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
+SQL-Datenbank "Wiederholen" Richtlinie Anleitungen finden Sie [Problembehandlung bei vorübergehenden Fehlern und Verbindungsfehler mit SQL-Datenbank](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
 
 ## <a name="summary"></a>Zusammenfassung
 
-Eine Wiederholung/backoffstrategie können temporäre Fehler an den Kunden in den meisten Fällen unsichtbar, und Microsoft stellt Frameworks, die Sie verwenden können, minimiert die Arbeit, die Implementierung einer Strategie, ob Sie ADO.NET, Entity Framework oder Azure verwenden Storage-Dienst.
+Eine Wiederholung/Backoff-Strategie können temporäre Fehler unsichtbar für den Kunden in den meisten Fällen zu machen und Microsoft bietet Frameworks, mit denen Sie minimieren Ihre Arbeit, die Implementierung einer Strategie, ob Sie mit ADO.NET, Entity Framework oder die Azure nutzen Storage-Dienst.
 
-In der [nächsten Kapitels](distributed-caching.md), betrachten wir zum Verbessern der Leistung und Zuverlässigkeit mit Verteiltes Zwischenspeichern.
+In der [im nächsten Kapitel](distributed-caching.md), betrachten wir wie zur Verbesserung der Leistung und Zuverlässigkeit mit Verteiltes Zwischenspeichern.
 
 ## <a name="resources"></a>Ressourcen
 
@@ -89,21 +88,21 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 
 Dokumentation
 
-- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen. Finden Sie im Abschnitt Telemetrie und Diagnose.
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Finden Sie unter "Wiederholen" Muster, Scheduler Agent Supervisor-Muster.
+- [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy. Ähnlich wie die Failsafe-Serie, aber wird auf Weitere Gewusst-wie-Details. Finden Sie im Abschnitt Telemetrie und Diagnose.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Die FailSafe-Videoreihe Webseite-Version.
+- [Microsoft Patterns and Practices - Leitfaden zur Azure](https://msdn.microsoft.com/library/dn568099.aspx). Finden Sie unter "Wiederholen"-Muster, die Scheduler-Agent-Supervisor-Muster.
 - [Fehlertoleranz in Azure SQL-Datenbank](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Der Blogbeitrag von Tony Petrossian.
-- [Entity Framework - Verbindungsstabilität / Wiederholungslogik](https://msdn.microsoft.com/data/dn456835). Informationen zum verwenden und Anpassen der Funktion von Entity Framework 6 behandeln vorübergehenden Fehlers.
-- [Verbindungsresilienz und Abfangen der Befehl mit dem Entity Framework in einer ASP.NET MVC-Anwendung](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Vierte veranschaulicht in einer Reihe Tutorial neun-Teil der EF-6 Verbindung ausfallsicherung durch die Funktion für SQL-Datenbank einrichten.
+- [Entitätsframework – Verbindungsstabilität / Wiederholungslogik](https://msdn.microsoft.com/data/dn456835). So verwenden, und passen die Funktion von Entity Framework 6 behandeln vorübergehenden Fehler.
+- [Verbindungsresilienz und Abfangen von Befehlen mit Entitätsframework in einer ASP.NET MVC-Anwendung](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Viertens veranschaulicht eines Tutorials neun Teilen, die EF 6 Verbindung Stabilität-Funktion für SQL-Datenbank eingerichtet.
 
 Videos
 
-- [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Neun zweiteilige Reihe Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Finden Sie unter der Beschreibung der Trennschalter in Folge 3 beginnenden 40:55.
-- [Erstellen von Big: Erkenntnisse aus Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms Gespräche zum Entwerfen für vorübergehende Fehler Fehler behandeln, und alles instrumentieren.
+- [FailSafe: Erstellen von skalierbaren, robusten Clouddiensten](https://channel9.msdn.com/Series/FailSafe). Teil 9-Reihe von Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und architektonischen Prinzipien auf eine Weise sehr zugegriffen werden kann und interessante Geschichten, die von Microsoft Customer Advisory Teams (CAT) die Erfahrung für tatsächliche Kunden gezeichnet werden. Finden Sie unter der Erläuterung von schutzschaltern in der Folge 3 40:55 ab.
+- [Erstellen von Big: Erfahrungen aus dem Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Spricht Mark Simms, zum Entwerfen für vorübergehende Fehler, Fehler verarbeiten und alles instrumentieren.
 
 Codebeispiel
 
-- [Grundlagen von Clouddiensten in Azure Cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Beispielanwendung erstellt, indem die Microsoft Azure-Kundenberatungsteam, die zeigt, wie die [Enterprise Library vorübergehende Behandlung von Fehlerblock](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Weitere Informationen finden Sie unter [Cloud-Dienst-Grundlagen Datenzugriffsebene – vorübergehender Fehler behandeln](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH wird empfohlen, für den Datenbankzugriff mithilfe von ADO.NET direkt (ohne Verwendung von Entity Framework).
+- [Clouddienstgrundlagen in Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Die beispielanwendung erstellt haben, durch die Microsoft Azure Customer Advisory Teams, die zeigt, wie Sie mit der [Enterprise Library Transient Fault Handling Block](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Weitere Informationen finden Sie unter [Cloud-Dienst-Grundlagen Datenzugriffsebene-Handhabung vorübergehender Fehler](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH empfiehlt sich für den Datenbankzugriff mithilfe von ADO.NET direkt (ohne Verwendung von Entity Framework).
 
 > [!div class="step-by-step"]
 > [Zurück](monitoring-and-telemetry.md)
