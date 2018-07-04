@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/sql-2005/creating-and-using-stored-procedures
-title: Erstellen und Verwenden von gespeicherten Prozeduren | Microsoft Docs
+title: Erstellen und Verwenden von gespeicherten Prozeduren | Microsoft-Dokumentation
 author: microsoft
-description: In diesem Video wird erweitert, für das Thema der gespeicherten Prozeduren der mehreren Lektionen vor eingeführt wurde. In diesem Video erläutert die grundlegende Syntax zum Erstellen und aktualisieren...
+description: In diesem Video wird erweitert, das Thema der gespeicherten Prozeduren der mehreren Lektionen, die vor eingeführt wurde. In diesem Video erläutern wir die grundlegende Syntax zum Erstellen und aktualisieren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2006
 ms.topic: article
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: 8de3579757e9b0be0fc8aafa91c987aca54b0700
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f066c0887c800b8cbfd27affa26e26f7ad4c743a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893468"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384828"
 ---
 <a name="creating-and-using-stored-procedures"></a>Erstellen und Verwenden von gespeicherten Prozeduren
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-In diesem Video wird erweitert, für das Thema der gespeicherten Prozeduren der mehreren Lektionen vor eingeführt wurde. In diesem Video erläutert, die grundlegende Syntax zum Erstellen und Aktualisieren von gespeicherten Prozeduren mit Eingabe-und Ausgabeparameter, Rückgabewerte, deklarieren von Variablen und Hinzufügen von anderen T-SQL-Programmierelemente in Sie gespeicherte Prozeduren, wie Sie Ihre gespeicherten Prozeduren ausführen in das Abfragefenster ein, und schließlich die Visual Basic- und C#-Syntax erforderlich, um gespeicherte Prozeduren in Ihren eigenen Anwendungen nutzen.
+In diesem Video wird erweitert, das Thema der gespeicherten Prozeduren der mehreren Lektionen, die vor eingeführt wurde. In diesem Video erläutern wir die grundlegende Syntax zum Erstellen und Aktualisieren von gespeicherten Prozeduren werden mithilfe von Eingabe-und Ausgabeparametern, Rückgabewerte, deklarieren von Variablen und Hinzufügen von anderen Programmierungselementen von T-SQL in Ihre gespeicherten Prozeduren, wie Sie Ihre gespeicherten Prozeduren ausführen. in das Abfragefenster, und schließlich die Visual Basic- und c#-Syntax erforderlich, um die gespeicherte Prozeduren in Ihren eigenen Anwendungen nutzen.
 
-[&#9654;Sehen Sie sich an (42 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
+[&#9654;Sehen Sie sich Video (42 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
 
 > [!div class="step-by-step"]
 > [Zurück](building-and-customizing-reports-in-business-intelligence-development-studio.md)
