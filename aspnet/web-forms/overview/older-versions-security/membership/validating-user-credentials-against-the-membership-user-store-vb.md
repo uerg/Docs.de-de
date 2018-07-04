@@ -1,321 +1,320 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
-title: Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (VB) | Microsoft Docs
+title: Überprüfen der Anmeldeinformationen anhand der Mitgliedschaft Benutzer Store (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht...
+description: In diesem Tutorial untersuchen wir die Anmeldeinformationen eines Benutzers anhand des mitgliedschaftsbenutzerspeichers mit dem Login-Steuerelement und programmgesteuerte Möglichkeit zu überprüfen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
 ms.topic: article
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ad9f76f6c7c64c29971aed10ba165b5f4807eb64
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891333"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364830"
 ---
-<a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Überprüfen die Anmeldeinformationen des Benutzers für die Mitgliedschaft Benutzerspeicher (VB)
+<a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Überprüfen der Anmeldeinformationen anhand der Mitgliedschaft Benutzer Store (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_VB.zip) oder [PDF herunterladen](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_vb.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_VB.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_vb.pdf)
 
-> In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht. Wir werden zum Anpassen der Darstellung und das Verhalten des Steuerelements für die Anmeldung betrachten.
+> In diesem Tutorial untersuchen wir die Anmeldeinformationen eines Benutzers anhand des mitgliedschaftsbenutzerspeichers mit dem Login-Steuerelement und programmgesteuerte Möglichkeit zu überprüfen. Wir sehen auch an, wie des Anmeldesteuerelement Aussehen und Verhalten anpassen.
 
 
 ## <a name="introduction"></a>Einführung
 
-In der <a id="Tutorial05"> </a> [vorherigen Lernprogramm](creating-user-accounts-vb.md) Vorgehensweise: erstellen ein neuen Benutzerkontos in Mitgliedschaft Framework erläutert. Erläutert, zuerst Programmgesteuertes Erstellen von Benutzerkonten über die `Membership` -Klasse `CreateUser` -Methode, und klicken Sie dann überprüft der CreateUserWizard-Websteuerelement. Allerdings überprüft die Anmeldeseite derzeit die angegebenen Anmeldeinformationen für eine vorprogrammierte Liste von Benutzername und Kennwort-Paaren. Wir müssen die Anmeldeseite Logik aktualisieren, damit sie die Anmeldeinformationen für die Mitgliedschaft Framework Benutzerspeicher überprüft.
+In der <a id="Tutorial05"> </a> [vorherigen Lernprogramm](creating-user-accounts-vb.md) erläutert, wie Sie ein neues Benutzerkonto in das mitgliedschaftsframework zu erstellen. Programmgesteuertes Erstellen von Benutzerkonten über zunächst wurde die `Membership` -Klasse `CreateUser` -Methode, und klicken Sie dann untersucht das Steuerelement CreateUserWizard verwenden. Die Anmeldeseite wird jedoch derzeit die angegebenen Anmeldeinformationen für eine hartcodierte Liste der Paare aus Benutzername und Kennwort überprüft. Wir müssen Logik für die Anmeldeseite zu aktualisieren, sodass sie die Anmeldeinformationen für das mitgliedschaftsframework Benutzerspeicher überprüft.
 
-Ähnlich können z. B. mit dem Erstellen von Benutzerkonten, Anmeldeinformationen programmgesteuert oder deklarativ überprüft werden. Die Mitgliedschaft-API beinhaltet eine Methode für die Anmeldeinformationen eines Benutzers für den Speicher des Benutzers programmgesteuert überprüfen. Und ASP.NET im Lieferumfang des Websteuerelements Anmeldung, die eine Benutzeroberfläche mit Textfelder für den Benutzernamen und Kennwort und eine Schaltfläche zum Anmelden rendert.
+Viel können z. B. mit dem Erstellen von Benutzerkonten die, Anmeldeinformationen programmgesteuert oder deklarativ überprüft werden. Membership-API enthält eine Methode zum programmgesteuerten Überprüfung der Anmeldeinformationen eines Benutzers für den Speicher des Benutzers. Und ASP.NET im Lieferumfang von des Websteuerelements Anmeldung, das eine Benutzeroberfläche mit Textfelder für den Benutzernamen und Kennwort und eine Schaltfläche für die Anmeldung rendert.
 
-In diesem Lernprogramm werden wie beim Überprüfen der Anmeldeinformationen des Benutzers, für die Mitgliedschaft Benutzerspeicher programmgesteuerte Möglichkeit und das Steuerelement für die Anmeldung mit untersucht. Wir werden zum Anpassen der Darstellung und das Verhalten des Steuerelements für die Anmeldung betrachten. Fangen wir an!
+In diesem Tutorial untersuchen wir die Anmeldeinformationen eines Benutzers anhand des mitgliedschaftsbenutzerspeichers mit dem Login-Steuerelement und programmgesteuerte Möglichkeit zu überprüfen. Wir sehen auch an, wie des Anmeldesteuerelement Aussehen und Verhalten anpassen. Fangen wir an!
 
-## <a name="step-1-validating-credentials-against-the-membership-user-store"></a>Schritt 1: Die Anmeldeinformationen für den Benutzerspeicher Mitgliedschaft überprüft.
+## <a name="step-1-validating-credentials-against-the-membership-user-store"></a>Schritt 1: Überprüfen der Anmeldeinformationen für die Mitgliedschaft Benutzer Store
 
-Für Websites, die Formularauthentifizierung verwenden, meldet einen Benutzer auf der Website besuchen einer Anmeldeseite, und geben ihre Anmeldeinformationen. Diese Anmeldeinformationen werden dann mit den Speicher des Benutzers verglichen. Wenn sie gültig sind, wird der Benutzer ein Formularauthentifizierungsticket gewährt, ein Sicherheitstoken, die die Identität und die Authentizität des Besuchers angibt.
+Für Websites, die die Formularauthentifizierung verwenden, meldet sich der Benutzer auf der Website durch Zugriff auf eine Anmeldeseite und die Anmeldeinformationen einzugeben. Diese Anmeldeinformationen werden dann mit den Speicher des Benutzers verglichen. Wenn sie gültig sind, dann erhält der Benutzer ein Formularauthentifizierungsticket, d. h. ein Sicherheitstoken, die Identität und die Authentizität des Besuchers angibt.
 
-Verwenden Sie zum Überprüfen von eines Benutzers für das Framework für die Mitgliedschaft der `Membership` Klasse [ `ValidateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). Die `ValidateUser` -Methode übernimmt zwei Eingabeparameter - `username` und `password` - und gibt einen booleschen Wert, der angibt, ob die Anmeldeinformationen gültig sind. Wie Sie mit der `CreateUser` Methode, die im vorherigen Lernprogramm untersucht die `ValidateUser` Methode delegiert die tatsächliche Validierung an den konfigurierten Mitgliedschaftsanbieter.
+Verwenden Sie zum Überprüfen eines Benutzers für das mitgliedschaftsframework der `Membership` Klasse [ `ValidateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). Die `ValidateUser` Methode nimmt zwei Eingabeparameter - `username` und `password` - und gibt einen booleschen Wert, der angibt, ob die Anmeldeinformationen gültig sind. Wie Sie mit der `CreateUser` Methode, die wir im vorherigen Tutorial untersucht die `ValidateUser` Methode delegiert die eigentliche Validierung an den konfigurierten Mitgliedschaftsanbieter.
 
-Die `SqlMembershipProvider` überprüft die angegebenen Anmeldeinformationen erhalten Sie das angegebene Kennwort des Benutzers über die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur. Bedenken Sie, dass die `SqlMembershipProvider` speichert von Benutzerkennwörtern, die mit einer der drei Formate: Clear, verschlüsselt oder ein Hashwert erstellt. Die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur gibt das Kennwort im raw-Format zurück. Für verschlüsselte oder eine verschlüsselte Kennwörter der `SqlMembershipProvider` transformiert die `password` übergebenen Wert die `ValidateUser` in die entsprechende Methode verschlüsselt oder Status gehasht und klicken Sie dann mit der Rückgabe aus der Datenbank verglichen. Wenn das Kennwort in der Datenbank gespeichert, das formatierte, vom Benutzer eingegebene Kennwort übereinstimmt, sind die Anmeldeinformationen gültig.
+Die `SqlMembershipProvider` überprüft die angegebenen Anmeldeinformationen durch Abrufen des angegebenen Benutzers Kennwort über die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur. Bedenken Sie, dass die `SqlMembershipProvider` speichert Kennwörter für Benutzer mit einer der drei Formaten: löschen, die verschlüsselt oder Hash. Die `aspnet_Membership_GetPasswordWithFormat` gespeicherte Prozedur gibt das Kennwort in ihrem Rohformat zurück. Für verschlüsselte oder verschlüsselte Kennwörter die `SqlMembershipProvider` transformiert die `password` übergebenen Wert die `ValidateUser` Methode in die entsprechende verschlüsselt oder Status gehasht und verglichen, was aus der Datenbank zurückgegeben wurde. Wenn das Kennwort in der Datenbank gespeichert, das formatierte, vom Benutzer eingegebene Kennwort entspricht, sind die Anmeldeinformationen gültig.
 
-Wir aktualisieren unsere Anmeldeseite (~ /`Login.aspx`), damit sie die angegebenen Anmeldeinformationen für den Speicher des Benutzers Mitgliedschaft Framework überprüft. Wir diese Anmeldeseite erstellt zurück in die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Lernprogramm erstellen eine Schnittstelle mit zwei Textfelder für den Benutzernamen und das Kennwort, eine Kontrollkästchen, und eine Anmeldeschaltfläche speichern (siehe Abbildung 1). Der Code überprüft die eingegebenen Anmeldeinformationen für eine vorprogrammierte Liste von Benutzername und Kennwort-Paaren (Scott/Kennwort, Jisun/Kennwort und Sam/Kennwort). In der <a id="Tutorial03"> </a> [ *Konfiguration der Formularauthentifizierung und erweiterte Themen* ](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md) Lernprogramm wir aktualisiert, die Anmeldeseite Code aus, um zusätzliche Informationen in den Formen zu speichern. der Authentifizierungsticket `UserData` Eigenschaft.
-
-
-[![Die Anmeldeseite Schnittstelle enthält, zwei Textfelder, einer CheckBoxList und eine Schaltfläche](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
-
-**Abbildung 1**: die Anmeldeseite Schnittstelle enthält zwei Textfelder, einer CheckBoxList und eine Schaltfläche ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))
+Aktualisieren wir unsere Anmeldeseite (~ /`Login.aspx`), damit es überprüft, ob die angegebenen Anmeldeinformationen anhand des mitgliedschaftsbenutzerspeichers für Framework. Wir diese Anmeldeseite erstellt in der <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Tutorial erstellen eine Schnittstelle mit zwei Textfelder für den Benutzernamen und das Kennwort ein Anmeldedaten speichern aktiviert, und eine Schaltfläche "Anmelden" (siehe Abbildung 1). Der Code überprüft, ob die eingegebenen Anmeldeinformationen für eine hartcodierte Liste von Benutzername und Kennwort-Paaren (Scott/Kennwort, Jisun/Kennwort und Sam und Kennwort). In der <a id="Tutorial03"> </a> [ *Konfiguration der Formularauthentifizierung und Weiterführende Themen* ](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md) Tutorial wir die Anmeldeseite-Code zum Speichern zusätzlicher Informationen in den Versionen aktualisiert die Authentifizierungsticket `UserData` Eigenschaft.
 
 
-Benutzeroberfläche für die Anmeldeseite kann bleiben unverändert, aber wir benötigen der Anmeldeschaltfläche ersetzen `Click` -Ereignishandler durch den Code, der den Benutzer für die Mitgliedschaft Framework Benutzerspeicher überprüft. Aktualisieren Sie den Ereignishandler, sodass der Code wie folgt aussieht:
+[![Die Anmeldeseite Schnittstelle enthält zwei Textfelder, einer "CheckBoxList" und eine Schaltfläche](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
+
+**Abbildung 1**: die Anmeldeseites Schnittstelle enthält zwei Textfelder, einer "CheckBoxList" und eine Schaltfläche ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))
+
+
+Benutzeroberfläche für die Anmeldeseite kann unverändert bleiben, aber wir müssen der Login-Schaltfläche ersetzen `Click` -Ereignishandler durch Code, der den Benutzer anhand des mitgliedschaftsbenutzerspeichers für Framework überprüft. Aktualisieren Sie den Ereignishandler, sodass der Code wie folgt aussieht:
 
 [!code-vb[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample1.vb)]
 
-Dieser Code ist erstaunlich einfach. Beginnen wir durch Aufrufen der `Membership.ValidateUser` -Methode auf und übergibt den angegebenen Benutzernamen und das Kennwort. Wenn diese Methode gibt "true" zurück, der Benutzer angemeldet ist, in der Website über die `FormsAuthentication` -Methode der Basisklasse RedirectFromLoginPage. (Wie in erläutert die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Lernprogramm die `FormsAuthentication.RedirectFromLoginPage` erstellt die Formulare Authentifizierungsticket, und klicken Sie dann leitet den Benutzer um die entsprechende Seite.) Wenn die Anmeldeinformationen jedoch ungültig ist, sind die `InvalidCredentialsMessage` Bezeichnung angezeigt wird, den Benutzer darüber informiert, dass ihre Benutzername oder Kennwort falsch war.
+Dieser Code ist erstaunlich einfach. Wir rufen Sie zunächst die `Membership.ValidateUser` Methode auf und übergibt den angegebenen Benutzernamen und das Kennwort. Wenn diese Methode gibt "true" zurück, der Benutzer angemeldet ist, auf der Website über die `FormsAuthentication` RedirectFromLoginPage-Methode der-Klasse. (Wie in erläutert die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Tutorial die `FormsAuthentication.RedirectFromLoginPage` erstellt die Forms-Authentifizierungsticket, und klicken Sie dann leitet den Benutzer die entsprechende Seite.) Wenn jedoch die Anmeldeinformationen ungültig ist, sind die `InvalidCredentialsMessage` Bezeichnung wird angezeigt, den Benutzer darüber informiert, dass die Benutzernamen oder das Kennwort falsch war.
 
-Das ist alles vorhanden ist!
+Das ist alles schon!
 
-Um zu testen, dass die Anmeldeseite erwartungsgemäß funktioniert, versuchen Sie mit einem Benutzerkonto anmelden, die Sie in dem vorherigen Lernprogramm erstellt haben. Oder, wenn Sie ein Konto noch nicht erstellt haben, fahren Sie fort, und erstellen Sie eine aus der `~/Membership/CreatingUserAccounts.aspx` Seite.
-
-> [!NOTE]
-> Wenn der Benutzer ihre Anmeldeinformationen eingibt und das Anmeldeformular Seite sendet, werden die Anmeldeinformationen an, z. B. das Kennwort über das Internet an den Webserver in übertragen *Klartext*. Das bedeutet, dass alle Hacker sniffing den Netzwerkdatenverkehr des Benutzernamens und Kennworts angezeigt werden. Um dies zu verhindern, es ist wichtig, den Netzwerkdatenverkehr mit verschlüsseln [Secure Socket Layer (SSL)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Dadurch wird sichergestellt, dass die Anmeldeinformationen (ebenso wie die gesamte Seite HTML-Markup) ab dem Zeitpunkt verschlüsselt werden, die sie den Browser lassen, bis sie vom Webserver empfangen werden.
-
-
-### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>Behandlung von ungültigen Anmeldeversuchen durch das Framework Mitgliedschaft
-
-Wenn ein Besucher die Anmeldeseite erreicht und übermittelt ihre Anmeldeinformationen, sendet ihren Browser eine HTTP-Anforderung zur Anmeldeseite. Wenn die Anmeldeinformationen gültig sind, enthält die HTTP-Antwort das Authentifizierungsticket in einem Cookie. Daher kann ein Hacker versucht, unterbrechen Ihre Website ein Programm erstellen, die umfassend HTTP-Anforderungen an die Anmeldeseite mit einem gültigen Benutzernamen und einen Schätzwert ein, an das Kennwort sendet. Wenn das Kennwort Schätzung richtig ist, gibt die Anmeldeseite das Authentifizierungscookie Ticket zurück zu diesem, das Zeitpunkt weiß das Programm, dass er auf eine gültige Benutzername/Kennwort-Paar gestoßen ist. Durch Brute-Force solches Programm auf das Kennwort eines Benutzers, Fehlernachrichten möglicherweise besonders, wenn das Kennwort schwach ist.
-
-Um solche Brute-Force-Angriffe zu verhindern, sperrt das Framework der Mitgliedschaft eines Benutzers, wenn eine bestimmte Anzahl von nicht erfolgreichen Anmeldeversuche innerhalb einer bestimmten Zeitspanne vorhanden sind. Die genauen Parameter können über die folgenden zwei Mitgliedschaft Anbieter Konfigurationseinstellungen konfiguriert werden:
-
-- `maxInvalidPasswordAttempts` -Gibt an, wie viele wurde ein ungültiges Kennwort Versuche dürfen für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt ist. Der Standardwert ist 5.
-- `passwordAttemptWindow` -Gibt den Zeitraum in Minuten, während dessen die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
-
-Wenn ein Benutzer gesperrt wurde, kann nicht er sich erst anmelden, ein Administrator ihr Konto entsperrt. Wenn ein Benutzer gesperrt ist die `ValidateUser` Methode wird *immer* zurückgeben `False`, selbst wenn Sie gültige Anmeldeinformationen angegeben werden. Während dieses Verhalten die Wahrscheinlichkeit, die ein Hacker durch Brute-Force-Methoden in Ihrer Website unterbrochen wird verringert, kann er ein gültiger Benutzer, einfach das Kennwort vergessen hat oder versehentlich die FESTSTELLTASTE aktiviert ist, auf oder hat einen ungültigen Eingabe Tag, Sperrung annehmen.
-
-Leider ist kein integriertes Tool zum Entsperren eines Benutzerkontos. Um ein Konto entsperren zu können, können Sie Änderungen an der Datenbank direkt - ändern der `IsLockedOut` -Feld in der `aspnet_Membership` für das entsprechende Benutzerkonto - Tabelle oder eine webbasierte Schnittstelle erstellen, die listet gesperrt, Konten mit Optionen, um sie zu entsperren. Untersuchen wir erstellen administratorschnittstellen für das Ausführen der häufig anfallenden Benutzeraufgaben Konto und rollenbezogenen in einem späteren Lernprogramm.
+Um zu testen, dass die Anmeldeseite wie erwartet funktioniert, versuchen Sie mit einem der Benutzerkonten anmelden, die Sie im vorherigen Tutorial erstellt haben. Oder, wenn Sie ein Konto noch nicht erstellt haben, fahren Sie fort, und erstellen Sie eine der `~/Membership/CreatingUserAccounts.aspx` Seite.
 
 > [!NOTE]
-> Ein Nachteil der `ValidateUser` Methode ist, wenn die angegebenen Anmeldeinformationen ungültig sind, kein Erklärung verdeutlichen, warum bereitgestellt wird. Die Anmeldeinformationen möglicherweise ungültig, da keine übereinstimmenden Benutzername/Kennwort-Paar im Speicher Benutzers vorhanden ist oder, da der Benutzer noch nicht genehmigt wurde oder weil der Benutzer gesperrt wurde. In Schritt 4 sehen wir, wie eine detaillierte Meldung für dem Benutzer angezeigt, wenn ihre Anmeldeversuch einen Fehler erzeugt.
+> Wenn der Benutzer ihre Anmeldeinformationen eingegeben und das Anmeldeformular für die Seite übermittelt, werden die Anmeldeinformationen, einschließlich Kennwort, über das Internet an den Webserver in übertragen *nur-Text*. Das bedeutet, dass alle Hacker man den Netzwerkverkehr des Benutzernamens und Kennworts angezeigt. Um dies zu verhindern, ist es erforderlich, den Netzwerkdatenverkehr mit verschlüsseln [Secure Socket Layer (SSL)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Dadurch wird sichergestellt, dass die Anmeldeinformationen (sowie die gesamte Seite HTML-Markup) ab dem Zeitpunkt verschlüsselt werden, die sie den Browser verlassen, bis sie vom Webserver empfangen werden.
 
 
-## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>Schritt 2: Sammeln von Anmeldeinformationen über die Login-Websteuerelement
+### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>Behandlung von ungültigen Anmeldeversuchen durch das Mitgliedschaftsframework
 
-Die [Anmeldung Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) rendert eine Standardbenutzeroberfläche sehr ähnlich, mit dem es erstellt, wieder in haben die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Lernprogramm. Mithilfe des Login-Steuerelements speichert uns die Arbeit von die Schnittstelle zum Sammeln von Anmeldeinformationen für den Besucher erstellen zu müssen. Darüber hinaus signiert das Steuerelement für die Anmeldung automatisch in der Benutzerliste (vorausgesetzt, dass die übermittelten Anmeldeinformationen gültig sind), und Speichern von uns keinen Code schreiben müssen.
+Wenn ein Besucher die Anmeldeseite erreicht und seine Anmeldeinformationen übermittelt, bewirkt, dass ihre Browser eine HTTP-Anforderung an die Anmeldeseite. Wenn die Anmeldeinformationen gültig sind, enthält die HTTP-Antwort das Authentifizierungsticket in einem Cookie. Aus diesem Grund könnte ein Hacker versucht, die an Ihrem Standort zu unterbrechen, ein Programm erstellen, die HTTP-Anforderungen umfassend auf die Anmeldeseite mit einem gültigen Benutzernamen und ein Vermutung in Bezug auf das Kennwort sendet. Wenn der Schätzwert Kennwort richtig ist, gibt die Anmeldeseite das Authentifizierungscookie Ticket und zurück zu diesem, das Zeitpunkt weiß das Programm, dass er auf eine gültige Benutzername/Kennwort-Paar gestolpert ist. Durch brute-Force einem solchen Programm Probleme stoßen, auf das Kennwort eines Benutzers, möglicherweise insbesondere dann, wenn das Kennwort schwach ist.
 
-Wir aktualisieren `Login.aspx`, und Ersetzen Sie dabei den manuell erstellten Benutzeroberfläche und code mit einem Anmeldungssteuerelement. Entfernen Sie zuerst das vorhandene Markup und code in `Login.aspx`. Sofortiges zu löschen, oder kommentieren Sie es aus. Um deklaratives Markup auskommentieren, setzen Sie sie mit der `<%--` und `--%>` Trennzeichen. Sie können diese Trennzeichen manuell eingeben, oder wie in Abbildung 2 gezeigt, kann, wählen Sie den Text zu kommentieren Sie Sie aus, und klicken Sie dann auf die Kommentieren Sie das Symbol "ausgewählte Zeilen" in der Symbolleiste. Auf ähnliche Weise können Sie die Kommentieren Sie das Symbol für die ausgewählten Zeilen verwenden, so kommentieren Sie den ausgewählten Code in der CodeBehind-Klasse.
+Um solche brute-Force-Angriffe zu verhindern, sperrt das mitgliedschaftsframework ein Benutzer ein, wenn eine bestimmte Anzahl nicht erfolgreicher Anmeldeversuche innerhalb eines bestimmten Zeitraums Zeit vorhanden sind. Die genauen Parameter, die über die folgenden zwei Membership-Provider-Konfigurationseinstellungen konfiguriert werden:
+
+- `maxInvalidPasswordAttempts` -Gibt an, wie viele wurde ein ungültiges Kennwort Verbindungsversuche sind zulässig, für den Benutzer innerhalb des Zeitraums, bevor das Konto gesperrt wird. Der Standardwert ist 5.
+- `passwordAttemptWindow` -Gibt den Zeitraum in Minuten, in dem die angegebene Anzahl von ungültigen Anmeldeversuchen führt dazu, dass das Konto gesperrt wird. Der Standardwert ist 10.
+
+Wenn ein Benutzer gesperrt wurde, kann nicht sie sich erst anmelden, ein Administrator ihr Konto entsperrt. Wenn ein Benutzer gesperrt ist die `ValidateUser` Methode *immer* zurückgeben `False`, auch wenn gültige Anmeldeinformationen angegeben werden. Während dadurch die Wahrscheinlichkeit, die ein Hacker durch brute-Force-Methoden in Ihre Website unterbrochen wird verringert, können sie schließlich Sperrung ein gültiger Benutzer, die einfach ihr Kennwort vergessen hat oder versehentlich besitzt die FESTSTELLTASTE auf oder mit unglückstag eingeben.
+
+Leider ist es kein integriertes Tool für ein Benutzerkonto zu entsperren. Um ein Konto zu entsperren, können Sie die Datenbank ändern direkt – ändern der `IsLockedOut` -Feld in der `aspnet_Membership` Tabelle aus, für das entsprechende Benutzerkonto - oder eine webbasierte Schnittstelle erstellen, die listet gesperrte Konten mit Optionen, um sie zu entsperren. Untersuchen wir erstellen administratoroberflächen für häufig verwendete Benutzeraufgaben Konto und rollenbezogenen in einem späteren Tutorial ausführen.
+
+> [!NOTE]
+> Ein Nachteil der `ValidateUser` Methode ist, wenn die angegebenen Anmeldeinformationen ungültig sind, keine Erklärung, warum bereitgestellt wird. Die Anmeldeinformationen möglicherweise ungültig, da keine entsprechenden Benutzernamen/Kennwort-Paar in den Speicher des Benutzers vorhanden ist oder da der Benutzer noch nicht genehmigt wurde oder weil der Benutzer gesperrt wurde. In Schritt 4 sehen wir, wie Sie eine weitere ausführliche Meldung für dem Benutzer anzeigen, wenn ihre Anmeldeversuch fehlschlägt.
 
 
-[![Kommentieren Sie die vorhandenen deklarativem Markup und den Quellcode in "Login.aspx"](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
+## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>Schritt 2: Sammeln von Anmeldeinformationen über das Websteuerelement für Login
 
-**Abbildung 2**: Kommentar, der vorhandenen deklarativem Markup und Quellcode in "Login.aspx" ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))
+Die [Anmeldung Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) rendert eine Standard-Benutzeroberfläche sehr ähnlich, die wir erstellt, wieder in haben die <a id="Tutorial02"> </a> [ *eine Übersicht der Formularauthentifizierung* ](../introduction/an-overview-of-forms-authentication-vb.md) Tutorial. Mit dem Login-Steuerelement hilft uns, die Arbeit, die Schnittstelle zum Erfassen des Besuchers Anmeldeinformationen erstellen zu müssen. Darüber hinaus das Steuerelement für die Anmeldung automatisch angemeldet des Benutzers (vorausgesetzt, dass die übermittelten Anmeldeinformationen gültig sind), und speichern wir keinen Code schreiben müssen.
+
+Aktualisieren wir `Login.aspx`, und Ersetzen Sie dabei den manuell erstellte Schnittstelle und code mit einem Login-Steuerelement. Entfernen Sie zuerst das vorhandene Markup und code im `Login.aspx`. Sie können es 30-tägiges löschen oder kommentieren Sie ihn aus. Um deklaratives Markup auskommentieren, setzen Sie sie mit der `<%--` und `--%>` Trennzeichen. Sie können diese Trennzeichen manuell eingeben oder, wie in Abbildung 2 gezeigt, können Sie den Text kommentieren Sie Sie aus, und klicken Sie auf den Kommentar aus der ausgewählten Zeilen auf der Symbolleiste auswählen. Auf ähnliche Weise können Sie den Kommentar aus der ausgewählten Zeilen auskommentieren, den ausgewählten Code in der CodeBehind-Klasse.
+
+
+[![Kommentieren Sie die vorhandenen deklaratives Markup und Quellcode in "Login.aspx"](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
+
+**Abbildung 2**: Kommentar, der vorhandenen deklaratives Markup und Quellcode in "Login.aspx" ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))
 
 
 > [!NOTE]
-> Die Kommentieren Sie das Symbol "ausgewählte Zeilen" ist nicht verfügbar, beim Anzeigen von deklarativem Markup in Visual Studio 2005. Wenn Sie nicht Visual Studio 2008 verwenden, müssen manuell hinzufügen der `<%--` und `--%>` Trennzeichen.
+> Der Kommentar aus der ausgewählten Zeilen ist nicht verfügbar, beim Anzeigen von deklarativen Markups in Visual Studio 2005. Wenn Sie nicht Visual Studio 2008 verwenden, werden Sie manuell hinzufügen müssen die `<%--` und `--%>` Trennzeichen.
 
 
-Ziehen Sie eine Anmeldesteuerelement aus der Toolbox auf die Seite, und legen Sie dessen `ID` Eigenschaft `myLogin`. An diesem Punkt sollte Ihr Bildschirm in Abbildung 3 ähneln. Beachten Sie, dass die Anmeldung des Steuerelements Standardschnittstelle TextBox-Steuerelemente für den Benutzernamen und Kennwort, eine Anmeldedaten Kontrollkästchen und eine Schaltfläche "Protokoll In" enthält. Es gibt auch `RequiredFieldValidator` Steuerelemente für die beiden Textfelder ein.
+Als Nächstes ein Anmeldesteuerelement aus der Toolbox auf die Seite ziehen, und legen Sie dessen `ID` Eigenschaft `myLogin`. An diesem Punkt sollte Ihr Bildschirm wie in Abbildung 3 aussehen. Beachten Sie, dass das Anmeldesteuerelement Standardschnittstelle TextBox-Steuerelemente für den Benutzernamen und Kennwort, eine Anmeldedaten Kontrollkästchen und eine Schaltfläche "Protokoll In" enthält. Es gibt auch `RequiredFieldValidator` Steuerelemente für die beiden Textfelder ein.
 
 
-[![Hinzufügen eines Steuerelements für die Anmeldung zu der Seite "](validating-user-credentials-against-the-membership-user-store-vb/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image7.png)
+[![Fügen Sie auf der Seite ein Anmeldesteuerelement hinzu](validating-user-credentials-against-the-membership-user-store-vb/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image7.png)
 
-**Abbildung 3**: Hinzufügen eines Steuerelements für die Anmeldung zu der Seite "([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image9.png))
+**Abbildung 3**: Fügen Sie auf der Seite ein Anmeldesteuerelement hinzu ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image9.png))
 
 
-Und wir sind fertig! Bei der Anmeldung des Steuerelements anmelden Schaltfläche klicken, wird ein Postback tritt auf, und rufen Sie das Steuerelement für die Anmeldung wird die `Membership.ValidateUser` Methode und übergeben des eingegebenen Benutzernamens und Kennworts. Wenn die Anmeldeinformationen ungültig sind, zeigt das Steuerelement für die Anmeldung eine Meldung angezeigt, z. B. an. Wenn Sie jedoch die Anmeldeinformationen gültig sind, klicken Sie dann das Steuerelement für die Anmeldung erstellt die Formulare Authentifizierungsticket, und leitet den Benutzer an die entsprechende Seite.
+Und wir sind fertig! Wenn dem Login-Steuerelement die Schaltfläche "Anmelden" geklickt wird, wird ein Postback tritt auf, und das Login-Steuerelement ruft die `Membership.ValidateUser` Methode und übergeben des eingegebenen Benutzernamens und Kennworts. Wenn die Anmeldeinformationen ungültig sind, zeigt das Steuerelement für die Anmeldung eine Meldung angezeigt, z. B. an. Wenn Sie jedoch die Anmeldeinformationen gültig sind, klicken Sie dann die Login-Steuerelement erstellt die Forms-Authentifizierungsticket und leitet den Benutzer an die entsprechende Seite.
 
-Das Steuerelement für die Anmeldung verwendet vier Faktoren, die entsprechende Seite zum Umleiten des Benutzers, um nach einer erfolgreichen Anmeldung festzulegen:
+Das Steuerelement für die Anmeldung verwendet vier Faktoren, um zu bestimmen, die entsprechende Seite zum Umleiten des Benutzers, nach einer erfolgreichen Anmeldung:
 
-- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der Definition von `loginUrl` ist der Standardwert für diese Einstellung festlegen, in die Konfiguration der Formularauthentifizierung; `Login.aspx`
+- Gibt an, ob das Steuerelement für die Anmeldung auf der Anmeldeseite wird gemäß der `loginUrl` ist der Standardwert für diese Einstellung, die in die Konfiguration der Formularauthentifizierung; festlegen `Login.aspx`
 - Das Vorhandensein einer `ReturnUrl` Querystring-Parameter
-- Der Wert des Steuerelements für die Anmeldung [ `DestinationUrl` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- Die `defaultUrl` Wert, der in den Formularen Konfigurationseinstellungen für die Authentifizierung angegeben; Standardwert für diese Einstellung ist "default.aspx"
+- Der Wert, der des Anmeldesteuerelement [ `DestinationUrl` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
+- Die `defaultUrl` Wert angegeben, in den Formen Konfigurationseinstellungen für die Authentifizierung ist diese Einstellung den Standardwert "default.aspx"
 
-Abbildung 4 zeigt, wie das Steuerelement für die Anmeldung verwendet diese vier Parameter, die entsprechende Seite Entscheidung ankommen.
-
-
-[![Hinzufügen eines Steuerelements für die Anmeldung zu der Seite "](validating-user-credentials-against-the-membership-user-store-vb/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image10.png)
-
-**Abbildung 4**: Hinzufügen eines Steuerelements für die Anmeldung zu der Seite "([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image12.png))
+Abbildung 4 zeigt, wie das Steuerelement für die Anmeldung verwendet diese vier Parameter, um ihre Entscheidung für die entsprechende Seite zu erreichen.
 
 
-Nehmen Sie einen Moment Zeit, von der Website über einen Browser und Anmeldung als einen vorhandenen Benutzer in die Mitgliedschaft Framework das Steuerelement für die Anmeldung zu testen.
+[![Fügen Sie auf der Seite ein Anmeldesteuerelement hinzu](validating-user-credentials-against-the-membership-user-store-vb/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image10.png)
 
-Gerenderten des Login-Steuerelements-Schnittstelle ist hochgradig konfigurierbar. Es gibt eine Reihe von Eigenschaften, die ihre Darstellung zu beeinflussen. Darüber kann das Steuerelement für die Anmeldung zu einer Vorlage für präzise Kontrolle über das Layout der Elemente der Benutzeroberfläche konvertiert werden. Der Rest dieses Schritts untersucht, wie die Darstellung und das Layout anpassen.
+**Abbildung 4**: Fügen Sie auf der Seite ein Anmeldesteuerelement hinzu ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image12.png))
+
+
+Nehmen Sie einen Moment Zeit, um das Steuerelement für die Anmeldung durch Besuchen der Website über einen Browser und die Anmeldung als einen vorhandenen Benutzer in das mitgliedschaftsframework zu testen.
+
+Das Anmeldesteuerelement gerenderten-Schnittstelle ist hochgradig konfigurierbar. Es gibt eine Reihe von Eigenschaften, die die Darstellung zu beeinflussen. kann das Steuerelement für die Anmeldung in eine Vorlage für die genaue Kontrolle über das Layout der Elemente der Benutzeroberfläche konvertiert werden. Der Rest dieses Schritts wird untersucht, wie die Darstellung und das Layout anpassen.
 
 ### <a name="customizing-the-login-controls-appearance"></a>Anpassen der Darstellung des Steuerelements für die Anmeldung
 
-Standardeinstellungen für Eigenschaften des Steuerelements für die Anmeldung Rendern einer Benutzeroberfläche mit einem Titel (Anmelden), TextBox und Label-Steuerelemente für die Eingaben Benutzername und Kennwort, eine Anmeldedaten beim nächsten Mal aktiviert, und eine Schaltfläche "Anmelden". Die Darstellung eines dieser Elemente sind alle konfigurierbar über zahlreiche Eigenschaften des Login-Steuerelements. Darüber hinaus können zusätzliche Elemente der Benutzeroberfläche – wie z. B. einen Link zu einer Seite zum Erstellen eines neuen Benutzerkontos - durch Festlegen einer Eigenschaft oder zwei hinzugefügt werden.
+Das Anmeldesteuerelement standardeigenschafteneinstellungen Rendern einer Benutzeroberfläche mit einem Titel (Anmeldung), beim nächsten Mal von TextBox und Label-Steuerelemente für die Eingaben Benutzername und Kennwort, eine Erinnerung aktiviert, und eine Schaltfläche "Anmelden". Die Darstellung dieser Elemente sind alle konfigurierbaren über zahlreiche Eigenschaften des Login-Steuerelements. Darüber hinaus können festlegen, eine Eigenschaft oder zwei zusätzliche Elemente der Benutzeroberfläche – z. B. einen Link zu einer Seite zum Erstellen eines neuen Benutzerkontos - hinzugefügt werden.
 
-Werfen wir kurz einen Augenblick, um die Darstellung von Steuerelement für die Anmeldung gussy. Da die `Login.aspx` Seite verfügt bereits über Text am oberen Rand der Seite, die besagt, Anmeldenamen dass, Titel des Steuerelements für die Anmeldung ist überflüssig. Löschen Sie daher, den [ `TitleText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.titletext.aspx) Wert um den Titel des Steuerelements für die Anmeldung zu entfernen.
+Betrachten Sie einen Moment, um die Darstellung des unsere Anmeldesteuerelement gussy an. Da die `Login.aspx` Seite bereits Text am oberen Rand der Seite mit dem Anmeldenamen Text ist, wird das Anmeldesteuerelement Titel lautet überflüssig. Aus diesem Grund lösche die [ `TitleText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.titletext.aspx) Wert um den Titel des Steuerelements für die Anmeldung zu entfernen.
 
-Der Benutzername: und Kennwort: Bezeichnungen auf der linken Seite des zwei TextBox-Steuerelemente können angepasst werden, über die [ `UserNameLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx) und [ `PasswordLabelText` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)bzw. Ändern Sie den Benutzernamen ein: Bezeichnung Username lesen:. Die Bezeichnung und einer TextBox-Stile sind konfigurierbar über die [ `LabelStyle` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.labelstyle.aspx) und [ `TextBoxStyle` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textboxstyle.aspx)bzw.
+Der Benutzername: und Kennwort: Bezeichnungen auf der linken Seite des zwei TextBox-Steuerelemente können angepasst werden, über die [ `UserNameLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx) und [ `PasswordLabelText` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)bzw. Ändern wir den Namen des Benutzers: Bezeichnung, die Benutzernamen zu lesen:. Die Bezeichnung und TextBox-Stile sind konfigurierbar, über die [ `LabelStyle` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.labelstyle.aspx) und [ `TextBoxStyle` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textboxstyle.aspx)bzw.
 
-Die Anmeldedaten weiter Zeit Kontrollkästchen Text-Eigenschaft werden, über die Anmelde-Steuerelement festgelegt kann [ `RememberMeText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermetext.aspx), und der Standardwert überprüft Zustand ist konfigurierbar über die [ `RememberMeSet` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermeset.aspx)(der Standardwert "false"). Fahren Sie fort, und legen Sie die `RememberMeSet` Eigenschaft auf "true", damit die Anmeldedaten beim nächsten Mal Kontrollkästchen wird standardmäßig aktiviert sein.
+Die Anmeldedaten weiter Zeit Kontrollkästchens Text-Eigenschaft werden, über des Anmeldesteuerelement festgelegt kann [ `RememberMeText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermetext.aspx), und die Standardeinstellung überprüft Status wird über die [ `RememberMeSet` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermeset.aspx)(der Standardwert "false"). Fahren Sie fort, und legen Sie die `RememberMeSet` Eigenschaft auf "true", damit die Anmeldedaten beim nächsten Mal Kontrollkästchen wird standardmäßig aktiviert sein.
 
-Das Steuerelement für die Anmeldung bietet zwei Eigenschaften für das Layout der Steuerelemente der Benutzeroberfläche anpassen. Die [ `TextLayout` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textlayout.aspx) gibt an, ob der Benutzername: und Kennwort: Bezeichnungen auf der linken Seite die entsprechenden Textfelder ein (Standard) oder darüber liegenden angezeigt werden. Die [ `Orientation` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.orientation.aspx) gibt an, ob der Benutzername und Kennwort Eingaben vertikal befinden (übereinander) oder horizontal. Ich werde diese beiden Eigenschaften auf ihre Standardwerte festgelegt zu lassen, jedoch sollten Sie versuchen, diese beiden Eigenschaften festlegen, auf die nicht standardmäßige Werte, die sich ergebende Auswirkung anzuzeigen.
+Die Login-Steuerelement bietet zwei Eigenschaften für das Layout der Steuerelemente der Benutzeroberfläche anpassen. Die [ `TextLayout` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textlayout.aspx) gibt an, ob der Benutzername: und das Kennwort: Bezeichnungen auf der linken Seite die entsprechenden Textfelder ein (Standard) oder über sie angezeigt werden. Die [ `Orientation` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.orientation.aspx) gibt an, ob die Eingaben für Benutzername und Kennwort vertikal befinden (übereinander) oder horizontal. Ich werde diese beiden Eigenschaften auf ihre Standardwerte festgelegt zu lassen, jedoch sollten Sie versuchen, diese beiden Eigenschaften festlegen, auf die nicht standardmäßige Werte, die sich ergebende Auswirkung anzuzeigen.
 
 > [!NOTE]
-> Im nächsten Abschnitt betrachten konfigurieren Layout des Steuerelements für die Anmeldung, wir definieren Sie die präzise Layout der Elemente der Benutzeroberfläche des Layout-Steuerelements mithilfe von Vorlagen.
+> Im nächsten Abschnitt betrachten konfigurieren das Anmeldesteuerelement Layout, wir mithilfe von Vorlagen zum Definieren des genauen Layouts der Elemente der Benutzeroberfläche des Layout-Steuerelements.
 
 
-Wrappen von Einstellungen für die Anmeldung des Steuerelements durch Festlegen der [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx) und [ `CreateUserUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx) auf Not noch registriert? Erstellen Sie ein Konto! und `~/Membership/CreatingUserAccounts.aspx`zugeordnet. Dadurch wird die Anmeldung Schnittstelle des Steuerelements auf der Seite "wird, in erstellt einen Link hinzugefügt der <a id="Tutorial05"> </a> [vorherigen Lernprogramm](creating-user-accounts-vb.md). Die Anmeldung des Steuerelements [ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx) und [ `HelpPageUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx) und [ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx) und [ `PasswordRecoveryUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx) funktionieren in die gleiche Weise Rendern von Links zu einer Hilfeseite und eine Seite "Kennwort Recovery".
+Wrappen Sie eigenschafteneinstellungen für die Login-Steuerelement durch Festlegen der [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx) und [ `CreateUserUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx) auf nicht noch registriert? Erstellen Sie ein Konto! und `~/Membership/CreatingUserAccounts.aspx`bzw. Dadurch wird einen Link hinzugefügt, auf dem Login-Steuerelement-Schnittstelle auf der Seite zeigen wir erstellt, in haben der <a id="Tutorial05"> </a> [vorherigen Lernprogramm](creating-user-accounts-vb.md). Des Anmeldesteuerelement [ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx) und [ `HelpPageUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx) und [ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx) und [ `PasswordRecoveryUrl` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx) funktionieren auf dieselbe Weise, Links zu einer Hilfeseite ein, und eine Kennwortwiederherstellungsseite rendern.
 
-Nachdem diese eigenschaftenänderungen vorgenommen wurden, sollte deklarativem Markup und die Darstellung des Steuerelements Anmeldung, die in Abbildung 5 dargestellten ähneln.
-
-
-[![Eigenschaften des Steuerelements für die Anmeldung festgelegt seine Darstellung](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
-
-**Abbildung 5**: Eigenschaften des Login-Steuerelements Werte diktieren seine Darstellung ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))
+Nach dieser Eigenschaft Änderungen sollte deklaratives Markup und die Darstellung des Steuerelements für Ihre Anmeldung, die in Abbildung 5 dargestellten ähneln.
 
 
-### <a name="configuring-the-login-controls-layout"></a>Konfigurieren die Anmeldung das Steuerelementlayout
+[![Das Anmeldesteuerelement Eigenschaften Werte vorgeben, dessen Darstellung](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
 
-Die Login-Websteuerelement-Standardbenutzeroberfläche angeordnet die Schnittstelle in einem HTML- `<table>`. Aber was geschieht, wenn wir eine präzisere Steuerung der gerenderten Ausgabe benötigen? Vielleicht möchten wir ersetzen die `<table>` mit einer Reihe von `<div>` Tags. Oder was geschieht, wenn die Anwendung zusätzliche Anmeldeinformationen für die Authentifizierung benötigt? Viele finanzielle Websites erfordern z. B. Benutzer, nicht nur einen Benutzernamen und ein Kennwort, aber auch eine Anzahl PIN (Personal Identification), oder andere identifizierende Informationen einzugeben. Alle von Ihnen gewünschten Gründe sein können, ist es möglich, das Steuerelement für die Anmeldung zu einer Vorlage konvertiert aus dem wir explizit die Schnittstelle deklarativem Markup definieren können.
+**Abbildung 5**: die Login-Steuerelement die Eigenschaften Werte vorgeben seine Darstellung ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))
 
-Wir benötigen zwei Aktionen zum Aktualisieren der Anmelde-Steuerelement, um zusätzliche Anmeldeinformationen zu sammeln:
 
-1. Aktualisieren Sie die Anmeldung Schnittstelle des Steuerelements Einbeziehung von Web-Steuerelemente, um die zusätzlichen Anmeldeinformationen zu sammeln.
-2. Überschreiben Sie die Anmeldung Steuerelementlogik interne Authentifizierung, sodass nur ein Benutzer authentifiziert wurde, ob Benutzername und Kennwort gültig ist und deren zusätzlichen Anmeldeinformationen ungültig sind.
+### <a name="configuring-the-login-controls-layout"></a>Konfigurieren das Anmeldesteuerelement-Layout
 
-Um die erste Aufgabe zu erreichen, müssen wir das Steuerelement für die Anmeldung in eine Vorlage konvertieren und die erforderlichen Web-Steuerelemente hinzufügen. Wie für die zweite Aufgabe kann Authentifizierungslogik des Login-Steuerelements durch Erstellen eines ereignishandlers für des Steuerelements abgelöst werden [ `Authenticate` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx).
+Die Login-Websteuerelement-Standardbenutzeroberfläche ordnet die Schnittstelle in einem HTML- `<table>`. Aber was geschieht, wenn eine präzisere Kontrolle über die gerenderte Ausgabe erforderlich? Vielleicht möchten wir ersetzen die `<table>` mit einer Reihe von `<div>` Tags. Oder was geschieht, wenn die Anwendung zusätzliche Anmeldeinformationen erfordert, für die Authentifizierung? Viele Websites finanzielle müssen z. B. Benutzer nicht nur einen Benutzernamen und Kennwort, aber auch eine Anzahl PIN (Personal Identification) oder andere identifizierende Informationen angeben. Was die Gründe sein mag, ist es möglich, das Login-Steuerelement in eine Vorlage konvertieren aus dem wir explizit deklaratives Markup der Schnittstelle definieren können.
 
-Wir aktualisieren das Steuerelement für die Anmeldung an, damit Benutzer ihren Benutzernamen, Kennwort und e-Mail-Adresse aufgefordert und den Benutzer nur, authentifiziert Wenn die angegebene e-Mail-Adresse ihre e-Mail-Adresse übereinstimmt. Wir müssen zunächst die Login-Schnittstelle in einer Vorlage zu konvertieren. Smarttag für die Anmeldung des Steuerelements wählen Sie in Vorlagenoption konvertieren.
+Wir müssen zwei Schritte zum Aktualisieren der Login-Steuerelement zum Sammeln zusätzlicher Anmeldeinformationen ausführen:
+
+1. Aktualisieren Sie das Anmeldesteuerelement-Schnittstelle, um die Web-Steuerelemente, um die zusätzlichen Anmeldeinformationen zu erfassen sind.
+2. Überschreiben Sie die Anmeldung Logik des Steuerelements interne Authentifizierung, sodass nur ein Benutzer authentifiziert wird, wenn Benutzername und Kennwort gültig ist und seine zusätzlichen Anmeldeinformationen gültig sind, zu.
+
+Um die erste Aufgabe zu erreichen, müssen wir das Login-Steuerelement in eine Vorlage konvertieren und die erforderlichen Web-Steuerelemente hinzufügen. Wie bei der zweiten Aufgabe kann durch Erstellen eines ereignishandlers für des Steuerelements die Authentifizierungslogik die Login-Steuerelement ersetzt werden [ `Authenticate` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx).
+
+Das Steuerelement für die Anmeldung aktualisieren wir, damit Benutzer ihren Benutzernamen, Kennwort und e-Mail-Adresse aufgefordert und den Benutzer nur, authentifiziert Wenn die bereitgestellte e-Mail-Adresse die e-Mail-Adresse auf die Datei übereinstimmt. Wir müssen zunächst das Anmeldesteuerelement-Schnittstelle in eine Vorlage konvertieren. Wählen Sie aus des Login-Steuerelements Smarttag in der Vorlagenoption konvertieren.
 
 
 [![Das Steuerelement für die Anmeldung in eine Vorlage konvertieren](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
 
-**Abbildung 6**: das Steuerelement für die Anmeldung in eine Vorlage konvertieren ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
+**Abbildung 6**: das Steuerelement für die Anmeldung in eine Vorlage konvertieren ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
 
 
 > [!NOTE]
-> Um das Steuerelement Anmeldung mit ihrer vorab template Version wiederherzustellen, klicken Sie auf die Verknüpfung zurücksetzen Smarttag des Steuerelements.
+> Die Login-Steuerelement, auf die vorab template Version zurücksetzen möchten, klicken Sie auf die Links "Zurücksetzen" von Smart Tag des Steuerelements.
 
 
-Fügt das Steuerelement für die Anmeldung in eine Vorlage konvertieren einer `LayoutTemplate` , deklaratives Markup mit HTML-Elemente und Websteuerelemente Definieren der Benutzeroberfläche des Steuerelements. Wie Abbildung 7 zeigt ein Beispiel, das Steuerelement in eine Vorlage konvertieren entfernt eine Reihe von Eigenschaften über das Eigenschaftenfenster, wie z. B. `TitleText`, `CreateUserUrl`usw., da diese Eigenschaftswerte ignoriert werden, wenn eine Vorlage verwenden.
+Konvertieren das Steuerelement für die Anmeldung in eine Vorlage fügt eine `LayoutTemplate` zum deklarativen Markup mit HTML-Elemente und Websteuerelemente Definieren der Benutzeroberfläche des Steuerelements. Wie in Abbildung 7 dargestellt, konvertieren das Steuerelement in eine Vorlage entfernt eine Reihe von Eigenschaften im Eigenschaftenfenster, z. B. `TitleText`, `CreateUserUrl`usw., da diese Eigenschaftswerte ignoriert werden, wenn Sie eine Vorlage zu verwenden.
 
 
-[![Weniger Eigenschaften sind verfügbar bei der Anmeldung Steuerung in einer Vorlage konvertiert wird](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
+[![Weniger Eigenschaften sind verfügbar bei der Login-Steuerelement in eine Vorlage konvertiert wird](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
 
-**Abbildung 7**: weniger Eigenschaften sind verfügbar bei der Anmeldung Steuerung in eine Vorlage konvertiert wird ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
+**Abbildung 7**: weniger Eigenschaften sind verfügbar bei der Login-Steuerelement in eine Vorlage konvertiert wird ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
 
 
-Das HTML-Markup in der `LayoutTemplate` kann nach Bedarf geändert werden. Ebenso können Sie die Vorlage keine neuen Websteuerelemente hinzufügen. Allerdings ist es wichtig, Anmeldung des Steuerelements den Core-Websteuerelemente bleiben in der Vorlage, und behalten ihre zugewiesenen `ID` Werte. Insbesondere nicht entfernen oder Umbenennen der `UserName` oder `Password` Textfelder ein, die `RememberMe` Kontrollkästchen deaktivieren, können die `LoginButton` Schaltfläche, die `FailureText` Bezeichnung, oder die `RequiredFieldValidator` Steuerelemente.
+Das HTML-Markup in der `LayoutTemplate` kann je nach Bedarf geändert werden. Ebenso können Sie alle neuen Websteuerelemente zur Vorlage hinzufügen. Allerdings ist es wichtig, Login-Steuerelement-Core-Websteuerelemente bleiben in der Vorlage, und behalten ihre zugewiesenen `ID` Werte. Insbesondere nicht entfernen oder Umbenennen der `UserName` oder `Password` Textfelder ein, die `RememberMe` Kontrollkästchen die `LoginButton` Schaltfläche der `FailureText` Bezeichnung, oder die `RequiredFieldValidator` Steuerelemente.
 
-Um die e-Mail-Adresse des Besuchers zu sammeln, müssen wir ein Textfeld zur Vorlage hinzufügen. Fügen Sie das folgende deklarative Markup zwischen der Tabellenzeile (`<tr>`), enthält die `Password` Textfeld und die Tabellenzeile, die die Anmeldedaten neben enthält den Zeitpunkt Kontrollkästchen:
+Um die e-Mail-Adresse des Besuchers zu erfassen, müssen wir die Vorlage ein Textfeld hinzugefügt. Fügen Sie das folgende deklarative Markup zwischen die Tabellenzeile (`<tr>`), enthält die `Password` TextBox "und" die Zeile der Tabelle, die die Anmeldedaten neben enthält Zeit Kontrollkästchen:
 
 [!code-aspx[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample2.aspx)]
 
-Nach dem Hinzufügen der `Email` TextBox, besuchen Sie die Seite über einen Browser. Wie in Abbildung 8 gezeigt, enthält die Benutzeroberfläche des Steuerelements für die Anmeldung nun eine dritte Textfeld.
+Nach dem Hinzufügen der `Email` Textfeld finden Sie auf der Seite über einen Browser. Wie in Abbildung 8 gezeigt, enthält die Benutzeroberfläche des Steuerelements für die Anmeldung jetzt eine dritte Textfeld.
 
 
-[![Das Steuerelement für die Anmeldung enthält nun ein Textfeld für die e-Mail-Adresse des Benutzers](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
+[![Die Login-Steuerelement enthält jetzt ein TextBox-Element für die e-Mail-Adresse des Benutzers](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
 
-**Abbildung 8**: das Steuerelement für die Anmeldung enthält jetzt ein Textfeld für die e-Mail-Adresse des Benutzers ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image24.png))
-
-
-Das Steuerelement für die Anmeldung wird an diesem Punkt noch verwenden die `Membership.ValidateUser` Methode, um die bereitgestellten Anmeldeinformationen zu überprüfen. Entsprechend der eingegebene Wert in der `Email` Textfeld hat keinen Einfluss auf, ob der Benutzer anmelden kann. In Schritt 3 betrachten wir das Authentifizierungslogik des Login-Steuerelements überschreiben, damit die Anmeldeinformationen dann sind nur gültig ist, wenn Benutzername und Kennwort gültig sind und die angegebene e-Mail-Adresse, mit der e-Mail-Adresse auf Datei eingerichtet übereinstimmt.
-
-## <a name="step-3-modifying-the-login-controls-authentication-logic"></a>Schritt 3: Ändern des Login-Steuerelements Authentifizierungslogik
-
-Wenn ein Anna Besucher steuern Anmeldeinformationen und klickt, die die Schaltfläche "Anmelden", was zu einem Postback erfolgt und die Anmeldung durchläuft der authentifizierungsworkflow. Der Workflow gestartet wird, indem Sie durch das Auslösen der [ `LoggingIn` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggingin.aspx). Alle diesem Ereignis zugeordnete Ereignishandler können das Protokoll in Vorgang abbrechen, indem die `e.Cancel` Eigenschaft `True`.
-
-Wenn das Protokoll in der Vorgang nicht abgebrochen wird, wechselt der Workflow durch Auslösen der [ `Authenticate` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx). Es ist ein Ereignishandler für das `Authenticate` Ereignis, dann werden ist zuständig für das ermitteln, ob die angegebenen Anmeldeinformationen gültig sind. Wenn kein Ereignishandler angegeben wird, wird das Steuerelement für die Anmeldung verwendet die `Membership.ValidateUser` Methode, um die Gültigkeit der Anmeldeinformationen festzulegen.
-
-Wenn die angegebenen Anmeldeinformationen gültig sind, und klicken Sie dann das Formularauthentifizierungsticket erstellt wird, die [ `LoggedIn` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggedin.aspx) ausgelöst wird, und der Benutzer an die entsprechende Seite umgeleitet werden. Wenn Sie jedoch die Anmeldeinformationen als ungültig eingestuft werden und dann die [ `LoginError` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loginerror.aspx) wird ausgelöst, und eine Meldung angezeigt wird, den Benutzer darüber informiert, dass ihre Anmeldeinformationen ungültig sind. Standardmäßig bei der Anmeldung Steuerelement einfach legt seine `FailureText` bezeichnen Text-Eigenschaft des Steuerelements, um eine Fehlermeldung (die Anmeldung war nicht erfolgreich. Versuchen Sie es). Jedoch wenn des Login-Steuerelements [ `FailureAction` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failureaction.aspx) auf festgelegt ist `RedirectToLoginPage`, klicken Sie dann die Anmeldung Steuerelement Probleme eine `Response.Redirect` zur Anmeldeseite Anhängen des Querystring-Parameters `loginfailure=1` (Dadurch wird die Anmeldung Steuerelement, das die Fehlermeldung anzuzeigen.)
-
-Abbildung 9 bietet es sich um ein Flussdiagramm des Workflows Authentifizierung.
+**Abbildung 8**: das Login-Steuerelement enthält jetzt ein TextBox-Element für die e-Mail-Adresse des Benutzers ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image24.png))
 
 
-[![Die Anmeldung des Steuerelements Authentifizierungsworkflow](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
+An diesem Punkt ist das Anmeldesteuerelement weiterhin mithilfe der `Membership.ValidateUser` Methode, um die angegebenen Anmeldeinformationen zu überprüfen. Dementsprechend der eingegebene Wert in der `Email` Textfeld hat keinen Einfluss auf gibt an, ob der Benutzer anmelden kann. In Schritt 3 betrachten wir wie das Anmeldesteuerelement Authentifizierungslogik zu überschreiben, sodass die Anmeldeinformationen dann sind nur gültig ist, wenn Benutzername und Kennwort gültig sind, und die angegebenen e-Mail-Adresse mit der e-Mail-Adresse hinterlegt stimmt.
 
-**Abbildung 9**: Authentifizierungsworkflow der Login-Steuerung ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image27.png))
+## <a name="step-3-modifying-the-login-controls-authentication-logic"></a>Schritt 3: Ändern der Authentifizierungslogik die Login-Steuerelement
+
+Wenn ein Besucher ihrer bereitstellt steuern, Anmeldeinformationen und Klicks, die die Schaltfläche anmelden, ein Postback erfolgt und die Anmeldung durchläuft der Workflow der Authentifizierung. Der Workflow startet durch Auslösen der [ `LoggingIn` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggingin.aspx). Diesem Ereignis zugeordnete Ereignishandler können das Protokoll in Vorgang abbrechen, indem die `e.Cancel` Eigenschaft `True`.
+
+Wenn das Protokoll in der Vorgang nicht abgebrochen wird, wechselt der Workflow durch Auslösen der [ `Authenticate` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx). Es ist ein Ereignishandler für die `Authenticate` -Ereignis, dann ist zuständig für das ermitteln, ob die angegebenen Anmeldeinformationen gültig oder nicht sind. Wenn kein Ereignishandler angegeben wird, mit das Login-Steuerelement verwendet die `Membership.ValidateUser` Methode, um die Gültigkeit der Anmeldeinformationen zu bestimmen.
+
+Wenn die angegebenen Anmeldeinformationen gültig sind, wird das Formularauthentifizierungsticket erstellt, die [ `LoggedIn` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggedin.aspx) ausgelöst wird, und der Benutzer wird an die richtige Seite umgeleitet. Wenn Sie jedoch die Anmeldeinformationen als ungültig eingestuft werden und dann die [ `LoginError` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loginerror.aspx) wird ausgelöst, und eine Meldung angezeigt wird, den Benutzer darüber informiert, dass ihre Anmeldeinformationen ungültig waren. Bei der Anmeldung Steuerelement einfach legt standardmäßig die `FailureText` Bezeichnung des Steuerelements Text-Eigenschaft eine entsprechende Fehlermeldung (die Anmeldung verlief war nicht erfolgreich. Bitte versuchen Sie es). Jedoch wenn des Anmeldesteuerelement [ `FailureAction` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failureaction.aspx) nastaven NA hodnotu `RedirectToLoginPage`, klicken Sie dann das Steuerelement Problemen bei der Anmeldung eine `Response.Redirect` auf die Anmeldeseite den Querystring-Parameter Anfügen `loginfailure=1` (wodurch die Anmeldung Steuerelement, das die Fehlermeldung anzuzeigen.)
+
+Abbildung 9 bietet ein Flussdiagramm, der den Workflow der Authentifizierung.
+
+
+[![Das Anmeldesteuerelement Authentifizierungsworkflow](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
+
+**Abbildung 9**: Workflow für die Login-Steuerelement-Authentifizierung ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image27.png))
 
 
 > [!NOTE]
-> Wenn Sie wissen möchten, wenn Sie verwenden würden die `FailureAction`des `RedirectToLogin` Seite die Option, sollten Sie das folgende Szenario. Jetzt unsere `Site.master` Masterseite hat derzeit den Text Hello, in der linken Spalte durch einen anonymen Benutzer besucht stranger angezeigt, aber angenommen, wir, ersetzen Sie diesen Text mit einem Anmeldungssteuerelement möchten. Dies würde es sich um einen anonymen Benutzer aus einer beliebigen Seite auf der Website, anstatt sie direkt die Login-Seite besuchen Anmelden ermöglichen. Jedoch wenn ein Benutzer nicht anmelden über das Steuerelement für die Anmeldung durch die Masterseite gerendert wurde, es möglicherweise sinnvoll, sie zur Anmeldeseite umgeleitet (`Login.aspx`) da diese Seite, die wahrscheinlich zusätzliche Anweisungen, Links und anderen Hilfe - z. B. Links zu erstellen enthält ein Neues Konto oder Abrufen eines verlorenen Kennworts -, die nicht der Masterseite hinzugefügt wurden.
+> Wenn Sie wissen möchten, wenn Sie verwenden würden die `FailureAction`des `RedirectToLogin` Seite die Option, das folgende Szenario. Jetzt unsere `Site.master` Masterseite enthält derzeit noch den Text Hello, stranger angezeigt, in der linken Spalte, wenn von einem anonymen Benutzer, aufgerufen, aber angenommen, wir wollten mit einem Login-Steuerelement den Text ersetzen. Dadurch würde einen anonymen Benutzer zur Anmeldung von einer beliebigen Seite auf der Website, statt sie direkt die Anmeldeseite zu besuchen. Jedoch, wenn ein Benutzer kann nicht für die Anmeldung über die Login-Steuerelement, das von der Masterseite gerendert wurde, kann es sinnvoll, die sie zur Anmeldeseite umgeleitet (`Login.aspx`), da diese Seite wahrscheinlich zusätzliche Anweisungen, Links und andere Hilfe – z. B. Verknüpfungen erstellen enthält ein Neues Konto, oder Abrufen eines verlorenen Kennworts –, die nicht auf die Masterseite hinzugefügt wurden.
 
 
 ### <a name="creating-theauthenticateevent-handler"></a>Erstellen der`Authenticate`-Ereignishandler
 
-Um unsere benutzerdefinierte Authentifizierungslogik einbinden, müssen wir erstellen Sie einen Ereignishandler für die Anmeldung des Steuerelements `Authenticate` Ereignis. Erstellen einen Ereignishandler für das `Authenticate` Ereignis wird die folgende Definition der Ereignis-Handler generiert:
+Um unsere benutzerdefinierte Authentifizierungslogik anschließen, müssen wir erstellen einen Ereignishandler für des Anmeldesteuerelement `Authenticate` Ereignis. Erstellen einen Ereignishandler für die `Authenticate` Ereignis wird die folgende Definition der Ereignis-Handler generiert:
 
 [!code-vb[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample3.vb)]
 
-Wie Sie sehen können, die `Authenticate` übergebene Ereignishandler wird ein Objekt des Typs [ `AuthenticateEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) als der zweite Eingabeparameter. Die `AuthenticateEventArgs` Klasse enthält eine boolesche Eigenschaft namens `Authenticated` , verwendet, um anzugeben, ob die angegebenen Anmeldeinformationen gültig sind. Unsere Aufgabe ist dann hier Code schreiben, der bestimmt, ob die angegebenen Anmeldeinformationen gültig sind, und Festlegen der `e.Authenticate` Eigenschaft entsprechend.
+Wie Sie sehen können, die `Authenticate` übergebene Ereignishandler wird ein Objekt des Typs [`AuthenticateEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) als der zweite Eingabeparameter. Die `AuthenticateEventArgs` -Klasse enthält eine boolesche Eigenschaft namens `Authenticated` , verwendet, um anzugeben, ob die angegebenen Anmeldeinformationen gültig sind. Unsere Aufgabe ist anschließend Code schreiben, der bestimmt, ob die angegebenen Anmeldeinformationen gültig sind, und Festlegen der `e.Authenticate` Eigenschaft entsprechend.
 
-### <a name="determining-and-validating-the-supplied-credentials"></a>Bestimmen und die angegebenen Anmeldeinformationen überprüft.
+### <a name="determining-and-validating-the-supplied-credentials"></a>Bestimmen und die angegebenen Anmeldeinformationen überprüfen
 
-Verwenden Sie das Anmelde-Steuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebenen Benutzernamens und Kennworts-Anmeldeinformationen. Um die Werte in jeder zusätzlichen Websteuerelemente eingegeben bestimmen (wie z. B. die `Email` Textfeld wir im vorherigen Schritt hinzugefügt), verwenden Sie `LoginControlID.FindControl`("*`controlID`*") einen programmgesteuerten Verweis auf das Web abrufen Steuerelement in der Vorlage, dessen `ID` -Eigenschaft gleich *`controlID`*. Beispielsweise, um das Abrufen eines Verweises auf die `Email` TextBox, verwenden Sie den folgenden Code:
+Verwenden Sie des Anmeldesteuerelement [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) und [ `Password` Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) um zu bestimmen, die vom Benutzer eingegebene Benutzername und Kennwort-Anmeldeinformationen. Um zu ermitteln, die in jeder zusätzliche Websteuerelemente eingegebenen Werte (wie z. B. die `Email` TextBox, die wir im vorherigen Schritt hinzugefügt haben), verwenden Sie `LoginControlID.FindControl`("*`controlID`*"), die einen programmgesteuerten Verweis auf das Web erhalten Steuerelemente in der Vorlage, deren `ID` Eigenschaft *`controlID`*. Um beispielsweise einen Verweis auf die `Email` TextBox, verwenden Sie den folgenden Code:
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
-Um die Anmeldeinformationen des Benutzers zu überprüfen, müssen wir zwei Dinge tun:
+Um die Anmeldeinformationen des Benutzers überprüfen, die wir zwei Dinge tun müssen:
 
-1. Stellen Sie sicher, dass der bereitgestellte Benutzername und das Kennwort gültig sind.
-2. Stellen Sie sicher, dass die eingegebene e-Mail-Adresse entspricht, die e-Mail-Adresse für die Datei für den Benutzer, bei dem Versuch, melden Sie sich
+1. Stellen Sie sicher, dass der angegebene Benutzername und Kennwort gültig sind.
+2. Sicherstellen Sie, dass die eingegebene e-Mail-Adresse die e-Mail-Adresse für die Datei für den Benutzer anmelden entspricht
 
-Um bei der ersten Validierung zu erreichen, wir einfach können, die `Membership.ValidateUser` Methode wie in Schritt 1 veranschaulichte Filtermenü. Für die zweite Überprüfung muss die e-Mail-Adresse des Benutzers zu ermitteln, sodass wir ihn an die e-Mail-Adresse vergleichen können, die sie in das Textfeld-Steuerelement eingegeben werden. Verwenden Sie zum Abrufen von Informationen zu einem bestimmten Benutzer die `Membership` Klasse [ `GetUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.getuser.aspx).
+Um die erste Überprüfung erreichen, wir einfach verwenden können die `Membership.ValidateUser` Methode wie in Schritt 1 zu sehen war. Für die zweite Überprüfung müssen wir die e-Mail-Adresse des Benutzers zu bestimmen, damit wir ihn mit der e-Mail-Adresse vergleichen können, die sie in das TextBox-Steuerelement eingegeben. Rufen Sie Informationen zu einem bestimmten Benutzer mit der `Membership` Klasse [ `GetUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.getuser.aspx).
 
-Die `GetUser` Methode bietet eine Reihe von Überladungen. Wenn ohne Übergabe von Parametern verwendet wird, wird die Informationen über den aktuell angemeldeten Benutzer zurückgegeben. Rufen Sie zum Abrufen von Informationen zu einem bestimmten Benutzer `GetUser` in ihren Benutzernamen übergeben. In beiden Fällen `GetUser` gibt eine [ `MembershipUser` Objekt](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx), dem verfügt über Eigenschaften, z. B. `UserName`, `Email`, `IsApproved`, `IsOnline`und so weiter.
+Die `GetUser` Methode bietet eine Reihe von Überladungen. Wenn ohne Übergabe von Parametern verwendet wird, wird die Informationen über den aktuell angemeldeten Benutzer zurückgegeben. Rufen Sie zum Abrufen von Informationen zu einem bestimmten Benutzer `GetUser` in ihren Benutzernamen übergeben. In beiden Fällen `GetUser` gibt eine [ `MembershipUser` Objekt](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx), die über Eigenschaften wie verfügt `UserName`, `Email`, `IsApproved`, `IsOnline`und so weiter.
 
-Der folgende Code implementiert diese zwei Überprüfungen. Wenn beide, klicken Sie dann übergeben `e.Authenticate` festgelegt ist, um `True`, andernfalls ist er zugewiesen `False`.
+Der folgende Code implementiert diese zwei Prüfungen. Wenn beide, dann übergeben `e.Authenticate` nastaven NA hodnotu `True`, andernfalls ist er zugewiesen `False`.
 
 [!code-vb[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample4.vb)]
 
-Versuchen Sie mit diesem Code werden, melden Sie sich als gültiger Benutzer der richtige Benutzername, Kennwort und e-Mail-Adresse eingeben. Wiederholen sie den Vorgang, aber dieses Mal wird absichtlich eine falsche e-Mail-Adresse verwenden (siehe Abbildung 10). Schließlich weiterführende ein drittes Mal einen nicht vorhandenen Benutzernamen verwenden. Im ersten Fall Sie sollten erfolgreich angemeldet sein, den Standort, aber in den letzten beiden Fällen sollte die Anmeldung Kontrollnachricht ungültige Anmeldeinformationen.
+Versuchen Sie mit diesem Code werden sich als ein gültiger Benutzer, die Sie eingeben, den richtigen Benutzernamen, Kennwort und e-Mail-Adresse anmelden. Wiederholen sie den Vorgang, aber dieses Mal wird absichtlich eine falsche e-Mail-Adresse verwenden (siehe Abbildung 10). Schließlich testen Sie es ein drittes Mal mit einem nicht vorhandenen Benutzernamen. Im ersten Fall Sie sollten erfolgreich angemeldet sein, den Standort, aber in den letzten beiden Fällen wurde dem Login-Steuerelement, ungültige Anmeldeinformationen angezeigt.
 
 
-[![Tito kann nicht anmelden, wenn Sie eine falsche e-Mail-Adresse angeben.](validating-user-credentials-against-the-membership-user-store-vb/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image28.png)
+[![Tito Anmelden nicht, wenn Sie eine falsche e-Mail-Adresse angeben](validating-user-credentials-against-the-membership-user-store-vb/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image28.png)
 
-**Abbildung 10**: Tito kann nicht Protokoll In bei der Angabe einer falschen e-Mail-Adresse ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))
+**Abbildung 10**: Tito kann nicht Log In bei der Bereitstellung eine falsche e-Mail-Adresse ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))
 
 
 > [!NOTE]
-> Wie beschrieben im Abschnitt wie die Mitgliedschaft Framework verarbeitet ungültige Anmeldeversuche in Schritt 1, wenn die `Membership.ValidateUser` Methode wird aufgerufen, und übergeben Sie ungültige Anmeldeinformationen, er verfolgt die Ungültiger Versuch der Anmeldung und sperrt der Benutzer, wenn sie eine bestimmte überschreiten Schwellenwert für die ungültige Versuche innerhalb eines angegebenen Zeitfensters. Da unsere benutzerdefinierte Logik authentifizierungsaufrufe der `ValidateUser` -Methode, ein falsches Kennwort für einen gültigen Benutzernamen den Ungültige Anmeldung Zähler erhöht, aber wird nicht erhöht, in dem Fall, in dem der Benutzername und Kennwort gültig sind, sind, aber die e-Mail-Adresse ist falsch. Wahrscheinlich sind, dieses Verhalten geeignet ist, ist, da es ist unwahrscheinlich, dass ein Hacker, Benutzername und Kennwort kennen, jedoch Brute-Force-Techniken verwenden, um die e-Mail-Adresse des Benutzers zu bestimmen.
+> Wie beschrieben im Abschnitt in Schritt 1, wie die Mitgliedschaft Framework verarbeitet ungültige Anmeldeversuche bei der `Membership.ValidateUser` Methode aufgerufen und ungültige Anmeldeinformationen übergeben, er verfolgt die Ungültiger Versuch der Anmeldung und den Benutzer gesperrt werden, wenn sie eine bestimmte überschreiten Schwellenwert für die ungültige Versuche innerhalb eines angegebenen Zeitfensters. Da unsere benutzerdefinierte Logik authentifizierungsaufrufe der `ValidateUser` ein falsches Kennwort für einen gültigen Benutzernamen-Methode den Zähler für ungültige Anmeldung erhöht, aber wird nicht erhöht, in dem Fall, in denen der Benutzername und Kennwort gültig ist, werden, aber die e-Mail-Adresse ist falsch. Wahrscheinlich sind, dieses Verhalten geeignet ist, ist, da es ist unwahrscheinlich, dass ein Hacker, den Benutzernamen und das Kennwort kennen wird, aber brute-Force-Techniken verwenden, um zu bestimmen, die e-Mail-Adresse des Benutzers an.
 
 
-## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>Schritt 4: Verbessern der Anmeldung Kontrollnachricht ungültige Anmeldeinformationen
+## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>Schritt 4: Verbessern der Nachricht für die Login-Steuerelement ungültige Anmeldeinformationen
 
-Wenn ein Benutzer versucht, sich mit ungültigen Anmeldeinformationen anmelden, zeigt das Steuerelement für die Anmeldung eine Meldung angezeigt, dass der Versuch der Anmeldung nicht erfolgreich war. Insbesondere zeigt das Steuerelement an die Nachricht gemäß seiner [ `FailureText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx), die den Standardwert der Anmeldeversuch hat war nicht erfolgreich. Versuchen Sie es erneut.
+Wenn ein Benutzer versucht, die mit ungültigen Anmeldeinformationen anmelden, zeigt das Anmeldesteuerelement eine Meldung darüber informiert, dass ein Anmeldeversuch nicht erfolgreich war. Insbesondere das Steuerelement zeigt die Nachricht gemäß der [ `FailureText` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx), der Standardwert lautet die Anmeldung verlief wurde nicht erfolgreich. Versuchen Sie es erneut.
 
-Beachten Sie, dass es gibt viele Gründe, warum die Anmeldeinformationen des Benutzers ungültig werden kann:
+Denken Sie daran, dass es gibt viele Gründe, warum die Anmeldeinformationen eines Benutzers ungültig werden kann:
 
 - Der Benutzername ist nicht vorhanden.
-- Der Benutzername vorhanden ist, aber das Kennwort ist ungültig
-- Benutzername und Kennwort gültig sind, aber der Benutzer ist noch nicht genehmigt.
-- Benutzername und Kennwort gültig sind, aber der Benutzer gesperrt Out (sehr wahrscheinlich, da sie die Anzahl von ungültigen Anmeldeversuchen innerhalb des angegebenen Zeitrahmens überschreiten)
+- Der Benutzername vorhanden ist, aber das Kennwort ist ungültig.
+- Der Benutzername und Kennwort gültig sind, aber der Benutzer noch nicht genehmigt
+- Der Benutzername und Kennwort gültig sind, aber der Benutzer gesperrt Out (sehr wahrscheinlich, da sie die Anzahl der innerhalb des angegebenen Zeitraums ungültigen Anmeldeversuchen überschritten)
 
-Und bei Verwendung von benutzerdefinierten Authentifizierungslogik andere Gründe vorliegen kann. Durch den Code geschrieben wir haben in Schritt 3, den Benutzernamen und Kennwort ist möglicherweise ungültig, aber die e-Mail-Adresse ist möglicherweise nicht korrekt.
+Und es kann aus anderen Gründen bei Verwendung einer benutzerdefinierten Authentifizierungslogik. Beispielsweise durch den Code, den wir in Schritt 3, den Benutzernamen geschrieben und das Kennwort ist möglicherweise gültig, aber die e-Mail-Adresse möglicherweise nicht korrekt.
 
-Unabhängig davon, warum die Anmeldeinformationen ungültig sind zeigt das Steuerelement für die Anmeldung an die gleiche Fehlermeldung. Diese mangelnde Feedback kann für einen Benutzer verwirrend sein, dessen Konto noch nicht genehmigt wurden, oder, die gesperrt ist. Mit ein wenig Arbeit jedoch können wir das Steuerelement für die Anmeldung eine besser geeignete Meldung anzeigen haben.
+Unabhängig davon, warum die Anmeldeinformationen ungültig sind werden die Login-Steuerelement die gleiche Fehlermeldung angezeigt. Dieser Mangel an Feedback kann für einen Benutzer verwirrend sein, dessen Konto noch nicht genehmigt wurden, oder, die gesperrt ist. Mit ein wenig Arbeit jedoch können wir das Anmeldesteuerelement eine geeignetere Meldung angezeigt haben.
 
-Wenn ein Benutzer versucht, mit ungültigen Anmeldeinformationen anmelden, löst das Steuerelement für die Anmeldung aus, seiner `LoginError` Ereignis. Fahren Sie fort und erstellen Sie einen Ereignishandler für dieses Ereignis, und fügen Sie den folgenden Code hinzu:
+Jedes Mal, wenn ein Benutzer versucht, ungültige Anmeldeinformationen Anmeldung die Login-Steuerelement löst die `LoginError` Ereignis. Fahren Sie fort, und erstellen Sie einen Ereignishandler für dieses Ereignis, und fügen Sie den folgenden Code hinzu:
 
 [!code-vb[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample5.vb)]
 
-Der obige Code beginnt mit dem Festlegen des Login-Steuerelements `FailureText` Eigenschaft auf den Standardwert (Ihre Anmeldung war nicht erfolgreich. Versuchen Sie es). Er überprüft dann um festzustellen, ob der angegebene Benutzername einem vorhandenen Benutzerkonto zugeordnet ist. Wenn also er das resultierende fragt `MembershipUser` des Objekts `IsLockedOut` und `IsApproved` Eigenschaften zu bestimmen, ob das Konto ist gesperrt oder noch nicht genehmigt wurden. In beiden Fällen die `FailureText` Eigenschaft in einen entsprechenden Wert aktualisiert wird.
+Der obige Code beginnt, durch Festlegen der Login-Steuerelement `FailureText` Eigenschaft auf den Standardwert (die Anmeldung verlief war nicht erfolgreich. Bitte versuchen Sie es). Er überprüft dann um festzustellen, ob der angegebene Benutzername ein vorhandenes Benutzerkonto zugeordnet ist. Wenn also die resultierende herangezogen, `MembershipUser` des Objekts `IsLockedOut` und `IsApproved` Eigenschaften zu bestimmen, ob das Konto ist gesperrt oder noch nicht genehmigt wurden. In beiden Fällen die `FailureText` Eigenschaft in einen entsprechenden Wert aktualisiert wird.
 
-Um diesen Code zu testen, absichtlich versuchen Sie, melden Sie sich als einen vorhandenen Benutzer, aber verwenden ein falsches Kennwort. Führen Sie diesem fünfmal in einer Zeile innerhalb eines Zeitraums von 10 Minuten, und das Konto gesperrt. Abbildung 11 zeigt, nachfolgende Anmeldung versucht immer fehl (selbst bei das richtige Kennwort), aber die jetzt den aussagekräftigeren angezeigt wurde Ihr Konto aufgrund zu vieler ungültiger Anmeldeversuche gesperrt wurde. Wenden Sie sich an den Administrator, um Ihr Konto entsperrt Nachricht haben.
+Zum Testen dieses Codes absichtlich versucht, melden Sie sich als einen vorhandenen Benutzer, aber verwenden ein falsches Kennwort. Werden von diesem fünfmal in einer Zeile innerhalb eines Zeitraums von 10 Minuten, und das Konto wird gesperrt werden. Wie Abbildung 11 zeigt, der nächsten Anmeldung versucht immer (sogar mit dem richtigen Kennwort) fehl, aber die jetzt den aussagekräftigeren angezeigt hat Ihr Konto aufgrund zu vieler ungültige Anmeldeversuche gesperrt wurde. Wenden Sie sich an den Administrator, um Ihr Konto nicht gesperrte Nachricht aus.
 
 
 [![Tito zu viele ungültige Anmeldeversuche ausgeführt und wurde gesperrt](validating-user-credentials-against-the-membership-user-store-vb/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image31.png)
 
-**Abbildung 11**: Tito ausgeführt zu viele ungültige Anmeldeversuche und verfügt über wurde gesperrt ([klicken Sie hier, um das Bild in voller Größe angezeigt](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))
+**Abbildung 11**: Tito ausgeführt zu viele ungültige Anmeldeversuche und verfügt über wurde gesperrt ([klicken Sie, um das Bild in voller Größe anzeigen](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Vor diesem Lernprogramm die Anmeldeseite überprüft die angegebenen Anmeldeinformationen für eine vorprogrammierte Liste von Benutzername/Kennwort-Paare. In diesem Lernprogramm aktualisiert wird die Seite, um die Anmeldeinformationen für das Framework Mitgliedschaft zu überprüfen. In Schritt 1 erläutert mithilfe der `Membership.ValidateUser` -Methode programmgesteuert. In Schritt2 werden unsere manuell erstellte Benutzeroberfläche und den Code durch das Steuerelement für die Anmeldung ersetzt.
+Vor diesem Tutorial unsere Anmeldeseite überprüft die angegebenen Anmeldeinformationen für eine hartcodierte Liste von Benutzername/Kennwort-Paaren. In diesem Tutorial aktualisiert wir die Seite, um die Anmeldeinformationen für das Framework für die Mitgliedschaft überprüft werden. In Schritt 1 erläutert, mit der `Membership.ValidateUser` Methode programmgesteuert. In Schritt2 ersetzten wir unsere manuell erstellte Benutzeroberfläche und den Code mit dem Login-Steuerelement.
 
-Das Steuerelement für die Anmeldung rendert eine standard-Login-Benutzeroberfläche und Anmeldeinformationen für das Framework für die Mitgliedschaft des Benutzers automatisch überprüft. Darüber hinaus meldet bei gültige Anmeldeinformationen das Steuerelement für die Anmeldung den Benutzer sich über formularbasierte Authentifizierung. Kurz gesagt, ist eine voll funktionsfähige Anmeldeverfahren für Benutzer verfügbar, durch Ziehen einfach das Steuerelement für die Anmeldung auf einer Seite, keine zusätzlichen deklarativem Markup oder Code, der erforderlich. Was mehr ist, ist das Steuerelement für die Anmeldung bei dem ein gut Maß an Kontrolle über die gerenderten Benutzer Schnittstelle und die Authentifizierung der Logik hochgradig anpassbar.
+Die Login-Steuerelement rendert eine standardanmeldung-Benutzeroberfläche und überprüft automatisch die Anmeldeinformationen des Benutzers für das mitgliedschaftsframework. Darüber hinaus bei gültige Anmeldeinformationen, das Steuerelement für die Anmeldung der Benutzer angemeldet über die Formularauthentifizierung. Kurz gesagt, ist eine voll funktionsfähige Anmeldeoberfläche für Benutzer verfügbar, durch einfaches Ziehen das Steuerelement für die Anmeldung auf einer Seite, ohne zusätzlichen deklarativen Markup oder Code erforderlich. Ist ist das Anmeldesteuerelement stark angepasst werden, ermöglicht ein Maß an Kontrolle über die gerenderten Benutzer Schnittstelle und die Authentifizierung der Logik in Ordnung.
 
-An diesem Punkt Besucher auf unserer Website können erstellt ein neues Benutzerkonto und ein Protokoll bei der Website, jedoch können wir noch Uhrzeitstempel Einschränken des Zugriffs auf Seiten auf Grundlage des authentifizierten Benutzers. Derzeit kann keinem Benutzer authentifizierte oder anonyme, eine andere Seite auf unserer Website anzeigen. Zusammen mit Steuern des Zugriffs auf unserer Website Seiten regelmäßig durch Benutzer, wir bestimmte Seiten möglicherweise der Benutzer, dessen Funktionalität abhängig. Die nächste Lernprogramm befasst sich mit Zugriff und die Funktionen von in-Seite basierend auf dem angemeldeten Benutzer zu beschränken.
+An diesem Punkt Besucher auf unserer Website können erstellen eine neue Benutzerkonto und ein Protokoll auf den Standort, aber wir haben dafür noch zum Einschränken des Zugriffs auf Seiten auf Grundlage des authentifizierten Benutzers ansehen. Derzeit kann alle Benutzer, authentifiziert oder anonym ist, einer beliebigen Seite auf unserer Website anzeigen. Zusammen mit der Steuerung des Zugriffs auf unserer Website Seiten pro Benutzer mit dem Benutzernamen ein, wir bestimmte Seiten möglicherweise der Benutzer, deren Funktionalität abhängig. Im nächste Tutorial untersucht, wie Zugriff und die in-Page-Funktionalität, die basierend auf dem angemeldeten Benutzer zu beschränken.
 
 Viel Spaß beim Programmieren!
 
 ### <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
+Weitere Informationen zu den Themen in diesem Tutorial erläutert finden Sie in den folgenden Ressourcen:
 
-- [Anzeigen von benutzerdefinierten Nachrichten gesperrt und nicht genehmigte Benutzer](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
+- [Anzeigen von benutzerdefinierten Nachrichten gesperrt, und nicht genehmigte Benutzer](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
 - [Untersuchen von ASP.NET 2.0 Mitgliedschaft, Rollen und Profile](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Gewusst wie: Erstellen eine Anmeldung ASP.NET-Seite](https://msdn.microsoft.com/library/ms178331.aspx)
-- [Technische Dokumentation zu Anmelde-Steuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
+- [Technische Dokumentation für Login-Steuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
 - [Mithilfe dieser Steuerelemente](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
 
-### <a name="about-the-author"></a>Informationen zum Autor
+### <a name="about-the-author"></a>Der Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren Büchern zu ASP/ASP.NET und Gründer von 4GuysFromRolla.com, ist seit 1998 mit Microsoft-Web-Technologien gearbeitet. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Teresa Murphy und Michael Olivero. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Teresa Murphy und Michael Olivero. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Zurück](creating-user-accounts-vb.md)

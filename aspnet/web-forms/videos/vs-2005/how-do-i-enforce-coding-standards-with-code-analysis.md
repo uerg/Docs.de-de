@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
-title: '[Gewusst wie:] Erzwingen Codierungsstandards mit der Codeanalyse zu? | Microsoft-Dokumentation'
+title: '[Gewusst wie:] Erzwingen von Codierungsstandards durch die Codeanalyse? | Microsoft-Dokumentation'
 author: rick-anderson
-description: Mit Visual Studio Team System müssen Sie die genaue Steuerung von Codeanalyseregeln, die für Klassenbibliotheksprojekte Websiteprojekte und Co-Code der Quelle gelten...
+description: Mit Visual Studio Team System müssen Sie die genaue Kontrolle über den die Codeanalyseregeln, die für Klassenbibliotheksprojekte Websiteprojekte und Co-Source-Code gelten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2007
 ms.topic: article
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
-ms.openlocfilehash: f57e2372ec4a4d1ba7f6a8f9f2f81cdfc275819c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b8e68c88ae059e47ca3224adcb957ff745c7bf4d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893146"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381967"
 ---
-<a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Gewusst wie:] Erzwingen Codierungsstandards mit der Codeanalyse zu?
+<a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Gewusst wie:] Erzwingen von Codierungsstandards durch die Codeanalyse?
 ====================
 durch [Chris Menegay](https://twitter.com/CMenegay)
 
-Mit Visual Studio Team System müssen Sie die genaue Steuerung von Codeanalyseregeln, die für Klassenbibliotheksprojekte Websiteprojekte und Quellcodekontrolle gelten. In diesem Video erfahren Sie, wie Geben Sie die Fehler und Warnungen, die während des Projekts gelten Builds und Code einchecken, und erfahren Sie, wie eine bestimmte Regel aus der Anwendung auf einen bestimmten Klassenmember unterdrückt. Mit diesem Aktualisierungsmechanismen, Sie können erzwingen, erhalten Codierungsstandards zur Verbesserung der Qualität Ihres Codes, und gleichzeitig sicherstellen zutreffende Regeln nie in den Weg.
+Mit Visual Studio Team System müssen Sie die genaue Kontrolle über den die Codeanalyseregeln, die für Klassenbibliotheksprojekte Websiteprojekte und quellcodeverwaltung gelten. In diesem Video erfahren Sie, wie Sie angeben, die Fehler und Warnungen, die während des Projekts angewendet werden Builds und Code einchecken, und erfahren Sie, wie eine bestimmte Regel aus der Anwendung auf einem bestimmten Klassenmembers unterdrückt werden sollen. Mit diesem Aktualisierungsmechanismen, die Sie erzwingen können kommen Codierungsstandards, um die Qualität Ihres Codes zu verbessern und gleichzeitig sicherstellen passende Regeln niemals auf Ihre Weise.
 
-[&#9654;Sehen Sie sich an (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enforce-coding-standards-with-code-analysis)
+[&#9654;Sehen Sie sich Video (6 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enforce-coding-standards-with-code-analysis)
 
 > [!div class="step-by-step"]
 > [Zurück](how-do-i-set-up-distributed-load-testing-for-high-volume-tests.md)

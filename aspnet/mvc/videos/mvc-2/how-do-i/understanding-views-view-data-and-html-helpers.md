@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/understanding-views-view-data-and-html-helpers
-title: Grundlegendes zu Sichten, Anzeigen von Daten und HTML-Hilfsmethoden | Microsoft Docs
+title: Grundlegendes zu Ansichten, Anzeigedaten und HTML-Hilfsprogramme | Microsoft-Dokumentation
 author: microsoft
-description: Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet sie von einer HTML-Seite? In diesem Lernprogramm Stephen Walther Ansichten erläutert und veranschaulicht, wie können Sie t...
+description: Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet es sich von einem HTML-Seite? In diesem Tutorial Stephen Walther bietet eine Einführung zu Ansichten und veranschaulicht, wie Sie t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2008
 ms.topic: article
 ms.assetid: 81e8ee8e-00ea-4988-9f11-920c1728ee43
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-views-view-data-and-html-helpers
 msc.type: video
-ms.openlocfilehash: d06aa9391353599ca7090c85def18d272184eece
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 75d3841ac025d851ac743c1fcde5588b612c1658
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872090"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368495"
 ---
-<a name="understanding-views-view-data-and-html-helpers"></a>Grundlegendes zu Sichten, Anzeigen von Daten und HTML-Hilfsmethoden
+<a name="understanding-views-view-data-and-html-helpers"></a>Grundlegendes zu Ansichten, Anzeigedaten und HTML-Hilfsprogramme
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet sie von einer HTML-Seite? In diesem Lernprogramm Stephen Walther Ansichten erläutert und veranschaulicht, wie Sie Daten anzeigen und HTML-Hilfsmethoden innerhalb einer Ansicht nutzen können. Zusätzliche Informationen zu diesem Video, lesen Sie das Lernprogramm "Grundlegendes zu Sichten, Anzeigen von Daten und HTML-Hilfsmethoden" ([c#](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-cs.md), [VB](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-vb.md)).
+Was ist eine ASP.NET MVC-Ansicht, und wie unterscheidet es sich von einem HTML-Seite? In diesem Tutorial Stephen Walther bietet eine Einführung zu Ansichten und veranschaulicht, wie Sie Daten anzeigen und HTML-Hilfsprogramme in einer Ansicht nutzen können. Weitere Informationen über dieses Video finden Sie im Tutorial "Grundlegendes zu Ansichten, Anzeigedaten und HTML-Hilfsprogramme" ([c#](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-cs.md), [VB](../../../overview/older-versions-1/views/asp-net-mvc-views-overview-vb.md)).
 
-[&#9654;Sehen Sie sich an (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-views-view-data-and-html-helpers)
+[&#9654;Sehen Sie sich Video (11 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-views-view-data-and-html-helpers)
 
 > [!div class="step-by-step"]
 > [Zurück](understanding-controllers-controller-actions-and-action-results.md)

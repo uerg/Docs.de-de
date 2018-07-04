@@ -1,73 +1,72 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: 'ASP.NET Web-Bereitstellung mit Visual Studio: Projekteigenschaften | Microsoft Docs'
+title: 'ASP.NET-webbereitstellung mithilfe von Visual Studio: Projekteigenschaften | Microsoft-Dokumentation'
 author: tdykstra
-description: Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder mit einem Hostinganbieter von Drittanbietern durch wählen...
+description: Dieser tutorialreihe erfahren Sie, wie bereitzustellende (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder bei einem Hostinganbieter von Drittanbietern, indem Warnungsprovider...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
 ms.topic: article
 ms.assetid: ec1cec4c-a75f-47af-a2ba-b1e2f971d24b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 48f2d5066986860b657d5608bd32fcfc9b6a1eda
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30879880"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365885"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>ASP.NET Web-Bereitstellung mit Visual Studio: Projekteigenschaften
+<a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>ASP.NET-webbereitstellung mithilfe von Visual Studio: Projekteigenschaften
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Diese Reihe von Lernprogrammen wird gezeigt, wie bereitstellen (veröffentlichen) aus einer ASP.NET web-Anwendung eines Drittanbieters Hostinganbieter oder Azure App Service-Web-Apps mithilfe von Visual Studio 2012 oder Visual Studio 2010. Informationen über die Reihen finden Sie unter [im ersten Lernprogramm, in der Reihe](introduction.md).
+> Dieser tutorialreihe erfahren Sie, wie bereitzustellende (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder bei einem Hostinganbieter von Drittanbietern, mithilfe von Visual Studio 2012 oder Visual Studio 2010. Weitere Informationen über die Reihe finden Sie unter [im ersten Tutorial der Reihe](introduction.md).
 
 
 ## <a name="overview"></a>Übersicht
 
-Einige Bereitstellungsoptionen werden konfiguriert, in den Projekteigenschaften, die in der Projektdatei gespeichert sind (die *csproj* oder *vbproj* Datei). In den meisten Fällen die Standardwerte für diese Einstellungen sind erwünscht, jedoch können Sie die **Projekteigenschaften** UI integriert Visual Studio arbeiten Sie mit diesen Einstellungen geändert haben. In diesem Lernprogramm überprüfen Sie die bereitstellungseinstellungen in **Projekteigenschaften**. Sie erstellen außerdem eine Platzhalterdatei, die bewirkt, dass einen leeren Ordner bereitgestellt werden.
+Einige Optionen für die Bereitstellung konfiguriert sind, in den Projekteigenschaften, die in der Projektdatei gespeichert werden (die *csproj* oder *vbproj* Datei). In den meisten Fällen die Standardwerte für diese Einstellungen sind erwünscht, aber Sie können die **Projekteigenschaften** UI integriert Visual Studio, um mit diesen Einstellungen zu arbeiten, wenn Sie diese Einstellungen geändert haben. In diesem Tutorial überprüfen Sie die bereitstellungseinstellungen in **Projekteigenschaften**. Außerdem erstellen Sie eine Platzhalterdatei, die bewirkt, dass einen leeren Ordner bereitgestellt werden.
 
 ## <a name="configure-deployment-settings-in-the-project-properties-window"></a>Konfigurieren von bereitstellungseinstellungen im Fenster mit Projekteigenschaften
 
-Die meisten Einstellungen, die beeinflussen, was geschieht, während der Bereitstellung sind in das Veröffentlichungsprofil zu enthalten, wie Sie in den folgenden Lernprogrammen sehen. Einige Einstellungen, die Sie kennen sollten befinden sich der **packen/veröffentlichen** Registerkarten für die **Projekteigenschaften** Fenster. Diese Einstellungen sind für jede Buildkonfiguration angegeben –, also können Sie unterschiedliche Einstellungen für ein Releasebuild erstellt haben, als für einen Debugbuild sind.
+Im Veröffentlichungsprofil, sind die meisten Einstellungen, die beeinflussen, was geschieht, während der Bereitstellung enthalten, wie Sie in den folgenden Tutorials sehen werden. Einige Einstellungen, die Sie kennen sollten befinden sich in der **packen/veröffentlichen** Registerkarten der **Projekteigenschaften** Fenster. Diese Einstellungen sind für jede Buildkonfiguration angegeben –, also können Sie verschiedene Einstellungen für ein Releasebuild erstellt haben, als für einen Debugbuild vorhanden sind.
 
 In **Projektmappen-Explorer**, mit der rechten Maustaste die **ContosoUniversity** -Projekt, wählen **Eigenschaften**, und wählen Sie dann die **Web packen/veröffentlichen**Registerkarte.
 
 ![Registerkarte "Web packen/veröffentlichen"](project-properties/_static/image1.png)
 
-Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für unabhängig davon, welche Buildkonfiguration für die Projektmappe derzeit aktiv ist. Wenn die **Konfiguration** Feld gibt keine **aktiv (Release)** Option **Version** um Einstellungen für die Releasekonfiguration Build anzuzeigen. Sie müssen sowohl der Test-und produktionsumgebungen Releasebuilds bereitstellen.
+Wenn das Fenster angezeigt wird, wird standardmäßig mit Einstellungen für den beliebigen Buildkonfiguration derzeit für die Lösung aktiv ist. Wenn der **Konfiguration** Feld gibt keine **aktiv (Release)** wählen **Version** um Einstellungen für die Release-Build-Konfiguration anzuzeigen. Sie stellen Releasebuilds, sowohl Ihre Test-und produktionsumgebungen bereit.
 
-![Auswählen der Releasebuildkonfiguration](project-properties/_static/image2.png)
+![Release-Buildkonfiguration auswählen](project-properties/_static/image2.png)
 
-Mit **aktiv (Release)** oder **Version** ausgewählt, die Werte, die gelten, wenn Sie die Bereitstellung mit der Release-Build-Konfiguration angezeigt:
+Mit **aktiv (Release)** oder **Version** ausgewählt, die Werte, die gelten, bei der Bereitstellung mithilfe der Releasekonfiguration für den Build angezeigt:
 
-- In der **bereitzustellenden Elemente** Feld **nur Dateien, die zum Ausführen der Anwendung benötigt** ausgewählt ist. Andere Optionen sind **alle Dateien in diesem Projekt** oder **alle Dateien in diesem Projektordner**. Indem Sie die Standardauswahl unverändert lassen vermeiden Sie Quellcodedateien, z. B. bereitstellen. Diese Einstellung ist der Grund, warum die Ordner mit der SQL Server Compact-Binärdateien in das Projekt aufgenommen werden musste. Weitere Informationen zu dieser Einstellung finden Sie unter **Warum nicht alle Dateien im Projekt-Ordner bereitgestellt?** in [ASP.NET Web Application Project Deployment FAQ](https://msdn.microsoft.com/library/ee942158.aspx).
-- **Generierte Debugsymbole ausschließen** ausgewählt ist. Sie wird nicht Debuggen wäre, wenn Sie diese Buildkonfiguration verwenden.
-- **Schließen Sie alle Datenbanken in der Registerkarte "SQL packen/veröffentlichen" konfigurierten** ausgewählt ist. Gibt an, ob Visual Studio-Datenbanken sowie die Dateien bereitstellen. Obwohl das Kontrollkästchen bezeichnen nur erwähnt die **SQL packen/veröffentlichen** Registerkarte Deaktivieren dieses Kontrollkästchens würde auch deaktivieren, die Bereitstellung, die im Veröffentlichungsprofil konfiguriert ist. Sie werden, die später auf diese Weise werden, damit Sie dieses Kontrollkästchen aktiviert bleiben muss. Die **SQL packen/veröffentlichen** Registerkarte für eine Methode, die Sie in diesen Lernprogrammen verwenden veröffentlichen Legacydatenbank verwendet wird.
-- Die **Einstellungen für das Webbereitstellungspaket** Abschnitt gilt nicht, da es sich bei Verwendung von nur einem Klick in diesen Lernprogrammen zu veröffentlichen.
+- In der **bereitzustellenden Elemente** Feld **nur Dateien, die zum Ausführen der Anwendung benötigt** ausgewählt ist. Andere Optionen sind **alle Dateien in diesem Projekt** oder **alle Dateien in diesem Projektordner**. Indem Sie die Standardauswahl unverändert lassen vermeiden Sie die Bereitstellung von Quellcodedateien, z. B. Diese Einstellung ist der Grund, warum die Ordner mit den SQL Server Compact binären Dateien im Projekt enthalten sein musste. Weitere Informationen zu dieser Einstellung finden Sie unter **Warum nicht alle Dateien im Projektordner bereitgestellt?** in [ASP.NET Web Application Project-Bereitstellung – häufig gestellte Fragen](https://msdn.microsoft.com/library/ee942158.aspx).
+- **Generierte Debugsymbole ausschließen** ausgewählt ist. Sie wird nicht Debuggen werden, wenn Sie diese Buildkonfiguration verwenden.
+- **Enthalten alle Benutzerdatenbanken auf der Registerkarte "SQL packen/veröffentlichen" konfigurierten** ausgewählt ist. Gibt an, ob es sich bei Visual Studio-Datenbanken sowie die Dateien bereitgestellt wird. Obwohl Sie das Kontrollkästchen Bezeichnung nur erwähnt die **SQL packen/veröffentlichen** Registerkarte das Deaktivieren dieses Kontrollkästchens wird auch deaktivieren, datenbankbereitstellung, die im Veröffentlichungsprofil konfiguriert ist. Sie werden, die später durchführen, damit Sie dieses Kontrollkästchen aktiviert bleiben müssen. Die **SQL packen/veröffentlichen** Registerkarte dient für eine ältere Datenbank veröffentlichen die Methode, die Sie nicht in diesen Tutorials verwenden werden.
+- Die **Einstellungen für das Webbereitstellungspaket** Abschnitt gilt nicht, da es sich bei Verwendung von nur einem Klick in diesen Tutorials zu veröffentlichen.
 
-Ändern der **Konfiguration** Dropdown-Listenfeld zu debuggen, um die Standardeinstellungen anzuzeigen, für Debugbuilds. Die Werte identisch sind, mit Ausnahme von **generierte Debugsymbole ausschließen** ist deaktiviert, sodass Sie debuggen können, wenn Sie einen Debugbuild bereitstellen.
+Ändern der **Konfiguration** Dropdown-Listenfeld zu debuggen, um die Standardeinstellungen anzuzeigen, für Debugbuilds. Die Werte sind identisch, außer **generierte Debugsymbole ausschließen** deaktiviert ist, damit Sie debuggen können, wenn Sie einen Debugbuild bereitstellen.
 
-## <a name="make-sure-that-the-elmah-folder-gets-deployed"></a>Stellen Sie sicher, dass das Elmah-Ordner bereitstellen
+## <a name="make-sure-that-the-elmah-folder-gets-deployed"></a>Stellen Sie sicher, dass der Elmah-Ordner bereitgestellt wird
 
-Im vorherigen Lernprogramm haben Sie gesehen der [Elmah NuGet-Paket](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) stellt Funktionen für Fehler, Protokollierung und-berichterstellung bereit. In der Anwendung von Contoso University Elmah konfiguriert wurde zum Speichern von Fehlerdetails in einem Ordner namens *Elmah*:
+Im vorherigen Tutorial haben Sie gesehen die [Elmah-NuGet-Paket](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) stellt Funktionen für Fehler, Protokollierung und berichterstellung bereit. In der Contoso University-Anwendung Elmah konfiguriert wurde zum Speichern von Fehlerdetails in einem Ordner namens *Elmah*:
 
 ![ELMAH-Ordner](project-properties/_static/image3.png)
 
-Bestimmte Dateien oder Ordner ausschließen, aus Bereitstellung ist eine häufige Anforderung. ein weiteres Beispiel wäre ein Ordner, dem Benutzer Dateien hochladen können. Sie Protokolldateien nicht angezeigt werden sollen oder Hochladen von Dateien, die für die Produktion bereitgestellt werden in der Entwicklungsumgebung erstellt wurden. Und wenn Sie ein Update für die Produktion bereitstellen, die Sie nicht möchten, dass der Vorgang zum Löschen von Dateien, die in der Produktion vorhanden sind. (Abhängig davon, wie Sie eine Bereitstellungsoption festlegen, wenn eine Datei in den Zielstandort, aber nicht den Quellstandort vorhanden ist, bei der Bereitstellung, Web Deploy wird dieser gelöscht aus dem Ziel.)
+Ausschließen von bestimmte Dateien oder Ordner von der Bereitstellung ist eine häufige Anforderung an. ein weiteres Beispiel wäre ein Ordner, dem Benutzer Dateien hochladen können. Sie möchten nicht die Protokolldateien oder Hochladen von Dateien, die in Ihrer Entwicklungsumgebung für die Produktion bereitgestellt werden, erstellt wurden. Und wenn Sie ein Update für die Produktion bereitstellen, die Sie nicht möchten, dass der Prozess der Dateien zu löschen, die in der produktionsumgebung vorhanden sind. (Je nachdem, wie Sie eine Bereitstellungsoption festlegen, wenn eine Datei in den Zielstandort, aber nicht für den Quellstandort vorhanden, beim Bereitstellen ist, werden die Web Deploy aus das Ziel.)
 
-Weiter oben in diesem Lernprogramm haben Sie gesehen der **bereitzustellenden Elemente** -Option in der **Web packen/veröffentlichen** auf die Registerkarte "festgelegt ist **Dateien nur erforderlich, um diese Anwendung auszuführen**. Daher werden Protokolldateien, die in der Entwicklung von Elmah erstellt werden nicht bereitgestellt ist, was geschehen soll. (Um bereitgestellt zu werden, müssten sie in das Projekt aufgenommen werden und ihre **Buildvorgang** Eigenschaft festgelegt werden, müsste **Content**. Weitere Informationen finden Sie unter **Warum nicht alle Dateien im Projekt-Ordner bereitgestellt?** in [ASP.NET Web Application Project Deployment FAQ](https://msdn.microsoft.com/library/ee942158.aspx)). Allerdings wird Web Deploy keinen Ordner am Zielstandort erstellen, sofern es mindestens eine Datei zu kopieren. Fügen Sie daher eine *".txt"* -Datei in den Ordner, das als Platzhalter fungiert, damit der Ordner kopiert werden.
+Weiter oben in diesem Tutorial haben Sie gesehen die **bereitzustellenden Elemente** option die **Web packen/veröffentlichen** Registerkarte nastaven NA hodnotu **Dateien nur erforderlich, zum Ausführen dieser Anwendung**. Daher werden Protokolldateien, die in der Entwicklung von Elmah erstellt werden nicht bereitgestellt werden die ist, was geschehen soll. (Um bereitgestellt werden, müssten sie in das Projekt einbezogen werden und deren **Buildvorgang** -Eigenschaft müssen festgelegt werden, um **Content**. Weitere Informationen finden Sie unter **Warum nicht alle Dateien im Projektordner bereitgestellt?** in [ASP.NET Web Application Project-Bereitstellung – häufig gestellte Fragen](https://msdn.microsoft.com/library/ee942158.aspx)). Allerdings wird Web Deploy keinen Ordner erstellen am Zielstandort, sofern es mindestens eine Datei zu kopieren. Fügen Sie daher eine *.txt* Datei in den Ordner, die als Platzhalter fungiert, damit der Ordner kopiert werden.
 
-In **Projektmappen-Explorer**, mit der rechten Maustaste die *Elmah* Ordner wählen **neues Element hinzufügen**, und erstellen Sie eine Textdatei namens *"Platzhalter.txt"*. Den folgenden Text gelagerte: "This is ein Platzhalterdatei, um sicherzustellen, dass der Ordner bereitstellen." Und speichern Sie die Datei. Das ist alles erfordern, um sicherzustellen, dass Visual Studio stellt diese Datei und der Ordner befindet sich im, da die **Buildvorgang** Eigenschaft *".txt"* Dateien auf festgelegt ist **Content**standardmäßig.
+In **Projektmappen-Explorer**, mit der rechten Maustaste die *Elmah* Ordner **neues Element hinzufügen**, und erstellen Sie eine Textdatei namens *"Platzhalter.txt"*. Platzieren Sie den folgenden Text in er: "Dies ist eine Platzhalterdatei, um sicherzustellen, dass der Ordner bereitgestellt wird." ein, und speichern Sie die Datei. Das ist alles, was Sie ist, um sicherzustellen, dass Visual Studio stellt diese Datei und den Ordner, der es sich befindet, da die **Buildvorgang** Eigenschaft *.txt* Dateien nastaven NA hodnotu **Inhalt**standardmäßig.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben jetzt alle die Bereitstellungsaufgaben für die Einrichtung abgeschlossen. In den nächsten Lernprogrammen Sie den Contoso-University Standort in der testumgebung bereitstellen und Testen sie dort.
+Sie haben jetzt alle die Bereitstellungsaufgaben für die Einrichtung abgeschlossen. Im nächsten Tutorial Sie den Standort Contoso University in der testumgebung bereitstellen und Testen sie dort.
 
 > [!div class="step-by-step"]
 > [Zurück](web-config-transformations.md)

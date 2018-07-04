@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: '[Gewusst wie:]  Cache eine ASP.NET-Seite auf Grundlage von Informationen in den HTTP-Header | Microsoft Docs'
+title: '[Gewusst wie:]  Cache einer ASP.NET-Seite auf Informationen im HTTP-Header basierend | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem video Chris Pels wird gezeigt, wie der ASP.NET-Ausgabecache basierend auf Informationen in die HTTP-Header der Seite zu einer Seite. Zunächst potenziellen HTTP-ü...
+description: In diesem video Chris Pels zeigt, wie in der ASP.NET-Ausgabecache anhand der Informationen im HTTP-Header der Seite zu einer Seite. Erste, die mögliche HTTP-pfzeile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
 ms.topic: article
 ms.assetid: 0f8df1bd-080a-4eeb-980c-c2fbb05d30c2
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
 msc.type: video
-ms.openlocfilehash: ce5ea10396d0fe31d72425e2431102a0cb0c3bd0
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3987e6ea1e5ea5575813bdf5598d0499ba37db20
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28882216"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395252"
 ---
-<a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Gewusst wie:]  Cache-Informationen in den HTTP-Header einer ASP.NET-Seite Grundlage
+<a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Gewusst wie:]  Cache, die Informationen im HTTP-Header einer ASP.NET-Seite basieren
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem video Chris Pels wird gezeigt, wie der ASP.NET-Ausgabecache basierend auf Informationen in die HTTP-Header der Seite zu einer Seite. Zunächst werden die möglichen HTTP-Headerwerte überprüft. Klicken Sie dann eine Beispielseite wird erstellt, und klicken Sie dann die OutputCache-Direktive verwendet wird, mit dem VaryByHeader-Attribut enthält einen Wert "accept--Language", einen HTTP-Header, um caching auf Grundlage der Sprache des Browsers des Benutzers zu steuern. Die Seite "Beispiel" wird angezeigt, in Internet Explorer, der auf Englisch festgelegt wird und dann in FireFox die Verwendung von Französisch festgelegt ist. Schließlich wird die Option aus, um die Cache-Definition in einer "Cacheprofile" in der Datei "Web.config" verschieben erläutert.
+In diesem video Chris Pels zeigt, wie in der ASP.NET-Ausgabecache anhand der Informationen im HTTP-Header der Seite zu einer Seite. Zunächst werden die möglichen Werte des HTTP-Header überprüft. Klicken Sie dann eine Beispielseite erstellt wird, und klicken Sie dann die OutputCache-Direktive mit dem VaryByHeader-Attribut enthält einen Wert "akzeptieren-Sprache", einen HTTP-Header, um die Steuerung der Zwischenspeicherung auf Grundlage der Sprache des Browsers des Benutzers verwendet wird. Die Beispielseite wird angezeigt, in Internet Explorer, die auf Englisch festgelegt ist, und klicken Sie dann in FireFox die Verwendung von Französisch festgelegt wird. Schließlich wird die Möglichkeit, verschieben die Definition des in einer "Cacheprofile" in der Datei "Web.config" erläutert.
 
-[&#9654; Sehen Sie sich an (12 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header)
+[&#9654;Sehen Sie sich Video (12 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header)

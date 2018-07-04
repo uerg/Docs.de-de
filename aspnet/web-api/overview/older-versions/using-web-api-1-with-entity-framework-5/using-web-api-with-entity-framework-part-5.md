@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
-title: 'Teil 5: Erstellen einer dynamischen Benutzeroberfläche mit Knockout.js | Microsoft Docs'
+title: 'Teil 5: Erstellen einer dynamischen Benutzeroberfläche mit Knockout.js | Microsoft-Dokumentation'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,93 +9,92 @@ ms.date: 07/04/2012
 ms.topic: article
 ms.assetid: 9d9cb3b0-f4a7-434e-a508-9fc0ad0eb813
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: b63446d076fbb1143641dead788042967b996bf8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1f645b853fba999ade11c420eceba1b310f80ca3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873809"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368427"
 ---
 <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Teil 5: Erstellen einer dynamischen Benutzeroberfläche mit Knockout.js
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-a-dynamic-ui-with-knockoutjs"></a>Erstellen einer dynamischen Benutzeroberfläche mit Knockout.js
 
-In diesem Abschnitt werden wir Knockout.js verwenden, um die Funktionalität der Admin-Ansicht hinzufügen.
+In diesem Abschnitt verwenden wir "Knockout.js" der administratoransicht Funktionen hinzu.
 
-[Knockout.js](http://knockoutjs.com/) ist eine Javascript-Bibliothek, die vereinfacht, HTML-Steuerelementen an Daten gebunden werden. Knockout.js verwendet das Model-View-ViewModel (MVVM)-Muster.
+["Knockout.js"](http://knockoutjs.com/) ist eine Javascript-Bibliothek, die einfach HTML-Steuerelemente an Daten gebunden werden können. "Knockout.js" wird das Model-View-ViewModel (MVVM)-Muster verwendet.
 
-- Die *Modell* ist die serverseitige Darstellung der Daten in der Business-Domäne (in unserem Fall Products und Orders).
-- Die *Ansicht* ist die Darstellungsschicht (HTML).
-- Die *ViewModel* ist ein Javascript-Objekt, das die Modelldaten enthält. Das Ansichtsmodell ist eine Abstraktion der Code der Benutzeroberfläche. Sie hat keine Kenntnis der HTML-Darstellung. Stattdessen repräsentiert die abstrakte Funktionen von der Sicht, z. B. "eine Liste von Elementen".
+- Die *Modell* ist die serverseitige Darstellung der Daten in der Business-Domäne (in unserem Fall Produkte und Bestellungen).
+- Die *Ansicht* spielt die Darstellungsschicht (HTML).
+- Die *Anzeigemodell* ist ein Javascript-Objekt, das Modelldaten enthält. Das Ansichtsmodell ist eine Abstraktion der Code der Benutzeroberfläche. Es wurde keine Kenntnisse über die HTML-Darstellung. Stattdessen stellt es sich um abstrakte Funktionen in der Ansicht, z. B. "eine Liste von Elementen".
 
-Die Ansicht für das Ansichtsmodell datengebunden ist. Updates für das ViewModel werden automatisch in der Sicht widergespiegelt. Das Ansichtsmodell auch ruft Ereignisse aus der Sicht, z. B. auf eine Schaltfläche, ab und führt Vorgänge für das Modell, z. B. das Erstellen einer Bestellung.
+Die Ansicht an das Ansichtsmodell datengebunden ist. Updates an das Ansichtsmodell werden in der Ansicht automatisch wiedergegeben. Das Ansichtsmodell ist außerdem ruft Ereignisse aus der Sicht, z. B. Klicks ab und führt Vorgänge für das Modell, z. B. einen Auftrag zu erstellen.
 
 ![](using-web-api-with-entity-framework-part-5/_static/image1.png)
 
-Definieren zunächst das Ansichtsmodell. Danach werden wir das HTML-Markup für das Ansichtsmodell binden.
+Zuerst definieren wir das Ansichtsmodell. Danach werden wir das HTML-Markup an das Ansichtsmodell binden.
 
 Fügen Sie den folgenden Razor-Abschnitt, um Admin.cshtml:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample1.cshtml)]
 
-Sie können eine beliebige Stelle in diesem Abschnitt in der Datei hinzufügen. Wenn die Ansicht der Abschnitt wird am unteren Rand der HTML-Seite angezeigt gerendert wird, mit der rechten Maustaste vor dem abschließenden &lt;/body&gt; Tag.
+Sie können eine beliebige Stelle in diesem Abschnitt in der Datei hinzufügen. Wenn die Ansicht der Bereich wird am unteren Rand der HTML-Seite gerendert wird, nach rechts vor dem schließenden &lt;/body&gt; Tag.
 
-Alle des Skripts für diese Seite wird innerhalb des Kommentars erkennbar Skripttags gesendet:
+All das Skript für diese Seite gelangen in die Skript-Tag, die durch den Kommentar angegeben:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample2.html)]
 
-Zuerst definieren Sie eine Ansichtsmodell Klasse:
+Definieren Sie zuerst eine Ansichtsmodell Klasse:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample3.js)]
 
-**ko.observableArray** ist eine besondere Art von Objekt in Knockout, bezeichnet ein *Observable*. Aus der [Knockout.js Dokumentation](http://knockoutjs.com/documentation/observables.html): Observable-Objekt ist ein "JavaScript-Objekt, mit denen Abonnenten über Änderungen benachrichtigt werden kann." Wenn der Inhalt der Observable-Objekt ändern, wird die Ansicht automatisch entsprechend aktualisiert.
+**ko.observableArray** ist eine besondere Art von Objekt in Knockout bezeichnet ein *Observable*. Von der ["Knockout.js" Dokumentation](http://knockoutjs.com/documentation/observables.html): ein beobachtbares Objekt ist ein "JavaScript-Objekt, mit denen Abonnenten über Änderungen benachrichtigt werden kann." Wenn der Inhalt der Observable-Objekt ändern, wird die Ansicht automatisch entsprechend aktualisiert.
 
-Zum Auffüllen der `products` Arrays, nehmen Sie eine AJAX-Anforderung an die Web-API. Beachten Sie, dass wir den Basis-URI für die API in den ansichtsbehälter gespeichert (siehe [Teil 4](using-web-api-with-entity-framework-part-4.md) des Lernprogramms).
+Zum Auffüllen der `products` Arrays, eine AJAX-Anforderung an die Web-API vornehmen. Denken Sie daran, dass wir den Basis-URI für die API in der ansichtsbehälter gespeichert (siehe [Teil 4](using-web-api-with-entity-framework-part-4.md) des Lernprogramms).
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample4.js?highlight=5)]
 
-Fügen Sie anschließend die Funktionen zum Erstellen, aktualisieren und Löschen von Produkten Modell anzeigen. Diese Funktionen AJAX-Aufrufe an die Web-API senden, und verwenden die Ergebnisse der anzeigen-Modell zu aktualisieren.
+Als Nächstes fügen Sie Funktionen hinzu, an das Ansichtsmodell erstellen, aktualisieren und Löschen von Produkten. Diese Funktionen AJAX-Aufrufe an die Web-API zu übermitteln, und verwenden Sie die Ergebnisse des anzeigemodells zu aktualisieren.
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample5.js?highlight=7)]
 
-Jetzt die wichtigste Schritt: Wenn das DOM ist fulled geladen und Aufruf der **ko.applyBindings** Funktion, und übergeben Sie eine neue Instanz der der `ProductsViewModel`:
+Jetzt der wichtigste Teil: Wenn das DOM ist fulled geladen und Aufruf der **ko.applyBindings** Funktion, und übergeben Sie eine neue Instanz der der `ProductsViewModel`:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample6.js)]
 
-Die **ko.applyBindings** Methode Knockout aktiviert und auf die Ansicht das Ansichtsmodell verbindet.
+Die **ko.applyBindings** Methode Knockout aktiviert und für die Ansicht das Ansichtsmodell verbindet.
 
-Nun mit dem Modell anzeigen, können wir die Bindungen zu erstellen. In Knockout.js, Sie hierzu fügen `data-bind` -Attribute verwenden, um HTML-Elemente. Beispielsweise verwenden, um eine HTML-Liste in ein Array zu binden, die `foreach` Bindung:
+Nun, wir ein Ansichtsmodell haben, können wir die Bindungen erstellen. In "Knockout.js", erreichen Sie dies durch Hinzufügen von `data-bind` Attribute auf HTML-Elemente. Um eine HTML-Liste in ein Array zu binden, verwenden Sie z. B. die `foreach` Bindung:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample7.html?highlight=1)]
 
-Die `foreach` Bindung durchläuft das Array und erstellt Sie untergeordnete Elemente für jedes Objekt im Array. Bindungen für die untergeordneten Elemente verweisen auf Eigenschaften auf das Array von Objekten.
+Die `foreach` Bindung durchläuft das Array und erstellt Sie untergeordnete Elemente für jedes Objekt im Array. Bindungen an die untergeordneten Elemente können auf Eigenschaften für die Arrayobjekte verweisen.
 
-Fügen Sie der Liste "Updateprodukten" die folgenden Bindungen hinzu:
+Fügen Sie der Liste "Update-Produkte" die folgenden Bindungen hinzu:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample8.html)]
 
-Die `<li>` Element befindet sich innerhalb des Bereichs der **Foreach** Bindung. Dass bedeutet, dass Knockout wird das Element einmal für jedes Produkt in gerendert werden die `products` Array. Alle Bindungen innerhalb der `<li>` Element verweisen auf diese produktinstanz. Beispielsweise `$data.Name` bezieht sich auf die `Name` auf der Produkt-Eigenschaft.
+Die `<li>` Element innerhalb des Bereichs befindet, die **Foreach** Bindung. Bedeutet, dass Knockout wird das Element einmal für jedes Produkt im Rendern der `products` Array. Alle Bindungen innerhalb der `<li>` -Element auf die produktinstanz verweisen. Z. B. `$data.Name` bezieht sich auf die `Name` Eigenschaft für das Produkt.
 
-Verwenden Sie zum Festlegen der Werte von der Texteingaben der `value` Bindung. Die Schaltflächen an Funktionen gebunden sind, auf die Modellansicht mithilfe der `click` Bindung. Der Product-Instanz wird für jede Funktion als Parameter übergeben. Weitere Informationen die [Knockout.js Dokumentation](http://knockoutjs.com/documentation/observables.html) gute Beschreibungen der verschiedenen Bindungen hat.
+Verwenden Sie zum Festlegen der Werte, der die Texteingaben der `value` Bindung. Die Schaltflächen an Funktionen gebunden sind, in der Modell-Ansicht mit den `click` Bindung. Der Product-Instanz wird für jede Funktion als Parameter übergeben. Weitere Informationen die ["Knockout.js" Dokumentation](http://knockoutjs.com/documentation/observables.html) gute Beschreibungen der verschiedenen Bindungen hat.
 
 Fügen Sie eine Bindung für die **übermitteln** Ereignis auf dem Formular Produkt hinzufügen:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample9.html)]
 
-Diese Bindung ruft die `create` Funktion auf das Ansichtsmodell, erstellen Sie ein neues Produkt.
+Diese Bindung ruft die `create` Funktion im Ansichtsmodell, beim Erstellen eines neuen Produkts.
 
-Hier wird der vollständige Code für die Admin-Ansicht:
+Hier ist der vollständige Code für das anzeigen (Administrator):
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample10.cshtml)]
 
-Führen Sie die Anwendung, melden Sie sich mit dem Administratorkonto an, und klicken Sie auf den Link "Admin". Sie sollten finden Sie in der Liste der Produkte und in der Lage, erstellen, aktualisieren oder Löschen von Produkten.
+Führen Sie die Anwendung aus, melden Sie sich mit dem Administratorkonto an, und klicken Sie auf den Link "Admin". Sie sollten finden Sie unter der Liste der Produkte und in der Lage zu erstellen, aktualisieren oder Löschen von Produkten.
 
 > [!div class="step-by-step"]
 > [Zurück](using-web-api-with-entity-framework-part-4.md)

@@ -1,65 +1,64 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
-title: Animation abhängig von einer Bedingung (VB) | Microsoft Docs
+title: Animation Abhängigkeit einer Bedingung (VB) | Microsoft-Dokumentation
 author: wenz
-description: Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation ist...
+description: Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation zu ist...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 1b87d8d6-b3f7-4126-b51c-d41442fbf947
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d3a648ff8299c9720e9f34522f271595ab1b9bc9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 160b53519382c215db039fd6297bb907688b81c1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868151"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368556"
 ---
-<a name="animation-depending-on-a-condition-vb"></a>Animation abhängig von einer Bedingung (VB)
+<a name="animation-depending-on-a-condition-vb"></a>Animation Abhängigkeit einer Bedingung (VB)
 ====================
 durch [Christian Wenz](https://github.com/wenz)
 
-[Herunterladen von Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.vb.zip) oder [PDF herunterladen](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4VB.pdf)
+[Code herunterladen](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.vb.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4VB.pdf)
 
-> Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation ausgeführt wird, können auch auf eine Bedingung in Form von JavaScript-Code abhängen.
+> Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation ausgeführt wird oder nicht, kann auch auf einer Bedingung in Form von JavaScript-Code abhängen.
 
 
 ## <a name="overview"></a>Übersicht
 
-Animation-Steuerelement in ASP.NET AJAX-Steuerelement-Toolkit ist nicht nur ein Steuerelement, aber eine gesamte Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation ausgeführt wird, können auch auf eine Bedingung in Form von JavaScript-Code abhängen.
+Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation ausgeführt wird oder nicht, kann auch auf einer Bedingung in Form von JavaScript-Code abhängen.
 
 ## <a name="steps"></a>Schritte
 
-Erstens sind die `ScriptManager` auf der Seite; klicken Sie dann die ASP.NET AJAX-Bibliothek geladen ist, wodurch das Steuerelement-Toolkit verwenden:
+Zunächst einmal sind die `ScriptManager` in die Seite klicken Sie dann die ASP.NET AJAX-Bibliothek wird geladen, lässt sich das Steuerelement-Toolkit verwenden:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample1.aspx)]
 
-Die Animation wird auf einen Bereich des Texts angewendet werden, die wie folgt aussieht:
+Die Animation wird auf einen Bereich des Texts angewendet werden, der so aussieht:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample2.aspx)]
 
-Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hintergrundfarbe und auch festlegen Sie eine feste Breite für den Bereich:
+Definieren Sie in der zugehörigen CSS-Klasse für den Bereich eine gute Hintergrundfarbe aus, und auch festlegen Sie eine feste Breite für den Bereich:
 
 [!code-css[Main](animation-depending-on-a-condition-vb/samples/sample3.css)]
 
-Fügen Sie dann die `AnimationExtender` auf der Seite "Bereitstellen einer `ID`, die `TargetControlID` Attribut und der Auswahlparameter `runat="server":`
+Fügen Sie dann die `AnimationExtender` auf der Seite Bereitstellen einer `ID`, `TargetControlID` -Attribut und das obligatorische `runat="server":`
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample4.aspx)]
 
-Innerhalb der `<Animations>` Knoten verwenden `<OnLoad>` Animationen ausgeführt, nachdem die Seite vollständig geladen wurde. Statt in einem regulären Animationen der `<Condition>` Element, kommt es zu. Der JavaScript-Code als der Wert der `ConditionScript` Attribut zur Laufzeit ausgeführt wird. Wenn sie auf "true" ausgewertet wird, wird die Animation, andernfalls nicht ausgeführt. Das folgende Markup bietet zwei Animationen, jede von ihnen in 50 % der Fälle nach zufälligen ausgeführt wird. Da kann nur innerhalb einer Animation `<OnLoad>`, die beiden `<Condition>` Animationen verknüpft sind, zusammen mit den `<Sequence>` Element:
+In der `<Animations>` Knoten verwenden `<OnLoad>` die Animationen ausgeführt werden, nachdem die Seite vollständig geladen wurde. Statt in einem regulären-Animationen die `<Condition>` Element ins Spiel. Der JavaScript-Code bereitgestellt, die als Wert für die `ConditionScript` Attribut zur Laufzeit ausgeführt wird. Wenn sie auf "true" ausgewertet wird, wird die Animation, andernfalls nicht ausgeführt. Das folgende Markup stellt zwei Animationen, die jeweils 50 % der Fälle, bei der zufälligen ausgeführt wird. Da es möglicherweise nur eine Animation in `<OnLoad>`, die beiden `<Condition>` Animationen angehören, mithilfe der `<Sequence>` Element:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample5.aspx)]
 
-Beachten Sie, dass das kleiner-als-Zeichen (`<`) in der `ConditionScript` Attribut muss (mit Escapezeichen) sein. Wenn Sie dieses Skript, entweder keine Animation ausgeführt wird, ausführen oder einen der beiden keine, oder beide.
+Beachten Sie, dass das kleiner-als-Zeichen (`<`) in der `ConditionScript` -Attribut muss mit Escapezeichen (-) sein. Wenn Sie führen dieses Skript entweder keine Animation ausgeführt wird, ist einer der beiden oder beides.
 
 
-[![Das Panel wird ohne Änderung der Größe, ausblenden, damit die zweite Animation-ausgeführt wird, das erste Schema nicht](animation-depending-on-a-condition-vb/_static/image2.png)](animation-depending-on-a-condition-vb/_static/image1.png)
+[![Der Bereich wird ohne Änderung der Größe, ausgeblendet wird, damit nicht die zweite Animation-ausgeführt wird, die erste Bedingung](animation-depending-on-a-condition-vb/_static/image2.png)](animation-depending-on-a-condition-vb/_static/image1.png)
 
-Das Panel wird ausblenden ohne Änderung der Größe, damit die zweite Animation-ausgeführt wird, das erste Schema nicht ([klicken Sie hier, um das Bild in voller Größe angezeigt](animation-depending-on-a-condition-vb/_static/image3.png))
+Der Bereich wird ausgeblendet wird, ohne Änderung der Größe, damit die zweite Animation-ausgeführt wird, die erste Bedingung nicht ([klicken Sie, um das Bild in voller Größe anzeigen](animation-depending-on-a-condition-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Zurück](executing-several-animations-after-each-other-vb.md)

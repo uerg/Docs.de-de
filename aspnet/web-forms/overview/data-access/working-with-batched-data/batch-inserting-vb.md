@@ -1,280 +1,279 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
-title: Batch eingefügt (VB) | Microsoft Docs
+title: Batch einfügen (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann...
+description: Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
 ms.topic: article
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 17a077ed0124a0a9e06c90d0ac137958693fc30e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888727"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390087"
 ---
-<a name="batch-inserting-vb"></a>Batch eingefügt (VB)
+<a name="batch-inserting-vb"></a>Batch einfügen (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_VB.zip) oder [PDF herunterladen](batch-inserting-vb/_static/datatutorial66vb1.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_66_VB.zip) oder [PDF-Datei herunterladen](batch-inserting-vb/_static/datatutorial66vb1.pdf)
 
-> Erfahren Sie, wie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, um den Benutzer zur Eingabe mehrere neue Datensätze zu ermöglichen. In der Datenzugriffsebene umschließen wir mehrere Insert-Vorgänge innerhalb einer Transaktion, um sicherzustellen, dass alle einfügungen erfolgreich ist oder ein aller einfügungen Rollback.
+> Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In die UI-Schicht erweitern wir die GridView, um den Benutzer zur Eingabe der mehrere neue Datensätze zu ermöglichen. In der Datenzugriffsebene umschließen wir mehrere Einfügevorgänge innerhalb einer Transaktion, um sicherzustellen, dass alle erfolgreich ausgeführt werden oder ein aller einfügungen Rollback.
 
 
 ## <a name="introduction"></a>Einführung
 
-In der [BatchUpdates](batch-updating-vb.md) Lernprogramm erläutert, Anpassen des GridView-Steuerelements, um eine Schnittstelle zu präsentieren, in denen mehrere Datensätze bearbeitet wurden. Der Benutzer Zugriff auf die Seite konnten stellen eine Reihe von Änderungen, und führen Sie dann mit einem einzigen Mausklick einem BatchUpdate. Für Situationen, in denen Benutzer häufig viele Datensätze in einer Aktion aktualisieren, kann eine solche Schnittstelle zahllose Klicks speichern und Tastatur, Maus Kontextwechsel gegenüber der Standardeinstellung pro Zeile Bearbeitungsfeatures, die zuerst in untersucht wurden die [ein Übersicht über das Einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) Lernprogramm.
+In der [BatchUpdates](batch-updating-vb.md) Tutorial erläutert, Anpassen der GridView-Steuerelement, um eine Schnittstelle zu präsentieren, in denen mehrere Datensätze bearbeitet wurden. Der Benutzer, die auf der Seite konnte stellen eine Reihe von Änderungen und führen Sie dann mit einem einzigen Mausklick, einem BatchUpdate. In Situationen, in denen Benutzer häufig viele Datensätze in einer Aktion aktualisieren, kann eine solche Schnittstelle unzählige klickt auf Speichern, und Tastatur, Maus Kontextwechsel im Vergleich zu Standard pro Zeile Bearbeitungsfunktionen kennengelernt, die zuerst wieder untersucht wurden die [ein Übersicht über das Einfügen, aktualisieren und Löschen von Daten](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) Tutorial.
 
-Dieses Konzept kann auch angewendet werden, wenn Sie Datensätze hinzufügen. Stellen Sie sich vor, die hier bei Northwind Traders wir häufig erhalten Lieferungen von Lieferanten, die eine Anzahl von Produkten für eine bestimmte Kategorie enthalten. Beispielsweise können wir eine Lieferung von sechs verschiedenen Tee und Kaffee Produkte aus Tokio Traders erhalten. Wenn der Benutzer die sechs Produkte eine jeweils über ein DetailsView-Steuerelement ein, haben Sie viele der gleichen Werte immer wieder auswählen: müssen die gleiche Kategorie (Getränke), die demselben Lieferanten (Tokyo Traders) auswählen, den gleichen Wert (nicht mehr unterstützt "False"), und den gleichen Einheiten auf Reihenfolgenwert (0). Dieser Eintrag repetitiven Daten ist nicht nur zeitaufwändig jedoch fehleranfällig ist.
+Dieses Konzept kann auch angewendet werden, wenn Sie Datensätze hinzufügen. Stellen Sie sich vor, die hier bei Northwind Traders wir häufig erhalten Lieferungen von Lieferanten, die eine Reihe von Produkten für eine bestimmte Kategorie enthalten. Beispielsweise können wir eine Lieferung von sechs verschiedenen Tee und Kaffee Produkte von Tokio Traders erhalten. Wenn ein Benutzer die sechs Produkten, die eine zu einem Zeitpunkt über ein DetailsView-Steuerelement eingibt, werden sie auf den gleichen Werten viele immer wieder haben: sie müssen die gleiche Kategorie (Getränke), die demselben Lieferanten (Tokio Traders) auswählen, die den gleichen Wert (nicht mehr unterstützt "False"), und den gleichen Einheiten auf Order-Wert (0). Diese repetitiven Daten-Eintrag ist nicht nur Zeit in Anspruch nehmen, aber anfällig für Fehler.
 
-Mit ein wenig Aufwand kann erstellt werden, einen Batch, die Schnittstelle, die mit der Benutzer wählen die Supplier "und" Kategorie einmal, geben Sie eine Reihe von Produktnamen und einem Stückpreis, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen neuer Produkte in der Datenbank einfügen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder ein eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus den DropDownLists auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, die hartcodierte Werte des `False` und 0 (null) bzw.
+Mit ein wenig Aufwand können wir einen Batch, die einfügen-Schnittstelle, den Benutzer den Lieferanten und die Kategorie, geben Sie eine Reihe von Produktnamen und einem Stückpreis ermöglicht, und klicken Sie dann auf eine Schaltfläche zum Hinzufügen von neuen Produkte in der Datenbank, erstellen (siehe Abbildung 1). Jedes Produkt hinzugefügt wird, dessen `ProductName` und `UnitPrice` Datenfelder werden in die Textfelder eingegebenen Werte zugewiesen während seiner `CategoryID` und `SupplierID` Werte werden die Werte aus der DropDownList-Steuerelementen auf der obersten fo Form zugewiesen. Die `Discontinued` und `UnitsOnOrder` Werte werden festgelegt, auf die hartcodierten Werte der `False` und 0 (null) bzw.
 
 
 [![Die Batch-einfügen-Schnittstelle](batch-inserting-vb/_static/image2.png)](batch-inserting-vb/_static/image1.png)
 
-**Abbildung 1**: die Batch-Schnittstelle zum Einfügen von ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image3.png))
+**Abbildung 1**: die Batch-einfügen-Schnittstelle ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image3.png))
 
 
-In diesem Lernprogramm erstellen wir eine Seite, die den Batch, die Schnittstelle, die in Abbildung 1 gezeigten einfügen implementiert. Wird mit den vorherigen zwei Lernprogramme, wir die einfügungen innerhalb des Bereichs einer Transaktion, um sicherzustellen, dass Unteilbarkeit umschlossen werden soll. Lassen Sie s beginnen!
+In diesem Tutorial erstellen wir eine Seite, die den Batch-Benutzeroberfläche in Abbildung 1 einfügen implementiert. Als mit den beiden vorherigen Tutorials werden wir die einfügungen innerhalb des Bereichs einer Transaktion, um die Unteilbarkeit sicherzustellen umschließen. Lassen Sie s beginnen!
 
 ## <a name="step-1-creating-the-display-interface"></a>Schritt 1: Erstellen der Anzeigenschnittstelle
 
-Dieses Lernprogramm bestehen aus einer einzelnen Seite, die in zwei Bereiche unterteilt ist: einer Region anzeigen und einen Bereich einfügen. Die Anzeigenschnittstelle, die wir in diesem Schritt erstellen müssen, die Produkte zeigt in einem GridView und enthält eine Schaltfläche mit dem Titel mit dem Produktversand Prozess. Wenn diese Schaltfläche geklickt wird, wird die Anzeigenschnittstelle mit der einfügen-Schnittstelle ersetzt, die in Abbildung 1 dargestellt wird. Die Anzeigenschnittstelle, die nach der hinzufügen-Produkte aus Lieferung zurückgibt oder "Abbrechen" Schaltflächen geklickt wird. Wir erstellen in Schritt2 die einfügende-Schnittstelle.
+In diesem Tutorial besteht aus einer einzelnen Seite, die in zwei Bereiche unterteilt ist: eine Anzeige und eine Region einfügen. Die Anzeigenschnittstelle, die wir in diesem Schritt erstellen, werden die Produkte in einer GridView-Ansicht angezeigt und enthält eine Schaltfläche mit dem Titel mit dem Produktversand Prozess. Wenn diese Schaltfläche geklickt wird, wird die Anzeigenschnittstelle durch die einfügen-Schnittstelle, ersetzt, das in Abbildung 1 dargestellt ist. Die Anzeigenschnittstelle, die nach der hinzufügen-Produkte aus Lieferung zurückgibt oder "Abbrechen"-Schaltflächen geklickt wird. Wir erstellen die einfügende-Schnittstelle in Schritt2.
 
-Beim Erstellen einer Seite, die zwei Schnittstellen, von denen nur eine zu einem Zeitpunkt sichtbar ist, jede Schnittstelle in der Regel befindet innerhalb einer [Bereich Websteuerelement](http://www.w3schools.com/aspnet/control_panel.asp), dem dient als Container für andere Steuerelemente. Daher müssen unsere Seite zwei Panel-Steuerelemente in einer für jede Schnittstelle.
+Beim Erstellen einer Seite mit zwei Schnittstellen, von denen nur eine zu einem Zeitpunkt sichtbar ist, jede Schnittstelle in der Regel befindet sich innerhalb einer [Panel-Websteuerelement](http://www.w3schools.com/aspnet/control_panel.asp), der als Container für andere Steuerelemente dient. Aus diesem Grund müssen die Seite zwei Panel-Steuerelemente eine für jede Schnittstelle.
 
-Öffnen Sie zunächst die `BatchInsert.aspx` auf der Seite der `BatchData` Ordner, und ziehen Sie ein Panel aus der Toolbox in den Designer (siehe Abbildung 2). Legen Sie im Bereich s `ID` Eigenschaft `DisplayInterface`. Wenn im Bereich dem Designer hinzugefügten seine `Height` und `Width` Eigenschaften auf 50px 125px, bzw. festgelegt werden. Deaktivieren Sie die Werte dieser Eigenschaften im Eigenschaftenfenster.
+Öffnen Sie zunächst die `BatchInsert.aspx` auf der Seite die `BatchData` Ordner, und ziehen Sie ein Panel aus der Toolbox in den Designer (siehe Abbildung 2). Legen Sie den Zugriffsbereich s `ID` Eigenschaft `DisplayInterface`. Wenn Sie im Bereich in den Designer, Hinzufügen der `Height` und `Width` Eigenschaften auf 50px 125px, bzw. festgelegt werden. Löschen Sie die Werte dieser Eigenschaften im Eigenschaftenfenster.
 
 
 [![Ziehen Sie ein Panel aus der Toolbox in den Designer](batch-inserting-vb/_static/image5.png)](batch-inserting-vb/_static/image4.png)
 
-**Abbildung 2**: Ziehen Sie ein Panel aus der Toolbox in den Designer ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image6.png))
+**Abbildung 2**: Ziehen Sie ein Panel aus der Toolbox in den Designer ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image6.png))
 
 
-Ziehen Sie anschließend eine Schaltfläche und GridView-Steuerelement in der Systemsteuerung. Legen Sie die Schaltfläche "s" `ID` Eigenschaft `ProcessShipment` und dessen `Text` Eigenschaft, um den Prozess mit dem Produktversand. Legen Sie die GridView s `ID` Eigenschaft `ProductsGrid` und aus seinem Smarttag binden Sie es an eine neue ObjectDataSource mit dem Namen `ProductsDataSource`. Konfigurieren der ObjectDataSource zum Abrufen der zugehörigen Daten aus der `ProductsBLL` Klasse s `GetProducts` Methode. Da diese GridView nur zum Anzeigen von Daten verwendet wird, legen Sie die Dropdownlisten in der Update-, INSERT-, und Löschen von Registerkarten (keine). Klicken Sie auf "Fertig stellen", um die Datenquelle konfigurieren-Assistenten zu beenden.
+Als Nächstes ziehen Sie eine Schaltfläche und GridView-Steuerelement in den Bereich ein. Legen Sie die s `ID` Eigenschaft `ProcessShipment` und die zugehörige `Text` Eigenschaft, um den Prozess mit dem Produktversand. Legen Sie die GridView s `ID` Eigenschaft `ProductsGrid` und von sein Smarttag, binden Sie es an eine neue, mit dem Namen "ObjectDataSource" `ProductsDataSource`. Konfigurieren Sie zum Abrufen der Daten aus dem ObjectDataSource-Steuerelement die `ProductsBLL` Klasse s `GetProducts` Methode. Da diese GridView nur zum Anzeigen von Daten verwendet wird, legen Sie die Dropdownlisten in der Update-, INSERT-, und Löschen von Registerkarten (keine) aus. Klicken Sie auf "Fertig stellen", um das Konfigurieren von Datenquellen-Assistenten zu beenden.
 
 
-[![Anzeigen der Daten aus der ProductsBLL s GetProducts Klassenmethode zurückgegeben](batch-inserting-vb/_static/image8.png)](batch-inserting-vb/_static/image7.png)
+[![Anzeigen der Daten, die von der ProductsBLL Klasse s GetProducts-Methode zurückgegeben](batch-inserting-vb/_static/image8.png)](batch-inserting-vb/_static/image7.png)
 
-**Abbildung 3**: Anzeigen der Daten, die von zurückgegeben der `ProductsBLL` Klasse s `GetProducts` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image9.png))
-
-
-[![Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten auf (keine)](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
-
-**Abbildung 4**: Legen Sie das Dropdown-Listen in aktualisieren, einfügen und Löschen von Registerkarten auf (keine) ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image12.png))
+**Abbildung 3**: Anzeigen der Daten, die von zurückgegeben der `ProductsBLL` Klasse s `GetProducts` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image9.png))
 
 
-Nach Abschluss des Assistenten ObjectDataSource wird Visual Studio BoundFields und eine CheckBoxField für die Product-Datenfelder hinzufügen. Entfernen Sie alle außer den `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`, und `Discontinued` Felder. Wahlweise können Sie alle Layoutgründen Anpassungen vornehmen. Entschied ich mich, formatieren Sie die `UnitPrice` Felds als Währungswert, neu angeordnet, die Felder und einige Felder umbenannt `HeaderText` Werte. Auch konfigurieren Sie, die GridView Einbeziehung von paging und Sortieren von Unterstützung durch Aktivieren von Paging und Sortieren aktivieren Kontrollkästchen in der GridView-s-Smarttag überprüfen.
+[![Legen Sie die Dropdownlisten in der Update-, INSERT- und DELETE werden Registerkarten (keine)](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
 
-Nach dem Hinzufügen der Bereich "," Button "," GridView "und" ObjectDataSource-Steuerelemente und GridView-s-Feldern anpassen, sollte Ihre s deklarativen Seitenmarkup etwa wie folgt aussehen:
+**Abbildung 4**: Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten auf (keine) ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image12.png))
+
+
+Nach Abschluss des Assistenten "ObjectDataSource" wird in Visual Studio BoundFields und eine CheckBoxField für die Datenfelder Produkt hinzugefügt werden. Entfernen Sie alle außer den `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`, und `Discontinued` Felder. Alle ästhetischen Anpassungen vornehmen können. Ich habe mich entschieden, zum Formatieren der `UnitPrice` Felds als Währungswert, neu angeordnet, die Felder und einige Felder umbenannt `HeaderText` Werte. Außerdem konfigurieren Sie GridView Einbeziehung Auslagern und Sortieren von Unterstützung durch die Kontrollkästchen aktivieren, Paging und Sortieren aktivieren in das GridView-s-Smarttag überprüfen.
+
+Nach dem Hinzufügen der Steuerelemente Panel "," Schaltfläche "," GridView "und" ObjectDataSource-Steuerelement, und die GridView-s-Felder anpassen, sollte im deklarativen Markup Ihrer Seite s etwa wie folgt aussehen:
 
 
 [!code-aspx[Main](batch-inserting-vb/samples/sample1.aspx)]
 
-Beachten Sie, die das Markup für die Schaltfläche und GridView angezeigt werden, innerhalb des öffnenden und schließenden `<asp:Panel>` Tags. Da diese Steuerelemente sind, die innerhalb der `DisplayInterface` Bereich können wir dies ausblenden, indem Sie einfach im Bereich s festlegen `Visible` Eigenschaft `False`. Schritt 3 programmgesteuert ändern Bereich s prüft `Visible` Eigenschaft als Antwort auf eine Schaltfläche klicken, um eine Schnittstelle und die andere gleichzeitig anzuzeigen.
+Beachten Sie, die das Markup für die Schaltfläche und ein GridView angezeigt werden, innerhalb des öffnenden und schließenden `<asp:Panel>` Tags. Da diese Steuerelemente in sind die `DisplayInterface` Bereich können wir dies ausblenden, indem Sie einfach im Bereich s festlegen `Visible` Eigenschaft `False`. Schritt 3 untersucht die programmgesteuerte Änderung Bereich s `Visible` Eigenschaft als Reaktion auf eine Schaltfläche klicken, um eine Schnittstelle zu anzuzeigen, während die andere ausblenden.
 
-Nehmen Sie einen Moment Zeit, um unseren Fortschritt über einen Browser anzuzeigen. Wie in Abbildung 5 gezeigt, sehen Sie eine Prozess mit dem Produktversand Schaltfläche oben eine GridView, die die zehn Produkte zu einem Zeitpunkt auflistet.
+Nehmen Sie einen Moment Zeit, um unseren Fortschritt über einen Browser anzuzeigen. Wie in Abbildung 5 gezeigt, sehen Sie eine Prozess mit dem Produktversand oberhalb einer GridView-Ansicht auf die Schaltfläche, die die zehn Produkte zu einem Zeitpunkt auflistet.
 
 
-[![GridView Listet die Produkte und bietet sortieren und Paging von Funktionen](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
+[![GridView Listet die Produkte und bietet, Sortieren und Paging-Funktionen](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
 
-**Abbildung 5**: GridView Listet die Produkte und bietet sortieren und Paging-Funktionen ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image15.png))
+**Abbildung 5**: GridView Listet die Produkte und bietet sortieren und Paging-Funktionen ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image15.png))
 
 
 ## <a name="step-2-creating-the-inserting-interface"></a>Schritt 2: Erstellen der einfügen-Schnittstelle
 
-Eine Schnittstelle mit der Anzeigenschnittstelle, die abgeschlossen werden es erneut bereit, um das Einfügen von zu erstellen. Können Sie für dieses Lernprogramm s eine einfügende Schnittstelle erstellen, die für einen einzelnen Lieferanten und Kategorie aufgefordert, und klicken Sie dann kann der Benutzer bis zu fünf aus Produktnamen besteht und Unit Price Werte eingeben. Mit dieser Schnittstelle kann die Benutzer einer Minute bis fünf neue Produkte hinzufügen, die alle die gleiche Kategorie und Lieferanten, haben aber eine eindeutige Produkt-Namen und Preise.
+Mit der Anzeige abgeschlossen ist, es erneut bereit, die die einfügende Benutzeroberfläche erstellen. Können Sie für dieses Tutorial eine Einfügen von Schnittstelle zu erstellen, die einen Einzelwert Supplier "und" Kategorie Eingabeaufforderung aus, und klicken Sie dann kann der Benutzer zur Eingabe von bis zu fünf Produktnamen und Werte von planungseinheiten Preis s ein. Mit dieser Schnittstelle kann Benutzer bis zu fünf neue Produkte hinzufügen, die alle Teilen der gleichen Kategorie und Lieferanten, aber einen eindeutigen Product und Preise.
 
-Beginnen Sie, indem Sie ziehen ein Panel aus der Toolbox in den Designer, und platzieren es unterhalb der vorhandenen `DisplayInterface` Bereich. Festlegen der `ID` -Eigenschaft dieser neu hinzugefügten Bereich `InsertingInterface` und legen Sie seine `Visible` Eigenschaft, um `False`. Wir fügen Code, der festlegt der `InsertingInterface` Bereich s `Visible` Eigenschaft `True` in Schritt 3. Löschen Sie auch, im Bereich s `Height` und `Width` Eigenschaftswerte.
+Beginnen Sie mit ziehen ein Panel aus der Toolbox auf den Designer, und platzieren es unterhalb der vorhandenen `DisplayInterface` Bereich. Legen Sie die `ID` Eigenschaften der neu hinzugefügten Bereich `InsertingInterface` und legen Sie seine `Visible` Eigenschaft `False`. Fügen wir Code, der festlegt der `InsertingInterface` Bereich s `Visible` Eigenschaft `True` in Schritt 3. Löschen Sie auch, den Bereich s `Height` und `Width` Eigenschaftswerte.
 
-Als Nächstes müssen wir die einfügende Schnittstelle erstellen, die wieder in Abbildung 1 dargestellt wurde. Diese Schnittstelle kann über eine Reihe von HTML-Techniken erstellt werden, jedoch verwenden wir eine recht einfach: eine vierspaltige, sieben-Zeile-Tabelle.
+Als Nächstes müssen wir die einfügende-Schnittstelle zu erstellen, die in Abbildung 1 gezeigt wurde. Diese Schnittstelle kann mithilfe einer Vielzahl von HTML-Verfahren erstellt werden, aber wir verwenden eine ziemlich einfach: eine Tabelle vier Spalten und sieben Zeilen.
 
 > [!NOTE]
-> Wenn Sie für HTML-Markup eingeben `<table>` Elemente, ich möchte die Quellansicht verwenden. Während der Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente mithilfe des Designers, der Designer scheint alle zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich erstellt habe haben die `<table>` Markup ich in der Regel zurückgeben in den Designer der Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich möchte mit statischem HTML-Code statt über das [Tabelle Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) da alle Websteuerelemente in einer Tabelle Websteuerelement platziert nur zugegriffen werden können, mithilfe der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch Größe von Tabellen (von denen auf einige Datenbank oder die benutzerspezifische Kriterien, deren Zeilen oder Spalten basieren), seit der Tabelle Web, das Steuerelement programmgesteuert erstellt werden kann.
+> Bei der Eingabe von Markup für HTML `<table>` Elemente, die von mir bevorzugte die Datenquellensicht an. Während Visual Studio-Tools für das Hinzufügen von verfügt `<table>` Elemente über den Designer, der Designer scheint alles zu möchte einfügen ungefragt für `style` Einstellungen in das Markup. Nachdem ich haben die `<table>` Markup ich normalerweise zurück zum Designer, um die Web-Steuerelemente hinzufügen und ihre Eigenschaften festlegen. Beim Erstellen von Tabellen mit vordefinierten Spalten und Zeilen ich verwende lieber statischen HTML-Code anstelle der [Tabelle Websteuerelement](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) da Websteuerelementen zu wechseln, in ein Table-Steuerelement nur zugegriffen werden können, mit der `FindControl("controlID")` Muster. Ich, verwenden jedoch Tabelle Websteuerelemente für dynamisch große Tabellen (diejenigen, deren Zeilen oder Spalten für eine Datenbank oder benutzerspezifische Kriterien basieren), da die Web-Tabelle, die Steuerelement programmgesteuert erstellt werden kann.
 
 
-Geben Sie das folgende Markup innerhalb der `<asp:Panel>` des Tags der `InsertingInterface` Bereich:
+Geben Sie das folgende Markup innerhalb der `<asp:Panel>` Tags der `InsertingInterface` Bereich:
 
 
 [!code-html[Main](batch-inserting-vb/samples/sample2.html)]
 
-Dies `<table>` Markup enthält keine Websteuerelemente noch, wir werden diese vorübergehend hinzufügen. Beachten Sie, dass jedes `<tr>` Element enthält eine bestimmte Einstellung der CSS-Klasse: `BatchInsertHeaderRow` für die Kopfzeile, die an den Lieferanten und Kategorie DropDownLists mich werden; `BatchInsertFooterRow` für die Fußzeile, in denen die Produkte hinzufügen von Schaltflächen Abbrechen und Lieferung geht; und abwechselnde `BatchInsertRow` und `BatchInsertAlternatingRow` Werte für die Zeilen, die das Produkt und die Einheit enthält Preis TextBox-Steuerelemente. Ich Ve erstellt die entsprechenden CSS-Klassen in der `Styles.css` Datei so erteilen Sie der einfügen-Schnittstelle, die die GridView und DetailsView ähnlich steuert wir in diesen Lernprogrammen verwendet haben. Diese CSS-Klassen werden unten gezeigt.
+Dies `<table>` Markup umfasst keine Steuerelemente des Web- noch, diese werden vorübergehend hinzugefügt. Beachten Sie, dass jedes `<tr>` Element enthält eine bestimmte CSS-Klasse-Einstellung: `BatchInsertHeaderRow` für die Headerzeile, in dem der Lieferant und DropDownList-Steuerelementen geht; `BatchInsertFooterRow` für die Fußzeile, in denen die Produkte hinzufügen von Lieferung und die Schaltflächen Abbrechen geht; und die abwechselnden `BatchInsertRow` und `BatchInsertAlternatingRow` Werte für die Zeilen, die das Produkt und Komponententests enthält Preis TextBox-Steuerelemente. Ich Ve erstellt die entsprechende CSS-Klassen in der `Styles.css` Datei, die der einfügen-Schnittstelle eine ähnlich wie GridView und DetailsView aussehen zu verleihen steuert wir in diesen Tutorials verwendet haben. Diese CSS-Klassen werden unten angezeigt.
 
 
 [!code-css[Main](batch-inserting-vb/samples/sample3.css)]
 
-Mit diesem Markup eingegeben wird zurück zur Entwurfsansicht. Dies `<table>` sollte als Tabelle vierspaltige, sieben Zeile im Designer anzeigen, wie die Abbildung 6 veranschaulicht.
+Mit diesem Markup eingegeben haben zurück zur Entwurfsansicht. Dies `<table>` sollte als Tabelle vier Spalten, die sieben Zeilen im Designer angezeigt, wie in Abbildung 6 gezeigt.
 
 
-[![Die Schnittstelle einfügen besteht aus einer vier-Spalte, Tabelle mit sieben Zeilen](batch-inserting-vb/_static/image17.png)](batch-inserting-vb/_static/image16.png)
+[![Die einfügen-Schnittstelle besteht aus einer vier-Spalte, Tabelle mit sieben Zeilen](batch-inserting-vb/_static/image17.png)](batch-inserting-vb/_static/image16.png)
 
-**Abbildung 6**: die einfügen-Schnittstelle besteht aus einer vier-Spalte, Tabelle mit sieben Zeilen ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image18.png))
-
-
-Wir re jetzt bereit für die einfügende Schnittstelle Websteuerelementen hinzugefügt. Ziehen Sie zwei DropDownLists aus der Toolbox in die entsprechenden Zellen in der Tabelle für den Lieferanten und eine für die Kategorie.
-
-Legen Sie den Lieferanten DropDownList s `ID` Eigenschaft `Suppliers` und binden es an eine neue ObjectDataSource mit dem Namen `SuppliersDataSource`. Konfigurieren Sie die neue ObjectDataSource zum Abrufen der zugehörigen Daten aus der `SuppliersBLL` Klasse s `GetSuppliers` -Methode und legen Sie das UPDATE Registerkarte s Dropdown-Liste (keine). Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+**Abbildung 6**: die einfügen-Schnittstelle besteht aus einer vier-Spalte, Tabelle mit sieben Zeilen ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image18.png))
 
 
-[![Konfigurieren der ObjectDataSource zur Verwendung der SuppliersBLL Klasse s GetSuppliers-Methode](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
+Wir erneut jetzt bereit, das Einfügen von Schnittstelle Websteuerelemente hinzu. Ziehen Sie zwei DropDownList-Steuerelementen aus der Toolbox in die entsprechenden Zellen in der Tabelle für den Lieferanten und eine für die Kategorie ein.
 
-**Abbildung 7**: Konfigurieren der ObjectDataSource verwenden die `SuppliersBLL` Klasse s `GetSuppliers` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image21.png))
-
-
-Haben die `Suppliers` DropDownList-Anzeige der `CompanyName` Feld "Daten" und die Verwendung der `SupplierID` Datenfeld der Spalte als seine `ListItem` s-Werte.
+Legen Sie den Lieferanten DropDownList s `ID` Eigenschaft `Suppliers` und binden sie an eine neue, mit dem Namen "ObjectDataSource" `SuppliersDataSource`. Konfigurieren Sie die neue "ObjectDataSource" zum Abrufen der Daten aus der `SuppliersBLL` Klasse s `GetSuppliers` Methode, und legen Sie das UPDATE Registerkarte s Dropdown-Liste (keine). Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
 
-[![Zeigen Sie das CompanyName-Datenfeld an und verwenden Sie SupplierID als Wert.](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
+[![Konfigurieren von dem ObjectDataSource-Steuerelement zur Verwendung der SuppliersBLL Klasse s GetSuppliers-Methode](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
 
-**Abbildung 8**: Anzeige der `CompanyName` Feld "Daten" und die Verwendung `SupplierID` als Wert ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image24.png))
-
-
-Benennen Sie die zweite DropDownList `Categories` und binden es an eine neue ObjectDataSource mit dem Namen `CategoriesDataSource`. Konfigurieren der `CategoriesDataSource` ObjectDataSource verwenden die `CategoriesBLL` Klasse s `GetCategories` Methode, die Menge der Dropdown-Listen, in die Update- und DELETE-Registerkarten (None) und klicken Sie auf Fertig stellen, um den Assistenten abzuschließen. Schließlich haben die DropDownList-Anzeige der `CategoryName` Feld "Daten" und die Verwendung der `CategoryID` als Wert.
-
-Nachdem diese zwei DropDownLists hinzugefügt und entsprechend konfigurierten ObjectDataSources gebunden haben, sollte der Bildschirm in Abbildung 9 ähneln.
+**Abbildung 7**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `SuppliersBLL` s-Klasse `GetSuppliers` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image21.png))
 
 
-[![Die Kopfzeile enthält jetzt die Lieferanten und Kategorien DropDownLists](batch-inserting-vb/_static/image26.png)](batch-inserting-vb/_static/image25.png)
-
-**Abbildung 9**: der Header Zeile enthält jetzt die `Suppliers` und `Categories` DropDownLists ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image27.png))
+Haben die `Suppliers` DropDownList-Anzeige der `CompanyName` Feld "Daten" und die Verwendung der `SupplierID` Datenfeld als seine `ListItem` s Werte.
 
 
-Jetzt müssen wir die Textfelder ein, um den Namen und den Preis für jede neue Produkt erfassen zu erstellen. Ziehen Sie ein TextBox-Steuerelement aus der Toolbox in den Designer für jeden der fünf Product Name "und" Price Zeilen. Legen Sie die `ID` Eigenschaften der Textfelder, `ProductName1`, `UnitPrice1`, `ProductName2`, `UnitPrice2`, `ProductName3`, `UnitPrice3`und so weiter.
+[![Das Feld CompanyName-Daten anzeigen und SupplierID als Wert verwenden](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
 
-Hinzufügen einer CompareValidator nach jedem Preis pro Einheit Textfelder ein, und Festlegen der `ControlToValidate` -Eigenschaft auf die entsprechende `ID`. Auch festlegen, die `Operator` Eigenschaft `GreaterThanEqual`, `ValueToCompare` auf 0 (null) und `Type` auf `Currency`. Diese Einstellungen weisen CompareValidator, stellen Sie sicher, dass der Kurs, wenn eingegeben haben, eine gültige Currency-Wert, der größer als oder gleich 0 (null) ist. Festlegen der `Text` Eigenschaft \*, und `ErrorMessage` auf den Preis muss größer als oder gleich 0 (null) sein. Darüber hinaus geben lassen Sie aller Währungssymbole Weg.
+**Abbildung 8**: Anzeige der `CompanyName` Datenfeld und Verwendung `SupplierID` als Wert ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image24.png))
+
+
+Namen der zweiten Dropdownliste `Categories` und binden sie an eine neue, mit dem Namen "ObjectDataSource" `CategoriesDataSource`. Konfigurieren der `CategoriesDataSource` "ObjectDataSource" Verwenden der `CategoriesBLL` Klasse s `GetCategories` Methode, die Gruppe, die die Dropdownlisten in der Update- und DELETE Registerkarten (keine) und klicken Sie auf Fertig stellen, um den Assistenten abzuschließen. Schließlich müssen die DropDownList-Anzeige der `CategoryName` Feld "Daten" und die Verwendung der `CategoryID` als Wert.
+
+Nachdem diese zwei DropDownList-Steuerelementen hinzugefügt und entsprechend konfigurierten ObjectDataSources gebunden wurden, sollte Ihr Bildschirm Abbildung 9 ähneln.
+
+
+[![Die Kopfzeile enthält jetzt den Lieferanten und Kategorien DropDownList-Steuerelementen](batch-inserting-vb/_static/image26.png)](batch-inserting-vb/_static/image25.png)
+
+**Abbildung 9**: der Header Zeile enthält jetzt die `Suppliers` und `Categories` DropDownList-Steuerelementen ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image27.png))
+
+
+Wir müssen jetzt erstellen Sie die Textfelder ein, um die Namen und den Preis für jedes neue Produkt zu sammeln. Ziehen Sie ein TextBox-Steuerelement aus der Toolbox in den Designer für jeden der fünf Product Name und Preis Zeilen. Legen Sie die `ID` Eigenschaften der TextBox-Elemente zu `ProductName1`, `UnitPrice1`, `ProductName2`, `UnitPrice2`, `ProductName3`, `UnitPrice3`und so weiter.
+
+Hinzufügen einer CompareValidator nach jedem des Einzelpreises Textfelder ein, und Festlegen der `ControlToValidate` -Eigenschaft auf die entsprechende `ID`. Auch festlegen, die `Operator` Eigenschaft `GreaterThanEqual`, `ValueToCompare` auf 0 (null) und `Type` zu `Currency`. Diese Einstellungen weisen CompareValidator, stellen Sie sicher, dass der Preis, wenn eingegeben haben, einen gültigen Currency-Wert, der größer als oder gleich 0 (null) ist. Legen Sie die `Text` Eigenschaft \*, und `ErrorMessage` mit dem Preis muss größer als oder gleich 0 (null) sein. Lassen Sie zudem alle Währungssymbole.
 
 > [!NOTE]
-> Einfügen von Schnittstelle umfasst keine Steuerelemente RequiredFieldValidator, obwohl die `ProductName` -Feld in der `Products` Datenbanktabelle lässt keine `NULL` Werte. Dies ist, da wir, damit den Benutzer bis zu fünf Produkte eingeben können möchten. Beispielsweise sollte der Benutzer für die ersten drei Zeilen den Produktpreis Name und Komponententests bereitstellen, hinzufügen die letzten beiden Zeilen leer lassen, wir d nur drei neue Produkte mit dem System. Da `ProductName` ist erforderlich, allerdings wir müssen programmgesteuert überprüfen, dass bei einem Einzelpreis sicherstellen, dass ein entsprechende Product Name-Wert angegeben wird eingegeben. Wir werden diese Prüfung in Schritt 4 konfigurieren.
+> Die einfügende-Schnittstelle umfasst keine RequiredFieldValidator-Steuerelemente, obwohl die `ProductName` -Feld in der `Products` Datenbanktabelle lässt keine `NULL` Werte. Dies ist das da soll den Benutzer bis zu fünf Produkten eingeben können. Beispielsweise würde der Benutzer die ersten drei Zeilen den Produktpreis, Name und Unit bereit, die letzten beiden Zeilen leer lassen, fügen wir hinzu d nur drei neue Produkte an das System. Da `ProductName` ist erforderlich, aber wir müssen programmgesteuert überprüfen, um, dass bei einen Preis je Einheit sicherzustellen, dass eingegeben werden, dass ein entsprechende Product Name-Wert angegeben wird. Wir werden diese Prüfung in Schritt 4 in Angriff nehmen.
 
 
-Bei der Validierung von Benutzereingaben s meldet CompareValidator ungültige Daten an, wenn der Wert ein Währungssymbol enthält. Fügen Sie ein $ vor aller Textfelder als einen visuellen Hinweis zu dienen, die den Benutzer, um das Währungssymbol zu unterdrücken, bei der Eingabe des Preis weist Preis pro Einheit.
+Bei der Validierung der Benutzereingabe s meldet CompareValidator ungültige Daten auf, wenn der Wert ein Währungssymbol enthält. Fügen Sie ein "$" vor jeder des Einzelpreises Textfelder als einen visuellen Hinweis zu dienen, die der Benutzer, um das Währungssymbol zu unterdrücken, bei der Eingabe des Preis angewiesen.
 
-Schließlich Hinzufügen eines ValidationSummary-Steuerelements innerhalb der `InsertingInterface` Bereich Einstellungen seine `ShowMessageBox` Eigenschaft, um `True` und seine `ShowSummary` Eigenschaft `False`. Mit diesen Einstellungen können Sie, wenn der Benutzer eine ungültige Einheit Preis eingibt, ein Sternchen wird neben dem betreffenden TextBox-Steuerelemente angezeigt und zeigt die ValidationSummary eine clientseitige Messagebox, in der die Fehlermeldung angezeigt, die wir zuvor angegeben.
+Abschließend fügen Sie ein ValidationSummary-Steuerelement in der `InsertingInterface` Einstellungen im Bereich der `ShowMessageBox` Eigenschaft, um `True` und die zugehörige `ShowSummary` Eigenschaft, um `False`. Mit diesen Einstellungen Wenn der Benutzer eine ungültige Einheit Preis eingibt, ein Sternchen wird neben dem betreffenden TextBox-Steuerelemente angezeigt und die ValidationSummary zeigt eine Client-Side-Messagebox, die die Fehlermeldung anzeigt, die wir zuvor angegeben.
 
-An diesem Punkt sollte Ihr Bildschirm Abbildung 10 ähneln.
-
-
-[![Das Einfügen von-Schnittstelle enthält jetzt Textfelder ein, für die Produkte Namen und Preise](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
-
-**Abbildung 10**: der einfügen-Schnittstelle jetzt enthält Textfelder für die Produktnamen und Preise ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image30.png))
+Ihr Bildschirm sollte an diesem Punkt ähnelt Abbildung 10 aussehen.
 
 
-Als Nächstes nehmen wir die Produkte hinzufügen von Schaltflächen "Abbrechen" und "Lieferung" Fußzeile hinzugefügt haben. Ziehen Sie zwei Schaltflächen-Steuerelemente aus der Toolbox in die Fußzeile der einfügen-Schnittstelle, die Schaltflächen festlegen `ID` Eigenschaften `AddProducts` und `CancelButton` und `Text` Eigenschaften bzw. Produkte aus der Lieferung und "Abbrechen", hinzugefügt. Darüber hinaus legen Sie die `CancelButton` Steuerelement s `CausesValidation` Eigenschaft `false`.
+[![Die Einfügen von-Schnittstelle enthält jetzt die Textfelder für die Produkte Namen und Preise](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
 
-Schließlich müssen wir ein Bezeichnung-Websteuerelement hinzufügen, die statusmeldungen für die beiden Schnittstellen angezeigt wird. Z. B. wenn ein Benutzer erfolgreich eine neue Lieferung von Produkten hinzufügt, möchten wir auf die Anzeigenschnittstelle zurück und zeigt eine bestätigungsmeldung an. Wenn jedoch der Benutzer einen Preis für ein neues Produkt jedoch bewirkt, dass aus den Produktnamen enthält, müssen wir eine Warnmeldung seit Anzeigen der `ProductName` ist ein Pflichtfeld. Da wir diese Meldung für die anzuzeigenden für beide Schnittstellen benötigen, fügen Sie ihn am oberen Rand der Seite außerhalb der Bereiche.
-
-Ziehen Sie ein Bezeichnung-Websteuerelement aus der Toolbox in den oberen Rand der Seite im Designer. Festlegen der `ID` Eigenschaft `StatusLabel`deaktivieren, die `Text` Eigenschaft, und legen die `Visible` und `EnableViewState` Eigenschaften `False`. Wie wir im vorherigen Lernprogrammen gesehen haben, Festlegen der `EnableViewState` Eigenschaft `False` erlaubt es uns, programmgesteuert die Bezeichnung s Eigenschaftswerte ändern und diese automatisch wieder auf ihre Standardwerte auf den nachfolgenden Postbacks zurückgesetzt. Dies vereinfacht den Code für eine Statusmeldung als Antwort auf eine Benutzeraktion, die auf den nachfolgenden Postbacks wird nicht mehr angezeigt. Legen Sie schließlich die `StatusLabel` Steuerelement s `CssClass` Eigenschaft in "Warnung", die den Namen der CSS-Klasse ist definiert `Styles.css` , die Text in großer, kursiv, fett, Rot Schriftart anzeigt.
-
-Abbildung 11 zeigt die Visual Studio-Designer, nachdem die Bezeichnung hinzugefügt und konfiguriert wurde.
+**Abbildung 10**: die einfügen-Schnittstelle nun enthält Textfelder für die Namen der Produkte und Preise ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image30.png))
 
 
-[![Platzieren Sie das Steuerelement StatusLabel über zwei Panel-Steuerelemente](batch-inserting-vb/_static/image32.png)](batch-inserting-vb/_static/image31.png)
+Als Nächstes müssen wir den Produkten Hinzufügen von Schaltflächen "Lieferung" und "Abbrechen", das die Footerzeile hinzufügen. Ziehen Sie zwei Schaltflächen-Steuerelemente aus der Toolbox in die Fußzeile der einfügen-Schnittstelle, die Schaltflächen festlegen `ID` Eigenschaften `AddProducts` und `CancelButton` und `Text` Eigenschaften, die Produkte von Lieferungen und "Abbrechen", bzw. hinzugefügt. Legen Sie außerdem die `CancelButton` Steuerelement s `CausesValidation` Eigenschaft `false`.
 
-**Abbildung 11**: Ort der `StatusLabel` Steuerelement über die zwei Panel-Steuerelemente ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image33.png))
+Abschließend müssen wir ein Label-Steuerelement hinzufügen, die statusmeldungen für die beiden Schnittstellen angezeigt wird. Z. B. wenn ein Benutzer erfolgreich eine neue Lieferung von Produkten hinzufügt, möchten wir auf die Anzeigenschnittstelle zurück und zeigt eine bestätigungsmeldung an. Wenn Sie jedoch der Benutzer einen Preis für ein neues Produkt, aber aufhört der Name des Produkts enthält, müssen wir eine Warnung angezeigt, da die `ProductName` ist ein Pflichtfeld. Da wir diese Meldung, die für beide Schnittstellen angezeigt benötigen, platzieren Sie es am oberen Rand der Seite außerhalb der Bereiche.
+
+Ziehen Sie ein Label-Steuerelement aus der Toolbox auf den oberen Rand der Seite im Designer. Festlegen der `ID` Eigenschaft, um `StatusLabel`, deaktivieren Sie die `Text` -Eigenschaft, und legen die `Visible` und `EnableViewState` Eigenschaften `False`. Wie wir in vorherigen Tutorials gesehen haben, Festlegen der `EnableViewState` Eigenschaft `False` können programmgesteuert die Bezeichnung s Eigenschaftswerte ändern und wieder die Standardwerte für die nachfolgenden Postbacks automatisch zurückgesetzt. Dies vereinfacht den Code für eine Statusmeldung angezeigt, als Reaktion auf eine Benutzeraktion, die die nachfolgenden beim Postback nicht mehr angezeigt. Legen Sie schließlich die `StatusLabel` Steuerelement s `CssClass` Eigenschaft in "Warnung", die den Namen einer CSS-Klasse darstellt, die in definierten `Styles.css` , Text in einer großen, kursiv, fett, Rot Schriftart anzeigt.
+
+Abbildung 11 zeigt Visual Studio-Designer aus, nachdem die Bezeichnung hinzugefügt und konfiguriert wurde.
+
+
+[![Platzieren Sie das Steuerelement StatusLabel über die zwei Panel-Steuerelemente](batch-inserting-vb/_static/image32.png)](batch-inserting-vb/_static/image31.png)
+
+**Abbildung 11**: Ort der `StatusLabel` Steuerelement über die zwei Panel-Steuerelemente ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image33.png))
 
 
 ## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>Schritt 3: Wechseln zwischen der Anzeige und Einfügen von Schnittstellen
 
-Zu diesem Zeitpunkt haben wir das Markup für unsere Anzeige- und Einfügen von Schnittstellen, sondern wir re bleibt weiterhin mit zwei Aufgaben ausgeführt:
+An diesem Punkt haben wir das Markup für unsere Anzeige und das Einfügen von Schnittstellen, sondern wir erneut noch läuft in zwei Aufgaben:
 
-- Umschalten zwischen der Anzeige und das Einfügen von Schnittstellen
+- Wechseln zwischen der Anzeige und das Einfügen von Schnittstellen
 - Die Produkte hinzufügen in der Lieferung in der Datenbank
 
-Momentan die Anzeigenschnittstelle wird angezeigt, aber die einfügende Schnittstelle ausgeblendet wird. Grund hierfür ist, die `DisplayInterface` Bereich s `Visible` -Eigenschaftensatz auf `True` (Standardwert), während die `InsertingInterface` Bereich s `Visible` -Eigenschaftensatz auf `False`. So wechseln Sie zwischen den beiden Schnittstellen wir einfach jedes Steuerelement s umschalten müssen `Visible` Eigenschaftswert.
+Derzeit die Anzeigenschnittstelle sichtbar ist, aber die einfügende-Schnittstelle ist ausgeblendet. Grund hierfür ist die `DisplayInterface` Bereich s `Visible` -Eigenschaftensatz auf `True` (der Standardwert), während die `InsertingInterface` Bereich s `Visible` -Eigenschaftensatz auf `False`. So wechseln Sie zwischen den beiden Schnittstellen wir lediglich zum Umschalten der einzelnen Steuerelemente s müssen `Visible` -Eigenschaftswert.
 
-Wir möchten die von der Anzeigenschnittstelle in der einfügen-Schnittstelle verschoben wird, wenn der Prozess mit dem Produktversand geklickt wird. Aus diesem Grund erstellen Sie einen Ereignishandler für Schaltflächenname s `Click` Ereignis mit dem folgenden Code:
+Wir möchten, wechseln von der Anzeigenschnittstelle, auf die einfügen-Schnittstelle, wenn der Prozess mit dem Produktversand geklickt wird. Aus diesem Grund erstellen Sie einen Ereignishandler für diese Schaltfläche s `Click` Ereignis, das den folgenden Code enthält:
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample4.vb)]
 
-Dieser Code einfach Blendet die `DisplayInterface` Systemsteuerung und zeigt die `InsertingInterface` Bereich.
+Dieser Code einfach Blendet die `DisplayInterface` Bereich und zeigt die `InsertingInterface` Bereich.
 
-Als Nächstes erstellen Sie Ereignishandler für die Produkte hinzufügen von Steuerelementen von Lieferung und Schaltfläche "Abbrechen" in der einfügen-Schnittstelle. Wenn eine der folgenden Schaltflächen geklickt wird, müssen es wieder auf die Anzeigenschnittstelle zurückgesetzt. Erstellen Sie `Click` -Ereignishandler für beide Schaltflächen-Steuerelemente, damit sie aufrufen `ReturnToDisplayInterface`, eine Methode, die wir vorübergehend hinzufügen. Zusätzlich zum Ausblenden der `InsertingInterface` Systemsteuerung und mit der `DisplayInterface` Bereich der `ReturnToDisplayInterface` Methode Websteuerelemente zum Zustand vor der Bearbeitung zurückgeben muss. Dies umfasst das Festlegen der DropDownLists `SelectedIndex` Eigenschaften zwischen 0 und gelöscht wird, zu der `Text` Eigenschaften der TextBox-Steuerelemente.
+Als Nächstes erstellen Sie Ereignishandler für die Produkte hinzufügen von Steuerelementen von Lieferung und die Schaltfläche "Abbrechen" in der einfügen-Schnittstelle. Wenn eine dieser Schaltflächen geklickt wird, muss die Anzeigenschnittstelle wiederherstellen. Erstellen Sie `Click` -Ereignishandlern für beide Schaltflächen-Steuerelemente, damit sie aufgerufen werden `ReturnToDisplayInterface`, eine Methode, die wir werden vorübergehend hinzufügen. Zusätzlich zum Ausblenden der `InsertingInterface` klicken und mit der `DisplayInterface` Bereich der `ReturnToDisplayInterface` Methode muss die Web-Steuerelemente auf den Zustand vor der Bearbeitung zurückgeben. Dies umfasst das Festlegen der DropDownList-Steuerelementen `SelectedIndex` Eigenschaften auf 0 und Beseitigen der `Text` Eigenschaften der TextBox-Steuerelemente.
 
 > [!NOTE]
-> Beachten Sie, was passieren kann Wenn wir t Zurückgeben der Steuerelemente zum Zustand vor der Bearbeitung vor der Rückgabe auf die Anzeigenschnittstelle. Ein Benutzer möglicherweise klicken Sie auf die Schaltfläche mit den Prozess mit dem Produktversand, geben Sie die Produkte aus der Lieferung und klicken Sie dann auf Produkte aus Lieferung hinzufügen. Dies würde die Produkte hinzufügen und den Benutzer auf die Anzeigenschnittstelle zurück. Zu diesem Zeitpunkt kann der Benutzer einer anderen Sendung hinzufügen möchten. Wenn Sie auf den Prozess mit dem Produktversand-Schaltfläche, die sie der einfügen-Schnittstelle, aber der DropDownList zurückgeben würde würde Auswahl und Textfeldwerte weiterhin mit ihren vorherigen Wert aufgefüllt werden.
+> Beachten Sie, was passieren kann Wenn wir nihnen t Zurückgeben der Steuerelemente auf den Zustand vor der Bearbeitung vor der Rückgabe auf die Anzeigenschnittstelle. Ein Benutzer möglicherweise klicken Sie auf die Schaltfläche mit den Prozess mit dem Produktversand, geben Sie die Produkte aus der Lieferung und klicken Sie dann auf Produkte aus Lieferung hinzufügen. Dies würde die Produkte hinzufügen und den Benutzer auf die Anzeigenschnittstelle zurückzugeben. An diesem Punkt kann der Benutzer einer anderen Sendung hinzufügen möchten. Nach dem Klicken auf die Schaltfläche "Prozess mit dem Produktversand", die sie die einfügen-Schnittstelle, aber die DropDownList zurückgeben würde würde Auswahl und TextBox-Werte immer noch mit ihren vorherigen Wert aufgefüllt werden.
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir den hinzufügen-Produkten aus Lieferung zurückkehren `Click` -Ereignishandler in Schritt 4 und Code hinzufügen, um die Produkte zu speichern. `ReturnToDisplayInterface` beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownLists ihre erste "Optionen". Die beiden Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endwerten Steuerelement Index benennen den Namen und die Einheit Produktpreis Textfelder einfügen Schnittstelle und werden verwendet, in die Grenzen des verwendet die `For` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Bereiche `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende Schnittstelle ausgeblendet ist und die Anzeigenschnittstelle dargestellt.
+Beide `Click` Ereignishandler rufen Sie einfach die `ReturnToDisplayInterface` -Methode, obwohl wir zu den Produkten hinzufügen aus Lieferung zurückkehren müssen `Click` -Ereignishandler in Schritt 4, und fügen Sie Code, um die Produkte zu speichern. `ReturnToDisplayInterface` beginnt mit dem Zurückgeben der `Suppliers` und `Categories` DropDownList-Steuerelementen, die ersten Optionen aus. Die zwei Konstanten `firstControlID` und `lastControlID` markieren Sie die Start- und Endindexwerte Steuerelement verwendet, bei der Benennung des Name und Unit Produktpreis Textfelder einfügen, Schnittstelle, und werden verwendet, in die Begrenzungen des der `For` Schleife, die die festlegt`Text`Eigenschaften der TextBox-Steuerelemente auf eine leere Zeichenfolge zurück. Zum Schluss die Panels `Visible` Eigenschaften werden zurückgesetzt, damit die einfügende-Schnittstelle ausgeblendet ist und der Anzeigenschnittstelle, die angezeigt.
 
-Nehmen Sie einen Moment Zeit, um diese Seite in einem Browser zu testen. Beim ersten Seite besuchen sollte die Anzeigenschnittstelle angezeigt werden, wie in Abbildung 5 gezeigt wurde. Klicken Sie auf die Schaltfläche mit den Prozess mit dem Produktversand. Die Seite wird postback und die einfügende-Schnittstelle sollte jetzt angezeigt werden, wie in Abbildung 12 dargestellt. Klicken entweder die Produkte hinzufügen von Schaltflächen Lieferung oder "Abbrechen" zurück auf die Anzeigenschnittstelle.
+Nehmen Sie einen Moment Zeit, um diese Seite in einem Browser zu testen. Wenn die Seite zuerst besuchen sollten Sie die Anzeigenschnittstelle sehen, wie in Abbildung 5 gezeigt wurde. Klicken Sie auf die Schaltfläche "Prozess mit dem Produktversand". Die Seite wird postback, und die einfügende-Schnittstelle sollte jetzt angezeigt werden, wie in Abbildung 12 dargestellt. Entweder die hinzufügen Produkte aus der Lieferung "oder" Abbrechen "klicken, kehren Sie zur Anzeigenschnittstelle zurück.
 
 > [!NOTE]
-> Nehmen Sie beim Anzeigen der einfügen-Schnittstelle, einen Moment Zeit zum Testen der CompareValidators auf den Einzelpreis Textfelder ein. Daraufhin sollte eine Warnung, wenn Sie die Produkte hinzufügen, Schaltfläche "Lieferung" mit ungültiger Währungsangaben oder Preise mit einem Wert kleiner als 0 (null) auf die clientseitige-Messagebox.
+> Können Sie während der Anzeige der einfügen-Schnittstelle, die CompareValidators auf den Einzelpreis Textfelder zu testen. Daraufhin sollte eine clientseitige Messagebox Warnung, wenn Sie die Produkte hinzufügen, Schaltfläche "Lieferung" mit ungültigen Currency-Werte oder Preise mit dem ein Wert kleiner als 0 (null) klicken.
 
 
-[![Der einfügen-Schnittstelle wird angezeigt, nach dem Klicken auf die Schaltfläche verarbeiten Produkt Lieferung](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
+[![Die einfügen-Schnittstelle wird angezeigt, nach dem Klicken auf die Schaltfläche "Prozess Produkt Lieferung"](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
 
-**Abbildung 12**: die einfügen-Schnittstelle wird angezeigt, nach dem Klicken auf die Schaltfläche verarbeiten Produkt Lieferung ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image36.png))
+**Abbildung 12**: die einfügen-Schnittstelle wird angezeigt, nach dem Klicken auf die Schaltfläche "Prozess Produkt Lieferung" ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image36.png))
 
 
-## <a name="step-4-adding-the-products"></a>Schritt 4: Hinzufügen, die Produkte
+## <a name="step-4-adding-the-products"></a>Schritt 4: Hinzufügen der Produkte
 
-Alle, die für dieses Lernprogramm besteht darin, die Produkte in der Datenbank in den Produkten Hinzufügen von Lieferung Schaltfläche s speichern bleibt `Click` -Ereignishandler. Dies kann durch Erstellen einer `ProductsDataTable` und Hinzufügen von einer `ProductsRow` Instanz für jede der bereitgestellten aus Produktnamen besteht. Sobald diese `ProductsRow` s stellen wir einen Aufruf von hinzugefügt wurden die `ProductsBLL` Klasse s `UpdateWithTransaction` -Methode übergeben der `ProductsDataTable`. Bedenken Sie, dass die `UpdateWithTransaction` -Methode, die in erstellt wurde die [Umbruch Datenbankänderungen innerhalb einer Transaktion](wrapping-database-modifications-within-a-transaction-vb.md) Tutorial, übergibt der `ProductsDataTable` auf die `ProductsTableAdapter` s `UpdateWithTransaction` Methode. Von dort aus eine ADO.NET-Transaktion gestartet wird und die Probleme TableAdatper ein `INSERT` Anweisung an die Datenbank für jede hinzugefügte `ProductsRow` in der "DataTable". Vorausgesetzt, dass alle Produkte ohne Fehler hinzugefügt werden, die Transaktion ein Commit ausgeführt wird, wird ansonsten Rollback.
+Alle, die verbleibt, für dieses Tutorial ist auf die Produkte in der Datenbank in den Produkten Hinzufügen von Schaltfläche "Lieferung" s zu speichern, `Click` -Ereignishandler. Dies kann erreicht werden, indem Sie erstellen eine `ProductsDataTable` und das Hinzufügen einer `ProductsRow` Instanz für jedes der angegebenen Produktnamen. Einmal diese `ProductsRow` s wurden hinzugefügt, werden wir einen Aufruf von stellen die `ProductsBLL` s-Klasse `UpdateWithTransaction` -Methode übergeben die `ProductsDataTable`. Bedenken Sie, dass die `UpdateWithTransaction` -Methode, die in erstellt wurde die [Umschließen von Datenbankänderungen innerhalb einer Transaktion](wrapping-database-modifications-within-a-transaction-vb.md) Tutorial, übergibt die `ProductsDataTable` auf die `ProductsTableAdapter` s `UpdateWithTransaction` Methode. Von dort aus eine ADO.NET-Transaktion gestartet wird und die Probleme TableAdatper ein `INSERT` Anweisung an die Datenbank für jede hinzugefügte `ProductsRow` in der Datentabelle. Vorausgesetzt, dass alle Produkte ohne Fehler hinzugefügt werden, die Transaktion ein Commit ausgeführt wird, wird andernfalls ein Rollback.
 
-Der Code für die Produkte hinzufügen, Schaltfläche "Lieferung" s `Click` Ereignishandler auch einem gewissen Grad fehlerüberprüfung durchführen muss. Da es sich um keine RequiredFieldValidators in der einfügen-Schnittstelle verwendet, kann ein Benutzer einen Preis beim Auslassen von seinem Namens für ein Produkt eingeben. Da der Name des Produkts s erforderlich ist, wenn eine solche Bedingung erweitert muss der Benutzer gewarnt werden, und die einfügungen nicht fortsetzen. Die vollständige `Click` Ereignishandlercode folgt:
+Der Code für die Produkte hinzufügen, über die Schaltfläche "Lieferung" s `Click` -Ereignishandler auch etwas fehlerprüfung durchführen muss. Da es sich um keine RequiredFieldValidators in der einfügen-Schnittstelle verwendet, kann ein Benutzer einen Preis für ein Produkt beim Auslassen von seinen Namens eingeben. Da der Name des Produkts s erforderlich ist, wenn eine solche Bedingung erweitert müssen wir den Benutzer zu warnen und die einfügungen nicht fortgesetzt. Die vollständige `Click` Ereignishandlercode folgt:
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample6.vb)]
 
-Der Ereignishandler gestartet wird, indem sichergestellt wird, die die `Page.IsValid` Eigenschaft gibt einen Wert von `True`. Wenn zurückgegeben `False`, klicken Sie dann bedeutet, dass eine oder mehrere der CompareValidators untergeordnet sind ungültige Daten; in diesem Fall möchten wir nicht versucht wird, legen Sie die eingegebenen Produkte den oder wir müssen letztendlich mit einer Ausnahme beim Versuch, den Benutzer eingegeben Einzelpreis zuweisen -Wert an die `ProductsRow` s `UnitPrice` Eigenschaft.
+Der Ereignishandler startet, indem sichergestellt wird, die die `Page.IsValid` Eigenschaft gibt einen Wert von `True`. Wenn sie zurückgibt `False`, und ist dies eines oder mehrere der CompareValidators werden Berichtsdaten ungültig; in diesem Fall wir sollten nicht versuchen, fügen Sie die eingegebenen Produkte oder wir erhalten eine Ausnahme beim Versuch den Preis der freien Eingabe zuzuweisen Wert der `ProductsRow` s `UnitPrice` Eigenschaft.
 
-Anschließend wird eine neue `ProductsDataTable` Instanz erstellt wird (`products`). Ein `For` Schleife wird verwendet, um den Namen und die Einheit Produktpreis Textfelder durchlaufen und die `Text` Eigenschaften werden in der lokalen Variablen gelesen `productName` und `unitPrice`. Wenn der Benutzer einen Wert für den Einzelpreis jedoch nicht für den Namen des entsprechenden Produkts eingegeben hat die `StatusLabel` zeigt die Meldung, wenn Sie eine Einheit Preis können Sie angeben, auch muss den Namen des Produkts enthalten, und der Ereignishandler beendet wird.
+Anschließend wird eine neue `ProductsDataTable` Instanz erstellt wird (`products`). Ein `For` Schleife wird verwendet, um das Durchlaufen des Name und Unit Produktpreis Textfelder und die `Text` Eigenschaften werden in der lokalen Variablen gelesen `productName` und `unitPrice`. Wenn sich der Benutzer einen Wert für den Einzelpreis jedoch nicht für den entsprechenden Produktnamen, die `StatusLabel` angezeigt, die die Nachricht, wenn Sie eine Einheit Preis Sie angeben, auch muss den Namen des Produkts enthalten, und der Ereignishandler beendet ist.
 
-Wenn ein Produktname, ein neues angegeben wurde `ProductsRow` Instanz wird erstellt, mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` Eigenschaftensatz für das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften der DropDownLists im einfügende Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben hat, ihm zugewiesenen der `ProductsRow` s-Instanz `UnitPrice` Eigenschafts-hingegen die Eigenschaft ist nicht zugewiesen, links, der verursacht eine `NULL` Wert für `UnitPrice` in der Datenbank. Schließlich die `Discontinued` und `UnitsOnOrder` zugewiesenen Eigenschaften werden die hartcodierten Werte `False` und 0 (null) bzw.
+Wenn Sie ein Produktnamen bereitgestellt wurde, ein neues `ProductsRow` Instanz wurde mit der `ProductsDataTable` s `NewProductsRow` Methode. Diese neue `ProductsRow` s-Instanz `ProductName` -Eigenschaftensatz auf das aktuelle Produkt Textfeld beim Benennen der `SupplierID` und `CategoryID` Eigenschaften zugewiesen sind die `SelectedValue` Eigenschaften die DropDownList-Steuerelementen im Einfügen von Schnittstelle s-Header. Wenn der Benutzer einen Wert für den Produktpreis s eingegeben, zugewiesen wird die `ProductsRow` s-Instanz `UnitPrice` Eigenschaft; hingegen die Eigenschaft ist links nicht zugewiesen ist, führen eine `NULL` Wert für `UnitPrice` in der Datenbank. Zum Schluss die `Discontinued` und `UnitsOnOrder` Eigenschaften werden die hartcodierten Werten zugewiesen `False` und 0 (null) bzw.
 
-Nachdem Sie die Eigenschaften zugewiesen wurden die `ProductsRow` Instanz es hinzugefügt wird die `ProductsDataTable`.
+Nachdem Sie die Eigenschaften zugewiesen wurden die `ProductsRow` Instanz, die an die `ProductsDataTable`.
 
-Nach dem Abschluss der `For` Schleife, wir überprüfen, ob alle Produkte hinzugefügt wurden. Der Benutzer möglicherweise, nachdem alle Produkte aus Lieferung vor dem Wechsel in eine beliebige aus Produktnamen besteht oder die Preise hinzufügen geklickt haben. Es ist mindestens ein Produkt in der `ProductsDataTable`, die `ProductsBLL` Klasse s `UpdateWithTransaction` -Methode aufgerufen wird. Als Nächstes wird die Daten neu, um die `ProductsGrid` GridView, sodass die neu hinzugefügte Produkte in der Anzeige-Benutzeroberfläche angezeigt werden. Die `StatusLabel` wird aktualisiert, um eine bestätigungsmeldung angezeigt und die `ReturnToDisplayInterface` aufgerufen wird, Ausblenden von der Schnittstelle einfügen und mit der Anzeigenschnittstelle.
+Nach Fertigstellung der `For` Schleife überprüft werden, ob alle Produkte hinzugefügt wurden. Der Benutzer kann schließlich aus Lieferung, bevor Sie eingeben, alle Produktnamen oder die Preise der Produkte hinzufügen geklickt haben. Es ist mindestens ein Produkt in der `ProductsDataTable`, `ProductsBLL` s-Klasse `UpdateWithTransaction` Methode wird aufgerufen. Als Nächstes wird die Daten erneut gebunden die `ProductsGrid` GridView, damit die neu hinzugefügte Produkte in der Anzeigenschnittstelle angezeigt werden. Die `StatusLabel` wird aktualisiert, um eine bestätigungsmeldung anzuzeigen und die `ReturnToDisplayInterface` wird aufgerufen, durch das Ausblenden der Schnittstelle einfügen und mit der Anzeigenschnittstelle.
 
-Wenn keine Produkte eingegeben wurden, bleibt die einfügende Schnittstelle angezeigt, aber die Nachricht, die keine Produkte hinzugefügt wurden. Bitte geben Sie den Produktnamen und einem Stückpreis in den Textfeldern angezeigt.
+Wenn keine Produkte eingegeben wurden, bleibt die einfügende Schnittstelle angezeigt, aber die Nachricht, die keine Produkte hinzugefügt wurden. Bitte geben Sie die Produktnamen und einem Stückpreis in den Textfeldern angezeigt.
 
-Abbildung s 13, 14 und 15 anzeigen, die eingefügt und Schnittstellen in Aktion anzuzeigen. In Abbildung 13 hat der Benutzer eine Einheit Preis ohne entsprechenden Produktname eingegeben. Abbildung 14 zeigt der Anzeigenschnittstelle nach drei neue Produkte während Abbildung 15 zwei der neu hinzugefügten Produkte in der GridView zeigt (das dritte Arbeitsblatt ist auf der vorherigen Seite) erfolgreich hinzugefügt wurden.
+Abbildung s 13, 14 und 15 anzeigen, das Einfügen und Schnittstellen in Aktion anzuzeigen. In Abbildung 13 wird der Benutzer hat eine Einheit Preis ohne einen entsprechenden Produktnamen eingegeben. Abbildung 14 zeigt der Anzeigenschnittstelle nach drei neue, dass Produkte während Abbildung 15 zwei neu hinzugefügten Produkten in den GridView-Ansicht zeigt (der dritte Parameter ist auf der vorherigen Seite) erfolgreich hinzugefügt wurden.
 
 
-[![Ein Product Name ist erforderlich, wenn eine Unit Price eingeben](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
+[![Ein Produktname ist erforderlich, bei einem Preis je Einheit eingeben](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
 
-**Abbildung 13**: A Product Name ist erforderlich, wenn eine Unit Price eingeben ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image39.png))
+**Abbildung 13**: A Product Name ist erforderlich, bei einem Preis je Einheit eingeben ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image39.png))
 
 
 [![Drei neue Teil des Gartens mein wurde für den Lieferanten Mayumi s](batch-inserting-vb/_static/image41.png)](batch-inserting-vb/_static/image40.png)
 
-**Abbildung 14**: drei neue Teil des Gartens mein hinzugefügten für Lieferanten Mayumi s ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image42.png))
+**Abbildung 14**: drei neue Teil des Gartens mein wurde für den Lieferanten Mayumi s ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image42.png))
 
 
-[![Die neue Produkte finden Sie in der letzten Seite des GridView](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
+[![Die neuen Produkte finden Sie in der letzten Seite des GridView](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
 
-**Abbildung 15**: der neue Produkte finden Sie in der letzten Seite des GridView ([klicken Sie hier, um das Bild in voller Größe angezeigt](batch-inserting-vb/_static/image45.png))
+**Abbildung 15**: die neuen Produkte finden Sie in der letzten Seite des GridView ([klicken Sie, um das Bild in voller Größe anzeigen](batch-inserting-vb/_static/image45.png))
 
 
 > [!NOTE]
-> Einfügen von Logik, die in diesem Lernprogramm verwendete Batch dient als Wrapper für die einfügungen innerhalb des Bereichs der Transaktion. Um dies zu überprüfen, führen Sie absichtlich einen Fehler auf Datenbankebene. Z. B. anstelle eines neuen zuweisen `ProductsRow` Instanz s `CategoryID` Eigenschaft, um den ausgewählten Wert in der `Categories` DropDownList, weisen Sie es auf einen Wert wie `i * 5`. Hier `i` ist der Indexer für die Schleife und Werte im Bereich von 1 bis 5. Daher beim Hinzufügen von zwei oder mehr Produkte im Batch legen Sie die erste Produkt müssen eine gültige `CategoryID` Wert (5), aber nachfolgende Produkte haben `CategoryID` Werte, die nicht bis zu entsprechen `CategoryID` Werte in der `Categories` Tabelle. Im Endeffekt ist, die während der ersten `INSERT` funktionieren, alle weiteren mit einer foreign Key-einschränkungsverletzung fehl. Da die batcheinfügung atomar ist, ist der erste `INSERT` wird ein Rollback, zurückgeben, die Datenbank in den Zustand vor dem Einfügen des Batchs von Prozess gestartet wurde.
+> Der Batch, die in diesem Tutorial verwendete Logik einfügen dient als Wrapper für die einfügungen innerhalb des Bereichs der Transaktion. Um dies zu überprüfen, führen Sie absichtlich einen Fehler auf Datenbankebene. Z. B. statt der Zuweisung von neuen `ProductsRow` s-Instanz `CategoryID` Eigenschaft, um den ausgewählten Wert in der `Categories` DropDownList, weisen Sie es auf einen Wert wie `i * 5`. Hier `i` ist der Indexer Schleife und Werte im Bereich von 1 bis 5. Daher beim Hinzufügen von zwei oder mehr Produkte in Batch fügen Sie das erste Produkt müssen eine gültige `CategoryID` Wert (5), aber nachfolgende Produkte müssen `CategoryID` Werte, die nicht bis zu entsprechen `CategoryID` Werte in der `Categories` Tabelle. Das Endergebnis ist, die während der ersten `INSERT` gelingt, alle weiteren mit einer Verletzung der foreign Key-Einschränkung nicht. Da die batcheinfügung atomarisch, wird die erste `INSERT` wird ein Rollback, zurückgeben, die Datenbank auf seinen Zustand vor der Batch einfügen-Prozess wurde gestartet.
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Über diese und die vorherigen zwei Lernprogramme wir Schnittstellen, die zum Aktualisieren, löschen, erstellt haben, und alle die transaktionsunterstützung, die wir, in der Datenzugriffsebene hinzugefügt verwendet Einfügen von Batches von Daten, die [Umbruch Datenbankänderungen innerhalb einer Transaktion](wrapping-database-modifications-within-a-transaction-vb.md) Lernprogramm. Für bestimmte Szenarien, solche Batch-Verarbeitung von Benutzeroberflächen erheblich Endbenutzer Effizienz verbessern durch Ausschneiden nach unten auf der Anzahl der Klicks und Postbacks Tastaturmaus-Kontextwechsel, und gleichzeitig auch die Integrität der zugrunde liegenden Daten.
+Über diese und die beiden vorherigen Tutorials wurde erstellt, Schnittstellen für das Aktualisieren, löschen und Einfügen von Batches von Daten, die die transaktionsunterstützung, die wir, in der Datenzugriffsebene hinzugefügt verwendet die [Umschließen von Datenbankänderungen innerhalb einer Transaktion](wrapping-database-modifications-within-a-transaction-vb.md) Tutorial. Für bestimmte die Effizienz Szenarien diese Benutzeroberflächen der Batch-Verarbeitung stark Endbenutzer Cutting nach unten auf der Anzahl der Klicks, Postbacks und Tastatur, Maus Kontextwechsel, wobei zudem gleichzeitig die Integrität der zugrunde liegenden Daten.
 
-Dieses Lernprogramm ist unsere Betrachtung der Arbeit mit Daten im Batch abgeschlossen. Der nächste Satz von Lernprogrammen wird erklärt, eine Vielzahl von Szenarien für erweiterte Data Access Layer, einschließlich der Verwendung von gespeicherter Prozeduren in den TableAdapter s Methoden erstellen, das Konfigurieren der Verbindung und Befehlsebene Einstellungen in der DAL, zum Verschlüsseln verwendete Verbindungszeichenfolgen und mehr!
+Dieses Tutorial ist unser Blick auf die Arbeiten mit batchdaten abgeschlossen. Der nächste Satz von Tutorials untersucht eine Vielzahl von Szenarien für advanced Data Access Layer, einschließlich der Verwendung von gespeicherter Prozeduren in den TableAdapter s Methoden erstellen, das Konfigurieren der Verbindung und Befehlsebene-Einstellungen in der Datenzugriffsschicht, Verschlüsseln von Verbindungszeichenfolgen und mehr!
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Führen Sie Prüfer für dieses Lernprogramm Hilton Giesenow und S Ren Jacob Lauritsen wurden. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führen Sie Prüfer für dieses Tutorial Hilton Giesenow und S Ren Jacob Lauritsen wurden. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Vorherige](batch-deleting-vb.md)
