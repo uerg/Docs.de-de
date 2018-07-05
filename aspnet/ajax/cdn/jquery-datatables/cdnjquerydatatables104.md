@@ -4,23 +4,20 @@ title: jQuery-DataTables 1.10.4 | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/15/2015
-ms.topic: article
 ms.assetid: a313fb9c-93c8-40ef-9c81-e1651ecaffa3
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables104
 msc.type: content
-ms.openlocfilehash: 76cb02071ae734ef41ff7a931c054ac53da7f9b2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8c8566c24e114d3abfc3b86c8fb57df7dc759f80
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375751"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815674"
 ---
-<a name="jquery-datatables-1104"></a><span data-ttu-id="f1c24-102">jQuery-DataTables 1.10.4</span><span class="sxs-lookup"><span data-stu-id="f1c24-102">jQuery DataTables 1.10.4</span></span>
+<a name="jquery-datatables-1104"></a><span data-ttu-id="d42e8-102">jQuery-DataTables 1.10.4</span><span class="sxs-lookup"><span data-stu-id="d42e8-102">jQuery DataTables 1.10.4</span></span>
 ====================
-<span data-ttu-id="f1c24-103">Die folgenden Dateien für die jQuery-DataTables-Plug-Ins, die für das CDN gehostet werden:</span><span class="sxs-lookup"><span data-stu-id="f1c24-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
+<span data-ttu-id="d42e8-103">Die folgenden Dateien für die jQuery-DataTables-Plug-Ins, die für das CDN gehostet werden:</span><span class="sxs-lookup"><span data-stu-id="d42e8-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.10.4/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.10.4/jquery.dataTables.min.js
