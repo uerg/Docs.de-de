@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
-title: Einführung in die Tests mit TeamSystem-Webanwendungen zu laden. | Microsoft Docs
+title: Laden Auslastungstests für Webanwendungen mit TeamSystem – Einführung | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesem Video wird ersichtlich, wie Sie die Testen Ihrer Webanwendungen mithilfe der Funktionen von Visual Studio Team System-Auslastungstests laden können.
+description: In diesem Video sehen wir, wie Sie zum Testen Ihrer Webanwendungen, die Verwendung der auslastungstestfunktionen von Visual Studio Team System laden können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: c2a80ef9-3dc4-4051-8103-495ddf1b8a46
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
 msc.type: video
-ms.openlocfilehash: 012eb24699da82bbf335e00e2cb92889704fd77a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bd67b66dda728656b5b087a0a488cea91ed765b9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894219"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387256"
 ---
-<a name="introduction-to-load-testing-web-applications-with-team-system"></a><span data-ttu-id="9ded6-103">Einführung in die Tests mit TeamSystem-Webanwendungen zu laden.</span><span class="sxs-lookup"><span data-stu-id="9ded6-103">Introduction to Load Testing Web Applications with Team System</span></span>
+<a name="introduction-to-load-testing-web-applications-with-team-system"></a><span data-ttu-id="1d2a8-103">Laden Auslastungstests für Webanwendungen mit TeamSystem – Einführung</span><span class="sxs-lookup"><span data-stu-id="1d2a8-103">Introduction to Load Testing Web Applications with Team System</span></span>
 ====================
-<span data-ttu-id="9ded6-104">von Eric Lee</span><span class="sxs-lookup"><span data-stu-id="9ded6-104">by Eric Lee</span></span>
+<span data-ttu-id="1d2a8-104">von Eric Lee</span><span class="sxs-lookup"><span data-stu-id="1d2a8-104">by Eric Lee</span></span>
 
-<span data-ttu-id="9ded6-105">In diesem Video wird ersichtlich, wie Sie die Testen Ihrer Webanwendungen mithilfe der Funktionen von Visual Studio Team System-Auslastungstests laden können.</span><span class="sxs-lookup"><span data-stu-id="9ded6-105">In this video we see how you can load test your web applications using the load testing features of Visual Studio Team System.</span></span>
+<span data-ttu-id="1d2a8-105">In diesem Video sehen wir, wie Sie zum Testen Ihrer Webanwendungen, die Verwendung der auslastungstestfunktionen von Visual Studio Team System laden können.</span><span class="sxs-lookup"><span data-stu-id="1d2a8-105">In this video we see how you can load test your web applications using the load testing features of Visual Studio Team System.</span></span>
 
-[<span data-ttu-id="9ded6-106">&#9654;Sehen Sie sich an (9 Minuten)</span><span class="sxs-lookup"><span data-stu-id="9ded6-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
+[<span data-ttu-id="1d2a8-106">&#9654;Sehen Sie sich Video (9 Minuten)</span><span class="sxs-lookup"><span data-stu-id="1d2a8-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="9ded6-107">[Zurück](introduction-to-testing-web-applications-with-team-system.md)
-> [Weiter](introduction-to-manual-testing-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="9ded6-107">[Previous](introduction-to-testing-web-applications-with-team-system.md)
+> <span data-ttu-id="1d2a8-107">[Zurück](introduction-to-testing-web-applications-with-team-system.md)
+> [Weiter](introduction-to-manual-testing-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="1d2a8-107">[Previous](introduction-to-testing-web-applications-with-team-system.md)
 [Next](introduction-to-manual-testing-with-team-system.md)</span></span>

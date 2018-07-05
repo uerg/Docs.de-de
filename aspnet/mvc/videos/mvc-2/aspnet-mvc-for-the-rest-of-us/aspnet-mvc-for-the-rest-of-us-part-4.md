@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4
-title: 'ASP.NET MVC für die restliche uns: Teil 4 | Microsoft Docs'
+title: 'ASP.NET MVC für alle: Teil 4 | Microsoft-Dokumentation'
 author: JoeStagner
-description: In diesem Video fügt Microsofts Joe Stagner einen Controller einer ASP.NET MVC-Anwendung.
+description: In diesem Video wird eine ASP.NET MVC-Anwendung mit Microsofts Joe Stagner einen Controller hinzugefügt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/19/2010
 ms.topic: article
 ms.assetid: 50e7265e-b7fa-44a0-a17c-15048a2e84a8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4
 msc.type: video
-ms.openlocfilehash: b9498bb546f370279c090a9b3b57ed2543cee234
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0046631e2424247d39a31cc8451f26895a125399
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871180"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387870"
 ---
-<a name="aspnet-mvc-for-the-rest-of-us-part-4"></a><span data-ttu-id="56e3e-103">ASP.NET MVC für die restliche uns: Teil 4</span><span class="sxs-lookup"><span data-stu-id="56e3e-103">ASP.NET MVC For the Rest of Us: Part 4</span></span>
+<a name="aspnet-mvc-for-the-rest-of-us-part-4"></a><span data-ttu-id="4bdf4-103">ASP.NET MVC für alle: Teil 4</span><span class="sxs-lookup"><span data-stu-id="4bdf4-103">ASP.NET MVC For the Rest of Us: Part 4</span></span>
 ====================
-<span data-ttu-id="56e3e-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="56e3e-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4bdf4-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4bdf4-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="56e3e-105">In diesem Video fügt Microsofts Joe Stagner einen Controller einer ASP.NET MVC-Anwendung.</span><span class="sxs-lookup"><span data-stu-id="56e3e-105">In this video Microsoft's Joe Stagner adds a controller to an ASP.NET MVC application.</span></span>
+<span data-ttu-id="4bdf4-105">In diesem Video wird eine ASP.NET MVC-Anwendung mit Microsofts Joe Stagner einen Controller hinzugefügt.</span><span class="sxs-lookup"><span data-stu-id="4bdf4-105">In this video Microsoft's Joe Stagner adds a controller to an ASP.NET MVC application.</span></span>
 
-[<span data-ttu-id="56e3e-106">&#9654;Sehen Sie sich an (5 Minuten)</span><span class="sxs-lookup"><span data-stu-id="56e3e-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
+[<span data-ttu-id="4bdf4-106">&#9654;Sehen Sie sich Video (5 Minuten)</span><span class="sxs-lookup"><span data-stu-id="4bdf4-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="56e3e-107">Vorherige</span><span class="sxs-lookup"><span data-stu-id="56e3e-107">Previous</span></span>](aspnet-mvc-for-the-rest-of-us-part-3.md)
+> [<span data-ttu-id="4bdf4-107">Vorherige</span><span class="sxs-lookup"><span data-stu-id="4bdf4-107">Previous</span></span>](aspnet-mvc-for-the-rest-of-us-part-3.md)
