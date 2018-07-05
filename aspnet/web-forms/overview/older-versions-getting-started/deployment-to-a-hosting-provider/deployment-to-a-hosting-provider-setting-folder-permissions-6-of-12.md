@@ -1,23 +1,22 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
-title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Festlegen von Ordnerberechtigungen - 6 von 12 | Microsoft Docs'
+title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Festlegen von Ordnerberechtigungen - 6 von 12 | Microsoft-Dokumentation'
 author: tdykstra
-description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
+description: In dieser tutorialreihe erfahren Sie, wie zum Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
 ms.topic: article
 ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 573e75221a1c0018bded7544e584b0c75f47d607
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 17910952e78418ef9e5b80efb04b5fe1e70c11bf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30887264"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385310"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Festlegen von Ordnerberechtigungen - 6 von 12
 ====================
@@ -25,42 +24,42 @@ durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank mithilfe von Visual Studio 2012 RC oder Visual Studio Express 2012 RC für das Web enthält. Sie können auch Visual Studio 2010 verwenden, wenn Sie das Web veröffentlichen Update installieren. Eine Einführung in der Reihe, finden Sie unter [im ersten Lernprogramm, in der Reihe](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> In dieser tutorialreihe erfahren Sie, wie zum Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, das eine SQL Server Compact-Datenbank mithilfe von Visual Studio 2012 RC oder Visual Studio Express 2012 RC für Web enthält. Sie können auch Visual Studio 2010 verwenden, wenn Sie die Web Publish Update installieren. Eine Einführung in die Reihe, finden Sie unter [im ersten Tutorial der Reihe](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
-> Ein Lernprogramm, die die Bereitstellungsfeatures nach der RC-Version von Visual Studio 2012 eingeführt wurde, wird gezeigt, wie SQL Server-Editionen als SQL Server Compact bereitstellen, und zeigt die Vorgehensweise beim Bereitstellen in Azure App Service-Web-Apps, finden Sie unter [ASP.NET Web Deploy Mithilfe von Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> Ein Lernprogramm, das zeigt, Bereitstellungsfunktionen, die nach der RC-Version von Visual Studio 2012 eingeführt wurden, zeigt, wie zum Bereitstellen von SQL Server-Editionen als SQL Server Compact und zeigt, wie Sie in Azure App Service-Web-Apps bereitstellen, finden Sie unter [ASP.NET-webbereitstellung Mithilfe von Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 
 ## <a name="overview"></a>Übersicht
 
-In diesem Lernprogramm legen Sie Berechtigungen für die *Elmah* Ordner in der bereitgestellten Web site, damit die Anwendung Protokolldateien in diesem Ordner erstellen kann.
+In diesem Tutorial legen Sie Berechtigungen für die *Elmah* Ordner in der bereitgestellten Web site, damit die Anwendung die Protokolldateien in diesem Ordner erstellen kann.
 
-Wenn Sie eine Webanwendung in Visual Studio mithilfe von Visual Studio Development Server (Cassini) testen, können Sie die Anwendung unter der Identität ausgeführt. Sie sind sehr wahrscheinlich ein Administrator auf dem Entwicklungscomputer und vollständige dann berechtigt, alle Dateien in einem beliebigen Ordner Schritte ausführen. Wird jedoch eine Anwendung unter IIS ausgeführt wird, ausgeführt unter der Identität, die definiert, die für den Anwendungspool aus, dem der Standort zugewiesen ist. Dies ist normalerweise eine systemdefinierte-Konto, das über beschränkte Berechtigungen verfügt. Standardmäßig verfügt über Lese- und Ausführungsberechtigungen für Ihre Webanwendung Dateien und Ordner, jedoch keinen Schreibzugriff auf.
+Wenn Sie eine Webanwendung in Visual Studio mit Visual Studio Development Server (Cassini) testen, können Sie die Anwendung unter Ihrer Identität ausgeführt. Sie sind in den meisten Fällen Administrator auf Ihrem Entwicklungscomputer und auf alle Dateien in einem beliebigen Ordner keine Berechtigung haben. Aber wenn eine Anwendung unter IIS ausgeführt wird, wird es unter der Identität, die definiert, die für den Anwendungspool, dem der Standort zugewiesen ist. Dies ist normalerweise ein vom System definierte Konto, das über beschränkte Berechtigungen verfügt. Standardmäßig sie Lese- und Ausführungsberechtigungen für Dateien und Ordner Ihrer Webanwendung, aber keinen Schreibzugriff auf.
 
-Dies ist ein Problem, wenn die Anwendung erstellt oder Updates-Dateien, die ist eine häufige in Webanwendungen müssen. In der Anwendung Contoso University Elmah erstellt XML-Dateien in den *Elmah* Ordner, um Details zu Fehlern zu speichern. Auch wenn Sie etwa Elmah nicht verwenden, kann Ihre Website ermöglichen es Benutzern Hochladen von Dateien oder Durchführen weiterer Aufgaben, die Daten in einen Ordner auf Ihrer Website zu schreiben.
+Dies ist ein Problem, wenn Ihre Anwendung erstellt oder Updates-Dateien, die ist eine allgemeine in Webanwendungen benötigen. In der Contoso University-Anwendung erstellt Elmah XML-Dateien in die *Elmah* Ordner zum Speichern von Informationen zu Fehlern. Auch wenn Sie etwa Elmah nicht verwenden, kann Ihre Website können Benutzer, die Hochladen von Dateien oder andere Aufgaben, die Daten in einen Ordner auf Ihrer Website zu schreiben.
 
-Hinweis: Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, wenn Sie das Lernprogramm absolvieren, müssen Sie überprüfen die [Website](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Erinnerung: Wenn Sie eine Fehlermeldung erhalten, oder etwas nicht funktioniert, wie Sie das Lernprogramm durchzuarbeiten, sollten Sie unbedingt die [Problembehandlungsseite](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
-## <a name="testing-error-logging-and-reporting"></a>Testen die Fehler, Protokollierung und-berichterstellung
+## <a name="testing-error-logging-and-reporting"></a>Testen die Fehler, Protokollierung und Berichterstellung
 
-Um festzustellen, wie die Anwendung in IIS nicht richtig funktioniert (obwohl dies der Fall, wenn Sie ihn in Visual Studio getestet), Sie können dazu führen, dass einen Fehler, der normalerweise von Elmah protokolliert werden würde, und öffnen Sie das Elmah-Fehlerprotokoll, um die Details anzuzeigen. Wenn Elmah konnte nicht zum Erstellen einer XML-Datei und speichern die Fehlerdetails, sehen Sie eine leere Fehlerbericht anzuzeigen.
+Um festzustellen, wie die Anwendung in IIS nicht richtig funktioniert (obwohl es getan habe, wenn Sie ihn in Visual Studio getestet), Sie können dazu führen, dass einen Fehler, der normalerweise von Elmah protokolliert werden sollen, und öffnen Sie das Elmah-Fehlerprotokoll, um die Details anzuzeigen. Wenn Elmah konnte nicht zum Erstellen von XML-Datei und speichern die Fehlerdetails, sehen Sie einen leeren Bericht.
 
-Öffnen Sie einen Browser, und wechseln Sie zu `http://localhost/ContosoUniversity`, und fordern dann eine ungültige URL wie *Studentsxxx.aspx*. Daraufhin eine vom System generierte Fehlerseite statt der *GenericErrorPage.aspx* Seite, da die `customErrors` Einstellung in der Datei "Web.config" ist "RemoteOnly", und Sie IIS lokal ausgeführt werden:
+Öffnen Sie einen Browser, und wechseln Sie zu `http://localhost/ContosoUniversity`, und fordern dann eine ungültige URL wie *Studentsxxx.aspx*. Eine vom System generierte Fehler Seite statt der *GenericErrorPage.aspx* Seite, da die `customErrors` Einstellung in der Datei "Web.config" ist "RemoteOnly", und Sie IIS lokal ausgeführt werden:
 
 [![Error_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image2.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image1.png)
 
-Führen Sie nun *Elmah.axd* den Fehlerbericht anzeigen. Eine leere Protokoll Fehlerseite wird angezeigt, da Elmah konnte nicht zum Erstellen einer XML-Datei in die *Elmah* Ordner:
+Führen Sie nun *Elmah.axd* um den Fehlerbericht anzuzeigen. Eine leere Log-Fehlerseite wird angezeigt, da Elmah konnte nicht zum Erstellen einer XML-Datei in die *Elmah* Ordner:
 
 [![Error_log_page_empty](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image4.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image3.png)
 
-## <a name="setting-write-permission-on-the-elmah-folder"></a>Einstellung über die Schreibberechtigung für den Ordner Elmah
+## <a name="setting-write-permission-on-the-elmah-folder"></a>Einstellung Schreibberechtigung für den Elmah-Ordner
 
-Sie können Berechtigungen für Ordner manuell festlegen oder Sie können es automatisch im Rahmen des Bereitstellungsprozesses vornehmen. Somit automatische komplexen MSBuild-Code erfordert, und da Sie nur dazu erstmalig haben Sie bereitstellen, dieses Lernprogramm nur wird gezeigt, wie Sie dies manuell durchführen. (Informationen dazu, wie in diesem Teil des Bereitstellungsprozesses vornehmen, finden Sie unter [Einstellung Ordnerberechtigungen auf Web Publish](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) Sayed Hashimi-Blog.)
+Sie können Berechtigungen für den Ordner manuell festlegen oder können Sie es automatisch im Rahmen des Bereitstellungsprozesses machen. Somit automatisch komplexen MSBuild-Code erfordert und da Sie müssen nur dazu beim ersten Sie bereitstellen, in diesem Tutorial nur gezeigt, wie dies manuell tun. (Informationen dazu, wie Sie diesen Teil des Bereitstellungsprozesses zu machen, finden Sie unter [Ordner festlegen von Berechtigungen für die Webveröffentlichung](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) Sayed Hashimi-Blog.)
 
-In **Windows­Explorer**, navigieren Sie zu *C:\inetpub\wwwroot\ContosoUniversity*. Mit der rechten Maustaste die *Elmah* Ordner wählen **Eigenschaften**, und wählen Sie dann die **Sicherheit** Registerkarte.
+In **Windows Explorer**, navigieren Sie zu *C:\inetpub\wwwroot\ContosoUniversity*. Mit der rechten Maustaste die *Elmah* Ordner **Eigenschaften**, und wählen Sie dann die **Sicherheit** Registerkarte.
 
 [![Elmah_folder_Properties_Security_tab](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image6.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image5.png)
 
-(Wenn Sie nicht sehen **DefaultAppPool** in der **Gruppen-oder Benutzernamen** Liste Sie wahrscheinlich verwendet eine andere Methode als die in diesem Lernprogramm, um IIS und ASP.NET 4 auf Ihrem Computer einzurichten. In diesem Fall feststellen Sie, welche Identität vom University Contoso-Anwendung, und über die Schreibberechtigung erteilen dieser Identität zugewiesen, Anwendungspool verwendet wird. Finden Sie unter den Links zur Anwendungspoolidentitäten am Ende dieses Lernprogramms.)
+(Wenn Sie nicht sehen **DefaultAppPool** in die **Gruppen-oder Benutzernamen** Liste Sie wahrscheinlich verwendet eine andere Methode als die in diesem Tutorial, um IIS und ASP.NET 4 auf Ihrem Computer einzurichten. In diesem Fall herausfinden Sie, wie die Identität von Anwendungspools, die die Contoso University-Anwendung und Write-Berechtigung erteilen, um diese Identität zugewiesen verwendet wird. Finden Sie die Links zum Anwendungspoolidentitäten am Ende dieses Tutorials.)
 
 Klicken Sie auf **Bearbeiten**. In der **Berechtigungen für Elmah** wählen Sie im Dialogfeld **DefaultAppPool**, und wählen Sie dann die **schreiben** Kontrollkästchen in der **zulassen** Spalte.
 
@@ -68,19 +67,19 @@ Klicken Sie auf **Bearbeiten**. In der **Berechtigungen für Elmah** wählen Sie
 
 Klicken Sie auf **OK** in beiden Dialogfeldern.
 
-## <a name="retesting-error-logging-and-reporting"></a>Ein erneuter Test Fehler Protokollierung und-berichterstellung
+## <a name="retesting-error-logging-and-reporting"></a>Einen erneuten Test Fehler Protokollierung und Berichterstellung
 
 Testen, indem Sie verursacht einen Fehler erneut auf die gleiche Weise (eine ungültige URL-Anforderung), und führen Sie die **Fehlerprotokoll** Seite. Dieses Mal wird der Fehler auf der Seite angezeigt.
 
 [![Elmah_Error_Log_page_Test](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image10.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image9.png)
 
-Sie benötigen Berechtigungen auch schreiben, auf die *App\_Daten* Ordner daran, dass Sie SQL Server Compact-Datenbankdateien in diesem Ordner verfügen und Sie zum Aktualisieren von Daten in diesen Datenbanken können möchten. In diesem Fall Sie haben jedoch keinen zusätzlichen nichts zu tun, da des Bereitstellungsprozesses automatisch über die Schreibberechtigung für setzt die *App\_Daten* Ordner.
+Sie müssen auch auf Schreibberechtigungen verfügen die *App\_Daten* Ordner da haben Sie die SQL Server Compact-Datenbank-Dateien in diesem Ordner, und Sie Daten in diesen Datenbanken zu aktualisieren möchten. In diesem Fall jedoch, Sie müssen zusätzliche Schritte auszuführen, weil während des Bereitstellungsvorgangs automatisch die Schreibberechtigung für festgelegt die *App\_Daten* Ordner.
 
-Sie haben jetzt alle Aufgaben müssen Sie Contoso University abgeschlossen in IIS auf dem lokalen Computer ordnungsgemäß funktioniert. In den nächsten Lernprogrammen werden Sie die Website öffentlich verfügbar machen, indem sie in einem Hostinganbieter bereitstellen.
+Sie haben jetzt alle Aufgaben zum Abrufen der Contoso University abgeschlossen in IIS auf dem lokalen Computer ordnungsgemäß funktioniert. Im nächsten Tutorial werden Sie die Website öffentlich verfügbar machen, indem in einem Hostinganbieter bereitstellen.
 
 ## <a name="more-information"></a>Weitere Informationen
 
-In diesem Beispiel wurde der Grund, warum Elmah Log-Dateien können nicht gespeichert wurde, relativ offensichtlich. Sie können IIS-Protokollierung in Fällen verwenden, wo die Ursache des Problems nicht so offensichtlich ist. finden Sie unter [Troubleshooting Failed Anforderungen Using Tracing in IIS 7](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) auf der Website IIS.net.
+In diesem Beispiel war der Grund, warum Elmah kann nicht zum Speichern von Protokolldateien ist, ziemlich offensichtlich. Sie können IIS-Ablaufverfolgung in Fällen verwenden, wo die Ursache des Problems nicht so offensichtlich ist; finden Sie unter [Problembehandlung Fehler bei Anforderungen mithilfe von Ablaufverfolgung in IIS 7](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) auf der Website IIS.net.
 
 Weitere Informationen über das Gewähren von Berechtigungen für die Identitäten des dienstanwendungspools finden Sie unter [Anwendungspoolidentitäten](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) und [sicherer Inhalt in IIS über Dateisystem-ACLs](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) auf der Website IIS.net.
 

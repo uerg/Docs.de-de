@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-ajax/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database
-title: Verwenden von ASP.NET AJAX kaskadierende Dropdown-Steuerelement Zugriff auf eine Datenbank | Microsoft Docs
+title: Verwenden von ASP.NET AJAX CascadingDropDown-Steuerelement für den Datenbankzugriff | Microsoft-Dokumentation
 author: JoeStagner
-description: Dieses Video zeigt, wie ASP. NET standard DropDownList kann AJAX-aktivierten mithilfe der CascadingDropDown Extendersteuerelement aus der ASP.NET AJAX-Steuerelement werden...
+description: Dieses Video zeigt, wie ASP. Die NET standard DropDownList kann AJAX-aktivierten mithilfe der CascadingDropDown-Extender-Steuerelements, aus der ASP.NET AJAX-hinsichtlich werden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: 3c21fefc-6858-40e1-8307-22f68cbd0e31
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database
 msc.type: video
-ms.openlocfilehash: 1ff8c1cdc4f1fa8b47121b55b5d82ab1900bfbad
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: dd8aea88447072bc33e5612b065da70c29689dcb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886650"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398740"
 ---
-<a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>Verwenden von ASP.NET AJAX kaskadierende Dropdown-Steuerelement auf eine Datenbank zugreifen
+<a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>Verwenden von ASP.NET AJAX CascadingDropDown-Steuerelement für den Datenbankzugriff
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-Dieses Video zeigt, wie ASP. NET standard DropDownList kann AJAX-aktivierten der CascadingDropDown Extendersteuerelement aus dem ASP.NET AJAX-Steuerelement-Toolkit verwenden werden. Sie sehen auch, wie einfach es für ein Web Form zum Zeichnen von Daten aus einer Datenbank ist.
+Dieses Video zeigt, wie ASP. Die NET standard DropDownList kann AJAX-aktivierten der CascadingDropDown-Extender-Steuerelements, aus dem ASP.NET AJAX Control Toolkit verwenden werden. Sie sehen auch, wie einfach es für ein Web Form zum Zeichnen von Daten aus einer Datenbank ist.
 
 [&#9654;Sehen Sie sich Video (32 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database)
 

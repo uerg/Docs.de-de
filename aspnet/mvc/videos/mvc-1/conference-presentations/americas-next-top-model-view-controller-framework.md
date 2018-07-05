@@ -1,28 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
-title: Actors weiter oben Modell Ansicht Controller Framework | Microsoft Docs
+title: America weiter oben Model View Controller-Framework | Microsoft-Dokumentation
 author: Haacked
-description: 'Finden Sie unter Gewusst wie: Erstellen einer einfachen Anwendung, die einige der wichtigen Funktionen von ASP.NET MVC hervorgehoben. Darüber hinaus erfahren Sie, wie mithilfe einiger der Produktivität der...'
+description: Erfahren Sie, wie eine einfache Anwendung erstellen, die einige der wichtigen Funktionen von ASP.NET MVC werden hervorgehoben. Darüber hinaus erfahren Sie, wie zur Verbesserung der Produktivität mithilfe einiger der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: 2ce3281d-dc92-4a43-9645-7e12ef6e72a6
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
 msc.type: video
-ms.openlocfilehash: 614b6348b29064ccd5ea352ff49de3038c1eb57a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 892df5be4742b40fc7025428fb70f39df454f453
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503439"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385378"
 ---
-<a name="americas-next-top-model-view-controller-framework"></a>America des weiter oben Modell Ansicht Controller-Framework
+<a name="americas-next-top-model-view-controller-framework"></a>America weiter oben Model View Controller-Framework
 ====================
 durch [Phil Haack](https://github.com/Haacked)
 
-Finden Sie unter Gewusst wie: Erstellen einer einfachen Anwendung, die einige der wichtigen Funktionen von ASP.NET MVC hervorgehoben. Darüber hinaus Informationen Sie zum Produktivität mithilfe einiger der Coolbar tooling neue Funktionen zu verbessern.
+Erfahren Sie, wie eine einfache Anwendung erstellen, die einige der wichtigen Funktionen von ASP.NET MVC werden hervorgehoben. Darüber hinaus erfahren Sie, wie mithilfe einiger der Ebene "kalt" neue Tools Funktionen Produktivität zu verbessern.
 
-[&#9654; Sehen Sie sich an (70 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/americas-next-top-model-view-controller-framework)
+[&#9654;Sehen Sie sich Video (70 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/americas-next-top-model-view-controller-framework)
